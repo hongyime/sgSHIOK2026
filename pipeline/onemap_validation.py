@@ -756,7 +756,7 @@ def cached_onemap_error_status(payload: Any) -> int | None:
 
 
 def is_retryable_onemap_error_status(status_code: int | None) -> bool:
-    return status_code == 429 or (status_code is not None and status_code >= 500)
+    return status_code in {401, 403, 429} or (status_code is not None and status_code >= 500)
 
 
 def is_retryable_onemap_cache(path: Path) -> bool:
@@ -1316,7 +1316,12 @@ def collect_onemap_walk_cache(
                 )
                 if exc.response.status_code == 429:
                     time.sleep(max(60.0, delay_sec * 5.0))
-                elif cache_errors and cache_key and 400 <= exc.response.status_code < 500:
+                elif (
+                    cache_errors
+                    and cache_key
+                    and 400 <= exc.response.status_code < 500
+                    and not is_retryable_onemap_error_status(exc.response.status_code)
+                ):
                     cache_payload = {
                         "source": "onemap_walk_route_validation",
                         "fetched_at": datetime.now(UTC).isoformat(),
