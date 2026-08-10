@@ -1,0 +1,28 @@
+npm notice run shiok-web@0.1.0 test
+npm notice run node scripts/test-web.mjs
+
+ RUN  v4.1.10 C:/shiok/web
+
+ ❯ lib/__tests__/deployment.test.ts (8 tests | 1 failed) 18ms
+     × uploads the active generated data bundle to Vercel 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  lib/__tests__/deployment.test.ts > deployment packaging > uploads the active generated data bundle to Vercel
+
+ Test Files  1 failed | 14 passed (15)
+      Tests  1 failed | 78 passed (79)
+   Start at  02:32:41
+   Duration  2.23s (transform 2.39s, setup 0ms, import 2.94s, tests 428ms, environment 2ms)
+
+Error: ENOENT: no such file or directory, open 'C:\shiok\.vercelignore'
+ ❯ lib/__tests__/deployment.test.ts:8:24
+      6|   it("uploads the active generated data bundle to Vercel", () => {
+      7|     const webIgnore = readFileSync(join(__dirname, "../../.vercelignor…
+      8|     const rootIgnore = readFileSync(join(__dirname, "../../../.verceli…
+       |                        ^
+      9|     const activeBundle = String(dataBundle.bundle);
+     10|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

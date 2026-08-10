@@ -7,6 +7,7 @@ param(
     [switch]$SkipBuild,
     [switch]$SkipBrowser,
     [switch]$WaiveOneMapValidation,
+    [switch]$ProductionDeployApproved,
     [string]$OwnerApprovalNote = ""
 )
 
@@ -178,6 +179,9 @@ try {
     if ($WaiveOneMapValidation) {
         Write-Output "onemap_validation_waiver=owner_approved"
     }
+    if ($ProductionDeployApproved) {
+        Write-Output "production_deploy_approved=true"
+    }
     $RequestedPort = $Port
     $Port = Find-AvailablePort -StartPort $Port
     if ($Port -ne $RequestedPort) {
@@ -213,16 +217,19 @@ try {
     }
 
     Invoke-Checked -Label "Pending-bundle readiness" -Command {
-        $ReadinessCommandLabel = "uv run python run.py readiness"
-        Write-Output "command=$ReadinessCommandLabel"
         $ReadinessArgs = @("run", "python", "run.py", "readiness", "--bundle-dir", "web\public\data\$DataBundle")
         if ($WaiveOneMapValidation) {
             $ReadinessArgs += "--waive-onemap-validation"
-            if ($OwnerApprovalNote) {
-                $ReadinessArgs += "--owner-approval-note"
-                $ReadinessArgs += $OwnerApprovalNote
-            }
         }
+        if ($ProductionDeployApproved) {
+            $ReadinessArgs += "--production-deploy-approved"
+        }
+        if ($OwnerApprovalNote) {
+            $ReadinessArgs += "--owner-approval-note"
+            $ReadinessArgs += $OwnerApprovalNote
+        }
+        $ReadinessCommandPrefix = "uv run python run.py readiness"
+        Write-Output "command=$ReadinessCommandPrefix $($ReadinessArgs[4..($ReadinessArgs.Count - 1)] -join ' ')"
         $ReadinessOutput = uv @ReadinessArgs
         $ReadinessExit = $LASTEXITCODE
         $ReadinessOutput | Set-Content -Path "qa\readiness_launch_check_$Timestamp.json" -Encoding utf8

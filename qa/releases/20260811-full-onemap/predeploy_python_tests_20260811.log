@@ -1,0 +1,48 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0
+rootdir: C:\shiok
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.14.2, hypothesis-6.161.5
+collected 310 items
+
+tests\test_audit_current_bundle.py ....                                  [  1%]
+tests\test_audited_shelter_corrections.py ..                             [  1%]
+tests\test_batch_plan.py .......                                         [  4%]
+tests\test_bus.py ...                                                    [  5%]
+tests\test_bus_arrivals.py ...                                           [  6%]
+tests\test_compare_targeted_scores.py ...........                        [  9%]
+tests\test_connector_candidates.py ....                                  [ 10%]
+tests\test_diagnose_bus_connectors.py .........                          [ 13%]
+tests\test_env.py ..                                                     [ 14%]
+tests\test_export.py ...........................                         [ 23%]
+tests\test_fetch.py .......                                              [ 25%]
+tests\test_geocode_universe.py ...                                       [ 26%]
+tests\test_hdb_void_deck_inference.py .............                      [ 30%]
+tests\test_manifest_schema.py .                                          [ 30%]
+tests\test_mayflower_qa_summary.py ....                                  [ 32%]
+tests\test_network_preflight.py .....                                    [ 33%]
+tests\test_network_qa.py .....                                           [ 35%]
+tests\test_onemap_validation.py .........................                [ 43%]
+tests\test_osm_tags.py ....                                              [ 44%]
+tests\test_overture_addresses.py .....                                   [ 46%]
+tests\test_partial_resnap_rescore.py ..                                  [ 47%]
+tests\test_postal_universe.py ..........                                 [ 50%]
+tests\test_production_readiness.py ........                              [ 52%]
+tests\test_promote_audited_shelter_corrections.py ...                    [ 53%]
+tests\test_publish.py ....                                               [ 55%]
+tests\test_rebuild_network_debug.py ..                                   [ 55%]
+tests\test_replay_onemap_outliers.py .........                           [ 58%]
+tests\test_route_feedback.py .....                                       [ 60%]
+tests\test_routing.py .......                                            [ 62%]
+tests\test_score_batch.py .......                                        [ 64%]
+tests\test_scoring.py ...........                                        [ 68%]
+tests\test_scoring_integration.py ...................................... [ 80%]
+.......................                                                  [ 88%]
+tests\test_shade.py ....                                                 [ 89%]
+tests\test_shelter_skeleton.py ..                                        [ 90%]
+tests\test_stub.py .                                                     [ 90%]
+tests\test_targeted_bundle_refresh.py .........                          [ 93%]
+tests\test_triage_onemap_outliers.py .....................               [100%]
+
+============================ 310 passed in 22.63s =============================

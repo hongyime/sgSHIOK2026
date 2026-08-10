@@ -1,0 +1,13 @@
+== S.H.I.O.K. data bundle release ==
+repo=C:\shiok
+bundle=generated_20260805_prefer_scored_routed
+record_count=124443
+generated_at=2026-08-05T14:00:15.974693+00:00
+
+plan_only=true
+release=not_started
+reason=confirm_production_not_set
+commands:
+.\scripts\release-data-bundle.bat -DataBundle generated_20260805_prefer_scored_routed -ConfirmProduction
+
+This will validate locally, direct-deploy the ignored data bundle, wait for the production manifest, activate web/data-bundle.json, preflight, commit, and push.

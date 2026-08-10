@@ -1,0 +1,11 @@
+npm notice run shiok-web@0.1.0 test
+npm notice run node scripts/test-web.mjs
+
+ RUN  v4.1.10 C:/shiok/web
+
+
+ Test Files  15 passed (15)
+      Tests  79 passed (79)
+   Start at  02:34:13
+   Duration  659ms (transform 1.11s, setup 0ms, import 1.36s, tests 509ms, environment 2ms)
+

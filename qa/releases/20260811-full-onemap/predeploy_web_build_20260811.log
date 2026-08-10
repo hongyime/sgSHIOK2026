@@ -1,0 +1,22 @@
+npm notice run shiok-web@0.1.0 build
+npm notice run node scripts/ensure-data-bundle.mjs && next build
+using local data bundle C:\shiok\web\public\data\generated_20260805_prefer_scored_routed
+▲ Next.js 16.3.0 (Turbopack)
+✓ Running next.config.js took 15ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 8.0s
+  Running TypeScript ...
+
+  We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
+  The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+
+  	- include was updated to add '.next/dev/types/**/*.ts'
+
+  The following mandatory changes were made to your tsconfig.json:
+
+  	- jsx was set to react-jsx (next.js uses the React automatic runtime)
+
+tsconfig.json(3,15): error TS5108: Option 'target=ES5' has been removed. Please remove it from your configuration.
+Failed to type check.
+

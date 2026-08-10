@@ -16,7 +16,15 @@
     "watchdog_final": "watchdog_status_final.json",
     "readiness": "readiness_full_onemap_20260811.json",
     "readiness_owner_approved_waived": "readiness_full_onemap_20260811_owner_approved_waived.json",
-    "terminal_invalid_waiver": "full_onemap_terminal_invalid_waiver_20260811.json"
+    "terminal_invalid_waiver": "full_onemap_terminal_invalid_waiver_20260811.json",
+    "predeploy_readiness_owner_approved": "predeploy_readiness_owner_approved_20260811.json",
+    "predeploy_launch_check_owner_approved": "predeploy_launch_check_20260811_owner_approved_retry.log",
+    "predeploy_python_tests": "predeploy_python_tests_20260811.log",
+    "predeploy_web_install": "predeploy_web_install_20260811_retry.log",
+    "predeploy_web_tests": "predeploy_web_tests_20260811_after_tsfix.log",
+    "predeploy_web_build": "predeploy_web_build_20260811_after_tsfix.log",
+    "launch_check_dir": "launch_check_20260811_023759/",
+    "browser_smokes_dir": "browser_smokes_20260811_023759/"
   },
   "final_gate": {
     "ok": false,
@@ -74,5 +82,15 @@
     "readiness_release_gate_passed": true,
     "original_onemap_gate_passed": false,
     "warning": "latest cached 95,157-row OneMap walk validation failed: median abs delta 11.884% (max 12.0%), p95 abs delta 69.861% (max 100.0%), missing cache results 0, invalid cache results 62"
+  },
+  "predeploy_checks": {
+    "python_tests": "passed: 310",
+    "web_install": "passed: npm install found 0 vulnerabilities after React DOM alignment",
+    "web_tests": "passed: 79",
+    "web_build": "passed: Next.js production build",
+    "launch_check": "passed: launch_check=ok with explicit OneMap waiver and production approval",
+    "launch_check_port_3110_listener_remaining": false,
+    "release_dry_run": "passed inside launch check: release=not_started confirm_production_not_set",
+    "owner_approved_readiness": "passed: release_gate_passed=true with OneMap waiver visible"
   }
 }

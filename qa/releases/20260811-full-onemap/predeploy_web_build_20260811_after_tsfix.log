@@ -1,0 +1,29 @@
+npm notice run shiok-web@0.1.0 build
+npm notice run node scripts/ensure-data-bundle.mjs && next build
+using local data bundle C:\shiok\web\public\data\generated_20260805_prefer_scored_routed
+▲ Next.js 16.3.0 (Turbopack)
+✓ Running next.config.js took 13ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 656ms
+  Running TypeScript ...
+  Finished TypeScript in 568ms ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/6) ...
+  Generating static pages using 7 workers (1/6) 
+  Generating static pages using 7 workers (2/6) 
+  Generating static pages using 7 workers (4/6) 
+✓ Generating static pages using 7 workers (6/6) in 562ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/onemap-route
+├ ƒ /api/onemap-search
+└ ○ /icon.svg
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
