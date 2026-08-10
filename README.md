@@ -50,3 +50,7 @@ $0 budget, no paid services, Vercel Hobby only, no Cloudflare, no GitHub Actions
 heavy compute runs natively on this Windows machine (uv-managed Python); the only runtime
 backend is the OneMap search proxy; all routing runs in python-igraph on the project's own
 graph; every published score is reproducible from hashed inputs + tagged code.
+
+## License
+
+Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).

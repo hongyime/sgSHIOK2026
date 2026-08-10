@@ -23,6 +23,7 @@ $SamplePath = Join-Path $RunDir "full_scored_sample.json"
 $StatusPath = Join-Path $RunDir "status.json"
 $LatestReportPath = Join-Path $RunDir "latest_cached_report.json"
 $CacheDir = Join-Path $RepoRoot "raw\validation\onemap_walk_od"
+$FatalLogPath = Join-Path $RunDir "fatal.log"
 
 New-Item -ItemType Directory -Force -Path $RunDir | Out-Null
 
@@ -64,6 +65,15 @@ function Write-Status {
         }
     }
     $status | ConvertTo-Json -Depth 8 | Set-Content -Path $StatusPath -Encoding UTF8
+}
+
+function Write-FatalStatus {
+    param(
+        [string]$Message,
+        [int]$BatchIndex = 0
+    )
+    Add-Content -Path $FatalLogPath -Value "[$((Get-Date).ToString("o"))] $Message"
+    Write-Status -Phase "failed" -BatchIndex $BatchIndex -Message $Message
 }
 
 function Invoke-Logged {
@@ -114,7 +124,20 @@ if (-not (Test-Path $SamplePath)) {
     }
 }
 
+$completedBatchIndexes = @(
+    Get-ChildItem -Path $RunDir -Filter "collect_batch_*.json" -ErrorAction SilentlyContinue |
+        ForEach-Object {
+            if ($_.BaseName -match "^collect_batch_(\d+)$") {
+                [int]$Matches[1]
+            }
+        }
+)
 $batchIndex = 0
+if ($completedBatchIndexes.Count -gt 0) {
+    $batchIndex = ($completedBatchIndexes | Measure-Object -Maximum).Maximum
+}
+
+try {
 while ($true) {
     if ($MaxBatches -gt 0 -and $batchIndex -ge $MaxBatches) {
         Write-Status -Phase "paused" -BatchIndex $batchIndex -Message "Reached MaxBatches=$MaxBatches"
@@ -123,13 +146,16 @@ while ($true) {
 
     $batchIndex += 1
     Write-Status -Phase "collecting" -BatchIndex $batchIndex
-    $collectPath = Join-Path $RunDir ("collect_batch_{0:D5}.json" -f $batchIndex)
-    $collectLog = Join-Path $RunDir ("collect_batch_{0:D5}.log" -f $batchIndex)
+    $batchLabel = "{0:00000}" -f $batchIndex
+    $collectPath = Join-Path $RunDir "collect_batch_$batchLabel.json"
+    $collectLog = Join-Path $RunDir "collect_batch_$batchLabel.log"
+    $collectProgressPath = Join-Path $RunDir "collect_progress_batch_$batchLabel.json"
     $collectCmd = @(
         "uv", "run", "python", "run.py", "onemap-validation", "collect",
         "--sample", $SamplePath,
         "--cache-dir", $CacheDir,
         "--output", $collectPath,
+        "--progress-output", $collectProgressPath,
         "--delay-sec", "$DelaySec",
         "--limit", "$BatchSize",
         "--confirm-onemap-collection",
@@ -139,8 +165,8 @@ while ($true) {
     $collectReport = Get-Content $collectPath -Raw | ConvertFrom-Json
 
     Write-Status -Phase "evaluating" -BatchIndex $batchIndex -CollectReport $collectReport
-    $evalPath = Join-Path $RunDir ("cached_report_batch_{0:D5}.json" -f $batchIndex)
-    $evalLog = Join-Path $RunDir ("evaluate_batch_{0:D5}.log" -f $batchIndex)
+    $evalPath = Join-Path $RunDir "cached_report_batch_$batchLabel.json"
+    $evalLog = Join-Path $RunDir "evaluate_batch_$batchLabel.log"
     $evalCmd = @(
         "uv", "run", "python", "run.py", "onemap-validation", "evaluate",
         "--sample", $SamplePath,
@@ -150,7 +176,7 @@ while ($true) {
     if ($IncludeResults) {
         $evalCmd += "--include-results"
     }
-    [void](Invoke-Logged -Name "evaluate-batch-$batchIndex" -Command $evalCmd -LogPath $evalLog)
+    [void](Invoke-Logged -Name "evaluate-batch-$batchIndex" -Command $evalCmd -LogPath $evalLog -DiscardStdout)
     Copy-Item -Force -Path $evalPath -Destination $LatestReportPath
     $evalReport = Get-Content $evalPath -Raw | ConvertFrom-Json
 
@@ -164,4 +190,9 @@ while ($true) {
         Write-Status -Phase "blocked" -BatchIndex $batchIndex -CollectReport $collectReport -EvalReport $evalReport -Message "No queued/http requests but evaluation still has missing cache rows."
         exit 2
     }
+}
+}
+catch {
+    Write-FatalStatus -BatchIndex $batchIndex -Message $_.Exception.Message
+    throw
 }
