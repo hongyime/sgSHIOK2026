@@ -206,7 +206,7 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
 
 
 def latest_json_report(qa_dir: Path, pattern: str) -> Path | None:
-    reports = [path for path in qa_dir.glob(pattern) if path.is_file()]
+    reports = [path for path in qa_dir.rglob(pattern) if path.is_file()]
     if not reports:
         return None
     return max(reports, key=lambda path: (path.stat().st_mtime, path.name))
@@ -214,7 +214,7 @@ def latest_json_report(qa_dir: Path, pattern: str) -> Path | None:
 
 def latest_json_reports(qa_dir: Path, pattern: str) -> list[Path]:
     return sorted(
-        [path for path in qa_dir.glob(pattern) if path.is_file()],
+        [path for path in qa_dir.rglob(pattern) if path.is_file()],
         key=lambda path: (path.stat().st_mtime, path.name),
         reverse=True,
     )
@@ -325,6 +325,8 @@ def onemap_validation_status(
 
     thresholds = report.get("thresholds", {})
     subset_status = onemap_subset_status(report)
+    sample_size = report.get("sample_size")
+    sample_label = f"{sample_size:,}-row" if isinstance(sample_size, int) else "cached"
     median = report.get("median_abs_pct_delta")
     p95 = report.get("p95_abs_pct_delta")
     median_max = (
@@ -341,21 +343,21 @@ def onemap_validation_status(
 
     if bundle_matches_active is False:
         summary = (
-            "latest cached 2,000-postal OneMap walk validation is for bundle "
+            f"latest cached {sample_label} OneMap walk validation is for bundle "
             f"{report_bundle}, not active bundle {active_bundle}; rerun validation before "
             f"using it as active-bundle launch evidence. That cached validation {result_state}: "
             f"median abs delta {median}%"
         )
     elif bundle_matches_active and not fresh_for_active_bundle:
         summary = (
-            "latest cached 2,000-postal OneMap walk validation is for the active bundle "
+            f"latest cached {sample_label} OneMap walk validation is for the active bundle "
             f"{active_bundle}, but it is stale for the current manifest; rerun validation before "
             f"using it as launch evidence. That cached validation {result_state}: "
             f"median abs delta {median}%"
         )
     else:
         summary = (
-            f"latest cached 2,000-postal OneMap walk validation {result_state}: "
+            f"latest cached {sample_label} OneMap walk validation {result_state}: "
             f"median abs delta {median}%"
         )
     if median_max is not None:
