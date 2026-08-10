@@ -1,0 +1,232 @@
+== S.H.I.O.K. data bundle release ==
+repo=C:\shiok
+bundle=generated_20260805_prefer_scored_routed
+record_count=124443
+generated_at=2026-08-05T14:00:15.974693+00:00
+
+== Pre-release git status ==
+## main...origin/main [ahead 3]
+?? qa/releases/20260811-full-onemap/production_release_20260811.log
+
+== Local bundle validation ==
+{
+  "errors": [],
+  "file_count": 4848,
+  "geometry_postals": 114140,
+  "geometry_postals_with_route_segments": 114140,
+  "indexed_postals": 124443,
+  "input_dir": "web\\public\\data\\generated_20260805_prefer_scored_routed",
+  "ok": true,
+  "score_prefixes": 542,
+  "transit_features": 6011,
+  "warnings": []
+}
+
+== Direct production deploy ==
+web_dependencies=present
+npm notice run shiok-web@0.1.0 test
+npm notice run node scripts/test-web.mjs
+
+ RUN  v4.1.10 C:/shiok/web
+
+
+ Test Files  15 passed (15)
+      Tests  79 passed (79)
+   Start at  02:44:05
+   Duration  877ms (transform 1.29s, setup 0ms, import 1.77s, tests 632ms, environment 3ms)
+
+{
+  "checks": {
+    "npm_audit": {
+      "cmd": [
+        "npm.cmd",
+        "audit",
+        "--json"
+      ],
+      "cwd": "C:\\shiok\\web",
+      "ok": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "",
+      "vulnerabilities": {
+        "critical": 0,
+        "high": 0,
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "total": 0
+      }
+    },
+    "npm_build": {
+      "cmd": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "cwd": "C:\\shiok\\web",
+      "ok": true,
+      "returncode": 0,
+      "stderr_tail": [
+        "npm notice run shiok-web@0.1.0 build",
+        "npm notice run node scripts/ensure-data-bundle.mjs && next build"
+      ],
+      "stdout_tail": [
+        "  Running TypeScript ...",
+        "  Finished TypeScript in 595ms ...",
+        "  Collecting page data using 7 workers ...",
+        "  Generating static pages using 7 workers (0/6) ...",
+        "  Generating static pages using 7 workers (1/6) ",
+        "  Generating static pages using 7 workers (2/6) ",
+        "  Generating static pages using 7 workers (4/6) ",
+        "\u2713 Generating static pages using 7 workers (6/6) in 1075ms",
+        "  Finalizing page optimization ...",
+        "",
+        "Route (app)",
+        "\u250c \u25cb /",
+        "\u251c \u25cb /_not-found",
+        "\u251c \u0192 /api/onemap-route",
+        "\u251c \u0192 /api/onemap-search",
+        "\u2514 \u25cb /icon.svg",
+        "",
+        "",
+        "\u25cb  (Static)   prerendered as static content",
+        "\u0192  (Dynamic)  server-rendered on demand"
+      ]
+    },
+    "vercel_whoami": {
+      "cmd": [
+        "vercel.cmd",
+        "whoami"
+      ],
+      "cwd": "C:\\shiok\\web",
+      "ok": true,
+      "returncode": 0,
+      "stderr_tail": [
+        "Vercel CLI 58.1.0 (Node.js 26.5.0)"
+      ],
+      "stdout": "[redacted-vercel-user]",
+      "stdout_tail": [
+        "[redacted-vercel-user]"
+      ]
+    }
+  },
+  "deploy_command": [
+    "vercel.cmd",
+    "deploy",
+    "C:\\shiok\\tmp\\vercel_source_generated_20260805_prefer_scored_routed_20260810_184502",
+    "--prod",
+    "--archive=tgz",
+    "--yes",
+    "--no-wait"
+  ],
+  "deploy_executed": true,
+  "deploy_result": {
+    "cmd": [
+      "vercel.cmd",
+      "deploy",
+      "C:\\shiok\\tmp\\vercel_source_generated_20260805_prefer_scored_routed_20260810_184502",
+      "--prod",
+      "--archive=tgz",
+      "--yes",
+      "--no-wait"
+    ],
+    "cwd": "C:\\shiok\\tmp\\vercel_source_generated_20260805_prefer_scored_routed_20260810_184502",
+    "ok": true,
+    "returncode": 0,
+    "stderr": "Vercel CLI 58.1.0 (Node.js 26.5.0)\nRetrieving project\u2026\nDeploying theprawnvercel/sgshiok\nUploading [--------------------] (0.0B/188MB)\nUploading [=====---------------] (47.0MB/188MB)\nUploading [==========----------] (94.0MB/188MB)\nUploading [===============-----] (141.0MB/188MB)\nUploading [====================] (188.0MB/188MB)\n  Inspect         https://vercel.com/theprawnvercel/sgshiok/4J46CfGFzDrEUBSDD1GVGdGsK9wL\n\u25b2 Production      https://sgshiok-aedwuw4dz-theprawnvercel.vercel.app",
+    "stdout": "{\n  \"status\": \"ok\",\n  \"deployment\": {\n    \"id\": \"dpl_4J46CfGFzDrEUBSDD1GVGdGsK9wL\",\n    \"url\": \"https://sgshiok-aedwuw4dz-theprawnvercel.vercel.app\",\n    \"inspectorUrl\": \"https://vercel.com/theprawnvercel/sgshiok/4J46CfGFzDrEUBSDD1GVGdGsK9wL\",\n    \"readyState\": \"INITIALIZING\",\n    \"target\": \"production\",\n    \"deploymentApiUrl\": \"https://api.vercel.com/v13/deployments/dpl_4J46CfGFzDrEUBSDD1GVGdGsK9wL\"\n  },\n  \"message\": \"Deployment sgshiok-aedwuw4dz-theprawnvercel.vercel.app ready.\",\n  \"next\": [\n    {\n      \"command\": \"vercel curl https://sgshiok-aedwuw4dz-theprawnvercel.vercel.app\",\n      \"when\": \"Verify deployment, including when Deployment Protection is enabled\"\n    },\n    {\n      \"command\": \"vercel inspect sgshiok-aedwuw4dz-theprawnvercel.vercel.app\",\n      \"when\": \"Inspect deployment\"\n    },\n    {\n      \"command\": \"vercel deploy --prod\",\n      \"when\": \"Promote to production\"\n    }\n  ]\n}"
+  },
+  "deploy_source_dir": "C:\\shiok\\tmp\\vercel_source_generated_20260805_prefer_scored_routed_20260810_184502",
+  "errors": [],
+  "input_dir": "web\\public\\data\\generated_20260805_prefer_scored_routed",
+  "mode": "production",
+  "ok": true,
+  "validation": {
+    "errors": [],
+    "file_count": 4848,
+    "geometry_postals": 114140,
+    "geometry_postals_with_route_segments": 114140,
+    "indexed_postals": 124443,
+    "input_dir": "web\\public\\data\\generated_20260805_prefer_scored_routed",
+    "ok": true,
+    "score_prefixes": 542,
+    "transit_features": 6011,
+    "warnings": []
+  },
+  "vercel": {
+    "linked": true,
+    "path": "C:\\shiok\\web\\.vercel\\project.json",
+    "payload": {
+      "orgId": "team_ARK7HKobyCMp0PCArQTLxbz6",
+      "projectId": "prj_y6GIQUdEyXXmtg3UTWkcJECKHdEE",
+      "projectName": "sgshiok"
+    }
+  },
+  "web_dir": "C:\\shiok\\web"
+}
+
+== Activate after remote manifest is reachable ==
+{
+  "errors": [],
+  "file_count": 4848,
+  "geometry_postals": 114140,
+  "geometry_postals_with_route_segments": 114140,
+  "indexed_postals": 124443,
+  "input_dir": "web\\public\\data\\generated_20260805_prefer_scored_routed",
+  "ok": true,
+  "score_prefixes": 542,
+  "transit_features": 6011,
+  "warnings": []
+}
+activated_bundle=generated_20260805_prefer_scored_routed
+
+== Production preflight ==
+== S.H.I.O.K. production preflight ==
+repo=C:\shiok
+bundle=generated_20260805_prefer_scored_routed
+data_dir=C:\shiok\web\public\data\generated_20260805_prefer_scored_routed
+
+== Git status ==
+## main...origin/main [ahead 3]
+ M .vercelignore
+?? qa/releases/20260811-full-onemap/production_release_20260811.log
+
+== Static data validation ==
+{
+  "errors": [],
+  "file_count": 4848,
+  "geometry_postals": 114140,
+  "geometry_postals_with_route_segments": 114140,
+  "indexed_postals": 124443,
+  "input_dir": "web\\public\\data\\generated_20260805_prefer_scored_routed",
+  "ok": true,
+  "score_prefixes": 542,
+  "transit_features": 6011,
+  "warnings": []
+}
+web_dependencies=present
+
+== Web tests ==
+npm notice run shiok-web@0.1.0 test
+npm notice run node scripts/test-web.mjs
+
+ RUN  v4.1.10 C:/shiok/web
+
+
+ Test Files  15 passed (15)
+      Tests  79 passed (79)
+   Start at  02:48:19
+   Duration  821ms (transform 1.22s, setup 0ms, import 1.62s, tests 709ms, environment 2ms)
+
+
+preflight=ok
+
+== Commit activation ==
+activation_commit=skipped_no_change
+
+== Push main ==
+To https://github.com/hongyime/sgSHIOK2026.git
+   530e5f4..f4d00d5  main -> main
+
+release=ok
+production_url=https://sgshiok.vercel.app/

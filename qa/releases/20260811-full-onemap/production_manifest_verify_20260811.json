@@ -1,0 +1,10 @@
+{
+  "generated_at": "2026-08-10T18:48:50.4085547Z",
+  "production_url": "https://sgshiok.vercel.app/",
+  "manifest_url": "https://sgshiok.vercel.app/data/generated_20260805_prefer_scored_routed/manifest.json",
+  "active_bundle": "generated_20260805_prefer_scored_routed",
+  "production_manifest_status": 200,
+  "production_manifest_generated_at": "2026-08-05T22:00:15.974693+08:00",
+  "production_manifest_record_count": 124443,
+  "release_result": "ok"
+}
