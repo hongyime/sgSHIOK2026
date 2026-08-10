@@ -1,0 +1,34 @@
+{
+  "waiver": "full_onemap_terminal_invalid_rows",
+  "active_bundle": "generated_20260805_prefer_scored_routed",
+  "approved_for": "production_deploy",
+  "owner_approval_recorded": true,
+  "generated_at": "2026-08-10T18:30:35.5249224Z",
+  "source_report": "onemap_validation_cached_report_full_scored_prefer_scored_routed_20260811.json",
+  "validation_summary": {
+    "sample_size": 95157,
+    "valid_cached_results": 95095,
+    "missing_cache_results": 0,
+    "retryable_cache_results": 0,
+    "invalid_cache_results": 62,
+    "invalid_breakdown": {
+      "onemap_zero_distance_route": 49,
+      "onemap_http_404": 13
+    },
+    "invalid_scope": "all invalid rows are bus_stop endpoints from postal_universe_to_transit_poi",
+    "median_abs_pct_delta": 11.884,
+    "median_abs_pct_delta_max": 12.0,
+    "p95_abs_pct_delta": 69.861,
+    "p95_abs_pct_delta_max": 100.0,
+    "distance_thresholds_passed": true,
+    "original_gate_passed": false,
+    "waiver_gate_reason": "complete_cache_coverage is false only because terminal OneMap invalid responses are counted as invalid cache results"
+  },
+  "owner_approval_note": "Owner approved production release after full OneMap validation completed; waiver is limited to 62 terminal OneMap invalid bus-stop endpoint responses (49 OneMap 0m routes and 13 OneMap 404s). Valid 95,095-row distance thresholds passed.",
+  "constraints": {
+    "raw_cache_committed": false,
+    "stale_report_accepted": false,
+    "same_bundle_fresh_report_required": true,
+    "production_deploy_requires_this_waiver_artifact": true
+  }
+}

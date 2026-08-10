@@ -14,7 +14,9 @@
     "collect_batch_90": "collect_batch_00090.json",
     "evaluate_batch_90": "evaluate_batch_00090.log",
     "watchdog_final": "watchdog_status_final.json",
-    "readiness": "readiness_full_onemap_20260811.json"
+    "readiness": "readiness_full_onemap_20260811.json",
+    "readiness_owner_approved_waived": "readiness_full_onemap_20260811_owner_approved_waived.json",
+    "terminal_invalid_waiver": "full_onemap_terminal_invalid_waiver_20260811.json"
   },
   "final_gate": {
     "ok": false,
@@ -58,5 +60,19 @@
     "required_owner_approvals": [
       "production_deploy"
     ]
+  },
+  "owner_approved_waiver": {
+    "production_deploy_approved": true,
+    "waiver": "full_onemap_terminal_invalid_rows",
+    "invalid_cache_results": 62,
+    "invalid_breakdown": {
+      "onemap_zero_distance_route": 49,
+      "onemap_http_404": 13
+    },
+    "readiness_file": "readiness_full_onemap_20260811_owner_approved_waived.json",
+    "readiness_release_gate_status": "passed",
+    "readiness_release_gate_passed": true,
+    "original_onemap_gate_passed": false,
+    "warning": "latest cached 95,157-row OneMap walk validation failed: median abs delta 11.884% (max 12.0%), p95 abs delta 69.861% (max 100.0%), missing cache results 0, invalid cache results 62"
   }
 }

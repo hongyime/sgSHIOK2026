@@ -459,6 +459,7 @@ def build_readiness_report(
     network_path: Path = DEFAULT_NETWORK,
     postal_universe_path: Path = DEFAULT_UNIVERSE,
     waive_onemap_validation: bool = False,
+    production_deploy_approved: bool = False,
     owner_approval_note: str = "",
 ) -> tuple[bool, dict[str, Any]]:
     bundle_dir = bundle_dir or active_bundle_dir()
@@ -538,7 +539,7 @@ def build_readiness_report(
         "vercel_root_directory": bool(vercel.get("root_directory_ok")),
         "infrastructure_readiness": not errors,
     }
-    owner_approvals = ["production_deploy"]
+    owner_approvals = [] if production_deploy_approved else ["production_deploy"]
     blocking_checks = {
         key: value
         for key, value in release_gate_checks.items()
@@ -578,6 +579,10 @@ def build_readiness_report(
             "checks": release_gate_checks,
             "unresolved_warnings": warnings,
             "required_owner_approvals": owner_approvals,
+            "owner_approvals": {
+                "production_deploy": bool(production_deploy_approved),
+                "note": owner_approval_note,
+            },
         },
         "generated_at": datetime.now(UTC).isoformat(),
         "bundle": {
@@ -645,6 +650,11 @@ def main() -> int:
         action="store_true",
         help="Record an owner waiver for a failed fresh same-bundle OneMap gate.",
     )
+    parser.add_argument(
+        "--production-deploy-approved",
+        action="store_true",
+        help="Record explicit owner approval for production deployment.",
+    )
     parser.add_argument("--owner-approval-note", default="")
     args = parser.parse_args()
 
@@ -657,6 +667,7 @@ def main() -> int:
         qa_path=args.qa,
         debug_path=args.debug,
         waive_onemap_validation=args.waive_onemap_validation,
+        production_deploy_approved=args.production_deploy_approved,
         owner_approval_note=args.owner_approval_note,
     )
     print(json.dumps(report, indent=2, sort_keys=True))

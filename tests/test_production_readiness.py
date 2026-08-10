@@ -403,6 +403,34 @@ def test_build_readiness_report_reads_nested_release_onemap_reports(tmp_path: Pa
     assert gate["cached_results"] == 95095
     assert gate["invalid_cache_results"] == 62
     assert report["release_gate_summary"]["checks"]["onemap_validation_same_bundle_fresh"] is False
+    assert report["release_gate_summary"]["checks"]["onemap_validation_waived"] is False
+    assert report["release_gate_summary"]["required_owner_approvals"] == ["production_deploy"]
+
+    ok, waived_report = build_readiness_report(
+        project_root=tmp_path,
+        web_dir=web_dir,
+        bundle_dir=bundle_dir,
+        summary_path=summary_path,
+        universe_path=universe_path,
+        params_path=params_path,
+        qa_path=qa_path,
+        debug_path=debug_path,
+        network_path=tmp_path / "unused_network.parquet",
+        postal_universe_path=universe_path,
+        waive_onemap_validation=True,
+        production_deploy_approved=True,
+        owner_approval_note="owner approved release with 62 terminal OneMap invalid rows",
+    )
+
+    assert ok, waived_report
+    assert waived_report["release_gate_passed"] is True
+    assert waived_report["release_gate_status"] == "passed"
+    waived_gate = waived_report["release_gate_summary"]["onemap_validation"]
+    assert waived_gate["waived"] is True
+    assert "62 terminal OneMap invalid rows" in waived_gate["waiver_reason"]
+    assert waived_report["release_gate_summary"]["checks"]["onemap_validation_waived"] is True
+    assert waived_report["release_gate_summary"]["required_owner_approvals"] == []
+    assert waived_report["release_gate_summary"]["owner_approvals"]["production_deploy"] is True
 
 
 def test_build_readiness_report_blocks_stale_same_bundle_onemap_report(tmp_path: Path):
