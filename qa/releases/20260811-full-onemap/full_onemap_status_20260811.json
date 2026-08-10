@@ -1,0 +1,46 @@
+﻿{
+    "ok":  true,
+    "generated_at":  "2026-08-10T18:14:31.2358890Z",
+    "phase":  "complete",
+    "data_bundle":  "generated_20260805_prefer_scored_routed",
+    "run_id":  "20260808_full_scored",
+    "run_dir":  "C:\\shiok\\qa\\onemap_full_validation_20260808_full_scored",
+    "sample_path":  "C:\\shiok\\qa\\onemap_full_validation_20260808_full_scored\\full_scored_sample.json",
+    "cache_dir":  "C:\\shiok\\raw\\validation\\onemap_walk_od",
+    "batch_size":  1000,
+    "delay_sec":  2,
+    "batch_index":  90,
+    "message":  "",
+    "collect":  {
+                    "bundle":  "generated_20260805_prefer_scored_routed",
+                    "cache_dir":  "C:\\shiok\\raw\\validation\\onemap_walk_od",
+                    "confirm_onemap_collection":  true,
+                    "current_cache_key":  "7404be128a5c095c1eceef11b8a963ee474421288b568ab99c67fd82f6044de3",
+                    "current_postal":  "439576",
+                    "delay_sec":  2.0,
+                    "dry_run":  false,
+                    "errors":  [
+
+                               ],
+                    "existing_cache_results":  95025,
+                    "generated_at":  "2026-08-10T18:09:24.593277+00:00",
+                    "http_requests":  132,
+                    "last_progress_at":  "2026-08-10T18:14:07.019889+00:00",
+                    "ok":  true,
+                    "pending_remaining":  0,
+                    "queued_requests":  132,
+                    "sample_size":  95157,
+                    "will_call_onemap":  true,
+                    "written_cache_results":  132,
+                    "written_error_cache_results":  0
+                },
+    "evaluate":  {
+                     "sample_size":  95157,
+                     "cached_results":  95095,
+                     "missing_cache_results":  0,
+                     "invalid_cache_results":  62,
+                     "gate_passed":  false,
+                     "median_abs_pct_delta":  11.884,
+                     "p95_abs_pct_delta":  69.861
+                 }
+}

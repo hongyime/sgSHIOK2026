@@ -1,0 +1,62 @@
+{
+  "release_evidence": "20260811-full-onemap",
+  "active_bundle": "generated_20260805_prefer_scored_routed",
+  "source_run_dir": "qa\\onemap_full_validation_20260808_full_scored",
+  "cache_dir": "raw\\validation\\onemap_walk_od",
+  "cache_dir_committed": false,
+  "sample_file_committed": false,
+  "plan_log_committed": false,
+  "files": {
+    "final_report": "onemap_validation_cached_report_full_scored_prefer_scored_routed_20260811.json",
+    "status": "full_onemap_status_20260811.json",
+    "triage": "full_onemap_triage_summary_20260811.json",
+    "collect_batch_89": "collect_batch_00089.json",
+    "collect_batch_90": "collect_batch_00090.json",
+    "evaluate_batch_90": "evaluate_batch_00090.log",
+    "watchdog_final": "watchdog_status_final.json",
+    "readiness": "readiness_full_onemap_20260811.json"
+  },
+  "final_gate": {
+    "ok": false,
+    "gate_passed": false,
+    "complete_cache_coverage": false,
+    "sample_size": 95157,
+    "cached_results": 95095,
+    "missing_cache_results": 0,
+    "invalid_cache_results": 62,
+    "retryable_cache_results": 0,
+    "thresholds": {
+      "median_abs_pct_delta_max": 12.0,
+      "p95_abs_pct_delta_max": 100.0
+    },
+    "median_abs_pct_delta": 11.884,
+    "p95_abs_pct_delta": 69.861,
+    "median_abs_delta_m": 42.2,
+    "p95_abs_delta_m": 372.4,
+    "gate_metrics": {
+      "filter_excluded_count": 1621,
+      "filtered_row_count": 93474,
+      "median_abs_pct_delta": 11.555,
+      "p95_abs_pct_delta": 64.978,
+      "project_snap_bug_ratio": 0.98,
+      "require_distance_sanity_plausible": true
+    }
+  },
+  "git": {
+    "head": "32dd3560fd216479f34f266ddd3c38e335afa09f",
+    "origin_main": "32dd3560fd216479f34f266ddd3c38e335afa09f"
+  },
+  "readiness_summary": {
+    "ok": true,
+    "release_gate_passed": false,
+    "release_gate_status": "blocked",
+    "onemap_summary": "latest cached 95,157-row OneMap walk validation failed: median abs delta 11.884% (max 12.0%), p95 abs delta 69.861% (max 100.0%), missing cache results 0, invalid cache results 62",
+    "onemap_report_path": "C:\\shiok\\qa\\releases\\20260811-full-onemap\\onemap_validation_cached_report_full_scored_prefer_scored_routed_20260811.json",
+    "unresolved_warnings": [
+      "latest cached 95,157-row OneMap walk validation failed: median abs delta 11.884% (max 12.0%), p95 abs delta 69.861% (max 100.0%), missing cache results 0, invalid cache results 62"
+    ],
+    "required_owner_approvals": [
+      "production_deploy"
+    ]
+  }
+}

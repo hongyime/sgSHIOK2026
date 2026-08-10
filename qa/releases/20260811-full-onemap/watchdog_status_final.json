@@ -1,0 +1,24 @@
+﻿{
+    "ok":  true,
+    "generated_at":  "2026-08-10T18:13:26.6787281Z",
+    "run_id":  "20260808_full_scored",
+    "phase":  "collecting",
+    "runner_pids":  [
+                        29156
+                    ],
+    "restart_count":  0,
+    "latest_cache_write":  "2026-08-11T02:13:24.9706109+08:00",
+    "cache_age_minutes":  0.03,
+    "collect_progress":  {
+                             "path":  "C:\\shiok\\qa\\onemap_full_validation_20260808_full_scored\\collect_progress_batch_00090.json",
+                             "last_write_time":  "2026-08-11T02:13:24.9706109+08:00",
+                             "batch_http_requests":  112,
+                             "batch_queued_requests":  132,
+                             "batch_pending_remaining":  20,
+                             "current_postal":  "089906",
+                             "last_progress_at":  "2026-08-10T18:13:24.970610+00:00",
+                             "errors_count":  0
+                         },
+    "status_path":  "C:\\shiok\\qa\\onemap_full_validation_20260808_full_scored\\status.json",
+    "watch_log":  "C:\\shiok\\qa\\onemap_full_validation_20260808_full_scored\\watchdog.log"
+}
