@@ -1,0 +1,10 @@
+.next/
+.vercel/
+node_modules/
+web/.next/
+web/.vercel/
+web/node_modules/
+
+web/public/data/generated_*/
+!web/public/data/generated_20260805_prefer_scored_routed/
+!web/public/data/generated_20260805_prefer_scored_routed/**

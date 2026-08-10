@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import type maplibregl from "maplibre-gl";
+import type * as maplibregl from "maplibre-gl";
 import type { StyleSpecification } from "maplibre-gl";
 import { postalGeomToRouteGeoJson } from "../lib/route-geojson";
 import localGlyphProtocol from "../lib/local-glyph-protocol";
