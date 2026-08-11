@@ -2,6 +2,12 @@
 shelter_lambda: 2.0
 detour_budget: 1.25
 origin_reachable_component_resnap_max_m: 50
+routing:
+  max_workers: null
+  default_cpu_cap: 8
+  target_tasks_per_worker: 4
+  measured_worker_rss_gib: 2.9
+  memory_reserve_gib: 4.0
 transit_access:
   full_credit_m: 400
   linear_floor_m: 800
