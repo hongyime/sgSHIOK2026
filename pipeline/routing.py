@@ -386,6 +386,37 @@ class RoutingGraph:
             paths_sheltered = self.graph.get_shortest_paths(
                 origin_idx, to=dest_indices, weights=sheltered_weights, output="epath"
             )
+            evidence_by_epath = {}
+            materialized_by_epath = {}
+
+            def evidence_for_epath(epath):
+                key = tuple(epath)
+                if key not in evidence_by_epath:
+                    path_length = sum(self.lengths[edge_id] for edge_id in epath)
+                    covered_m = sum(
+                        self.lengths[edge_id] for edge_id in epath if self.covered[edge_id]
+                    )
+                    shade_m = sum(
+                        self.lengths[edge_id] * self.shade_ratios[edge_id]
+                        for edge_id in epath
+                        if not self.covered[edge_id]
+                    )
+                    evidence_by_epath[key] = {
+                        "length_m": path_length,
+                        "covered_m": covered_m,
+                        "shade_m": shade_m,
+                    }
+                return evidence_by_epath[key]
+
+            def materialized_for_epath(epath):
+                key = tuple(epath)
+                if key not in materialized_by_epath:
+                    vpath = self.vpath_for_epath(origin_idx, epath)
+                    materialized_by_epath[key] = {
+                        "geometry": self.geometry_for_epath(epath, vpath),
+                        "path_edges": self.path_edges_for_epath(epath, vpath),
+                    }
+                return materialized_by_epath[key]
 
             for dest, epath_short, epath_shelt in zip(
                 valid_destinations,
@@ -395,50 +426,30 @@ class RoutingGraph:
                 if not epath_short:
                     continue
 
-                len_short = sum(self.lengths[edge_id] for edge_id in epath_short)
-                vpath_short = (
-                    self.vpath_for_epath(origin_idx, epath_short) if include_geometry else None
-                )
-                vpath_shelt = (
-                    self.vpath_for_epath(origin_idx, epath_shelt)
-                    if include_geometry and epath_shelt
-                    else None
-                )
+                shortest_evidence = evidence_for_epath(epath_short)
+                len_short = shortest_evidence["length_m"]
 
                 if not epath_shelt:
                     final_epath = epath_short
-                    final_vpath = vpath_short
                     routing_type = "shortest_fallback"
                 else:
-                    len_shelt = sum(self.lengths[edge_id] for edge_id in epath_shelt)
+                    sheltered_evidence = evidence_for_epath(epath_shelt)
+                    len_shelt = sheltered_evidence["length_m"]
                     if len_shelt <= float(detour_budget) * len_short:
                         final_epath = epath_shelt
-                        final_vpath = vpath_shelt
                         routing_type = "sheltered"
                     else:
                         final_epath = epath_short
-                        final_vpath = vpath_short
                         routing_type = "shortest_due_to_detour"
 
-                final_length = sum(self.lengths[edge_id] for edge_id in final_epath)
-                final_covered = sum(
-                    self.lengths[edge_id] for edge_id in final_epath if self.covered[edge_id]
-                )
-                final_shade = sum(
-                    self.lengths[edge_id] * self.shade_ratios[edge_id]
-                    for edge_id in final_epath
-                    if not self.covered[edge_id]
-                )
-                cov_short = sum(
-                    self.lengths[edge_id] for edge_id in epath_short if self.covered[edge_id]
-                )
-                shade_short = sum(
-                    self.lengths[edge_id] * self.shade_ratios[edge_id]
-                    for edge_id in epath_short
-                    if not self.covered[edge_id]
-                )
+                final_evidence = evidence_for_epath(final_epath)
+                final_length = final_evidence["length_m"]
+                final_covered = final_evidence["covered_m"]
+                final_shade = final_evidence["shade_m"]
+                cov_short = shortest_evidence["covered_m"]
+                shade_short = shortest_evidence["shade_m"]
                 sheltered_length = (
-                    sum(self.lengths[edge_id] for edge_id in epath_shelt) if epath_shelt else None
+                    evidence_for_epath(epath_shelt)["length_m"] if epath_shelt else None
                 )
 
                 result = {
@@ -462,15 +473,13 @@ class RoutingGraph:
                     "path_edges": [],
                 }
                 if include_geometry:
-                    result["geometry"] = self.geometry_for_epath(final_epath, final_vpath)
-                    result["shortest_geometry"] = self.geometry_for_epath(epath_short, vpath_short)
-                    result["shortest_path_edges"] = self.path_edges_for_epath(
-                        epath_short, vpath_short
-                    )
-                    result["sheltered_path_edges"] = self.path_edges_for_epath(
-                        final_epath, final_vpath
-                    )
-                    result["path_edges"] = self.path_edges_for_epath(final_epath, final_vpath)
+                    final_materialized = materialized_for_epath(final_epath)
+                    shortest_materialized = materialized_for_epath(epath_short)
+                    result["geometry"] = final_materialized["geometry"]
+                    result["shortest_geometry"] = shortest_materialized["geometry"]
+                    result["shortest_path_edges"] = shortest_materialized["path_edges"]
+                    result["sheltered_path_edges"] = final_materialized["path_edges"]
+                    result["path_edges"] = final_materialized["path_edges"]
                 results.append(result)
 
         return results

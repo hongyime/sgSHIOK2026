@@ -1,9 +1,106 @@
 from shapely.geometry import LineString
 
+import json
+
 import pytest
 
 from pipeline import routing
 from pipeline.routing import RoutingGraph, route_worker
+
+
+def _jsonable_route(value):
+    if isinstance(value, dict):
+        return {key: _jsonable_route(value[key]) for key in sorted(value)}
+    if isinstance(value, list):
+        return [_jsonable_route(item) for item in value]
+    if isinstance(value, tuple):
+        return [_jsonable_route(item) for item in value]
+    if hasattr(value, "wkb_hex"):
+        return {"geometry_wkb_hex": value.wkb_hex}
+    return value
+
+
+def _route_bytes(records):
+    payload = _jsonable_route(records)
+    return json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
+
+
+def _uncached_route_reference(graph, od_pairs, shelter_lambda, detour_budget):
+    sheltered_weights = (
+        graph.lengths if float(shelter_lambda) == 0.0 else graph.sheltered_costs(shelter_lambda)
+    )
+    results = []
+    for origin, destinations in od_pairs.items():
+        origin_idx = graph.node_map[origin]
+        dest_indices = [graph.node_map[destination] for destination in destinations]
+        paths_shortest = graph.graph.get_shortest_paths(
+            origin_idx, to=dest_indices, weights=graph.lengths, output="epath"
+        )
+        paths_sheltered = graph.graph.get_shortest_paths(
+            origin_idx, to=dest_indices, weights=sheltered_weights, output="epath"
+        )
+        for dest, epath_short, epath_shelt in zip(destinations, paths_shortest, paths_sheltered):
+            len_short = sum(graph.lengths[edge_id] for edge_id in epath_short)
+            vpath_short = graph.vpath_for_epath(origin_idx, epath_short)
+            vpath_shelt = graph.vpath_for_epath(origin_idx, epath_shelt) if epath_shelt else None
+            if not epath_shelt:
+                final_epath = epath_short
+                final_vpath = vpath_short
+                routing_type = "shortest_fallback"
+            else:
+                len_shelt = sum(graph.lengths[edge_id] for edge_id in epath_shelt)
+                if len_shelt <= float(detour_budget) * len_short:
+                    final_epath = epath_shelt
+                    final_vpath = vpath_shelt
+                    routing_type = "sheltered"
+                else:
+                    final_epath = epath_short
+                    final_vpath = vpath_short
+                    routing_type = "shortest_due_to_detour"
+
+            final_length = sum(graph.lengths[edge_id] for edge_id in final_epath)
+            final_covered = sum(
+                graph.lengths[edge_id] for edge_id in final_epath if graph.covered[edge_id]
+            )
+            final_shade = sum(
+                graph.lengths[edge_id] * graph.shade_ratios[edge_id]
+                for edge_id in final_epath
+                if not graph.covered[edge_id]
+            )
+            cov_short = sum(
+                graph.lengths[edge_id] for edge_id in epath_short if graph.covered[edge_id]
+            )
+            shade_short = sum(
+                graph.lengths[edge_id] * graph.shade_ratios[edge_id]
+                for edge_id in epath_short
+                if not graph.covered[edge_id]
+            )
+            sheltered_length = (
+                sum(graph.lengths[edge_id] for edge_id in epath_shelt) if epath_shelt else None
+            )
+            results.append(
+                {
+                    "origin": origin,
+                    "destination": dest,
+                    "routing_type": routing_type,
+                    "length_m": final_length,
+                    "covered_m": final_covered,
+                    "covered_ratio": final_covered / final_length if final_length > 0 else 0.0,
+                    "shade_m": final_shade,
+                    "shade_ratio": final_shade / final_length if final_length > 0 else 0.0,
+                    "shortest_length_m": len_short,
+                    "shortest_covered_ratio": cov_short / len_short if len_short > 0 else 0.0,
+                    "shortest_shade_m": shade_short,
+                    "shortest_shade_ratio": shade_short / len_short if len_short > 0 else 0.0,
+                    "sheltered_length_m": sheltered_length,
+                    "geometry": graph.geometry_for_epath(final_epath, final_vpath),
+                    "shortest_geometry": graph.geometry_for_epath(epath_short, vpath_short),
+                    "shortest_path_edges": graph.path_edges_for_epath(epath_short, vpath_short),
+                    "sheltered_path_edges": graph.path_edges_for_epath(final_epath, final_vpath),
+                    "path_edges": graph.path_edges_for_epath(final_epath, final_vpath),
+                }
+            )
+    return results
 
 
 def test_routing_detour_cap():
@@ -196,6 +293,32 @@ def test_routing_exports_shortest_and_sheltered_path_edges_with_geometry():
     assert [edge["is_covered"] for edge in result["shortest_path_edges"]] == [False, False]
     assert [edge["is_covered"] for edge in result["sheltered_path_edges"]] == [True, True, True]
     assert result["path_edges"] == result["sheltered_path_edges"]
+
+
+def test_cached_route_output_matches_uncached_reference_bytes():
+    edges_dict = {
+        "u": [0, 1, 0, 3, 4, 5, 2],
+        "v": [1, 2, 3, 4, 2, 6, 6],
+        "length_m": [10.0, 10.0, 10.0, 10.0, 2.0, 8.0, 8.0],
+        "is_covered": [0, 0, 1, 1, 1, 0, 0],
+        "shade_ratio": [0.0, 0.0, 0.2, 0.4, 0.6, 0.0, 0.0],
+        "geometry": [
+            LineString([(0, 0), (10, 0)]),
+            LineString([(10, 0), (20, 0)]),
+            LineString([(0, 0), (0, 10)]),
+            LineString([(0, 10), (10, 10)]),
+            LineString([(10, 10), (20, 0)]),
+            LineString([(0, 0), (0, -8)]),
+            LineString([(20, 0), (0, -8)]),
+        ],
+    }
+    graph = RoutingGraph.from_edges_dict(edges_dict)
+    od_pairs = {(0.0, 0.0): [(20.0, 0.0), (0.0, -8.0)]}
+
+    cached = graph.route(od_pairs, 0.6, 1.25, include_geometry=True)
+    uncached = _uncached_route_reference(graph, od_pairs, 0.6, 1.25)
+
+    assert _route_bytes(cached) == _route_bytes(uncached)
 
 
 def test_routing_orients_reversed_edge_geometry_in_route_order():
