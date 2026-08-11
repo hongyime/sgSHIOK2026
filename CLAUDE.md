@@ -70,7 +70,7 @@ run.py           task runner: check | ingest | network | score | export | valida
   constraints 1–9, or any deviation from a locked decision (log it in `decisions.md`).
 - Prefer boring code. No premature abstraction; the pipeline is a straight line.
 - **Determinism spec (byte-identical artifacts):** chunk work by sorted postal code (never by worker
-  count), sort all JSON keys and record orders, round floats at export (scores 1 dp, coords 5 dp),
+  count), sort all JSON keys and record orders, round floats at export (scores 1 dp, public coords 8 dp),
   set `PYTHONHASHSEED=0`, and pin dependencies via `uv.lock` + `web/package-lock.json`.
   Golden-set tests assert ranges, not exact floats.
 - **Windows-native rules:** pathlib for every path (never hardcoded separators); every `open()` uses
