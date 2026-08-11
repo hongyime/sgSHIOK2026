@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import {
   fetchGeomForPostal,
   fetchManifest,
+  fetchScoreRecordsForPostalArea,
   fetchScoreForPostal,
   fetchTransitPois,
   fetchTransitPoisForGeom,
@@ -40,6 +41,11 @@ import {
   type SearchResult,
 } from "../lib/onemap-search";
 import { routesAreSame } from "../lib/route-display";
+import {
+  RANK_METRIC_OPTIONS,
+  rankScoreRecords,
+  type RankMetric,
+} from "../lib/subscore-ranking";
 import styles from "./page.module.css";
 
 interface LoadedSelection {
@@ -773,6 +779,10 @@ function ScoreCard({
   copyStatus,
   isCustomStopSelected = false,
   onResetChosenStop,
+  rankMetric,
+  setRankMetric,
+  rankingRecords,
+  rankingLoading,
 }: {
   selection: LoadedSelection | null;
   routeMode: RouteDisplayMode;
@@ -791,6 +801,10 @@ function ScoreCard({
   copyStatus: string;
   isCustomStopSelected?: boolean;
   onResetChosenStop?: () => void;
+  rankMetric: RankMetric;
+  setRankMetric: (metric: RankMetric) => void;
+  rankingRecords: ScoreRecord[];
+  rankingLoading: boolean;
 }) {
   const [overflowOpen, setOverflowOpen] = useState(false);
 
@@ -849,6 +863,12 @@ function ScoreCard({
   const reasons = scoreReasons(score, transitMode);
   const stateNote = scoreStateNote(score, transitMode);
   const displayScore = score.total;
+  const rankedRecords = useMemo(
+    () => rankScoreRecords(rankingRecords, rankMetric, 5),
+    [rankingRecords, rankMetric]
+  );
+  const rankMetricLabel =
+    RANK_METRIC_OPTIONS.find((option) => option.id === rankMetric)?.label ?? "Overall SHIOK";
   const sourceBreakdown = routeSourceBreakdown(selection, routeMode, sameRoute);
   const exposureGaps = score.exposure_gaps ? [...score.exposure_gaps].sort((a, b) => b.len_m - a.len_m) : [];
   const endpointSnapM = score.paths?.endpoint_snap_connector_m ?? 0;
@@ -1007,6 +1027,54 @@ function ScoreCard({
         </div>
       )}
 
+      {score.subscores && (
+        <div className={styles.rankPanel} aria-label="Rank by view">
+          <div className={styles.rankHeader}>
+            <div>
+              <strong>Rank by</strong>
+              <span>
+                {rankMetric === "overall"
+                  ? "Authoritative composite order."
+                  : "Single sub-score view; SHIOK score is unchanged."}
+              </span>
+            </div>
+            <label>
+              <span className={styles.srOnly}>Rank records by</span>
+              <select
+                value={rankMetric}
+                onChange={(event) => setRankMetric(event.target.value as RankMetric)}
+              >
+                {RANK_METRIC_OPTIONS.map((option) => (
+                  <option key={option.id} value={option.id}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+          <div className={styles.rankList}>
+            {rankingLoading && <span className={styles.rankEmpty}>Loading local ranks...</span>}
+            {!rankingLoading && rankedRecords.length === 0 && (
+              <span className={styles.rankEmpty}>No comparable scored records in this area.</span>
+            )}
+            {!rankingLoading &&
+              rankedRecords.map((item) => (
+                <div
+                  key={`${rankMetric}-${item.postal}`}
+                  className={`${styles.rankRow} ${
+                    item.postal === score.postal ? styles.rankRowActive : ""
+                  }`}
+                >
+                  <span>{item.rank}</span>
+                  <strong>{item.postal}</strong>
+                  <small>{rankMetricLabel}</small>
+                  <b>{formatScore(item.value)}</b>
+                </div>
+              ))}
+          </div>
+        </div>
+      )}
+
       {score.paths && !directBusFallback && !previewRoute && (
         <RouteModeControl
           mode={routeMode}
@@ -1114,6 +1182,9 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [chosenStopId, setChosenStopId] = useState<string | null>(null);
   const [liveRouteCache, setLiveRouteCache] = useState<Record<string, LoadedSelection>>({});
+  const [rankMetric, setRankMetric] = useState<RankMetric>("overall");
+  const [rankingRecords, setRankingRecords] = useState<ScoreRecord[]>([]);
+  const [rankingLoading, setRankingLoading] = useState(false);
   // Pending stop id from ?stop= URL param — applied once the postal's candidates load.
   const pendingUrlStopIdRef = useRef<string | null>(null);
 
@@ -1124,6 +1195,31 @@ export default function Home() {
   useEffect(() => {
     setLiveRouteCache({});
   }, [primary?.result?.POSTAL]);
+
+  useEffect(() => {
+    const postal = primary?.result?.POSTAL ?? null;
+    if (!postal || !primary?.score?.subscores) {
+      setRankingRecords([]);
+      setRankingLoading(false);
+      return;
+    }
+
+    let active = true;
+    setRankingLoading(true);
+    void fetchScoreRecordsForPostalArea(postal)
+      .then((records) => {
+        if (active) setRankingRecords(records);
+      })
+      .catch(() => {
+        if (active) setRankingRecords([]);
+      })
+      .finally(() => {
+        if (active) setRankingLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, [primary?.result?.POSTAL, primary?.score?.subscores]);
 
   // Capture the initial ?stop= from the URL. We consume it after the postal's
   // candidates are known so we can validate the id against real POIs.
@@ -1517,6 +1613,10 @@ export default function Home() {
               copyStatus={copyStatus}
               isCustomStopSelected={Boolean(chosenStopId && chosenStopId !== bestCandidateId)}
               onResetChosenStop={() => handleStopSelect(null)}
+              rankMetric={rankMetric}
+              setRankMetric={setRankMetric}
+              rankingRecords={rankingRecords}
+              rankingLoading={rankingLoading}
             />
           </aside>
         )}

@@ -96,6 +96,7 @@ let _geomPostalIndex: GeomPostalIndex | null = null;
 const _geomPostalPrefixIndexes = new Map<string, GeomPostalIndex | null>();
 let _transitPois: TransitPoiCollection | null = null;
 const _transitPoiShards = new Map<string, TransitPoiCollection | null>();
+const _scoreAreaRecords = new Map<string, ScoreRecord[]>();
 
 async function getAreaIndex(): Promise<Record<string, string[]>> {
   if (_areaIndex) return _areaIndex;
@@ -114,30 +115,60 @@ async function getScorePrefixIndex(): Promise<ScorePrefixIndex | null> {
 }
 
 async function fetchAreaRecords(areaSlug: string): Promise<ScoreRecord[]> {
-  return fetchJson<ScoreRecord[]>(`scores/${areaSlug}.json`);
+  const cached = _scoreAreaRecords.get(areaSlug);
+  if (cached) return cached;
+  const records = await fetchJson<ScoreRecord[]>(`scores/${areaSlug}.json`);
+  _scoreAreaRecords.set(areaSlug, records);
+  return records;
 }
 
-export async function fetchScoreForPostal(
-  postal: string
-): Promise<ScoreRecord | null> {
+function scoreAreaBase(areaSlug: string): string {
+  return areaSlug.replace(/_PART_\d+$/, "");
+}
+
+async function scoreShardsForPostal(postal: string): Promise<string[]> {
   const tried = new Set<string>();
   const prefixIndex = await getScorePrefixIndex();
   for (const shard of prefixIndex?.[postal.slice(0, 3)] ?? []) {
     tried.add(shard);
     const records = await fetchAreaRecords(shard);
-    const match = records.find((r) => r.postal === postal);
-    if (match) return match;
+    if (records.some((r) => r.postal === postal)) {
+      return [shard];
+    }
   }
 
   const index = await getAreaIndex();
   for (const [slug, postals] of Object.entries(index)) {
     if (tried.has(slug)) continue;
-    if (postals.includes(postal)) {
-      const records = await fetchAreaRecords(slug);
-      return records.find((r) => r.postal === postal) ?? null;
-    }
+    if (postals.includes(postal)) return [slug];
   }
+  return [];
+}
+
+export async function fetchScoreForPostal(
+  postal: string
+): Promise<ScoreRecord | null> {
+  const primaryShards = await scoreShardsForPostal(postal);
+  for (const shard of primaryShards) {
+    const records = await fetchAreaRecords(shard);
+    const match = records.find((r) => r.postal === postal);
+    if (match) return match;
+  }
+
   return null;
+}
+
+export async function fetchScoreRecordsForPostalArea(postal: string): Promise<ScoreRecord[]> {
+  const primaryShards = await scoreShardsForPostal(postal);
+  if (primaryShards.length === 0) return [];
+  const base = scoreAreaBase(primaryShards[0]);
+  const index = await getAreaIndex();
+  const areaShards = Object.keys(index).filter(
+    (slug) => slug === base || slug.startsWith(`${base}_PART_`)
+  );
+  const shards = areaShards.length > 0 ? areaShards.sort() : primaryShards;
+  const records = await Promise.all(shards.map(fetchAreaRecords));
+  return records.flat();
 }
 
 async function getGeomIndex(): Promise<GeomIndex | null> {

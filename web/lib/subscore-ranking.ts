@@ -1,0 +1,45 @@
+import type { ScoreRecord, Subscores } from "./types";
+
+export type RankMetric = "overall" | keyof Subscores;
+
+export const RANK_METRIC_OPTIONS: Array<{ id: RankMetric; label: string }> = [
+  { id: "overall", label: "Overall SHIOK" },
+  { id: "rain", label: "Rain shelter" },
+  { id: "access", label: "Transit access" },
+  { id: "bus", label: "Bus connectivity" },
+  { id: "heat", label: "Heat comfort" },
+  { id: "crossing", label: "Crossing friction" },
+];
+
+export interface RankedScoreRecord {
+  postal: string;
+  rank: number;
+  value: number;
+  total: number | null;
+}
+
+function metricValue(record: ScoreRecord, metric: RankMetric): number | null {
+  if (metric === "overall") return record.total;
+  return record.subscores?.[metric] ?? null;
+}
+
+export function rankScoreRecords(
+  records: ScoreRecord[],
+  metric: RankMetric,
+  limit = 5
+): RankedScoreRecord[] {
+  return records
+    .map((record) => ({ record, value: metricValue(record, metric) }))
+    .filter((item): item is { record: ScoreRecord; value: number } => typeof item.value === "number")
+    .sort((a, b) => {
+      if (b.value !== a.value) return b.value - a.value;
+      return a.record.postal.localeCompare(b.record.postal);
+    })
+    .slice(0, limit)
+    .map((item, index) => ({
+      postal: item.record.postal,
+      rank: index + 1,
+      value: item.value,
+      total: item.record.total,
+    }));
+}
