@@ -34,6 +34,12 @@ import {
 import { decodePolyline, encodePolyline } from "../lib/polyline";
 import { scoreLiveRoute } from "../lib/live-route-scoring";
 import { routesAreSame } from "../lib/route-display";
+import {
+  COMFORT_MODES,
+  comfortModeStatus,
+  normalizeComfortMode,
+  type ComfortMode,
+} from "../lib/comfort-modes";
 import styles from "./page.module.css";
 
 interface SearchResult {
@@ -87,7 +93,6 @@ const REASON_COPY: Record<keyof Subscores, { low: string; high: string }> = {
   crossing: { low: "More crossing friction", high: "Easy crossing profile" },
 };
 
-type ComfortMode = "balanced" | "rain_am" | "rain_pm" | "sunny_am" | "sunny_pm" | "sunny_midday";
 type FeedbackSegmentLabel =
   | "sheltered"
   | "void_deck"
@@ -96,15 +101,6 @@ type FeedbackSegmentLabel =
   | "exposed"
   | "blocked"
   | "other";
-
-const COMFORT_MODES: Array<{ id: ComfortMode; label: string; weights: Record<keyof Subscores, number> | null }> = [
-  { id: "balanced", label: "Balanced", weights: null },
-  { id: "rain_am", label: "Rain + AM", weights: { access: 0.3, bus: 0.25, rain: 0.3, heat: 0.1, crossing: 0.05 } },
-  { id: "rain_pm", label: "Rain + PM", weights: { access: 0.3, bus: 0.25, rain: 0.3, heat: 0.1, crossing: 0.05 } },
-  { id: "sunny_am", label: "Sunny + AM", weights: { access: 0.3, bus: 0.2, rain: 0.1, heat: 0.35, crossing: 0.05 } },
-  { id: "sunny_pm", label: "Sunny + PM", weights: { access: 0.3, bus: 0.2, rain: 0.1, heat: 0.35, crossing: 0.05 } },
-  { id: "sunny_midday", label: "Sunny midday", weights: { access: 0.3, bus: 0.15, rain: 0.05, heat: 0.45, crossing: 0.05 } },
-];
 
 const FEEDBACK_SEGMENT_OPTIONS: Array<{ id: FeedbackSegmentLabel; label: string }> = [
   { id: "sheltered", label: "Sheltered" },
@@ -595,9 +591,7 @@ function modeAdjustedTotal(score: ScoreRecord, mode: ComfortMode): number | null
 }
 
 function modeStatus(mode: ComfortMode): string {
-  if (mode === "balanced") return "Balanced scoring with scheduled buses";
-  if (mode.startsWith("rain")) return "Rain gives shelter more weight";
-  return "Sunny mode gives heat comfort more weight";
+  return comfortModeStatus(mode);
 }
 
 function isPreviewRoute(score: ScoreRecord): boolean {
@@ -737,7 +731,7 @@ function ComfortModeControl({
   return (
     <label className={styles.modeSelect}>
       <span>Mode</span>
-      <select value={mode} onChange={(event) => setMode(event.target.value as ComfortMode)}>
+      <select value={mode} onChange={(event) => setMode(normalizeComfortMode(event.target.value))}>
         {COMFORT_MODES.map((item) => (
           <option key={item.id} value={item.id}>
             {item.label}
