@@ -13,6 +13,7 @@ qa/*.log
 qa/auto_release_*.json
 qa/browser_smoke_*.json
 qa/check_*.mjs
+qa/debug-runs/
 qa/endpoint_results.json
 qa/inspect_*.mjs
 qa/launch_check_*/

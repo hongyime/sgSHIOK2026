@@ -17,8 +17,17 @@ describe("score card copy", () => {
   it("keeps shortest route context visible when it matches Shiokest", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
-    expect(source).toContain("Shortest and Shiokest use the same walk here.");
+    expect(source).toContain("Shortest same as Shiokest.");
     expect(source).toContain('sameRoute ? "Shortest (same)" : "Shortest"');
+  });
+
+  it("puts data freshness and heat proxy copy in the title card", () => {
+    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+
+    expect(source).toContain("Data as of {formatDataDate(manifest)}");
+    expect(source).toContain("Sources: LTA, data.gov.sg, OneMap, OSM");
+    expect(source).toContain("Heat: shelter + NParks shade proxy");
+    expect(source).not.toContain("Heat: shelter plus NParks shade proxy");
   });
 
   it("does not duplicate the sheltered % across primary and secondary rows", () => {

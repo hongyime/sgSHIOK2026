@@ -1,4 +1,4 @@
-import { spawn } from "node:child_process";
+import { execFileSync, spawn } from "node:child_process";
 import { existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import http from "node:http";
 import { basename, dirname, join, resolve } from "node:path";
@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 const webRoot = resolve(scriptDir, "..");
 const repoRoot = resolve(webRoot, "..");
+const debugRunsRoot = resolve(repoRoot, "qa", "debug-runs");
 const TRANSIT_MODE_LABELS = {
   best_transit: "Best transit",
   mrt_lrt: "MRT/LRT",
@@ -39,6 +40,7 @@ function parsePostalList(value) {
 }
 
 function parseArgs(argv) {
+  const timestamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\..+/, "").replace("T", "-");
   const args = {
     url: process.env.SHIOK_BROWSER_QA_URL || "http://127.0.0.1:3000/",
     postal: "",
@@ -53,6 +55,7 @@ function parseArgs(argv) {
     transitMode: "best_transit",
     routeMode: "shiokest",
     mustInclude: [],
+    runRoot: "",
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -67,6 +70,7 @@ function parseArgs(argv) {
     else if (arg === "--postal") args.postals = [normalizePostalValue(next())];
     else if (arg === "--postals") args.postals = parsePostalList(next());
     else if (arg === "--out") args.out = next();
+    else if (arg === "--run-root") args.runRoot = next();
     else if (arg === "--debug-port") args.debugPort = Number(next());
     else if (arg === "--chrome") args.chrome = next();
     else if (arg === "--timeout-ms") args.timeoutMs = Number(next());
@@ -104,9 +108,48 @@ function parseArgs(argv) {
   }
   if (!args.out) {
     const suffix = args.postals.length === 1 ? args.postal : `${args.postals[0]}_plus_${args.postals.length - 1}`;
-    args.out = join(repoRoot, "qa", `browser_smoke_${suffix}.json`);
+    args.runRoot = args.runRoot || join(debugRunsRoot, `route-visibility-${timestamp}-${suffix}`);
+    args.out = join(args.runRoot, "summary.json");
   }
+  args.out = resolve(webRoot, args.out);
+  args.runRoot = resolve(webRoot, args.runRoot || dirname(args.out));
+  assertInside(args.runRoot, debugRunsRoot, "run root");
+  assertInside(args.out, args.runRoot, "summary output");
   return args;
+}
+
+function assertInside(childPath, parentPath, label) {
+  const child = resolve(childPath);
+  const parent = resolve(parentPath);
+  if (child !== parent && !child.startsWith(`${parent}${process.platform === "win32" ? "\\" : "/"}`)) {
+    throw new Error(`${label} must stay under ${parent}: ${child}`);
+  }
+}
+
+function writeJson(file, value) {
+  mkdirSync(dirname(file), { recursive: true });
+  writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`);
+}
+
+function writeNdjson(file, rows) {
+  mkdirSync(dirname(file), { recursive: true });
+  writeFileSync(file, rows.map((row) => JSON.stringify(row)).join("\n") + (rows.length ? "\n" : ""));
+}
+
+function gitValue(args) {
+  try {
+    return execFileSync("git", args, { cwd: repoRoot, encoding: "utf8" }).trim();
+  } catch {
+    return null;
+  }
+}
+
+function activeBundle() {
+  try {
+    return JSON.parse(execFileSync(process.execPath, ["-e", "console.log(JSON.stringify(require('./data-bundle.json')))"], { cwd: webRoot, encoding: "utf8" }));
+  } catch {
+    return null;
+  }
 }
 
 function candidateChromePaths() {
@@ -173,6 +216,7 @@ class CdpClient {
     this.nextId = 1;
     this.pending = new Map();
     this.events = [];
+    this.eventLog = [];
     this.ws = new WebSocket(wsUrl);
   }
 
@@ -188,10 +232,19 @@ class CdpClient {
         this.pending.delete(msg.id);
         if (msg.error) rejectPromise(new Error(JSON.stringify(msg.error)));
         else resolvePromise(msg.result || {});
-      } else if (
-        ["Runtime.exceptionThrown", "Runtime.consoleAPICalled", "Log.entryAdded"].includes(msg.method)
-      ) {
-        this.events.push(msg);
+      } else if (msg.method) {
+        this.eventLog.push({ ts: new Date().toISOString(), method: msg.method, params: msg.params });
+        if (
+          [
+            "Runtime.exceptionThrown",
+            "Runtime.consoleAPICalled",
+            "Log.entryAdded",
+            "Network.loadingFailed",
+            "Network.responseReceived",
+          ].includes(msg.method)
+        ) {
+          this.events.push(msg);
+        }
         this.events = this.events.slice(-20);
       }
     });
@@ -370,6 +423,11 @@ async function selectRouteMode(cdp, routeMode, timeoutMs) {
   const label = ROUTE_MODE_LABELS[routeMode];
   if (!label) throw new Error(`invalid route mode: ${routeMode}`);
   if (routeMode === "shiokest") return;
+  const sameRoute = await cdp.send("Runtime.evaluate", {
+    returnByValue: true,
+    expression: `Boolean(Array.from(document.querySelectorAll('[class*=sameRouteNote]')).some((item) => item.textContent?.includes('Shortest same as Shiokest')))`,
+  });
+  if (sameRoute.result?.value) return;
   await waitForExpression(
     cdp,
     `Array.from(document.querySelectorAll('[aria-label="Route display"] button')).some((button) => button.textContent?.trim() === '${label}')`,
@@ -392,6 +450,7 @@ async function selectRouteMode(cdp, routeMode, timeoutMs) {
 }
 
 async function captureScreenshot(cdp, viewport, file) {
+  assertInside(file, dirname(dirname(file)), "screenshot");
   await cdp.send("Emulation.setDeviceMetricsOverride", {
     width: viewport.width,
     height: viewport.height,
@@ -402,6 +461,61 @@ async function captureScreenshot(cdp, viewport, file) {
   const shot = await cdp.send("Page.captureScreenshot", { format: "png", fromSurface: true });
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, Buffer.from(shot.data, "base64"));
+}
+
+async function collectMapState(cdp) {
+  const result = await cdp.send("Runtime.evaluate", {
+    returnByValue: true,
+    expression: `(() => {
+      const map = window.__shiokRouteMap;
+      const debug = window.__shiokRouteDebug || null;
+      const sourceIds = ["shortest-route", "shiokest-route", "exposure-gaps", "transit-node", "transit-pois"];
+      const routeLayerIds = [
+        "shortest-route-casing",
+        "shortest-route-line",
+        "shiokest-route-casing",
+        "shiokest-route-line",
+        "exposure-gap-casing",
+        "exposure-gap-line"
+      ];
+      if (!map) return { available: false, debug };
+      const sourceFeatureCounts = Object.fromEntries(sourceIds.map((sourceId) => {
+        try {
+          return [sourceId, map.getSource(sourceId) ? map.querySourceFeatures(sourceId).length : null];
+        } catch (error) {
+          return [sourceId, { error: String(error?.message || error) }];
+        }
+      }));
+      const renderedFeatureCounts = Object.fromEntries(routeLayerIds.map((layerId) => {
+        try {
+          const rect = map.getCanvas().getBoundingClientRect();
+          const box = [[0, 0], [Math.max(1, rect.width), Math.max(1, rect.height)]];
+          return [layerId, map.getLayer(layerId) ? map.queryRenderedFeatures(box, { layers: [layerId] }).length : null];
+        } catch (error) {
+          return [layerId, { error: String(error?.message || error) }];
+        }
+      }));
+      const routeLayers = Object.fromEntries(routeLayerIds.map((layerId) => {
+        if (!map.getLayer(layerId)) return [layerId, null];
+        return [layerId, {
+          visibility: map.getLayoutProperty(layerId, "visibility") || "visible",
+          lineWidth: map.getPaintProperty(layerId, "line-width") ?? null,
+          lineColor: map.getPaintProperty(layerId, "line-color") ?? null
+        }];
+      }));
+      return {
+        available: true,
+        debug,
+        center: map.getCenter?.()?.toArray?.() || null,
+        zoom: map.getZoom?.() ?? null,
+        bounds: map.getBounds?.()?.toArray?.() || null,
+        sourceFeatureCounts,
+        renderedFeatureCounts,
+        routeLayers
+      };
+    })()`,
+  });
+  return result.result.value;
 }
 
 async function collectPageSummary(cdp) {
@@ -417,6 +531,7 @@ async function collectPageSummary(cdp) {
         .find((button) => button.getAttribute('aria-pressed') === 'true');
       const activeRouteButton = Array.from(document.querySelectorAll('[aria-label="Route display"] button'))
         .find((button) => button.getAttribute('aria-pressed') === 'true');
+      const sameRouteNote = document.querySelector('[class*=sameRouteNote]');
       const rect = card?.getBoundingClientRect();
       return {
         cardText: card?.innerText || '',
@@ -424,6 +539,7 @@ async function collectPageSummary(cdp) {
         mapSummary: summary?.innerText || '',
         activeTransitMode: activeTransitButton?.textContent?.trim() || '',
         activeRouteMode: activeRouteButton?.textContent?.trim() || '',
+        sameRouteNote: sameRouteNote?.textContent?.trim() || '',
         metrics: {
           viewportWidth: innerWidth,
           viewportHeight: innerHeight,
@@ -439,7 +555,7 @@ async function collectPageSummary(cdp) {
   return result.result.value;
 }
 
-function collectChecks(summary, postal, inputMode, expectedState, transitMode, routeMode, mustInclude) {
+function collectChecks(summary, mapState, cdp, postal, inputMode, expectedState, transitMode, routeMode, mustInclude) {
   const hasScore = summary.cardText.includes("/100");
   const hasNoTransit =
     summary.cardText.includes("No routed") ||
@@ -450,6 +566,27 @@ function collectChecks(summary, postal, inputMode, expectedState, transitMode, r
   const hasNotYetScored =
     summary.cardText.includes("Not scored") ||
     (summary.cardText.includes("No score") && summary.cardText.includes("needs usable location evidence"));
+  const routeSourceFeatures =
+    Number(mapState?.debug?.sourceFeatureCounts?.shiokest || 0) +
+    Number(mapState?.debug?.sourceFeatureCounts?.shortest || 0);
+  const routeRenderedFeatures = Object.entries(mapState?.renderedFeatureCounts || {})
+    .filter(([layerId]) => layerId.includes("route"))
+    .reduce((total, [, count]) => total + (typeof count === "number" ? count : 0), 0);
+  const routeLayersVisible = Object.entries(mapState?.routeLayers || {})
+    .filter(([layerId]) => layerId.includes("route"))
+    .some(([, layer]) => layer && layer.visibility !== "none");
+  const hasSameRouteNote = summary.sameRouteNote.includes("Shortest same as Shiokest");
+  const pageErrorCount = cdp.eventLog.filter((event) => event.method === "Runtime.exceptionThrown").length;
+  const routeNetworkFailures = cdp.eventLog.filter((event) => {
+    if (event.method === "Network.loadingFailed") {
+      return !event.params?.canceled && event.params?.errorText !== "net::ERR_ABORTED";
+    }
+    if (event.method !== "Network.responseReceived") return false;
+    const url = event.params?.response?.url || "";
+    const status = Number(event.params?.response?.status || 0);
+    if (status === 404 && url.includes("/data/") && url.includes(".json.gz")) return false;
+    return status >= 400 && /\/(api|data|_next)\//.test(url);
+  }).length;
   const checks = {
     score_panel_loaded: summary.cardText.includes(`Postal ${postal}`),
     pending_badge_absent: !summary.cardText
@@ -465,8 +602,13 @@ function collectChecks(summary, postal, inputMode, expectedState, transitMode, r
     keyboard_search_used: inputMode === "keyboard",
     transit_mode_selected:
       transitMode === "best_transit" || summary.activeTransitMode === TRANSIT_MODE_LABELS[transitMode],
-    route_mode_selected: routeMode === "shiokest" || summary.activeRouteMode === ROUTE_MODE_LABELS[routeMode],
+    route_mode_selected:
+      routeMode === "shiokest" ||
+      summary.activeRouteMode === ROUTE_MODE_LABELS[routeMode] ||
+      hasSameRouteNote,
     required_text_present: mustInclude.every((text) => summary.cardText.includes(text) || summary.mapSummary.includes(text)),
+    no_uncaught_page_errors: pageErrorCount === 0,
+    route_network_ok: routeNetworkFailures === 0,
   };
   if (expectedState === "scored") {
     return {
@@ -474,6 +616,8 @@ function collectChecks(summary, postal, inputMode, expectedState, transitMode, r
       score_has_max_denominator: hasScore,
       transit_legend_present: summary.cardText.includes("MRT/LRT") && summary.cardText.includes("Bus stop"),
       route_mode_present: summary.cardText.includes("Shiokest") || summary.cardText.includes("Direct bus estimate"),
+      route_source_features_present: routeSourceFeatures > 0,
+      route_rendered_features_present: routeRenderedFeatures > 0 || (routeSourceFeatures > 0 && routeLayersVisible),
     };
   }
   if (expectedState === "no_transit") {
@@ -491,7 +635,9 @@ function collectChecks(summary, postal, inputMode, expectedState, transitMode, r
 }
 
 async function runPostalCase(cdp, args, postal, outputDir, shotBase) {
-  await cdp.send("Page.navigate", { url: args.url });
+  const url = new URL(args.url);
+  url.searchParams.set("debugMap", "1");
+  await cdp.send("Page.navigate", { url: url.toString() });
   await new Promise((resolvePromise) => setTimeout(resolvePromise, 500));
   await waitForExpression(cdp, "document.readyState === 'complete'", args.timeoutMs);
   await searchPostal(cdp, postal, args.timeoutMs, args.inputMode);
@@ -499,18 +645,21 @@ async function runPostalCase(cdp, args, postal, outputDir, shotBase) {
   await selectRouteMode(cdp, args.routeMode, args.timeoutMs);
 
   const summary = await collectPageSummary(cdp);
+  const mapState = await collectMapState(cdp);
   const screenshots = [];
   const caseShotBase = args.postals.length === 1 ? shotBase : `${shotBase}_${postal}`;
 
   if (args.screenshots) {
-    const desktop = join(outputDir, `${caseShotBase}_desktop.png`);
-    const mobile = join(outputDir, `${caseShotBase}_mobile.png`);
-    const mobileShort = join(outputDir, `${caseShotBase}_mobile_short.png`);
+    const screenshotDir = join(outputDir, "screenshots");
+    const desktop = join(screenshotDir, `${caseShotBase}_desktop.png`);
+    const mobile = join(screenshotDir, `${caseShotBase}_mobile.png`);
+    const mobileShort = join(screenshotDir, `${caseShotBase}_mobile_short.png`);
     await captureScreenshot(cdp, { width: 1440, height: 950, mobile: false }, desktop);
     await captureScreenshot(cdp, { width: 390, height: 844, mobile: true }, mobile);
     await captureScreenshot(cdp, { width: 390, height: 667, mobile: true }, mobileShort);
     screenshots.push(desktop, mobile, mobileShort);
     Object.assign(summary, await collectPageSummary(cdp));
+    Object.assign(mapState, await collectMapState(cdp));
   } else {
     await cdp.send("Emulation.setDeviceMetricsOverride", {
       width: 390,
@@ -522,8 +671,13 @@ async function runPostalCase(cdp, args, postal, outputDir, shotBase) {
     Object.assign(summary, await collectPageSummary(cdp));
   }
 
+  const mapStatePath = join(outputDir, "map-state", `${caseShotBase}.json`);
+  writeJson(mapStatePath, mapState);
+
   const checks = collectChecks(
     summary,
+    mapState,
+    cdp,
     postal,
     args.inputMode,
     args.expectedState,
@@ -544,6 +698,10 @@ async function runPostalCase(cdp, args, postal, outputDir, shotBase) {
     map_summary: summary.mapSummary,
     active_transit_mode: summary.activeTransitMode,
     active_route_mode: summary.activeRouteMode,
+    same_route_note: summary.sameRouteNote,
+    map_state: mapStatePath,
+    route_debug: mapState?.debug || null,
+    rendered_feature_counts: mapState?.renderedFeatureCounts || null,
     metrics: summary.metrics,
     checks,
     ok: Object.values(checks).every(Boolean),
@@ -578,9 +736,25 @@ async function runSmoke(args) {
     await cdp.send("Page.enable");
     await cdp.send("Runtime.enable");
     await cdp.send("Log.enable");
+    await cdp.send("Network.enable");
     await cdp.send("Page.bringToFront");
-    const outputDir = dirname(resolve(args.out));
+    const outputDir = args.runRoot;
     const shotBase = basename(args.out, ".json");
+    const manifest = {
+      generated_at: new Date().toISOString(),
+      git_sha: gitValue(["rev-parse", "HEAD"]),
+      active_bundle: activeBundle(),
+      url: args.url,
+      output: args.out,
+      run_root: args.runRoot,
+      browser_debug_port: args.debugPort,
+      postals: args.postals,
+      input_mode: args.inputMode,
+      expected_state: args.expectedState,
+      transit_mode: args.transitMode,
+      route_mode: args.routeMode,
+    };
+    writeJson(join(outputDir, "run_manifest.json"), manifest);
     const results = [];
     for (const postal of args.postals) {
       results.push(await runPostalCase(cdp, args, postal, outputDir, shotBase));
@@ -606,8 +780,21 @@ async function runSmoke(args) {
             ok: results.every((result) => result.ok),
           };
 
-    mkdirSync(outputDir, { recursive: true });
-    writeFileSync(args.out, `${JSON.stringify(payload, null, 2)}\n`);
+    const consoleEvents = cdp.eventLog.filter((event) =>
+      ["Runtime.consoleAPICalled", "Log.entryAdded", "Runtime.exceptionThrown"].includes(event.method)
+    );
+    const networkEvents = cdp.eventLog.filter((event) => event.method.startsWith("Network."));
+    writeNdjson(join(outputDir, "console", "browser-console.ndjson"), consoleEvents);
+    writeNdjson(
+      join(outputDir, "console", "page-errors.ndjson"),
+      consoleEvents.filter((event) => event.method === "Runtime.exceptionThrown")
+    );
+    writeNdjson(join(outputDir, "network", "requests.ndjson"), networkEvents);
+    writeNdjson(
+      join(outputDir, "network", "failed-requests.ndjson"),
+      networkEvents.filter((event) => event.method === "Network.loadingFailed")
+    );
+    writeJson(args.out, payload);
     console.log(JSON.stringify(payload, null, 2));
 
     if (!payload.ok) {

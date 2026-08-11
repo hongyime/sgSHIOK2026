@@ -57,7 +57,13 @@
   font-size: 12px;
 }
 
-.sourceLine {
+.dataLine {
+  color: #354640 !important;
+  font-weight: 800;
+}
+
+.sourceLine,
+.heatLine {
   font-size: 10px !important;
 }
 
@@ -801,7 +807,7 @@
 
   .detailOverlay {
     width: auto;
-    max-height: calc(100dvh - 148px);
+    max-height: min(50dvh, calc(100dvh - 148px));
   }
 
   .scoreCard {
@@ -815,9 +821,40 @@
 }
 
 @media (max-width: 560px) {
+  .searchOverlay {
+    gap: 6px;
+  }
+
+  .brandRow {
+    padding: 9px 10px;
+  }
+
+  .brandRow h1 {
+    font-size: 16px;
+  }
+
+  .brandRow p {
+    margin-top: 2px;
+    font-size: 10px;
+  }
+
+  .dataLine {
+    font-size: 11px !important;
+  }
+
+  .searchForm input {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
   .searchForm button {
     min-height: 42px;
-    padding: 0 12px;
+    padding: 0 10px;
+    font-size: 13px;
+  }
+
+  .detailOverlay {
+    max-height: min(46dvh, 360px);
   }
 
   .scoreBadge {

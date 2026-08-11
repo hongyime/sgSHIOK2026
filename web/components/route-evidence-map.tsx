@@ -962,6 +962,31 @@ export function RouteEvidenceMap({
   );
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    const debugWindow = window as unknown as {
+      __shiokRouteMap?: maplibregl.Map | null;
+      __shiokRouteDebug?: {
+        mode: RouteDisplayMode;
+        routeCount: number;
+        sourceFeatureCounts: Record<string, number>;
+        summary: string;
+      };
+    };
+    debugWindow.__shiokRouteMap = mapRef.current;
+    debugWindow.__shiokRouteDebug = {
+      mode,
+      routeCount: routes.length,
+      sourceFeatureCounts: {
+        shortest: routeData.shortest.features.length,
+        shiokest: routeData.shiokest.features.length,
+        exposure: routeData.exposure.features.length,
+        transit: routeData.transit.features.length,
+      },
+      summary: accessibleSummary,
+    };
+  }, [accessibleSummary, mode, routeData, routes.length]);
+
+  useEffect(() => {
     if (!containerRef.current || mapRef.current) return;
     let active = true;
 
@@ -984,6 +1009,9 @@ export function RouteEvidenceMap({
         },
       });
       mapRef.current.addControl(new maplibre.NavigationControl({ showCompass: false }), "top-right");
+      if (typeof window !== "undefined") {
+        (window as unknown as { __shiokRouteMap?: maplibregl.Map }).__shiokRouteMap = mapRef.current;
+      }
       mapRef.current.on("load", () => {
         if (!mapRef.current) return;
         ensureRouteLayers(mapRef.current);
@@ -998,6 +1026,14 @@ export function RouteEvidenceMap({
       active = false;
       mapRef.current?.remove();
       mapRef.current = null;
+      if (typeof window !== "undefined") {
+        const debugWindow = window as unknown as {
+          __shiokRouteMap?: maplibregl.Map | null;
+          __shiokRouteDebug?: unknown;
+        };
+        debugWindow.__shiokRouteMap = null;
+        debugWindow.__shiokRouteDebug = undefined;
+      }
       setLoaded(false);
     };
   }, []);
@@ -1014,7 +1050,22 @@ export function RouteEvidenceMap({
     setSourceData(map, "transit-pois", transitPoiData);
     setSourceData(map, "feedback-route", feedbackData.route);
     setSourceData(map, "feedback-points", feedbackData.points);
-  }, [loaded, routeData, transitPoiData, feedbackData]);
+
+    if (
+      typeof window !== "undefined" &&
+      new URLSearchParams(window.location.search).has("debugMap")
+    ) {
+      console.info("[shiok-map]", {
+        mode,
+        routeCount: routes.length,
+        sourceFeatureCounts: {
+          shortest: routeData.shortest.features.length,
+          shiokest: routeData.shiokest.features.length,
+          exposure: routeData.exposure.features.length,
+        },
+      });
+    }
+  }, [loaded, routeData, transitPoiData, feedbackData, mode, routes.length]);
 
   useEffect(() => {
     const map = mapRef.current;

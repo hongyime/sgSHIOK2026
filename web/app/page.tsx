@@ -657,7 +657,7 @@ function RouteModeControl({
   if (sameRoute) {
     return (
       <div className={styles.sameRouteNote}>
-        Shortest and Shiokest use the same walk here.
+        Shortest same as Shiokest.
       </div>
     );
   }
@@ -1494,7 +1494,9 @@ export default function Home() {
           <div>
             <h1>S.H.I.O.K. Index</h1>
             <p>Singapore walk-to-transit comfort</p>
-            <p className={styles.sourceLine}>Data: LTA, data.gov.sg, OneMap, OSM</p>
+            <p className={styles.dataLine}>Data as of {formatDataDate(manifest)}</p>
+            <p className={styles.sourceLine}>Sources: LTA, data.gov.sg, OneMap, OSM</p>
+            <p className={styles.heatLine}>Heat: shelter + NParks shade proxy</p>
           </div>
         </div>
 
@@ -1554,9 +1556,7 @@ export default function Home() {
           </aside>
         )}
 
-        <footer className={styles.pageFooter}>
-          Data as of {formatDataDate(manifest)} - Heat: shelter plus NParks shade proxy
-        </footer>
+        <footer className={styles.pageFooter}>Source-derived comfort index.</footer>
       </section>
     </main>
   );

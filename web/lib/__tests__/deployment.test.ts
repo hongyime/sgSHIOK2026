@@ -45,6 +45,10 @@ describe("deployment packaging", () => {
     expect(script).toContain("keyboard_search_used");
     expect(script).toContain("transit_mode_selected");
     expect(script).toContain("route_mode_selected");
+    expect(script).toContain("debug-runs");
+    expect(script).toContain("run_manifest.json");
+    expect(script).toContain("rendered_feature_counts");
+    expect(script).toContain("route_rendered_features_present");
     expect(script).toContain("required_text_present");
     expect(script).toContain("pending_badge_absent");
     expect(script).toContain("not_yet_copy_distinct_from_no_transit");
@@ -90,6 +94,7 @@ describe("deployment packaging", () => {
     expect(script).toContain('"--expected-state", "not_yet_scored"');
     expect(script).toContain('"--transit-mode", "mrt_lrt"');
     expect(script).toContain('"--route-mode", "both"');
+    expect(script).toContain("qa\\debug-runs\\launch-check-$Timestamp");
     expect(script).toContain("Release plan only");
     expect(script).not.toContain("deploy-production");
     expect(script).not.toContain("vercel deploy");
