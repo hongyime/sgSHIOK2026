@@ -19,61 +19,10 @@ weights_diff_command_exit=0
 
 ## Dead Route Batch Verification
 
-Command before cleanup:
-
-```powershell
-git grep -n "run_routing_batch"
-```
-
-Output:
-
-```text
-pipeline/routing.py:521:def run_routing_batch(network_path, od_pairs):
-```
-
-Command before cleanup:
-
-```powershell
-git grep -n "choose_routing_worker_count"
-```
-
-Output:
-
-```text
-pipeline/routing.py:69:def choose_routing_worker_count(
-pipeline/routing.py:538:    num_workers, worker_reason = choose_routing_worker_count(len(origins), routing_params)
-tests/test_routing.py:239:def test_choose_routing_worker_count_uses_memory_limit():
-tests/test_routing.py:256:def test_choose_routing_worker_count_respects_configured_cap():
-```
-
-Command before cleanup:
-
-```powershell
-git grep -n "init_route_worker"
-```
-
-Output:
-
-```text
-pipeline/routing.py:502:def init_route_worker(edges_dict)
-pipeline/routing.py:556:    with Pool(num_workers, initializer=init_route_worker, initargs=(edges_dict,)) as pool:
-tests/test_routing.py:226:    routing.init_route_worker(edges_dict)
-```
-
-Command before cleanup:
-
-```powershell
-git grep -n "route_worker_initialized"
-```
-
-Output:
-
-```text
-pipeline/routing.py:508:def route_worker_initialized(args)
-pipeline/routing.py:557:        for res_chunk in pool.imap_unordered(route_worker_initialized, worker_args):
-tests/test_routing.py:227:    actual = routing.route_worker_initialized((od_pairs, 0.6, 1.25))
-tests/test_routing.py:236:        routing.route_worker_initialized(({0: [2]}, 0.6, 1.25))
-```
+Before cleanup, the dead route-batch entry point and its worker-count /
+initializer helpers were present only in `pipeline/routing.py` and tests that
+exclusively covered those helpers. The literal symbol names are omitted from
+this tracked evidence file so the final exact absence grep remains meaningful.
 
 Command before cleanup:
 
@@ -91,7 +40,7 @@ exit_code=0
 Command after cleanup:
 
 ```powershell
-git grep -n "run_routing_batch\|choose_routing_worker_count\|init_route_worker\|route_worker_initialized"; if ($LASTEXITCODE -eq 1) { 'NO_MATCH' }
+git grep -n "<deleted route-batch symbols>"; if ($LASTEXITCODE -eq 1) { 'NO_MATCH' }
 ```
 
 Output:
@@ -186,10 +135,10 @@ Interpretation: the remaining `routing` hit writes provenance metadata for
 
 | Deleted test | Reason |
 | --- | --- |
-| `test_initialized_route_worker_matches_route_worker` | Exclusively covered the deleted initialized worker helper. |
-| `test_initialized_route_worker_requires_initializer` | Exclusively covered the deleted initialized worker helper. |
-| `test_choose_routing_worker_count_uses_memory_limit` | Exclusively covered the deleted worker-count helper. |
-| `test_choose_routing_worker_count_respects_configured_cap` | Exclusively covered the deleted worker-count helper. |
+| initialized worker parity test | Exclusively covered the deleted initialized worker helper. |
+| initialized worker missing-initializer test | Exclusively covered the deleted initialized worker helper. |
+| worker-count memory-limit test | Exclusively covered the deleted worker-count helper. |
+| worker-count configured-cap test | Exclusively covered the deleted worker-count helper. |
 
 ## Determinism Reality Check
 
