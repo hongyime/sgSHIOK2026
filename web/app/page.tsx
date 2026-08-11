@@ -33,17 +33,14 @@ import {
 } from "../lib/nearest-transit";
 import { decodePolyline, encodePolyline } from "../lib/polyline";
 import { scoreLiveRoute } from "../lib/live-route-scoring";
+import {
+  OneMapSearchError,
+  searchOneMapLocations,
+  shouldQueryOneMap,
+  type SearchResult,
+} from "../lib/onemap-search";
 import { routesAreSame } from "../lib/route-display";
 import styles from "./page.module.css";
-
-interface SearchResult {
-  BUILDING: string;
-  ROAD_NAME: string;
-  POSTAL: string;
-  LATITUDE: string;
-  LONGITUDE: string;
-  SEARCHVAL: string;
-}
 
 interface LoadedSelection {
   result: SearchResult;
@@ -1381,20 +1378,24 @@ export default function Home() {
       return;
     }
 
+    if (!shouldQueryOneMap(query)) {
+      setResults([]);
+      setError("Enter at least 3 characters or a 6-digit postal code.");
+      return;
+    }
+
     setLoading(true);
     setError(null);
     setResults([]);
 
     try {
-      const res = await fetch(`/api/onemap-search?searchVal=${encodeURIComponent(query)}`);
-      if (res.status === 429) {
+      const data = await searchOneMapLocations(query);
+      setResults(data.results);
+    } catch (err) {
+      if (err instanceof OneMapSearchError && err.status === 429) {
         setError("Search is busy. Please try again in a moment.");
         return;
       }
-      if (!res.ok) throw new Error(`Search failed with status ${res.status}`);
-      const data = await res.json();
-      setResults(data.results || []);
-    } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to search postal location.");
     } finally {
       setLoading(false);
