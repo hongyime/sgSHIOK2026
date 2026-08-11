@@ -28,7 +28,7 @@ try {
     $env:NEXT_PUBLIC_DATA_BASE = "/data/$DataBundle/"
 
     & (Join-Path $PSScriptRoot "ensure-web-deps.ps1")
-    if ($LASTEXITCODE -ne 0) { throw "web dependency install failed" }
+    if (-not $?) { throw "web dependency install failed" }
 
     if (-not $SkipWebTests) {
         npm --prefix web test

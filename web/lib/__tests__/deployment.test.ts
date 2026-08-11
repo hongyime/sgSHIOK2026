@@ -69,6 +69,14 @@ describe("deployment packaging", () => {
     expect(script).toContain("-ConfirmProduction");
   });
 
+  it("does not treat stale LASTEXITCODE as web dependency failure", () => {
+    const script = readFileSync(join(__dirname, "../../../scripts/deploy-production.ps1"), "utf-8");
+
+    expect(script).toContain('Join-Path $PSScriptRoot "ensure-web-deps.ps1"');
+    expect(script).toContain('if (-not $?) { throw "web dependency install failed" }');
+    expect(script).not.toContain('$LASTEXITCODE -ne 0) { throw "web dependency install failed"');
+  });
+
   it("keeps bundle activation packaging-aware", () => {
     const script = readFileSync(join(__dirname, "../../../scripts/activate-data-bundle.ps1"), "utf-8");
 
