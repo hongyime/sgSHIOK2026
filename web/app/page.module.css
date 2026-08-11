@@ -84,7 +84,6 @@
 .searchForm button:focus-visible,
 .segmented button:focus-visible,
 .resultList button:focus-visible,
-.modeSelect select:focus-visible,
 .feedbackActions button:focus-visible,
 .segmentLabel select:focus-visible,
 .feedbackEditor textarea:focus-visible,
@@ -512,43 +511,6 @@
   color: #20352f;
 }
 
-.modeRow {
-  margin-top: 8px;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 8px;
-  align-items: center;
-  color: #61716b;
-  font-size: 10px;
-  font-weight: 800;
-}
-
-.modeSelect {
-  min-width: 0;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 6px;
-  align-items: center;
-}
-
-.modeSelect span {
-  color: #43564f;
-  font-size: 10px;
-  font-weight: 900;
-}
-
-.modeSelect select {
-  min-width: 0;
-  border: 1px solid #cbd7d1;
-  border-radius: 8px;
-  padding: 6px 8px;
-  color: #17211f;
-  background: #f8fbfa;
-  font: inherit;
-  font-size: 12px;
-  font-weight: 900;
-}
-
 .summaryGrid {
   margin-top: 10px;
   display: grid;
@@ -605,26 +567,69 @@
   line-height: 1.35;
 }
 
-.scoreStrip {
+.scoreBreakdown {
   margin-top: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
+  border: 1px solid #dce5e1;
+  border-radius: 8px;
+  background: #fbfdfc;
+  overflow: hidden;
 }
 
-.scoreStrip span {
-  border: 1px solid #dce5e1;
-  border-radius: 999px;
-  padding: 4px 7px;
+.scoreBreakdownHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 9px;
+  color: #243a34;
+  background: #eef6f2;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.scoreBreakdownHeader span {
   color: #61716b;
-  background: #fbfdfc;
   font-size: 10px;
-  font-weight: 800;
   white-space: nowrap;
 }
 
-.scoreStrip strong {
+.subscoreList {
+  display: grid;
+}
+
+.subscoreRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: start;
+  border-top: 1px solid #e2eae6;
+  padding: 8px 9px;
+}
+
+.subscoreRow em {
+  display: block;
+  margin-top: 3px;
+  color: #61716b;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.subscoreMeta {
+  display: grid;
+  justify-items: end;
+  gap: 2px;
+}
+
+.subscoreMeta strong {
   color: #20352f;
+  font-size: 13px;
+}
+
+.subscoreMeta small {
+  color: #61716b;
+  font-size: 10px;
+  font-weight: 900;
 }
 
 /* removed <details> block 2026-08-04: metrics promoted to always-visible rows */

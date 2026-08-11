@@ -14,10 +14,10 @@ describe("score card copy", () => {
     expect(source).toContain("Outside current candidate thresholds");
   });
 
-  it("keeps shortest route context visible when it matches Shiokest", () => {
+  it("keeps shortest route context visible when it matches the covered route", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
-    expect(source).toContain("Shortest same as Shiokest.");
+    expect(source).toContain("Shortest same as covered route.");
     expect(source).toContain('sameRoute ? "Shortest (same)" : "Shortest"');
   });
 
@@ -35,7 +35,7 @@ describe("score card copy", () => {
     // route. The old secondary row rendered `Shiokest sheltered X%` and
     // `Shortest sheltered X%` at the same time, which duplicated one of
     // the two values with the primary row for the current route mode.
-    // See 2026-08-05 refactor: docs/decisions.md.
+    // See 2026-08-05 refactor: decisions.md.
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
     expect(source).not.toContain('label="Shiokest sheltered"');
@@ -68,5 +68,41 @@ describe("score card copy", () => {
     expect(tsxSource).toContain("routeDetailItems.push({ label: \"Shade proxy\"");
     expect(tsxSource).toContain("routeDetailItems.push({ label: \"Map connector\"");
     expect(tsxSource).toContain('aria-label="Route details"');
+  });
+
+  it("removes presentation reweighting and displays the authoritative bundle total", () => {
+    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+
+    expect(source).not.toContain("COMFORT_MODES");
+    expect(source).not.toContain("normalizeComfortMode");
+    expect(source).not.toContain("modeAdjustedTotal");
+    expect(source).not.toContain("ComfortModeControl");
+    expect(source).not.toContain("comfortMode");
+    expect(source).toContain("const displayScore = score.total;");
+  });
+
+  it("shows locked score weights and heat proxy disclosure in the breakdown", () => {
+    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const weightsYaml = readFileSync(join(__dirname, "../../../pipeline/config/weights.yaml"), "utf-8");
+
+    expect(source).toContain("Locked score breakdown");
+    expect(source).toContain("Composite uses weights.yaml");
+    expect(source).toContain('label: "Transit access"');
+    expect(source).toContain('weight: "35%"');
+    expect(source).toContain('label: "Rain shelter"');
+    expect(source).toContain('weight: "25%"');
+    expect(source).toContain('label: "Bus connectivity"');
+    expect(source).toContain('weight: "20%"');
+    expect(source).toContain('label: "Heat comfort"');
+    expect(source).toContain('weight: "15%"');
+    expect(source).toContain("Mostly covered shelter plus sparse NParks greenery proxy; not measured shade.");
+    expect(source).toContain('label: "Crossing friction"');
+    expect(source).toContain('weight: "5%"');
+
+    expect(weightsYaml).toContain("transit_access: 0.35");
+    expect(weightsYaml).toContain("bus_connectivity: 0.20");
+    expect(weightsYaml).toContain("rain_shelter: 0.25");
+    expect(weightsYaml).toContain("heat_comfort: 0.15");
+    expect(weightsYaml).toContain("crossing_friction: 0.05");
   });
 });

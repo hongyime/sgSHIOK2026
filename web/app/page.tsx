@@ -34,12 +34,6 @@ import {
 import { decodePolyline, encodePolyline } from "../lib/polyline";
 import { scoreLiveRoute } from "../lib/live-route-scoring";
 import { routesAreSame } from "../lib/route-display";
-import {
-  COMFORT_MODES,
-  comfortModeStatus,
-  normalizeComfortMode,
-  type ComfortMode,
-} from "../lib/comfort-modes";
 import styles from "./page.module.css";
 
 interface SearchResult {
@@ -57,12 +51,22 @@ interface LoadedSelection {
   geom: PostalGeom | null;
 }
 
-const SUBSCORE_LABELS: Array<[keyof Subscores, string]> = [
-  ["access", "Access"],
-  ["rain", "Rain"],
-  ["heat", "Heat"],
-  ["bus", "Bus"],
-  ["crossing", "Crossings"],
+const SUBSCORE_DETAILS: Array<{
+  key: keyof Subscores;
+  label: string;
+  weight: string;
+  note?: string;
+}> = [
+  { key: "rain", label: "Rain shelter", weight: "25%" },
+  { key: "access", label: "Transit access", weight: "35%" },
+  { key: "bus", label: "Bus connectivity", weight: "20%" },
+  {
+    key: "heat",
+    label: "Heat comfort",
+    weight: "15%",
+    note: "Mostly covered shelter plus sparse NParks greenery proxy; not measured shade.",
+  },
+  { key: "crossing", label: "Crossing friction", weight: "5%" },
 ];
 
 const TRANSIT_MODE_OPTIONS: Array<{ id: TransitAccessMode; label: string }> = [
@@ -177,7 +181,7 @@ function formatPercent(value: number | null): string {
  * spoken in percentage-points of shelter coverage.
  *
  * Returns null when:
- *   - Shiokest and Shortest are the same route (nothing to compare)
+ *   - the covered route and shortest route are the same (nothing to compare)
  *   - the score is a direct-bus fallback (routes are not comparable)
  *   - either coverage % is unknown
  *   - the delta is under 5pp (avoids clutter for tiny differences)
@@ -186,16 +190,16 @@ function buildRouteCompareNote(params: {
   routeMode: RouteDisplayMode;
   sameRoute: boolean;
   directBusFallback: boolean;
-  shiokestPct: number | null;
+  coveredRoutePct: number | null;
   shortestPct: number | null;
 }): string | null {
-  const { routeMode, sameRoute, directBusFallback, shiokestPct, shortestPct } = params;
+  const { routeMode, sameRoute, directBusFallback, coveredRoutePct, shortestPct } = params;
   if (sameRoute || directBusFallback) return null;
-  if (shiokestPct === null || shortestPct === null) return null;
+  if (coveredRoutePct === null || shortestPct === null) return null;
   const viewedIsShortest = routeMode === "shortest";
-  const viewedPct = viewedIsShortest ? shortestPct : shiokestPct;
-  const otherPct = viewedIsShortest ? shiokestPct : shortestPct;
-  const otherLabel = viewedIsShortest ? "Shiokest" : "Shortest";
+  const viewedPct = viewedIsShortest ? shortestPct : coveredRoutePct;
+  const otherPct = viewedIsShortest ? coveredRoutePct : shortestPct;
+  const otherLabel = viewedIsShortest ? "Covered route" : "Shortest";
   const delta = otherPct - viewedPct;
   const magnitude = Math.abs(delta);
   if (magnitude < 5) return null;
@@ -528,10 +532,10 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
     measuredReasons.push(`${formatDistance(score.paths.sheltered_m)} to ${transitModeLabel(transitMode)}`);
   }
   if (typeof score.paths.covered_ratio === "number") {
-    measuredReasons.push(`${Math.round(score.paths.covered_ratio * 100)}% sheltered on Shiokest`);
+    measuredReasons.push(`${Math.round(score.paths.covered_ratio * 100)}% sheltered on covered route`);
   }
 
-  const values = SUBSCORE_LABELS.map(([key]) => ({
+  const values = SUBSCORE_DETAILS.map(({ key }) => ({
     key,
     value: score.subscores?.[key] ?? 0,
   })).sort((a, b) => a.value - b.value);
@@ -578,20 +582,6 @@ function routeSourceBreakdown(
     .filter((item) => item.lenM > 0)
     .sort((a, b) => b.lenM - a.lenM)
     .slice(0, 4);
-}
-
-function modeAdjustedTotal(score: ScoreRecord, mode: ComfortMode): number | null {
-  const config = COMFORT_MODES.find((item) => item.id === mode);
-  if (!config?.weights) return score.total;
-  if (!score.subscores) return null;
-  return Object.entries(config.weights).reduce((total, [key, weight]) => {
-    const value = score.subscores?.[key as keyof Subscores];
-    return total + (typeof value === "number" ? value : 0) * weight;
-  }, 0);
-}
-
-function modeStatus(mode: ComfortMode): string {
-  return comfortModeStatus(mode);
 }
 
 function isPreviewRoute(score: ScoreRecord): boolean {
@@ -651,7 +641,7 @@ function RouteModeControl({
   if (sameRoute) {
     return (
       <div className={styles.sameRouteNote}>
-        Shortest same as Shiokest.
+        Shortest same as covered route.
       </div>
     );
   }
@@ -665,7 +655,7 @@ function RouteModeControl({
         disabled={disabled}
         onClick={() => setMode("shiokest")}
       >
-        Shiokest
+        Covered
       </button>
       <button
         type="button"
@@ -721,27 +711,6 @@ function TransitModeControl({
   );
 }
 
-function ComfortModeControl({
-  mode,
-  setMode,
-}: {
-  mode: ComfortMode;
-  setMode: (mode: ComfortMode) => void;
-}) {
-  return (
-    <label className={styles.modeSelect}>
-      <span>Mode</span>
-      <select value={mode} onChange={(event) => setMode(normalizeComfortMode(event.target.value))}>
-        {COMFORT_MODES.map((item) => (
-          <option key={item.id} value={item.id}>
-            {item.label}
-          </option>
-        ))}
-      </select>
-    </label>
-  );
-}
-
 function InlineRouteLegend({
   sameRoute,
   directBusFallback,
@@ -755,7 +724,7 @@ function InlineRouteLegend({
     <div className={styles.inlineLegend} aria-label="Map legend">
       <span>
         <i className={directBusFallback || previewRoute ? styles.directBusLine : styles.shiokestLine} />
-        {directBusFallback ? "Direct bus estimate" : previewRoute ? "Preview route" : "Shiokest"}
+        {directBusFallback ? "Direct bus estimate" : previewRoute ? "Preview route" : "Covered route"}
       </span>
       {!directBusFallback && !previewRoute && (
         <>
@@ -795,8 +764,6 @@ function ScoreCard({
   setRouteMode,
   transitMode,
   setTransitMode,
-  comfortMode,
-  setComfortMode,
   feedbackEnabled,
   setFeedbackEnabled,
   feedbackPoints,
@@ -815,8 +782,6 @@ function ScoreCard({
   setRouteMode: (mode: RouteDisplayMode) => void;
   transitMode: TransitAccessMode;
   setTransitMode: (mode: TransitAccessMode) => void;
-  comfortMode: ComfortMode;
-  setComfortMode: (mode: ComfortMode) => void;
   feedbackEnabled: boolean;
   setFeedbackEnabled: (enabled: boolean) => void;
   feedbackPoints: FeedbackPoint[];
@@ -875,7 +840,7 @@ function ScoreCard({
       ? "Preview walk"
     : routeMode === "shortest" && !sameRoute
       ? "Shortest walk"
-      : "Shiokest walk";
+      : "Covered walk";
   const stationName =
     previewRoute
       ? toProperCase(score.best_node?.name ?? "Selected transit stop")
@@ -886,7 +851,7 @@ function ScoreCard({
       : toProperCase(score.best_node?.name ?? "No transit found nearby");
   const reasons = scoreReasons(score, transitMode);
   const stateNote = scoreStateNote(score, transitMode);
-  const displayScore = modeAdjustedTotal(score, comfortMode);
+  const displayScore = score.total;
   const sourceBreakdown = routeSourceBreakdown(selection, routeMode, sameRoute);
   const exposureGaps = score.exposure_gaps ? [...score.exposure_gaps].sort((a, b) => b.len_m - a.len_m) : [];
   const endpointSnapM = score.paths?.endpoint_snap_connector_m ?? 0;
@@ -896,7 +861,7 @@ function ScoreCard({
     routeMode,
     sameRoute,
     directBusFallback,
-    shiokestPct: coveredRatio,
+    coveredRoutePct: coveredRatio,
     shortestPct: shortestCoveredRatio,
   });
   const shadeProxyPct =
@@ -991,11 +956,6 @@ function ScoreCard({
       )}
       {score.paths && !previewRoute && (
         <>
-          <div className={styles.modeRow}>
-            <ComfortModeControl mode={comfortMode} setMode={setComfortMode} />
-            <span>{modeStatus(comfortMode)}</span>
-          </div>
-
           <div className={styles.summaryGrid}>
             <Metric label={selectedRouteLabel} value={formatDistance(selectedDistance)} />
             <Metric label="Sheltered" value={formatPercent(selectedCoverage)} />
@@ -1025,15 +985,28 @@ function ScoreCard({
       {stateNote && <p className={styles.stateNote}>{stateNote}</p>}
 
       {score.subscores && (
-        <div className={styles.scoreStrip} aria-label="Score breakdown">
-          {SUBSCORE_LABELS.map(([key, label]) => {
+        <div className={styles.scoreBreakdown} aria-label="Score breakdown">
+          <div className={styles.scoreBreakdownHeader}>
+            <strong>Locked score breakdown</strong>
+            <span>Composite uses weights.yaml</span>
+          </div>
+          <div className={styles.subscoreList}>
+          {SUBSCORE_DETAILS.map(({ key, label, weight, note }) => {
             const value = score.subscores?.[key] ?? null;
             return (
-              <span key={key}>
-                {label} <strong>{formatScore(value)}</strong>
-              </span>
+              <div key={key} className={styles.subscoreRow}>
+                <div>
+                  <span>{label}</span>
+                  {note && <em>{note}</em>}
+                </div>
+                <div className={styles.subscoreMeta}>
+                  <strong>{formatScore(value)}</strong>
+                  <small>{weight}</small>
+                </div>
+              </div>
             );
           })}
+          </div>
         </div>
       )}
 
@@ -1134,7 +1107,6 @@ export default function Home() {
   const [routeTransitPois, setRouteTransitPois] = useState<TransitPoiCollection>({ type: "FeatureCollection", features: [] });
   const [transitMode, setTransitMode] = useState<TransitAccessMode>("best_transit");
   const [routeMode, setRouteMode] = useState<RouteDisplayMode>("shiokest");
-  const [comfortMode, setComfortMode] = useState<ComfortMode>("balanced");
   const [feedbackEnabled, setFeedbackEnabled] = useState(false);
   const [feedbackPoints, setFeedbackPoints] = useState<FeedbackPoint[]>([]);
   const [feedbackSegmentLabels, setFeedbackSegmentLabels] = useState<FeedbackSegmentLabel[]>([]);
@@ -1532,8 +1504,6 @@ export default function Home() {
               setRouteMode={setRouteMode}
               transitMode={transitMode}
               setTransitMode={handleTransitModeChange}
-              comfortMode={comfortMode}
-              setComfortMode={setComfortMode}
               feedbackEnabled={feedbackEnabled}
               setFeedbackEnabled={setFeedbackEnabled}
               feedbackPoints={feedbackPoints}

@@ -849,8 +849,8 @@ function routeCollections(routes: RouteMapItem[], mode: RouteDisplayMode) {
 
 function routeModeLabel(mode: RouteDisplayMode): string {
   if (mode === "shortest") return "shortest route";
-  if (mode === "both") return "shortest and Shiokest routes";
-  return "Shiokest route";
+  if (mode === "both") return "shortest and covered routes";
+  return "covered route";
 }
 
 function mapAriaLabel(routes: RouteMapItem[], mode: RouteDisplayMode): string {
@@ -890,10 +890,10 @@ function mapTextSummary(
   const routeLabels = routes.map((route) => route.label).join(", ");
   const visibleRoutes =
     mode === "both"
-      ? `${routeData.shiokest.features.length} Shiokest segments and ${routeData.shortest.features.length} shortest segments`
+      ? `${routeData.shiokest.features.length} covered-route segments and ${routeData.shortest.features.length} shortest segments`
       : mode === "shortest"
         ? `${routeData.shortest.features.length} shortest segments`
-        : `${routeData.shiokest.features.length} Shiokest segments`;
+        : `${routeData.shiokest.features.length} covered-route segments`;
   const exposed =
     routeData.exposure.features.length === 1
       ? "1 exposed gap"
