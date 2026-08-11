@@ -14,7 +14,7 @@ const TRANSIT_MODE_LABELS = {
   bus: "Bus",
 };
 const ROUTE_MODE_LABELS = {
-  shiokest: "Shiokest",
+  shiokest: "Covered route",
   both: "Both",
   shortest: "Shortest",
 };
@@ -425,7 +425,7 @@ async function selectRouteMode(cdp, routeMode, timeoutMs) {
   if (routeMode === "shiokest") return;
   const sameRoute = await cdp.send("Runtime.evaluate", {
     returnByValue: true,
-    expression: `Boolean(Array.from(document.querySelectorAll('[class*=sameRouteNote]')).some((item) => item.textContent?.includes('Shortest same as Shiokest')))`,
+    expression: `Boolean(Array.from(document.querySelectorAll('[class*=sameRouteNote]')).some((item) => item.textContent?.includes('Shortest same as covered route') || item.textContent?.includes('Shortest same as Shiokest')))`,
   });
   if (sameRoute.result?.value) return;
   await waitForExpression(
@@ -575,7 +575,9 @@ function collectChecks(summary, mapState, cdp, postal, inputMode, expectedState,
   const routeLayersVisible = Object.entries(mapState?.routeLayers || {})
     .filter(([layerId]) => layerId.includes("route"))
     .some(([, layer]) => layer && layer.visibility !== "none");
-  const hasSameRouteNote = summary.sameRouteNote.includes("Shortest same as Shiokest");
+  const hasSameRouteNote =
+    summary.sameRouteNote.includes("Shortest same as covered route") ||
+    summary.sameRouteNote.includes("Shortest same as Shiokest");
   const pageErrorCount = cdp.eventLog.filter((event) => event.method === "Runtime.exceptionThrown").length;
   const routeNetworkFailures = cdp.eventLog.filter((event) => {
     if (event.method === "Network.loadingFailed") {
@@ -615,7 +617,9 @@ function collectChecks(summary, mapState, cdp, postal, inputMode, expectedState,
       ...checks,
       score_has_max_denominator: hasScore,
       transit_legend_present: summary.cardText.includes("MRT/LRT") && summary.cardText.includes("Bus stop"),
-      route_mode_present: summary.cardText.includes("Shiokest") || summary.cardText.includes("Direct bus estimate"),
+      route_mode_present:
+        summary.cardText.includes("Covered route") ||
+        summary.cardText.includes("Direct bus estimate"),
       route_source_features_present: routeSourceFeatures > 0,
       route_rendered_features_present: routeRenderedFeatures > 0 || (routeSourceFeatures > 0 && routeLayersVisible),
     };
