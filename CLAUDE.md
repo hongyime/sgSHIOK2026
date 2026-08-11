@@ -4,8 +4,8 @@ You are building the S.H.I.O.K. Index: a free, non-commercial civic web app that
 every Singapore postal code an explainable "comfort score" for the walk to transit
 (shelter from rain, heat, crossing friction, transit access, bus frequency).
 
-The former `docs/` source files are not present in this repository because the shared
-configuration sync strips that directory from target repos. Treat the code, tests,
+The former template documentation source files are not present in this repository because the shared
+configuration sync strips them from target repos. Treat the code, tests,
 `pipeline/config/*.yaml`, tracked release evidence, and `decisions.md` as the available
 source of truth. If this file conflicts with those tracked artifacts, verify before editing.
 
@@ -49,13 +49,13 @@ source of truth. If this file conflicts with those tracked artifacts, verify bef
 ## Repo layout
 
 ```
-/pipeline        Python package: fetch, ingest, network, route, score, export, validate
+/pipeline        Python package: fetch, ingest, network, score, export, validate
 /pipeline/config weights.yaml, params.yaml (all constants live here, never inline)
 /web             Next.js app (app router), public/data/ artifacts land here
 /decisions.md    Durable decision log for measured product and engineering choices
 /raw             immutable downloaded payloads by hash (gitignored)
 /tests           pytest: unit tests for every scoring formula + golden set
-run.py           task runner: check | ingest | network | route | score | export | validate | publish | test
+run.py           task runner: check | ingest | network | score | export | validate | publish | test
 ```
 
 ## Working conventions
@@ -71,7 +71,7 @@ run.py           task runner: check | ingest | network | route | score | export 
 - Prefer boring code. No premature abstraction; the pipeline is a straight line.
 - **Determinism spec (byte-identical artifacts):** chunk work by sorted postal code (never by worker
   count), sort all JSON keys and record orders, round floats at export (scores 1 dp, coords 5 dp),
-  set `PYTHONHASHSEED=0`, pin dependencies via `uv.lock` + `package-lock.json`, pin Node (`packageManager` + `.nvmrc`).
+  set `PYTHONHASHSEED=0`, and pin dependencies via `uv.lock` + `web/package-lock.json`.
   Golden-set tests assert ranges, not exact floats.
 - **Windows-native rules:** pathlib for every path (never hardcoded separators); every `open()` uses
   `encoding="utf-8"` and `PYTHONUTF8=1` is set; multiprocessing is spawn-safe (`if __name__ == "__main__":`

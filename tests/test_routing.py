@@ -2,8 +2,6 @@ from shapely.geometry import LineString
 
 import json
 
-import pytest
-
 from pipeline import routing
 from pipeline.routing import RoutingGraph, route_worker
 
@@ -211,63 +209,6 @@ def test_reusable_routing_graph_matches_route_worker():
     assert graph_result["shortest_path_edges"] == []
     assert graph_result["sheltered_path_edges"] == []
     assert graph_result["path_edges"] == []
-
-
-def test_initialized_route_worker_matches_route_worker():
-    edges_dict = {
-        "u": [0, 1, 0, 3, 4],
-        "v": [1, 2, 3, 4, 2],
-        "length_m": [10.0, 10.0, 10.0, 10.0, 2.0],
-        "is_covered": [0, 0, 1, 1, 1],
-    }
-    od_pairs = {0: [2]}
-
-    expected = route_worker((edges_dict, od_pairs, 0.6, 1.25))
-    routing.init_route_worker(edges_dict)
-    actual = routing.route_worker_initialized((od_pairs, 0.6, 1.25))
-
-    assert actual == expected
-
-
-def test_initialized_route_worker_requires_initializer(monkeypatch):
-    monkeypatch.setattr(routing, "_WORKER_ROUTING_GRAPH", None)
-
-    with pytest.raises(RuntimeError, match="not initialized"):
-        routing.route_worker_initialized(({0: [2]}, 0.6, 1.25))
-
-
-def test_choose_routing_worker_count_uses_memory_limit():
-    workers, reason = routing.choose_routing_worker_count(
-        100,
-        {
-            "max_workers": None,
-            "default_cpu_cap": 8,
-            "measured_worker_rss_gib": 2.9,
-            "memory_reserve_gib": 4.0,
-        },
-        cpu_count_value=14,
-        available_memory_gib=16.0,
-    )
-
-    assert workers == 4
-    assert "memory_limit=4" in reason
-
-
-def test_choose_routing_worker_count_respects_configured_cap():
-    workers, reason = routing.choose_routing_worker_count(
-        100,
-        {
-            "max_workers": 3,
-            "default_cpu_cap": 8,
-            "measured_worker_rss_gib": 2.9,
-            "memory_reserve_gib": 4.0,
-        },
-        cpu_count_value=14,
-        available_memory_gib=64.0,
-    )
-
-    assert workers == 3
-    assert "configured_cap=3" in reason
 
 
 def test_routing_exports_shortest_and_sheltered_path_edges_with_geometry():

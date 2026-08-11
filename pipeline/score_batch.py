@@ -80,7 +80,7 @@ def json_safe_score_record(record: dict[str, Any]) -> dict[str, Any]:
     so ``_geometry``, ``_geometry_options`` and ``_candidate_geometries`` all
     stay in sync when the record schema evolves. Local reimplementation
     remains a thin wrapper so callers importing ``json_safe_score_record``
-    from ``pipeline.score_batch`` (the multiprocessing chunk emitter) keep
+    from ``pipeline.score_batch`` (the deterministic batch chunk emitter) keep
     working.
     """
     return _shared_json_safe_score_record(record)

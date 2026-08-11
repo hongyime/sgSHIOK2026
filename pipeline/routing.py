@@ -1,10 +1,5 @@
-import ctypes
-import math
-import os
-from multiprocessing import Pool, cpu_count
 from pathlib import Path
 
-import geopandas as gpd
 import igraph as ig
 import pandas as pd
 import yaml
@@ -35,75 +30,6 @@ EDGE_METADATA_COLUMNS = list(
 def load_params():
     with open(CONFIG_PATH, "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
-
-
-def _available_memory_gib() -> float | None:
-    if os.name == "nt":
-        class MEMORYSTATUSEX(ctypes.Structure):
-            _fields_ = [
-                ("dwLength", ctypes.c_ulong),
-                ("dwMemoryLoad", ctypes.c_ulong),
-                ("ullTotalPhys", ctypes.c_ulonglong),
-                ("ullAvailPhys", ctypes.c_ulonglong),
-                ("ullTotalPageFile", ctypes.c_ulonglong),
-                ("ullAvailPageFile", ctypes.c_ulonglong),
-                ("ullTotalVirtual", ctypes.c_ulonglong),
-                ("ullAvailVirtual", ctypes.c_ulonglong),
-                ("ullAvailExtendedVirtual", ctypes.c_ulonglong),
-            ]
-
-        status = MEMORYSTATUSEX()
-        status.dwLength = ctypes.sizeof(MEMORYSTATUSEX)
-        if ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(status)):
-            return float(status.ullAvailPhys) / (1024**3)
-        return None
-
-    try:
-        pages = os.sysconf("SC_AVPHYS_PAGES")
-        page_size = os.sysconf("SC_PAGE_SIZE")
-    except (AttributeError, OSError, ValueError):
-        return None
-    return float(pages * page_size) / (1024**3)
-
-
-def choose_routing_worker_count(
-    origin_count: int,
-    routing_params: dict | None = None,
-    *,
-    cpu_count_value: int | None = None,
-    available_memory_gib: float | None = None,
-) -> tuple[int, str]:
-    routing_params = routing_params or {}
-    if origin_count <= 0:
-        return 1, "origin_count=0"
-
-    configured = routing_params.get("max_workers")
-    cpu_limit = max(1, int(cpu_count_value or cpu_count() or 1))
-    origin_limit = max(1, int(origin_count))
-    default_cap = int(routing_params.get("default_cpu_cap", 8))
-    requested_cap = int(configured) if configured is not None else default_cap
-
-    worker_limit = max(1, min(cpu_limit, origin_limit, requested_cap))
-    reasons = [
-        f"origin_limit={origin_limit}",
-        f"cpu_limit={cpu_limit}",
-        f"configured_cap={requested_cap}",
-    ]
-
-    memory = available_memory_gib if available_memory_gib is not None else _available_memory_gib()
-    rss_gib = float(routing_params.get("measured_worker_rss_gib", 2.9))
-    reserve_gib = float(routing_params.get("memory_reserve_gib", 4.0))
-    if memory is None or rss_gib <= 0:
-        reasons.append("memory_limit=unknown")
-    else:
-        usable_gib = max(0.0, float(memory) - reserve_gib)
-        memory_limit = max(1, int(usable_gib // rss_gib))
-        worker_limit = min(worker_limit, memory_limit)
-        reasons.append(
-            f"memory_limit={memory_limit} available_gib={memory:.1f} reserve_gib={reserve_gib:.1f} worker_rss_gib={rss_gib:.1f}"
-        )
-
-    return max(1, worker_limit), "; ".join(reasons)
 
 
 def prepare_edges_for_routing(edges_df):
@@ -485,11 +411,8 @@ class RoutingGraph:
         return results
 
 
-_WORKER_ROUTING_GRAPH = None
-
-
 def route_worker(args):
-    """Worker function for multiprocessing."""
+    """Route one origin-destination chunk from plain edge arrays."""
     edges_dict, od_pairs, shelter_lambda, detour_budget = args
     return RoutingGraph.from_edges_dict(edges_dict).route(
         od_pairs,
@@ -497,74 +420,6 @@ def route_worker(args):
         detour_budget,
         include_geometry=True,
     )
-
-
-def init_route_worker(edges_dict):
-    """Build the routing graph once per worker process."""
-    global _WORKER_ROUTING_GRAPH
-    _WORKER_ROUTING_GRAPH = RoutingGraph.from_edges_dict(edges_dict)
-
-
-def route_worker_initialized(args):
-    """Route one chunk using the worker-local graph built by the pool initializer."""
-    if _WORKER_ROUTING_GRAPH is None:
-        raise RuntimeError("route worker graph was not initialized")
-    od_pairs, shelter_lambda, detour_budget = args
-    return _WORKER_ROUTING_GRAPH.route(
-        od_pairs,
-        shelter_lambda,
-        detour_budget,
-        include_geometry=True,
-    )
-
-
-def run_routing_batch(network_path, od_pairs):
-    params = load_params()
-    shelter_lambda = params["shelter_lambda"]
-    detour_budget = params["detour_budget"]
-    routing_params = params.get("routing", {})
-
-    print(f"Loading network from {network_path}...")
-    edges_df = pd.read_parquet(network_path)
-    edges_df = prepare_edges_for_routing(edges_df)
-
-    cols = ["u", "v", "length_m", "is_covered"]
-    if "geometry" in edges_df.columns:
-        cols.append("geometry")
-    cols.extend(column for column in EDGE_METADATA_COLUMNS if column in edges_df.columns)
-    edges_dict = edges_df[cols].to_dict("list")
-
-    origins = list(od_pairs.keys())
-    num_workers, worker_reason = choose_routing_worker_count(len(origins), routing_params)
-    target_tasks_per_worker = max(1, int(routing_params.get("target_tasks_per_worker", 4)))
-    chunk_size = max(1, math.ceil(len(origins) / (num_workers * target_tasks_per_worker)))
-
-    origin_chunks = [origins[i : i + chunk_size] for i in range(0, len(origins), chunk_size)]
-
-    worker_args = []
-    for chunk in origin_chunks:
-        chunk_od_pairs = {o: od_pairs[o] for o in chunk}
-        worker_args.append((chunk_od_pairs, shelter_lambda, detour_budget))
-
-    print(
-        "Starting routing on "
-        f"{len(origins)} origins with {num_workers} workers, {len(worker_args)} chunks, "
-        f"chunk_size={chunk_size}; worker_choice={worker_reason}"
-    )
-
-    results = []
-    with Pool(num_workers, initializer=init_route_worker, initargs=(edges_dict,)) as pool:
-        for res_chunk in pool.imap_unordered(route_worker_initialized, worker_args):
-            results.extend(res_chunk)
-
-    df = pd.DataFrame(results)
-
-    # Ensure geometries are maintained
-    if "geometry" in df.columns:
-        gdf = gpd.GeoDataFrame(df, geometry="geometry", crs="EPSG:3414")
-        return gdf
-    return df
-
 
 if __name__ == "__main__":
     pass

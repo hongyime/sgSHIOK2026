@@ -16,10 +16,10 @@ GitHub Actions exists for repository automation and CI, not for heavy pipeline c
   (Using a non-Claude agent? It still applies — point your agent at it explicitly.)
 - `decisions.md` — durable decision log. Append evidence and rationale; do not overwrite.
 - `pipeline/config/weights.yaml` — locked composite-score weights.
-- `pipeline/config/params.yaml` — tunable pipeline and routing constants.
+- `pipeline/config/params.yaml` — tunable pipeline constants.
 - `.github/workflows/` — CI and repository automation workflows.
 - `env.example` — copy to `.env` and fill in (see prerequisites).
-- `run.py` — cross-platform task runner (check | ingest | network | route | score | export |
+- `run.py` — cross-platform task runner (check | ingest | network | score | export |
   validate | publish | test). `publish` always runs `validate` first.
 
 ## Human prerequisites (do these once — agents can't register accounts)

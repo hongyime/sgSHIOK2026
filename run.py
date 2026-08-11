@@ -2,12 +2,13 @@
 """S.H.I.O.K. task runner (cross-platform replacement for make).
 
 Usage: python run.py <task> [options]
-Tasks: batch-plan | bus-arrivals | bus-connector-diagnostics | candidate-audit | check | compare-targeted | ingest | network | network-debug | network-preflight | network-qa | onemap-validation | onemap-outlier-replay | onemap-outlier-triage | overture-addresses | readiness | refresh-provenance | route | score | score-batch | postal-universe | geocode-universe | export | export-transit | validate | publish | test | shell
+Tasks: batch-plan | bus-arrivals | bus-connector-diagnostics | candidate-audit | check | compare-targeted | ingest | network | network-debug | network-preflight | network-qa | onemap-validation | onemap-outlier-replay | onemap-outlier-triage | overture-addresses | readiness | refresh-provenance | score | score-batch | postal-universe | geocode-universe | export | export-transit | validate | publish | test | shell
 `publish` ALWAYS runs `validate` first — this gate is hard-coded and must never be removed.
 Stubs below are replaced task-by-task per docs/BUILD_PLAN.md.
 """
 
 import argparse
+import os
 import subprocess
 import sys
 
@@ -28,7 +29,6 @@ STUBS = {
     "overture-addresses": "probe Overture Addresses SG postal-universe candidate",
     "readiness": "fast production-readiness report without scoring or deploying",
     "refresh-provenance": "refresh bundle manifest score provenance without rescoring",
-    "route": "igraph dual-weight batch, spawn-safe multiprocessing (T1.2)",
     "score": "apply pipeline/config/weights.yaml (T1.4)",
     "score-batch": "resumable postal scoring batch runner",
     "bus-arrivals": "collect local LTA bus-arrival snapshots for future reliability scoring",
@@ -47,10 +47,16 @@ STUBS = {
 }
 
 
+def subprocess_env() -> dict[str, str]:
+    env = os.environ.copy()
+    env["PYTHONHASHSEED"] = "0"
+    return env
+
+
 def run_task(name: str, extra: list[str]) -> int:
     def run_module(module: str, module_args: list[str] | None = None) -> int:
         cmd = [sys.executable, "-m", module] + (module_args or []) + extra
-        return subprocess.run(cmd, check=False).returncode
+        return subprocess.run(cmd, check=False, env=subprocess_env()).returncode
 
     if name == "batch-plan":
         return run_module("pipeline.batch_plan")
@@ -102,6 +108,9 @@ def run_task(name: str, extra: list[str]) -> int:
         return run_module("pipeline.export", ["export-transit"])
     if name == "validate":
         return run_module("pipeline.export", ["validate"])
+    if name == "shell":
+        print(f"not implemented: {name} — {STUBS[name]}")
+        return 0
 
     print(f"not implemented: {name} — {STUBS[name]}")
     return 0
