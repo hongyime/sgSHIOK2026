@@ -1006,6 +1006,8 @@ export function RouteEvidenceMap({
         minZoom: 10,
         maxZoom: 19,
         maxBounds: SINGAPORE_BOUNDS,
+        // We render the OneMap/SLA attribution below so it stays fully visible on
+        // narrow screens instead of collapsing behind MapLibre's compact toggle.
         attributionControl: false,
       });
       mapRef.current.addControl(new maplibre.NavigationControl({ showCompass: false }), "top-right");

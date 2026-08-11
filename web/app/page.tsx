@@ -48,7 +48,7 @@ import {
 } from "../lib/subscore-ranking";
 import styles from "./page.module.css";
 
-interface LoadedSelection {
+export interface LoadedSelection {
   result: SearchResult;
   score: ScoreRecord | null;
   geom: PostalGeom | null;
@@ -100,7 +100,7 @@ const REASON_COPY: Record<keyof Subscores, { low: string; high: string }> = {
   crossing: { low: "More crossing friction", high: "Easy crossing profile" },
 };
 
-type FeedbackSegmentLabel =
+export type FeedbackSegmentLabel =
   | "sheltered"
   | "void_deck"
   | "covered_bridge"
@@ -118,6 +118,80 @@ const FEEDBACK_SEGMENT_OPTIONS: Array<{ id: FeedbackSegmentLabel; label: string 
   { id: "blocked", label: "Blocked" },
   { id: "other", label: "Other" },
 ];
+
+export function searchResultsAnnouncement(results: SearchResult[], loading: boolean, error: string | null): string {
+  if (loading || error || results.length === 0) return "";
+  return `${results.length} search result${results.length === 1 ? "" : "s"} available.`;
+}
+
+export function scoreCardAnnouncement({
+  selection,
+  stationName,
+  selectedRouteLabel,
+  displayScore,
+  isCustomStopSelected,
+  previewRoute,
+  routeMode,
+}: {
+  selection: LoadedSelection | null;
+  stationName?: string;
+  selectedRouteLabel?: string;
+  displayScore?: number | null;
+  isCustomStopSelected?: boolean;
+  previewRoute?: boolean;
+  routeMode: RouteDisplayMode;
+}): string {
+  if (!selection) return "No score selected.";
+  const postal = postalTitle(selection);
+  if (!selection.score) return `${postal} is not yet scored.`;
+  const scoreText = displayScore === null || displayScore === undefined
+    ? "not scored"
+    : `${Math.round(displayScore)} out of 100`;
+  const stopText = isCustomStopSelected
+    ? previewRoute
+      ? "Preview route evidence selected."
+      : "Custom stop selected."
+    : "Best route selected.";
+  return `${postal} score panel loaded. ${stationName ?? "Transit target loaded"}. Score ${scoreText}. ${stopText} Route display ${routeMode}; ${selectedRouteLabel ?? "route"} active.`;
+}
+
+export function rankAnnouncement({
+  loading,
+  rankedCount,
+  rankMetricLabel,
+}: {
+  loading: boolean;
+  rankedCount: number;
+  rankMetricLabel: string;
+}): string {
+  if (loading) return `Loading ${rankMetricLabel} ranks.`;
+  if (rankedCount === 0) return `No ${rankMetricLabel} ranks available.`;
+  return `${rankedCount} ${rankMetricLabel} rank${rankedCount === 1 ? "" : "s"} available.`;
+}
+
+export function SearchFeedback({
+  results,
+  loading,
+  error,
+}: {
+  results: SearchResult[];
+  loading: boolean;
+  error: string | null;
+}) {
+  const status = searchResultsAnnouncement(results, loading, error);
+  return (
+    <>
+      <p className={styles.srOnly} role="status" aria-live="polite">
+        {status}
+      </p>
+      {error && (
+        <div className={styles.errorBox} role="alert" aria-live="assertive">
+          {error}
+        </div>
+      )}
+    </>
+  );
+}
 
 function normalizePostal(value: string): string | null {
   const trimmed = value.trim();
@@ -761,7 +835,7 @@ function InlineRouteLegend({
   );
 }
 
-function ScoreCard({
+export function ScoreCard({
   selection,
   routeMode,
   setRouteMode,
@@ -811,6 +885,9 @@ function ScoreCard({
   if (!selection) {
     return (
       <section className={styles.scoreCard} aria-label="Score panel">
+        <p className={styles.srOnly} role="status" aria-live="polite">
+          {scoreCardAnnouncement({ selection, routeMode })}
+        </p>
         <div className={styles.emptyState}>
           <strong>Find a postal code</strong>
           <span>Search any Singapore address to see its walk-to-transit comfort score.</span>
@@ -823,6 +900,9 @@ function ScoreCard({
   if (!score) {
     return (
       <section className={styles.scoreCard} aria-label="Score panel">
+        <p className={styles.srOnly} role="status" aria-live="polite">
+          {scoreCardAnnouncement({ selection, routeMode })}
+        </p>
         <h2>{postalTitle(selection)}</h2>
         <div className={styles.emptyState}>
           <strong>Not yet scored</strong>
@@ -869,6 +949,20 @@ function ScoreCard({
   );
   const rankMetricLabel =
     RANK_METRIC_OPTIONS.find((option) => option.id === rankMetric)?.label ?? "Overall SHIOK";
+  const scoreStatus = scoreCardAnnouncement({
+    selection,
+    stationName,
+    selectedRouteLabel,
+    displayScore,
+    isCustomStopSelected,
+    previewRoute,
+    routeMode,
+  });
+  const rankStatus = rankAnnouncement({
+    loading: rankingLoading,
+    rankedCount: rankedRecords.length,
+    rankMetricLabel,
+  });
   const sourceBreakdown = routeSourceBreakdown(selection, routeMode, sameRoute);
   const exposureGaps = score.exposure_gaps ? [...score.exposure_gaps].sort((a, b) => b.len_m - a.len_m) : [];
   const endpointSnapM = score.paths?.endpoint_snap_connector_m ?? 0;
@@ -895,6 +989,9 @@ function ScoreCard({
 
   return (
     <section className={styles.scoreCard} aria-label="Score panel">
+      <p className={styles.srOnly} role="status" aria-live="polite">
+        {scoreStatus}
+      </p>
       <div className={styles.scoreHeader}>
         <div>
           <h2>{postalTitle(selection)}</h2>
@@ -1028,7 +1125,7 @@ function ScoreCard({
       )}
 
       {score.subscores && (
-        <div className={styles.rankPanel} aria-label="Rank by view">
+        <div className={styles.rankPanel} aria-label="Rank by view" aria-busy={rankingLoading}>
           <div className={styles.rankHeader}>
             <div>
               <strong>Rank by</strong>
@@ -1052,7 +1149,8 @@ function ScoreCard({
               </select>
             </label>
           </div>
-          <div className={styles.rankList}>
+          <div className={styles.rankList} role="status" aria-live="polite">
+            <span className={styles.srOnly}>{rankStatus}</span>
             {rankingLoading && <span className={styles.rankEmpty}>Loading local ranks...</span>}
             {!rankingLoading && rankedRecords.length === 0 && (
               <span className={styles.rankEmpty}>No comparable scored records in this area.</span>
@@ -1552,7 +1650,7 @@ export default function Home() {
         chosenStopId={chosenStopId ?? bestCandidateId}
       />
 
-      <section className={styles.searchOverlay} aria-label="Address search">
+      <section className={styles.searchOverlay} aria-label="Address search" aria-busy={loading}>
         <div className={styles.brandRow}>
           <div>
             <h1>S.H.I.O.K. Index</h1>
@@ -1576,7 +1674,7 @@ export default function Home() {
           </div>
         </div>
 
-        <form onSubmit={handleSearch} className={styles.searchForm}>
+        <form onSubmit={handleSearch} className={styles.searchForm} aria-busy={loading}>
           <input
             id="postal-search-input"
             type="text"
@@ -1585,15 +1683,15 @@ export default function Home() {
             onChange={(e) => setQuery(e.target.value)}
             aria-label="Search address or postal"
           />
-          <button id="postal-search-button" type="submit" disabled={loading}>
+          <button id="postal-search-button" type="submit" disabled={loading} aria-busy={loading}>
             {loading ? "Loading" : "Search"}
           </button>
         </form>
 
-        {error && <div className={styles.errorBox}>{error}</div>}
+        <SearchFeedback results={results} loading={loading} error={error} />
 
         {results.length > 0 && (
-          <div className={styles.resultList}>
+          <div className={styles.resultList} aria-label="Search results">
             {results.map((item, idx) => (
               <button key={`${item.POSTAL}-${idx}`} type="button" onClick={() => loadSelection(item)}>
                 <span>
