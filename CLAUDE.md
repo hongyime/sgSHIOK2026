@@ -4,19 +4,24 @@ You are building the S.H.I.O.K. Index: a free, non-commercial civic web app that
 every Singapore postal code an explainable "comfort score" for the walk to transit
 (shelter from rain, heat, crossing friction, transit access, bus frequency).
 
-Authoritative spec: `docs/PRD_v4.2.md`. Task order and acceptance criteria: `docs/BUILD_PLAN.md`.
-Dataset details and gotchas: `docs/DATA_SOURCES.md`. If this file and the PRD conflict, the PRD wins.
+The former `docs/` source files are not present in this repository because the shared
+configuration sync strips that directory from target repos. Treat the code, tests,
+`pipeline/config/*.yaml`, tracked release evidence, and `decisions.md` as the available
+source of truth. If this file conflicts with those tracked artifacts, verify before editing.
 
 ## Hard constraints — never violate
 
 1. **$0 budget.** Never introduce a paid service, a service requiring a credit card, or any
    metered resource without a hard free cap. Vercel **Hobby** tier only. No Cloudflare. No AWS/GCP.
-2. **No GitHub Actions.** All compute (ingestion, network build, routing, scoring, export)
-   runs natively on the owner's Windows 11 machine (no WSL, no Docker — see decisions.md). GitHub is code hosting only.
+2. **No heavy pipeline compute in GitHub Actions.** Ingestion, network build, routing,
+   scoring, and export run natively on the owner's Windows 11 machine (no WSL, no Docker).
+   GitHub Actions is allowed for CI and repository automation.
 3. **Non-commercial.** No ads, analytics beyond a privacy-safe pageview counter, donations,
    accounts, or partner integrations. This is what makes Vercel Hobby compliant.
-4. **No runtime backend** except one Vercel serverless function: `/api/onemap-search`
-   (OneMap geocoding proxy with token cache + per-IP throttle). Everything else is static files.
+4. **Minimal runtime backend.** The current runtime backend consists of two Vercel
+   serverless functions: `/api/onemap-search` for OneMap search/geocoding and
+   `/api/onemap-route` for clicked-stop preview-route evidence. Everything else is static
+   files. Do not add another network-backed route without owner approval.
 5. **No date-stamped dataset URLs in code.** Discover latest via listing/API, download,
    SHA-256 hash; the hash is the change trigger and goes in `manifest.json`.
 6. **All metric geometry ops in EPSG:3414 (SVY21).** WGS84 only at the serving edge.
@@ -24,7 +29,7 @@ Dataset details and gotchas: `docs/DATA_SOURCES.md`. If this file and the PRD co
    Never log the OneMap token.
 8. **Licensing:** every LTA/data.gov.sg layer needs Singapore Open Data Licence attribution;
    OneMap/SLA attribution for basemap + search; OSM-derived geometries are ODbL.
-   Keep `docs/ATTRIBUTION.md` current when adding any data source.
+   Keep attribution in tracked visible documentation when adding any data source.
 9. **Do not scrape, call, or depend on undercover.gov.sg.** It is a closed government
    prototype with no API; we use the same open upstream data directly.
 10. **Determinism:** same inputs + same code tag ⇒ byte-identical artifacts
@@ -47,7 +52,7 @@ Dataset details and gotchas: `docs/DATA_SOURCES.md`. If this file and the PRD co
 /pipeline        Python package: fetch, ingest, network, route, score, export, validate
 /pipeline/config weights.yaml, params.yaml (all constants live here, never inline)
 /web             Next.js app (app router), public/data/ artifacts land here
-/docs            PRD_v4.2.md, BUILD_PLAN.md, DATA_SOURCES.md, ATTRIBUTION.md, decisions.md
+/decisions.md    Durable decision log for measured product and engineering choices
 /raw             immutable downloaded payloads by hash (gitignored)
 /tests           pytest: unit tests for every scoring formula + golden set
 run.py           task runner: check | ingest | network | route | score | export | validate | publish | test
@@ -55,14 +60,14 @@ run.py           task runner: check | ingest | network | route | score | export 
 
 ## Working conventions
 
-- Work task-by-task from BUILD_PLAN; one branch/commit per task, message `[T0.3] fetch-and-hash`.
+- Work task-by-task from the owner-approved brief or issue; one branch/commit per task.
 - A task is DONE only when its acceptance criteria pass and `python run.py test` is green.
 - Write the test for a scoring formula before the formula (they are pure functions — keep them so).
 - Every pipeline stage prints a one-line summary (counts, timings) and writes a log under `logs/`.
 - **Decide vs ask:** decide freely on implementation details (libraries within the stack, file
   layout, refactors). STOP and ask the owner before: adding any dependency with network calls
   at runtime, changing scoring weights/formulas, changing artifact schemas, anything touching
-  constraints 1–9, or any deviation from a LOCKED PRD decision (log it in `docs/decisions.md`).
+  constraints 1–9, or any deviation from a locked decision (log it in `decisions.md`).
 - Prefer boring code. No premature abstraction; the pipeline is a straight line.
 - **Determinism spec (byte-identical artifacts):** chunk work by sorted postal code (never by worker
   count), sort all JSON keys and record orders, round floats at export (scores 1 dp, coords 5 dp),

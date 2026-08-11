@@ -6,20 +6,18 @@ friction, transit access, and bus frequency — computed on real routed paths fr
 government data.
 
 **Status:** live static-first pilot with a scored 124,032-record source-derived universe.
-The remaining canonical postal-universe gap is tracked honestly in
-`docs/POSTAL_UNIVERSE.md`.
-**Environment:** Windows 11, native. No WSL, no Docker, no GitHub Actions, no paid services.
+Current product decisions and known evidence limits are tracked in `decisions.md`.
+**Environment:** Windows 11, native pipeline work. No WSL, no Docker, no paid services.
+GitHub Actions exists for repository automation and CI, not for heavy pipeline compute.
 
 ## Repo map
 
 - `CLAUDE.md` — agent instructions: hard constraints, stack, layout, conventions. Read first.
   (Using a non-Claude agent? It still applies — point your agent at it explicitly.)
-- `docs/PRD_v4.2.md` — the product spec (authoritative; includes all ratified amendments).
-- `docs/BUILD_PLAN.md` — Phase 0–1 tasks with acceptance criteria. Work strictly in order.
-- `docs/DATA_SOURCES.md` — every dataset, endpoint, licence, and gotcha.
-- `docs/ENGINEERING_REVIEW.md` — pre-implementation review; explains the amended decisions.
-- `docs/decisions.md` — running decision log (pre-seeded; agents append, never delete).
-- `docs/ATTRIBUTION.md` — licence/attribution matrix (T0.5 completes it).
+- `decisions.md` — durable decision log. Append evidence and rationale; do not overwrite.
+- `pipeline/config/weights.yaml` — locked composite-score weights.
+- `pipeline/config/params.yaml` — tunable pipeline and routing constants.
+- `.github/workflows/` — CI and repository automation workflows.
 - `env.example` — copy to `.env` and fill in (see prerequisites).
 - `run.py` — cross-platform task runner (check | ingest | network | route | score | export |
   validate | publish | test). `publish` always runs `validate` first.
@@ -39,16 +37,16 @@ The remaining canonical postal-universe gap is tracked honestly in
 
 ## Kickoff prompt for the coding agent
 
-> Read CLAUDE.md, docs/PRD_v4.2.md, and docs/BUILD_PLAN.md. Then start at T0.1 and work
-> through the tasks strictly in order, verifying each task's acceptance criteria before
-> moving on. Log every decision in docs/decisions.md. This machine is Windows 11 —
-> PowerShell commands only, no WSL, no Docker.
+> Read README.md, CLAUDE.md, decisions.md, pipeline/config/weights.yaml, and
+> pipeline/config/params.yaml. Infer missing product context from code, tests, and tracked
+> release evidence. Verify acceptance criteria before moving on. Log durable decisions in
+> decisions.md. This machine is Windows 11 — PowerShell commands only, no WSL, no Docker.
 
 ## Ground rules (enforced in CLAUDE.md — summary)
 
-$0 budget, no paid services, Vercel Hobby only, no Cloudflare, no GitHub Actions; all
-heavy compute runs natively on this Windows machine (uv-managed Python); the only runtime
-backend is the OneMap search proxy; all routing runs in python-igraph on the project's own
+$0 budget, no paid services, Vercel Hobby only, no Cloudflare; all heavy compute runs
+natively on this Windows machine (uv-managed Python); runtime backend surface is limited to
+the two current OneMap helper routes; all routing runs in python-igraph on the project's own
 graph; every published score is reproducible from hashed inputs + tagged code.
 
 ## License
