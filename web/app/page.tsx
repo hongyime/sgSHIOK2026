@@ -1558,7 +1558,20 @@ export default function Home() {
             <h1>S.H.I.O.K. Index</h1>
             <p>Singapore walk-to-transit comfort</p>
             <p className={styles.dataLine}>Data as of {formatDataDate(manifest)}</p>
-            <p className={styles.sourceLine}>Sources: LTA, data.gov.sg, OneMap, OSM</p>
+            <p className={styles.sourceLine}>
+              Sources: LTA/data.gov.sg, OneMap/SLA, © OpenStreetMap contributors (
+              <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">
+                ODbL
+              </a>
+              ).{" "}
+              <a
+                href="https://github.com/hongyime/sgSHIOK2026/blob/main/ATTRIBUTION.md"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                ATTRIBUTION.md
+              </a>
+            </p>
             <p className={styles.heatLine}>Heat: shelter + NParks shade proxy</p>
           </div>
         </div>

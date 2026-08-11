@@ -25,7 +25,9 @@ describe("score card copy", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
     expect(source).toContain("Data as of {formatDataDate(manifest)}");
-    expect(source).toContain("Sources: LTA, data.gov.sg, OneMap, OSM");
+    expect(source).toContain("© OpenStreetMap contributors");
+    expect(source).toContain("https://opendatacommons.org/licenses/odbl/1-0/");
+    expect(source).toContain("ATTRIBUTION.md");
     expect(source).toContain("Heat: shelter + NParks shade proxy");
     expect(source).not.toContain("Heat: shelter plus NParks shade proxy");
   });

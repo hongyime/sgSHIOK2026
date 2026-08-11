@@ -49,6 +49,7 @@ natively on this Windows machine (uv-managed Python); runtime backend surface is
 the two current OneMap helper routes; all routing runs in python-igraph on the project's own
 graph; every published score is reproducible from hashed inputs + tagged code.
 
-## License
+## License And Attribution
 
-Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
+Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE). Source data and map
+attribution are recorded in [ATTRIBUTION.md](ATTRIBUTION.md).

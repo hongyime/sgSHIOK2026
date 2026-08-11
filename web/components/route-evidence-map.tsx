@@ -30,6 +30,8 @@ const SINGAPORE_BOUNDS: [[number, number], [number, number]] = [
 ];
 
 const ONE_MAP_TILE_BOUNDS = [103.596, 1.1443, 104.4309, 1.4835] as [number, number, number, number];
+const ONE_MAP_ATTRIBUTION =
+  '<img src="https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png" style="height:20px;width:20px;"/>&nbsp;<a href="https://www.onemap.gov.sg/" target="_blank" rel="noopener noreferrer">OneMap</a>&nbsp;&copy;&nbsp;contributors&nbsp;&#124;&nbsp;<a href="https://www.sla.gov.sg/" target="_blank" rel="noopener noreferrer">Singapore Land Authority</a>';
 
 const ONE_MAP_STYLE: StyleSpecification = {
   version: 8,
@@ -42,7 +44,7 @@ const ONE_MAP_STYLE: StyleSpecification = {
       bounds: ONE_MAP_TILE_BOUNDS,
       minzoom: 8,
       maxzoom: 20,
-      attribution: "© OneMap, Singapore Land Authority",
+      attribution: ONE_MAP_ATTRIBUTION,
     },
   },
   layers: [
@@ -1004,9 +1006,7 @@ export function RouteEvidenceMap({
         minZoom: 10,
         maxZoom: 19,
         maxBounds: SINGAPORE_BOUNDS,
-        attributionControl: {
-          compact: true,
-        },
+        attributionControl: false,
       });
       mapRef.current.addControl(new maplibre.NavigationControl({ showCompass: false }), "top-right");
       if (typeof window !== "undefined") {
@@ -1161,6 +1161,10 @@ export function RouteEvidenceMap({
         role="img"
         tabIndex={0}
         className={styles.mapCanvas}
+      />
+      <div
+        className={styles.oneMapAttribution}
+        dangerouslySetInnerHTML={{ __html: ONE_MAP_ATTRIBUTION }}
       />
       <p id="route-map-summary" className={styles.screenReaderOnly}>
         {accessibleSummary}
