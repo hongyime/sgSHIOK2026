@@ -1,11 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
-
-// Token cache state (shared with search or independent)
-let cachedToken: string | null = null;
-let tokenExpiresAt = 0;
+import {
+  checkThrottle,
+  expireOneMapTokenForRetry,
+  getOneMapToken,
+  parseClientIp,
+  type ThrottleRecord,
+} from "../onemap";
 
 // Simple in-memory rate limiting map: IP -> { count, windowStart }
-const ipThrottleMap = new Map<string, { count: number; windowStart: number }>();
+const ipThrottleMap = new Map<string, ThrottleRecord>();
 const MAX_REQ_PER_MINUTE = 60;
 
 const SINGAPORE_BOUNDS = {
@@ -14,44 +17,6 @@ const SINGAPORE_BOUNDS = {
   minLng: 103.58,
   maxLng: 104.08,
 };
-
-async function getOneMapToken(): Promise<string | null> {
-  const now = Date.now();
-  if (cachedToken && now < tokenExpiresAt) {
-    return cachedToken;
-  }
-
-  const email = process.env.ONEMAP_EMAIL;
-  const password = process.env.ONEMAP_PASSWORD;
-
-  if (!email || !password) {
-    return null;
-  }
-
-  try {
-    const res = await fetch("https://www.onemap.gov.sg/api/auth/post/getToken", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-
-    if (!res.ok) {
-      console.error("OneMap auth failed for route proxy:", res.status);
-      return null;
-    }
-
-    const data = await res.json();
-    if (data.access_token) {
-      cachedToken = data.access_token;
-      tokenExpiresAt = Date.now() + 241920 * 1000;
-      return cachedToken;
-    }
-  } catch (err) {
-    console.error("Error fetching OneMap token for route proxy:", err);
-  }
-
-  return null;
-}
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -101,28 +66,15 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  // Rate limiting check per IP
-  const ip = request.headers.get("x-forwarded-for") || "127.0.0.1";
-  const now = Date.now();
-  const throttleRecord = ipThrottleMap.get(ip);
-
-  if (throttleRecord) {
-    if (now - throttleRecord.windowStart < 60000) {
-      if (throttleRecord.count >= MAX_REQ_PER_MINUTE) {
-        return NextResponse.json(
-          { ok: false, error: "Too Many Requests. Rate limit exceeded (60 req/min)." },
-          { status: 429, headers: { "Retry-After": "60" } }
-        );
-      }
-      throttleRecord.count += 1;
-    } else {
-      ipThrottleMap.set(ip, { count: 1, windowStart: now });
-    }
-  } else {
-    ipThrottleMap.set(ip, { count: 1, windowStart: now });
+  const throttle = checkThrottle(ipThrottleMap, parseClientIp(request.headers), MAX_REQ_PER_MINUTE);
+  if (throttle.limited) {
+    return NextResponse.json(
+      { ok: false, error: "Too Many Requests. Rate limit exceeded (60 req/min)." },
+      { status: 429, headers: { "Retry-After": "60" } }
+    );
   }
 
-  const token = await getOneMapToken();
+  const token = await getOneMapToken("route");
   const routeUrl = `https://www.onemap.gov.sg/api/public/routingsvc/route?start=${startLat},${startLng}&end=${endLat},${endLng}&routeType=walk`;
 
   const headers: Record<string, string> = {};
@@ -135,9 +87,8 @@ export async function GET(request: NextRequest) {
 
     // Handle token 401 expiry
     if (response.status === 401 && token) {
-      cachedToken = null;
-      tokenExpiresAt = 0;
-      const newToken = await getOneMapToken();
+      expireOneMapTokenForRetry();
+      const newToken = await getOneMapToken("route retry");
       if (newToken) {
         headers["Authorization"] = `Bearer ${newToken}`;
         response = await fetch(routeUrl, { headers });
