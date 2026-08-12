@@ -313,3 +313,73 @@ DISAGREEMENTS:
 ```text
 No disagreement with the security or bus-saturation premises. Strand 2 measurement corrected the exact payload numbers and notes that CPU throttling was not applied in the file-level reproduction.
 ```
+
+P5 carry-forward CSP correction:
+```text
+Command: npm --prefix web run build after removing 'unsafe-eval' only
+Output:
+using local data bundle C:\shiok\web\public\data\generated_20260805_prefer_scored_routed
+▲ Next.js 16.3.0 (Turbopack)
+✓ Running next.config.js took 26ms
+  Creating an optimized production build ...
+✓ Compiled successfully in 873ms
+  Running TypeScript ...
+  Finished TypeScript in 448ms ...
+✓ Generating static pages using 7 workers (6/6) in 620ms
+
+Command: CDP 380x780 postal 560231 runtime check with script-src 'self' 'unsafe-inline'
+Output:
+{
+  "scorePanelPresent": true,
+  "mapCanvasPresent": true,
+  "mapDebugPresent": true,
+  "attributionText": "OneMap © contributors | Singapore Land Authority",
+  "logoSrc": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+  "attributionRect": {
+    "x": 104,
+    "y": 752,
+    "width": 268,
+    "height": 24,
+    "display": "flex",
+    "visibility": "visible",
+    "opacity": "1"
+  },
+  "cspHeaderRemovedUnsafeEval": true
+}
+
+Command: npm --prefix web run build after removing both 'unsafe-eval' and 'unsafe-inline'
+Output:
+using local data bundle C:\shiok\web\public\data\generated_20260805_prefer_scored_routed
+▲ Next.js 16.3.0 (Turbopack)
+✓ Running next.config.js took 26ms
+  Creating an optimized production build ...
+✓ Compiled successfully in 356ms
+  Running TypeScript ...
+  Finished TypeScript in 389ms
+✓ Generating static pages using 7 workers (6/6) in 593ms
+
+Command: CDP runtime check with script-src 'self'
+Output:
+{
+  "inputPresent": true,
+  "buttonCount": 1,
+  "body": "OneMap © contributors | Singapore Land Authority ... S.H.I.O.K. Index ... Search Source-derived comfort index."
+}
+
+Command: CDP postal search check with script-src 'self'
+Output:
+{
+  "hasScore": true,
+  "has560231": false,
+  "hasSubscores": false,
+  "canvas": false,
+  "attributionVisible": true,
+  "text": "OneMap © contributors | Singapore Land Authority ... Search Source-derived comfort index."
+}
+
+Command: rg --pcre2 -n "<script(?![^>]*src=)" web/.next/server/app -g "*.html" | Select-Object -First 5
+Output:
+web/.next/server/app\index.html:1:<script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([...])</script>
+
+Directive decision: 'unsafe-eval' is not required for the production build/runtime and was removed. 'unsafe-inline' remains required by Next 16 static App Router output because the production HTML contains inline bootstrap/RSC scripts without nonce attributes. A source-stable hash is not maintainable in next.config.js because the generated inline script bodies are build output. A nonce would require a per-response header/nonce pipeline that also stamps Next-generated scripts; this static-first Vercel Hobby app does not currently have that machinery.
+```

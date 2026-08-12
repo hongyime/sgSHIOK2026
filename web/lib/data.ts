@@ -159,19 +159,6 @@ export async function fetchScoreForPostal(
   return null;
 }
 
-export async function fetchScoreRecordsForPostalArea(postal: string): Promise<ScoreRecord[]> {
-  const primaryShards = await scoreShardsForPostal(postal);
-  if (primaryShards.length === 0) return [];
-  const base = scoreAreaBase(primaryShards[0]);
-  const index = await getAreaIndex();
-  const areaShards = Object.keys(index).filter(
-    (slug) => slug === base || slug.startsWith(`${base}_PART_`)
-  );
-  const shards = areaShards.length > 0 ? areaShards.sort() : primaryShards;
-  const records = await Promise.all(shards.map(fetchAreaRecords));
-  return records.flat();
-}
-
 function rankableScoreRecord(record: ScoreRecord): RankableScoreRecord {
   return {
     postal: record.postal,
