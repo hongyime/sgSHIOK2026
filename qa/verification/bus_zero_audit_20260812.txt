@@ -1,0 +1,113 @@
+Bus-zero audit for generated_20260805_prefer_scored_routed
+bundle_source: local:C:\shiok\web\public\data\generated_20260805_prefer_scored_routed
+manifest_record_count: 124443
+processed_record_count: 124443
+score_shard_count: 304
+manifest_state_counts: {"NOT_YET_SCORED": 476, "NO_TRANSIT_IN_RANGE": 9827, "SCORED": 95157, "SCORED_PARTIAL": 18983}
+
+normal_bus_curve: score=100 when wait<=2 min, score=0 when wait>=15 min, linear interpolation between; bus weight=0.20
+
+A1 total records by state
+- SCORED: 95157 (76.466%)
+- SCORED_PARTIAL: 18983 (15.254%)
+- NO_TRANSIT_IN_RANGE: 9827 (7.897%)
+- NOT_YET_SCORED: 476 (0.383%)
+
+A2 count/% of SCORED with bus == 0
+- SCORED records: 95157
+- SCORED with bus == 0: 39786 (41.811%)
+
+A3 among SCORED bus == 0, direct_bus_fallback.best_expected_wait_min present
+- present: 21169 (53.207%)
+- wait_min summary: count=21169, min=0.087, p25=0.538, median=0.779, p75=1.337, p90=3, p95=4.65, max=15
+- wait_min buckets:
+- [0,2): 17716 (83.688%)
+- [2,5): 2610 (12.329%)
+- [5,10): 839 (3.963%)
+- [15,+inf): 4 (0.019%)
+
+A4 composite points restored if fallback wait were scored through normal bus curve
+- restored_points summary: count=21169, min=0, p25=20, median=20, p75=20, p90=20, p95=20, max=20
+- restored_points buckets:
+- [15,20]: 20467 (96.684%)
+- [10,15): 684 (3.231%)
+- [5,10): 14 (0.066%)
+- 0: 4 (0.019%)
+
+A5 per-planning-area hit-rate table sorted by SCORED bus-zero hit rate
+planning_area,total,scored,scored_bus_zero,scored_bus_zero_pct,fallback_wait_present,fallback_wait_present_pct_of_scored_bus_zero
+CENTRAL_WATER_CATCHMENT,20,1,1,100.000%,0,0.000%
+MARINA_EAST,8,1,1,100.000%,0,0.000%
+MARINA_SOUTH,6,5,5,100.000%,2,40.000%
+STRAITS_VIEW,5,4,4,100.000%,2,50.000%
+NEWTON,623,568,422,74.296%,155,36.730%
+BUKIT_TIMAH,11870,8394,5491,65.416%,1666,30.341%
+TANGLIN,2265,1644,1025,62.348%,384,37.463%
+BISHAN,3831,3703,2271,61.329%,1472,64.817%
+RIVER_VALLEY,826,803,485,60.399%,339,69.897%
+NOVENA,3815,3228,1887,58.457%,786,41.653%
+HOUGANG,8052,6088,3541,58.164%,1524,43.039%
+SOUTHERN_ISLANDS,579,26,15,57.692%,0,0.000%
+WESTERN_WATER_CATCHMENT,354,121,67,55.372%,0,0.000%
+BUKIT_PANJANG,1749,1503,727,48.370%,540,74.278%
+MARINE_PARADE,3820,3661,1606,43.868%,1015,63.200%
+SELETAR,302,76,33,43.421%,0,0.000%
+QUEENSTOWN,2713,2295,990,43.137%,595,60.101%
+ANG_MO_KIO,5633,4217,1818,43.111%,1251,68.812%
+BEDOK,15570,13432,5735,42.697%,3382,58.971%
+YISHUN,2871,2189,926,42.302%,318,34.341%
+BUKIT_BATOK,2577,2107,855,40.579%,489,57.193%
+TUAS,1671,725,288,39.724%,137,47.569%
+SERANGOON,11902,6523,2568,39.368%,1451,56.503%
+TAMPINES,3155,2793,1094,39.169%,894,81.718%
+MANDAI,284,190,70,36.842%,0,0.000%
+TOA_PAYOH,2979,2781,1022,36.749%,661,64.677%
+CLEMENTI,2692,1480,538,36.351%,158,29.368%
+BOON_LAY,279,84,29,34.524%,0,0.000%
+SINGAPORE_RIVER,446,445,150,33.708%,133,88.667%
+PIONEER,842,430,134,31.163%,78,58.209%
+SUNGEI_KADUT,964,256,77,30.078%,2,2.597%
+SEMBAWANG,2374,1469,436,29.680%,223,51.147%
+WOODLANDS,1914,1519,450,29.625%,364,80.889%
+PUNGGOL,1209,1191,350,29.387%,263,75.143%
+GEYLANG,5422,5229,1487,28.438%,1028,69.132%
+BUKIT_MERAH,1651,1416,382,26.977%,235,61.518%
+KALLANG,2762,2712,686,25.295%,378,55.102%
+SENGKANG,1768,1733,427,24.639%,354,82.904%
+PAYA_LEBAR,130,38,9,23.684%,0,0.000%
+JURONG_EAST,822,447,105,23.490%,53,50.476%
+ROCHOR,2367,2367,515,21.757%,185,35.922%
+CHANGI,460,153,32,20.915%,1,3.125%
+JURONG_WEST,2762,1600,333,20.812%,209,62.763%
+LIM_CHU_KANG,158,5,1,20.000%,0,0.000%
+MUSEUM,130,130,24,18.462%,17,70.833%
+CHOA_CHU_KANG,1469,1167,210,17.995%,185,88.095%
+ORCHARD,167,167,29,17.365%,15,51.724%
+DOWNTOWN_CORE,483,475,70,14.737%,52,74.286%
+PASIR_RIS,3232,1974,256,12.969%,81,31.641%
+OUTRAM,1413,1412,107,7.578%,92,85.981%
+TENGAH,325,180,2,1.111%,0,0.000%
+CHANGI_BAY,4,0,0,n/a,0,n/a
+NORTH_EASTERN_ISLANDS,40,0,0,n/a,0,n/a
+SIMPANG,2,0,0,n/a,0,n/a
+UNKNOWN,498,0,0,n/a,0,n/a
+WESTERN_ISLANDS,178,0,0,n/a,0,n/a
+
+A6 direct_bus_fallback.reason distribution for SCORED bus == 0 records with fallback provenance
+- implausible_graph_route_to_datamall_bus_stop_within_direct_radius: 19876 (93.892%)
+- multiple_implausible_graph_routes_to_datamall_bus_stops_within_direct_radius: 1070 (5.055%)
+- low_trust_bus_stop_road_centerline_route: 121 (0.572%)
+- dominant_unrouted_bus_endpoint_and_access_connectors: 59 (0.279%)
+- large_unrouted_bus_stop_access_connector: 42 (0.198%)
+- dominant_unrouted_bus_endpoint_snap: 1 (0.005%)
+
+A7 nearest_direct_m distribution for affected records
+- nearest_direct_m summary: count=21169, min=14.2, p25=134.9, median=186.9, p75=239.4, p90=275.6, p95=289.8, max=305
+- nearest_direct_m buckets:
+- [150,200): 5131 (24.238%)
+- [200,250): 4971 (23.482%)
+- [100,150): 4491 (21.215%)
+- [250,305]: 4293 (20.280%)
+- [50,100): 2027 (9.575%)
+- [0,50): 256 (1.209%)
+
