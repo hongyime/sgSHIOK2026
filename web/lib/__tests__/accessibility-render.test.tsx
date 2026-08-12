@@ -86,6 +86,8 @@ function renderScoreCard(overrides: Partial<React.ComponentProps<typeof ScoreCar
     setRankMetric: noop,
     rankingRecords: [scoredRecord],
     rankingLoading: false,
+    rankPanelOpen: true,
+    setRankPanelOpen: noop,
     ...overrides,
   };
   return renderToStaticMarkup(<ScoreCard {...props} />);
@@ -130,6 +132,7 @@ describe("rendered accessibility output", () => {
       routeMode: "shortest",
       isCustomStopSelected: true,
       rankingLoading: true,
+      rankPanelOpen: true,
     });
 
     expect(html).toContain('role="status"');

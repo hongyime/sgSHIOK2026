@@ -1,4 +1,4 @@
-import type { ScoreRecord, Subscores } from "./types";
+import type { Subscores } from "./types";
 
 export type RankMetric = "overall" | keyof Subscores;
 
@@ -18,13 +18,19 @@ export interface RankedScoreRecord {
   total: number | null;
 }
 
-function metricValue(record: ScoreRecord, metric: RankMetric): number | null {
+export interface RankableScoreRecord {
+  postal: string;
+  total: number | null;
+  subscores: Subscores | null;
+}
+
+function metricValue(record: RankableScoreRecord, metric: RankMetric): number | null {
   if (metric === "overall") return record.total;
   return record.subscores?.[metric] ?? null;
 }
 
 export function rankScoreRecords(
-  records: ScoreRecord[],
+  records: RankableScoreRecord[],
   metric: RankMetric,
   limit = 5
 ): RankedScoreRecord[] {
