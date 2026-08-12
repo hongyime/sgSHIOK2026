@@ -1,0 +1,97 @@
+Bus fallback blast-radius analysis
+bundle: generated_20260805_prefer_scored_routed
+bundle_dir: C:\shiok\web\public\data\generated_20260805_prefer_scored_routed
+manifest_record_count: 124443
+processed_record_count: 124443
+manifest_state_counts: {"NOT_YET_SCORED": 476, "NO_TRANSIT_IN_RANGE": 9827, "SCORED": 95157, "SCORED_PARTIAL": 18983}
+processed_state_counts: {"NOT_YET_SCORED": 476, "NO_TRANSIT_IN_RANGE": 9827, "SCORED": 95157, "SCORED_PARTIAL": 18983}
+
+hypothesis:
+- For SCORED records where published subscores.bus == 0 and provenance.direct_bus_fallback.best_expected_wait_min is numeric, replace bus with the normal wait curve and recompute only the published total in memory.
+- Normal wait curve: score=100 when wait<=2 min, score=0 when wait>=15 min, linear interpolation between; bus weight=0.20; published total rounded to 1 decimal.
+
+C1 movement and ranking
+- numeric published totals considered for ranking: 114140
+- SCORED records: 95157
+- SCORED records with published bus == 0: 39786 (41.811%)
+- SCORED bus==0 records with fallback wait and numeric total: 21169 (53.207%)
+- published totals that move after 1-decimal rounding: 21165
+- published totals unchanged after 1-decimal rounding: 4
+- delta summary, all eligible fallback-wait records: count=21169, min=0, p25=20, median=20, p75=20, p90=20, p95=20, p99=20, max=20
+- delta summary, positive moved records only: count=21165, min=9.6, p25=20, median=20, p75=20, p90=20, p95=20, p99=20, max=20
+- Spearman rank correlation vs current published totals: 0.924322063
+- top-100 overlap: 99/100 (99.000%)
+- top-1000 overlap: 987/1000 (98.700%)
+- current top-100 boundary score: 99.5
+- hypothetical top-100 boundary score: 99.5
+- current top-100 boundary tie count: 43
+- hypothetical top-100 boundary tie count: 43
+- current top-1000 boundary score: 98.3
+- hypothetical top-1000 boundary score: 98.3
+- current top-1000 boundary tie count: 85
+- hypothetical top-1000 boundary tie count: 87
+
+top-100 entrants under hypothesis:
+["822624"]
+top-100 exits under hypothesis:
+["760145"]
+
+largest total increases:
+postal,current_total,hypothetical_total,delta,wait_min,fallback_bus
+018906,51.9,71.9,20,0.226,100
+018981,53.9,73.9,20,0.225,100
+039594,60.4,80.4,20,0.293,100
+049419,45.4,65.4,20,0.387,100
+049421,45.9,65.9,20,0.387,100
+049850,47.4,67.4,20,0.387,100
+049851,47.4,67.4,20,0.387,100
+068728,47.9,67.9,20,0.273,100
+069111,47.9,67.9,20,0.618,100
+078883,50.9,70.9,20,0.618,100
+080108,57.9,77.9,20,0.577,100
+081110,62.4,82.4,20,0.577,100
+098740,46.4,66.4,20,0.345,100
+099279,44.4,64.4,20,0.337,100
+099280,46.4,66.4,20,0.337,100
+117836,54.4,74.4,20,0.668,100
+117843,49.4,69.4,20,0.668,100
+117930,46.9,66.9,20,0.668,100
+117932,45.4,65.4,20,0.668,100
+118028,48.4,68.4,20,0.668,100
+
+C2 state classification
+- state changes under this scoring-from-fallback-wait hypothesis: 0
+- Separate null/SCORED_PARTIAL alternative: if the same fallback-wait records were treated as unavailable bus evidence instead of scored bus evidence, 21169 currently-SCORED records would be candidates for SCORED_PARTIAL/null-bus treatment. That is not included in C1.
+
+C3 tests expected to fail
+- Expected failing tests under the narrow hypothesis, if implemented with an explicit provenance.direct_bus_fallback.best_expected_wait_min gate: none found.
+- Current verification run after this analysis: uv run pytest -q -> 312 passed in 17.55s.
+- Current verification run after this analysis: npm test in web -> 93 passed in 727ms.
+- Coverage gap: no existing test covers a currently-SCORED selected record with subscores.bus == 0 plus fallback wait provenance being used to recompute bus/total.
+- Nearby guard tests for P5: tests/test_scoring_integration.py:386 test_record_assembly_scores_real_zero_bus_as_zero_not_partial; tests/test_scoring_integration.py:422 test_direct_bus_fallback_scores_partial_without_routed_shelter_geometry; tests/test_scoring_integration.py:2419 test_assemble_score_record_prefers_routed_mrt_over_direct_bus_fallback; tests/test_scoring_integration.py:2435 test_repick_best_transit_flips_legacy_fallback_record_to_routed_mrt.
+- If P5 instead applies route_options.bus fallback unconditionally rather than requiring fallback-wait provenance, the 2419/2435 routed-MRT preference tests are the likely failures because they assert the selected routed total stays 38.0/37.8.
+
+C4 P5 touch list
+- pipeline/scoring.py:44 normal bus wait curve; reuse, do not rewrite formula.
+- pipeline/scoring.py:98 composite sum behavior; reuse bus weight contribution semantics.
+- pipeline/config/params.yaml:51-52 bus wait thresholds; verify unchanged.
+- pipeline/config/weights.yaml:4 bus_connectivity weight 0.20; verify unchanged.
+- pipeline/scoring_integration.py:1975 assemble_score_record entry point; add the selected-record fallback bus substitution here or in a small helper.
+- pipeline/scoring_integration.py:2001-2005 best/best_mrt/best_bus selection; source the eligible bus fallback candidate without changing best_transit election.
+- pipeline/scoring_integration.py:2005-2017 route_options publication; keep route_options.bus honest and avoid making fallback the selected route.
+- pipeline/scoring_integration.py:2021-2025 record state/total/subscores/best_node/paths; only total/subscores.bus should move under this hypothesis, state and selected path should not.
+- pipeline/scoring_integration.py:2612-2662 and 2672-2698 direct_bus_fallback provenance writers; preserve best_expected_wait_min and add any audit marker here if needed.
+- pipeline/export.py:717, 825-826, 890-891, 1422, 1448 export/manifest refresh; state counts remain unchanged under C1 but refreshed score shards/manifests must reflect totals.
+- tests/test_scoring_integration.py:386, 422, 2419, 2435 plus one new regression test for SCORED bus-zero with fallback wait provenance.
+- tests/test_export.py:181 and 628, tests/test_onemap_validation.py:32, web/lib/__tests__/data.test.ts:48-52; verify exported schema, refreshed manifest, validation sample loading, and web score-record assumptions.
+- scripts/production_readiness.py:469-555, scripts/launch-check.ps1:220-243, scripts/release-data-bundle.ps1:36-48 and 87; operational gates to rerun/verify, not necessarily code changes.
+- Generated bundle artifacts in web/public/data/<new-bundle>/scores/*.json, manifest.json, *.gz, plus web/data-bundle.json only at owner-approved activation time.
+- decisions.md: append dated rationale if P5 changes the scoring contract.
+
+C5 recorded rerun/republish cost
+- Prior full OneMap validation status timestamps: qa/onemap_full_validation_20260808_full_scored/status.json was created 2026-08-08 18:32:54 SGT and completed 2026-08-11 02:14:31 SGT, about 55h 41m 37s wall clock.
+- Fresh no-cache OneMap floor from recorded config: 95,157 rows * 2s delay = 190,314s = 52h 51m 54s before overhead.
+- Final recorded batch was mostly cached: batch 90 queued 132 requests, wrote 132, 02:09:24 to 02:14:07 SGT progress, then status complete at 02:14:31.
+- Release/test/build after a validated bundle is minutes-scale: prior release log shows 310 Python tests in 22.63s, web tests around 0.8-1.3s, Next build compile/type/static steps sub-second to about 1s each, and a 188MB Vercel upload. The log does not record a precise total release wall clock.
+- I did not find a recorded full scoring/export wall-clock for regenerating the bundle itself.
+
