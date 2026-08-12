@@ -399,6 +399,7 @@ Output:
 - `leaf_area_index` remains hash-shipped but unconsumed and `lamp_posts` remains unshipped, carried forward from P1/P2 as deliberately unfixed findings.
 - The scratch rerun does not reproduce the active bundle: scratch has 124,032 records, active has 124,443, and 7,527 common postals have different `total` values. This is a major determinism/provenance finding. The run is still useful for timing, but not for proving byte-identical reproduction of the active published bundle.
 - Scratch outputs remain untracked under `qa/p6_rerun_cost_20260812_102712` for review and cleanup after acceptance.
+- While pushing P6, `origin/main` advanced to `13a2684` with template sync commits. After rebasing, `npm --prefix web test -- --runInBand` failed because root `.vercelignore` had been deleted upstream while `web/lib/__tests__/deployment.test.ts` still reads it. `.vercelignore` was restored exactly from `1bc9f19` in a separate commit so the suite stands on current `main`.
 
 ## Disagreements
 
