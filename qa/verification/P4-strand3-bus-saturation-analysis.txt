@@ -1,0 +1,160 @@
+P4 Strand 3 bus saturation analysis
+bundle: generated_20260805_prefer_scored_routed
+bundle_dir: C:\shiok\web\public\data\generated_20260805_prefer_scored_routed
+manifest_record_count: 124443
+processed_record_count: 124443
+score_shard_count: 304
+manifest_state_counts: {"NOT_YET_SCORED": 476, "NO_TRANSIT_IN_RANGE": 9827, "SCORED": 95157, "SCORED_PARTIAL": 18983}
+processed_state_counts: {"NOT_YET_SCORED": 476, "NO_TRANSIT_IN_RANGE": 9827, "SCORED": 95157, "SCORED_PARTIAL": 18983}
+weights_used_for_counterfactuals: access=0.35,bus=0.20,rain=0.25,heat=0.15,crossing=0.05
+bus_curve: score=100 when wait<=2 min, score=0 when wait>=15 min, linear between
+
+3.1 bus>0 distribution
+- records with numeric subscores.bus: 114140
+- records with subscores.bus > 0: 74354 (65.143%)
+- bus>0 score summary: count=74354, min=48.1, p25=100, median=100, p75=100, p90=100, p95=100, p99=100, max=100
+- bus>0 score buckets:
+- 100: 55891 (75.169%)
+- [80,100): 12927 (17.386%)
+- [60,80): 4716 (6.343%)
+- [40,60): 820 (1.103%)
+- bus exactly 100 among bus>0 records: 55891/74354 (75.169%)
+- bus exactly 100 among all numeric bus records: 55891/114140 (48.967%)
+- bus exactly 100 among SCORED records currently: 42637/95157 (44.807%)
+- expected_wait_min summary among bus>0 records with numeric wait: count=56709, min=0.072, p25=0.467, median=0.855, p75=1.941, p90=3.75, p95=5.5, p99=7.25, max=11
+- expected_wait_min buckets among bus>0 records:
+- [0,0.5): 16050 (28.302%)
+- [0.5,1): 15524 (27.375%)
+- [1,2): 11111 (19.593%)
+- [2,5): 9686 (17.080%)
+- [5,10): 4337 (7.648%)
+- [10,15): 1 (0.002%)
+- expected_wait_min summary among all records with numeric wait: count=56904, min=0.072, p25=0.469, median=0.859, p75=1.969, p90=3.75, p95=5.5, p99=7.25, max=15
+
+3.2 joint service_count and expected_wait_min
+- records with numeric expected_wait_min and service_count: 56904
+- Spearman(service_count, lower expected_wait_min): 0.982070349
+- bucketed service_count medians:
+service_count_bucket,count,median_wait_min,mean_wait_min,p90_wait_min,p95_wait_min
+1,8748,4.75,4.791,6.75,7.5
+2,4381,2.686,2.665,3.356,4.5
+3,4895,1.783,1.881,2.799,3.068
+4,4343,1.301,1.293,1.559,1.698
+5,4584,1.032,1.026,1.207,1.278
+6-9,12215,0.705,0.735,0.963,1.066
+10-14,9891,0.446,0.455,0.553,0.58
+15+,7847,0.286,0.279,0.371,0.386
+- exact service_count medians:
+service_count,count,median_wait_min,mean_wait_min,p90_wait_min,min_wait_min,max_wait_min
+1,8748,4.75,4.791,6.75,1.75,15
+2,4381,2.686,2.665,3.356,1.111,5.728
+3,4895,1.783,1.881,2.799,0.832,3.068
+4,4343,1.301,1.293,1.559,0.638,2.084
+5,4584,1.032,1.026,1.207,0.582,1.824
+6,2969,0.913,0.923,1.18,0.444,1.318
+7,3135,0.769,0.76,0.887,0.38,1
+8,3758,0.667,0.658,0.754,0.349,0.884
+9,2353,0.612,0.587,0.67,0.336,0.759
+10,2017,0.537,0.524,0.597,0.302,0.669
+11,2156,0.484,0.48,0.542,0.306,0.634
+12,2161,0.441,0.446,0.497,0.271,0.618
+13,2169,0.41,0.413,0.452,0.265,0.495
+14,1388,0.388,0.392,0.437,0.245,0.472
+15,1420,0.364,0.357,0.403,0.232,0.418
+16,990,0.334,0.337,0.372,0.248,0.409
+17,790,0.311,0.313,0.335,0.209,0.367
+18,413,0.301,0.299,0.334,0.203,0.355
+19,777,0.304,0.296,0.329,0.226,0.34
+20,465,0.256,0.258,0.28,0.2,0.316
+21,360,0.243,0.246,0.272,0.187,0.299
+22,427,0.249,0.249,0.279,0.171,0.279
+23,415,0.234,0.236,0.259,0.195,0.261
+24,268,0.226,0.224,0.241,0.174,0.251
+25,405,0.208,0.207,0.233,0.165,0.238
+26,144,0.207,0.205,0.222,0.142,0.236
+27,217,0.199,0.197,0.206,0.149,0.211
+28,43,0.185,0.185,0.201,0.144,0.213
+29,107,0.182,0.18,0.194,0.149,0.209
+30,100,0.179,0.181,0.188,0.141,0.188
+31,72,0.166,0.167,0.177,0.152,0.185
+32,44,0.162,0.164,0.182,0.142,0.189
+33,82,0.16,0.161,0.172,0.136,0.179
+34,56,0.156,0.153,0.16,0.135,0.162
+35,40,0.16,0.155,0.167,0.125,0.167
+36,23,0.166,0.155,0.166,0.12,0.166
+37,6,0.138,0.134,0.142,0.112,0.143
+38,25,0.129,0.129,0.136,0.118,0.145
+39,10,0.135,0.135,0.136,0.127,0.141
+40,61,0.13,0.132,0.141,0.126,0.141
+41,9,0.099,0.104,0.12,0.099,0.122
+42,7,0.122,0.124,0.126,0.122,0.126
+43,14,0.115,0.114,0.127,0.087,0.127
+44,9,0.129,0.113,0.129,0.092,0.129
+45,9,0.113,0.107,0.113,0.093,0.113
+46,3,0.096,0.097,0.098,0.096,0.099
+47,16,0.103,0.099,0.103,0.085,0.103
+48,2,0.117,0.117,0.117,0.117,0.117
+49,3,0.108,0.106,0.108,0.102,0.108
+50,1,0.104,0.104,0.104,0.104,0.104
+51,3,0.105,0.104,0.105,0.101,0.105
+52,6,0.093,0.093,0.102,0.085,0.102
+56,2,0.083,0.083,0.093,0.072,0.095
+59,2,0.089,0.089,0.089,0.089,0.089
+64,1,0.083,0.083,0.083,0.083,0.083
+- joint distribution service_count_bucket | wait_bucket:
+- 6-9 | [0.5,1): 10985 (19.304%)
+- 15+ | [0,0.5): 7847 (13.790%)
+- 10-14 | [0,0.5): 7781 (13.674%)
+- 1 | [2,5): 4426 (7.778%)
+- 1 | [5,10): 4291 (7.541%)
+- 4 | [1,2): 3752 (6.594%)
+- 2 | [2,5): 3544 (6.228%)
+- 3 | [1,2): 3133 (5.506%)
+- 5 | [1,2): 2679 (4.708%)
+- 10-14 | [0.5,1): 2110 (3.708%)
+- 5 | [0.5,1): 1905 (3.348%)
+- 3 | [2,5): 1743 (3.063%)
+- 6-9 | [1,2): 803 (1.411%)
+- 2 | [1,2): 749 (1.316%)
+- 4 | [0.5,1): 529 (0.930%)
+- 6-9 | [0,0.5): 427 (0.750%)
+- 2 | [5,10): 88 (0.155%)
+- 4 | [2,5): 62 (0.109%)
+- 1 | [1,2): 21 (0.037%)
+- 3 | [0.5,1): 19 (0.033%)
+- 1 | [15,+inf): 9 (0.016%)
+- 1 | [10,15): 1 (0.002%)
+
+3.3 P3 C1 fallback-wait promotion and bus==100 saturation
+- SCORED records: 95157
+- SCORED with published bus == 0: 39786 (41.811%)
+- eligible SCORED bus==0 records with fallback wait: 21169 (22.246% of SCORED)
+- eligible fallback records promoted to bus==100: 17722 (83.717% of eligible)
+- current SCORED bus==100: 42637 (44.807%)
+- hypothetical-fixed SCORED bus==100: 60359 (63.431%)
+
+3.4 ranking value of bus term
+- records with numeric published totals in full bundle: 114140
+- fully non-null score vectors available for drop-bus computation on full bundle: 95157
+- note: SCORED_PARTIAL records can have numeric totals but null rain/heat/crossing, so locked-weight drop-bus renormalisation is undefined for them; rank correlations below use fully non-null vectors.
+- SCORED records with fully non-null score vectors: 95157
+- Spearman(current published totals, current drop-bus renormalised totals), full non-null bundle: 0.91136309
+- Spearman(hypothetical-fixed totals, fixed drop-bus renormalised totals), full non-null bundle: 0.926919106
+- Spearman(current published totals, current drop-bus renormalised totals), SCORED subset: 0.91136309
+- Spearman(hypothetical-fixed totals, fixed drop-bus renormalised totals), SCORED subset: 0.926919106
+- published-vs-recomputed-current-total delta summary over full non-null vectors: count=95157, min=-0.1, p25=0, median=0, p75=0, p90=0, p95=0, p99=0.1, max=0.1
+
+3.5 alternative bus formulations
+- distinct destinations/interchanges reachable: score number/diversity of distinct downstream town centres, MRT interchanges, or key destination clusters reachable within one-seat/low-transfer bus options; needs bus route sequences mapped to stops plus destination taxonomy. Current bus_services/bus_routes ingestion likely has enough route-stop sequence data for service terminal/interchange proxies, but not enough for true passenger destination demand without an added destination taxonomy.
+- service-count saturating curve: score unique services near the address with diminishing returns, for example 1 service gives some credit, 3-5 services approaches high credit, and further services add little. Current ingestion has enough unique service counts per stop/radius. It would be easy to implement but risks rewarding many overlapping services on the same corridor.
+- wait to single best service rather than pooled wait: score the best individual service headway instead of combined pooled wait across all services. Current ingestion has enough per-service headway values. This avoids automatic saturation from many services, but it measures the best available bus rather than network breadth.
+- independent corridors: group reachable services by non-overlapping first-hop direction/corridor and score the count/quality of independent corridors. Current bus_routes may be enough for an approximate first-several-stops corridor grouping, but robust corridor independence likely needs stop geometry/route shape processing beyond the current simple service/headway aggregation.
+
+3.6 judgement
+- P5 should not proceed as a blind fallback-wait promotion if the product goal is ranking discrimination from bus connectivity: the published bus term is already highly saturated, and the P3 C1 promotion would push the SCORED bus==100 fraction even higher.
+- A narrow fallback-wait promotion can still be justified as an honesty correction for affected SCORED records where bus evidence exists but published bus is zero; that is a tactical fix, not a durable bus-quality model.
+- A durable P5 should be an owner decision to remodel the bus sub-score. That touches the locked scoring contract/weights and should not be bundled into a fallback provenance correction.
+
+P3 correction note
+- affected fallback-wait records with nearest_direct_m in [250,305]: 4293/21169 (20.280%)
+- Because routed_max_m is 250 by construction, those [250,305] records are outside the routed bus scoring radius. The reason string implausible_graph_route_to_datamall_bus_stop_within_direct_radius is a mislabel for them, not evidence of a routing failure. This analysis does not change reason strings.
