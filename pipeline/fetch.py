@@ -1,22 +1,27 @@
 """Fetch and hash pipeline module for S.H.I.O.K. Index (T0.3)."""
 
 import argparse
+import csv
 import hashlib
+import io
 import json
 import os
 import re
+import struct
 import sys
 import time
+import zipfile
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 from urllib.parse import parse_qsl, unquote, urlsplit, urlunsplit
+from xml.etree import ElementTree
 
 import httpx
 import yaml  # type: ignore[import-untyped]
 from dotenv import load_dotenv
 
-from pipeline.bus import fetch_paginated, write_api_records_to_raw
+from pipeline.bus import fetch_paginated
 
 load_dotenv()
 
@@ -52,6 +57,22 @@ SIGNED_URL_QUERY_KEYS = {
     "x-amz-signature",
     "x-amz-signedheaders",
 }
+SHAPE_TYPES = {
+    0: "Null",
+    1: "Point",
+    3: "LineString",
+    5: "Polygon",
+    8: "MultiPoint",
+    11: "PointZ",
+    13: "LineStringZ",
+    15: "PolygonZ",
+    18: "MultiPointZ",
+    21: "PointM",
+    23: "LineStringM",
+    25: "PolygonM",
+    28: "MultiPointM",
+    31: "MultiPatch",
+}
 
 
 def get_headers(extra: dict[str, str] | None = None) -> dict[str, str]:
@@ -69,11 +90,22 @@ def get_datamall_headers() -> dict[str, str]:
     return headers
 
 
-def load_sources() -> dict[str, Any]:
+def load_source_config() -> dict[str, Any]:
     with open(CONFIG_PATH, "r", encoding="utf-8") as f:
         data: dict[str, Any] = yaml.safe_load(f) or {}
+    return data
+
+
+def load_sources() -> dict[str, Any]:
+    data = load_source_config()
     sources: dict[str, Any] = data.get("sources", {})
     return sources
+
+
+def load_ingest_validation_config() -> dict[str, Any]:
+    data = load_source_config()
+    config: dict[str, Any] = data.get("ingest_validation", {})
+    return config
 
 
 def select_sources(sources: dict[str, Any], source_keys: list[str]) -> dict[str, Any]:
@@ -180,6 +212,205 @@ def static_raw_filename(source_key: str, url: str, spec: dict[str, Any]) -> str:
         return filename
     suffix = Path(unquote(urlsplit(url).path)).suffix.lower()
     return f"{source_key}{suffix or '.bin'}"
+
+
+def json_content_metrics(payload: Any) -> dict[str, Any]:
+    if isinstance(payload, dict) and isinstance(payload.get("features"), list):
+        features = payload["features"]
+        geometry_types = sorted(
+            {
+                str(feature.get("geometry", {}).get("type"))
+                for feature in features
+                if isinstance(feature, dict)
+                and isinstance(feature.get("geometry"), dict)
+                and feature.get("geometry", {}).get("type")
+            }
+        )
+        return {
+            "payload_type": "geojson_feature_collection",
+            "count_field": "feature_count",
+            "feature_count": len(features),
+            "record_count": len(features),
+            "geometry_types": geometry_types,
+        }
+    if isinstance(payload, dict) and isinstance(payload.get("value"), list):
+        return {
+            "payload_type": "json_value_array",
+            "count_field": "record_count",
+            "record_count": len(payload["value"]),
+        }
+    if isinstance(payload, list):
+        return {
+            "payload_type": "json_array",
+            "count_field": "record_count",
+            "record_count": len(payload),
+        }
+    if isinstance(payload, dict):
+        return {
+            "payload_type": "json_object",
+            "count_field": "record_count",
+            "record_count": len(payload),
+        }
+    return {"payload_type": "json", "count_field": None}
+
+
+def csv_content_metrics(content: bytes) -> dict[str, Any]:
+    text = content.decode("utf-8-sig")
+    reader = csv.reader(io.StringIO(text))
+    rows = list(reader)
+    row_count = max(0, len(rows) - 1)
+    return {
+        "payload_type": "csv",
+        "count_field": "row_count",
+        "row_count": row_count,
+        "record_count": row_count,
+    }
+
+
+def xlsx_content_metrics(content: bytes) -> dict[str, Any]:
+    with zipfile.ZipFile(io.BytesIO(content)) as archive:
+        worksheet_names = sorted(
+            name for name in archive.namelist() if name.startswith("xl/worksheets/sheet")
+        )
+        if not worksheet_names:
+            return {"payload_type": "xlsx", "count_field": None, "sheet_count": 0}
+        sheet_xml = archive.read(worksheet_names[0])
+    row_count = 0
+    for _event, elem in ElementTree.iterparse(io.BytesIO(sheet_xml), events=("end",)):
+        if elem.tag.endswith("}row") or elem.tag == "row":
+            row_count += 1
+        elem.clear()
+    data_rows = max(0, row_count - 1)
+    return {
+        "payload_type": "xlsx",
+        "count_field": "row_count",
+        "row_count": data_rows,
+        "record_count": data_rows,
+        "sheet_count": len(worksheet_names),
+    }
+
+
+def shapefile_metrics_from_zip(content: bytes) -> dict[str, Any]:
+    with zipfile.ZipFile(io.BytesIO(content)) as archive:
+        names = archive.namelist()
+        shp_names = sorted(name for name in names if name.lower().endswith(".shp"))
+        dbf_names = sorted(name for name in names if name.lower().endswith(".dbf"))
+        shx_names = sorted(name for name in names if name.lower().endswith(".shx"))
+        metrics: dict[str, Any] = {
+            "payload_type": "zip",
+            "zip_entry_count": len(names),
+            "count_field": None,
+        }
+        if shp_names:
+            shp_header = archive.read(shp_names[0])[:100]
+            if len(shp_header) >= 36:
+                shape_type = struct.unpack("<i", shp_header[32:36])[0]
+                metrics["geometry_types"] = [SHAPE_TYPES.get(shape_type, f"ShapeType{shape_type}")]
+        record_count: int | None = None
+        if dbf_names:
+            dbf_header = archive.read(dbf_names[0])[:8]
+            if len(dbf_header) >= 8:
+                record_count = struct.unpack("<I", dbf_header[4:8])[0]
+        elif shx_names:
+            shx_header = archive.read(shx_names[0])[:100]
+            if len(shx_header) >= 28:
+                file_length_words = struct.unpack(">i", shx_header[24:28])[0]
+                record_count = max(0, ((file_length_words * 2) - 100) // 8)
+        if record_count is not None:
+            metrics["count_field"] = "feature_count"
+            metrics["feature_count"] = record_count
+            metrics["record_count"] = record_count
+        return metrics
+
+
+def content_metrics(content: bytes, filename: str) -> dict[str, Any]:
+    suffix = Path(filename).suffix.lower()
+    if suffix in {".json", ".geojson"}:
+        return json_content_metrics(json.loads(content.decode("utf-8")))
+    if suffix == ".csv":
+        return csv_content_metrics(content)
+    if suffix == ".xlsx":
+        return xlsx_content_metrics(content)
+    if suffix == ".zip":
+        return shapefile_metrics_from_zip(content)
+    if suffix == ".pbf":
+        return {"payload_type": "osm_pbf", "count_field": None}
+    return {"payload_type": suffix.lstrip(".") or "binary", "count_field": None}
+
+
+def validation_count(metrics: dict[str, Any]) -> int | None:
+    count_field = metrics.get("count_field")
+    if isinstance(count_field, str) and isinstance(metrics.get(count_field), int):
+        return int(metrics[count_field])
+    if isinstance(metrics.get("record_count"), int):
+        return int(metrics["record_count"])
+    return None
+
+
+def validation_threshold(spec: dict[str, Any]) -> float:
+    source_validation = spec.get("ingest_validation", {})
+    if isinstance(source_validation, dict) and "max_count_delta_ratio" in source_validation:
+        return float(source_validation["max_count_delta_ratio"])
+    config = load_ingest_validation_config()
+    if "max_count_delta_ratio" not in config:
+        raise ValueError("ingest_validation.max_count_delta_ratio missing from sources.yaml")
+    return float(config["max_count_delta_ratio"])
+
+
+def attach_and_validate_metrics(
+    key: str,
+    name: str,
+    spec: dict[str, Any],
+    current_entry: dict[str, Any],
+    new_entry: dict[str, Any],
+    metrics: dict[str, Any],
+) -> None:
+    threshold = validation_threshold(spec)
+    count = validation_count(metrics)
+    previous_validation = current_entry.get("validation", {})
+    previous_count = (
+        validation_count(previous_validation) if isinstance(previous_validation, dict) else None
+    )
+
+    validation = {
+        **metrics,
+        "max_count_delta_ratio": threshold,
+    }
+    if count is None:
+        validation["baseline_status"] = "no_count_available"
+    elif previous_count is None:
+        validation["baseline_status"] = "new_baseline"
+    elif previous_count == 0:
+        delta_ratio = 0.0 if count == 0 else 1.0
+        validation["previous_record_count"] = previous_count
+        validation["count_delta_ratio"] = delta_ratio
+        validation["baseline_status"] = "within_threshold" if delta_ratio <= threshold else "failed"
+    else:
+        delta_ratio = abs(count - previous_count) / previous_count
+        validation["previous_record_count"] = previous_count
+        validation["count_delta_ratio"] = round(delta_ratio, 6)
+        validation["baseline_status"] = "within_threshold" if delta_ratio <= threshold else "failed"
+
+    new_entry["validation"] = validation
+    if validation.get("baseline_status") == "failed":
+        raise ValueError(
+            f"content validation failed for {key} ({name}): count changed from "
+            f"{previous_count} to {count}, exceeding max_count_delta_ratio {threshold}"
+        )
+
+
+def datamall_api_content(
+    source_key: str, source_name: str, endpoint: str, records: list[dict[str, Any]]
+) -> bytes:
+    payload = {
+        "source_key": source_key,
+        "source_name": source_name,
+        "endpoint": endpoint,
+        "value": records,
+    }
+    return json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode(
+        "utf-8"
+    )
 
 
 def resolve_datamall_static_url(keyword: str) -> str:
@@ -423,6 +654,7 @@ def run_ingest(sources: dict[str, Any]) -> int:
     manifest_sources: dict[str, Any] = manifest.setdefault("sources", {})
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     TMP_DIR.mkdir(parents=True, exist_ok=True)
+    errors: list[str] = []
 
     print("Ingesting upstream datasets...")
 
@@ -434,16 +666,41 @@ def run_ingest(sources: dict[str, Any]) -> int:
             endpoint = spec.get("endpoint", "")
             if not endpoint:
                 continue
+            current_entry = manifest_sources.get(key, {})
             try:
                 records = fetch_paginated(endpoint)
-                sha256 = write_api_records_to_raw(key, name, endpoint, records)
-                manifest = load_manifest()
-                manifest_sources = manifest.setdefault("sources", {})
+                content = datamall_api_content(key, name, endpoint, records)
+                sha256 = hashlib.sha256(content).hexdigest()
+                new_entry = {
+                    "source_name": name,
+                    "url_as_discovered": endpoint,
+                    "sha256": sha256,
+                    "bytes": len(content),
+                    "etag": None,
+                    "last_modified": None,
+                    "fetched_at": datetime.now(UTC).isoformat(),
+                }
+                attach_and_validate_metrics(
+                    key,
+                    str(name),
+                    spec,
+                    current_entry,
+                    new_entry,
+                    content_metrics(content, f"{key}.json"),
+                )
+                target_dir = RAW_DIR / sha256
+                target_dir.mkdir(parents=True, exist_ok=True)
+                target_path = target_dir / f"{key}.json"
+                with open(target_path, "wb") as f:
+                    f.write(content)
+                manifest_sources[key] = new_entry
                 print(
                     f"[{key}] Ingested {name} -> raw/{sha256[:8]}.../{key}.json ({len(records)} records)"
                 )
             except (httpx.HTTPError, ValueError, OSError) as e:
-                print(f"[{key}] Error ingesting {name}: {e}")
+                message = f"[{key}] Error ingesting {name}: {e}"
+                errors.append(message)
+                print(message)
 
         elif kind == "datamall_geospatial_listing":
             keyword = spec.get("search_keyword", "")
@@ -451,7 +708,9 @@ def run_ingest(sources: dict[str, Any]) -> int:
             try:
                 url = resolve_datamall_geospatial_url(keyword)
             except (ValueError, httpx.HTTPError, OSError) as e:
-                print(f"[{key}] Error discovering url for {name}: {e}")
+                message = f"[{key}] Error discovering url for {name}: {e}"
+                errors.append(message)
+                print(message)
                 continue
 
             try:
@@ -472,16 +731,8 @@ def run_ingest(sources: dict[str, Any]) -> int:
                     sha256 = hashlib.sha256(content).hexdigest()
                     etag = resp.headers.get("ETag", "")
                     last_modified = resp.headers.get("Last-Modified", "")
-
-                    target_dir = RAW_DIR / sha256
-                    target_dir.mkdir(parents=True, exist_ok=True)
                     filename = f"{key}.zip"
-                    target_path = target_dir / filename
-
-                    with open(target_path, "wb") as f:
-                        f.write(content)
-
-                    manifest_sources[key] = {
+                    new_entry = {
                         "source_name": name,
                         "url_as_discovered": stable_manifest_url(url),
                         "sha256": sha256,
@@ -490,11 +741,27 @@ def run_ingest(sources: dict[str, Any]) -> int:
                         "last_modified": last_modified,
                         "fetched_at": datetime.now(UTC).isoformat(),
                     }
+                    attach_and_validate_metrics(
+                        key,
+                        str(name),
+                        spec,
+                        current_entry,
+                        new_entry,
+                        content_metrics(content, filename),
+                    )
+                    target_dir = RAW_DIR / sha256
+                    target_dir.mkdir(parents=True, exist_ok=True)
+                    target_path = target_dir / filename
+                    with open(target_path, "wb") as f:
+                        f.write(content)
+                    manifest_sources[key] = new_entry
                     print(
                         f"[{key}] Ingested {name} -> raw/{sha256[:8]}.../{filename} ({len(content)} bytes)"
                     )
             except (httpx.HTTPError, ValueError, OSError) as e:
-                print(f"[{key}] Error ingesting {name}: {e}")
+                message = f"[{key}] Error ingesting {name}: {e}"
+                errors.append(message)
+                print(message)
 
         elif kind == "datagov_polldownload":
             dataset_id = spec.get("dataset_id")
@@ -523,15 +790,8 @@ def run_ingest(sources: dict[str, Any]) -> int:
                     etag = resp.headers.get("ETag", "")
                     last_modified = resp.headers.get("Last-Modified", "")
 
-                    target_dir = RAW_DIR / sha256
-                    target_dir.mkdir(parents=True, exist_ok=True)
                     filename = datagov_raw_filename(key, download_url, resp.headers)
-                    target_path = target_dir / filename
-
-                    with open(target_path, "wb") as f:
-                        f.write(content)
-
-                    manifest_sources[key] = {
+                    new_entry = {
                         "source_name": name,
                         "url_as_discovered": stable_manifest_url(download_url),
                         "sha256": sha256,
@@ -540,11 +800,27 @@ def run_ingest(sources: dict[str, Any]) -> int:
                         "last_modified": last_modified,
                         "fetched_at": datetime.now(UTC).isoformat(),
                     }
+                    attach_and_validate_metrics(
+                        key,
+                        str(name),
+                        spec,
+                        current_entry,
+                        new_entry,
+                        content_metrics(content, filename),
+                    )
+                    target_dir = RAW_DIR / sha256
+                    target_dir.mkdir(parents=True, exist_ok=True)
+                    target_path = target_dir / filename
+                    with open(target_path, "wb") as f:
+                        f.write(content)
+                    manifest_sources[key] = new_entry
                     print(
                         f"[{key}] Ingested {name} -> raw/{sha256[:8]}.../{filename} ({len(content)} bytes)"
                     )
             except (httpx.HTTPError, ValueError, OSError) as e:
-                print(f"[{key}] Error ingesting {name}: {e}")
+                message = f"[{key}] Error ingesting {name}: {e}"
+                errors.append(message)
+                print(message)
 
         elif kind == "datamall_static_file":
             url = str(spec.get("url", "")).strip()
@@ -572,15 +848,8 @@ def run_ingest(sources: dict[str, Any]) -> int:
                 etag = resp.headers.get("ETag", "")
                 last_modified = resp.headers.get("Last-Modified", "")
 
-                target_dir = RAW_DIR / sha256
-                target_dir.mkdir(parents=True, exist_ok=True)
                 filename = static_raw_filename(key, url, spec)
-                target_path = target_dir / filename
-
-                with open(target_path, "wb") as f:
-                    f.write(content)
-
-                manifest_sources[key] = {
+                new_entry = {
                     "source_name": name,
                     "url_as_discovered": stable_manifest_url(url),
                     "sha256": sha256,
@@ -589,11 +858,27 @@ def run_ingest(sources: dict[str, Any]) -> int:
                     "last_modified": last_modified,
                     "fetched_at": datetime.now(UTC).isoformat(),
                 }
+                attach_and_validate_metrics(
+                    key,
+                    str(name),
+                    spec,
+                    current_entry,
+                    new_entry,
+                    content_metrics(content, filename),
+                )
+                target_dir = RAW_DIR / sha256
+                target_dir.mkdir(parents=True, exist_ok=True)
+                target_path = target_dir / filename
+                with open(target_path, "wb") as f:
+                    f.write(content)
+                manifest_sources[key] = new_entry
                 print(
                     f"[{key}] Ingested {name} -> raw/{sha256[:8]}.../{filename} ({len(content)} bytes)"
                 )
             except (httpx.HTTPError, ValueError, OSError) as e:
-                print(f"[{key}] Error ingesting {name}: {e}")
+                message = f"[{key}] Error ingesting {name}: {e}"
+                errors.append(message)
+                print(message)
 
         elif kind == "osm_pbf":
             url = spec.get("url")
@@ -618,20 +903,16 @@ def run_ingest(sources: dict[str, Any]) -> int:
                     resp.raise_for_status()
                     content = resp.content
                     if len(content) > limit:
-                        print(f"[{key}] Error: downloaded file exceeds max_bytes")
+                        message = f"[{key}] Error: downloaded file exceeds max_bytes"
+                        errors.append(message)
+                        print(message)
                         continue
 
                     sha256 = hashlib.sha256(content).hexdigest()
                     last_modified = resp.headers.get("Last-Modified", "")
-                    target_dir = RAW_DIR / sha256
-                    target_dir.mkdir(parents=True, exist_ok=True)
                     filename = f"{key}.osm.pbf"
-                    target_path = target_dir / filename
-
-                    with open(target_path, "wb") as f:
-                        f.write(content)
-
-                    manifest_sources[key] = {
+                    current_entry = manifest_sources.get(key, {})
+                    new_entry = {
                         "source_name": name,
                         "url_as_discovered": stable_manifest_url(url),
                         "sha256": sha256,
@@ -639,14 +920,35 @@ def run_ingest(sources: dict[str, Any]) -> int:
                         "last_modified": last_modified,
                         "fetched_at": datetime.now(UTC).isoformat(),
                     }
+                    attach_and_validate_metrics(
+                        key,
+                        str(name),
+                        spec,
+                        current_entry,
+                        new_entry,
+                        content_metrics(content, filename),
+                    )
+                    target_dir = RAW_DIR / sha256
+                    target_dir.mkdir(parents=True, exist_ok=True)
+                    target_path = target_dir / filename
+                    with open(target_path, "wb") as f:
+                        f.write(content)
+                    manifest_sources[key] = new_entry
                     print(
                         f"[{key}] Ingested {name} -> raw/{sha256[:8]}.../{filename} ({len(content)} bytes)"
                     )
             except (httpx.HTTPError, ValueError, OSError) as e:
-                print(f"[{key}] Error ingesting {name}: {e}")
+                message = f"[{key}] Error ingesting {name}: {e}"
+                errors.append(message)
+                print(message)
 
     save_manifest(manifest)
     print("Manifest updated successfully.")
+    if errors:
+        print("Ingest completed with errors:")
+        for error in errors:
+            print(f"  - {error}")
+        return 1
     return 0
 
 
