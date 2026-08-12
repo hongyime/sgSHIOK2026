@@ -1,0 +1,375 @@
+{
+  "analysis_date": "2026-08-12",
+  "recommendation": {
+    "copy_proposal": {
+      "detail": "Covered {covered_m} m; greenery proxy {shade_m} m.",
+      "row_label": "Heat proxy",
+      "row_note": "Derived from covered walk plus NParks greenery proxy; not live weather or measured shade."
+    },
+    "option": "show_covered_metres_vs_shade_proxy_metres",
+    "rationale": "The displayed heat subscore usually rounds to the same integer as rain because heat is mostly derived from covered-route shelter with sparse NParks shade proxy. Showing metres exposes the dependency without implying measured thermal comfort."
+  },
+  "score_analysis": {
+    "bundle": "C:/shiok/web/public/data/generated_20260805_prefer_scored_routed",
+    "equal_examples": [
+      {
+        "display": 69,
+        "heat": 68.5,
+        "postal": "560101",
+        "rain": 68.5,
+        "score_file": "ANG_MO_KIO_PART_001.json"
+      },
+      {
+        "display": 72,
+        "heat": 72.0,
+        "postal": "560102",
+        "rain": 72.0,
+        "score_file": "ANG_MO_KIO_PART_001.json"
+      },
+      {
+        "display": 81,
+        "heat": 81.0,
+        "postal": "560103",
+        "rain": 81.0,
+        "score_file": "ANG_MO_KIO_PART_001.json"
+      },
+      {
+        "display": 91,
+        "heat": 90.8,
+        "postal": "560104",
+        "rain": 90.8,
+        "score_file": "ANG_MO_KIO_PART_001.json"
+      },
+      {
+        "display": 66,
+        "heat": 65.8,
+        "postal": "560105",
+        "rain": 65.8,
+        "score_file": "ANG_MO_KIO_PART_001.json"
+      },
+      {
+        "display": 63,
+        "heat": 62.7,
+        "postal": "560106",
+        "rain": 62.7,
+        "score_file": "ANG_MO_KIO_PART_001.json"
+      },
+      {
+        "display": 66,
+        "heat": 66.3,
+        "postal": "560107",
+        "rain": 66.3,
+        "score_file": "ANG_MO_KIO_PART_001.json"
+      },
+      {
+        "display": 56,
+        "heat": 55.9,
+        "postal": "560108",
+        "rain": 55.9,
+        "score_file": "ANG_MO_KIO_PART_001.json"
+      },
+      {
+        "display": 90,
+        "heat": 89.5,
+        "postal": "560109",
+        "rain": 89.5,
+        "score_file": "ANG_MO_KIO_PART_001.json"
+      },
+      {
+        "display": 54,
+        "heat": 53.9,
+        "postal": "560110",
+        "rain": 53.9,
+        "score_file": "ANG_MO_KIO_PART_001.json"
+      }
+    ],
+    "fractions": {
+      "candidate_shade_ratio_exactly_zero_over_candidates_with_shade_ratio": 0.7897581279807336,
+      "chosen_route_shade_ratio_exactly_zero_over_scored_with_shade_ratio": 0.7765167039734334,
+      "rain_heat_equal_after_display_rounding_over_scored_numeric_rain_heat": 0.7969355906554431,
+      "rain_heat_raw_equal_over_scored_numeric_rain_heat": 0.7766638292506068
+    },
+    "manifest_counts": {
+      "NOT_YET_SCORED": 476,
+      "NO_TRANSIT_IN_RANGE": 9827,
+      "SCORED": 95157,
+      "SCORED_PARTIAL": 18983
+    },
+    "manifest_record_count": 124443,
+    "manifest_subscore_status": {
+      "access": "real_routed_shortest_distance",
+      "bus": "real",
+      "crossing": "real_traffic_signals_with_grade_separated_exemption",
+      "heat": "provisional_covered_plus_nparks_shade_proxy_heat_only",
+      "rain": "real_routed_covered_length_ratio"
+    },
+    "shade_zero_examples": [
+      {
+        "covered_ratio": 0.685,
+        "postal": "560101",
+        "score_file": "ANG_MO_KIO_PART_001.json",
+        "shade_ratio": 0.0
+      },
+      {
+        "covered_ratio": 0.72,
+        "postal": "560102",
+        "score_file": "ANG_MO_KIO_PART_001.json",
+        "shade_ratio": 0.0
+      },
+      {
+        "covered_ratio": 0.81,
+        "postal": "560103",
+        "score_file": "ANG_MO_KIO_PART_001.json",
+        "shade_ratio": 0.0
+      },
+      {
+        "covered_ratio": 0.908,
+        "postal": "560104",
+        "score_file": "ANG_MO_KIO_PART_001.json",
+        "shade_ratio": 0.0
+      },
+      {
+        "covered_ratio": 0.658,
+        "postal": "560105",
+        "score_file": "ANG_MO_KIO_PART_001.json",
+        "shade_ratio": 0.0
+      },
+      {
+        "covered_ratio": 0.627,
+        "postal": "560106",
+        "score_file": "ANG_MO_KIO_PART_001.json",
+        "shade_ratio": 0.0
+      },
+      {
+        "covered_ratio": 0.663,
+        "postal": "560107",
+        "score_file": "ANG_MO_KIO_PART_001.json",
+        "shade_ratio": 0.0
+      },
+      {
+        "covered_ratio": 0.559,
+        "postal": "560108",
+        "score_file": "ANG_MO_KIO_PART_001.json",
+        "shade_ratio": 0.0
+      },
+      {
+        "covered_ratio": 0.895,
+        "postal": "560109",
+        "score_file": "ANG_MO_KIO_PART_001.json",
+        "shade_ratio": 0.0
+      },
+      {
+        "covered_ratio": 0.539,
+        "postal": "560110",
+        "score_file": "ANG_MO_KIO_PART_001.json",
+        "shade_ratio": 0.0
+      }
+    ],
+    "totals": {
+      "rain_heat_equal_after_display_rounding": 75834,
+      "rain_heat_raw_equal": 73905,
+      "records": 124443,
+      "score_files": 304,
+      "scored_candidates": 417178,
+      "scored_candidates_with_shade_ratio": 316407,
+      "scored_candidates_with_shade_ratio_exactly_zero": 249885,
+      "scored_records": 95157,
+      "scored_with_numeric_rain_heat": 95157,
+      "scored_with_paths": 95157,
+      "scored_with_shade_ratio": 95157,
+      "scored_with_shade_ratio_exactly_zero": 73891,
+      "scored_with_shade_ratio_null_or_missing": 0
+    }
+  },
+  "ui_audit": [
+    {
+      "action": "Change metadata copy to say rain shelter, transit access, crossings, bus service, and a provisional heat proxy.",
+      "actual_line": "\"An explainable comfort score for source-derived Singapore postal records measuring rain shelter, heat, crossing friction, transit access, and bus frequency.\",",
+      "file": "web/app/layout.tsx",
+      "line": 7,
+      "line_match": true,
+      "string": "An explainable comfort score for source-derived Singapore postal records measuring rain shelter, heat, crossing friction, transit access, and bus frequency.",
+      "verdict": "Overclaim: 'measuring heat' implies measured thermal/heat conditions; bundle marks heat as provisional covered + NParks shade proxy."
+    },
+    {
+      "action": "Prefer 'Heat proxy' or make it visually subordinate to rain shelter.",
+      "actual_line": "label: \"Heat comfort\",",
+      "file": "web/app/page.tsx",
+      "line": 69,
+      "line_match": true,
+      "string": "Heat comfort",
+      "verdict": "Overclaim risk: standalone label can read as actual thermal comfort rather than a proxy."
+    },
+    {
+      "action": "Keep the caveat; align the row label and metadata with it.",
+      "actual_line": "note: \"Mostly covered shelter plus sparse NParks greenery proxy; not measured shade.\",",
+      "file": "web/app/page.tsx",
+      "line": 71,
+      "line_match": true,
+      "string": "Mostly covered shelter plus sparse NParks greenery proxy; not measured shade.",
+      "verdict": "Acceptable disclosure, but it contradicts stronger 'Heat comfort' and metadata wording."
+    },
+    {
+      "action": "Use 'More shelter/greenery proxy coverage' or 'Better heat-proxy score'.",
+      "actual_line": "heat: { low: \"Low shade and shelter comfort\", high: \"Better heat comfort\" },",
+      "file": "web/app/page.tsx",
+      "line": 99,
+      "line_match": true,
+      "string": "Better heat comfort",
+      "verdict": "Overclaim risk: reason copy presents inferred proxy as comfort improvement."
+    },
+    {
+      "action": "Optional: 'source-derived walk-to-transit comfort score'.",
+      "actual_line": "<span>Search any Singapore address to see its walk-to-transit comfort score.</span>",
+      "file": "web/app/page.tsx",
+      "line": 910,
+      "line_match": true,
+      "string": "Search any Singapore address to see its walk-to-transit comfort score.",
+      "verdict": "Mostly acceptable, but broad 'comfort score' should remain tied to source-derived/proxy evidence."
+    },
+    {
+      "action": "Use 'Bundle route' or 'Scored route'.",
+      "actual_line": "\u21ba Best route",
+      "file": "web/app/page.tsx",
+      "line": 1025,
+      "line_match": true,
+      "string": "Best route",
+      "verdict": "Potential overclaim: reset target says 'best route' although output is a locked bundle-selected route, not personalized navigation."
+    },
+    {
+      "action": "No fix required; keep score unchanged copy nearby.",
+      "actual_line": "<Metric label={selectedRouteLabel} value={formatDistance(selectedDistance)} />",
+      "file": "web/app/page.tsx",
+      "line": 1091,
+      "line_match": true,
+      "string": "<Metric label={selectedRouteLabel} value={formatDistance(selectedDistance)} />",
+      "verdict": "Acceptable if selectedRouteLabel remains 'Covered/Shortest/Preview'; it controls map/distance display, not score recomputation."
+    },
+    {
+      "action": "No fix required.",
+      "actual_line": "<Metric label=\"Sheltered\" value={formatPercent(selectedCoverage)} />",
+      "file": "web/app/page.tsx",
+      "line": 1092,
+      "line_match": true,
+      "string": "<Metric label=\"Sheltered\" value={formatPercent(selectedCoverage)} />",
+      "verdict": "Acceptable for rain/covered-linkway presentation; it is sourced by route coverage, not weather awareness."
+    },
+    {
+      "action": "No fix required.",
+      "actual_line": "<Metric label=\"Sheltered evidence\" value={formatPercent(selectedCoverage)} />",
+      "file": "web/app/page.tsx",
+      "line": 1106,
+      "line_match": true,
+      "string": "<Metric label=\"Sheltered evidence\" value={formatPercent(selectedCoverage)} />",
+      "verdict": "Acceptable honesty copy for preview route evidence."
+    },
+    {
+      "action": "Revise heat-specific reason strings rather than removing reason chips.",
+      "actual_line": "{reasons.map((reason) => (",
+      "file": "web/app/page.tsx",
+      "line": 1112,
+      "line_match": true,
+      "string": "{reasons.map((reason) => (",
+      "verdict": "Contains generated reason chips; heat chips can overclaim when using 'heat comfort' language."
+    },
+    {
+      "action": "No fix required.",
+      "actual_line": "<strong>Locked score breakdown</strong>",
+      "file": "web/app/page.tsx",
+      "line": 1121,
+      "line_match": true,
+      "string": "Locked score breakdown",
+      "verdict": "Acceptable provenance framing; tells user these are fixed bundle scores."
+    },
+    {
+      "action": "No fix required.",
+      "actual_line": "<span>Composite uses weights.yaml</span>",
+      "file": "web/app/page.tsx",
+      "line": 1122,
+      "line_match": true,
+      "string": "Composite uses weights.yaml",
+      "verdict": "Acceptable provenance framing, though technical."
+    },
+    {
+      "action": "No fix required.",
+      "actual_line": ": \"Single sub-score view; SHIOK score is unchanged.\"}",
+      "file": "web/app/page.tsx",
+      "line": 1154,
+      "line_match": true,
+      "string": "Single sub-score view; SHIOK score is unchanged.",
+      "verdict": "Acceptable: explicitly says ranking control does not change score output."
+    },
+    {
+      "action": "Prefer explicit covered metres vs shade-proxy metres if presenting heat separately.",
+      "actual_line": "{item.label} <strong>{item.value}</strong>",
+      "file": "web/app/page.tsx",
+      "line": 1266,
+      "line_match": true,
+      "string": "{item.label} <strong>{item.value}</strong>",
+      "verdict": "Contains 'Shade proxy N%'; acceptable if kept as proxy, but can duplicate rounded rain/heat values without explaining dependence."
+    },
+    {
+      "action": "No fix required.",
+      "actual_line": "<p>Singapore walk-to-transit comfort</p>",
+      "file": "web/app/page.tsx",
+      "line": 1699,
+      "line_match": true,
+      "string": "Singapore walk-to-transit comfort",
+      "verdict": "Acceptable headline-level summary if nearby source/proxy disclosures remain visible."
+    },
+    {
+      "action": "No fix required.",
+      "actual_line": "<p className={styles.dataLine}>Data as of {formatDataDate(manifest)}</p>",
+      "file": "web/app/page.tsx",
+      "line": 1700,
+      "line_match": true,
+      "string": "Data as of {formatDataDate(manifest)}",
+      "verdict": "Acceptable: static data timestamp, not time/weather awareness."
+    },
+    {
+      "action": "No fix required.",
+      "actual_line": "<p className={styles.sourceLine}>",
+      "file": "web/app/page.tsx",
+      "line": 1701,
+      "line_match": true,
+      "string": "<p className={styles.sourceLine}>",
+      "verdict": "Acceptable provenance surface for numbers/source claims."
+    },
+    {
+      "action": "Keep or extend with 'not measured temperature/shade'.",
+      "actual_line": "<p className={styles.heatLine}>Heat: shelter + NParks shade proxy</p>",
+      "file": "web/app/page.tsx",
+      "line": 1715,
+      "line_match": true,
+      "string": "Heat: shelter + NParks shade proxy",
+      "verdict": "Acceptable concise heat disclosure; stronger than 'Heat comfort'."
+    },
+    {
+      "action": "No fix required.",
+      "actual_line": "return `Route evidence map for ${labels}, showing ${routeModeLabel(mode)}`;",
+      "file": "web/components/route-evidence-map.tsx",
+      "line": 863,
+      "line_match": true,
+      "string": "return `Route evidence map for ${labels}, showing ${routeModeLabel(mode)}`;",
+      "verdict": "Acceptable: says evidence map rather than scored/current route."
+    },
+    {
+      "action": "No fix required.",
+      "actual_line": "return `Route evidence for ${routeLabels}. Showing ${visibleRoutes}, ${exposed}, and ${poiText}.`;",
+      "file": "web/components/route-evidence-map.tsx",
+      "line": 904,
+      "line_match": true,
+      "string": "return `Route evidence for ${routeLabels}. Showing ${visibleRoutes}, ${exposed}, and ${poiText}.`;",
+      "verdict": "Acceptable screen-reader evidence summary; numbers are derived from loaded GeoJSON features."
+    },
+    {
+      "action": "Use 'best scheduled peak headway' or include AM/PM peak context in value copy.",
+      "actual_line": "return `${value} min best`;",
+      "file": "web/lib/transit-popup.ts",
+      "line": 28,
+      "line_match": true,
+      "string": "return `${value} min best`;",
+      "verdict": "Overclaim risk: 'best' lacks provenance/window detail and can read as current wait time."
+    }
+  ]
+}
