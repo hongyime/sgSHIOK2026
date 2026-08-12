@@ -101,6 +101,12 @@ const REASON_COPY: Record<keyof Subscores, { low: string; high: string }> = {
   crossing: { low: "More crossing friction", high: "Easy crossing profile" },
 };
 
+interface DirectBusFallbackEvidence {
+  bestExpectedWaitMin: number;
+  candidateCount: number | null;
+  nearestDirectM: number | null;
+}
+
 export type FeedbackSegmentLabel =
   | "sheltered"
   | "void_deck"
@@ -319,6 +325,31 @@ function nestedNumber(value: unknown, path: string[]): number | null {
   return typeof cursor === "number" && Number.isFinite(cursor) ? cursor : null;
 }
 
+function directBusFallbackEvidence(score: ScoreRecord): DirectBusFallbackEvidence | null {
+  if (score.subscores?.bus !== 0) return null;
+  const bestExpectedWaitMin = nestedNumber(score.provenance, [
+    "direct_bus_fallback",
+    "best_expected_wait_min",
+  ]);
+  if (bestExpectedWaitMin === null) return null;
+  return {
+    bestExpectedWaitMin,
+    candidateCount: nestedNumber(score.provenance, ["direct_bus_fallback", "candidate_count"]),
+    nearestDirectM: nestedNumber(score.provenance, ["direct_bus_fallback", "nearest_direct_m"]),
+  };
+}
+
+function busFallbackSummary(evidence: DirectBusFallbackEvidence): string {
+  const countText =
+    evidence.candidateCount !== null
+      ? `${evidence.candidateCount} direct bus candidate${evidence.candidateCount === 1 ? "" : "s"}`
+      : "Direct bus candidates";
+  const distanceText =
+    evidence.nearestDirectM !== null ? `; nearest ${formatDistance(evidence.nearestDirectM)}` : "";
+  const waitText = `${evidence.bestExpectedWaitMin.toFixed(1)} min best scheduled wait`;
+  return `${countText} found${distanceText}; ${waitText}.`;
+}
+
 function provenanceReason(score: ScoreRecord, transitMode: TransitAccessMode): string | null {
   if (transitMode !== "best_transit") return null;
   const provenance = score.provenance;
@@ -365,6 +396,10 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
   }
   if (score.state === "NOT_YET_SCORED") {
     return "This postal is in the source universe, but it still needs pipeline scoring evidence.";
+  }
+  const busFallback = directBusFallbackEvidence(score);
+  if (busFallback) {
+    return "Composite caveat: the bus term remains 0 because nearby bus evidence could not be connected to a verified walking route.";
   }
   return null;
 }
@@ -618,11 +653,16 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
   if (!score.subscores) return ["Score breakdown pending", "Route evidence available"];
 
   const measuredReasons: string[] = [];
+  const busFallback = directBusFallbackEvidence(score);
   if (typeof score.paths.sheltered_m === "number") {
     measuredReasons.push(`${formatDistance(score.paths.sheltered_m)} to ${transitModeLabel(transitMode)}`);
   }
   if (typeof score.paths.covered_ratio === "number") {
     measuredReasons.push(`${Math.round(score.paths.covered_ratio * 100)}% sheltered on covered route`);
+  }
+  if (busFallback) {
+    measuredReasons.push("Nearby bus evidence not route-verified");
+    measuredReasons.push(busFallbackSummary(busFallback));
   }
 
   const values = SUBSCORE_DETAILS.map(({ key }) => ({
@@ -630,7 +670,14 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
     value: score.subscores?.[key] ?? 0,
   })).sort((a, b) => a.value - b.value);
 
-  const lowReasons = values.filter((item) => item.value < 55).map((item) => REASON_COPY[item.key].low);
+  if (busFallback && values[0]?.key === "bus") {
+    return ["Nearby bus evidence not route-verified", busFallbackSummary(busFallback)];
+  }
+
+  const lowReasons = values
+    .filter((item) => item.value < 55)
+    .map((item) => (item.key === "bus" && busFallback ? null : REASON_COPY[item.key].low))
+    .filter((reason): reason is string => Boolean(reason));
   if (lowReasons.length >= 2) return lowReasons.slice(0, 2);
   if (lowReasons.length === 1) {
     return [lowReasons[0], measuredReasons[0] ?? REASON_COPY[[...values].reverse()[0].key].high];
@@ -959,6 +1006,7 @@ export function ScoreCard({
       : toProperCase(score.best_node?.name ?? "No transit found nearby");
   const reasons = scoreReasons(score, transitMode);
   const stateNote = scoreStateNote(score, transitMode);
+  const busFallback = directBusFallbackEvidence(score);
   const displayScore = score.total;
   const rankedRecords = useMemo(
     () => rankScoreRecords(rankingRecords, rankMetric, 5),
@@ -1141,6 +1189,12 @@ export function ScoreCard({
                     Boolean(heatNote)
                   )
                 : [];
+            const busNotes: string[] =
+              key === "bus" && busFallback
+                ? [
+                    `${busFallbackSummary(busFallback)} Walking network access was not verified, so this sub-score remains 0.`,
+                  ]
+                : [];
             return (
               <div key={key} className={styles.subscoreRow}>
                 <div>
@@ -1148,6 +1202,9 @@ export function ScoreCard({
                   {note && <em>{note}</em>}
                   {heatNotes.map((heatNote) => (
                     <em key={heatNote}>{heatNote}</em>
+                  ))}
+                  {busNotes.map((busNote) => (
+                    <em key={busNote}>{busNote}</em>
                   ))}
                 </div>
                 <div className={styles.subscoreMeta}>

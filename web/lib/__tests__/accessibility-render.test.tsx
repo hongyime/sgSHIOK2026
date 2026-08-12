@@ -165,4 +165,58 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Same displayed value as rain shelter for this postal.");
     expect(html).toContain("Score evidence: covered 149 m; greenery proxy 23 m.");
   });
+
+  it("renders direct bus fallback evidence instead of a false low-bus verdict", () => {
+    const contradictionRecord: ScoreRecord = {
+      ...scoredRecord,
+      postal: "530227",
+      total: 31.9,
+      subscores: { access: 65, rain: 58, heat: 58, bus: 0, crossing: 70 },
+      provenance: {
+        direct_bus_fallback: {
+          candidate_count: 3,
+          nearest_direct_m: 99.1,
+          best_expected_wait_min: 0.411,
+        },
+      },
+    };
+    const html = renderScoreCard({
+      selection: {
+        ...selection,
+        result: { ...selection.result, POSTAL: "530227", SEARCHVAL: "S530227" },
+        score: contradictionRecord,
+      },
+      rankingRecords: [contradictionRecord],
+    });
+
+    expect(html).toContain("Nearby bus evidence not route-verified");
+    expect(html).toContain("3 direct bus candidates found; nearest 99 m; 0.4 min best scheduled wait.");
+    expect(html).toContain("Walking network access was not verified, so this sub-score remains 0.");
+    expect(html).toContain("Composite caveat: the bus term remains 0");
+    expect(html).toContain("Bus connectivity");
+    expect(html).toContain("20%");
+    expect(html).not.toContain("Limited bus connectivity");
+  });
+
+  it("keeps the low-bus verdict for genuine zero-bus records without fallback evidence", () => {
+    const noBusRecord: ScoreRecord = {
+      ...scoredRecord,
+      total: 40,
+      subscores: { access: 65, rain: 58, heat: 58, bus: 0, crossing: 70 },
+      provenance: {},
+    };
+    const html = renderScoreCard({
+      selection: {
+        ...selection,
+        score: noBusRecord,
+      },
+      rankingRecords: [noBusRecord],
+    });
+
+    expect(html).toContain("Limited bus connectivity");
+    expect(html).not.toContain("Nearby bus evidence not route-verified");
+    expect(html).not.toContain("Walking network access was not verified");
+    expect(html).toContain("Bus connectivity");
+    expect(html).toContain("20%");
+  });
 });
