@@ -36,7 +36,7 @@ export function rankScoreRecords(
 ): RankedScoreRecord[] {
   return records
     .map((record) => ({ record, value: metricValue(record, metric) }))
-    .filter((item): item is { record: ScoreRecord; value: number } => typeof item.value === "number")
+    .filter((item): item is { record: RankableScoreRecord; value: number } => typeof item.value === "number")
     .sort((a, b) => {
       if (b.value !== a.value) return b.value - a.value;
       return a.record.postal.localeCompare(b.record.postal);
