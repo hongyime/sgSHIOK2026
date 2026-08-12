@@ -66,9 +66,9 @@ const SUBSCORE_DETAILS: Array<{
   { key: "bus", label: "Bus connectivity", weight: "20%" },
   {
     key: "heat",
-    label: "Heat comfort",
+    label: "Heat proxy",
     weight: "15%",
-    note: "Mostly covered shelter plus sparse NParks greenery proxy; not measured shade.",
+    note: "Derived from covered walk plus sparse NParks greenery proxy; not live weather or measured shade.",
   },
   { key: "crossing", label: "Crossing friction", weight: "5%" },
 ];
@@ -96,7 +96,7 @@ const SOURCE_LABELS: Record<string, string> = {
 const REASON_COPY: Record<keyof Subscores, { low: string; high: string }> = {
   access: { low: "Longer walk to transit", high: "Short walk to transit" },
   rain: { low: "Mostly exposed to rain", high: "Good rain shelter coverage" },
-  heat: { low: "Low shade and shelter comfort", high: "Better heat comfort" },
+  heat: { low: "Low heat-proxy evidence", high: "Better heat-proxy score" },
   bus: { low: "Limited bus connectivity", high: "Strong bus connectivity" },
   crossing: { low: "More crossing friction", high: "Easy crossing profile" },
 };
@@ -152,7 +152,7 @@ export function scoreCardAnnouncement({
     ? previewRoute
       ? "Preview route evidence selected."
       : "Custom stop selected."
-    : "Best route selected.";
+    : "Scored route selected.";
   return `${postal} score panel loaded. ${stationName ?? "Transit target loaded"}. Score ${scoreText}. ${stopText} Route display ${routeMode}; ${selectedRouteLabel ?? "route"} active.`;
 }
 
@@ -996,6 +996,17 @@ export function ScoreCard({
     score.paths && typeof score.paths.shade_ratio === "number"
       ? Math.round(score.paths.shade_ratio * 100)
       : null;
+  const heatEvidenceDetail =
+    score.paths &&
+    typeof score.paths.covered_m === "number" &&
+    typeof score.paths.shade_m === "number"
+      ? `Score evidence: covered ${formatDistance(score.paths.covered_m)}; greenery proxy ${formatDistance(score.paths.shade_m)}.`
+      : null;
+  const heatMatchesRain =
+    score.subscores &&
+    formatScore(score.subscores.heat) === formatScore(score.subscores.rain)
+      ? "Same displayed value as rain shelter for this postal."
+      : null;
   const routeDetailItems: Array<{ label: string; value: string }> = [];
   if (shadeProxyPct !== null) {
     routeDetailItems.push({ label: "Shade proxy", value: `${shadeProxyPct}%` });
@@ -1022,7 +1033,7 @@ export function ScoreCard({
                   className={styles.resetCustomStopBtn}
                   onClick={onResetChosenStop}
                 >
-                  ↺ Best route
+                  ↺ Scored route
                 </button>
               )}
             </div>
@@ -1124,11 +1135,20 @@ export function ScoreCard({
           <div className={styles.subscoreList}>
           {SUBSCORE_DETAILS.map(({ key, label, weight, note }) => {
             const value = score.subscores?.[key] ?? null;
+            const heatNotes: string[] =
+              key === "heat"
+                ? [heatMatchesRain, heatEvidenceDetail].filter((heatNote): heatNote is string =>
+                    Boolean(heatNote)
+                  )
+                : [];
             return (
               <div key={key} className={styles.subscoreRow}>
                 <div>
                   <span>{label}</span>
                   {note && <em>{note}</em>}
+                  {heatNotes.map((heatNote) => (
+                    <em key={heatNote}>{heatNote}</em>
+                  ))}
                 </div>
                 <div className={styles.subscoreMeta}>
                   <strong>{formatScore(value)}</strong>

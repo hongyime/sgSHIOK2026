@@ -21,8 +21,8 @@ describe("transit popup formatting", () => {
     expect(html).toContain("71, 76, 262");
     expect(html).toContain("05:45");
     expect(html).toContain("00:38");
-    expect(html).toContain("4 min best");
-    expect(html).toContain("6 min best");
+    expect(html).toContain("4 min best scheduled");
+    expect(html).toContain("6 min best scheduled");
     expect(html).not.toMatch(/arrival|eta/i);
   });
 

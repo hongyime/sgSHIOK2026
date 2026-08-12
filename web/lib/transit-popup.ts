@@ -25,7 +25,7 @@ function asPopupText(value: unknown): string | null {
 
 function formatPeakMinutes(value: unknown): string | null {
   if (typeof value !== "number" || !Number.isFinite(value)) return null;
-  return `${value} min best`;
+  return `${value} min best scheduled`;
 }
 
 export function transitPoiPopupHtml(properties: Record<string, unknown>): string {

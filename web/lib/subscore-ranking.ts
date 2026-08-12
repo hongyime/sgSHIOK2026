@@ -7,7 +7,7 @@ export const RANK_METRIC_OPTIONS: Array<{ id: RankMetric; label: string }> = [
   { id: "rain", label: "Rain shelter" },
   { id: "access", label: "Transit access" },
   { id: "bus", label: "Bus connectivity" },
-  { id: "heat", label: "Heat comfort" },
+  { id: "heat", label: "Heat proxy" },
   { id: "crossing", label: "Crossing friction" },
 ];
 

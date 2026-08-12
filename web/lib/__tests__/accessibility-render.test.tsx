@@ -39,7 +39,9 @@ const scoredRecord: ScoreRecord = {
     shortest_m: 210,
     sheltered_m: 240,
     detour_pct: 14,
+    covered_m: 149,
     covered_ratio: 0.62,
+    shade_m: 23,
     shortest_covered_ratio: 0.48,
     routing_type: "sheltered",
     shade_ratio: 0.31,
@@ -141,5 +143,26 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Route display shortest");
     expect(html).toContain('aria-busy="true"');
     expect(html).toContain("Loading Overall SHIOK ranks.");
+  });
+
+  it("renders heat proxy disclosure and equality note at the score breakdown", () => {
+    const recordWithEqualRainHeat: ScoreRecord = {
+      ...scoredRecord,
+      subscores: { access: 78, rain: 69, heat: 69, bus: 82, crossing: 90 },
+    };
+    const html = renderScoreCard({
+      selection: {
+        ...selection,
+        score: recordWithEqualRainHeat,
+      },
+      rankingRecords: [recordWithEqualRainHeat],
+    });
+
+    expect(html).toContain("Heat proxy");
+    expect(html).toContain(
+      "Derived from covered walk plus sparse NParks greenery proxy; not live weather or measured shade."
+    );
+    expect(html).toContain("Same displayed value as rain shelter for this postal.");
+    expect(html).toContain("Score evidence: covered 149 m; greenery proxy 23 m.");
   });
 });

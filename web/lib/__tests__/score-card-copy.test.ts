@@ -95,9 +95,9 @@ describe("score card copy", () => {
     expect(source).toContain('weight: "25%"');
     expect(source).toContain('label: "Bus connectivity"');
     expect(source).toContain('weight: "20%"');
-    expect(source).toContain('label: "Heat comfort"');
+    expect(source).toContain('label: "Heat proxy"');
     expect(source).toContain('weight: "15%"');
-    expect(source).toContain("Mostly covered shelter plus sparse NParks greenery proxy; not measured shade.");
+    expect(source).toContain("Derived from covered walk plus sparse NParks greenery proxy; not live weather or measured shade.");
     expect(source).toContain('label: "Crossing friction"');
     expect(source).toContain('weight: "5%"');
 
