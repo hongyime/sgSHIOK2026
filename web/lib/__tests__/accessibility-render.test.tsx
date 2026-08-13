@@ -190,6 +190,7 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("Nearby bus evidence not route-verified");
+    expect(html).toContain("62% sheltered on covered route");
     expect(html).toContain("3 direct bus candidates found; nearest 99 m; 0.4 min best scheduled wait.");
     expect(html).toContain("Walking network access was not verified, so this sub-score remains 0.");
     expect(html).toContain("Composite caveat: the bus term remains 0");
@@ -218,5 +219,68 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Walking network access was not verified");
     expect(html).toContain("Bus connectivity");
     expect(html).toContain("20%");
+  });
+
+  it("does not surface record-level untrusted_subscores as a selected-route warning", () => {
+    const flaggedBusRecord: ScoreRecord = {
+      ...scoredRecord,
+      subscores: { access: 90, rain: 68.5, heat: 68.5, bus: 100, crossing: 100 },
+      provenance: {
+        direct_bus_fallback: {
+          reason: "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+          best_expected_wait_min: 0.566,
+          untrusted_subscores: ["rain", "heat", "crossing"],
+        },
+      },
+    };
+    const unflaggedBusRecord: ScoreRecord = {
+      ...scoredRecord,
+      subscores: { access: 90, rain: 68.5, heat: 68.5, bus: 100, crossing: 100 },
+      provenance: {},
+    };
+    const flaggedNoBusRecord: ScoreRecord = {
+      ...scoredRecord,
+      subscores: { access: 65, rain: 58, heat: 58, bus: 0, crossing: 70 },
+      provenance: {
+        direct_bus_fallback: {
+          candidate_count: 3,
+          nearest_direct_m: 99.1,
+          best_expected_wait_min: 0.411,
+          untrusted_subscores: ["rain", "heat", "crossing"],
+        },
+      },
+    };
+    const unflaggedNoBusRecord: ScoreRecord = {
+      ...scoredRecord,
+      subscores: { access: 65, rain: 58, heat: 58, bus: 0, crossing: 70 },
+      provenance: {},
+    };
+
+    const flaggedBusHtml = renderScoreCard({
+      selection: { ...selection, score: flaggedBusRecord },
+      rankingRecords: [flaggedBusRecord],
+    });
+    const unflaggedBusHtml = renderScoreCard({
+      selection: { ...selection, score: unflaggedBusRecord },
+      rankingRecords: [unflaggedBusRecord],
+    });
+    const flaggedNoBusHtml = renderScoreCard({
+      selection: { ...selection, score: flaggedNoBusRecord },
+      rankingRecords: [flaggedNoBusRecord],
+    });
+    const unflaggedNoBusHtml = renderScoreCard({
+      selection: { ...selection, score: unflaggedNoBusRecord },
+      rankingRecords: [unflaggedNoBusRecord],
+    });
+
+    expect(flaggedBusHtml).not.toContain("not derived from a verified pedestrian route");
+    expect(flaggedBusHtml).not.toContain("Nearby bus evidence not route-verified");
+    expect(unflaggedBusHtml).not.toContain("not derived from a verified pedestrian route");
+    expect(unflaggedBusHtml).not.toContain("Nearby bus evidence not route-verified");
+
+    expect(flaggedNoBusHtml).toContain("Nearby bus evidence not route-verified");
+    expect(flaggedNoBusHtml).toContain("62% sheltered on covered route");
+    expect(unflaggedNoBusHtml).toContain("Limited bus connectivity");
+    expect(unflaggedNoBusHtml).not.toContain("Nearby bus evidence not route-verified");
   });
 });

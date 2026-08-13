@@ -671,7 +671,11 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
   })).sort((a, b) => a.value - b.value);
 
   if (busFallback && values[0]?.key === "bus") {
-    return ["Nearby bus evidence not route-verified", busFallbackSummary(busFallback)];
+    const shelterReason = measuredReasons.find((reason) => reason.includes("sheltered"));
+    return [
+      "Nearby bus evidence not route-verified",
+      shelterReason ?? measuredReasons[0] ?? busFallbackSummary(busFallback),
+    ];
   }
 
   const lowReasons = values
