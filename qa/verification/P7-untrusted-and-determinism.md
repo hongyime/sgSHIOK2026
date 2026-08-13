@@ -257,3 +257,12 @@ methods give 1,119 record-level reasons versus 1,211 reason-count appearances,
 with `large_unrouted_bus_stop_access_connector` inflating from 12 to 44. The
 Reading B determination is unchanged, but the block [5] column header should be
 read as `reason_count_appearances`, not `records`.
+
+## 2026-08-13 correction
+
+P8 established that the P7 scoped score attempt made no OneMap calls and that
+the 100 MB chunk size was normal pre-export private-geometry payload, not a
+stall symptom. P8 measured context load at 228.7 s and marginal scoring at about
+1.67 s per record, so P7's first 500-record chunk represented roughly 18 minutes
+of work inside a run projected around 31 minutes. The P7 run was healthy and was
+terminated early; it should not be cited as evidence of an indefinite stall.
