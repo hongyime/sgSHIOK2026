@@ -18,7 +18,7 @@ on:
       - "scripts/check_repo_integrity.py"
       - ".github/workflows/repo-integrity.yml"
   schedule:
-    - cron: "31 9 * * 1" # Weekly Monday 09:31 UTC (5:31pm SGT), bypasses [skip ci] push skips.
+    - cron: "31 9 * * *" # Daily 09:31 UTC (5:31pm SGT), bypasses [skip ci] push skips.
   workflow_dispatch:
 
 permissions: read-all

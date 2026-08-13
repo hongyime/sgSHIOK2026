@@ -5,7 +5,6 @@ from pathlib import Path
 
 from scripts.check_repo_integrity import check_repo_integrity
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -57,4 +56,4 @@ def test_repo_integrity_workflow_has_schedule_trigger():
     )
 
     assert "schedule:" in workflow
-    assert "cron:" in workflow
+    assert 'cron: "31 9 * * *"' in workflow
