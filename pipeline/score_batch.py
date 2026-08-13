@@ -358,8 +358,8 @@ def build_score_batch(
                 (str(key), str(value))
                 for key, value in fingerprints.items()
                 if isinstance(key, str) and isinstance(value, str) and value
-                )
             )
+        )
     report["scoring_provenance_at_start"] = scoring_provenance_at_start
     report["scoring_fingerprints_by_digest"] = dict(sorted(fingerprint_maps.items()))
     input_maps = read_existing_scoring_input_maps(output_dir)
