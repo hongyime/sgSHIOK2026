@@ -85,6 +85,7 @@ def test_targeted_refresh_score_provenance_is_scoped_to_targeted_records():
                 "provenance": {
                     "source_hashes": {"osm_extract": "a" * 64},
                     "scoring_fingerprints": {"pipeline\\scoring.py": "b" * 64},
+                    "network_digest": "n" * 24,
                     "subscore_status": {"heat": "provisional"},
                 },
             }
@@ -97,6 +98,8 @@ def test_targeted_refresh_score_provenance_is_scoped_to_targeted_records():
     assert provenance["postal_count"] == 1
     assert provenance["scoring_fingerprints"] == {"pipeline\\scoring.py": "b" * 64}
     assert provenance["scoring_fingerprint_digest_counts"]
+    assert provenance["network_digest_counts"] == {"n" * 24: 1}
+    assert provenance["records_missing_network_digest"] == 0
 
 
 def test_targeted_bundle_refresh_rebalances_oversized_geom_parent(tmp_path, monkeypatch):

@@ -18,6 +18,7 @@ from pipeline.scoring_integration import (
     PROJECT_ROOT,
     load_manifest,
     load_scoring_context,
+    network_snapshot,
     score_postal_gdf,
     scoring_input_snapshot,
     scoring_provenance_snapshot,
@@ -141,6 +142,40 @@ def read_existing_scoring_input_maps(output_dir: Path) -> dict[str, dict[str, An
     return dict(sorted(maps.items()))
 
 
+def read_existing_network_maps(output_dir: Path) -> dict[str, dict[str, Any]]:
+    manifest_path = output_dir / "batch_manifest.json"
+    if not manifest_path.is_file():
+        return {}
+    try:
+        with open(manifest_path, "r", encoding="utf-8") as f:
+            manifest: Any = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return {}
+    if not isinstance(manifest, dict):
+        return {}
+    maps: dict[str, dict[str, Any]] = {}
+    raw_maps = manifest.get("networks_by_digest")
+    if isinstance(raw_maps, dict):
+        for digest, network_payload in raw_maps.items():
+            if not isinstance(digest, str) or not isinstance(network_payload, dict):
+                continue
+            networks = network_payload.get("networks")
+            if not isinstance(networks, list):
+                continue
+            maps[digest] = dict(sorted(network_payload.items()))
+    start = manifest.get("scoring_provenance_at_start")
+    if isinstance(start, dict):
+        digest = start.get("network_digest")
+        networks = start.get("networks")
+        if isinstance(digest, str) and isinstance(networks, list):
+            maps[digest] = {
+                key: value
+                for key, value in sorted(start.items())
+                if key in {"networks", "total_rows", "network_algorithm"}
+            }
+    return dict(sorted(maps.items()))
+
+
 def json_safe_geometry(value: Any) -> Any:
     if value is None:
         return None
@@ -223,6 +258,7 @@ def not_yet_scored_record(
     data_as_of: str | None,
     scoring_digest: str | None = None,
     scoring_input_digest_value: str | None = None,
+    network_digest_value: str | None = None,
 ) -> dict[str, Any]:
     source_status = str(row.get("status") or NOT_YET_SCORED)
     provenance: dict[str, Any] = {
@@ -240,6 +276,8 @@ def not_yet_scored_record(
         provenance["scoring_fingerprint_digest"] = scoring_digest
     if scoring_input_digest_value:
         provenance["scoring_input_digest"] = scoring_input_digest_value
+    if network_digest_value:
+        provenance["network_digest"] = network_digest_value
     return {
         "postal": str(row["postal_code"]),
         "state": NOT_YET_SCORED,
@@ -348,7 +386,12 @@ def build_score_batch(
         else scoring_provenance_snapshot()
     )
     input_provenance = scoring_input_snapshot(postal_universe_path)
-    scoring_provenance_at_start = {**scoring_provenance_at_start, **input_provenance}
+    network_provenance = network_snapshot(network_path)
+    scoring_provenance_at_start = {
+        **scoring_provenance_at_start,
+        "scoring_input_digest": input_provenance["scoring_input_digest"],
+        "network_digest": network_provenance["network_digest"],
+    }
     fingerprint_maps = read_existing_scoring_fingerprint_maps(output_dir)
     digest = scoring_provenance_at_start.get("scoring_fingerprint_digest")
     fingerprints = scoring_provenance_at_start.get("scoring_fingerprints")
@@ -366,11 +409,20 @@ def build_score_batch(
     input_digest = scoring_provenance_at_start.get("scoring_input_digest")
     if isinstance(input_digest, str) and input_digest:
         input_maps[input_digest] = {
-            key: scoring_provenance_at_start[key]
+            key: input_provenance[key]
             for key in ("scoring_input_algorithm", "inputs", "total_rows")
-            if key in scoring_provenance_at_start
+            if key in input_provenance
         }
     report["scoring_inputs_by_digest"] = dict(sorted(input_maps.items()))
+    network_maps = read_existing_network_maps(output_dir)
+    network_digest_value = scoring_provenance_at_start.get("network_digest")
+    if isinstance(network_digest_value, str) and network_digest_value:
+        network_maps[network_digest_value] = {
+            key: network_provenance[key]
+            for key in ("network_algorithm", "networks", "total_rows")
+            if key in network_provenance
+        }
+    report["networks_by_digest"] = dict(sorted(network_maps.items()))
     data_as_of = load_manifest().get("generated_at")
     for chunk_index, (start, end) in enumerate(chunks, start=1):
         chunk = postal_rows.iloc[start:end].copy()
@@ -407,12 +459,13 @@ def build_score_batch(
                         row,
                         postal_universe_path,
                         data_as_of,
-                        scoring_digest=(
-                            digest if isinstance(digest, str) and digest else None
-                        ),
+                        scoring_digest=(digest if isinstance(digest, str) and digest else None),
                         scoring_input_digest_value=(
-                            input_digest
-                            if isinstance(input_digest, str) and input_digest
+                            input_digest if isinstance(input_digest, str) and input_digest else None
+                        ),
+                        network_digest_value=(
+                            network_digest_value
+                            if isinstance(network_digest_value, str) and network_digest_value
                             else None
                         ),
                     )

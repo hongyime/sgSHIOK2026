@@ -529,9 +529,10 @@ def targeted_refresh_score_provenance(
         "postal_count": postal_count,
         "source_hashes": score_provenance["source_hashes"],
         "scoring_fingerprints": score_provenance["scoring_fingerprints"],
-        "scoring_fingerprint_digest_counts": score_provenance[
-            "scoring_fingerprint_digest_counts"
-        ],
+        "scoring_fingerprint_digest_counts": score_provenance["scoring_fingerprint_digest_counts"],
+        "scoring_input_digest_counts": score_provenance["scoring_input_digest_counts"],
+        "network_digest_counts": score_provenance["network_digest_counts"],
+        "records_missing_network_digest": score_provenance["records_missing_network_digest"],
         "subscore_status": score_provenance["subscore_status"],
     }
 

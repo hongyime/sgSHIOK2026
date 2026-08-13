@@ -32,6 +32,7 @@ from pipeline.scoring_integration import (
     json_safe_score_record,
     load_postal_universe_points,
     nearest_graph_node_in_components,
+    network_snapshot,
     public_candidate_summary,
     repick_best_transit_from_route_options,
     score_candidate_route,
@@ -2234,6 +2235,7 @@ def test_build_provenance_records_selected_network_and_postal_universe_paths():
         network_path=Path("processed/network_island.parquet"),
         postal_universe_path=Path("processed/postal_universe_candidate_full_registered.parquet"),
         scoring_input_digest_value="i" * 24,
+        network_digest_value="n" * 24,
     )
 
     assert provenance["routing"]["network"] == "processed\\network_island.parquet"
@@ -2245,6 +2247,7 @@ def test_build_provenance_records_selected_network_and_postal_universe_paths():
     assert "git" not in provenance
     assert len(provenance["scoring_fingerprint_digest"]) == 24
     assert len(provenance["scoring_input_digest"]) == 24
+    assert len(provenance["network_digest"]) == 24
     assert provenance["subscore_status"]["bus"] == "real"
 
     snapshot = scoring_provenance_snapshot()
@@ -2270,6 +2273,10 @@ def test_build_provenance_records_selected_network_and_postal_universe_paths():
     }
     assert snapshot["git"]["commit"]
     assert isinstance(snapshot["git"]["dirty_paths"], list)
+    network = network_snapshot(NETWORK_PATH)
+    assert len(network["network_digest"]) == 24
+    assert network["networks"][0]["path"] == "processed\\network_island.parquet"
+    assert isinstance(network["networks"][0]["row_count"], int)
 
 
 def test_bus_module_content_changes_scoring_fingerprint(monkeypatch):

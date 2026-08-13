@@ -99,6 +99,17 @@ def sample_record(postal: str = "123456") -> dict:
                 "pipeline\\scoring.py": "e" * 64,
                 "pipeline\\scoring_integration.py": "f" * 64,
             },
+            "network": {
+                "network_algorithm": "sha256-json-sort-keys-24hex",
+                "networks": [
+                    {
+                        "path": "processed\\network_island.parquet",
+                        "sha256": "n" * 64,
+                        "row_count": 10,
+                    }
+                ],
+                "total_rows": 10,
+            },
             "source_hashes": {"osm_extract": "a" * 64},
             "subscore_status": {
                 "access": "real_routed_shortest_distance",
@@ -201,6 +212,16 @@ def test_export_and_validate_static_artifacts(tmp_path: Path):
     )
     assert manifest["provenance"]["scoring_fingerprint_digest_counts"]
     assert manifest["provenance"]["mixed_scoring_fingerprint_digests"] is False
+    assert manifest["provenance"]["network_digest_counts"]
+    assert manifest["provenance"]["mixed_network_digests"] is False
+    network_digest = next(iter(manifest["provenance"]["network_digest_counts"]))
+    assert manifest["provenance"]["networks_by_digest"][network_digest]["networks"] == [
+        {
+            "path": "processed\\network_island.parquet",
+            "sha256": "n" * 64,
+            "row_count": 10,
+        }
+    ]
     assert (
         manifest["provenance"]["subscore_status"]["heat"]
         == "provisional_covered_plus_nparks_shade_proxy_heat_only"
@@ -208,6 +229,8 @@ def test_export_and_validate_static_artifacts(tmp_path: Path):
     exported_score = json.loads((tmp_path / "scores" / "TEST_AREA.json").read_text())[0]
     assert "scoring_fingerprint_digest" in exported_score["provenance"]
     assert "scoring_fingerprints" not in exported_score["provenance"]
+    assert "network_digest" in exported_score["provenance"]
+    assert "network" not in exported_score["provenance"]
     assert "git" not in exported_score["provenance"]
     prefix_index = json.loads((tmp_path / "scores" / "prefix-index.json").read_text())
     assert prefix_index["123"] == ["TEST_AREA"]
@@ -655,6 +678,9 @@ def test_refresh_score_provenance_manifest_updates_from_score_shards(tmp_path: P
     assert refreshed["provenance"]["scoring_fingerprints"]["pipeline\\scoring.py"] == "e" * 64
     assert refreshed["provenance"]["scoring_fingerprint_digest_counts"]
     assert refreshed["provenance"]["records_missing_scoring_fingerprint_digest"] == 0
+    assert refreshed["provenance"]["network_digest_counts"]
+    assert refreshed["provenance"]["records_missing_network_digest"] == 0
+    assert report["network_digest_count"] == 1
     assert (
         refreshed["provenance"]["subscore_status"]["heat"]
         == "provisional_covered_plus_nparks_shade_proxy_heat_only"
@@ -705,7 +731,8 @@ def test_export_reports_mixed_scoring_fingerprint_digests(tmp_path: Path):
                 "b" * 24: {"pipeline\\bus.py": "b" * 64},
             },
             "scoring_inputs_by_digest": {
-                "i" * 24: {
+                "i"
+                * 24: {
                     "scoring_input_algorithm": "sha256-json-sort-keys-24hex",
                     "inputs": [
                         {
@@ -716,7 +743,8 @@ def test_export_reports_mixed_scoring_fingerprint_digests(tmp_path: Path):
                     ],
                     "total_rows": 1,
                 },
-                "j" * 24: {
+                "j"
+                * 24: {
                     "scoring_input_algorithm": "sha256-json-sort-keys-24hex",
                     "inputs": [
                         {
@@ -728,17 +756,45 @@ def test_export_reports_mixed_scoring_fingerprint_digests(tmp_path: Path):
                     "total_rows": 1,
                 },
             },
+            "networks_by_digest": {
+                "m"
+                * 24: {
+                    "network_algorithm": "sha256-json-sort-keys-24hex",
+                    "networks": [
+                        {
+                            "path": "processed\\network_a.parquet",
+                            "sha256": "3" * 64,
+                            "row_count": 10,
+                        }
+                    ],
+                    "total_rows": 10,
+                },
+                "n"
+                * 24: {
+                    "network_algorithm": "sha256-json-sort-keys-24hex",
+                    "networks": [
+                        {
+                            "path": "processed\\network_b.parquet",
+                            "sha256": "4" * 64,
+                            "row_count": 10,
+                        }
+                    ],
+                    "total_rows": 10,
+                },
+            },
         },
     )
     records[0]["provenance"] = {
         "scoring_fingerprint_digest": "a" * 24,
         "scoring_input_digest": "i" * 24,
+        "network_digest": "m" * 24,
         "source_hashes": {"osm_extract": "a" * 64},
         "subscore_status": records[0]["provenance"]["subscore_status"],
     }
     records[1]["provenance"] = {
         "scoring_fingerprint_digest": "b" * 24,
         "scoring_input_digest": "j" * 24,
+        "network_digest": "n" * 24,
         "source_hashes": {"osm_extract": "a" * 64},
         "subscore_status": records[1]["provenance"]["subscore_status"],
     }
@@ -770,6 +826,20 @@ def test_export_reports_mixed_scoring_fingerprint_digests(tmp_path: Path):
     assert manifest["provenance"]["scoring_input_digests_missing_maps"] == []
     assert manifest["provenance"]["scoring_input_provenance_complete"] is True
     assert manifest["provenance"]["mixed_scoring_input_digests"] is True
+    assert manifest["provenance"]["network_digest_counts"] == {
+        "m" * 24: 1,
+        "n" * 24: 1,
+    }
+    assert manifest["provenance"]["networks_by_digest"]["m" * 24]["networks"] == [
+        {
+            "path": "processed\\network_a.parquet",
+            "sha256": "3" * 64,
+            "row_count": 10,
+        }
+    ]
+    assert manifest["provenance"]["network_digests_missing_maps"] == []
+    assert manifest["provenance"]["network_provenance_complete"] is True
+    assert manifest["provenance"]["mixed_network_digests"] is True
 
 
 def test_export_fails_when_scoring_fingerprint_digest_is_unresolved(tmp_path: Path):
@@ -789,6 +859,15 @@ def test_export_fails_when_scoring_input_digest_is_unresolved(tmp_path: Path):
     records[0]["provenance"]["scoring_input_digest"] = "i" * 24
 
     with pytest.raises(ValueError, match="unresolved scoring input digest maps"):
+        export_static_artifacts(records, output_dir=tmp_path, records_dir=tmp_path / "score_batch")
+
+
+def test_export_fails_when_network_digest_is_unresolved(tmp_path: Path):
+    records = [sample_record("123456")]
+    records[0]["provenance"].pop("network", None)
+    records[0]["provenance"]["network_digest"] = "n" * 24
+
+    with pytest.raises(ValueError, match="unresolved network digest maps"):
         export_static_artifacts(records, output_dir=tmp_path, records_dir=tmp_path / "score_batch")
 
 
@@ -823,6 +902,40 @@ def test_export_resolves_scoring_input_digest_from_explicit_provenance(tmp_path:
         }
     ]
     assert manifest["provenance"]["scoring_input_provenance_complete"] is True
+
+
+def test_export_resolves_network_digest_from_explicit_provenance(tmp_path: Path):
+    records = [sample_record("123456")]
+    records[0]["provenance"].pop("network", None)
+    records[0]["provenance"]["network_digest"] = "n" * 24
+    network_provenance = {
+        "network_algorithm": "sha256-json-sort-keys-24hex",
+        "network_digest": "n" * 24,
+        "networks": [
+            {
+                "path": "processed\\network_island.parquet",
+                "sha256": "1" * 64,
+                "row_count": 10,
+            }
+        ],
+        "total_rows": 10,
+    }
+
+    export_static_artifacts(
+        records,
+        output_dir=tmp_path,
+        network_provenance=network_provenance,
+    )
+
+    manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["provenance"]["networks_by_digest"]["n" * 24]["networks"] == [
+        {
+            "path": "processed\\network_island.parquet",
+            "sha256": "1" * 64,
+            "row_count": 10,
+        }
+    ]
+    assert manifest["provenance"]["network_provenance_complete"] is True
 
 
 def test_export_splits_large_score_files(tmp_path: Path):

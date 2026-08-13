@@ -29,6 +29,8 @@ from pipeline.osm_tags import load_osm_tag_schema
 from pipeline.scoring import NO_TRANSIT_IN_RANGE, NOT_YET_SCORED
 from pipeline.scoring_integration import (
     NETWORK_PATH,
+    network_digest,
+    network_snapshot,
     raw_file_from_manifest,
     repick_best_transit_from_route_options,
     score_postals,
@@ -517,6 +519,8 @@ def public_score_record(record: dict[str, Any]) -> dict[str, Any]:
         raw_fingerprints = clean_provenance.pop("scoring_fingerprints", None)
         clean_provenance.pop("scoring_inputs", None)
         clean_provenance.pop("scoring_input", None)
+        clean_provenance.pop("networks", None)
+        raw_network = clean_provenance.pop("network", None)
         clean_provenance.pop("git", None)
         if "scoring_fingerprint_digest" not in clean_provenance and isinstance(
             raw_fingerprints, dict
@@ -528,6 +532,10 @@ def public_score_record(record: dict[str, Any]) -> dict[str, Any]:
                     if isinstance(key, str) and isinstance(value, str) and value
                 }
             )
+        if "network_digest" not in clean_provenance and isinstance(raw_network, dict):
+            clean_network = clean_network_payload(raw_network)
+            if clean_network:
+                clean_provenance["network_digest"] = network_digest(clean_network)
         public["provenance"] = clean_provenance
     return public
 
@@ -545,6 +553,14 @@ def record_scoring_input_digest(record: dict[str, Any]) -> str | None:
     if not isinstance(provenance, dict):
         return None
     digest = provenance.get("scoring_input_digest")
+    return digest if isinstance(digest, str) and digest else None
+
+
+def record_network_digest(record: dict[str, Any]) -> str | None:
+    provenance = record.get("provenance")
+    if not isinstance(provenance, dict):
+        return None
+    digest = provenance.get("network_digest")
     return digest if isinstance(digest, str) and digest else None
 
 
@@ -601,12 +617,16 @@ def score_provenance_summary(records: list[dict[str, Any]]) -> dict[str, Any]:
     input_digest_counts: Counter[str] = Counter()
     input_maps_by_digest: dict[str, dict[str, Any]] = {}
     records_missing_input_digest = 0
+    network_digest_counts: Counter[str] = Counter()
+    network_maps_by_digest: dict[str, dict[str, Any]] = {}
+    records_missing_network_digest = 0
     subscore_status: dict[str, str] = {}
     for record in records:
         provenance = record.get("provenance")
         if not isinstance(provenance, dict):
             records_missing_digest += 1
             records_missing_input_digest += 1
+            records_missing_network_digest += 1
             continue
         raw_hashes = provenance.get("source_hashes")
         if isinstance(raw_hashes, dict):
@@ -641,6 +661,18 @@ def score_provenance_summary(records: list[dict[str, Any]]) -> dict[str, Any]:
                 input_maps_by_digest[digest] = clean_input
         elif not isinstance(raw_input_digest, str):
             records_missing_input_digest += 1
+        raw_network_digest = provenance.get("network_digest")
+        raw_network = provenance.get("network")
+        if isinstance(raw_network_digest, str) and raw_network_digest:
+            network_digest_counts[raw_network_digest] += 1
+        if isinstance(raw_network, dict):
+            clean_network = clean_network_payload(raw_network)
+            if clean_network and not isinstance(raw_network_digest, str):
+                digest = network_digest(clean_network)
+                network_digest_counts[digest] += 1
+                network_maps_by_digest[digest] = clean_network
+        elif not isinstance(raw_network_digest, str):
+            records_missing_network_digest += 1
         if not subscore_status:
             raw_status = provenance.get("subscore_status")
             if isinstance(raw_status, dict):
@@ -655,6 +687,9 @@ def score_provenance_summary(records: list[dict[str, Any]]) -> dict[str, Any]:
         "scoring_input_digest_counts": dict(sorted(input_digest_counts.items())),
         "scoring_input_maps_by_digest": dict(sorted(input_maps_by_digest.items())),
         "records_missing_scoring_input_digest": records_missing_input_digest,
+        "network_digest_counts": dict(sorted(network_digest_counts.items())),
+        "network_maps_by_digest": dict(sorted(network_maps_by_digest.items())),
+        "records_missing_network_digest": records_missing_network_digest,
         "source_hashes": dict(sorted(source_hashes.items())),
         "subscore_status": dict(sorted(subscore_status.items())),
     }
@@ -687,6 +722,40 @@ def clean_scoring_input_payload(payload: dict[str, Any]) -> dict[str, Any] | Non
             payload.get("scoring_input_algorithm") or "sha256-json-sort-keys-24hex"
         ),
         "inputs": sorted(inputs, key=lambda item: str(item["path"])),
+    }
+    total_rows = payload.get("total_rows")
+    if isinstance(total_rows, int):
+        clean["total_rows"] = int(total_rows)
+    elif total_rows is None:
+        clean["total_rows"] = None
+    return clean
+
+
+def clean_network_payload(payload: dict[str, Any]) -> dict[str, Any] | None:
+    raw_networks = payload.get("networks")
+    if not isinstance(raw_networks, list):
+        return None
+    networks: list[dict[str, Any]] = []
+    for raw_entry in raw_networks:
+        if not isinstance(raw_entry, dict):
+            continue
+        path = raw_entry.get("path")
+        sha = raw_entry.get("sha256")
+        if not isinstance(path, str) or not path:
+            continue
+        entry: dict[str, Any] = {"path": path}
+        if isinstance(sha, str) and sha:
+            entry["sha256"] = sha
+        elif sha is None:
+            entry["sha256"] = None
+        if isinstance(raw_entry.get("row_count"), int):
+            entry["row_count"] = int(raw_entry["row_count"])
+        networks.append(entry)
+    if not networks:
+        return None
+    clean: dict[str, Any] = {
+        "network_algorithm": str(payload.get("network_algorithm") or "sha256-json-sort-keys-24hex"),
+        "networks": sorted(networks, key=lambda item: str(item["path"])),
     }
     total_rows = payload.get("total_rows")
     if isinstance(total_rows, int):
@@ -741,6 +810,23 @@ def score_batch_provenance(records_dir: Path) -> dict[str, Any] | None:
             inputs_by_digest = provenance.setdefault("scoring_inputs_by_digest", {})
             if isinstance(inputs_by_digest, dict):
                 inputs_by_digest[input_digest] = clean_input
+    raw_network_maps = manifest.get("networks_by_digest")
+    if isinstance(raw_network_maps, dict):
+        network_maps: dict[str, dict[str, Any]] = {}
+        for digest, network_payload in raw_network_maps.items():
+            if not isinstance(digest, str) or not isinstance(network_payload, dict):
+                continue
+            clean_network = clean_network_payload(network_payload)
+            if clean_network:
+                network_maps[digest] = clean_network
+        provenance["networks_by_digest"] = dict(sorted(network_maps.items()))
+    if isinstance(start, dict):
+        network_digest_value = start.get("network_digest")
+        clean_network = clean_network_payload(start)
+        if isinstance(network_digest_value, str) and clean_network:
+            networks_by_digest = provenance.setdefault("networks_by_digest", {})
+            if isinstance(networks_by_digest, dict):
+                networks_by_digest[network_digest_value] = clean_network
     return provenance or None
 
 
@@ -749,6 +835,7 @@ def build_manifest_provenance(
     records_dir: Path | None,
     records: list[dict[str, Any]],
     scoring_input_provenance: dict[str, Any] | None = None,
+    network_provenance: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     score_provenance = score_provenance_summary(records)
     score_batch = score_batch_provenance(records_dir) if records_dir is not None else None
@@ -761,17 +848,23 @@ def build_manifest_provenance(
     scoring_export = scoring_provenance_snapshot()
     digest_counts = score_provenance["scoring_fingerprint_digest_counts"]
     input_digest_counts = score_provenance["scoring_input_digest_counts"]
+    network_digest_counts = score_provenance["network_digest_counts"]
     start_digest = (
         scoring_start.get("scoring_fingerprint_digest") if isinstance(scoring_start, dict) else None
     )
     start_input_digest = (
         scoring_start.get("scoring_input_digest") if isinstance(scoring_start, dict) else None
     )
+    start_network_digest = (
+        scoring_start.get("network_digest") if isinstance(scoring_start, dict) else None
+    )
     export_digest = scoring_export["scoring_fingerprint_digest"]
     observed_digests = set(digest_counts)
     observed_input_digests = set(input_digest_counts)
+    observed_network_digests = set(network_digest_counts)
     changed_during_run = len(observed_digests) > 1
     input_changed_during_run = len(observed_input_digests) > 1
+    network_changed_during_run = len(observed_network_digests) > 1
     if isinstance(start_digest, str) and start_digest:
         changed_during_run = changed_during_run or any(
             digest != start_digest for digest in observed_digests
@@ -779,6 +872,10 @@ def build_manifest_provenance(
     if isinstance(start_input_digest, str) and start_input_digest:
         input_changed_during_run = input_changed_during_run or any(
             digest != start_input_digest for digest in observed_input_digests
+        )
+    if isinstance(start_network_digest, str) and start_network_digest:
+        network_changed_during_run = network_changed_during_run or any(
+            digest != start_network_digest for digest in observed_network_digests
         )
     if isinstance(start_digest, str) and start_digest and start_digest != export_digest:
         changed_during_run = True
@@ -849,6 +946,38 @@ def build_manifest_provenance(
     manifest_input_digest = start_input_digest
     if not isinstance(manifest_input_digest, str) and len(observed_input_digests) == 1:
         manifest_input_digest = next(iter(observed_input_digests))
+    networks_by_digest = (
+        score_batch.get("networks_by_digest")
+        if isinstance(score_batch, dict) and isinstance(score_batch.get("networks_by_digest"), dict)
+        else {}
+    )
+    networks_by_digest = dict(networks_by_digest)
+    networks_by_digest.update(score_provenance["network_maps_by_digest"])
+    clean_explicit_network = (
+        clean_network_payload(network_provenance) if isinstance(network_provenance, dict) else None
+    )
+    explicit_network_digest = (
+        network_provenance.get("network_digest") if isinstance(network_provenance, dict) else None
+    )
+    if (
+        isinstance(explicit_network_digest, str)
+        and explicit_network_digest
+        and clean_explicit_network
+    ):
+        networks_by_digest[explicit_network_digest] = clean_explicit_network
+    clean_start_network = (
+        clean_network_payload(scoring_start) if isinstance(scoring_start, dict) else None
+    )
+    if isinstance(start_network_digest, str) and start_network_digest and clean_start_network:
+        networks_by_digest[start_network_digest] = clean_start_network
+    missing_network_maps = sorted(
+        digest for digest in observed_network_digests if digest not in networks_by_digest
+    )
+    if missing_network_maps:
+        raise ValueError("unresolved network digest maps: " + ", ".join(missing_network_maps))
+    manifest_network_digest = start_network_digest
+    if not isinstance(manifest_network_digest, str) and len(observed_network_digests) == 1:
+        manifest_network_digest = next(iter(observed_network_digests))
     return {
         "source_hashes": score_provenance["source_hashes"],
         "scoring_fingerprint_algorithm": "sha256-json-sort-keys-24hex",
@@ -886,8 +1015,18 @@ def build_manifest_provenance(
             "records_missing_scoring_input_digest"
         ],
         "scoring_input_provenance_complete": (
-            not missing_input_maps
-            and score_provenance["records_missing_scoring_input_digest"] == 0
+            not missing_input_maps and score_provenance["records_missing_scoring_input_digest"] == 0
+        ),
+        "network_algorithm": "sha256-json-sort-keys-24hex",
+        "network_digest": manifest_network_digest,
+        "network_digest_counts": network_digest_counts,
+        "networks_by_digest": dict(sorted(networks_by_digest.items())),
+        "network_digests_missing_maps": missing_network_maps,
+        "network_changed_during_run": network_changed_during_run,
+        "mixed_network_digests": len(observed_network_digests) > 1,
+        "records_missing_network_digest": score_provenance["records_missing_network_digest"],
+        "network_provenance_complete": (
+            not missing_network_maps and score_provenance["records_missing_network_digest"] == 0
         ),
         "git": {
             "run_start": manifest_git,
@@ -1032,6 +1171,7 @@ def export_static_artifacts(
     output_dir: Path = DEFAULT_EXPORT_DIR,
     records_dir: Path | None = None,
     scoring_input_provenance: dict[str, Any] | None = None,
+    network_provenance: dict[str, Any] | None = None,
     geom_promotion_threshold_bytes: int = GEOM_PROMOTION_THRESHOLD_BYTES,
     geom_max_promotion_resolution: int = GEOM_MAX_PROMOTION_RESOLUTION,
     score_shard_max_bytes: int = MAX_FILE_BYTES,
@@ -1042,6 +1182,7 @@ def export_static_artifacts(
     score_index: dict[str, list[str]] = defaultdict(list)
     score_digest_counts_by_shard: dict[str, dict[str, int]] = {}
     score_input_digest_counts_by_shard: dict[str, dict[str, int]] = {}
+    network_digest_counts_by_shard: dict[str, dict[str, int]] = {}
 
     for record in records:
         postal = str(record["postal"])
@@ -1059,7 +1200,9 @@ def export_static_artifacts(
         ):
             digest_counts = Counter(
                 digest
-                for digest in (record_scoring_fingerprint_digest(record) for record in shard_records)
+                for digest in (
+                    record_scoring_fingerprint_digest(record) for record in shard_records
+                )
                 if digest is not None
             )
             score_digest_counts_by_shard[shard] = dict(sorted(digest_counts.items()))
@@ -1068,9 +1211,13 @@ def export_static_artifacts(
                 for digest in (record_scoring_input_digest(record) for record in shard_records)
                 if digest is not None
             )
-            score_input_digest_counts_by_shard[shard] = dict(
-                sorted(input_digest_counts.items())
+            score_input_digest_counts_by_shard[shard] = dict(sorted(input_digest_counts.items()))
+            network_digest_counts = Counter(
+                digest
+                for digest in (record_network_digest(record) for record in shard_records)
+                if digest is not None
             )
+            network_digest_counts_by_shard[shard] = dict(sorted(network_digest_counts.items()))
             written_files[rel_key(scores_dir / f"{shard}.json", output_dir)] = write_json(
                 scores_dir / f"{shard}.json", shard_records
             )
@@ -1151,6 +1298,7 @@ def export_static_artifacts(
         records_dir=records_dir,
         records=records,
         scoring_input_provenance=scoring_input_provenance,
+        network_provenance=network_provenance,
     )
     manifest = {
         "generated_at": datetime.now(UTC).isoformat(),
@@ -1190,6 +1338,8 @@ def export_static_artifacts(
                     "full_scoring_fingerprints": "manifest.provenance.scoring_fingerprints",
                     "per_record_scoring_input": "scoring_input_digest",
                     "full_scoring_inputs": "manifest.provenance.scoring_inputs_by_digest",
+                    "per_record_network": "network_digest",
+                    "full_networks": "manifest.provenance.networks_by_digest",
                     "git_state": "manifest.provenance.git",
                 },
                 "candidates": {
@@ -1201,6 +1351,7 @@ def export_static_artifacts(
             },
             "scoring_fingerprint_digest_counts_by_shard": score_digest_counts_by_shard,
             "scoring_input_digest_counts_by_shard": score_input_digest_counts_by_shard,
+            "network_digest_counts_by_shard": network_digest_counts_by_shard,
         },
         "geom": {
             "index": "geom/index.json",
@@ -1789,6 +1940,14 @@ def refresh_score_provenance_manifest(output_dir: Path) -> dict[str, Any]:
     provenance["records_missing_scoring_fingerprint_digest"] = score_provenance[
         "records_missing_scoring_fingerprint_digest"
     ]
+    provenance["scoring_input_digest_counts"] = score_provenance["scoring_input_digest_counts"]
+    provenance["records_missing_scoring_input_digest"] = score_provenance[
+        "records_missing_scoring_input_digest"
+    ]
+    provenance["network_digest_counts"] = score_provenance["network_digest_counts"]
+    provenance["records_missing_network_digest"] = score_provenance[
+        "records_missing_network_digest"
+    ]
     provenance["subscore_status"] = score_provenance["subscore_status"]
     provenance["score_provenance_refreshed_at"] = datetime.now(UTC).isoformat()
     write_json(manifest_path, manifest)
@@ -1799,6 +1958,7 @@ def refresh_score_provenance_manifest(output_dir: Path) -> dict[str, Any]:
         "record_count": len(records),
         "source_hash_count": len(score_provenance["source_hashes"]),
         "scoring_fingerprint_count": len(provenance["scoring_fingerprints"]),
+        "network_digest_count": len(score_provenance["network_digest_counts"]),
         "subscore_status_keys": sorted(score_provenance["subscore_status"]),
     }
 
@@ -2113,6 +2273,7 @@ def main() -> int:
                 )
                 return 1
             input_provenance = None
+            network_provenance = None
         else:
             records = score_postals(
                 postal_codes=args.postals,
@@ -2122,11 +2283,13 @@ def main() -> int:
                 postal_universe_path=args.postal_universe,
             )
             input_provenance = scoring_input_snapshot(args.postal_universe)
+            network_provenance = network_snapshot(args.network)
         report = export_static_artifacts(
             records,
             output_dir=args.output,
             records_dir=args.records_dir,
             scoring_input_provenance=input_provenance,
+            network_provenance=network_provenance,
         )
         print(json.dumps(report, indent=2, sort_keys=True))
         return 0

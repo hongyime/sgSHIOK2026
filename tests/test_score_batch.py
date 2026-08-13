@@ -99,6 +99,7 @@ def test_score_batch_writes_chunks_and_manifest_then_resumes(tmp_path: Path):
     ok, report = build_score_batch(
         postal_universe_path=universe_path,
         output_dir=output_dir,
+        network_path=universe_path,
         limit=3,
         chunk_size=2,
         context_loader=fake_context_loader,
@@ -121,11 +122,18 @@ def test_score_batch_writes_chunks_and_manifest_then_resumes(tmp_path: Path):
         universe_path
     )
     assert manifest["scoring_inputs_by_digest"][input_digest]["inputs"][0]["row_count"] == 4
+    network_digest = manifest["scoring_provenance_at_start"]["network_digest"]
+    assert len(network_digest) == 24
+    assert manifest["networks_by_digest"][network_digest]["networks"][0]["path"] == str(
+        universe_path
+    )
+    assert manifest["networks_by_digest"][network_digest]["networks"][0]["row_count"] == 4
     assert read_chunk_postals(Path(report["chunks"][0]["path"])) == ["000001", "000003"]
 
     ok, resumed = build_score_batch(
         postal_universe_path=universe_path,
         output_dir=output_dir,
+        network_path=universe_path,
         limit=3,
         chunk_size=2,
         context_loader=fake_context_loader,
@@ -154,6 +162,7 @@ def test_full_score_batch_emits_not_yet_records_for_unresolved_postals(tmp_path:
     ok, report = build_score_batch(
         postal_universe_path=universe_path,
         output_dir=output_dir,
+        network_path=universe_path,
         full_batch=True,
         confirm_full_batch=True,
         chunk_size=4,
@@ -174,6 +183,7 @@ def test_full_score_batch_emits_not_yet_records_for_unresolved_postals(tmp_path:
     assert unresolved["total"] is None
     assert unresolved["provenance"]["reason"] == "missing_coordinates_after_bounded_geocode"
     assert len(unresolved["provenance"]["scoring_input_digest"]) == 24
+    assert len(unresolved["provenance"]["network_digest"]) == 24
 
 
 def test_score_batch_dry_run_does_not_create_outputs(tmp_path: Path):
@@ -184,6 +194,7 @@ def test_score_batch_dry_run_does_not_create_outputs(tmp_path: Path):
     ok, report = build_score_batch(
         postal_universe_path=universe_path,
         output_dir=output_dir,
+        network_path=universe_path,
         limit=2,
         chunk_size=1,
         dry_run=True,

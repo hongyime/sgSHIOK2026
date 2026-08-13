@@ -215,6 +215,16 @@ def scoring_input_digest(payload: Mapping[str, Any]) -> str:
     return hashlib.sha256(encoded).hexdigest()[:24]
 
 
+def network_digest(payload: Mapping[str, Any]) -> str:
+    encoded = json.dumps(
+        payload,
+        ensure_ascii=True,
+        separators=(",", ":"),
+        sort_keys=True,
+    ).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()[:24]
+
+
 def scoring_input_snapshot(postal_universe_path: Path | None) -> dict[str, Any]:
     if postal_universe_path is None:
         fallback_path = RAW_DIR / "geocode_cache.db"
@@ -239,6 +249,21 @@ def scoring_input_snapshot(postal_universe_path: Path | None) -> dict[str, Any]:
     return {
         "scoring_input_algorithm": "sha256-json-sort-keys-24hex",
         "scoring_input_digest": digest,
+        **payload,
+    }
+
+
+def network_snapshot(network_path: Path) -> dict[str, Any]:
+    entry = {
+        "path": project_display_path(network_path),
+        "sha256": file_sha256(network_path),
+        "row_count": _input_row_count(network_path),
+    }
+    payload = {"networks": [entry], "total_rows": entry["row_count"]}
+    digest = network_digest(payload)
+    return {
+        "network_algorithm": "sha256-json-sort-keys-24hex",
+        "network_digest": digest,
         **payload,
     }
 
@@ -1990,13 +2015,12 @@ def build_provenance(
     postal_universe_path: Path | None = None,
     scoring_digest: str | None = None,
     scoring_input_digest_value: str | None = None,
+    network_digest_value: str | None = None,
 ) -> dict[str, Any]:
     manifest = load_manifest()
     sources = manifest.get("sources", {})
     network_label = (
-        project_display_path(network_path)
-        if network_path.is_absolute()
-        else str(network_path)
+        project_display_path(network_path) if network_path.is_absolute() else str(network_path)
     )
     if scoring_digest is None:
         scoring_digest = scoring_provenance_snapshot()["scoring_fingerprint_digest"]
@@ -2004,6 +2028,8 @@ def build_provenance(
         scoring_input_digest_value = scoring_input_snapshot(postal_universe_path)[
             "scoring_input_digest"
         ]
+    if network_digest_value is None:
+        network_digest_value = network_snapshot(network_path)["network_digest"]
 
     return {
         "manifest": "raw/manifest.json",
@@ -2035,10 +2061,10 @@ def build_provenance(
         },
         "scoring_fingerprint_digest": scoring_digest,
         "scoring_input_digest": scoring_input_digest_value,
+        "network_digest": network_digest_value,
         "postal_universe": (
             project_display_path(postal_universe_path)
-            if postal_universe_path is not None
-            and postal_universe_path.is_absolute()
+            if postal_universe_path is not None and postal_universe_path.is_absolute()
             else (
                 str(postal_universe_path)
                 if postal_universe_path is not None
@@ -2084,7 +2110,12 @@ def load_scoring_context(
     bus_index = BusConnectivityIndex.from_raw_data(nodes, node_xy)
     scoring_provenance = scoring_provenance_snapshot()
     input_provenance = scoring_input_snapshot(postal_universe_path)
-    scoring_provenance = {**scoring_provenance, **input_provenance}
+    network_provenance = network_snapshot(network_path)
+    scoring_provenance = {
+        **scoring_provenance,
+        "scoring_input_digest": input_provenance["scoring_input_digest"],
+        "network_digest": network_provenance["network_digest"],
+    }
     base_provenance = build_provenance(
         params,
         crossing_counter,
@@ -2093,6 +2124,7 @@ def load_scoring_context(
         postal_universe_path=postal_universe_path,
         scoring_digest=scoring_provenance["scoring_fingerprint_digest"],
         scoring_input_digest_value=scoring_provenance["scoring_input_digest"],
+        network_digest_value=scoring_provenance["network_digest"],
     )
     data_as_of = load_manifest().get("generated_at")
     return ScoringContext(
