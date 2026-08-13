@@ -52,9 +52,10 @@ Your obligations:
    that directory exists or is intentionally tracked; otherwise use a visible
    tracked handoff path approved by the owner.
 
-Keep `STATE.md` short and current. Put durable decisions in `JOURNAL.md`. Put
-detailed resume notes in timestamped files under `.agents/handoffs/` so multiple
-people do not overwrite one another.
+Keep `STATE.md` short and current when `.agents/` is intentionally tracked. In
+this repository, put durable decisions in `decisions.md`. Put detailed resume
+notes in timestamped files under `.agents/handoffs/` only when that path is
+tracked or explicitly approved, so multiple people do not overwrite one another.
 
 Memory tools such as cognee or cavemem are optional local aids. Trust
 `decisions.md`, `.agents/STATE.md` if present, and `git log` over an empty
