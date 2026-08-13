@@ -111,6 +111,10 @@ def test_score_batch_writes_chunks_and_manifest_then_resumes(tmp_path: Path):
     assert report["chunks_written"] == 2
     assert report["records_written"] == 3
     assert (output_dir / "batch_manifest.json").is_file()
+    manifest = json.loads((output_dir / "batch_manifest.json").read_text(encoding="utf-8"))
+    digest = manifest["scoring_provenance_at_start"]["scoring_fingerprint_digest"]
+    assert len(digest) == 24
+    assert manifest["scoring_fingerprints_by_digest"][digest]
     assert read_chunk_postals(Path(report["chunks"][0]["path"])) == ["000001", "000003"]
 
     ok, resumed = build_score_batch(

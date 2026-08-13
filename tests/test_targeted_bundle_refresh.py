@@ -96,6 +96,7 @@ def test_targeted_refresh_score_provenance_is_scoped_to_targeted_records():
     assert provenance["full_bundle_covered"] is False
     assert provenance["postal_count"] == 1
     assert provenance["scoring_fingerprints"] == {"pipeline\\scoring.py": "b" * 64}
+    assert provenance["scoring_fingerprint_digest_counts"]
 
 
 def test_targeted_bundle_refresh_rebalances_oversized_geom_parent(tmp_path, monkeypatch):

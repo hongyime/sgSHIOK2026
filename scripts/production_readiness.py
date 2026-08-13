@@ -9,6 +9,7 @@ from typing import Any
 from pipeline.batch_plan import PARAMS_PATH, build_batch_plan
 from pipeline.export import validate_static_artifacts
 from pipeline.network_qa import validate_network_qa
+from pipeline.scoring_integration import SCORING_FINGERPRINT_FILES
 from scripts.audit_current_bundle import active_bundle_dir, build_report, summarize_state_report
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -20,11 +21,7 @@ DEFAULT_UNIVERSE = (
 )
 REQUIRED_SUBSCORE_STATUS = {"access", "bus", "rain", "heat", "crossing"}
 REQUIRED_SCORING_FINGERPRINTS = {
-    "pipeline\\scoring.py",
-    "pipeline\\scoring_integration.py",
-    "pipeline\\routing.py",
-    "pipeline\\config\\params.yaml",
-    "pipeline\\config\\weights.yaml",
+    rel_path.replace("/", "\\") for rel_path in SCORING_FINGERPRINT_FILES
 }
 
 
@@ -177,6 +174,10 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
     source_hashes = provenance.get("source_hashes")
     scoring_fingerprints = provenance.get("scoring_fingerprints")
     subscore_status = provenance.get("subscore_status")
+    mixed_fingerprints = provenance.get("mixed_scoring_fingerprint_digests") is True
+    incomplete_fingerprint_provenance = (
+        provenance.get("scoring_fingerprint_provenance_complete") is False
+    )
     source_hash_count = len(source_hashes) if isinstance(source_hashes, dict) else 0
     fingerprint_keys = (
         set(scoring_fingerprints) if isinstance(scoring_fingerprints, dict) else set()
@@ -184,13 +185,20 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
     missing_fingerprints = sorted(REQUIRED_SCORING_FINGERPRINTS - fingerprint_keys)
     subscore_keys = set(subscore_status) if isinstance(subscore_status, dict) else set()
     missing_subscores = sorted(REQUIRED_SUBSCORE_STATUS - subscore_keys)
-    ok = source_hash_count > 0 and not missing_subscores and not missing_fingerprints
+    ok = (
+        source_hash_count > 0
+        and not missing_subscores
+        and not missing_fingerprints
+        and not mixed_fingerprints
+        and not incomplete_fingerprint_provenance
+    )
     warning = None
     if not ok:
         warning = (
             "active bundle manifest lacks score source hashes, scoring code/config fingerprints, "
-            "or complete subscore status; regenerate/export the bundle with current code before "
-            "using it as provenance evidence"
+            "complete subscore status, single-run scoring fingerprints, or complete fingerprint "
+            "digest provenance; regenerate/export the bundle with current code before using it as "
+            "provenance evidence"
         )
 
     return {
@@ -201,6 +209,8 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
         "subscore_status_keys": sorted(subscore_keys),
         "missing_scoring_fingerprints": missing_fingerprints,
         "missing_subscore_status": missing_subscores,
+        "mixed_scoring_fingerprint_digests": mixed_fingerprints,
+        "incomplete_scoring_fingerprint_provenance": incomplete_fingerprint_provenance,
         "warning": warning,
     }
 

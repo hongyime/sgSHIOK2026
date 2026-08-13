@@ -195,10 +195,19 @@ def test_export_and_validate_static_artifacts(tmp_path: Path):
     manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
     assert manifest["provenance"]["source_hashes"]["osm_extract"] == "a" * 64
     assert manifest["provenance"]["scoring_fingerprints"]["pipeline\\scoring.py"] == "e" * 64
+    assert manifest["provenance"]["scoring_fingerprint_algorithm"] == (
+        "sha256-json-sort-keys-24hex"
+    )
+    assert manifest["provenance"]["scoring_fingerprint_digest_counts"]
+    assert manifest["provenance"]["mixed_scoring_fingerprint_digests"] is False
     assert (
         manifest["provenance"]["subscore_status"]["heat"]
         == "provisional_covered_plus_nparks_shade_proxy_heat_only"
     )
+    exported_score = json.loads((tmp_path / "scores" / "TEST_AREA.json").read_text())[0]
+    assert "scoring_fingerprint_digest" in exported_score["provenance"]
+    assert "scoring_fingerprints" not in exported_score["provenance"]
+    assert "git" not in exported_score["provenance"]
     prefix_index = json.loads((tmp_path / "scores" / "prefix-index.json").read_text())
     assert prefix_index["123"] == ["TEST_AREA"]
     assert prefix_index["654"] == ["TEST_AREA"]
@@ -643,6 +652,8 @@ def test_refresh_score_provenance_manifest_updates_from_score_shards(tmp_path: P
     assert report["scoring_fingerprint_count"] == 5
     assert refreshed["provenance"]["source_hashes"]["osm_extract"] == "a" * 64
     assert refreshed["provenance"]["scoring_fingerprints"]["pipeline\\scoring.py"] == "e" * 64
+    assert refreshed["provenance"]["scoring_fingerprint_digest_counts"]
+    assert refreshed["provenance"]["records_missing_scoring_fingerprint_digest"] == 0
     assert (
         refreshed["provenance"]["subscore_status"]["heat"]
         == "provisional_covered_plus_nparks_shade_proxy_heat_only"
@@ -680,6 +691,44 @@ def test_refresh_score_provenance_manifest_does_not_invent_scoring_fingerprints(
     refreshed = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
     assert report["scoring_fingerprint_count"] == 0
     assert refreshed["provenance"]["scoring_fingerprints"] == {}
+
+
+def test_export_reports_mixed_scoring_fingerprint_digests(tmp_path: Path):
+    records = [sample_record("123456"), sample_record("654321")]
+    records_dir = tmp_path / "score_batch"
+    write_json(
+        records_dir / "batch_manifest.json",
+        {
+            "scoring_fingerprints_by_digest": {
+                "a" * 24: {"pipeline\\bus.py": "a" * 64},
+                "b" * 24: {"pipeline\\bus.py": "b" * 64},
+            }
+        },
+    )
+    records[0]["provenance"] = {
+        "scoring_fingerprint_digest": "a" * 24,
+        "source_hashes": {"osm_extract": "a" * 64},
+        "subscore_status": records[0]["provenance"]["subscore_status"],
+    }
+    records[1]["provenance"] = {
+        "scoring_fingerprint_digest": "b" * 24,
+        "source_hashes": {"osm_extract": "a" * 64},
+        "subscore_status": records[1]["provenance"]["subscore_status"],
+    }
+
+    export_static_artifacts(records, output_dir=tmp_path, records_dir=records_dir)
+
+    manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["provenance"]["scoring_fingerprint_digest_counts"] == {
+        "a" * 24: 1,
+        "b" * 24: 1,
+    }
+    assert manifest["provenance"]["scoring_fingerprints_by_digest"]["a" * 24] == {
+        "pipeline\\bus.py": "a" * 64
+    }
+    assert manifest["provenance"]["scoring_fingerprint_digests_missing_maps"] == []
+    assert manifest["provenance"]["scoring_fingerprint_provenance_complete"] is True
+    assert manifest["provenance"]["mixed_scoring_fingerprint_digests"] is True
 
 
 def test_export_splits_large_score_files(tmp_path: Path):

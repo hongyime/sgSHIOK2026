@@ -19,6 +19,7 @@ from pipeline.scoring_integration import (
     load_manifest,
     load_scoring_context,
     score_postal_gdf,
+    scoring_provenance_snapshot,
 )
 from pipeline.scoring_integration import (
     json_safe_score_record as _shared_json_safe_score_record,
@@ -64,6 +65,45 @@ def write_json(path: Path, payload: Any) -> int:
     content = json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True).encode("utf-8")
     path.write_bytes(content)
     return len(content)
+
+
+def read_existing_scoring_fingerprint_maps(output_dir: Path) -> dict[str, dict[str, str]]:
+    manifest_path = output_dir / "batch_manifest.json"
+    if not manifest_path.is_file():
+        return {}
+    try:
+        with open(manifest_path, "r", encoding="utf-8") as f:
+            manifest: Any = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return {}
+    if not isinstance(manifest, dict):
+        return {}
+    maps: dict[str, dict[str, str]] = {}
+    raw_maps = manifest.get("scoring_fingerprints_by_digest")
+    if isinstance(raw_maps, dict):
+        for digest, fingerprints in raw_maps.items():
+            if not isinstance(digest, str) or not isinstance(fingerprints, dict):
+                continue
+            clean = {
+                str(key): str(value)
+                for key, value in fingerprints.items()
+                if isinstance(key, str) and isinstance(value, str) and value
+            }
+            if clean:
+                maps[digest] = dict(sorted(clean.items()))
+    start = manifest.get("scoring_provenance_at_start")
+    if isinstance(start, dict):
+        digest = start.get("scoring_fingerprint_digest")
+        fingerprints = start.get("scoring_fingerprints")
+        if isinstance(digest, str) and isinstance(fingerprints, dict):
+            maps[digest] = dict(
+                sorted(
+                    (str(key), str(value))
+                    for key, value in fingerprints.items()
+                    if isinstance(key, str) and isinstance(value, str) and value
+                )
+            )
+    return dict(sorted(maps.items()))
 
 
 def json_safe_geometry(value: Any) -> Any:
@@ -146,8 +186,22 @@ def not_yet_scored_record(
     row: pd.Series,
     postal_universe_path: Path,
     data_as_of: str | None,
+    scoring_digest: str | None = None,
 ) -> dict[str, Any]:
     source_status = str(row.get("status") or NOT_YET_SCORED)
+    provenance: dict[str, Any] = {
+        "postal_universe": display_path(postal_universe_path),
+        "source_status": source_status,
+        "coordinate_source": json_nullable(row.get("coordinate_source")),
+        "sources": source_list(row.get("sources")),
+        "reason": (
+            "missing_coordinates_after_bounded_geocode"
+            if source_status == "NEEDS_GEOCODE"
+            else f"unscorable_source_status:{source_status}"
+        ),
+    }
+    if scoring_digest:
+        provenance["scoring_fingerprint_digest"] = scoring_digest
     return {
         "postal": str(row["postal_code"]),
         "state": NOT_YET_SCORED,
@@ -157,17 +211,7 @@ def not_yet_scored_record(
         "paths": None,
         "exposure_gaps": None,
         "data_as_of": data_as_of,
-        "provenance": {
-            "postal_universe": display_path(postal_universe_path),
-            "source_status": source_status,
-            "coordinate_source": json_nullable(row.get("coordinate_source")),
-            "sources": source_list(row.get("sources")),
-            "reason": (
-                "missing_coordinates_after_bounded_geocode"
-                if source_status == "NEEDS_GEOCODE"
-                else f"unscorable_source_status:{source_status}"
-            ),
-        },
+        "provenance": provenance,
     }
 
 
@@ -260,6 +304,24 @@ def build_score_batch(
         return True, report
 
     context = context_loader(network_path, postal_universe_path)
+    scoring_provenance_at_start = (
+        context.scoring_provenance
+        if isinstance(getattr(context, "scoring_provenance", None), dict)
+        else scoring_provenance_snapshot()
+    )
+    fingerprint_maps = read_existing_scoring_fingerprint_maps(output_dir)
+    digest = scoring_provenance_at_start.get("scoring_fingerprint_digest")
+    fingerprints = scoring_provenance_at_start.get("scoring_fingerprints")
+    if isinstance(digest, str) and isinstance(fingerprints, dict):
+        fingerprint_maps[digest] = dict(
+            sorted(
+                (str(key), str(value))
+                for key, value in fingerprints.items()
+                if isinstance(key, str) and isinstance(value, str) and value
+            )
+        )
+    report["scoring_provenance_at_start"] = scoring_provenance_at_start
+    report["scoring_fingerprints_by_digest"] = dict(sorted(fingerprint_maps.items()))
     data_as_of = load_manifest().get("generated_at")
     for chunk_index, (start, end) in enumerate(chunks, start=1):
         chunk = postal_rows.iloc[start:end].copy()
@@ -291,7 +353,16 @@ def build_score_batch(
             if postal in scored_by_postal:
                 records.append(scored_by_postal[postal])
             else:
-                records.append(not_yet_scored_record(row, postal_universe_path, data_as_of))
+                records.append(
+                    not_yet_scored_record(
+                        row,
+                        postal_universe_path,
+                        data_as_of,
+                        scoring_digest=(
+                            digest if isinstance(digest, str) and digest else None
+                        ),
+                    )
+                )
         bytes_written = write_json(path, records)
         report["chunks_written"] += 1
         report["records_written"] += len(records)

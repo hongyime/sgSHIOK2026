@@ -529,6 +529,9 @@ def targeted_refresh_score_provenance(
         "postal_count": postal_count,
         "source_hashes": score_provenance["source_hashes"],
         "scoring_fingerprints": score_provenance["scoring_fingerprints"],
+        "scoring_fingerprint_digest_counts": score_provenance[
+            "scoring_fingerprint_digest_counts"
+        ],
         "subscore_status": score_provenance["subscore_status"],
     }
 

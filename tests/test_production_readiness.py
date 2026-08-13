@@ -6,6 +6,7 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 
 from pipeline.export import export_static_artifacts
+from pipeline.scoring_integration import scoring_fingerprints
 from scripts.production_readiness import build_readiness_report, vercel_readiness
 from tests.test_export import sample_record
 
@@ -81,6 +82,16 @@ def write_production_island_qa(path: Path) -> None:
     write_json(path, payload)
 
 
+def export_current_fingerprint_bundle(output_dir: Path) -> None:
+    export_static_artifacts([sample_record("123456")], output_dir=output_dir)
+    manifest_path = output_dir / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    fingerprints = scoring_fingerprints()
+    manifest["provenance"]["scoring_fingerprints"] = fingerprints
+    manifest["provenance"]["scoring_fingerprint_files"] = sorted(fingerprints)
+    write_json(manifest_path, manifest)
+
+
 def test_vercel_readiness_prefers_root_project_settings(tmp_path: Path):
     write_json(
         tmp_path / ".vercel" / "project.json",
@@ -106,7 +117,7 @@ def test_vercel_readiness_prefers_root_project_settings(tmp_path: Path):
 def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Path):
     web_dir = tmp_path / "web"
     bundle_dir = web_dir / "public" / "data" / "generated_test"
-    export_static_artifacts([sample_record("123456")], output_dir=bundle_dir)
+    export_current_fingerprint_bundle(bundle_dir)
     write_json(web_dir / "data-bundle.json", {"bundle": "generated_test"})
     write_json(
         tmp_path / ".vercel" / "project.json",
@@ -189,7 +200,7 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
 def test_build_readiness_report_summarizes_failed_onemap_gate(tmp_path: Path):
     web_dir = tmp_path / "web"
     bundle_dir = web_dir / "public" / "data" / "generated_test"
-    export_static_artifacts([sample_record("123456")], output_dir=bundle_dir)
+    export_current_fingerprint_bundle(bundle_dir)
     write_json(web_dir / "data-bundle.json", {"bundle": "generated_test"})
     write_json(
         tmp_path / ".vercel" / "project.json",
@@ -305,7 +316,7 @@ def test_build_readiness_report_summarizes_failed_onemap_gate(tmp_path: Path):
 def test_build_readiness_report_reads_nested_release_onemap_reports(tmp_path: Path):
     web_dir = tmp_path / "web"
     bundle_dir = web_dir / "public" / "data" / "generated_test"
-    export_static_artifacts([sample_record("123456")], output_dir=bundle_dir)
+    export_current_fingerprint_bundle(bundle_dir)
     write_json(web_dir / "data-bundle.json", {"bundle": "generated_test"})
     write_json(
         tmp_path / ".vercel" / "project.json",
@@ -436,7 +447,7 @@ def test_build_readiness_report_reads_nested_release_onemap_reports(tmp_path: Pa
 def test_build_readiness_report_blocks_stale_same_bundle_onemap_report(tmp_path: Path):
     web_dir = tmp_path / "web"
     bundle_dir = web_dir / "public" / "data" / "generated_test"
-    export_static_artifacts([sample_record("123456")], output_dir=bundle_dir)
+    export_current_fingerprint_bundle(bundle_dir)
     write_json(web_dir / "data-bundle.json", {"bundle": "generated_test"})
     write_json(
         tmp_path / ".vercel" / "project.json",
@@ -514,7 +525,7 @@ def test_build_readiness_report_blocks_stale_same_bundle_onemap_report(tmp_path:
 def test_build_readiness_report_warns_when_bundle_predates_network(tmp_path: Path):
     web_dir = tmp_path / "web"
     bundle_dir = web_dir / "public" / "data" / "generated_test"
-    export_static_artifacts([sample_record("123456")], output_dir=bundle_dir)
+    export_current_fingerprint_bundle(bundle_dir)
     write_json(web_dir / "data-bundle.json", {"bundle": "generated_test"})
     write_json(
         tmp_path / ".vercel" / "project.json",
@@ -580,7 +591,7 @@ def test_build_readiness_report_warns_when_bundle_manifest_lacks_score_provenanc
 ):
     web_dir = tmp_path / "web"
     bundle_dir = web_dir / "public" / "data" / "generated_test"
-    export_static_artifacts([sample_record("123456")], output_dir=bundle_dir)
+    export_current_fingerprint_bundle(bundle_dir)
     manifest_path = bundle_dir / "manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     manifest["provenance"].pop("source_hashes", None)
@@ -653,7 +664,7 @@ def test_build_readiness_report_warns_when_bundle_lacks_scoring_fingerprints(
 ):
     web_dir = tmp_path / "web"
     bundle_dir = web_dir / "public" / "data" / "generated_test"
-    export_static_artifacts([sample_record("123456")], output_dir=bundle_dir)
+    export_current_fingerprint_bundle(bundle_dir)
     manifest_path = bundle_dir / "manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     manifest["provenance"].pop("scoring_fingerprints", None)

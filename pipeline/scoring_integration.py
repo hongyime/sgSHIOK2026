@@ -12,7 +12,7 @@ import subprocess
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, cast
+from typing import Any, Mapping, cast
 
 import geopandas as gpd
 import numpy as np
@@ -129,6 +129,7 @@ class ScoringContext:
     network_path: Path
     postal_universe_path: Path | None = None
     base_provenance: dict[str, Any] | None = None
+    scoring_provenance: dict[str, Any] | None = None
     data_as_of: str | None = None
 
 
@@ -173,6 +174,16 @@ def scoring_fingerprints() -> dict[str, str]:
     return dict(sorted(fingerprints.items()))
 
 
+def scoring_fingerprint_digest(fingerprints: Mapping[str, str]) -> str:
+    payload = json.dumps(
+        dict(sorted((str(key), str(value)) for key, value in fingerprints.items())),
+        ensure_ascii=True,
+        separators=(",", ":"),
+        sort_keys=True,
+    ).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()[:24]
+
+
 def _git_stdout(args: list[str]) -> str | None:
     try:
         result = subprocess.run(
@@ -189,7 +200,10 @@ def _git_stdout(args: list[str]) -> str | None:
 
 
 def git_run_state() -> dict[str, Any]:
-    status_output = _git_stdout(["status", "--porcelain=v1"])
+    # Untracked scratch and QA folders are deliberately excluded so provenance
+    # records code/config dirtiness without making output directories part of
+    # the deterministic artifact payload.
+    status_output = _git_stdout(["status", "--porcelain=v1", "--untracked-files=no"])
     dirty_paths: list[str] = []
     if status_output:
         for line in status_output.splitlines():
@@ -199,6 +213,15 @@ def git_run_state() -> dict[str, Any]:
         "commit": _git_stdout(["rev-parse", "HEAD"]),
         "dirty": bool(dirty_paths) if status_output is not None else None,
         "dirty_paths": sorted(dirty_paths),
+    }
+
+
+def scoring_provenance_snapshot() -> dict[str, Any]:
+    fingerprints = scoring_fingerprints()
+    return {
+        "scoring_fingerprints": fingerprints,
+        "scoring_fingerprint_digest": scoring_fingerprint_digest(fingerprints),
+        "git": git_run_state(),
     }
 
 
@@ -1906,6 +1929,7 @@ def build_provenance(
     bus_data_available: bool,
     network_path: Path = NETWORK_PATH,
     postal_universe_path: Path | None = None,
+    scoring_digest: str | None = None,
 ) -> dict[str, Any]:
     manifest = load_manifest()
     sources = manifest.get("sources", {})
@@ -1914,6 +1938,9 @@ def build_provenance(
         if network_path.is_relative_to(PROJECT_ROOT)
         else str(network_path)
     )
+    if scoring_digest is None:
+        scoring_digest = scoring_provenance_snapshot()["scoring_fingerprint_digest"]
+
     return {
         "manifest": "raw/manifest.json",
         "source_hashes": {
@@ -1942,8 +1969,7 @@ def build_provenance(
             "shelter_lambda": params["shelter_lambda"],
             "detour_budget": params["detour_budget"],
         },
-        "scoring_fingerprints": scoring_fingerprints(),
-        "git": git_run_state(),
+        "scoring_fingerprint_digest": scoring_digest,
         "postal_universe": (
             str(postal_universe_path.relative_to(PROJECT_ROOT))
             if postal_universe_path is not None
@@ -1991,12 +2017,14 @@ def load_scoring_context(
     mrt_exits_gdf = load_mrt_exits()
     crossing_counter = CrossingCounter.from_raw_data(params)
     bus_index = BusConnectivityIndex.from_raw_data(nodes, node_xy)
+    scoring_provenance = scoring_provenance_snapshot()
     base_provenance = build_provenance(
         params,
         crossing_counter,
         bus_data_available=bus_index is not None,
         network_path=network_path,
         postal_universe_path=postal_universe_path,
+        scoring_digest=scoring_provenance["scoring_fingerprint_digest"],
     )
     data_as_of = load_manifest().get("generated_at")
     return ScoringContext(
@@ -2012,6 +2040,7 @@ def load_scoring_context(
         network_path=network_path,
         postal_universe_path=postal_universe_path,
         base_provenance=base_provenance,
+        scoring_provenance=scoring_provenance,
         data_as_of=data_as_of,
     )
 
