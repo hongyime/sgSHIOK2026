@@ -8,6 +8,7 @@ import hashlib
 import json
 import math
 import sqlite3
+import subprocess
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
@@ -72,11 +73,24 @@ PEDESTRIAN_EVIDENCE_HIGHWAYS = {
 }
 PEDESTRIAN_FOOT_VALUES = {"yes", "designated", "official", "permissive"}
 SCORING_FINGERPRINT_FILES = (
+    "pipeline/bus.py",
+    "pipeline/bus_arrivals.py",
+    "pipeline/connector_candidates.py",
+    "pipeline/export.py",
+    "pipeline/fetch.py",
+    "pipeline/geocode.py",
+    "pipeline/geocode_universe.py",
+    "pipeline/network.py",
+    "pipeline/osm_tags.py",
+    "pipeline/postal_universe.py",
+    "pipeline/routing.py",
+    "pipeline/score_batch.py",
     "pipeline/scoring.py",
     "pipeline/scoring_integration.py",
-    "pipeline/routing.py",
+    "pipeline/shade.py",
     "pipeline/config/params.yaml",
     "pipeline/config/weights.yaml",
+    "run.py",
 )
 
 
@@ -157,6 +171,35 @@ def scoring_fingerprints() -> dict[str, str]:
         if path.is_file():
             fingerprints[rel_path.replace("/", "\\")] = file_sha256(path)
     return dict(sorted(fingerprints.items()))
+
+
+def _git_stdout(args: list[str]) -> str | None:
+    try:
+        result = subprocess.run(
+            ["git", *args],
+            cwd=PROJECT_ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+        )
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return result.stdout.strip()
+
+
+def git_run_state() -> dict[str, Any]:
+    status_output = _git_stdout(["status", "--porcelain=v1"])
+    dirty_paths: list[str] = []
+    if status_output:
+        for line in status_output.splitlines():
+            if len(line) > 3:
+                dirty_paths.append(line[3:].replace("/", "\\"))
+    return {
+        "commit": _git_stdout(["rev-parse", "HEAD"]),
+        "dirty": bool(dirty_paths) if status_output is not None else None,
+        "dirty_paths": sorted(dirty_paths),
+    }
 
 
 def raw_file_from_manifest(source_key: str, filename: str) -> Path | None:
@@ -1900,6 +1943,7 @@ def build_provenance(
             "detour_budget": params["detour_budget"],
         },
         "scoring_fingerprints": scoring_fingerprints(),
+        "git": git_run_state(),
         "postal_universe": (
             str(postal_universe_path.relative_to(PROJECT_ROOT))
             if postal_universe_path is not None

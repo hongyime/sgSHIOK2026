@@ -10,6 +10,7 @@ from pipeline.bus import BusStopCandidate
 from pipeline.routing import RoutingGraph, route_worker
 from pipeline.scoring_integration import (
     NETWORK_PATH,
+    SCORING_FINGERPRINT_FILES,
     CandidateNode,
     CrossingCounter,
     annotate_no_transit_reason,
@@ -34,6 +35,7 @@ from pipeline.scoring_integration import (
     public_candidate_summary,
     repick_best_transit_from_route_options,
     score_candidate_route,
+    scoring_fingerprints,
     score_postal_row,
     select_bus_stop_candidates,
     select_mrt_exit_candidates,
@@ -2237,13 +2239,45 @@ def test_build_provenance_records_selected_network_and_postal_universe_paths():
         == "processed\\postal_universe_candidate_full_registered.parquet"
     )
     assert set(provenance["scoring_fingerprints"]) == {
+        "pipeline\\bus.py",
+        "pipeline\\bus_arrivals.py",
+        "pipeline\\connector_candidates.py",
+        "pipeline\\export.py",
+        "pipeline\\fetch.py",
+        "pipeline\\geocode.py",
+        "pipeline\\geocode_universe.py",
+        "pipeline\\network.py",
+        "pipeline\\osm_tags.py",
+        "pipeline\\postal_universe.py",
+        "pipeline\\score_batch.py",
+        "pipeline\\shade.py",
+        "run.py",
         "pipeline\\config\\params.yaml",
         "pipeline\\config\\weights.yaml",
         "pipeline\\routing.py",
         "pipeline\\scoring.py",
         "pipeline\\scoring_integration.py",
     }
+    assert provenance["git"]["commit"]
+    assert isinstance(provenance["git"]["dirty_paths"], list)
     assert provenance["subscore_status"]["bus"] == "real"
+
+
+def test_bus_module_content_changes_scoring_fingerprint(monkeypatch):
+    baseline = scoring_fingerprints()["pipeline\\bus.py"]
+
+    def fake_file_sha256(path: Path) -> str:
+        if path.as_posix().endswith("pipeline/bus.py"):
+            return "f" * 64
+        return "0" * 64
+
+    monkeypatch.setattr("pipeline.scoring_integration.file_sha256", fake_file_sha256)
+
+    changed = scoring_fingerprints()
+
+    assert "pipeline/bus.py" in SCORING_FINGERPRINT_FILES
+    assert changed["pipeline\\bus.py"] == "f" * 64
+    assert changed["pipeline\\bus.py"] != baseline
 
 
 def test_route_worker_coalesces_length_column_into_length_m():
