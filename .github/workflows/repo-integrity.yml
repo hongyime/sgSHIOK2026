@@ -1,0 +1,30 @@
+name: Repository Integrity
+
+on:
+  pull_request:
+    branches: [main, master]
+    paths:
+      - "NOTICE"
+      - "AGENTS.md"
+      - ".vercelignore"
+      - "scripts/check_repo_integrity.py"
+      - ".github/workflows/repo-integrity.yml"
+  push:
+    branches: [main, master]
+    paths:
+      - "NOTICE"
+      - "AGENTS.md"
+      - ".vercelignore"
+      - "scripts/check_repo_integrity.py"
+      - ".github/workflows/repo-integrity.yml"
+  workflow_dispatch:
+
+permissions: read-all
+
+jobs:
+  repo-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check sgSHIOK protected repo files
+        run: python scripts/check_repo_integrity.py
