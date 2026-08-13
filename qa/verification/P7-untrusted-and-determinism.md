@@ -247,3 +247,13 @@ Lines
 $ Test-Path qa/p6_rerun_cost_20260812_102712
 True
 ```
+
+## 2026-08-13 correction
+
+P7 blocks [4] and [5] used different counting units. Block [4] counted records by
+`provenance.direct_bus_fallback.reason`; block [5]'s column labelled `records`
+counted appearances across `reason_counts`. On the five-shard sample the two
+methods give 1,119 record-level reasons versus 1,211 reason-count appearances,
+with `large_unrouted_bus_stop_access_connector` inflating from 12 to 44. The
+Reading B determination is unchanged, but the block [5] column header should be
+read as `reason_count_appearances`, not `records`.
