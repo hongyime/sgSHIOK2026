@@ -49,3 +49,12 @@ def test_repo_integrity_rejects_vercelignore_allowlist_revert(tmp_path: Path):
     errors = check_repo_integrity(tmp_path)
 
     assert any(".vercelignore missing required line" in error for error in errors)
+
+
+def test_repo_integrity_workflow_has_schedule_trigger():
+    workflow = (PROJECT_ROOT / ".github" / "workflows" / "repo-integrity.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert "schedule:" in workflow
+    assert "cron:" in workflow
