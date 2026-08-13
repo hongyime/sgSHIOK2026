@@ -33,6 +33,8 @@ from pipeline.scoring_integration import (
     repick_best_transit_from_route_options,
     score_postals,
     scoring_fingerprint_digest,
+    scoring_input_digest,
+    scoring_input_snapshot,
     scoring_provenance_snapshot,
 )
 
@@ -513,6 +515,8 @@ def public_score_record(record: dict[str, Any]) -> dict[str, Any]:
     if isinstance(provenance, dict):
         clean_provenance = dict(provenance)
         raw_fingerprints = clean_provenance.pop("scoring_fingerprints", None)
+        clean_provenance.pop("scoring_inputs", None)
+        clean_provenance.pop("scoring_input", None)
         clean_provenance.pop("git", None)
         if "scoring_fingerprint_digest" not in clean_provenance and isinstance(
             raw_fingerprints, dict
@@ -533,6 +537,14 @@ def record_scoring_fingerprint_digest(record: dict[str, Any]) -> str | None:
     if not isinstance(provenance, dict):
         return None
     digest = provenance.get("scoring_fingerprint_digest")
+    return digest if isinstance(digest, str) and digest else None
+
+
+def record_scoring_input_digest(record: dict[str, Any]) -> str | None:
+    provenance = record.get("provenance")
+    if not isinstance(provenance, dict):
+        return None
+    digest = provenance.get("scoring_input_digest")
     return digest if isinstance(digest, str) and digest else None
 
 
@@ -586,11 +598,15 @@ def score_provenance_summary(records: list[dict[str, Any]]) -> dict[str, Any]:
     fingerprint_digest_counts: Counter[str] = Counter()
     fingerprint_maps_by_digest: dict[str, dict[str, str]] = {}
     records_missing_digest = 0
+    input_digest_counts: Counter[str] = Counter()
+    input_maps_by_digest: dict[str, dict[str, Any]] = {}
+    records_missing_input_digest = 0
     subscore_status: dict[str, str] = {}
     for record in records:
         provenance = record.get("provenance")
         if not isinstance(provenance, dict):
             records_missing_digest += 1
+            records_missing_input_digest += 1
             continue
         raw_hashes = provenance.get("source_hashes")
         if isinstance(raw_hashes, dict):
@@ -613,6 +629,18 @@ def score_provenance_summary(records: list[dict[str, Any]]) -> dict[str, Any]:
                 fingerprint_maps_by_digest[digest] = dict(sorted(clean_fingerprints.items()))
         elif not isinstance(raw_digest, str):
             records_missing_digest += 1
+        raw_input_digest = provenance.get("scoring_input_digest")
+        raw_input = provenance.get("scoring_input")
+        if isinstance(raw_input_digest, str) and raw_input_digest:
+            input_digest_counts[raw_input_digest] += 1
+        if isinstance(raw_input, dict):
+            clean_input = clean_scoring_input_payload(raw_input)
+            if clean_input and not isinstance(raw_input_digest, str):
+                digest = scoring_input_digest(clean_input)
+                input_digest_counts[digest] += 1
+                input_maps_by_digest[digest] = clean_input
+        elif not isinstance(raw_input_digest, str):
+            records_missing_input_digest += 1
         if not subscore_status:
             raw_status = provenance.get("subscore_status")
             if isinstance(raw_status, dict):
@@ -624,9 +652,48 @@ def score_provenance_summary(records: list[dict[str, Any]]) -> dict[str, Any]:
         "scoring_fingerprint_maps_by_digest": dict(sorted(fingerprint_maps_by_digest.items())),
         "scoring_fingerprints": dict(sorted(scoring_fingerprints.items())),
         "records_missing_scoring_fingerprint_digest": records_missing_digest,
+        "scoring_input_digest_counts": dict(sorted(input_digest_counts.items())),
+        "scoring_input_maps_by_digest": dict(sorted(input_maps_by_digest.items())),
+        "records_missing_scoring_input_digest": records_missing_input_digest,
         "source_hashes": dict(sorted(source_hashes.items())),
         "subscore_status": dict(sorted(subscore_status.items())),
     }
+
+
+def clean_scoring_input_payload(payload: dict[str, Any]) -> dict[str, Any] | None:
+    raw_inputs = payload.get("inputs")
+    if not isinstance(raw_inputs, list):
+        return None
+    inputs: list[dict[str, Any]] = []
+    for raw_entry in raw_inputs:
+        if not isinstance(raw_entry, dict):
+            continue
+        path = raw_entry.get("path")
+        sha = raw_entry.get("sha256")
+        if not isinstance(path, str) or not path:
+            continue
+        entry: dict[str, Any] = {"path": path}
+        if isinstance(sha, str) and sha:
+            entry["sha256"] = sha
+        elif sha is None:
+            entry["sha256"] = None
+        if isinstance(raw_entry.get("row_count"), int):
+            entry["row_count"] = int(raw_entry["row_count"])
+        inputs.append(entry)
+    if not inputs:
+        return None
+    clean: dict[str, Any] = {
+        "scoring_input_algorithm": str(
+            payload.get("scoring_input_algorithm") or "sha256-json-sort-keys-24hex"
+        ),
+        "inputs": sorted(inputs, key=lambda item: str(item["path"])),
+    }
+    total_rows = payload.get("total_rows")
+    if isinstance(total_rows, int):
+        clean["total_rows"] = int(total_rows)
+    elif total_rows is None:
+        clean["total_rows"] = None
+    return clean
 
 
 def score_batch_provenance(records_dir: Path) -> dict[str, Any] | None:
@@ -657,6 +724,23 @@ def score_batch_provenance(records_dir: Path) -> dict[str, Any] | None:
             if clean:
                 maps[digest] = dict(sorted(clean.items()))
         provenance["scoring_fingerprints_by_digest"] = dict(sorted(maps.items()))
+    raw_input_maps = manifest.get("scoring_inputs_by_digest")
+    if isinstance(raw_input_maps, dict):
+        input_maps: dict[str, dict[str, Any]] = {}
+        for digest, input_payload in raw_input_maps.items():
+            if not isinstance(digest, str) or not isinstance(input_payload, dict):
+                continue
+            clean_input = clean_scoring_input_payload(input_payload)
+            if clean_input:
+                input_maps[digest] = clean_input
+        provenance["scoring_inputs_by_digest"] = dict(sorted(input_maps.items()))
+    if isinstance(start, dict):
+        input_digest = start.get("scoring_input_digest")
+        clean_input = clean_scoring_input_payload(start)
+        if isinstance(input_digest, str) and clean_input:
+            inputs_by_digest = provenance.setdefault("scoring_inputs_by_digest", {})
+            if isinstance(inputs_by_digest, dict):
+                inputs_by_digest[input_digest] = clean_input
     return provenance or None
 
 
@@ -664,6 +748,7 @@ def build_manifest_provenance(
     *,
     records_dir: Path | None,
     records: list[dict[str, Any]],
+    scoring_input_provenance: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     score_provenance = score_provenance_summary(records)
     score_batch = score_batch_provenance(records_dir) if records_dir is not None else None
@@ -675,15 +760,25 @@ def build_manifest_provenance(
     )
     scoring_export = scoring_provenance_snapshot()
     digest_counts = score_provenance["scoring_fingerprint_digest_counts"]
+    input_digest_counts = score_provenance["scoring_input_digest_counts"]
     start_digest = (
         scoring_start.get("scoring_fingerprint_digest") if isinstance(scoring_start, dict) else None
     )
+    start_input_digest = (
+        scoring_start.get("scoring_input_digest") if isinstance(scoring_start, dict) else None
+    )
     export_digest = scoring_export["scoring_fingerprint_digest"]
     observed_digests = set(digest_counts)
+    observed_input_digests = set(input_digest_counts)
     changed_during_run = len(observed_digests) > 1
+    input_changed_during_run = len(observed_input_digests) > 1
     if isinstance(start_digest, str) and start_digest:
         changed_during_run = changed_during_run or any(
             digest != start_digest for digest in observed_digests
+        )
+    if isinstance(start_input_digest, str) and start_input_digest:
+        input_changed_during_run = input_changed_during_run or any(
+            digest != start_input_digest for digest in observed_input_digests
         )
     if isinstance(start_digest, str) and start_digest and start_digest != export_digest:
         changed_during_run = True
@@ -717,6 +812,43 @@ def build_manifest_provenance(
     missing_digest_maps = sorted(
         digest for digest in observed_digests if digest not in fingerprints_by_digest
     )
+    if missing_digest_maps:
+        raise ValueError(
+            "unresolved scoring fingerprint digest maps: " + ", ".join(missing_digest_maps)
+        )
+    inputs_by_digest = (
+        score_batch.get("scoring_inputs_by_digest")
+        if isinstance(score_batch, dict)
+        and isinstance(score_batch.get("scoring_inputs_by_digest"), dict)
+        else {}
+    )
+    inputs_by_digest = dict(inputs_by_digest)
+    inputs_by_digest.update(score_provenance["scoring_input_maps_by_digest"])
+    clean_explicit_input = (
+        clean_scoring_input_payload(scoring_input_provenance)
+        if isinstance(scoring_input_provenance, dict)
+        else None
+    )
+    explicit_input_digest = (
+        scoring_input_provenance.get("scoring_input_digest")
+        if isinstance(scoring_input_provenance, dict)
+        else None
+    )
+    if isinstance(explicit_input_digest, str) and explicit_input_digest and clean_explicit_input:
+        inputs_by_digest[explicit_input_digest] = clean_explicit_input
+    clean_start_input = (
+        clean_scoring_input_payload(scoring_start) if isinstance(scoring_start, dict) else None
+    )
+    if isinstance(start_input_digest, str) and start_input_digest and clean_start_input:
+        inputs_by_digest[start_input_digest] = clean_start_input
+    missing_input_maps = sorted(
+        digest for digest in observed_input_digests if digest not in inputs_by_digest
+    )
+    if missing_input_maps:
+        raise ValueError("unresolved scoring input digest maps: " + ", ".join(missing_input_maps))
+    manifest_input_digest = start_input_digest
+    if not isinstance(manifest_input_digest, str) and len(observed_input_digests) == 1:
+        manifest_input_digest = next(iter(observed_input_digests))
     return {
         "source_hashes": score_provenance["source_hashes"],
         "scoring_fingerprint_algorithm": "sha256-json-sort-keys-24hex",
@@ -742,6 +874,20 @@ def build_manifest_provenance(
         "scoring_fingerprint_provenance_complete": (
             not missing_digest_maps
             and score_provenance["records_missing_scoring_fingerprint_digest"] == 0
+        ),
+        "scoring_input_algorithm": "sha256-json-sort-keys-24hex",
+        "scoring_input_digest": manifest_input_digest,
+        "scoring_input_digest_counts": input_digest_counts,
+        "scoring_inputs_by_digest": dict(sorted(inputs_by_digest.items())),
+        "scoring_input_digests_missing_maps": missing_input_maps,
+        "scoring_input_changed_during_run": input_changed_during_run,
+        "mixed_scoring_input_digests": len(observed_input_digests) > 1,
+        "records_missing_scoring_input_digest": score_provenance[
+            "records_missing_scoring_input_digest"
+        ],
+        "scoring_input_provenance_complete": (
+            not missing_input_maps
+            and score_provenance["records_missing_scoring_input_digest"] == 0
         ),
         "git": {
             "run_start": manifest_git,
@@ -885,6 +1031,7 @@ def export_static_artifacts(
     records: list[dict[str, Any]],
     output_dir: Path = DEFAULT_EXPORT_DIR,
     records_dir: Path | None = None,
+    scoring_input_provenance: dict[str, Any] | None = None,
     geom_promotion_threshold_bytes: int = GEOM_PROMOTION_THRESHOLD_BYTES,
     geom_max_promotion_resolution: int = GEOM_MAX_PROMOTION_RESOLUTION,
     score_shard_max_bytes: int = MAX_FILE_BYTES,
@@ -894,6 +1041,7 @@ def export_static_artifacts(
     scores_by_area: dict[str, list[dict[str, Any]]] = defaultdict(list)
     score_index: dict[str, list[str]] = defaultdict(list)
     score_digest_counts_by_shard: dict[str, dict[str, int]] = {}
+    score_input_digest_counts_by_shard: dict[str, dict[str, int]] = {}
 
     for record in records:
         postal = str(record["postal"])
@@ -915,6 +1063,14 @@ def export_static_artifacts(
                 if digest is not None
             )
             score_digest_counts_by_shard[shard] = dict(sorted(digest_counts.items()))
+            input_digest_counts = Counter(
+                digest
+                for digest in (record_scoring_input_digest(record) for record in shard_records)
+                if digest is not None
+            )
+            score_input_digest_counts_by_shard[shard] = dict(
+                sorted(input_digest_counts.items())
+            )
             written_files[rel_key(scores_dir / f"{shard}.json", output_dir)] = write_json(
                 scores_dir / f"{shard}.json", shard_records
             )
@@ -991,7 +1147,11 @@ def export_static_artifacts(
             if record.get("data_as_of") is not None
         }
     )
-    manifest_provenance = build_manifest_provenance(records_dir=records_dir, records=records)
+    manifest_provenance = build_manifest_provenance(
+        records_dir=records_dir,
+        records=records,
+        scoring_input_provenance=scoring_input_provenance,
+    )
     manifest = {
         "generated_at": datetime.now(UTC).isoformat(),
         "data_as_of": data_as_of_values[-1] if data_as_of_values else None,
@@ -1028,6 +1188,8 @@ def export_static_artifacts(
                 "provenance": {
                     "per_record_scoring_fingerprint": "scoring_fingerprint_digest",
                     "full_scoring_fingerprints": "manifest.provenance.scoring_fingerprints",
+                    "per_record_scoring_input": "scoring_input_digest",
+                    "full_scoring_inputs": "manifest.provenance.scoring_inputs_by_digest",
                     "git_state": "manifest.provenance.git",
                 },
                 "candidates": {
@@ -1038,6 +1200,7 @@ def export_static_artifacts(
                 },
             },
             "scoring_fingerprint_digest_counts_by_shard": score_digest_counts_by_shard,
+            "scoring_input_digest_counts_by_shard": score_input_digest_counts_by_shard,
         },
         "geom": {
             "index": "geom/index.json",
@@ -1949,6 +2112,7 @@ def main() -> int:
                     )
                 )
                 return 1
+            input_provenance = None
         else:
             records = score_postals(
                 postal_codes=args.postals,
@@ -1957,7 +2121,13 @@ def main() -> int:
                 network_path=args.network,
                 postal_universe_path=args.postal_universe,
             )
-        report = export_static_artifacts(records, output_dir=args.output, records_dir=args.records_dir)
+            input_provenance = scoring_input_snapshot(args.postal_universe)
+        report = export_static_artifacts(
+            records,
+            output_dir=args.output,
+            records_dir=args.records_dir,
+            scoring_input_provenance=input_provenance,
+        )
         print(json.dumps(report, indent=2, sort_keys=True))
         return 0
 

@@ -115,6 +115,12 @@ def test_score_batch_writes_chunks_and_manifest_then_resumes(tmp_path: Path):
     digest = manifest["scoring_provenance_at_start"]["scoring_fingerprint_digest"]
     assert len(digest) == 24
     assert manifest["scoring_fingerprints_by_digest"][digest]
+    input_digest = manifest["scoring_provenance_at_start"]["scoring_input_digest"]
+    assert len(input_digest) == 24
+    assert manifest["scoring_inputs_by_digest"][input_digest]["inputs"][0]["path"] == str(
+        universe_path
+    )
+    assert manifest["scoring_inputs_by_digest"][input_digest]["inputs"][0]["row_count"] == 4
     assert read_chunk_postals(Path(report["chunks"][0]["path"])) == ["000001", "000003"]
 
     ok, resumed = build_score_batch(
@@ -167,6 +173,7 @@ def test_full_score_batch_emits_not_yet_records_for_unresolved_postals(tmp_path:
     assert unresolved["state"] == NOT_YET_SCORED
     assert unresolved["total"] is None
     assert unresolved["provenance"]["reason"] == "missing_coordinates_after_bounded_geocode"
+    assert len(unresolved["provenance"]["scoring_input_digest"]) == 24
 
 
 def test_score_batch_dry_run_does_not_create_outputs(tmp_path: Path):

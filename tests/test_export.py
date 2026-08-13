@@ -2,6 +2,7 @@ import gzip
 import json
 from pathlib import Path
 
+import pytest
 from shapely.geometry import LineString, MultiLineString
 
 from pipeline.export import (
@@ -702,16 +703,42 @@ def test_export_reports_mixed_scoring_fingerprint_digests(tmp_path: Path):
             "scoring_fingerprints_by_digest": {
                 "a" * 24: {"pipeline\\bus.py": "a" * 64},
                 "b" * 24: {"pipeline\\bus.py": "b" * 64},
-            }
+            },
+            "scoring_inputs_by_digest": {
+                "i" * 24: {
+                    "scoring_input_algorithm": "sha256-json-sort-keys-24hex",
+                    "inputs": [
+                        {
+                            "path": "processed\\postal_universe_part01.parquet",
+                            "sha256": "1" * 64,
+                            "row_count": 1,
+                        }
+                    ],
+                    "total_rows": 1,
+                },
+                "j" * 24: {
+                    "scoring_input_algorithm": "sha256-json-sort-keys-24hex",
+                    "inputs": [
+                        {
+                            "path": "processed\\postal_universe_part02.parquet",
+                            "sha256": "2" * 64,
+                            "row_count": 1,
+                        }
+                    ],
+                    "total_rows": 1,
+                },
+            },
         },
     )
     records[0]["provenance"] = {
         "scoring_fingerprint_digest": "a" * 24,
+        "scoring_input_digest": "i" * 24,
         "source_hashes": {"osm_extract": "a" * 64},
         "subscore_status": records[0]["provenance"]["subscore_status"],
     }
     records[1]["provenance"] = {
         "scoring_fingerprint_digest": "b" * 24,
+        "scoring_input_digest": "j" * 24,
         "source_hashes": {"osm_extract": "a" * 64},
         "subscore_status": records[1]["provenance"]["subscore_status"],
     }
@@ -729,6 +756,73 @@ def test_export_reports_mixed_scoring_fingerprint_digests(tmp_path: Path):
     assert manifest["provenance"]["scoring_fingerprint_digests_missing_maps"] == []
     assert manifest["provenance"]["scoring_fingerprint_provenance_complete"] is True
     assert manifest["provenance"]["mixed_scoring_fingerprint_digests"] is True
+    assert manifest["provenance"]["scoring_input_digest_counts"] == {
+        "i" * 24: 1,
+        "j" * 24: 1,
+    }
+    assert manifest["provenance"]["scoring_inputs_by_digest"]["i" * 24]["inputs"] == [
+        {
+            "path": "processed\\postal_universe_part01.parquet",
+            "sha256": "1" * 64,
+            "row_count": 1,
+        }
+    ]
+    assert manifest["provenance"]["scoring_input_digests_missing_maps"] == []
+    assert manifest["provenance"]["scoring_input_provenance_complete"] is True
+    assert manifest["provenance"]["mixed_scoring_input_digests"] is True
+
+
+def test_export_fails_when_scoring_fingerprint_digest_is_unresolved(tmp_path: Path):
+    records = [sample_record("123456")]
+    records[0]["provenance"] = {
+        "scoring_fingerprint_digest": "a" * 24,
+        "source_hashes": {"osm_extract": "a" * 64},
+        "subscore_status": records[0]["provenance"]["subscore_status"],
+    }
+
+    with pytest.raises(ValueError, match="unresolved scoring fingerprint digest maps"):
+        export_static_artifacts(records, output_dir=tmp_path, records_dir=tmp_path / "score_batch")
+
+
+def test_export_fails_when_scoring_input_digest_is_unresolved(tmp_path: Path):
+    records = [sample_record("123456")]
+    records[0]["provenance"]["scoring_input_digest"] = "i" * 24
+
+    with pytest.raises(ValueError, match="unresolved scoring input digest maps"):
+        export_static_artifacts(records, output_dir=tmp_path, records_dir=tmp_path / "score_batch")
+
+
+def test_export_resolves_scoring_input_digest_from_explicit_provenance(tmp_path: Path):
+    records = [sample_record("123456")]
+    records[0]["provenance"]["scoring_input_digest"] = "i" * 24
+    input_provenance = {
+        "scoring_input_algorithm": "sha256-json-sort-keys-24hex",
+        "scoring_input_digest": "i" * 24,
+        "inputs": [
+            {
+                "path": "processed\\postal_universe.parquet",
+                "sha256": "1" * 64,
+                "row_count": 1,
+            }
+        ],
+        "total_rows": 1,
+    }
+
+    export_static_artifacts(
+        records,
+        output_dir=tmp_path,
+        scoring_input_provenance=input_provenance,
+    )
+
+    manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["provenance"]["scoring_inputs_by_digest"]["i" * 24]["inputs"] == [
+        {
+            "path": "processed\\postal_universe.parquet",
+            "sha256": "1" * 64,
+            "row_count": 1,
+        }
+    ]
+    assert manifest["provenance"]["scoring_input_provenance_complete"] is True
 
 
 def test_export_splits_large_score_files(tmp_path: Path):

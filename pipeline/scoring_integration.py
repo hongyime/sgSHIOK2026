@@ -184,6 +184,65 @@ def scoring_fingerprint_digest(fingerprints: Mapping[str, str]) -> str:
     return hashlib.sha256(payload).hexdigest()[:24]
 
 
+def project_display_path(path: Path) -> str:
+    resolved_root = PROJECT_ROOT.resolve()
+    resolved_path = path.resolve()
+    try:
+        return str(resolved_path.relative_to(resolved_root))
+    except ValueError:
+        return str(path)
+
+
+def _input_row_count(path: Path) -> int | None:
+    suffix = path.suffix.lower()
+    if suffix == ".parquet":
+        return int(len(pd.read_parquet(path)))
+    if suffix == ".json":
+        with path.open("r", encoding="utf-8") as f:
+            payload: Any = json.load(f)
+        if isinstance(payload, list | dict):
+            return len(payload)
+    return None
+
+
+def scoring_input_digest(payload: Mapping[str, Any]) -> str:
+    encoded = json.dumps(
+        payload,
+        ensure_ascii=True,
+        separators=(",", ":"),
+        sort_keys=True,
+    ).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()[:24]
+
+
+def scoring_input_snapshot(postal_universe_path: Path | None) -> dict[str, Any]:
+    if postal_universe_path is None:
+        fallback_path = RAW_DIR / "geocode_cache.db"
+        entry: dict[str, Any] = {"path": "raw\\geocode_cache.db"}
+        if fallback_path.is_file():
+            entry["sha256"] = file_sha256(fallback_path)
+        else:
+            entry["sha256"] = None
+        payload: dict[str, Any] = {"inputs": [entry], "total_rows": None}
+    else:
+        path = postal_universe_path
+        entry = {
+            "path": project_display_path(path),
+            "sha256": file_sha256(path),
+            "row_count": _input_row_count(path),
+        }
+        payload = {
+            "inputs": [entry],
+            "total_rows": entry["row_count"],
+        }
+    digest = scoring_input_digest(payload)
+    return {
+        "scoring_input_algorithm": "sha256-json-sort-keys-24hex",
+        "scoring_input_digest": digest,
+        **payload,
+    }
+
+
 def _git_stdout(args: list[str]) -> str | None:
     try:
         result = subprocess.run(
@@ -1930,16 +1989,21 @@ def build_provenance(
     network_path: Path = NETWORK_PATH,
     postal_universe_path: Path | None = None,
     scoring_digest: str | None = None,
+    scoring_input_digest_value: str | None = None,
 ) -> dict[str, Any]:
     manifest = load_manifest()
     sources = manifest.get("sources", {})
     network_label = (
-        str(network_path.relative_to(PROJECT_ROOT))
-        if network_path.is_relative_to(PROJECT_ROOT)
+        project_display_path(network_path)
+        if network_path.is_absolute()
         else str(network_path)
     )
     if scoring_digest is None:
         scoring_digest = scoring_provenance_snapshot()["scoring_fingerprint_digest"]
+    if scoring_input_digest_value is None:
+        scoring_input_digest_value = scoring_input_snapshot(postal_universe_path)[
+            "scoring_input_digest"
+        ]
 
     return {
         "manifest": "raw/manifest.json",
@@ -1970,10 +2034,11 @@ def build_provenance(
             "detour_budget": params["detour_budget"],
         },
         "scoring_fingerprint_digest": scoring_digest,
+        "scoring_input_digest": scoring_input_digest_value,
         "postal_universe": (
-            str(postal_universe_path.relative_to(PROJECT_ROOT))
+            project_display_path(postal_universe_path)
             if postal_universe_path is not None
-            and postal_universe_path.is_relative_to(PROJECT_ROOT)
+            and postal_universe_path.is_absolute()
             else (
                 str(postal_universe_path)
                 if postal_universe_path is not None
@@ -2018,6 +2083,8 @@ def load_scoring_context(
     crossing_counter = CrossingCounter.from_raw_data(params)
     bus_index = BusConnectivityIndex.from_raw_data(nodes, node_xy)
     scoring_provenance = scoring_provenance_snapshot()
+    input_provenance = scoring_input_snapshot(postal_universe_path)
+    scoring_provenance = {**scoring_provenance, **input_provenance}
     base_provenance = build_provenance(
         params,
         crossing_counter,
@@ -2025,6 +2092,7 @@ def load_scoring_context(
         network_path=network_path,
         postal_universe_path=postal_universe_path,
         scoring_digest=scoring_provenance["scoring_fingerprint_digest"],
+        scoring_input_digest_value=scoring_provenance["scoring_input_digest"],
     )
     data_as_of = load_manifest().get("generated_at")
     return ScoringContext(

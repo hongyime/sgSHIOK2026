@@ -19,6 +19,7 @@ from pipeline.scoring_integration import (
     load_manifest,
     load_scoring_context,
     score_postal_gdf,
+    scoring_input_snapshot,
     scoring_provenance_snapshot,
 )
 from pipeline.scoring_integration import (
@@ -106,6 +107,40 @@ def read_existing_scoring_fingerprint_maps(output_dir: Path) -> dict[str, dict[s
     return dict(sorted(maps.items()))
 
 
+def read_existing_scoring_input_maps(output_dir: Path) -> dict[str, dict[str, Any]]:
+    manifest_path = output_dir / "batch_manifest.json"
+    if not manifest_path.is_file():
+        return {}
+    try:
+        with open(manifest_path, "r", encoding="utf-8") as f:
+            manifest: Any = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return {}
+    if not isinstance(manifest, dict):
+        return {}
+    maps: dict[str, dict[str, Any]] = {}
+    raw_maps = manifest.get("scoring_inputs_by_digest")
+    if isinstance(raw_maps, dict):
+        for digest, input_payload in raw_maps.items():
+            if not isinstance(digest, str) or not isinstance(input_payload, dict):
+                continue
+            inputs = input_payload.get("inputs")
+            if not isinstance(inputs, list):
+                continue
+            maps[digest] = dict(sorted(input_payload.items()))
+    start = manifest.get("scoring_provenance_at_start")
+    if isinstance(start, dict):
+        digest = start.get("scoring_input_digest")
+        inputs = start.get("inputs")
+        if isinstance(digest, str) and isinstance(inputs, list):
+            maps[digest] = {
+                key: value
+                for key, value in sorted(start.items())
+                if key in {"inputs", "total_rows", "scoring_input_algorithm"}
+            }
+    return dict(sorted(maps.items()))
+
+
 def json_safe_geometry(value: Any) -> Any:
     if value is None:
         return None
@@ -187,6 +222,7 @@ def not_yet_scored_record(
     postal_universe_path: Path,
     data_as_of: str | None,
     scoring_digest: str | None = None,
+    scoring_input_digest_value: str | None = None,
 ) -> dict[str, Any]:
     source_status = str(row.get("status") or NOT_YET_SCORED)
     provenance: dict[str, Any] = {
@@ -202,6 +238,8 @@ def not_yet_scored_record(
     }
     if scoring_digest:
         provenance["scoring_fingerprint_digest"] = scoring_digest
+    if scoring_input_digest_value:
+        provenance["scoring_input_digest"] = scoring_input_digest_value
     return {
         "postal": str(row["postal_code"]),
         "state": NOT_YET_SCORED,
@@ -309,6 +347,8 @@ def build_score_batch(
         if isinstance(getattr(context, "scoring_provenance", None), dict)
         else scoring_provenance_snapshot()
     )
+    input_provenance = scoring_input_snapshot(postal_universe_path)
+    scoring_provenance_at_start = {**scoring_provenance_at_start, **input_provenance}
     fingerprint_maps = read_existing_scoring_fingerprint_maps(output_dir)
     digest = scoring_provenance_at_start.get("scoring_fingerprint_digest")
     fingerprints = scoring_provenance_at_start.get("scoring_fingerprints")
@@ -318,10 +358,19 @@ def build_score_batch(
                 (str(key), str(value))
                 for key, value in fingerprints.items()
                 if isinstance(key, str) and isinstance(value, str) and value
+                )
             )
-        )
     report["scoring_provenance_at_start"] = scoring_provenance_at_start
     report["scoring_fingerprints_by_digest"] = dict(sorted(fingerprint_maps.items()))
+    input_maps = read_existing_scoring_input_maps(output_dir)
+    input_digest = scoring_provenance_at_start.get("scoring_input_digest")
+    if isinstance(input_digest, str) and input_digest:
+        input_maps[input_digest] = {
+            key: scoring_provenance_at_start[key]
+            for key in ("scoring_input_algorithm", "inputs", "total_rows")
+            if key in scoring_provenance_at_start
+        }
+    report["scoring_inputs_by_digest"] = dict(sorted(input_maps.items()))
     data_as_of = load_manifest().get("generated_at")
     for chunk_index, (start, end) in enumerate(chunks, start=1):
         chunk = postal_rows.iloc[start:end].copy()
@@ -360,6 +409,11 @@ def build_score_batch(
                         data_as_of,
                         scoring_digest=(
                             digest if isinstance(digest, str) and digest else None
+                        ),
+                        scoring_input_digest_value=(
+                            input_digest
+                            if isinstance(input_digest, str) and input_digest
+                            else None
                         ),
                     )
                 )

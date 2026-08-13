@@ -2233,6 +2233,7 @@ def test_build_provenance_records_selected_network_and_postal_universe_paths():
         bus_data_available=True,
         network_path=Path("processed/network_island.parquet"),
         postal_universe_path=Path("processed/postal_universe_candidate_full_registered.parquet"),
+        scoring_input_digest_value="i" * 24,
     )
 
     assert provenance["routing"]["network"] == "processed\\network_island.parquet"
@@ -2243,6 +2244,7 @@ def test_build_provenance_records_selected_network_and_postal_universe_paths():
     assert "scoring_fingerprints" not in provenance
     assert "git" not in provenance
     assert len(provenance["scoring_fingerprint_digest"]) == 24
+    assert len(provenance["scoring_input_digest"]) == 24
     assert provenance["subscore_status"]["bus"] == "real"
 
     snapshot = scoring_provenance_snapshot()
