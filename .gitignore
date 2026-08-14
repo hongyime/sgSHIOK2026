@@ -54,10 +54,16 @@ Thumbs.db
 .codebuddy/
 .vscode/
 
+
 # AI / editor dot directories (managed via sourcerepo)
 .*
 !.github/
 !.agents/
+.agents/*
+!.agents/STATE.md
+!.agents/JOURNAL.md
+!.agents/handoffs/
+!.agents/handoffs/**
 !.gitignore
 !.gitattributes
 !.gitmodules
@@ -72,7 +78,6 @@ Thumbs.db
 !.babelrc*
 !.browserslistrc
 !.dockerignore
-!.vercelignore
 !.npmrc
 !.yarnrc
 !.yarnrc.yml
@@ -81,8 +86,7 @@ Thumbs.db
 !.env.sample
 !.sourcery.yml
 !.deepsource.toml
-.env.*
-venv/
-dist/
-build/
-coverage/
+skills/
+skills-lock.json
+docs/
+# End AI / editor dot directories (managed via sourcerepo)
