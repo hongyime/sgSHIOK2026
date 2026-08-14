@@ -57,6 +57,7 @@ Thumbs.db
 # AI / editor dot directories (managed via sourcerepo)
 .*
 !.github/
+!.agents/
 !.gitignore
 !.gitattributes
 !.gitmodules
