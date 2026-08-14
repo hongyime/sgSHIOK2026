@@ -78,6 +78,7 @@ Thumbs.db
 !.babelrc*
 !.browserslistrc
 !.dockerignore
+!.vercelignore
 !.npmrc
 !.yarnrc
 !.yarnrc.yml
@@ -86,6 +87,11 @@ Thumbs.db
 !.env.sample
 !.sourcery.yml
 !.deepsource.toml
+.env.*
+venv/
+dist/
+build/
+coverage/
 skills/
 skills-lock.json
 docs/

@@ -15,6 +15,7 @@ VERCELIGNORE_REQUIRED_TEXT = (
     "!web/public/data/generated_20260805_prefer_scored_routed/",
     "!web/public/data/generated_20260805_prefer_scored_routed/**",
 )
+GITIGNORE_REQUIRED_LINES = ("!.vercelignore",)
 
 
 def git_blob_sha1(path: Path) -> str:
@@ -57,6 +58,15 @@ def check_repo_integrity(root: Path) -> list[str]:
         for required in VERCELIGNORE_REQUIRED_TEXT:
             if required not in lines:
                 errors.append(f".vercelignore missing required line: {required}")
+
+    gitignore = root / ".gitignore"
+    if not gitignore.is_file():
+        errors.append(".gitignore is missing")
+    else:
+        lines = set(gitignore.read_text(encoding="utf-8").splitlines())
+        for required in GITIGNORE_REQUIRED_LINES:
+            if required not in lines:
+                errors.append(f".gitignore missing required line: {required}")
 
     return errors
 

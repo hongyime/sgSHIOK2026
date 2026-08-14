@@ -12,6 +12,7 @@ def write_fixture(root: Path) -> None:
     shutil.copyfile(PROJECT_ROOT / "NOTICE", root / "NOTICE")
     shutil.copyfile(PROJECT_ROOT / "AGENTS.md", root / "AGENTS.md")
     shutil.copyfile(PROJECT_ROOT / ".vercelignore", root / ".vercelignore")
+    shutil.copyfile(PROJECT_ROOT / ".gitignore", root / ".gitignore")
 
 
 def test_repo_integrity_accepts_current_tripwire_files(tmp_path: Path):
@@ -48,6 +49,19 @@ def test_repo_integrity_rejects_vercelignore_allowlist_revert(tmp_path: Path):
     errors = check_repo_integrity(tmp_path)
 
     assert any(".vercelignore missing required line" in error for error in errors)
+
+
+def test_repo_integrity_rejects_gitignore_vercelignore_allowlist_revert(tmp_path: Path):
+    write_fixture(tmp_path)
+    text = (tmp_path / ".gitignore").read_text(encoding="utf-8")
+    (tmp_path / ".gitignore").write_text(
+        "\n".join(line for line in text.splitlines() if line != "!.vercelignore") + "\n",
+        encoding="utf-8",
+    )
+
+    errors = check_repo_integrity(tmp_path)
+
+    assert any(".gitignore missing required line: !.vercelignore" in error for error in errors)
 
 
 def test_repo_integrity_workflow_has_schedule_trigger():
