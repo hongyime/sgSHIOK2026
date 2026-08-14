@@ -311,6 +311,11 @@ def test_build_readiness_report_summarizes_failed_onemap_gate(tmp_path: Path):
         report["features"]["not_incorporated"]["onemap_walk_validation_gate"]
     )
     assert "11.458%" in report["features"]["not_incorporated"]["onemap_walk_validation_gate"]
+    assert "failing criteria: complete cache coverage, median abs delta threshold" in (
+        gate["summary"]
+    )
+    assert "p95 abs delta threshold, subset thresholds" in gate["summary"]
+    assert "failing subsets: endpoint_connector, graph_routed_mrt_lrt" in gate["summary"]
 
 
 def test_build_readiness_report_reads_nested_release_onemap_reports(tmp_path: Path):
@@ -413,6 +418,7 @@ def test_build_readiness_report_reads_nested_release_onemap_reports(tmp_path: Pa
     assert gate["fresh_for_active_bundle"] is True
     assert gate["cached_results"] == 95095
     assert gate["invalid_cache_results"] == 62
+    assert gate["summary"].endswith("failing criteria: complete cache coverage")
     assert report["release_gate_summary"]["checks"]["onemap_validation_same_bundle_fresh"] is False
     assert report["release_gate_summary"]["checks"]["onemap_validation_waived"] is False
     assert report["release_gate_summary"]["required_owner_approvals"] == ["production_deploy"]

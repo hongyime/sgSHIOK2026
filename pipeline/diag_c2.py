@@ -3,7 +3,7 @@ import zipfile
 import geopandas as gpd
 from pathlib import Path
 
-raw_dir = Path("X:/01 REPOSITORIES/SHIOK/raw")
+raw_dir = Path(__file__).resolve().parents[1] / "raw"
 
 
 def get_gdf_from_zip(pattern):

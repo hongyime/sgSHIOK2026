@@ -4,8 +4,11 @@ import zipfile
 import geopandas as gpd
 from pathlib import Path
 
-zip_path = Path(
-    "X:/01 REPOSITORIES/SHIOK/raw/942ff2506603f431f0782a3acdc70fec75d4b15c73b54f1a983c804c60d818af/traffic_signals.zip"
+zip_path = (
+    Path(__file__).resolve().parents[1]
+    / "raw"
+    / "942ff2506603f431f0782a3acdc70fec75d4b15c73b54f1a983c804c60d818af"
+    / "traffic_signals.zip"
 )
 if not zip_path.exists():
     print("Traffic signals zip not found")
