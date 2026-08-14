@@ -274,6 +274,60 @@ def onemap_subset_status(report: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def onemap_failure_summary(
+    report: dict[str, Any],
+    *,
+    median: Any,
+    p95: Any,
+    median_max: Any,
+    p95_max: Any,
+    failing_subsets: list[dict[str, Any]],
+) -> str:
+    if report.get("gate_passed") is True:
+        return ""
+
+    failing_criteria: list[str] = []
+    complete_cache_coverage = report.get("complete_cache_coverage")
+    if not isinstance(complete_cache_coverage, bool):
+        sample_size = report.get("sample_size")
+        cached_results = report.get("cached_results")
+        missing_results = report.get("missing_cache_results", 0)
+        invalid_results = report.get("invalid_cache_results", 0)
+        retryable_results = report.get("retryable_cache_results", 0)
+        if isinstance(sample_size, int) and isinstance(cached_results, int):
+            complete_cache_coverage = (
+                cached_results == sample_size
+                and missing_results == 0
+                and invalid_results == 0
+                and retryable_results == 0
+            )
+    if complete_cache_coverage is False:
+        failing_criteria.append("complete cache coverage")
+    if (
+        isinstance(median, int | float)
+        and isinstance(median_max, int | float)
+        and float(median) > float(median_max)
+    ):
+        failing_criteria.append("median abs delta threshold")
+    if (
+        isinstance(p95, int | float)
+        and isinstance(p95_max, int | float)
+        and float(p95) > float(p95_max)
+    ):
+        failing_criteria.append("p95 abs delta threshold")
+    if failing_subsets:
+        failing_criteria.append("subset thresholds")
+
+    if not failing_criteria:
+        return ""
+
+    details = f"; failing criteria: {', '.join(failing_criteria)}"
+    if failing_subsets:
+        subset_names = ", ".join(str(item["subset"]) for item in failing_subsets)
+        details += f"; failing subsets: {subset_names}"
+    return details
+
+
 def onemap_validation_status(
     qa_dir: Path,
     *,
@@ -378,6 +432,14 @@ def onemap_validation_status(
     summary += (
         f", missing cache results {report.get('missing_cache_results')}, "
         f"invalid cache results {report.get('invalid_cache_results')}"
+    )
+    summary += onemap_failure_summary(
+        report,
+        median=median,
+        p95=p95,
+        median_max=median_max,
+        p95_max=p95_max,
+        failing_subsets=subset_status["failing_subset_order"],
     )
 
     return {

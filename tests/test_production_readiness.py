@@ -245,7 +245,7 @@ def test_build_readiness_report_summarizes_failed_onemap_gate(tmp_path: Path):
             "p95_abs_pct_delta": 94.037,
             "thresholds": {
                 "median_abs_pct_delta_max": 10.0,
-                "p95_abs_pct_delta_max": 25.0,
+                "p95_abs_pct_delta_max": 100.0,
             },
             "subset_summary": {
                 "graph_routed_mrt_lrt": {
@@ -254,14 +254,22 @@ def test_build_readiness_report_summarizes_failed_onemap_gate(tmp_path: Path):
                     "p95_abs_pct_delta": 59.114,
                     "median_abs_delta_m": 42.5,
                     "p95_abs_delta_m": 351.5,
-                    "thresholds_passed": False,
+                    "thresholds_passed": True,
                 },
                 "endpoint_connector": {
                     "count": 19,
                     "median_abs_pct_delta": 77.358,
-                    "p95_abs_pct_delta": 202.379,
+                    "p95_abs_pct_delta": 80.206,
                     "median_abs_delta_m": 271.4,
                     "p95_abs_delta_m": 1161.4,
+                    "thresholds_passed": False,
+                },
+                "graph_routed_bus_stop": {
+                    "count": 123,
+                    "median_abs_pct_delta": 15.988,
+                    "p95_abs_pct_delta": 76.321,
+                    "median_abs_delta_m": 91.2,
+                    "p95_abs_delta_m": 812.0,
                     "thresholds_passed": False,
                 },
                 "unused_passed_subset": {
@@ -303,7 +311,7 @@ def test_build_readiness_report_summarizes_failed_onemap_gate(tmp_path: Path):
     assert gate["subset_summary"]["graph_routed_mrt_lrt"]["p95_abs_pct_delta"] == 59.114
     assert [item["subset"] for item in gate["failing_subset_order"]] == [
         "endpoint_connector",
-        "graph_routed_mrt_lrt",
+        "graph_routed_bus_stop",
     ]
     assert gate["failing_subset_order"][0]["p95_abs_delta_m"] == 1161.4
     assert "failed" in report["features"]["not_incorporated"]["onemap_walk_validation_gate"]
@@ -311,6 +319,12 @@ def test_build_readiness_report_summarizes_failed_onemap_gate(tmp_path: Path):
         report["features"]["not_incorporated"]["onemap_walk_validation_gate"]
     )
     assert "11.458%" in report["features"]["not_incorporated"]["onemap_walk_validation_gate"]
+    assert "failing criteria: complete cache coverage, median abs delta threshold" in (
+        gate["summary"]
+    )
+    assert "subset thresholds" in gate["summary"]
+    assert "p95 abs delta threshold" not in gate["summary"]
+    assert "failing subsets: endpoint_connector, graph_routed_bus_stop" in gate["summary"]
 
 
 def test_build_readiness_report_reads_nested_release_onemap_reports(tmp_path: Path):
@@ -413,6 +427,7 @@ def test_build_readiness_report_reads_nested_release_onemap_reports(tmp_path: Pa
     assert gate["fresh_for_active_bundle"] is True
     assert gate["cached_results"] == 95095
     assert gate["invalid_cache_results"] == 62
+    assert gate["summary"].endswith("failing criteria: complete cache coverage")
     assert report["release_gate_summary"]["checks"]["onemap_validation_same_bundle_fresh"] is False
     assert report["release_gate_summary"]["checks"]["onemap_validation_waived"] is False
     assert report["release_gate_summary"]["required_owner_approvals"] == ["production_deploy"]
