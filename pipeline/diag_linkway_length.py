@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 def get_linkways():
-    raw_dir = Path("X:/01 REPOSITORIES/SHIOK/raw")
+    raw_dir = Path(__file__).resolve().parents[1] / "raw"
     zip_path = list(raw_dir.rglob("covered_linkway.zip"))
     if not zip_path:
         print("covered_linkway.zip not found")

@@ -1,8 +1,11 @@
 import json
 from pathlib import Path
 
-path = Path(
-    "X:/01 REPOSITORIES/SHIOK/raw/7c987511548de3a82da403cabca02702031e02ade8703a9e401417883dfeb702/building_points.geojson"
+path = (
+    Path(__file__).resolve().parents[1]
+    / "raw"
+    / "7c987511548de3a82da403cabca02702031e02ade8703a9e401417883dfeb702"
+    / "building_points.geojson"
 )
 if path.exists():
     with open(path, "r", encoding="utf-8") as f:
