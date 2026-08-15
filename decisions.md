@@ -33,3 +33,21 @@ The rank view now avoids the eager area-wide score fetch on every postal search 
 
 2026-08-14 - P11 Windows migration portability decision:
 Migration evidence must be recorded with repository-relative paths for new notes and scripts. Historical T14 paths such as `C:\shiok` and `X:\01 REPOSITORIES\SHIOK` are provenance facts only, not patterns to propagate. Fresh clones intentionally lack large ignored payloads under `raw/`, `processed/`, `web/public/data/`, and historical QA scratch directories; anchor verification after a move should first confirm Git status, Python/library identity, Node/npm identity, and focused tests before any expensive pipeline rerun. `.agents/STATE.md` and `.agents/JOURNAL.md` are currently tracked and unignored, so they can carry short handoff state, but durable product or release decisions remain in this visible `decisions.md` because repository instructions and sync-bot/dot-directory behavior make `.agents/` unsuitable as the only durable decision log.
+
+2026-08-15 - P5 ingest and heat evidence backfill:
+P5 made ingest validation fail closed on source and count validation errors, and reframed heat copy as proxy evidence rather than measured heat. Evidence is in `qa/verification/P5-ingest-and-heat.md` and `qa/verification/heat_presentation_investigation_20260812.json`. The durable decision is that heat remains a covered-route plus NParks greenery proxy until better heat or shade data exists; product copy must not imply measured thermal conditions.
+
+2026-08-15 - P6 bus honesty and rerun timing backfill:
+P6 kept direct-bus fallback as evidence of rejected candidates, not selected routed truth, and recorded that fallback provenance reaches the client for affected records. Evidence is in `qa/verification/P6-bus-honesty-and-timing.md`. The durable decision is that bus fallback evidence may explain why a bus candidate was rejected, but must not be promoted into a positive bus subscore without fixing or explicitly waiving the routing trust issue.
+
+2026-08-15 - P7 untrusted-subscore and determinism backfill:
+P7 closed the UI-warning proposal for `untrusted_subscores`: the field describes the rejected bus-fallback candidate, not the selected route, so no blanket UI warning is warranted. P7 also established same-machine determinism on T14 for the 1,200-record subset, with only expected manifest timestamp byte differences after normalization. Evidence is in `qa/verification/P7-untrusted-and-determinism.md`.
+
+2026-08-15 - P8 provenance repair backfill:
+P8 replaced full per-record scoring fingerprints with compact digest provenance and retained manifest-level resolver maps to reduce payload cost while keeping code/config traceability. Evidence is in `qa/verification/P8-provenance-repair.md`. The durable decision is that public score records should carry compact provenance digests, while full fingerprint maps live at manifest scope.
+
+2026-08-15 - P9 input provenance backfill:
+P9 added scoring-input digest provenance so score records can identify the exact postal-universe inputs used without repeating the full input map per record. Evidence is in `qa/verification/P9-input-provenance.md`. The durable decision is that input identity must be hash- and row-count-backed in manifests, not inferred from filenames.
+
+2026-08-15 - P10 network provenance and published-input identity backfill:
+P10 added network digest provenance and established that the published bundle cites the `processed\score_batches\full_rescore_20260804_205430\partitions\` partition set with 124,443 rows, not the older 124,032-row split. Evidence is in `qa/verification/P10-published-input-identity.md`. The durable decision is that the P6 scratch comparison against the 124,032-row split is not a valid published-bundle baseline; published-score comparisons must use the 124,443-row partition set cited by the active bundle.

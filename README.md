@@ -5,7 +5,7 @@ explainable "comfort score" for the walk to transit — rain shelter, heat, cros
 friction, transit access, and bus frequency — computed on real routed paths from open
 government data.
 
-**Status:** live static-first pilot with a scored 124,032-record source-derived universe.
+**Status:** live static-first pilot over a 124,443-record source-derived universe.
 Current product decisions and known evidence limits are tracked in `decisions.md`.
 **Environment:** Windows 11, native pipeline work. No WSL, no Docker, no paid services.
 GitHub Actions exists for repository automation and CI, not for heavy pipeline compute.
