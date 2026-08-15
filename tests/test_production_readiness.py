@@ -4,10 +4,15 @@ from pathlib import Path
 
 import pyarrow as pa
 import pyarrow.parquet as pq
+import pytest
 
 from pipeline.export import export_static_artifacts
 from pipeline.scoring_integration import scoring_fingerprints
-from scripts.production_readiness import build_readiness_report, vercel_readiness
+from scripts.production_readiness import (
+    build_readiness_report,
+    bundle_score_provenance_status,
+    vercel_readiness,
+)
 from tests.test_export import sample_record
 
 
@@ -89,6 +94,14 @@ def export_current_fingerprint_bundle(output_dir: Path) -> None:
     fingerprints = scoring_fingerprints()
     manifest["provenance"]["scoring_fingerprints"] = fingerprints
     manifest["provenance"]["scoring_fingerprint_files"] = sorted(fingerprints)
+    manifest["provenance"]["scoring_fingerprint_changed_during_run"] = False
+    manifest["provenance"]["scoring_fingerprint_provenance_complete"] = True
+    manifest["provenance"]["scoring_input_changed_during_run"] = False
+    manifest["provenance"]["mixed_scoring_input_digests"] = False
+    manifest["provenance"]["scoring_input_provenance_complete"] = True
+    manifest["provenance"]["network_changed_during_run"] = False
+    manifest["provenance"]["mixed_network_digests"] = False
+    manifest["provenance"]["network_provenance_complete"] = True
     write_json(manifest_path, manifest)
 
 
@@ -735,3 +748,109 @@ def test_build_readiness_report_warns_when_bundle_lacks_scoring_fingerprints(
     assert score_provenance["scoring_fingerprint_count"] == 0
     assert "pipeline\\scoring_integration.py" in score_provenance["missing_scoring_fingerprints"]
     assert any("scoring code/config fingerprints" in warning for warning in report["warnings"])
+
+
+def test_bundle_score_provenance_blocks_real_p10_stale_resume_shape(tmp_path: Path):
+    bundle_dir = tmp_path / "generated_test"
+    export_current_fingerprint_bundle(bundle_dir)
+    manifest_path = bundle_dir / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    provenance = manifest["provenance"]
+    old_digest = "0" * 24
+    new_digest = "1" * 24
+    provenance["scoring_fingerprint_digest"] = new_digest
+    provenance["export_scoring_fingerprint_digest"] = new_digest
+    provenance["scoring_fingerprint_digest_counts"] = {old_digest: 1}
+    provenance["scoring_fingerprint_changed_during_run"] = True
+    provenance["mixed_scoring_fingerprint_digests"] = False
+    provenance["scoring_fingerprint_provenance_complete"] = True
+    write_json(manifest_path, manifest)
+
+    status = bundle_score_provenance_status(bundle_dir)
+
+    assert status["ok"] is False
+    assert status["blocking_provenance_signals"] == [
+        "scoring_fingerprint_changed_during_run"
+    ]
+    assert status["scoring_fingerprint_changed_during_run"] is True
+    assert "scoring fingerprint changed during run" in status["warning"]
+
+
+@pytest.mark.parametrize(
+    ("field", "signal", "message"),
+    [
+        (
+            "network_changed_during_run",
+            "network_changed_during_run",
+            "network changed during run",
+        ),
+        ("mixed_network_digests", "mixed_network_digests", "mixed network digests"),
+        (
+            "scoring_input_provenance_complete",
+            "incomplete_scoring_input_provenance",
+            "incomplete scoring input provenance",
+        ),
+        (
+            "network_provenance_complete",
+            "incomplete_network_provenance",
+            "incomplete network provenance",
+        ),
+    ],
+)
+def test_bundle_score_provenance_blocks_export_integrity_signals(
+    tmp_path: Path,
+    field: str,
+    signal: str,
+    message: str,
+):
+    bundle_dir = tmp_path / "generated_test"
+    export_current_fingerprint_bundle(bundle_dir)
+    manifest_path = bundle_dir / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["provenance"][field] = not field.endswith("_complete")
+    write_json(manifest_path, manifest)
+
+    status = bundle_score_provenance_status(bundle_dir)
+
+    assert status["ok"] is False
+    assert status[signal] is True
+    assert status["blocking_provenance_signals"] == [signal]
+    assert message in status["warning"]
+
+
+@pytest.mark.parametrize(
+    ("field", "signal", "message"),
+    [
+        (
+            "scoring_input_changed_during_run",
+            "scoring_input_changed_during_run",
+            "scoring input changed during run",
+        ),
+        (
+            "mixed_scoring_input_digests",
+            "mixed_scoring_input_digests",
+            "mixed scoring input digests",
+        ),
+    ],
+)
+def test_bundle_score_provenance_warns_on_complete_partitioned_input_signals(
+    tmp_path: Path,
+    field: str,
+    signal: str,
+    message: str,
+):
+    bundle_dir = tmp_path / "generated_test"
+    export_current_fingerprint_bundle(bundle_dir)
+    manifest_path = bundle_dir / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["provenance"][field] = True
+    manifest["provenance"]["scoring_input_provenance_complete"] = True
+    write_json(manifest_path, manifest)
+
+    status = bundle_score_provenance_status(bundle_dir)
+
+    assert status["ok"] is True
+    assert status[signal] is True
+    assert status["blocking_provenance_signals"] == []
+    assert status["warning_provenance_signals"] == [signal]
+    assert message in status["warning"]

@@ -16,8 +16,8 @@ from pipeline.export import (
     refresh_transit_manifest,
     route_edge_source_class,
     route_segment_geometries,
-    station_code_rows_from_xls_bytes,
     slugify_area,
+    station_code_rows_from_xls_bytes,
     validate_export_batch_args,
     validate_static_artifacts,
     write_json,
@@ -840,6 +840,57 @@ def test_export_reports_mixed_scoring_fingerprint_digests(tmp_path: Path):
     assert manifest["provenance"]["network_digests_missing_maps"] == []
     assert manifest["provenance"]["network_provenance_complete"] is True
     assert manifest["provenance"]["mixed_network_digests"] is True
+
+
+def test_export_names_record_start_and_export_scoring_fingerprint_digests(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+):
+    records = [sample_record("123456")]
+    old_digest = "a" * 24
+    new_digest = "b" * 24
+    old_fingerprints = {"pipeline\\bus.py": "a" * 64}
+    new_fingerprints = {"pipeline\\bus.py": "b" * 64}
+    records[0]["provenance"] = {
+        "scoring_fingerprint_digest": old_digest,
+        "source_hashes": {"osm_extract": "a" * 64},
+        "subscore_status": records[0]["provenance"]["subscore_status"],
+    }
+    records_dir = tmp_path / "score_batch"
+    write_json(
+        records_dir / "batch_manifest.json",
+        {
+            "scoring_provenance_at_start": {
+                "scoring_fingerprint_digest": new_digest,
+                "scoring_fingerprints": new_fingerprints,
+            },
+            "scoring_fingerprints_by_digest": {
+                old_digest: old_fingerprints,
+                new_digest: new_fingerprints,
+            },
+        },
+    )
+    monkeypatch.setattr(
+        "pipeline.export.scoring_provenance_snapshot",
+        lambda: {
+            "scoring_fingerprint_digest": new_digest,
+            "scoring_fingerprints": new_fingerprints,
+            "git": {},
+        },
+    )
+
+    export_static_artifacts(records, output_dir=tmp_path, records_dir=records_dir)
+
+    provenance = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))[
+        "provenance"
+    ]
+    assert provenance["record_scoring_fingerprint_digest"] == old_digest
+    assert provenance["score_batch_start_scoring_fingerprint_digest"] == new_digest
+    assert provenance["export_scoring_fingerprint_digest"] == new_digest
+    assert provenance["scoring_fingerprint_digest"] == new_digest
+    assert provenance["scoring_fingerprint_digest_counts"] == {old_digest: 1}
+    assert provenance["scoring_fingerprint_changed_during_run"] is True
+    assert provenance["mixed_scoring_fingerprint_digests"] is False
 
 
 def test_export_fails_when_scoring_fingerprint_digest_is_unresolved(tmp_path: Path):

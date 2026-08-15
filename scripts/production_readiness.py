@@ -23,6 +23,19 @@ REQUIRED_SUBSCORE_STATUS = {"access", "bus", "rain", "heat", "crossing"}
 REQUIRED_SCORING_FINGERPRINTS = {
     rel_path.replace("/", "\\") for rel_path in SCORING_FINGERPRINT_FILES
 }
+BLOCKING_PROVENANCE_SIGNALS = {
+    "scoring_fingerprint_changed_during_run": "scoring fingerprint changed during run",
+    "mixed_scoring_fingerprint_digests": "mixed scoring fingerprint digests",
+    "incomplete_scoring_fingerprint_provenance": "incomplete scoring fingerprint provenance",
+    "incomplete_scoring_input_provenance": "incomplete scoring input provenance",
+    "network_changed_during_run": "network changed during run",
+    "mixed_network_digests": "mixed network digests",
+    "incomplete_network_provenance": "incomplete network provenance",
+}
+WARNING_PROVENANCE_SIGNALS = {
+    "scoring_input_changed_during_run": "scoring input changed during run",
+    "mixed_scoring_input_digests": "mixed scoring input digests",
+}
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -178,6 +191,32 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
     incomplete_fingerprint_provenance = (
         provenance.get("scoring_fingerprint_provenance_complete") is False
     )
+    provenance_signals = {
+        "scoring_fingerprint_changed_during_run": (
+            provenance.get("scoring_fingerprint_changed_during_run") is True
+        ),
+        "mixed_scoring_fingerprint_digests": mixed_fingerprints,
+        "incomplete_scoring_fingerprint_provenance": incomplete_fingerprint_provenance,
+        "scoring_input_changed_during_run": (
+            provenance.get("scoring_input_changed_during_run") is True
+        ),
+        "mixed_scoring_input_digests": provenance.get("mixed_scoring_input_digests") is True,
+        "incomplete_scoring_input_provenance": (
+            provenance.get("scoring_input_provenance_complete") is False
+        ),
+        "network_changed_during_run": provenance.get("network_changed_during_run") is True,
+        "mixed_network_digests": provenance.get("mixed_network_digests") is True,
+        "incomplete_network_provenance": provenance.get("network_provenance_complete")
+        is False,
+    }
+    blocking_provenance_signals = [
+        key for key, blocked in provenance_signals.items() if blocked
+        and key in BLOCKING_PROVENANCE_SIGNALS
+    ]
+    warning_provenance_signals = [
+        key for key, warned in provenance_signals.items() if warned
+        and key in WARNING_PROVENANCE_SIGNALS
+    ]
     source_hash_count = len(source_hashes) if isinstance(source_hashes, dict) else 0
     fingerprint_keys = (
         set(scoring_fingerprints) if isinstance(scoring_fingerprints, dict) else set()
@@ -189,17 +228,48 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
         source_hash_count > 0
         and not missing_subscores
         and not missing_fingerprints
-        and not mixed_fingerprints
-        and not incomplete_fingerprint_provenance
+        and not blocking_provenance_signals
     )
     warning = None
-    if not ok:
-        warning = (
-            "active bundle manifest lacks score source hashes, scoring code/config fingerprints, "
-            "complete subscore status, single-run scoring fingerprints, or complete fingerprint "
-            "digest provenance; regenerate/export the bundle with current code before using it as "
-            "provenance evidence"
-        )
+    if not ok or warning_provenance_signals:
+        reasons: list[str] = []
+        if source_hash_count <= 0:
+            reasons.append("score source hashes")
+        if missing_fingerprints:
+            reasons.append(
+                "scoring code/config fingerprints: " + ", ".join(missing_fingerprints)
+            )
+        if missing_subscores:
+            reasons.append("subscore status: " + ", ".join(missing_subscores))
+        if blocking_provenance_signals:
+            reasons.append(
+                "blocking provenance signals: "
+                + ", ".join(
+                    BLOCKING_PROVENANCE_SIGNALS[key] for key in blocking_provenance_signals
+                )
+            )
+        if warning_provenance_signals:
+            reasons.append(
+                "non-blocking provenance signals: "
+                + ", ".join(
+                    WARNING_PROVENANCE_SIGNALS[key] for key in warning_provenance_signals
+                )
+            )
+        if not ok:
+            warning = (
+                "active bundle manifest lacks score source hashes, scoring code/config "
+                "fingerprints, complete subscore status, or fails provenance integrity "
+                "signals: "
+                + "; ".join(reasons)
+                + "; regenerate/export the bundle with current code before using it as "
+                "provenance evidence"
+            )
+        else:
+            warning = (
+                "active bundle manifest has non-blocking provenance signals: "
+                + "; ".join(reasons)
+                + "; verify digest maps before treating it as single-input evidence"
+            )
 
     return {
         "ok": ok,
@@ -211,6 +281,23 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
         "missing_subscore_status": missing_subscores,
         "mixed_scoring_fingerprint_digests": mixed_fingerprints,
         "incomplete_scoring_fingerprint_provenance": incomplete_fingerprint_provenance,
+        "scoring_fingerprint_changed_during_run": provenance_signals[
+            "scoring_fingerprint_changed_during_run"
+        ],
+        "scoring_input_changed_during_run": provenance_signals[
+            "scoring_input_changed_during_run"
+        ],
+        "network_changed_during_run": provenance_signals["network_changed_during_run"],
+        "mixed_scoring_input_digests": provenance_signals["mixed_scoring_input_digests"],
+        "mixed_network_digests": provenance_signals["mixed_network_digests"],
+        "incomplete_scoring_input_provenance": provenance_signals[
+            "incomplete_scoring_input_provenance"
+        ],
+        "incomplete_network_provenance": provenance_signals[
+            "incomplete_network_provenance"
+        ],
+        "blocking_provenance_signals": blocking_provenance_signals,
+        "warning_provenance_signals": warning_provenance_signals,
         "warning": warning,
     }
 

@@ -860,6 +860,7 @@ def build_manifest_provenance(
     )
     export_digest = scoring_export["scoring_fingerprint_digest"]
     observed_digests = set(digest_counts)
+    record_digest = next(iter(observed_digests)) if len(observed_digests) == 1 else None
     observed_input_digests = set(input_digest_counts)
     observed_network_digests = set(network_digest_counts)
     changed_during_run = len(observed_digests) > 1
@@ -983,6 +984,8 @@ def build_manifest_provenance(
         "scoring_fingerprint_algorithm": "sha256-json-sort-keys-24hex",
         "scoring_fingerprints": dict(sorted(manifest_fingerprints.items())),
         "scoring_fingerprint_digest": start_digest or export_digest,
+        "record_scoring_fingerprint_digest": record_digest,
+        "score_batch_start_scoring_fingerprint_digest": start_digest,
         "export_scoring_fingerprint_digest": export_digest,
         "scoring_fingerprint_digest_counts": digest_counts,
         "scoring_fingerprints_by_digest": dict(sorted(fingerprints_by_digest.items())),
