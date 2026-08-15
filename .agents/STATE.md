@@ -1,18 +1,25 @@
 # Current State
 
-Date: 2026-08-14
+Date: 2026-08-15
 
-Task: Rebuild local dependencies on `X:\01 REPOSITORIES\sgSHIOK2026` after migration.
+Task: P12 state consolidation after P11 completion.
+
+Working root: `C:\sgSHIOK2026`
+Machine: `Prawn-E14`
+Remote main: `ccc4e81`
 
 Status:
-- `uv sync` completed after a long copy/install phase; `.venv` exists and core imports verify.
-- `npm --prefix web ci` completed; `web/node_modules` exists and `npm --prefix web ls --depth=0` is clean.
-- `.gitignore` now explicitly unignores `.agents/` so shared handoff state can be committed.
-- `git status` source changes remain unchanged except expected untracked migration evidence dirs:
-  - `qa/p10_network_provenance_20260813/`
-  - `qa/p8_provenance_repair_20260813/`
+- P11 is complete and landed on `origin/main` at `ccc4e81`.
+- P11 evidence is tracked at `qa/verification/P11-e14-relocation-and-determinism.md`.
+- `X:\01 REPOSITORIES\sgSHIOK2026` is a read-only second physical copy, not a working root.
+- Do not run commands with the working directory on `X:`.
 
-Notes:
-- Initial timed-out `uv sync` and `npm ci` left partial dependency trees; reruns were allowed to finish.
-- `uv sync` warned that hardlinks failed and fell back to full copies, likely because cache and repo are on different filesystems.
-- Do not assume huge historical scratch dirs such as `qa/p6...`, `qa/p7...`, or `qa/p9...` are fully copied unless a future task verifies them.
+Untracked local evidence/data directories currently present:
+- `qa/p8_provenance_repair_20260813/`
+- `qa/p10_network_provenance_20260813/`
+- `qa/p11/d_calibration_w2_0050/`
+- `qa/p11/d_full_w2_1200/`
+- `qa/p11/d_pilot_w2_0200_final/`
+- `qa/p11/d_pilot_w2_0200_retry3/`
+- `qa/p11/d_pilot_w2_0200_retry4/`
+- `qa/p11/diffs/`
