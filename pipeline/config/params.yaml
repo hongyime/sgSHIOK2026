@@ -56,6 +56,8 @@ crossing_friction:
   penalty_per_crossing: 20
 heat_comfort:
   shade_proxy_weight: 0.5
+  shade_proxy_line_buffer_m: 8.0
+  shade_proxy_point_buffer_m: 6.0
 onemap:
   highest_sustained_clean_rate_rps: 1.0  # Empirical ladder probe R (citation: logs/onemap_probe.csv)
   derived_client_throttle_rps: 0.5       # R / 2 per Section B formula

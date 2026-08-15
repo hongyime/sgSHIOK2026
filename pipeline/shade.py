@@ -1,9 +1,12 @@
 from __future__ import annotations
 
+from functools import lru_cache
+from pathlib import Path
 from typing import Any
 
 import geopandas as gpd
 import pandas as pd
+import yaml
 
 NPARKS_SHADE_SOURCE_KEYS = {
     "nparks_nature_ways",
@@ -14,14 +17,53 @@ NPARKS_SHADE_SOURCE_KEYS = {
 }
 
 SHADE_ONLY_NOTE = "tree_and_greenery_proxy_heat_only_not_rain_shelter"
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PARAMS_PATH = PROJECT_ROOT / "pipeline" / "config" / "params.yaml"
+DEFAULT_SHADE_PROXY_LINE_BUFFER_M = 8.0
+DEFAULT_SHADE_PROXY_POINT_BUFFER_M = 6.0
+DEFAULT_SHADE_PROXY_WEIGHT = 0.5
+
+
+def positive_float(value: Any, default: float) -> float:
+    if isinstance(value, (int, float)) and not isinstance(value, bool) and value > 0:
+        return float(value)
+    return default
+
+
+@lru_cache(maxsize=1)
+def load_shade_proxy_config(params_path: Path = PARAMS_PATH) -> dict[str, float]:
+    if not params_path.is_file():
+        return {
+            "line_buffer_m": DEFAULT_SHADE_PROXY_LINE_BUFFER_M,
+            "point_buffer_m": DEFAULT_SHADE_PROXY_POINT_BUFFER_M,
+            "shade_weight": DEFAULT_SHADE_PROXY_WEIGHT,
+        }
+    with params_path.open("r", encoding="utf-8") as f:
+        payload: Any = yaml.safe_load(f) or {}
+    heat_comfort = payload.get("heat_comfort", {}) if isinstance(payload, dict) else {}
+    return {
+        "line_buffer_m": positive_float(
+            heat_comfort.get("shade_proxy_line_buffer_m"),
+            DEFAULT_SHADE_PROXY_LINE_BUFFER_M,
+        ),
+        "point_buffer_m": positive_float(
+            heat_comfort.get("shade_proxy_point_buffer_m"),
+            DEFAULT_SHADE_PROXY_POINT_BUFFER_M,
+        ),
+        "shade_weight": positive_float(
+            heat_comfort.get("shade_proxy_weight"),
+            DEFAULT_SHADE_PROXY_WEIGHT,
+        ),
+    }
 
 
 def prepare_shade_proxy_geometries(
     features: gpd.GeoDataFrame,
     *,
     source_key: str,
-    line_buffer_m: float = 8.0,
-    point_buffer_m: float = 6.0,
+    line_buffer_m: float | None = None,
+    point_buffer_m: float | None = None,
+    shade_weight: float | None = None,
 ) -> gpd.GeoDataFrame:
     """Convert NParks greenery features into conservative shade proxy polygons.
 
@@ -30,6 +72,11 @@ def prepare_shade_proxy_geometries(
     """
     if features.empty:
         return gpd.GeoDataFrame(geometry=[], crs="EPSG:3414")
+
+    config = load_shade_proxy_config()
+    line_buffer = float(line_buffer_m if line_buffer_m is not None else config["line_buffer_m"])
+    point_buffer = float(point_buffer_m if point_buffer_m is not None else config["point_buffer_m"])
+    proxy_weight = float(shade_weight if shade_weight is not None else config["shade_weight"])
 
     frame = features.copy()
     if frame.crs is None:
@@ -43,9 +90,9 @@ def prepare_shade_proxy_geometries(
             continue
         geom_type = geom.geom_type
         if geom_type in {"LineString", "MultiLineString"}:
-            shade_geom = geom.buffer(line_buffer_m)
+            shade_geom = geom.buffer(line_buffer)
         elif geom_type in {"Point", "MultiPoint"}:
-            shade_geom = geom.buffer(point_buffer_m)
+            shade_geom = geom.buffer(point_buffer)
         elif geom_type in {"Polygon", "MultiPolygon"}:
             shade_geom = geom
         else:
@@ -55,7 +102,7 @@ def prepare_shade_proxy_geometries(
                 "source_key": source_key,
                 "source_layer": source_key,
                 "shade_proxy": 1,
-                "shade_weight": 0.5,
+                "shade_weight": proxy_weight,
                 "score_use": SHADE_ONLY_NOTE,
                 "confidence": "proxy",
                 "geometry": shade_geom,

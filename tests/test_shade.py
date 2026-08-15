@@ -2,8 +2,12 @@ import geopandas as gpd
 from shapely.geometry import LineString, Point, Polygon
 
 from pipeline.shade import (
+    DEFAULT_SHADE_PROXY_LINE_BUFFER_M,
+    DEFAULT_SHADE_PROXY_POINT_BUFFER_M,
+    DEFAULT_SHADE_PROXY_WEIGHT,
     SHADE_ONLY_NOTE,
     compute_edge_shade_ratio,
+    load_shade_proxy_config,
     prepare_shade_proxy_geometries,
 )
 
@@ -24,6 +28,38 @@ def test_prepare_shade_proxy_buffers_greenery_lines_for_heat_only():
     assert shade.iloc[0]["score_use"] == SHADE_ONLY_NOTE
     assert shade.iloc[0]["shade_weight"] == 0.5
     assert shade.iloc[0].geometry.area > 0
+
+
+def test_shade_proxy_defaults_come_from_params_without_moving_values():
+    assert load_shade_proxy_config() == {
+        "line_buffer_m": DEFAULT_SHADE_PROXY_LINE_BUFFER_M,
+        "point_buffer_m": DEFAULT_SHADE_PROXY_POINT_BUFFER_M,
+        "shade_weight": DEFAULT_SHADE_PROXY_WEIGHT,
+    }
+
+
+def test_prepare_shade_proxy_default_params_match_previous_explicit_constants():
+    features = gpd.GeoDataFrame(
+        [{"geometry": LineString([(0, 0), (10, 0)])}, {"geometry": Point(20, 20)}],
+        crs="EPSG:3414",
+    )
+
+    default = prepare_shade_proxy_geometries(
+        features,
+        source_key="nparks_park_connector_loop",
+    )
+    explicit = prepare_shade_proxy_geometries(
+        features,
+        source_key="nparks_park_connector_loop",
+        line_buffer_m=8.0,
+        point_buffer_m=6.0,
+        shade_weight=0.5,
+    )
+
+    assert default["shade_weight"].tolist() == explicit["shade_weight"].tolist()
+    assert all(
+        left.equals(right) for left, right in zip(default.geometry, explicit.geometry, strict=True)
+    )
 
 
 def test_prepare_shade_proxy_buffers_points_but_keeps_polygons():
