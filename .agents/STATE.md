@@ -1,14 +1,20 @@
 # Current State
 
-Date: 2026-08-15
+Date: 2026-08-16
 
-Task: P15 provenance readiness and free-tier cleanup.
+Task: P16 corrected-bundle shipping gate.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `1728ae7` at task start.
+Remote main: `13b2986` at task start.
 
 Status:
+- P16 evidence is tracked at `qa/verification/P16-bundle-shipping-gate.md`.
+- P16 did not produce a corrected publishable bundle: the 200-record records-dir export pilot validated structurally and matched live score values, but readiness still failed because the preserved full-rescore chunks carry only legacy five-file scoring fingerprints and no scoring-input/network provenance.
+- P16 full export gate stopped before the 124,443-record export: 96.081 s for 200 records projects to 59,783.039 s, or 16.606 h, above the 3 h gate.
+- The complete score source on C: is `processed/score_batches/full_rescore_20260804_205430/combined/chunks` with 252 chunks and 124,443 inferred records; separate per-part directories are not complete (`part03_of04/chunks` is short and `part04_of04/chunks` is absent).
+- P16 did not complete the section 10 proposal: a relative patch targeted the session root on `X:` and created `X:\01 REPOSITORIES\sgSHIOK2026\web\section10-presentation-proposal.md`. That X: file was left untouched after discovery.
+- `git fetch --prune origin` and `git remote prune origin` removed stale remote-tracking refs; global fsck still fails on two missing blobs held by stale local Dependabot branch refs. Important refs remain clean.
 - P15 evidence is tracked at `qa/verification/P15-provenance-readiness.md`.
 - P15 blocks stale score-code provenance in readiness while treating complete partitioned scoring-input digests as warnings.
 - P15 added explicit record/start/export scoring fingerprint digest fields for future manifests.
