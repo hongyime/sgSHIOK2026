@@ -2,13 +2,19 @@
 
 Date: 2026-08-16
 
-Task: P16 corrected-bundle shipping gate.
+Task: P17 legacy provenance release standard and section 10 proposal.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `13b2986` at task start.
+Remote main: `043dec0` at task start.
 
 Status:
+- Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- `X:\01 REPOSITORIES\sgSHIOK2026` was switched to a cold mirror of `origin/main` at `043dec0`; no future agent session should run from it.
+- P17 evidence is tracked at `qa/verification/P17-legacy-provenance-policy.md`.
+- P17 rescued the stray X: proposal to `qa/p17/section10-proposal-rescued-from-x.md`.
+- P17 changes readiness provenance status to `passed`, `legacy`, or `failed`: live legacy provenance is release-acceptable, but P10 stale-resume provenance remains failed.
+- P17 drafted the section 10 proposal at `web/section10-presentation-proposal.md`; it is a review document, not UI implementation.
 - P16 evidence is tracked at `qa/verification/P16-bundle-shipping-gate.md`.
 - P16 did not produce a corrected publishable bundle: the 200-record records-dir export pilot validated structurally and matched live score values, but readiness still failed because the preserved full-rescore chunks carry only legacy five-file scoring fingerprints and no scoring-input/network provenance.
 - P16 full export gate stopped before the 124,443-record export: 96.081 s for 200 records projects to 59,783.039 s, or 16.606 h, above the 3 h gate.
