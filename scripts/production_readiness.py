@@ -36,6 +36,30 @@ WARNING_PROVENANCE_SIGNALS = {
     "scoring_input_changed_during_run": "scoring input changed during run",
     "mixed_scoring_input_digests": "mixed scoring input digests",
 }
+SCORING_FINGERPRINT_PROVENANCE_FIELDS = {
+    "scoring_fingerprint_digest",
+    "record_scoring_fingerprint_digest",
+    "score_batch_start_scoring_fingerprint_digest",
+    "export_scoring_fingerprint_digest",
+    "scoring_fingerprint_digest_counts",
+    "records_missing_scoring_fingerprint_digest",
+    "scoring_fingerprint_provenance_complete",
+    "scoring_fingerprints_by_digest",
+}
+SCORING_INPUT_PROVENANCE_FIELDS = {
+    "scoring_input_digest",
+    "scoring_input_digest_counts",
+    "records_missing_scoring_input_digest",
+    "scoring_input_provenance_complete",
+    "scoring_inputs_by_digest",
+}
+NETWORK_PROVENANCE_FIELDS = {
+    "network_digest",
+    "network_digest_counts",
+    "records_missing_network_digest",
+    "network_provenance_complete",
+    "networks_by_digest",
+}
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -161,12 +185,14 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
     if not manifest_path.is_file():
         return {
             "ok": False,
+            "state": "failed",
             "manifest_path": str(manifest_path),
             "source_hash_count": 0,
             "scoring_fingerprint_count": 0,
             "subscore_status_keys": [],
             "missing_scoring_fingerprints": sorted(REQUIRED_SCORING_FINGERPRINTS),
             "missing_subscore_status": sorted(REQUIRED_SUBSCORE_STATUS),
+            "legacy_missing_capabilities": [],
             "warning": "bundle manifest is missing",
         }
 
@@ -175,12 +201,14 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
     if not isinstance(provenance, dict):
         return {
             "ok": False,
+            "state": "failed",
             "manifest_path": str(manifest_path),
             "source_hash_count": 0,
             "scoring_fingerprint_count": 0,
             "subscore_status_keys": [],
             "missing_scoring_fingerprints": sorted(REQUIRED_SCORING_FINGERPRINTS),
             "missing_subscore_status": sorted(REQUIRED_SUBSCORE_STATUS),
+            "legacy_missing_capabilities": [],
             "warning": "bundle manifest provenance block is missing",
         }
 
@@ -224,14 +252,43 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
     missing_fingerprints = sorted(REQUIRED_SCORING_FINGERPRINTS - fingerprint_keys)
     subscore_keys = set(subscore_status) if isinstance(subscore_status, dict) else set()
     missing_subscores = sorted(REQUIRED_SUBSCORE_STATUS - subscore_keys)
-    ok = (
-        source_hash_count > 0
-        and not missing_subscores
-        and not missing_fingerprints
-        and not blocking_provenance_signals
+    scoring_schema_present = any(key in provenance for key in SCORING_FINGERPRINT_PROVENANCE_FIELDS)
+    scoring_input_schema_present = any(
+        key in provenance for key in SCORING_INPUT_PROVENANCE_FIELDS
     )
+    network_schema_present = any(key in provenance for key in NETWORK_PROVENANCE_FIELDS)
+    legacy_missing_capabilities: list[str] = []
+    if missing_fingerprints and not scoring_schema_present:
+        legacy_missing_capabilities.append("full 18-file scoring fingerprint set")
+    if not scoring_schema_present:
+        legacy_missing_capabilities.append("record-level scoring fingerprint digests")
+    if not scoring_input_schema_present:
+        legacy_missing_capabilities.append("record-level scoring input provenance")
+    if not network_schema_present:
+        legacy_missing_capabilities.append("record-level network provenance")
+
+    failed = (
+        source_hash_count <= 0
+        or bool(missing_subscores)
+        or bool(blocking_provenance_signals)
+        or (bool(missing_fingerprints) and scoring_schema_present)
+    )
+    if failed:
+        state = "failed"
+    elif legacy_missing_capabilities:
+        state = "legacy"
+    else:
+        state = "passed"
+    ok = state != "failed"
     warning = None
-    if not ok or warning_provenance_signals:
+    if state == "legacy":
+        warning = (
+            "active bundle uses legacy provenance schema; missing capability: "
+            + ", ".join(legacy_missing_capabilities)
+            + "; score values may be used as a verified legacy artifact, but this "
+            "bundle cannot provide full record-level provenance evidence"
+        )
+    elif not ok or warning_provenance_signals:
         reasons: list[str] = []
         if source_hash_count <= 0:
             reasons.append("score source hashes")
@@ -273,12 +330,14 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
 
     return {
         "ok": ok,
+        "state": state,
         "manifest_path": str(manifest_path),
         "source_hash_count": source_hash_count,
         "scoring_fingerprint_count": len(fingerprint_keys),
         "subscore_status_keys": sorted(subscore_keys),
         "missing_scoring_fingerprints": missing_fingerprints,
         "missing_subscore_status": missing_subscores,
+        "legacy_missing_capabilities": legacy_missing_capabilities,
         "mixed_scoring_fingerprint_digests": mixed_fingerprints,
         "incomplete_scoring_fingerprint_provenance": incomplete_fingerprint_provenance,
         "scoring_fingerprint_changed_during_run": provenance_signals[

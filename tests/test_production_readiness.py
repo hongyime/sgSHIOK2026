@@ -105,6 +105,28 @@ def export_current_fingerprint_bundle(output_dir: Path) -> None:
     write_json(manifest_path, manifest)
 
 
+def legacy_live_bundle_provenance_shape(manifest: dict) -> None:
+    manifest["provenance"] = {
+        "source_hashes": {
+            f"source_{index:02d}": f"{index:064x}" for index in range(14)
+        },
+        "scoring_fingerprints": {
+            "pipeline\\config\\params.yaml": "0" * 64,
+            "pipeline\\config\\weights.yaml": "1" * 64,
+            "pipeline\\routing.py": "2" * 64,
+            "pipeline\\scoring.py": "3" * 64,
+            "pipeline\\scoring_integration.py": "4" * 64,
+        },
+        "subscore_status": {
+            "access": "complete",
+            "bus": "complete",
+            "crossing": "complete",
+            "heat": "complete",
+            "rain": "complete",
+        },
+    }
+
+
 def test_vercel_readiness_prefers_root_project_settings(tmp_path: Path):
     write_json(
         tmp_path / ".vercel" / "project.json",
@@ -673,6 +695,7 @@ def test_build_readiness_report_warns_when_bundle_manifest_lacks_score_provenanc
     assert ok, report
     score_provenance = report["bundle"]["score_provenance"]
     assert score_provenance["ok"] is False
+    assert score_provenance["state"] == "failed"
     assert score_provenance["source_hash_count"] == 0
     assert score_provenance["missing_subscore_status"] == [
         "access",
@@ -745,9 +768,39 @@ def test_build_readiness_report_warns_when_bundle_lacks_scoring_fingerprints(
     assert ok, report
     score_provenance = report["bundle"]["score_provenance"]
     assert score_provenance["ok"] is False
+    assert score_provenance["state"] == "failed"
     assert score_provenance["scoring_fingerprint_count"] == 0
     assert "pipeline\\scoring_integration.py" in score_provenance["missing_scoring_fingerprints"]
     assert any("scoring code/config fingerprints" in warning for warning in report["warnings"])
+
+
+def test_bundle_score_provenance_reports_real_live_bundle_shape_as_legacy(
+    tmp_path: Path,
+):
+    bundle_dir = tmp_path / "generated_test"
+    export_current_fingerprint_bundle(bundle_dir)
+    manifest_path = bundle_dir / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    legacy_live_bundle_provenance_shape(manifest)
+    write_json(manifest_path, manifest)
+
+    status = bundle_score_provenance_status(bundle_dir)
+
+    assert status["ok"] is True
+    assert status["state"] == "legacy"
+    assert status["source_hash_count"] == 14
+    assert status["scoring_fingerprint_count"] == 5
+    assert status["missing_subscore_status"] == []
+    assert "pipeline\\score_batch.py" in status["missing_scoring_fingerprints"]
+    assert status["blocking_provenance_signals"] == []
+    assert status["legacy_missing_capabilities"] == [
+        "full 18-file scoring fingerprint set",
+        "record-level scoring fingerprint digests",
+        "record-level scoring input provenance",
+        "record-level network provenance",
+    ]
+    assert "active bundle uses legacy provenance schema" in status["warning"]
+    assert "record-level scoring input provenance" in status["warning"]
 
 
 def test_bundle_score_provenance_blocks_real_p10_stale_resume_shape(tmp_path: Path):
@@ -756,19 +809,29 @@ def test_bundle_score_provenance_blocks_real_p10_stale_resume_shape(tmp_path: Pa
     manifest_path = bundle_dir / "manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     provenance = manifest["provenance"]
-    old_digest = "0" * 24
-    new_digest = "1" * 24
+    old_digest = "06a6d36c1c8cabf7a5f1052a"
+    new_digest = "1e312a49f13cdc8a42902b1e"
     provenance["scoring_fingerprint_digest"] = new_digest
+    provenance["record_scoring_fingerprint_digest"] = None
     provenance["export_scoring_fingerprint_digest"] = new_digest
-    provenance["scoring_fingerprint_digest_counts"] = {old_digest: 1}
+    provenance["scoring_fingerprint_digest_counts"] = {old_digest: 1200}
     provenance["scoring_fingerprint_changed_during_run"] = True
     provenance["mixed_scoring_fingerprint_digests"] = False
     provenance["scoring_fingerprint_provenance_complete"] = True
+    provenance["scoring_input_digest_counts"] = {"2f7ec7ede5ff5ecebd5f85eb": 1200}
+    provenance["scoring_input_changed_during_run"] = False
+    provenance["mixed_scoring_input_digests"] = False
+    provenance["scoring_input_provenance_complete"] = True
+    provenance["network_digest_counts"] = {"e459daf2085fc291773765c1": 1200}
+    provenance["network_changed_during_run"] = False
+    provenance["mixed_network_digests"] = False
+    provenance["network_provenance_complete"] = True
     write_json(manifest_path, manifest)
 
     status = bundle_score_provenance_status(bundle_dir)
 
     assert status["ok"] is False
+    assert status["state"] == "failed"
     assert status["blocking_provenance_signals"] == [
         "scoring_fingerprint_changed_during_run"
     ]
@@ -813,6 +876,7 @@ def test_bundle_score_provenance_blocks_export_integrity_signals(
     status = bundle_score_provenance_status(bundle_dir)
 
     assert status["ok"] is False
+    assert status["state"] == "failed"
     assert status[signal] is True
     assert status["blocking_provenance_signals"] == [signal]
     assert message in status["warning"]
@@ -850,6 +914,7 @@ def test_bundle_score_provenance_warns_on_complete_partitioned_input_signals(
     status = bundle_score_provenance_status(bundle_dir)
 
     assert status["ok"] is True
+    assert status["state"] == "passed"
     assert status[signal] is True
     assert status["blocking_provenance_signals"] == []
     assert status["warning_provenance_signals"] == [signal]
