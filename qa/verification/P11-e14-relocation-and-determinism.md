@@ -210,3 +210,48 @@ DISAGREEMENTS
 
 1. I did not use `scripts/full-rescore-production.ps1` directly for D because it would violate the explicit protected-path rule for `web/public/data`.
 2. I did not run workers 4 because the pilot/full-run RSS measurement was not reliable enough to establish headroom on a 15.78 GiB machine.
+
+## Correction 2026-08-15, recorded in P13
+
+```text
+P10_RECORD_DIGEST 06a6d36c1c8cabf7a5f1052a
+P10_RECORD_DIGEST_TOTAL 18
+P10_RECORD_DIGEST_MATCHED_COMMITTED_HISTORY 16
+P10_RECORD_DIGEST_UNMATCHED_COMMITTED_HISTORY 2
+P10_RECORD_DIGEST_UNMATCHED_BEGIN
+pipeline\score_batch.py	ad7522425faf70af11ad9ef4d14bfc344b936823c438e4e4d465e3b7b4d48ffc
+pipeline\scoring_integration.py	6cac1b392c0151c61c41b4833e3ff773e4a93b6038077b2e4f0117519e5bbfb3
+P10_RECORD_DIGEST_UNMATCHED_END
+P11_E14_RECORD_DIGEST 1e312a49f13cdc8a42902b1e
+P11_E14_RECORD_DIGEST_TOTAL 18
+P11_E14_RECORD_DIGEST_MATCHED_COMMITTED_HISTORY 18
+P11_E14_RECORD_DIGEST_UNMATCHED_COMMITTED_HISTORY 0
+VALUE_FIELDS_CHANGED 0
+RECORD_COUNT 1200
+```
+
+The Section D comparison was not a same-code comparison. Two of the eighteen fingerprinted files differed between the P10 base bundle records and the P11 E14 run: `pipeline\score_batch.py` and `pipeline\scoring_integration.py`.
+
+```text
+CODE_RECOVERY_RESULT_BEGIN
+X_WORKING_TREE_MATCHES_TARGETS False
+P11_DIFF_ARTIFACT_MATCHES_TARGETS False
+C_OBJECT_STORE_SIZE_FILTERED_CANDIDATE_COUNT 126
+C_OBJECT_STORE_TARGET_MATCH_COUNT 0
+C_DANGLING_REFLOG_STASH_TARGET_MATCH_COUNT 0
+X_FSCK_DANGLING_LINE_COUNT 0
+CODE_RECOVERY_RESULT_END
+```
+
+The P10 base values for those two files correspond to no committed version found in local history, reachable refs, tags, reflog refs, stashes, C: size-filtered blob candidates, or X: working-tree files checked in P13. The code that produced the P10 baseline remains unrecovered from those cheap sources.
+
+`value_fields_changed=0` across 1,200 records therefore establishes that two different code states produced identical score values for this subset. It does not establish cross-machine determinism of one single committed code state.
+
+The originally designed cross-machine test cannot now be run as framed because the T14 machine and its `C:\shiok` working copy no longer exist. What remains provable is same-machine determinism on E14 from committed code by scoring the identical 1,200-record subset twice on E14 and comparing those two outputs. At the measured P11 full-subset cost:
+
+```text
+9300.743 seconds + 9300.743 seconds = 18601.486 seconds
+18601.486 seconds / 3600 = 5.167079444444444 hours
+5.167079444444444 hours = about 5 hours 10 minutes
+PIPELINE_TIME_NOT_AGREED_OR_SCHEDULED True
+```
