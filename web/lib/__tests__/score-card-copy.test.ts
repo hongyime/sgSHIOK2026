@@ -25,6 +25,9 @@ describe("score card copy", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
     expect(source).toContain("Data as of {formatDataDate(manifest)}");
+    expect(source).toContain(
+      "Address universe: frozen v1 from the 2020 SLA-derived postal set; newer completions may be missing."
+    );
     expect(source).toContain("© OpenStreetMap contributors");
     expect(source).toContain("https://opendatacommons.org/licenses/odbl/1-0/");
     expect(source).toContain("ATTRIBUTION.md");

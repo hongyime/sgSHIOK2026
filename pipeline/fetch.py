@@ -12,6 +12,7 @@ import sys
 import time
 import zipfile
 from datetime import UTC, datetime
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Any
 from urllib.parse import parse_qsl, unquote, urlsplit, urlunsplit
@@ -108,6 +109,12 @@ def load_ingest_validation_config() -> dict[str, Any]:
     return config
 
 
+def load_freshness_defaults() -> dict[str, Any]:
+    data = load_source_config()
+    defaults: dict[str, Any] = data.get("freshness_defaults", {})
+    return defaults
+
+
 def select_sources(sources: dict[str, Any], source_keys: list[str]) -> dict[str, Any]:
     requested = list(dict.fromkeys(key.strip() for key in source_keys if key.strip()))
     if not requested:
@@ -146,6 +153,135 @@ def stable_manifest_url(url: str) -> str:
     if query_keys & SIGNED_URL_QUERY_KEYS:
         return urlunsplit((parsed.scheme, parsed.netloc, parsed.path, "", parsed.fragment))
     return url
+
+
+def parse_manifest_timestamp(value: Any) -> datetime | None:
+    if not isinstance(value, str) or not value.strip():
+        return None
+    text = value.strip()
+    try:
+        parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError:
+        try:
+            parsed = parsedate_to_datetime(text)
+        except (TypeError, ValueError, IndexError, OverflowError):
+            return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=UTC)
+    return parsed.astimezone(UTC)
+
+
+def _positive_int(value: Any) -> int | None:
+    if isinstance(value, bool):
+        return None
+    try:
+        parsed = int(value)
+    except (TypeError, ValueError):
+        return None
+    return parsed if parsed > 0 else None
+
+
+def freshness_policy_for_source(
+    spec: dict[str, Any],
+    freshness_defaults: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    policy: dict[str, Any] = {}
+    defaults = freshness_defaults or {}
+    default_policy = defaults.get(spec.get("kind"))
+    if isinstance(default_policy, dict):
+        policy.update(default_policy)
+    source_policy = spec.get("freshness")
+    if isinstance(source_policy, dict):
+        policy.update(source_policy)
+    if spec.get("refresh") == "manual" and "mode" not in policy:
+        policy["mode"] = "manual"
+    return policy
+
+
+def source_freshness_status(
+    key: str,
+    spec: dict[str, Any],
+    manifest_entry: dict[str, Any],
+    freshness_defaults: dict[str, Any] | None = None,
+    now: datetime | None = None,
+) -> dict[str, Any]:
+    policy = freshness_policy_for_source(spec, freshness_defaults)
+    name = str(spec.get("name") or key)
+    now_utc = (now or datetime.now(UTC)).astimezone(UTC)
+
+    if policy.get("mode") == "manual" or policy.get("expected_cadence") == "manual":
+        return {
+            "source_key": key,
+            "name": name,
+            "status": "manual",
+            "expected_cadence": policy.get("expected_cadence", "manual"),
+            "stale_after_days": None,
+            "age_days": None,
+            "age_basis": None,
+        }
+
+    stale_after_days = _positive_int(policy.get("stale_after_days"))
+    expected_cadence = policy.get("expected_cadence")
+    if stale_after_days is None:
+        return {
+            "source_key": key,
+            "name": name,
+            "status": "unknown_policy",
+            "expected_cadence": expected_cadence,
+            "stale_after_days": None,
+            "age_days": None,
+            "age_basis": None,
+        }
+
+    timestamp_fields = ("last_modified", "fetched_at")
+    source_time = None
+    age_basis = None
+    for field in timestamp_fields:
+        parsed = parse_manifest_timestamp(manifest_entry.get(field))
+        if parsed is not None:
+            source_time = parsed
+            age_basis = field
+            break
+
+    if source_time is None:
+        return {
+            "source_key": key,
+            "name": name,
+            "status": "unknown_age",
+            "expected_cadence": expected_cadence,
+            "stale_after_days": stale_after_days,
+            "age_days": None,
+            "age_basis": None,
+        }
+
+    age_days = max(0.0, (now_utc - source_time).total_seconds() / 86400.0)
+    return {
+        "source_key": key,
+        "name": name,
+        "status": "stale" if age_days > stale_after_days else "current",
+        "expected_cadence": expected_cadence,
+        "stale_after_days": stale_after_days,
+        "age_days": age_days,
+        "age_basis": age_basis,
+    }
+
+
+def source_freshness_line(status: dict[str, Any]) -> str:
+    key = status["source_key"]
+    name = status["name"]
+    if status["status"] == "stale":
+        age_days = float(status["age_days"])
+        return (
+            f"[{key}] {name}: STALE — {status['age_basis']} age {age_days:.1f}d "
+            f"exceeds {status['stale_after_days']}d threshold "
+            f"({status.get('expected_cadence') or 'cadence unspecified'})"
+        )
+    if status["status"] == "manual":
+        return f"[{key}] {name}: freshness manual"
+    return (
+        f"[{key}] {name}: freshness {status['status']} "
+        f"({status.get('expected_cadence') or 'cadence unspecified'})"
+    )
 
 
 def resolve_datagov_download_url(dataset_id: str) -> str:
@@ -461,9 +597,14 @@ def resolve_datamall_geospatial_url(keyword: str) -> str:
         return str(value[0].get("Link", ""))
 
 
-def run_check(sources: dict[str, Any]) -> int:
+def run_check(
+    sources: dict[str, Any],
+    freshness_defaults: dict[str, Any] | None = None,
+    now: datetime | None = None,
+) -> int:
     manifest = load_manifest()
     existing_sources: dict[str, Any] = manifest.get("sources", {})
+    freshness_defaults = freshness_defaults if freshness_defaults is not None else load_freshness_defaults()
 
     total_sources = len(sources)
     checked_count = 0
@@ -472,6 +613,13 @@ def run_check(sources: dict[str, Any]) -> int:
     error_count = 0
     unresolved_count = 0
     blocked_count = 0
+    freshness_counts = {
+        "current": 0,
+        "stale": 0,
+        "manual": 0,
+        "unknown_policy": 0,
+        "unknown_age": 0,
+    }
 
     account_key = os.getenv("LTA_DATAMALL_ACCOUNT_KEY", "")
 
@@ -481,6 +629,17 @@ def run_check(sources: dict[str, Any]) -> int:
         kind = spec.get("kind")
         name = spec.get("name")
         current_entry: dict[str, Any] = existing_sources.get(key, {})
+        freshness = source_freshness_status(
+            key,
+            spec,
+            current_entry,
+            freshness_defaults=freshness_defaults,
+            now=now,
+        )
+        freshness_status = str(freshness["status"])
+        freshness_counts[freshness_status] = freshness_counts.get(freshness_status, 0) + 1
+        if freshness_status == "stale":
+            print(source_freshness_line(freshness))
 
         if kind == "datamall_api_paginated":
             if not account_key:
@@ -642,6 +801,14 @@ def run_check(sources: dict[str, Any]) -> int:
 
     print(
         f"Summary: checked {checked_count}/{total_sources}, unchanged {unchanged_count}, changed {changed_count}, errors {error_count}, unresolved {unresolved_count}, blocked {blocked_count}"
+    )
+    print(
+        "Freshness: "
+        f"current {freshness_counts.get('current', 0)}, "
+        f"stale {freshness_counts.get('stale', 0)}, "
+        f"manual {freshness_counts.get('manual', 0)}, "
+        f"unknown_policy {freshness_counts.get('unknown_policy', 0)}, "
+        f"unknown_age {freshness_counts.get('unknown_age', 0)}"
     )
 
     if error_count > 0 or changed_count > 0:

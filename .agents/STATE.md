@@ -2,14 +2,16 @@
 
 Date: 2026-08-16
 
-Task: P19 universe gap measurement.
+Task: P20 source freshness policy and lamp overlay gate.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `365fa9f` at task start.
+Remote main: `46a1f61` at task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P20 is evaluating the lamp-post orphan and source freshness policy. The raw lamp source exists as `raw/2b552c1429aaf93c544209df3da68838d708a78ec5ae86dcd2852c10b0589f29/lamp_posts.geojson`: 41,907,845 bytes, 126,144 point features.
+- Current browser bundle `web/public/data/generated_20260805_prefer_scored_routed/` has no lamp layer; creating one requires a new derived public data artifact, not a React-only change.
 - P19 measured the current-universe gap using public HDB Property Information, OneMap Search, BCA MCST, and Overpass; evidence is tracked at `qa/verification/P19-universe-gap-measurement.md`.
 - P19 result: 8 missing recent-completion rows out of 976 rows with postals (0.8197%), plus 6 current Overpass `addr:postcode` values absent from v1; this does not support an emergency v2 universe rebuild.
 - P19 measurement caches/details are local under `qa/p19/` and are not pipeline inputs.

@@ -4,6 +4,26 @@
 ingest_validation:
   max_count_delta_ratio: 0.2
 
+freshness_defaults:
+  datamall_api_paginated:
+    expected_cadence: "weekly"
+    stale_after_days: 30
+  datamall_geospatial_listing:
+    expected_cadence: "quarterly"
+    stale_after_days: 120
+  datamall_static_file:
+    expected_cadence: "manual"
+    mode: "manual"
+  datagov_polldownload:
+    expected_cadence: "quarterly"
+    stale_after_days: 120
+  osm_pbf:
+    expected_cadence: "manual"
+    mode: "manual"
+  overture_geoparquet_candidate:
+    expected_cadence: "monthly"
+    stale_after_days: 45
+
 sources:
   covered_linkway:
     name: "Covered Linkway"

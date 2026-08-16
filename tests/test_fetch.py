@@ -1,5 +1,6 @@
 import httpx
 import json
+from datetime import UTC, datetime
 from pathlib import Path
 
 import pytest
@@ -9,6 +10,8 @@ from pipeline.fetch import (
     datagov_raw_filename,
     select_sources,
     stable_manifest_url,
+    source_freshness_line,
+    source_freshness_status,
     static_raw_filename,
 )
 
@@ -66,6 +69,82 @@ def test_select_sources_filters_requested_keys() -> None:
     assert select_sources(sources, []) == sources
     with pytest.raises(ValueError, match="unknown source key"):
         select_sources(sources, ["missing"])
+
+
+def test_source_freshness_status_marks_stale_manifest_entry() -> None:
+    status = source_freshness_status(
+        "lamp_posts",
+        {"name": "Lamp Posts", "kind": "datagov_polldownload"},
+        {
+            "last_modified": "Tue, 07 Jul 2026 02:06:48 GMT",
+            "fetched_at": "2026-07-26T07:50:33.401278+00:00",
+        },
+        freshness_defaults={
+            "datagov_polldownload": {
+                "expected_cadence": "monthly",
+                "stale_after_days": 30,
+            }
+        },
+        now=datetime(2026, 8, 16, tzinfo=UTC),
+    )
+
+    assert status["status"] == "stale"
+    assert status["age_basis"] == "last_modified"
+    assert round(status["age_days"], 1) == 39.9
+    assert source_freshness_line(status) == (
+        "[lamp_posts] Lamp Posts: STALE — last_modified age 39.9d "
+        "exceeds 30d threshold (monthly)"
+    )
+
+
+def test_source_freshness_status_respects_manual_sources() -> None:
+    status = source_freshness_status(
+        "osm_extract",
+        {"name": "OSM", "kind": "osm_pbf", "refresh": "manual"},
+        {"last_modified": "Mon, 01 Jan 2024 00:00:00 GMT"},
+        freshness_defaults={},
+        now=datetime(2026, 8, 16, tzinfo=UTC),
+    )
+
+    assert status["status"] == "manual"
+    assert source_freshness_line(status) == "[osm_extract] OSM: freshness manual"
+
+
+def test_run_check_reports_stale_freshness_without_failing(
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    monkeypatch.setattr(
+        fetch,
+        "load_manifest",
+        lambda: {
+            "sources": {
+                "sample": {
+                    "last_modified": "Tue, 07 Jul 2026 02:06:48 GMT",
+                    "fetched_at": "2026-07-26T07:50:33.401278+00:00",
+                }
+            }
+        },
+    )
+    sources = {"sample": {"name": "Sample", "kind": "manual_probe"}}
+
+    assert (
+        fetch.run_check(
+            sources,
+            freshness_defaults={
+                "manual_probe": {
+                    "expected_cadence": "monthly",
+                    "stale_after_days": 30,
+                }
+            },
+            now=datetime(2026, 8, 16, tzinfo=UTC),
+        )
+        == 0
+    )
+    out = capsys.readouterr().out
+    assert "[sample] Sample: STALE" in out
+    assert "[sample] Sample: Stub check (listing/probe required)" in out
+    assert "Freshness: current 0, stale 1, manual 0, unknown_policy 0, unknown_age 0" in out
 
 
 def test_static_raw_filename_prefers_configured_filename() -> None:
