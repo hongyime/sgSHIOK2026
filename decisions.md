@@ -128,3 +128,6 @@ Browser smoke output should use the same route-evidence terminology as the UI. T
 
 2026-08-16 - P45 README shelter-first framing:
 The repository introduction should describe the shipped product promise, not the pre-P18 five-term comfort-score framing. The README now leads with the user's question, the covered-walkway ratio, exposed gaps on real routed paths, night-lighting evidence, and the locked SHIOK score as secondary. This is documentation only; it does not alter browser rendering, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-16 - P46 night-lighting score separation:
+Night lighting is a map evidence layer backed by LTA lamp-post points, not a scoring term and not a mutation of the locked SHIOK score. The browser toggle now has visible and screen-reader-linked copy stating that it is map evidence only and not part of the locked score. This is a browser copy/accessibility change only; it does not alter lamp tiles, scoring, exports, inputs, public data, deployment, or locked weights.

@@ -65,7 +65,8 @@
 .sourceLine,
 .freshnessLine,
 .coverageLine,
-.heatLine {
+.heatLine,
+.layerNote {
   font-size: 10px !important;
 }
 

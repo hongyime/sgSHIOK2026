@@ -1906,13 +1906,17 @@ export default function Home() {
                 type="button"
                 className={`${styles.layerToggle} ${lampOverlayEnabled ? styles.layerToggleActive : ""}`}
                 aria-pressed={lampOverlayEnabled}
-                title="Shows LTA lamp post locations when zoomed in"
+                aria-describedby="night-lighting-layer-note"
+                title="LTA lamp post locations; map evidence only, not part of the locked score"
                 onClick={() => setLampOverlayEnabled((enabled) => !enabled)}
               >
                 <span className={styles.lampSwatch} aria-hidden="true" />
                 Night lighting
               </button>
             </div>
+            <p id="night-lighting-layer-note" className={styles.layerNote}>
+              Map evidence only; not part of the locked score.
+            </p>
           </div>
         </div>
 

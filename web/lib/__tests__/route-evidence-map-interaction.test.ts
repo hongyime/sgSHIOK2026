@@ -46,7 +46,9 @@ describe("route evidence map interactions", () => {
     expect(pageSource).toContain("lampOverlayEnabled");
     expect(pageSource).toContain("showLampOverlay={lampOverlayEnabled}");
     expect(pageSource).toContain("Night lighting");
-    expect(pageSource).toContain("Shows LTA lamp post locations when zoomed in");
+    expect(pageSource).toContain("night-lighting-layer-note");
+    expect(pageSource).toContain("LTA lamp post locations; map evidence only, not part of the locked score");
+    expect(pageSource).toContain("Map evidence only; not part of the locked score.");
   });
 
   it("summarizes the night-lighting overlay for non-visual map users", async () => {

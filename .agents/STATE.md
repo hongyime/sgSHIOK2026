@@ -2,14 +2,15 @@
 
 Date: 2026-08-16
 
-Task: P45 README shelter-first framing is implemented and ready to hand back.
+Task: P46 night-lighting score-separation copy is implemented and ready to hand back.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `b39001b` at P45 task start.
+Remote main: `5adb128` at P46 task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P46 adds visible and screen-reader-linked copy to the `Night lighting` map toggle: lamp-post evidence is map evidence only and not part of the locked score. Evidence is tracked at `qa/verification/P46-night-lighting-score-separation.md`. Verification passed: focused route-evidence map interaction test, full web test, TypeScript, repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P45 updates the README introduction from the old five-term comfort-score framing to the settled shelter-first product promise: covered-walkway ratio, exposed gaps, night-lighting evidence, and the locked SHIOK score as secondary. Evidence is tracked at `qa/verification/P45-readme-shelter-first.md`. Verification passed: README term checks, repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P44 adds canonical browser smoke output keys `route_evidence_panel_loaded` and `route_evidence_panel_excerpt`, while retaining `score_panel_loaded` and `score_panel_excerpt` as compatibility aliases. Evidence is tracked at `qa/verification/P44-browser-smoke-route-output.md`. Verification passed: focused deployment test, full web test, TypeScript, repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P43 updates browser smoke `--must-include` matching to normalize case and whitespace, after local smoke proved CSS `text-transform` could make visible route-evidence copy fail exact matching. Evidence is tracked at `qa/verification/P43-browser-smoke-text-normalization.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
