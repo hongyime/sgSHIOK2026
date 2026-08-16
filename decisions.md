@@ -134,3 +134,6 @@ Night lighting is a map evidence layer backed by LTA lamp-post points, not a sco
 
 2026-08-16 - P47 heat-proxy evidence wording:
 Heat copy should stay weaker than measured thermal or route-level canopy evidence. The title card now says `Heat proxy: shelter + sparse NParks greenery`, and route-detail copy says `Heat proxy evidence` rather than generic score evidence. This keeps the browser aligned with the P5/P23 policy that current heat evidence is covered-walkway dominated with only sparse NParks greenery proxy support. This is browser copy only; it does not alter scoring, shade proxy geometry, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-16 - P48 clicked-stop preview failure disclosure:
+Clicked transit stops without precomputed route geometry use a preview path while the browser asks OneMap for a walking route. If that route is still loading or cannot be returned, the result card must say so instead of silently showing a straight-line preview as if it were equivalent route evidence. The browser now reports loading and unavailable preview states for arbitrary clicked stops, while preserving precomputed bundle candidates as authoritative. This is browser state/copy only; it does not alter OneMap API behavior, scoring, exports, inputs, public data, deployment, or locked weights.

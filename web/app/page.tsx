@@ -68,6 +68,8 @@ interface EvidenceBreakdownRow {
   notes: string[];
 }
 
+type LiveRoutePreviewStatus = "loading" | "unavailable";
+
 const TRANSIT_MODE_OPTIONS: Array<{ id: TransitAccessMode; label: string }> = [
   { id: "best_transit", label: "Best transit" },
   { id: "mrt_lrt", label: "MRT/LRT" },
@@ -748,6 +750,16 @@ function isPreviewRoute(score: ScoreRecord): boolean {
   return score.paths?.routing_type === "live_onemap_preview";
 }
 
+function liveRoutePreviewStatusNote(status: LiveRoutePreviewStatus | null | undefined): string | null {
+  if (status === "loading") {
+    return "Fetching OneMap walking preview; the selected stop is shown as a straight-line preview until that route returns.";
+  }
+  if (status === "unavailable") {
+    return "OneMap walking preview is unavailable for this selected stop; showing straight-line preview only.";
+  }
+  return null;
+}
+
 function buildFeedbackPayload({
   selection,
   transitMode,
@@ -935,6 +947,7 @@ export function ScoreCard({
   copyFeedback,
   copyStatus,
   isCustomStopSelected = false,
+  liveRoutePreviewStatus = null,
   onResetChosenStop,
   rankMetric,
   setRankMetric,
@@ -961,6 +974,7 @@ export function ScoreCard({
   copyFeedback: () => void;
   copyStatus: string;
   isCustomStopSelected?: boolean;
+  liveRoutePreviewStatus?: LiveRoutePreviewStatus | null;
   onResetChosenStop?: () => void;
   rankMetric: RankMetric;
   setRankMetric: (metric: RankMetric) => void;
@@ -1033,6 +1047,9 @@ export function ScoreCard({
       : toProperCase(score.best_node?.name ?? "No transit found nearby");
   const reasons = scoreReasons(score, transitMode);
   const stateNote = scoreStateNote(score, transitMode);
+  const previewStatusNote = previewRoute
+    ? liveRoutePreviewStatusNote(liveRoutePreviewStatus)
+    : null;
   const busFallback = directBusFallbackEvidence(score);
   const displayScore = score.total;
   const rankedRecords = useMemo(
@@ -1259,6 +1276,7 @@ export function ScoreCard({
           <span key={reason}>{reason}</span>
         ))}
       </div>
+      {previewStatusNote && <p className={styles.stateNote}>{previewStatusNote}</p>}
       {stateNote && <p className={styles.stateNote}>{stateNote}</p>}
 
       {score.subscores && (
@@ -1483,6 +1501,7 @@ export default function Home() {
   const [chosenStopId, setChosenStopId] = useState<string | null>(null);
   const [focusedExposureGap, setFocusedExposureGap] = useState<FocusedExposureGap | null>(null);
   const [liveRouteCache, setLiveRouteCache] = useState<Record<string, LoadedSelection>>({});
+  const [liveRoutePreviewStatuses, setLiveRoutePreviewStatuses] = useState<Record<string, LiveRoutePreviewStatus>>({});
   const [rankMetric, setRankMetric] = useState<RankMetric>("overall");
   const [rankingRecords, setRankingRecords] = useState<RankableScoreRecord[]>([]);
   const [rankingLoading, setRankingLoading] = useState(false);
@@ -1496,6 +1515,7 @@ export default function Home() {
   // Reset live route cache on postal change
   useEffect(() => {
     setLiveRouteCache({});
+    setLiveRoutePreviewStatuses({});
     setFocusedExposureGap(null);
     setRankPanelOpen(false);
     setRankingRecords([]);
@@ -1572,7 +1592,15 @@ export default function Home() {
   useEffect(() => {
     if (!chosenStopId || !transitSelection || !originLatLng) return;
     const hasPrecomputed = Boolean(transitSelection.geom?.candidates?.[chosenStopId]);
-    if (hasPrecomputed || liveRouteCache[chosenStopId]) return;
+    if (hasPrecomputed || liveRouteCache[chosenStopId]) {
+      setLiveRoutePreviewStatuses((current) => {
+        if (!current[chosenStopId]) return current;
+        const next = { ...current };
+        delete next[chosenStopId];
+        return next;
+      });
+      return;
+    }
 
     const cand = candidates.find((c) => c.id === chosenStopId);
     const poi = mapTransitPois.features.find((f) => f.properties?.id === chosenStopId);
@@ -1580,17 +1608,28 @@ export default function Home() {
     const stopLng = Array.isArray(coords) && typeof coords[0] === "number" ? coords[0] : cand?.coordinates[0];
     const stopLat = Array.isArray(coords) && typeof coords[1] === "number" ? coords[1] : cand?.coordinates[1];
 
-    if (stopLat === undefined || stopLng === undefined) return;
+    if (stopLat === undefined || stopLng === undefined) {
+      setLiveRoutePreviewStatuses((current) => ({ ...current, [chosenStopId]: "unavailable" }));
+      return;
+    }
 
     let active = true;
     const url = `/api/onemap-route?startLat=${originLatLng.lat}&startLng=${originLatLng.lng}&endLat=${stopLat}&endLng=${stopLng}`;
+    setLiveRoutePreviewStatuses((current) => ({ ...current, [chosenStopId]: "loading" }));
 
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        if (!active || !data.ok || !data.route_geometry) return;
+        if (!active) return;
+        if (!data.ok || !data.route_geometry) {
+          setLiveRoutePreviewStatuses((current) => ({ ...current, [chosenStopId]: "unavailable" }));
+          return;
+        }
         const decoded = decodePolyline(data.route_geometry);
-        if (decoded.length < 2) return;
+        if (decoded.length < 2) {
+          setLiveRoutePreviewStatuses((current) => ({ ...current, [chosenStopId]: "unavailable" }));
+          return;
+        }
 
         const targetStop = {
           id: chosenStopId,
@@ -1622,9 +1661,18 @@ export default function Home() {
           ...prev,
           [chosenStopId]: liveSelection,
         }));
+        setLiveRoutePreviewStatuses((current) => {
+          if (!current[chosenStopId]) return current;
+          const next = { ...current };
+          delete next[chosenStopId];
+          return next;
+        });
       })
       .catch((err) => {
         console.warn("OneMap live route fetch failed; keeping direct fallback:", err);
+        if (active) {
+          setLiveRoutePreviewStatuses((current) => ({ ...current, [chosenStopId]: "unavailable" }));
+        }
       });
 
     return () => {
@@ -1741,6 +1789,7 @@ export default function Home() {
   const handleTransitModeChange = useCallback((mode: TransitAccessMode) => {
     setTransitMode(mode);
     setChosenStopId(null);
+    setLiveRoutePreviewStatuses({});
     setFocusedExposureGap(null);
   }, []);
 
@@ -1748,6 +1797,9 @@ export default function Home() {
     (nextStopId: string | null) => {
       const resolved = nextStopId && nextStopId !== bestCandidateId ? nextStopId : null;
       setChosenStopId(resolved);
+      if (!resolved) {
+        setLiveRoutePreviewStatuses({});
+      }
       setFocusedExposureGap(null);
       syncStopUrl(resolved);
     },
@@ -1969,6 +2021,7 @@ export default function Home() {
               copyFeedback={copyFeedback}
               copyStatus={copyStatus}
               isCustomStopSelected={Boolean(chosenStopId && chosenStopId !== bestCandidateId)}
+              liveRoutePreviewStatus={chosenStopId ? liveRoutePreviewStatuses[chosenStopId] ?? null : null}
               onResetChosenStop={() => handleStopSelect(null)}
               rankMetric={rankMetric}
               setRankMetric={setRankMetric}

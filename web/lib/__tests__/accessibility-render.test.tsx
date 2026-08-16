@@ -167,6 +167,35 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain('aria-label="Score panel"');
   });
 
+  it("shows when clicked-stop route preview falls back to straight-line evidence", () => {
+    const previewRecord: ScoreRecord = {
+      ...scoredRecord,
+      state: "NOT_YET_SCORED",
+      total: null,
+      subscores: null,
+      paths: {
+        ...scoredRecord.paths!,
+        routing_type: "live_onemap_preview",
+      },
+      provenance: {
+        source: "live_onemap_preview",
+        authoritative_score: false,
+      },
+    };
+    const html = renderScoreCard({
+      selection: { ...selection, score: previewRecord },
+      isCustomStopSelected: true,
+      liveRoutePreviewStatus: "unavailable",
+      rankingRecords: [],
+    });
+
+    expect(html).toContain("Preview route evidence only");
+    expect(html).toContain(
+      "OneMap walking preview is unavailable for this selected stop; showing straight-line preview only."
+    );
+    expect(html).toContain("Preview only: this clicked stop has route evidence");
+  });
+
   it("explains when a searched postal has no published route evidence", () => {
     const html = renderScoreCard({
       selection: {
