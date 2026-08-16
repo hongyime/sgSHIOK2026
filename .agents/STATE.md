@@ -52,7 +52,7 @@ Status:
 - C: git object store is locally damaged for historical blobs, but current HEAD tree is intact.
 - P11 evidence is tracked at `qa/verification/P11-e14-relocation-and-determinism.md`.
 - P13 evidence is tracked at `qa/verification/P13-fingerprint-provenance.md`.
-- `X:\01 REPOSITORIES\sgSHIOK2026` is a read-only second physical copy, not a working root.
+- `X:\01 REPOSITORIES\sgSHIOK2026` is a synced cold mirror of `origin/main`, not a working root.
 - Do not run commands with the working directory on `X:`.
 
 Untracked local evidence/data directories currently present:
