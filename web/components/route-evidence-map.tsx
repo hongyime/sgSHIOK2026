@@ -936,15 +936,30 @@ function transitPoiSummary(pois: PointFeatureCollection): string {
   return `${counts.mrtStations} MRT or LRT stations, ${counts.mrtExits} exits, and ${counts.busStops} bus stops`;
 }
 
+export function nightLightingSummary(showLampOverlay: boolean, lampCount: number): string | null {
+  if (!showLampOverlay) return null;
+  if (lampCount === 0) {
+    return "Night lighting overlay is on; no lamp points are loaded in the current map view.";
+  }
+  return `Night lighting overlay is on with ${lampCount} lamp point${lampCount === 1 ? "" : "s"} in view.`;
+}
+
 function mapTextSummary(
   routes: RouteMapItem[],
   mode: RouteDisplayMode,
   routeData: ReturnType<typeof routeCollections>,
-  pois: PointFeatureCollection
+  pois: PointFeatureCollection,
+  showLampOverlay: boolean,
+  lampData: PointFeatureCollection
 ): string {
   const poiText = transitPoiSummary(pois);
+  const lampText = nightLightingSummary(showLampOverlay, lampData.features.length);
   if (routes.length === 0) {
-    return `Singapore map with ${poiText}. Search for a postal code to show route evidence.`;
+    return [
+      `Singapore map with ${poiText}.`,
+      lampText,
+      "Search for a postal code to show route evidence.",
+    ].filter(Boolean).join(" ");
   }
 
   const routeLabels = routes.map((route) => route.label).join(", ");
@@ -959,7 +974,11 @@ function mapTextSummary(
       ? "1 exposed gap"
       : `${routeData.exposure.features.length} exposed gaps`;
 
-  return `Route evidence for ${routeLabels}. Showing ${visibleRoutes}, ${exposed}, and ${poiText}.`;
+  return [
+    `Route evidence for ${routeLabels}.`,
+    `Showing ${visibleRoutes}, ${exposed}, and ${poiText}.`,
+    lampText,
+  ].filter(Boolean).join(" ");
 }
 
 function prefersReducedMotion(): boolean {
@@ -1023,8 +1042,8 @@ export function RouteEvidenceMap({
   const feedbackData = useMemo(() => feedbackCollections(feedbackPoints), [feedbackPoints]);
   const accessibleLabel = useMemo(() => mapAriaLabel(routes, mode), [routes, mode]);
   const accessibleSummary = useMemo(
-    () => mapTextSummary(routes, mode, routeData, transitPoiData),
-    [routes, mode, routeData, transitPoiData]
+    () => mapTextSummary(routes, mode, routeData, transitPoiData, showLampOverlay, lampData),
+    [routes, mode, routeData, transitPoiData, showLampOverlay, lampData]
   );
 
   useEffect(() => {

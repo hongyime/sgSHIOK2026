@@ -24,6 +24,7 @@ describe("route evidence map interactions", () => {
     expect(source).toContain('id: "lamp-post-dots"');
     expect(source).toContain("LAMP_OVERLAY_MIN_ZOOM");
     expect(source).toContain('setSourceData(map, "lamp-posts", lampData)');
+    expect(source).toContain("nightLightingSummary(showLampOverlay, lampData.features.length)");
   });
 
   it("pre-fetches manifest on mount and wires interactive click-to-route in page.tsx", () => {
@@ -41,6 +42,17 @@ describe("route evidence map interactions", () => {
     expect(pageSource).toContain("showLampOverlay={lampOverlayEnabled}");
     expect(pageSource).toContain("Night lighting");
     expect(pageSource).toContain("Shows LTA lamp post locations when zoomed in");
+  });
+
+  it("summarizes the night-lighting overlay for non-visual map users", async () => {
+    const { nightLightingSummary } = await import("../../components/route-evidence-map");
+
+    expect(nightLightingSummary(false, 12)).toBeNull();
+    expect(nightLightingSummary(true, 0)).toBe(
+      "Night lighting overlay is on; no lamp points are loaded in the current map view."
+    );
+    expect(nightLightingSummary(true, 1)).toBe("Night lighting overlay is on with 1 lamp point in view.");
+    expect(nightLightingSummary(true, 14)).toBe("Night lighting overlay is on with 14 lamp points in view.");
   });
 
   it("keeps arbitrary clicked OneMap routes preview-only and resettable", () => {

@@ -2,14 +2,15 @@
 
 Date: 2026-08-16
 
-Task: P28 lamp overlay user-facing label changed to Night lighting.
+Task: P29 night-lighting overlay added to the route map non-visual summary.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `a9f8773` at P28 task start.
+Remote main: `a33b670` at P29 task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P29 adds the night-lighting overlay state and loaded lamp-point count to the route map's screen-reader summary when the layer is enabled. Evidence is tracked at `qa/verification/P29-night-lighting-accessibility.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P28 changed the browser control for the lamp-post overlay from `Lamp posts` to `Night lighting`, keeping the underlying source/layer ids and `lamp_posts_v1` artifact contract unchanged. Evidence is tracked at `qa/verification/P28-night-lighting-label.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P27 adds a manifest-derived title-card disclosure: active bundle score coverage is 95,157 full scores out of 124,443, with 29,286 records (23.534%, roughly a quarter) not rendering a full score. Evidence is tracked at `qa/verification/P27-score-coverage-disclosure.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, or public data mutation was run.
 - P26 prepared the credential-free input for the next OneMap bus/network-conflation measurement. Tracked sample: `qa/p26/onemap_targeted_bus_risk_sample_0050.json`, 50 rows, sha256 `5B8727E60728E3571DAC2D1028B24D864BB01750FF9AC4AE2A47C2CD916F374A`. It is all `SCORED_PARTIAL`/bus-stop/`partial_unrouted_bus_fallback` rows and projects to 50 OneMap requests / 100 seconds once credentials are present. Evidence is tracked at `qa/verification/P26-targeted-onemap-sample.md`. No API collection, scoring, export, rescore, subset run, ingest, network build, or input rebuild was run.

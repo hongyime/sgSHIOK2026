@@ -77,3 +77,6 @@ The browser title card must disclose score availability from `manifest.provenanc
 
 2026-08-16 - P28 night-lighting layer label:
 The lamp-post overlay remains a raw LTA point layer underneath, but its browser control should be user-facing as `Night lighting`. That aligns the visible map layer with the product story: lamp posts are evidence for night lighting, not a score term and not a raw-data inspection mode. The source/layer ids and `web/public/data/lamp_posts_v1/` artifact contract stay unchanged, so this is a copy-only web change with no scoring, export, input, public-data, or weight movement.
+
+2026-08-16 - P29 night-lighting accessibility state:
+The night-lighting overlay must be represented in the route map's non-visual summary when enabled. The visible map still uses the existing lamp-post tiles and layer ids, but the screen-reader summary now names whether the overlay is on and how many lamp points are loaded in the current view. This keeps the layer accessible without adding visible instructional copy or changing scoring, exports, inputs, public data, or locked weights.
