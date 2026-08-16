@@ -2,7 +2,7 @@
 
 Date: 2026-08-16
 
-Task: P24 no-transit partial-score semantics.
+Task: P25 OneMap credential gate for bus/network-conflation measurement.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
@@ -10,6 +10,7 @@ Remote main: `fe886e9` at task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P25 attempted to start the next empirical bus/network-conflation measurement, but stopped at the credential gate. `ONEMAP_EMAIL`, `ONEMAP_PASSWORD`, and `LTA_DATAMALL_ACCOUNT_KEY` are absent from the environment, contradicting the standing premise that API credentials are available. Evidence is tracked at `qa/verification/P25-onemap-credential-gate.md`. No API collection, scoring, export, rescore, subset run, ingest, network build, or input rebuild was run.
 - P24 changes future scoring semantics only: `NO_TRANSIT_IN_RANGE` and `NOT_YET_SCORED` subscore terms contribute zero under locked weights instead of access short-circuiting the whole composite. Routed records with numeric route evidence and null access publish as `SCORED_PARTIAL`; no-candidate/disconnected/trust-rejected records remain `NO_TRANSIT_IN_RANGE`.
 - P24 evidence is tracked at `qa/verification/P24-no-transit-partial-score.md`. No scoring, export, rescore, subset run, ingest, or network build was run.
 - P22 added an optional browser map layer for lamp posts, backed by viewport-loaded H3-r8 JSON tiles.
