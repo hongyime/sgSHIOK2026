@@ -2,7 +2,7 @@
 """S.H.I.O.K. task runner (cross-platform replacement for make).
 
 Usage: python run.py <task> [options]
-Tasks: batch-plan | bus-arrivals | bus-connector-diagnostics | candidate-audit | check | compare-targeted | ingest | network | network-debug | network-preflight | network-qa | onemap-validation | onemap-outlier-replay | onemap-outlier-triage | overture-addresses | readiness | refresh-provenance | score | score-batch | postal-universe | geocode-universe | export | export-transit | validate | publish | test | shell
+Tasks: batch-plan | bus-arrivals | bus-connector-diagnostics | candidate-audit | check | compare-targeted | ingest | lamp-overlay | network | network-debug | network-preflight | network-qa | onemap-validation | onemap-outlier-replay | onemap-outlier-triage | overture-addresses | readiness | refresh-provenance | score | score-batch | postal-universe | geocode-universe | export | export-transit | validate | publish | test | shell
 `publish` ALWAYS runs `validate` first — this gate is hard-coded and must never be removed.
 Stubs below are replaced task-by-task per docs/BUILD_PLAN.md.
 """
@@ -19,6 +19,7 @@ load_dotenv()
 STUBS = {
     "check": "fetch listings, hash, diff vs manifest (T0.3)",
     "ingest": "download changed sources to raw/ (T0.3)",
+    "lamp-overlay": "build compact lamp-post overlay artifact from existing raw source",
     "network": "build conflated graph + QA report (T1.1)",
     "network-debug": "rebuild compact network debug GeoJSON from QA JSON",
     "network-preflight": "verify network build inputs without building graph",
@@ -66,6 +67,8 @@ def run_task(name: str, extra: list[str]) -> int:
         return run_module("pytest")
     if name in ("check", "ingest"):
         return run_module("pipeline.fetch", [name])
+    if name == "lamp-overlay":
+        return run_module("pipeline.lamp_overlay")
     if name == "network":
         return run_module("pipeline.network")
     if name == "network-debug":
