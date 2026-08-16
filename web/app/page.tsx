@@ -23,6 +23,7 @@ import type {
 } from "../lib/types";
 import {
   RouteEvidenceMap,
+  type FocusedExposureGap,
   type FeedbackPoint,
   type RouteDisplayMode,
   type RouteMapItem,
@@ -321,6 +322,17 @@ function exposureGapCopy(lenM: number, index: number): string {
   if (lenM >= 300) return `${rank} exposed stretch`;
   if (lenM >= 100) return `${rank} open-air stretch`;
   return `${rank} short exposed stretch`;
+}
+
+function exposureGapFocusTarget(score: ScoreRecord, gap: ExposureGap, index: number): FocusedExposureGap | null {
+  if (!gap.location) return null;
+  const { lat, lon } = gap.location;
+  if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
+  return {
+    key: `${score.postal}:${index}:${lat.toFixed(5)}:${lon.toFixed(5)}:${Math.round(gap.len_m)}`,
+    lat,
+    lon,
+  };
 }
 
 function nestedNumber(value: unknown, path: string[]): number | null {
@@ -930,6 +942,8 @@ export function ScoreCard({
   rankingLoading,
   rankPanelOpen,
   setRankPanelOpen,
+  focusedExposureGapKey = null,
+  onFocusExposureGap,
 }: {
   selection: LoadedSelection | null;
   routeMode: RouteDisplayMode;
@@ -954,6 +968,8 @@ export function ScoreCard({
   rankingLoading: boolean;
   rankPanelOpen: boolean;
   setRankPanelOpen: (open: boolean) => void;
+  focusedExposureGapKey?: string | null;
+  onFocusExposureGap?: (gap: FocusedExposureGap) => void;
 }) {
   const [overflowOpen, setOverflowOpen] = useState(false);
 
@@ -1403,11 +1419,32 @@ export function ScoreCard({
           <h3>Exposed gaps</h3>
           {exposureGaps.slice(0, 3).map((gap, index) => {
             const location = formatGapLocation(gap);
-            return (
-              <div key={`${gap.label}-${index}`} className={styles.gapItem}>
+            const focusTarget = exposureGapFocusTarget(score, gap, index);
+            const activeGap = Boolean(focusTarget && focusTarget.key === focusedExposureGapKey);
+            const gapContent = (
+              <>
                 <strong>{formatDistance(gap.len_m)}</strong>
                 <span>{exposureGapCopy(gap.len_m, index)}</span>
                 {location && <small className={styles.gapCoordinate}>Near {location}</small>}
+              </>
+            );
+            if (focusTarget && onFocusExposureGap) {
+              return (
+                <button
+                  key={focusTarget.key}
+                  type="button"
+                  className={`${styles.gapItem} ${activeGap ? styles.gapItemActive : ""}`}
+                  aria-pressed={activeGap}
+                  aria-label={`Focus map on ${exposureGapCopy(gap.len_m, index)} near ${location}`}
+                  onClick={() => onFocusExposureGap(focusTarget)}
+                >
+                  {gapContent}
+                </button>
+              );
+            }
+            return (
+              <div key={`${gap.label}-${index}`} className={styles.gapItem}>
+                {gapContent}
               </div>
             );
           })}
@@ -1444,6 +1481,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [chosenStopId, setChosenStopId] = useState<string | null>(null);
+  const [focusedExposureGap, setFocusedExposureGap] = useState<FocusedExposureGap | null>(null);
   const [liveRouteCache, setLiveRouteCache] = useState<Record<string, LoadedSelection>>({});
   const [rankMetric, setRankMetric] = useState<RankMetric>("overall");
   const [rankingRecords, setRankingRecords] = useState<RankableScoreRecord[]>([]);
@@ -1458,6 +1496,7 @@ export default function Home() {
   // Reset live route cache on postal change
   useEffect(() => {
     setLiveRouteCache({});
+    setFocusedExposureGap(null);
     setRankPanelOpen(false);
     setRankingRecords([]);
     setRankingLoading(false);
@@ -1827,6 +1866,7 @@ export default function Home() {
         onSelectTransitStop={handleStopSelect}
         chosenStopId={chosenStopId ?? bestCandidateId}
         showLampOverlay={lampOverlayEnabled}
+        focusedExposureGap={focusedExposureGap}
       />
 
       <section className={styles.searchOverlay} aria-label="Address search" aria-busy={loading}>
@@ -1925,6 +1965,8 @@ export default function Home() {
               rankingLoading={rankingLoading}
               rankPanelOpen={rankPanelOpen}
               setRankPanelOpen={setRankPanelOpen}
+              focusedExposureGapKey={focusedExposureGap?.key ?? null}
+              onFocusExposureGap={setFocusedExposureGap}
             />
           </aside>
         )}

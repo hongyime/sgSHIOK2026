@@ -2,14 +2,15 @@
 
 Date: 2026-08-16
 
-Task: P30 locked score made visually secondary to shelter evidence.
+Task: P31 exposed-gap list can focus the map on a selected gap.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `3a54d46` at P30 task start.
+Remote main: `8eadec4` at P31 task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P31 makes top exposed gaps with coordinates keyboard-accessible controls that center the route map on the selected gap. Evidence is tracked at `qa/verification/P31-exposed-gap-map-focus.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P30 adjusts score-card typography so the shelter-evidence headline is larger than the locked composite score badge, matching the shelter-first product rule that the 0-to-100 composite stays secondary. Evidence is tracked at `qa/verification/P30-score-secondary-typography.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P29 adds the night-lighting overlay state and loaded lamp-point count to the route map's screen-reader summary when the layer is enabled. Evidence is tracked at `qa/verification/P29-night-lighting-accessibility.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P28 changed the browser control for the lamp-post overlay from `Lamp posts` to `Night lighting`, keeping the underlying source/layer ids and `lamp_posts_v1` artifact contract unchanged. Evidence is tracked at `qa/verification/P28-night-lighting-label.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.

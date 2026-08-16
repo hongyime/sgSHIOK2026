@@ -38,6 +38,9 @@ describe("route evidence map interactions", () => {
     expect(pageSource).toContain("isCustomStopSelected");
     expect(pageSource).toContain("onResetChosenStop");
     expect(pageSource).toContain("resetCustomStopBtn");
+    expect(pageSource).toContain("focusedExposureGap");
+    expect(pageSource).toContain("onFocusExposureGap={setFocusedExposureGap}");
+    expect(pageSource).toContain("onClick={() => onFocusExposureGap(focusTarget)}");
     expect(pageSource).toContain("lampOverlayEnabled");
     expect(pageSource).toContain("showLampOverlay={lampOverlayEnabled}");
     expect(pageSource).toContain("Night lighting");
@@ -53,6 +56,15 @@ describe("route evidence map interactions", () => {
     );
     expect(nightLightingSummary(true, 1)).toBe("Night lighting overlay is on with 1 lamp point in view.");
     expect(nightLightingSummary(true, 14)).toBe("Night lighting overlay is on with 14 lamp points in view.");
+  });
+
+  it("centers the map when an exposed gap is focused from the score card", () => {
+    const source = readFileSync(join(__dirname, "../../components/route-evidence-map.tsx"), "utf-8");
+
+    expect(source).toContain("focusedExposureGap?: FocusedExposureGap | null");
+    expect(source).toContain("map.easeTo({");
+    expect(source).toContain("center: [focusedExposureGap.lon, focusedExposureGap.lat]");
+    expect(source).toContain("zoom: Math.max(map.getZoom(), 16.4)");
   });
 
   it("keeps arbitrary clicked OneMap routes preview-only and resettable", () => {

@@ -93,6 +93,7 @@ function renderScoreCard(overrides: Partial<React.ComponentProps<typeof ScoreCar
     rankingLoading: false,
     rankPanelOpen: true,
     setRankPanelOpen: noop,
+    onFocusExposureGap: noop,
     ...overrides,
   };
   return renderToStaticMarkup(<ScoreCard {...props} />);
@@ -193,6 +194,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Longest open-air stretch");
     expect(html).toContain("Near 1.37123, 103.84235");
     expect(html).toContain("Near 1.37091, 103.84101");
+    expect(html).toContain('aria-label="Focus map on Longest open-air stretch near 1.37123, 103.84235"');
   });
 
   it("keeps null score rows as Not scored instead of inventing numbers", () => {

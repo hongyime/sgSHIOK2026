@@ -959,11 +959,26 @@
 }
 
 .gapItem {
+  border: 0;
+  border-radius: 6px;
+  padding: 3px 4px;
   display: grid;
   grid-template-columns: 58px minmax(0, 1fr);
   gap: 6px;
   color: #5d6d67;
+  background: transparent;
+  font: inherit;
   font-size: 11px;
+  text-align: left;
+}
+
+button.gapItem {
+  cursor: pointer;
+}
+
+button.gapItem:hover,
+.gapItemActive {
+  background: #fff5f3;
 }
 
 .gapItem strong {

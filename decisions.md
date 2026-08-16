@@ -83,3 +83,6 @@ The night-lighting overlay must be represented in the route map's non-visual sum
 
 2026-08-16 - P30 locked-score visual priority:
 The browser must keep the locked 0-to-100 composite visible but visually secondary to route shelter evidence. P30 reduces the header score badge numeric size and raises the shelter-evidence headline so the covered-walkway percentage leads the card. This is a presentation-only change: it does not alter `score.total`, the four-row locked-weight breakdown, ranking logic, exports, inputs, public data, or `weights.yaml`.
+
+2026-08-16 - P31 exposed-gap map focus:
+Exposed gaps should be inspectable as map evidence, not just read as coordinates. The score card now turns each top exposed gap with coordinates into a keyboard-accessible control that centers the route map on that gap, while preserving the existing gap length/coordinate copy. This is a browser interaction change only; it does not alter route geometry, exposure-gap data, scoring, exports, inputs, public data, or locked weights.

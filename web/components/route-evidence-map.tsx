@@ -33,6 +33,12 @@ export interface FeedbackPoint {
   lat: number;
 }
 
+export interface FocusedExposureGap {
+  key: string;
+  lat: number;
+  lon: number;
+}
+
 const SINGAPORE_BOUNDS: [[number, number], [number, number]] = [
   [103.55, 1.13],
   [104.13, 1.49],
@@ -1009,6 +1015,7 @@ export function RouteEvidenceMap({
   onSelectTransitStop,
   chosenStopId = null,
   showLampOverlay = false,
+  focusedExposureGap = null,
 }: {
   routes: RouteMapItem[];
   mode: RouteDisplayMode;
@@ -1021,6 +1028,7 @@ export function RouteEvidenceMap({
   /** POI id of the currently highlighted stop; enables the active ring layer. */
   chosenStopId?: string | null;
   showLampOverlay?: boolean;
+  focusedExposureGap?: FocusedExposureGap | null;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
@@ -1234,6 +1242,17 @@ export function RouteEvidenceMap({
       });
     }
   }, [loaded, routeData.bounds, routeFitKey]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !loaded || !focusedExposureGap) return;
+    if (!Number.isFinite(focusedExposureGap.lat) || !Number.isFinite(focusedExposureGap.lon)) return;
+    map.easeTo({
+      center: [focusedExposureGap.lon, focusedExposureGap.lat],
+      zoom: Math.max(map.getZoom(), 16.4),
+      duration: prefersReducedMotion() ? 0 : 350,
+    });
+  }, [focusedExposureGap?.key, focusedExposureGap?.lat, focusedExposureGap?.lon, loaded]);
 
   const onSelectTransitStopRef = useRef(onSelectTransitStop);
   useEffect(() => {
