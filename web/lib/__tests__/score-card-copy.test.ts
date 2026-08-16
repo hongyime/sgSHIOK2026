@@ -25,6 +25,8 @@ describe("score card copy", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
     const layoutSource = readFileSync(join(__dirname, "../../app/layout.tsx"), "utf-8");
 
+    expect(source).toContain("Shelter-first walks to transit");
+    expect(source).not.toContain("Singapore walk-to-transit comfort");
     expect(source).toContain("Route evidence as of {formatDataDate(manifest)}");
     expect(source).toContain(
       "Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape; newer completions may be missing."

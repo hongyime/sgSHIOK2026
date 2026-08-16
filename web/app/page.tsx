@@ -1880,7 +1880,7 @@ export default function Home() {
         <div className={styles.brandRow}>
           <div>
             <h1>S.H.I.O.K. Index</h1>
-            <p>Singapore walk-to-transit comfort</p>
+            <p>Shelter-first walks to transit</p>
             <p className={styles.dataLine}>Route evidence as of {formatDataDate(manifest)}</p>
             <p className={styles.freshnessLine}>
               Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape; newer completions may be missing.

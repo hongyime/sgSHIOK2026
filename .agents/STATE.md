@@ -2,14 +2,15 @@
 
 Date: 2026-08-16
 
-Task: P37 missing postal score copy is implemented and ready to hand back.
+Task: P38 shelter-first title-card copy is implemented and ready to hand back.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `0865fb6` at P37 task start.
+Remote main: `9925976` at P38 task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P38 aligns the title-card subtitle with the settled shelter-first framing, changing the old generic `Singapore walk-to-transit comfort` copy to `Shelter-first walks to transit`. Evidence is tracked at `qa/verification/P38-shelter-first-title-card.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P37 changes the no-score detail card to say no route evidence is published for that postal in the frozen June 2020 address universe, instead of only `Not yet scored`. Evidence is tracked at `qa/verification/P37-missing-postal-score-copy.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P36 clarifies the title-card freshness copy: route evidence has the bundle date, while the address universe is frozen v1 from a June 2020 OneMap-derived postal scrape. Evidence is tracked at `qa/verification/P36-frozen-universe-copy.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P35 adds the active exposed-gap coordinate to the route map's non-visual summary so the selected map marker is available to screen-reader users. Evidence is tracked at `qa/verification/P35-selected-gap-map-summary.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
