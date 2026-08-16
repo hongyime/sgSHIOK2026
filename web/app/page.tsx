@@ -42,6 +42,7 @@ import {
   type SearchResult,
 } from "../lib/onemap-search";
 import { routesAreSame } from "../lib/route-display";
+import { formatScoreCoverageLine } from "../lib/score-coverage";
 import {
   RANK_METRIC_OPTIONS,
   rankScoreRecords,
@@ -1795,6 +1796,8 @@ export default function Home() {
     setCopyStatus("");
   };
 
+  const scoreCoverageLine = formatScoreCoverageLine(manifest);
+
   const copyFeedback = async () => {
     const payload = buildFeedbackPayload({
       selection: activeSelection,
@@ -1835,6 +1838,7 @@ export default function Home() {
             <p className={styles.freshnessLine}>
               Address universe: frozen v1 from the 2020 SLA-derived postal set; newer completions may be missing.
             </p>
+            {scoreCoverageLine && <p className={styles.coverageLine}>{scoreCoverageLine}</p>}
             <p className={styles.sourceLine}>
               Sources: LTA/data.gov.sg, OneMap/SLA, © OpenStreetMap contributors (
               <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">

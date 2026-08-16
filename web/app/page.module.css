@@ -64,6 +64,7 @@
 
 .sourceLine,
 .freshnessLine,
+.coverageLine,
 .heatLine {
   font-size: 10px !important;
 }
