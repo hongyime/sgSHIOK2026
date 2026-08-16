@@ -1,0 +1,1728 @@
+{
+  "bundle": "generated_20260805_prefer_scored_routed",
+  "cache_dir": "raw\\validation\\onemap_walk_od",
+  "eligible_records": 114140,
+  "generated_at": "2026-08-16T03:42:47.249468+00:00",
+  "ok": true,
+  "onemap_delay_sec": 2.0,
+  "origin_index_size": 123967,
+  "prior_report_path": "C:\\sgSHIOK2026\\qa\\releases\\20260811-full-onemap\\onemap_validation_cached_report_full_scored_prefer_scored_routed_20260811.json",
+  "projected_wall_clock_minutes": 1.7,
+  "projected_wall_clock_seconds": 100.0,
+  "raw_candidate_records": 114140,
+  "risk_candidate_records": 59085,
+  "risk_flag_counts": {
+    "bus_route": 50,
+    "direct_bus_fallback_unrouted": 50,
+    "scored_partial": 50,
+    "very_short_route": 50
+  },
+  "route_mode": "best_transit",
+  "sample_kind": "targeted_high_risk",
+  "sample_size": 50,
+  "sample_size_requested": 50,
+  "samples": [
+    {
+      "area": "PASIR_RIS",
+      "best_node": {
+        "exit": "97111",
+        "name": "Bef Toh Cl",
+        "station": "Bef Toh Cl",
+        "type": "bus_stop"
+      },
+      "cache_key": "779a6a6764002b030761d7cc3941e7ce2ea1db4b328d6d41a8fffd2ba1b80612",
+      "end": {
+        "lat": 1.363311,
+        "lon": 103.970388
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "509134",
+      "project_shortest_m": 78.3,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.362613,
+        "lon": 103.970506
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 54.1
+    },
+    {
+      "area": "PASIR_RIS",
+      "best_node": {
+        "exit": "77271",
+        "name": "Aft Pasir Ris St 72",
+        "station": "Aft Pasir Ris St 72",
+        "type": "bus_stop"
+      },
+      "cache_key": "fd4f92e095c8d8ce670a23a83a9c1df63e634078d99f02b86ebeb71ba90c6350",
+      "end": {
+        "lat": 1.38059,
+        "lon": 103.934961
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "518766",
+      "project_shortest_m": 67.0,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.379984,
+        "lon": 103.934971
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "PASIR_RIS",
+      "best_node": {
+        "exit": "98139",
+        "name": "Aft Loyang Way 1",
+        "station": "Aft Loyang Way 1",
+        "type": "bus_stop"
+      },
+      "cache_key": "0d831148e2e704264e25ec7f6065fff0eebeba65d1519b1f47165ec12f93d8e5",
+      "end": {
+        "lat": 1.373941,
+        "lon": 103.97236
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "508965",
+      "project_shortest_m": 64.5,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.374105,
+        "lon": 103.971804
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "BUKIT_MERAH",
+      "best_node": {
+        "exit": "10399",
+        "name": "Melati Blk 2",
+        "station": "Melati Blk 2",
+        "type": "bus_stop"
+      },
+      "cache_key": "ceb4b11ac91dc3be6760317cede74fb4fc1f3579f6d87e69dc1bf7351a639db4",
+      "end": {
+        "lat": 1.275882,
+        "lon": 103.830195
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "168789",
+      "project_shortest_m": 66.3,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.275384,
+        "lon": 103.830527
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "TAMPINES",
+      "best_node": {
+        "exit": "85079",
+        "name": "Flextronic",
+        "station": "Flextronic",
+        "type": "bus_stop"
+      },
+      "cache_key": "e15234111f9b131732a54943777fdc735d528c4056c52587f9cae981f012fad1",
+      "end": {
+        "lat": 1.333949,
+        "lon": 103.950152
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "486123",
+      "project_shortest_m": 50.2,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.333577,
+        "lon": 103.950412
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "BEDOK",
+      "best_node": {
+        "exit": "83279",
+        "name": "Aft Carmen St",
+        "station": "Aft Carmen St",
+        "type": "bus_stop"
+      },
+      "cache_key": "8f027cefcfe447ff1bea9bed954b05106aa5d4f8b4319891a8869430d833ec66",
+      "end": {
+        "lat": 1.318831,
+        "lon": 103.925105
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "458432",
+      "project_shortest_m": 10.9,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.318734,
+        "lon": 103.925118
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 49.6
+    },
+    {
+      "area": "SERANGOON",
+      "best_node": {
+        "exit": "66211",
+        "name": "Opp Bloxhome Dr",
+        "station": "Opp Bloxhome Dr",
+        "type": "bus_stop"
+      },
+      "cache_key": "19ad1270990f2235b05f23140c3516e83149c4c6ff6c56129d61a170a99a05dd",
+      "end": {
+        "lat": 1.364121,
+        "lon": 103.861035
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "554411",
+      "project_shortest_m": 74.4,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.364367,
+        "lon": 103.860413
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 52.3
+    },
+    {
+      "area": "PASIR_RIS",
+      "best_node": {
+        "exit": "98029",
+        "name": "Opp Blk 275",
+        "station": "Opp Blk 275",
+        "type": "bus_stop"
+      },
+      "cache_key": "eb1bcfd8284adea76cb57e3871f333ce02fede15b4062f8e2e7a11fc45a4da56",
+      "end": {
+        "lat": 1.364388,
+        "lon": 103.965456
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "507442",
+      "project_shortest_m": 48.5,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.36397,
+        "lon": 103.965327
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "HOUGANG",
+      "best_node": {
+        "exit": "62029",
+        "name": "Paya Lebar Gdns",
+        "station": "Paya Lebar Gdns",
+        "type": "bus_stop"
+      },
+      "cache_key": "b7ae723c032d7db39b3448d51c74815adede3e4a91dff8b7873d2e5c1287cc4c",
+      "end": {
+        "lat": 1.344113,
+        "lon": 103.882735
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "535040",
+      "project_shortest_m": 48.5,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.344196,
+        "lon": 103.883163
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "PASIR_RIS",
+      "best_node": {
+        "exit": "78241",
+        "name": "Bet Blks 453/454",
+        "station": "Bet Blks 453/454",
+        "type": "bus_stop"
+      },
+      "cache_key": "7e1ce6d6b01a5318597b06a2ab7b8dfec1594bb71a4a20ef5887caca7f6e1163",
+      "end": {
+        "lat": 1.37212,
+        "lon": 103.957637
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "510463",
+      "project_shortest_m": 74.7,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.372568,
+        "lon": 103.958139
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 53.5
+    },
+    {
+      "area": "SERANGOON",
+      "best_node": {
+        "exit": "66201",
+        "name": "Opp Brockhampton Dr",
+        "station": "Opp Brockhampton Dr",
+        "type": "bus_stop"
+      },
+      "cache_key": "e472e02a8ef8471cbe72519be23df95c396ac98bd1552bc0bac2f8764a4645e9",
+      "end": {
+        "lat": 1.362086,
+        "lon": 103.859665
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "559488",
+      "project_shortest_m": 77.0,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.362464,
+        "lon": 103.860247
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 52.3
+    },
+    {
+      "area": "BUKIT_TIMAH",
+      "best_node": {
+        "exit": "12139",
+        "name": "Aft Mt Sinai Lane",
+        "station": "Aft Mt Sinai Lane",
+        "type": "bus_stop"
+      },
+      "cache_key": "a6a8fb87470261e7130bb38b7d0344fc8fa4c24ba19a3d3adf82deaf1679a64d",
+      "end": {
+        "lat": 1.314532,
+        "lon": 103.785042
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "279020",
+      "project_shortest_m": 67.5,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.314463,
+        "lon": 103.784439
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 52.7
+    },
+    {
+      "area": "PASIR_RIS",
+      "best_node": {
+        "exit": "98129",
+        "name": "Opp Krislite Bldg",
+        "station": "Opp Krislite Bldg",
+        "type": "bus_stop"
+      },
+      "cache_key": "067e5a4908c9760c7217d1018d87a8418f7b0d554cfa595eef347750fbcbb955",
+      "end": {
+        "lat": 1.372043,
+        "lon": 103.970477
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "508722",
+      "project_shortest_m": 52.1,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.372233,
+        "lon": 103.970048
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "BEDOK",
+      "best_node": {
+        "exit": "83181",
+        "name": "Aft Bethesda Frankel Ch",
+        "station": "Aft Bethesda Frankel Ch",
+        "type": "bus_stop"
+      },
+      "cache_key": "930d62d402b55a41ab56efe6816b9e762fe200d745be350f9e553ac20ce34f59",
+      "end": {
+        "lat": 1.316623,
+        "lon": 103.917553
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "459391",
+      "project_shortest_m": 65.2,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.316055,
+        "lon": 103.9174
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "TOA_PAYOH",
+      "best_node": {
+        "exit": "66069",
+        "name": "Bef Braddell Flyover",
+        "station": "Bef Braddell Flyover",
+        "type": "bus_stop"
+      },
+      "cache_key": "b15390a423ec5fbdcedc22fd797a733272bc0d0adc1ea0a0ab7e5d29c60460b2",
+      "end": {
+        "lat": 1.343503,
+        "lon": 103.862633
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "359817",
+      "project_shortest_m": 65.2,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.342916,
+        "lon": 103.862572
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "TUAS",
+      "best_node": {
+        "exit": "26331",
+        "name": "Aft Tuas Sth St 2",
+        "station": "Aft Tuas Sth St 2",
+        "type": "bus_stop"
+      },
+      "cache_key": "d90bdabe2561138835ad9a8d8200db5ce4722cee900993e18baaaea797104f0c",
+      "end": {
+        "lat": 1.3087,
+        "lon": 103.632134
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "638103",
+      "project_shortest_m": 59.6,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.309203,
+        "lon": 103.631944
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 51.5
+    },
+    {
+      "area": "SERANGOON",
+      "best_node": {
+        "exit": "66129",
+        "name": "Aft Chuan Gdn",
+        "station": "Aft Chuan Gdn",
+        "type": "bus_stop"
+      },
+      "cache_key": "f0c6879ff3301a0be31bee8094214386c85da23b94eabf56fc844b91b711399d",
+      "end": {
+        "lat": 1.361491,
+        "lon": 103.868017
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "554838",
+      "project_shortest_m": 71.5,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.360902,
+        "lon": 103.867753
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "SERANGOON",
+      "best_node": {
+        "exit": "66291",
+        "name": "Aft Medway Dr",
+        "station": "Aft Medway Dr",
+        "type": "bus_stop"
+      },
+      "cache_key": "e1d4b0be12c4b73e2df2e21ab273e025d54ac2544a80d058eb1f70857b991fd0",
+      "end": {
+        "lat": 1.365936,
+        "lon": 103.861924
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "556056",
+      "project_shortest_m": 76.6,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.366015,
+        "lon": 103.86124
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 52.3
+    },
+    {
+      "area": "JURONG_WEST",
+      "best_node": {
+        "exit": "27409",
+        "name": "Blk 821",
+        "station": "Blk 821",
+        "type": "bus_stop"
+      },
+      "cache_key": "4118c94bb98364ccb85d29a2ac67ea2b7a38e05504dd6f0faefa33f6f8662d0b",
+      "end": {
+        "lat": 1.34719,
+        "lon": 103.694168
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "640823",
+      "project_shortest_m": 57.4,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.346685,
+        "lon": 103.694286
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "CLEMENTI",
+      "best_node": {
+        "exit": "17019",
+        "name": "Varsity Pk",
+        "station": "Varsity Pk",
+        "type": "bus_stop"
+      },
+      "cache_key": "b0fefda6c1f1fb3c2e43fc208a521c4dcd0b7e0bda41da97c446748149cae81e",
+      "end": {
+        "lat": 1.293797,
+        "lon": 103.767052
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "127446",
+      "project_shortest_m": 53.0,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.294116,
+        "lon": 103.767408
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "ANG_MO_KIO",
+      "best_node": {
+        "exit": "56039",
+        "name": "Aft Yio Chu Kang Rd",
+        "station": "Aft Yio Chu Kang Rd",
+        "type": "bus_stop"
+      },
+      "cache_key": "22cc32b1d7cae0db81d3c8229d2525661dc8d3f1a89c4d26ec7ce92234601d76",
+      "end": {
+        "lat": 1.376731,
+        "lon": 103.828484
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "576675",
+      "project_shortest_m": 45.1,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.377107,
+        "lon": 103.82864
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "BUKIT_TIMAH",
+      "best_node": {
+        "exit": "41049",
+        "name": "Opp Coronation Plaza",
+        "station": "Opp Coronation Plaza",
+        "type": "bus_stop"
+      },
+      "cache_key": "b39fe91e2b02d96be974b5c1bd4d856aa45a091325d2cb114e65bb5bb9164e06",
+      "end": {
+        "lat": 1.324695,
+        "lon": 103.810262
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "289608",
+      "project_shortest_m": 70.5,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.324628,
+        "lon": 103.810892
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "SERANGOON",
+      "best_node": {
+        "exit": "62041",
+        "name": "Opp Bethany Presby Ch",
+        "station": "Opp Bethany Presby Ch",
+        "type": "bus_stop"
+      },
+      "cache_key": "a919bfd79207de996f79654ecac61823b3233ce4f2915aecffeb85a3aa5dcc66",
+      "end": {
+        "lat": 1.348383,
+        "lon": 103.880185
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "536374",
+      "project_shortest_m": 71.2,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.347841,
+        "lon": 103.879838
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "BEDOK",
+      "best_node": {
+        "exit": "93109",
+        "name": "Bef Frankel Pl",
+        "station": "Bef Frankel Pl",
+        "type": "bus_stop"
+      },
+      "cache_key": "512cf8293802b203f94a79b2e21f70b97200382e7d54dee2ef029c925508c448",
+      "end": {
+        "lat": 1.312787,
+        "lon": 103.919986
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "458208",
+      "project_shortest_m": 42.2,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.312666,
+        "lon": 103.919626
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 53.5
+    },
+    {
+      "area": "SERANGOON",
+      "best_node": {
+        "exit": "66121",
+        "name": "Chuan Terr",
+        "station": "Chuan Terr",
+        "type": "bus_stop"
+      },
+      "cache_key": "25c5637489949f4ec11a589629029860c3e71093af37c606d8668ecd99773b55",
+      "end": {
+        "lat": 1.3624,
+        "lon": 103.86776
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "558479",
+      "project_shortest_m": 54.3,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.362498,
+        "lon": 103.867282
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "ANG_MO_KIO",
+      "best_node": {
+        "exit": "56031",
+        "name": "Bef Yio Chu Kang Rd",
+        "station": "Bef Yio Chu Kang Rd",
+        "type": "bus_stop"
+      },
+      "cache_key": "f41cb0b840c07d4fc16efe38768d03adf6a6f9e9441b1122502f2172c4ad0da5",
+      "end": {
+        "lat": 1.376957,
+        "lon": 103.828225
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "579523",
+      "project_shortest_m": 45.6,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.377021,
+        "lon": 103.827821
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "WOODLANDS",
+      "best_node": {
+        "exit": "46159",
+        "name": "Blk 206",
+        "station": "Blk 206",
+        "type": "bus_stop"
+      },
+      "cache_key": "a6d4b990742df28d7655f81731055d3596402309c6cd5e207bdd7d0a1dbd60f9",
+      "end": {
+        "lat": 1.445656,
+        "lon": 103.773439
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "730205",
+      "project_shortest_m": 75.0,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.444978,
+        "lon": 103.773463
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "TAMPINES",
+      "best_node": {
+        "exit": "75241",
+        "name": "Opp Temasek Poly West G",
+        "station": "Opp Temasek Poly West G",
+        "type": "bus_stop"
+      },
+      "cache_key": "ffaa58f97ccffbc175aa4bd263ad846df4cffbcd34c05f40f6ed7c4101c21fa6",
+      "end": {
+        "lat": 1.348448,
+        "lon": 103.929802
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "521892",
+      "project_shortest_m": 61.7,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.348905,
+        "lon": 103.929484
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "SERANGOON",
+      "best_node": {
+        "exit": "66069",
+        "name": "Bef Braddell Flyover",
+        "station": "Bef Braddell Flyover",
+        "type": "bus_stop"
+      },
+      "cache_key": "0a675d39c369aaf2d3fdf5560aa519c15273bb476ba9df09bb3323927e6a6f20",
+      "end": {
+        "lat": 1.343503,
+        "lon": 103.862633
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "358677",
+      "project_shortest_m": 64.7,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.344077,
+        "lon": 103.862742
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "SEMBAWANG",
+      "best_node": {
+        "exit": "46931",
+        "name": "Opp W'lands Spectrum 1",
+        "station": "Opp W'lands Spectrum 1",
+        "type": "bus_stop"
+      },
+      "cache_key": "064fba7e93c525b61e06feb53349512e12445fa0080f7f8d8ae425d1ec05e854",
+      "end": {
+        "lat": 1.453054,
+        "lon": 103.807899
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "738440",
+      "project_shortest_m": 47.9,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.452779,
+        "lon": 103.808232
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 54.6
+    },
+    {
+      "area": "TUAS",
+      "best_node": {
+        "exit": "26261",
+        "name": "Aft Tuas Sth Ave 4",
+        "station": "Aft Tuas Sth Ave 4",
+        "type": "bus_stop"
+      },
+      "cache_key": "83d2551fa199ee943d5cdac8274278edda13c15c0e938c63d1b520686f1c0109",
+      "end": {
+        "lat": 1.314416,
+        "lon": 103.628636
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "637506",
+      "project_shortest_m": 61.0,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.314108,
+        "lon": 103.628181
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 51.5
+    },
+    {
+      "area": "HOUGANG",
+      "best_node": {
+        "exit": "64329",
+        "name": "Rio Vista",
+        "station": "Rio Vista",
+        "type": "bus_stop"
+      },
+      "cache_key": "8b53ee23199b2b3fd736758d1edd7457cd47604917e0684166137cf35ced5324",
+      "end": {
+        "lat": 1.372405,
+        "lon": 103.900676
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "533839",
+      "project_shortest_m": 48.4,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.372098,
+        "lon": 103.900367
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 52.7
+    },
+    {
+      "area": "HOUGANG",
+      "best_node": {
+        "exit": "62029",
+        "name": "Paya Lebar Gdns",
+        "station": "Paya Lebar Gdns",
+        "type": "bus_stop"
+      },
+      "cache_key": "21c1ca9147976393aa738f784c743c615367c95e0a58f43fe436287d8b6a61b0",
+      "end": {
+        "lat": 1.344113,
+        "lon": 103.882735
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "534924",
+      "project_shortest_m": 35.4,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.344421,
+        "lon": 103.882822
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "TUAS",
+      "best_node": {
+        "exit": "25781",
+        "name": "Opp SLS",
+        "station": "Opp SLS",
+        "type": "bus_stop"
+      },
+      "cache_key": "79ce4002551903589a9e07dddc3c85f3a6491c936b7f14b8d7c3dbc4e1f003d0",
+      "end": {
+        "lat": 1.276398,
+        "lon": 103.635811
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "637103",
+      "project_shortest_m": 74.1,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.276532,
+        "lon": 103.635159
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 47.7
+    },
+    {
+      "area": "HOUGANG",
+      "best_node": {
+        "exit": "63189",
+        "name": "Aft S'goon Gdn Way",
+        "station": "Aft S'goon Gdn Way",
+        "type": "bus_stop"
+      },
+      "cache_key": "4ebc19f7ccf1620ec8fd07378e150f3ae1616951f286588a70c7977334ce8fea",
+      "end": {
+        "lat": 1.36134,
+        "lon": 103.873635
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "547952",
+      "project_shortest_m": 71.6,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.361475,
+        "lon": 103.874264
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "BUKIT_TIMAH",
+      "best_node": {
+        "exit": "12149",
+        "name": "Henry Pk",
+        "station": "Henry Pk",
+        "type": "bus_stop"
+      },
+      "cache_key": "bec1ef741e0dda97cc93fcb464040b689e09aac211244b487180591994408b6c",
+      "end": {
+        "lat": 1.315769,
+        "lon": 103.782661
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "278805",
+      "project_shortest_m": 25.3,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.315853,
+        "lon": 103.782872
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 52.7
+    },
+    {
+      "area": "PASIR_RIS",
+      "best_node": {
+        "exit": "98019",
+        "name": "Opp Blk 149A",
+        "station": "Opp Blk 149A",
+        "type": "bus_stop"
+      },
+      "cache_key": "814ac7c16146ffa2b97296466355cd8e81ae62c9e67ceef0a62bdf8f3f2826f4",
+      "end": {
+        "lat": 1.362261,
+        "lon": 103.963387
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "507564",
+      "project_shortest_m": 78.0,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.361894,
+        "lon": 103.963985
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "SERANGOON",
+      "best_node": {
+        "exit": "67021",
+        "name": "Opp Dedap Rd",
+        "station": "Opp Dedap Rd",
+        "type": "bus_stop"
+      },
+      "cache_key": "64b5444191029ae41d44f8a75dd053e0c503ce900b4f85b05b5a8fc4f8e14414",
+      "end": {
+        "lat": 1.389306,
+        "lon": 103.865487
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "805926",
+      "project_shortest_m": 73.8,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.388799,
+        "lon": 103.865055
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "SERANGOON",
+      "best_node": {
+        "exit": "66121",
+        "name": "Chuan Terr",
+        "station": "Chuan Terr",
+        "type": "bus_stop"
+      },
+      "cache_key": "f164f02bcf691e06352009616b4b66b6872ee1d6dd558f6a22907a58865d8dca",
+      "end": {
+        "lat": 1.3624,
+        "lon": 103.86776
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "558501",
+      "project_shortest_m": 51.6,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.36224,
+        "lon": 103.867324
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "NOVENA",
+      "best_node": {
+        "exit": "51101",
+        "name": "Bef Thomson Flyover",
+        "station": "Bef Thomson Flyover",
+        "type": "bus_stop"
+      },
+      "cache_key": "c452bdbe1bd13008d7ca4099114af7f4e260a3c38da42272d857a5e971907523",
+      "end": {
+        "lat": 1.327536,
+        "lon": 103.837248
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "297635",
+      "project_shortest_m": 69.5,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.327843,
+        "lon": 103.836703
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "SERANGOON",
+      "best_node": {
+        "exit": "66181",
+        "name": "Aft Chartwell Rd",
+        "station": "Aft Chartwell Rd",
+        "type": "bus_stop"
+      },
+      "cache_key": "7c255794a8ca38c8179e0f6e7e01e5ab9722ad3455486d16fda8e42f96ff55b0",
+      "end": {
+        "lat": 1.358787,
+        "lon": 103.861858
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "559009",
+      "project_shortest_m": 45.2,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.358879,
+        "lon": 103.861462
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 52.3
+    },
+    {
+      "area": "SERANGOON",
+      "best_node": {
+        "exit": "66291",
+        "name": "Aft Medway Dr",
+        "station": "Aft Medway Dr",
+        "type": "bus_stop"
+      },
+      "cache_key": "632eb737edfe45d2c225e317ec0847bb036d1c7308d65b2dd8ebaa990900b503",
+      "end": {
+        "lat": 1.365936,
+        "lon": 103.861924
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "556045",
+      "project_shortest_m": 51.7,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.365741,
+        "lon": 103.862346
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 52.3
+    },
+    {
+      "area": "JURONG_EAST",
+      "best_node": {
+        "exit": "21051",
+        "name": "Bef Penjuru Rd",
+        "station": "Bef Penjuru Rd",
+        "type": "bus_stop"
+      },
+      "cache_key": "317050fdea1cd5067ba34e1943e2c5e33a24310d905d3a202a82968883f9436b",
+      "end": {
+        "lat": 1.312256,
+        "lon": 103.730448
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "608618",
+      "project_shortest_m": 63.4,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.31256,
+        "lon": 103.730931
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 51.2
+    },
+    {
+      "area": "BUKIT_TIMAH",
+      "best_node": {
+        "exit": "12139",
+        "name": "Aft Mt Sinai Lane",
+        "station": "Aft Mt Sinai Lane",
+        "type": "bus_stop"
+      },
+      "cache_key": "ecaad7f3076637f3c95c7a801eda0f2df07bedefe709e6c9ef520c88cd3a17f5",
+      "end": {
+        "lat": 1.314532,
+        "lon": 103.785042
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "276868",
+      "project_shortest_m": 53.7,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.314069,
+        "lon": 103.784893
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 52.7
+    },
+    {
+      "area": "JURONG_WEST",
+      "best_node": {
+        "exit": "27619",
+        "name": "Aft Bulim Walk",
+        "station": "Aft Bulim Walk",
+        "type": "bus_stop"
+      },
+      "cache_key": "5248f14ebe2cfe4e07c5f764df343b0c6848a6116d6e7e67c7abc6a1f450ee1e",
+      "end": {
+        "lat": 1.356928,
+        "lon": 103.703352
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "648110",
+      "project_shortest_m": 63.0,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.356398,
+        "lon": 103.703559
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 53.1
+    },
+    {
+      "area": "BEDOK",
+      "best_node": {
+        "exit": "83361",
+        "name": "Hua Yu Mansions",
+        "station": "Hua Yu Mansions",
+        "type": "bus_stop"
+      },
+      "cache_key": "b5a61c7a9d8b66a0e3a2b1e979dafb55f7111a6b591b3af481c9e2152e637de5",
+      "end": {
+        "lat": 1.328508,
+        "lon": 103.914496
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "417393",
+      "project_shortest_m": 78.2,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.32912,
+        "lon": 103.914847
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 49.6
+    },
+    {
+      "area": "TOA_PAYOH",
+      "best_node": {
+        "exit": "70049",
+        "name": "Aft Blk 4",
+        "station": "Aft Blk 4",
+        "type": "bus_stop"
+      },
+      "cache_key": "2f13dbdf792994891da9fecaffe8434c6457db055bd87875224ec6ff16eccd81",
+      "end": {
+        "lat": 1.332907,
+        "lon": 103.878715
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "368421",
+      "project_shortest_m": 50.8,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.333235,
+        "lon": 103.879035
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "BUKIT_TIMAH",
+      "best_node": {
+        "exit": "11309",
+        "name": "Hse No. 589",
+        "station": "Hse No. 589",
+        "type": "bus_stop"
+      },
+      "cache_key": "c637b4fd1b7ab6c25437d42ec87af4f89dc8d34b017d60d603e3c91016924df5",
+      "end": {
+        "lat": 1.318624,
+        "lon": 103.78843
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "277380",
+      "project_shortest_m": 70.8,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.318553,
+        "lon": 103.787797
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 54.6
+    },
+    {
+      "area": "BEDOK",
+      "best_node": {
+        "exit": "94059",
+        "name": "Temasek Sec Sch",
+        "station": "Temasek Sec Sch",
+        "type": "bus_stop"
+      },
+      "cache_key": "65d77bd64c5b84e8986651d9d6284e20c9963d6a75f458544be77e3654d96f26",
+      "end": {
+        "lat": 1.317071,
+        "lon": 103.947981
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "461152",
+      "project_shortest_m": 79.2,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.317747,
+        "lon": 103.947744
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    },
+    {
+      "area": "HOUGANG",
+      "best_node": {
+        "exit": "62019",
+        "name": "Aft Rochdale Rd",
+        "station": "Aft Rochdale Rd",
+        "type": "bus_stop"
+      },
+      "cache_key": "8aaebe652ac0b38a4aeba95c55cca2f58a45dbfe30fec45a1f7c9fb8f430f3e4",
+      "end": {
+        "lat": 1.342157,
+        "lon": 103.884053
+      },
+      "endpoint_source": "postal_universe_to_transit_poi",
+      "postal": "535024",
+      "project_shortest_m": 71.8,
+      "risk_flags": [
+        "bus_route",
+        "direct_bus_fallback_unrouted",
+        "scored_partial",
+        "very_short_route"
+      ],
+      "risk_score": 19,
+      "route_kind": "shortest",
+      "route_mode": "best_transit",
+      "route_trust": "partial_unrouted_bus_fallback",
+      "routing_type": "direct_bus_fallback_unrouted",
+      "start": {
+        "lat": 1.342806,
+        "lon": 103.884079
+      },
+      "state": "SCORED_PARTIAL",
+      "total": 55.0
+    }
+  ],
+  "transit_index_size": 12442,
+  "will_call_onemap": false
+}
