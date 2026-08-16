@@ -149,6 +149,23 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Loading Overall SHIOK ranks.");
   });
 
+  it("explains when a searched postal has no published route evidence", () => {
+    const html = renderScoreCard({
+      selection: {
+        ...selection,
+        score: null,
+        geom: null,
+      },
+      rankingRecords: [],
+    });
+
+    expect(html).toContain("Postal 560231 is not in the current score bundle.");
+    expect(html).toContain("Outside current bundle");
+    expect(html).toContain(
+      "No route evidence is published for this postal in the frozen June 2020 address universe."
+    );
+  });
+
   it("renders the route exposure lead and four-row score presentation", () => {
     const recordWithEqualRainHeat: ScoreRecord = {
       ...scoredRecord,

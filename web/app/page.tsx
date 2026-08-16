@@ -145,7 +145,7 @@ export function scoreCardAnnouncement({
 }): string {
   if (!selection) return "No score selected.";
   const postal = postalTitle(selection);
-  if (!selection.score) return `${postal} is not yet scored.`;
+  if (!selection.score) return `${postal} is not in the current score bundle.`;
   const scoreText = displayScore === null || displayScore === undefined
     ? "not scored"
     : `${Math.round(displayScore)} out of 100`;
@@ -996,8 +996,8 @@ export function ScoreCard({
         </p>
         <h2>{postalTitle(selection)}</h2>
         <div className={styles.emptyState}>
-          <strong>Not yet scored</strong>
-          <span>This postal is not in the current score bundle.</span>
+          <strong>Outside current bundle</strong>
+          <span>No route evidence is published for this postal in the frozen June 2020 address universe.</span>
         </div>
       </section>
     );

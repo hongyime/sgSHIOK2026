@@ -101,3 +101,6 @@ Map evidence must be available to non-visual users when it becomes visible evide
 
 2026-08-16 - P36 frozen postal-universe copy:
 The title card should not imply that the address universe is current merely because route evidence has a current bundle date. The visible freshness line now says `Route evidence as of ...`, and the address-universe caveat names the frozen v1 source as a June 2020 OneMap-derived postal scrape. This is an honesty-copy change only; it does not alter manifests, inputs, scoring, exports, public data, or locked weights.
+
+2026-08-16 - P37 missing postal score copy:
+When a searched postal has no score record, the detail card should explain that no route evidence is published for that postal in the frozen June 2020 address universe, rather than only saying `not yet scored`. This keeps the local failure state aligned with the title-card caveat. It changes only browser copy and render tests; it does not alter search, scoring, exports, inputs, public data, or locked weights.
