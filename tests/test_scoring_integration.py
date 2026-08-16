@@ -9,8 +9,10 @@ from shapely.geometry import LineString, Point
 from pipeline.bus import BusStopCandidate
 from pipeline.routing import RoutingGraph, route_worker
 from pipeline.scoring_integration import (
+    HEAT_SPATIAL_SOURCE_KEYS,
     NETWORK_PATH,
     SCORING_FINGERPRINT_FILES,
+    SCORE_PROVENANCE_SOURCE_HASH_KEYS,
     CandidateNode,
     CrossingCounter,
     annotate_no_transit_reason,
@@ -2249,6 +2251,10 @@ def test_build_provenance_records_selected_network_and_postal_universe_paths():
     assert len(provenance["scoring_input_digest"]) == 24
     assert len(provenance["network_digest"]) == 24
     assert provenance["subscore_status"]["bus"] == "real"
+    assert "leaf_area_index" not in SCORE_PROVENANCE_SOURCE_HASH_KEYS
+    assert "leaf_area_index" not in provenance["source_hashes"]
+    assert HEAT_SPATIAL_SOURCE_KEYS.issubset(SCORE_PROVENANCE_SOURCE_HASH_KEYS)
+    assert HEAT_SPATIAL_SOURCE_KEYS.issubset(set(provenance["source_hashes"]))
 
     snapshot = scoring_provenance_snapshot()
     assert set(snapshot["scoring_fingerprints"]) == {

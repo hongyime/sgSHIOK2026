@@ -646,7 +646,10 @@ def readiness_features(
                 "with 1671 Overture-only postcodes; coordinate QA implemented with p95 23.5m "
                 "and 41 postcodes over 1km; not active production until outlier review/rescore"
             ),
-            "nparks_lai_route_level_canopy": "LAI is calibration-only, not route geometry",
+            "nparks_lai_route_level_canopy": (
+                "LAI is a species/generic reference table, not route geometry or a "
+                "score provenance source"
+            ),
             "building_shadow_time_of_day": "future heat model",
             "live_bus_or_mrt_arrivals": "requires runtime proxy or collected static aggregates",
             "onemap_walk_validation_gate": onemap_status["summary"],

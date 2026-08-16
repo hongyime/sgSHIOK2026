@@ -93,6 +93,30 @@ SCORING_FINGERPRINT_FILES = (
     "run.py",
 )
 
+HEAT_SPATIAL_SOURCE_KEYS = frozenset(
+    {
+        "nparks_nature_ways",
+        "nparks_park_connector_loop",
+        "nparks_tracks",
+        "nparks_heritage_trees",
+        "nparks_heritage_road_green_buffers",
+    }
+)
+
+SCORE_PROVENANCE_SOURCE_HASH_KEYS = frozenset(
+    {
+        "mrt_lrt_exits",
+        "osm_extract",
+        "covered_linkway",
+        "overhead_bridge_underpass",
+        "traffic_signals",
+        "bus_stops",
+        "bus_services",
+        "bus_routes",
+        *HEAT_SPATIAL_SOURCE_KEYS,
+    }
+)
+
 
 @dataclass(frozen=True)
 class CandidateNode:
@@ -2036,23 +2060,7 @@ def build_provenance(
         "source_hashes": {
             key: value.get("sha256")
             for key, value in sources.items()
-            if key
-            in {
-                "mrt_lrt_exits",
-                "osm_extract",
-                "covered_linkway",
-                "overhead_bridge_underpass",
-                "traffic_signals",
-                "bus_stops",
-                "bus_services",
-                "bus_routes",
-                "leaf_area_index",
-                "nparks_heritage_road_green_buffers",
-                "nparks_nature_ways",
-                "nparks_park_connector_loop",
-                "nparks_tracks",
-                "nparks_heritage_trees",
-            }
+            if key in SCORE_PROVENANCE_SOURCE_HASH_KEYS
         },
         "routing": {
             "network": network_label,
@@ -2077,16 +2085,7 @@ def build_provenance(
             "rain": "real_routed_covered_length_ratio",
             "heat": (
                 "provisional_covered_plus_nparks_shade_proxy_heat_only"
-                if any(
-                    key in sources
-                    for key in (
-                        "nparks_nature_ways",
-                        "nparks_park_connector_loop",
-                        "nparks_tracks",
-                        "nparks_heritage_trees",
-                        "nparks_heritage_road_green_buffers",
-                    )
-                )
+                if any(key in sources for key in HEAT_SPATIAL_SOURCE_KEYS)
                 else "provisional_covered_only_until_phase_4"
             ),
             "crossing": (

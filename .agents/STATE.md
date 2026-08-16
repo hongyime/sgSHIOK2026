@@ -2,7 +2,7 @@
 
 Date: 2026-08-16
 
-Task: P22 lamp overlay browser layer.
+Task: P23 Leaf Area Index provenance cleanup.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
@@ -14,6 +14,8 @@ Status:
 - P22 local public artifact is under `web/public/data/lamp_posts_v1/`: 701 files, 3,146,697 bytes, 700 H3-r8 tiles, 126,144 lamp points, 0 skipped features, manifest sha256 `3e28d94c90cfdd03a72d26cc0cf9a3a4f37657e650b6ae94d8de2505124a9512`. The directory is gitignored public data and must be deployed from the local working copy if the owner chooses to publish it.
 - P22 evidence is tracked at `qa/verification/P22-lamp-map-layer.md`.
 - P22 web verification passed: 109 tests across 22 files, direct TypeScript check exit 0, and Next production build exit 0.
+- P23 inspected the existing NParks Leaf Area Index XLSX and found it is a species/generic reference table with no route geometry. Future score provenance excludes `leaf_area_index` from per-record `source_hashes`; the file remains tracked in `raw/manifest.json`/freshness as a reference candidate. Evidence is tracked at `qa/verification/P23-lai-provenance.md`.
+- P23 verification passed: 23 focused Python tests, `repo_integrity=ok`, diff check exit 0, and `weights.yaml` diff exit 0.
 - P21 added a deterministic lamp overlay artifact builder at `pipeline/lamp_overlay.py`, exposed as `run.py lamp-overlay`.
 - P21 local preview artifact is under `qa/p21/lamp_overlay_h3r8_preview/`: 701 files, 3,146,697 bytes, 700 H3-r8 tiles, 126,144 lamp points, 0 skipped features. This is measurement output only and is not a public bundle.
 - Current browser bundle `web/public/data/generated_20260805_prefer_scored_routed/` still has no lamp layer; publishing the overlay needs an owner-approved new `web/public/data` artifact and web map toggle.
