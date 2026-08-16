@@ -2,14 +2,15 @@
 
 Date: 2026-08-16
 
-Task: P35 selected exposed-gap map summary is implemented and ready to hand back.
+Task: P36 frozen postal-universe copy is implemented and ready to hand back.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `158265f` at P35 task start.
+Remote main: `781596a` at P36 task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P36 clarifies the title-card freshness copy: route evidence has the bundle date, while the address universe is frozen v1 from a June 2020 OneMap-derived postal scrape. Evidence is tracked at `qa/verification/P36-frozen-universe-copy.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P35 adds the active exposed-gap coordinate to the route map's non-visual summary so the selected map marker is available to screen-reader users. Evidence is tracked at `qa/verification/P35-selected-gap-map-summary.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P34 updates the document metadata description so discoverability copy leads with covered-walkway exposure gaps and night-lighting evidence, with the locked score secondary. Evidence is tracked at `qa/verification/P34-shelter-first-metadata.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P33 clears the active exposed-gap map marker whenever route mode, transit mode, or selected transit stop changes, so stale gap evidence cannot remain on a different route context. Evidence is tracked at `qa/verification/P33-exposed-gap-context-reset.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.

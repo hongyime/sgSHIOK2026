@@ -1881,9 +1881,9 @@ export default function Home() {
           <div>
             <h1>S.H.I.O.K. Index</h1>
             <p>Singapore walk-to-transit comfort</p>
-            <p className={styles.dataLine}>Data as of {formatDataDate(manifest)}</p>
+            <p className={styles.dataLine}>Route evidence as of {formatDataDate(manifest)}</p>
             <p className={styles.freshnessLine}>
-              Address universe: frozen v1 from the 2020 SLA-derived postal set; newer completions may be missing.
+              Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape; newer completions may be missing.
             </p>
             {scoreCoverageLine && <p className={styles.coverageLine}>{scoreCoverageLine}</p>}
             <p className={styles.sourceLine}>

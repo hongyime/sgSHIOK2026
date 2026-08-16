@@ -98,3 +98,6 @@ The browser metadata should match the product's settled presentation, not the ea
 
 2026-08-16 - P35 selected exposed-gap map summary:
 Map evidence must be available to non-visual users when it becomes visible evidence. The active exposed-gap marker now contributes a coordinate sentence to the route map's screen-reader summary, matching the visual ring layer added in P32. This is a browser accessibility change only; it does not alter exposure-gap geometry, scoring, exports, inputs, public data, or locked weights.
+
+2026-08-16 - P36 frozen postal-universe copy:
+The title card should not imply that the address universe is current merely because route evidence has a current bundle date. The visible freshness line now says `Route evidence as of ...`, and the address-universe caveat names the frozen v1 source as a June 2020 OneMap-derived postal scrape. This is an honesty-copy change only; it does not alter manifests, inputs, scoring, exports, public data, or locked weights.
