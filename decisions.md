@@ -89,3 +89,6 @@ Exposed gaps should be inspectable as map evidence, not just read as coordinates
 
 2026-08-16 - P32 active exposed-gap map highlight:
 After an exposed gap is selected from the score card, the route map should show which coordinate was selected rather than only panning to it. The browser now derives a transient `active-exposure-gap` point from the selected gap latitude/longitude and renders it as a map ring layer. This is presentation-only map evidence: it does not change the exposure-gap route geometry, source records, scoring, exports, inputs, public data, or locked weights.
+
+2026-08-16 - P33 exposed-gap marker lifecycle:
+The active exposed-gap marker is valid only for the route context that produced it. Changing the displayed route mode, transit mode, or selected transit stop clears the focused exposed gap so the map cannot keep showing a marker from a previous route. This keeps the shelter-evidence interaction honest without changing route geometry, scoring, exports, inputs, public data, or locked weights.

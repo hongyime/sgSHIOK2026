@@ -1733,15 +1733,22 @@ export default function Home() {
     [pathname, primary?.result?.POSTAL, router]
   );
 
+  const handleRouteModeChange = useCallback((mode: RouteDisplayMode) => {
+    setRouteMode(mode);
+    setFocusedExposureGap(null);
+  }, []);
+
   const handleTransitModeChange = useCallback((mode: TransitAccessMode) => {
     setTransitMode(mode);
     setChosenStopId(null);
+    setFocusedExposureGap(null);
   }, []);
 
   const handleStopSelect = useCallback(
     (nextStopId: string | null) => {
       const resolved = nextStopId && nextStopId !== bestCandidateId ? nextStopId : null;
       setChosenStopId(resolved);
+      setFocusedExposureGap(null);
       syncStopUrl(resolved);
     },
     [bestCandidateId, syncStopUrl]
@@ -1944,7 +1951,7 @@ export default function Home() {
             <ScoreCard
               selection={activeSelection}
               routeMode={mapRouteMode}
-              setRouteMode={setRouteMode}
+              setRouteMode={handleRouteModeChange}
               transitMode={transitMode}
               setTransitMode={handleTransitModeChange}
               feedbackEnabled={feedbackEnabled}

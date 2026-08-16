@@ -41,6 +41,8 @@ describe("route evidence map interactions", () => {
     expect(pageSource).toContain("focusedExposureGap");
     expect(pageSource).toContain("onFocusExposureGap={setFocusedExposureGap}");
     expect(pageSource).toContain("onClick={() => onFocusExposureGap(focusTarget)}");
+    expect(pageSource).toContain("const handleRouteModeChange = useCallback((mode: RouteDisplayMode) => {");
+    expect(pageSource).toContain("setRouteMode={handleRouteModeChange}");
     expect(pageSource).toContain("lampOverlayEnabled");
     expect(pageSource).toContain("showLampOverlay={lampOverlayEnabled}");
     expect(pageSource).toContain("Night lighting");
@@ -70,6 +72,24 @@ describe("route evidence map interactions", () => {
     expect(source).toContain("activeExposureGapCollection(focusedExposureGap)");
     expect(source).toContain("coordinates: [focusedExposureGap.lon, focusedExposureGap.lat]");
     expect(source).toContain('setSourceData(map, "active-exposure-gap", activeGapData)');
+  });
+
+  it("clears a focused exposed gap when the selected route context changes", () => {
+    const pageSource = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const routeModeHandler =
+      pageSource.match(/const handleRouteModeChange = useCallback\(\(mode: RouteDisplayMode\) => \{[\s\S]+?\}, \[\]\);/)?.[0] ?? "";
+    const transitModeHandler =
+      pageSource.match(/const handleTransitModeChange = useCallback\(\(mode: TransitAccessMode\) => \{[\s\S]+?\}, \[\]\);/)?.[0] ?? "";
+    const stopSelectHandler =
+      pageSource.match(/const handleStopSelect = useCallback\([\s\S]+?\n  \);/)?.[0] ?? "";
+
+    expect(routeModeHandler).toContain("setRouteMode(mode);");
+    expect(routeModeHandler).toContain("setFocusedExposureGap(null);");
+    expect(transitModeHandler).toContain("setTransitMode(mode);");
+    expect(transitModeHandler).toContain("setChosenStopId(null);");
+    expect(transitModeHandler).toContain("setFocusedExposureGap(null);");
+    expect(stopSelectHandler).toContain("setChosenStopId(resolved);");
+    expect(stopSelectHandler).toContain("setFocusedExposureGap(null);");
   });
 
   it("keeps arbitrary clicked OneMap routes preview-only and resettable", () => {
