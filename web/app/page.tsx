@@ -1075,7 +1075,7 @@ export function ScoreCard({
     score.paths &&
     typeof score.paths.covered_m === "number" &&
     typeof score.paths.shade_m === "number"
-      ? `Score evidence: covered ${formatDistance(score.paths.covered_m)}; greenery proxy ${formatDistance(score.paths.shade_m)}.`
+      ? `Heat proxy evidence: covered ${formatDistance(score.paths.covered_m)}; greenery proxy ${formatDistance(score.paths.shade_m)}.`
       : null;
   const heatMatchesRain =
     score.subscores &&
@@ -1900,7 +1900,7 @@ export default function Home() {
                 ATTRIBUTION.md
               </a>
             </p>
-            <p className={styles.heatLine}>Heat: shelter + NParks shade proxy</p>
+            <p className={styles.heatLine}>Heat proxy: shelter + sparse NParks greenery</p>
             <div className={styles.mapLayerControls} aria-label="Map layers">
               <button
                 type="button"

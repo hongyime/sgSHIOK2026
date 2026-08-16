@@ -37,8 +37,9 @@ describe("score card copy", () => {
     expect(source).toContain("© OpenStreetMap contributors");
     expect(source).toContain("https://opendatacommons.org/licenses/odbl/1-0/");
     expect(source).toContain("ATTRIBUTION.md");
-    expect(source).toContain("Heat: shelter + NParks shade proxy");
+    expect(source).toContain("Heat proxy: shelter + sparse NParks greenery");
     expect(source).toContain("Night lighting");
+    expect(source).not.toContain("Heat: shelter + NParks shade proxy");
     expect(source).not.toContain("Heat: shelter plus NParks shade proxy");
     expect(layoutSource).toContain(
       "Explore covered-walkway exposure gaps, night-lighting evidence, and the secondary locked SHIOK score"
@@ -109,6 +110,7 @@ describe("score card copy", () => {
     expect(source).toContain('label: "Locked SHIOK score"');
     expect(source).toContain("Rain shelter and heat comfort currently share mostly the same covered-walkway evidence.");
     expect(source).toContain("Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first.");
+    expect(source).toContain("Heat proxy evidence: covered ${formatDistance(score.paths.covered_m)}");
     expect(source).toContain("Crossing friction remains a 5% locked term, but has low separation in this release.");
     expect(source).not.toContain('label: "Rain shelter"');
     expect(source).not.toContain('label: "Heat proxy"');

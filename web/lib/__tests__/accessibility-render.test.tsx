@@ -220,7 +220,7 @@ describe("rendered accessibility output", () => {
       "Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first."
     );
     expect(html).toContain("Same displayed value as rain shelter for this postal.");
-    expect(html).toContain("Score evidence: covered 149 m; greenery proxy 23 m.");
+    expect(html).toContain("Heat proxy evidence: covered 149 m; greenery proxy 23 m.");
   });
 
   it("renders exposed gap lengths with coordinates", () => {

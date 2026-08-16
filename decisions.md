@@ -131,3 +131,6 @@ The repository introduction should describe the shipped product promise, not the
 
 2026-08-16 - P46 night-lighting score separation:
 Night lighting is a map evidence layer backed by LTA lamp-post points, not a scoring term and not a mutation of the locked SHIOK score. The browser toggle now has visible and screen-reader-linked copy stating that it is map evidence only and not part of the locked score. This is a browser copy/accessibility change only; it does not alter lamp tiles, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-16 - P47 heat-proxy evidence wording:
+Heat copy should stay weaker than measured thermal or route-level canopy evidence. The title card now says `Heat proxy: shelter + sparse NParks greenery`, and route-detail copy says `Heat proxy evidence` rather than generic score evidence. This keeps the browser aligned with the P5/P23 policy that current heat evidence is covered-walkway dominated with only sparse NParks greenery proxy support. This is browser copy only; it does not alter scoring, shade proxy geometry, exports, inputs, public data, deployment, or locked weights.
