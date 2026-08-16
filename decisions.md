@@ -74,3 +74,6 @@ NParks Leaf Area Index is a species/generic reference table, not route-level geo
 
 2026-08-16 - P27 score availability disclosure:
 The browser title card must disclose score availability from `manifest.provenance.record_count` and `state_counts`, not from hand-maintained copy. The active bundle has 95,157 fully scored records out of 124,443, leaving 29,286 records (23.534%) that are partial, not-yet-scored, or beyond current transit range and therefore do not render a full score. This is a user-facing product limitation disclosure, not a data-corruption signal; it changes only web copy and tests, not scoring, weights, exports, inputs, or public data artifacts.
+
+2026-08-16 - P28 night-lighting layer label:
+The lamp-post overlay remains a raw LTA point layer underneath, but its browser control should be user-facing as `Night lighting`. That aligns the visible map layer with the product story: lamp posts are evidence for night lighting, not a score term and not a raw-data inspection mode. The source/layer ids and `web/public/data/lamp_posts_v1/` artifact contract stay unchanged, so this is a copy-only web change with no scoring, export, input, public-data, or weight movement.

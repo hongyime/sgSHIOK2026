@@ -1859,11 +1859,11 @@ export default function Home() {
                 type="button"
                 className={`${styles.layerToggle} ${lampOverlayEnabled ? styles.layerToggleActive : ""}`}
                 aria-pressed={lampOverlayEnabled}
-                title="Shows lamp posts when zoomed in"
+                title="Shows LTA lamp post locations when zoomed in"
                 onClick={() => setLampOverlayEnabled((enabled) => !enabled)}
               >
                 <span className={styles.lampSwatch} aria-hidden="true" />
-                Lamp posts
+                Night lighting
               </button>
             </div>
           </div>

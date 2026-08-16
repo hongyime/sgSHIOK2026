@@ -35,7 +35,7 @@ describe("score card copy", () => {
     expect(source).toContain("https://opendatacommons.org/licenses/odbl/1-0/");
     expect(source).toContain("ATTRIBUTION.md");
     expect(source).toContain("Heat: shelter + NParks shade proxy");
-    expect(source).toContain("Lamp posts");
+    expect(source).toContain("Night lighting");
     expect(source).not.toContain("Heat: shelter plus NParks shade proxy");
   });
 

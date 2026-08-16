@@ -39,7 +39,8 @@ describe("route evidence map interactions", () => {
     expect(pageSource).toContain("resetCustomStopBtn");
     expect(pageSource).toContain("lampOverlayEnabled");
     expect(pageSource).toContain("showLampOverlay={lampOverlayEnabled}");
-    expect(pageSource).toContain("Lamp posts");
+    expect(pageSource).toContain("Night lighting");
+    expect(pageSource).toContain("Shows LTA lamp post locations when zoomed in");
   });
 
   it("keeps arbitrary clicked OneMap routes preview-only and resettable", () => {
