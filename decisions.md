@@ -122,3 +122,6 @@ The small reason-list chips explain the route evidence that produced or limited 
 
 2026-08-16 - P43 browser smoke visible-text matching:
 Browser smoke `--must-include` checks should match what users can see, even when CSS changes text case or whitespace in `innerText`. The smoke checker now normalizes case and whitespace before comparing required text against the result card and map summary. This is a QA-script robustness change only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-16 - P44 browser smoke route-evidence output names:
+Browser smoke output should use the same route-evidence terminology as the UI. The canonical smoke JSON now includes `route_evidence_panel_loaded` and `route_evidence_panel_excerpt`, while retaining the older `score_panel_loaded` and `score_panel_excerpt` keys as compatibility aliases for existing QA artifacts or scripts. This is a QA-script schema compatibility change only; it does not alter browser rendering, scoring, exports, inputs, public data, deployment, or locked weights.

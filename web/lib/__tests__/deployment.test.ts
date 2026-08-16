@@ -47,6 +47,9 @@ describe("deployment packaging", () => {
     expect(script).toContain("route_mode_selected");
     expect(script).toContain("debug-runs");
     expect(script).toContain("run_manifest.json");
+    expect(script).toContain("route_evidence_panel_loaded");
+    expect(script).toContain("route_evidence_panel_excerpt");
+    expect(script).toContain("score_panel_loaded: routeEvidencePanelLoaded");
     expect(script).toContain("rendered_feature_counts");
     expect(script).toContain("route_rendered_features_present");
     expect(script).toContain("required_text_present");

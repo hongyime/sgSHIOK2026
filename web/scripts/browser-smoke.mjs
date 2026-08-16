@@ -598,8 +598,10 @@ function collectChecks(summary, mapState, cdp, postal, inputMode, expectedState,
     if (status === 404 && url.includes("/data/") && url.includes(".json.gz")) return false;
     return status >= 400 && /\/(api|data|_next)\//.test(url);
   }).length;
+  const routeEvidencePanelLoaded = summary.cardText.includes(`Postal ${postal}`);
   const checks = {
-    score_panel_loaded: summary.cardText.includes(`Postal ${postal}`),
+    route_evidence_panel_loaded: routeEvidencePanelLoaded,
+    score_panel_loaded: routeEvidencePanelLoaded,
     pending_badge_absent: !summary.cardText
       .split("\n")
       .some((line) => line.trim().toLowerCase() === "pending"),
@@ -700,6 +702,7 @@ async function runPostalCase(cdp, args, postal, outputDir, shotBase) {
     args.routeMode,
     args.mustInclude
   );
+  const routeEvidencePanelExcerpt = summary.cardText.split("\n").slice(0, 32);
   return {
     postal,
     input_mode: args.inputMode,
@@ -708,7 +711,8 @@ async function runPostalCase(cdp, args, postal, outputDir, shotBase) {
     route_mode: args.routeMode,
     must_include: args.mustInclude,
     screenshots,
-    score_panel_excerpt: summary.cardText.split("\n").slice(0, 32),
+    route_evidence_panel_excerpt: routeEvidencePanelExcerpt,
+    score_panel_excerpt: routeEvidencePanelExcerpt,
     map_label: summary.mapLabel,
     map_summary: summary.mapSummary,
     active_transit_mode: summary.activeTransitMode,
