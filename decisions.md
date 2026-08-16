@@ -125,3 +125,6 @@ Browser smoke `--must-include` checks should match what users can see, even when
 
 2026-08-16 - P44 browser smoke route-evidence output names:
 Browser smoke output should use the same route-evidence terminology as the UI. The canonical smoke JSON now includes `route_evidence_panel_loaded` and `route_evidence_panel_excerpt`, while retaining the older `score_panel_loaded` and `score_panel_excerpt` keys as compatibility aliases for existing QA artifacts or scripts. This is a QA-script schema compatibility change only; it does not alter browser rendering, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-16 - P45 README shelter-first framing:
+The repository introduction should describe the shipped product promise, not the pre-P18 five-term comfort-score framing. The README now leads with the user's question, the covered-walkway ratio, exposed gaps on real routed paths, night-lighting evidence, and the locked SHIOK score as secondary. This is documentation only; it does not alter browser rendering, scoring, exports, inputs, public data, deployment, or locked weights.
