@@ -119,3 +119,6 @@ The browser smoke launch check must query the result card by the same accessible
 
 2026-08-16 - P42 route evidence reasons label:
 The small reason-list chips explain the route evidence that produced or limited the selected result, while the separate breakdown section owns the locked score. The reason-list accessible label is now `Route evidence reasons` instead of `Score reasons`; `Score breakdown` remains unchanged for the locked-score section. This is a browser accessibility-copy change only; it does not alter scoring, exports, inputs, public data, or locked weights.
+
+2026-08-16 - P43 browser smoke visible-text matching:
+Browser smoke `--must-include` checks should match what users can see, even when CSS changes text case or whitespace in `innerText`. The smoke checker now normalizes case and whitespace before comparing required text against the result card and map summary. This is a QA-script robustness change only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

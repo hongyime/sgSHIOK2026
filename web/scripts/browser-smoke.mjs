@@ -555,6 +555,15 @@ async function collectPageSummary(cdp) {
   return result.result.value;
 }
 
+function normalizeSmokeText(value) {
+  return String(value || "").replace(/\s+/g, " ").trim().toLocaleLowerCase("en-SG");
+}
+
+function includesSmokeText(haystack, needle) {
+  const normalizedNeedle = normalizeSmokeText(needle);
+  return normalizedNeedle.length === 0 || normalizeSmokeText(haystack).includes(normalizedNeedle);
+}
+
 function collectChecks(summary, mapState, cdp, postal, inputMode, expectedState, transitMode, routeMode, mustInclude) {
   const hasScore = summary.cardText.includes("/100");
   const hasNoTransit =
@@ -608,7 +617,9 @@ function collectChecks(summary, mapState, cdp, postal, inputMode, expectedState,
       routeMode === "shiokest" ||
       summary.activeRouteMode === ROUTE_MODE_LABELS[routeMode] ||
       hasSameRouteNote,
-    required_text_present: mustInclude.every((text) => summary.cardText.includes(text) || summary.mapSummary.includes(text)),
+    required_text_present: mustInclude.every(
+      (text) => includesSmokeText(summary.cardText, text) || includesSmokeText(summary.mapSummary, text)
+    ),
     no_uncaught_page_errors: pageErrorCount === 0,
     route_network_ok: routeNetworkFailures === 0,
   };

@@ -50,6 +50,8 @@ describe("deployment packaging", () => {
     expect(script).toContain("rendered_feature_counts");
     expect(script).toContain("route_rendered_features_present");
     expect(script).toContain("required_text_present");
+    expect(script).toContain("normalizeSmokeText");
+    expect(script).toContain("includesSmokeText(summary.cardText, text)");
     expect(script).toContain("pending_badge_absent");
     expect(script).toContain("not_yet_copy_distinct_from_no_transit");
     expect(script).toContain("Transit beyond scoring range");
