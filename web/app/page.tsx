@@ -1434,6 +1434,7 @@ export default function Home() {
   const [transitMode, setTransitMode] = useState<TransitAccessMode>("best_transit");
   const [routeMode, setRouteMode] = useState<RouteDisplayMode>("shiokest");
   const [feedbackEnabled, setFeedbackEnabled] = useState(false);
+  const [lampOverlayEnabled, setLampOverlayEnabled] = useState(false);
   const [feedbackPoints, setFeedbackPoints] = useState<FeedbackPoint[]>([]);
   const [feedbackSegmentLabels, setFeedbackSegmentLabels] = useState<FeedbackSegmentLabel[]>([]);
   const [feedbackNote, setFeedbackNote] = useState("");
@@ -1822,6 +1823,7 @@ export default function Home() {
         onFeedbackPoint={addFeedbackPoint}
         onSelectTransitStop={handleStopSelect}
         chosenStopId={chosenStopId ?? bestCandidateId}
+        showLampOverlay={lampOverlayEnabled}
       />
 
       <section className={styles.searchOverlay} aria-label="Address search" aria-busy={loading}>
@@ -1848,6 +1850,18 @@ export default function Home() {
               </a>
             </p>
             <p className={styles.heatLine}>Heat: shelter + NParks shade proxy</p>
+            <div className={styles.mapLayerControls} aria-label="Map layers">
+              <button
+                type="button"
+                className={`${styles.layerToggle} ${lampOverlayEnabled ? styles.layerToggleActive : ""}`}
+                aria-pressed={lampOverlayEnabled}
+                title="Shows lamp posts when zoomed in"
+                onClick={() => setLampOverlayEnabled((enabled) => !enabled)}
+              >
+                <span className={styles.lampSwatch} aria-hidden="true" />
+                Lamp posts
+              </button>
+            </div>
           </div>
         </div>
 

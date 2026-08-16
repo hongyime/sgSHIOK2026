@@ -2,7 +2,7 @@
 
 Date: 2026-08-16
 
-Task: P21 lamp overlay artifact builder.
+Task: P22 lamp overlay browser layer.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
@@ -10,6 +10,10 @@ Remote main: `9de78ff` at task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P22 added an optional browser map layer for lamp posts, backed by viewport-loaded H3-r8 JSON tiles.
+- P22 local public artifact is under `web/public/data/lamp_posts_v1/`: 701 files, 3,146,697 bytes, 700 H3-r8 tiles, 126,144 lamp points, 0 skipped features, manifest sha256 `3e28d94c90cfdd03a72d26cc0cf9a3a4f37657e650b6ae94d8de2505124a9512`. The directory is gitignored public data and must be deployed from the local working copy if the owner chooses to publish it.
+- P22 evidence is tracked at `qa/verification/P22-lamp-map-layer.md`.
+- P22 web verification passed: 109 tests across 22 files, direct TypeScript check exit 0, and Next production build exit 0.
 - P21 added a deterministic lamp overlay artifact builder at `pipeline/lamp_overlay.py`, exposed as `run.py lamp-overlay`.
 - P21 local preview artifact is under `qa/p21/lamp_overlay_h3r8_preview/`: 701 files, 3,146,697 bytes, 700 H3-r8 tiles, 126,144 lamp points, 0 skipped features. This is measurement output only and is not a public bundle.
 - Current browser bundle `web/public/data/generated_20260805_prefer_scored_routed/` still has no lamp layer; publishing the overlay needs an owner-approved new `web/public/data` artifact and web map toggle.

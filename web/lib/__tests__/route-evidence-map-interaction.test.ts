@@ -20,6 +20,10 @@ describe("route evidence map interactions", () => {
     expect(source).toContain('minzoom: 9.8');
     expect(source).toContain('minzoom: 11.5');
     expect(source).toContain('TRANSIT_POI_HOT_PINK');
+    expect(source).toContain('"lamp-posts"');
+    expect(source).toContain('id: "lamp-post-dots"');
+    expect(source).toContain("LAMP_OVERLAY_MIN_ZOOM");
+    expect(source).toContain('setSourceData(map, "lamp-posts", lampData)');
   });
 
   it("pre-fetches manifest on mount and wires interactive click-to-route in page.tsx", () => {
@@ -33,6 +37,9 @@ describe("route evidence map interactions", () => {
     expect(pageSource).toContain("isCustomStopSelected");
     expect(pageSource).toContain("onResetChosenStop");
     expect(pageSource).toContain("resetCustomStopBtn");
+    expect(pageSource).toContain("lampOverlayEnabled");
+    expect(pageSource).toContain("showLampOverlay={lampOverlayEnabled}");
+    expect(pageSource).toContain("Lamp posts");
   });
 
   it("keeps arbitrary clicked OneMap routes preview-only and resettable", () => {

@@ -5,6 +5,15 @@ import type * as maplibregl from "maplibre-gl";
 import type { StyleSpecification } from "maplibre-gl";
 import { postalGeomToRouteGeoJson } from "../lib/route-geojson";
 import localGlyphProtocol from "../lib/local-glyph-protocol";
+import {
+  fetchLampOverlayManifest,
+  fetchLampTiles,
+  lampTilesToFeatureCollection,
+  tilesForBounds,
+  type LampBounds,
+  type LampOverlayManifest,
+  type LampTilePayload,
+} from "../lib/lamp-overlay";
 import { cleanTransitPoiProperties, transitPoiPopupHtml } from "../lib/transit-popup";
 import type { LineStringFeatureCollection, LineStringFeature, LngLat } from "../lib/route-geojson";
 import type { PostalGeom, TransitPoiCollection } from "../lib/types";
@@ -115,6 +124,7 @@ const SHELTER_SOURCE_COLOR = [
 ] as unknown as maplibregl.ExpressionSpecification;
 
 const SOURCE_IDS = [
+  "lamp-posts",
   "transit-pois",
   "shortest-route",
   "shiokest-route",
@@ -125,6 +135,8 @@ const SOURCE_IDS = [
 ] as const;
 const EMPTY_TRANSIT_POIS: TransitPoiCollection = { type: "FeatureCollection", features: [] };
 const TRANSIT_POI_HOT_PINK = "#ff2d75";
+const LAMP_OVERLAY_MIN_ZOOM = 13;
+const LAMP_LAYER_IDS = ["lamp-post-dots"] as const;
 const TRANSIT_POI_LAYER_IDS = [
   "mrt-station-halo",
   "mrt-station-dot",
@@ -161,6 +173,10 @@ const FEEDBACK_LAYER_IDS = [
 ] as const;
 
 function emptyCollection(): MapFeatureCollection {
+  return { type: "FeatureCollection", features: [] };
+}
+
+function emptyPointCollection(): PointFeatureCollection {
   return { type: "FeatureCollection", features: [] };
 }
 
@@ -268,6 +284,28 @@ function raiseInteractivePointLayers(map: maplibregl.Map) {
   for (const layerId of FEEDBACK_LAYER_IDS) moveLayerToTop(map, layerId);
 }
 
+function setLayerVisibility(
+  map: maplibregl.Map,
+  layerIds: readonly string[],
+  visible: boolean
+) {
+  for (const layerId of layerIds) {
+    if (map.getLayer(layerId)) {
+      map.setLayoutProperty(layerId, "visibility", visible ? "visible" : "none");
+    }
+  }
+}
+
+function mapLampBounds(map: maplibregl.Map): LampBounds {
+  const bounds = map.getBounds();
+  return {
+    west: bounds.getWest(),
+    south: bounds.getSouth(),
+    east: bounds.getEast(),
+    north: bounds.getNorth(),
+  };
+}
+
 function ensureRouteLayers(map: maplibregl.Map) {
   for (const id of SOURCE_IDS) {
     if (!map.getSource(id)) {
@@ -276,6 +314,26 @@ function ensureRouteLayers(map: maplibregl.Map) {
         data: emptyCollection(),
       });
     }
+  }
+
+  if (!map.getLayer("lamp-post-dots")) {
+    map.addLayer({
+      id: "lamp-post-dots",
+      type: "circle",
+      source: "lamp-posts",
+      minzoom: LAMP_OVERLAY_MIN_ZOOM,
+      layout: {
+        visibility: "none",
+      },
+      paint: {
+        "circle-color": "#eab308",
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 13, 1.25, 17, 3.2],
+        "circle-opacity": ["interpolate", ["linear"], ["zoom"], 13, 0.42, 17, 0.72],
+        "circle-stroke-color": "#2c2410",
+        "circle-stroke-opacity": 0.22,
+        "circle-stroke-width": 0.45,
+      },
+    });
   }
 
   if (!map.getLayer("mrt-station-halo")) {
@@ -931,6 +989,7 @@ export function RouteEvidenceMap({
   onFeedbackPoint,
   onSelectTransitStop,
   chosenStopId = null,
+  showLampOverlay = false,
 }: {
   routes: RouteMapItem[];
   mode: RouteDisplayMode;
@@ -942,11 +1001,16 @@ export function RouteEvidenceMap({
   onSelectTransitStop?: (stopId: string) => void;
   /** POI id of the currently highlighted stop; enables the active ring layer. */
   chosenStopId?: string | null;
+  showLampOverlay?: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const lastFitKeyRef = useRef<string>("");
+  const lampManifestRef = useRef<LampOverlayManifest | null | undefined>(undefined);
+  const lampTileCacheRef = useRef<Map<string, LampTilePayload | null>>(new Map());
+  const lampRequestIdRef = useRef(0);
   const [loaded, setLoaded] = useState(false);
+  const [lampData, setLampData] = useState<PointFeatureCollection>(emptyPointCollection);
   const routeData = useMemo(() => routeCollections(routes, mode), [routes, mode]);
   const routeFitKey = useMemo(
     () =>
@@ -983,10 +1047,11 @@ export function RouteEvidenceMap({
         shiokest: routeData.shiokest.features.length,
         exposure: routeData.exposure.features.length,
         transit: routeData.transit.features.length,
+        lamp: lampData.features.length,
       },
       summary: accessibleSummary,
     };
-  }, [accessibleSummary, mode, routeData, routes.length]);
+  }, [accessibleSummary, lampData.features.length, mode, routeData, routes.length]);
 
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return;
@@ -1052,6 +1117,7 @@ export function RouteEvidenceMap({
     setSourceData(map, "transit-pois", transitPoiData);
     setSourceData(map, "feedback-route", feedbackData.route);
     setSourceData(map, "feedback-points", feedbackData.points);
+    setSourceData(map, "lamp-posts", lampData);
 
     if (
       typeof window !== "undefined" &&
@@ -1064,10 +1130,74 @@ export function RouteEvidenceMap({
           shortest: routeData.shortest.features.length,
           shiokest: routeData.shiokest.features.length,
           exposure: routeData.exposure.features.length,
+          lamp: lampData.features.length,
         },
       });
     }
-  }, [loaded, routeData, transitPoiData, feedbackData, mode, routes.length]);
+  }, [loaded, routeData, transitPoiData, feedbackData, lampData, mode, routes.length]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !loaded) return;
+
+    let active = true;
+    const updateLampOverlay = () => {
+      const visible = showLampOverlay && map.getZoom() >= LAMP_OVERLAY_MIN_ZOOM;
+      setLayerVisibility(map, LAMP_LAYER_IDS, visible);
+      if (!visible) {
+        lampRequestIdRef.current += 1;
+        setLampData(emptyPointCollection());
+        return;
+      }
+
+      const requestId = lampRequestIdRef.current + 1;
+      lampRequestIdRef.current = requestId;
+      void (async () => {
+        let manifest = lampManifestRef.current;
+        if (manifest === undefined) {
+          manifest = await fetchLampOverlayManifest();
+          lampManifestRef.current = manifest;
+        }
+        if (!active || requestId !== lampRequestIdRef.current) return;
+        if (!manifest) {
+          setLampData(emptyPointCollection());
+          return;
+        }
+
+        const tiles = tilesForBounds(manifest, mapLampBounds(map));
+        const missingTiles = tiles.filter((tile) => !lampTileCacheRef.current.has(tile.cell));
+        if (missingTiles.length > 0) {
+          const loadedTiles = await fetchLampTiles(missingTiles);
+          if (!active || requestId !== lampRequestIdRef.current) return;
+          for (const tile of loadedTiles) {
+            lampTileCacheRef.current.set(tile.cell, tile);
+          }
+          for (const tile of missingTiles) {
+            if (!lampTileCacheRef.current.has(tile.cell)) {
+              lampTileCacheRef.current.set(tile.cell, null);
+            }
+          }
+        }
+
+        const visibleTiles = tiles
+          .map((tile) => lampTileCacheRef.current.get(tile.cell))
+          .filter((tile): tile is LampTilePayload => tile !== null && tile !== undefined);
+        setLampData(lampTilesToFeatureCollection(visibleTiles));
+      })().catch(() => {
+        if (active) setLampData(emptyPointCollection());
+      });
+    };
+
+    updateLampOverlay();
+    map.on("moveend", updateLampOverlay);
+    map.on("zoomend", updateLampOverlay);
+    return () => {
+      active = false;
+      lampRequestIdRef.current += 1;
+      map.off("moveend", updateLampOverlay);
+      map.off("zoomend", updateLampOverlay);
+    };
+  }, [loaded, showLampOverlay]);
 
   useEffect(() => {
     const map = mapRef.current;

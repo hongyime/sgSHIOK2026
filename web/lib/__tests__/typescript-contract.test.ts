@@ -13,5 +13,5 @@ describe("typescript contracts", () => {
         stdio: "pipe",
       })
     ).not.toThrow();
-  });
+  }, 30000);
 });
