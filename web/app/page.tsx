@@ -143,7 +143,7 @@ export function scoreCardAnnouncement({
   previewRoute?: boolean;
   routeMode: RouteDisplayMode;
 }): string {
-  if (!selection) return "No score selected.";
+  if (!selection) return "No route evidence selected.";
   const postal = postalTitle(selection);
   if (!selection.score) return `${postal} is not in the current score bundle.`;
   const scoreText = displayScore === null || displayScore === undefined
@@ -153,8 +153,8 @@ export function scoreCardAnnouncement({
     ? previewRoute
       ? "Preview route evidence selected."
       : "Custom stop selected."
-    : "Scored route selected.";
-  return `${postal} score panel loaded. ${stationName ?? "Transit target loaded"}. Score ${scoreText}. ${stopText} Route display ${routeMode}; ${selectedRouteLabel ?? "route"} active.`;
+    : "Published route selected.";
+  return `${postal} route evidence panel loaded. ${stationName ?? "Transit target loaded"}. Score ${scoreText}. ${stopText} Route display ${routeMode}; ${selectedRouteLabel ?? "route"} active.`;
 }
 
 export function rankAnnouncement({
@@ -975,7 +975,7 @@ export function ScoreCard({
 
   if (!selection) {
     return (
-      <section className={styles.scoreCard} aria-label="Score panel">
+      <section className={styles.scoreCard} aria-label="Route evidence panel">
         <p className={styles.srOnly} role="status" aria-live="polite">
           {scoreCardAnnouncement({ selection, routeMode })}
         </p>
@@ -990,7 +990,7 @@ export function ScoreCard({
   const { score } = selection;
   if (!score) {
     return (
-      <section className={styles.scoreCard} aria-label="Score panel">
+      <section className={styles.scoreCard} aria-label="Route evidence panel">
         <p className={styles.srOnly} role="status" aria-live="polite">
           {scoreCardAnnouncement({ selection, routeMode })}
         </p>
@@ -1143,7 +1143,7 @@ export function ScoreCard({
     : [];
 
   return (
-    <section className={styles.scoreCard} aria-label="Score panel">
+    <section className={styles.scoreCard} aria-label="Route evidence panel">
       <p className={styles.srOnly} role="status" aria-live="polite">
         {scoreStatus}
       </p>

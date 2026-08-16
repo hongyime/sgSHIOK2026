@@ -140,7 +140,11 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("Find a postal code");
+    expect(html).toContain('aria-label="Route evidence panel"');
+    expect(html).toContain("No route evidence selected.");
     expect(html).toContain("Search a Singapore postal code to inspect sheltered walk evidence to transit.");
+    expect(html).not.toContain('aria-label="Score panel"');
+    expect(html).not.toContain("No score selected.");
     expect(html).not.toContain("Search any Singapore address to see its walk-to-transit comfort score.");
   });
 
@@ -153,11 +157,14 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain('role="status"');
-    expect(html).toContain("Postal 560231 score panel loaded.");
+    expect(html).toContain("Postal 560231 route evidence panel loaded.");
     expect(html).toContain("Custom stop selected.");
     expect(html).toContain("Route display shortest");
     expect(html).toContain('aria-busy="true"');
     expect(html).toContain("Loading Overall SHIOK ranks.");
+    expect(html).toContain('aria-label="Route evidence panel"');
+    expect(html).not.toContain("Postal 560231 score panel loaded.");
+    expect(html).not.toContain('aria-label="Score panel"');
   });
 
   it("explains when a searched postal has no published route evidence", () => {

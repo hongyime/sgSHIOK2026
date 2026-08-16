@@ -2,14 +2,15 @@
 
 Date: 2026-08-16
 
-Task: P39 empty score-panel route evidence copy is implemented and ready to hand back.
+Task: P40 route evidence panel accessibility copy is implemented and ready to hand back.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `e5f83b5` at P39 task start.
+Remote main: `6b1816d` at P40 task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P40 updates score-panel accessible region/status copy to route-evidence wording while keeping the locked score announced when present. Evidence is tracked at `qa/verification/P40-route-evidence-panel-a11y.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P39 updates the score-panel empty state from generic comfort-score copy to sheltered route-evidence copy. Evidence is tracked at `qa/verification/P39-empty-score-panel-copy.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P38 aligns the title-card subtitle with the settled shelter-first framing, changing the old generic `Singapore walk-to-transit comfort` copy to `Shelter-first walks to transit`. Evidence is tracked at `qa/verification/P38-shelter-first-title-card.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P37 changes the no-score detail card to say no route evidence is published for that postal in the frozen June 2020 address universe, instead of only `Not yet scored`. Evidence is tracked at `qa/verification/P37-missing-postal-score-copy.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
