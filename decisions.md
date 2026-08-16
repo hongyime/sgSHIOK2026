@@ -116,3 +116,6 @@ The result card's accessible region and live status should name route evidence f
 
 2026-08-16 - P41 browser smoke route evidence selector:
 The browser smoke launch check must query the result card by the same accessible label the UI now exposes. Its card selector now targets `Route evidence panel` instead of the obsolete `Score panel`, with a packaging test pinning the selector. This is a QA-script compatibility change only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-16 - P42 route evidence reasons label:
+The small reason-list chips explain the route evidence that produced or limited the selected result, while the separate breakdown section owns the locked score. The reason-list accessible label is now `Route evidence reasons` instead of `Score reasons`; `Score breakdown` remains unchanged for the locked-score section. This is a browser accessibility-copy change only; it does not alter scoring, exports, inputs, public data, or locked weights.

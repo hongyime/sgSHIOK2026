@@ -1254,7 +1254,7 @@ export function ScoreCard({
         </div>
       )}
 
-      <div className={styles.reasonList} aria-label="Score reasons">
+      <div className={styles.reasonList} aria-label="Route evidence reasons">
         {reasons.map((reason) => (
           <span key={reason}>{reason}</span>
         ))}

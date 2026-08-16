@@ -206,6 +206,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("142 m is the longest exposed gap.");
     expect(html).toContain("Route evidence and locked score");
     expect(html).toContain("Four display rows; weights unchanged");
+    expect(html).toContain('aria-label="Route evidence reasons"');
+    expect(html).not.toContain('aria-label="Score reasons"');
     expect(html).toContain("Shelter exposure");
     expect(html).toContain("Walk to transit");
     expect(html).toContain("Bus service support");
