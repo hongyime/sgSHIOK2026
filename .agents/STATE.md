@@ -2,14 +2,15 @@
 
 Date: 2026-08-16
 
-Task: P33 exposed-gap route-context reset is implemented and ready to hand back.
+Task: P34 shelter-first metadata is implemented and ready to hand back.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `817bbb2` at P33 task start.
+Remote main: `51bbc7d` at P34 task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P34 updates the document metadata description so discoverability copy leads with covered-walkway exposure gaps and night-lighting evidence, with the locked score secondary. Evidence is tracked at `qa/verification/P34-shelter-first-metadata.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P33 clears the active exposed-gap map marker whenever route mode, transit mode, or selected transit stop changes, so stale gap evidence cannot remain on a different route context. Evidence is tracked at `qa/verification/P33-exposed-gap-context-reset.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P32 adds a transient `active-exposure-gap` map source and ring layer for the selected exposed gap after the score card focuses the map. Evidence is tracked at `qa/verification/P32-active-gap-map-highlight.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P31 makes top exposed gaps with coordinates keyboard-accessible controls that center the route map on the selected gap. Evidence is tracked at `qa/verification/P31-exposed-gap-map-focus.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.

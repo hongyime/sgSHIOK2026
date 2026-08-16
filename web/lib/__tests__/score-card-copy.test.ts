@@ -23,6 +23,7 @@ describe("score card copy", () => {
 
   it("puts data freshness and heat proxy copy in the title card", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const layoutSource = readFileSync(join(__dirname, "../../app/layout.tsx"), "utf-8");
 
     expect(source).toContain("Data as of {formatDataDate(manifest)}");
     expect(source).toContain(
@@ -37,6 +38,10 @@ describe("score card copy", () => {
     expect(source).toContain("Heat: shelter + NParks shade proxy");
     expect(source).toContain("Night lighting");
     expect(source).not.toContain("Heat: shelter plus NParks shade proxy");
+    expect(layoutSource).toContain(
+      "Explore covered-walkway exposure gaps, night-lighting evidence, and the secondary locked SHIOK score"
+    );
+    expect(layoutSource).not.toContain("measuring rain shelter, provisional heat proxy, crossing friction");
   });
 
   it("does not duplicate the sheltered % across primary and secondary rows", () => {

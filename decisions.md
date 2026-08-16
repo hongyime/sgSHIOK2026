@@ -92,3 +92,6 @@ After an exposed gap is selected from the score card, the route map should show 
 
 2026-08-16 - P33 exposed-gap marker lifecycle:
 The active exposed-gap marker is valid only for the route context that produced it. Changing the displayed route mode, transit mode, or selected transit stop clears the focused exposed gap so the map cannot keep showing a marker from a previous route. This keeps the shelter-evidence interaction honest without changing route geometry, scoring, exports, inputs, public data, or locked weights.
+
+2026-08-16 - P34 shelter-first metadata:
+The browser metadata should match the product's settled presentation, not the earlier five-term composite framing. The page description now leads with covered-walkway exposure gaps and night-lighting evidence, and names the locked SHIOK score as secondary. This changes only discoverability copy; it does not alter UI scoring, exports, inputs, public data, or locked weights.

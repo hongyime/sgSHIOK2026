@@ -4,7 +4,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 export const metadata = {
   title: "S.H.I.O.K. Index",
   description:
-    "An explainable comfort score for source-derived Singapore postal records measuring rain shelter, provisional heat proxy, crossing friction, transit access, and bus frequency.",
+    "Explore covered-walkway exposure gaps, night-lighting evidence, and the secondary locked SHIOK score for Singapore walks to transit.",
 };
 
 export default function RootLayout({
