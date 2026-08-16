@@ -2,14 +2,17 @@
 
 Date: 2026-08-16
 
-Task: P18 section 10 presentation implementation.
+Task: P19 universe gap measurement.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `08d09f2` at task start.
+Remote main: `365fa9f` at task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P19 measured the current-universe gap using public HDB Property Information, OneMap Search, BCA MCST, and Overpass; evidence is tracked at `qa/verification/P19-universe-gap-measurement.md`.
+- P19 result: 8 missing recent-completion rows out of 976 rows with postals (0.8197%), plus 6 current Overpass `addr:postcode` values absent from v1; this does not support an emergency v2 universe rebuild.
+- P19 measurement caches/details are local under `qa/p19/` and are not pipeline inputs.
 - P18 implements the section 10 web presentation change: route exposure leads, exposed gaps show coordinates, the visible breakdown is four display rows, and the locked composite is secondary.
 - P18 evidence is tracked at `qa/verification/P18-section10-presentation.md`.
 - P18 web tests passed at 105 tests across 21 files; the count rose by two render tests.
