@@ -64,6 +64,7 @@ describe("route evidence map interactions", () => {
     const source = readFileSync(join(__dirname, "../../components/route-evidence-map.tsx"), "utf-8");
 
     expect(source).toContain("focusedExposureGap?: FocusedExposureGap | null");
+    expect(source).toContain("mapTextSummary(routes, mode, routeData, transitPoiData, showLampOverlay, lampData, focusedExposureGap)");
     expect(source).toContain("map.easeTo({");
     expect(source).toContain("center: [focusedExposureGap.lon, focusedExposureGap.lat]");
     expect(source).toContain("zoom: Math.max(map.getZoom(), 16.4)");
@@ -72,6 +73,16 @@ describe("route evidence map interactions", () => {
     expect(source).toContain("activeExposureGapCollection(focusedExposureGap)");
     expect(source).toContain("coordinates: [focusedExposureGap.lon, focusedExposureGap.lat]");
     expect(source).toContain('setSourceData(map, "active-exposure-gap", activeGapData)');
+  });
+
+  it("summarizes the selected exposed gap marker for non-visual map users", async () => {
+    const { selectedExposureGapSummary } = await import("../../components/route-evidence-map");
+
+    expect(selectedExposureGapSummary(null)).toBeNull();
+    expect(selectedExposureGapSummary({ key: "bad", lat: Number.NaN, lon: 103.84235 })).toBeNull();
+    expect(selectedExposureGapSummary({ key: "gap-1", lat: 1.371234, lon: 103.842354 })).toBe(
+      "Selected exposed gap marker near 1.37123, 103.84235."
+    );
   });
 
   it("clears a focused exposed gap when the selected route context changes", () => {

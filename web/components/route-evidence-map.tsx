@@ -994,16 +994,29 @@ export function nightLightingSummary(showLampOverlay: boolean, lampCount: number
   return `Night lighting overlay is on with ${lampCount} lamp point${lampCount === 1 ? "" : "s"} in view.`;
 }
 
+export function selectedExposureGapSummary(focusedExposureGap: FocusedExposureGap | null): string | null {
+  if (
+    !focusedExposureGap ||
+    !Number.isFinite(focusedExposureGap.lat) ||
+    !Number.isFinite(focusedExposureGap.lon)
+  ) {
+    return null;
+  }
+  return `Selected exposed gap marker near ${focusedExposureGap.lat.toFixed(5)}, ${focusedExposureGap.lon.toFixed(5)}.`;
+}
+
 function mapTextSummary(
   routes: RouteMapItem[],
   mode: RouteDisplayMode,
   routeData: ReturnType<typeof routeCollections>,
   pois: PointFeatureCollection,
   showLampOverlay: boolean,
-  lampData: PointFeatureCollection
+  lampData: PointFeatureCollection,
+  focusedExposureGap: FocusedExposureGap | null
 ): string {
   const poiText = transitPoiSummary(pois);
   const lampText = nightLightingSummary(showLampOverlay, lampData.features.length);
+  const selectedGapText = selectedExposureGapSummary(focusedExposureGap);
   if (routes.length === 0) {
     return [
       `Singapore map with ${poiText}.`,
@@ -1027,6 +1040,7 @@ function mapTextSummary(
   return [
     `Route evidence for ${routeLabels}.`,
     `Showing ${visibleRoutes}, ${exposed}, and ${poiText}.`,
+    selectedGapText,
     lampText,
   ].filter(Boolean).join(" ");
 }
@@ -1098,8 +1112,8 @@ export function RouteEvidenceMap({
   const feedbackData = useMemo(() => feedbackCollections(feedbackPoints), [feedbackPoints]);
   const accessibleLabel = useMemo(() => mapAriaLabel(routes, mode), [routes, mode]);
   const accessibleSummary = useMemo(
-    () => mapTextSummary(routes, mode, routeData, transitPoiData, showLampOverlay, lampData),
-    [routes, mode, routeData, transitPoiData, showLampOverlay, lampData]
+    () => mapTextSummary(routes, mode, routeData, transitPoiData, showLampOverlay, lampData, focusedExposureGap),
+    [routes, mode, routeData, transitPoiData, showLampOverlay, lampData, focusedExposureGap]
   );
 
   useEffect(() => {

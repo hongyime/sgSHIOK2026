@@ -95,3 +95,6 @@ The active exposed-gap marker is valid only for the route context that produced 
 
 2026-08-16 - P34 shelter-first metadata:
 The browser metadata should match the product's settled presentation, not the earlier five-term composite framing. The page description now leads with covered-walkway exposure gaps and night-lighting evidence, and names the locked SHIOK score as secondary. This changes only discoverability copy; it does not alter UI scoring, exports, inputs, public data, or locked weights.
+
+2026-08-16 - P35 selected exposed-gap map summary:
+Map evidence must be available to non-visual users when it becomes visible evidence. The active exposed-gap marker now contributes a coordinate sentence to the route map's screen-reader summary, matching the visual ring layer added in P32. This is a browser accessibility change only; it does not alter exposure-gap geometry, scoring, exports, inputs, public data, or locked weights.
