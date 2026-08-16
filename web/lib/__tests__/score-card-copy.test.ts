@@ -113,4 +113,14 @@ describe("score card copy", () => {
     expect(weightsYaml).toContain("heat_comfort: 0.15");
     expect(weightsYaml).toContain("crossing_friction: 0.05");
   });
+
+  it("keeps the locked score visually secondary to the shelter evidence", () => {
+    const cssSource = readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8");
+
+    expect(cssSource).toContain(".exposureHero strong");
+    expect(cssSource).toContain("font-size: 17px;");
+    expect(cssSource).toContain(".scoreBadge strong");
+    expect(cssSource).toContain("font-size: 13px;");
+    expect(cssSource).not.toContain(".scoreBadge strong {\n    font-size: 18px;");
+  });
 });
