@@ -133,6 +133,17 @@ describe("rendered accessibility output", () => {
     expect(errorHtml).toContain("Failed to search postal location.");
   });
 
+  it("introduces the score panel as sheltered route evidence before search", () => {
+    const html = renderScoreCard({
+      selection: null,
+      rankingRecords: [],
+    });
+
+    expect(html).toContain("Find a postal code");
+    expect(html).toContain("Search a Singapore postal code to inspect sheltered walk evidence to transit.");
+    expect(html).not.toContain("Search any Singapore address to see its walk-to-transit comfort score.");
+  });
+
   it("renders live status for score card load, route mode, stop selection, and ranks", () => {
     const html = renderScoreCard({
       routeMode: "shortest",

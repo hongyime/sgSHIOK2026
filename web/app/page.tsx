@@ -981,7 +981,7 @@ export function ScoreCard({
         </p>
         <div className={styles.emptyState}>
           <strong>Find a postal code</strong>
-          <span>Search any Singapore address to see its walk-to-transit comfort score.</span>
+          <span>Search a Singapore postal code to inspect sheltered walk evidence to transit.</span>
         </div>
       </section>
     );
