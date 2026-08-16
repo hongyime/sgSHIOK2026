@@ -97,14 +97,11 @@ def score_crossing_friction(num_at_grade_crossings: int, params: dict[str, Any])
 
 def calculate_composite_score(
     subscores: dict[str, float | str], weights: dict[str, float]
-) -> float | str:
+) -> float:
     """
     Calculate exact weighted sum of subscores.
-    If transit_access is NO_TRANSIT_IN_RANGE, composite is NO_TRANSIT_IN_RANGE.
+    Missing or unavailable subscore terms contribute zero under the locked weights.
     """
-    if subscores.get("transit_access") == NO_TRANSIT_IN_RANGE:
-        return NO_TRANSIT_IN_RANGE
-
     total_score = 0.0
     for key, weight in weights.items():
         val = subscores.get(key, 0.0)

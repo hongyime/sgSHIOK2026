@@ -384,7 +384,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     return "Preview only: this clicked stop has route evidence, but it is not an authoritative SHIOK score until the offline scoring pipeline includes it.";
   }
   if (score.state === "SCORED_PARTIAL") {
-    return "Partial score: nearby bus service is counted, but exact walking-route shelter is still pending.";
+    return "Partial score: one or more sub-scores are unavailable; locked weights count missing terms as zero.";
   }
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const reason = provenanceReason(score, transitMode);

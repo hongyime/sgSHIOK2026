@@ -82,7 +82,7 @@ def test_crossing_friction_edge_cases():
     assert score_crossing_friction(10, CROSSING_PARAMS) == 0.0
 
 def test_composite_score_edge_cases():
-    # no MRT within 1,200m -> NO_TRANSIT_IN_RANGE triggers composite NO_TRANSIT_IN_RANGE
+    # no MRT within 1,200m contributes zero access but keeps other evidence
     subscores = {
         'transit_access': NO_TRANSIT_IN_RANGE,
         'bus_connectivity': 50.0,
@@ -90,7 +90,8 @@ def test_composite_score_edge_cases():
         'heat_comfort': 50.0,
         'crossing_friction': 50.0
     }
-    assert calculate_composite_score(subscores, WEIGHTS) == NO_TRANSIT_IN_RANGE
+    # Expected: 0*0.35 + 50*0.20 + 50*0.25 + 50*0.15 + 50*0.05 = 32.5
+    assert abs(calculate_composite_score(subscores, WEIGHTS) - 32.5) < 1e-6
     
     # bus NO_TRANSIT_IN_RANGE does not fail composite if transit is ok, treats as 0
     subscores_bus_fail = {
@@ -102,6 +103,16 @@ def test_composite_score_edge_cases():
     }
     # Expected: 100*0.35 + 0*0.20 + 100*0.25 + 100*0.15 + 100*0.05 = 35 + 0 + 25 + 15 + 5 = 80
     assert abs(calculate_composite_score(subscores_bus_fail, WEIGHTS) - 80.0) < 1e-6
+
+    subscores_pending = {
+        'transit_access': NOT_YET_SCORED,
+        'bus_connectivity': 25.0,
+        'rain_shelter': NOT_YET_SCORED,
+        'heat_comfort': 50.0,
+        'crossing_friction': 100.0
+    }
+    # Expected: 0*0.35 + 25*0.20 + 0*0.25 + 50*0.15 + 100*0.05 = 17.5
+    assert abs(calculate_composite_score(subscores_pending, WEIGHTS) - 17.5) < 1e-6
 
 @given(st.floats(min_value=0.0, max_value=1500.0))
 def test_property_transit_access(dist):

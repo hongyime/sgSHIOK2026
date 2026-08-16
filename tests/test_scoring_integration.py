@@ -426,6 +426,53 @@ def test_record_assembly_scores_real_zero_bus_as_zero_not_partial():
     assert record["total"] == 80.0
 
 
+def test_routed_candidate_beyond_access_range_keeps_partial_score():
+    candidate = CandidateNode(
+        node_type="mrt_lrt_exit",
+        name="FAR MRT STATION Exit 1",
+        station_name="FAR MRT STATION",
+        exit_code="Exit 1",
+        graph_node=(1300.0, 0.0),
+        straight_line_m=1100.0,
+        snap_distance_m=2.0,
+        object_id="999",
+    )
+    route_result = {
+        "routing_type": "sheltered",
+        "length_m": 1300.0,
+        "covered_m": 650.0,
+        "covered_ratio": 0.5,
+        "shortest_length_m": 1300.0,
+        "shortest_covered_ratio": 0.25,
+        "path_edges": [],
+    }
+
+    candidate_score = score_candidate_route(
+        candidate,
+        route_result,
+        PARAMS,
+        WEIGHTS,
+        crossing_count=0,
+        bus_expected_wait_min=8.0,
+        bus_data_available=True,
+    )
+    record = assemble_score_record("123456", [candidate_score], None, {})
+
+    assert candidate_score["subscores"]["access"] is None
+    assert isinstance(candidate_score["total"], float)
+    assert record["state"] == "SCORED_PARTIAL"
+    assert record["total"] == 35.8
+    assert record["subscores"] == {
+        "access": None,
+        "bus": 53.8,
+        "rain": 50.0,
+        "heat": 50.0,
+        "crossing": 100.0,
+    }
+    assert record["route_options"]["mrt_lrt"]["state"] == "SCORED_PARTIAL"
+    assert record["route_options"]["bus"]["state"] == "NO_TRANSIT_IN_RANGE"
+
+
 def test_direct_bus_fallback_scores_partial_without_routed_shelter_geometry():
     candidate = CandidateNode(
         node_type="bus_stop",

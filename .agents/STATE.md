@@ -2,14 +2,16 @@
 
 Date: 2026-08-16
 
-Task: P23 Leaf Area Index provenance cleanup.
+Task: P24 no-transit partial-score semantics.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `9de78ff` at task start.
+Remote main: `fe886e9` at task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P24 changes future scoring semantics only: `NO_TRANSIT_IN_RANGE` and `NOT_YET_SCORED` subscore terms contribute zero under locked weights instead of access short-circuiting the whole composite. Routed records with numeric route evidence and null access publish as `SCORED_PARTIAL`; no-candidate/disconnected/trust-rejected records remain `NO_TRANSIT_IN_RANGE`.
+- P24 evidence is tracked at `qa/verification/P24-no-transit-partial-score.md`. No scoring, export, rescore, subset run, ingest, or network build was run.
 - P22 added an optional browser map layer for lamp posts, backed by viewport-loaded H3-r8 JSON tiles.
 - P22 local public artifact is under `web/public/data/lamp_posts_v1/`: 701 files, 3,146,697 bytes, 700 H3-r8 tiles, 126,144 lamp points, 0 skipped features, manifest sha256 `3e28d94c90cfdd03a72d26cc0cf9a3a4f37657e650b6ae94d8de2505124a9512`. The directory is gitignored public data and must be deployed from the local working copy if the owner chooses to publish it.
 - P22 evidence is tracked at `qa/verification/P22-lamp-map-layer.md`.

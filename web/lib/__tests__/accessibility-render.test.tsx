@@ -214,6 +214,9 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("Shelter exposure");
+    expect(html).toContain(
+      "Partial score: one or more sub-scores are unavailable; locked weights count missing terms as zero."
+    );
     expect(html).toContain("<strong>Not scored</strong><small>No shelter score</small>");
     expect(html).toContain("<strong>Not scored</strong><small>No access score</small>");
     expect(html).toContain("<strong>Not scored</strong><small>No composite score</small>");
