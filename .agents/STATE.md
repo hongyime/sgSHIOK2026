@@ -2,14 +2,15 @@
 
 Date: 2026-08-16
 
-Task: P31 exposed-gap list can focus the map on a selected gap.
+Task: P32 active exposed-gap map highlight is implemented and ready to hand back.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `8eadec4` at P31 task start.
+Remote main: `d952e67` at P32 task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P32 adds a transient `active-exposure-gap` map source and ring layer for the selected exposed gap after the score card focuses the map. Evidence is tracked at `qa/verification/P32-active-gap-map-highlight.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P31 makes top exposed gaps with coordinates keyboard-accessible controls that center the route map on the selected gap. Evidence is tracked at `qa/verification/P31-exposed-gap-map-focus.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P30 adjusts score-card typography so the shelter-evidence headline is larger than the locked composite score badge, matching the shelter-first product rule that the 0-to-100 composite stays secondary. Evidence is tracked at `qa/verification/P30-score-secondary-typography.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P29 adds the night-lighting overlay state and loaded lamp-point count to the route map's screen-reader summary when the layer is enabled. Evidence is tracked at `qa/verification/P29-night-lighting-accessibility.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.

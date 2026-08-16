@@ -65,6 +65,11 @@ describe("route evidence map interactions", () => {
     expect(source).toContain("map.easeTo({");
     expect(source).toContain("center: [focusedExposureGap.lon, focusedExposureGap.lat]");
     expect(source).toContain("zoom: Math.max(map.getZoom(), 16.4)");
+    expect(source).toContain('"active-exposure-gap"');
+    expect(source).toContain('id: "active-exposure-gap-ring"');
+    expect(source).toContain("activeExposureGapCollection(focusedExposureGap)");
+    expect(source).toContain("coordinates: [focusedExposureGap.lon, focusedExposureGap.lat]");
+    expect(source).toContain('setSourceData(map, "active-exposure-gap", activeGapData)');
   });
 
   it("keeps arbitrary clicked OneMap routes preview-only and resettable", () => {

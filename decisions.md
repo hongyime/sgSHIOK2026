@@ -86,3 +86,6 @@ The browser must keep the locked 0-to-100 composite visible but visually seconda
 
 2026-08-16 - P31 exposed-gap map focus:
 Exposed gaps should be inspectable as map evidence, not just read as coordinates. The score card now turns each top exposed gap with coordinates into a keyboard-accessible control that centers the route map on that gap, while preserving the existing gap length/coordinate copy. This is a browser interaction change only; it does not alter route geometry, exposure-gap data, scoring, exports, inputs, public data, or locked weights.
+
+2026-08-16 - P32 active exposed-gap map highlight:
+After an exposed gap is selected from the score card, the route map should show which coordinate was selected rather than only panning to it. The browser now derives a transient `active-exposure-gap` point from the selected gap latitude/longitude and renders it as a map ring layer. This is presentation-only map evidence: it does not change the exposure-gap route geometry, source records, scoring, exports, inputs, public data, or locked weights.

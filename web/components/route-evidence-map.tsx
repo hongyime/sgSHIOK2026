@@ -135,6 +135,7 @@ const SOURCE_IDS = [
   "shortest-route",
   "shiokest-route",
   "exposure-gaps",
+  "active-exposure-gap",
   "transit-node",
   "feedback-route",
   "feedback-points",
@@ -184,6 +185,33 @@ function emptyCollection(): MapFeatureCollection {
 
 function emptyPointCollection(): PointFeatureCollection {
   return { type: "FeatureCollection", features: [] };
+}
+
+function activeExposureGapCollection(focusedExposureGap: FocusedExposureGap | null): PointFeatureCollection {
+  if (
+    !focusedExposureGap ||
+    !Number.isFinite(focusedExposureGap.lat) ||
+    !Number.isFinite(focusedExposureGap.lon)
+  ) {
+    return emptyPointCollection();
+  }
+
+  return {
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [focusedExposureGap.lon, focusedExposureGap.lat],
+        },
+        properties: {
+          kind: "active_exposure_gap",
+          key: focusedExposureGap.key,
+        },
+      },
+    ],
+  };
 }
 
 function transitPoiCollection(pois: TransitPoiCollection): PointFeatureCollection {
@@ -699,6 +727,22 @@ function ensureRouteLayers(map: maplibregl.Map) {
     });
   }
 
+  if (!map.getLayer("active-exposure-gap-ring")) {
+    map.addLayer({
+      id: "active-exposure-gap-ring",
+      type: "circle",
+      source: "active-exposure-gap",
+      paint: {
+        "circle-color": "#c4332b",
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 7, 16, 12, 18, 16],
+        "circle-opacity": 0.2,
+        "circle-stroke-color": "#ffffff",
+        "circle-stroke-opacity": 0.95,
+        "circle-stroke-width": 3,
+      },
+    });
+  }
+
   if (!map.getLayer("transit-node-halo")) {
     map.addLayer({
       id: "transit-node-halo",
@@ -1039,6 +1083,10 @@ export function RouteEvidenceMap({
   const [loaded, setLoaded] = useState(false);
   const [lampData, setLampData] = useState<PointFeatureCollection>(emptyPointCollection);
   const routeData = useMemo(() => routeCollections(routes, mode), [routes, mode]);
+  const activeGapData = useMemo(
+    () => activeExposureGapCollection(focusedExposureGap),
+    [focusedExposureGap?.key, focusedExposureGap?.lat, focusedExposureGap?.lon]
+  );
   const routeFitKey = useMemo(
     () =>
       `${mode}:${routes
@@ -1074,11 +1122,19 @@ export function RouteEvidenceMap({
         shiokest: routeData.shiokest.features.length,
         exposure: routeData.exposure.features.length,
         transit: routeData.transit.features.length,
+        activeGap: activeGapData.features.length,
         lamp: lampData.features.length,
       },
       summary: accessibleSummary,
     };
-  }, [accessibleSummary, lampData.features.length, mode, routeData, routes.length]);
+  }, [
+    accessibleSummary,
+    activeGapData.features.length,
+    lampData.features.length,
+    mode,
+    routeData,
+    routes.length,
+  ]);
 
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return;
@@ -1140,6 +1196,7 @@ export function RouteEvidenceMap({
     setSourceData(map, "shortest-route", routeData.shortest);
     setSourceData(map, "shiokest-route", routeData.shiokest);
     setSourceData(map, "exposure-gaps", routeData.exposure);
+    setSourceData(map, "active-exposure-gap", activeGapData);
     setSourceData(map, "transit-node", routeData.transit);
     setSourceData(map, "transit-pois", transitPoiData);
     setSourceData(map, "feedback-route", feedbackData.route);
@@ -1157,11 +1214,12 @@ export function RouteEvidenceMap({
           shortest: routeData.shortest.features.length,
           shiokest: routeData.shiokest.features.length,
           exposure: routeData.exposure.features.length,
+          activeGap: activeGapData.features.length,
           lamp: lampData.features.length,
         },
       });
     }
-  }, [loaded, routeData, transitPoiData, feedbackData, lampData, mode, routes.length]);
+  }, [loaded, routeData, activeGapData, transitPoiData, feedbackData, lampData, mode, routes.length]);
 
   useEffect(() => {
     const map = mapRef.current;
