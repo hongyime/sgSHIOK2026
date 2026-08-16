@@ -2,14 +2,15 @@
 
 Date: 2026-08-16
 
-Task: P40 route evidence panel accessibility copy is implemented and ready to hand back.
+Task: P41 browser smoke route-evidence selector is implemented and ready to hand back.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `6b1816d` at P40 task start.
+Remote main: `b3609b9` at P41 task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P41 updates the browser smoke script to query `Route evidence panel`, matching the P40 accessible label. Evidence is tracked at `qa/verification/P41-browser-smoke-route-selector.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P40 updates score-panel accessible region/status copy to route-evidence wording while keeping the locked score announced when present. Evidence is tracked at `qa/verification/P40-route-evidence-panel-a11y.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P39 updates the score-panel empty state from generic comfort-score copy to sheltered route-evidence copy. Evidence is tracked at `qa/verification/P39-empty-score-panel-copy.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P38 aligns the title-card subtitle with the settled shelter-first framing, changing the old generic `Singapore walk-to-transit comfort` copy to `Shelter-first walks to transit`. Evidence is tracked at `qa/verification/P38-shelter-first-title-card.md`. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
