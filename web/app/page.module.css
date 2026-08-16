@@ -518,6 +518,38 @@
   color: #20352f;
 }
 
+.exposureHero {
+  margin-top: 10px;
+  border: 1px solid rgba(0, 143, 134, 0.28);
+  border-radius: 8px;
+  padding: 10px;
+  background: #f3faf8;
+}
+
+.exposureHero span {
+  display: block;
+  color: #46615a;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.exposureHero strong {
+  display: block;
+  margin-top: 3px;
+  color: #143a34;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.exposureHero p {
+  margin: 4px 0 0;
+  color: #536860;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
 .summaryGrid {
   margin-top: 10px;
   display: grid;
@@ -888,7 +920,7 @@
 
 .gapItem {
   display: grid;
-  grid-template-columns: 58px 1fr;
+  grid-template-columns: 58px minmax(0, 1fr);
   gap: 6px;
   color: #5d6d67;
   font-size: 11px;
@@ -896,6 +928,13 @@
 
 .gapItem strong {
   color: #c4332b;
+}
+
+.gapCoordinate {
+  grid-column: 2;
+  color: #43564f;
+  font-size: 10px;
+  font-weight: 800;
 }
 
 .pageFooter {

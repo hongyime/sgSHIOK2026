@@ -83,23 +83,22 @@ describe("score card copy", () => {
     expect(source).toContain("const displayScore = score.total;");
   });
 
-  it("shows locked score weights and heat proxy disclosure in the breakdown", () => {
+  it("shows four display rows without changing the locked weights", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
     const weightsYaml = readFileSync(join(__dirname, "../../../pipeline/config/weights.yaml"), "utf-8");
 
-    expect(source).toContain("Locked score breakdown");
-    expect(source).toContain("Composite uses weights.yaml");
-    expect(source).toContain('label: "Transit access"');
-    expect(source).toContain('weight: "35%"');
-    expect(source).toContain('label: "Rain shelter"');
-    expect(source).toContain('weight: "25%"');
-    expect(source).toContain('label: "Bus connectivity"');
-    expect(source).toContain('weight: "20%"');
-    expect(source).toContain('label: "Heat proxy"');
-    expect(source).toContain('weight: "15%"');
-    expect(source).toContain("Derived from covered walk plus sparse NParks greenery proxy; not live weather or measured shade.");
-    expect(source).toContain('label: "Crossing friction"');
-    expect(source).toContain('weight: "5%"');
+    expect(source).toContain("Route evidence and locked score");
+    expect(source).toContain("Four display rows; weights unchanged");
+    expect(source).toContain('label: "Shelter exposure"');
+    expect(source).toContain('label: "Walk to transit"');
+    expect(source).toContain('label: "Bus service support"');
+    expect(source).toContain('label: "Locked SHIOK score"');
+    expect(source).toContain("Rain shelter and heat comfort currently share mostly the same covered-walkway evidence.");
+    expect(source).toContain("Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first.");
+    expect(source).toContain("Crossing friction remains a 5% locked term, but has low separation in this release.");
+    expect(source).not.toContain('label: "Rain shelter"');
+    expect(source).not.toContain('label: "Heat proxy"');
+    expect(source).not.toContain('label: "Crossing friction"');
 
     expect(weightsYaml).toContain("transit_access: 0.35");
     expect(weightsYaml).toContain("bus_connectivity: 0.20");

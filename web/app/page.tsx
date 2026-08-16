@@ -12,6 +12,7 @@ import {
 } from "../lib/data";
 import type {
   Manifest,
+  ExposureGap,
   PostalGeom,
   PostalRouteGeomOption,
   RouteSegment,
@@ -55,23 +56,15 @@ export interface LoadedSelection {
   geom: PostalGeom | null;
 }
 
-const SUBSCORE_DETAILS: Array<{
-  key: keyof Subscores;
+const REASON_SUBSCORE_KEYS: Array<keyof Subscores> = ["rain", "access", "bus", "heat", "crossing"];
+
+interface EvidenceBreakdownRow {
+  id: string;
   label: string;
-  weight: string;
-  note?: string;
-}> = [
-  { key: "rain", label: "Rain shelter", weight: "25%" },
-  { key: "access", label: "Transit access", weight: "35%" },
-  { key: "bus", label: "Bus connectivity", weight: "20%" },
-  {
-    key: "heat",
-    label: "Heat proxy",
-    weight: "15%",
-    note: "Derived from covered walk plus sparse NParks greenery proxy; not live weather or measured shade.",
-  },
-  { key: "crossing", label: "Crossing friction", weight: "5%" },
-];
+  value: string;
+  meta: string;
+  notes: string[];
+}
 
 const TRANSIT_MODE_OPTIONS: Array<{ id: TransitAccessMode; label: string }> = [
   { id: "best_transit", label: "Best transit" },
@@ -270,6 +263,19 @@ function formatDistance(value: number | undefined): string {
 
 function formatPercent(value: number | null): string {
   return typeof value === "number" ? `${value}%` : "Unavailable";
+}
+
+function formatLockedScore(value: number | null | undefined): string {
+  return typeof value === "number" ? `${Math.round(value)}/100` : "Not scored";
+}
+
+function scoredMeta(value: number | null | undefined, scoredText: string, missingText: string): string {
+  return typeof value === "number" ? scoredText : missingText;
+}
+
+function formatGapLocation(gap: ExposureGap): string | null {
+  if (!gap.location) return null;
+  return `${gap.location.lat.toFixed(5)}, ${gap.location.lon.toFixed(5)}`;
 }
 
 /**
@@ -665,7 +671,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
     measuredReasons.push(busFallbackSummary(busFallback));
   }
 
-  const values = SUBSCORE_DETAILS.map(({ key }) => ({
+  const values = REASON_SUBSCORE_KEYS.map((key) => ({
     key,
     value: score.subscores?.[key] ?? 0,
   })).sort((a, b) => a.value - b.value);
@@ -1066,6 +1072,58 @@ export function ScoreCard({
   if (endpointSnapM > 0) {
     routeDetailItems.push({ label: "Map connector", value: formatDistance(endpointSnapM) });
   }
+  const longestGap = exposureGaps[0] ?? null;
+  const longestGapText = longestGap
+    ? `${formatDistance(longestGap.len_m)} is the longest exposed gap.`
+    : "No exposed gaps are recorded for this selected route.";
+  const selectedWalkLabel = previewRoute ? "preview walk" : "selected walk";
+  const evidenceRows: EvidenceBreakdownRow[] = score.subscores
+    ? [
+        {
+          id: "shelter",
+          label: "Shelter exposure",
+          value: score.paths ? formatPercent(selectedCoverage) : formatScore(null),
+          meta: score.paths
+            ? "Covered-walkway ratio"
+            : scoredMeta(score.subscores.rain ?? score.subscores.heat, "40% locked rain+heat", "No shelter score"),
+          notes: [
+            "Rain shelter and heat comfort currently share mostly the same covered-walkway evidence.",
+            "Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first.",
+            heatMatchesRain,
+            heatEvidenceDetail,
+          ].filter((note): note is string => Boolean(note)),
+        },
+        {
+          id: "access",
+          label: "Walk to transit",
+          value: score.paths ? formatDistance(selectedDistance) : formatScore(score.subscores.access),
+          meta: scoredMeta(score.subscores.access, "35% locked access", "No access score"),
+          notes: [`Selected route distance to ${transitModeLabel(transitMode)}.`],
+        },
+        {
+          id: "bus",
+          label: "Bus service support",
+          value: formatScore(score.subscores.bus),
+          meta: scoredMeta(score.subscores.bus, "20% locked bus", "No bus score"),
+          notes: [
+            "A low value can mean weak service evidence, or that routing could not prove a trusted walk to a DataMall bus stop.",
+            busFallback
+              ? `${busFallbackSummary(busFallback)} Walking network access was not verified, so this sub-score remains 0.`
+              : null,
+          ].filter((note): note is string => Boolean(note)),
+        },
+        {
+          id: "locked-score",
+          label: "Locked SHIOK score",
+          value: formatLockedScore(displayScore),
+          meta: scoredMeta(displayScore, "Release sorting index", "No composite score"),
+          notes: [
+            "Use this locked composite to sort the current bundle, then inspect the shelter trace and exposed gaps.",
+            "Crossing friction remains a 5% locked term, but has low separation in this release.",
+          ],
+        },
+      ]
+    : [];
 
   return (
     <section className={styles.scoreCard} aria-label="Score panel">
@@ -1133,6 +1191,14 @@ export function ScoreCard({
       <TransitModeControl score={score} mode={transitMode} setMode={setTransitMode} />
 
       {score.paths && (
+        <div className={styles.exposureHero} aria-label="Route shelter evidence">
+          <span>Where the walk is exposed</span>
+          <strong>{formatPercent(selectedCoverage)} of the {selectedWalkLabel} is covered.</strong>
+          <p>{longestGapText}</p>
+        </div>
+      )}
+
+      {score.paths && (
         <InlineRouteLegend
           sameRoute={sameRoute}
           directBusFallback={directBusFallback}
@@ -1181,43 +1247,24 @@ export function ScoreCard({
       {score.subscores && (
         <div className={styles.scoreBreakdown} aria-label="Score breakdown">
           <div className={styles.scoreBreakdownHeader}>
-            <strong>Locked score breakdown</strong>
-            <span>Composite uses weights.yaml</span>
+            <strong>Route evidence and locked score</strong>
+            <span>Four display rows; weights unchanged</span>
           </div>
           <div className={styles.subscoreList}>
-          {SUBSCORE_DETAILS.map(({ key, label, weight, note }) => {
-            const value = score.subscores?.[key] ?? null;
-            const heatNotes: string[] =
-              key === "heat"
-                ? [heatMatchesRain, heatEvidenceDetail].filter((heatNote): heatNote is string =>
-                    Boolean(heatNote)
-                  )
-                : [];
-            const busNotes: string[] =
-              key === "bus" && busFallback
-                ? [
-                    `${busFallbackSummary(busFallback)} Walking network access was not verified, so this sub-score remains 0.`,
-                  ]
-                : [];
-            return (
-              <div key={key} className={styles.subscoreRow}>
+          {evidenceRows.map((row) => (
+              <div key={row.id} className={styles.subscoreRow}>
                 <div>
-                  <span>{label}</span>
-                  {note && <em>{note}</em>}
-                  {heatNotes.map((heatNote) => (
-                    <em key={heatNote}>{heatNote}</em>
-                  ))}
-                  {busNotes.map((busNote) => (
-                    <em key={busNote}>{busNote}</em>
+                  <span>{row.label}</span>
+                  {row.notes.map((note) => (
+                    <em key={note}>{note}</em>
                   ))}
                 </div>
                 <div className={styles.subscoreMeta}>
-                  <strong>{formatScore(value)}</strong>
-                  <small>{weight}</small>
+                  <strong>{row.value}</strong>
+                  <small>{row.meta}</small>
                 </div>
               </div>
-            );
-          })}
+          ))}
           </div>
         </div>
       )}
@@ -1353,12 +1400,16 @@ export function ScoreCard({
       {exposureGaps.length > 0 && (
         <div className={styles.gapList}>
           <h3>Exposed gaps</h3>
-          {exposureGaps.slice(0, 3).map((gap, index) => (
-            <div key={`${gap.label}-${index}`} className={styles.gapItem}>
-              <strong>{formatDistance(gap.len_m)}</strong>
-              <span>{exposureGapCopy(gap.len_m, index)}</span>
-            </div>
-          ))}
+          {exposureGaps.slice(0, 3).map((gap, index) => {
+            const location = formatGapLocation(gap);
+            return (
+              <div key={`${gap.label}-${index}`} className={styles.gapItem}>
+                <strong>{formatDistance(gap.len_m)}</strong>
+                <span>{exposureGapCopy(gap.len_m, index)}</span>
+                {location && <small className={styles.gapCoordinate}>Near {location}</small>}
+              </div>
+            );
+          })}
         </div>
       )}
     </section>

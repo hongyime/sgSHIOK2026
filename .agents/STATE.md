@@ -2,14 +2,17 @@
 
 Date: 2026-08-16
 
-Task: P17 legacy provenance release standard and section 10 proposal.
+Task: P18 section 10 presentation implementation.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `043dec0` at task start.
+Remote main: `08d09f2` at task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P18 implements the section 10 web presentation change: route exposure leads, exposed gaps show coordinates, the visible breakdown is four display rows, and the locked composite is secondary.
+- P18 evidence is tracked at `qa/verification/P18-section10-presentation.md`.
+- P18 web tests passed at 105 tests across 21 files; the count rose by two render tests.
 - `X:\01 REPOSITORIES\sgSHIOK2026` was switched to a cold mirror of `origin/main` at `043dec0`; no future agent session should run from it.
 - P17 evidence is tracked at `qa/verification/P17-legacy-provenance-policy.md`.
 - P17 rescued the stray X: proposal to `qa/p17/section10-proposal-rescued-from-x.md`.

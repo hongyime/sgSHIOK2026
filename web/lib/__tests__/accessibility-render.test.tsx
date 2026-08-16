@@ -46,7 +46,10 @@ const scoredRecord: ScoreRecord = {
     routing_type: "sheltered",
     shade_ratio: 0.31,
   },
-  exposure_gaps: [],
+  exposure_gaps: [
+    { len_m: 142.4, label: "gap-long", location: { lat: 1.37123, lon: 103.84235 } },
+    { len_m: 38.2, label: "gap-short", location: { lat: 1.37091, lon: 103.84101 } },
+  ],
   data_as_of: null,
   provenance: {},
 };
@@ -145,7 +148,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Loading Overall SHIOK ranks.");
   });
 
-  it("renders heat proxy disclosure and equality note at the score breakdown", () => {
+  it("renders the route exposure lead and four-row score presentation", () => {
     const recordWithEqualRainHeat: ScoreRecord = {
       ...scoredRecord,
       subscores: { access: 78, rain: 69, heat: 69, bus: 82, crossing: 90 },
@@ -157,13 +160,66 @@ describe("rendered accessibility output", () => {
       },
       rankingRecords: [recordWithEqualRainHeat],
     });
+    const breakdownHtml = html.slice(
+      html.indexOf('aria-label="Score breakdown"'),
+      html.indexOf('aria-label="Rank by view"')
+    );
 
-    expect(html).toContain("Heat proxy");
+    expect(html).toContain("Where the walk is exposed");
+    expect(html).toContain("62% of the selected walk is covered.");
+    expect(html).toContain("142 m is the longest exposed gap.");
+    expect(html).toContain("Route evidence and locked score");
+    expect(html).toContain("Four display rows; weights unchanged");
+    expect(html).toContain("Shelter exposure");
+    expect(html).toContain("Walk to transit");
+    expect(html).toContain("Bus service support");
+    expect(html).toContain("Locked SHIOK score");
+    expect(breakdownHtml).not.toContain(">Heat proxy<");
+    expect(breakdownHtml).not.toContain(">Rain shelter<");
+    expect(breakdownHtml).not.toContain(">Crossing friction<");
+    expect(html).toContain("Rain shelter and heat comfort currently share mostly the same covered-walkway evidence.");
     expect(html).toContain(
-      "Derived from covered walk plus sparse NParks greenery proxy; not live weather or measured shade."
+      "Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first."
     );
     expect(html).toContain("Same displayed value as rain shelter for this postal.");
     expect(html).toContain("Score evidence: covered 149 m; greenery proxy 23 m.");
+  });
+
+  it("renders exposed gap lengths with coordinates", () => {
+    const html = renderScoreCard();
+
+    expect(html).toContain("Exposed gaps");
+    expect(html).toContain("142 m");
+    expect(html).toContain("Longest open-air stretch");
+    expect(html).toContain("Near 1.37123, 103.84235");
+    expect(html).toContain("Near 1.37091, 103.84101");
+  });
+
+  it("keeps null score rows as Not scored instead of inventing numbers", () => {
+    const partialRecord: ScoreRecord = {
+      ...scoredRecord,
+      state: "SCORED_PARTIAL",
+      total: null,
+      best_node: null,
+      paths: null,
+      subscores: { access: null, rain: null, heat: null, bus: 42, crossing: null },
+      exposure_gaps: null,
+    };
+    const html = renderScoreCard({
+      selection: {
+        ...selection,
+        score: partialRecord,
+      },
+      rankingRecords: [partialRecord],
+    });
+
+    expect(html).toContain("Shelter exposure");
+    expect(html).toContain("<strong>Not scored</strong><small>No shelter score</small>");
+    expect(html).toContain("<strong>Not scored</strong><small>No access score</small>");
+    expect(html).toContain("<strong>Not scored</strong><small>No composite score</small>");
+    expect(html).toContain("<strong>42</strong><small>20% locked bus</small>");
+    expect(html).not.toContain("<strong>0</strong><small>No shelter score</small>");
+    expect(html).not.toContain("<strong>0</strong><small>No access score</small>");
   });
 
   it("renders direct bus fallback evidence instead of a false low-bus verdict", () => {
@@ -194,7 +250,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("3 direct bus candidates found; nearest 99 m; 0.4 min best scheduled wait.");
     expect(html).toContain("Walking network access was not verified, so this sub-score remains 0.");
     expect(html).toContain("Composite caveat: the bus term remains 0");
-    expect(html).toContain("Bus connectivity");
+    expect(html).toContain("Bus service support");
     expect(html).toContain("20%");
     expect(html).not.toContain("Limited bus connectivity");
   });
@@ -217,7 +273,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Limited bus connectivity");
     expect(html).not.toContain("Nearby bus evidence not route-verified");
     expect(html).not.toContain("Walking network access was not verified");
-    expect(html).toContain("Bus connectivity");
+    expect(html).toContain("Bus service support");
     expect(html).toContain("20%");
   });
 
