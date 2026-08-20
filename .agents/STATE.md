@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P114: `15ec0ef`
+Remote main after P115: `56fd1db`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -52,6 +52,7 @@ Status:
 - P112 is complete and pushed: direct-bus fallback evidence now says direct bus options instead of direct bus candidates.
 - P113 is complete and pushed: direct-bus fallback warnings now say nearby bus service and walking-route access instead of bus evidence / walking-network access.
 - P114 is complete and pushed: graph-disconnected no-transit reason chips now say a transit stop or exit was found instead of a transit candidate.
+- P115 is complete and pushed: graph-disconnected no-transit notes now say transit stops or exits exist instead of transit candidates.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -92,5 +93,6 @@ Status:
 - P112 evidence is tracked at `qa/verification/P112-direct-bus-option-copy.md`.
 - P113 evidence is tracked at `qa/verification/P113-bus-fallback-route-access-copy.md`.
 - P114 evidence is tracked at `qa/verification/P114-transit-stop-found-copy.md`.
+- P115 evidence is tracked at `qa/verification/P115-transit-stops-exist-copy.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
