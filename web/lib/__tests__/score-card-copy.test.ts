@@ -241,6 +241,7 @@ describe("score card copy", () => {
 
   it("shows four display rows without changing the locked weights", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const proposalSource = readFileSync(join(__dirname, "../../section10-presentation-proposal.md"), "utf-8");
     const weightsYaml = readFileSync(join(__dirname, "../../../pipeline/config/weights.yaml"), "utf-8");
 
     expect(source).toContain("Shelter map evidence and locked score");
@@ -285,6 +286,8 @@ describe("score card copy", () => {
     expect(source).not.toContain('label: "Rain shelter"');
     expect(source).not.toContain('label: "Heat proxy"');
     expect(source).not.toContain('label: "Crossing friction"');
+    expect(proposalSource).toContain("stop presenting the current five component-score rows");
+    expect(proposalSource).not.toContain("five subscore rows");
 
     expect(weightsYaml).toContain("transit_access: 0.35");
     expect(weightsYaml).toContain("bus_connectivity: 0.20");
