@@ -435,6 +435,24 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         "coverage_pct": 20.791045,
         "verdict": "not sufficient as primary registry",
     }
+    assert report["batch_plan"]["full_batch_release_scope"] == {
+        "status": "approved_in_principle_not_approved_to_run",
+        "owner_approval_required_before_execution": True,
+        "one_attempt_only": True,
+        "must_prove_each_change_on_1200_subset_first": True,
+        "bundled_changes": [
+            "bus remodel",
+            "NO_TRANSIT_IN_RANGE partial-score fix",
+            "network conflation repair",
+            "promoted postal universe v2 if approved",
+        ],
+        "prohibited_without_explicit_owner_approval": [
+            "full rescore",
+            "piecemeal full-bundle rerun",
+            "production deploy",
+            "live-site repoint",
+        ],
+    }
 
 
 def test_build_readiness_report_summarizes_failed_onemap_gate(tmp_path: Path):

@@ -1154,6 +1154,7 @@ def build_readiness_report(
             "postal_universe": batch_plan.get("postal_universe", {}),
             "bounded_geocoding": batch_plan.get("bounded_geocoding", {}),
             "scoring_batch": batch_plan.get("scoring_batch", {}),
+            "full_batch_release_scope": batch_plan.get("full_batch_release_scope", {}),
             "checkpoint_gates": batch_plan.get("checkpoint_gates", {}),
             "warnings": batch_plan.get("warnings", []),
             "errors": batch_plan.get("errors", []),

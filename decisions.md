@@ -454,3 +454,6 @@ The snap-connector helper now says the connector is the short link onto `the she
 
 2026-08-20 - P156 full-batch one-attempt planning scope:
 The dry-run batch planner now emits `full_batch_release_scope` to record that the expensive full batch is approved in principle but not approved to run, is one attempt only, requires each change to pass the 1,200-record subset first, and must bundle the bus remodel, `NO_TRANSIT_IN_RANGE` partial-score fix, network conflation repair, and any approved postal-universe v2 promotion. This is planning/reporting only; it does not run geocoding, scoring, export, deployment, public data writes, input rebuilds, or locked weight changes.
+
+2026-08-20 - P157 production-readiness full-batch scope:
+Production readiness now preserves `full_batch_release_scope` from the dry-run batch planner in its summarized `batch_plan` section, so release review carries the same one-attempt full-batch boundary and explicit owner-approval requirement. This is readiness reporting and test coverage only; it does not run geocoding, scoring, export, deployment, public data writes, input rebuilds, or locked weight changes.
