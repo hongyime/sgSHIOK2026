@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P84: `1be730b`
+Remote main after P85: `6b9a732`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -22,6 +22,7 @@ Status:
 - P82 is complete and pushed: alternate-stop comparison now includes the straight-line metre delta as well as the percentage farther than best.
 - P83 is complete and pushed: the rank panel now labels its comparison set as planning-area scoped in visible, loading, empty, and screen-reader copy.
 - P84 is complete and pushed: clicked-stop previews now show `Bundle score: Preview only` instead of the less precise `Score status: Not scored`.
+- P85 is complete and pushed: the header score badge now labels the value as `Locked score` while keeping it visually smaller than the shelter evidence headline.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -32,5 +33,6 @@ Status:
 - P82 evidence is tracked at `qa/verification/P82-alternate-stop-distance-delta.md`.
 - P83 evidence is tracked at `qa/verification/P83-planning-area-ranks.md`.
 - P84 evidence is tracked at `qa/verification/P84-preview-bundle-score.md`.
+- P85 evidence is tracked at `qa/verification/P85-locked-score-badge.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
