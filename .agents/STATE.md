@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P241 code commit: `c660b11`; state-only commits may follow it on `main`.
+Latest P242 code commit: `61a9a7d`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P242 is complete and committed: first-view data freshness copy now names the `21 Aug 2026 manifest-only check` instead of an undated `latest manifest-only check`, preserving the same measured counts and 112.6d oldest-current source age. Focused score-card copy tests pass.
 - P241 is complete and committed: the heat-presentation analysis helper no longer defaults to rewriting historical `qa/verification` evidence, refuses existing outputs unless `--overwrite` is explicit, and its UI audit now resolves current shelter-map heat/proxy copy by string location. Focused heat-analysis tests pass.
 - P240 is complete and committed: direct postal-universe CLI calls now infer a versioned summary path from a versioned `--output`, validate output paths before source loading, and return a clean JSON error for unsafe unversioned defaults. Focused postal-universe tests pass.
 - P239 is complete and committed: postal-universe preparation now defaults to numeric versioned output paths (`v2`), the wrapper refuses existing target artifacts, and `pipeline.postal_universe` refuses direct output/summary paths that are unversioned or already exist. Focused postal-universe tests pass.
