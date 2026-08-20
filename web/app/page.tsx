@@ -215,7 +215,7 @@ export function SearchFeedback({
       </p>
       {showNoResults && (
         <div className={styles.emptyBox} role="status">
-          No OneMap address result found. Try a 6-digit postal code; the frozen shelter-map bundle has measured recent-source misses.
+          No OneMap address result found for this search. Try a 6-digit postal code. Separately, the frozen shelter-map bundle has measured recent-source misses.
         </div>
       )}
       {error && (

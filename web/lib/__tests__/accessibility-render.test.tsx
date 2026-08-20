@@ -148,10 +148,12 @@ describe("rendered accessibility output", () => {
     const noResultsHtml = renderToStaticMarkup(
       <SearchFeedback results={[]} loading={false} error={null} searched={true} />
     );
-    expect(noResultsHtml).toContain("No OneMap address result found.");
+    expect(noResultsHtml).toContain("No OneMap address result found for this search.");
     expect(noResultsHtml).toContain("Try a 6-digit postal code");
+    expect(noResultsHtml).toContain("Separately, the frozen shelter-map bundle has measured recent-source misses");
     expect(noResultsHtml).toContain("the frozen shelter-map bundle has measured recent-source misses");
     expect(noResultsHtml).not.toContain("the frozen score bundle has measured recent-source misses");
+    expect(noResultsHtml).not.toContain("Try a 6-digit postal code; the frozen shelter-map bundle");
     expect(noResultsHtml).not.toContain("newer completions may still be outside");
   });
 

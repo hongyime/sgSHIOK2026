@@ -478,3 +478,6 @@ The selected shelter-map panel's night-lighting route detail now reflects whethe
 
 2026-08-21 - P164 outside-bundle universe caveat:
 Outside-bundle copy now says no shelter-map route is published for the searched postal and separately states that the current bundle is tied to the frozen June 2020 address universe. This avoids implying that an arbitrary OneMap search result is inside the frozen v1 universe when the bundle has no record for it. This is browser copy and test coverage only; it does not alter search behavior, bundle membership, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P165 no-results search caveat:
+The no-results search feedback now separates a OneMap lookup failure from the frozen shelter-map bundle's measured recent-source misses. It says no OneMap address result was found for the search, suggests trying a 6-digit postal code, and then separately reminds users that the frozen bundle has measured recent-source misses. This is browser copy and test coverage only; it does not alter search behavior, scoring, exports, public data, deployment, or locked weights.
