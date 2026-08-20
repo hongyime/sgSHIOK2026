@@ -207,6 +207,37 @@ def test_vercel_readiness_prefers_root_project_settings(tmp_path: Path):
     assert report["warnings"] == ["root and web Vercel project names differ but project ID matches"]
 
 
+def test_vercel_readiness_treats_unlinked_local_checkout_as_nonblocking(tmp_path: Path):
+    report = vercel_readiness(tmp_path, tmp_path / "web")
+
+    assert report["linked"] is False
+    assert report["root_directory_ok"] is None
+    assert report["local_config_ok"] is True
+    assert report["blocking"] is False
+    assert report["warnings"] == [
+        "local Vercel project is not linked; production deploy still requires owner approval"
+    ]
+
+
+def test_vercel_readiness_blocks_explicit_wrong_root_directory(tmp_path: Path):
+    write_json(
+        tmp_path / ".vercel" / "project.json",
+        {
+            "projectId": "prj_test",
+            "projectName": "sgshiok",
+            "settings": {"rootDirectory": "."},
+        },
+    )
+
+    report = vercel_readiness(tmp_path, tmp_path / "web")
+
+    assert report["linked"] is True
+    assert report["root_directory"] == "."
+    assert report["root_directory_ok"] is False
+    assert report["local_config_ok"] is False
+    assert report["blocking"] is True
+
+
 def test_environment_readiness_reports_missing_api_credentials_without_values() -> None:
     missing = environment_readiness({})
 
@@ -342,14 +373,6 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
     bundle_dir = web_dir / "public" / "data" / "generated_test"
     export_current_fingerprint_bundle(bundle_dir)
     write_json(web_dir / "data-bundle.json", {"bundle": "generated_test"})
-    write_json(
-        tmp_path / ".vercel" / "project.json",
-        {
-            "projectId": "prj_test",
-            "projectName": "sgshiok",
-            "settings": {"rootDirectory": "web"},
-        },
-    )
 
     summary_path = tmp_path / "processed" / "postal_universe_candidate_full_registered_summary.json"
     universe_path = tmp_path / "processed" / "postal_universe_candidate_full_registered.parquet"
@@ -415,7 +438,11 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
     assert report["network"]["ok"] is True
     assert report["network"]["debug_path"] == str(debug_path)
     assert not debug_path.exists()
-    assert report["vercel"]["root_directory_ok"] is True
+    assert report["vercel"]["linked"] is False
+    assert report["vercel"]["root_directory_ok"] is None
+    assert report["vercel"]["local_config_ok"] is True
+    assert report["vercel"]["blocking"] is False
+    assert report["release_gate_summary"]["checks"]["vercel_root_directory"] is True
     assert report["lamp_overlay"]["ok"] is True
     assert report["lamp_overlay"]["point_count"] == 2
     assert report["environment"]["ready_for_api_collection"] is True

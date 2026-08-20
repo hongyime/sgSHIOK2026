@@ -556,3 +556,6 @@ Static artifact validation should expose its own sub-stages because it scans and
 
 2026-08-21 - P209 static-artifact shard progress:
 The production-readiness static-artifact stage should show bounded movement while validating large score and geometry shard sets. The active bundle has 304 score shards, so `validate_static_artifacts` now reports total shard counts and emits progress every 25 score shards and every 250 geometry shards, plus final counts. This is operator observability and test coverage only; it does not alter validation semantics, artifacts, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-21 - P210 local Vercel link readiness policy:
+A missing local `.vercel/project.json` link is checkout/deploy context, not a bundle defect. Production readiness should warn that the local Vercel project is not linked, while keeping deploy/repoint guarded by explicit owner approval; it should still block when a local Vercel project is linked and its configured root directory is not `web`, because that is contradictory deploy configuration. This is readiness reporting and test coverage only; it does not link Vercel, deploy, repoint, score, export, mutate public data, or alter locked weights.

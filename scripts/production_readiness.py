@@ -114,7 +114,13 @@ def vercel_readiness(project_root: Path, web_dir: Path) -> dict[str, Any]:
     project_name = payload.get("projectName") if isinstance(payload, dict) else None
     project_id = payload.get("projectId") if isinstance(payload, dict) else None
 
+    linked = bool(root_link.get("linked") or web_link.get("linked"))
+    root_directory_ok = root_directory == "web" if linked else None
+    blocking = bool(linked and not root_directory_ok)
+
     warnings: list[str] = []
+    if not linked:
+        warnings.append("local Vercel project is not linked; production deploy still requires owner approval")
     if root_link.get("linked") and web_link.get("linked"):
         root_payload = root_link.get("payload") or {}
         web_payload = web_link.get("payload") or {}
@@ -124,11 +130,13 @@ def vercel_readiness(project_root: Path, web_dir: Path) -> dict[str, Any]:
             warnings.append("root and web Vercel project names differ but project ID matches")
 
     return {
-        "linked": bool(root_link.get("linked") or web_link.get("linked")),
+        "linked": linked,
         "project_name": project_name,
         "project_id": project_id,
         "root_directory": root_directory,
-        "root_directory_ok": root_directory == "web",
+        "root_directory_ok": root_directory_ok,
+        "local_config_ok": not blocking,
+        "blocking": blocking,
         "git_data_strategy": (
             "web build downloads configured bundle from production when local data is absent"
         ),
@@ -1092,10 +1100,10 @@ def build_readiness_report(
         errors.append("island network QA failed")
     if not batch_ok:
         errors.append("batch plan failed")
-    if not vercel["linked"]:
-        errors.append("Vercel project is not linked")
-    if not vercel["root_directory_ok"]:
+    if vercel.get("blocking"):
         errors.append("Vercel root directory is not web")
+    if not vercel["linked"]:
+        warnings.append("Vercel project is not linked in this local checkout")
     if not lamp_overlay["ok"]:
         errors.append("night-lighting overlay artifact is not release-ready")
     warnings.extend(env_status["warnings"])
@@ -1127,7 +1135,7 @@ def build_readiness_report(
         "lamp_overlay_artifact": bool(lamp_overlay.get("ok")),
         "onemap_validation_same_bundle_fresh": onemap_gate_passed,
         "onemap_validation_waived": onemap_gate_waived,
-        "vercel_root_directory": bool(vercel.get("root_directory_ok")),
+        "vercel_root_directory": bool(vercel.get("local_config_ok")),
         "infrastructure_readiness": not errors,
     }
     owner_approvals = [] if production_deploy_approved else ["production_deploy"]
