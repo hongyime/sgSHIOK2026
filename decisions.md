@@ -260,3 +260,6 @@ The night-lighting overlay status should repeat that lamp points are map evidenc
 
 2026-08-20 - P91 route-display announcement:
 The score-card live region should announce the default route display with the user-facing route concept, not the internal `shiokest` mode token. It now announces `Route display sheltered` for the selected higher-shelter route while keeping `shortest` and `both routes` distinct. This is browser accessibility copy only; it does not alter route selection, geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P92 map summary sheltered-route wording:
+The map's non-visual route summaries should use the same `sheltered route` language as the score card and route controls. Screen-reader map labels and summaries now say `sheltered route`, `shortest and sheltered routes`, and `sheltered-route segments` instead of `covered route` / `covered-route segments`. This is browser accessibility copy only; it does not alter map layers, route IDs, geometry, scoring, exports, public data, deployment, or locked weights.

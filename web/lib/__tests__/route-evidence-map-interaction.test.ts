@@ -33,6 +33,17 @@ describe("route evidence map interactions", () => {
     expect(cssSource).toContain("max-width: min(88vw, 360px);");
   });
 
+  it("uses sheltered route copy in non-visual map summaries", () => {
+    const source = readFileSync(join(__dirname, "../../components/route-evidence-map.tsx"), "utf-8");
+
+    expect(source).toContain('return "sheltered route";');
+    expect(source).toContain('return "shortest and sheltered routes";');
+    expect(source).toContain("sheltered-route segments");
+    expect(source).not.toContain("covered-route segments");
+    expect(source).not.toContain('return "covered route";');
+    expect(source).not.toContain('return "shortest and covered routes";');
+  });
+
   it("pre-fetches manifest on mount and wires interactive click-to-route in page.tsx", () => {
     const pageSource = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
