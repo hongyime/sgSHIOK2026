@@ -18,6 +18,13 @@ PARAMS_PATH = PROJECT_ROOT / "pipeline" / "config" / "params.yaml"
 UNIVERSE_MODES = ("official_current", "candidate_full_registered", "candidate_full_all")
 DEFAULT_ONEMAP_DELAY_SEC = 2.0
 THIRD_PARTY_ONEMAP_WARNING = "third-party OneMap-derived 2020 dump"
+FROZEN_V1_POLICY = (
+    "frozen v1 remains the 124443-record June 2020 OneMap-derived universe"
+)
+POSTAL_UNIVERSE_V2_POLICY = (
+    "candidate-source-first current free sources, then bounded OneMap Search validation "
+    "under explicit token and rate controls"
+)
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -174,7 +181,10 @@ def build_batch_plan(
     if not island_ok:
         blockers.append("island-wide network QA is not green")
     if requires_universe_approval:
-        blockers.append("postal universe uses third-party OneMap-derived 2020 source")
+        blockers.append(
+            "postal universe uses frozen v1 third-party OneMap-derived 2020 source; "
+            "v2 requires candidate-source-first approval before full-batch use"
+        )
     if geocode_fill_complete and needs_geocode:
         warnings.append(
             f"{needs_geocode} source-derived postals remain unresolved after bounded OneMap geocode"
@@ -202,6 +212,13 @@ def build_batch_plan(
             "source_stats": compact_source_stats(summary),
             "source_only_counts": summary.get("source_only_counts", {}),
             "warnings": summary_warnings,
+        },
+        "source_policy": {
+            "frozen_v1": FROZEN_V1_POLICY,
+            "v2": POSTAL_UNIVERSE_V2_POLICY,
+            "osm_addr_postcode_registry": "not sufficient as primary registry",
+            "onemap_search_role": "candidate validation/geocoding, not national enumeration",
+            "requires_human_approval_for_universe": requires_universe_approval,
         },
         "bounded_geocoding": {
             "consumer": "OneMap search API",

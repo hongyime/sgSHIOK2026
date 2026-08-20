@@ -2,14 +2,15 @@
 
 Date: 2026-08-20
 
-Task: P66 readiness source-policy summary is implemented and ready to hand back.
+Task: P67 batch-plan source-policy output is implemented and ready to hand back.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `edfed79` at P66 task start.
+Remote main: `233fd4e` at P67 task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P67 adds the settled postal-universe source policy to `pipeline.batch_plan` dry-run output. The plan now emits `source_policy` with frozen-v1, OSM-not-registry, OneMap Search validation/geocoding, and candidate-source-first v2 policy, and the universe approval blocker names frozen v1 plus the v2 approval requirement. Evidence is tracked at `qa/verification/P67-batch-plan-source-policy.md`, and the durable decision is appended to `decisions.md`. Verification passed: `tests/test_batch_plan.py`, repo integrity, diff check, and weights diff. No scoring, export, rescore, subset run, ingest, network build, input rebuild, API collection, public data write, deployment, or weight change was run.
 - P66 adds the settled postal-universe source policy to `scripts/production_readiness.py`: the canonical 140k universe remains unclaimed, and v2 should be candidate-source-first with bounded OneMap Search validation rather than treating OSM or OneMap Search as a complete postal registry. Evidence is tracked at `qa/verification/P66-readiness-source-policy.md`, and the durable source-policy decision is appended to `decisions.md`. Verification passed: focused readiness test, full readiness test file, repo integrity, diff check, and weights diff. No scoring, export, rescore, subset run, ingest, network build, input rebuild, API collection, public data write, deployment, or weight change was run.
 - P65 adds a README `Universe status` section that records frozen v1, the P19 8/976 recent-completion miss signal, P63's OSM-not-registry result, and P64's OneMap-as-candidate-validation result. Evidence is tracked at `qa/verification/P65-readme-universe-status.md`, and the durable README decision is appended to `decisions.md`. Verification passed: README term checks, repo integrity, diff check, and weights diff. No scoring, export, rescore, subset run, ingest, network build, input rebuild, API collection, public data write, deployment, or weight change was run.
 - P64 established that OneMap Search is candidate validation/geocoding infrastructure, not a full postal-universe enumeration source. Exact candidate lookup works, but official docs make `searchVal` the required keyword filter, broad `Singapore` search returned only 392 found results, and empty/wildcard/low-specificity probes returned HTTP 429. Evidence is tracked at `qa/verification/P64-onemap-enumeration-feasibility.md`, and the durable source-architecture decision is appended to `decisions.md`. OneMap credentials remain absent from the environment despite the standing objective. No scoring, export, rescore, subset run, ingest, network build, input rebuild, public data write, deployment, or weight change was run.

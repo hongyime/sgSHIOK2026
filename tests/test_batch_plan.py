@@ -128,6 +128,19 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
     assert report["checkpoint_gates"]["island_network_qa_ok"] is True
     assert report["checkpoint_gates"]["requires_human_approval_for_universe"] is True
     assert report["checkpoint_gates"]["full_batch_allowed_now"] is False
+    assert (
+        "frozen v1 third-party OneMap-derived 2020 source"
+        in report["checkpoint_gates"]["blockers"][2]
+    )
+    assert (
+        report["source_policy"]["frozen_v1"]
+        == "frozen v1 remains the 124443-record June 2020 OneMap-derived universe"
+    )
+    assert "candidate-source-first" in report["source_policy"]["v2"]
+    assert (
+        report["source_policy"]["onemap_search_role"]
+        == "candidate validation/geocoding, not national enumeration"
+    )
 
 
 def test_batch_plan_treats_completed_geocode_fill_remaining_rows_as_unresolved(
