@@ -308,3 +308,6 @@ The score-card live region should use the same null-score language as the visibl
 
 2026-08-20 - P107 no-transit route-evidence copy:
 The graph-disconnected no-transit note should describe missing bundle route evidence, not the internal walking graph. It now says transit candidates exist but this bundle has no connected walking route evidence yet. This is browser copy only; it does not alter routing, graph construction, transit candidate selection, state classification, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P108 snap connector route-evidence copy:
+The snap connector route-detail note should use route-evidence language rather than saying the connector links onto the walking graph. It now says the short link connects the postal or transit point onto mapped walking-route evidence. This is browser copy only; it does not alter connector computation, route geometry, state classification, scoring, exports, inputs, public data, deployment, or locked weights.

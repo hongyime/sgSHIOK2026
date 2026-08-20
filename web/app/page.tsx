@@ -1133,7 +1133,7 @@ export function ScoreCard({
   }
   const connectorNote =
     endpointSnapM > 0
-      ? "Snap connector is the short link from the postal or transit point onto the walking graph."
+      ? "Snap connector is the short link from the postal or transit point onto mapped walking-route evidence."
       : null;
   const longestGap = exposureGaps[0] ?? null;
   const visibleExposureGaps = exposureGaps.slice(0, 3);
