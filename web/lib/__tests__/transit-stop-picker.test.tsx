@@ -122,6 +122,17 @@ describe("deriveNearestTransitCandidates", () => {
     expect(source).not.toContain("The current score bundle does NOT ship a ranked candidate list");
   });
 
+  it("keeps transit picker comments aligned with the shelter-map panel frame", () => {
+    const source = readFileSync(
+      join(__dirname, "../../components/transit-stop-picker.tsx"),
+      "utf-8"
+    );
+    expect(source).toContain("The shelter-map panel already announces the active stop's selected");
+    expect(source).toContain("walk distance in its headline row");
+    expect(source).not.toContain("The primary score card already announces");
+    expect(source).not.toContain("active stop's routed");
+  });
+
   it("returns up to 5 nearest bus_stop + mrt_exit POIs sorted by distance", () => {
     const result = deriveNearestTransitCandidates({
       originLat,

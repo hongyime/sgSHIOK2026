@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P251 code commit: `d66a888`; state-only commits may follow it on `main`.
+Latest P253 code commit: pending; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P253 is complete and pending commit: transit-stop picker source comments now align with the shelter-map panel frame instead of the old primary score-card/routed-distance wording. Focused transit-picker web tests pass.
 - P252 is complete and committed: full-batch prerequisite evidence now makes the future `NO_TRANSIT_IN_RANGE` partial-score policy explicit: missing/no-transit component terms remain zero-contribution under locked weights, and any four-of-five display requires a new explicit state rather than silent renormalisation. Focused batch-plan/readiness tests pass.
 - P251 is complete and committed: README source-freshness guidance now explains that LTA geospatial sources such as Covered Linkway use a quarterly cadence with a 120-day stale threshold, so local `current` status is not proof that no newer upstream release exists. Focused README tests pass.
 - P250 is complete and committed: the current-bundle audit CLI help now calls its target the current deployed shelter-map bundle instead of a score bundle. Focused audit-current-bundle tests pass.

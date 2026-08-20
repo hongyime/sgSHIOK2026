@@ -685,3 +685,6 @@ README source-freshness guidance should explain that `current` is a local manife
 
 2026-08-21 - P252 no-transit locked-score policy:
 The full-batch prerequisite evidence now records that a future `NO_TRANSIT_IN_RANGE` partial-score fix must preserve the locked-score rule: missing or no-transit component terms remain zero-contribution under the locked weights, and any four-of-five presentation requires a new explicit display state rather than silent renormalisation. This is readiness/batch-plan reporting and test coverage only; it does not change score formulas, run scoring, export, mutate inputs, public data, deployment, or locked weights.
+
+2026-08-21 - P253 transit picker shelter-map panel comment:
+The transit-stop picker source comment now says the shelter-map panel announces the active stop's selected walk distance, instead of calling it the primary score card and routed distance. This keeps maintained web source aligned with the product frame where shelter-map evidence leads and the locked score is secondary. This is comment and test coverage only; it does not alter rendering, transit candidate ordering, route geometry, scoring, exports, public data, deployment, or locked weights.
