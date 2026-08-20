@@ -298,6 +298,22 @@ def freshness_key_summary(label: str, statuses: list[dict[str, Any]]) -> str | N
     return f"{label}: {', '.join(keys)}"
 
 
+def oldest_current_freshness_summary(statuses: list[dict[str, Any]]) -> str | None:
+    aged_current = [
+        status
+        for status in statuses
+        if status.get("status") == "current" and status.get("age_days") is not None
+    ]
+    if not aged_current:
+        return None
+    oldest = max(aged_current, key=lambda status: float(status["age_days"]))
+    return (
+        f"Oldest current source: {oldest['source_key']} "
+        f"({oldest['name']}, {float(oldest['age_days']):.1f}d "
+        f"of {oldest['stale_after_days']}d threshold)"
+    )
+
+
 def run_freshness_report(
     sources: dict[str, Any],
     freshness_defaults: dict[str, Any] | None = None,
@@ -315,6 +331,7 @@ def run_freshness_report(
         "unknown_age": 0,
     }
     freshness_by_status: dict[str, list[dict[str, Any]]] = {
+        "current": [],
         "stale": [],
         "unknown_policy": [],
         "unknown_age": [],
@@ -344,6 +361,9 @@ def run_freshness_report(
         f"unknown_policy {freshness_counts.get('unknown_policy', 0)}, "
         f"unknown_age {freshness_counts.get('unknown_age', 0)}"
     )
+    oldest_current = oldest_current_freshness_summary(freshness_by_status["current"])
+    if oldest_current:
+        print(oldest_current)
     for label, status_key in (
         ("Stale sources", "stale"),
         ("Unknown-policy sources", "unknown_policy"),
@@ -692,6 +712,7 @@ def run_check(
         "unknown_age": 0,
     }
     freshness_by_status: dict[str, list[dict[str, Any]]] = {
+        "current": [],
         "stale": [],
         "unknown_policy": [],
         "unknown_age": [],
@@ -888,6 +909,9 @@ def run_check(
         f"unknown_policy {freshness_counts.get('unknown_policy', 0)}, "
         f"unknown_age {freshness_counts.get('unknown_age', 0)}"
     )
+    oldest_current = oldest_current_freshness_summary(freshness_by_status["current"])
+    if oldest_current:
+        print(oldest_current)
     for label, status_key in (
         ("Stale sources", "stale"),
         ("Unknown-policy sources", "unknown_policy"),
