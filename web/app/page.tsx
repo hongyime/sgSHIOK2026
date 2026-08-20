@@ -900,8 +900,8 @@ function TransitModeControl({
   if (!score.route_options) return null;
   const availabilityLabel = (option: (typeof TRANSIT_MODE_OPTIONS)[number], available: boolean) => {
     if (option.id === "best_transit") return available ? "selected walk" : "unavailable";
-    if (available) return "shelter map route";
-    return "no shelter map route";
+    if (available) return "shelter-map walk";
+    return "no shelter-map walk";
   };
   return (
     <div className={`${styles.segmented} ${styles.transitSegmented}`} aria-label="Transit target">
@@ -1056,7 +1056,7 @@ export function ScoreCard({
         <h2>{postalTitle(selection)}</h2>
         <div className={styles.emptyState}>
           <strong>Outside shelter-map bundle</strong>
-          <span>No shelter map route is published for this postal; the current bundle is tied to the frozen June 2020 address universe.</span>
+          <span>No shelter-map walk is published for this postal; the current bundle is tied to the frozen June 2020 address universe.</span>
         </div>
       </section>
     );
@@ -1158,7 +1158,7 @@ export function ScoreCard({
     routeDetailItems.push({ label: "Snap connector", value: formatDistance(endpointSnapM) });
   }
   if (endpointSnapM > 0) {
-    routeDetailNotes.push("Snap connector is the short link from the postal or transit point onto the shelter-map route.");
+    routeDetailNotes.push("Snap connector is the short link from the postal or transit point onto the shelter-map walk.");
   }
   const longestGap = exposureGaps[0] ?? null;
   const visibleExposureGaps = exposureGaps.slice(0, 3);

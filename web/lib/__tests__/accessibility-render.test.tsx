@@ -273,7 +273,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("offline scoring pipeline includes it");
   });
 
-  it("explains when a searched postal has no published shelter map route", () => {
+  it("explains when a searched postal has no published shelter-map walk", () => {
     const html = renderScoreCard({
       selection: {
         ...selection,
@@ -288,8 +288,9 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Postal 560231 is not in the current score bundle.");
     expect(html).not.toContain("Outside current bundle");
     expect(html).toContain(
-      "No shelter map route is published for this postal; the current bundle is tied to the frozen June 2020 address universe."
+      "No shelter-map walk is published for this postal; the current bundle is tied to the frozen June 2020 address universe."
     );
+    expect(html).not.toContain("No shelter map route is published for this postal");
     expect(html).not.toContain("No shelter map route is published for this postal in the frozen June 2020 address universe.");
     expect(html).not.toContain("No route evidence is published for this postal");
   });
@@ -364,8 +365,9 @@ describe("rendered accessibility output", () => {
     expect(html).toContain('aria-label="Walk details"');
     expect(html).not.toContain('aria-label="Route details"');
     expect(html).toContain(
-      "Snap connector is the short link from the postal or transit point onto the shelter-map route."
+      "Snap connector is the short link from the postal or transit point onto the shelter-map walk."
     );
+    expect(html).not.toContain("onto the shelter-map route");
     expect(html).not.toContain("onto mapped walking-route evidence");
     expect(html).not.toContain("onto the walking graph");
   });
@@ -442,9 +444,11 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain('aria-label="Transit target"');
     expect(html).toContain("<span>Best transit</span><small>selected walk</small>");
-    expect(html).toContain("<span>MRT/LRT</span><small>no shelter map route</small>");
-    expect(html).toContain("<span>Bus</span><small>shelter map route</small>");
+    expect(html).toContain("<span>MRT/LRT</span><small>no shelter-map walk</small>");
+    expect(html).toContain("<span>Bus</span><small>shelter-map walk</small>");
     expect(html).not.toContain("<span>Best transit</span><small>selected route</small>");
+    expect(html).not.toContain("<span>MRT/LRT</span><small>no shelter map route</small>");
+    expect(html).not.toContain("<span>Bus</span><small>shelter map route</small>");
     expect(html).not.toContain("<span>MRT/LRT</span><small>no route evidence</small>");
     expect(html).not.toContain("<span>Bus</span><small>route evidence</small>");
   });

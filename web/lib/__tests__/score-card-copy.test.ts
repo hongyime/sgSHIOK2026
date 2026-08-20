@@ -224,8 +224,9 @@ describe("score card copy", () => {
       "Night lighting uses LTA lamp-post points as map evidence outside the locked score."
     );
     expect(tsxSource).toContain(
-      "Snap connector is the short link from the postal or transit point onto the shelter-map route."
+      "Snap connector is the short link from the postal or transit point onto the shelter-map walk."
     );
+    expect(tsxSource).not.toContain("onto the shelter-map route");
     expect(tsxSource).not.toContain("onto mapped walking-route evidence");
     expect(tsxSource).not.toContain("onto the walking graph");
     expect(tsxSource).toContain('aria-label="Walk details"');
