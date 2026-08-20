@@ -284,6 +284,13 @@ def source_freshness_line(status: dict[str, Any]) -> str:
     )
 
 
+def freshness_key_summary(label: str, statuses: list[dict[str, Any]]) -> str | None:
+    keys = [str(status["source_key"]) for status in statuses]
+    if not keys:
+        return None
+    return f"{label}: {', '.join(keys)}"
+
+
 def run_freshness_report(
     sources: dict[str, Any],
     freshness_defaults: dict[str, Any] | None = None,
@@ -300,6 +307,11 @@ def run_freshness_report(
         "unknown_policy": 0,
         "unknown_age": 0,
     }
+    freshness_by_status: dict[str, list[dict[str, Any]]] = {
+        "stale": [],
+        "unknown_policy": [],
+        "unknown_age": [],
+    }
 
     print("Source freshness from raw/manifest.json...")
     for key, spec in sources.items():
@@ -313,6 +325,8 @@ def run_freshness_report(
         )
         freshness_status = str(freshness["status"])
         freshness_counts[freshness_status] = freshness_counts.get(freshness_status, 0) + 1
+        if freshness_status in freshness_by_status:
+            freshness_by_status[freshness_status].append(freshness)
         print(source_freshness_line(freshness))
 
     print(
@@ -323,6 +337,14 @@ def run_freshness_report(
         f"unknown_policy {freshness_counts.get('unknown_policy', 0)}, "
         f"unknown_age {freshness_counts.get('unknown_age', 0)}"
     )
+    for label, status_key in (
+        ("Stale sources", "stale"),
+        ("Unknown-policy sources", "unknown_policy"),
+        ("Unknown-age sources", "unknown_age"),
+    ):
+        summary = freshness_key_summary(label, freshness_by_status[status_key])
+        if summary:
+            print(summary)
     return 0
 
 
@@ -662,6 +684,11 @@ def run_check(
         "unknown_policy": 0,
         "unknown_age": 0,
     }
+    freshness_by_status: dict[str, list[dict[str, Any]]] = {
+        "stale": [],
+        "unknown_policy": [],
+        "unknown_age": [],
+    }
 
     account_key = os.getenv("LTA_DATAMALL_ACCOUNT_KEY", "")
 
@@ -680,6 +707,8 @@ def run_check(
         )
         freshness_status = str(freshness["status"])
         freshness_counts[freshness_status] = freshness_counts.get(freshness_status, 0) + 1
+        if freshness_status in freshness_by_status:
+            freshness_by_status[freshness_status].append(freshness)
         if freshness_status == "stale":
             print(source_freshness_line(freshness))
 
@@ -852,6 +881,14 @@ def run_check(
         f"unknown_policy {freshness_counts.get('unknown_policy', 0)}, "
         f"unknown_age {freshness_counts.get('unknown_age', 0)}"
     )
+    for label, status_key in (
+        ("Stale sources", "stale"),
+        ("Unknown-policy sources", "unknown_policy"),
+        ("Unknown-age sources", "unknown_age"),
+    ):
+        summary = freshness_key_summary(label, freshness_by_status[status_key])
+        if summary:
+            print(summary)
 
     if error_count > 0 or changed_count > 0:
         return 1

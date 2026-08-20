@@ -162,6 +162,7 @@ def test_run_check_reports_stale_freshness_without_failing(
     assert "[sample] Sample: STALE" in out
     assert "[sample] Sample: Stub check (listing/probe required)" in out
     assert "Freshness: current 0, stale 1, manual 0, unknown_policy 0, unknown_age 0" in out
+    assert "Stale sources: sample" in out
 
 
 def test_run_freshness_report_does_not_probe_upstream(
@@ -176,6 +177,7 @@ def test_run_freshness_report_does_not_probe_upstream(
                 "fresh": {"fetched_at": "2026-08-15T00:00:00+00:00"},
                 "stale": {"last_modified": "Tue, 07 Jul 2026 02:06:48 GMT"},
                 "manual": {"last_modified": "Mon, 01 Jan 2024 00:00:00 GMT"},
+                "unknown_age": {},
             }
         },
     )
@@ -188,6 +190,11 @@ def test_run_freshness_report_does_not_probe_upstream(
         "fresh": {"name": "Fresh", "kind": "datagov_polldownload", "dataset_id": "fresh"},
         "stale": {"name": "Stale", "kind": "datagov_polldownload", "dataset_id": "stale"},
         "manual": {"name": "Manual", "kind": "osm_pbf", "refresh": "manual"},
+        "unknown_age": {
+            "name": "Unknown Age",
+            "kind": "datagov_polldownload",
+            "dataset_id": "unknown-age",
+        },
     }
 
     assert (
@@ -209,7 +216,10 @@ def test_run_freshness_report_does_not_probe_upstream(
     assert "[fresh] Fresh: freshness current (monthly)" in out
     assert "[stale] Stale: STALE" in out
     assert "[manual] Manual: freshness manual" in out
-    assert "Freshness: current 1, stale 1, manual 1, unknown_policy 0, unknown_age 0" in out
+    assert "[unknown_age] Unknown Age: freshness unknown_age (monthly)" in out
+    assert "Freshness: current 1, stale 1, manual 1, unknown_policy 0, unknown_age 1" in out
+    assert "Stale sources: stale" in out
+    assert "Unknown-age sources: unknown_age" in out
 
 
 def test_static_raw_filename_prefers_configured_filename() -> None:

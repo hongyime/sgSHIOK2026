@@ -2,14 +2,15 @@
 
 Date: 2026-08-20
 
-Task: P61 title-card stale source categories are implemented and ready to hand back.
+Task: P62 freshness key summaries are implemented and ready to hand back.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `2216ee1` at P55 task start.
+Remote main: `8752851` at P62 task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P62 adds compact key summaries to source freshness output for stale, unknown-policy, and unknown-age sources in both `run.py check --freshness-only` and normal `run.py check`. Evidence is tracked at `qa/verification/P62-freshness-key-summary.md`. Verification passed: focused fetch tests, full Python test (348 tests), manifest-only freshness report, repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P61 refines the title-card source freshness disclosure to name stale supporting-source categories: traffic signals and some greenery or boundary references. Evidence is tracked at `qa/verification/P61-title-card-stale-source-categories.md`. Verification passed: focused copy test, full web test (122 tests / 23 files), TypeScript, repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P60 surfaces the P59 source freshness result in the title card: shelter, bus stops, and night lighting are current while 6 supporting sources are stale. Evidence is tracked at `qa/verification/P60-title-card-source-freshness.md`. Verification passed: focused copy test, full web test (122 tests / 23 files), TypeScript, repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P59 records a manifest-only source freshness snapshot. Evidence is tracked at `qa/verification/P59-source-freshness-snapshot.md`. Current result: 12 current, 6 stale, 2 manual, 1 unknown_age; covered_linkway, lamp_posts, and bus_stops are current. Verification passed: manifest identity hash, full freshness snapshot, core delivery source snapshot, repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
