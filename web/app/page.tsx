@@ -1940,6 +1940,9 @@ export default function Home() {
             <p className={styles.freshnessLine}>
               Recent public-sample check: 8 missing rows out of 976 completions from 2021-2026 with postals.
             </p>
+            <p className={styles.freshnessLine}>
+              Source freshness: shelter, bus stops and night lighting are current; 6 supporting sources are stale.
+            </p>
             {scoreCoverageLine && <p className={styles.coverageLine}>{scoreCoverageLine}</p>}
             <p className={styles.sourceLine}>
               Sources: LTA/data.gov.sg, OneMap/SLA, © OpenStreetMap contributors (

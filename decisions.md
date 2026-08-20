@@ -167,3 +167,6 @@ Every configured source must resolve to an expected freshness cadence; every non
 
 2026-08-20 - P59 source freshness snapshot:
 The manifest-only freshness snapshot reports 12 current sources, 6 stale sources, 2 manual sources, and 1 source with unknown age. The stale sources are traffic_signals, planning_area_boundary, nparks_nature_ways, nparks_tracks, nparks_heritage_trees, and nparks_heritage_road_green_buffers; overture_addresses_sg_candidate has unknown age because it is a candidate source not present in the raw manifest. The core delivery sources checked separately — covered_linkway, lamp_posts, and bus_stops — are current. This is evidence only; it does not alter inputs, thresholds, exports, public data, scoring, deployment, or locked weights.
+
+2026-08-20 - P60 title-card source freshness:
+The title card should expose the P59 freshness result in user-facing language, not only in verification evidence. The browser now states that shelter, bus stops, and night lighting are current while 6 supporting sources are stale. This is browser copy only; it does not alter freshness thresholds, inputs, exports, public data, scoring, deployment, or locked weights.

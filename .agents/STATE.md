@@ -2,7 +2,7 @@
 
 Date: 2026-08-20
 
-Task: P59 source freshness snapshot is implemented and ready to hand back.
+Task: P60 title-card source freshness disclosure is implemented and ready to hand back.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
@@ -10,6 +10,7 @@ Remote main: `2216ee1` at P55 task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P60 surfaces the P59 source freshness result in the title card: shelter, bus stops, and night lighting are current while 6 supporting sources are stale. Evidence is tracked at `qa/verification/P60-title-card-source-freshness.md`. Verification passed: focused copy test, full web test (122 tests / 23 files), TypeScript, repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P59 records a manifest-only source freshness snapshot. Evidence is tracked at `qa/verification/P59-source-freshness-snapshot.md`. Current result: 12 current, 6 stale, 2 manual, 1 unknown_age; covered_linkway, lamp_posts, and bus_stops are current. Verification passed: manifest identity hash, full freshness snapshot, core delivery source snapshot, repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P58 adds a config-level regression test that every configured source resolves to an expected freshness cadence, and every non-manual source resolves to a numeric stale-after-days threshold. Evidence is tracked at `qa/verification/P58-source-freshness-policy-coverage.md`. Verification passed: focused fetch tests, manifest-related tests, full Python test (348 tests), repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P57 adds a manifest-only source freshness report path, `pipeline.fetch check --freshness-only`, so stale sources can be reported from `raw/manifest.json` without probing upstream URLs or mutating inputs. Evidence is tracked at `qa/verification/P57-manifest-freshness-report.md`. Verification passed: focused fetch tests, `run.py check --freshness-only --source lamp_posts`, full Python test (347 tests), repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
