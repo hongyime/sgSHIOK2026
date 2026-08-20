@@ -425,7 +425,7 @@ async function selectRouteMode(cdp, routeMode, timeoutMs) {
   if (routeMode === "shiokest") return;
   const sameRoute = await cdp.send("Runtime.evaluate", {
     returnByValue: true,
-    expression: `Boolean(Array.from(document.querySelectorAll('[class*=sameRouteNote]')).some((item) => item.textContent?.includes('Shortest same as sheltered route')))`,
+    expression: `Boolean(Array.from(document.querySelectorAll('[class*=sameRouteNote]')).some((item) => item.textContent?.includes('Shortest same as sheltered walk')))`,
   });
   if (sameRoute.result?.value) return;
   await waitForExpression(
@@ -585,7 +585,7 @@ function collectChecks(summary, mapState, cdp, postal, inputMode, expectedState,
     .filter(([layerId]) => layerId.includes("route"))
     .some(([, layer]) => layer && layer.visibility !== "none");
   const hasSameRouteNote =
-    summary.sameRouteNote.includes("Shortest same as sheltered route");
+    summary.sameRouteNote.includes("Shortest same as sheltered walk");
   const pageErrorCount = cdp.eventLog.filter((event) => event.method === "Runtime.exceptionThrown").length;
   const routeNetworkFailures = cdp.eventLog.filter((event) => {
     if (event.method === "Network.loadingFailed") {
