@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P218 code commit: `9628a51`; state-only commits may follow it on `main`.
+Latest P219 code commit: `b69476f`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P219 is complete and committed: disconnected no-transit title and reason chip now say Shelter-map walk not connected yet instead of route wording. Focused copy/accessibility tests pass.
 - P218 is complete and committed: non-visual map summaries now announce sheltered/shortest walks and walk segments instead of route wording. Focused map interaction tests pass.
 - P217 is complete and committed: inline map legend now labels the primary line as Sheltered walk instead of Sheltered route. Focused web map/copy/accessibility tests pass.
 - P216 is complete and committed: transit-target availability labels, the outside-bundle message, and snap-connector helper now say shelter-map walk instead of shelter-map route. Focused accessibility/copy tests pass.
