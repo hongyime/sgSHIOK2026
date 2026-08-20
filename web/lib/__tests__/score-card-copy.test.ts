@@ -2,7 +2,7 @@ import { readFileSync } from "fs";
 import { join } from "path";
 
 describe("score card copy", () => {
-  it("distinguishes far reachable transit from no routed transit", () => {
+  it("distinguishes far connected shelter-map walks from disconnected walks", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
     expect(source).toContain("Transit beyond scoring range");
@@ -11,7 +11,10 @@ describe("score card copy", () => {
     expect(source).toContain("No transit stop within scoring range");
     expect(source).toContain("Transit stops or exits exist, but this shelter-map bundle has no connected shelter-map walk yet.");
     expect(source).toContain("No qualifying MRT/LRT exit or bus stop was found within the 1.2 km scoring range for this postal.");
-    expect(source).toContain("Closest routed ${label} is ${formatDistance(nearestM)}");
+    expect(source).toContain("Closest connected ${label} shelter-map walk is ${formatDistance(nearestM)}");
+    expect(source).toContain("Closest connected shelter-map walk found is about ${formatDistance(nearestM)}");
+    expect(source).not.toContain("Closest routed ${label} is ${formatDistance(nearestM)}");
+    expect(source).not.toContain("Closest routed transit found is about ${formatDistance(nearestM)}");
     expect(source).toContain("Current scoring range is 1.2 km");
     expect(source).toContain("Outside current 1.2 km scoring range");
     expect(source).toContain("Nearby transit may still exist beyond the 1.2 km scoring range");

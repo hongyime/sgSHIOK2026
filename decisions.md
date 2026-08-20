@@ -598,3 +598,6 @@ The Section 10 proposal goal and current-state critique should frame the defende
 
 2026-08-21 - P223 clicked-stop walk-preview loading wording:
 Clicked-stop loading copy should keep the same walk-preview framing as the preview panel. The loading note now says the selected stop is shown as a straight-line preview until the walk preview returns, instead of saying until a route returns. This is browser copy and test coverage only; it does not alter live preview behavior, OneMap calls, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P224 beyond-range shelter-map walk wording:
+When a postal has connected transit evidence beyond the 1.2 km scoring range, the UI should describe the found artifact as a connected shelter-map walk rather than generic routed transit. The no-transit title still distinguishes `Transit beyond scoring range`, while the explanatory note and reason chip now say the closest connected shelter-map walk is beyond range. This is browser copy and test coverage only; it does not alter `nearest_routed_m`, no-transit classification, score values, scoring, exports, public data, deployment, or locked weights.

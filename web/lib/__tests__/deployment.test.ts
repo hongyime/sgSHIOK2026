@@ -61,7 +61,7 @@ describe("deployment packaging", () => {
     expect(script).toContain("pending_badge_absent");
     expect(script).toContain("not_yet_copy_distinct_from_no_transit");
     expect(script).toContain("Transit beyond scoring range");
-    expect(script).toContain("Closest routed transit");
+    expect(script).toContain("Closest connected shelter-map walk");
     expect(script).toContain("bodyHtml");
     expect(script).toContain("Runtime.exceptionThrown");
     expect(script).toContain("score_has_max_denominator");

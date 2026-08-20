@@ -447,7 +447,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     }
     const nearestM = nearestRoutedTransitM(score, transitMode);
     if (nearestM !== null) {
-      return `Closest routed transit found is about ${formatDistance(nearestM)} away; current scoring range is 1.2 km.`;
+      return `Closest connected shelter-map walk found is about ${formatDistance(nearestM)} away; current scoring range is 1.2 km.`;
     }
     return `No ${transitModeLabel(transitMode)} walk was found within the current scoring range.`;
   }
@@ -699,7 +699,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
     }
     const nearestM = nearestRoutedTransitM(score, transitMode);
     return nearestM !== null
-      ? [`Closest routed ${label} is ${formatDistance(nearestM)}`, "Current scoring range is 1.2 km"]
+      ? [`Closest connected ${label} shelter-map walk is ${formatDistance(nearestM)}`, "Current scoring range is 1.2 km"]
       : [`No ${label} walk within scoring range`, "Nearby transit may still exist beyond the 1.2 km scoring range"];
   }
   if (score.state === "NOT_YET_SCORED") return ["No full score in this bundle", "Awaiting locked score"];
