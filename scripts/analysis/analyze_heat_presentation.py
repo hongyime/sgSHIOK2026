@@ -71,7 +71,7 @@ UI_AUDIT_ENTRIES = [
         "file": "web/app/page.tsx",
         "line": 1106,
         "string": '<Metric label="Sheltered evidence" value={formatPercent(selectedCoverage)} />',
-        "verdict": "Acceptable honesty copy for preview route evidence.",
+        "verdict": "Acceptable honesty copy for preview shelter-map evidence.",
         "action": "No fix required.",
     },
     {

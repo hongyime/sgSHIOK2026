@@ -323,7 +323,7 @@ function formatGapLocation(gap: ExposureGap): string | null {
  * spoken in percentage-points of covered-walkway ratio.
  *
  * Returns null when:
- *   - the sheltered route and shortest route are the same (nothing to compare)
+ *   - the sheltered walk and shortest walk are the same (nothing to compare)
  *   - the score is a direct-bus fallback (routes are not comparable)
  *   - either coverage % is unknown
  *   - the delta is under 5pp (avoids clutter for tiny differences)
