@@ -139,7 +139,7 @@ export function searchResultsAnnouncement(
 
 export function routeDisplayAnnouncement(mode: RouteDisplayMode, sameRoute: boolean): string {
   if (mode === "both") return "both routes";
-  if (mode === "shortest") return sameRoute ? "shortest same as sheltered route" : "shortest";
+  if (mode === "shortest") return sameRoute ? "shortest same as sheltered walk" : "shortest";
   return "sheltered";
 }
 

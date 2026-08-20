@@ -10,6 +10,7 @@ vi.mock("next/navigation", () => ({
 import {
   ScoreCard,
   SearchFeedback,
+  routeDisplayAnnouncement,
   scoreCardAnnouncement,
   searchResultsAnnouncement,
   type FeedbackSegmentLabel,
@@ -215,6 +216,11 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Walk display shiokest");
     expect(html).not.toContain("Published route selected.");
     expect(html).not.toContain("Route display sheltered");
+  });
+
+  it("announces same shortest and sheltered display as a walk state", () => {
+    expect(routeDisplayAnnouncement("shortest", true)).toBe("shortest same as sheltered walk");
+    expect(routeDisplayAnnouncement("shortest", true)).not.toBe("shortest same as sheltered route");
   });
 
   it("falls back to walk active when no selected walk label is available", () => {
