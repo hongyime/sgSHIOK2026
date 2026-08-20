@@ -157,10 +157,13 @@ describe("route evidence map interactions", () => {
     expect(liveScoringSource).toContain("subscores: null");
     expect(liveScoringSource).toContain('routing_type: "live_onemap_preview"');
     expect(liveScoringSource).toContain("authoritative_score: false");
+    expect(liveScoringSource).toContain("authoritative scores come from");
+    expect(liveScoringSource).toContain("the published score bundle with locked weights and full provenance.");
     expect(liveScoringSource).toContain("Clicked transit POI has shelter map evidence only");
     expect(liveScoringSource).toContain("published scores come from the score bundle.");
     expect(liveScoringSource).not.toContain("Clicked transit POI has route evidence only");
     expect(liveScoringSource).not.toContain("authoritative SHIOK scores come from the published score bundle.");
+    expect(liveScoringSource).not.toContain("only the offline pipeline can do");
     expect(liveScoringSource).not.toContain("SHIOK scores come from offline bundle scoring.");
     expect(liveScoringSource).not.toContain("offline pipeline bundle");
 

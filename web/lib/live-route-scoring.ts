@@ -4,8 +4,8 @@
  * Takes a pedestrian walking route (e.g. from OneMap API or direct path),
  * tests sub-segments against local shelter evidence (LTA linkways, HDB void decks,
  * overhead bridges), and produces multi-color RouteSegments. It deliberately
- * does not produce authoritative SHIOK scores; only the offline pipeline can do
- * that with locked weights and full provenance.
+ * does not produce authoritative SHIOK scores; authoritative scores come from
+ * the published score bundle with locked weights and full provenance.
  */
 
 import { haversineMeters, type TransitCandidate } from "./nearest-transit";
