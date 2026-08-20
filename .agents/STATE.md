@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P222 code commit: `0bd436e`; state-only commits may follow it on `main`.
+Latest P223 code commit: `511c9e8`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P223 is complete and committed: clicked-stop loading note now says the straight-line preview remains until the walk preview returns instead of until a route returns. Focused map interaction tests pass.
 - P222 is complete and committed: Section 10 proposal overview/current-state copy now frames the artifact as a shelter-map walk trace with walk distance/exposure, not generic routed trace or route exposure. Focused score-card copy tests pass.
 - P221 is complete and committed: Section 10 proposal copy now says selected walk distance, whether the walk works, and shelter-map walk instead of route wording. Focused score-card copy tests pass.
 - P220 is complete and committed: Walk display Both mode now announces both walks instead of both routes in the live region. Focused accessibility tests pass.
