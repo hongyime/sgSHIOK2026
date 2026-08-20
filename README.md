@@ -5,7 +5,7 @@ if I move here, what is the walk to transit actually like? It leads with the
 covered-walkway ratio and exposed gaps on real routed paths, adds night-lighting
 evidence as a map layer, and keeps the locked SHIOK score visible but secondary.
 
-**Status:** live static-first pilot over a 124,443-record source-derived universe.
+**Status:** live static shelter-map pilot over a 124,443-record source-derived universe.
 Current product decisions and known evidence limits are tracked in `decisions.md`.
 **Environment:** Windows 11, native pipeline work. No WSL, no Docker, no paid services.
 GitHub Actions exists for repository automation and CI, not for heavy pipeline compute.

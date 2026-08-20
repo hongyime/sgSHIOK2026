@@ -389,3 +389,6 @@ The page footer should match the shelter-map framing established by the app titl
 
 2026-08-20 - P134 README shelter-map title:
 The repository README should use the same shelter-map framing as the browser title. Its heading now says `S.H.I.O.K. Shelter Map` instead of `S.H.I.O.K. Index`, while the existing intro continues to state that the app leads with covered-walkway ratio and exposed gaps and keeps the locked SHIOK score secondary. This is documentation and test coverage only; it does not alter browser behavior, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P135 README shelter-map status:
+The README status line should describe the current live artifact in the same terms as the product title. It now says the project is a `live static shelter-map pilot over a 124,443-record source-derived universe` instead of the generic `static-first pilot` wording. This is documentation and test coverage only; it does not alter browser behavior, scoring, exports, public data, deployment, or locked weights.

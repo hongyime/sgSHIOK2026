@@ -14,6 +14,8 @@ def test_readme_documents_universe_source_policy() -> None:
 
     assert text.startswith("# S.H.I.O.K. Shelter Map")
     assert "# S.H.I.O.K. Index" not in text
+    assert "live static shelter-map pilot over a 124,443-record source-derived universe" in normalized
+    assert "live static-first pilot" not in normalized
     assert "## Universe status" in text
     assert "124,443-record source-derived set" in normalized
     assert "8 missing rows out of 976 HDB completion and MCST proxy rows" in normalized
