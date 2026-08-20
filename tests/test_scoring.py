@@ -1,5 +1,6 @@
 import pytest
 from hypothesis import given, strategies as st
+from pathlib import Path
 from pipeline.scoring import (
     score_transit_access,
     score_bus_connectivity,
@@ -36,6 +37,13 @@ WEIGHTS = {
     'heat_comfort': 0.15,
     'crossing_friction': 0.05
 }
+
+def test_scoring_module_uses_shelter_map_frame():
+    source = (Path(__file__).resolve().parents[1] / "pipeline" / "scoring.py").read_text(
+        encoding="utf-8"
+    )
+    assert "S.H.I.O.K. Shelter Map" in source
+    assert "S.H.I.O.K. Index" not in source
 
 def test_transit_access_edge_cases():
     # no MRT within 1,200m -> NO_TRANSIT_IN_RANGE

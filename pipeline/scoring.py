@@ -1,6 +1,6 @@
 """
-Scoring engine for S.H.I.O.K. Index.
-Implements pure functions for subscores and composite score calculation.
+Scoring engine for S.H.I.O.K. Shelter Map.
+Implements pure functions for component scores and locked score calculation.
 """
 
 from typing import Any

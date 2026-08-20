@@ -625,3 +625,6 @@ The `pipeline/config/sources.yaml` header now names S.H.I.O.K. Shelter Map inste
 
 2026-08-21 - P232 freshness snapshot wording:
 The first-view data freshness sentence now says the 12-current/6-stale/2-manual/1-unknown-age counts are from the latest manifest-only check, and says the oldest current source was 112.5 days old at that check. This avoids presenting a fixed historical age as a live freshness age. This is browser copy and test coverage only; it does not alter freshness classification, raw manifests, source configs, data fetching, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P233 scoring module product name:
+The `pipeline/scoring.py` module docstring now names S.H.I.O.K. Shelter Map and describes pure component-score functions plus locked score calculation instead of the retired Index/composite framing. This is documentation and regression-test alignment only; it does not alter score formulas, scoring behavior, exports, inputs, public data, deployment, or locked weights.
