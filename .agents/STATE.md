@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P86: `33339ba`
+Remote main after P87: `89d7242`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -24,6 +24,7 @@ Status:
 - P84 is complete and pushed: clicked-stop previews now show `Bundle score: Preview only` instead of the less precise `Score status: Not scored`.
 - P85 is complete and pushed: the header score badge now labels the value as `Locked score` while keeping it visually smaller than the shelter evidence headline.
 - P86 is complete and pushed: the search input now says `Search address or 6-digit postal` in visible placeholder and accessible label.
+- P87 is complete and pushed: submitted address searches with zero OneMap results now show guidance to try a six-digit postal and note frozen-bundle limits.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -36,5 +37,6 @@ Status:
 - P84 evidence is tracked at `qa/verification/P84-preview-bundle-score.md`.
 - P85 evidence is tracked at `qa/verification/P85-locked-score-badge.md`.
 - P86 evidence is tracked at `qa/verification/P86-search-postal-hint.md`.
+- P87 evidence is tracked at `qa/verification/P87-search-no-results.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
