@@ -427,7 +427,7 @@ function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): str
   if (reason === "no_transit_candidates_selected") return "No transit stop within scoring range";
   return nearestRoutedTransitM(score, transitMode) !== null
     ? "Transit beyond scoring range"
-    : `No routed ${transitModeLabel(transitMode)} within range`;
+    : `No connected ${transitModeLabel(transitMode)} shelter-map walk within range`;
 }
 
 function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): string | null {

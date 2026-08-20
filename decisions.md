@@ -601,3 +601,6 @@ Clicked-stop loading copy should keep the same walk-preview framing as the previ
 
 2026-08-21 - P224 beyond-range shelter-map walk wording:
 When a postal has connected transit evidence beyond the 1.2 km scoring range, the UI should describe the found artifact as a connected shelter-map walk rather than generic routed transit. The no-transit title still distinguishes `Transit beyond scoring range`, while the explanatory note and reason chip now say the closest connected shelter-map walk is beyond range. This is browser copy and test coverage only; it does not alter `nearest_routed_m`, no-transit classification, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P225 no-connected-walk fallback title:
+The generic no-transit fallback title now says `No connected [transit target] shelter-map walk within range` instead of `No routed [transit target] within range`. More specific states still take precedence for disconnected graph evidence, no selected candidates, and beyond-range connected walks. This is browser copy and test coverage only; it does not alter `nearest_routed_m`, no-transit reason selection, score values, scoring, exports, public data, deployment, or locked weights.

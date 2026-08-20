@@ -7,6 +7,7 @@ describe("score card copy", () => {
 
     expect(source).toContain("Transit beyond scoring range");
     expect(source).toContain("Shelter-map walk not connected yet");
+    expect(source).toContain("No connected ${transitModeLabel(transitMode)} shelter-map walk within range");
     expect(source).toContain("Transit stop or exit found");
     expect(source).toContain("No transit stop within scoring range");
     expect(source).toContain("Transit stops or exits exist, but this shelter-map bundle has no connected shelter-map walk yet.");
@@ -15,6 +16,7 @@ describe("score card copy", () => {
     expect(source).toContain("Closest connected shelter-map walk found is about ${formatDistance(nearestM)}");
     expect(source).not.toContain("Closest routed ${label} is ${formatDistance(nearestM)}");
     expect(source).not.toContain("Closest routed transit found is about ${formatDistance(nearestM)}");
+    expect(source).not.toContain("No routed ${transitModeLabel(transitMode)} within range");
     expect(source).toContain("Current scoring range is 1.2 km");
     expect(source).toContain("Outside current 1.2 km scoring range");
     expect(source).toContain("Nearby transit may still exist beyond the 1.2 km scoring range");
