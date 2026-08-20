@@ -338,8 +338,8 @@ describe("TransitStopPicker component", () => {
   });
 
   it("hides the straight-line distance span on the currently-active chip", () => {
-    // Rationale: the primary score card already displays the routed distance
-    // for the active stop in its headline row, so we drop the chip's
+    // Rationale: the shelter-map panel already displays the selected walk
+    // distance for the active stop in its headline row, so we drop the chip's
     // straight-line distance to avoid two distance readings side by side.
     // Non-active chips still show their distance so users can compare.
     // Distance stays available via the button title attribute for a11y.

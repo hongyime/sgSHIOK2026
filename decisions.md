@@ -688,3 +688,6 @@ The full-batch prerequisite evidence now records that a future `NO_TRANSIT_IN_RA
 
 2026-08-21 - P253 transit picker shelter-map panel comment:
 The transit-stop picker source comment now says the shelter-map panel announces the active stop's selected walk distance, instead of calling it the primary score card and routed distance. This keeps maintained web source aligned with the product frame where shelter-map evidence leads and the locked score is secondary. This is comment and test coverage only; it does not alter rendering, transit candidate ordering, route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P254 maintained web source shelter-map panel wording:
+Remaining maintained web type/test comments that described the result surface as the score card now use shelter-map panel and selected-walk wording. This keeps developer-facing source aligned with the settled product hierarchy without changing rendered UI or test assertions. This is comment/test wording only; it does not alter runtime behavior, route geometry, scoring, exports, public data, deployment, or locked weights.

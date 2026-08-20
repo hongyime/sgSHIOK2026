@@ -106,7 +106,7 @@ describe("shelter map interactions", () => {
     );
   });
 
-  it("centers the map when an exposed gap is focused from the score card", () => {
+  it("centers the map when an exposed gap is focused from the shelter-map panel", () => {
     const source = readFileSync(join(__dirname, "../../components/route-evidence-map.tsx"), "utf-8");
 
     expect(source).toContain("focusedExposureGap?: FocusedExposureGap | null");

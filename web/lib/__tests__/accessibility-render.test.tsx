@@ -181,7 +181,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Search any Singapore address to see its walk-to-transit comfort score.");
   });
 
-  it("renders live status for score card load, route mode, stop selection, and ranks", () => {
+  it("renders live status for shelter-map panel load, walk mode, stop selection, and ranks", () => {
     const html = renderScoreCard({
       routeMode: "shortest",
       isCustomStopSelected: true,

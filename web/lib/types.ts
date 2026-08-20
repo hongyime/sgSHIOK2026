@@ -63,7 +63,7 @@ export interface CandidatePaths {
 /**
  * One entry in `ScoreRecord.candidates` — a routed transit stop that the
  * point-to-point picker can promote to the "active" pick and recompute the
- * score card + map line against.
+ * shelter-map panel and map line against.
  *
  * `geometry_ref` is a `"<postal>_<node_id>"` lookup key into the geom
  * shard's per-candidate map (see `PostalGeom.candidates`). It is null when
