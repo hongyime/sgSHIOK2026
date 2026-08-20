@@ -57,8 +57,9 @@ describe("score card copy", () => {
       "Recent public-sample check: 8 missing rows out of 976 completions from 2021-2026 with postals."
     );
     expect(source).toContain(
-      "Source freshness audit: 12 current, 6 stale, 2 manual, 1 unknown-age; stale sources are traffic signals plus some greenery and boundary references."
+      "Source freshness audit: 12 current, 6 stale, 2 manual, 1 unknown-age candidate address source; stale sources are traffic signals plus some greenery and boundary references."
     );
+    expect(source).not.toContain("1 unknown-age; stale sources");
     expect(source).not.toContain(
       "Source freshness: shelter, bus stops and night lighting are current; stale supporting sources include traffic signals and some greenery or boundary references."
     );

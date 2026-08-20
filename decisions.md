@@ -338,3 +338,6 @@ The title card should distinguish source data age from static bundle build age. 
 
 2026-08-20 - P117 source freshness counts:
 The title-card source freshness disclosure should give the measured freshness audit counts, not only a qualitative current/stale summary. It now reports 12 current, 6 stale, 2 manual, and 1 unknown-age source, while naming the stale source classes. This is browser copy only; it does not alter freshness classification, data fetching, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P118 unknown-age source copy:
+The source freshness line should clarify that the single unknown-age source is a candidate address source, not one of the core shelter, bus, night-lighting, or route-evidence sources. This keeps the freshness caveat accurate without overstating uncertainty in the current published evidence. This is browser copy only; it does not alter freshness classification, data fetching, scoring, exports, inputs, public data, deployment, or locked weights.
