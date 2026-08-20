@@ -691,3 +691,6 @@ The transit-stop picker source comment now says the shelter-map panel announces 
 
 2026-08-21 - P254 maintained web source shelter-map panel wording:
 Remaining maintained web type/test comments that described the result surface as the score card now use shelter-map panel and selected-walk wording. This keeps developer-facing source aligned with the settled product hierarchy without changing rendered UI or test assertions. This is comment/test wording only; it does not alter runtime behavior, route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P255 freshness-only CLI manifest-only disclosure:
+The zero-mutation `run.py check --freshness-only` output now prints `Manifest-only check: no upstream URLs were probed.` immediately after the checked timestamp. This keeps the command itself aligned with the README caveat that local freshness status does not prove no newer upstream release exists. This is CLI disclosure and test coverage only; it does not probe upstream APIs, fetch sources, mutate manifests or inputs, score, export, deploy, public data, or locked weights.

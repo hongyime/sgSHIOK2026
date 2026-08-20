@@ -339,6 +339,7 @@ def run_freshness_report(
     }
 
     print(f"Source freshness from raw/manifest.json at {checked_at.isoformat()}...")
+    print("Manifest-only check: no upstream URLs were probed.")
     for key, spec in sources.items():
         current_entry: dict[str, Any] = existing_sources.get(key, {})
         freshness = source_freshness_status(

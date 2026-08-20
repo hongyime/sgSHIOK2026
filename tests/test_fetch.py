@@ -276,6 +276,7 @@ def test_run_freshness_report_does_not_probe_upstream(
 
     out = capsys.readouterr().out
     assert "Source freshness from raw/manifest.json at 2026-08-16T00:00:00+00:00..." in out
+    assert "Manifest-only check: no upstream URLs were probed." in out
     assert "[fresh] Fresh: freshness current — fetched_at age 1.0d within 30d threshold (monthly)" in out
     assert "[stale] Stale: STALE" in out
     assert "[manual] Manual: freshness manual" in out
