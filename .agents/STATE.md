@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P172: `94854db`
+Remote main after P173: `e0ff412`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -110,6 +110,7 @@ Status:
 - P170 is complete and pushed: selected-stop reset button and live status now return users to the `Published walk`, not the scored route.
 - P171 is complete and pushed: the selected-walk detail strip now has accessible label `Walk details` instead of route details.
 - P172 is complete and pushed: traced correction textarea now says `Optional walk note` instead of route note.
+- P173 is complete and pushed: traced correction menu now says `Suggest better walk` and `Copy walk QA JSON`.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -208,5 +209,6 @@ Status:
 - P170 evidence is tracked at `qa/verification/P170-published-walk-reset-copy.md`.
 - P171 evidence is tracked at `qa/verification/P171-walk-details-accessibility.md`.
 - P172 evidence is tracked at `qa/verification/P172-walk-feedback-note-copy.md`.
+- P173 evidence is tracked at `qa/verification/P173-walk-feedback-actions.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
