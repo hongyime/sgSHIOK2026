@@ -397,6 +397,14 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         in report["features"]["not_incorporated"]["canonical_140k_postal_universe"]
     )
     assert (
+        "P125 found live OSM addr:postcode covers only 25873 frozen postals"
+        in report["features"]["not_incorporated"]["canonical_140k_postal_universe"]
+    )
+    assert (
+        "P63 found live OSM addr:postcode"
+        not in report["features"]["not_incorporated"]["canonical_140k_postal_universe"]
+    )
+    assert (
         "recent completion rows"
         not in report["features"]["not_incorporated"]["canonical_140k_postal_universe"]
     )

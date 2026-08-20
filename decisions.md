@@ -362,3 +362,6 @@ Clicked-stop preview copy should explain the concrete limitation: a selected sto
 
 2026-08-20 - P125 OSM postcode coverage measurement:
 Live Overpass measurement found 25,879 valid six-digit Singapore `addr:postcode` values in OSM, of which 25,873 overlap the frozen 124,443-postal v1 universe. That is 20.791045% coverage of v1, leaving 98,570 v1 postals absent from OSM address tags. OSM remains valuable as the geometry source it already is, but this measurement supports not using OSM `addr:postcode` as the primary Singapore address registry for postal-universe v2. This is evidence only; it does not alter inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P126 readiness citation for refreshed OSM measurement:
+Production-readiness policy copy should cite the fresh P125 live Overpass measurement rather than the older P63 measurement when explaining why OSM `addr:postcode` is not a complete postal registry. The measured count and policy are unchanged: 25,873 frozen v1 postals overlap live OSM, so postal-universe v2 remains candidate-source-first with bounded OneMap Search validation. This is reporting copy and test coverage only; it does not alter inputs, scoring, exports, public data, deployment, or locked weights.
