@@ -990,6 +990,7 @@ export function ScoreCard({
   setRankPanelOpen,
   focusedExposureGapKey = null,
   onFocusExposureGap,
+  lampOverlayEnabled = false,
 }: {
   selection: LoadedSelection | null;
   routeMode: RouteDisplayMode;
@@ -1017,6 +1018,7 @@ export function ScoreCard({
   setRankPanelOpen: (open: boolean) => void;
   focusedExposureGapKey?: string | null;
   onFocusExposureGap?: (gap: FocusedExposureGap) => void;
+  lampOverlayEnabled?: boolean;
 }) {
   const [overflowOpen, setOverflowOpen] = useState(false);
 
@@ -1139,7 +1141,7 @@ export function ScoreCard({
     routeDetailItems.push({ label: "Greenery proxy", value: `${shadeProxyPct}%` });
   }
   if (score.paths) {
-    routeDetailItems.push({ label: "Night lighting", value: "Map layer" });
+    routeDetailItems.push({ label: "Night lighting", value: lampOverlayEnabled ? "Layer on" : "Layer off" });
     routeDetailNotes.push("Night lighting uses LTA lamp-post points as map evidence outside the locked score.");
   }
   if (endpointSnapM > 0) {
@@ -2129,6 +2131,7 @@ export default function Home() {
               setRankPanelOpen={setRankPanelOpen}
               focusedExposureGapKey={focusedExposureGap?.key ?? null}
               onFocusExposureGap={setFocusedExposureGap}
+              lampOverlayEnabled={lampOverlayEnabled}
             />
           </aside>
         )}

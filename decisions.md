@@ -472,3 +472,6 @@ Reason chips for missing or incomplete score states now say `Locked score unavai
 
 2026-08-21 - P162 direct-bus fallback shelter-map wording:
 Direct-bus fallback copy now says the `Shelter-map route` was not verified instead of generic walking-route access. This keeps the fallback caveat aligned with the shelter-map product frame while preserving the settled P7/P10 meaning: direct bus service evidence can exist, but the bus component remains 0 until a trusted shelter-map route to the DataMall stop is proven. This is browser copy and test coverage only; it does not alter fallback detection, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P163 night-lighting layer state in route details:
+The selected shelter-map panel's night-lighting route detail now reflects whether the LTA lamp-post map layer is on or off instead of always saying `Map layer`. This makes the second evidence layer state visible in the main route workflow while keeping lamp points outside the locked score. This is browser UI copy/state wiring and test coverage only; it does not alter lamp data, scoring, exports, public data, deployment, or locked weights.

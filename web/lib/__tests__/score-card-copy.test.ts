@@ -156,7 +156,9 @@ describe("score card copy", () => {
     expect(tsxSource).toContain("routeDetailItems.push({ label: \"Greenery proxy\"");
     expect(tsxSource).not.toContain("routeDetailItems.push({ label: \"Shade proxy\"");
     expect(tsxSource).toContain("routeDetailItems.push({ label: \"Snap connector\"");
-    expect(tsxSource).toContain('routeDetailItems.push({ label: "Night lighting", value: "Map layer" });');
+    expect(tsxSource).toContain('routeDetailItems.push({ label: "Night lighting", value: lampOverlayEnabled ? "Layer on" : "Layer off" });');
+    expect(tsxSource).toContain("lampOverlayEnabled?: boolean;");
+    expect(tsxSource).toContain("lampOverlayEnabled={lampOverlayEnabled}");
     expect(tsxSource).toContain(
       "Night lighting uses LTA lamp-post points as map evidence outside the locked score."
     );

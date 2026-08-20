@@ -106,6 +106,7 @@ function renderScoreCard(overrides: Partial<React.ComponentProps<typeof ScoreCar
     rankPanelOpen: true,
     setRankPanelOpen: noop,
     onFocusExposureGap: noop,
+    lampOverlayEnabled: false,
     ...overrides,
   };
   return renderToStaticMarkup(<ScoreCard {...props} />);
@@ -319,6 +320,8 @@ describe("rendered accessibility output", () => {
     );
     expect(html).toContain("Same displayed value as rain shelter for this postal.");
     expect(html).toContain("Heat proxy evidence: covered 149 m; greenery proxy 23 m.");
+    expect(html).toContain("Night lighting");
+    expect(html).toContain("Layer off");
     expect(html).toContain("Snap connector");
     expect(html).toContain("9 m");
     expect(html).toContain(
@@ -326,6 +329,14 @@ describe("rendered accessibility output", () => {
     );
     expect(html).not.toContain("onto mapped walking-route evidence");
     expect(html).not.toContain("onto the walking graph");
+  });
+
+  it("reflects the night-lighting map layer state in route details", () => {
+    const html = renderScoreCard({ lampOverlayEnabled: true });
+
+    expect(html).toContain("Night lighting");
+    expect(html).toContain("Layer on");
+    expect(html).not.toContain("Map layer");
   });
 
   it("renders exposed gap lengths with coordinates", () => {
