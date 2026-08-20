@@ -1067,7 +1067,7 @@ export function ScoreCard({
       : score.state === "NO_TRANSIT_IN_RANGE"
       ? noTransitTitle(score, transitMode)
       : score.state === "NOT_YET_SCORED"
-        ? "Location Evidence Missing"
+        ? "No full score in this bundle"
       : toProperCase(score.best_node?.name ?? "No transit found nearby");
   const reasons = scoreReasons(score, transitMode);
   const stateNote = scoreStateNote(score, transitMode);

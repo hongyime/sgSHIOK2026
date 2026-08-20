@@ -311,3 +311,6 @@ The graph-disconnected no-transit note should describe missing bundle route evid
 
 2026-08-20 - P108 snap connector route-evidence copy:
 The snap connector route-detail note should use route-evidence language rather than saying the connector links onto the walking graph. It now says the short link connects the postal or transit point onto mapped walking-route evidence. This is browser copy only; it does not alter connector computation, route geometry, state classification, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P109 not-yet-scored heading copy:
+The not-yet-scored detail heading should use the same published-bundle state language as the reason chips and live region. It now says No full score in this bundle instead of Location Evidence Missing. This is browser copy only; it does not alter state classification, route evidence, score values, ranking, scoring, exports, inputs, public data, deployment, or locked weights.

@@ -390,6 +390,7 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("No full score in this bundle");
     expect(html).toContain("Awaiting bundle score");
+    expect(html).not.toContain("Location Evidence Missing");
     expect(html).toContain("Locked score no full score in this bundle.");
     expect(html).toContain(
       "This postal is in the frozen v1 address universe, but the current published bundle has not scored it yet."
