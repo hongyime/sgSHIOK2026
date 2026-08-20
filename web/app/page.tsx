@@ -1500,7 +1500,7 @@ export function ScoreCard({
               <textarea
                 value={feedbackNote}
                 onChange={(event) => setFeedbackNote(event.target.value)}
-                placeholder="Optional route note"
+                placeholder="Optional walk note"
                 rows={2}
               />
             </div>

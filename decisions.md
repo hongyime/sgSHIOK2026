@@ -499,3 +499,6 @@ The selected-stop reset control should send users back to the published walk, no
 
 2026-08-21 - P171 walk-details accessibility label:
 The subtle selected-walk detail strip should be named as walk details, not generic route details. Its visible contents remain greenery proxy, night lighting, snap connector, and their notes; only the accessible region label changes to `Walk details`. This is browser accessibility copy and test coverage only; it does not alter map rendering, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P172 walk-feedback note copy:
+The traced correction editor should invite a walk note, not a route note. The textarea placeholder now says `Optional walk note`, keeping the user-submitted correction tied to the walked shelter evidence. This is browser copy and test coverage only; it does not alter feedback payload structure, route geometry, score values, scoring, exports, public data, deployment, or locked weights.

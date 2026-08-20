@@ -357,6 +357,20 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Map layer");
   });
 
+  it("frames traced correction notes as walk feedback", () => {
+    const html = renderScoreCard({
+      feedbackEnabled: true,
+      feedbackPoints: [
+        { lat: 1.3701, lng: 103.8401 },
+        { lat: 1.3702, lng: 103.8402 },
+      ],
+      feedbackSegmentLabels: ["exposed"],
+    });
+
+    expect(html).toContain('placeholder="Optional walk note"');
+    expect(html).not.toContain('placeholder="Optional route note"');
+  });
+
   it("renders exposed gap lengths with coordinates", () => {
     const html = renderScoreCard();
 
