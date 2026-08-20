@@ -440,7 +440,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const reason = provenanceReason(score, transitMode);
     if (reason === "transit_candidates_graph_disconnected") {
-      return "Transit stops or exits exist, but this shelter-map bundle has no connected walking route yet.";
+      return "Transit stops or exits exist, but this shelter-map bundle has no connected shelter-map walk yet.";
     }
     if (reason === "no_transit_candidates_selected") {
       return "No qualifying MRT/LRT exit or bus stop was found within the 1.2 km scoring range for this postal.";
@@ -456,7 +456,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
   }
   const busFallback = directBusFallbackEvidence(score);
   if (busFallback) {
-    return "Locked score caveat: the bus term remains 0 because nearby bus evidence could not be connected to a verified walking route.";
+    return "Locked score caveat: the bus term remains 0 because nearby bus evidence could not be connected to a verified shelter-map walk.";
   }
   return null;
 }
@@ -704,7 +704,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
   }
   if (score.state === "NOT_YET_SCORED") return ["No full score in this bundle", "Awaiting bundle score"];
   if (score.paths?.routing_type === "direct_bus_fallback_unrouted") {
-    return ["Nearby bus stop with service data", "Shelter-map route not verified yet"];
+    return ["Nearby bus stop with service data", "Shelter-map walk not verified yet"];
   }
   if (!score.paths || !score.best_node) return ["Shelter map evidence unavailable", "Locked score unavailable"];
   if (!score.subscores) return ["Locked score incomplete", "Shelter map evidence available"];
@@ -715,10 +715,10 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
     measuredReasons.push(`${formatDistance(score.paths.sheltered_m)} to ${transitModeLabel(transitMode)}`);
   }
   if (typeof score.paths.covered_ratio === "number") {
-    measuredReasons.push(`${Math.round(score.paths.covered_ratio * 100)}% sheltered on sheltered route`);
+    measuredReasons.push(`${Math.round(score.paths.covered_ratio * 100)}% sheltered on selected walk`);
   }
   if (busFallback) {
-    measuredReasons.push("Nearby bus service not route-verified");
+    measuredReasons.push("Nearby bus service not walk-verified");
     measuredReasons.push(busFallbackSummary(busFallback));
   }
 
@@ -730,7 +730,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
   if (busFallback && values[0]?.key === "bus") {
     const shelterReason = measuredReasons.find((reason) => reason.includes("sheltered"));
     return [
-      "Nearby bus service not route-verified",
+      "Nearby bus service not walk-verified",
       shelterReason ?? measuredReasons[0] ?? busFallbackSummary(busFallback),
     ];
   }
@@ -843,7 +843,7 @@ function RouteModeControl({
   directBusFallback: boolean;
 }) {
   if (directBusFallback) {
-    return <div className={styles.sameRouteNote}>Direct line to bus stop; walking route pending.</div>;
+    return <div className={styles.sameRouteNote}>Direct line to bus stop; shelter-map walk pending.</div>;
   }
 
   if (sameRoute) {
@@ -1223,7 +1223,7 @@ export function ScoreCard({
           notes: [
             "A low value can mean weak service evidence, or that routing could not prove a trusted walk to a DataMall bus stop.",
             busFallback
-              ? `${busFallbackSummary(busFallback)} Shelter-map route access was not verified, so this component score remains 0.`
+              ? `${busFallbackSummary(busFallback)} Shelter-map walk access was not verified, so this component score remains 0.`
               : null,
           ].filter((note): note is string => Boolean(note)),
         },

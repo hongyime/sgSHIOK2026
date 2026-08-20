@@ -517,3 +517,6 @@ The selected shelter-map panel should describe its active evidence as a selected
 
 2026-08-21 - P177 walk comparison copy:
 The alternate-path comparison in the selected shelter-map panel should speak as a walk comparison, not a route comparison. The rendered comparison note now uses `Walk comparison`, `Shortest walk`, and `Sheltered walk`, and the same-route note says `Shortest same as sheltered walk.` This is browser copy and accessibility test coverage only; it does not alter route-mode logic, geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P178 bus fallback walk verification copy:
+Direct-bus fallback and bus-caveat copy should describe the missing proof as unverified shelter-map walk access, not generic route verification. Reason chips now say `Nearby bus service not walk-verified`, shelter reasons say `sheltered on selected walk`, and the bus caveat/note says bus evidence was not connected to a verified shelter-map walk. This is browser copy and test coverage only; it does not alter bus fallback detection, transit selection, score values, scoring, exports, public data, deployment, or locked weights.
