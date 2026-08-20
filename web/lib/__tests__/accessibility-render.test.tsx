@@ -177,6 +177,13 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain('aria-label="Score panel"');
   });
 
+  it("announces the default route display as sheltered instead of the internal mode name", () => {
+    const html = renderScoreCard();
+
+    expect(html).toContain("Route display sheltered");
+    expect(html).not.toContain("Route display shiokest");
+  });
+
   it("shows when clicked-stop route preview falls back to straight-line evidence", () => {
     const previewRecord: ScoreRecord = {
       ...scoredRecord,

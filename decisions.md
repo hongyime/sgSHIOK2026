@@ -257,3 +257,6 @@ The manifest-derived score-coverage disclosure should read as availability conte
 
 2026-08-20 - P90 night-lighting score separation:
 The night-lighting overlay status should repeat that lamp points are map evidence outside the locked score, not only the title-card layer note. Every non-off night-lighting status now ends with `Map evidence only; not part of the locked score.` This is browser copy only; it does not alter lamp overlay loading, tiles, inputs, exports, public data, scoring, deployment, or locked weights.
+
+2026-08-20 - P91 route-display announcement:
+The score-card live region should announce the default route display with the user-facing route concept, not the internal `shiokest` mode token. It now announces `Route display sheltered` for the selected higher-shelter route while keeping `shortest` and `both routes` distinct. This is browser accessibility copy only; it does not alter route selection, geometry, scoring, exports, public data, deployment, or locked weights.

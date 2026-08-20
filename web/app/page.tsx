@@ -128,6 +128,12 @@ export function searchResultsAnnouncement(results: SearchResult[], loading: bool
   return `${results.length} search result${results.length === 1 ? "" : "s"} available.`;
 }
 
+export function routeDisplayAnnouncement(mode: RouteDisplayMode, sameRoute: boolean): string {
+  if (mode === "both") return "both routes";
+  if (mode === "shortest") return sameRoute ? "shortest same as sheltered route" : "shortest";
+  return "sheltered";
+}
+
 export function scoreCardAnnouncement({
   selection,
   stationName,
@@ -136,6 +142,7 @@ export function scoreCardAnnouncement({
   isCustomStopSelected,
   previewRoute,
   routeMode,
+  routeDisplayLabel,
 }: {
   selection: LoadedSelection | null;
   stationName?: string;
@@ -144,6 +151,7 @@ export function scoreCardAnnouncement({
   isCustomStopSelected?: boolean;
   previewRoute?: boolean;
   routeMode: RouteDisplayMode;
+  routeDisplayLabel?: string;
 }): string {
   if (!selection) return "No route evidence selected.";
   const postal = postalTitle(selection);
@@ -156,7 +164,7 @@ export function scoreCardAnnouncement({
       ? "Preview route evidence selected."
       : "Custom stop selected."
     : "Published route selected.";
-  return `${postal} route evidence panel loaded. ${stationName ?? "Transit target loaded"}. Locked score ${scoreText}. ${stopText} Route display ${routeMode}; ${selectedRouteLabel ?? "route"} active.`;
+  return `${postal} route evidence panel loaded. ${stationName ?? "Transit target loaded"}. Locked score ${scoreText}. ${stopText} Route display ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "route"} active.`;
 }
 
 export function rankAnnouncement({
@@ -1082,6 +1090,7 @@ export function ScoreCard({
     isCustomStopSelected,
     previewRoute,
     routeMode,
+    routeDisplayLabel: routeDisplayAnnouncement(routeMode, sameRoute),
   });
   const rankStatus = rankAnnouncement({
     loading: rankingLoading,
