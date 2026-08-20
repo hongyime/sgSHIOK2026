@@ -43,7 +43,9 @@ artifact; copy or create only a new versioned artifact after owner approval.
 For a zero-mutation source-age check, run
 `uv run python run.py check --freshness-only`; it reads `raw/manifest.json` and
 `pipeline/config/sources.yaml` only, does not probe upstream APIs, and reports
-current, stale, manual, and unknown-age sources.
+current, stale, manual, and unknown-age sources. NParks Leaf Area Index can
+appear in freshness as a tracked reference table, but it is not route geometry,
+shade-proxy geometry, or score provenance.
 
 Before any full geocode, scoring, or release batch, run both
 `python scripts/production_readiness.py` and `python run.py batch-plan`. The

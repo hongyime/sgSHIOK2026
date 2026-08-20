@@ -634,3 +634,6 @@ Editable pipeline package, fetch, and params headers now name S.H.I.O.K. Shelter
 
 2026-08-21 - P235 freshness snapshot age:
 The first-view freshness snapshot was refreshed from a zero-mutation `run.py check --freshness-only` measurement. The classification stayed 12 current, 6 stale, 2 manual, and 1 unknown-age source, while the oldest current source age moved from 112.5d to 112.6d for NParks Leaf Area Index. This is browser copy and test coverage only; it does not alter manifests, sources, inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P236 README Leaf Area Index policy:
+README onboarding now states that NParks Leaf Area Index can appear in source freshness as a tracked reference table, but is not route geometry, shade-proxy geometry, or score provenance. This keeps the P23/P181 non-score reference policy visible to operators before they interpret freshness output. This is documentation and test coverage only; it does not alter manifests, sources, shade geometry, scoring, exports, public data, deployment, or locked weights.
