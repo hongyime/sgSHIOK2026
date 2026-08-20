@@ -8,8 +8,11 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
+import yaml
+
 from pipeline.batch_plan import PARAMS_PATH, build_batch_plan
 from pipeline.export import validate_static_artifacts
+from pipeline.fetch import source_freshness_status
 from pipeline.network_qa import validate_network_qa
 from pipeline.scoring_integration import SCORING_FINGERPRINT_FILES
 from scripts.audit_current_bundle import active_bundle_dir, build_report, summarize_state_report
@@ -70,6 +73,14 @@ def read_json(path: Path) -> dict[str, Any]:
         payload: Any = json.load(f)
     if not isinstance(payload, dict):
         raise TypeError(f"expected JSON object: {path}")
+    return payload
+
+
+def read_yaml(path: Path) -> dict[str, Any]:
+    with path.open("r", encoding="utf-8") as f:
+        payload: Any = yaml.safe_load(f) or {}
+    if not isinstance(payload, dict):
+        raise TypeError(f"expected YAML object: {path}")
     return payload
 
 
@@ -150,6 +161,116 @@ def environment_readiness(environment: Mapping[str, str] | None = None) -> dict[
         "onemap_credentials_present": onemap_email_present and onemap_password_present,
         "missing": missing,
         "warnings": warnings,
+    }
+
+
+def source_freshness_readiness(
+    project_root: Path = PROJECT_ROOT,
+    now: datetime | None = None,
+) -> dict[str, Any]:
+    """Summarize local source freshness without probing upstream APIs."""
+    config_path = project_root / "pipeline" / "config" / "sources.yaml"
+    manifest_path = project_root / "raw" / "manifest.json"
+    if not config_path.is_file() or not manifest_path.is_file():
+        return {
+            "ok": True,
+            "state": "not_available",
+            "config_path": str(config_path),
+            "manifest_path": str(manifest_path),
+            "summary": "source freshness not reported; sources config or raw manifest is absent",
+            "counts": {},
+            "by_status": {},
+            "warning": None,
+        }
+
+    try:
+        config = read_yaml(config_path)
+        manifest = read_json(manifest_path)
+    except (OSError, TypeError, ValueError, yaml.YAMLError) as exc:
+        return {
+            "ok": True,
+            "state": "unreadable",
+            "config_path": str(config_path),
+            "manifest_path": str(manifest_path),
+            "summary": "source freshness not reported; local freshness metadata is unreadable",
+            "counts": {},
+            "by_status": {},
+            "warning": f"source freshness not reported: {exc}",
+        }
+
+    sources = config.get("sources", {})
+    freshness_defaults = config.get("freshness_defaults", {})
+    manifest_sources = manifest.get("sources", {})
+    if not isinstance(sources, dict) or not isinstance(freshness_defaults, dict):
+        return {
+            "ok": True,
+            "state": "unreadable",
+            "config_path": str(config_path),
+            "manifest_path": str(manifest_path),
+            "summary": "source freshness not reported; sources config has invalid shape",
+            "counts": {},
+            "by_status": {},
+            "warning": "source freshness not reported: sources config has invalid shape",
+        }
+    if not isinstance(manifest_sources, dict):
+        manifest_sources = {}
+
+    counts = {
+        "current": 0,
+        "stale": 0,
+        "manual": 0,
+        "unknown_policy": 0,
+        "unknown_age": 0,
+    }
+    by_status: dict[str, list[dict[str, Any]]] = {
+        "stale": [],
+        "unknown_policy": [],
+        "unknown_age": [],
+    }
+    for key, spec in sorted(sources.items()):
+        if not isinstance(spec, dict):
+            continue
+        manifest_entry = manifest_sources.get(key, {})
+        if not isinstance(manifest_entry, dict):
+            manifest_entry = {}
+        freshness = source_freshness_status(
+            str(key),
+            spec,
+            manifest_entry,
+            freshness_defaults=freshness_defaults,
+            now=now,
+        )
+        status_key = str(freshness["status"])
+        counts[status_key] = counts.get(status_key, 0) + 1
+        if status_key in by_status:
+            by_status[status_key].append(freshness)
+
+    notable = {
+        status_key: [str(item["source_key"]) for item in statuses]
+        for status_key, statuses in by_status.items()
+    }
+    warning_parts = [
+        f"{status_key} sources: {', '.join(keys)}"
+        for status_key, keys in notable.items()
+        if keys
+    ]
+    summary = (
+        f"source freshness current {counts.get('current', 0)}, "
+        f"stale {counts.get('stale', 0)}, "
+        f"manual {counts.get('manual', 0)}, "
+        f"unknown_policy {counts.get('unknown_policy', 0)}, "
+        f"unknown_age {counts.get('unknown_age', 0)}"
+    )
+    warning = f"source freshness warning: {'; '.join(warning_parts)}" if warning_parts else None
+    return {
+        "ok": True,
+        "state": "reported",
+        "config_path": str(config_path),
+        "manifest_path": str(manifest_path),
+        "summary": summary,
+        "counts": counts,
+        "by_status": notable,
+        "warning": warning,
     }
 
 
@@ -891,6 +1012,7 @@ def build_readiness_report(
     )
     vercel = vercel_readiness(project_root, web_dir)
     env_status = environment_readiness(environment)
+    source_freshness = source_freshness_readiness(project_root)
     lamp_overlay = lamp_overlay_artifact_status(web_dir)
     freshness = bundle_network_freshness(bundle_dir, network_path)
     score_provenance = bundle_score_provenance_status(bundle_dir)
@@ -919,6 +1041,8 @@ def build_readiness_report(
     warnings.extend(env_status["warnings"])
     if lamp_overlay["warning"]:
         warnings.append(str(lamp_overlay["warning"]))
+    if source_freshness["warning"]:
+        warnings.append(str(source_freshness["warning"]))
     if freshness["warning"]:
         warnings.append(str(freshness["warning"]))
     if score_provenance["warning"]:
@@ -982,6 +1106,7 @@ def build_readiness_report(
             },
             "scoring_fingerprint_status": score_provenance,
             "lamp_overlay_artifact": lamp_overlay,
+            "source_freshness": source_freshness,
             "onemap_validation": onemap_status,
             "vercel_root_directory": vercel.get("root_directory"),
             "checks": release_gate_checks,
@@ -1032,6 +1157,7 @@ def build_readiness_report(
         },
         "vercel": vercel,
         "lamp_overlay": lamp_overlay,
+        "source_freshness": source_freshness,
         "environment": env_status,
         "features": readiness_features(
             project_root / "qa",

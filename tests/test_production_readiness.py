@@ -1,5 +1,6 @@
 import json
 import os
+from datetime import UTC, datetime
 from pathlib import Path
 
 import pyarrow as pa
@@ -13,6 +14,7 @@ from scripts.production_readiness import (
     bundle_score_provenance_status,
     environment_readiness,
     lamp_overlay_artifact_status,
+    source_freshness_readiness,
     vercel_readiness,
 )
 from tests.test_export import sample_record
@@ -215,6 +217,76 @@ def test_environment_readiness_reports_missing_api_credentials_without_values() 
     assert "secret-lta" not in json.dumps(present)
     assert "secret-onemap" not in json.dumps(present)
     assert "owner@example.test" not in json.dumps(present)
+
+
+def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path) -> None:
+    sources_path = tmp_path / "pipeline" / "config" / "sources.yaml"
+    sources_path.parent.mkdir(parents=True, exist_ok=True)
+    sources_path.write_text(
+        "\n".join(
+            [
+                "freshness_defaults:",
+                "  datagov_polldownload:",
+                "    expected_cadence: monthly",
+                "    stale_after_days: 30",
+                "sources:",
+                "  fresh:",
+                "    name: Fresh",
+                "    kind: datagov_polldownload",
+                "  stale:",
+                "    name: Stale",
+                "    kind: datagov_polldownload",
+                "  manual:",
+                "    name: Manual",
+                "    kind: osm_pbf",
+                "    refresh: manual",
+                "  unknown_age:",
+                "    name: Unknown Age",
+                "    kind: datagov_polldownload",
+                "",
+            ]
+        ),
+        encoding="utf-8",
+    )
+    write_json(
+        tmp_path / "raw" / "manifest.json",
+        {
+            "sources": {
+                "fresh": {"fetched_at": "2026-08-15T00:00:00+00:00"},
+                "stale": {"last_modified": "Tue, 07 Jul 2026 02:06:48 GMT"},
+                "manual": {"last_modified": "Mon, 01 Jan 2024 00:00:00 GMT"},
+                "unknown_age": {},
+            }
+        },
+    )
+
+    status = source_freshness_readiness(
+        tmp_path,
+        now=datetime(2026, 8, 16, tzinfo=UTC),
+    )
+
+    assert status["ok"] is True
+    assert status["state"] == "reported"
+    assert status["counts"] == {
+        "current": 1,
+        "stale": 1,
+        "manual": 1,
+        "unknown_policy": 0,
+        "unknown_age": 1,
+    }
+    assert status["by_status"]["stale"] == ["stale"]
+    assert status["by_status"]["unknown_age"] == ["unknown_age"]
+    assert status["warning"] == (
+        "source freshness warning: stale sources: stale; unknown_age sources: unknown_age"
+    )
+
+
+def test_source_freshness_readiness_is_non_blocking_when_manifest_absent(tmp_path: Path) -> None:
+    status = source_freshness_readiness(tmp_path)
+
+    assert status["ok"] is True
+    assert status["state"] == "not_available"
+    assert status["warning"] is None
 
 
 def test_lamp_overlay_artifact_status_validates_manifest_and_tiles(tmp_path: Path) -> None:
