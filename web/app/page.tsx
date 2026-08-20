@@ -1938,7 +1938,7 @@ export default function Home() {
               Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape; newer completions may be missing.
             </p>
             <p className={styles.freshnessLine}>
-              Recent public-sample check: 8 missing rows out of 976 completions from 2021-2026 with postals.
+              Recent public-sample check: 8 missing rows out of 976 HDB completion and MCST proxy rows from 2021-2026 with postals.
             </p>
             <p className={styles.freshnessLine}>
               Source freshness: shelter, bus stops and night lighting are current; stale supporting sources include traffic signals and some greenery or boundary references.

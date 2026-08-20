@@ -33,6 +33,9 @@ describe("score card copy", () => {
       "Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape; newer completions may be missing."
     );
     expect(source).toContain(
+      "Recent public-sample check: 8 missing rows out of 976 HDB completion and MCST proxy rows from 2021-2026 with postals."
+    );
+    expect(source).not.toContain(
       "Recent public-sample check: 8 missing rows out of 976 completions from 2021-2026 with postals."
     );
     expect(source).toContain(
