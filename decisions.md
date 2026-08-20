@@ -610,3 +610,6 @@ Browser smoke should detect scored shelter-map panels using the current rendered
 
 2026-08-21 - P227 browser-smoke shelter-map panel aliases:
 Browser-smoke JSON should expose the current product surface as a shelter-map panel, not only through legacy `route_evidence_*` field names. The smoke output now adds `shelter_map_panel_loaded` and `shelter_map_panel_excerpt` while preserving the older route-evidence and score-panel keys for compatibility. This is browser QA output alignment and test coverage only; it does not alter rendered UI, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P228 agent doc shelter-map frame:
+`CLAUDE.md` is part of the agent handoff surface and should not teach new sessions the retired comfort-score-first product frame. It now opens with S.H.I.O.K. Shelter Map, covered-walkway ratio, exposed gaps, night-lighting map evidence, and the locked SHIOK score as secondary; the clicked-stop helper is described as walk-preview evidence. This is documentation and test coverage only; it does not alter runtime behavior, scoring, exports, inputs, public data, deployment, or locked weights.

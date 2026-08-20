@@ -1,8 +1,10 @@
-# CLAUDE.md — S.H.I.O.K. Index (agent instructions)
+# CLAUDE.md — S.H.I.O.K. Shelter Map (agent instructions)
 
-You are building the S.H.I.O.K. Index: a free, non-commercial civic web app that gives
-every Singapore postal code an explainable "comfort score" for the walk to transit
-(shelter from rain, heat, crossing friction, transit access, bus frequency).
+You are building S.H.I.O.K. Shelter Map: a free, non-commercial civic web app
+that answers "if I move here, what is the walk to transit actually like?" It
+leads with covered-walkway ratio and exposed gaps on real routed walks, adds
+night-lighting evidence as a map layer, and keeps the locked SHIOK score visible
+but secondary.
 
 The former template documentation source files are not present in this repository because the shared
 configuration sync strips them from target repos. Treat the code, tests,
@@ -20,7 +22,7 @@ source of truth. If this file conflicts with those tracked artifacts, verify bef
    accounts, or partner integrations. This is what makes Vercel Hobby compliant.
 4. **Minimal runtime backend.** The current runtime backend consists of two Vercel
    serverless functions: `/api/onemap-search` for OneMap search/geocoding and
-   `/api/onemap-route` for clicked-stop preview-route evidence. Everything else is static
+   `/api/onemap-route` for clicked-stop walk-preview evidence. Everything else is static
    files. Do not add another network-backed route without owner approval.
 5. **No date-stamped dataset URLs in code.** Discover latest via listing/API, download,
    SHA-256 hash; the hash is the change trigger and goes in `manifest.json`.
@@ -87,4 +89,4 @@ run.py           task runner: check | ingest | network | score | export | valida
 - No database, no ORM, no auth, no user state, no cron on Vercel.
 - No `GET /api/shiok/{postal}` endpoint — the frontend reads static JSON directly.
 - No island-wide map tiles in MVP (Phase 2 item, feature-flagged).
-- Night Safety is a map overlay only — never part of the composite score.
+- Night lighting is a map overlay only — never part of the locked SHIOK score.
