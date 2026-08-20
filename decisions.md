@@ -502,3 +502,6 @@ The subtle selected-walk detail strip should be named as walk details, not gener
 
 2026-08-21 - P172 walk-feedback note copy:
 The traced correction editor should invite a walk note, not a route note. The textarea placeholder now says `Optional walk note`, keeping the user-submitted correction tied to the walked shelter evidence. This is browser copy and test coverage only; it does not alter feedback payload structure, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P173 walk-feedback action copy:
+The traced correction actions should describe walk feedback, not generic route feedback. The overflow menu now says `Suggest better walk` and `Copy walk QA JSON`, while the exported payload shape and QA JSON behavior are unchanged. This is browser copy and test coverage only; it does not alter feedback payload structure, route geometry, score values, scoring, exports, public data, deployment, or locked weights.

@@ -125,6 +125,8 @@ describe("score card copy", () => {
     expect(source).toContain('"Sheltered walk"');
     expect(source).toContain('"Sheltered route"');
     expect(source).toContain('aria-label="Walk display"');
+    expect(source).toContain("Suggest better walk");
+    expect(source).toContain("Copy walk QA JSON");
     expect(source).toContain('placeholder="Optional walk note"');
     expect(source).not.toContain(">Covered");
     expect(source).not.toContain('"Covered walk"');
@@ -132,6 +134,8 @@ describe("score card copy", () => {
     expect(source).not.toContain('label="Shiokest sheltered"');
     expect(source).not.toContain('label="Shortest sheltered"');
     expect(source).not.toContain('aria-label="Route display"');
+    expect(source).not.toContain("Suggest better route");
+    expect(source).not.toContain(">Copy QA JSON<");
     expect(source).not.toContain('placeholder="Optional route note"');
     expect(source).not.toContain("styles.routeSecondary");
     expect(source).not.toContain("styles.routeTertiary");

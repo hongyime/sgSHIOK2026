@@ -368,7 +368,11 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain('placeholder="Optional walk note"');
+    expect(html).toContain("Copy walk QA JSON");
+    expect(html).toContain("Done tracing");
     expect(html).not.toContain('placeholder="Optional route note"');
+    expect(html).not.toContain("Copy QA JSON");
+    expect(html).not.toContain("Suggest better route");
   });
 
   it("renders exposed gap lengths with coordinates", () => {

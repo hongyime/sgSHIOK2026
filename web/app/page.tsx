@@ -1289,7 +1289,7 @@ export function ScoreCard({
                 aria-pressed={feedbackEnabled}
                 onClick={() => setFeedbackEnabled(!feedbackEnabled)}
               >
-                {feedbackEnabled ? "Done tracing" : "Suggest better route"}
+                {feedbackEnabled ? "Done tracing" : "Suggest better walk"}
               </button>
               <button
                 type="button"
@@ -1297,7 +1297,7 @@ export function ScoreCard({
                 onClick={copyFeedback}
                 disabled={feedbackPoints.length < 2}
               >
-                Copy QA JSON
+                Copy walk QA JSON
               </button>
             </div>
           </details>
