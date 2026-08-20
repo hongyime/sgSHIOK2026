@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P122: `25c91c4`
+Remote main after P123: `9a9ba24`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -60,6 +60,7 @@ Status:
 - P120 is complete and pushed: rendered score-card copy now says component score instead of sub-score in partial-score, bus-fallback, and rank-panel text.
 - P121 is complete and pushed: route-detail NParks helper copy now says `Greenery proxy` instead of `Shade proxy`, avoiding a direct measured-shade claim for sparse greenery evidence.
 - P122 is complete and pushed: the title-card freshness disclosure now says `Data freshness` in product-facing language while preserving the measured counts and named stale sources.
+- P123 is complete and pushed: clicked-stop preview metrics now say `Shelter evidence` instead of `Sheltered evidence`.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -108,5 +109,6 @@ Status:
 - P120 evidence is tracked at `qa/verification/P120-component-score-copy.md`.
 - P121 evidence is tracked at `qa/verification/P121-greenery-proxy-route-detail.md`.
 - P122 evidence is tracked at `qa/verification/P122-data-freshness-title-copy.md`.
+- P123 evidence is tracked at `qa/verification/P123-preview-shelter-evidence-label.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
