@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P204: pending
+Remote main after P204: `5f0e7d7`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,7 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
-- P204 is in progress: `run.py check --freshness-only` now prints the computed oldest still-current source summary; current live manifest reports `leaf_area_index` at 112.5d of a 120d threshold.
+- P204 is complete and committed: `run.py check --freshness-only` now prints the computed oldest still-current source summary; current live manifest reports `leaf_area_index` at 112.5d of a 120d threshold.
 - P203 is complete and committed: OneMap candidate-validation policy now records current official token controls, 72-hour token refresh, documented token-authenticated call-limit cap of 250, and SLA case-by-case higher-limit path in README, batch plan, production readiness, tests, decisions, and evidence.
 - P202 is complete and committed: the title-card data freshness line now names the oldest current source, NParks Leaf Area Index at 112.5 days old, instead of only reporting current/stale/manual counts; focused web copy test passes.
 - P201 is complete and committed: `run.py check --freshness-only` now prints current-source timestamp basis, age and threshold when manifest age is available; focused fetch tests pass.
