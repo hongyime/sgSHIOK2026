@@ -583,3 +583,6 @@ The inline map legend should match the user-facing walk display controls and sel
 
 2026-08-21 - P218 non-visual map sheltered-walk wording:
 Non-visual map summaries should use the same walk language as the visible controls and panel copy. The map aria label and screen-reader text now announce `sheltered walk`, `shortest walk`, and `sheltered-walk segments` instead of route wording. This is browser accessibility copy and test coverage only; it does not alter map geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P219 disconnected transit shelter-map walk wording:
+No-transit disconnected states should describe the missing artifact as a shelter-map walk, not a generic transit or walking route. The no-transit title and reason chip now say `Shelter-map walk not connected yet`, matching the existing explanatory note that transit stops or exits exist but the shelter-map bundle has no connected shelter-map walk yet. This is browser copy and test coverage only; it does not alter candidate selection, routing, score values, scoring, exports, public data, deployment, or locked weights.

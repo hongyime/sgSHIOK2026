@@ -423,7 +423,7 @@ function nearestRoutedTransitM(score: ScoreRecord, transitMode: TransitAccessMod
 
 function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): string {
   const reason = provenanceReason(score, transitMode);
-  if (reason === "transit_candidates_graph_disconnected") return "Transit route not connected yet";
+  if (reason === "transit_candidates_graph_disconnected") return "Shelter-map walk not connected yet";
   if (reason === "no_transit_candidates_selected") return "No transit stop within scoring range";
   return nearestRoutedTransitM(score, transitMode) !== null
     ? "Transit beyond scoring range"
@@ -692,7 +692,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
     const label = transitModeLabel(transitMode);
     const reason = provenanceReason(score, transitMode);
     if (reason === "transit_candidates_graph_disconnected") {
-      return ["Transit stop or exit found", "Walking route not connected yet"];
+      return ["Transit stop or exit found", "Shelter-map walk not connected yet"];
     }
     if (reason === "no_transit_candidates_selected") {
       return ["No transit stop within scoring range", "Outside current 1.2 km scoring range"];
