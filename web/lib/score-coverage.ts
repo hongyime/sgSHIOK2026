@@ -50,7 +50,7 @@ export function formatScoreCoverageLine(manifest: Manifest | null): string | nul
   const nonFullText = breakdown
     ? `do not show a full route score: ${breakdown}`
     : "do not show a full route score";
-  return `Score coverage: ${formatWholeNumber(scored)} full route scores out of ${formatWholeNumber(
+  return `Bundle score availability: ${formatWholeNumber(scored)} full route scores out of ${formatWholeNumber(
     recordCount
   )}; ${formatWholeNumber(notFull)} records (${pctText}) ${nonFullText}.`;
 }

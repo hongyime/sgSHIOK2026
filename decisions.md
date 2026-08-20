@@ -251,3 +251,6 @@ Address search should not fail silently when OneMap returns zero results. After 
 
 2026-08-20 - P88 sheltered route label:
 The selected higher-shelter route should not be labeled simply `Covered`, because a route can still be partly exposed. User-facing route labels now say `Sheltered`, `Sheltered route`, and `Sheltered walk`, while the measured coverage percentage remains the source of truth. This is browser copy only; it does not alter route selection behavior, geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P89 bundle score availability wording:
+The manifest-derived score-coverage disclosure should read as availability context for the frozen bundle, not as the product headline. It now starts `Bundle score availability` while preserving the same manifest-derived counts and missing-score breakdown. This is browser copy only; it does not alter manifest parsing, counts, scoring, exports, inputs, public data, deployment, or locked weights.
