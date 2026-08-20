@@ -577,3 +577,6 @@ The persistent footer should reinforce the headline artifact instead of revertin
 
 2026-08-21 - P216 shelter-map walk wording:
 Rendered product copy should use walk language for the user-facing transit path, reserving route language for internal geometry and compatibility names. Transit-target availability labels, the outside-bundle message, and the snap-connector helper now say `shelter-map walk` instead of `shelter map route`. This is browser copy and test coverage only; it does not alter route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P217 map legend sheltered-walk wording:
+The inline map legend should match the user-facing walk display controls and selected-walk panel. The main sheltered-line legend now says `Sheltered walk` instead of `Sheltered route`, while direct-bus and preview labels keep their existing specialized wording. This is browser copy and test coverage only; it does not alter map geometry, score values, scoring, exports, public data, deployment, or locked weights.

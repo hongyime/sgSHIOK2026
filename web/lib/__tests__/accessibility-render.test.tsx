@@ -322,6 +322,9 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("LTA covered linkway");
     expect(html).toContain("OSM shelter tags");
     expect(html).not.toContain("OSM covered");
+    expect(html).toContain('aria-label="Map legend"');
+    expect(html).toContain("Sheltered walk");
+    expect(html).not.toContain("Sheltered route");
     expect(html).toContain("Shelter map evidence and locked score");
     expect(html).toContain('aria-label="Shelter map evidence and locked score breakdown"');
     expect(html).toContain("Four display rows; weights unchanged");

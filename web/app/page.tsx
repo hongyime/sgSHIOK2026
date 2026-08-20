@@ -939,7 +939,7 @@ function InlineRouteLegend({
     <div className={styles.inlineLegend} aria-label="Map legend">
       <span>
         <i className={directBusFallback || previewRoute ? styles.directBusLine : styles.shiokestLine} />
-        {directBusFallback ? "Direct bus estimate" : previewRoute ? "Shelter map preview" : "Sheltered route"}
+        {directBusFallback ? "Direct bus estimate" : previewRoute ? "Shelter map preview" : "Sheltered walk"}
       </span>
       {!directBusFallback && !previewRoute && (
         <>

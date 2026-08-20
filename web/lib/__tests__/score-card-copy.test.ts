@@ -170,7 +170,7 @@ describe("score card copy", () => {
 
     expect(source).toContain("Sheltered\n      </button>");
     expect(source).toContain('"Sheltered walk"');
-    expect(source).toContain('"Sheltered route"');
+    expect(source).not.toContain('"Sheltered route"');
     expect(source).toContain('aria-label="Walk display"');
     expect(source).toContain("Suggest better walk");
     expect(source).toContain("Copy walk QA JSON");
