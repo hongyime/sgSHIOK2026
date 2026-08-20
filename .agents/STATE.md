@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P199: `e6881c9`
+Remote main after P200: pending
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P200 is in progress: absolute-path `production_readiness.py` full invocation reaches the real gate and exits 1 after 388.593 seconds; legacy provenance is `state: legacy` and `ok: true`, while the release gate remains blocked by island network QA, local Vercel link/root-directory checks, and cached OneMap validation.
 - P199 is complete and committed: `scripts/production_readiness.py` now bootstraps the repository root before local imports, so absolute-path `--help` invocation works; guarded by a subprocess regression test.
 - P198 is complete and committed: the manifest-derived locked-score availability helper and test now use `locked-score-availability` / `formatLockedScoreAvailabilityLine` naming instead of generic score-coverage naming.
 - P197 is complete and committed: partial and not-yet-scored states now use `Partial locked score` and `Awaiting locked score`, while preserving the `No full score in this bundle` limitation.
