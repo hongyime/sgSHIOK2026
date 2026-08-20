@@ -380,3 +380,6 @@ The route source strip should use product-facing shelter-evidence labels rather 
 
 2026-08-20 - P131 shelter-map title:
 The app's first brand signal should describe the user-facing artifact rather than the secondary score. The visible H1 and document metadata title now say `S.H.I.O.K. Shelter Map` instead of `S.H.I.O.K. Index`, while the subtitle remains `Shelter-first walks to transit` and the locked SHIOK score remains visible as a secondary route-evidence field. This is browser naming only; it does not alter scoring, ranking, route geometry, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P132 empty-state shelter map prompt:
+The first route-evidence panel a user sees should name the actual artifacts the shelter map provides before any search. The no-selection status now says `No shelter map route selected`, and the empty prompt asks users to search a Singapore postal code to inspect sheltered walk evidence, exposed gaps, and night lighting near transit. This is browser copy only; it does not alter search behavior, route geometry, scoring, exports, public data, deployment, or locked weights.

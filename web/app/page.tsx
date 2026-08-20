@@ -153,7 +153,7 @@ export function scoreCardAnnouncement({
   routeMode: RouteDisplayMode;
   routeDisplayLabel?: string;
 }): string {
-  if (!selection) return "No route evidence selected.";
+  if (!selection) return "No shelter map route selected.";
   const postal = postalTitle(selection);
   if (!selection.score) return `${postal} is not in the current score bundle.`;
   const scoreText = displayScore === null || displayScore === undefined
@@ -1028,7 +1028,7 @@ export function ScoreCard({
         </p>
         <div className={styles.emptyState}>
           <strong>Find a postal code</strong>
-          <span>Search a Singapore postal code to inspect sheltered walk evidence to transit.</span>
+          <span>Search a Singapore postal code to inspect sheltered walk evidence, exposed gaps, and night lighting near transit.</span>
         </div>
       </section>
     );

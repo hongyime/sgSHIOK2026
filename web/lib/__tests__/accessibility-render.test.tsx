@@ -161,10 +161,11 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("Find a postal code");
     expect(html).toContain('aria-label="Route evidence panel"');
-    expect(html).toContain("No route evidence selected.");
-    expect(html).toContain("Search a Singapore postal code to inspect sheltered walk evidence to transit.");
+    expect(html).toContain("No shelter map route selected.");
+    expect(html).toContain("Search a Singapore postal code to inspect sheltered walk evidence, exposed gaps, and night lighting near transit.");
     expect(html).not.toContain('aria-label="Score panel"');
     expect(html).not.toContain("No score selected.");
+    expect(html).not.toContain("No route evidence selected.");
     expect(html).not.toContain("Search any Singapore address to see its walk-to-transit comfort score.");
   });
 
