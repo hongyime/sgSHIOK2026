@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P161: `429904e`
+Remote main after P162: `ff51209`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -99,6 +99,7 @@ Status:
 - P159 is complete and pushed: selected shelter-map panels now surface night lighting as a map-layer route detail outside the locked score.
 - P160 is complete and pushed: exposed-gap sections now state how many gaps include map coordinates.
 - P161 is complete and pushed: missing/incomplete reason chips now use locked-score wording instead of generic bundle-score wording.
+- P162 is complete and pushed: direct-bus fallback caveats now say shelter-map route access was not verified.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -186,5 +187,6 @@ Status:
 - P159 evidence is tracked at `qa/verification/P159-night-lighting-route-detail.md`.
 - P160 evidence is tracked at `qa/verification/P160-exposed-gap-coordinate-summary.md`.
 - P161 evidence is tracked at `qa/verification/P161-locked-score-reason-chips.md`.
+- P162 evidence is tracked at `qa/verification/P162-direct-bus-fallback-shelter-map-copy.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
