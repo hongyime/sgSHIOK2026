@@ -526,3 +526,6 @@ The walk-display live-region helper should announce the same shortest/sheltered 
 
 2026-08-21 - P180 README freshness-only command:
 The README should tell operators how to run the manifest-only source freshness gate without fetching or mutating inputs. It now documents `uv run python run.py check --freshness-only`, because bare system `python run.py check --freshness-only` can fail before reaching freshness logic when the system interpreter lacks project dependencies. This is documentation and test coverage only; it reads but does not modify `raw/`, does not probe upstream APIs, and does not alter inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P181 score-source hash policy in readiness:
+Production readiness should expose the score-source hash policy by key name, not only by count. The active policy has 13 score-affecting source keys and excludes `leaf_area_index`; readiness now reports expected, present, missing, unexpected, and non-score reference source hashes so a future bundle that leaks reference-only inputs into score provenance is visible without blocking verified legacy artifacts. This is readiness reporting and test coverage only; it does not alter source manifests, scoring, exports, public data, deployment, or locked weights.

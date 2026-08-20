@@ -8,7 +8,7 @@ import pyarrow.parquet as pq
 import pytest
 
 from pipeline.export import export_static_artifacts
-from pipeline.scoring_integration import scoring_fingerprints
+from pipeline.scoring_integration import SCORE_PROVENANCE_SOURCE_HASH_KEYS, scoring_fingerprints
 from scripts.production_readiness import (
     build_readiness_report,
     bundle_score_provenance_status,
@@ -148,7 +148,8 @@ def export_current_fingerprint_bundle(output_dir: Path) -> None:
 def legacy_live_bundle_provenance_shape(manifest: dict) -> None:
     manifest["provenance"] = {
         "source_hashes": {
-            f"source_{index:02d}": f"{index:064x}" for index in range(14)
+            source_key: f"{index:064x}"
+            for index, source_key in enumerate(sorted(SCORE_PROVENANCE_SOURCE_HASH_KEYS), start=1)
         },
         "scoring_fingerprints": {
             "pipeline\\config\\params.yaml": "0" * 64,
@@ -1017,7 +1018,12 @@ def test_bundle_score_provenance_reports_real_live_bundle_shape_as_legacy(
 
     assert status["ok"] is True
     assert status["state"] == "legacy"
-    assert status["source_hash_count"] == 14
+    assert status["source_hash_count"] == len(SCORE_PROVENANCE_SOURCE_HASH_KEYS)
+    assert status["source_hash_keys"] == sorted(SCORE_PROVENANCE_SOURCE_HASH_KEYS)
+    assert status["expected_score_source_hash_keys"] == sorted(SCORE_PROVENANCE_SOURCE_HASH_KEYS)
+    assert status["missing_expected_score_source_hashes"] == []
+    assert status["unexpected_source_hashes"] == []
+    assert status["non_score_reference_source_hashes"] == []
     assert status["scoring_fingerprint_count"] == 5
     assert status["missing_subscore_status"] == []
     assert "pipeline\\score_batch.py" in status["missing_scoring_fingerprints"]
@@ -1030,6 +1036,31 @@ def test_bundle_score_provenance_reports_real_live_bundle_shape_as_legacy(
     ]
     assert "active bundle uses legacy provenance schema" in status["warning"]
     assert "record-level scoring input provenance" in status["warning"]
+
+
+def test_bundle_score_provenance_reports_non_score_reference_hashes_without_blocking(
+    tmp_path: Path,
+):
+    bundle_dir = tmp_path / "generated_test"
+    export_current_fingerprint_bundle(bundle_dir)
+    manifest_path = bundle_dir / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    provenance = manifest["provenance"]
+    provenance["source_hashes"] = {
+        source_key: f"{index:064x}"
+        for index, source_key in enumerate(sorted(SCORE_PROVENANCE_SOURCE_HASH_KEYS), start=1)
+    }
+    provenance["source_hashes"]["leaf_area_index"] = "f" * 64
+    write_json(manifest_path, manifest)
+
+    status = bundle_score_provenance_status(bundle_dir)
+
+    assert status["ok"] is True
+    assert status["state"] == "passed"
+    assert status["source_hash_count"] == len(SCORE_PROVENANCE_SOURCE_HASH_KEYS) + 1
+    assert status["non_score_reference_source_hashes"] == ["leaf_area_index"]
+    assert status["unexpected_source_hashes"] == ["leaf_area_index"]
+    assert "non-score reference source hashes: leaf_area_index" in status["warning"]
 
 
 def test_bundle_score_provenance_blocks_real_p10_stale_resume_shape(tmp_path: Path):

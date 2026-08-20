@@ -14,7 +14,7 @@ from pipeline.batch_plan import OSM_ADDR_POSTCODE_COVERAGE, PARAMS_PATH, build_b
 from pipeline.export import validate_static_artifacts
 from pipeline.fetch import source_freshness_status
 from pipeline.network_qa import validate_network_qa
-from pipeline.scoring_integration import SCORING_FINGERPRINT_FILES
+from pipeline.scoring_integration import SCORING_FINGERPRINT_FILES, SCORE_PROVENANCE_SOURCE_HASH_KEYS
 from scripts.audit_current_bundle import active_bundle_dir, build_report, summarize_state_report
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -29,6 +29,7 @@ REQUIRED_SUBSCORE_STATUS = {"access", "bus", "rain", "heat", "crossing"}
 REQUIRED_SCORING_FINGERPRINTS = {
     rel_path.replace("/", "\\") for rel_path in SCORING_FINGERPRINT_FILES
 }
+NON_SCORE_REFERENCE_SOURCE_HASH_KEYS = {"leaf_area_index"}
 BLOCKING_PROVENANCE_SIGNALS = {
     "scoring_fingerprint_changed_during_run": "scoring fingerprint changed during run",
     "mixed_scoring_fingerprint_digests": "mixed scoring fingerprint digests",
@@ -535,7 +536,16 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
         key for key, warned in provenance_signals.items() if warned
         and key in WARNING_PROVENANCE_SIGNALS
     ]
-    source_hash_count = len(source_hashes) if isinstance(source_hashes, dict) else 0
+    source_hash_keys = sorted(source_hashes) if isinstance(source_hashes, dict) else []
+    expected_source_hash_keys = sorted(SCORE_PROVENANCE_SOURCE_HASH_KEYS)
+    missing_expected_source_hashes = sorted(
+        set(expected_source_hash_keys) - set(source_hash_keys)
+    )
+    unexpected_source_hashes = sorted(set(source_hash_keys) - set(expected_source_hash_keys))
+    non_score_reference_source_hashes = sorted(
+        set(source_hash_keys) & NON_SCORE_REFERENCE_SOURCE_HASH_KEYS
+    )
+    source_hash_count = len(source_hash_keys)
     fingerprint_keys = (
         set(scoring_fingerprints) if isinstance(scoring_fingerprints, dict) else set()
     )
@@ -578,7 +588,12 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
             + "; score values may be used as a verified legacy artifact, but this "
             "bundle cannot provide full record-level provenance evidence"
         )
-    elif not ok or warning_provenance_signals:
+        if non_score_reference_source_hashes:
+            warning += (
+                "; non-score reference source hashes present: "
+                + ", ".join(non_score_reference_source_hashes)
+            )
+    elif not ok or warning_provenance_signals or non_score_reference_source_hashes:
         reasons: list[str] = []
         if source_hash_count <= 0:
             reasons.append("score source hashes")
@@ -602,6 +617,11 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
                     WARNING_PROVENANCE_SIGNALS[key] for key in warning_provenance_signals
                 )
             )
+        if non_score_reference_source_hashes:
+            reasons.append(
+                "non-score reference source hashes: "
+                + ", ".join(non_score_reference_source_hashes)
+            )
         if not ok:
             warning = (
                 "active bundle manifest lacks score source hashes, scoring code/config "
@@ -623,6 +643,11 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
         "state": state,
         "manifest_path": str(manifest_path),
         "source_hash_count": source_hash_count,
+        "source_hash_keys": source_hash_keys,
+        "expected_score_source_hash_keys": expected_source_hash_keys,
+        "missing_expected_score_source_hashes": missing_expected_source_hashes,
+        "unexpected_source_hashes": unexpected_source_hashes,
+        "non_score_reference_source_hashes": non_score_reference_source_hashes,
         "scoring_fingerprint_count": len(fingerprint_keys),
         "subscore_status_keys": sorted(subscore_keys),
         "missing_scoring_fingerprints": missing_fingerprints,
