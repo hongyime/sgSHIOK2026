@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P88: `ff8a35b`
+Remote main after P89: `29bb9cd`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -26,6 +26,7 @@ Status:
 - P86 is complete and pushed: the search input now says `Search address or 6-digit postal` in visible placeholder and accessible label.
 - P87 is complete and pushed: submitted address searches with zero OneMap results now show guidance to try a six-digit postal and note frozen-bundle limits.
 - P88 is complete and pushed: the selected higher-shelter route is labeled `Sheltered` / `Sheltered route` / `Sheltered walk` instead of `Covered`.
+- P89 is complete and pushed: the title-card score disclosure now starts `Bundle score availability` instead of `Score coverage`.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -40,5 +41,6 @@ Status:
 - P86 evidence is tracked at `qa/verification/P86-search-postal-hint.md`.
 - P87 evidence is tracked at `qa/verification/P87-search-no-results.md`.
 - P88 evidence is tracked at `qa/verification/P88-sheltered-route-label.md`.
+- P89 evidence is tracked at `qa/verification/P89-bundle-score-availability.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
