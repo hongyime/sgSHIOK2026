@@ -39,7 +39,11 @@ describe("route evidence map interactions", () => {
     expect(source).toContain('return "sheltered route";');
     expect(source).toContain('return "shortest and sheltered routes";');
     expect(source).toContain("sheltered-route segments");
+    expect(source).toContain("Singapore shelter map with MRT stations, LRT stations, and bus stops");
+    expect(source).toContain("Shelter map for ${labels}, showing ${routeModeLabel(mode)}");
     expect(source).toContain("Search for a postal code to show shelter map evidence, exposed gaps, and nearby transit.");
+    expect(source).not.toContain("Singapore transit map with MRT stations, LRT stations, and bus stops");
+    expect(source).not.toContain("Route evidence map for ${labels}, showing ${routeModeLabel(mode)}");
     expect(source).not.toContain("Search for a postal code to show route evidence.");
     expect(source).not.toContain("covered-route segments");
     expect(source).not.toContain('return "covered route";');

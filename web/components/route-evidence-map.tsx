@@ -966,10 +966,10 @@ function routeModeLabel(mode: RouteDisplayMode): string {
 
 function mapAriaLabel(routes: RouteMapItem[], mode: RouteDisplayMode): string {
   if (routes.length === 0) {
-    return "Singapore transit map with MRT stations, LRT stations, and bus stops";
+    return "Singapore shelter map with MRT stations, LRT stations, and bus stops";
   }
   const labels = routes.map((route) => route.label).join(", ");
-  return `Route evidence map for ${labels}, showing ${routeModeLabel(mode)}`;
+  return `Shelter map for ${labels}, showing ${routeModeLabel(mode)}`;
 }
 
 function transitPoiSummary(pois: PointFeatureCollection): string {

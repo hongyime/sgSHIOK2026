@@ -395,3 +395,6 @@ The README status line should describe the current live artifact in the same ter
 
 2026-08-20 - P136 empty map summary shelter copy:
 The non-visual map summary should use the same shelter-map framing as the visible empty route panel. Before a postal is selected it now tells users to search for a postal code to show shelter map evidence, exposed gaps, and nearby transit, instead of generic route evidence. This is browser accessibility copy only; it does not alter map rendering, route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P137 map aria shelter label:
+The map container's accessible label should call the product surface a shelter map, matching the H1, footer, empty prompt, and non-visual summary. It now announces an empty map as a Singapore shelter map and selected routes as a shelter map for the chosen route labels, while preserving MRT/LRT and bus-stop context. This is browser accessibility copy only; it does not alter map rendering, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
