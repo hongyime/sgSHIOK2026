@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P186: `fdcad84`
+Remote main after P187: `b62da8e`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P187 is complete and committed: browser smoke now accepts `--walk-mode` as the preferred walk-display QA argument while preserving `--route-mode`, and launch-check uses the walk-mode argument/path for its walk comparison smoke.
 - P186 is complete and committed: copied walk QA JSON and browser-smoke summaries now expose walk-mode aliases while preserving legacy route-mode keys for compatibility.
 - P185 is complete and committed: browser smoke now selects the walk-mode segmented control by `aria-label="Walk display"`, matching the app and accessibility tests instead of the old `Route display` selector.
 - P184 is complete and committed: the live-route preview helper comment now says authoritative scores come from the published score bundle with locked weights and full provenance, and the route-evidence interaction test guards against old offline-pipeline framing.
