@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P152: `5f910d9`
+Remote main after P153: `e947fed`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -90,6 +90,7 @@ Status:
 - P150 is complete and pushed: clicked-stop preview map legend now labels the preview line as `Shelter map preview`.
 - P151 is complete and pushed: selected-route non-visual map summaries now start with `Shelter map for ...`.
 - P152 is complete and pushed: graph-disconnected no-transit notes now describe the missing connection as a shelter-map bundle route gap.
+- P153 is complete and pushed: score-coverage disclosure now says `full scores` and `partial shelter-map evidence`.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -168,5 +169,6 @@ Status:
 - P150 evidence is tracked at `qa/verification/P150-preview-legend-shelter-map.md`.
 - P151 evidence is tracked at `qa/verification/P151-map-summary-shelter-map-route.md`.
 - P152 evidence is tracked at `qa/verification/P152-no-transit-shelter-map-route.md`.
+- P153 evidence is tracked at `qa/verification/P153-score-coverage-shelter-map.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
