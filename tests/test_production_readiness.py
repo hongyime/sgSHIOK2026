@@ -371,7 +371,6 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
     qa_path = tmp_path / "qa" / "conflation_qa_island.json"
     debug_path = tmp_path / "qa" / "island_debug.geojson"
     write_production_island_qa(qa_path)
-    debug_path.write_text('{"type":"FeatureCollection","features":[]}', encoding="utf-8")
 
     ok, report = build_readiness_report(
         project_root=tmp_path,
@@ -405,6 +404,8 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
     assert report["bundle"]["score_provenance"]["missing_subscore_status"] == []
     assert report["bundle"]["static_validation"]["geometry_postals_with_route_segments"] == 1
     assert report["network"]["ok"] is True
+    assert report["network"]["debug_path"] == str(debug_path)
+    assert not debug_path.exists()
     assert report["vercel"]["root_directory_ok"] is True
     assert report["lamp_overlay"]["ok"] is True
     assert report["lamp_overlay"]["point_count"] == 2

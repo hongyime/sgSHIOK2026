@@ -311,6 +311,46 @@ def test_batch_plan_reports_missing_island_qa_as_blocker_not_artifact_error(tmp_
     assert "island-wide network QA is not green" in report["checkpoint_gates"]["blockers"]
 
 
+def test_batch_plan_does_not_block_on_missing_rebuildable_debug_geojson(tmp_path: Path):
+    summary_path = tmp_path / "summary.json"
+    universe_path = tmp_path / "universe.parquet"
+    params_path = tmp_path / "params.yaml"
+    qa_path = tmp_path / "conflation_qa_island.json"
+    debug_path = tmp_path / "island_debug.geojson"
+    write_json(
+        summary_path,
+        {
+            "mode": "official_current",
+            "total_unique_postals": 2,
+            "ready_to_score": 2,
+            "needs_geocode": 0,
+            "source_stats": [],
+            "source_only_counts": {},
+            "warnings": [],
+        },
+    )
+    write_universe(universe_path, rows=2)
+    write_params(params_path, delay=2.0)
+    write_island_qa(qa_path)
+
+    ok, report = build_batch_plan(
+        mode="official_current",
+        summary_path=summary_path,
+        universe_path=universe_path,
+        params_path=params_path,
+        qa_path=qa_path,
+        debug_path=debug_path,
+    )
+
+    assert ok, report
+    assert report["checkpoint_gates"]["island_network_qa_ok"] is True
+    assert report["checkpoint_gates"]["island_network_debug_required_for_plan"] is False
+    assert report["checkpoint_gates"]["island_network_debug_required_for_full_batch_execution"] is True
+    assert "island-wide network QA is not green" not in report["checkpoint_gates"]["blockers"]
+    assert report["island_network_qa"]["errors"] == []
+    assert not debug_path.exists()
+
+
 def test_batch_plan_rejects_missing_or_mismatched_universe_artifact(tmp_path: Path):
     summary_path = tmp_path / "summary.json"
     universe_path = tmp_path / "universe.parquet"

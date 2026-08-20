@@ -241,7 +241,7 @@ def build_batch_plan(
     remaining_geocode_requests = 0 if geocode_fill_complete else needs_geocode
     wall_clock_seconds = float(remaining_geocode_requests) * float(onemap_delay_sec)
 
-    island_ok, island_summary = validate_network_qa(qa_path, debug_path)
+    island_ok, island_summary = validate_network_qa(qa_path, debug_path, require_debug=False)
     summary_warnings = [str(item) for item in summary.get("warnings", []) if isinstance(item, str)]
     requires_universe_approval = any(
         THIRD_PARTY_ONEMAP_WARNING in warning for warning in summary_warnings
@@ -330,6 +330,8 @@ def build_batch_plan(
         "full_batch_release_scope": FULL_BATCH_RELEASE_SCOPE,
         "checkpoint_gates": {
             "island_network_qa_ok": island_ok,
+            "island_network_debug_required_for_plan": False,
+            "island_network_debug_required_for_full_batch_execution": True,
             "requires_human_approval_for_universe": requires_universe_approval,
             "full_geocode_scoring_batch_requires_human_approval": True,
             "production_deploy_requires_human_approval": True,

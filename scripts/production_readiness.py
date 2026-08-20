@@ -1043,6 +1043,7 @@ def build_readiness_report(
     island_ok, island_qa = validate_network_qa(
         qa_path,
         debug_path,
+        require_debug=False,
         require_production_sources=True,
     )
     batch_ok, batch_plan = build_batch_plan(
