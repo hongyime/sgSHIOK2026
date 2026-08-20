@@ -15,7 +15,7 @@ function score(postal: string, total: number, rain: number, access: number): Sco
   };
 }
 
-describe("sub-score ranking", () => {
+describe("component-score ranking", () => {
   it("sorts by authoritative total for the overall view", () => {
     const ranked = rankScoreRecords(
       [score("100002", 80, 10, 50), score("100001", 90, 20, 40)],
@@ -26,7 +26,7 @@ describe("sub-score ranking", () => {
     expect(ranked[0]?.value).toBe(90);
   });
 
-  it("sorts by one sub-score without changing stored totals", () => {
+  it("sorts by one component score without changing stored totals", () => {
     const ranked = rankScoreRecords(
       [score("100002", 80, 10, 50), score("100001", 90, 20, 40)],
       "access"
