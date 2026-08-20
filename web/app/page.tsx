@@ -1509,7 +1509,7 @@ export function ScoreCard({
       )}
 
       {score.paths && routeDetailItems.length > 0 && (
-        <div className={styles.routeDetails} aria-label="Route details">
+        <div className={styles.routeDetails} aria-label="Walk details">
           {routeDetailItems.map((item) => (
             <span key={item.label}>
               {item.label} <strong>{item.value}</strong>

@@ -147,7 +147,7 @@ describe("score card copy", () => {
     expect(source).toContain("className={styles.compareNote}");
   });
 
-  it("keeps greenery proxy and snap connector in a subtle route-details strip, not a duplicate metric row", () => {
+  it("keeps greenery proxy and snap connector in a subtle walk-details strip, not a duplicate metric row", () => {
     const cssSource = readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8");
     const tsxSource = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
@@ -171,7 +171,8 @@ describe("score card copy", () => {
     );
     expect(tsxSource).not.toContain("onto mapped walking-route evidence");
     expect(tsxSource).not.toContain("onto the walking graph");
-    expect(tsxSource).toContain('aria-label="Route details"');
+    expect(tsxSource).toContain('aria-label="Walk details"');
+    expect(tsxSource).not.toContain('aria-label="Route details"');
   });
 
   it("removes presentation reweighting and displays the authoritative bundle total", () => {

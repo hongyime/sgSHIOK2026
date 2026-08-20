@@ -496,3 +496,6 @@ The selected-route display control and score-card live region should describe th
 
 2026-08-21 - P170 published-walk reset copy:
 The selected-stop reset control should send users back to the published walk, not to a `Scored route`. The custom-stop reset button now says `Published walk`, and the score-card live region says `Published walk selected` for the default published route state. This is browser copy/accessibility and test coverage only; it does not alter stop selection behavior, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P171 walk-details accessibility label:
+The subtle selected-walk detail strip should be named as walk details, not generic route details. Its visible contents remain greenery proxy, night lighting, snap connector, and their notes; only the accessible region label changes to `Walk details`. This is browser accessibility copy and test coverage only; it does not alter map rendering, route geometry, score values, scoring, exports, public data, deployment, or locked weights.

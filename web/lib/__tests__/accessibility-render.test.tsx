@@ -340,6 +340,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Layer off");
     expect(html).toContain("Snap connector");
     expect(html).toContain("9 m");
+    expect(html).toContain('aria-label="Walk details"');
+    expect(html).not.toContain('aria-label="Route details"');
     expect(html).toContain(
       "Snap connector is the short link from the postal or transit point onto the shelter-map route."
     );
