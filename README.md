@@ -39,6 +39,15 @@ lamp overlay artifact is present and internally consistent. Do not rebuild,
 overwrite, or mutate existing public data directories to repair a missing
 artifact; copy or create only a new versioned artifact after owner approval.
 
+Before any full geocode, scoring, or release batch, run both
+`python scripts/production_readiness.py` and `python run.py batch-plan`. The
+next full-batch release is approved in principle but is not approved to run. It
+is one attempt only, requires explicit owner approval before execution, and must
+bundle the bus remodel, the `NO_TRANSIT_IN_RANGE` partial-score fix, network
+conflation repair, and any approved postal-universe v2 promotion after each
+change passes on the 1,200-record subset. Do not run piecemeal full-bundle
+reruns, deploy, or repoint the live site without explicit owner approval.
+
 ## Repo map
 
 - `CLAUDE.md` — agent instructions: hard constraints, stack, layout, conventions. Read first.

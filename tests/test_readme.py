@@ -38,3 +38,20 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "map evidence only and is not part of the locked score" in normalized
     assert "python scripts/production_readiness.py" in normalized
     assert "Do not rebuild, overwrite, or mutate existing public data directories" in normalized
+
+
+def test_readme_documents_full_batch_approval_boundary() -> None:
+    text = README.read_text(encoding="utf-8")
+    normalized = compact(text)
+
+    assert "python scripts/production_readiness.py" in normalized
+    assert "python run.py batch-plan" in normalized
+    assert "next full-batch release is approved in principle but is not approved to run" in normalized
+    assert "one attempt only" in normalized
+    assert "requires explicit owner approval before execution" in normalized
+    assert "bus remodel" in normalized
+    assert "`NO_TRANSIT_IN_RANGE` partial-score fix" in normalized
+    assert "network conflation repair" in normalized
+    assert "approved postal-universe v2 promotion" in normalized
+    assert "passes on the 1,200-record subset" in normalized
+    assert "Do not run piecemeal full-bundle reruns" in normalized
