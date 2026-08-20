@@ -667,3 +667,6 @@ The zero-mutation source-freshness CLI should name the timestamp used to compute
 
 2026-08-21 - P246 shelter-map user-agent identifiers:
 Maintained pipeline HTTP user-agent identifiers should use the current S.H.I.O.K. Shelter Map product frame rather than the retired SHIOK Index / Singapore Walk-to-Transit Index names. Fetch, bus, bounded geocode, postal-universe, OneMap probe, OneMap validation, and data.gov.sg resolver callers now identify as `sgSHIOK-Shelter-Map...`, with regression coverage over those files. This changes only future request metadata if those tools are explicitly run; it does not call upstream APIs, fetch sources, alter manifests, inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P247 README shelter-map bundle wording:
+Operator onboarding should describe the active static artifact as the live shelter-map bundle, not primarily as a score bundle. README local-data wording and the web data-loader comment now use shelter-map bundle language while preserving the exact locked-score availability counts and the readiness requirement. This is documentation/comment and test coverage only; it does not alter runtime data loading, manifests, inputs, scoring, exports, public data, deployment, or locked weights.

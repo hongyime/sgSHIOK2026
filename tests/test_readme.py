@@ -32,6 +32,8 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     normalized = compact(text)
 
     assert "## Local data artifacts" in text
+    assert "live shelter-map bundle remains configured" in normalized
+    assert "live score bundle remains configured" not in normalized
     assert "`web/public/data/generated_20260805_prefer_scored_routed/`" in normalized
     assert "95,157 full scores out of 124,443 records" in normalized
     assert "29,286 records, roughly a quarter, do not show a full locked score" in normalized
@@ -45,6 +47,8 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "Map evidence only" not in normalized
     assert "map evidence only and is not part of the locked score" in normalized
     assert "python scripts/production_readiness.py" in normalized
+    assert "validates the shelter-map bundle" in normalized
+    assert "validates the score bundle" not in normalized
     assert "Do not rebuild, overwrite, or mutate existing public data directories" in normalized
     assert "uv run python run.py check --freshness-only" in normalized
     assert "zero-mutation source-age check" in normalized

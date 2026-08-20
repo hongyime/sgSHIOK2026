@@ -29,7 +29,7 @@ higher limit case-by-case.
 
 Fresh clones do not contain the large or gitignored local payloads under `raw/`,
 `processed/`, `web/public/data/`, or historical QA scratch directories. The live
-score bundle remains configured as
+shelter-map bundle remains configured as
 `web/public/data/generated_20260805_prefer_scored_routed/`. That bundle has
 95,157 full scores out of 124,443 records; 29,286 records, roughly a quarter, do
 not show a full locked score because they have partial shelter-map evidence, are
@@ -39,7 +39,7 @@ tile files plus `manifest.json`, 126,144 LTA lamp-post points, source last
 modified 7 Jul 2026. It is map evidence only and is not part of the locked score.
 
 Before any Vercel publish attempt, run `python scripts/production_readiness.py`.
-That readiness check validates the score bundle and also verifies that the local
+That readiness check validates the shelter-map bundle and also verifies that the local
 lamp overlay artifact is present and internally consistent. Do not rebuild,
 overwrite, or mutate existing public data directories to repair a missing
 artifact; copy or create only a new versioned artifact after owner approval.

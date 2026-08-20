@@ -1,6 +1,6 @@
 /**
  * DATA ACCESS MODULE
- * Defaults to the latest validated static score bundle.
+ * Defaults to the latest validated static shelter-map bundle.
  */
 import dataBundle from "../data-bundle.json";
 
