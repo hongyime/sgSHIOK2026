@@ -345,7 +345,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("<strong>Rank by</strong>");
     expect(html).not.toContain("Authoritative composite order.");
     expect(html).toContain('aria-label="Walk comparison"');
-    expect(html).toContain("Shortest walk is 48% sheltered (14pp less shelter)");
+    expect(html).toContain("Shortest walk has 48% covered-walkway ratio (14pp lower)");
     expect(html).not.toContain('aria-label="Route comparison"');
     expect(html).not.toContain("Shortest is 48% sheltered (14pp less shelter)");
     expect(breakdownHtml).not.toContain(">Heat proxy<");

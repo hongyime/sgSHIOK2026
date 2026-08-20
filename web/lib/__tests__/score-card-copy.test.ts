@@ -191,8 +191,8 @@ describe("score card copy", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
     expect(source).toContain("buildRouteCompareNote");
-    // Copy shape: "Shortest walk is 45% sheltered (30pp less shelter)"
-    expect(source).toContain("${otherLabel} is ${otherPct}% sheltered (${magnitude}pp ${direction} shelter)");
+    // Copy shape: "Shortest walk has 45% covered-walkway ratio (30pp lower)"
+    expect(source).toContain("${otherLabel} has ${otherPct}% covered-walkway ratio (${magnitude}pp ${direction})");
     expect(source).toContain('const otherLabel = viewedIsShortest ? "Sheltered walk" : "Shortest walk";');
     expect(source).not.toContain('const otherLabel = viewedIsShortest ? "Sheltered route" : "Shortest";');
     // Skip note when routes match or magnitude is trivial.

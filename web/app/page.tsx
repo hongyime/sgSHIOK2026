@@ -320,7 +320,7 @@ function formatGapLocation(gap: ExposureGap): string | null {
 
 /**
  * Inline comparison between the currently-viewed route and its alternate,
- * spoken in percentage-points of shelter coverage.
+ * spoken in percentage-points of covered-walkway ratio.
  *
  * Returns null when:
  *   - the sheltered route and shortest route are the same (nothing to compare)
@@ -345,8 +345,8 @@ function buildRouteCompareNote(params: {
   const delta = otherPct - viewedPct;
   const magnitude = Math.abs(delta);
   if (magnitude < 5) return null;
-  const direction = delta > 0 ? "more" : "less";
-  return `${otherLabel} is ${otherPct}% sheltered (${magnitude}pp ${direction} shelter)`;
+  const direction = delta > 0 ? "higher" : "lower";
+  return `${otherLabel} has ${otherPct}% covered-walkway ratio (${magnitude}pp ${direction})`;
 }
 
 function transitModeLabel(mode: TransitAccessMode): string {

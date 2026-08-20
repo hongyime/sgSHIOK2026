@@ -565,3 +565,6 @@ The first view should name the product's unique evidence directly instead of onl
 
 2026-08-21 - P212 loaded-card covered-walkway ratio wording:
 The loaded shelter-map panel should use the same covered-walkway ratio wording as the first view. The selected-walk summary metric and preview metric now label the percentage as `Covered-walkway ratio`, and the route-reason chip reports the percentage as covered-walkway ratio rather than generic `sheltered` copy. This is browser copy and test coverage only; it does not alter route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P213 walk-comparison covered-walkway ratio wording:
+The alternate-walk comparison should name the same measured field as the summary grid: covered-walkway ratio. The comparison sentence now says the alternate walk has a higher/lower covered-walkway ratio in percentage points, instead of saying it is more/less sheltered. This is browser copy and test coverage only; it does not alter route comparison logic, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
