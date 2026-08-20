@@ -1022,7 +1022,7 @@ export function ScoreCard({
 
   if (!selection) {
     return (
-      <section className={styles.scoreCard} aria-label="Route evidence panel">
+      <section className={styles.scoreCard} aria-label="Shelter map panel">
         <p className={styles.srOnly} role="status" aria-live="polite">
           {scoreCardAnnouncement({ selection, routeMode })}
         </p>
@@ -1037,7 +1037,7 @@ export function ScoreCard({
   const { score } = selection;
   if (!score) {
     return (
-      <section className={styles.scoreCard} aria-label="Route evidence panel">
+      <section className={styles.scoreCard} aria-label="Shelter map panel">
         <p className={styles.srOnly} role="status" aria-live="polite">
           {scoreCardAnnouncement({ selection, routeMode })}
         </p>
@@ -1219,7 +1219,7 @@ export function ScoreCard({
     : [];
 
   return (
-    <section className={styles.scoreCard} aria-label="Route evidence panel">
+    <section className={styles.scoreCard} aria-label="Shelter map panel">
       <p className={styles.srOnly} role="status" aria-live="polite">
         {scoreStatus}
       </p>

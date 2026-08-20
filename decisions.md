@@ -401,3 +401,6 @@ The map container's accessible label should call the product surface a shelter m
 
 2026-08-20 - P138 live-region shelter map panel:
 The screen-reader live region for a loaded postal should announce the selected detail surface as the shelter map panel, not a generic route-evidence panel. It now says the shelter map panel loaded while preserving transit target, locked score, selected stop, route display, and active-route details. This is browser accessibility copy only; it does not alter score-card state, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P139 shelter-map panel region:
+The score-card region's accessible name should match the shelter-map product frame in every render state. Empty, outside-bundle, and loaded selections now expose `aria-label="Shelter map panel"` instead of `Route evidence panel`, and the browser-smoke selector follows that label. This is browser accessibility naming and test-selector maintenance only; it does not alter score-card state, route geometry, score values, scoring, exports, public data, deployment, or locked weights.

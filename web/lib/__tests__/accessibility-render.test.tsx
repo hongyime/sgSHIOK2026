@@ -160,9 +160,10 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("Find a postal code");
-    expect(html).toContain('aria-label="Route evidence panel"');
+    expect(html).toContain('aria-label="Shelter map panel"');
     expect(html).toContain("No shelter map route selected.");
     expect(html).toContain("Search a Singapore postal code to inspect sheltered walk evidence, exposed gaps, and night lighting near transit.");
+    expect(html).not.toContain('aria-label="Route evidence panel"');
     expect(html).not.toContain('aria-label="Score panel"');
     expect(html).not.toContain("No score selected.");
     expect(html).not.toContain("No route evidence selected.");
@@ -185,10 +186,11 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Route display shortest");
     expect(html).toContain('aria-busy="true"');
     expect(html).toContain("Loading planning-area Locked SHIOK score ranks.");
-    expect(html).toContain('aria-label="Route evidence panel"');
+    expect(html).toContain('aria-label="Shelter map panel"');
     expect(html).not.toContain("Postal 560231 route evidence panel loaded.");
     expect(html).not.toContain("Postal 560231 score panel loaded.");
     expect(html).not.toContain("Score 72 out of 100.");
+    expect(html).not.toContain('aria-label="Route evidence panel"');
     expect(html).not.toContain('aria-label="Score panel"');
   });
 

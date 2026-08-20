@@ -522,7 +522,7 @@ async function collectPageSummary(cdp) {
   const result = await cdp.send("Runtime.evaluate", {
     returnByValue: true,
     expression: `(() => {
-      const card = document.querySelector('section[aria-label="Route evidence panel"]');
+      const card = document.querySelector('section[aria-label="Shelter map panel"]');
       const map = document.querySelector('[aria-describedby="route-map-summary"]');
       const summary = document.querySelector('#route-map-summary');
       const details = document.querySelector('details');
