@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P105: `76b3aa0`
+Remote main after P106: `04ff668`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -43,6 +43,7 @@ Status:
 - P103 is complete and pushed: live clicked-stop preview copy now says authoritative SHIOK scores come from the published score bundle.
 - P104 is complete and pushed: not-yet-scored postal copy now says the current published bundle has not scored it yet, replacing the remaining live `current offline bundle` phrase.
 - P105 is complete and pushed: no-transit reason chips now say `Outside current transit-candidate limits` and name the 1.2 km scoring range instead of vague threshold language.
+- P106 is complete and pushed: the score-card live region now announces null locked scores as `no full score in this bundle` instead of `not scored`.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -74,5 +75,6 @@ Status:
 - P103 evidence is tracked at `qa/verification/P103-published-bundle-preview-copy.md`.
 - P104 evidence is tracked at `qa/verification/P104-published-bundle-awaiting-score-copy.md`.
 - P105 evidence is tracked at `qa/verification/P105-no-transit-range-copy.md`.
+- P106 evidence is tracked at `qa/verification/P106-live-announcement-no-full-score.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
