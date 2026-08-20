@@ -245,3 +245,6 @@ The header score badge should identify its number as the locked score instead of
 
 2026-08-20 - P86 search postal hint:
 The search input should tell users that direct postal lookup expects a six-digit postal code. The visible placeholder and accessible label now say `Search address or 6-digit postal` while leaving OneMap address search and direct postal behavior unchanged. This is browser copy only; it does not alter search behavior, inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P87 search no-results guidance:
+Address search should not fail silently when OneMap returns zero results. After a submitted address search with no results, the UI now shows a non-alerting guidance message suggesting a six-digit postal code and noting that newer completions may still be outside the frozen score bundle. This is browser behavior/copy only; it does not alter OneMap query behavior, inputs, scoring, exports, public data, deployment, or locked weights.

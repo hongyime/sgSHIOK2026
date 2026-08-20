@@ -131,6 +131,13 @@ describe("rendered accessibility output", () => {
     expect(errorHtml).toContain('role="alert"');
     expect(errorHtml).toContain('aria-live="assertive"');
     expect(errorHtml).toContain("Failed to search postal location.");
+
+    const noResultsHtml = renderToStaticMarkup(
+      <SearchFeedback results={[]} loading={false} error={null} searched={true} />
+    );
+    expect(noResultsHtml).toContain("No OneMap address result found.");
+    expect(noResultsHtml).toContain("Try a 6-digit postal code");
+    expect(noResultsHtml).toContain("frozen score bundle");
   });
 
   it("introduces the score panel as sheltered route evidence before search", () => {

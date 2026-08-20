@@ -217,11 +217,22 @@
   font-weight: 800;
 }
 
-.errorBox {
+.errorBox,
+.emptyBox {
   padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.errorBox {
   color: #9f1d1d;
   background: #fff4f1;
-  font-size: 13px;
+}
+
+.emptyBox {
+  color: #43564f;
+  background: #f6faf8;
 }
 
 .detailOverlay {

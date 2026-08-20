@@ -191,17 +191,25 @@ export function SearchFeedback({
   results,
   loading,
   error,
+  searched = false,
 }: {
   results: SearchResult[];
   loading: boolean;
   error: string | null;
+  searched?: boolean;
 }) {
   const status = searchResultsAnnouncement(results, loading, error);
+  const showNoResults = searched && !loading && !error && results.length === 0;
   return (
     <>
       <p className={styles.srOnly} role="status" aria-live="polite">
         {status}
       </p>
+      {showNoResults && (
+        <div className={styles.emptyBox} role="status">
+          No OneMap address result found. Try a 6-digit postal code; newer completions may still be outside the frozen score bundle.
+        </div>
+      )}
       {error && (
         <div className={styles.errorBox} role="alert" aria-live="assertive">
           {error}
@@ -1535,6 +1543,7 @@ export default function Home() {
   const [manifest, setManifest] = useState<Manifest | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [searchAttempted, setSearchAttempted] = useState(false);
   const [chosenStopId, setChosenStopId] = useState<string | null>(null);
   const [focusedExposureGap, setFocusedExposureGap] = useState<FocusedExposureGap | null>(null);
   const [liveRouteCache, setLiveRouteCache] = useState<Record<string, LoadedSelection>>({});
@@ -1872,6 +1881,7 @@ export default function Home() {
 
     const directPostal = normalizePostal(query);
     if (directPostal) {
+      setSearchAttempted(false);
       await loadSelection({
         BUILDING: `Postal ${directPostal}`,
         ROAD_NAME: "",
@@ -1885,6 +1895,7 @@ export default function Home() {
 
     if (!shouldQueryOneMap(query)) {
       setResults([]);
+      setSearchAttempted(false);
       setError("Enter at least 3 characters or a 6-digit postal code.");
       return;
     }
@@ -1892,6 +1903,7 @@ export default function Home() {
     setLoading(true);
     setError(null);
     setResults([]);
+    setSearchAttempted(true);
 
     try {
       const data = await searchOneMapLocations(query);
@@ -2021,7 +2033,10 @@ export default function Home() {
             type="text"
             placeholder="Search address or 6-digit postal"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setSearchAttempted(false);
+            }}
             aria-label="Search address or 6-digit postal"
           />
           <button id="postal-search-button" type="submit" disabled={loading} aria-busy={loading}>
@@ -2029,7 +2044,7 @@ export default function Home() {
           </button>
         </form>
 
-        <SearchFeedback results={results} loading={loading} error={error} />
+        <SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted} />
 
         {results.length > 0 && (
           <div className={styles.resultList} aria-label="Search results">
