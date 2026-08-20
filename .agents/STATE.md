@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P255 code commit: `24e7dd0`; state-only commits may follow it on `main`.
+Latest P256 code commit: `c41cce4`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,7 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
-- P256 is complete and pending commit: production-readiness source-freshness JSON now exposes manifest-only/no-upstream-probe scope fields. Focused production-readiness tests pass.
+- P256 is complete and committed: production-readiness source-freshness JSON now exposes manifest-only/no-upstream-probe scope fields. Focused production-readiness tests pass.
 - P255 is complete and committed: zero-mutation freshness-only CLI output now states that no upstream URLs were probed. Focused fetch tests pass.
 - P254 is complete and committed: maintained web type/test comments now align from score-card wording to shelter-map panel and selected-walk wording. Focused web tests pass.
 - P253 is complete and committed: transit-stop picker source comments now align with the shelter-map panel frame instead of the old primary score-card/routed-distance wording. Focused transit-picker web tests pass.
