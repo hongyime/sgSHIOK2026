@@ -2,7 +2,7 @@
 
 Date: 2026-08-20
 
-Task: P56 locked-score rank helper copy is implemented and ready to hand back.
+Task: P57 manifest-only source freshness report is implemented and ready to hand back.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
@@ -10,6 +10,7 @@ Remote main: `2216ee1` at P55 task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P57 adds a manifest-only source freshness report path, `pipeline.fetch check --freshness-only`, so stale sources can be reported from `raw/manifest.json` without probing upstream URLs or mutating inputs. Evidence is tracked at `qa/verification/P57-manifest-freshness-report.md`. Verification passed: focused fetch tests, `run.py check --freshness-only --source lamp_posts`, full Python test (347 tests), repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P56 changes the rank panel's overall-view helper from `Authoritative composite order.` to `Locked score order.`, continuing the shelter-first hierarchy while preserving ranking behavior. Evidence is tracked at `qa/verification/P56-rank-helper-copy.md`. Verification passed: focused copy/accessibility tests, full web test (122 tests / 23 files), TypeScript, repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P55 changes the rank selector's overall option from `Overall SHIOK` to `Locked SHIOK score`, matching the settled product hierarchy. Evidence is tracked at `qa/verification/P55-locked-score-rank-label.md`. Verification passed: focused rank/copy/accessibility tests, full web test (122 tests / 23 files), TypeScript, repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P54 changes the route evidence panel screen-reader live status from generic `Score ...` to `Locked score ...`, matching the settled visual hierarchy. Evidence is tracked at `qa/verification/P54-locked-score-live-region.md`. Verification passed: focused accessibility/copy tests, full web test (122 tests / 23 files), TypeScript, repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.

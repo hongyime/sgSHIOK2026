@@ -284,6 +284,48 @@ def source_freshness_line(status: dict[str, Any]) -> str:
     )
 
 
+def run_freshness_report(
+    sources: dict[str, Any],
+    freshness_defaults: dict[str, Any] | None = None,
+    now: datetime | None = None,
+) -> int:
+    """Report manifest-only source freshness without probing upstream URLs."""
+    manifest = load_manifest()
+    existing_sources: dict[str, Any] = manifest.get("sources", {})
+    freshness_defaults = freshness_defaults if freshness_defaults is not None else load_freshness_defaults()
+    freshness_counts = {
+        "current": 0,
+        "stale": 0,
+        "manual": 0,
+        "unknown_policy": 0,
+        "unknown_age": 0,
+    }
+
+    print("Source freshness from raw/manifest.json...")
+    for key, spec in sources.items():
+        current_entry: dict[str, Any] = existing_sources.get(key, {})
+        freshness = source_freshness_status(
+            key,
+            spec,
+            current_entry,
+            freshness_defaults=freshness_defaults,
+            now=now,
+        )
+        freshness_status = str(freshness["status"])
+        freshness_counts[freshness_status] = freshness_counts.get(freshness_status, 0) + 1
+        print(source_freshness_line(freshness))
+
+    print(
+        "Freshness: "
+        f"current {freshness_counts.get('current', 0)}, "
+        f"stale {freshness_counts.get('stale', 0)}, "
+        f"manual {freshness_counts.get('manual', 0)}, "
+        f"unknown_policy {freshness_counts.get('unknown_policy', 0)}, "
+        f"unknown_age {freshness_counts.get('unknown_age', 0)}"
+    )
+    return 0
+
+
 def resolve_datagov_download_url(dataset_id: str) -> str:
     """Resolve data.gov.sg dataset download URL via initiate-download API with retry logic."""
     url = f"https://api-open.data.gov.sg/v1/public/api/datasets/{dataset_id}/initiate-download"
@@ -1123,6 +1165,11 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Fetch/check upstream SHIOK datasets.")
     parser.add_argument("action", choices=["check", "ingest"])
     parser.add_argument(
+        "--freshness-only",
+        action="store_true",
+        help="For check: read raw/manifest.json and report source freshness without probing upstream URLs.",
+    )
+    parser.add_argument(
         "--source",
         action="append",
         default=[],
@@ -1136,9 +1183,14 @@ def main(argv: list[str] | None = None) -> int:
         print(str(exc), file=sys.stderr)
         return 2
 
+    if args.action == "check" and args.freshness_only:
+        return run_freshness_report(sources)
     if args.action == "check":
         return run_check(sources)
     elif args.action == "ingest":
+        if args.freshness_only:
+            print("--freshness-only is only valid with check", file=sys.stderr)
+            return 2
         return run_ingest(sources)
     else:
         print(f"Unknown action: {args.action}", file=sys.stderr)

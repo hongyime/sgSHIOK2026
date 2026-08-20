@@ -158,3 +158,6 @@ The rank selector should use the same product label as the score breakdown and l
 
 2026-08-20 - P56 rank helper copy:
 The rank panel helper should describe the overall view as a locked score order, not as an authoritative composite order. The visible helper now says `Locked score order.` while the single-subscore helper still says the SHIOK score is unchanged. This is browser copy only; it does not alter ranking behavior, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P57 manifest-only freshness reporting:
+Source freshness should be reportable without fetching, ingesting, or hashing upstream data. The fetch module now supports `check --freshness-only`, which reads the existing raw manifest and source freshness policy to print current/stale/manual/unknown source status. This is operational reporting only; it does not alter source cadence thresholds, inputs, exports, public data, scoring, deployment, or locked weights.

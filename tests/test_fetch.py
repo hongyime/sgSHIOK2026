@@ -147,6 +147,54 @@ def test_run_check_reports_stale_freshness_without_failing(
     assert "Freshness: current 0, stale 1, manual 0, unknown_policy 0, unknown_age 0" in out
 
 
+def test_run_freshness_report_does_not_probe_upstream(
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    monkeypatch.setattr(
+        fetch,
+        "load_manifest",
+        lambda: {
+            "sources": {
+                "fresh": {"fetched_at": "2026-08-15T00:00:00+00:00"},
+                "stale": {"last_modified": "Tue, 07 Jul 2026 02:06:48 GMT"},
+                "manual": {"last_modified": "Mon, 01 Jan 2024 00:00:00 GMT"},
+            }
+        },
+    )
+    monkeypatch.setattr(
+        fetch,
+        "resolve_datagov_download_url",
+        lambda _dataset_id: (_ for _ in ()).throw(AssertionError("unexpected network probe")),
+    )
+    sources = {
+        "fresh": {"name": "Fresh", "kind": "datagov_polldownload", "dataset_id": "fresh"},
+        "stale": {"name": "Stale", "kind": "datagov_polldownload", "dataset_id": "stale"},
+        "manual": {"name": "Manual", "kind": "osm_pbf", "refresh": "manual"},
+    }
+
+    assert (
+        fetch.run_freshness_report(
+            sources,
+            freshness_defaults={
+                "datagov_polldownload": {
+                    "expected_cadence": "monthly",
+                    "stale_after_days": 30,
+                }
+            },
+            now=datetime(2026, 8, 16, tzinfo=UTC),
+        )
+        == 0
+    )
+
+    out = capsys.readouterr().out
+    assert "Source freshness from raw/manifest.json..." in out
+    assert "[fresh] Fresh: freshness current (monthly)" in out
+    assert "[stale] Stale: STALE" in out
+    assert "[manual] Manual: freshness manual" in out
+    assert "Freshness: current 1, stale 1, manual 1, unknown_policy 0, unknown_age 0" in out
+
+
 def test_static_raw_filename_prefers_configured_filename() -> None:
     assert (
         static_raw_filename(
