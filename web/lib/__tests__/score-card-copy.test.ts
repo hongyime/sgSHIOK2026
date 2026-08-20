@@ -173,10 +173,13 @@ describe("score card copy", () => {
     // the two values with the primary row for the current route mode.
     // See 2026-08-05 refactor: decisions.md.
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const smokeSource = readFileSync(join(__dirname, "../../scripts/browser-smoke.mjs"), "utf-8");
 
     expect(source).toContain("Sheltered\n      </button>");
     expect(source).toContain('"Sheltered walk"');
     expect(source).not.toContain('"Sheltered route"');
+    expect(smokeSource).toContain('summary.cardText.includes("Sheltered walk")');
+    expect(smokeSource).not.toContain('summary.cardText.includes("Sheltered route")');
     expect(source).toContain('aria-label="Walk display"');
     expect(source).toContain("Suggest better walk");
     expect(source).toContain("Copy walk QA JSON");

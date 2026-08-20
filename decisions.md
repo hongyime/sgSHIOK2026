@@ -604,3 +604,6 @@ When a postal has connected transit evidence beyond the 1.2 km scoring range, th
 
 2026-08-21 - P225 no-connected-walk fallback title:
 The generic no-transit fallback title now says `No connected [transit target] shelter-map walk within range` instead of `No routed [transit target] within range`. More specific states still take precedence for disconnected graph evidence, no selected candidates, and beyond-range connected walks. This is browser copy and test coverage only; it does not alter `nearest_routed_m`, no-transit reason selection, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P226 browser-smoke sheltered-walk marker:
+Browser smoke should detect scored shelter-map panels using the current rendered `Sheltered walk` copy, not the retired `Sheltered route` phrase. The QA summary now exposes `walk_mode_present` while preserving `route_mode_present` as a compatibility key backed by the same current walk wording. This is browser QA alignment and test coverage only; it does not alter app rendering, route geometry, score values, scoring, exports, public data, deployment, or locked weights.

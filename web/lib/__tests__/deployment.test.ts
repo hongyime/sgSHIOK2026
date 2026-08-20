@@ -65,6 +65,7 @@ describe("deployment packaging", () => {
     expect(script).toContain("bodyHtml");
     expect(script).toContain("Runtime.exceptionThrown");
     expect(script).toContain("score_has_max_denominator");
+    expect(script).toContain("walk_mode_present");
     expect(script).toContain("map_has_text_equivalent");
     expect(script).toContain("short_mobile_card_bottom_visible");
     expect(script).toContain('section[aria-label="Shelter map panel"]');
