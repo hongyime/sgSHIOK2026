@@ -1937,6 +1937,9 @@ export default function Home() {
             <p className={styles.freshnessLine}>
               Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape; newer completions may be missing.
             </p>
+            <p className={styles.freshnessLine}>
+              Recent public-sample check: 8 missing rows out of 976 completions from 2021-2026 with postals.
+            </p>
             {scoreCoverageLine && <p className={styles.coverageLine}>{scoreCoverageLine}</p>}
             <p className={styles.sourceLine}>
               Sources: LTA/data.gov.sg, OneMap/SLA, © OpenStreetMap contributors (

@@ -143,3 +143,6 @@ The page footer should not reintroduce the old comfort-index framing after the t
 
 2026-08-20 - P51 night-lighting overlay status:
 The night-lighting map summary should distinguish overlay lifecycle states instead of collapsing them into a single `no lamp points loaded` sentence. The non-visual map summary now reports whether the overlay is off, below the zoom threshold, loading LTA lamp-post points, empty for the current view, loaded with a point count, or unavailable. This keeps the browser honest about a viewport/zoom-loaded evidence layer without changing lamp tiles, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P52 quantified postal-universe caveat:
+The title-card address-universe caveat should cite the measured P19 public-sample miss signal instead of leaving `newer completions may be missing` completely unquantified. The browser now states that the recent public-sample check found 8 missing rows out of 976 completions from 2021-2026 with postals. This is an honesty-copy change only; it does not alter the frozen v1 universe, scoring, exports, inputs, public data, deployment, or locked weights.
