@@ -1,10 +1,10 @@
 # Current State
 
-Date: 2026-08-20
+Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P166: `7476acd`
+Remote main after P167: `0563ef9`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -104,6 +104,7 @@ Status:
 - P164 is complete and pushed: outside-bundle copy no longer implies an arbitrary OneMap result is inside frozen v1.
 - P165 is complete and pushed: no-results feedback now separates OneMap lookup failure from frozen-bundle measured misses.
 - P166 is complete and pushed: short-query validation now distinguishes OneMap search from direct postal lookup.
+- P167 is complete and pushed: the no-results search live-region helper now announces the OneMap lookup failure and 6-digit postal fallback after a searched no-results state.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -196,5 +197,6 @@ Status:
 - P164 evidence is tracked at `qa/verification/P164-outside-bundle-universe-caveat.md`.
 - P165 evidence is tracked at `qa/verification/P165-no-results-search-caveat.md`.
 - P166 evidence is tracked at `qa/verification/P166-short-query-search-guidance.md`.
+- P167 evidence is tracked at `qa/verification/P167-search-announcement-no-results.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
