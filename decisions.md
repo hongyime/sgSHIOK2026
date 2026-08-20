@@ -571,3 +571,6 @@ The alternate-walk comparison should name the same measured field as the summary
 
 2026-08-21 - P214 map empty-summary covered-walkway ratio wording:
 The non-visual map empty summary should name the same headline evidence as the first view and loaded card. It now tells users to search for covered-walkway ratio, exposed gaps, night lighting, and nearby transit, instead of the generic shelter-map evidence phrase. This is browser accessibility copy and test coverage only; it does not alter map data, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P215 footer covered-walkway evidence wording:
+The persistent footer should reinforce the headline artifact instead of reverting to generic shelter-map evidence wording. It now says the page is source-derived covered-walkway and exposure-gap evidence. This is browser copy and test coverage only; it does not alter route geometry, score values, scoring, exports, public data, deployment, or locked weights.
