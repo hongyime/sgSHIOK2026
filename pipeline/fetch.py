@@ -278,6 +278,13 @@ def source_freshness_line(status: dict[str, Any]) -> str:
         )
     if status["status"] == "manual":
         return f"[{key}] {name}: freshness manual"
+    if status["status"] == "current" and status.get("age_days") is not None:
+        age_days = float(status["age_days"])
+        return (
+            f"[{key}] {name}: freshness current — {status['age_basis']} age {age_days:.1f}d "
+            f"within {status['stale_after_days']}d threshold "
+            f"({status.get('expected_cadence') or 'cadence unspecified'})"
+        )
     return (
         f"[{key}] {name}: freshness {status['status']} "
         f"({status.get('expected_cadence') or 'cadence unspecified'})"

@@ -99,6 +99,30 @@ def test_source_freshness_status_marks_stale_manifest_entry() -> None:
     )
 
 
+def test_source_freshness_line_reports_current_manifest_age() -> None:
+    status = source_freshness_status(
+        "covered_linkway",
+        {"name": "Covered Linkway", "kind": "datamall_geospatial_listing"},
+        {
+            "last_modified": "Tue, 07 Jul 2026 02:06:48 GMT",
+            "fetched_at": "2026-07-26T07:50:33.401278+00:00",
+        },
+        freshness_defaults={
+            "datamall_geospatial_listing": {
+                "expected_cadence": "quarterly",
+                "stale_after_days": 120,
+            }
+        },
+        now=datetime(2026, 8, 16, tzinfo=UTC),
+    )
+
+    assert status["status"] == "current"
+    assert source_freshness_line(status) == (
+        "[covered_linkway] Covered Linkway: freshness current — last_modified age 39.9d "
+        "within 120d threshold (quarterly)"
+    )
+
+
 def test_source_freshness_status_respects_manual_sources() -> None:
     status = source_freshness_status(
         "osm_extract",
@@ -213,7 +237,7 @@ def test_run_freshness_report_does_not_probe_upstream(
 
     out = capsys.readouterr().out
     assert "Source freshness from raw/manifest.json..." in out
-    assert "[fresh] Fresh: freshness current (monthly)" in out
+    assert "[fresh] Fresh: freshness current — fetched_at age 1.0d within 30d threshold (monthly)" in out
     assert "[stale] Stale: STALE" in out
     assert "[manual] Manual: freshness manual" in out
     assert "[unknown_age] Unknown Age: freshness unknown_age (monthly)" in out
