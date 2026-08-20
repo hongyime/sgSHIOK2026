@@ -514,3 +514,6 @@ The score-card live region should fall back to `walk active` when no selected-wa
 
 2026-08-21 - P176 selected-walk panel wording:
 The selected shelter-map panel should describe its active evidence as a selected walk, not a generic selected route. The exposure hero aria label now says `Walk shelter evidence`, the no-gap fallback says `selected walk`, the access row note says `Selected walk distance`, and the Best transit tab says `selected walk`. This is browser copy and accessibility test coverage only; it does not alter transit selection, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P177 walk comparison copy:
+The alternate-path comparison in the selected shelter-map panel should speak as a walk comparison, not a route comparison. The rendered comparison note now uses `Walk comparison`, `Shortest walk`, and `Sheltered walk`, and the same-route note says `Shortest same as sheltered walk.` This is browser copy and accessibility test coverage only; it does not alter route-mode logic, geometry, score values, scoring, exports, public data, deployment, or locked weights.

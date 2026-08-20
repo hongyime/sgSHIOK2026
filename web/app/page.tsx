@@ -341,7 +341,7 @@ function buildRouteCompareNote(params: {
   const viewedIsShortest = routeMode === "shortest";
   const viewedPct = viewedIsShortest ? shortestPct : coveredRoutePct;
   const otherPct = viewedIsShortest ? coveredRoutePct : shortestPct;
-  const otherLabel = viewedIsShortest ? "Sheltered route" : "Shortest";
+  const otherLabel = viewedIsShortest ? "Sheltered walk" : "Shortest walk";
   const delta = otherPct - viewedPct;
   const magnitude = Math.abs(delta);
   if (magnitude < 5) return null;
@@ -849,7 +849,7 @@ function RouteModeControl({
   if (sameRoute) {
     return (
       <div className={styles.sameRouteNote}>
-        Shortest same as sheltered route.
+        Shortest same as sheltered walk.
       </div>
     );
   }
@@ -1338,7 +1338,7 @@ export function ScoreCard({
             <Metric label="Extra walk" value={extraWalkLabel} />
           </div>
           {compareNote && (
-            <p className={styles.compareNote} aria-label="Route comparison">
+            <p className={styles.compareNote} aria-label="Walk comparison">
               {compareNote}
             </p>
           )}

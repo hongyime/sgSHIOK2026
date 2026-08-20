@@ -31,10 +31,11 @@ describe("score card copy", () => {
     expect(source).not.toContain("Nearby transit may still exist outside the current threshold");
   });
 
-  it("keeps shortest route context visible when it matches the sheltered route", () => {
+  it("keeps shortest walk context visible when it matches the sheltered walk", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
-    expect(source).toContain("Shortest same as sheltered route.");
+    expect(source).toContain("Shortest same as sheltered walk.");
+    expect(source).not.toContain("Shortest same as sheltered route.");
     expect(source).toContain('sameRoute ? "Shortest (same)" : "Shortest"');
   });
 
@@ -145,12 +146,16 @@ describe("score card copy", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
     expect(source).toContain("buildRouteCompareNote");
-    // Copy shape: "Shortest is 45% sheltered (30pp less shelter)"
+    // Copy shape: "Shortest walk is 45% sheltered (30pp less shelter)"
     expect(source).toContain("${otherLabel} is ${otherPct}% sheltered (${magnitude}pp ${direction} shelter)");
+    expect(source).toContain('const otherLabel = viewedIsShortest ? "Sheltered walk" : "Shortest walk";');
+    expect(source).not.toContain('const otherLabel = viewedIsShortest ? "Sheltered route" : "Shortest";');
     // Skip note when routes match or magnitude is trivial.
     expect(source).toContain("if (sameRoute || directBusFallback) return null;");
     expect(source).toContain("if (magnitude < 5) return null;");
     expect(source).toContain("className={styles.compareNote}");
+    expect(source).toContain('aria-label="Walk comparison"');
+    expect(source).not.toContain('aria-label="Route comparison"');
   });
 
   it("keeps greenery proxy and snap connector in a subtle walk-details strip, not a duplicate metric row", () => {
