@@ -314,3 +314,6 @@ The snap connector route-detail note should use route-evidence language rather t
 
 2026-08-20 - P109 not-yet-scored heading copy:
 The not-yet-scored detail heading should use the same published-bundle state language as the reason chips and live region. It now says No full score in this bundle instead of Location Evidence Missing. This is browser copy only; it does not alter state classification, route evidence, score values, ranking, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P110 locked-score no-full-score value:
+The locked-score row should use bundle-level null language instead of the generic Not scored value. Null locked scores now render as No full score, while null subscore rows still render as Not scored to avoid inventing component evidence. This is browser copy only; it does not alter state classification, score values, ranking, scoring, exports, inputs, public data, deployment, or locked weights.

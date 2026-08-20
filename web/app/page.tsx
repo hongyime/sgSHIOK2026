@@ -288,7 +288,7 @@ function formatPercent(value: number | null): string {
 }
 
 function formatLockedScore(value: number | null | undefined): string {
-  return typeof value === "number" ? `${Math.round(value)}/100` : "Not scored";
+  return typeof value === "number" ? `${Math.round(value)}/100` : "No full score";
 }
 
 function scoredMeta(value: number | null | undefined, scoredText: string, missingText: string): string {
