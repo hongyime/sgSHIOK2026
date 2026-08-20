@@ -42,7 +42,7 @@ describe("shelter map interactions", () => {
     expect(source).toContain("Singapore shelter map with MRT stations, LRT stations, and bus stops");
     expect(source).toContain("Shelter map for ${labels}, showing ${routeModeLabel(mode)}");
     expect(source).toContain("Shelter map for ${routeLabels}.");
-    expect(source).toContain("Search for a postal code to show shelter map evidence, exposed gaps, and nearby transit.");
+    expect(source).toContain("Search for a postal code to show covered-walkway ratio, exposed gaps, night lighting, and nearby transit.");
     expect(source).not.toContain("Singapore transit map with MRT stations, LRT stations, and bus stops");
     expect(source).not.toContain("Route evidence for ${routeLabels}.");
     expect(source).not.toContain("Route evidence map for ${labels}, showing ${routeModeLabel(mode)}");
@@ -186,7 +186,7 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain('[chosenStopId]: "loading"');
     expect(pageSource).toContain('[chosenStopId]: "unavailable"');
     expect(pageSource).toContain('<Metric label="Preview walk" value={formatDistance(selectedDistance)} />');
-    expect(pageSource).toContain('<Metric label="Shelter evidence" value={formatPercent(selectedCoverage)} />');
+    expect(pageSource).toContain('<Metric label="Covered-walkway ratio" value={formatPercent(selectedCoverage)} />');
     expect(pageSource).not.toContain('<Metric label="Sheltered evidence" value={formatPercent(selectedCoverage)} />');
     expect(pageSource).toContain('<Metric label="Locked score" value="Preview only" />');
     expect(pageSource).toContain('previewRoute ? "Shelter map preview" : "Sheltered route"');

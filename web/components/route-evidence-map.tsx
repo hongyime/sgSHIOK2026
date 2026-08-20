@@ -1034,7 +1034,7 @@ function mapTextSummary(
     return [
       `Singapore map with ${poiText}.`,
       lampText,
-      "Search for a postal code to show shelter map evidence, exposed gaps, and nearby transit.",
+      "Search for a postal code to show covered-walkway ratio, exposed gaps, night lighting, and nearby transit.",
     ].filter(Boolean).join(" ");
   }
 
