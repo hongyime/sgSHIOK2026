@@ -422,7 +422,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const reason = provenanceReason(score, transitMode);
     if (reason === "transit_candidates_graph_disconnected") {
-      return "Transit candidates exist, but the current walking graph could not connect a route yet.";
+      return "Transit candidates exist, but this bundle has no connected walking route evidence yet.";
     }
     if (reason === "no_transit_candidates_selected") {
       return "No qualifying MRT/LRT exit or bus stop candidate was selected near this postal.";

@@ -8,11 +8,13 @@ describe("score card copy", () => {
     expect(source).toContain("Transit beyond scoring range");
     expect(source).toContain("Transit route not connected yet");
     expect(source).toContain("No transit candidate nearby");
+    expect(source).toContain("Transit candidates exist, but this bundle has no connected walking route evidence yet.");
     expect(source).toContain("Closest routed ${label} is ${formatDistance(nearestM)}");
     expect(source).toContain("Current scoring range is 1.2 km");
     expect(source).toContain("Walking route not connected yet");
     expect(source).toContain("Outside current transit-candidate limits");
     expect(source).toContain("Nearby transit may still exist beyond the 1.2 km scoring range");
+    expect(source).not.toContain("current walking graph could not connect a route yet");
     expect(source).not.toContain("Outside current candidate thresholds");
     expect(source).not.toContain("Nearby transit may still exist outside the current threshold");
   });
