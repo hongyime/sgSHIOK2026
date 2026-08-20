@@ -442,3 +442,6 @@ The non-visual selected-route map summary now starts `Shelter map for ...` inste
 
 2026-08-20 - P152 graph-disconnected shelter-map route note:
 Graph-disconnected no-transit notes now say `this shelter-map bundle has no connected walking route yet` instead of generic walking-route evidence language. This keeps the user-facing limitation attached to the current shelter-map bundle while preserving the distinction from no transit stop within scoring range. This is browser copy and test coverage only; it does not alter route connectivity, transit candidate selection, state classification, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P153 score-coverage shelter-map wording:
+The manifest-derived bundle availability line now says `full scores` and `partial shelter-map evidence` instead of `full route scores` and `partial route evidence`. This keeps the score availability disclosure secondary while aligning the partial-record explanation with the shelter-map product frame. This is browser copy and test coverage only; it does not alter manifest counts, score values, scoring, exports, public data, deployment, or locked weights.
