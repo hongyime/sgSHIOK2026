@@ -149,3 +149,6 @@ The title-card address-universe caveat should cite the measured P19 public-sampl
 
 2026-08-20 - P53 score-coverage state breakdown:
 The score-coverage line should explain what the non-full records are when the manifest carries complete state counts. The browser now expands the live-bundle coverage line into partial, beyond-current-transit-range, and not-yet-scored counts, while retaining the older generic fallback for incomplete manifests. This is browser disclosure copy only; it does not alter manifests, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P54 locked-score live-region wording:
+The route-evidence panel's screen-reader status should match the visual product hierarchy: route evidence leads, and the 0-to-100 composite is a locked secondary score. The live-region announcement now says `Locked score ...` instead of generic `Score ...`. This is accessibility copy only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

@@ -28,6 +28,7 @@ describe("score card copy", () => {
     expect(source).toContain("Shelter-first walks to transit");
     expect(source).not.toContain("Singapore walk-to-transit comfort");
     expect(source).toContain("Route evidence as of {formatDataDate(manifest)}");
+    expect(source).toContain("Locked score ${scoreText}");
     expect(source).toContain(
       "Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape; newer completions may be missing."
     );

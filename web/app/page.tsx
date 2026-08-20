@@ -156,7 +156,7 @@ export function scoreCardAnnouncement({
       ? "Preview route evidence selected."
       : "Custom stop selected."
     : "Published route selected.";
-  return `${postal} route evidence panel loaded. ${stationName ?? "Transit target loaded"}. Score ${scoreText}. ${stopText} Route display ${routeMode}; ${selectedRouteLabel ?? "route"} active.`;
+  return `${postal} route evidence panel loaded. ${stationName ?? "Transit target loaded"}. Locked score ${scoreText}. ${stopText} Route display ${routeMode}; ${selectedRouteLabel ?? "route"} active.`;
 }
 
 export function rankAnnouncement({
