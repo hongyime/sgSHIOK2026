@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P227 code commit: `92641da`; state-only commits may follow it on `main`.
+Latest P228 code commit: `89db06d`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P228 is complete and committed: `CLAUDE.md` now opens with the S.H.I.O.K. Shelter Map frame, covered-walkway ratio/exposed gaps, night-lighting map evidence, and locked SHIOK score as secondary. Focused agent-doc/README tests pass.
 - P227 is complete and committed: browser-smoke JSON now exposes `shelter_map_panel_loaded` and `shelter_map_panel_excerpt` aliases while preserving legacy route-evidence/score-panel keys. Focused score-card/deployment tests pass.
 - P226 is complete and committed: browser-smoke scored-panel QA now keys on current `Sheltered walk` copy and exposes `walk_mode_present` while preserving the legacy route-mode key. Focused score-card/deployment tests pass.
 - P225 is complete and committed: generic no-transit fallback titles now say no connected shelter-map walk within range instead of no routed transit within range. Focused score-card copy tests pass.
