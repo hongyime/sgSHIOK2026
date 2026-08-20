@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P106: `04ff668`
+Remote main after P107: `c9164ea`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -44,6 +44,7 @@ Status:
 - P104 is complete and pushed: not-yet-scored postal copy now says the current published bundle has not scored it yet, replacing the remaining live `current offline bundle` phrase.
 - P105 is complete and pushed: no-transit reason chips now say `Outside current transit-candidate limits` and name the 1.2 km scoring range instead of vague threshold language.
 - P106 is complete and pushed: the score-card live region now announces null locked scores as `no full score in this bundle` instead of `not scored`.
+- P107 is complete and pushed: graph-disconnected no-transit notes now say this bundle has no connected walking route evidence yet instead of exposing the current walking graph.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -76,5 +77,6 @@ Status:
 - P104 evidence is tracked at `qa/verification/P104-published-bundle-awaiting-score-copy.md`.
 - P105 evidence is tracked at `qa/verification/P105-no-transit-range-copy.md`.
 - P106 evidence is tracked at `qa/verification/P106-live-announcement-no-full-score.md`.
+- P107 evidence is tracked at `qa/verification/P107-no-transit-route-evidence-copy.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
