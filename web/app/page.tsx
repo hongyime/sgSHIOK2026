@@ -162,7 +162,7 @@ export function scoreCardAnnouncement({
   routeMode: RouteDisplayMode;
   routeDisplayLabel?: string;
 }): string {
-  if (!selection) return "No shelter map route selected.";
+  if (!selection) return "No shelter map walk selected.";
   const postal = postalTitle(selection);
   if (!selection.score) return `${postal} is not in the current shelter-map bundle.`;
   const scoreText = displayScore === null || displayScore === undefined
