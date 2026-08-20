@@ -356,3 +356,6 @@ The title-card freshness disclosure should read as product-facing data freshness
 
 2026-08-20 - P123 preview shelter-evidence label:
 Clicked-stop preview metrics should say `Shelter evidence` instead of `Sheltered evidence`, matching the route-evidence framing and avoiding an awkward adjective for a measured evidence value. This is browser copy only; it does not alter preview routing, route segmentation, score values, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P124 preview bundle-inclusion copy:
+Clicked-stop preview copy should explain the concrete limitation: a selected stop may have route evidence, but it is not part of the published score bundle yet. The rendered note and preview provenance reason now use published-bundle language instead of `authoritative SHIOK score` phrasing. This is browser/provenance-copy only; it does not alter live preview routing, route segmentation, score values, exports, inputs, public data, deployment, or locked weights.

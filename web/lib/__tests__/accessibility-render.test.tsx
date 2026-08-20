@@ -213,8 +213,9 @@ describe("rendered accessibility output", () => {
       "OneMap walking preview is unavailable for this selected stop; showing straight-line preview only."
     );
     expect(html).toContain(
-      "Preview only: this clicked stop has route evidence, but it is not an authoritative SHIOK score until it is included in a published score bundle."
+      "Preview only: this clicked stop has route evidence, but it is not part of the published score bundle yet."
     );
+    expect(html).not.toContain("not an authoritative SHIOK score");
     expect(html).not.toContain("until an offline bundle includes it");
     expect(html).not.toContain("offline scoring pipeline includes it");
   });
