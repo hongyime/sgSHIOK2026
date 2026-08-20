@@ -493,3 +493,6 @@ The selected shelter-map panel should not tell users to start with the locked sc
 
 2026-08-21 - P169 walk-display accessibility label:
 The selected-route display control and score-card live region should describe the user action as choosing the walk display, not a generic route display. The visible buttons remain Sheltered/Both/Shortest, while the non-visual group label and live status now say `Walk display`. This is browser accessibility copy and test coverage only; it does not alter route selection, map rendering, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P170 published-walk reset copy:
+The selected-stop reset control should send users back to the published walk, not to a `Scored route`. The custom-stop reset button now says `Published walk`, and the score-card live region says `Published walk selected` for the default published route state. This is browser copy/accessibility and test coverage only; it does not alter stop selection behavior, route geometry, score values, scoring, exports, public data, deployment, or locked weights.

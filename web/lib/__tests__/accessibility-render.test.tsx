@@ -198,6 +198,8 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Postal 560231 route evidence panel loaded.");
     expect(html).not.toContain("Postal 560231 score panel loaded.");
     expect(html).not.toContain("Score 72 out of 100.");
+    expect(html).not.toContain("Published route selected.");
+    expect(html).not.toContain("Published walk selected.");
     expect(html).not.toContain("Route display shortest");
     expect(html).not.toContain('aria-label="Route evidence panel"');
     expect(html).not.toContain('aria-label="Score panel"');
@@ -207,7 +209,9 @@ describe("rendered accessibility output", () => {
     const html = renderScoreCard();
 
     expect(html).toContain("Walk display sheltered");
+    expect(html).toContain("Published walk selected.");
     expect(html).not.toContain("Walk display shiokest");
+    expect(html).not.toContain("Published route selected.");
     expect(html).not.toContain("Route display sheltered");
   });
 
@@ -234,6 +238,7 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("Preview shelter map evidence only");
+    expect(html).toContain("↺ Published walk");
     expect(html).toContain("Shelter map evidence preview");
     expect(html).toContain("Preview shelter map evidence selected.");
     expect(html).toContain("Shelter map preview");
@@ -246,6 +251,7 @@ describe("rendered accessibility output", () => {
     );
     expect(html).not.toContain("not an authoritative SHIOK score");
     expect(html).not.toContain("Preview route");
+    expect(html).not.toContain("↺ Scored route");
     expect(html).not.toContain("Preview route evidence only");
     expect(html).not.toContain("Preview route evidence selected.");
     expect(html).not.toContain("this clicked stop has route evidence");

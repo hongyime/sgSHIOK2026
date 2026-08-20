@@ -172,7 +172,7 @@ export function scoreCardAnnouncement({
     ? previewRoute
       ? "Preview shelter map evidence selected."
       : "Custom stop selected."
-    : "Published route selected.";
+    : "Published walk selected.";
   return `${postal} shelter map panel loaded. ${stationName ?? "Transit target loaded"}. Locked score ${scoreText}. ${stopText} Walk display ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "route"} active.`;
 }
 
@@ -1258,7 +1258,7 @@ export function ScoreCard({
                   className={styles.resetCustomStopBtn}
                   onClick={onResetChosenStop}
                 >
-                  ↺ Scored route
+                  ↺ Published walk
                 </button>
               )}
             </div>
