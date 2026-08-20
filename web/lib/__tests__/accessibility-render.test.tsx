@@ -224,16 +224,18 @@ describe("rendered accessibility output", () => {
       rankingRecords: [],
     });
 
-    expect(html).toContain("Preview route evidence only");
+    expect(html).toContain("Preview shelter map evidence only");
     expect(html).toContain("Shelter map evidence preview");
     expect(html).toContain("<span>Bundle score</span><strong>Preview only</strong>");
     expect(html).toContain(
       "OneMap walking preview is unavailable for this selected stop; showing straight-line preview only."
     );
     expect(html).toContain(
-      "Preview only: this clicked stop has route evidence, but it is not part of the published score bundle yet."
+      "Preview only: this clicked stop has shelter map evidence, but it is not part of the published score bundle yet."
     );
     expect(html).not.toContain("not an authoritative SHIOK score");
+    expect(html).not.toContain("Preview route evidence only");
+    expect(html).not.toContain("this clicked stop has route evidence");
     expect(html).not.toContain("Route evidence preview");
     expect(html).not.toContain("until an offline bundle includes it");
     expect(html).not.toContain("offline scoring pipeline includes it");

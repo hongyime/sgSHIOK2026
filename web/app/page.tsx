@@ -423,7 +423,7 @@ function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): str
 
 function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): string | null {
   if (score.paths?.routing_type === "live_onemap_preview") {
-    return "Preview only: this clicked stop has route evidence, but it is not part of the published score bundle yet.";
+    return "Preview only: this clicked stop has shelter map evidence, but it is not part of the published score bundle yet.";
   }
   if (score.state === "SCORED_PARTIAL") {
     return "Partial bundle score: one or more component scores are unavailable; locked weights count missing terms as zero.";
@@ -1229,7 +1229,7 @@ export function ScoreCard({
           <p>{stationName}</p>
           {isCustomStopSelected && (
             <div className={styles.customStopBar}>
-              <span>{previewRoute ? "Preview route evidence only" : "Viewing selected stop"}</span>
+              <span>{previewRoute ? "Preview shelter map evidence only" : "Viewing selected stop"}</span>
               {onResetChosenStop && (
                 <button
                   type="button"

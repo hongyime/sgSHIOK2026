@@ -425,3 +425,6 @@ The planning-area rank panel should read as a local comparison aid rather than a
 
 2026-08-20 - P146 shelter-map reason chips:
 Generic reason chips inside the shelter-map evidence reason group should use the same shelter-map evidence wording as the group label. Preview, unavailable, and available chips now say `Shelter map evidence ...`, while state-specific walking-route and score-bundle caveats stay precise. This is browser copy and test coverage only; it does not alter score-state classification, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P147 preview shelter-map evidence copy:
+Clicked-stop preview copy should use shelter-map evidence language while preserving the published-score-bundle caveat. The preview badge and note now say shelter map evidence, not route evidence, and still warn that the clicked-stop preview is not part of the published score bundle. This is browser copy and test coverage only; it does not alter clicked-stop routing, preview scoring, route geometry, score values, scoring, exports, public data, deployment, or locked weights.

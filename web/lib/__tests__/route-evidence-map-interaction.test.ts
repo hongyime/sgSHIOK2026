@@ -160,9 +160,11 @@ describe("route evidence map interactions", () => {
     expect(liveScoringSource).not.toContain("SHIOK scores come from offline bundle scoring.");
     expect(liveScoringSource).not.toContain("offline pipeline bundle");
 
-    expect(pageSource).toContain("Preview route evidence only");
-    expect(pageSource).toContain("Preview only: this clicked stop has route evidence");
+    expect(pageSource).toContain("Preview shelter map evidence only");
+    expect(pageSource).toContain("Preview only: this clicked stop has shelter map evidence");
     expect(pageSource).toContain("not part of the published score bundle yet");
+    expect(pageSource).not.toContain("Preview route evidence only");
+    expect(pageSource).not.toContain("Preview only: this clicked stop has route evidence");
     expect(pageSource).not.toContain("not an authoritative SHIOK score");
     expect(pageSource).not.toContain("until an offline bundle includes it");
     expect(pageSource).toContain("liveRoutePreviewStatuses");
