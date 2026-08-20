@@ -60,6 +60,25 @@ UniverseMode = Literal["official_current", "candidate_full_registered", "candida
 AcraPolicy = Literal["none", "registered", "all"]
 
 
+def is_versioned_postal_universe_artifact(path: Path) -> bool:
+    return bool(re.search(r"_v\d+(_summary)?$", path.stem))
+
+
+def require_new_artifact_paths(*paths: Path) -> None:
+    unversioned = [str(path) for path in paths if not is_versioned_postal_universe_artifact(path)]
+    if unversioned:
+        raise ValueError(
+            "postal universe output paths must include a numeric version tag such as _v2; got: "
+            + ", ".join(unversioned)
+        )
+    existing = [str(path) for path in paths if path.exists()]
+    if existing:
+        raise FileExistsError(
+            "postal universe output paths must be new versioned artifacts; refusing to overwrite: "
+            + ", ".join(existing)
+        )
+
+
 @dataclass
 class UniverseRecord:
     postal_code: str
@@ -1157,6 +1176,7 @@ def build_universe(
     PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
     output_path = output_path or PROCESSED_DIR / f"postal_universe_{mode}.parquet"
     summary_path = summary_path or PROCESSED_DIR / f"postal_universe_{mode}_summary.json"
+    require_new_artifact_paths(output_path, summary_path)
     df.to_parquet(output_path, index=False)
     with open(summary_path, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2, sort_keys=True)

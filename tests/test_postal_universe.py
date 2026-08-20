@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pyarrow as pa
 import pyarrow.parquet as pq
+import pytest
 
 from pipeline import postal_universe
 from pipeline.postal_universe import (
@@ -23,6 +24,8 @@ from pipeline.postal_universe import (
     iter_ura_dwelling_rows,
     merge_source_rows,
     normalize_postal_code,
+    is_versioned_postal_universe_artifact,
+    require_new_artifact_paths,
     raw_file_from_manifest,
 )
 
@@ -258,6 +261,32 @@ def test_raw_file_from_manifest_ignores_tmp_fallback(monkeypatch, tmp_path: Path
     assert raw_file_from_manifest("sample_source", "sample.geojson") == (
         hashed_dir / "sample.geojson"
     )
+
+
+def test_postal_universe_outputs_must_be_new_artifacts(tmp_path: Path):
+    output_path = tmp_path / "postal_universe_candidate_full_registered_v2.parquet"
+    summary_path = tmp_path / "postal_universe_candidate_full_registered_v2_summary.json"
+    output_path.write_bytes(b"existing")
+
+    with pytest.raises(FileExistsError, match="refusing to overwrite"):
+        require_new_artifact_paths(output_path, summary_path)
+
+
+def test_postal_universe_outputs_must_be_versioned(tmp_path: Path):
+    output_path = tmp_path / "postal_universe_candidate_full_registered.parquet"
+    summary_path = tmp_path / "postal_universe_candidate_full_registered_summary.json"
+
+    with pytest.raises(ValueError, match="numeric version tag"):
+        require_new_artifact_paths(output_path, summary_path)
+
+
+def test_postal_universe_allows_fresh_versioned_artifact_paths(tmp_path: Path):
+    output_path = tmp_path / "postal_universe_candidate_full_registered_v2.parquet"
+    summary_path = tmp_path / "postal_universe_candidate_full_registered_v2_summary.json"
+
+    require_new_artifact_paths(output_path, summary_path)
+    assert is_versioned_postal_universe_artifact(output_path)
+    assert is_versioned_postal_universe_artifact(summary_path)
 
 
 def test_merge_source_rows_prefers_current_coordinates_and_keeps_source_membership():

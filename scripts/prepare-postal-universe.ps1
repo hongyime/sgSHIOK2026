@@ -2,6 +2,8 @@
 param(
     [ValidateSet("official_current", "candidate_full_registered", "candidate_full_all")]
     [string]$Mode = "candidate_full_registered",
+    [ValidatePattern("^v[0-9]+$")]
+    [string]$Version = "v2",
     [switch]$ConfirmBoundedGeocode,
     [switch]$DownloadMissing,
     [switch]$RetryCachedFailures,
@@ -11,21 +13,23 @@ param(
 $ErrorActionPreference = "Stop"
 $RepoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
 
-$UniversePath = "processed\postal_universe_${Mode}.parquet"
-$GeocodedPath = "processed\postal_universe_${Mode}_geocoded.parquet"
-$GeocodedSummaryPath = "processed\postal_universe_${Mode}_geocoded_summary.json"
+$UniversePath = "processed\postal_universe_${Mode}_${Version}.parquet"
+$SummaryPath = "processed\postal_universe_${Mode}_${Version}_summary.json"
+$GeocodedPath = "processed\postal_universe_${Mode}_${Version}_geocoded.parquet"
+$GeocodedSummaryPath = "processed\postal_universe_${Mode}_${Version}_geocoded_summary.json"
 
 function Write-PreparePlan {
     param([string]$Reason)
     Write-Output "== S.H.I.O.K. postal universe prep =="
     Write-Output "repo=$RepoRoot"
     Write-Output "mode=$Mode"
+    Write-Output "version=$Version"
     Write-Output "plan_only=true"
     Write-Output "prepare=not_started"
     Write-Output "reason=$Reason"
     Write-Output ""
     Write-Output "commands:"
-    Write-Output ".\scripts\prepare-postal-universe.bat -Mode $Mode -ConfirmBoundedGeocode -DownloadMissing"
+    Write-Output ".\scripts\prepare-postal-universe.bat -Mode $Mode -Version $Version -ConfirmBoundedGeocode -DownloadMissing"
     Write-Output ""
     Write-Output "This refreshes the source-derived postal universe, runs bounded OneMap geocode only for source-derived gaps, then prints the batch plan. It does not score postals, activate a bundle, or deploy."
 }
@@ -45,8 +49,15 @@ try {
     Write-Output "== S.H.I.O.K. postal universe prep =="
     Write-Output "repo=$RepoRoot"
     Write-Output "mode=$Mode"
+    Write-Output "version=$Version"
     Write-Output "score=false"
     Write-Output "deploy=false"
+
+    foreach ($artifactPath in @($UniversePath, $SummaryPath, $GeocodedPath, $GeocodedSummaryPath)) {
+        if (Test-Path -LiteralPath $artifactPath) {
+            throw "refusing to overwrite existing versioned artifact: $artifactPath"
+        }
+    }
 
     Write-Output ""
     Write-Output "== Git status =="
@@ -55,7 +66,12 @@ try {
 
     Write-Output ""
     Write-Output "== Build source-derived postal universe =="
-    $UniverseArgs = @("run", "python", "run.py", "postal-universe", "--mode", $Mode)
+    $UniverseArgs = @(
+        "run", "python", "run.py", "postal-universe",
+        "--mode", $Mode,
+        "--output", $UniversePath,
+        "--summary", $SummaryPath
+    )
     if ($DownloadMissing) { $UniverseArgs += "--download-missing" }
     & uv @UniverseArgs
     if ($LASTEXITCODE -ne 0) { throw "postal-universe failed" }

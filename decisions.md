@@ -643,3 +643,6 @@ README onboarding now states that the active frozen bundle has 95,157 full score
 
 2026-08-21 - P238 full-batch prerequisite evidence:
 The dry-run batch plan and production readiness now carry structured prerequisite evidence for each bundled full-batch change: bus remodel, `NO_TRANSIT_IN_RANGE` partial-score fix, network conflation repair, and promoted postal-universe v2 if approved. This makes the one-attempt full-batch approval gate checkable before any expensive run. This is reporting and test coverage only; it does not run geocoding, scoring, export, deployment, public-data writes, input rebuilds, or locked weight changes.
+
+2026-08-21 - P239 postal-universe version guard:
+Postal-universe preparation now defaults to a numeric version tag (`v2`) and writes versioned universe/geocoded artifact paths. The wrapper refuses to run if any target versioned artifact already exists, and the Python postal-universe builder refuses to overwrite an existing output or summary path even when called directly. This enforces the v1/v2/v3 input-artifact rule without building, geocoding, scoring, exporting, deploying, mutating public data, or changing locked weights.
