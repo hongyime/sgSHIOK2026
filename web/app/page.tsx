@@ -1233,7 +1233,7 @@ export function ScoreCard({
           value: formatLockedScore(displayScore),
           meta: scoredMeta(displayScore, "Release sorting index", "No locked score"),
           notes: [
-            "Use this locked score to sort the current bundle, then inspect the shelter trace and exposed gaps.",
+            "Start with the shelter trace and exposed gaps; use the locked score only to sort the current bundle.",
             "Crossing friction remains a 5% locked term, but has low separation in this release.",
           ],
         },
@@ -1395,7 +1395,7 @@ export function ScoreCard({
                 {!rankPanelOpen
                   ? "Loads planning-area ranks only when opened."
                   : rankMetric === "overall"
-                  ? "Planning-area order by locked score."
+                  ? "Planning-area list sorted by locked score; shelter evidence remains the primary view."
                   : "Planning-area component-score view; locked SHIOK score is unchanged."}
               </span>
             </div>

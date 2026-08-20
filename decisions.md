@@ -487,3 +487,6 @@ The short-query validation error now distinguishes OneMap address search from di
 
 2026-08-21 - P167 no-results live-region parity:
 The hidden search-results live region should announce the same no-result state as the visible search feedback after a search attempt. It now names the OneMap address lookup failure and the 6-digit postal fallback instead of returning an empty status while a separate visible status box carries the message. This is browser accessibility copy and test coverage only; it does not alter search behavior, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P168 locked-score sort copy:
+The selected shelter-map panel should not tell users to start with the locked score. The locked-score row now says to start with the shelter trace and exposed gaps, using the locked score only as the current-bundle sorting index; the planning-area comparison copy also states that shelter evidence remains the primary view. This is browser copy and test coverage only; it does not alter ranking data, sort logic, score values, scoring, exports, public data, deployment, or locked weights.

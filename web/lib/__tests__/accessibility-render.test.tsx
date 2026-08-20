@@ -314,7 +314,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Locked SHIOK score");
     expect(html).toContain('aria-label="Planning-area comparison"');
     expect(html).toContain("Compare nearby records");
-    expect(html).toContain("Planning-area order by locked score.");
+    expect(html).toContain("Planning-area list sorted by locked score; shelter evidence remains the primary view.");
+    expect(html).not.toContain("Planning-area order by locked score.");
     expect(html).not.toContain('aria-label="Rank by view"');
     expect(html).not.toContain("<strong>Rank by</strong>");
     expect(html).not.toContain("Authoritative composite order.");
