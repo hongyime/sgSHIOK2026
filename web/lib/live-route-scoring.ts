@@ -1,5 +1,5 @@
 /**
- * Live client-side shelter segmentation for preview route evidence.
+ * Live client-side shelter segmentation for preview shelter-map evidence.
  *
  * Takes a pedestrian walking route (e.g. from OneMap API or direct path),
  * tests sub-segments against local shelter evidence (LTA linkways, HDB void decks,
@@ -148,7 +148,7 @@ function findMatchingShelter(
 
 /**
  * Segment a walking route polyline into colored sheltered / exposed RouteSegments
- * for preview-only route evidence.
+ * for preview-only shelter-map evidence.
  */
 export function scoreLiveRoute(options: LiveRouteOptions): {
   geom: PostalGeom;

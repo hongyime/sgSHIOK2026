@@ -159,7 +159,11 @@ describe("shelter map interactions", () => {
     expect(liveScoringSource).toContain("authoritative_score: false");
     expect(liveScoringSource).toContain("authoritative scores come from");
     expect(liveScoringSource).toContain("the published score bundle with locked weights and full provenance.");
+    expect(liveScoringSource).toContain("preview shelter-map evidence");
+    expect(liveScoringSource).toContain("preview-only shelter-map evidence");
     expect(liveScoringSource).toContain("Clicked transit POI has shelter map evidence only");
+    expect(liveScoringSource).not.toContain("preview route evidence");
+    expect(liveScoringSource).not.toContain("preview-only route evidence");
     expect(liveScoringSource).toContain("published scores come from the score bundle.");
     expect(liveScoringSource).not.toContain("Clicked transit POI has route evidence only");
     expect(liveScoringSource).not.toContain("authoritative SHIOK scores come from the published score bundle.");
