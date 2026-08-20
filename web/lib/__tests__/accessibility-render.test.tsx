@@ -429,7 +429,8 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("Nearby bus evidence not route-verified");
     expect(html).toContain("62% sheltered on sheltered route");
-    expect(html).toContain("3 direct bus candidates found; nearest 99 m; 0.4 min best scheduled wait.");
+    expect(html).toContain("3 direct bus options found; nearest 99 m; 0.4 min best scheduled wait.");
+    expect(html).not.toContain("direct bus candidates found");
     expect(html).toContain("Walking network access was not verified, so this sub-score remains 0.");
     expect(html).toContain("Locked score caveat: the bus term remains 0");
     expect(html).toContain("Bus service support");

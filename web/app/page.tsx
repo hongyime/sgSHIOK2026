@@ -381,8 +381,8 @@ function directBusFallbackEvidence(score: ScoreRecord): DirectBusFallbackEvidenc
 function busFallbackSummary(evidence: DirectBusFallbackEvidence): string {
   const countText =
     evidence.candidateCount !== null
-      ? `${evidence.candidateCount} direct bus candidate${evidence.candidateCount === 1 ? "" : "s"}`
-      : "Direct bus candidates";
+      ? `${evidence.candidateCount} direct bus option${evidence.candidateCount === 1 ? "" : "s"}`
+      : "Direct bus options";
   const distanceText =
     evidence.nearestDirectM !== null ? `; nearest ${formatDistance(evidence.nearestDirectM)}` : "";
   const waitText = `${evidence.bestExpectedWaitMin.toFixed(1)} min best scheduled wait`;

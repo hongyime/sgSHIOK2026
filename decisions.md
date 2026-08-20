@@ -320,3 +320,6 @@ The locked-score row should use bundle-level null language instead of the generi
 
 2026-08-20 - P111 no-transit stop range copy:
 The no-transit candidate-selection state should name the user-visible transit stop or exit and the 1.2 km scoring range instead of exposing `candidate` limits. It now says no transit stop is within scoring range and that no qualifying MRT/LRT exit or bus stop was found within 1.2 km, while the graph-disconnected state remains separate as missing connected walking-route evidence. This is browser copy only; it does not alter transit candidate selection, routing, state classification, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P112 direct-bus option copy:
+The direct-bus fallback note should describe fallback evidence as user-facing bus options, not scoring candidates. It now says direct bus options were found while preserving the route-not-verified caveat and the locked-score bus-term caveat. This is browser copy only; it does not alter direct-bus fallback detection, bus scoring, routing, score values, exports, inputs, public data, deployment, or locked weights.
