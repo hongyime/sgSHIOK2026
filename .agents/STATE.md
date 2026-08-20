@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P216 code commit: `1df4ea0`; state-only commits may follow it on `main`.
+Latest P217 code commit: `cba5d1c`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P217 is complete and committed: inline map legend now labels the primary line as Sheltered walk instead of Sheltered route. Focused web map/copy/accessibility tests pass.
 - P216 is complete and committed: transit-target availability labels, the outside-bundle message, and snap-connector helper now say shelter-map walk instead of shelter-map route. Focused accessibility/copy tests pass.
 - P215 is complete and committed: footer copy now says source-derived covered-walkway and exposure-gap evidence instead of generic shelter-map evidence. Focused web copy tests pass.
 - P214 is complete and committed: the non-visual map empty summary now names covered-walkway ratio, exposed gaps, night lighting, and nearby transit. Focused map/copy tests pass.
