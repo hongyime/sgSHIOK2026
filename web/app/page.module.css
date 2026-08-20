@@ -959,6 +959,21 @@
   font-size: 12px;
 }
 
+.gapSummary {
+  margin: 0;
+  display: grid;
+  gap: 2px;
+  color: #43564f;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.gapSummary span:first-child {
+  color: #20352f;
+  font-size: 11px;
+}
+
 .gapItem {
   border: 0;
   border-radius: 6px;

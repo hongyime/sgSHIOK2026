@@ -1107,9 +1107,24 @@ export function ScoreCard({
     routeDetailItems.push({ label: "Map connector", value: formatDistance(endpointSnapM) });
   }
   const longestGap = exposureGaps[0] ?? null;
+  const visibleExposureGaps = exposureGaps.slice(0, 3);
+  const totalExposureM = exposureGaps.reduce((total, gap) => total + gap.len_m, 0);
+  const hiddenGapCount = Math.max(0, exposureGaps.length - visibleExposureGaps.length);
   const longestGapText = longestGap
     ? `${formatDistance(longestGap.len_m)} is the longest exposed gap.`
     : "No exposed gaps are recorded for this selected route.";
+  const gapSummaryText =
+    exposureGaps.length === 0
+      ? null
+      : `${formatDistance(totalExposureM)} exposed across ${exposureGaps.length} gap${
+          exposureGaps.length === 1 ? "" : "s"
+        } on the selected walk.`;
+  const gapListScopeText =
+    hiddenGapCount > 0
+      ? `Showing the longest ${visibleExposureGaps.length}; ${hiddenGapCount} shorter gap${
+          hiddenGapCount === 1 ? "" : "s"
+        } included in the total.`
+      : "All recorded exposed gaps are shown.";
   const selectedWalkLabel = previewRoute ? "preview walk" : "selected walk";
   const evidenceRows: EvidenceBreakdownRow[] = score.subscores
     ? [
@@ -1435,7 +1450,11 @@ export function ScoreCard({
       {exposureGaps.length > 0 && (
         <div className={styles.gapList}>
           <h3>Exposed gaps</h3>
-          {exposureGaps.slice(0, 3).map((gap, index) => {
+          <p className={styles.gapSummary}>
+            <span>{gapSummaryText}</span>
+            <span>{gapListScopeText}</span>
+          </p>
+          {visibleExposureGaps.map((gap, index) => {
             const location = formatGapLocation(gap);
             const focusTarget = exposureGapFocusTarget(score, gap, index);
             const activeGap = Boolean(focusTarget && focusTarget.key === focusedExposureGapKey);

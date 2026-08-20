@@ -261,6 +261,8 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("Exposed gaps");
     expect(html).toContain("142 m");
+    expect(html).toContain("181 m exposed across 2 gaps on the selected walk.");
+    expect(html).toContain("All recorded exposed gaps are shown.");
     expect(html).toContain("Longest open-air stretch");
     expect(html).toContain("Near 1.37123, 103.84235");
     expect(html).toContain("Near 1.37091, 103.84101");
