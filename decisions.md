@@ -290,3 +290,6 @@ The title-card address-universe caveat should state that measured recent-source 
 
 2026-08-20 - P101 measured no-results copy:
 Submitted address searches with no OneMap result should use the same measured frozen-universe limitation as the title card. The no-results status now says the frozen score bundle has measured recent-source misses while still advising users to try a 6-digit postal code. This is browser copy only; it does not alter OneMap query behavior, search routing, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P102 frozen-v1 awaiting-score copy:
+The not-yet-scored postal state should use the same frozen v1 address-universe framing as the title card and outside-bundle state. It now says the postal is in the frozen v1 address universe but the current offline bundle has not scored it yet, with compact labels No full score in this bundle and Awaiting bundle score. This is browser copy only; it does not alter state classification, search behavior, scoring, exports, inputs, public data, deployment, or locked weights.

@@ -434,7 +434,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     return `No ${transitModeLabel(transitMode)} walk was found within the current scoring range.`;
   }
   if (score.state === "NOT_YET_SCORED") {
-    return "This postal is in the source universe, but it is still awaiting offline bundle scoring.";
+    return "This postal is in the frozen v1 address universe, but the current offline bundle has not scored it yet.";
   }
   const busFallback = directBusFallbackEvidence(score);
   if (busFallback) {
@@ -684,7 +684,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
       ? [`Closest routed ${label} is ${formatDistance(nearestM)}`, "Current scoring range is 1.2 km"]
       : [`No ${label} walk within scoring range`, "Nearby transit may still exist outside the current threshold"];
   }
-  if (score.state === "NOT_YET_SCORED") return ["Not scored in this bundle", "Awaiting offline bundle scoring"];
+  if (score.state === "NOT_YET_SCORED") return ["No full score in this bundle", "Awaiting bundle score"];
   if (score.paths?.routing_type === "direct_bus_fallback_unrouted") {
     return ["Nearby bus stop with service data", "Walking-route shelter not verified yet"];
   }

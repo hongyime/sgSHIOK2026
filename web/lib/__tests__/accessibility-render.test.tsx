@@ -366,7 +366,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("No composite score");
   });
 
-  it("describes awaiting bundle scoring without pipeline jargon", () => {
+  it("describes awaiting bundle scoring as a frozen v1 bundle state", () => {
     const awaitingRecord: ScoreRecord = {
       ...scoredRecord,
       state: "NOT_YET_SCORED",
@@ -384,11 +384,13 @@ describe("rendered accessibility output", () => {
       rankingRecords: [],
     });
 
-    expect(html).toContain("Not scored in this bundle");
-    expect(html).toContain("Awaiting offline bundle scoring");
+    expect(html).toContain("No full score in this bundle");
+    expect(html).toContain("Awaiting bundle score");
     expect(html).toContain(
-      "This postal is in the source universe, but it is still awaiting offline bundle scoring."
+      "This postal is in the frozen v1 address universe, but the current offline bundle has not scored it yet."
     );
+    expect(html).not.toContain("source universe");
+    expect(html).not.toContain("Awaiting offline bundle scoring");
     expect(html).not.toContain("Needs pipeline scoring evidence");
     expect(html).not.toContain("pipeline scoring evidence");
   });
