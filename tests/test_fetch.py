@@ -8,6 +8,8 @@ import pytest
 import pipeline.fetch as fetch
 from pipeline.fetch import (
     datagov_raw_filename,
+    freshness_policy_for_source,
+    load_source_config,
     select_sources,
     stable_manifest_url,
     source_freshness_line,
@@ -108,6 +110,21 @@ def test_source_freshness_status_respects_manual_sources() -> None:
 
     assert status["status"] == "manual"
     assert source_freshness_line(status) == "[osm_extract] OSM: freshness manual"
+
+
+def test_source_config_has_freshness_policy_for_every_source() -> None:
+    config = load_source_config()
+    defaults = config["freshness_defaults"]
+    sources = config["sources"]
+
+    assert len(sources) == 21
+    for key, spec in sources.items():
+        policy = freshness_policy_for_source(spec, defaults)
+        assert policy.get("expected_cadence"), key
+        if policy.get("mode") == "manual" or policy.get("expected_cadence") == "manual":
+            assert policy.get("stale_after_days") is None, key
+        else:
+            assert isinstance(policy.get("stale_after_days"), int), key
 
 
 def test_run_check_reports_stale_freshness_without_failing(

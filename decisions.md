@@ -161,3 +161,6 @@ The rank panel helper should describe the overall view as a locked score order, 
 
 2026-08-20 - P57 manifest-only freshness reporting:
 Source freshness should be reportable without fetching, ingesting, or hashing upstream data. The fetch module now supports `check --freshness-only`, which reads the existing raw manifest and source freshness policy to print current/stale/manual/unknown source status. This is operational reporting only; it does not alter source cadence thresholds, inputs, exports, public data, scoring, deployment, or locked weights.
+
+2026-08-20 - P58 source freshness policy coverage:
+Every configured source must resolve to an expected freshness cadence; every non-manual source must also resolve to a numeric stale-after-days threshold. This is now enforced by a config-level test so future sources cannot silently fall into `unknown_policy` freshness status. This is test coverage only; it does not alter source thresholds, inputs, exports, public data, scoring, deployment, or locked weights.
