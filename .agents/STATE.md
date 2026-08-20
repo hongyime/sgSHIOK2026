@@ -2,14 +2,15 @@
 
 Date: 2026-08-20
 
-Task: P70 API credential readiness is implemented and ready to hand back.
+Task: P71 batch-plan API environment readiness is implemented and ready to hand back.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `1a358f4` at P70 task start.
+Remote main: `3a8ef33` at P71 task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P71 fixes direct `pipeline.batch_plan` API credential readiness: the module now loads `.env` before emitting its non-secret `api_environment` block, matching other pipeline entrypoints. Evidence is tracked at `qa/verification/P71-batch-plan-api-env.md`, and the durable decision is appended to `decisions.md`. Verification passed: direct batch-plan credential probe, `tests/test_batch_plan.py`, repo integrity, diff check, and weights diff. No scoring, export, rescore, subset run, ingest, network build, input rebuild, API collection, public data write, deployment, or weight change was run.
 - P70 adds non-secret API credential readiness to `scripts/production_readiness.py`. The report now exposes boolean presence/missing names for `LTA_DATAMALL_ACCOUNT_KEY`, `ONEMAP_EMAIL`, and `ONEMAP_PASSWORD`; missing values warn but do not block static release checks. Current Prawn-E14 environment has all three present. Evidence is tracked at `qa/verification/P70-api-credential-readiness.md`, and the durable decision is appended to `decisions.md`. Verification passed: current environment readiness probe, focused readiness tests, full readiness test file, repo integrity, diff check, and weights diff. No scoring, export, rescore, subset run, ingest, network build, input rebuild, API collection, public data write, deployment, or weight change was run.
 - P69 removes stale completion-only terminology from non-evidence tracked files so future work uses the P68 wording consistently. Remaining old phrases are only in negative regression assertions or immutable `qa/verification/` history. Evidence is tracked at `qa/verification/P69-mcst-terminology-consistency.md`. Verification passed: tracked grep outside evidence, focused browser-copy test, focused readiness test, repo integrity, diff check, and weights diff. No scoring, export, rescore, subset run, ingest, network build, input rebuild, API collection, public data write, deployment, or weight change was run.
 - P68 corrects P19 wording across the browser title card, README, readiness, and decisions: the denominator is `HDB completion and MCST proxy rows`, not generic completions, because BCA MCST constitution date is a proxy rather than a TOP/completion date. Evidence is tracked at `qa/verification/P68-mcst-proxy-wording.md`, and the durable wording decision is appended to `decisions.md`. Verification passed: focused browser-copy test, focused readiness test, full readiness test file, repo integrity, diff check, and weights diff. No scoring, export, rescore, subset run, ingest, network build, input rebuild, API collection, public data write, deployment, or weight change was run.

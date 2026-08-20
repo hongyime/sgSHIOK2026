@@ -2,14 +2,19 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
 
 import pyarrow as pa
 import pyarrow.parquet as pq
 import yaml
+from dotenv import load_dotenv
 
 from pipeline.network_qa import validate_network_qa
+
+load_dotenv()
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 PROCESSED_DIR = PROJECT_ROOT / "processed"
@@ -50,6 +55,40 @@ def load_onemap_delay(params_path: Path = PARAMS_PATH) -> tuple[float, list[str]
 
     warnings.append(f"invalid onemap.client_delay_sec; using {DEFAULT_ONEMAP_DELAY_SEC:.1f}s delay")
     return DEFAULT_ONEMAP_DELAY_SEC, warnings
+
+
+def api_environment_readiness(environment: Mapping[str, str] | None = None) -> dict[str, Any]:
+    env = os.environ if environment is None else environment
+    lta_present = bool(env.get("LTA_DATAMALL_ACCOUNT_KEY"))
+    onemap_email_present = bool(env.get("ONEMAP_EMAIL"))
+    onemap_password_present = bool(env.get("ONEMAP_PASSWORD"))
+    missing = []
+    if not lta_present:
+        missing.append("LTA_DATAMALL_ACCOUNT_KEY")
+    if not onemap_email_present:
+        missing.append("ONEMAP_EMAIL")
+    if not onemap_password_present:
+        missing.append("ONEMAP_PASSWORD")
+
+    warnings: list[str] = []
+    if not lta_present:
+        warnings.append(
+            "LTA_DATAMALL_ACCOUNT_KEY missing; DataMall-backed source refreshes cannot run"
+        )
+    if not (onemap_email_present and onemap_password_present):
+        warnings.append(
+            "ONEMAP_EMAIL/ONEMAP_PASSWORD missing; OneMap token-backed validation cannot run"
+        )
+
+    return {
+        "ready_for_api_collection": not missing,
+        "lta_datamall_account_key_present": lta_present,
+        "onemap_email_present": onemap_email_present,
+        "onemap_password_present": onemap_password_present,
+        "onemap_credentials_present": onemap_email_present and onemap_password_present,
+        "missing": missing,
+        "warnings": warnings,
+    }
 
 
 def format_duration(seconds: float) -> str:
@@ -114,6 +153,7 @@ def build_batch_plan(
     qa_path: Path | None = None,
     debug_path: Path | None = None,
     onemap_delay_sec: float | None = None,
+    environment: Mapping[str, str] | None = None,
 ) -> tuple[bool, dict[str, Any]]:
     default_summary_path, default_universe_path = default_universe_paths(mode)
     summary_path = summary_path or default_summary_path
@@ -189,6 +229,8 @@ def build_batch_plan(
         warnings.append(
             f"{needs_geocode} source-derived postals remain unresolved after bounded OneMap geocode"
         )
+    api_environment = api_environment_readiness(environment)
+    warnings.extend(api_environment["warnings"])
 
     full_batch_allowed_now = False
 
@@ -220,6 +262,7 @@ def build_batch_plan(
             "onemap_search_role": "candidate validation/geocoding, not national enumeration",
             "requires_human_approval_for_universe": requires_universe_approval,
         },
+        "api_environment": api_environment,
         "bounded_geocoding": {
             "consumer": "OneMap search API",
             "scope": (

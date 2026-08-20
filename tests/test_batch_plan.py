@@ -4,7 +4,12 @@ from pathlib import Path
 import pyarrow as pa
 import pyarrow.parquet as pq
 
-from pipeline.batch_plan import build_batch_plan, default_universe_paths, format_duration
+from pipeline.batch_plan import (
+    api_environment_readiness,
+    build_batch_plan,
+    default_universe_paths,
+    format_duration,
+)
 
 
 def write_json(path: Path, payload: dict) -> None:
@@ -75,6 +80,36 @@ def test_default_universe_paths_requires_complete_geocoded_pair(tmp_path: Path):
     )
 
 
+def test_api_environment_readiness_reports_missing_keys_without_values():
+    missing = api_environment_readiness({})
+
+    assert missing["ready_for_api_collection"] is False
+    assert missing["missing"] == [
+        "LTA_DATAMALL_ACCOUNT_KEY",
+        "ONEMAP_EMAIL",
+        "ONEMAP_PASSWORD",
+    ]
+    assert missing["lta_datamall_account_key_present"] is False
+    assert missing["onemap_credentials_present"] is False
+    assert any("DataMall-backed source refreshes" in item for item in missing["warnings"])
+    assert any("OneMap token-backed validation" in item for item in missing["warnings"])
+
+    present = api_environment_readiness(
+        {
+            "LTA_DATAMALL_ACCOUNT_KEY": "secret-lta",
+            "ONEMAP_EMAIL": "owner@example.test",
+            "ONEMAP_PASSWORD": "secret-onemap",
+        }
+    )
+
+    assert present["ready_for_api_collection"] is True
+    assert present["missing"] == []
+    assert present["warnings"] == []
+    assert "secret-lta" not in json.dumps(present)
+    assert "secret-onemap" not in json.dumps(present)
+    assert "owner@example.test" not in json.dumps(present)
+
+
 def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Path):
     summary_path = tmp_path / "summary.json"
     universe_path = tmp_path / "universe.parquet"
@@ -118,6 +153,7 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
         params_path=params_path,
         qa_path=qa_path,
         debug_path=debug_path,
+        environment={},
     )
 
     assert ok, report
@@ -141,6 +177,13 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
         report["source_policy"]["onemap_search_role"]
         == "candidate validation/geocoding, not national enumeration"
     )
+    assert report["api_environment"]["ready_for_api_collection"] is False
+    assert report["api_environment"]["missing"] == [
+        "LTA_DATAMALL_ACCOUNT_KEY",
+        "ONEMAP_EMAIL",
+        "ONEMAP_PASSWORD",
+    ]
+    assert any("DataMall-backed source refreshes" in item for item in report["warnings"])
 
 
 def test_batch_plan_treats_completed_geocode_fill_remaining_rows_as_unresolved(
@@ -185,6 +228,11 @@ def test_batch_plan_treats_completed_geocode_fill_remaining_rows_as_unresolved(
         params_path=params_path,
         qa_path=qa_path,
         debug_path=debug_path,
+        environment={
+            "LTA_DATAMALL_ACCOUNT_KEY": "test-lta",
+            "ONEMAP_EMAIL": "owner@example.test",
+            "ONEMAP_PASSWORD": "test-onemap",
+        },
     )
 
     assert ok, report
@@ -194,6 +242,7 @@ def test_batch_plan_treats_completed_geocode_fill_remaining_rows_as_unresolved(
     assert report["scoring_batch"]["would_emit_records"] == 3
     assert report["scoring_batch"]["would_emit_not_yet_scored"] == 1
     assert "1 source-derived postals remain unresolved" in report["warnings"][0]
+    assert report["api_environment"]["ready_for_api_collection"] is True
 
 
 def test_batch_plan_reports_missing_island_qa_as_blocker_not_artifact_error(tmp_path: Path):
