@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P208: `64813b7`
+Remote main after P209: `d9f5d58`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P209 is complete and committed: static-artifact validation now reports bounded shard progress: the real active bundle has 304 score shards and the probe reached 225/304 before intentional interrupt. Export/readiness tests pass.
 - P208 is complete and committed: static-artifact validation now has optional progress callbacks, and production readiness forwards them to stderr with `static artifacts:` prefixes. The real active bundle probe shows 4,848 JSON artifacts scanned before score-shard validation. Export/readiness tests pass.
 - P207 is complete and committed: `scripts/production_readiness.py` now emits stderr progress markers before major read-only stages while preserving stdout JSON. Production-readiness tests pass, py_compile passes, and the CLI emits immediate progress before static artifact validation.
 - P206 is complete and committed: production readiness and dry-run batch planning now treat missing rebuildable `qa/island_debug.geojson` as nonblocking when `conflation_qa_island.json` metrics pass; strict execution-time validators still require debug. Focused batch-plan, readiness, and network-QA tests pass.
