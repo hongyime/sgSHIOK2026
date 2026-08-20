@@ -592,3 +592,6 @@ The walk-display live region should describe the Both mode as two walks, not rou
 
 2026-08-21 - P221 Section 10 proposal walk wording:
 The Section 10 presentation proposal is review copy, so it should use the same walk language as the product UI. The proposal now says selected walk distance, asks whether the walk works for the user, and labels the primary visual as a shelter-map walk instead of route wording. This is proposal copy and test coverage only; it does not alter app behavior, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P222 Section 10 proposal walk-trace wording:
+The Section 10 proposal goal and current-state critique should frame the defended artifact as the shelter-map walk trace, not a generic routed trace or route exposure. The proposal now says shelter-map walk trace, walk distance, and walk exposure in its overview/current-state text. This is proposal copy and test coverage only; it does not alter app behavior, score values, scoring, exports, public data, deployment, or locked weights.

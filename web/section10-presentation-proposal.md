@@ -4,8 +4,8 @@ Status: proposal only. This is not an implementation and does not change the app
 
 ## Goal
 
-Make Section 10 lead with the artifact the project can defend today: the routed
-shelter trace and its exposed gaps. Keep the locked score visible, but
+Make Section 10 lead with the artifact the project can defend today: the shelter-map
+walk trace and its exposed gaps. Keep the locked score visible, but
 stop presenting the current five component-score rows as five independent measurements.
 
 ## Current State
@@ -13,7 +13,7 @@ stop presenting the current five component-score rows as five independent measur
 | Position | Current screen copy | Problem |
 | --- | --- | --- |
 | 1 | Composite SHIOK score | Leads with a blended index before showing the evidence behind the walk. |
-| 2 | Access | Useful, but should sit beside route distance and transit target rather than above route exposure. |
+| 2 | Access | Useful, but should sit beside walk distance and transit target rather than above walk exposure. |
 | 3 | Bus connectivity | Carries 20% of locked weight but still partly reflects routing/conflation success. |
 | 4 | Rain shelter | Uses covered-walkway shelter evidence. |
 | 5 | Heat: shelter + NParks shade proxy | Mostly the same covered-walkway shelter evidence as rain shelter, plus sparse greenery proxy. |
@@ -91,7 +91,7 @@ SHIOK score       {total}
 Footer note:
 
 ```text
-SHIOK's current strongest evidence is the routed shelter trace. The score remains the
+SHIOK's current strongest evidence is the shelter-map walk trace. The score remains the
 locked release index, but rain and heat are not independent enough today to deserve two
 primary rows.
 ```

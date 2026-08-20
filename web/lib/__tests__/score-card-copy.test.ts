@@ -297,10 +297,16 @@ describe("score card copy", () => {
     expect(proposalSource).toContain("Selected walk distance from this postal code to the chosen MRT/LRT or bus access point.");
     expect(proposalSource).toContain("deciding whether the walk actually works");
     expect(proposalSource).toContain("[shelter-map walk]");
+    expect(proposalSource).toContain("the shelter-map\nwalk trace and its exposed gaps");
+    expect(proposalSource).toContain("walk distance and transit target rather than above walk exposure");
+    expect(proposalSource).toContain("current strongest evidence is the shelter-map walk trace");
     expect(proposalSource).not.toContain("five subscore rows");
     expect(proposalSource).not.toContain("Selected route distance from this postal code");
     expect(proposalSource).not.toContain("deciding whether a route actually works");
     expect(proposalSource).not.toContain("[route map]");
+    expect(proposalSource).not.toContain("routed shelter trace");
+    expect(proposalSource).not.toContain("route distance and transit target");
+    expect(proposalSource).not.toContain("above route exposure");
 
     expect(weightsYaml).toContain("transit_access: 0.35");
     expect(weightsYaml).toContain("bus_connectivity: 0.20");
