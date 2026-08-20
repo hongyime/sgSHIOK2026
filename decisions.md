@@ -374,3 +374,6 @@ Production readiness should expose the measured OSM `addr:postcode` coverage as 
 
 2026-08-20 - P129 exposure hero total gaps:
 The route evidence hero should carry both headline shelter facts: the covered-walkway ratio and the exposure-gap burden. It now states total exposed metres and the recorded exposed-gap count before naming the longest exposed gap, while the detailed gap list remains below with coordinates. This is browser presentation only; it does not alter route geometry, exposure-gap data, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P130 shelter source labels:
+The route source strip should use product-facing shelter-evidence labels rather than internal source-class wording. It now labels `lta_covered_linkway` as `LTA covered linkway`, `osm_covered` as `OSM shelter tags`, `inferred_hdb_void_deck` as `HDB void-deck inference`, and generic covered segments as `Mapped shelter`; the strip's accessible name is `Shelter source evidence`. This is browser copy and test coverage only; it does not alter route classification, map styling, route geometry, scoring, exports, public data, deployment, or locked weights.

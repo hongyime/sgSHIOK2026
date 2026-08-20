@@ -77,16 +77,16 @@ const TRANSIT_MODE_OPTIONS: Array<{ id: TransitAccessMode; label: string }> = [
 ];
 
 const SOURCE_LABELS: Record<string, string> = {
-  lta_covered_linkway: "LTA shelter",
-  osm_covered: "OSM covered",
-  inferred_hdb_void_deck: "HDB inferred",
+  lta_covered_linkway: "LTA covered linkway",
+  osm_covered: "OSM shelter tags",
+  inferred_hdb_void_deck: "HDB void-deck inference",
   bridge_underpass: "Bridge/underpass",
   audited_shelter_correction: "Audited shelter",
   direct_unrouted_bus: "Direct bus estimate",
   bus_stop_access_connector: "Bus stop connector",
   origin_graph_snap_connector: "Postal connector",
   destination_graph_snap_connector: "Transit connector",
-  covered_unknown: "Covered",
+  covered_unknown: "Mapped shelter",
   exposed: "Exposed",
 };
 
@@ -1300,7 +1300,7 @@ export function ScoreCard({
         />
       )}
       {sourceBreakdown.length > 0 && (
-        <div className={styles.sourceStrip} aria-label="Route source evidence">
+        <div className={styles.sourceStrip} aria-label="Shelter source evidence">
           {sourceBreakdown.map((item) => (
             <span key={item.source} data-source={item.source}>
               {item.label} <strong>{formatDistance(item.lenM)}</strong>

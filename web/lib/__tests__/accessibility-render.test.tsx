@@ -64,7 +64,19 @@ const selection: LoadedSelection = {
     SEARCHVAL: "S560231",
   },
   score: scoredRecord,
-  geom: null,
+  geom: {
+    postal: "560231",
+    shortest: "",
+    sheltered: "",
+    exposure_gaps: [],
+    route_segments: {
+      sheltered: [
+        { geom: "", len_m: 72, is_covered: true, source_class: "lta_covered_linkway" },
+        { geom: "", len_m: 45, is_covered: true, source_class: "osm_covered" },
+        { geom: "", len_m: 32, is_covered: false, source_class: "exposed" },
+      ],
+    },
+  },
 };
 
 function renderScoreCard(overrides: Partial<React.ComponentProps<typeof ScoreCard>> = {}) {
@@ -259,6 +271,10 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("62% of the selected walk is covered.");
     expect(html).toContain("181 m exposed across 2 gaps; 142 m is the longest exposed gap.");
     expect(html).toContain("142 m is the longest exposed gap.");
+    expect(html).toContain('aria-label="Shelter source evidence"');
+    expect(html).toContain("LTA covered linkway");
+    expect(html).toContain("OSM shelter tags");
+    expect(html).not.toContain("OSM covered");
     expect(html).toContain("Route evidence and locked score");
     expect(html).toContain('aria-label="Route evidence and locked score breakdown"');
     expect(html).toContain("Four display rows; weights unchanged");
