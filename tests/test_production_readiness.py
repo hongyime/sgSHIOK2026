@@ -217,19 +217,20 @@ def test_environment_readiness_reports_missing_api_credentials_without_values() 
     assert "owner@example.test" not in json.dumps(present)
 
 
-def test_lamp_overlay_artifact_status_validates_current_local_artifact() -> None:
-    status = lamp_overlay_artifact_status()
+def test_lamp_overlay_artifact_status_validates_manifest_and_tiles(tmp_path: Path) -> None:
+    web_dir = tmp_path / "web"
+    write_lamp_overlay_artifact(web_dir)
+
+    status = lamp_overlay_artifact_status(web_dir)
 
     assert status["ok"] is True
     assert status["state"] == "passed"
-    assert status["tile_count"] == 700
-    assert status["tile_index_count"] == 700
-    assert status["point_count"] == 126144
+    assert status["tile_count"] == 1
+    assert status["tile_index_count"] == 1
+    assert status["point_count"] == 2
     assert status["missing_tile_count"] == 0
     assert status["size_mismatch_count"] == 0
-    assert status["source_sha256"] == (
-        "2b552c1429aaf93c544209df3da68838d708a78ec5ae86dcd2852c10b0589f29"
-    )
+    assert status["source_sha256"] == "a" * 64
     assert status["warning"] is None
 
 
