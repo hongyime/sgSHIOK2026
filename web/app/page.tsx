@@ -2010,7 +2010,7 @@ export default function Home() {
               Recent public-sample check: 8 missing rows out of 976 HDB completion and MCST proxy rows from 2021-2026 with postals.
             </p>
             <p className={styles.freshnessLine}>
-              Source freshness audit: 12 current, 6 stale, 2 manual, 1 unknown-age candidate address source; stale: traffic signals, planning area boundary, NParks nature ways, tracks, heritage trees and heritage road green buffers.
+              Data freshness: 12 sources current, 6 stale, 2 manual, and 1 candidate address source with unknown age; stale sources are traffic signals, planning area boundary, NParks nature ways, tracks, heritage trees and heritage road green buffers.
             </p>
             {scoreCoverageLine && <p className={styles.coverageLine}>{scoreCoverageLine}</p>}
             <p className={styles.sourceLine}>

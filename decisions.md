@@ -350,3 +350,6 @@ The score card should use user-facing `component score` language instead of `sub
 
 2026-08-20 - P121 greenery-proxy route detail:
 The route-detail strip should call the NParks-derived helper value `Greenery proxy`, not `Shade proxy`, because the source is sparse greenery evidence rather than direct measured shade on the route. This keeps the detail strip aligned with the title-card and score-card copy while avoiding a stronger shelter claim than the data supports. This is browser copy only; it does not alter score values, route geometry, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P122 data-freshness title copy:
+The title-card freshness disclosure should read as product-facing data freshness, not as an internal `Source freshness audit`, while preserving the measured 12 current, 6 stale, 2 manual, and 1 unknown-age source counts and naming all stale sources. This is browser copy only; it does not alter freshness classification, data fetching, scoring, exports, inputs, public data, deployment, or locked weights.
