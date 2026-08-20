@@ -79,13 +79,14 @@ describe("score card copy", () => {
     expect(source).toContain("© OpenStreetMap contributors");
     expect(source).toContain("https://opendatacommons.org/licenses/odbl/1-0/");
     expect(source).toContain("ATTRIBUTION.md");
-    expect(source).toContain("Heat proxy: shelter + sparse NParks greenery");
+    expect(source).toContain("Heat proxy: shelter plus sparse NParks greenery, not measured temperature");
     expect(source).toContain("Night lighting");
     expect(source).toContain(
       "LTA lamp-post layer: 126,144 points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load points. Map evidence only; not part of the locked score."
     );
     expect(source).not.toContain("Heat: shelter + NParks shade proxy");
     expect(source).not.toContain("Heat: shelter plus NParks shade proxy");
+    expect(source).not.toContain("Heat proxy: shelter + sparse NParks greenery");
     expect(layoutSource).toContain(
       "Explore covered-walkway exposure gaps, night-lighting evidence, and the secondary locked SHIOK score"
     );

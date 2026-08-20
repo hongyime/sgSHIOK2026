@@ -2033,7 +2033,7 @@ export default function Home() {
                 ATTRIBUTION.md
               </a>
             </p>
-            <p className={styles.heatLine}>Heat proxy: shelter + sparse NParks greenery</p>
+            <p className={styles.heatLine}>Heat proxy: shelter plus sparse NParks greenery, not measured temperature</p>
             <div className={styles.mapLayerControls} aria-label="Map layers">
               <button
                 type="button"

@@ -410,3 +410,6 @@ Missing-address user states should describe the frozen/current artifact as a she
 
 2026-08-20 - P141 outside shelter-map bundle copy:
 The visible outside-bundle detail panel should use the same shelter-map bundle language as the no-results hint and live-region announcement. It now says `Outside shelter-map bundle` and explains that no shelter map route is published for the postal in the frozen June 2020 address universe. This is browser copy and test coverage only; it does not alter search behavior, score lookup, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P142 heat proxy temperature caveat:
+The first-viewport heat caveat should explicitly say what the app does not know. It now says `Heat proxy: shelter plus sparse NParks greenery, not measured temperature`, preserving the source inputs while making clear that the value is not observed thermal comfort. This is browser copy and test coverage only; it does not alter heat proxy computation, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
