@@ -469,3 +469,6 @@ The selected shelter-map panel now labels the gap list as `Exposed gaps on this 
 
 2026-08-20 - P161 locked-score reason chips:
 Reason chips for missing or incomplete score states now say `Locked score unavailable` and `Locked score incomplete` instead of generic bundle-score wording. This keeps the secondary score label consistent with the rest of the shelter-map panel while preserving bundle-state copy where the UI is specifically discussing published-bundle inclusion. This is browser copy and test coverage only; it does not alter scoring state, score values, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P162 direct-bus fallback shelter-map wording:
+Direct-bus fallback copy now says the `Shelter-map route` was not verified instead of generic walking-route access. This keeps the fallback caveat aligned with the shelter-map product frame while preserving the settled P7/P10 meaning: direct bus service evidence can exist, but the bus component remains 0 until a trusted shelter-map route to the DataMall stop is proven. This is browser copy and test coverage only; it does not alter fallback detection, scoring, exports, public data, deployment, or locked weights.

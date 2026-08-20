@@ -16,7 +16,11 @@ describe("score card copy", () => {
     expect(source).toContain("Walking route not connected yet");
     expect(source).toContain("Outside current 1.2 km scoring range");
     expect(source).toContain("Nearby transit may still exist beyond the 1.2 km scoring range");
+    expect(source).toContain("Shelter-map route not verified yet");
+    expect(source).toContain("Shelter-map route access was not verified, so this component score remains 0.");
     expect(source).not.toContain("current walking graph could not connect a route yet");
+    expect(source).not.toContain("Walking-route shelter not verified yet");
+    expect(source).not.toContain("Walking-route access was not verified");
     expect(source).not.toContain("Outside current candidate thresholds");
     expect(source).not.toContain("Transit candidates exist, but this bundle has no connected walking route evidence yet.");
     expect(source).not.toContain("Transit stops or exits exist, but this bundle has no connected walking route evidence yet.");

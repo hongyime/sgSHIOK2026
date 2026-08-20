@@ -479,8 +479,9 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("62% sheltered on sheltered route");
     expect(html).toContain("3 direct bus options found; nearest 99 m; 0.4 min best scheduled wait.");
     expect(html).not.toContain("direct bus candidates found");
-    expect(html).toContain("Walking-route access was not verified, so this component score remains 0.");
+    expect(html).toContain("Shelter-map route access was not verified, so this component score remains 0.");
     expect(html).not.toContain("so this sub-score remains 0");
+    expect(html).not.toContain("Walking-route access was not verified");
     expect(html).not.toContain("Walking network access was not verified");
     expect(html).toContain("Locked score caveat: the bus term remains 0");
     expect(html).toContain("Bus service support");

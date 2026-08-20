@@ -695,7 +695,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
   }
   if (score.state === "NOT_YET_SCORED") return ["No full score in this bundle", "Awaiting bundle score"];
   if (score.paths?.routing_type === "direct_bus_fallback_unrouted") {
-    return ["Nearby bus stop with service data", "Walking-route shelter not verified yet"];
+    return ["Nearby bus stop with service data", "Shelter-map route not verified yet"];
   }
   if (!score.paths || !score.best_node) return ["Shelter map evidence unavailable", "Locked score unavailable"];
   if (!score.subscores) return ["Locked score incomplete", "Shelter map evidence available"];
@@ -1212,7 +1212,7 @@ export function ScoreCard({
           notes: [
             "A low value can mean weak service evidence, or that routing could not prove a trusted walk to a DataMall bus stop.",
             busFallback
-              ? `${busFallbackSummary(busFallback)} Walking-route access was not verified, so this component score remains 0.`
+              ? `${busFallbackSummary(busFallback)} Shelter-map route access was not verified, so this component score remains 0.`
               : null,
           ].filter((note): note is string => Boolean(note)),
         },
