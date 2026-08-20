@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P155: `4a0993c`
+Remote main after P156: `ff4822f`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -93,6 +93,7 @@ Status:
 - P153 is complete and pushed: score-coverage disclosure now says `full scores` and `partial shelter-map evidence`.
 - P154 is complete and pushed: live clicked-stop preview provenance now says shelter map evidence only and published scores come from the score bundle.
 - P155 is complete and pushed: snap-connector helper copy now says the connector links onto the shelter-map route.
+- P156 is complete and pushed: dry-run batch planning now exposes the one-attempt full-batch release scope and explicit owner-approval boundary.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -174,5 +175,6 @@ Status:
 - P153 evidence is tracked at `qa/verification/P153-score-coverage-shelter-map.md`.
 - P154 evidence is tracked at `qa/verification/P154-live-preview-provenance-shelter-map.md`.
 - P155 evidence is tracked at `qa/verification/P155-snap-connector-shelter-map-route.md`.
+- P156 evidence is tracked at `qa/verification/P156-batch-plan-one-attempt-scope.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
