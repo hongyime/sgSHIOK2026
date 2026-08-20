@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P178: `9f74d01`
+Remote main after P179: `0b0dd17`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -116,6 +116,7 @@ Status:
 - P176 is complete: selected shelter-map panel wording now says selected walk in the exposure hero, access row, no-gap fallback, and Best transit tab.
 - P177 is complete: selected-walk comparison copy now says `Walk comparison`, `Shortest walk`, and `Sheltered walk` instead of route comparison wording.
 - P178 is complete: direct-bus fallback and bus-caveat copy now frame the missing proof as shelter-map walk verification, not generic route verification.
+- P179 is complete: same shortest/sheltered walk-display live-region copy now says `shortest same as sheltered walk`.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -220,5 +221,6 @@ Status:
 - P176 evidence is tracked at `qa/verification/P176-selected-walk-panel-wording.md`.
 - P177 evidence is tracked at `qa/verification/P177-walk-comparison-copy.md`.
 - P178 evidence is tracked at `qa/verification/P178-bus-fallback-walk-verification-copy.md`.
+- P179 evidence is tracked at `qa/verification/P179-same-walk-display-announcement.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
