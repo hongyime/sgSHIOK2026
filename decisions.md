@@ -559,3 +559,6 @@ The production-readiness static-artifact stage should show bounded movement whil
 
 2026-08-21 - P210 local Vercel link readiness policy:
 A missing local `.vercel/project.json` link is checkout/deploy context, not a bundle defect. Production readiness should warn that the local Vercel project is not linked, while keeping deploy/repoint guarded by explicit owner approval; it should still block when a local Vercel project is linked and its configured root directory is not `web`, because that is contradictory deploy configuration. This is readiness reporting and test coverage only; it does not link Vercel, deploy, repoint, score, export, mutate public data, or alter locked weights.
+
+2026-08-21 - P211 first-view covered-walkway artifact copy:
+The first view should name the product's unique evidence directly instead of only saying `Shelter-first walks to transit`. The title-card subtitle now says users can see covered-walkway ratio and exposed gaps to transit, and the empty shelter-map panel tells users to search a postal code to inspect the covered-walkway ratio, exposed gaps, and night lighting. This is browser copy and test coverage only; it does not alter search behavior, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
