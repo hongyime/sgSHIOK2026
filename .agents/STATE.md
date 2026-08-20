@@ -1,15 +1,16 @@
 # Current State
 
-Date: 2026-08-16
+Date: 2026-08-20
 
-Task: P48 clicked-stop preview failure disclosure is implemented and ready to hand back.
+Task: P49 syncbot guard-file repair is in progress.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `67e91aa` at P48 task start.
+Remote main: `732a5f6` at P49 task start; contains another sourcerepo syncbot regression.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P49 fast-forwarded to `origin/main` at `732a5f6`, then restored `NOTICE`, `.vercelignore`, `AGENTS.md`, and `.gitignore` from the last good main after syncbot commit `36f963a` repeated the sticky deletion pattern. Evidence is tracked at `qa/verification/P49-syncbot-restore.md`. Repo integrity passes in the repaired worktree. Do not push new product work until this repair commit lands on main.
 - P48 makes arbitrary clicked-stop route previews honest when OneMap walking-route preview is loading or unavailable: the score card now says the selected stop is shown as a straight-line preview until OneMap returns, or straight-line preview only if it cannot. Evidence is being tracked at `qa/verification/P48-clicked-stop-preview-failure.md`. Verification passed: focused route-evidence/accessibility tests, full web test (120 tests / 23 files), TypeScript, repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P47 weakens heat/shade UI copy to match the evidence: title-card copy now says `Heat proxy: shelter + sparse NParks greenery`, and route-detail copy says `Heat proxy evidence` instead of generic score evidence. Evidence is tracked at `qa/verification/P47-heat-proxy-copy.md`. Verification passed: focused score-card/accessibility tests, full web test, TypeScript, repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P46 adds visible and screen-reader-linked copy to the `Night lighting` map toggle: lamp-post evidence is map evidence only and not part of the locked score. Evidence is tracked at `qa/verification/P46-night-lighting-score-separation.md`. Verification passed: focused route-evidence map interaction test, full web test, TypeScript, repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
