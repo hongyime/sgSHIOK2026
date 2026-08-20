@@ -431,7 +431,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const reason = provenanceReason(score, transitMode);
     if (reason === "transit_candidates_graph_disconnected") {
-      return "Transit stops or exits exist, but this bundle has no connected walking route evidence yet.";
+      return "Transit stops or exits exist, but this shelter-map bundle has no connected walking route yet.";
     }
     if (reason === "no_transit_candidates_selected") {
       return "No qualifying MRT/LRT exit or bus stop was found within the 1.2 km scoring range for this postal.";

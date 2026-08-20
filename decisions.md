@@ -439,3 +439,6 @@ The clicked-stop preview map legend now labels the preview line as `Shelter map 
 
 2026-08-20 - P151 selected-route map summary shelter-map framing:
 The non-visual selected-route map summary now starts `Shelter map for ...` instead of `Route evidence for ...`, matching the map container label and empty-map summary. This is accessibility copy and test coverage only; it does not alter map rendering, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P152 graph-disconnected shelter-map route note:
+Graph-disconnected no-transit notes now say `this shelter-map bundle has no connected walking route yet` instead of generic walking-route evidence language. This keeps the user-facing limitation attached to the current shelter-map bundle while preserving the distinction from no transit stop within scoring range. This is browser copy and test coverage only; it does not alter route connectivity, transit candidate selection, state classification, scoring, exports, public data, deployment, or locked weights.
