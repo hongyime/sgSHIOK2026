@@ -269,3 +269,6 @@ The score-card reason chips should not describe the selected higher-shelter rout
 
 2026-08-20 - P94 bundle-score reason copy:
 The score-card reason chips should describe unavailable scores in product terms, not implementation terms. Awaiting-score records now say `Awaiting offline bundle scoring`; unavailable route/score records say `Bundle score unavailable`; and partial breakdown records say `Bundle score incomplete`. This is browser copy only; it does not alter score-state classification, scoring, route evidence, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P95 offline-bundle state notes:
+Score-state notes should use the same bundle-scoring language as the reason chips. Clicked-stop previews now say they are not authoritative until an offline bundle includes them, and `NOT_YET_SCORED` records say they are awaiting offline bundle scoring instead of needing pipeline scoring evidence. This is browser copy only; it does not alter score-state classification, preview routing, scoring, exports, public data, deployment, or locked weights.

@@ -211,7 +211,10 @@ describe("rendered accessibility output", () => {
     expect(html).toContain(
       "OneMap walking preview is unavailable for this selected stop; showing straight-line preview only."
     );
-    expect(html).toContain("Preview only: this clicked stop has route evidence");
+    expect(html).toContain(
+      "Preview only: this clicked stop has route evidence, but it is not an authoritative SHIOK score until an offline bundle includes it."
+    );
+    expect(html).not.toContain("offline scoring pipeline includes it");
   });
 
   it("explains when a searched postal has no published route evidence", () => {
@@ -378,7 +381,11 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("Not scored in this bundle");
     expect(html).toContain("Awaiting offline bundle scoring");
+    expect(html).toContain(
+      "This postal is in the source universe, but it is still awaiting offline bundle scoring."
+    );
     expect(html).not.toContain("Needs pipeline scoring evidence");
+    expect(html).not.toContain("pipeline scoring evidence");
   });
 
   it("renders direct bus fallback evidence instead of a false low-bus verdict", () => {

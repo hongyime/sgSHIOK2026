@@ -152,6 +152,7 @@ describe("route evidence map interactions", () => {
 
     expect(pageSource).toContain("Preview route evidence only");
     expect(pageSource).toContain("Preview only: this clicked stop has route evidence");
+    expect(pageSource).toContain("until an offline bundle includes it");
     expect(pageSource).toContain("liveRoutePreviewStatuses");
     expect(pageSource).toContain("Fetching OneMap walking preview");
     expect(pageSource).toContain("showing straight-line preview only");

@@ -414,7 +414,7 @@ function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): str
 
 function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): string | null {
   if (score.paths?.routing_type === "live_onemap_preview") {
-    return "Preview only: this clicked stop has route evidence, but it is not an authoritative SHIOK score until the offline scoring pipeline includes it.";
+    return "Preview only: this clicked stop has route evidence, but it is not an authoritative SHIOK score until an offline bundle includes it.";
   }
   if (score.state === "SCORED_PARTIAL") {
     return "Partial score: one or more sub-scores are unavailable; locked weights count missing terms as zero.";
@@ -434,7 +434,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     return `No ${transitModeLabel(transitMode)} walk was found within the current scoring range.`;
   }
   if (score.state === "NOT_YET_SCORED") {
-    return "This postal is in the source universe, but it still needs pipeline scoring evidence.";
+    return "This postal is in the source universe, but it is still awaiting offline bundle scoring.";
   }
   const busFallback = directBusFallbackEvidence(score);
   if (busFallback) {
