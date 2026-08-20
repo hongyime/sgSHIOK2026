@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P193: `f68883a`
+Remote main after P194: `de04a98`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P194 is complete and committed: the subscore-ranking test descriptions now say component-score ranking / component score while preserving the internal `subscore-ranking` module and `subscores` schema names.
 - P193 is complete and committed: live clicked-stop preview comments now say preview shelter-map evidence instead of preview route evidence, guarded by web interaction tests.
 - P192 is complete and committed: the tracked Section 10 presentation proposal now says five component-score rows instead of five subscore rows, with a score-card copy test guard.
 - P191 is complete and committed: web tests and a page fallback comment now frame the maintained surface as shelter-map evidence/panel rather than generic route evidence, with no runtime behavior change.
