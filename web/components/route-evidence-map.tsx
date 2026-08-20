@@ -1051,7 +1051,7 @@ function mapTextSummary(
       : `${routeData.exposure.features.length} exposed gaps`;
 
   return [
-    `Route evidence for ${routeLabels}.`,
+    `Shelter map for ${routeLabels}.`,
     `Showing ${visibleRoutes}, ${exposed}, and ${poiText}.`,
     selectedGapText,
     lampText,

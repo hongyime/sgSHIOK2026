@@ -436,3 +436,6 @@ The clicked-stop preview branch now announces `Preview shelter map evidence sele
 
 2026-08-20 - P150 preview legend shelter-map framing:
 The clicked-stop preview map legend now labels the preview line as `Shelter map preview` instead of `Preview route`. This keeps the visible map legend aligned with the preview badge and live status while preserving the published-score-bundle caveat. This is browser copy and test coverage only; it does not alter clicked-stop routing, preview geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P151 selected-route map summary shelter-map framing:
+The non-visual selected-route map summary now starts `Shelter map for ...` instead of `Route evidence for ...`, matching the map container label and empty-map summary. This is accessibility copy and test coverage only; it does not alter map rendering, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
