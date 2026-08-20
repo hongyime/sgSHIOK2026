@@ -430,20 +430,20 @@ async function selectRouteMode(cdp, routeMode, timeoutMs) {
   if (sameRoute.result?.value) return;
   await waitForExpression(
     cdp,
-    `Array.from(document.querySelectorAll('[aria-label="Route display"] button')).some((button) => button.textContent?.trim() === '${label}')`,
+    `Array.from(document.querySelectorAll('[aria-label="Walk display"] button')).some((button) => button.textContent?.trim() === '${label}')`,
     timeoutMs
   );
   await cdp.send("Runtime.evaluate", {
     awaitPromise: true,
     expression: `(() => {
-      const button = Array.from(document.querySelectorAll('[aria-label="Route display"] button'))
+      const button = Array.from(document.querySelectorAll('[aria-label="Walk display"] button'))
         .find((item) => item.textContent?.trim() === '${label}');
       button.click();
     })()`,
   });
   await waitForExpression(
     cdp,
-    `Array.from(document.querySelectorAll('[aria-label="Route display"] button')).some((button) => button.textContent?.trim() === '${label}' && button.getAttribute('aria-pressed') === 'true')`,
+    `Array.from(document.querySelectorAll('[aria-label="Walk display"] button')).some((button) => button.textContent?.trim() === '${label}' && button.getAttribute('aria-pressed') === 'true')`,
     timeoutMs
   );
   await new Promise((resolvePromise) => setTimeout(resolvePromise, 700));
@@ -529,7 +529,7 @@ async function collectPageSummary(cdp) {
       const overlay = document.querySelector('[class*=detailOverlay]');
       const activeTransitButton = Array.from(document.querySelectorAll('[aria-label="Transit target"] button'))
         .find((button) => button.getAttribute('aria-pressed') === 'true');
-      const activeRouteButton = Array.from(document.querySelectorAll('[aria-label="Route display"] button'))
+      const activeRouteButton = Array.from(document.querySelectorAll('[aria-label="Walk display"] button'))
         .find((button) => button.getAttribute('aria-pressed') === 'true');
       const sameRouteNote = document.querySelector('[class*=sameRouteNote]');
       const rect = card?.getBoundingClientRect();

@@ -52,6 +52,13 @@ describe("score card copy", () => {
     expect(smokeSource).not.toContain("needs usable location evidence");
   });
 
+  it("keeps browser smoke aligned with walk-display controls", () => {
+    const smokeSource = readFileSync(join(__dirname, "../../scripts/browser-smoke.mjs"), "utf-8");
+
+    expect(smokeSource).toContain('[aria-label="Walk display"] button');
+    expect(smokeSource).not.toContain('[aria-label="Route display"] button');
+  });
+
   it("puts data freshness and heat proxy copy in the title card", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
     const layoutSource = readFileSync(join(__dirname, "../../app/layout.tsx"), "utf-8");
