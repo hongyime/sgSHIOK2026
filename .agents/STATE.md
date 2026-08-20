@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P225 code commit: `02fca41`; state-only commits may follow it on `main`.
+Latest P226 code commit: `3c13f7d`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P226 is complete and committed: browser-smoke scored-panel QA now keys on current `Sheltered walk` copy and exposes `walk_mode_present` while preserving the legacy route-mode key. Focused score-card/deployment tests pass.
 - P225 is complete and committed: generic no-transit fallback titles now say no connected shelter-map walk within range instead of no routed transit within range. Focused score-card copy tests pass.
 - P224 is complete and committed: beyond-range connected transit evidence now says closest connected shelter-map walk instead of closest routed transit, including browser-smoke QA markers. Focused score-card/deployment tests pass.
 - P223 is complete and committed: clicked-stop loading note now says the straight-line preview remains until the walk preview returns instead of until a route returns. Focused map interaction tests pass.
