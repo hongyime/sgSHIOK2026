@@ -37,6 +37,10 @@ describe("score card copy", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
     const layoutSource = readFileSync(join(__dirname, "../../app/layout.tsx"), "utf-8");
 
+    expect(source).toContain("S.H.I.O.K. Shelter Map");
+    expect(source).not.toContain("S.H.I.O.K. Index");
+    expect(layoutSource).toContain('title: "S.H.I.O.K. Shelter Map"');
+    expect(layoutSource).not.toContain('title: "S.H.I.O.K. Index"');
     expect(source).toContain("Shelter-first walks to transit");
     expect(source).toContain('placeholder="Search address or 6-digit postal"');
     expect(source).toContain('aria-label="Search address or 6-digit postal"');

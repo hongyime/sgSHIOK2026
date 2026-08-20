@@ -377,3 +377,6 @@ The route evidence hero should carry both headline shelter facts: the covered-wa
 
 2026-08-20 - P130 shelter source labels:
 The route source strip should use product-facing shelter-evidence labels rather than internal source-class wording. It now labels `lta_covered_linkway` as `LTA covered linkway`, `osm_covered` as `OSM shelter tags`, `inferred_hdb_void_deck` as `HDB void-deck inference`, and generic covered segments as `Mapped shelter`; the strip's accessible name is `Shelter source evidence`. This is browser copy and test coverage only; it does not alter route classification, map styling, route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P131 shelter-map title:
+The app's first brand signal should describe the user-facing artifact rather than the secondary score. The visible H1 and document metadata title now say `S.H.I.O.K. Shelter Map` instead of `S.H.I.O.K. Index`, while the subtitle remains `Shelter-first walks to transit` and the locked SHIOK score remains visible as a secondary route-evidence field. This is browser naming only; it does not alter scoring, ranking, route geometry, exports, public data, deployment, or locked weights.

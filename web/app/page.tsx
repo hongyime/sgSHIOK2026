@@ -2004,7 +2004,7 @@ export default function Home() {
       <section className={styles.searchOverlay} aria-label="Address search" aria-busy={loading}>
         <div className={styles.brandRow}>
           <div>
-            <h1>S.H.I.O.K. Index</h1>
+            <h1>S.H.I.O.K. Shelter Map</h1>
             <p>Shelter-first walks to transit</p>
             <p className={styles.dataLine}>
               Route evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}

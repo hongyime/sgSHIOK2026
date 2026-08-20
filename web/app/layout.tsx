@@ -2,7 +2,7 @@ import React from "react";
 import "maplibre-gl/dist/maplibre-gl.css";
 
 export const metadata = {
-  title: "S.H.I.O.K. Index",
+  title: "S.H.I.O.K. Shelter Map",
   description:
     "Explore covered-walkway exposure gaps, night-lighting evidence, and the secondary locked SHIOK score for Singapore walks to transit.",
 };
