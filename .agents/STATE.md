@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P180: `ed049ba`
+Remote main after P181: `4f5ea9f`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -118,6 +118,7 @@ Status:
 - P178 is complete: direct-bus fallback and bus-caveat copy now frame the missing proof as shelter-map walk verification, not generic route verification.
 - P179 is complete: same shortest/sheltered walk-display live-region copy now says `shortest same as sheltered walk`.
 - P180 is complete: README now documents `uv run python run.py check --freshness-only` as the zero-mutation source-age check and records why bare system Python is brittle.
+- P181 is complete: production readiness now reports expected/present/missing/unexpected score-source hash keys and flags non-score reference hashes such as `leaf_area_index` without blocking verified legacy artifacts.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -224,5 +225,6 @@ Status:
 - P178 evidence is tracked at `qa/verification/P178-bus-fallback-walk-verification-copy.md`.
 - P179 evidence is tracked at `qa/verification/P179-same-walk-display-announcement.md`.
 - P180 evidence is tracked at `qa/verification/P180-readme-freshness-only-command.md`.
+- P181 evidence is tracked at `qa/verification/P181-score-source-hash-policy-readiness.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
