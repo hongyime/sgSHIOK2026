@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P234 code commit: `0ce4e6f`; state-only commits may follow it on `main`.
+Latest P235 code commit: `62e15a1`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P235 is complete and committed: `run.py check --freshness-only` remains zero-mutation and now measures the oldest current source, NParks Leaf Area Index, at 112.6d of a 120d threshold while the classification stays 12 current, 6 stale, 2 manual, and 1 unknown-age source. The first-view freshness snapshot and copy guard were updated. Focused web copy tests pass.
 - P234 is complete and committed: editable maintained pipeline headers in `pipeline/__init__.py`, `pipeline/fetch.py`, and `pipeline/config/params.yaml` now name S.H.I.O.K. Shelter Map instead of the retired Index frame. `pipeline/config/weights.yaml` still contains its locked header and was not touched. Focused fetch tests pass.
 - P233 is complete and committed: `pipeline/scoring.py` now names S.H.I.O.K. Shelter Map and component/locked-score calculation in its module docstring instead of the retired Index/composite framing. Focused scoring tests pass.
 - P232 is complete and committed: the first-view data freshness line now says the 12-current/6-stale/2-manual/1-unknown-age counts are from the latest manifest-only check, avoiding a fixed historical freshness age reading as live. Focused web copy tests pass.
