@@ -151,8 +151,9 @@ describe("score card copy", () => {
     expect(tsxSource).not.toContain("routeDetailItems.push({ label: \"Shade proxy\"");
     expect(tsxSource).toContain("routeDetailItems.push({ label: \"Snap connector\"");
     expect(tsxSource).toContain(
-      "Snap connector is the short link from the postal or transit point onto mapped walking-route evidence."
+      "Snap connector is the short link from the postal or transit point onto the shelter-map route."
     );
+    expect(tsxSource).not.toContain("onto mapped walking-route evidence");
     expect(tsxSource).not.toContain("onto the walking graph");
     expect(tsxSource).toContain('aria-label="Route details"');
   });

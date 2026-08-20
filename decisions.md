@@ -448,3 +448,6 @@ The manifest-derived bundle availability line now says `full scores` and `partia
 
 2026-08-20 - P154 live preview provenance shelter-map wording:
 Live clicked-stop preview records now store `Clicked transit POI has shelter map evidence only; published scores come from the score bundle.` as their provenance reason. This keeps generated preview records aligned with the shelter-map evidence frame while preserving that clicked-stop previews are not published score-bundle records. This is browser provenance copy and test coverage only; it does not alter live route segmentation, preview geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P155 snap connector shelter-map route wording:
+The snap-connector helper now says the connector is the short link onto `the shelter-map route` instead of mapped walking-route evidence. This is browser copy and test coverage only; it does not alter endpoint connector distance, route geometry, score values, scoring, exports, public data, deployment, or locked weights.

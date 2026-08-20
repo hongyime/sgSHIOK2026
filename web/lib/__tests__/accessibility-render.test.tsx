@@ -322,8 +322,9 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Snap connector");
     expect(html).toContain("9 m");
     expect(html).toContain(
-      "Snap connector is the short link from the postal or transit point onto mapped walking-route evidence."
+      "Snap connector is the short link from the postal or transit point onto the shelter-map route."
     );
+    expect(html).not.toContain("onto mapped walking-route evidence");
     expect(html).not.toContain("onto the walking graph");
   });
 
