@@ -77,7 +77,7 @@ function parseArgs(argv) {
     else if (arg === "--input-mode") args.inputMode = next();
     else if (arg === "--expected-state") args.expectedState = next();
     else if (arg === "--transit-mode") args.transitMode = next();
-    else if (arg === "--route-mode") args.routeMode = next();
+    else if (arg === "--walk-mode" || arg === "--route-mode") args.routeMode = next();
     else if (arg === "--must-include") args.mustInclude.push(next());
     else if (arg === "--screenshots") args.screenshots = true;
     else if (arg === "--no-screenshots") args.screenshots = false;

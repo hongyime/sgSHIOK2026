@@ -38,6 +38,7 @@ describe("deployment packaging", () => {
     expect(script).toContain("--postals");
     expect(script).toContain("--expected-state");
     expect(script).toContain("--transit-mode");
+    expect(script).toContain("--walk-mode");
     expect(script).toContain("--route-mode");
     expect(script).toContain("--must-include");
     expect(script).toContain("result_count");
@@ -111,7 +112,8 @@ describe("deployment packaging", () => {
     expect(script).toContain('"--expected-state", "no_transit"');
     expect(script).toContain('"--expected-state", "not_yet_scored"');
     expect(script).toContain('"--transit-mode", "mrt_lrt"');
-    expect(script).toContain('"--route-mode", "both"');
+    expect(script).toContain('"--walk-mode", "both"');
+    expect(script).not.toContain('"--route-mode", "both"');
     expect(script).toContain("qa\\debug-runs\\launch-check-$Timestamp");
     expect(script).toContain("Release plan only");
     expect(script).not.toContain("deploy-production");
