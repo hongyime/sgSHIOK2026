@@ -347,3 +347,6 @@ The source freshness disclosure should name the exact stale sources instead of g
 
 2026-08-20 - P120 component-score copy:
 The score card should use user-facing `component score` language instead of `sub-score` in rendered partial-score, bus-fallback, and rank-panel copy. This keeps the locked-score explanation understandable without exposing implementation vocabulary. This is browser copy only; it does not alter score values, ranking behavior, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P121 greenery-proxy route detail:
+The route-detail strip should call the NParks-derived helper value `Greenery proxy`, not `Shade proxy`, because the source is sparse greenery evidence rather than direct measured shade on the route. This keeps the detail strip aligned with the title-card and score-card copy while avoiding a stronger shelter claim than the data supports. This is browser copy only; it does not alter score values, route geometry, scoring, exports, inputs, public data, deployment, or locked weights.

@@ -1135,7 +1135,7 @@ export function ScoreCard({
       : null;
   const routeDetailItems: Array<{ label: string; value: string }> = [];
   if (shadeProxyPct !== null) {
-    routeDetailItems.push({ label: "Shade proxy", value: `${shadeProxyPct}%` });
+    routeDetailItems.push({ label: "Greenery proxy", value: `${shadeProxyPct}%` });
   }
   if (endpointSnapM > 0) {
     routeDetailItems.push({ label: "Snap connector", value: formatDistance(endpointSnapM) });
