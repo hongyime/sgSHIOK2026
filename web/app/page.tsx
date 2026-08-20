@@ -1365,10 +1365,10 @@ export function ScoreCard({
       )}
 
       {score.subscores && (
-        <div className={styles.rankPanel} aria-label="Rank by view" aria-busy={rankingLoading}>
+        <div className={styles.rankPanel} aria-label="Planning-area comparison" aria-busy={rankingLoading}>
           <div className={styles.rankHeader}>
             <div>
-              <strong>Rank by</strong>
+              <strong>Compare nearby records</strong>
               <span>
                 {!rankPanelOpen
                   ? "Loads planning-area ranks only when opened."

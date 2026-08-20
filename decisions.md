@@ -419,3 +419,6 @@ The first-viewport data-age line should describe the product evidence as shelter
 
 2026-08-20 - P144 shelter-map breakdown label:
 The secondary breakdown and reason group should use the shelter-map evidence frame while keeping the locked score visibly secondary. The region now says `Shelter map evidence and locked score`, with matching accessible labels for the breakdown and reason chips. This is browser copy/accessibility naming and test coverage only; it does not alter score rows, ranking, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P145 planning-area comparison label:
+The planning-area rank panel should read as a local comparison aid rather than a primary ranking surface. Its accessible name is now `Planning-area comparison` and its heading is `Compare nearby records`, while the select control still says `Rank records by` because that control changes the rank metric. This is browser copy/accessibility naming and test coverage only; it does not alter ranking data fetches, rank metrics, score values, scoring, exports, public data, deployment, or locked weights.

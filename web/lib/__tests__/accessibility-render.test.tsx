@@ -272,7 +272,7 @@ describe("rendered accessibility output", () => {
     });
     const breakdownHtml = html.slice(
       html.indexOf('aria-label="Shelter map evidence and locked score breakdown"'),
-      html.indexOf('aria-label="Rank by view"')
+      html.indexOf('aria-label="Planning-area comparison"')
     );
 
     expect(html).toContain("Where the walk is exposed");
@@ -296,7 +296,11 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Walk to transit");
     expect(html).toContain("Bus service support");
     expect(html).toContain("Locked SHIOK score");
+    expect(html).toContain('aria-label="Planning-area comparison"');
+    expect(html).toContain("Compare nearby records");
     expect(html).toContain("Planning-area order by locked score.");
+    expect(html).not.toContain('aria-label="Rank by view"');
+    expect(html).not.toContain("<strong>Rank by</strong>");
     expect(html).not.toContain("Authoritative composite order.");
     expect(breakdownHtml).not.toContain(">Heat proxy<");
     expect(breakdownHtml).not.toContain(">Rain shelter<");
