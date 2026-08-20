@@ -359,3 +359,6 @@ Clicked-stop preview metrics should say `Shelter evidence` instead of `Sheltered
 
 2026-08-20 - P124 preview bundle-inclusion copy:
 Clicked-stop preview copy should explain the concrete limitation: a selected stop may have route evidence, but it is not part of the published score bundle yet. The rendered note and preview provenance reason now use published-bundle language instead of `authoritative SHIOK score` phrasing. This is browser/provenance-copy only; it does not alter live preview routing, route segmentation, score values, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P125 OSM postcode coverage measurement:
+Live Overpass measurement found 25,879 valid six-digit Singapore `addr:postcode` values in OSM, of which 25,873 overlap the frozen 124,443-postal v1 universe. That is 20.791045% coverage of v1, leaving 98,570 v1 postals absent from OSM address tags. OSM remains valuable as the geometry source it already is, but this measurement supports not using OSM `addr:postcode` as the primary Singapore address registry for postal-universe v2. This is evidence only; it does not alter inputs, scoring, exports, public data, deployment, or locked weights.
