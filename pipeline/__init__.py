@@ -1,1 +1,1 @@
-"""S.H.I.O.K. Index pipeline package."""
+"""S.H.I.O.K. Shelter Map pipeline package."""

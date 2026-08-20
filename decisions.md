@@ -628,3 +628,6 @@ The first-view data freshness sentence now says the 12-current/6-stale/2-manual/
 
 2026-08-21 - P233 scoring module product name:
 The `pipeline/scoring.py` module docstring now names S.H.I.O.K. Shelter Map and describes pure component-score functions plus locked score calculation instead of the retired Index/composite framing. This is documentation and regression-test alignment only; it does not alter score formulas, scoring behavior, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-21 - P234 editable pipeline header product name:
+Editable pipeline package, fetch, and params headers now name S.H.I.O.K. Shelter Map instead of the retired S.H.I.O.K. Index frame. `pipeline/config/weights.yaml` still contains its locked PRD header and remains untouched by policy. This is documentation/config-comment and regression-test alignment only; it does not alter parameters, fetch behavior, scoring, exports, inputs, public data, deployment, or locked weights.

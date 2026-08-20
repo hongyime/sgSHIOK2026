@@ -1,4 +1,4 @@
-# S.H.I.O.K. Index pipeline parameters (PRD v4.2 §7, §15)
+# S.H.I.O.K. Shelter Map pipeline parameters (PRD v4.2 §7, §15)
 shelter_lambda: 2.0
 detour_budget: 1.25
 origin_reachable_component_resnap_max_m: 50

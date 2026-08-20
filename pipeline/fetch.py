@@ -1,4 +1,4 @@
-"""Fetch and hash pipeline module for S.H.I.O.K. Index (T0.3)."""
+"""Fetch and hash pipeline module for S.H.I.O.K. Shelter Map (T0.3)."""
 
 import argparse
 import csv

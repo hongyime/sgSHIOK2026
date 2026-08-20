@@ -156,6 +156,20 @@ def test_source_config_has_freshness_policy_for_every_source() -> None:
             assert isinstance(policy.get("stale_after_days"), int), key
 
 
+def test_editable_pipeline_headers_use_shelter_map_frame() -> None:
+    repo_root = Path(__file__).resolve().parents[1]
+    editable_headers = [
+        repo_root / "pipeline" / "__init__.py",
+        repo_root / "pipeline" / "fetch.py",
+        repo_root / "pipeline" / "config" / "params.yaml",
+    ]
+
+    for path in editable_headers:
+        text = path.read_text(encoding="utf-8")
+        assert "S.H.I.O.K. Shelter Map" in text
+        assert "S.H.I.O.K. Index" not in text
+
+
 def test_run_check_reports_stale_freshness_without_failing(
     monkeypatch: pytest.MonkeyPatch,
     capsys: pytest.CaptureFixture[str],
