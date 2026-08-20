@@ -294,6 +294,9 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
     }
     assert status["by_status"]["stale"] == ["stale"]
     assert status["by_status"]["unknown_age"] == ["unknown_age"]
+    assert status["oldest_current_source"] == (
+        "Oldest current source: fresh (Fresh, 1.0d of 30d threshold)"
+    )
     assert status["warning"] == (
         "source freshness warning: stale sources: stale; unknown_age sources: unknown_age"
     )

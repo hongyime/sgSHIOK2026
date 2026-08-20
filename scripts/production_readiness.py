@@ -22,7 +22,7 @@ from pipeline.batch_plan import (
     build_batch_plan,
 )
 from pipeline.export import validate_static_artifacts
-from pipeline.fetch import source_freshness_status
+from pipeline.fetch import oldest_current_freshness_summary, source_freshness_status
 from pipeline.network_qa import validate_network_qa
 from pipeline.scoring_integration import SCORING_FINGERPRINT_FILES, SCORE_PROVENANCE_SOURCE_HASH_KEYS
 from scripts.audit_current_bundle import active_bundle_dir, build_report, summarize_state_report
@@ -233,6 +233,7 @@ def source_freshness_readiness(
         "unknown_age": 0,
     }
     by_status: dict[str, list[dict[str, Any]]] = {
+        "current": [],
         "stale": [],
         "unknown_policy": [],
         "unknown_age": [],
@@ -262,7 +263,7 @@ def source_freshness_readiness(
     warning_parts = [
         f"{status_key} sources: {', '.join(keys)}"
         for status_key, keys in notable.items()
-        if keys
+        if status_key != "current" and keys
     ]
     summary = (
         f"source freshness current {counts.get('current', 0)}, "
@@ -272,12 +273,14 @@ def source_freshness_readiness(
         f"unknown_age {counts.get('unknown_age', 0)}"
     )
     warning = f"source freshness warning: {'; '.join(warning_parts)}" if warning_parts else None
+    oldest_current = oldest_current_freshness_summary(by_status["current"])
     return {
         "ok": True,
         "state": "reported",
         "config_path": str(config_path),
         "manifest_path": str(manifest_path),
         "summary": summary,
+        "oldest_current_source": oldest_current,
         "counts": counts,
         "by_status": notable,
         "warning": warning,
