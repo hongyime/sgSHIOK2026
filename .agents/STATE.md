@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P206: `d834d4e`
+Remote main after P207: `04b66af`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P207 is complete and committed: `scripts/production_readiness.py` now emits stderr progress markers before major read-only stages while preserving stdout JSON. Production-readiness tests pass, py_compile passes, and the CLI emits immediate progress before static artifact validation.
 - P206 is complete and committed: production readiness and dry-run batch planning now treat missing rebuildable `qa/island_debug.geojson` as nonblocking when `conflation_qa_island.json` metrics pass; strict execution-time validators still require debug. Focused batch-plan, readiness, and network-QA tests pass.
 - P205 is complete and committed: production readiness now reports the oldest still-current source summary from the local manifest; current sources remain informational and do not enter warning text. Focused production-readiness tests pass.
 - P204 is complete and committed: `run.py check --freshness-only` now prints the computed oldest still-current source summary; current live manifest reports `leaf_area_index` at 112.5d of a 120d threshold.
