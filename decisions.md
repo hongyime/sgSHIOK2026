@@ -682,3 +682,6 @@ The current-bundle audit CLI is an operator-facing tool for the deployed shelter
 
 2026-08-21 - P251 freshness cadence interpretation:
 README source-freshness guidance should explain that `current` is a local manifest freshness classification, not proof that no newer upstream geospatial release exists. The local-data section now states that LTA geospatial listings such as Covered Linkway use a quarterly cadence with a 120-day stale threshold, and that upstream should still be checked before an approved release batch. This is documentation and test coverage only; it does not probe upstream APIs, fetch sources, mutate manifests or inputs, score, export, deploy, public data, or locked weights.
+
+2026-08-21 - P252 no-transit locked-score policy:
+The full-batch prerequisite evidence now records that a future `NO_TRANSIT_IN_RANGE` partial-score fix must preserve the locked-score rule: missing or no-transit component terms remain zero-contribution under the locked weights, and any four-of-five presentation requires a new explicit display state rather than silent renormalisation. This is readiness/batch-plan reporting and test coverage only; it does not change score formulas, run scoring, export, mutate inputs, public data, deployment, or locked weights.

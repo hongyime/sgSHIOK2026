@@ -533,6 +533,11 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
             {
                 "change": "NO_TRANSIT_IN_RANGE partial-score fix",
                 "required_before_full_batch": "1200-record subset proof of state transitions and locked-weight zero-contribution behavior",
+                "locked_score_policy": (
+                    "missing or NO_TRANSIT_IN_RANGE component terms remain zero-contribution "
+                    "under the locked weights; do not renormalize to a four-of-five score "
+                    "without a new explicit display state"
+                ),
             },
             {
                 "change": "network conflation repair",

@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P252 is complete and committed: full-batch prerequisite evidence now makes the future `NO_TRANSIT_IN_RANGE` partial-score policy explicit: missing/no-transit component terms remain zero-contribution under locked weights, and any four-of-five display requires a new explicit state rather than silent renormalisation. Focused batch-plan/readiness tests pass.
 - P251 is complete and committed: README source-freshness guidance now explains that LTA geospatial sources such as Covered Linkway use a quarterly cadence with a 120-day stale threshold, so local `current` status is not proof that no newer upstream release exists. Focused README tests pass.
 - P250 is complete and committed: the current-bundle audit CLI help now calls its target the current deployed shelter-map bundle instead of a score bundle. Focused audit-current-bundle tests pass.
 - P249 is complete and committed: the browser nearest-transit helper now describes alternate-stop picker limitations against the current shelter-map bundle instead of a score bundle. Focused transit picker tests pass.
