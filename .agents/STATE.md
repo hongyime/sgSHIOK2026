@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P211 code commit: `6aeb3f7`; state-only commits may follow it on `main`.
+Latest P212 code commit: `0ce654d`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P212 is complete and committed: the loaded shelter-map panel now labels the selected percentage as covered-walkway ratio in the summary grid, preview metric, and reason chip. Focused web copy/accessibility tests pass.
 - P211 is complete and committed: first-view copy now names the covered-walkway ratio and exposed gaps directly in the title-card subtitle and empty shelter-map panel. Focused web copy/accessibility tests pass.
 - P210 is complete and committed: missing local Vercel linkage is now nonblocking readiness context, while an explicitly linked project with a non-`web` root still blocks. The real active-bundle readiness probe now returns `ok: true` with no errors; the release gate remains blocked by OneMap validation. Focused readiness tests pass.
 - P209 is complete and committed: static-artifact validation now reports bounded shard progress: the real active bundle has 304 score shards and the probe reached 225/304 before intentional interrupt. Export/readiness tests pass.
