@@ -937,6 +937,13 @@ def test_build_readiness_report_warns_when_bundle_manifest_lacks_score_provenanc
         "active bundle manifest lacks score source hashes" in warning
         for warning in report["warnings"]
     )
+    assert any(
+        "complete component-score status" in warning
+        and "component-score status: access, bus, crossing, heat, rain" in warning
+        for warning in report["warnings"]
+    )
+    assert all("complete subscore status" not in warning for warning in report["warnings"])
+    assert all("subscore status: access" not in warning for warning in report["warnings"])
 
 
 def test_build_readiness_report_warns_when_bundle_lacks_scoring_fingerprints(
