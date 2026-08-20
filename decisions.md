@@ -248,3 +248,6 @@ The search input should tell users that direct postal lookup expects a six-digit
 
 2026-08-20 - P87 search no-results guidance:
 Address search should not fail silently when OneMap returns zero results. After a submitted address search with no results, the UI now shows a non-alerting guidance message suggesting a six-digit postal code and noting that newer completions may still be outside the frozen score bundle. This is browser behavior/copy only; it does not alter OneMap query behavior, inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P88 sheltered route label:
+The selected higher-shelter route should not be labeled simply `Covered`, because a route can still be partly exposed. User-facing route labels now say `Sheltered`, `Sheltered route`, and `Sheltered walk`, while the measured coverage percentage remains the source of truth. This is browser copy only; it does not alter route selection behavior, geometry, scoring, exports, public data, deployment, or locked weights.

@@ -17,7 +17,7 @@ describe("score card copy", () => {
   it("keeps shortest route context visible when it matches the covered route", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
-    expect(source).toContain("Shortest same as covered route.");
+    expect(source).toContain("Shortest same as sheltered route.");
     expect(source).toContain('sameRoute ? "Shortest (same)" : "Shortest"');
   });
 
@@ -78,6 +78,12 @@ describe("score card copy", () => {
     // See 2026-08-05 refactor: decisions.md.
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
+    expect(source).toContain("Sheltered\n      </button>");
+    expect(source).toContain('"Sheltered walk"');
+    expect(source).toContain('"Sheltered route"');
+    expect(source).not.toContain(">Covered");
+    expect(source).not.toContain('"Covered walk"');
+    expect(source).not.toContain('"Covered route"');
     expect(source).not.toContain('label="Shiokest sheltered"');
     expect(source).not.toContain('label="Shortest sheltered"');
     expect(source).not.toContain("styles.routeSecondary");

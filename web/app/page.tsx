@@ -315,7 +315,7 @@ function buildRouteCompareNote(params: {
   const viewedIsShortest = routeMode === "shortest";
   const viewedPct = viewedIsShortest ? shortestPct : coveredRoutePct;
   const otherPct = viewedIsShortest ? coveredRoutePct : shortestPct;
-  const otherLabel = viewedIsShortest ? "Covered route" : "Shortest";
+  const otherLabel = viewedIsShortest ? "Sheltered route" : "Shortest";
   const delta = otherPct - viewedPct;
   const magnitude = Math.abs(delta);
   if (magnitude < 5) return null;
@@ -823,7 +823,7 @@ function RouteModeControl({
   if (sameRoute) {
     return (
       <div className={styles.sameRouteNote}>
-        Shortest same as covered route.
+        Shortest same as sheltered route.
       </div>
     );
   }
@@ -837,7 +837,7 @@ function RouteModeControl({
         disabled={disabled}
         onClick={() => setMode("shiokest")}
       >
-        Covered
+        Sheltered
       </button>
       <button
         type="button"
@@ -912,7 +912,7 @@ function InlineRouteLegend({
     <div className={styles.inlineLegend} aria-label="Map legend">
       <span>
         <i className={directBusFallback || previewRoute ? styles.directBusLine : styles.shiokestLine} />
-        {directBusFallback ? "Direct bus estimate" : previewRoute ? "Preview route" : "Covered route"}
+        {directBusFallback ? "Direct bus estimate" : previewRoute ? "Preview route" : "Sheltered route"}
       </span>
       {!directBusFallback && !previewRoute && (
         <>
@@ -1052,7 +1052,7 @@ export function ScoreCard({
       ? "Preview walk"
     : routeMode === "shortest" && !sameRoute
       ? "Shortest walk"
-      : "Covered walk";
+      : "Sheltered walk";
   const stationName =
     previewRoute
       ? toProperCase(score.best_node?.name ?? "Selected transit stop")
