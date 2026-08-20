@@ -2042,7 +2042,7 @@ export default function Home() {
               Recent public-sample check: 8 missing rows out of 976 HDB completion and MCST proxy rows from 2021-2026 with postals.
             </p>
             <p className={styles.freshnessLine}>
-              Data freshness: 12 sources current, 6 stale, 2 manual, and 1 candidate address source with unknown age; stale sources are traffic signals, planning area boundary, NParks nature ways, tracks, heritage trees and heritage road green buffers.
+              Data freshness: 12 sources current, oldest current source is NParks Leaf Area Index at 112.5 days old; 6 stale, 2 manual, and 1 candidate address source with unknown age. Stale sources are traffic signals, planning area boundary, NParks nature ways, tracks, heritage trees and heritage road green buffers.
             </p>
             {lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}
             <p className={styles.sourceLine}>
