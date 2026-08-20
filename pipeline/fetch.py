@@ -320,6 +320,7 @@ def run_freshness_report(
     now: datetime | None = None,
 ) -> int:
     """Report manifest-only source freshness without probing upstream URLs."""
+    checked_at = now or datetime.now(UTC)
     manifest = load_manifest()
     existing_sources: dict[str, Any] = manifest.get("sources", {})
     freshness_defaults = freshness_defaults if freshness_defaults is not None else load_freshness_defaults()
@@ -337,7 +338,7 @@ def run_freshness_report(
         "unknown_age": [],
     }
 
-    print("Source freshness from raw/manifest.json...")
+    print(f"Source freshness from raw/manifest.json at {checked_at.isoformat()}...")
     for key, spec in sources.items():
         current_entry: dict[str, Any] = existing_sources.get(key, {})
         freshness = source_freshness_status(
@@ -345,7 +346,7 @@ def run_freshness_report(
             spec,
             current_entry,
             freshness_defaults=freshness_defaults,
-            now=now,
+            now=checked_at,
         )
         freshness_status = str(freshness["status"])
         freshness_counts[freshness_status] = freshness_counts.get(freshness_status, 0) + 1

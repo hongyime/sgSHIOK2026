@@ -661,3 +661,6 @@ Production readiness source-freshness evidence should carry the timestamp used f
 
 2026-08-21 - P244 readiness source-freshness summary timestamp:
 Production readiness source-freshness evidence should not require raw JSON inspection to find the timestamp used for manifest-only classification. The reported-state summary now starts with the ISO-8601 `checked_at` timestamp, and missing/unreadable source-freshness states carry the same `checked_at` field for consistency. This is readiness-reporting metadata and test coverage only; it does not fetch sources, alter manifests, inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P245 freshness CLI checked-at output:
+The zero-mutation source-freshness CLI should name the timestamp used to compute source ages, matching the readiness evidence policy. `run_freshness_report()` now resolves one `checked_at` timestamp, passes it to every per-source status, and prints it in the first line of `run.py check --freshness-only` output. This is reporting metadata and test coverage only; it does not fetch sources, alter manifests, inputs, scoring, exports, public data, deployment, or locked weights.
