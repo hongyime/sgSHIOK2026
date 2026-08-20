@@ -890,8 +890,8 @@ function TransitModeControl({
   if (!score.route_options) return null;
   const availabilityLabel = (option: (typeof TRANSIT_MODE_OPTIONS)[number], available: boolean) => {
     if (option.id === "best_transit") return available ? "selected route" : "unavailable";
-    if (available) return "route evidence";
-    return "no route evidence";
+    if (available) return "shelter map route";
+    return "no shelter map route";
   };
   return (
     <div className={`${styles.segmented} ${styles.transitSegmented}`} aria-label="Transit target">

@@ -368,8 +368,10 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain('aria-label="Transit target"');
     expect(html).toContain("<span>Best transit</span><small>selected route</small>");
-    expect(html).toContain("<span>MRT/LRT</span><small>no route evidence</small>");
-    expect(html).toContain("<span>Bus</span><small>route evidence</small>");
+    expect(html).toContain("<span>MRT/LRT</span><small>no shelter map route</small>");
+    expect(html).toContain("<span>Bus</span><small>shelter map route</small>");
+    expect(html).not.toContain("<span>MRT/LRT</span><small>no route evidence</small>");
+    expect(html).not.toContain("<span>Bus</span><small>route evidence</small>");
   });
 
   it("keeps null score rows as Not scored instead of inventing numbers", () => {
