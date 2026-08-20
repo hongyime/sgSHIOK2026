@@ -664,3 +664,6 @@ Production readiness source-freshness evidence should not require raw JSON inspe
 
 2026-08-21 - P245 freshness CLI checked-at output:
 The zero-mutation source-freshness CLI should name the timestamp used to compute source ages, matching the readiness evidence policy. `run_freshness_report()` now resolves one `checked_at` timestamp, passes it to every per-source status, and prints it in the first line of `run.py check --freshness-only` output. This is reporting metadata and test coverage only; it does not fetch sources, alter manifests, inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P246 shelter-map user-agent identifiers:
+Maintained pipeline HTTP user-agent identifiers should use the current S.H.I.O.K. Shelter Map product frame rather than the retired SHIOK Index / Singapore Walk-to-Transit Index names. Fetch, bus, bounded geocode, postal-universe, OneMap probe, OneMap validation, and data.gov.sg resolver callers now identify as `sgSHIOK-Shelter-Map...`, with regression coverage over those files. This changes only future request metadata if those tools are explicitly run; it does not call upstream APIs, fetch sources, alter manifests, inputs, scoring, exports, public data, deployment, or locked weights.

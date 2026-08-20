@@ -47,7 +47,7 @@ DIRECT_DISTANCE_TOLERANCE_M = 5.0
 MATERIAL_SHORTER_THAN_DIRECT_RATIO = 0.8
 ONEMAP_AUTH_URL = "https://www.onemap.gov.sg/api/auth/post/getToken"
 ONEMAP_ROUTE_URL = "https://www.onemap.gov.sg/api/public/routingsvc/route"
-USER_AGENT = "SHIOK-Index-OneMap-Validation/1.0"
+USER_AGENT = "sgSHIOK-Shelter-Map-OneMap-Validation/1.0"
 
 FetchRoute = Callable[[dict[str, Any]], dict[str, Any]]
 

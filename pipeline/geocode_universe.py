@@ -25,7 +25,7 @@ PROCESSED_DIR = PROJECT_ROOT / "processed"
 PARAMS_PATH = PROJECT_ROOT / "pipeline" / "config" / "params.yaml"
 GEOCODE_DB_PATH = RAW_DIR / "geocode_cache.db"
 SEARCH_URL = "https://www.onemap.gov.sg/api/common/elastic/search"
-USER_AGENT = "SHIOK-Index-Pipeline/1.0 (Singapore Walk-to-Transit Index)"
+USER_AGENT = "sgSHIOK-Shelter-Map-Pipeline/1.0 (S.H.I.O.K. Shelter Map)"
 GEOCODE_SOURCE_KEY = "onemap_search_bounded_geocode"
 DEFAULT_DELAY_SEC = 2.0
 

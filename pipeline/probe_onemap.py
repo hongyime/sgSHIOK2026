@@ -11,7 +11,7 @@ LOG_DIR = PROJECT_ROOT / "logs"
 CSV_PATH = LOG_DIR / "onemap_probe.csv"
 
 SEARCH_URL = "https://www.onemap.gov.sg/api/common/elastic/search?searchVal=Toa%20Payoh&returnGeom=Y&getAddrDetails=Y"
-HEADERS = {"User-Agent": "SHIOK-Index-Probe/2.0"}
+HEADERS = {"User-Agent": "sgSHIOK-Shelter-Map-OneMap-Probe/2.0"}
 
 
 def run_ladder_probe() -> None:

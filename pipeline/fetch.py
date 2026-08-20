@@ -32,7 +32,7 @@ RAW_DIR = PROJECT_ROOT / "raw"
 MANIFEST_PATH = RAW_DIR / "manifest.json"
 TMP_DIR = RAW_DIR / "tmp"
 
-USER_AGENT = "SHIOK-Index-Pipeline/1.0 (Singapore Walk-to-Transit Index)"
+USER_AGENT = "sgSHIOK-Shelter-Map-Pipeline/1.0 (S.H.I.O.K. Shelter Map)"
 MAX_SIZE_BYTES = 500 * 1024 * 1024  # 500 MB limit
 DATAGOV_EXTENSION_BY_CONTENT_TYPE = {
     "application/geo+json": ".geojson",

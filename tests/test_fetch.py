@@ -170,6 +170,25 @@ def test_editable_pipeline_headers_use_shelter_map_frame() -> None:
         assert "S.H.I.O.K. Index" not in text
 
 
+def test_maintained_pipeline_user_agents_use_shelter_map_frame() -> None:
+    repo_root = Path(__file__).resolve().parents[1]
+    user_agent_files = [
+        repo_root / "pipeline" / "bus.py",
+        repo_root / "pipeline" / "fetch.py",
+        repo_root / "pipeline" / "geocode_universe.py",
+        repo_root / "pipeline" / "onemap_validation.py",
+        repo_root / "pipeline" / "postal_universe.py",
+        repo_root / "pipeline" / "probe_onemap.py",
+        repo_root / "pipeline" / "resolve_datagov.py",
+    ]
+
+    for path in user_agent_files:
+        text = path.read_text(encoding="utf-8")
+        assert "sgSHIOK-Shelter-Map" in text
+        assert "SHIOK-Index" not in text
+        assert "Singapore Walk-to-Transit Index" not in text
+
+
 def test_run_check_reports_stale_freshness_without_failing(
     monkeypatch: pytest.MonkeyPatch,
     capsys: pytest.CaptureFixture[str],

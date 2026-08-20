@@ -6,7 +6,7 @@ import httpx
 
 def resolve_dataset_by_keyword(query: str) -> tuple[str, str] | None:
     url = f"https://data.gov.sg/datasets?query={query}"
-    headers = {"User-Agent": "SHIOK-Index-Pipeline/1.0"}
+    headers = {"User-Agent": "sgSHIOK-Shelter-Map-Pipeline/1.0"}
     try:
         resp = httpx.get(url, headers=headers, follow_redirects=True, timeout=10)
         if resp.status_code == 200:

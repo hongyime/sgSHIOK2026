@@ -25,7 +25,7 @@ load_dotenv()
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RAW_DIR = PROJECT_ROOT / "raw"
 MANIFEST_PATH = RAW_DIR / "manifest.json"
-USER_AGENT = "SHIOK-Index-Pipeline/1.0 (Singapore Walk-to-Transit Index)"
+USER_AGENT = "sgSHIOK-Shelter-Map-Pipeline/1.0 (S.H.I.O.K. Shelter Map)"
 DATAMALL_PAGE_SIZE = 500
 BUS_SOURCE_KEYS = {"bus_stops", "bus_services", "bus_routes"}
 
