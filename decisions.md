@@ -224,3 +224,6 @@ The title-card score-coverage line should explain missing full scores in user-fa
 
 2026-08-20 - P79 transit-target availability labels:
 The MRT/LRT and bus target tabs should tell users whether that target already has route evidence before they switch modes. The transit target control now labels each option as `selected route`, `route evidence`, or `no route evidence` based on the existing record and route-option paths. This is browser presentation only; it does not alter routing, inputs, public data, exports, scoring, deployment, or locked weights.
+
+2026-08-20 - P80 night-lighting zoom disclosure:
+The night-lighting layer note should tell users that lamp points load only after the overlay is enabled and the map is zoomed into a neighbourhood. The browser note now says to switch on and zoom in before expecting points, while preserving the source count, source date, and locked-score separation. This is browser copy only; it does not alter the lamp artifact, inputs, public data, exports, scoring, deployment, or locked weights.

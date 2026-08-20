@@ -51,7 +51,7 @@ describe("score card copy", () => {
     expect(source).toContain("Heat proxy: shelter + sparse NParks greenery");
     expect(source).toContain("Night lighting");
     expect(source).toContain(
-      "LTA lamp-post layer: 126,144 points, source last modified 7 Jul 2026. Map evidence only; not part of the locked score."
+      "LTA lamp-post layer: 126,144 points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load points. Map evidence only; not part of the locked score."
     );
     expect(source).not.toContain("Heat: shelter + NParks shade proxy");
     expect(source).not.toContain("Heat: shelter plus NParks shade proxy");

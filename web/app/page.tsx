@@ -1998,7 +1998,7 @@ export default function Home() {
               </button>
             </div>
             <p id="night-lighting-layer-note" className={styles.layerNote}>
-              LTA lamp-post layer: 126,144 points, source last modified 7 Jul 2026. Map evidence only; not part of the locked score.
+              LTA lamp-post layer: 126,144 points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load points. Map evidence only; not part of the locked score.
             </p>
           </div>
         </div>
