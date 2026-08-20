@@ -302,3 +302,6 @@ The not-yet-scored postal note should use the same published-bundle authority fr
 
 2026-08-20 - P105 no-transit range copy:
 No-transit reason chips should describe the current product limitation directly instead of using vague threshold language. Candidate-selection failures now say Outside current transit-candidate limits, and no-walk cases say nearby transit may still exist beyond the 1.2 km scoring range. This is browser copy only; it does not alter transit candidate selection, routing, state classification, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P106 live announcement no-full-score copy:
+The score-card live region should use the same null-score language as the visible score-state copy. It now announces null locked scores as `no full score in this bundle` instead of `not scored`. This is accessibility/browser copy only; it does not alter state classification, score values, ranking, scoring, exports, inputs, public data, deployment, or locked weights.

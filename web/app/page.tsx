@@ -157,7 +157,7 @@ export function scoreCardAnnouncement({
   const postal = postalTitle(selection);
   if (!selection.score) return `${postal} is not in the current score bundle.`;
   const scoreText = displayScore === null || displayScore === undefined
-    ? "not scored"
+    ? "no full score in this bundle"
     : `${Math.round(displayScore)} out of 100`;
   const stopText = isCustomStopSelected
     ? previewRoute
