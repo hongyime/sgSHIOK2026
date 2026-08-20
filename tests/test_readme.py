@@ -38,6 +38,10 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "map evidence only and is not part of the locked score" in normalized
     assert "python scripts/production_readiness.py" in normalized
     assert "Do not rebuild, overwrite, or mutate existing public data directories" in normalized
+    assert "uv run python run.py check --freshness-only" in normalized
+    assert "zero-mutation source-age check" in normalized
+    assert "does not probe upstream APIs" in normalized
+    assert "reports current, stale, manual, and unknown-age sources" in normalized
 
 
 def test_readme_documents_full_batch_approval_boundary() -> None:

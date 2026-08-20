@@ -38,6 +38,10 @@ That readiness check validates the score bundle and also verifies that the local
 lamp overlay artifact is present and internally consistent. Do not rebuild,
 overwrite, or mutate existing public data directories to repair a missing
 artifact; copy or create only a new versioned artifact after owner approval.
+For a zero-mutation source-age check, run
+`uv run python run.py check --freshness-only`; it reads `raw/manifest.json` and
+`pipeline/config/sources.yaml` only, does not probe upstream APIs, and reports
+current, stale, manual, and unknown-age sources.
 
 Before any full geocode, scoring, or release batch, run both
 `python scripts/production_readiness.py` and `python run.py batch-plan`. The

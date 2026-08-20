@@ -523,3 +523,6 @@ Direct-bus fallback and bus-caveat copy should describe the missing proof as unv
 
 2026-08-21 - P179 same-walk display announcement:
 The walk-display live-region helper should announce the same shortest/sheltered geometry as `shortest same as sheltered walk`, not `shortest same as sheltered route`. This keeps same-path screen-reader copy aligned with the selected-walk framing while leaving route-mode logic and geometry unchanged. This is browser accessibility copy and test coverage only; it does not alter route selection, map rendering, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P180 README freshness-only command:
+The README should tell operators how to run the manifest-only source freshness gate without fetching or mutating inputs. It now documents `uv run python run.py check --freshness-only`, because bare system `python run.py check --freshness-only` can fail before reaching freshness logic when the system interpreter lacks project dependencies. This is documentation and test coverage only; it reads but does not modify `raw/`, does not probe upstream APIs, and does not alter inputs, scoring, exports, public data, deployment, or locked weights.
