@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P191: `e47f361`
+Remote main after P192: `be02eeb`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P192 is complete and committed: the tracked Section 10 presentation proposal now says five component-score rows instead of five subscore rows, with a score-card copy test guard.
 - P191 is complete and committed: web tests and a page fallback comment now frame the maintained surface as shelter-map evidence/panel rather than generic route evidence, with no runtime behavior change.
 - P190 is complete and committed: production-readiness human warnings now say component-score status instead of subscore status while preserving manifest/schema keys such as `missing_subscore_status`.
 - P189 is complete and committed: README repo-map wording now calls `pipeline/config/weights.yaml` locked score weights instead of locked composite-score weights, with a README test guard.
