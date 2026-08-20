@@ -62,6 +62,24 @@ FULL_BATCH_RELEASE_SCOPE = {
         "production deploy",
         "live-site repoint",
     ],
+    "required_prerequisite_evidence": [
+        {
+            "change": "bus remodel",
+            "required_before_full_batch": "1200-record subset proof with bus-score movement and failure-mode accounting",
+        },
+        {
+            "change": "NO_TRANSIT_IN_RANGE partial-score fix",
+            "required_before_full_batch": "1200-record subset proof of state transitions and locked-weight zero-contribution behavior",
+        },
+        {
+            "change": "network conflation repair",
+            "required_before_full_batch": "island network QA plus 1200-record subset proof of route/value impact",
+        },
+        {
+            "change": "promoted postal universe v2 if approved",
+            "required_before_full_batch": "candidate-source diff, bounded OneMap validation report, and owner approval",
+        },
+    ],
 }
 
 

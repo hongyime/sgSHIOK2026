@@ -640,3 +640,6 @@ README onboarding now states that NParks Leaf Area Index can appear in source fr
 
 2026-08-21 - P237 README locked-score availability disclosure:
 README onboarding now states that the active frozen bundle has 95,157 full scores out of 124,443 records and that 29,286 records, roughly a quarter, do not show a full locked score because they are partial, beyond current transit range, or awaiting scoring. This mirrors the browser's manifest-derived locked-score availability disclosure in primary operator documentation. This is documentation and test coverage only; it does not alter manifests, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P238 full-batch prerequisite evidence:
+The dry-run batch plan and production readiness now carry structured prerequisite evidence for each bundled full-batch change: bus remodel, `NO_TRANSIT_IN_RANGE` partial-score fix, network conflation repair, and promoted postal-universe v2 if approved. This makes the one-attempt full-batch approval gate checkable before any expensive run. This is reporting and test coverage only; it does not run geocoding, scoring, export, deployment, public-data writes, input rebuilds, or locked weight changes.
