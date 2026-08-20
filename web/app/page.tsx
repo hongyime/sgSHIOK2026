@@ -161,7 +161,7 @@ export function scoreCardAnnouncement({
     : `${Math.round(displayScore)} out of 100`;
   const stopText = isCustomStopSelected
     ? previewRoute
-      ? "Preview route evidence selected."
+      ? "Preview shelter map evidence selected."
       : "Custom stop selected."
     : "Published route selected.";
   return `${postal} shelter map panel loaded. ${stationName ?? "Transit target loaded"}. Locked score ${scoreText}. ${stopText} Route display ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "route"} active.`;
