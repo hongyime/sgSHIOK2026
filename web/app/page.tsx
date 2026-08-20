@@ -1110,8 +1110,12 @@ export function ScoreCard({
     routeDetailItems.push({ label: "Shade proxy", value: `${shadeProxyPct}%` });
   }
   if (endpointSnapM > 0) {
-    routeDetailItems.push({ label: "Map connector", value: formatDistance(endpointSnapM) });
+    routeDetailItems.push({ label: "Snap connector", value: formatDistance(endpointSnapM) });
   }
+  const connectorNote =
+    endpointSnapM > 0
+      ? "Snap connector is the short link from the postal or transit point onto the walking graph."
+      : null;
   const longestGap = exposureGaps[0] ?? null;
   const visibleExposureGaps = exposureGaps.slice(0, 3);
   const totalExposureM = exposureGaps.reduce((total, gap) => total + gap.len_m, 0);
@@ -1450,6 +1454,7 @@ export function ScoreCard({
               {item.label} <strong>{item.value}</strong>
             </span>
           ))}
+          {connectorNote && <small>{connectorNote}</small>}
         </div>
       )}
 

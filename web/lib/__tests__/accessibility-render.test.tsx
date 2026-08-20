@@ -218,6 +218,7 @@ describe("rendered accessibility output", () => {
   it("renders the route exposure lead and four-row score presentation", () => {
     const recordWithEqualRainHeat: ScoreRecord = {
       ...scoredRecord,
+      paths: { ...scoredRecord.paths!, endpoint_snap_connector_m: 9 },
       subscores: { access: 78, rain: 69, heat: 69, bus: 82, crossing: 90 },
     };
     const html = renderScoreCard({
@@ -254,6 +255,9 @@ describe("rendered accessibility output", () => {
     );
     expect(html).toContain("Same displayed value as rain shelter for this postal.");
     expect(html).toContain("Heat proxy evidence: covered 149 m; greenery proxy 23 m.");
+    expect(html).toContain("Snap connector");
+    expect(html).toContain("9 m");
+    expect(html).toContain("Snap connector is the short link from the postal or transit point onto the walking graph.");
   });
 
   it("renders exposed gap lengths with coordinates", () => {

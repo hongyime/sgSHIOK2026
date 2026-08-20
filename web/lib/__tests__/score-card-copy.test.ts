@@ -94,17 +94,19 @@ describe("score card copy", () => {
     expect(source).toContain("className={styles.compareNote}");
   });
 
-  it("keeps shade proxy and map connector in a subtle route-details strip, not a duplicate metric row", () => {
+  it("keeps shade proxy and snap connector in a subtle route-details strip, not a duplicate metric row", () => {
     const cssSource = readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8");
     const tsxSource = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
     expect(cssSource).toContain(".compareNote");
     expect(cssSource).toContain(".routeDetails");
+    expect(cssSource).toContain(".routeDetails small");
     expect(cssSource).not.toContain(".routeSecondary {");
     expect(cssSource).not.toContain(".routeTertiary {");
 
     expect(tsxSource).toContain("routeDetailItems.push({ label: \"Shade proxy\"");
-    expect(tsxSource).toContain("routeDetailItems.push({ label: \"Map connector\"");
+    expect(tsxSource).toContain("routeDetailItems.push({ label: \"Snap connector\"");
+    expect(tsxSource).toContain("Snap connector is the short link from the postal or transit point onto the walking graph.");
     expect(tsxSource).toContain('aria-label="Route details"');
   });
 
