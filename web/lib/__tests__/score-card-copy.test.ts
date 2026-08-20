@@ -26,6 +26,8 @@ describe("score card copy", () => {
     const layoutSource = readFileSync(join(__dirname, "../../app/layout.tsx"), "utf-8");
 
     expect(source).toContain("Shelter-first walks to transit");
+    expect(source).toContain('placeholder="Search address or 6-digit postal"');
+    expect(source).toContain('aria-label="Search address or 6-digit postal"');
     expect(source).not.toContain("Singapore walk-to-transit comfort");
     expect(source).toContain("Route evidence as of {formatDataDate(manifest)}");
     expect(source).toContain("Locked score ${scoreText}");

@@ -242,3 +242,6 @@ Clicked-stop previews should identify the score limitation as a bundle status, n
 
 2026-08-20 - P85 locked-score badge label:
 The header score badge should identify its number as the locked score instead of displaying a bare 0-to-100 value. The badge now includes a small `Locked score` label while keeping the number visually smaller than the shelter evidence headline. This is browser presentation only; it does not alter scores, ranking, inputs, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P86 search postal hint:
+The search input should tell users that direct postal lookup expects a six-digit postal code. The visible placeholder and accessible label now say `Search address or 6-digit postal` while leaving OneMap address search and direct postal behavior unchanged. This is browser copy only; it does not alter search behavior, inputs, scoring, exports, public data, deployment, or locked weights.

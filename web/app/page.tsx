@@ -2019,10 +2019,10 @@ export default function Home() {
           <input
             id="postal-search-input"
             type="text"
-            placeholder="Search address or postal"
+            placeholder="Search address or 6-digit postal"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            aria-label="Search address or postal"
+            aria-label="Search address or 6-digit postal"
           />
           <button id="postal-search-button" type="submit" disabled={loading} aria-busy={loading}>
             {loading ? "Loading" : "Search"}
