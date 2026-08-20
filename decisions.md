@@ -433,3 +433,6 @@ Clicked-stop preview copy should use shelter-map evidence language while preserv
 Transit-target tabs should describe whether a shelter-map route exists for each mode, not whether generic route evidence exists. MRT/LRT and bus availability labels now say `shelter map route` or `no shelter map route`, while the best-transit tab still says `selected route`. This is browser copy and test coverage only; it does not alter transit-mode selection, route options, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
 2026-08-20 - P149 preview live status shelter-map framing:
 The clicked-stop preview branch now announces `Preview shelter map evidence selected.` in the score-card live region. This is a copy/accessibility-only change: no scoring logic, export, rescore, input, or locked weight file changed.
+
+2026-08-20 - P150 preview legend shelter-map framing:
+The clicked-stop preview map legend now labels the preview line as `Shelter map preview` instead of `Preview route`. This keeps the visible map legend aligned with the preview badge and live status while preserving the published-score-bundle caveat. This is browser copy and test coverage only; it does not alter clicked-stop routing, preview geometry, score values, scoring, exports, public data, deployment, or locked weights.

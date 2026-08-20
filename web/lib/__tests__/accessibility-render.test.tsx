@@ -227,6 +227,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Preview shelter map evidence only");
     expect(html).toContain("Shelter map evidence preview");
     expect(html).toContain("Preview shelter map evidence selected.");
+    expect(html).toContain("Shelter map preview");
     expect(html).toContain("<span>Bundle score</span><strong>Preview only</strong>");
     expect(html).toContain(
       "OneMap walking preview is unavailable for this selected stop; showing straight-line preview only."
@@ -235,6 +236,7 @@ describe("rendered accessibility output", () => {
       "Preview only: this clicked stop has shelter map evidence, but it is not part of the published score bundle yet."
     );
     expect(html).not.toContain("not an authoritative SHIOK score");
+    expect(html).not.toContain("Preview route");
     expect(html).not.toContain("Preview route evidence only");
     expect(html).not.toContain("Preview route evidence selected.");
     expect(html).not.toContain("this clicked stop has route evidence");

@@ -176,7 +176,8 @@ describe("route evidence map interactions", () => {
     expect(pageSource).toContain('<Metric label="Shelter evidence" value={formatPercent(selectedCoverage)} />');
     expect(pageSource).not.toContain('<Metric label="Sheltered evidence" value={formatPercent(selectedCoverage)} />');
     expect(pageSource).toContain('<Metric label="Bundle score" value="Preview only" />');
-    expect(pageSource).toContain('previewRoute ? "Preview route" : "Sheltered route"');
+    expect(pageSource).toContain('previewRoute ? "Shelter map preview" : "Sheltered route"');
+    expect(pageSource).not.toContain('previewRoute ? "Preview route" : "Sheltered route"');
     expect(pageSource).toContain("{score.paths && !previewRoute && (");
     expect(pageSource).toContain("{score.paths && previewRoute && (");
     expect(pageSource).toContain("{score.paths && !directBusFallback && !previewRoute && (");
