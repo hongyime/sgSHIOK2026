@@ -116,6 +116,12 @@ describe("haversineMeters", () => {
 });
 
 describe("deriveNearestTransitCandidates", () => {
+  it("documents candidate limits against the shelter-map bundle, not a score bundle", () => {
+    const source = readFileSync(join(__dirname, "../nearest-transit.ts"), "utf-8");
+    expect(source).toContain("The current shelter-map bundle does NOT ship a ranked candidate list");
+    expect(source).not.toContain("The current score bundle does NOT ship a ranked candidate list");
+  });
+
   it("returns up to 5 nearest bus_stop + mrt_exit POIs sorted by distance", () => {
     const result = deriveNearestTransitCandidates({
       originLat,

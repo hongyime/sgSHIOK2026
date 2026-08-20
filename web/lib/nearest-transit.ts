@@ -5,7 +5,7 @@
  * transit POI collection, rank the nearest bus_stop / mrt_exit POIs by direct
  * (haversine) distance and pick the top N candidates.
  *
- * The current score bundle does NOT ship a ranked candidate list or per-stop
+ * The current shelter-map bundle does NOT ship a ranked candidate list or per-stop
  * route geometry alongside each postal, so:
  *   - Candidate distances here are STRAIGHT-LINE, not routed metres.
  *   - Coverage / sheltered ratios are NOT known for non-best candidates.

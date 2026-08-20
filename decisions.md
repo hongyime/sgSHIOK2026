@@ -673,3 +673,6 @@ Operator onboarding should describe the active static artifact as the live shelt
 
 2026-08-21 - P248 clicked-stop shelter-map bundle wording:
 Clicked-stop previews should keep the shelter-map bundle frame even when explaining why preview evidence is not authoritative. The preview note now says the clicked stop is not part of the published shelter-map bundle yet, and the preview provenance reason says published locked scores come from the shelter-map bundle. The live-preview helper comment no longer overclaims full provenance for the legacy published bundle. This is browser copy/comment and test coverage only; it does not alter preview routing, score values, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-21 - P249 transit picker shelter-map bundle wording:
+The transit-stop picker helper should describe the artifact limitation as a shelter-map bundle limitation, not a score-bundle limitation. Its source comment now says the current shelter-map bundle does not ship ranked candidate lists or per-stop route geometry, preserving the straight-line-distance limitation and behavior. This is browser comment/test coverage only; it does not alter nearest-stop ranking, map rendering, routing, score values, exports, inputs, public data, deployment, or locked weights.
