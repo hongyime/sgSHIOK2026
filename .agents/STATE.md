@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P220 code commit: `52523b4`; state-only commits may follow it on `main`.
+Latest P221 code commit: `143cec8`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P221 is complete and committed: Section 10 proposal copy now says selected walk distance, whether the walk works, and shelter-map walk instead of route wording. Focused score-card copy tests pass.
 - P220 is complete and committed: Walk display Both mode now announces both walks instead of both routes in the live region. Focused accessibility tests pass.
 - P219 is complete and committed: disconnected no-transit title and reason chip now say Shelter-map walk not connected yet instead of route wording. Focused copy/accessibility tests pass.
 - P218 is complete and committed: non-visual map summaries now announce sheltered/shortest walks and walk segments instead of route wording. Focused map interaction tests pass.
