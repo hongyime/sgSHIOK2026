@@ -24,7 +24,7 @@ stop presenting the current five component-score rows as five independent measur
 | Position | Proposed row | On-screen copy | Detail copy |
 | --- | --- | --- | --- |
 | 1 | Shelter exposure | `Sheltered walk: {covered_ratio}%` | `Exposed gaps show where the selected walk leaves shelter.` |
-| 2 | Walk to transit | `{sheltered_m} to {transit_target}` | `Selected route distance from this postal code to the chosen MRT/LRT or bus access point.` |
+| 2 | Walk to transit | `{sheltered_m} to {transit_target}` | `Selected walk distance from this postal code to the chosen MRT/LRT or bus access point.` |
 | 3 | Bus service support | `Bus support: {bus_label}` | `Shown with routing caveats where exact bus-stop walking evidence is unresolved.` |
 | 4 | Locked score | `SHIOK score: {total}` | `Release sorting score using the locked weights; not five independent evidence sources.` |
 
@@ -48,7 +48,7 @@ Locked score caveat copy:
 
 ```text
 The locked score is fixed for this release. Use it to sort the current bundle, then
-inspect the shelter map and exposed gaps before deciding whether a route actually works
+inspect the shelter map and exposed gaps before deciding whether the walk actually works
 for you.
 ```
 
@@ -65,7 +65,7 @@ Where the walk is exposed
 Primary visual:
 
 ```text
-[route map]
+[shelter-map walk]
 covered segments: solid shelter color
 exposed segments: high-contrast exposed color
 ```

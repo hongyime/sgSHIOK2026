@@ -589,3 +589,6 @@ No-transit disconnected states should describe the missing artifact as a shelter
 
 2026-08-21 - P220 both-walks live-region wording:
 The walk-display live region should describe the Both mode as two walks, not routes. `routeDisplayAnnouncement("both")` now returns `both walks`, matching the Walk display control and the shelter-map walk framing. This is browser accessibility copy and test coverage only; it does not alter display mode behavior, map geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P221 Section 10 proposal walk wording:
+The Section 10 presentation proposal is review copy, so it should use the same walk language as the product UI. The proposal now says selected walk distance, asks whether the walk works for the user, and labels the primary visual as a shelter-map walk instead of route wording. This is proposal copy and test coverage only; it does not alter app behavior, score values, scoring, exports, public data, deployment, or locked weights.

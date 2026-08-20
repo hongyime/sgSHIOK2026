@@ -294,7 +294,13 @@ describe("score card copy", () => {
     expect(source).not.toContain('label: "Heat proxy"');
     expect(source).not.toContain('label: "Crossing friction"');
     expect(proposalSource).toContain("stop presenting the current five component-score rows");
+    expect(proposalSource).toContain("Selected walk distance from this postal code to the chosen MRT/LRT or bus access point.");
+    expect(proposalSource).toContain("deciding whether the walk actually works");
+    expect(proposalSource).toContain("[shelter-map walk]");
     expect(proposalSource).not.toContain("five subscore rows");
+    expect(proposalSource).not.toContain("Selected route distance from this postal code");
+    expect(proposalSource).not.toContain("deciding whether a route actually works");
+    expect(proposalSource).not.toContain("[route map]");
 
     expect(weightsYaml).toContain("transit_access: 0.35");
     expect(weightsYaml).toContain("bus_connectivity: 0.20");
