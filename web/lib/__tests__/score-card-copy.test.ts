@@ -172,8 +172,12 @@ describe("score card copy", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
     const weightsYaml = readFileSync(join(__dirname, "../../../pipeline/config/weights.yaml"), "utf-8");
 
-    expect(source).toContain("Route evidence and locked score");
-    expect(source).toContain('aria-label="Route evidence and locked score breakdown"');
+    expect(source).toContain("Shelter map evidence and locked score");
+    expect(source).toContain('aria-label="Shelter map evidence and locked score breakdown"');
+    expect(source).toContain('aria-label="Shelter map evidence reasons"');
+    expect(source).not.toContain("Route evidence and locked score");
+    expect(source).not.toContain('aria-label="Route evidence and locked score breakdown"');
+    expect(source).not.toContain('aria-label="Route evidence reasons"');
     expect(source).toContain('label: "Locked SHIOK score"');
     expect(source).toContain("Use this locked score to sort the current bundle");
     expect(source).not.toContain('label: "Overall SHIOK"');

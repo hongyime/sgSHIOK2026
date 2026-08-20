@@ -416,3 +416,6 @@ The first-viewport heat caveat should explicitly say what the app does not know.
 
 2026-08-20 - P143 shelter-map data-age label:
 The first-viewport data-age line should describe the product evidence as shelter-map evidence, not generic route evidence. It now says `Shelter map evidence as of ...; bundle generated ...`, preserving the distinction between source evidence age and static bundle generation date. This is browser copy and test coverage only; it does not alter manifest parsing, source freshness, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P144 shelter-map breakdown label:
+The secondary breakdown and reason group should use the shelter-map evidence frame while keeping the locked score visibly secondary. The region now says `Shelter map evidence and locked score`, with matching accessible labels for the breakdown and reason chips. This is browser copy/accessibility naming and test coverage only; it does not alter score rows, ranking, route geometry, score values, scoring, exports, public data, deployment, or locked weights.

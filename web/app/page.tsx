@@ -1331,7 +1331,7 @@ export function ScoreCard({
         </div>
       )}
 
-      <div className={styles.reasonList} aria-label="Route evidence reasons">
+      <div className={styles.reasonList} aria-label="Shelter map evidence reasons">
         {reasons.map((reason) => (
           <span key={reason}>{reason}</span>
         ))}
@@ -1340,9 +1340,9 @@ export function ScoreCard({
       {stateNote && <p className={styles.stateNote}>{stateNote}</p>}
 
       {score.subscores && (
-        <div className={styles.scoreBreakdown} aria-label="Route evidence and locked score breakdown">
+        <div className={styles.scoreBreakdown} aria-label="Shelter map evidence and locked score breakdown">
           <div className={styles.scoreBreakdownHeader}>
-            <strong>Route evidence and locked score</strong>
+            <strong>Shelter map evidence and locked score</strong>
             <span>Four display rows; weights unchanged</span>
           </div>
           <div className={styles.subscoreList}>

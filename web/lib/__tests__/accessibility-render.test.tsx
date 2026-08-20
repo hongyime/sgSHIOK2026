@@ -271,7 +271,7 @@ describe("rendered accessibility output", () => {
       rankingRecords: [recordWithEqualRainHeat],
     });
     const breakdownHtml = html.slice(
-      html.indexOf('aria-label="Route evidence and locked score breakdown"'),
+      html.indexOf('aria-label="Shelter map evidence and locked score breakdown"'),
       html.indexOf('aria-label="Rank by view"')
     );
 
@@ -283,10 +283,13 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("LTA covered linkway");
     expect(html).toContain("OSM shelter tags");
     expect(html).not.toContain("OSM covered");
-    expect(html).toContain("Route evidence and locked score");
-    expect(html).toContain('aria-label="Route evidence and locked score breakdown"');
+    expect(html).toContain("Shelter map evidence and locked score");
+    expect(html).toContain('aria-label="Shelter map evidence and locked score breakdown"');
     expect(html).toContain("Four display rows; weights unchanged");
-    expect(html).toContain('aria-label="Route evidence reasons"');
+    expect(html).toContain('aria-label="Shelter map evidence reasons"');
+    expect(html).not.toContain("Route evidence and locked score");
+    expect(html).not.toContain('aria-label="Route evidence and locked score breakdown"');
+    expect(html).not.toContain('aria-label="Route evidence reasons"');
     expect(html).not.toContain('aria-label="Score breakdown"');
     expect(html).not.toContain('aria-label="Score reasons"');
     expect(html).toContain("Shelter exposure");
