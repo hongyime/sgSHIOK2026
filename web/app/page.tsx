@@ -1313,7 +1313,7 @@ export function ScoreCard({
                 {!rankPanelOpen
                   ? "Loads local ranks only when opened."
                   : rankMetric === "overall"
-                  ? "Authoritative composite order."
+                  ? "Locked score order."
                   : "Single sub-score view; SHIOK score is unchanged."}
               </span>
             </div>

@@ -116,6 +116,8 @@ describe("score card copy", () => {
     expect(source).toContain("Route evidence and locked score");
     expect(source).toContain('label: "Locked SHIOK score"');
     expect(source).not.toContain('label: "Overall SHIOK"');
+    expect(source).toContain("Locked score order.");
+    expect(source).not.toContain("Authoritative composite order.");
     expect(source).toContain("Four display rows; weights unchanged");
     expect(source).toContain('label: "Shelter exposure"');
     expect(source).toContain('label: "Walk to transit"');

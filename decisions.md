@@ -155,3 +155,6 @@ The route-evidence panel's screen-reader status should match the visual product 
 
 2026-08-20 - P55 locked-score rank label:
 The rank selector should use the same product label as the score breakdown and live-region status. The overall ranking option is now `Locked SHIOK score` instead of `Overall SHIOK`; ranking behavior is unchanged. This is browser copy only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P56 rank helper copy:
+The rank panel helper should describe the overall view as a locked score order, not as an authoritative composite order. The visible helper now says `Locked score order.` while the single-subscore helper still says the SHIOK score is unchanged. This is browser copy only; it does not alter ranking behavior, scoring, exports, inputs, public data, deployment, or locked weights.

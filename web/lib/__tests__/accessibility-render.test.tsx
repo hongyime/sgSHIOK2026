@@ -243,6 +243,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Walk to transit");
     expect(html).toContain("Bus service support");
     expect(html).toContain("Locked SHIOK score");
+    expect(html).toContain("Locked score order.");
+    expect(html).not.toContain("Authoritative composite order.");
     expect(breakdownHtml).not.toContain(">Heat proxy<");
     expect(breakdownHtml).not.toContain(">Rain shelter<");
     expect(breakdownHtml).not.toContain(">Crossing friction<");
