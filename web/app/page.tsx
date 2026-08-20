@@ -1151,6 +1151,12 @@ export function ScoreCard({
   const longestGapText = longestGap
     ? `${formatDistance(longestGap.len_m)} is the longest exposed gap.`
     : "No exposed gaps are recorded for this selected route.";
+  const exposureHeroText =
+    exposureGaps.length === 0
+      ? longestGapText
+      : `${formatDistance(totalExposureM)} exposed across ${exposureGaps.length} gap${
+          exposureGaps.length === 1 ? "" : "s"
+        }; ${longestGapText}`;
   const gapSummaryText =
     exposureGaps.length === 0
       ? null
@@ -1282,7 +1288,7 @@ export function ScoreCard({
         <div className={styles.exposureHero} aria-label="Route shelter evidence">
           <span>Where the walk is exposed</span>
           <strong>{formatPercent(selectedCoverage)} of the {selectedWalkLabel} is covered.</strong>
-          <p>{longestGapText}</p>
+          <p>{exposureHeroText}</p>
         </div>
       )}
 

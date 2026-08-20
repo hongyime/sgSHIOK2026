@@ -257,6 +257,7 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("Where the walk is exposed");
     expect(html).toContain("62% of the selected walk is covered.");
+    expect(html).toContain("181 m exposed across 2 gaps; 142 m is the longest exposed gap.");
     expect(html).toContain("142 m is the longest exposed gap.");
     expect(html).toContain("Route evidence and locked score");
     expect(html).toContain('aria-label="Route evidence and locked score breakdown"');

@@ -371,3 +371,6 @@ The dry-run batch planner should expose the measured OSM `addr:postcode` coverag
 
 2026-08-20 - P128 readiness OSM coverage fields:
 Production readiness should expose the measured OSM `addr:postcode` coverage as structured source-policy fields, not only as prose inside the postal-universe caveat. Readiness now reuses the batch planner's P125 measurement block: 25,879 valid distinct OSM postcodes, 25,873 overlapping frozen v1 postals, 124,443 frozen v1 postals, 20.791045% coverage, and the `not sufficient as primary registry` verdict. This is release-reporting only; it does not alter inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P129 exposure hero total gaps:
+The route evidence hero should carry both headline shelter facts: the covered-walkway ratio and the exposure-gap burden. It now states total exposed metres and the recorded exposed-gap count before naming the longest exposed gap, while the detailed gap list remains below with coordinates. This is browser presentation only; it does not alter route geometry, exposure-gap data, score values, scoring, exports, public data, deployment, or locked weights.
