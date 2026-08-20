@@ -613,3 +613,6 @@ Browser-smoke JSON should expose the current product surface as a shelter-map pa
 
 2026-08-21 - P228 agent doc shelter-map frame:
 `CLAUDE.md` is part of the agent handoff surface and should not teach new sessions the retired comfort-score-first product frame. It now opens with S.H.I.O.K. Shelter Map, covered-walkway ratio, exposed gaps, night-lighting map evidence, and the locked SHIOK score as secondary; the clicked-stop helper is described as walk-preview evidence. This is documentation and test coverage only; it does not alter runtime behavior, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-21 - P229 agent doc walk-display scope guard:
+The `CLAUDE.md` scope guard now says walk display is shelter-map evidence only instead of route display being score evidence. This keeps future agent sessions aligned with the current browser terminology and the settled distinction between displayed walks, static evidence, and the secondary locked score. This is documentation and test coverage only; it does not alter runtime behavior, routing, scoring, exports, inputs, public data, deployment, or locked weights.

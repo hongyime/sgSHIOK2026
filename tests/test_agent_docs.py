@@ -19,5 +19,7 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "locked SHIOK score visible but secondary" in normalized
     assert "clicked-stop walk-preview evidence" in normalized
     assert "preview-route evidence" not in normalized
+    assert "walk display is shelter-map evidence only" in normalized
+    assert "route display is score" not in normalized
     assert "Night lighting is a map overlay only" in normalized
     assert "Night Safety is a map overlay only" not in normalized

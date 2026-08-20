@@ -85,7 +85,7 @@ run.py           task runner: check | ingest | network | score | export | valida
 
 ## What NOT to build (scope guards)
 
-- No turn-by-turn navigation, no live routing UI (route display is score *evidence* only).
+- No turn-by-turn navigation, no live routing UI (walk display is shelter-map evidence only).
 - No database, no ORM, no auth, no user state, no cron on Vercel.
 - No `GET /api/shiok/{postal}` endpoint — the frontend reads static JSON directly.
 - No island-wide map tiles in MVP (Phase 2 item, feature-flagged).
