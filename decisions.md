@@ -326,3 +326,6 @@ The direct-bus fallback note should describe fallback evidence as user-facing bu
 
 2026-08-20 - P113 bus fallback route-access copy:
 The direct-bus fallback warning should keep its conservative meaning without exposing walking-network implementation language. It now says nearby bus service is not route-verified and that walking-route access was not verified, preserving the 0 bus subscore and locked-score caveats. This is browser copy only; it does not alter fallback detection, routing, bus scoring, score values, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P114 transit-stop-found copy:
+The graph-disconnected no-transit reason chip should say a transit stop or exit was found, not a transit candidate. This keeps the user-facing fact separate from the unresolved walking-route connection. This is browser copy only; it does not alter transit candidate selection, routing, state classification, scoring, exports, inputs, public data, deployment, or locked weights.
