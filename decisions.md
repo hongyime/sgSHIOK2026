@@ -445,3 +445,6 @@ Graph-disconnected no-transit notes now say `this shelter-map bundle has no conn
 
 2026-08-20 - P153 score-coverage shelter-map wording:
 The manifest-derived bundle availability line now says `full scores` and `partial shelter-map evidence` instead of `full route scores` and `partial route evidence`. This keeps the score availability disclosure secondary while aligning the partial-record explanation with the shelter-map product frame. This is browser copy and test coverage only; it does not alter manifest counts, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P154 live preview provenance shelter-map wording:
+Live clicked-stop preview records now store `Clicked transit POI has shelter map evidence only; published scores come from the score bundle.` as their provenance reason. This keeps generated preview records aligned with the shelter-map evidence frame while preserving that clicked-stop previews are not published score-bundle records. This is browser provenance copy and test coverage only; it does not alter live route segmentation, preview geometry, score values, scoring, exports, public data, deployment, or locked weights.

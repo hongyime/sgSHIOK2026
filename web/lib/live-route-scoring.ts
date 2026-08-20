@@ -310,7 +310,7 @@ export function scoreLiveRoute(options: LiveRouteOptions): {
       source: "live_onemap_preview",
       authoritative_score: false,
       reason:
-        "Clicked transit POI has route evidence only; published SHIOK scores come from the score bundle.",
+        "Clicked transit POI has shelter map evidence only; published scores come from the score bundle.",
     },
   };
 
