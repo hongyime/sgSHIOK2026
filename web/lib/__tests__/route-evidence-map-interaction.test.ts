@@ -163,7 +163,8 @@ describe("route evidence map interactions", () => {
     expect(pageSource).toContain('[chosenStopId]: "loading"');
     expect(pageSource).toContain('[chosenStopId]: "unavailable"');
     expect(pageSource).toContain('<Metric label="Preview walk" value={formatDistance(selectedDistance)} />');
-    expect(pageSource).toContain('<Metric label="Sheltered evidence" value={formatPercent(selectedCoverage)} />');
+    expect(pageSource).toContain('<Metric label="Shelter evidence" value={formatPercent(selectedCoverage)} />');
+    expect(pageSource).not.toContain('<Metric label="Sheltered evidence" value={formatPercent(selectedCoverage)} />');
     expect(pageSource).toContain('<Metric label="Bundle score" value="Preview only" />');
     expect(pageSource).toContain('previewRoute ? "Preview route" : "Sheltered route"');
     expect(pageSource).toContain("{score.paths && !previewRoute && (");

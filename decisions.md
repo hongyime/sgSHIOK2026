@@ -353,3 +353,6 @@ The route-detail strip should call the NParks-derived helper value `Greenery pro
 
 2026-08-20 - P122 data-freshness title copy:
 The title-card freshness disclosure should read as product-facing data freshness, not as an internal `Source freshness audit`, while preserving the measured 12 current, 6 stale, 2 manual, and 1 unknown-age source counts and naming all stale sources. This is browser copy only; it does not alter freshness classification, data fetching, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P123 preview shelter-evidence label:
+Clicked-stop preview metrics should say `Shelter evidence` instead of `Sheltered evidence`, matching the route-evidence framing and avoiding an awkward adjective for a measured evidence value. This is browser copy only; it does not alter preview routing, route segmentation, score values, exports, inputs, public data, deployment, or locked weights.
