@@ -1993,7 +1993,7 @@ export default function Home() {
             <p>Shelter-first walks to transit</p>
             <p className={styles.dataLine}>Route evidence as of {formatDataDate(manifest)}</p>
             <p className={styles.freshnessLine}>
-              Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape; newer completions may be missing.
+              Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape; measured recent-source misses exist.
             </p>
             <p className={styles.freshnessLine}>
               Recent public-sample check: 8 missing rows out of 976 HDB completion and MCST proxy rows from 2021-2026 with postals.

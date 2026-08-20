@@ -284,3 +284,6 @@ The score-card breakdown should be framed as route evidence plus the locked scor
 
 2026-08-20 - P99 locked-score sort copy:
 The locked-score row should not describe the release sorting value as a `locked composite` in user-facing copy. It now says `Use this locked score to sort the current bundle`, and the section 10 proposal says `locked score` instead of `locked composite score` / `Locked composite`. This is browser/proposal copy only; it does not alter displayed values, ranking behavior, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P100 measured universe caveat:
+The title-card address-universe caveat should state that measured recent-source misses exist, because the browser already shows the P19 8-of-976 HDB completion and MCST proxy miss count on the next line. This keeps the frozen v1 disclosure empirical instead of speculative. This is browser copy only; it does not alter search behavior, scoring, exports, inputs, public data, deployment, or locked weights.

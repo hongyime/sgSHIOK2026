@@ -32,8 +32,9 @@ describe("score card copy", () => {
     expect(source).toContain("Route evidence as of {formatDataDate(manifest)}");
     expect(source).toContain("Locked score ${scoreText}");
     expect(source).toContain(
-      "Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape; newer completions may be missing."
+      "Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape; measured recent-source misses exist."
     );
+    expect(source).not.toContain("newer completions may be missing.");
     expect(source).toContain(
       "Recent public-sample check: 8 missing rows out of 976 HDB completion and MCST proxy rows from 2021-2026 with postals."
     );
