@@ -1212,6 +1212,7 @@ export function ScoreCard({
         </div>
         <div className={styles.scoreHeaderRight}>
           <div className={`${styles.scoreBadge} ${scoreClass(displayScore)}`}>
+            <span>Locked score</span>
             <strong>{formatScoreWithMax(displayScore)}</strong>
           </div>
           <details

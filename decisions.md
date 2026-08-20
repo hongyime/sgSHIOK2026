@@ -239,3 +239,6 @@ The rank panel should say that its comparison set is the selected postal's plann
 
 2026-08-20 - P84 preview bundle-score disclosure:
 Clicked-stop previews should identify the score limitation as a bundle status, not just say `Not scored`. The preview summary now shows `Bundle score: Preview only`, matching the existing note that a clicked-stop OneMap preview is not an authoritative SHIOK score until the offline scoring pipeline includes it. This is browser presentation only; it does not alter live-route scoring logic, published scores, inputs, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P85 locked-score badge label:
+The header score badge should identify its number as the locked score instead of displaying a bare 0-to-100 value. The badge now includes a small `Locked score` label while keeping the number visually smaller than the shelter evidence headline. This is browser presentation only; it does not alter scores, ranking, inputs, exports, public data, deployment, or locked weights.

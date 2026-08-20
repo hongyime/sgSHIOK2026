@@ -159,6 +159,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain('role="status"');
     expect(html).toContain("Postal 560231 route evidence panel loaded.");
     expect(html).toContain("Locked score 72 out of 100.");
+    expect(html).toContain("<span>Locked score</span><strong>72/100</strong>");
     expect(html).toContain("Custom stop selected.");
     expect(html).toContain("Route display shortest");
     expect(html).toContain('aria-busy="true"');

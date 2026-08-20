@@ -119,6 +119,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("ComfortModeControl");
     expect(source).not.toContain("comfortMode");
     expect(source).toContain("const displayScore = score.total;");
+    expect(source).toContain("<span>Locked score</span>");
   });
 
   it("shows four display rows without changing the locked weights", () => {
@@ -156,6 +157,8 @@ describe("score card copy", () => {
     expect(cssSource).toContain("font-size: 17px;");
     expect(cssSource).toContain(".scoreBadge strong");
     expect(cssSource).toContain("font-size: 13px;");
+    expect(cssSource).toContain(".scoreBadge span");
+    expect(cssSource).toContain("font-size: 9px;");
     expect(cssSource).not.toContain(".scoreBadge strong {\n    font-size: 18px;");
   });
 });
