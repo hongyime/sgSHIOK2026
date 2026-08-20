@@ -317,6 +317,8 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
     assert status["ok"] is True
     assert status["state"] == "reported"
     assert status["checked_at"] == "2026-08-16T00:00:00+00:00"
+    assert status["scope"] == "manifest_only"
+    assert status["upstream_urls_probed"] is False
     assert status["counts"] == {
         "current": 1,
         "stale": 1,
@@ -343,6 +345,8 @@ def test_source_freshness_readiness_is_non_blocking_when_manifest_absent(tmp_pat
     assert status["ok"] is True
     assert status["state"] == "not_available"
     assert "checked_at" in status
+    assert status["scope"] == "manifest_only"
+    assert status["upstream_urls_probed"] is False
     assert status["warning"] is None
 
 
