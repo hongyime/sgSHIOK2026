@@ -316,6 +316,7 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
 
     assert status["ok"] is True
     assert status["state"] == "reported"
+    assert status["checked_at"] == "2026-08-16T00:00:00+00:00"
     assert status["counts"] == {
         "current": 1,
         "stale": 1,

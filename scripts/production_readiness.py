@@ -187,6 +187,7 @@ def source_freshness_readiness(
     now: datetime | None = None,
 ) -> dict[str, Any]:
     """Summarize local source freshness without probing upstream APIs."""
+    checked_at = now or datetime.now(UTC)
     config_path = project_root / "pipeline" / "config" / "sources.yaml"
     manifest_path = project_root / "raw" / "manifest.json"
     if not config_path.is_file() or not manifest_path.is_file():
@@ -257,7 +258,7 @@ def source_freshness_readiness(
             spec,
             manifest_entry,
             freshness_defaults=freshness_defaults,
-            now=now,
+            now=checked_at,
         )
         status_key = str(freshness["status"])
         counts[status_key] = counts.get(status_key, 0) + 1
@@ -287,6 +288,7 @@ def source_freshness_readiness(
         "state": "reported",
         "config_path": str(config_path),
         "manifest_path": str(manifest_path),
+        "checked_at": checked_at.isoformat(),
         "summary": summary,
         "oldest_current_source": oldest_current,
         "counts": counts,

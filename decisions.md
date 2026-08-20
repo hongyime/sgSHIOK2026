@@ -655,3 +655,6 @@ The heat/rain presentation helper should not rewrite historical evidence when so
 
 2026-08-21 - P242 dated freshness snapshot:
 The browser freshness sentence should not describe a fixed snapshot as merely the `latest manifest-only check` without a date. The first view now says the counts are from the `21 Aug 2026 manifest-only check`, preserving the same measured 12 current, 6 stale, 2 manual, 1 unknown-age classification and NParks Leaf Area Index age of 112.6 days. This is browser honesty copy and test coverage only; it does not rerun freshness, fetch sources, alter manifests, inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P243 readiness source-freshness timestamp:
+Production readiness source-freshness evidence should carry the timestamp used for manifest-only classification. `source_freshness_readiness()` now resolves a single `checked_at` value, passes it to every per-source freshness status, and includes that ISO-8601 timestamp in the returned `source_freshness` block. This is readiness-reporting metadata and test coverage only; it does not fetch sources, alter manifests, inputs, scoring, exports, public data, deployment, or locked weights.
