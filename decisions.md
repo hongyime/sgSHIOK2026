@@ -407,3 +407,6 @@ The score-card region's accessible name should match the shelter-map product fra
 
 2026-08-20 - P140 missing-address shelter-map bundle:
 Missing-address user states should describe the frozen/current artifact as a shelter-map bundle, not a score bundle, because the user is searching the shelter map first and the locked score is secondary. The no-results search hint and outside-bundle live-region announcement now say shelter-map bundle, while score-bundle language remains where copy specifically discusses preview score inclusion. This is browser copy and test coverage only; it does not alter search behavior, score lookup, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P141 outside shelter-map bundle copy:
+The visible outside-bundle detail panel should use the same shelter-map bundle language as the no-results hint and live-region announcement. It now says `Outside shelter-map bundle` and explains that no shelter map route is published for the postal in the frozen June 2020 address universe. This is browser copy and test coverage only; it does not alter search behavior, score lookup, route geometry, score values, scoring, exports, public data, deployment, or locked weights.

@@ -248,11 +248,13 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("Postal 560231 is not in the current shelter-map bundle.");
-    expect(html).toContain("Outside current bundle");
+    expect(html).toContain("Outside shelter-map bundle");
     expect(html).not.toContain("Postal 560231 is not in the current score bundle.");
+    expect(html).not.toContain("Outside current bundle");
     expect(html).toContain(
-      "No route evidence is published for this postal in the frozen June 2020 address universe."
+      "No shelter map route is published for this postal in the frozen June 2020 address universe."
     );
+    expect(html).not.toContain("No route evidence is published for this postal");
   });
 
   it("renders the route exposure lead and four-row score presentation", () => {

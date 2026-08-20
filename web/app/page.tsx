@@ -1043,8 +1043,8 @@ export function ScoreCard({
         </p>
         <h2>{postalTitle(selection)}</h2>
         <div className={styles.emptyState}>
-          <strong>Outside current bundle</strong>
-          <span>No route evidence is published for this postal in the frozen June 2020 address universe.</span>
+          <strong>Outside shelter-map bundle</strong>
+          <span>No shelter map route is published for this postal in the frozen June 2020 address universe.</span>
         </div>
       </section>
     );
