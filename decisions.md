@@ -341,3 +341,6 @@ The title-card source freshness disclosure should give the measured freshness au
 
 2026-08-20 - P118 unknown-age source copy:
 The source freshness line should clarify that the single unknown-age source is a candidate address source, not one of the core shelter, bus, night-lighting, or route-evidence sources. This keeps the freshness caveat accurate without overstating uncertainty in the current published evidence. This is browser copy only; it does not alter freshness classification, data fetching, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P119 stale source names:
+The source freshness disclosure should name the exact stale sources instead of grouping them as generic greenery or boundary references. It now lists traffic signals, planning area boundary, NParks nature ways, tracks, heritage trees, and heritage road green buffers. This is browser copy only; it does not alter freshness classification, data fetching, scoring, exports, inputs, public data, deployment, or locked weights.
