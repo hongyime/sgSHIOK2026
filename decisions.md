@@ -335,3 +335,6 @@ The graph-disconnected no-transit note should keep the same stop/exit language a
 
 2026-08-20 - P116 bundle generated date:
 The title card should distinguish source data age from static bundle build age. It now shows both route evidence `data_as_of` and manifest `generated_at`, so users can see when the evidence was current and when this published bundle was produced. This is browser copy/formatting only; it reads existing manifest metadata and does not alter data fetching, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P117 source freshness counts:
+The title-card source freshness disclosure should give the measured freshness audit counts, not only a qualitative current/stale summary. It now reports 12 current, 6 stale, 2 manual, and 1 unknown-age source, while naming the stale source classes. This is browser copy only; it does not alter freshness classification, data fetching, scoring, exports, inputs, public data, deployment, or locked weights.
