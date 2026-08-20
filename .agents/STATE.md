@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P144: `f3293db`
+Remote main after P145: `209e1fb`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -82,6 +82,7 @@ Status:
 - P142 is complete and pushed: the title-card heat caveat now says the heat proxy is not measured temperature.
 - P143 is complete and pushed: the title-card data-age line now says `Shelter map evidence as of ...`.
 - P144 is complete and pushed: the secondary breakdown and reason-chip group now use shelter-map evidence labels.
+- P145 is complete and pushed: the planning-area rank panel now presents as a comparison aid with `Compare nearby records`.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -152,5 +153,6 @@ Status:
 - P142 evidence is tracked at `qa/verification/P142-heat-proxy-temperature-caveat.md`.
 - P143 evidence is tracked at `qa/verification/P143-shelter-map-data-age-label.md`.
 - P144 evidence is tracked at `qa/verification/P144-shelter-map-breakdown-label.md`.
+- P145 evidence is tracked at `qa/verification/P145-planning-area-comparison-label.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
