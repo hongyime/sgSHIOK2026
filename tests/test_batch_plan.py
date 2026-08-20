@@ -173,6 +173,14 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
         == "frozen v1 remains the 124443-record June 2020 OneMap-derived universe"
     )
     assert "candidate-source-first" in report["source_policy"]["v2"]
+    assert report["source_policy"]["osm_addr_postcode_registry"] == {
+        "measurement": "P125 live Overpass addr:postcode coverage",
+        "valid_distinct_postcodes": 25879,
+        "overlap_frozen_v1_postals": 25873,
+        "frozen_v1_postals": 124443,
+        "coverage_pct": 20.791045,
+        "verdict": "not sufficient as primary registry",
+    }
     assert (
         report["source_policy"]["onemap_search_role"]
         == "candidate validation/geocoding, not national enumeration"

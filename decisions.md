@@ -365,3 +365,6 @@ Live Overpass measurement found 25,879 valid six-digit Singapore `addr:postcode`
 
 2026-08-20 - P126 readiness citation for refreshed OSM measurement:
 Production-readiness policy copy should cite the fresh P125 live Overpass measurement rather than the older P63 measurement when explaining why OSM `addr:postcode` is not a complete postal registry. The measured count and policy are unchanged: 25,873 frozen v1 postals overlap live OSM, so postal-universe v2 remains candidate-source-first with bounded OneMap Search validation. This is reporting copy and test coverage only; it does not alter inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P127 batch-plan OSM coverage fields:
+The dry-run batch planner should expose the measured OSM `addr:postcode` coverage as structured source-policy fields, not only as a prose insufficiency verdict. It now reports the P125 measurement label, 25,879 valid distinct OSM postcodes, 25,873 overlapping frozen v1 postals, 124,443 frozen v1 postals, 20.791045% coverage, and the `not sufficient as primary registry` verdict. This is dry-run reporting only; it does not alter inputs, scoring, exports, public data, deployment, or locked weights.

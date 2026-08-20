@@ -30,6 +30,14 @@ POSTAL_UNIVERSE_V2_POLICY = (
     "candidate-source-first current free sources, then bounded OneMap Search validation "
     "under explicit token and rate controls"
 )
+OSM_ADDR_POSTCODE_COVERAGE = {
+    "measurement": "P125 live Overpass addr:postcode coverage",
+    "valid_distinct_postcodes": 25879,
+    "overlap_frozen_v1_postals": 25873,
+    "frozen_v1_postals": 124443,
+    "coverage_pct": 20.791045,
+    "verdict": "not sufficient as primary registry",
+}
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -258,7 +266,7 @@ def build_batch_plan(
         "source_policy": {
             "frozen_v1": FROZEN_V1_POLICY,
             "v2": POSTAL_UNIVERSE_V2_POLICY,
-            "osm_addr_postcode_registry": "not sufficient as primary registry",
+            "osm_addr_postcode_registry": OSM_ADDR_POSTCODE_COVERAGE,
             "onemap_search_role": "candidate validation/geocoding, not national enumeration",
             "requires_human_approval_for_universe": requires_universe_approval,
         },
