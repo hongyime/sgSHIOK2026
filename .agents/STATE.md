@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P140: `e4041eb`
+Remote main after P141: `7f04a3c`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -78,6 +78,7 @@ Status:
 - P138 is complete and pushed: the score-card live region now announces the selected detail surface as the shelter map panel.
 - P139 is complete and pushed: the score-card region accessible name is now `Shelter map panel` in empty, outside-bundle, and loaded states.
 - P140 is complete and pushed: missing-address states now describe the frozen/current artifact as a shelter-map bundle.
+- P141 is complete and pushed: the visible outside-bundle panel now says `Outside shelter-map bundle` and `No shelter map route is published`.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -144,5 +145,6 @@ Status:
 - P138 evidence is tracked at `qa/verification/P138-live-region-shelter-map-panel.md`.
 - P139 evidence is tracked at `qa/verification/P139-shelter-map-panel-region.md`.
 - P140 evidence is tracked at `qa/verification/P140-missing-address-shelter-map-bundle.md`.
+- P141 evidence is tracked at `qa/verification/P141-outside-shelter-map-bundle.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
