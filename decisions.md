@@ -164,3 +164,6 @@ Source freshness should be reportable without fetching, ingesting, or hashing up
 
 2026-08-20 - P58 source freshness policy coverage:
 Every configured source must resolve to an expected freshness cadence; every non-manual source must also resolve to a numeric stale-after-days threshold. This is now enforced by a config-level test so future sources cannot silently fall into `unknown_policy` freshness status. This is test coverage only; it does not alter source thresholds, inputs, exports, public data, scoring, deployment, or locked weights.
+
+2026-08-20 - P59 source freshness snapshot:
+The manifest-only freshness snapshot reports 12 current sources, 6 stale sources, 2 manual sources, and 1 source with unknown age. The stale sources are traffic_signals, planning_area_boundary, nparks_nature_ways, nparks_tracks, nparks_heritage_trees, and nparks_heritage_road_green_buffers; overture_addresses_sg_candidate has unknown age because it is a candidate source not present in the raw manifest. The core delivery sources checked separately — covered_linkway, lamp_posts, and bus_stops — are current. This is evidence only; it does not alter inputs, thresholds, exports, public data, scoring, deployment, or locked weights.
