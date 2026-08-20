@@ -14,7 +14,7 @@ function formatWholeNumber(value: number): string {
   return new Intl.NumberFormat("en-SG").format(value);
 }
 
-function scoreCoverageBreakdown(stateCounts: unknown, notFull: number): string | null {
+function lockedScoreAvailabilityBreakdown(stateCounts: unknown, notFull: number): string | null {
   const partial = stateCount(stateCounts, "SCORED_PARTIAL");
   const noTransit = stateCount(stateCounts, "NO_TRANSIT_IN_RANGE");
   const notYet = stateCount(stateCounts, "NOT_YET_SCORED");
@@ -34,7 +34,7 @@ function scoreCoverageBreakdown(stateCounts: unknown, notFull: number): string |
   )} beyond current transit range, and ${formatWholeNumber(notYet)} awaiting scoring`;
 }
 
-export function formatScoreCoverageLine(manifest: Manifest | null): string | null {
+export function formatLockedScoreAvailabilityLine(manifest: Manifest | null): string | null {
   const provenance = manifestObject(manifest?.provenance);
   if (!provenance) return null;
   const recordCount = provenance?.record_count;
@@ -46,7 +46,7 @@ export function formatScoreCoverageLine(manifest: Manifest | null): string | nul
   const notFull = recordCount - scored;
   const pct = notFull / recordCount;
   const pctText = pct >= 0.22 && pct <= 0.28 ? "roughly a quarter" : `${Math.round(pct * 100)}%`;
-  const breakdown = scoreCoverageBreakdown(provenance.state_counts, notFull);
+  const breakdown = lockedScoreAvailabilityBreakdown(provenance.state_counts, notFull);
   const nonFullText = breakdown
     ? `do not show a full score: ${breakdown}`
     : "do not show a full score";

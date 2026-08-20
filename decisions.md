@@ -538,3 +538,6 @@ Clicked-stop shelter-map previews should use the same `Locked score` label as ot
 
 2026-08-21 - P197 partial and awaiting locked-score labels:
 Partial and not-yet-scored browser states should name the secondary score as the locked score rather than as a bundle score. Partial records now say `Partial locked score`, and not-yet-scored records say `Awaiting locked score` while still keeping the `No full score in this bundle` context. This is browser copy and smoke-test alignment only; it does not alter score-state classification, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-21 - P198 locked-score availability helper naming:
+The browser helper that formats the manifest-derived full-score disclosure should be named for the product concept it renders: locked-score availability, not generic score coverage. The helper module and test now use `locked-score-availability` and `formatLockedScoreAvailabilityLine`, while preserving the rendered copy and manifest-derived count logic. This is web code/test naming only; it does not alter browser output, manifest parsing, counts, scoring, exports, inputs, public data, deployment, or locked weights.

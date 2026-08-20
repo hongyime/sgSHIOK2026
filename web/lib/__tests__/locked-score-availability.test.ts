@@ -1,4 +1,4 @@
-import { formatScoreCoverageLine } from "../score-coverage";
+import { formatLockedScoreAvailabilityLine } from "../locked-score-availability";
 import type { Manifest } from "../types";
 
 function manifestWithCounts(
@@ -19,10 +19,10 @@ function manifestWithCounts(
   };
 }
 
-describe("score coverage copy", () => {
+describe("locked score availability copy", () => {
   it("formats the live-bundle availability disclosure from manifest counts", () => {
     expect(
-      formatScoreCoverageLine(
+      formatLockedScoreAvailabilityLine(
         manifestWithCounts(124443, 95157, {
           SCORED_PARTIAL: 18983,
           NO_TRANSIT_IN_RANGE: 9827,
@@ -36,7 +36,7 @@ describe("score coverage copy", () => {
 
   it("uses a percentage when the non-full share is not near a quarter", () => {
     expect(
-      formatScoreCoverageLine(
+      formatLockedScoreAvailabilityLine(
         manifestWithCounts(1000, 900, {
           SCORED_PARTIAL: 80,
           NO_TRANSIT_IN_RANGE: 15,
@@ -49,15 +49,15 @@ describe("score coverage copy", () => {
   });
 
   it("falls back to the generic non-full copy when state counts are incomplete", () => {
-    expect(formatScoreCoverageLine(manifestWithCounts(1000, 900))).toBe(
+    expect(formatLockedScoreAvailabilityLine(manifestWithCounts(1000, 900))).toBe(
       "Locked score availability: 900 full scores out of 1,000; 100 records (10%) do not show a full score."
     );
   });
 
   it("omits the disclosure when bundle counts are unavailable", () => {
-    expect(formatScoreCoverageLine(null)).toBeNull();
+    expect(formatLockedScoreAvailabilityLine(null)).toBeNull();
     expect(
-      formatScoreCoverageLine({
+      formatLockedScoreAvailabilityLine({
         generated_at: "2026-08-05T00:00:00Z",
         data_as_of: null,
         provenance: {},

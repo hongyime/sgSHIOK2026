@@ -122,10 +122,10 @@ describe("score card copy", () => {
       "Source freshness: shelter, bus stops and night lighting are current; stale supporting sources include traffic signals and some greenery or boundary references."
     );
     expect(source).not.toContain("6 supporting sources are stale.");
-    expect(source).toContain('import { formatScoreCoverageLine } from "../lib/score-coverage";');
-    expect(source).toContain("formatScoreCoverageLine(manifest)");
+    expect(source).toContain('import { formatLockedScoreAvailabilityLine } from "../lib/locked-score-availability";');
+    expect(source).toContain("formatLockedScoreAvailabilityLine(manifest)");
     expect(source).toContain("styles.coverageLine");
-    expect(readFileSync(join(__dirname, "../score-coverage.ts"), "utf-8")).toContain(
+    expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).toContain(
       "Locked score availability:"
     );
     expect(source).toContain("© OpenStreetMap contributors");

@@ -43,7 +43,7 @@ import {
   type SearchResult,
 } from "../lib/onemap-search";
 import { routesAreSame } from "../lib/route-display";
-import { formatScoreCoverageLine } from "../lib/score-coverage";
+import { formatLockedScoreAvailabilityLine } from "../lib/locked-score-availability";
 import {
   RANK_METRIC_OPTIONS,
   rankScoreRecords,
@@ -1993,7 +1993,7 @@ export default function Home() {
     setCopyStatus("");
   };
 
-  const scoreCoverageLine = formatScoreCoverageLine(manifest);
+  const lockedScoreAvailabilityLine = formatLockedScoreAvailabilityLine(manifest);
 
   const copyFeedback = async () => {
     const payload = buildFeedbackPayload({
@@ -2044,7 +2044,7 @@ export default function Home() {
             <p className={styles.freshnessLine}>
               Data freshness: 12 sources current, 6 stale, 2 manual, and 1 candidate address source with unknown age; stale sources are traffic signals, planning area boundary, NParks nature ways, tracks, heritage trees and heritage road green buffers.
             </p>
-            {scoreCoverageLine && <p className={styles.coverageLine}>{scoreCoverageLine}</p>}
+            {lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}
             <p className={styles.sourceLine}>
               Sources: LTA/data.gov.sg, OneMap/SLA, © OpenStreetMap contributors (
               <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">
