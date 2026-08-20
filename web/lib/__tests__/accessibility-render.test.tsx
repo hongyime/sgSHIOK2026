@@ -331,10 +331,11 @@ describe("rendered accessibility output", () => {
   it("renders exposed gap lengths with coordinates", () => {
     const html = renderScoreCard();
 
-    expect(html).toContain("Exposed gaps");
+    expect(html).toContain("Exposed gaps on this walk");
     expect(html).toContain("142 m");
     expect(html).toContain("181 m exposed across 2 gaps on the selected walk.");
     expect(html).toContain("All recorded exposed gaps are shown.");
+    expect(html).toContain("2 of 2 exposed gaps include map coordinates.");
     expect(html).toContain("Longest open-air stretch");
     expect(html).toContain("Near 1.37123, 103.84235");
     expect(html).toContain("Near 1.37091, 103.84101");

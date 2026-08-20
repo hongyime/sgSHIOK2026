@@ -463,3 +463,6 @@ The README now carries the same full-batch boundary that `pipeline.batch_plan` a
 
 2026-08-20 - P159 night-lighting route-detail cue:
 The selected shelter-map panel now includes `Night lighting` as a subtle route-detail item with value `Map layer`, and states that LTA lamp-post points are map evidence outside the locked score. This keeps the objective's second evidence layer visible in the route workflow without turning lighting into a score component. This is browser copy and test coverage only; it does not alter lamp data, map tiles, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P160 exposed-gap coordinate summary:
+The selected shelter-map panel now labels the gap list as `Exposed gaps on this walk` and summarizes how many recorded gaps include map coordinates before listing each gap's length and coordinate. This makes the coordinate-backed exposure-gap artifact explicit in the main workflow. This is browser copy and test coverage only; it does not alter route geometry, exposure-gap data, scoring, exports, public data, deployment, or locked weights.

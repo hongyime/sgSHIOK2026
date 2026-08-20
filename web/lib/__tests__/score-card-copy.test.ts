@@ -85,6 +85,8 @@ describe("score card copy", () => {
     expect(source).toContain("ATTRIBUTION.md");
     expect(source).toContain("Heat proxy: shelter plus sparse NParks greenery, not measured temperature");
     expect(source).toContain("Night lighting");
+    expect(source).toContain("Exposed gaps on this walk");
+    expect(source).toContain("include map coordinates.");
     expect(source).toContain(
       "LTA lamp-post layer: 126,144 points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load points. Map evidence only; not part of the locked score."
     );

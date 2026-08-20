@@ -1151,6 +1151,7 @@ export function ScoreCard({
   const longestGap = exposureGaps[0] ?? null;
   const visibleExposureGaps = exposureGaps.slice(0, 3);
   const totalExposureM = exposureGaps.reduce((total, gap) => total + gap.len_m, 0);
+  const gapsWithCoordinates = exposureGaps.filter((gap) => formatGapLocation(gap)).length;
   const hiddenGapCount = Math.max(0, exposureGaps.length - visibleExposureGaps.length);
   const longestGapText = longestGap
     ? `${formatDistance(longestGap.len_m)} is the longest exposed gap.`
@@ -1173,6 +1174,12 @@ export function ScoreCard({
           hiddenGapCount === 1 ? "" : "s"
         } included in the total.`
       : "All recorded exposed gaps are shown.";
+  const gapCoordinateSummaryText =
+    gapsWithCoordinates > 0
+      ? `${gapsWithCoordinates} of ${exposureGaps.length} exposed gap${
+          exposureGaps.length === 1 ? "" : "s"
+        } include map coordinates.`
+      : "No map coordinates are recorded for these exposed gaps.";
   const selectedWalkLabel = previewRoute ? "preview walk" : "selected walk";
   const evidenceRows: EvidenceBreakdownRow[] = score.subscores
     ? [
@@ -1505,10 +1512,11 @@ export function ScoreCard({
 
       {exposureGaps.length > 0 && (
         <div className={styles.gapList}>
-          <h3>Exposed gaps</h3>
+          <h3>Exposed gaps on this walk</h3>
           <p className={styles.gapSummary}>
             <span>{gapSummaryText}</span>
             <span>{gapListScopeText}</span>
+            <span>{gapCoordinateSummaryText}</span>
           </p>
           {visibleExposureGaps.map((gap, index) => {
             const location = formatGapLocation(gap);
