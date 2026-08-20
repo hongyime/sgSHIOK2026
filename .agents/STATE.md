@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P95: `df05a3a`
+Remote main after P96: `a201d1a`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -33,6 +33,7 @@ Status:
 - P93 is complete and pushed: score-card reason text now says `sheltered on sheltered route` instead of `sheltered on covered route`.
 - P94 is complete and pushed: score-card reason chips now describe missing scores as bundle/offline scoring states instead of pipeline implementation states.
 - P95 is complete and pushed: score-state notes now describe clicked-stop previews and awaiting-score records as offline bundle inclusion/scoring states instead of pipeline evidence states.
+- P96 is complete and pushed: live clicked-stop preview record provenance now says authoritative SHIOK scores come from offline bundle scoring instead of an offline pipeline bundle.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -54,5 +55,6 @@ Status:
 - P93 evidence is tracked at `qa/verification/P93-score-reason-sheltered-route.md`.
 - P94 evidence is tracked at `qa/verification/P94-bundle-score-reason-copy.md`.
 - P95 evidence is tracked at `qa/verification/P95-offline-bundle-state-notes.md`.
+- P96 evidence is tracked at `qa/verification/P96-live-preview-provenance-copy.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
