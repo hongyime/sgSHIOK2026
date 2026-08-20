@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P129: `02831c9`
+Remote main after P130: `9baba0a`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -67,6 +67,7 @@ Status:
 - P127 is complete and pushed: dry-run batch planning now exposes the P125 OSM coverage numerator, denominator, percentage, and verdict as structured source-policy fields.
 - P128 is complete and pushed: production readiness now exposes the same P125 OSM coverage block as structured source-policy fields.
 - P129 is complete and pushed: the route evidence hero now states total exposed metres and recorded exposed-gap count before naming the longest exposed gap.
+- P130 is complete and pushed: shelter source-strip labels now use product-facing evidence wording such as `LTA covered linkway` and `OSM shelter tags`.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -122,5 +123,6 @@ Status:
 - P127 evidence is tracked at `qa/verification/P127-batch-plan-osm-coverage.md`.
 - P128 evidence is tracked at `qa/verification/P128-readiness-osm-coverage-fields.md`.
 - P129 evidence is tracked at `qa/verification/P129-exposure-hero-total-gaps.md`.
+- P130 evidence is tracked at `qa/verification/P130-shelter-source-labels.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
