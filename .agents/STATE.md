@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P98: `23cdf80`
+Remote main after P99: `d0b41f3`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -36,6 +36,7 @@ Status:
 - P96 is complete and pushed: live clicked-stop preview record provenance now says authoritative SHIOK scores come from offline bundle scoring instead of an offline pipeline bundle.
 - P97 is complete and pushed: tracked support copy in browser smoke checks, attribution, the section 10 proposal, and heat-presentation analysis now follows `sheltered route` / `sheltered walk` language.
 - P98 is complete and pushed: the score-card breakdown now uses route-evidence plus locked-score wording instead of score/composite-first labels.
+- P99 is complete and pushed: locked-score row and section 10 proposal now say locked score instead of locked composite/composite score.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -60,5 +61,6 @@ Status:
 - P96 evidence is tracked at `qa/verification/P96-live-preview-provenance-copy.md`.
 - P97 evidence is tracked at `qa/verification/P97-sheltered-language-followthrough.md`.
 - P98 evidence is tracked at `qa/verification/P98-locked-score-breakdown-copy.md`.
+- P99 evidence is tracked at `qa/verification/P99-locked-score-sort-copy.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
