@@ -5,7 +5,7 @@ Status: proposal only. This is not an implementation and does not change the app
 ## Goal
 
 Make Section 10 lead with the artifact the project can defend today: the routed
-shelter trace and its exposed gaps. Keep the locked composite score visible, but
+shelter trace and its exposed gaps. Keep the locked score visible, but
 stop presenting the current five subscore rows as five independent measurements.
 
 ## Current State
@@ -26,7 +26,7 @@ stop presenting the current five subscore rows as five independent measurements.
 | 1 | Shelter exposure | `Sheltered walk: {covered_ratio}%` | `Exposed gaps show where the selected walk leaves shelter.` |
 | 2 | Walk to transit | `{sheltered_m} to {transit_target}` | `Selected route distance from this postal code to the chosen MRT/LRT or bus access point.` |
 | 3 | Bus service support | `Bus support: {bus_label}` | `Shown with routing caveats where exact bus-stop walking evidence is unresolved.` |
-| 4 | Locked composite | `SHIOK score: {total}` | `Release sorting score using the locked weights; not five independent evidence sources.` |
+| 4 | Locked score | `SHIOK score: {total}` | `Release sorting score using the locked weights; not five independent evidence sources.` |
 
 Rain and heat should move from separate rows into explanatory copy:
 
@@ -123,6 +123,6 @@ Locked SHIOK score
 
 - Do not change `pipeline/config/weights.yaml`.
 - Do not recompute scores.
-- Do not hide the composite score.
+- Do not hide the locked score.
 - Do not present heat as measured thermal comfort.
 - Do not promote bus fallback evidence into trusted bus service.

@@ -281,3 +281,6 @@ Tracked support files should not keep the old `covered route` framing after the 
 
 2026-08-20 - P98 locked-score breakdown copy:
 The score-card breakdown should be framed as route evidence plus the locked score, not as a generic score/composite breakdown. The aria label now says `Route evidence and locked score breakdown`, partial records say `Partial bundle score`, missing totals say `No locked score`, and the bus fallback caveat says `Locked score caveat`. This is browser/proposal copy only; it does not alter score-state classification, displayed values, ranking, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P99 locked-score sort copy:
+The locked-score row should not describe the release sorting value as a `locked composite` in user-facing copy. It now says `Use this locked score to sort the current bundle`, and the section 10 proposal says `locked score` instead of `locked composite score` / `Locked composite`. This is browser/proposal copy only; it does not alter displayed values, ranking behavior, scoring, exports, public data, deployment, or locked weights.

@@ -140,7 +140,9 @@ describe("score card copy", () => {
     expect(source).toContain("Route evidence and locked score");
     expect(source).toContain('aria-label="Route evidence and locked score breakdown"');
     expect(source).toContain('label: "Locked SHIOK score"');
+    expect(source).toContain("Use this locked score to sort the current bundle");
     expect(source).not.toContain('label: "Overall SHIOK"');
+    expect(source).not.toContain("Use this locked composite");
     expect(source).toContain("Planning-area order by locked score.");
     expect(source).not.toContain("Authoritative composite order.");
     expect(source).toContain("Four display rows; weights unchanged");

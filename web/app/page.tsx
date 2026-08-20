@@ -1196,7 +1196,7 @@ export function ScoreCard({
           value: formatLockedScore(displayScore),
           meta: scoredMeta(displayScore, "Release sorting index", "No locked score"),
           notes: [
-            "Use this locked composite to sort the current bundle, then inspect the shelter trace and exposed gaps.",
+            "Use this locked score to sort the current bundle, then inspect the shelter trace and exposed gaps.",
             "Crossing friction remains a 5% locked term, but has low separation in this release.",
           ],
         },
