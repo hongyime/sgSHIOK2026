@@ -562,3 +562,6 @@ A missing local `.vercel/project.json` link is checkout/deploy context, not a bu
 
 2026-08-21 - P211 first-view covered-walkway artifact copy:
 The first view should name the product's unique evidence directly instead of only saying `Shelter-first walks to transit`. The title-card subtitle now says users can see covered-walkway ratio and exposed gaps to transit, and the empty shelter-map panel tells users to search a postal code to inspect the covered-walkway ratio, exposed gaps, and night lighting. This is browser copy and test coverage only; it does not alter search behavior, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P212 loaded-card covered-walkway ratio wording:
+The loaded shelter-map panel should use the same covered-walkway ratio wording as the first view. The selected-walk summary metric and preview metric now label the percentage as `Covered-walkway ratio`, and the route-reason chip reports the percentage as covered-walkway ratio rather than generic `sheltered` copy. This is browser copy and test coverage only; it does not alter route geometry, score values, scoring, exports, public data, deployment, or locked weights.

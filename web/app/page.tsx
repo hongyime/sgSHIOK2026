@@ -715,7 +715,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
     measuredReasons.push(`${formatDistance(score.paths.sheltered_m)} to ${transitModeLabel(transitMode)}`);
   }
   if (typeof score.paths.covered_ratio === "number") {
-    measuredReasons.push(`${Math.round(score.paths.covered_ratio * 100)}% sheltered on selected walk`);
+    measuredReasons.push(`${Math.round(score.paths.covered_ratio * 100)}% covered-walkway ratio on selected walk`);
   }
   if (busFallback) {
     measuredReasons.push("Nearby bus service not walk-verified");
@@ -728,7 +728,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
   })).sort((a, b) => a.value - b.value);
 
   if (busFallback && values[0]?.key === "bus") {
-    const shelterReason = measuredReasons.find((reason) => reason.includes("sheltered"));
+    const shelterReason = measuredReasons.find((reason) => reason.includes("covered-walkway ratio"));
     return [
       "Nearby bus service not walk-verified",
       shelterReason ?? measuredReasons[0] ?? busFallbackSummary(busFallback),
@@ -1335,7 +1335,7 @@ export function ScoreCard({
         <>
           <div className={styles.summaryGrid}>
             <Metric label={selectedRouteLabel} value={formatDistance(selectedDistance)} />
-            <Metric label="Sheltered" value={formatPercent(selectedCoverage)} />
+            <Metric label="Covered-walkway ratio" value={formatPercent(selectedCoverage)} />
             <Metric label="Extra walk" value={extraWalkLabel} />
           </div>
           {compareNote && (
@@ -1349,7 +1349,7 @@ export function ScoreCard({
       {score.paths && previewRoute && (
         <div className={styles.summaryGrid}>
           <Metric label="Preview walk" value={formatDistance(selectedDistance)} />
-          <Metric label="Shelter evidence" value={formatPercent(selectedCoverage)} />
+          <Metric label="Covered-walkway ratio" value={formatPercent(selectedCoverage)} />
           <Metric label="Locked score" value="Preview only" />
         </div>
       )}

@@ -545,7 +545,7 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("Nearby bus service not walk-verified");
-    expect(html).toContain("62% sheltered on selected walk");
+    expect(html).toContain("62% covered-walkway ratio on selected walk");
     expect(html).toContain("3 direct bus options found; nearest 99 m; 0.4 min best scheduled wait.");
     expect(html).not.toContain("direct bus candidates found");
     expect(html).not.toContain("Direct line to bus stop; walking route pending.");
@@ -648,7 +648,7 @@ describe("rendered accessibility output", () => {
     expect(unflaggedBusHtml).not.toContain("Nearby bus evidence not route-verified");
 
     expect(flaggedNoBusHtml).toContain("Nearby bus service not walk-verified");
-    expect(flaggedNoBusHtml).toContain("62% sheltered on selected walk");
+    expect(flaggedNoBusHtml).toContain("62% covered-walkway ratio on selected walk");
     expect(unflaggedNoBusHtml).toContain("Limited bus connectivity");
     expect(unflaggedNoBusHtml).not.toContain("Nearby bus service not walk-verified");
     expect(unflaggedNoBusHtml).not.toContain("Nearby bus service not route-verified");
