@@ -2,14 +2,15 @@
 
 Date: 2026-08-20
 
-Task: P50 route-evidence footer is implemented and ready to hand back after P49 syncbot repair landed.
+Task: P51 night-lighting overlay status is implemented and ready to hand back.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `732a5f6` at P49 task start; contains another sourcerepo syncbot regression.
+Remote main: `0fdc037` at P51 task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P51 changes the route map's non-visual night-lighting summary from a boolean overlay/count sentence to explicit status copy for off, below-zoom, loading, empty, loaded, and unavailable states. Evidence is tracked at `qa/verification/P51-night-lighting-status.md`. Verification passed: focused route-map test, full web test (121 tests / 23 files), TypeScript, repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P50 updates the footer from `Source-derived comfort index.` to `Source-derived route evidence.` and adds a copy test so the old footer cannot return silently. Evidence is tracked at `qa/verification/P50-route-evidence-footer.md`. Verification passed: focused copy test, direct rerun of the two timed-out web tests from the first full-suite attempt, full web test rerun (121 tests / 23 files), TypeScript, repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.
 - P49 fast-forwarded to `origin/main` at `732a5f6`, then restored `NOTICE`, `.vercelignore`, `AGENTS.md`, and `.gitignore` from the last good main after syncbot commit `36f963a` repeated the sticky deletion pattern. Evidence is tracked at `qa/verification/P49-syncbot-restore.md`. Repo integrity passed and the repair landed at `f45509a`.
 - P48 makes arbitrary clicked-stop route previews honest when OneMap walking-route preview is loading or unavailable: the score card now says the selected stop is shown as a straight-line preview until OneMap returns, or straight-line preview only if it cannot. Evidence is being tracked at `qa/verification/P48-clicked-stop-preview-failure.md`. Verification passed: focused route-evidence/accessibility tests, full web test (120 tests / 23 files), TypeScript, repo integrity, diff check, and weights diff. No API calls, scoring, export, rescore, subset run, ingest, network build, input rebuild, deployment, public data write, or weight change was run.

@@ -24,7 +24,7 @@ describe("route evidence map interactions", () => {
     expect(source).toContain('id: "lamp-post-dots"');
     expect(source).toContain("LAMP_OVERLAY_MIN_ZOOM");
     expect(source).toContain('setSourceData(map, "lamp-posts", lampData)');
-    expect(source).toContain("nightLightingSummary(showLampOverlay, lampData.features.length)");
+    expect(source).toContain("nightLightingSummary(lampOverlayStatus, lampData.features.length)");
   });
 
   it("pre-fetches manifest on mount and wires interactive click-to-route in page.tsx", () => {
@@ -54,19 +54,28 @@ describe("route evidence map interactions", () => {
   it("summarizes the night-lighting overlay for non-visual map users", async () => {
     const { nightLightingSummary } = await import("../../components/route-evidence-map");
 
-    expect(nightLightingSummary(false, 12)).toBeNull();
-    expect(nightLightingSummary(true, 0)).toBe(
-      "Night lighting overlay is on; no lamp points are loaded in the current map view."
+    expect(nightLightingSummary("off", 12)).toBeNull();
+    expect(nightLightingSummary("below_zoom", 0)).toBe(
+      "Night lighting overlay is on; zoom in to load LTA lamp-post points."
     );
-    expect(nightLightingSummary(true, 1)).toBe("Night lighting overlay is on with 1 lamp point in view.");
-    expect(nightLightingSummary(true, 14)).toBe("Night lighting overlay is on with 14 lamp points in view.");
+    expect(nightLightingSummary("loading", 0)).toBe(
+      "Night lighting overlay is on; LTA lamp-post points are loading for the current map view."
+    );
+    expect(nightLightingSummary("empty", 0)).toBe(
+      "Night lighting overlay is on; no lamp points are indexed in the current map view."
+    );
+    expect(nightLightingSummary("unavailable", 0)).toBe(
+      "Night lighting overlay is on; lamp-post tiles are unavailable for the current map view."
+    );
+    expect(nightLightingSummary("loaded", 1)).toBe("Night lighting overlay is on with 1 lamp point in view.");
+    expect(nightLightingSummary("loaded", 14)).toBe("Night lighting overlay is on with 14 lamp points in view.");
   });
 
   it("centers the map when an exposed gap is focused from the score card", () => {
     const source = readFileSync(join(__dirname, "../../components/route-evidence-map.tsx"), "utf-8");
 
     expect(source).toContain("focusedExposureGap?: FocusedExposureGap | null");
-    expect(source).toContain("mapTextSummary(routes, mode, routeData, transitPoiData, showLampOverlay, lampData, focusedExposureGap)");
+    expect(source).toContain("mapTextSummary(routes, mode, routeData, transitPoiData, lampOverlayStatus, lampData, focusedExposureGap)");
     expect(source).toContain("map.easeTo({");
     expect(source).toContain("center: [focusedExposureGap.lon, focusedExposureGap.lat]");
     expect(source).toContain("zoom: Math.max(map.getZoom(), 16.4)");

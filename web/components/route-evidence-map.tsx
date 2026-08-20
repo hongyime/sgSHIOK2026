@@ -144,6 +144,7 @@ const EMPTY_TRANSIT_POIS: TransitPoiCollection = { type: "FeatureCollection", fe
 const TRANSIT_POI_HOT_PINK = "#ff2d75";
 const LAMP_OVERLAY_MIN_ZOOM = 13;
 const LAMP_LAYER_IDS = ["lamp-post-dots"] as const;
+type LampOverlayStatus = "off" | "below_zoom" | "loading" | "empty" | "loaded" | "unavailable";
 const TRANSIT_POI_LAYER_IDS = [
   "mrt-station-halo",
   "mrt-station-dot",
@@ -986,10 +987,19 @@ function transitPoiSummary(pois: PointFeatureCollection): string {
   return `${counts.mrtStations} MRT or LRT stations, ${counts.mrtExits} exits, and ${counts.busStops} bus stops`;
 }
 
-export function nightLightingSummary(showLampOverlay: boolean, lampCount: number): string | null {
-  if (!showLampOverlay) return null;
-  if (lampCount === 0) {
-    return "Night lighting overlay is on; no lamp points are loaded in the current map view.";
+export function nightLightingSummary(status: LampOverlayStatus, lampCount: number): string | null {
+  if (status === "off") return null;
+  if (status === "below_zoom") {
+    return "Night lighting overlay is on; zoom in to load LTA lamp-post points.";
+  }
+  if (status === "loading") {
+    return "Night lighting overlay is on; LTA lamp-post points are loading for the current map view.";
+  }
+  if (status === "unavailable") {
+    return "Night lighting overlay is on; lamp-post tiles are unavailable for the current map view.";
+  }
+  if (status === "empty" || lampCount === 0) {
+    return "Night lighting overlay is on; no lamp points are indexed in the current map view.";
   }
   return `Night lighting overlay is on with ${lampCount} lamp point${lampCount === 1 ? "" : "s"} in view.`;
 }
@@ -1010,12 +1020,12 @@ function mapTextSummary(
   mode: RouteDisplayMode,
   routeData: ReturnType<typeof routeCollections>,
   pois: PointFeatureCollection,
-  showLampOverlay: boolean,
+  lampOverlayStatus: LampOverlayStatus,
   lampData: PointFeatureCollection,
   focusedExposureGap: FocusedExposureGap | null
 ): string {
   const poiText = transitPoiSummary(pois);
-  const lampText = nightLightingSummary(showLampOverlay, lampData.features.length);
+  const lampText = nightLightingSummary(lampOverlayStatus, lampData.features.length);
   const selectedGapText = selectedExposureGapSummary(focusedExposureGap);
   if (routes.length === 0) {
     return [
@@ -1096,6 +1106,7 @@ export function RouteEvidenceMap({
   const lampRequestIdRef = useRef(0);
   const [loaded, setLoaded] = useState(false);
   const [lampData, setLampData] = useState<PointFeatureCollection>(emptyPointCollection);
+  const [lampOverlayStatus, setLampOverlayStatus] = useState<LampOverlayStatus>("off");
   const routeData = useMemo(() => routeCollections(routes, mode), [routes, mode]);
   const activeGapData = useMemo(
     () => activeExposureGapCollection(focusedExposureGap),
@@ -1112,8 +1123,8 @@ export function RouteEvidenceMap({
   const feedbackData = useMemo(() => feedbackCollections(feedbackPoints), [feedbackPoints]);
   const accessibleLabel = useMemo(() => mapAriaLabel(routes, mode), [routes, mode]);
   const accessibleSummary = useMemo(
-    () => mapTextSummary(routes, mode, routeData, transitPoiData, showLampOverlay, lampData, focusedExposureGap),
-    [routes, mode, routeData, transitPoiData, showLampOverlay, lampData, focusedExposureGap]
+    () => mapTextSummary(routes, mode, routeData, transitPoiData, lampOverlayStatus, lampData, focusedExposureGap),
+    [routes, mode, routeData, transitPoiData, lampOverlayStatus, lampData, focusedExposureGap]
   );
 
   useEffect(() => {
@@ -1124,6 +1135,7 @@ export function RouteEvidenceMap({
         mode: RouteDisplayMode;
         routeCount: number;
         sourceFeatureCounts: Record<string, number>;
+        lampStatus: LampOverlayStatus;
         summary: string;
       };
     };
@@ -1139,12 +1151,14 @@ export function RouteEvidenceMap({
         activeGap: activeGapData.features.length,
         lamp: lampData.features.length,
       },
+      lampStatus: lampOverlayStatus,
       summary: accessibleSummary,
     };
   }, [
     accessibleSummary,
     activeGapData.features.length,
     lampData.features.length,
+    lampOverlayStatus,
     mode,
     routeData,
     routes.length,
@@ -1231,9 +1245,10 @@ export function RouteEvidenceMap({
           activeGap: activeGapData.features.length,
           lamp: lampData.features.length,
         },
+        lampStatus: lampOverlayStatus,
       });
     }
-  }, [loaded, routeData, activeGapData, transitPoiData, feedbackData, lampData, mode, routes.length]);
+  }, [loaded, routeData, activeGapData, transitPoiData, feedbackData, lampData, lampOverlayStatus, mode, routes.length]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -1243,14 +1258,22 @@ export function RouteEvidenceMap({
     const updateLampOverlay = () => {
       const visible = showLampOverlay && map.getZoom() >= LAMP_OVERLAY_MIN_ZOOM;
       setLayerVisibility(map, LAMP_LAYER_IDS, visible);
+      if (!showLampOverlay) {
+        lampRequestIdRef.current += 1;
+        setLampOverlayStatus("off");
+        setLampData(emptyPointCollection());
+        return;
+      }
       if (!visible) {
         lampRequestIdRef.current += 1;
+        setLampOverlayStatus("below_zoom");
         setLampData(emptyPointCollection());
         return;
       }
 
       const requestId = lampRequestIdRef.current + 1;
       lampRequestIdRef.current = requestId;
+      setLampOverlayStatus("loading");
       void (async () => {
         let manifest = lampManifestRef.current;
         if (manifest === undefined) {
@@ -1259,11 +1282,17 @@ export function RouteEvidenceMap({
         }
         if (!active || requestId !== lampRequestIdRef.current) return;
         if (!manifest) {
+          setLampOverlayStatus("unavailable");
           setLampData(emptyPointCollection());
           return;
         }
 
         const tiles = tilesForBounds(manifest, mapLampBounds(map));
+        if (tiles.length === 0) {
+          setLampOverlayStatus("empty");
+          setLampData(emptyPointCollection());
+          return;
+        }
         const missingTiles = tiles.filter((tile) => !lampTileCacheRef.current.has(tile.cell));
         if (missingTiles.length > 0) {
           const loadedTiles = await fetchLampTiles(missingTiles);
@@ -1281,9 +1310,14 @@ export function RouteEvidenceMap({
         const visibleTiles = tiles
           .map((tile) => lampTileCacheRef.current.get(tile.cell))
           .filter((tile): tile is LampTilePayload => tile !== null && tile !== undefined);
-        setLampData(lampTilesToFeatureCollection(visibleTiles));
+        const nextLampData = lampTilesToFeatureCollection(visibleTiles);
+        setLampOverlayStatus(nextLampData.features.length === 0 ? "empty" : "loaded");
+        setLampData(nextLampData);
       })().catch(() => {
-        if (active) setLampData(emptyPointCollection());
+        if (active) {
+          setLampOverlayStatus("unavailable");
+          setLampData(emptyPointCollection());
+        }
       });
     };
 

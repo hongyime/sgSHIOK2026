@@ -140,3 +140,6 @@ Clicked transit stops without precomputed route geometry use a preview path whil
 
 2026-08-20 - P50 route-evidence footer:
 The page footer should not reintroduce the old comfort-index framing after the title card, result panel, README, and metadata have moved to shelter-first route evidence. The visible footer now says `Source-derived route evidence.` instead of `Source-derived comfort index.`. This is browser copy only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P51 night-lighting overlay status:
+The night-lighting map summary should distinguish overlay lifecycle states instead of collapsing them into a single `no lamp points loaded` sentence. The non-visual map summary now reports whether the overlay is off, below the zoom threshold, loading LTA lamp-post points, empty for the current view, loaded with a point count, or unavailable. This keeps the browser honest about a viewport/zoom-loaded evidence layer without changing lamp tiles, scoring, exports, inputs, public data, deployment, or locked weights.
