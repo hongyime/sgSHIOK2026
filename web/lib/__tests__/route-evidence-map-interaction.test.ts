@@ -33,17 +33,21 @@ describe("shelter map interactions", () => {
     expect(cssSource).toContain("max-width: min(88vw, 360px);");
   });
 
-  it("uses sheltered route copy in non-visual map summaries", () => {
+  it("uses sheltered walk copy in non-visual map summaries", () => {
     const source = readFileSync(join(__dirname, "../../components/route-evidence-map.tsx"), "utf-8");
 
-    expect(source).toContain('return "sheltered route";');
-    expect(source).toContain('return "shortest and sheltered routes";');
-    expect(source).toContain("sheltered-route segments");
+    expect(source).toContain('return "sheltered walk";');
+    expect(source).toContain('return "shortest and sheltered walks";');
+    expect(source).toContain("sheltered-walk segments");
+    expect(source).toContain("shortest-walk segments");
     expect(source).toContain("Singapore shelter map with MRT stations, LRT stations, and bus stops");
     expect(source).toContain("Shelter map for ${labels}, showing ${routeModeLabel(mode)}");
     expect(source).toContain("Shelter map for ${routeLabels}.");
     expect(source).toContain("Search for a postal code to show covered-walkway ratio, exposed gaps, night lighting, and nearby transit.");
     expect(source).not.toContain("Singapore transit map with MRT stations, LRT stations, and bus stops");
+    expect(source).not.toContain('return "sheltered route";');
+    expect(source).not.toContain('return "shortest and sheltered routes";');
+    expect(source).not.toContain("sheltered-route segments");
     expect(source).not.toContain("Route evidence for ${routeLabels}.");
     expect(source).not.toContain("Route evidence map for ${labels}, showing ${routeModeLabel(mode)}");
     expect(source).not.toContain("Search for a postal code to show route evidence.");

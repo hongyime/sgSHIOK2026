@@ -580,3 +580,6 @@ Rendered product copy should use walk language for the user-facing transit path,
 
 2026-08-21 - P217 map legend sheltered-walk wording:
 The inline map legend should match the user-facing walk display controls and selected-walk panel. The main sheltered-line legend now says `Sheltered walk` instead of `Sheltered route`, while direct-bus and preview labels keep their existing specialized wording. This is browser copy and test coverage only; it does not alter map geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P218 non-visual map sheltered-walk wording:
+Non-visual map summaries should use the same walk language as the visible controls and panel copy. The map aria label and screen-reader text now announce `sheltered walk`, `shortest walk`, and `sheltered-walk segments` instead of route wording. This is browser accessibility copy and test coverage only; it does not alter map geometry, score values, scoring, exports, public data, deployment, or locked weights.
