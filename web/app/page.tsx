@@ -2007,7 +2007,7 @@ export default function Home() {
             <h1>S.H.I.O.K. Shelter Map</h1>
             <p>Shelter-first walks to transit</p>
             <p className={styles.dataLine}>
-              Route evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}
+              Shelter map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}
             </p>
             <p className={styles.freshnessLine}>
               Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape; measured recent-source misses exist.

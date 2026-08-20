@@ -46,6 +46,9 @@ describe("score card copy", () => {
     expect(source).toContain('aria-label="Search address or 6-digit postal"');
     expect(source).not.toContain("Singapore walk-to-transit comfort");
     expect(source).toContain(
+      "Shelter map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}"
+    );
+    expect(source).not.toContain(
       "Route evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}"
     );
     expect(source).toContain("function formatGeneratedDate(manifest: Manifest | null): string");

@@ -413,3 +413,6 @@ The visible outside-bundle detail panel should use the same shelter-map bundle l
 
 2026-08-20 - P142 heat proxy temperature caveat:
 The first-viewport heat caveat should explicitly say what the app does not know. It now says `Heat proxy: shelter plus sparse NParks greenery, not measured temperature`, preserving the source inputs while making clear that the value is not observed thermal comfort. This is browser copy and test coverage only; it does not alter heat proxy computation, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P143 shelter-map data-age label:
+The first-viewport data-age line should describe the product evidence as shelter-map evidence, not generic route evidence. It now says `Shelter map evidence as of ...; bundle generated ...`, preserving the distinction between source evidence age and static bundle generation date. This is browser copy and test coverage only; it does not alter manifest parsing, source freshness, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
