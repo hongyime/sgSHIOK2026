@@ -529,3 +529,6 @@ The README should tell operators how to run the manifest-only source freshness g
 
 2026-08-21 - P181 score-source hash policy in readiness:
 Production readiness should expose the score-source hash policy by key name, not only by count. The active policy has 13 score-affecting source keys and excludes `leaf_area_index`; readiness now reports expected, present, missing, unexpected, and non-score reference source hashes so a future bundle that leaks reference-only inputs into score provenance is visible without blocking verified legacy artifacts. This is readiness reporting and test coverage only; it does not alter source manifests, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P195 locked-score availability wording:
+The manifest-derived score availability disclosure should use the same `Locked score` label as the rest of the shelter-first browser copy. It now starts `Locked score availability` instead of `Bundle score availability` while preserving the same manifest-derived counts and missing-score breakdown. This is browser copy and test coverage only; it does not alter manifest parsing, counts, scoring, exports, inputs, public data, deployment, or locked weights.

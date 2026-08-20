@@ -126,7 +126,7 @@ describe("score card copy", () => {
     expect(source).toContain("formatScoreCoverageLine(manifest)");
     expect(source).toContain("styles.coverageLine");
     expect(readFileSync(join(__dirname, "../score-coverage.ts"), "utf-8")).toContain(
-      "Bundle score availability:"
+      "Locked score availability:"
     );
     expect(source).toContain("© OpenStreetMap contributors");
     expect(source).toContain("https://opendatacommons.org/licenses/odbl/1-0/");

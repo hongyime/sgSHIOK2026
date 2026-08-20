@@ -50,7 +50,7 @@ export function formatScoreCoverageLine(manifest: Manifest | null): string | nul
   const nonFullText = breakdown
     ? `do not show a full score: ${breakdown}`
     : "do not show a full score";
-  return `Bundle score availability: ${formatWholeNumber(scored)} full scores out of ${formatWholeNumber(
+  return `Locked score availability: ${formatWholeNumber(scored)} full scores out of ${formatWholeNumber(
     recordCount
   )}; ${formatWholeNumber(notFull)} records (${pctText}) ${nonFullText}.`;
 }
