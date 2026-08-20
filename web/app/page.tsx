@@ -898,7 +898,7 @@ function TransitModeControl({
 }) {
   if (!score.route_options) return null;
   const availabilityLabel = (option: (typeof TRANSIT_MODE_OPTIONS)[number], available: boolean) => {
-    if (option.id === "best_transit") return available ? "selected route" : "unavailable";
+    if (option.id === "best_transit") return available ? "selected walk" : "unavailable";
     if (available) return "shelter map route";
     return "no shelter map route";
   };
@@ -1166,7 +1166,7 @@ export function ScoreCard({
   const hiddenGapCount = Math.max(0, exposureGaps.length - visibleExposureGaps.length);
   const longestGapText = longestGap
     ? `${formatDistance(longestGap.len_m)} is the longest exposed gap.`
-    : "No exposed gaps are recorded for this selected route.";
+    : "No exposed gaps are recorded for this selected walk.";
   const exposureHeroText =
     exposureGaps.length === 0
       ? longestGapText
@@ -1213,7 +1213,7 @@ export function ScoreCard({
           label: "Walk to transit",
           value: score.paths ? formatDistance(selectedDistance) : formatScore(score.subscores.access),
           meta: scoredMeta(score.subscores.access, "35% locked access", "No access score"),
-          notes: [`Selected route distance to ${transitModeLabel(transitMode)}.`],
+          notes: [`Selected walk distance to ${transitModeLabel(transitMode)}.`],
         },
         {
           id: "bus",
@@ -1307,7 +1307,7 @@ export function ScoreCard({
       <TransitModeControl score={score} mode={transitMode} setMode={setTransitMode} />
 
       {score.paths && (
-        <div className={styles.exposureHero} aria-label="Route shelter evidence">
+        <div className={styles.exposureHero} aria-label="Walk shelter evidence">
           <span>Where the walk is exposed</span>
           <strong>{formatPercent(selectedCoverage)} of the {selectedWalkLabel} is covered.</strong>
           <p>{exposureHeroText}</p>

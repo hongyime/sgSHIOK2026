@@ -511,3 +511,6 @@ The empty score-card live region should say no shelter-map walk is selected, not
 
 2026-08-21 - P175 selected-walk live fallback:
 The score-card live region should fall back to `walk active` when no selected-walk label is available, not `route active`. This preserves the shelter-map walk framing even in defensive helper calls that do not pass a selected route label. This is browser accessibility copy and test coverage only; it does not alter route selection, map rendering, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P176 selected-walk panel wording:
+The selected shelter-map panel should describe its active evidence as a selected walk, not a generic selected route. The exposure hero aria label now says `Walk shelter evidence`, the no-gap fallback says `selected walk`, the access row note says `Selected walk distance`, and the Best transit tab says `selected walk`. This is browser copy and accessibility test coverage only; it does not alter transit selection, route geometry, score values, scoring, exports, public data, deployment, or locked weights.

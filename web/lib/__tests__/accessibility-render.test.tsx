@@ -307,6 +307,7 @@ describe("rendered accessibility output", () => {
     );
 
     expect(html).toContain("Where the walk is exposed");
+    expect(html).toContain('aria-label="Walk shelter evidence"');
     expect(html).toContain("62% of the selected walk is covered.");
     expect(html).toContain("181 m exposed across 2 gaps; 142 m is the longest exposed gap.");
     expect(html).toContain("142 m is the longest exposed gap.");
@@ -319,12 +320,15 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Four display rows; weights unchanged");
     expect(html).toContain('aria-label="Shelter map evidence reasons"');
     expect(html).not.toContain("Route evidence and locked score");
+    expect(html).not.toContain('aria-label="Route shelter evidence"');
     expect(html).not.toContain('aria-label="Route evidence and locked score breakdown"');
     expect(html).not.toContain('aria-label="Route evidence reasons"');
     expect(html).not.toContain('aria-label="Score breakdown"');
     expect(html).not.toContain('aria-label="Score reasons"');
     expect(html).toContain("Shelter exposure");
     expect(html).toContain("Walk to transit");
+    expect(html).toContain("Selected walk distance to transit.");
+    expect(html).not.toContain("Selected route distance to transit.");
     expect(html).toContain("Bus service support");
     expect(html).toContain("Locked SHIOK score");
     expect(html).toContain('aria-label="Planning-area comparison"');
@@ -427,9 +431,10 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain('aria-label="Transit target"');
-    expect(html).toContain("<span>Best transit</span><small>selected route</small>");
+    expect(html).toContain("<span>Best transit</span><small>selected walk</small>");
     expect(html).toContain("<span>MRT/LRT</span><small>no shelter map route</small>");
     expect(html).toContain("<span>Bus</span><small>shelter map route</small>");
+    expect(html).not.toContain("<span>Best transit</span><small>selected route</small>");
     expect(html).not.toContain("<span>MRT/LRT</span><small>no route evidence</small>");
     expect(html).not.toContain("<span>Bus</span><small>route evidence</small>");
   });
