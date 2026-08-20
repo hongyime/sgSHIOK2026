@@ -248,7 +248,7 @@ describe("rendered accessibility output", () => {
       rankingRecords: [recordWithEqualRainHeat],
     });
     const breakdownHtml = html.slice(
-      html.indexOf('aria-label="Score breakdown"'),
+      html.indexOf('aria-label="Route evidence and locked score breakdown"'),
       html.indexOf('aria-label="Rank by view"')
     );
 
@@ -256,8 +256,10 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("62% of the selected walk is covered.");
     expect(html).toContain("142 m is the longest exposed gap.");
     expect(html).toContain("Route evidence and locked score");
+    expect(html).toContain('aria-label="Route evidence and locked score breakdown"');
     expect(html).toContain("Four display rows; weights unchanged");
     expect(html).toContain('aria-label="Route evidence reasons"');
+    expect(html).not.toContain('aria-label="Score breakdown"');
     expect(html).not.toContain('aria-label="Score reasons"');
     expect(html).toContain("Shelter exposure");
     expect(html).toContain("Walk to transit");
@@ -348,17 +350,19 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("Shelter exposure");
     expect(html).toContain(
-      "Partial score: one or more sub-scores are unavailable; locked weights count missing terms as zero."
+      "Partial bundle score: one or more sub-scores are unavailable; locked weights count missing terms as zero."
     );
     expect(html).toContain("Route evidence unavailable");
     expect(html).toContain("Bundle score unavailable");
     expect(html).toContain("<strong>Not scored</strong><small>No shelter score</small>");
     expect(html).toContain("<strong>Not scored</strong><small>No access score</small>");
-    expect(html).toContain("<strong>Not scored</strong><small>No composite score</small>");
+    expect(html).toContain("<strong>Not scored</strong><small>No locked score</small>");
     expect(html).toContain("<strong>42</strong><small>20% locked bus</small>");
     expect(html).not.toContain("<strong>0</strong><small>No shelter score</small>");
     expect(html).not.toContain("<strong>0</strong><small>No access score</small>");
     expect(html).not.toContain("Score not available");
+    expect(html).not.toContain("Partial score:");
+    expect(html).not.toContain("No composite score");
   });
 
   it("describes awaiting bundle scoring without pipeline jargon", () => {
@@ -415,7 +419,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("62% sheltered on sheltered route");
     expect(html).toContain("3 direct bus candidates found; nearest 99 m; 0.4 min best scheduled wait.");
     expect(html).toContain("Walking network access was not verified, so this sub-score remains 0.");
-    expect(html).toContain("Composite caveat: the bus term remains 0");
+    expect(html).toContain("Locked score caveat: the bus term remains 0");
     expect(html).toContain("Bus service support");
     expect(html).toContain("20%");
     expect(html).not.toContain("Limited bus connectivity");

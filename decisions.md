@@ -278,3 +278,6 @@ Client-side clicked-stop preview records should carry the same offline-bundle la
 
 2026-08-20 - P97 sheltered-language follow-through:
 Tracked support files should not keep the old `covered route` framing after the browser moved to `sheltered route`. Browser smoke checks now expect `Sheltered` / `Sheltered route`, attribution describes bridge/underpass geometry as sheltered-route connectors, the section 10 proposal uses `Sheltered walk`, and the heat-presentation analysis refers to covered-walkway shelter rather than a covered route. This is docs/test/proposal copy only; it does not alter route IDs, map layers, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P98 locked-score breakdown copy:
+The score-card breakdown should be framed as route evidence plus the locked score, not as a generic score/composite breakdown. The aria label now says `Route evidence and locked score breakdown`, partial records say `Partial bundle score`, missing totals say `No locked score`, and the bus fallback caveat says `Locked score caveat`. This is browser/proposal copy only; it does not alter score-state classification, displayed values, ranking, scoring, exports, public data, deployment, or locked weights.

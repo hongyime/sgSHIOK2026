@@ -417,7 +417,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     return "Preview only: this clicked stop has route evidence, but it is not an authoritative SHIOK score until an offline bundle includes it.";
   }
   if (score.state === "SCORED_PARTIAL") {
-    return "Partial score: one or more sub-scores are unavailable; locked weights count missing terms as zero.";
+    return "Partial bundle score: one or more sub-scores are unavailable; locked weights count missing terms as zero.";
   }
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const reason = provenanceReason(score, transitMode);
@@ -438,7 +438,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
   }
   const busFallback = directBusFallbackEvidence(score);
   if (busFallback) {
-    return "Composite caveat: the bus term remains 0 because nearby bus evidence could not be connected to a verified walking route.";
+    return "Locked score caveat: the bus term remains 0 because nearby bus evidence could not be connected to a verified walking route.";
   }
   return null;
 }
@@ -1194,7 +1194,7 @@ export function ScoreCard({
           id: "locked-score",
           label: "Locked SHIOK score",
           value: formatLockedScore(displayScore),
-          meta: scoredMeta(displayScore, "Release sorting index", "No composite score"),
+          meta: scoredMeta(displayScore, "Release sorting index", "No locked score"),
           notes: [
             "Use this locked composite to sort the current bundle, then inspect the shelter trace and exposed gaps.",
             "Crossing friction remains a 5% locked term, but has low separation in this release.",
@@ -1325,7 +1325,7 @@ export function ScoreCard({
       {stateNote && <p className={styles.stateNote}>{stateNote}</p>}
 
       {score.subscores && (
-        <div className={styles.scoreBreakdown} aria-label="Score breakdown">
+        <div className={styles.scoreBreakdown} aria-label="Route evidence and locked score breakdown">
           <div className={styles.scoreBreakdownHeader}>
             <strong>Route evidence and locked score</strong>
             <span>Four display rows; weights unchanged</span>

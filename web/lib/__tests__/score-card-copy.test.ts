@@ -138,11 +138,13 @@ describe("score card copy", () => {
     const weightsYaml = readFileSync(join(__dirname, "../../../pipeline/config/weights.yaml"), "utf-8");
 
     expect(source).toContain("Route evidence and locked score");
+    expect(source).toContain('aria-label="Route evidence and locked score breakdown"');
     expect(source).toContain('label: "Locked SHIOK score"');
     expect(source).not.toContain('label: "Overall SHIOK"');
     expect(source).toContain("Planning-area order by locked score.");
     expect(source).not.toContain("Authoritative composite order.");
     expect(source).toContain("Four display rows; weights unchanged");
+    expect(source).toContain('"No locked score"');
     expect(source).toContain('label: "Shelter exposure"');
     expect(source).toContain('label: "Walk to transit"');
     expect(source).toContain('label: "Bus service support"');

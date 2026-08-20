@@ -44,10 +44,10 @@ could not prove a trusted walk to a DataMall bus stop. Treat it as a service-sup
 signal with routing caveats, not as a pure frequency score.
 ```
 
-Composite caveat copy:
+Locked score caveat copy:
 
 ```text
-The composite score is locked for this release. Use it to sort the current bundle, then
+The locked score is fixed for this release. Use it to sort the current bundle, then
 inspect the shelter map and exposed gaps before deciding whether a route actually works
 for you.
 ```
