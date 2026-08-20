@@ -225,6 +225,7 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("Preview route evidence only");
+    expect(html).toContain("Shelter map evidence preview");
     expect(html).toContain("<span>Bundle score</span><strong>Preview only</strong>");
     expect(html).toContain(
       "OneMap walking preview is unavailable for this selected stop; showing straight-line preview only."
@@ -233,6 +234,7 @@ describe("rendered accessibility output", () => {
       "Preview only: this clicked stop has route evidence, but it is not part of the published score bundle yet."
     );
     expect(html).not.toContain("not an authoritative SHIOK score");
+    expect(html).not.toContain("Route evidence preview");
     expect(html).not.toContain("until an offline bundle includes it");
     expect(html).not.toContain("offline scoring pipeline includes it");
   });
@@ -391,7 +393,7 @@ describe("rendered accessibility output", () => {
       "Partial bundle score: one or more component scores are unavailable; locked weights count missing terms as zero."
     );
     expect(html).not.toContain("one or more sub-scores are unavailable");
-    expect(html).toContain("Route evidence unavailable");
+    expect(html).toContain("Shelter map evidence unavailable");
     expect(html).toContain("Bundle score unavailable");
     expect(html).toContain("<strong>Not scored</strong><small>No shelter score</small>");
     expect(html).toContain("<strong>Not scored</strong><small>No access score</small>");
@@ -401,6 +403,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("<strong>0</strong><small>No access score</small>");
     expect(html).not.toContain("<strong>Not scored</strong><small>No locked score</small>");
     expect(html).not.toContain("Score not available");
+    expect(html).not.toContain("Route evidence unavailable");
     expect(html).not.toContain("Partial score:");
     expect(html).not.toContain("No composite score");
   });

@@ -677,7 +677,7 @@ function resolveOriginLatLng(selection: LoadedSelection | null): { lat: number; 
 
 function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): string[] {
   if (score.paths?.routing_type === "live_onemap_preview") {
-    return ["Route evidence preview", "Not scored in the current bundle"];
+    return ["Shelter map evidence preview", "Not scored in the current bundle"];
   }
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const label = transitModeLabel(transitMode);
@@ -697,8 +697,8 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
   if (score.paths?.routing_type === "direct_bus_fallback_unrouted") {
     return ["Nearby bus stop with service data", "Walking-route shelter not verified yet"];
   }
-  if (!score.paths || !score.best_node) return ["Route evidence unavailable", "Bundle score unavailable"];
-  if (!score.subscores) return ["Bundle score incomplete", "Route evidence available"];
+  if (!score.paths || !score.best_node) return ["Shelter map evidence unavailable", "Bundle score unavailable"];
+  if (!score.subscores) return ["Bundle score incomplete", "Shelter map evidence available"];
 
   const measuredReasons: string[] = [];
   const busFallback = directBusFallbackEvidence(score);

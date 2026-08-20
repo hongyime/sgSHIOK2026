@@ -422,3 +422,6 @@ The secondary breakdown and reason group should use the shelter-map evidence fra
 
 2026-08-20 - P145 planning-area comparison label:
 The planning-area rank panel should read as a local comparison aid rather than a primary ranking surface. Its accessible name is now `Planning-area comparison` and its heading is `Compare nearby records`, while the select control still says `Rank records by` because that control changes the rank metric. This is browser copy/accessibility naming and test coverage only; it does not alter ranking data fetches, rank metrics, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P146 shelter-map reason chips:
+Generic reason chips inside the shelter-map evidence reason group should use the same shelter-map evidence wording as the group label. Preview, unavailable, and available chips now say `Shelter map evidence ...`, while state-specific walking-route and score-bundle caveats stay precise. This is browser copy and test coverage only; it does not alter score-state classification, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
