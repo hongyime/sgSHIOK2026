@@ -2,14 +2,15 @@
 
 Date: 2026-08-20
 
-Task: P65 README universe status is implemented and ready to hand back.
+Task: P66 readiness source-policy summary is implemented and ready to hand back.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `b6b8ca8` at P65 task start.
+Remote main: `edfed79` at P66 task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P66 adds the settled postal-universe source policy to `scripts/production_readiness.py`: the canonical 140k universe remains unclaimed, and v2 should be candidate-source-first with bounded OneMap Search validation rather than treating OSM or OneMap Search as a complete postal registry. Evidence is tracked at `qa/verification/P66-readiness-source-policy.md`, and the durable source-policy decision is appended to `decisions.md`. Verification passed: focused readiness test, full readiness test file, repo integrity, diff check, and weights diff. No scoring, export, rescore, subset run, ingest, network build, input rebuild, API collection, public data write, deployment, or weight change was run.
 - P65 adds a README `Universe status` section that records frozen v1, the P19 8/976 recent-completion miss signal, P63's OSM-not-registry result, and P64's OneMap-as-candidate-validation result. Evidence is tracked at `qa/verification/P65-readme-universe-status.md`, and the durable README decision is appended to `decisions.md`. Verification passed: README term checks, repo integrity, diff check, and weights diff. No scoring, export, rescore, subset run, ingest, network build, input rebuild, API collection, public data write, deployment, or weight change was run.
 - P64 established that OneMap Search is candidate validation/geocoding infrastructure, not a full postal-universe enumeration source. Exact candidate lookup works, but official docs make `searchVal` the required keyword filter, broad `Singapore` search returned only 392 found results, and empty/wildcard/low-specificity probes returned HTTP 429. Evidence is tracked at `qa/verification/P64-onemap-enumeration-feasibility.md`, and the durable source-architecture decision is appended to `decisions.md`. OneMap credentials remain absent from the environment despite the standing objective. No scoring, export, rescore, subset run, ingest, network build, input rebuild, public data write, deployment, or weight change was run.
 - P63 measured live OSM `addr:postcode` coverage through Overpass against the frozen 124,443-postal universe. Result: 25,879 distinct valid six-digit OSM postcodes, 25,873 overlapping the frozen universe, 6 OSM-only, 98,570 frozen-only, 20.791% coverage of the frozen universe. Evidence is tracked at `qa/verification/P63-osm-postcode-coverage.md`, and the durable source-policy decision is appended to `decisions.md`. No scoring, export, rescore, subset run, ingest, network build, input rebuild, public data write, deployment, or weight change was run.

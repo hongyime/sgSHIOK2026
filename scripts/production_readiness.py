@@ -634,8 +634,15 @@ def readiness_features(
         },
         "not_incorporated": {
             "canonical_140k_postal_universe": (
-                "not claimed; URA improves official-current coverage and Overture remains a "
-                "candidate gate, but neither is a complete accepted source-of-record"
+                "not claimed; frozen v1 remains the 124443-record June 2020 OneMap-derived "
+                "universe; P19 found 8 missing rows out of 976 recent completion rows with "
+                "postals, P63 found live OSM addr:postcode covers only 25873 frozen postals, "
+                "and P64 found OneMap Search validates candidates but is not an enumerator"
+            ),
+            "postal_universe_v2_source_policy": (
+                "candidate-source-first: use current free sources to propose v2 rows, then "
+                "validate bounded candidates through OneMap Search under explicit token and "
+                "rate controls; do not use OSM or OneMap Search as a complete postal registry"
             ),
             "ura_expanded_scores_live": (
                 "postal prep produces 124443 candidate records and 123967 ready-to-score rows; "

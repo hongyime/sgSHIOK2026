@@ -216,8 +216,16 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
     assert report["features"]["incorporated"]["ura_no_dwelling_units_postal_source"] is True
     assert "124443" in report["features"]["not_incorporated"]["ura_expanded_scores_live"]
     assert (
-        "complete accepted source-of-record"
+        "P63 found live OSM addr:postcode covers only 25873 frozen postals"
         in report["features"]["not_incorporated"]["canonical_140k_postal_universe"]
+    )
+    assert (
+        "candidate-source-first"
+        in report["features"]["not_incorporated"]["postal_universe_v2_source_policy"]
+    )
+    assert (
+        "do not use OSM or OneMap Search as a complete postal registry"
+        in report["features"]["not_incorporated"]["postal_universe_v2_source_policy"]
     )
     assert (
         "outlier review/rescore"
