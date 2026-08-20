@@ -368,3 +368,6 @@ Production-readiness policy copy should cite the fresh P125 live Overpass measur
 
 2026-08-20 - P127 batch-plan OSM coverage fields:
 The dry-run batch planner should expose the measured OSM `addr:postcode` coverage as structured source-policy fields, not only as a prose insufficiency verdict. It now reports the P125 measurement label, 25,879 valid distinct OSM postcodes, 25,873 overlapping frozen v1 postals, 124,443 frozen v1 postals, 20.791045% coverage, and the `not sufficient as primary registry` verdict. This is dry-run reporting only; it does not alter inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P128 readiness OSM coverage fields:
+Production readiness should expose the measured OSM `addr:postcode` coverage as structured source-policy fields, not only as prose inside the postal-universe caveat. Readiness now reuses the batch planner's P125 measurement block: 25,879 valid distinct OSM postcodes, 25,873 overlapping frozen v1 postals, 124,443 frozen v1 postals, 20.791045% coverage, and the `not sufficient as primary registry` verdict. This is release-reporting only; it does not alter inputs, scoring, exports, public data, deployment, or locked weights.

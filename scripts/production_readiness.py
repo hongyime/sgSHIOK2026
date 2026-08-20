@@ -10,7 +10,7 @@ from typing import Any
 
 import yaml
 
-from pipeline.batch_plan import PARAMS_PATH, build_batch_plan
+from pipeline.batch_plan import OSM_ADDR_POSTCODE_COVERAGE, PARAMS_PATH, build_batch_plan
 from pipeline.export import validate_static_artifacts
 from pipeline.fetch import source_freshness_status
 from pipeline.network_qa import validate_network_qa
@@ -960,6 +960,9 @@ def readiness_features(
         },
         "validation_gates": {
             "onemap_walk_validation": onemap_status,
+        },
+        "source_policy": {
+            "osm_addr_postcode_registry": OSM_ADDR_POSTCODE_COVERAGE,
         },
     }
 
