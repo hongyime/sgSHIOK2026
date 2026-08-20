@@ -1936,7 +1936,7 @@ export default function Home() {
     if (!shouldQueryOneMap(query)) {
       setResults([]);
       setSearchAttempted(false);
-      setError("Enter at least 3 characters or a 6-digit postal code.");
+      setError("Enter at least 3 characters for OneMap search, or use a 6-digit postal code.");
       return;
     }
 

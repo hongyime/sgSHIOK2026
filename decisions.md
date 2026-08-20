@@ -481,3 +481,6 @@ Outside-bundle copy now says no shelter-map route is published for the searched 
 
 2026-08-21 - P165 no-results search caveat:
 The no-results search feedback now separates a OneMap lookup failure from the frozen shelter-map bundle's measured recent-source misses. It says no OneMap address result was found for the search, suggests trying a 6-digit postal code, and then separately reminds users that the frozen bundle has measured recent-source misses. This is browser copy and test coverage only; it does not alter search behavior, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P166 short-query search guidance:
+The short-query validation error now distinguishes OneMap address search from direct postal lookup: users should enter at least 3 characters for OneMap search, or use a 6-digit postal code. This keeps search guidance aligned with the app's two lookup paths. This is browser copy and test coverage only; it does not alter search behavior, scoring, exports, public data, deployment, or locked weights.
