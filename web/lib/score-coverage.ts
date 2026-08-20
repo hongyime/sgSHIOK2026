@@ -29,9 +29,9 @@ function scoreCoverageBreakdown(stateCounts: unknown, notFull: number): string |
   ) {
     return null;
   }
-  return `${formatWholeNumber(partial)} partial, ${formatWholeNumber(
+  return `${formatWholeNumber(partial)} with partial route evidence, ${formatWholeNumber(
     noTransit
-  )} beyond current transit range, and ${formatWholeNumber(notYet)} not yet scored`;
+  )} beyond current transit range, and ${formatWholeNumber(notYet)} awaiting scoring`;
 }
 
 export function formatScoreCoverageLine(manifest: Manifest | null): string | null {
@@ -47,8 +47,10 @@ export function formatScoreCoverageLine(manifest: Manifest | null): string | nul
   const pct = notFull / recordCount;
   const pctText = pct >= 0.22 && pct <= 0.28 ? "roughly a quarter" : `${Math.round(pct * 100)}%`;
   const breakdown = scoreCoverageBreakdown(provenance.state_counts, notFull);
-  const nonFullText = breakdown ? `are not full scores: ${breakdown}` : "do not render a full score";
-  return `Score coverage: ${formatWholeNumber(scored)} full scores out of ${formatWholeNumber(
+  const nonFullText = breakdown
+    ? `do not show a full route score: ${breakdown}`
+    : "do not show a full route score";
+  return `Score coverage: ${formatWholeNumber(scored)} full route scores out of ${formatWholeNumber(
     recordCount
   )}; ${formatWholeNumber(notFull)} records (${pctText}) ${nonFullText}.`;
 }

@@ -30,7 +30,7 @@ describe("score coverage copy", () => {
         })
       )
     ).toBe(
-      "Score coverage: 95,157 full scores out of 124,443; 29,286 records (roughly a quarter) are not full scores: 18,983 partial, 9,827 beyond current transit range, and 476 not yet scored."
+      "Score coverage: 95,157 full route scores out of 124,443; 29,286 records (roughly a quarter) do not show a full route score: 18,983 with partial route evidence, 9,827 beyond current transit range, and 476 awaiting scoring."
     );
   });
 
@@ -44,13 +44,13 @@ describe("score coverage copy", () => {
         })
       )
     ).toBe(
-      "Score coverage: 900 full scores out of 1,000; 100 records (10%) are not full scores: 80 partial, 15 beyond current transit range, and 5 not yet scored."
+      "Score coverage: 900 full route scores out of 1,000; 100 records (10%) do not show a full route score: 80 with partial route evidence, 15 beyond current transit range, and 5 awaiting scoring."
     );
   });
 
   it("falls back to the generic non-full copy when state counts are incomplete", () => {
     expect(formatScoreCoverageLine(manifestWithCounts(1000, 900))).toBe(
-      "Score coverage: 900 full scores out of 1,000; 100 records (10%) do not render a full score."
+      "Score coverage: 900 full route scores out of 1,000; 100 records (10%) do not show a full route score."
     );
   });
 

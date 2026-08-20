@@ -218,3 +218,6 @@ Production readiness should surface the same manifest-only source freshness poli
 
 2026-08-20 - P77 exposed-gap total disclosure:
 The route evidence panel should summarize the total open-air burden, not only name the longest individual exposed gap. The browser now shows total exposed metres, recorded exposed-gap count, and whether the visible list is complete or only the longest three gaps. This keeps the covered-walkway/exposure-gaps artifact as the headline while avoiding a long uncontrolled list in the score card. This is browser presentation only; it does not alter inputs, public data, exports, scoring, deployment, or locked weights.
+
+2026-08-20 - P78 score-coverage wording:
+The title-card score-coverage line should explain missing full scores in user-facing route-evidence language rather than internal score-state shorthand. It now says `full route scores`, `with partial route evidence`, `beyond current transit range`, and `awaiting scoring`, preserving the same manifest-derived counts. This is browser copy only; it does not alter manifests, inputs, public data, exports, scoring, deployment, or locked weights.
