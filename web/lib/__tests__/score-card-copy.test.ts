@@ -44,6 +44,14 @@ describe("score card copy", () => {
     expect(source).toContain('sameRoute ? "Shortest (same)" : "Shortest"');
   });
 
+  it("keeps browser smoke aligned with awaiting bundle-score copy", () => {
+    const smokeSource = readFileSync(join(__dirname, "../../scripts/browser-smoke.mjs"), "utf-8");
+
+    expect(smokeSource).toContain('summary.cardText.includes("No full score in this bundle")');
+    expect(smokeSource).toContain('summary.cardText.includes("Awaiting bundle score")');
+    expect(smokeSource).not.toContain("needs usable location evidence");
+  });
+
   it("puts data freshness and heat proxy copy in the title card", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
     const layoutSource = readFileSync(join(__dirname, "../../app/layout.tsx"), "utf-8");

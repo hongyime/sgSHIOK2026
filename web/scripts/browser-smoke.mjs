@@ -574,7 +574,8 @@ function collectChecks(summary, mapState, cdp, postal, inputMode, expectedState,
     summary.cardText.includes("Closest routed transit");
   const hasNotYetScored =
     summary.cardText.includes("Not scored") ||
-    (summary.cardText.includes("No score") && summary.cardText.includes("needs usable location evidence"));
+    summary.cardText.includes("No full score in this bundle") ||
+    summary.cardText.includes("Awaiting bundle score");
   const routeSourceFeatures =
     Number(mapState?.debug?.sourceFeatureCounts?.shiokest || 0) +
     Number(mapState?.debug?.sourceFeatureCounts?.shortest || 0);
