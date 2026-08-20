@@ -355,8 +355,9 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("Shelter exposure");
     expect(html).toContain(
-      "Partial bundle score: one or more sub-scores are unavailable; locked weights count missing terms as zero."
+      "Partial bundle score: one or more component scores are unavailable; locked weights count missing terms as zero."
     );
+    expect(html).not.toContain("one or more sub-scores are unavailable");
     expect(html).toContain("Route evidence unavailable");
     expect(html).toContain("Bundle score unavailable");
     expect(html).toContain("<strong>Not scored</strong><small>No shelter score</small>");
@@ -431,7 +432,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("62% sheltered on sheltered route");
     expect(html).toContain("3 direct bus options found; nearest 99 m; 0.4 min best scheduled wait.");
     expect(html).not.toContain("direct bus candidates found");
-    expect(html).toContain("Walking-route access was not verified, so this sub-score remains 0.");
+    expect(html).toContain("Walking-route access was not verified, so this component score remains 0.");
+    expect(html).not.toContain("so this sub-score remains 0");
     expect(html).not.toContain("Walking network access was not verified");
     expect(html).toContain("Locked score caveat: the bus term remains 0");
     expect(html).toContain("Bus service support");

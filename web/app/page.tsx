@@ -426,7 +426,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     return "Preview only: this clicked stop has route evidence, but it is not an authoritative SHIOK score until it is included in a published score bundle.";
   }
   if (score.state === "SCORED_PARTIAL") {
-    return "Partial bundle score: one or more sub-scores are unavailable; locked weights count missing terms as zero.";
+    return "Partial bundle score: one or more component scores are unavailable; locked weights count missing terms as zero.";
   }
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const reason = provenanceReason(score, transitMode);
@@ -1195,7 +1195,7 @@ export function ScoreCard({
           notes: [
             "A low value can mean weak service evidence, or that routing could not prove a trusted walk to a DataMall bus stop.",
             busFallback
-              ? `${busFallbackSummary(busFallback)} Walking-route access was not verified, so this sub-score remains 0.`
+              ? `${busFallbackSummary(busFallback)} Walking-route access was not verified, so this component score remains 0.`
               : null,
           ].filter((note): note is string => Boolean(note)),
         },
@@ -1368,7 +1368,7 @@ export function ScoreCard({
                   ? "Loads planning-area ranks only when opened."
                   : rankMetric === "overall"
                   ? "Planning-area order by locked score."
-                  : "Planning-area sub-score view; locked SHIOK score is unchanged."}
+                  : "Planning-area component-score view; locked SHIOK score is unchanged."}
               </span>
             </div>
             {rankPanelOpen ? (

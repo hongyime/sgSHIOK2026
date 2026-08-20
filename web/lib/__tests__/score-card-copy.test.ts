@@ -168,7 +168,9 @@ describe("score card copy", () => {
     expect(source).not.toContain('label: "Overall SHIOK"');
     expect(source).not.toContain("Use this locked composite");
     expect(source).toContain("Planning-area order by locked score.");
+    expect(source).toContain("Planning-area component-score view; locked SHIOK score is unchanged.");
     expect(source).not.toContain("Authoritative composite order.");
+    expect(source).not.toContain("Planning-area sub-score view; locked SHIOK score is unchanged.");
     expect(source).toContain("Four display rows; weights unchanged");
     expect(source).toContain('"No locked score"');
     expect(source).toContain('label: "Shelter exposure"');

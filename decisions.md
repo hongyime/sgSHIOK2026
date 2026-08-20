@@ -344,3 +344,6 @@ The source freshness line should clarify that the single unknown-age source is a
 
 2026-08-20 - P119 stale source names:
 The source freshness disclosure should name the exact stale sources instead of grouping them as generic greenery or boundary references. It now lists traffic signals, planning area boundary, NParks nature ways, tracks, heritage trees, and heritage road green buffers. This is browser copy only; it does not alter freshness classification, data fetching, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P120 component-score copy:
+The score card should use user-facing `component score` language instead of `sub-score` in rendered partial-score, bus-fallback, and rank-panel copy. This keeps the locked-score explanation understandable without exposing implementation vocabulary. This is browser copy only; it does not alter score values, ranking behavior, scoring, exports, inputs, public data, deployment, or locked weights.
