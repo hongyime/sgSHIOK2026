@@ -484,3 +484,6 @@ The no-results search feedback now separates a OneMap lookup failure from the fr
 
 2026-08-21 - P166 short-query search guidance:
 The short-query validation error now distinguishes OneMap address search from direct postal lookup: users should enter at least 3 characters for OneMap search, or use a 6-digit postal code. This keeps search guidance aligned with the app's two lookup paths. This is browser copy and test coverage only; it does not alter search behavior, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P167 no-results live-region parity:
+The hidden search-results live region should announce the same no-result state as the visible search feedback after a search attempt. It now names the OneMap address lookup failure and the 6-digit postal fallback instead of returning an empty status while a separate visible status box carries the message. This is browser accessibility copy and test coverage only; it does not alter search behavior, scoring, exports, public data, deployment, or locked weights.

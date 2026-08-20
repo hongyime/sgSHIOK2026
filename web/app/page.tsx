@@ -123,8 +123,17 @@ const FEEDBACK_SEGMENT_OPTIONS: Array<{ id: FeedbackSegmentLabel; label: string 
   { id: "other", label: "Other" },
 ];
 
-export function searchResultsAnnouncement(results: SearchResult[], loading: boolean, error: string | null): string {
-  if (loading || error || results.length === 0) return "";
+export function searchResultsAnnouncement(
+  results: SearchResult[],
+  loading: boolean,
+  error: string | null,
+  searched = false
+): string {
+  if (loading || error) return "";
+  if (searched && results.length === 0) {
+    return "No OneMap address result found for this search. Try a 6-digit postal code.";
+  }
+  if (results.length === 0) return "";
   return `${results.length} search result${results.length === 1 ? "" : "s"} available.`;
 }
 
@@ -206,7 +215,7 @@ export function SearchFeedback({
   error: string | null;
   searched?: boolean;
 }) {
-  const status = searchResultsAnnouncement(results, loading, error);
+  const status = searchResultsAnnouncement(results, loading, error, searched);
   const showNoResults = searched && !loading && !error && results.length === 0;
   return (
     <>

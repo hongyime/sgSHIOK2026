@@ -10,6 +10,7 @@ vi.mock("next/navigation", () => ({
 import {
   ScoreCard,
   SearchFeedback,
+  searchResultsAnnouncement,
   type FeedbackSegmentLabel,
   type LoadedSelection,
 } from "../../app/page";
@@ -147,6 +148,9 @@ describe("rendered accessibility output", () => {
 
     const noResultsHtml = renderToStaticMarkup(
       <SearchFeedback results={[]} loading={false} error={null} searched={true} />
+    );
+    expect(searchResultsAnnouncement([], false, null, true)).toBe(
+      "No OneMap address result found for this search. Try a 6-digit postal code."
     );
     expect(noResultsHtml).toContain("No OneMap address result found for this search.");
     expect(noResultsHtml).toContain("Try a 6-digit postal code");
