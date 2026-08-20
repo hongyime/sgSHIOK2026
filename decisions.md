@@ -173,3 +173,6 @@ The title card should expose the P59 freshness result in user-facing language, n
 
 2026-08-20 - P61 stale source category copy:
 The source freshness disclosure should name the stale supporting-source categories rather than only giving a count. The browser now says the stale supporting sources include traffic signals and some greenery or boundary references, while shelter, bus stops, and night lighting remain current. This is browser copy only; it does not alter freshness thresholds, inputs, exports, public data, scoring, deployment, or locked weights.
+
+2026-08-20 - P63 OSM postcode coverage:
+Live Overpass measurement found 25,879 distinct valid six-digit Singapore `addr:postcode` values, of which 25,873 overlap the frozen 124,443-postal universe. That is 20.791% coverage of the frozen universe, with only 6 OSM-only valid postcodes. OSM remains useful as a geometry source, but this measurement argues against treating Overpass `addr:postcode` as the primary current address-registry source for postal-universe v2. Evidence is tracked at `qa/verification/P63-osm-postcode-coverage.md`. This is evidence and product-source policy only; it does not alter inputs, exports, public data, scoring, deployment, or locked weights.
