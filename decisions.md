@@ -649,3 +649,6 @@ Postal-universe preparation now defaults to a numeric version tag (`v2`) and wri
 
 2026-08-21 - P240 postal-universe CLI early guard:
 Direct postal-universe CLI calls now infer a versioned summary path from a versioned `--output`, validate output paths before loading source data, and return a clean JSON error when the default unversioned paths would be used. This prevents accidental source scans or late failures for unsafe unversioned artifact targets. This is CLI safety and test coverage only; it does not build a universe, geocode, score, export, deploy, mutate public data, or change locked weights.
+
+2026-08-21 - P241 heat-presentation analysis output guard:
+The heat/rain presentation helper should not rewrite historical evidence when someone reruns it. Its default output now resolves from the repository root to `qa/analysis/heat_presentation_investigation.json`, and `write_report` refuses to overwrite an existing output unless `--overwrite` is explicit. The helper's UI audit was also refreshed from stale fixed-line P5 strings to current shelter-map copy and now resolves entries by string location so future line shifts do not masquerade as product regressions. This is analysis-tool safety and test coverage only; it does not alter heat/rain scoring, inputs, exports, public data, deployment, or locked weights.

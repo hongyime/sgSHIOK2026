@@ -6,157 +6,74 @@ from pathlib import Path
 from typing import Any
 
 
-DEFAULT_BUNDLE = Path("web/public/data/generated_20260805_prefer_scored_routed")
-DEFAULT_OUTPUT = Path("qa/verification/heat_presentation_investigation_20260812.json")
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_BUNDLE = PROJECT_ROOT / "web" / "public" / "data" / "generated_20260805_prefer_scored_routed"
+DEFAULT_OUTPUT = PROJECT_ROOT / "qa" / "analysis" / "heat_presentation_investigation.json"
 
 
 UI_AUDIT_ENTRIES = [
     {
         "file": "web/app/layout.tsx",
         "line": 7,
-        "string": "An explainable comfort score for source-derived Singapore postal records measuring rain shelter, heat, crossing friction, transit access, and bus frequency.",
-        "verdict": "Overclaim: 'measuring heat' implies measured thermal/heat conditions; bundle marks heat as provisional covered + NParks shade proxy.",
-        "action": "Change metadata copy to say rain shelter, transit access, crossings, bus service, and a provisional heat proxy.",
-    },
-    {
-        "file": "web/app/page.tsx",
-        "line": 69,
-        "string": "Heat comfort",
-        "verdict": "Overclaim risk: standalone label can read as actual thermal comfort rather than a proxy.",
-        "action": "Prefer 'Heat proxy' or make it visually subordinate to rain shelter.",
-    },
-    {
-        "file": "web/app/page.tsx",
-        "line": 71,
-        "string": "Mostly covered shelter plus sparse NParks greenery proxy; not measured shade.",
-        "verdict": "Acceptable disclosure, but it contradicts stronger 'Heat comfort' and metadata wording.",
-        "action": "Keep the caveat; align the row label and metadata with it.",
-    },
-    {
-        "file": "web/app/page.tsx",
-        "line": 99,
-        "string": "Better heat comfort",
-        "verdict": "Overclaim risk: reason copy presents inferred proxy as comfort improvement.",
-        "action": "Use 'More shelter/greenery proxy coverage' or 'Better heat-proxy score'.",
-    },
-    {
-        "file": "web/app/page.tsx",
-        "line": 910,
-        "string": "Search any Singapore address to see its walk-to-transit comfort score.",
-        "verdict": "Mostly acceptable, but broad 'comfort score' should remain tied to source-derived/proxy evidence.",
-        "action": "Optional: 'source-derived walk-to-transit comfort score'.",
-    },
-    {
-        "file": "web/app/page.tsx",
-        "line": 1025,
-        "string": "Best route",
-        "verdict": "Potential overclaim: reset target says 'best route' although output is a locked bundle-selected route, not personalized navigation.",
-        "action": "Use 'Bundle route' or 'Scored route'.",
-    },
-    {
-        "file": "web/app/page.tsx",
-        "line": 1091,
-        "string": "<Metric label={selectedRouteLabel} value={formatDistance(selectedDistance)} />",
-        "verdict": "Acceptable if selectedRouteLabel remains 'Covered/Shortest/Preview'; it controls map/distance display, not score recomputation.",
-        "action": "No fix required; keep score unchanged copy nearby.",
-    },
-    {
-        "file": "web/app/page.tsx",
-        "line": 1092,
-        "string": '<Metric label="Sheltered" value={formatPercent(selectedCoverage)} />',
-        "verdict": "Acceptable for rain/covered-linkway presentation; it is sourced by route coverage, not weather awareness.",
+        "string": "Explore covered-walkway exposure gaps, night-lighting evidence, and the secondary locked SHIOK score for Singapore walks to transit.",
+        "verdict": "Acceptable: metadata leads with the shelter/exposure artifact and keeps the locked score secondary.",
         "action": "No fix required.",
     },
     {
         "file": "web/app/page.tsx",
-        "line": 1106,
-        "string": '<Metric label="Sheltered evidence" value={formatPercent(selectedCoverage)} />',
-        "verdict": "Acceptable honesty copy for preview shelter-map evidence.",
+        "line": 96,
+        "string": 'heat: { low: "Low heat-proxy evidence", high: "Better heat-proxy score" },',
+        "verdict": "Acceptable: reason chips describe the proxy score rather than measured thermal comfort.",
         "action": "No fix required.",
     },
     {
         "file": "web/app/page.tsx",
-        "line": 1112,
-        "string": "{reasons.map((reason) => (",
-        "verdict": "Contains generated reason chips; heat chips can overclaim when using 'heat comfort' language.",
-        "action": "Revise heat-specific reason strings rather than removing reason chips.",
-    },
-    {
-        "file": "web/app/page.tsx",
-        "line": 1121,
-        "string": "Locked score breakdown",
-        "verdict": "Acceptable provenance framing; tells user these are fixed bundle scores.",
+        "line": 1141,
+        "string": "Heat proxy evidence: covered ${formatDistance(score.paths.covered_m)}; greenery proxy ${formatDistance(score.paths.shade_m)}.",
+        "verdict": "Acceptable: heat evidence is decomposed into covered metres and greenery-proxy metres.",
         "action": "No fix required.",
     },
     {
         "file": "web/app/page.tsx",
-        "line": 1122,
-        "string": "Composite uses weights.yaml",
-        "verdict": "Acceptable provenance framing, though technical.",
+        "line": 1200,
+        "string": 'label: "Shelter exposure",',
+        "verdict": "Acceptable: the four-row display leads with the shelter/exposure evidence instead of a separate heat row.",
         "action": "No fix required.",
     },
     {
         "file": "web/app/page.tsx",
-        "line": 1154,
-        "string": "Single sub-score view; SHIOK score is unchanged.",
-        "verdict": "Acceptable: explicitly says ranking control does not change score output.",
+        "line": 1206,
+        "string": "Rain shelter and heat comfort currently share mostly the same covered-walkway evidence.",
+        "verdict": "Acceptable disclosure: it names the rain/heat dependency directly in the presentation row.",
         "action": "No fix required.",
     },
     {
         "file": "web/app/page.tsx",
-        "line": 1266,
-        "string": "{item.label} <strong>{item.value}</strong>",
-        "verdict": "Contains 'Shade proxy N%'; acceptable if kept as proxy, but can duplicate rounded rain/heat values without explaining dependence.",
-        "action": "Prefer explicit covered metres vs shade-proxy metres if presenting heat separately.",
-    },
-    {
-        "file": "web/app/page.tsx",
-        "line": 1699,
-        "string": "Singapore walk-to-transit comfort",
-        "verdict": "Acceptable headline-level summary if nearby source/proxy disclosures remain visible.",
+        "line": 1207,
+        "string": "Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first.",
+        "verdict": "Acceptable disclosure: the UI explains why the heat proxy is subordinate to the trace.",
         "action": "No fix required.",
     },
     {
         "file": "web/app/page.tsx",
-        "line": 1700,
-        "string": "Data as of {formatDataDate(manifest)}",
-        "verdict": "Acceptable: static data timestamp, not time/weather awareness.",
+        "line": 1369,
+        "string": "<span>Four display rows; weights unchanged</span>",
+        "verdict": "Acceptable: presentation grouping is distinguished from the locked five-term score contract.",
         "action": "No fix required.",
     },
     {
         "file": "web/app/page.tsx",
-        "line": 1701,
-        "string": '<p className={styles.sourceLine}>',
-        "verdict": "Acceptable provenance surface for numbers/source claims.",
-        "action": "No fix required.",
-    },
-    {
-        "file": "web/app/page.tsx",
-        "line": 1715,
-        "string": "Heat: shelter + NParks shade proxy",
-        "verdict": "Acceptable concise heat disclosure; stronger than 'Heat comfort'.",
-        "action": "Keep or extend with 'not measured temperature/shade'.",
-    },
-    {
-        "file": "web/components/route-evidence-map.tsx",
-        "line": 863,
-        "string": "return `Route evidence map for ${labels}, showing ${routeModeLabel(mode)}`;",
-        "verdict": "Acceptable: says evidence map rather than scored/current route.",
-        "action": "No fix required.",
-    },
-    {
-        "file": "web/components/route-evidence-map.tsx",
-        "line": 904,
-        "string": "return `Route evidence for ${routeLabels}. Showing ${visibleRoutes}, ${exposed}, and ${poiText}.`;",
-        "verdict": "Acceptable screen-reader evidence summary; numbers are derived from loaded GeoJSON features.",
+        "line": 2062,
+        "string": "Heat proxy: shelter plus sparse NParks greenery, not measured temperature",
+        "verdict": "Acceptable: first-view copy avoids measured-temperature and measured-shade claims.",
         "action": "No fix required.",
     },
     {
         "file": "web/lib/transit-popup.ts",
         "line": 28,
-        "string": "return `${value} min best`;",
-        "verdict": "Overclaim risk: 'best' lacks provenance/window detail and can read as current wait time.",
-        "action": "Use 'best scheduled peak headway' or include AM/PM peak context in value copy.",
+        "string": "return `${value} min best scheduled`;",
+        "verdict": "Acceptable: popup avoids implying a live wait time.",
+        "action": "No fix required.",
     },
 ]
 
@@ -300,29 +217,43 @@ def validate_ui_entries(repo_root: Path) -> list[dict[str, Any]]:
         line_no = entry["line"]
         actual = lines[line_no - 1].strip() if 0 < line_no <= len(lines) else None
         expected = entry["string"]
+        found_line = next(
+            (index + 1 for index, line in enumerate(lines) if expected in line),
+            None,
+        )
         validated.append(
             {
                 **entry,
                 "actual_line": actual,
-                "line_match": actual == expected or expected in (actual or ""),
+                "found_line": found_line,
+                "line_match": found_line is not None,
+                "expected_line_match": actual == expected or expected in (actual or ""),
             }
         )
     return validated
+
+
+def resolve_repo_path(path: Path, repo_root: Path = PROJECT_ROOT) -> Path:
+    return path if path.is_absolute() else repo_root / path
+
+
+def write_report(path: Path, report: dict[str, Any], *, overwrite: bool = False) -> None:
+    if path.exists() and not overwrite:
+        raise FileExistsError(f"refusing to overwrite existing analysis output: {path}")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Analyze heat/rain presentation in a static SHIOK bundle.")
     parser.add_argument("--bundle", type=Path, default=DEFAULT_BUNDLE)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--overwrite", action="store_true", help="Allow replacing an existing output file.")
     args = parser.parse_args()
 
-    repo_root = Path.cwd()
-    bundle = args.bundle
-    if not bundle.is_absolute():
-        bundle = repo_root / bundle
-    output = args.output
-    if not output.is_absolute():
-        output = repo_root / output
+    repo_root = PROJECT_ROOT
+    bundle = resolve_repo_path(args.bundle, repo_root)
+    output = resolve_repo_path(args.output, repo_root)
 
     score_analysis = analyze_scores(bundle)
     ui_audit = validate_ui_entries(repo_root)
@@ -340,8 +271,7 @@ def main() -> None:
             },
         },
     }
-    output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    write_report(output, report, overwrite=args.overwrite)
 
     totals = score_analysis["totals"]
     fractions = score_analysis["fractions"]
