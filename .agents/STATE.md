@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P229 code commit: `7a38335`; state-only commits may follow it on `main`.
+Latest P230 code commit: `98aad07`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P230 is complete and committed: stale maintained-source comments now say preview shelter-map evidence and sheltered/shortest walks instead of preview route evidence and sheltered/shortest routes. Focused agent-doc and web copy tests pass.
 - P229 is complete and committed: `CLAUDE.md` scope guard now says walk display is shelter-map evidence only instead of route display being score evidence. Focused agent-doc/README tests pass.
 - P228 is complete and committed: `CLAUDE.md` now opens with the S.H.I.O.K. Shelter Map frame, covered-walkway ratio/exposed gaps, night-lighting map evidence, and locked SHIOK score as secondary. Focused agent-doc/README tests pass.
 - P227 is complete and committed: browser-smoke JSON now exposes `shelter_map_panel_loaded` and `shelter_map_panel_excerpt` aliases while preserving legacy route-evidence/score-panel keys. Focused score-card/deployment tests pass.
