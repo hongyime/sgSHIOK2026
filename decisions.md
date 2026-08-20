@@ -637,3 +637,6 @@ The first-view freshness snapshot was refreshed from a zero-mutation `run.py che
 
 2026-08-21 - P236 README Leaf Area Index policy:
 README onboarding now states that NParks Leaf Area Index can appear in source freshness as a tracked reference table, but is not route geometry, shade-proxy geometry, or score provenance. This keeps the P23/P181 non-score reference policy visible to operators before they interpret freshness output. This is documentation and test coverage only; it does not alter manifests, sources, shade geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P237 README locked-score availability disclosure:
+README onboarding now states that the active frozen bundle has 95,157 full scores out of 124,443 records and that 29,286 records, roughly a quarter, do not show a full locked score because they are partial, beyond current transit range, or awaiting scoring. This mirrors the browser's manifest-derived locked-score availability disclosure in primary operator documentation. This is documentation and test coverage only; it does not alter manifests, scoring, exports, public data, deployment, or locked weights.

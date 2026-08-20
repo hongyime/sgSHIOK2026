@@ -33,6 +33,11 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
 
     assert "## Local data artifacts" in text
     assert "`web/public/data/generated_20260805_prefer_scored_routed/`" in normalized
+    assert "95,157 full scores out of 124,443 records" in normalized
+    assert "29,286 records, roughly a quarter, do not show a full locked score" in normalized
+    assert "partial shelter-map evidence" in normalized
+    assert "beyond current transit range" in normalized
+    assert "awaiting scoring" in normalized
     assert "`web/public/data/lamp_posts_v1/`" in normalized
     assert "700 H3-r8 tile files plus `manifest.json`" in normalized
     assert "126,144 LTA lamp-post points" in normalized
