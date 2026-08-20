@@ -152,3 +152,6 @@ The score-coverage line should explain what the non-full records are when the ma
 
 2026-08-20 - P54 locked-score live-region wording:
 The route-evidence panel's screen-reader status should match the visual product hierarchy: route evidence leads, and the 0-to-100 composite is a locked secondary score. The live-region announcement now says `Locked score ...` instead of generic `Score ...`. This is accessibility copy only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P55 locked-score rank label:
+The rank selector should use the same product label as the score breakdown and live-region status. The overall ranking option is now `Locked SHIOK score` instead of `Overall SHIOK`; ranking behavior is unchanged. This is browser copy only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

@@ -114,11 +114,12 @@ describe("score card copy", () => {
     const weightsYaml = readFileSync(join(__dirname, "../../../pipeline/config/weights.yaml"), "utf-8");
 
     expect(source).toContain("Route evidence and locked score");
+    expect(source).toContain('label: "Locked SHIOK score"');
+    expect(source).not.toContain('label: "Overall SHIOK"');
     expect(source).toContain("Four display rows; weights unchanged");
     expect(source).toContain('label: "Shelter exposure"');
     expect(source).toContain('label: "Walk to transit"');
     expect(source).toContain('label: "Bus service support"');
-    expect(source).toContain('label: "Locked SHIOK score"');
     expect(source).toContain("Rain shelter and heat comfort currently share mostly the same covered-walkway evidence.");
     expect(source).toContain("Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first.");
     expect(source).toContain("Heat proxy evidence: covered ${formatDistance(score.paths.covered_m)}");

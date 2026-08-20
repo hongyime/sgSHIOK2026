@@ -1057,7 +1057,7 @@ export function ScoreCard({
     [rankingRecords, rankMetric]
   );
   const rankMetricLabel =
-    RANK_METRIC_OPTIONS.find((option) => option.id === rankMetric)?.label ?? "Overall SHIOK";
+    RANK_METRIC_OPTIONS.find((option) => option.id === rankMetric)?.label ?? "Locked SHIOK score";
   const scoreStatus = scoreCardAnnouncement({
     selection,
     stationName,

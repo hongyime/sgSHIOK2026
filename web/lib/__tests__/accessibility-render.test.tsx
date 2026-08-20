@@ -162,7 +162,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Custom stop selected.");
     expect(html).toContain("Route display shortest");
     expect(html).toContain('aria-busy="true"');
-    expect(html).toContain("Loading Overall SHIOK ranks.");
+    expect(html).toContain("Loading Locked SHIOK score ranks.");
     expect(html).toContain('aria-label="Route evidence panel"');
     expect(html).not.toContain("Postal 560231 score panel loaded.");
     expect(html).not.toContain("Score 72 out of 100.");
