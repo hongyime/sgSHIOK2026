@@ -191,22 +191,24 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Locked score 72 out of 100.");
     expect(html).toContain("<span>Locked score</span><strong>72/100</strong>");
     expect(html).toContain("Custom stop selected.");
-    expect(html).toContain("Route display shortest");
+    expect(html).toContain("Walk display shortest");
     expect(html).toContain('aria-busy="true"');
     expect(html).toContain("Loading planning-area Locked SHIOK score ranks.");
     expect(html).toContain('aria-label="Shelter map panel"');
     expect(html).not.toContain("Postal 560231 route evidence panel loaded.");
     expect(html).not.toContain("Postal 560231 score panel loaded.");
     expect(html).not.toContain("Score 72 out of 100.");
+    expect(html).not.toContain("Route display shortest");
     expect(html).not.toContain('aria-label="Route evidence panel"');
     expect(html).not.toContain('aria-label="Score panel"');
   });
 
-  it("announces the default route display as sheltered instead of the internal mode name", () => {
+  it("announces the default walk display as sheltered instead of the internal mode name", () => {
     const html = renderScoreCard();
 
-    expect(html).toContain("Route display sheltered");
-    expect(html).not.toContain("Route display shiokest");
+    expect(html).toContain("Walk display sheltered");
+    expect(html).not.toContain("Walk display shiokest");
+    expect(html).not.toContain("Route display sheltered");
   });
 
   it("shows when clicked-stop route preview falls back to straight-line evidence", () => {

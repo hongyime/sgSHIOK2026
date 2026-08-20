@@ -490,3 +490,6 @@ The hidden search-results live region should announce the same no-result state a
 
 2026-08-21 - P168 locked-score sort copy:
 The selected shelter-map panel should not tell users to start with the locked score. The locked-score row now says to start with the shelter trace and exposed gaps, using the locked score only as the current-bundle sorting index; the planning-area comparison copy also states that shelter evidence remains the primary view. This is browser copy and test coverage only; it does not alter ranking data, sort logic, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P169 walk-display accessibility label:
+The selected-route display control and score-card live region should describe the user action as choosing the walk display, not a generic route display. The visible buttons remain Sheltered/Both/Shortest, while the non-visual group label and live status now say `Walk display`. This is browser accessibility copy and test coverage only; it does not alter route selection, map rendering, route geometry, score values, scoring, exports, public data, deployment, or locked weights.

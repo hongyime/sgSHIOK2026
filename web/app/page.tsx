@@ -173,7 +173,7 @@ export function scoreCardAnnouncement({
       ? "Preview shelter map evidence selected."
       : "Custom stop selected."
     : "Published route selected.";
-  return `${postal} shelter map panel loaded. ${stationName ?? "Transit target loaded"}. Locked score ${scoreText}. ${stopText} Route display ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "route"} active.`;
+  return `${postal} shelter map panel loaded. ${stationName ?? "Transit target loaded"}. Locked score ${scoreText}. ${stopText} Walk display ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "route"} active.`;
 }
 
 export function rankAnnouncement({
@@ -855,7 +855,7 @@ function RouteModeControl({
   }
 
   return (
-    <div className={`${styles.segmented} ${styles.routeSegmented}`} aria-label="Route display">
+    <div className={`${styles.segmented} ${styles.routeSegmented}`} aria-label="Walk display">
       <button
         type="button"
         className={mode === "shiokest" ? styles.segmentedActive : undefined}
