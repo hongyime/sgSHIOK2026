@@ -41,7 +41,10 @@ describe("score card copy", () => {
     expect(source).toContain('placeholder="Search address or 6-digit postal"');
     expect(source).toContain('aria-label="Search address or 6-digit postal"');
     expect(source).not.toContain("Singapore walk-to-transit comfort");
-    expect(source).toContain("Route evidence as of {formatDataDate(manifest)}");
+    expect(source).toContain(
+      "Route evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}"
+    );
+    expect(source).toContain("function formatGeneratedDate(manifest: Manifest | null): string");
     expect(source).toContain("Locked score ${scoreText}");
     expect(source).toContain(
       "Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape; measured recent-source misses exist."

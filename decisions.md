@@ -332,3 +332,6 @@ The graph-disconnected no-transit reason chip should say a transit stop or exit 
 
 2026-08-20 - P115 transit-stops-exist copy:
 The graph-disconnected no-transit note should keep the same stop/exit language as its reason chip. It now says transit stops or exits exist but the bundle has no connected walking-route evidence yet, instead of saying transit candidates exist. This is browser copy only; it does not alter transit candidate selection, routing, state classification, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P116 bundle generated date:
+The title card should distinguish source data age from static bundle build age. It now shows both route evidence `data_as_of` and manifest `generated_at`, so users can see when the evidence was current and when this published bundle was produced. This is browser copy/formatting only; it reads existing manifest metadata and does not alter data fetching, scoring, exports, inputs, public data, deployment, or locked weights.

@@ -242,6 +242,15 @@ function formatDataDate(manifest: Manifest | null): string {
   });
 }
 
+function formatGeneratedDate(manifest: Manifest | null): string {
+  if (!manifest?.generated_at) return "Unavailable";
+  return new Date(manifest.generated_at).toLocaleDateString("en-SG", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+}
+
 function resultTitle(result: SearchResult): string {
   if (result.BUILDING && result.BUILDING !== "N/A") return toProperCase(result.BUILDING);
   return result.SEARCHVAL || `S${result.POSTAL}`;
@@ -1991,7 +2000,9 @@ export default function Home() {
           <div>
             <h1>S.H.I.O.K. Index</h1>
             <p>Shelter-first walks to transit</p>
-            <p className={styles.dataLine}>Route evidence as of {formatDataDate(manifest)}</p>
+            <p className={styles.dataLine}>
+              Route evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}
+            </p>
             <p className={styles.freshnessLine}>
               Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape; measured recent-source misses exist.
             </p>
