@@ -861,6 +861,11 @@ function TransitModeControl({
   setMode: (mode: TransitAccessMode) => void;
 }) {
   if (!score.route_options) return null;
+  const availabilityLabel = (option: (typeof TRANSIT_MODE_OPTIONS)[number], available: boolean) => {
+    if (option.id === "best_transit") return available ? "selected route" : "unavailable";
+    if (available) return "route evidence";
+    return "no route evidence";
+  };
   return (
     <div className={`${styles.segmented} ${styles.transitSegmented}`} aria-label="Transit target">
       {TRANSIT_MODE_OPTIONS.map((option) => {
@@ -875,7 +880,8 @@ function TransitModeControl({
             data-empty={!available}
             onClick={() => setMode(option.id)}
           >
-            {option.label}
+            <span>{option.label}</span>
+            <small>{availabilityLabel(option, available)}</small>
           </button>
         );
       })}

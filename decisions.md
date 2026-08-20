@@ -221,3 +221,6 @@ The route evidence panel should summarize the total open-air burden, not only na
 
 2026-08-20 - P78 score-coverage wording:
 The title-card score-coverage line should explain missing full scores in user-facing route-evidence language rather than internal score-state shorthand. It now says `full route scores`, `with partial route evidence`, `beyond current transit range`, and `awaiting scoring`, preserving the same manifest-derived counts. This is browser copy only; it does not alter manifests, inputs, public data, exports, scoring, deployment, or locked weights.
+
+2026-08-20 - P79 transit-target availability labels:
+The MRT/LRT and bus target tabs should tell users whether that target already has route evidence before they switch modes. The transit target control now labels each option as `selected route`, `route evidence`, or `no route evidence` based on the existing record and route-option paths. This is browser presentation only; it does not alter routing, inputs, public data, exports, scoring, deployment, or locked weights.

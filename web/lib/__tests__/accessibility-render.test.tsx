@@ -269,6 +269,42 @@ describe("rendered accessibility output", () => {
     expect(html).toContain('aria-label="Focus map on Longest open-air stretch near 1.37123, 103.84235"');
   });
 
+  it("labels transit target availability before a user switches modes", () => {
+    const recordWithRouteOptions: ScoreRecord = {
+      ...scoredRecord,
+      route_options: {
+        mrt_lrt: {
+          state: "NO_TRANSIT_IN_RANGE",
+          total: null,
+          subscores: null,
+          best_node: null,
+          paths: null,
+          exposure_gaps: null,
+        },
+        bus: {
+          state: "SCORED",
+          total: 72,
+          subscores: scoredRecord.subscores,
+          best_node: scoredRecord.best_node,
+          paths: scoredRecord.paths,
+          exposure_gaps: scoredRecord.exposure_gaps,
+        },
+      },
+    };
+    const html = renderScoreCard({
+      selection: {
+        ...selection,
+        score: recordWithRouteOptions,
+      },
+      rankingRecords: [recordWithRouteOptions],
+    });
+
+    expect(html).toContain('aria-label="Transit target"');
+    expect(html).toContain("<span>Best transit</span><small>selected route</small>");
+    expect(html).toContain("<span>MRT/LRT</span><small>no route evidence</small>");
+    expect(html).toContain("<span>Bus</span><small>route evidence</small>");
+  });
+
   it("keeps null score rows as Not scored instead of inventing numbers", () => {
     const partialRecord: ScoreRecord = {
       ...scoredRecord,

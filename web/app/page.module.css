@@ -338,6 +338,20 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
+.transitSegmented button {
+  display: grid;
+  gap: 2px;
+  align-content: center;
+}
+
+.transitSegmented small {
+  color: inherit;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1.15;
+  opacity: 0.82;
+}
+
 .routeSegmented {
   grid-template-columns: repeat(3, 1fr);
 }
