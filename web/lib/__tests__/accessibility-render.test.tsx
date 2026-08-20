@@ -404,7 +404,7 @@ describe("rendered accessibility output", () => {
     );
     expect(html).not.toContain("one or more sub-scores are unavailable");
     expect(html).toContain("Shelter map evidence unavailable");
-    expect(html).toContain("Bundle score unavailable");
+    expect(html).toContain("Locked score unavailable");
     expect(html).toContain("<strong>Not scored</strong><small>No shelter score</small>");
     expect(html).toContain("<strong>Not scored</strong><small>No access score</small>");
     expect(html).toContain("<strong>No full score</strong><small>No locked score</small>");
@@ -413,6 +413,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("<strong>0</strong><small>No access score</small>");
     expect(html).not.toContain("<strong>Not scored</strong><small>No locked score</small>");
     expect(html).not.toContain("Score not available");
+    expect(html).not.toContain("Bundle score unavailable");
     expect(html).not.toContain("Route evidence unavailable");
     expect(html).not.toContain("Partial score:");
     expect(html).not.toContain("No composite score");

@@ -186,12 +186,16 @@ describe("score card copy", () => {
     expect(source).toContain("Shelter map evidence preview");
     expect(source).toContain("Shelter map evidence unavailable");
     expect(source).toContain("Shelter map evidence available");
+    expect(source).toContain("Locked score unavailable");
+    expect(source).toContain("Locked score incomplete");
     expect(source).not.toContain("Route evidence and locked score");
     expect(source).not.toContain('aria-label="Route evidence and locked score breakdown"');
     expect(source).not.toContain('aria-label="Route evidence reasons"');
     expect(source).not.toContain("Route evidence preview");
     expect(source).not.toContain("Route evidence unavailable");
     expect(source).not.toContain("Route evidence available");
+    expect(source).not.toContain("Bundle score unavailable");
+    expect(source).not.toContain("Bundle score incomplete");
     expect(source).toContain('label: "Locked SHIOK score"');
     expect(source).toContain("Use this locked score to sort the current bundle");
     expect(source).not.toContain('label: "Overall SHIOK"');

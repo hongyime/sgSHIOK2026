@@ -697,8 +697,8 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
   if (score.paths?.routing_type === "direct_bus_fallback_unrouted") {
     return ["Nearby bus stop with service data", "Walking-route shelter not verified yet"];
   }
-  if (!score.paths || !score.best_node) return ["Shelter map evidence unavailable", "Bundle score unavailable"];
-  if (!score.subscores) return ["Bundle score incomplete", "Shelter map evidence available"];
+  if (!score.paths || !score.best_node) return ["Shelter map evidence unavailable", "Locked score unavailable"];
+  if (!score.subscores) return ["Locked score incomplete", "Shelter map evidence available"];
 
   const measuredReasons: string[] = [];
   const busFallback = directBusFallbackEvidence(score);

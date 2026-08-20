@@ -466,3 +466,6 @@ The selected shelter-map panel now includes `Night lighting` as a subtle route-d
 
 2026-08-20 - P160 exposed-gap coordinate summary:
 The selected shelter-map panel now labels the gap list as `Exposed gaps on this walk` and summarizes how many recorded gaps include map coordinates before listing each gap's length and coordinate. This makes the coordinate-backed exposure-gap artifact explicit in the main workflow. This is browser copy and test coverage only; it does not alter route geometry, exposure-gap data, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P161 locked-score reason chips:
+Reason chips for missing or incomplete score states now say `Locked score unavailable` and `Locked score incomplete` instead of generic bundle-score wording. This keeps the secondary score label consistent with the rest of the shelter-map panel while preserving bundle-state copy where the UI is specifically discussing published-bundle inclusion. This is browser copy and test coverage only; it does not alter scoring state, score values, exports, public data, deployment, or locked weights.
