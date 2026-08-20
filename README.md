@@ -57,7 +57,7 @@ reruns, deploy, or repoint the live site without explicit owner approval.
 - `CLAUDE.md` — agent instructions: hard constraints, stack, layout, conventions. Read first.
   (Using a non-Claude agent? It still applies — point your agent at it explicitly.)
 - `decisions.md` — durable decision log. Append evidence and rationale; do not overwrite.
-- `pipeline/config/weights.yaml` — locked composite-score weights.
+- `pipeline/config/weights.yaml` — locked score weights.
 - `pipeline/config/params.yaml` — tunable pipeline constants.
 - `.github/workflows/` — CI and repository automation workflows.
 - `env.example` — copy to `.env` and fill in (see prerequisites).

@@ -42,6 +42,8 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "zero-mutation source-age check" in normalized
     assert "does not probe upstream APIs" in normalized
     assert "reports current, stale, manual, and unknown-age sources" in normalized
+    assert "`pipeline/config/weights.yaml` — locked score weights." in normalized
+    assert "locked composite-score weights" not in normalized
 
 
 def test_readme_documents_full_batch_approval_boundary() -> None:
