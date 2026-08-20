@@ -149,6 +149,8 @@ describe("route evidence map interactions", () => {
     expect(liveScoringSource).toContain("subscores: null");
     expect(liveScoringSource).toContain('routing_type: "live_onemap_preview"');
     expect(liveScoringSource).toContain("authoritative_score: false");
+    expect(liveScoringSource).toContain("SHIOK scores come from offline bundle scoring.");
+    expect(liveScoringSource).not.toContain("offline pipeline bundle");
 
     expect(pageSource).toContain("Preview route evidence only");
     expect(pageSource).toContain("Preview only: this clicked stop has route evidence");

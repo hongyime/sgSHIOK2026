@@ -310,7 +310,7 @@ export function scoreLiveRoute(options: LiveRouteOptions): {
       source: "live_onemap_preview",
       authoritative_score: false,
       reason:
-        "Clicked transit POI has route evidence only; SHIOK scores come from the offline pipeline bundle.",
+        "Clicked transit POI has route evidence only; SHIOK scores come from offline bundle scoring.",
     },
   };
 

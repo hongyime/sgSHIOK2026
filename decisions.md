@@ -272,3 +272,6 @@ The score-card reason chips should describe unavailable scores in product terms,
 
 2026-08-20 - P95 offline-bundle state notes:
 Score-state notes should use the same bundle-scoring language as the reason chips. Clicked-stop previews now say they are not authoritative until an offline bundle includes them, and `NOT_YET_SCORED` records say they are awaiting offline bundle scoring instead of needing pipeline scoring evidence. This is browser copy only; it does not alter score-state classification, preview routing, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P96 live-preview provenance copy:
+Client-side clicked-stop preview records should carry the same offline-bundle language as the browser notes. Their provenance reason now says `SHIOK scores come from offline bundle scoring` instead of `offline pipeline bundle`. This is preview-record copy only; it does not alter live route segmentation, score-state classification, authoritative bundle data, exports, public data, deployment, or locked weights.

@@ -105,6 +105,8 @@ describe("live route preview segmentation", () => {
     expect(result.score.provenance).toMatchObject({
       source: "live_onemap_preview",
       authoritative_score: false,
+      reason:
+        "Clicked transit POI has route evidence only; SHIOK scores come from offline bundle scoring.",
     });
     expect(result.geom.route_segments?.sheltered?.length).toBeGreaterThan(0);
     expect(result.geom.shortest).toBeTruthy();
