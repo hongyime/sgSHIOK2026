@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 import { join } from "path";
 
-describe("route evidence map interactions", () => {
+describe("shelter map interactions", () => {
   it("does not refit map bounds when feedback points change", () => {
     const source = readFileSync(join(__dirname, "../../components/route-evidence-map.tsx"), "utf-8");
     const fitEffect = source.match(/map\.fitBounds[\s\S]+?\}, \[loaded, routeData\.bounds, routeFitKey\]\);/)?.[0];
@@ -12,7 +12,7 @@ describe("route evidence map interactions", () => {
     expect(source).toContain('setSourceData(map, "feedback-points", feedbackData.points)');
   });
 
-  it("keeps route evidence and transit POIs visible on the subdued basemap", () => {
+  it("keeps shelter-map evidence and transit POIs visible on the subdued basemap", () => {
     const source = readFileSync(join(__dirname, "../../components/route-evidence-map.tsx"), "utf-8");
     const cssSource = readFileSync(join(__dirname, "../../components/route-evidence-map.module.css"), "utf-8");
 
@@ -204,7 +204,7 @@ describe("route evidence map interactions", () => {
     expect(pageSource).toContain("if (candGeomOption && baseSelection.geom)");
     expect(pageSource).toContain('routing_type: candScore?.routing_type ?? "precomputed_candidate"');
     expect(pageSource.indexOf("if (candGeomOption && baseSelection.geom)")).toBeLessThan(
-      pageSource.indexOf("Fallback: show route evidence only while OneMap loads in background")
+      pageSource.indexOf("Fallback: show shelter map evidence only while OneMap loads in background")
     );
   });
 });

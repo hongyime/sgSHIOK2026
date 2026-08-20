@@ -163,7 +163,7 @@ describe("rendered accessibility output", () => {
     expect(noResultsHtml).not.toContain("newer completions may still be outside");
   });
 
-  it("introduces the score panel as sheltered route evidence before search", () => {
+  it("introduces the shelter map panel before search", () => {
     const html = renderScoreCard({
       selection: null,
       rankingRecords: [],
@@ -273,7 +273,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("offline scoring pipeline includes it");
   });
 
-  it("explains when a searched postal has no published route evidence", () => {
+  it("explains when a searched postal has no published shelter map route", () => {
     const html = renderScoreCard({
       selection: {
         ...selection,

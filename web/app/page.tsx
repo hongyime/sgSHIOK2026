@@ -589,7 +589,7 @@ function selectionForChosenStop(
     };
   }
 
-  // 3. Fallback: show route evidence only while OneMap loads in background.
+  // 3. Fallback: show shelter map evidence only while OneMap loads in background.
   const matchedCandidate = candidates.find((c) => c.id === chosenStopId);
   const poiFeature = mapTransitPois.features.find(
     (f) => f.properties?.id === chosenStopId
