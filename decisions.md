@@ -329,3 +329,6 @@ The direct-bus fallback warning should keep its conservative meaning without exp
 
 2026-08-20 - P114 transit-stop-found copy:
 The graph-disconnected no-transit reason chip should say a transit stop or exit was found, not a transit candidate. This keeps the user-facing fact separate from the unresolved walking-route connection. This is browser copy only; it does not alter transit candidate selection, routing, state classification, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P115 transit-stops-exist copy:
+The graph-disconnected no-transit note should keep the same stop/exit language as its reason chip. It now says transit stops or exits exist but the bundle has no connected walking-route evidence yet, instead of saying transit candidates exist. This is browser copy only; it does not alter transit candidate selection, routing, state classification, scoring, exports, inputs, public data, deployment, or locked weights.
