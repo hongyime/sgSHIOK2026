@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P246 code commit: `561b4d3`; state-only commits may follow it on `main`.
+Latest P247 code commit: `ae717d5`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P247 is complete and committed: README onboarding and the web data-loader comment now describe the active static artifact as the live/static shelter-map bundle instead of a score bundle, while preserving locked-score availability counts. Focused README test passes.
 - P246 is complete and committed: maintained pipeline HTTP user-agent identifiers now use the S.H.I.O.K. Shelter Map frame instead of retired SHIOK Index / Walk-to-Transit Index names. Focused fetch test and grep guard pass.
 - P245 is complete and committed: zero-mutation `run.py check --freshness-only` output now prints the `checked_at` timestamp used to compute manifest source ages. Focused fetch tests pass.
 - P244 is complete and committed: production-readiness `source_freshness` now shows the `checked_at` timestamp in its human summary and carries `checked_at` in missing/unreadable states. Focused production-readiness tests pass.
