@@ -595,3 +595,6 @@ The Section 10 presentation proposal is review copy, so it should use the same w
 
 2026-08-21 - P222 Section 10 proposal walk-trace wording:
 The Section 10 proposal goal and current-state critique should frame the defended artifact as the shelter-map walk trace, not a generic routed trace or route exposure. The proposal now says shelter-map walk trace, walk distance, and walk exposure in its overview/current-state text. This is proposal copy and test coverage only; it does not alter app behavior, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P223 clicked-stop walk-preview loading wording:
+Clicked-stop loading copy should keep the same walk-preview framing as the preview panel. The loading note now says the selected stop is shown as a straight-line preview until the walk preview returns, instead of saying until a route returns. This is browser copy and test coverage only; it does not alter live preview behavior, OneMap calls, scoring, exports, public data, deployment, or locked weights.

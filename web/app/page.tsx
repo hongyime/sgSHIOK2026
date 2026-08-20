@@ -788,7 +788,7 @@ function isPreviewRoute(score: ScoreRecord): boolean {
 
 function liveRoutePreviewStatusNote(status: LiveRoutePreviewStatus | null | undefined): string | null {
   if (status === "loading") {
-    return "Fetching OneMap walking preview; the selected stop is shown as a straight-line preview until that route returns.";
+    return "Fetching OneMap walking preview; the selected stop is shown as a straight-line preview until that walk preview returns.";
   }
   if (status === "unavailable") {
     return "OneMap walking preview is unavailable for this selected stop; showing straight-line preview only.";

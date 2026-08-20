@@ -186,6 +186,8 @@ describe("shelter map interactions", () => {
     expect(pageSource).not.toContain("until an offline bundle includes it");
     expect(pageSource).toContain("liveRoutePreviewStatuses");
     expect(pageSource).toContain("Fetching OneMap walking preview");
+    expect(pageSource).toContain("until that walk preview returns");
+    expect(pageSource).not.toContain("until that route returns");
     expect(pageSource).toContain("showing straight-line preview only");
     expect(pageSource).toContain('[chosenStopId]: "loading"');
     expect(pageSource).toContain('[chosenStopId]: "unavailable"');
