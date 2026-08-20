@@ -146,3 +146,6 @@ The night-lighting map summary should distinguish overlay lifecycle states inste
 
 2026-08-20 - P52 quantified postal-universe caveat:
 The title-card address-universe caveat should cite the measured P19 public-sample miss signal instead of leaving `newer completions may be missing` completely unquantified. The browser now states that the recent public-sample check found 8 missing rows out of 976 completions from 2021-2026 with postals. This is an honesty-copy change only; it does not alter the frozen v1 universe, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P53 score-coverage state breakdown:
+The score-coverage line should explain what the non-full records are when the manifest carries complete state counts. The browser now expands the live-bundle coverage line into partial, beyond-current-transit-range, and not-yet-scored counts, while retaining the older generic fallback for incomplete manifests. This is browser disclosure copy only; it does not alter manifests, scoring, exports, inputs, public data, deployment, or locked weights.
