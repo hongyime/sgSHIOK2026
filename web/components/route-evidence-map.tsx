@@ -989,19 +989,22 @@ function transitPoiSummary(pois: PointFeatureCollection): string {
 
 export function nightLightingSummary(status: LampOverlayStatus, lampCount: number): string | null {
   if (status === "off") return null;
+  const caveat = "Map evidence only; not part of the locked score.";
   if (status === "below_zoom") {
-    return "Night lighting overlay is on; zoom in to load LTA lamp-post points.";
+    return `Night lighting overlay is on; zoom in to load LTA lamp-post points. ${caveat}`;
   }
   if (status === "loading") {
-    return "Night lighting overlay is on; LTA lamp-post points are loading for the current map view.";
+    return `Night lighting overlay is on; LTA lamp-post points are loading for the current map view. ${caveat}`;
   }
   if (status === "unavailable") {
-    return "Night lighting overlay is on; lamp-post tiles are unavailable for the current map view.";
+    return `Night lighting overlay is on; lamp-post tiles are unavailable for the current map view. ${caveat}`;
   }
   if (status === "empty" || lampCount === 0) {
-    return "Night lighting overlay is on; no lamp points are indexed in the current map view.";
+    return `Night lighting overlay is on; no lamp points are indexed in the current map view. ${caveat}`;
   }
-  return `Night lighting overlay is on with ${lampCount} lamp point${lampCount === 1 ? "" : "s"} in view.`;
+  return `Night lighting overlay is on with ${lampCount} lamp point${
+    lampCount === 1 ? "" : "s"
+  } in view. ${caveat}`;
 }
 
 export function selectedExposureGapSummary(focusedExposureGap: FocusedExposureGap | null): string | null {

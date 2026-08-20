@@ -64,19 +64,23 @@ describe("route evidence map interactions", () => {
 
     expect(nightLightingSummary("off", 12)).toBeNull();
     expect(nightLightingSummary("below_zoom", 0)).toBe(
-      "Night lighting overlay is on; zoom in to load LTA lamp-post points."
+      "Night lighting overlay is on; zoom in to load LTA lamp-post points. Map evidence only; not part of the locked score."
     );
     expect(nightLightingSummary("loading", 0)).toBe(
-      "Night lighting overlay is on; LTA lamp-post points are loading for the current map view."
+      "Night lighting overlay is on; LTA lamp-post points are loading for the current map view. Map evidence only; not part of the locked score."
     );
     expect(nightLightingSummary("empty", 0)).toBe(
-      "Night lighting overlay is on; no lamp points are indexed in the current map view."
+      "Night lighting overlay is on; no lamp points are indexed in the current map view. Map evidence only; not part of the locked score."
     );
     expect(nightLightingSummary("unavailable", 0)).toBe(
-      "Night lighting overlay is on; lamp-post tiles are unavailable for the current map view."
+      "Night lighting overlay is on; lamp-post tiles are unavailable for the current map view. Map evidence only; not part of the locked score."
     );
-    expect(nightLightingSummary("loaded", 1)).toBe("Night lighting overlay is on with 1 lamp point in view.");
-    expect(nightLightingSummary("loaded", 14)).toBe("Night lighting overlay is on with 14 lamp points in view.");
+    expect(nightLightingSummary("loaded", 1)).toBe(
+      "Night lighting overlay is on with 1 lamp point in view. Map evidence only; not part of the locked score."
+    );
+    expect(nightLightingSummary("loaded", 14)).toBe(
+      "Night lighting overlay is on with 14 lamp points in view. Map evidence only; not part of the locked score."
+    );
   });
 
   it("centers the map when an exposed gap is focused from the score card", () => {

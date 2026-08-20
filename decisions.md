@@ -254,3 +254,6 @@ The selected higher-shelter route should not be labeled simply `Covered`, becaus
 
 2026-08-20 - P89 bundle score availability wording:
 The manifest-derived score-coverage disclosure should read as availability context for the frozen bundle, not as the product headline. It now starts `Bundle score availability` while preserving the same manifest-derived counts and missing-score breakdown. This is browser copy only; it does not alter manifest parsing, counts, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P90 night-lighting score separation:
+The night-lighting overlay status should repeat that lamp points are map evidence outside the locked score, not only the title-card layer note. Every non-off night-lighting status now ends with `Map evidence only; not part of the locked score.` This is browser copy only; it does not alter lamp overlay loading, tiles, inputs, exports, public data, scoring, deployment, or locked weights.
