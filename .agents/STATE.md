@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P158: `df4818f`
+Remote main after P159: `7e0b4d0`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -96,6 +96,7 @@ Status:
 - P156 is complete and pushed: dry-run batch planning now exposes the one-attempt full-batch release scope and explicit owner-approval boundary.
 - P157 is complete and pushed: production readiness now preserves the batch planner's one-attempt full-batch release scope.
 - P158 is complete and pushed: README now documents the full-batch one-attempt owner-approval boundary and `run.py batch-plan` gate.
+- P159 is complete and pushed: selected shelter-map panels now surface night lighting as a map-layer route detail outside the locked score.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -180,5 +181,6 @@ Status:
 - P156 evidence is tracked at `qa/verification/P156-batch-plan-one-attempt-scope.md`.
 - P157 evidence is tracked at `qa/verification/P157-readiness-full-batch-scope.md`.
 - P158 evidence is tracked at `qa/verification/P158-readme-full-batch-boundary.md`.
+- P159 evidence is tracked at `qa/verification/P159-night-lighting-route-detail.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
