@@ -236,3 +236,6 @@ The nearby-transit picker should make alternate-stop tradeoffs concrete when a u
 
 2026-08-20 - P83 planning-area rank disclosure:
 The rank panel should say that its comparison set is the selected postal's planning area, because `fetchRankRecordsForPostalArea()` loads the area shard and split shard parts rather than a national ranking. The visible helper, loading text, empty state, and screen-reader rank status now say `planning-area`. This is browser presentation only; it does not alter ranking order, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P84 preview bundle-score disclosure:
+Clicked-stop previews should identify the score limitation as a bundle status, not just say `Not scored`. The preview summary now shows `Bundle score: Preview only`, matching the existing note that a clicked-stop OneMap preview is not an authoritative SHIOK score until the offline scoring pipeline includes it. This is browser presentation only; it does not alter live-route scoring logic, published scores, inputs, exports, public data, deployment, or locked weights.

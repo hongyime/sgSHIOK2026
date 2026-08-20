@@ -192,6 +192,7 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("Preview route evidence only");
+    expect(html).toContain("<span>Bundle score</span><strong>Preview only</strong>");
     expect(html).toContain(
       "OneMap walking preview is unavailable for this selected stop; showing straight-line preview only."
     );
