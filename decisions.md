@@ -616,3 +616,9 @@ Browser-smoke JSON should expose the current product surface as a shelter-map pa
 
 2026-08-21 - P229 agent doc walk-display scope guard:
 The `CLAUDE.md` scope guard now says walk display is shelter-map evidence only instead of route display being score evidence. This keeps future agent sessions aligned with the current browser terminology and the settled distinction between displayed walks, static evidence, and the secondary locked score. This is documentation and test coverage only; it does not alter runtime behavior, routing, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-21 - P230 source-comment shelter-map language:
+Stale maintained-source comments now say preview shelter-map evidence and sheltered/shortest walks instead of preview route evidence and sheltered/shortest routes. This keeps explanatory source comments aligned with the visible Shelter Map framing. This is comment and test coverage only; it does not alter runtime behavior, routing, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-21 - P231 source-config product name:
+The `pipeline/config/sources.yaml` header now names S.H.I.O.K. Shelter Map instead of the retired S.H.I.O.K. Index framing. The freshness/source policy remains unchanged; this is config-comment and regression-test alignment only and does not alter input fetching, source URLs, source cadence thresholds, manifests, scoring, exports, public data, deployment, or locked weights.

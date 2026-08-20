@@ -1,4 +1,4 @@
-# Upstream data sources configuration for S.H.I.O.K. Index (PRD v4.2 §5, DATA_SOURCES.md)
+# Upstream data sources configuration for S.H.I.O.K. Shelter Map (PRD v4.2 §5, DATA_SOURCES.md)
 # Verified: 2026-07-26 — all URLs and dataset IDs empirically confirmed via HTTP probe.
 
 ingest_validation:

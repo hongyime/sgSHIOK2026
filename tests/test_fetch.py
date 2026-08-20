@@ -140,8 +140,13 @@ def test_source_config_has_freshness_policy_for_every_source() -> None:
     config = load_source_config()
     defaults = config["freshness_defaults"]
     sources = config["sources"]
+    source_text = (
+        Path(__file__).resolve().parents[1] / "pipeline" / "config" / "sources.yaml"
+    ).read_text(encoding="utf-8")
 
     assert len(sources) == 21
+    assert "S.H.I.O.K. Shelter Map" in source_text
+    assert "S.H.I.O.K. Index" not in source_text
     for key, spec in sources.items():
         policy = freshness_policy_for_source(spec, defaults)
         assert policy.get("expected_cadence"), key
