@@ -84,6 +84,9 @@ describe("score card copy", () => {
     expect(source).toContain("Copy walk QA JSON");
     expect(source).toContain("walk_mode: routeMode");
     expect(source).toContain("route_mode: routeMode");
+    const smokeSource = readFileSync(join(__dirname, "../../scripts/browser-smoke.mjs"), "utf-8");
+    expect(smokeSource).toContain("shelter_map_panel_loaded");
+    expect(smokeSource).toContain("shelter_map_panel_excerpt");
   });
 
   it("puts data freshness and heat proxy copy in the title card", () => {

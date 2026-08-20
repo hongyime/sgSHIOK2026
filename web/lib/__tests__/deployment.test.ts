@@ -50,7 +50,9 @@ describe("deployment packaging", () => {
     expect(script).toContain("active_walk_mode");
     expect(script).toContain("debug-runs");
     expect(script).toContain("run_manifest.json");
+    expect(script).toContain("shelter_map_panel_loaded");
     expect(script).toContain("route_evidence_panel_loaded");
+    expect(script).toContain("shelter_map_panel_excerpt");
     expect(script).toContain("route_evidence_panel_excerpt");
     expect(script).toContain("score_panel_loaded: routeEvidencePanelLoaded");
     expect(script).toContain("rendered_feature_counts");

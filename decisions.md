@@ -607,3 +607,6 @@ The generic no-transit fallback title now says `No connected [transit target] sh
 
 2026-08-21 - P226 browser-smoke sheltered-walk marker:
 Browser smoke should detect scored shelter-map panels using the current rendered `Sheltered walk` copy, not the retired `Sheltered route` phrase. The QA summary now exposes `walk_mode_present` while preserving `route_mode_present` as a compatibility key backed by the same current walk wording. This is browser QA alignment and test coverage only; it does not alter app rendering, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P227 browser-smoke shelter-map panel aliases:
+Browser-smoke JSON should expose the current product surface as a shelter-map panel, not only through legacy `route_evidence_*` field names. The smoke output now adds `shelter_map_panel_loaded` and `shelter_map_panel_excerpt` while preserving the older route-evidence and score-panel keys for compatibility. This is browser QA output alignment and test coverage only; it does not alter rendered UI, route geometry, score values, scoring, exports, public data, deployment, or locked weights.

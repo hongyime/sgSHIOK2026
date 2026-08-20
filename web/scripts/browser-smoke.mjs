@@ -600,6 +600,7 @@ function collectChecks(summary, mapState, cdp, postal, inputMode, expectedState,
   }).length;
   const routeEvidencePanelLoaded = summary.cardText.includes(`Postal ${postal}`);
   const checks = {
+    shelter_map_panel_loaded: routeEvidencePanelLoaded,
     route_evidence_panel_loaded: routeEvidencePanelLoaded,
     score_panel_loaded: routeEvidencePanelLoaded,
     pending_badge_absent: !summary.cardText
@@ -709,7 +710,7 @@ async function runPostalCase(cdp, args, postal, outputDir, shotBase) {
     args.routeMode,
     args.mustInclude
   );
-  const routeEvidencePanelExcerpt = summary.cardText.split("\n").slice(0, 32);
+  const shelterMapPanelExcerpt = summary.cardText.split("\n").slice(0, 32);
   return {
     postal,
     input_mode: args.inputMode,
@@ -719,8 +720,9 @@ async function runPostalCase(cdp, args, postal, outputDir, shotBase) {
     route_mode: args.routeMode,
     must_include: args.mustInclude,
     screenshots,
-    route_evidence_panel_excerpt: routeEvidencePanelExcerpt,
-    score_panel_excerpt: routeEvidencePanelExcerpt,
+    shelter_map_panel_excerpt: shelterMapPanelExcerpt,
+    route_evidence_panel_excerpt: shelterMapPanelExcerpt,
+    score_panel_excerpt: shelterMapPanelExcerpt,
     map_label: summary.mapLabel,
     map_summary: summary.mapSummary,
     active_transit_mode: summary.activeTransitMode,
