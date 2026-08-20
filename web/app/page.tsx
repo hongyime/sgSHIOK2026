@@ -215,7 +215,7 @@ export function SearchFeedback({
       </p>
       {showNoResults && (
         <div className={styles.emptyBox} role="status">
-          No OneMap address result found. Try a 6-digit postal code; newer completions may still be outside the frozen score bundle.
+          No OneMap address result found. Try a 6-digit postal code; the frozen score bundle has measured recent-source misses.
         </div>
       )}
       {error && (

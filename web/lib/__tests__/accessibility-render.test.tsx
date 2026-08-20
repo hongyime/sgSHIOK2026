@@ -137,7 +137,8 @@ describe("rendered accessibility output", () => {
     );
     expect(noResultsHtml).toContain("No OneMap address result found.");
     expect(noResultsHtml).toContain("Try a 6-digit postal code");
-    expect(noResultsHtml).toContain("frozen score bundle");
+    expect(noResultsHtml).toContain("the frozen score bundle has measured recent-source misses");
+    expect(noResultsHtml).not.toContain("newer completions may still be outside");
   });
 
   it("introduces the score panel as sheltered route evidence before search", () => {

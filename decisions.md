@@ -287,3 +287,6 @@ The locked-score row should not describe the release sorting value as a `locked 
 
 2026-08-20 - P100 measured universe caveat:
 The title-card address-universe caveat should state that measured recent-source misses exist, because the browser already shows the P19 8-of-976 HDB completion and MCST proxy miss count on the next line. This keeps the frozen v1 disclosure empirical instead of speculative. This is browser copy only; it does not alter search behavior, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P101 measured no-results copy:
+Submitted address searches with no OneMap result should use the same measured frozen-universe limitation as the title card. The no-results status now says the frozen score bundle has measured recent-source misses while still advising users to try a 6-digit postal code. This is browser copy only; it does not alter OneMap query behavior, search routing, scoring, exports, inputs, public data, deployment, or locked weights.
