@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P194: `de04a98`
+Remote main after P195: `fd9e19d`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P195 is complete and committed: the manifest-derived score availability line now says `Locked score availability` instead of `Bundle score availability`, preserving the same counts and missing-score breakdown.
 - P194 is complete and committed: the subscore-ranking test descriptions now say component-score ranking / component score while preserving the internal `subscore-ranking` module and `subscores` schema names.
 - P193 is complete and committed: live clicked-stop preview comments now say preview shelter-map evidence instead of preview route evidence, guarded by web interaction tests.
 - P192 is complete and committed: the tracked Section 10 presentation proposal now says five component-score rows instead of five subscore rows, with a score-card copy test guard.
