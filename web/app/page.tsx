@@ -1350,7 +1350,7 @@ export function ScoreCard({
         <div className={styles.summaryGrid}>
           <Metric label="Preview walk" value={formatDistance(selectedDistance)} />
           <Metric label="Shelter evidence" value={formatPercent(selectedCoverage)} />
-          <Metric label="Bundle score" value="Preview only" />
+          <Metric label="Locked score" value="Preview only" />
         </div>
       )}
 

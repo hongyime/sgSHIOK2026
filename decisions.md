@@ -532,3 +532,6 @@ Production readiness should expose the score-source hash policy by key name, not
 
 2026-08-21 - P195 locked-score availability wording:
 The manifest-derived score availability disclosure should use the same `Locked score` label as the rest of the shelter-first browser copy. It now starts `Locked score availability` instead of `Bundle score availability` while preserving the same manifest-derived counts and missing-score breakdown. This is browser copy and test coverage only; it does not alter manifest parsing, counts, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-21 - P196 preview locked-score metric label:
+Clicked-stop shelter-map previews should use the same `Locked score` label as other score-facing browser copy. The preview metric now says `Locked score: Preview only` instead of `Bundle score: Preview only`, while the nearby note still explains that clicked-stop previews are not part of the published score bundle yet. This is browser copy and test coverage only; it does not alter preview routing, score values, exports, inputs, public data, deployment, or locked weights.

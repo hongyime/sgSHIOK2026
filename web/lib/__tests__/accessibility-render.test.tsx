@@ -255,7 +255,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Shelter map evidence preview");
     expect(html).toContain("Preview shelter map evidence selected.");
     expect(html).toContain("Shelter map preview");
-    expect(html).toContain("<span>Bundle score</span><strong>Preview only</strong>");
+    expect(html).toContain("<span>Locked score</span><strong>Preview only</strong>");
     expect(html).toContain(
       "OneMap walking preview is unavailable for this selected stop; showing straight-line preview only."
     );
