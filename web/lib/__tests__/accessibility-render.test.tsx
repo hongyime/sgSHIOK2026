@@ -261,8 +261,9 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Postal 560231 is not in the current score bundle.");
     expect(html).not.toContain("Outside current bundle");
     expect(html).toContain(
-      "No shelter map route is published for this postal in the frozen June 2020 address universe."
+      "No shelter map route is published for this postal; the current bundle is tied to the frozen June 2020 address universe."
     );
+    expect(html).not.toContain("No shelter map route is published for this postal in the frozen June 2020 address universe.");
     expect(html).not.toContain("No route evidence is published for this postal");
   });
 

@@ -475,3 +475,6 @@ Direct-bus fallback copy now says the `Shelter-map route` was not verified inste
 
 2026-08-21 - P163 night-lighting layer state in route details:
 The selected shelter-map panel's night-lighting route detail now reflects whether the LTA lamp-post map layer is on or off instead of always saying `Map layer`. This makes the second evidence layer state visible in the main route workflow while keeping lamp points outside the locked score. This is browser UI copy/state wiring and test coverage only; it does not alter lamp data, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P164 outside-bundle universe caveat:
+Outside-bundle copy now says no shelter-map route is published for the searched postal and separately states that the current bundle is tied to the frozen June 2020 address universe. This avoids implying that an arbitrary OneMap search result is inside the frozen v1 universe when the bundle has no record for it. This is browser copy and test coverage only; it does not alter search behavior, bundle membership, scoring, exports, public data, deployment, or locked weights.
