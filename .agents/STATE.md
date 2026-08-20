@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P230 code commit: `98aad07`; state-only commits may follow it on `main`.
+Latest P231 code commit: `b009346`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P231 is complete and committed: `pipeline/config/sources.yaml` now names S.H.I.O.K. Shelter Map instead of the retired S.H.I.O.K. Index framing, and P230/P231 durable decisions are recorded. Focused fetch/README/agent-doc tests pass.
 - P230 is complete and committed: stale maintained-source comments now say preview shelter-map evidence and sheltered/shortest walks instead of preview route evidence and sheltered/shortest routes. Focused agent-doc and web copy tests pass.
 - P229 is complete and committed: `CLAUDE.md` scope guard now says walk display is shelter-map evidence only instead of route display being score evidence. Focused agent-doc/README tests pass.
 - P228 is complete and committed: `CLAUDE.md` now opens with the S.H.I.O.K. Shelter Map frame, covered-walkway ratio/exposed gaps, night-lighting map evidence, and locked SHIOK score as secondary. Focused agent-doc/README tests pass.
