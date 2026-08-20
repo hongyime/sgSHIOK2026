@@ -398,3 +398,6 @@ The non-visual map summary should use the same shelter-map framing as the visibl
 
 2026-08-20 - P137 map aria shelter label:
 The map container's accessible label should call the product surface a shelter map, matching the H1, footer, empty prompt, and non-visual summary. It now announces an empty map as a Singapore shelter map and selected routes as a shelter map for the chosen route labels, while preserving MRT/LRT and bus-stop context. This is browser accessibility copy only; it does not alter map rendering, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P138 live-region shelter map panel:
+The screen-reader live region for a loaded postal should announce the selected detail surface as the shelter map panel, not a generic route-evidence panel. It now says the shelter map panel loaded while preserving transit target, locked score, selected stop, route display, and active-route details. This is browser accessibility copy only; it does not alter score-card state, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
