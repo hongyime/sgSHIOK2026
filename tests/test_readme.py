@@ -22,6 +22,9 @@ def test_readme_documents_universe_source_policy() -> None:
     assert "OSM remains geometry evidence rather than an address registry" in normalized
     assert "OneMap Search validates and geocodes known candidates" in normalized
     assert "candidate-source-first" in normalized
+    assert "72-hour token refresh" in normalized
+    assert "token-authenticated call-limit cap" in normalized
+    assert "higher limit case-by-case" in normalized
 
 
 def test_readme_documents_local_lamp_overlay_artifact() -> None:

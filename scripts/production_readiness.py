@@ -15,7 +15,12 @@ if str(PROJECT_ROOT) not in sys.path:
 
 import yaml
 
-from pipeline.batch_plan import OSM_ADDR_POSTCODE_COVERAGE, PARAMS_PATH, build_batch_plan
+from pipeline.batch_plan import (
+    ONEMAP_SEARCH_CONTROLS,
+    OSM_ADDR_POSTCODE_COVERAGE,
+    PARAMS_PATH,
+    build_batch_plan,
+)
 from pipeline.export import validate_static_artifacts
 from pipeline.fetch import source_freshness_status
 from pipeline.network_qa import validate_network_qa
@@ -961,8 +966,10 @@ def readiness_features(
             ),
             "postal_universe_v2_source_policy": (
                 "candidate-source-first: use current free sources to propose v2 rows, then "
-                "validate bounded candidates through OneMap Search under explicit token and "
-                "rate controls; do not use OSM or OneMap Search as a complete postal registry"
+                "validate bounded candidates through OneMap Search under explicit token controls, "
+                "72-hour token refresh, and current documented token-authenticated call-limit cap "
+                "unless SLA approves a higher limit case-by-case; do not use OSM or OneMap Search "
+                "as a complete postal registry"
             ),
             "ura_expanded_scores_live": (
                 "postal prep produces 124443 candidate records and 123967 ready-to-score rows; "
@@ -992,6 +999,7 @@ def readiness_features(
         },
         "source_policy": {
             "osm_addr_postcode_registry": OSM_ADDR_POSTCODE_COVERAGE,
+            "onemap_search_controls": ONEMAP_SEARCH_CONTROLS,
         },
     }
 

@@ -435,6 +435,16 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         in report["features"]["not_incorporated"]["postal_universe_v2_source_policy"]
     )
     assert (
+        "72-hour token refresh"
+        in report["features"]["not_incorporated"]["postal_universe_v2_source_policy"]
+    )
+    assert report["features"]["source_policy"]["onemap_search_controls"] == {
+        "token_required": True,
+        "token_refresh_hours": 72,
+        "documented_token_authenticated_call_limit_cap": 250,
+        "higher_limit_requires_sla_case_by_case_approval": True,
+    }
+    assert (
         "outlier review/rescore"
         in report["features"]["not_incorporated"]["overture_addresses_sg_candidate"]
     )

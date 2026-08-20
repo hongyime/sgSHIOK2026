@@ -203,6 +203,12 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
         report["source_policy"]["onemap_search_role"]
         == "candidate validation/geocoding, not national enumeration"
     )
+    assert report["source_policy"]["onemap_search_controls"] == {
+        "token_required": True,
+        "token_refresh_hours": 72,
+        "documented_token_authenticated_call_limit_cap": 250,
+        "higher_limit_requires_sla_case_by_case_approval": True,
+    }
     assert report["api_environment"]["ready_for_api_collection"] is False
     assert report["api_environment"]["missing"] == [
         "LTA_DATAMALL_ACCOUNT_KEY",

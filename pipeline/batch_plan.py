@@ -28,8 +28,15 @@ FROZEN_V1_POLICY = (
 )
 POSTAL_UNIVERSE_V2_POLICY = (
     "candidate-source-first current free sources, then bounded OneMap Search validation "
-    "under explicit token and rate controls"
+    "under explicit token controls, 72-hour token refresh, and current documented "
+    "token-authenticated call-limit cap unless SLA approves a higher limit"
 )
+ONEMAP_SEARCH_CONTROLS = {
+    "token_required": True,
+    "token_refresh_hours": 72,
+    "documented_token_authenticated_call_limit_cap": 250,
+    "higher_limit_requires_sla_case_by_case_approval": True,
+}
 OSM_ADDR_POSTCODE_COVERAGE = {
     "measurement": "P125 live Overpass addr:postcode coverage",
     "valid_distinct_postcodes": 25879,
@@ -286,6 +293,7 @@ def build_batch_plan(
             "v2": POSTAL_UNIVERSE_V2_POLICY,
             "osm_addr_postcode_registry": OSM_ADDR_POSTCODE_COVERAGE,
             "onemap_search_role": "candidate validation/geocoding, not national enumeration",
+            "onemap_search_controls": ONEMAP_SEARCH_CONTROLS,
             "requires_human_approval_for_universe": requires_universe_approval,
         },
         "api_environment": api_environment,

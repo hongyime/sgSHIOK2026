@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P202: `8373a43`
+Remote main after P203: pending
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P203 is in progress: OneMap candidate-validation policy now records current official token controls, 72-hour token refresh, documented token-authenticated call-limit cap of 250, and SLA case-by-case higher-limit path in README, batch plan, production readiness, tests, decisions, and evidence.
 - P202 is complete and committed: the title-card data freshness line now names the oldest current source, NParks Leaf Area Index at 112.5 days old, instead of only reporting current/stale/manual counts; focused web copy test passes.
 - P201 is complete and committed: `run.py check --freshness-only` now prints current-source timestamp basis, age and threshold when manifest age is available; focused fetch tests pass.
 - P200 is complete and committed: absolute-path `production_readiness.py` full invocation reaches the real gate and exits 1 after 388.593 seconds; legacy provenance is `state: legacy` and `ok: true`, while the release gate remains blocked by island network QA, local Vercel link/root-directory checks, and cached OneMap validation.

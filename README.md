@@ -21,7 +21,9 @@ geometry evidence rather than an address registry. OneMap Search validates and
 geocodes known candidates, but it is a keyword search endpoint, not a national
 postal enumerator. Any v2 universe should therefore be candidate-source-first:
 use current free source datasets to propose rows, then pass bounded candidates
-through OneMap Search under explicit rate and token controls.
+through OneMap Search under explicit token controls, 72-hour token refresh, and
+the current documented token-authenticated call-limit cap unless SLA approves a
+higher limit case-by-case.
 
 ## Local data artifacts
 
