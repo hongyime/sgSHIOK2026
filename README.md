@@ -1,4 +1,4 @@
-# S.H.I.O.K. Index
+# S.H.I.O.K. Shelter Map
 
 A free, non-commercial civic web app for Singapore postal records that answers:
 if I move here, what is the walk to transit actually like? It leads with the

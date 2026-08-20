@@ -12,6 +12,8 @@ def test_readme_documents_universe_source_policy() -> None:
     text = README.read_text(encoding="utf-8")
     normalized = compact(text)
 
+    assert text.startswith("# S.H.I.O.K. Shelter Map")
+    assert "# S.H.I.O.K. Index" not in text
     assert "## Universe status" in text
     assert "124,443-record source-derived set" in normalized
     assert "8 missing rows out of 976 HDB completion and MCST proxy rows" in normalized

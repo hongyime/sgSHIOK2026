@@ -386,3 +386,6 @@ The first route-evidence panel a user sees should name the actual artifacts the 
 
 2026-08-20 - P133 shelter-map footer:
 The page footer should match the shelter-map framing established by the app title and first-use prompt. It now says `Source-derived shelter map evidence` instead of generic route-evidence wording, while preserving the source-derived evidence caveat. This is browser copy only; it does not alter search behavior, route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P134 README shelter-map title:
+The repository README should use the same shelter-map framing as the browser title. Its heading now says `S.H.I.O.K. Shelter Map` instead of `S.H.I.O.K. Index`, while the existing intro continues to state that the app leads with covered-walkway ratio and exposed gaps and keeps the locked SHIOK score secondary. This is documentation and test coverage only; it does not alter browser behavior, scoring, exports, public data, deployment, or locked weights.
