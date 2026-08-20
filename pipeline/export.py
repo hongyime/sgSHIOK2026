@@ -2062,7 +2062,9 @@ def validate_static_artifacts(
         if not isinstance(score_index, dict):
             errors.append("scores/index.json must be an object")
             score_index = {}
-        for area, postals in sorted(score_index.items()):
+        score_items = sorted(score_index.items())
+        mark(f"validating {len(score_items)} score shards")
+        for shard_index, (area, postals) in enumerate(score_items, start=1):
             if not isinstance(postals, list):
                 errors.append(f"scores/index.json {area}: value must be a list")
                 continue
@@ -2087,6 +2089,8 @@ def validate_static_artifacts(
                 validate_score_record(record, errors, f"scores/{area}.json:{postal}")
                 if record.get("state") in {"SCORED", "SCORED_PARTIAL"}:
                     scored_postals_with_geom_required.add(postal)
+            if shard_index == len(score_items) or shard_index % 25 == 0:
+                mark(f"validated {shard_index}/{len(score_items)} score shards")
         mark(f"validated {len(indexed_postals)} indexed score records")
 
     manifest = None
@@ -2114,38 +2118,44 @@ def validate_static_artifacts(
         if not isinstance(geom_index, dict):
             errors.append("geom/index.json must be an object")
             geom_index = {}
+        geom_targets: list[tuple[str, str]] = []
         for cell, children in sorted(geom_index.items()):
             target_cells = children if children else [cell]
             if not isinstance(target_cells, list):
                 errors.append(f"geom/index.json {cell}: value must be a list")
                 continue
             for target_cell in target_cells:
-                geom_rel_path = f"geom/h3/{target_cell}.json"
-                geom_path = artifact_json_path(input_dir, geom_rel_path)
-                if not geom_path.is_file():
-                    errors.append(f"geom/index.json references missing file: {geom_rel_path}")
+                geom_targets.append((str(cell), str(target_cell)))
+        mark(f"validating {len(geom_targets)} geometry shards")
+        for shard_index, (cell, target_cell) in enumerate(geom_targets, start=1):
+            geom_rel_path = f"geom/h3/{target_cell}.json"
+            geom_path = artifact_json_path(input_dir, geom_rel_path)
+            if not geom_path.is_file():
+                errors.append(f"geom/index.json references missing file: {geom_rel_path}")
+                continue
+            geom_records = read_artifact_json(input_dir, geom_rel_path)
+            if not isinstance(geom_records, list):
+                errors.append(f"geom/h3/{target_cell}.json must be a list")
+                continue
+            for item in geom_records:
+                if not isinstance(item, dict):
+                    errors.append(f"geom/h3/{target_cell}.json: record must be an object")
                     continue
-                geom_records = read_artifact_json(input_dir, geom_rel_path)
-                if not isinstance(geom_records, list):
-                    errors.append(f"geom/h3/{target_cell}.json must be a list")
-                    continue
-                for item in geom_records:
-                    if not isinstance(item, dict):
-                        errors.append(f"geom/h3/{target_cell}.json: record must be an object")
-                        continue
-                    postal = str(item.get("postal"))
-                    geom_postals.add(postal)
-                    for key in ["shortest", "sheltered", "exposure_gaps"]:
-                        if key not in item:
-                            errors.append(f"geom/h3/{target_cell}.json:{postal}: missing {key}")
-                    route_segments = item.get("route_segments")
-                    if isinstance(route_segments, dict):
-                        shortest_segments = route_segments.get("shortest")
-                        sheltered_segments = route_segments.get("sheltered")
-                        if isinstance(shortest_segments, list) and isinstance(
-                            sheltered_segments, list
-                        ):
-                            geom_postals_with_route_segments.add(postal)
+                postal = str(item.get("postal"))
+                geom_postals.add(postal)
+                for key in ["shortest", "sheltered", "exposure_gaps"]:
+                    if key not in item:
+                        errors.append(f"geom/h3/{target_cell}.json:{postal}: missing {key}")
+                route_segments = item.get("route_segments")
+                if isinstance(route_segments, dict):
+                    shortest_segments = route_segments.get("shortest")
+                    sheltered_segments = route_segments.get("sheltered")
+                    if isinstance(shortest_segments, list) and isinstance(
+                        sheltered_segments, list
+                    ):
+                        geom_postals_with_route_segments.add(postal)
+            if shard_index == len(geom_targets) or shard_index % 250 == 0:
+                mark(f"validated {shard_index}/{len(geom_targets)} geometry shards")
         mark(f"validated {len(geom_postals)} geometry records")
 
     missing_geom = scored_postals_with_geom_required - geom_postals

@@ -553,3 +553,6 @@ The production-readiness CLI should emit stage markers to stderr while preservin
 
 2026-08-21 - P208 static-artifact validation progress:
 Static artifact validation should expose its own sub-stages because it scans and validates the 4,848 JSON artifacts in the active bundle before the rest of production readiness can proceed. `validate_static_artifacts` now accepts an optional progress callback and production readiness prefixes those events on stderr, showing the recursive scan count, file-size check, score-shard validation, geometry-shard validation, and transit-artifact validation without changing validation semantics or JSON report output. This is operator observability and test coverage only; it does not alter artifacts, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-21 - P209 static-artifact shard progress:
+The production-readiness static-artifact stage should show bounded movement while validating large score and geometry shard sets. The active bundle has 304 score shards, so `validate_static_artifacts` now reports total shard counts and emits progress every 25 score shards and every 250 geometry shards, plus final counts. This is operator observability and test coverage only; it does not alter validation semantics, artifacts, scoring, exports, inputs, public data, deployment, or locked weights.

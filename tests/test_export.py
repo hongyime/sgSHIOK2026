@@ -204,7 +204,11 @@ def test_export_and_validate_static_artifacts(tmp_path: Path):
     assert progress_events[0] == "scanning JSON artifact files"
     assert any(event.startswith("scanned ") for event in progress_events)
     assert "validating score index and shards" in progress_events
+    assert "validating 1 score shards" in progress_events
+    assert "validated 1/1 score shards" in progress_events
     assert "validating geometry index and shards" in progress_events
+    assert any(event.startswith("validating ") and " geometry shards" in event for event in progress_events)
+    assert any(event.startswith("validated ") and " geometry shards" in event for event in progress_events)
     assert validation["indexed_postals"] == 2
     assert validation["score_prefixes"] == 2
     assert validation["geometry_postals"] == 2
