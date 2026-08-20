@@ -262,8 +262,9 @@ describe("rendered accessibility output", () => {
       "OneMap walking preview is unavailable for this selected stop; showing straight-line preview only."
     );
     expect(html).toContain(
-      "Preview only: this clicked stop has shelter map evidence, but it is not part of the published score bundle yet."
+      "Preview only: this clicked stop has shelter map evidence, but it is not part of the published shelter-map bundle yet."
     );
+    expect(html).not.toContain("not part of the published score bundle yet");
     expect(html).not.toContain("not an authoritative SHIOK score");
     expect(html).not.toContain("Preview route");
     expect(html).not.toContain("↺ Scored route");

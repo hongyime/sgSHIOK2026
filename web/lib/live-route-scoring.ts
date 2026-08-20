@@ -4,8 +4,8 @@
  * Takes a pedestrian walking route (e.g. from OneMap API or direct path),
  * tests sub-segments against local shelter evidence (LTA linkways, HDB void decks,
  * overhead bridges), and produces multi-color RouteSegments. It deliberately
- * does not produce authoritative SHIOK scores; authoritative scores come from
- * the published score bundle with locked weights and full provenance.
+ * does not produce authoritative SHIOK scores; published locked scores come
+ * from the shelter-map bundle with locked weights.
  */
 
 import { haversineMeters, type TransitCandidate } from "./nearest-transit";
@@ -310,7 +310,7 @@ export function scoreLiveRoute(options: LiveRouteOptions): {
       source: "live_onemap_preview",
       authoritative_score: false,
       reason:
-        "Clicked transit POI has shelter map evidence only; published scores come from the score bundle.",
+        "Clicked transit POI has shelter map evidence only; published locked scores come from the shelter-map bundle.",
     },
   };
 

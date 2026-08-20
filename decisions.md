@@ -670,3 +670,6 @@ Maintained pipeline HTTP user-agent identifiers should use the current S.H.I.O.K
 
 2026-08-21 - P247 README shelter-map bundle wording:
 Operator onboarding should describe the active static artifact as the live shelter-map bundle, not primarily as a score bundle. README local-data wording and the web data-loader comment now use shelter-map bundle language while preserving the exact locked-score availability counts and the readiness requirement. This is documentation/comment and test coverage only; it does not alter runtime data loading, manifests, inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P248 clicked-stop shelter-map bundle wording:
+Clicked-stop previews should keep the shelter-map bundle frame even when explaining why preview evidence is not authoritative. The preview note now says the clicked stop is not part of the published shelter-map bundle yet, and the preview provenance reason says published locked scores come from the shelter-map bundle. The live-preview helper comment no longer overclaims full provenance for the legacy published bundle. This is browser copy/comment and test coverage only; it does not alter preview routing, score values, scoring, exports, inputs, public data, deployment, or locked weights.
