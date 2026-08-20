@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+from collections.abc import Mapping
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
@@ -110,6 +112,42 @@ def vercel_readiness(project_root: Path, web_dir: Path) -> dict[str, Any]:
         ),
         "root_link": root_link,
         "web_link": web_link,
+        "warnings": warnings,
+    }
+
+
+def environment_readiness(environment: Mapping[str, str] | None = None) -> dict[str, Any]:
+    env = os.environ if environment is None else environment
+    lta_present = bool(env.get("LTA_DATAMALL_ACCOUNT_KEY"))
+    onemap_email_present = bool(env.get("ONEMAP_EMAIL"))
+    onemap_password_present = bool(env.get("ONEMAP_PASSWORD"))
+    missing = []
+    if not lta_present:
+        missing.append("LTA_DATAMALL_ACCOUNT_KEY")
+    if not onemap_email_present:
+        missing.append("ONEMAP_EMAIL")
+    if not onemap_password_present:
+        missing.append("ONEMAP_PASSWORD")
+
+    warnings: list[str] = []
+    if not lta_present:
+        warnings.append(
+            "LTA_DATAMALL_ACCOUNT_KEY missing; DataMall fetch, bus-arrival, and "
+            "geospatial discovery tasks cannot call owner-key APIs"
+        )
+    if not (onemap_email_present and onemap_password_present):
+        warnings.append(
+            "ONEMAP_EMAIL/ONEMAP_PASSWORD missing; OneMap walk-validation collection "
+            "cannot mint a routing token"
+        )
+
+    return {
+        "ready_for_api_collection": not missing,
+        "lta_datamall_account_key_present": lta_present,
+        "onemap_email_present": onemap_email_present,
+        "onemap_password_present": onemap_password_present,
+        "onemap_credentials_present": onemap_email_present and onemap_password_present,
+        "missing": missing,
         "warnings": warnings,
     }
 
@@ -690,6 +728,7 @@ def build_readiness_report(
     waive_onemap_validation: bool = False,
     production_deploy_approved: bool = False,
     owner_approval_note: str = "",
+    environment: Mapping[str, str] | None = None,
 ) -> tuple[bool, dict[str, Any]]:
     bundle_dir = bundle_dir or active_bundle_dir()
     qa_path = qa_path or project_root / "qa" / "conflation_qa_island.json"
@@ -720,6 +759,7 @@ def build_readiness_report(
         debug_path=debug_path,
     )
     vercel = vercel_readiness(project_root, web_dir)
+    env_status = environment_readiness(environment)
     freshness = bundle_network_freshness(bundle_dir, network_path)
     score_provenance = bundle_score_provenance_status(bundle_dir)
     onemap_status = onemap_validation_status(
@@ -742,6 +782,7 @@ def build_readiness_report(
         errors.append("Vercel project is not linked")
     if not vercel["root_directory_ok"]:
         errors.append("Vercel root directory is not web")
+    warnings.extend(env_status["warnings"])
     if freshness["warning"]:
         warnings.append(str(freshness["warning"]))
     if score_provenance["warning"]:
@@ -852,6 +893,7 @@ def build_readiness_report(
             "errors": batch_plan.get("errors", []),
         },
         "vercel": vercel,
+        "environment": env_status,
         "features": readiness_features(
             project_root / "qa",
             active_bundle=str(bundle_state.get("bundle") or ""),

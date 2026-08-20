@@ -11,6 +11,7 @@ from pipeline.scoring_integration import scoring_fingerprints
 from scripts.production_readiness import (
     build_readiness_report,
     bundle_score_provenance_status,
+    environment_readiness,
     vercel_readiness,
 )
 from tests.test_export import sample_record
@@ -149,6 +150,36 @@ def test_vercel_readiness_prefers_root_project_settings(tmp_path: Path):
     assert report["warnings"] == ["root and web Vercel project names differ but project ID matches"]
 
 
+def test_environment_readiness_reports_missing_api_credentials_without_values() -> None:
+    missing = environment_readiness({})
+
+    assert missing["ready_for_api_collection"] is False
+    assert missing["missing"] == [
+        "LTA_DATAMALL_ACCOUNT_KEY",
+        "ONEMAP_EMAIL",
+        "ONEMAP_PASSWORD",
+    ]
+    assert missing["lta_datamall_account_key_present"] is False
+    assert missing["onemap_credentials_present"] is False
+    assert any("DataMall" in warning for warning in missing["warnings"])
+    assert any("OneMap walk-validation" in warning for warning in missing["warnings"])
+
+    present = environment_readiness(
+        {
+            "LTA_DATAMALL_ACCOUNT_KEY": "secret-lta",
+            "ONEMAP_EMAIL": "owner@example.test",
+            "ONEMAP_PASSWORD": "secret-onemap",
+        }
+    )
+
+    assert present["ready_for_api_collection"] is True
+    assert present["missing"] == []
+    assert present["warnings"] == []
+    assert "secret-lta" not in json.dumps(present)
+    assert "secret-onemap" not in json.dumps(present)
+    assert "owner@example.test" not in json.dumps(present)
+
+
 def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Path):
     web_dir = tmp_path / "web"
     bundle_dir = web_dir / "public" / "data" / "generated_test"
@@ -196,6 +227,11 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         debug_path=debug_path,
         network_path=tmp_path / "unused_network.parquet",
         postal_universe_path=universe_path,
+        environment={
+            "LTA_DATAMALL_ACCOUNT_KEY": "test-lta",
+            "ONEMAP_EMAIL": "owner@example.test",
+            "ONEMAP_PASSWORD": "test-onemap",
+        },
     )
 
     assert ok, report
@@ -212,6 +248,8 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
     assert report["bundle"]["static_validation"]["geometry_postals_with_route_segments"] == 1
     assert report["network"]["ok"] is True
     assert report["vercel"]["root_directory_ok"] is True
+    assert report["environment"]["ready_for_api_collection"] is True
+    assert report["environment"]["warnings"] == []
     assert report["features"]["incorporated"]["bus_as_transit_direct_fallback"] is True
     assert report["features"]["incorporated"]["ura_no_dwelling_units_postal_source"] is True
     assert "124443" in report["features"]["not_incorporated"]["ura_expanded_scores_live"]

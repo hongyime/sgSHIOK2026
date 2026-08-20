@@ -194,3 +194,6 @@ P19's private-strata source is BCA MCST constitution date, which is a useful ope
 
 2026-08-20 - P69 MCST terminology consistency:
 Non-evidence tracked files should use the P68 wording consistently. Stale completion-only terminology was removed from `.agents/STATE.md` and the older P65 decision text; immutable `qa/verification/` history is left unchanged, and the old generic browser phrase remains only inside negative regression assertions. This is terminology consistency only; it does not alter the P19 measurement, inputs, exports, public data, scoring, deployment, or locked weights.
+
+2026-08-20 - P70 API credential readiness:
+Production readiness should expose whether local API credentials are present before any OneMap or LTA work starts. The readiness report now includes a non-secret `environment` block that reports only boolean presence and missing variable names for `LTA_DATAMALL_ACCOUNT_KEY`, `ONEMAP_EMAIL`, and `ONEMAP_PASSWORD`; missing values produce warnings but do not block static release checks. On Prawn-E14 at P70, all three variables are present. This is operational reporting only; it does not call APIs, alter inputs, exports, public data, scoring, deployment, or locked weights.
