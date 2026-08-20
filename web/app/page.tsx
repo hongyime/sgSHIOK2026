@@ -1941,7 +1941,7 @@ export default function Home() {
               Recent public-sample check: 8 missing rows out of 976 completions from 2021-2026 with postals.
             </p>
             <p className={styles.freshnessLine}>
-              Source freshness: shelter, bus stops and night lighting are current; 6 supporting sources are stale.
+              Source freshness: shelter, bus stops and night lighting are current; stale supporting sources include traffic signals and some greenery or boundary references.
             </p>
             {scoreCoverageLine && <p className={styles.coverageLine}>{scoreCoverageLine}</p>}
             <p className={styles.sourceLine}>

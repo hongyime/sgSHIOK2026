@@ -36,8 +36,9 @@ describe("score card copy", () => {
       "Recent public-sample check: 8 missing rows out of 976 completions from 2021-2026 with postals."
     );
     expect(source).toContain(
-      "Source freshness: shelter, bus stops and night lighting are current; 6 supporting sources are stale."
+      "Source freshness: shelter, bus stops and night lighting are current; stale supporting sources include traffic signals and some greenery or boundary references."
     );
+    expect(source).not.toContain("6 supporting sources are stale.");
     expect(source).toContain('import { formatScoreCoverageLine } from "../lib/score-coverage";');
     expect(source).toContain("formatScoreCoverageLine(manifest)");
     expect(source).toContain("styles.coverageLine");
