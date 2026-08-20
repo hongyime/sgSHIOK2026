@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P197: `7214d58`
+Remote main after P198: `8174e50`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P198 is complete and committed: the manifest-derived locked-score availability helper and test now use `locked-score-availability` / `formatLockedScoreAvailabilityLine` naming instead of generic score-coverage naming.
 - P197 is complete and committed: partial and not-yet-scored states now use `Partial locked score` and `Awaiting locked score`, while preserving the `No full score in this bundle` limitation.
 - P196 is complete and committed: clicked-stop shelter-map previews now label the preview score metric as `Locked score: Preview only` instead of `Bundle score: Preview only`, preserving the published-score-bundle caveat.
 - P195 is complete and committed: the manifest-derived score availability line now says `Locked score availability` instead of `Bundle score availability`, preserving the same counts and missing-score breakdown.
