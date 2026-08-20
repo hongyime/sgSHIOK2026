@@ -679,3 +679,6 @@ The transit-stop picker helper should describe the artifact limitation as a shel
 
 2026-08-21 - P250 deployed-bundle audit CLI wording:
 The current-bundle audit CLI is an operator-facing tool for the deployed shelter-map artifact, even though some fields inside that artifact are locked scores. Its argparse description now says `current deployed shelter-map bundle` instead of `current deployed score bundle`, with a focused test guard. This is CLI help text and test coverage only; it does not read bundles, run audits, mutate QA outputs, alter scoring, export, deploy, public data, inputs, or locked weights.
+
+2026-08-21 - P251 freshness cadence interpretation:
+README source-freshness guidance should explain that `current` is a local manifest freshness classification, not proof that no newer upstream geospatial release exists. The local-data section now states that LTA geospatial listings such as Covered Linkway use a quarterly cadence with a 120-day stale threshold, and that upstream should still be checked before an approved release batch. This is documentation and test coverage only; it does not probe upstream APIs, fetch sources, mutate manifests or inputs, score, export, deploy, public data, or locked weights.

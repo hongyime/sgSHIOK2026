@@ -49,6 +49,10 @@ For a zero-mutation source-age check, run
 current, stale, manual, and unknown-age sources. NParks Leaf Area Index can
 appear in freshness as a tracked reference table, but it is not route geometry,
 shade-proxy geometry, or score provenance.
+LTA geospatial listings such as Covered Linkway use a quarterly cadence with a
+120-day stale threshold, so a current local freshness result does not prove no
+newer upstream release exists; check upstream before approving a new release
+batch.
 
 Before any full geocode, scoring, or release batch, run both
 `python scripts/production_readiness.py` and `python run.py batch-plan`. The
