@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P182: `d1cfdb5`
+Remote main after P183: `b606c56`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P183 is complete and committed: browser smoke not-yet-scored detection now checks the current frozen-bundle copy, `No full score in this bundle` / `Awaiting bundle score`, instead of the old `needs usable location evidence` phrase.
 - P182 is complete and committed: browser smoke same-route detection now expects `Shortest same as sheltered walk`, matching the rendered app copy and unit tests instead of the older `sheltered route` wording.
 - P76 is complete and pushed: production readiness now reports manifest-only source freshness from `raw/manifest.json` and `pipeline/config/sources.yaml` as non-blocking release context.
 - P77 is complete and pushed: the route evidence panel now summarizes total exposed metres and recorded exposed-gap count before listing the longest gaps.
