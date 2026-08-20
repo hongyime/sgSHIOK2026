@@ -1,6 +1,7 @@
 import csv
 import gzip
 import json
+import sys
 from pathlib import Path
 
 import pyarrow as pa
@@ -26,6 +27,7 @@ from pipeline.postal_universe import (
     normalize_postal_code,
     is_versioned_postal_universe_artifact,
     require_new_artifact_paths,
+    resolve_universe_artifact_paths,
     raw_file_from_manifest,
 )
 
@@ -287,6 +289,32 @@ def test_postal_universe_allows_fresh_versioned_artifact_paths(tmp_path: Path):
     require_new_artifact_paths(output_path, summary_path)
     assert is_versioned_postal_universe_artifact(output_path)
     assert is_versioned_postal_universe_artifact(summary_path)
+
+
+def test_postal_universe_infers_versioned_summary_from_output(tmp_path: Path):
+    output_path = tmp_path / "postal_universe_candidate_full_registered_v2.parquet"
+
+    output, summary = resolve_universe_artifact_paths(
+        "candidate_full_registered", output_path, None
+    )
+
+    assert output == output_path
+    assert summary == tmp_path / "postal_universe_candidate_full_registered_v2_summary.json"
+    require_new_artifact_paths(output, summary)
+
+
+def test_postal_universe_cli_rejects_unversioned_defaults_before_loading_sources(
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+):
+    monkeypatch.setattr(sys, "argv", ["postal_universe.py", "--mode", "official_current"])
+
+    assert postal_universe.main() == 2
+
+    out = capsys.readouterr().out
+    assert '"ok": false' in out
+    assert "numeric version tag" in out
+    assert "[postal-universe] loading" not in out
 
 
 def test_merge_source_rows_prefers_current_coordinates_and_keeps_source_membership():

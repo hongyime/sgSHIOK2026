@@ -64,6 +64,16 @@ def is_versioned_postal_universe_artifact(path: Path) -> bool:
     return bool(re.search(r"_v\d+(_summary)?$", path.stem))
 
 
+def resolve_universe_artifact_paths(
+    mode: UniverseMode,
+    output_path: Path | None,
+    summary_path: Path | None,
+) -> tuple[Path, Path]:
+    output = output_path or PROCESSED_DIR / f"postal_universe_{mode}.parquet"
+    summary = summary_path or output.with_name(f"{output.stem}_summary.json")
+    return output, summary
+
+
 def require_new_artifact_paths(*paths: Path) -> None:
     unversioned = [str(path) for path in paths if not is_versioned_postal_universe_artifact(path)]
     if unversioned:
@@ -1022,6 +1032,8 @@ def build_universe(
     overture_candidate_path: Path | None = None,
 ) -> tuple[pd.DataFrame, dict[str, Any]]:
     include_onemap_2020, acra_policy = mode_to_options(mode)
+    output_path, summary_path = resolve_universe_artifact_paths(mode, output_path, summary_path)
+    require_new_artifact_paths(output_path, summary_path)
     all_rows: list[SourceRow] = []
     stats: list[SourceStats] = []
 
@@ -1174,9 +1186,6 @@ def build_universe(
     }
 
     PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
-    output_path = output_path or PROCESSED_DIR / f"postal_universe_{mode}.parquet"
-    summary_path = summary_path or PROCESSED_DIR / f"postal_universe_{mode}_summary.json"
-    require_new_artifact_paths(output_path, summary_path)
     df.to_parquet(output_path, index=False)
     with open(summary_path, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2, sort_keys=True)
@@ -1191,8 +1200,16 @@ def main() -> int:
         default="official_current",
     )
     parser.add_argument("--download-missing", action="store_true")
-    parser.add_argument("--output", type=Path)
-    parser.add_argument("--summary", type=Path)
+    parser.add_argument(
+        "--output",
+        type=Path,
+        help="New versioned parquet path, for example processed/postal_universe_candidate_full_registered_v2.parquet.",
+    )
+    parser.add_argument(
+        "--summary",
+        type=Path,
+        help="New versioned summary JSON path; defaults to <output stem>_summary.json.",
+    )
     parser.add_argument(
         "--include-overture-candidate",
         action="store_true",
@@ -1205,14 +1222,18 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    df, summary = build_universe(
-        mode=cast(UniverseMode, args.mode),
-        download_missing=bool(args.download_missing),
-        output_path=args.output,
-        summary_path=args.summary,
-        include_overture_candidate=bool(args.include_overture_candidate),
-        overture_candidate_path=args.overture_candidate,
-    )
+    try:
+        df, summary = build_universe(
+            mode=cast(UniverseMode, args.mode),
+            download_missing=bool(args.download_missing),
+            output_path=args.output,
+            summary_path=args.summary,
+            include_overture_candidate=bool(args.include_overture_candidate),
+            overture_candidate_path=args.overture_candidate,
+        )
+    except (FileExistsError, ValueError) as exc:
+        print(json.dumps({"ok": False, "error": str(exc)}, indent=2, sort_keys=True))
+        return 2
     print(json.dumps(summary, indent=2, sort_keys=True))
     print(f"Wrote {len(df)} postals")
     return 0

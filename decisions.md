@@ -646,3 +646,6 @@ The dry-run batch plan and production readiness now carry structured prerequisit
 
 2026-08-21 - P239 postal-universe version guard:
 Postal-universe preparation now defaults to a numeric version tag (`v2`) and writes versioned universe/geocoded artifact paths. The wrapper refuses to run if any target versioned artifact already exists, and the Python postal-universe builder refuses to overwrite an existing output or summary path even when called directly. This enforces the v1/v2/v3 input-artifact rule without building, geocoding, scoring, exporting, deploying, mutating public data, or changing locked weights.
+
+2026-08-21 - P240 postal-universe CLI early guard:
+Direct postal-universe CLI calls now infer a versioned summary path from a versioned `--output`, validate output paths before loading source data, and return a clean JSON error when the default unversioned paths would be used. This prevents accidental source scans or late failures for unsafe unversioned artifact targets. This is CLI safety and test coverage only; it does not build a universe, geocode, score, export, deploy, mutate public data, or change locked weights.
