@@ -92,10 +92,11 @@ describe("score card copy", () => {
     expect(layoutSource).not.toContain("measuring rain shelter, provisional heat proxy, crossing friction");
   });
 
-  it("keeps the footer aligned with route evidence framing", () => {
+  it("keeps the footer aligned with shelter map framing", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
-    expect(source).toContain("Source-derived route evidence.");
+    expect(source).toContain("Source-derived shelter map evidence.");
+    expect(source).not.toContain("Source-derived route evidence.");
     expect(source).not.toContain("Source-derived comfort index.");
   });
 

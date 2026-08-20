@@ -2119,7 +2119,7 @@ export default function Home() {
           </aside>
         )}
 
-        <footer className={styles.pageFooter}>Source-derived route evidence.</footer>
+        <footer className={styles.pageFooter}>Source-derived shelter map evidence.</footer>
       </section>
     </main>
   );

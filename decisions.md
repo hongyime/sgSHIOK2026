@@ -383,3 +383,6 @@ The app's first brand signal should describe the user-facing artifact rather tha
 
 2026-08-20 - P132 empty-state shelter map prompt:
 The first route-evidence panel a user sees should name the actual artifacts the shelter map provides before any search. The no-selection status now says `No shelter map route selected`, and the empty prompt asks users to search a Singapore postal code to inspect sheltered walk evidence, exposed gaps, and night lighting near transit. This is browser copy only; it does not alter search behavior, route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P133 shelter-map footer:
+The page footer should match the shelter-map framing established by the app title and first-use prompt. It now says `Source-derived shelter map evidence` instead of generic route-evidence wording, while preserving the source-derived evidence caveat. This is browser copy only; it does not alter search behavior, route geometry, scoring, exports, public data, deployment, or locked weights.
