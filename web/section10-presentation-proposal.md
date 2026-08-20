@@ -5,7 +5,7 @@ Status: proposal only. This is not an implementation and does not change the app
 ## Goal
 
 Make Section 10 lead with the artifact the project can defend today: the routed
-covered-walkway trace and its exposed gaps. Keep the locked composite score visible, but
+shelter trace and its exposed gaps. Keep the locked composite score visible, but
 stop presenting the current five subscore rows as five independent measurements.
 
 ## Current State
@@ -15,15 +15,15 @@ stop presenting the current five subscore rows as five independent measurements.
 | 1 | Composite SHIOK score | Leads with a blended index before showing the evidence behind the walk. |
 | 2 | Access | Useful, but should sit beside route distance and transit target rather than above route exposure. |
 | 3 | Bus connectivity | Carries 20% of locked weight but still partly reflects routing/conflation success. |
-| 4 | Rain shelter | Uses covered-route evidence. |
-| 5 | Heat: shelter + NParks shade proxy | Mostly the same covered-route evidence as rain shelter, plus sparse greenery proxy. |
+| 4 | Rain shelter | Uses covered-walkway shelter evidence. |
+| 5 | Heat: shelter + NParks shade proxy | Mostly the same covered-walkway shelter evidence as rain shelter, plus sparse greenery proxy. |
 | 6 | Crossing friction | Low discriminating value in the current bundle; weighted standard deviation is about 1.11 points and 59.9% of records are exactly 100. |
 
 ## Proposed State
 
 | Position | Proposed row | On-screen copy | Detail copy |
 | --- | --- | --- | --- |
-| 1 | Shelter exposure | `Covered walk: {covered_ratio}%` | `Exposed gaps show where the selected walk leaves shelter.` |
+| 1 | Shelter exposure | `Sheltered walk: {covered_ratio}%` | `Exposed gaps show where the selected walk leaves shelter.` |
 | 2 | Walk to transit | `{sheltered_m} to {transit_target}` | `Selected route distance from this postal code to the chosen MRT/LRT or bus access point.` |
 | 3 | Bus service support | `Bus support: {bus_label}` | `Shown with routing caveats where exact bus-stop walking evidence is unresolved.` |
 | 4 | Locked composite | `SHIOK score: {total}` | `Release sorting score using the locked weights; not five independent evidence sources.` |
@@ -82,7 +82,7 @@ Exposed gaps
 Four-row summary:
 
 ```text
-Covered walk      {covered_ratio}%
+Sheltered walk    {covered_ratio}%
 Walk to transit   {sheltered_m}
 Bus support       {bus_label}
 SHIOK score       {total}
@@ -113,7 +113,7 @@ After:
 
 ```text
 Where the walk is exposed
-Covered walk
+Sheltered walk
 Walk to transit
 Bus service support
 Locked SHIOK score

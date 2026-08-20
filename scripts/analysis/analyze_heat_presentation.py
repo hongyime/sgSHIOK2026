@@ -332,10 +332,10 @@ def main() -> None:
         "ui_audit": ui_audit,
         "recommendation": {
             "option": "show_covered_metres_vs_shade_proxy_metres",
-            "rationale": "The displayed heat subscore usually rounds to the same integer as rain because heat is mostly derived from covered-route shelter with sparse NParks shade proxy. Showing metres exposes the dependency without implying measured thermal comfort.",
+            "rationale": "The displayed heat subscore usually rounds to the same integer as rain because heat is mostly derived from covered-walkway shelter with sparse NParks shade proxy. Showing metres exposes the dependency without implying measured thermal comfort.",
             "copy_proposal": {
                 "row_label": "Heat proxy",
-                "row_note": "Derived from covered walk plus NParks greenery proxy; not live weather or measured shade.",
+                "row_note": "Derived from sheltered-walk evidence plus NParks greenery proxy; not live weather or measured shade.",
                 "detail": "Covered {covered_m} m; greenery proxy {shade_m} m.",
             },
         },

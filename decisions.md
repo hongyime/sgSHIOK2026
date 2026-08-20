@@ -275,3 +275,6 @@ Score-state notes should use the same bundle-scoring language as the reason chip
 
 2026-08-20 - P96 live-preview provenance copy:
 Client-side clicked-stop preview records should carry the same offline-bundle language as the browser notes. Their provenance reason now says `SHIOK scores come from offline bundle scoring` instead of `offline pipeline bundle`. This is preview-record copy only; it does not alter live route segmentation, score-state classification, authoritative bundle data, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P97 sheltered-language follow-through:
+Tracked support files should not keep the old `covered route` framing after the browser moved to `sheltered route`. Browser smoke checks now expect `Sheltered` / `Sheltered route`, attribution describes bridge/underpass geometry as sheltered-route connectors, the section 10 proposal uses `Sheltered walk`, and the heat-presentation analysis refers to covered-walkway shelter rather than a covered route. This is docs/test/proposal copy only; it does not alter route IDs, map layers, scoring, exports, public data, deployment, or locked weights.

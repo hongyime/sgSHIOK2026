@@ -14,7 +14,7 @@ const TRANSIT_MODE_LABELS = {
   bus: "Bus",
 };
 const ROUTE_MODE_LABELS = {
-  shiokest: "Covered route",
+  shiokest: "Sheltered",
   both: "Both",
   shortest: "Shortest",
 };
@@ -425,7 +425,7 @@ async function selectRouteMode(cdp, routeMode, timeoutMs) {
   if (routeMode === "shiokest") return;
   const sameRoute = await cdp.send("Runtime.evaluate", {
     returnByValue: true,
-    expression: `Boolean(Array.from(document.querySelectorAll('[class*=sameRouteNote]')).some((item) => item.textContent?.includes('Shortest same as covered route') || item.textContent?.includes('Shortest same as Shiokest')))`,
+    expression: `Boolean(Array.from(document.querySelectorAll('[class*=sameRouteNote]')).some((item) => item.textContent?.includes('Shortest same as sheltered route')))`,
   });
   if (sameRoute.result?.value) return;
   await waitForExpression(
@@ -585,8 +585,7 @@ function collectChecks(summary, mapState, cdp, postal, inputMode, expectedState,
     .filter(([layerId]) => layerId.includes("route"))
     .some(([, layer]) => layer && layer.visibility !== "none");
   const hasSameRouteNote =
-    summary.sameRouteNote.includes("Shortest same as covered route") ||
-    summary.sameRouteNote.includes("Shortest same as Shiokest");
+    summary.sameRouteNote.includes("Shortest same as sheltered route");
   const pageErrorCount = cdp.eventLog.filter((event) => event.method === "Runtime.exceptionThrown").length;
   const routeNetworkFailures = cdp.eventLog.filter((event) => {
     if (event.method === "Network.loadingFailed") {
@@ -631,7 +630,7 @@ function collectChecks(summary, mapState, cdp, postal, inputMode, expectedState,
       score_has_max_denominator: hasScore,
       transit_legend_present: summary.cardText.includes("MRT/LRT") && summary.cardText.includes("Bus stop"),
       route_mode_present:
-        summary.cardText.includes("Covered route") ||
+        summary.cardText.includes("Sheltered route") ||
         summary.cardText.includes("Direct bus estimate"),
       route_source_features_present: routeSourceFeatures > 0,
       route_rendered_features_present: routeRenderedFeatures > 0 || (routeSourceFeatures > 0 && routeLayersVisible),

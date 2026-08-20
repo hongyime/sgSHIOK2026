@@ -33,7 +33,7 @@ and treated as Singapore Open Data Licence v1.0 inputs:
 | Source | Publisher | Licence URL | Derived use |
 | --- | --- | --- | --- |
 | covered_linkway | Land Transport Authority | https://data.gov.sg/open-data-licence | Covered-linkway geometry used for rain-shelter route evidence and scoring. |
-| overhead_bridge_underpass | Land Transport Authority | https://data.gov.sg/open-data-licence | Bridge and underpass geometry used as covered-route connectors and shelter evidence. |
+| overhead_bridge_underpass | Land Transport Authority | https://data.gov.sg/open-data-licence | Bridge and underpass geometry used as sheltered-route connectors and shelter evidence. |
 | bus_stops | Land Transport Authority | https://data.gov.sg/open-data-licence | Bus stop locations used for candidate transit access and routing destinations. |
 | bus_services | Land Transport Authority | https://data.gov.sg/open-data-licence | Service metadata used for bus-connectivity evidence. |
 | bus_routes | Land Transport Authority | https://data.gov.sg/open-data-licence | Route metadata used for bus-connectivity evidence. |
