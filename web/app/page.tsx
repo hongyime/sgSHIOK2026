@@ -684,12 +684,12 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
       ? [`Closest routed ${label} is ${formatDistance(nearestM)}`, "Current scoring range is 1.2 km"]
       : [`No ${label} walk within scoring range`, "Nearby transit may still exist outside the current threshold"];
   }
-  if (score.state === "NOT_YET_SCORED") return ["Not scored in this bundle", "Needs pipeline scoring evidence"];
+  if (score.state === "NOT_YET_SCORED") return ["Not scored in this bundle", "Awaiting offline bundle scoring"];
   if (score.paths?.routing_type === "direct_bus_fallback_unrouted") {
     return ["Nearby bus stop with service data", "Walking-route shelter not verified yet"];
   }
-  if (!score.paths || !score.best_node) return ["Route evidence unavailable", "Score not available"];
-  if (!score.subscores) return ["Score breakdown pending", "Route evidence available"];
+  if (!score.paths || !score.best_node) return ["Route evidence unavailable", "Bundle score unavailable"];
+  if (!score.subscores) return ["Bundle score incomplete", "Route evidence available"];
 
   const measuredReasons: string[] = [];
   const busFallback = directBusFallbackEvidence(score);

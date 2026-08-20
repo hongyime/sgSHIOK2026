@@ -266,3 +266,6 @@ The map's non-visual route summaries should use the same `sheltered route` langu
 
 2026-08-20 - P93 score reason sheltered-route wording:
 The score-card reason chips should not describe the selected higher-shelter route as a `covered route`, because the measured route can still contain exposed gaps. The sheltered-percentage reason now says `sheltered on sheltered route`, matching the route controls, live region, and map summaries. This is browser copy only; it does not alter score reasons selection, scores, geometry, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P94 bundle-score reason copy:
+The score-card reason chips should describe unavailable scores in product terms, not implementation terms. Awaiting-score records now say `Awaiting offline bundle scoring`; unavailable route/score records say `Bundle score unavailable`; and partial breakdown records say `Bundle score incomplete`. This is browser copy only; it does not alter score-state classification, scoring, route evidence, exports, public data, deployment, or locked weights.

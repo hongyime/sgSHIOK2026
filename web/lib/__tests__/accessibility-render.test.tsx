@@ -347,12 +347,38 @@ describe("rendered accessibility output", () => {
     expect(html).toContain(
       "Partial score: one or more sub-scores are unavailable; locked weights count missing terms as zero."
     );
+    expect(html).toContain("Route evidence unavailable");
+    expect(html).toContain("Bundle score unavailable");
     expect(html).toContain("<strong>Not scored</strong><small>No shelter score</small>");
     expect(html).toContain("<strong>Not scored</strong><small>No access score</small>");
     expect(html).toContain("<strong>Not scored</strong><small>No composite score</small>");
     expect(html).toContain("<strong>42</strong><small>20% locked bus</small>");
     expect(html).not.toContain("<strong>0</strong><small>No shelter score</small>");
     expect(html).not.toContain("<strong>0</strong><small>No access score</small>");
+    expect(html).not.toContain("Score not available");
+  });
+
+  it("describes awaiting bundle scoring without pipeline jargon", () => {
+    const awaitingRecord: ScoreRecord = {
+      ...scoredRecord,
+      state: "NOT_YET_SCORED",
+      total: null,
+      subscores: null,
+      paths: null,
+      best_node: null,
+      exposure_gaps: null,
+    };
+    const html = renderScoreCard({
+      selection: {
+        ...selection,
+        score: awaitingRecord,
+      },
+      rankingRecords: [],
+    });
+
+    expect(html).toContain("Not scored in this bundle");
+    expect(html).toContain("Awaiting offline bundle scoring");
+    expect(html).not.toContain("Needs pipeline scoring evidence");
   });
 
   it("renders direct bus fallback evidence instead of a false low-bus verdict", () => {
