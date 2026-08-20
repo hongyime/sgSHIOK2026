@@ -230,3 +230,6 @@ The night-lighting layer note should tell users that lamp points load only after
 
 2026-08-20 - P81 snap-connector wording:
 Route details should explain endpoint connector distance in user-facing graph language, not vague map language. The browser now labels the value `Snap connector` and explains that it is the short link from the postal or transit point onto the walking graph. This is browser presentation only; it does not alter route geometry, inputs, public data, exports, scoring, deployment, or locked weights.
+
+2026-08-20 - P82 alternate-stop distance delta:
+The nearby-transit picker should make alternate-stop tradeoffs concrete when a user selects a non-best stop. Its comparison note now keeps the straight-line caveat and adds the metre delta, for example `42% farther than best (+42 m straight-line)`. This is browser presentation only; it does not alter candidate ranking, routing, inputs, public data, exports, scoring, deployment, or locked weights.

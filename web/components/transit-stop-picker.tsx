@@ -45,7 +45,8 @@ export function buildComparisonText(
   if (!comparison) return null;
   const pct = Math.round(comparison.fartherPct);
   if (pct <= 0) return null;
-  return `${pct}% farther than best (straight-line)`;
+  const deltaM = Math.max(0, comparison.activeStraightM - comparison.bestStraightM);
+  return `${pct}% farther than best (+${formatMeters(deltaM)} straight-line)`;
 }
 
 export function TransitStopPicker({
