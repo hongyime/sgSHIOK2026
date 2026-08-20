@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P120: `639d254`
+Remote main after P121: `4008777`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -58,6 +58,7 @@ Status:
 - P118 is complete and pushed: the title-card source freshness disclosure now identifies the unknown-age source as a candidate address source.
 - P119 is complete and pushed: the title-card source freshness disclosure now names all six stale sources instead of grouping them generically.
 - P120 is complete and pushed: rendered score-card copy now says component score instead of sub-score in partial-score, bus-fallback, and rank-panel text.
+- P121 is complete and pushed: route-detail NParks helper copy now says `Greenery proxy` instead of `Shade proxy`, avoiding a direct measured-shade claim for sparse greenery evidence.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -104,5 +105,6 @@ Status:
 - P118 evidence is tracked at `qa/verification/P118-unknown-age-source-copy.md`.
 - P119 evidence is tracked at `qa/verification/P119-stale-source-name-copy.md`.
 - P120 evidence is tracked at `qa/verification/P120-component-score-copy.md`.
+- P121 evidence is tracked at `qa/verification/P121-greenery-proxy-route-detail.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
