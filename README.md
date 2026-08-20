@@ -23,6 +23,22 @@ postal enumerator. Any v2 universe should therefore be candidate-source-first:
 use current free source datasets to propose rows, then pass bounded candidates
 through OneMap Search under explicit rate and token controls.
 
+## Local data artifacts
+
+Fresh clones do not contain the large or gitignored local payloads under `raw/`,
+`processed/`, `web/public/data/`, or historical QA scratch directories. The live
+score bundle remains configured as
+`web/public/data/generated_20260805_prefer_scored_routed/`. The night-lighting
+map layer is a separate local artifact at `web/public/data/lamp_posts_v1/`: 700
+H3-r8 tile files plus `manifest.json`, 126,144 LTA lamp-post points, source last
+modified 7 Jul 2026. It is map evidence only and is not part of the locked score.
+
+Before any Vercel publish attempt, run `python scripts/production_readiness.py`.
+That readiness check validates the score bundle and also verifies that the local
+lamp overlay artifact is present and internally consistent. Do not rebuild,
+overwrite, or mutate existing public data directories to repair a missing
+artifact; copy or create only a new versioned artifact after owner approval.
+
 ## Repo map
 
 - `CLAUDE.md` — agent instructions: hard constraints, stack, layout, conventions. Read first.

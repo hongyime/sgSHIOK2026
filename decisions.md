@@ -209,3 +209,6 @@ The night-lighting layer note should name the lamp-post evidence scale and sourc
 
 2026-08-20 - P74 visible night-lighting layer status:
 The night-lighting overlay status should be visible when the layer is on, not only present in the screen-reader map summary and debug output. The map now renders the existing status text for zoom-in, loading, unavailable, empty, and in-view states as a small overlay status, while keeping the same text in the non-visual map summary. This is browser UI only; it does not alter the lamp artifact, inputs, exports, scoring, deployment, or locked weights.
+
+2026-08-20 - P75 local data artifact documentation:
+The README should state that fresh clones lack gitignored local payloads and that the night-lighting layer depends on the separate local `web/public/data/lamp_posts_v1/` artifact. It now documents the active score bundle path, the lamp overlay artifact shape and source date, the requirement to run production readiness before any publish attempt, and the rule that existing public data directories must not be mutated to repair missing artifacts. A focused README test guards the universe-source policy and local lamp overlay deployment contract. This is documentation and test coverage only; it does not alter inputs, public data, exports, scoring, deployment, or locked weights.
