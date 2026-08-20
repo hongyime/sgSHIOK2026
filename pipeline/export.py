@@ -10,7 +10,7 @@ import math
 import re
 import zipfile
 from collections import Counter, defaultdict
-from collections.abc import Iterable
+from collections.abc import Callable, Iterable
 from datetime import UTC, datetime
 from functools import lru_cache
 from pathlib import Path
@@ -2018,17 +2018,25 @@ def validate_score_record(record: dict[str, Any], errors: list[str], context: st
 
 def validate_static_artifacts(
     input_dir: Path = DEFAULT_VALIDATE_DIR,
+    progress: Callable[[str], None] | None = None,
 ) -> tuple[bool, dict[str, Any]]:
+    def mark(message: str) -> None:
+        if progress is not None:
+            progress(message)
+
     errors: list[str] = []
     warnings: list[str] = []
+    mark("scanning JSON artifact files")
     files = [
         path
         for path in input_dir.rglob("*")
         if path.is_file() and (path.name.endswith(".json") or path.name.endswith(".json.gz"))
     ]
+    mark(f"scanned {len(files)} JSON artifact files")
 
     if len(files) > MAX_DATA_FILES:
         errors.append(f"file count {len(files)} exceeds {MAX_DATA_FILES}")
+    mark("checking artifact file sizes")
     for path in files:
         size = path.stat().st_size
         if size > MAX_FILE_BYTES:
@@ -2049,6 +2057,7 @@ def validate_static_artifacts(
     scored_postals_with_geom_required: set[str] = set()
     score_prefixes = 0
     if score_index_path.is_file():
+        mark("validating score index and shards")
         score_index = read_artifact_json(input_dir, "scores/index.json")
         if not isinstance(score_index, dict):
             errors.append("scores/index.json must be an object")
@@ -2078,9 +2087,11 @@ def validate_static_artifacts(
                 validate_score_record(record, errors, f"scores/{area}.json:{postal}")
                 if record.get("state") in {"SCORED", "SCORED_PARTIAL"}:
                     scored_postals_with_geom_required.add(postal)
+        mark(f"validated {len(indexed_postals)} indexed score records")
 
     manifest = None
     if manifest_path.is_file():
+        mark("validating manifest references")
         manifest = read_artifact_json(input_dir, "manifest.json")
     if isinstance(manifest, dict):
         prefix_rel_path = manifest.get("scores", {}).get("prefix_index")
@@ -2098,6 +2109,7 @@ def validate_static_artifacts(
     geom_postals: set[str] = set()
     geom_postals_with_route_segments: set[str] = set()
     if geom_index_path.is_file():
+        mark("validating geometry index and shards")
         geom_index = read_artifact_json(input_dir, "geom/index.json")
         if not isinstance(geom_index, dict):
             errors.append("geom/index.json must be an object")
@@ -2134,6 +2146,7 @@ def validate_static_artifacts(
                             sheltered_segments, list
                         ):
                             geom_postals_with_route_segments.add(postal)
+        mark(f"validated {len(geom_postals)} geometry records")
 
     missing_geom = scored_postals_with_geom_required - geom_postals
     if missing_geom:
@@ -2145,6 +2158,7 @@ def validate_static_artifacts(
     transit_features = 0
     transit_path = artifact_json_path(input_dir, "transit/pois.json")
     if transit_path.is_file():
+        mark("validating transit POI artifact")
         transit = read_artifact_json(input_dir, "transit/pois.json")
         if not isinstance(transit, dict) or transit.get("type") != "FeatureCollection":
             errors.append("transit/pois.json must be a GeoJSON FeatureCollection")

@@ -194,12 +194,17 @@ def test_export_and_validate_static_artifacts(tmp_path: Path):
     records = [sample_record("123456"), sample_record("654321")]
 
     report = export_static_artifacts(records, output_dir=tmp_path)
-    ok, validation = validate_static_artifacts(tmp_path)
+    progress_events: list[str] = []
+    ok, validation = validate_static_artifacts(tmp_path, progress=progress_events.append)
 
     assert report["record_count"] == 2
     assert report["score_area_count"] == 1
     assert report["geom_shard_count"] >= 1
     assert ok, validation
+    assert progress_events[0] == "scanning JSON artifact files"
+    assert any(event.startswith("scanned ") for event in progress_events)
+    assert "validating score index and shards" in progress_events
+    assert "validating geometry index and shards" in progress_events
     assert validation["indexed_postals"] == 2
     assert validation["score_prefixes"] == 2
     assert validation["geometry_postals"] == 2

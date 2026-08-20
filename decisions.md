@@ -550,3 +550,6 @@ Production readiness and the dry-run batch plan should judge island network QA f
 
 2026-08-21 - P207 production-readiness progress:
 The production-readiness CLI should emit stage markers to stderr while preserving JSON on stdout, because the real report can spend minutes inside bundle validation/audit work. The markers identify the active stage before each major read-only check and do not change the report schema or operator gating logic. This is CLI observability and test coverage only; it does not alter readiness criteria, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-21 - P208 static-artifact validation progress:
+Static artifact validation should expose its own sub-stages because it scans and validates the 4,848 JSON artifacts in the active bundle before the rest of production readiness can proceed. `validate_static_artifacts` now accepts an optional progress callback and production readiness prefixes those events on stderr, showing the recursive scan count, file-size check, score-shard validation, geometry-shard validation, and transit-artifact validation without changing validation semantics or JSON report output. This is operator observability and test coverage only; it does not alter artifacts, scoring, exports, inputs, public data, deployment, or locked weights.

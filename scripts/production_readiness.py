@@ -1036,7 +1036,10 @@ def build_readiness_report(
     debug_path = debug_path or project_root / "qa" / "island_debug.geojson"
 
     mark("validating static bundle artifacts")
-    validation_ok, validation = validate_static_artifacts(input_dir=bundle_dir)
+    validation_ok, validation = validate_static_artifacts(
+        input_dir=bundle_dir,
+        progress=lambda message: mark(f"static artifacts: {message}"),
+    )
     mark("auditing bundle state")
     bundle_state_full = build_report(
         bundle_dir=bundle_dir,

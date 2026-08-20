@@ -394,6 +394,10 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
 
     assert ok, report
     assert progress_events[0] == "resolving active bundle and QA paths"
+    assert "static artifacts: scanning JSON artifact files" in progress_events
+    assert any(
+        event.startswith("static artifacts: scanned ") for event in progress_events
+    )
     assert "auditing bundle state" in progress_events
     assert progress_events[-1] == "readiness report complete"
     assert report["ok"] is True
