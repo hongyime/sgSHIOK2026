@@ -2,14 +2,15 @@
 
 Date: 2026-08-20
 
-Task: P71 batch-plan API environment readiness is implemented and ready to hand back.
+Task: P72 night-lighting overlay release guard is in progress.
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main: `3a8ef33` at P71 task start.
+Remote main: `749926d` at P72 task start.
 
 Status:
 - Mandatory startup guard for every future session: first assert the working directory is exactly `C:\sgSHIOK2026`; abort if it is not. Never use a relative path for a write. This belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
+- P72 adds a static production-readiness guard for the browser night-lighting overlay artifact. Since the UI fetches `/data/lamp_posts_v1/`, readiness now checks the local gitignored public artifact manifest, source identity, nonzero point count, tile index length, referenced tile files, and tile byte totals before release. Current local artifact status: passed with 700 tiles, 126,144 lamp points, 0 missing tiles, and 0 size mismatches. Evidence is tracked at `qa/verification/P72-lamp-overlay-release-guard.md`. Verification still needs final repo checks before commit. No scoring, export, rescore, subset run, ingest, network build, input rebuild, API collection, public data write, deployment, or weight change is part of this change.
 - P71 fixes direct `pipeline.batch_plan` API credential readiness: the module now loads `.env` before emitting its non-secret `api_environment` block, matching other pipeline entrypoints. Evidence is tracked at `qa/verification/P71-batch-plan-api-env.md`, and the durable decision is appended to `decisions.md`. Verification passed: direct batch-plan credential probe, `tests/test_batch_plan.py`, repo integrity, diff check, and weights diff. No scoring, export, rescore, subset run, ingest, network build, input rebuild, API collection, public data write, deployment, or weight change was run.
 - P70 adds non-secret API credential readiness to `scripts/production_readiness.py`. The report now exposes boolean presence/missing names for `LTA_DATAMALL_ACCOUNT_KEY`, `ONEMAP_EMAIL`, and `ONEMAP_PASSWORD`; missing values warn but do not block static release checks. Current Prawn-E14 environment has all three present. Evidence is tracked at `qa/verification/P70-api-credential-readiness.md`, and the durable decision is appended to `decisions.md`. Verification passed: current environment readiness probe, focused readiness tests, full readiness test file, repo integrity, diff check, and weights diff. No scoring, export, rescore, subset run, ingest, network build, input rebuild, API collection, public data write, deployment, or weight change was run.
 - P69 removes stale completion-only terminology from non-evidence tracked files so future work uses the P68 wording consistently. Remaining old phrases are only in negative regression assertions or immutable `qa/verification/` history. Evidence is tracked at `qa/verification/P69-mcst-terminology-consistency.md`. Verification passed: tracked grep outside evidence, focused browser-copy test, focused readiness test, repo integrity, diff check, and weights diff. No scoring, export, rescore, subset run, ingest, network build, input rebuild, API collection, public data write, deployment, or weight change was run.

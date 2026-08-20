@@ -21,6 +21,7 @@ DEFAULT_NETWORK = PROJECT_ROOT / "processed" / "network_island.parquet"
 DEFAULT_UNIVERSE = (
     PROJECT_ROOT / "processed" / "postal_universe_candidate_full_registered_geocoded.parquet"
 )
+DEFAULT_LAMP_OVERLAY_DIRNAME = "lamp_posts_v1"
 REQUIRED_SUBSCORE_STATUS = {"access", "bus", "rain", "heat", "crossing"}
 REQUIRED_SCORING_FINGERPRINTS = {
     rel_path.replace("/", "\\") for rel_path in SCORING_FINGERPRINT_FILES
@@ -149,6 +150,136 @@ def environment_readiness(environment: Mapping[str, str] | None = None) -> dict[
         "onemap_credentials_present": onemap_email_present and onemap_password_present,
         "missing": missing,
         "warnings": warnings,
+    }
+
+
+def lamp_overlay_artifact_status(web_dir: Path = WEB_DIR) -> dict[str, Any]:
+    artifact_dir = web_dir / "public" / "data" / DEFAULT_LAMP_OVERLAY_DIRNAME
+    manifest_path = artifact_dir / "manifest.json"
+    tiles_dir = artifact_dir / "tiles"
+    warning = None
+    if not manifest_path.is_file():
+        return {
+            "ok": False,
+            "state": "missing",
+            "artifact_dir": str(artifact_dir),
+            "manifest_path": str(manifest_path),
+            "tile_count": 0,
+            "point_count": 0,
+            "missing_tile_count": None,
+            "size_mismatch_count": None,
+            "warning": (
+                "night-lighting browser layer points at /data/lamp_posts_v1/, but the "
+                "local deploy artifact manifest is missing"
+            ),
+        }
+
+    try:
+        manifest = read_json(manifest_path)
+    except (OSError, TypeError, json.JSONDecodeError) as exc:
+        return {
+            "ok": False,
+            "state": "unreadable",
+            "artifact_dir": str(artifact_dir),
+            "manifest_path": str(manifest_path),
+            "tile_count": 0,
+            "point_count": 0,
+            "missing_tile_count": None,
+            "size_mismatch_count": None,
+            "warning": f"night-lighting overlay manifest is unreadable: {exc}",
+        }
+
+    tiles = manifest.get("tiles")
+    tile_index = tiles if isinstance(tiles, list) else []
+    expected_tile_count = manifest.get("tile_count")
+    point_count = manifest.get("point_count")
+    tile_count_matches = isinstance(expected_tile_count, int) and expected_tile_count == len(
+        tile_index
+    )
+    missing_tiles: list[str] = []
+    size_mismatches: list[dict[str, Any]] = []
+    total_tile_bytes = 0
+    for tile in tile_index:
+        if not isinstance(tile, dict):
+            continue
+        rel_path = tile.get("path")
+        expected_bytes = tile.get("bytes")
+        if not isinstance(rel_path, str):
+            continue
+        tile_path = artifact_dir / rel_path
+        if not tile_path.is_file():
+            missing_tiles.append(rel_path)
+            continue
+        actual_bytes = tile_path.stat().st_size
+        total_tile_bytes += actual_bytes
+        if isinstance(expected_bytes, int) and expected_bytes != actual_bytes:
+            size_mismatches.append(
+                {
+                    "path": rel_path,
+                    "expected_bytes": expected_bytes,
+                    "actual_bytes": actual_bytes,
+                }
+            )
+
+    manifest_tile_bytes = manifest.get("tile_bytes")
+    tile_bytes_match = (
+        isinstance(manifest_tile_bytes, int)
+        and not missing_tiles
+        and total_tile_bytes == manifest_tile_bytes
+    )
+    source = manifest.get("source")
+    source_sha = source.get("sha256") if isinstance(source, dict) else None
+    source_bytes = source.get("bytes") if isinstance(source, dict) else None
+    source_identity_present = isinstance(source_sha, str) and len(source_sha) == 64 and isinstance(
+        source_bytes, int
+    )
+
+    ok = (
+        tiles_dir.is_dir()
+        and tile_count_matches
+        and isinstance(point_count, int)
+        and point_count > 0
+        and source_identity_present
+        and not missing_tiles
+        and not size_mismatches
+        and tile_bytes_match
+    )
+    if not ok:
+        reasons: list[str] = []
+        if not tiles_dir.is_dir():
+            reasons.append("tiles directory missing")
+        if not tile_count_matches:
+            reasons.append("manifest tile_count does not match tile index length")
+        if not isinstance(point_count, int) or point_count <= 0:
+            reasons.append("point_count missing or non-positive")
+        if not source_identity_present:
+            reasons.append("source sha256/bytes missing")
+        if missing_tiles:
+            reasons.append(f"{len(missing_tiles)} referenced tile file(s) missing")
+        if size_mismatches:
+            reasons.append(f"{len(size_mismatches)} referenced tile file size mismatch(es)")
+        if not tile_bytes_match:
+            reasons.append("manifest tile_bytes does not match local tile bytes")
+        warning = "night-lighting overlay artifact is not release-ready: " + "; ".join(reasons)
+
+    return {
+        "ok": ok,
+        "state": "passed" if ok else "failed",
+        "artifact_dir": str(artifact_dir),
+        "manifest_path": str(manifest_path),
+        "tile_count": expected_tile_count,
+        "tile_index_count": len(tile_index),
+        "point_count": point_count,
+        "h3_resolution": manifest.get("h3_resolution"),
+        "source_sha256": source_sha,
+        "source_bytes": source_bytes,
+        "tile_bytes": manifest_tile_bytes,
+        "local_tile_bytes": total_tile_bytes,
+        "missing_tile_count": len(missing_tiles),
+        "missing_tiles_sample": missing_tiles[:20],
+        "size_mismatch_count": len(size_mismatches),
+        "size_mismatches_sample": size_mismatches[:20],
+        "warning": warning,
     }
 
 
@@ -760,6 +891,7 @@ def build_readiness_report(
     )
     vercel = vercel_readiness(project_root, web_dir)
     env_status = environment_readiness(environment)
+    lamp_overlay = lamp_overlay_artifact_status(web_dir)
     freshness = bundle_network_freshness(bundle_dir, network_path)
     score_provenance = bundle_score_provenance_status(bundle_dir)
     onemap_status = onemap_validation_status(
@@ -782,7 +914,11 @@ def build_readiness_report(
         errors.append("Vercel project is not linked")
     if not vercel["root_directory_ok"]:
         errors.append("Vercel root directory is not web")
+    if not lamp_overlay["ok"]:
+        errors.append("night-lighting overlay artifact is not release-ready")
     warnings.extend(env_status["warnings"])
+    if lamp_overlay["warning"]:
+        warnings.append(str(lamp_overlay["warning"]))
     if freshness["warning"]:
         warnings.append(str(freshness["warning"]))
     if score_provenance["warning"]:
@@ -804,6 +940,7 @@ def build_readiness_report(
         "static_artifact_validation": bool(validation.get("ok")),
         "state_counts_match_manifest": state_total_matches_manifest,
         "scoring_fingerprints": bool(score_provenance.get("ok")),
+        "lamp_overlay_artifact": bool(lamp_overlay.get("ok")),
         "onemap_validation_same_bundle_fresh": onemap_gate_passed,
         "onemap_validation_waived": onemap_gate_waived,
         "vercel_root_directory": bool(vercel.get("root_directory_ok")),
@@ -844,6 +981,7 @@ def build_readiness_report(
                 "warnings": validation.get("warnings", []),
             },
             "scoring_fingerprint_status": score_provenance,
+            "lamp_overlay_artifact": lamp_overlay,
             "onemap_validation": onemap_status,
             "vercel_root_directory": vercel.get("root_directory"),
             "checks": release_gate_checks,
@@ -893,6 +1031,7 @@ def build_readiness_report(
             "errors": batch_plan.get("errors", []),
         },
         "vercel": vercel,
+        "lamp_overlay": lamp_overlay,
         "environment": env_status,
         "features": readiness_features(
             project_root / "qa",

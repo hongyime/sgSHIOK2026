@@ -12,6 +12,7 @@ from scripts.production_readiness import (
     build_readiness_report,
     bundle_score_provenance_status,
     environment_readiness,
+    lamp_overlay_artifact_status,
     vercel_readiness,
 )
 from tests.test_export import sample_record
@@ -86,6 +87,42 @@ def write_production_island_qa(path: Path) -> None:
         },
     }
     write_json(path, payload)
+
+
+def write_lamp_overlay_artifact(web_dir: Path) -> None:
+    artifact_dir = web_dir / "public" / "data" / "lamp_posts_v1"
+    tile_path = artifact_dir / "tiles" / "cell-a.json"
+    tile_payload = {"cell": "cell-a", "points": [[103.8, 1.3], [103.8001, 1.3001]]}
+    tile_text = json.dumps(tile_payload, sort_keys=True, separators=(",", ":")) + "\n"
+    tile_path.parent.mkdir(parents=True, exist_ok=True)
+    tile_path.write_text(tile_text, encoding="utf-8", newline="\n")
+    write_json(
+        artifact_dir / "manifest.json",
+        {
+            "schema_version": 1,
+            "generated_at": "2026-08-16T00:00:00+00:00",
+            "source": {
+                "path": "raw/hash/lamp_posts.geojson",
+                "sha256": "a" * 64,
+                "bytes": 123,
+            },
+            "h3_resolution": 8,
+            "point_count": 2,
+            "skipped_feature_count": 0,
+            "tile_count": 1,
+            "tile_bytes": len(tile_text.encode("utf-8")),
+            "bbox": [103.8, 1.3, 103.8001, 1.3001],
+            "tiles": [
+                {
+                    "cell": "cell-a",
+                    "path": "tiles/cell-a.json",
+                    "count": 2,
+                    "bytes": len(tile_text.encode("utf-8")),
+                    "bbox": [103.8, 1.3, 103.8001, 1.3001],
+                }
+            ],
+        },
+    )
 
 
 def export_current_fingerprint_bundle(output_dir: Path) -> None:
@@ -180,8 +217,34 @@ def test_environment_readiness_reports_missing_api_credentials_without_values() 
     assert "owner@example.test" not in json.dumps(present)
 
 
+def test_lamp_overlay_artifact_status_validates_current_local_artifact() -> None:
+    status = lamp_overlay_artifact_status()
+
+    assert status["ok"] is True
+    assert status["state"] == "passed"
+    assert status["tile_count"] == 700
+    assert status["tile_index_count"] == 700
+    assert status["point_count"] == 126144
+    assert status["missing_tile_count"] == 0
+    assert status["size_mismatch_count"] == 0
+    assert status["source_sha256"] == (
+        "2b552c1429aaf93c544209df3da68838d708a78ec5ae86dcd2852c10b0589f29"
+    )
+    assert status["warning"] is None
+
+
+def test_lamp_overlay_artifact_status_blocks_missing_deploy_artifact(tmp_path: Path) -> None:
+    status = lamp_overlay_artifact_status(tmp_path / "web")
+
+    assert status["ok"] is False
+    assert status["state"] == "missing"
+    assert "lamp_posts_v1" in status["manifest_path"]
+    assert "local deploy artifact manifest is missing" in status["warning"]
+
+
 def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Path):
     web_dir = tmp_path / "web"
+    write_lamp_overlay_artifact(web_dir)
     bundle_dir = web_dir / "public" / "data" / "generated_test"
     export_current_fingerprint_bundle(bundle_dir)
     write_json(web_dir / "data-bundle.json", {"bundle": "generated_test"})
@@ -239,6 +302,7 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
     assert report["release_gate_passed"] is False
     assert report["release_gate_status"] == "blocked"
     assert report["release_gate_summary"]["checks"]["infrastructure_readiness"] is True
+    assert report["release_gate_summary"]["checks"]["lamp_overlay_artifact"] is True
     assert report["release_gate_summary"]["checks"]["onemap_validation_same_bundle_fresh"] is False
     assert report["bundle"]["manifest_record_count"] == 1
     assert report["bundle"]["state_total_matches_manifest"] is True
@@ -248,6 +312,8 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
     assert report["bundle"]["static_validation"]["geometry_postals_with_route_segments"] == 1
     assert report["network"]["ok"] is True
     assert report["vercel"]["root_directory_ok"] is True
+    assert report["lamp_overlay"]["ok"] is True
+    assert report["lamp_overlay"]["point_count"] == 2
     assert report["environment"]["ready_for_api_collection"] is True
     assert report["environment"]["warnings"] == []
     assert report["features"]["incorporated"]["bus_as_transit_direct_fallback"] is True
@@ -284,6 +350,7 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
 
 def test_build_readiness_report_summarizes_failed_onemap_gate(tmp_path: Path):
     web_dir = tmp_path / "web"
+    write_lamp_overlay_artifact(web_dir)
     bundle_dir = web_dir / "public" / "data" / "generated_test"
     export_current_fingerprint_bundle(bundle_dir)
     write_json(web_dir / "data-bundle.json", {"bundle": "generated_test"})
@@ -414,6 +481,7 @@ def test_build_readiness_report_summarizes_failed_onemap_gate(tmp_path: Path):
 
 def test_build_readiness_report_reads_nested_release_onemap_reports(tmp_path: Path):
     web_dir = tmp_path / "web"
+    write_lamp_overlay_artifact(web_dir)
     bundle_dir = web_dir / "public" / "data" / "generated_test"
     export_current_fingerprint_bundle(bundle_dir)
     write_json(web_dir / "data-bundle.json", {"bundle": "generated_test"})
@@ -546,6 +614,7 @@ def test_build_readiness_report_reads_nested_release_onemap_reports(tmp_path: Pa
 
 def test_build_readiness_report_blocks_stale_same_bundle_onemap_report(tmp_path: Path):
     web_dir = tmp_path / "web"
+    write_lamp_overlay_artifact(web_dir)
     bundle_dir = web_dir / "public" / "data" / "generated_test"
     export_current_fingerprint_bundle(bundle_dir)
     write_json(web_dir / "data-bundle.json", {"bundle": "generated_test"})
@@ -624,6 +693,7 @@ def test_build_readiness_report_blocks_stale_same_bundle_onemap_report(tmp_path:
 
 def test_build_readiness_report_warns_when_bundle_predates_network(tmp_path: Path):
     web_dir = tmp_path / "web"
+    write_lamp_overlay_artifact(web_dir)
     bundle_dir = web_dir / "public" / "data" / "generated_test"
     export_current_fingerprint_bundle(bundle_dir)
     write_json(web_dir / "data-bundle.json", {"bundle": "generated_test"})
@@ -690,6 +760,7 @@ def test_build_readiness_report_warns_when_bundle_manifest_lacks_score_provenanc
     tmp_path: Path,
 ):
     web_dir = tmp_path / "web"
+    write_lamp_overlay_artifact(web_dir)
     bundle_dir = web_dir / "public" / "data" / "generated_test"
     export_current_fingerprint_bundle(bundle_dir)
     manifest_path = bundle_dir / "manifest.json"
@@ -764,6 +835,7 @@ def test_build_readiness_report_warns_when_bundle_lacks_scoring_fingerprints(
     tmp_path: Path,
 ):
     web_dir = tmp_path / "web"
+    write_lamp_overlay_artifact(web_dir)
     bundle_dir = web_dir / "public" / "data" / "generated_test"
     export_current_fingerprint_bundle(bundle_dir)
     manifest_path = bundle_dir / "manifest.json"
