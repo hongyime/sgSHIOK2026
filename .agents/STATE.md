@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P237 code commit: `e4e6011`; state-only commits may follow it on `main`.
+Latest P238 code commit: `5cfc638`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P238 is complete and committed: dry-run batch planning and production readiness now report structured prerequisite evidence for each bundled full-batch change: bus remodel, `NO_TRANSIT_IN_RANGE` partial-score fix, network conflation repair, and promoted postal-universe v2 if approved. Focused batch-plan/readiness tests pass.
 - P237 is complete and committed: README onboarding now discloses the active frozen bundle's locked-score availability: 95,157 full scores out of 124,443 records, with 29,286 records, roughly a quarter, not showing a full locked score because they are partial, beyond current transit range, or awaiting scoring. Focused README tests pass.
 - P236 is complete and committed: README onboarding now states that NParks Leaf Area Index can appear in source freshness as a tracked reference table, but is not route geometry, shade-proxy geometry, or score provenance. Focused README tests pass.
 - P235 is complete and committed: `run.py check --freshness-only` remains zero-mutation and now measures the oldest current source, NParks Leaf Area Index, at 112.6d of a 120d threshold while the classification stays 12 current, 6 stale, 2 manual, and 1 unknown-age source. The first-view freshness snapshot and copy guard were updated. Focused web copy tests pass.
