@@ -317,3 +317,6 @@ The not-yet-scored detail heading should use the same published-bundle state lan
 
 2026-08-20 - P110 locked-score no-full-score value:
 The locked-score row should use bundle-level null language instead of the generic Not scored value. Null locked scores now render as No full score, while null subscore rows still render as Not scored to avoid inventing component evidence. This is browser copy only; it does not alter state classification, score values, ranking, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P111 no-transit stop range copy:
+The no-transit candidate-selection state should name the user-visible transit stop or exit and the 1.2 km scoring range instead of exposing `candidate` limits. It now says no transit stop is within scoring range and that no qualifying MRT/LRT exit or bus stop was found within 1.2 km, while the graph-disconnected state remains separate as missing connected walking-route evidence. This is browser copy only; it does not alter transit candidate selection, routing, state classification, scoring, exports, inputs, public data, deployment, or locked weights.

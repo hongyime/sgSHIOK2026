@@ -406,7 +406,7 @@ function nearestRoutedTransitM(score: ScoreRecord, transitMode: TransitAccessMod
 function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): string {
   const reason = provenanceReason(score, transitMode);
   if (reason === "transit_candidates_graph_disconnected") return "Transit route not connected yet";
-  if (reason === "no_transit_candidates_selected") return "No transit candidate nearby";
+  if (reason === "no_transit_candidates_selected") return "No transit stop within scoring range";
   return nearestRoutedTransitM(score, transitMode) !== null
     ? "Transit beyond scoring range"
     : `No routed ${transitModeLabel(transitMode)} within range`;
@@ -425,7 +425,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
       return "Transit candidates exist, but this bundle has no connected walking route evidence yet.";
     }
     if (reason === "no_transit_candidates_selected") {
-      return "No qualifying MRT/LRT exit or bus stop candidate was selected near this postal.";
+      return "No qualifying MRT/LRT exit or bus stop was found within the 1.2 km scoring range for this postal.";
     }
     const nearestM = nearestRoutedTransitM(score, transitMode);
     if (nearestM !== null) {
@@ -677,7 +677,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
       return ["Transit candidate found", "Walking route not connected yet"];
     }
     if (reason === "no_transit_candidates_selected") {
-      return ["No nearby transit candidate selected", "Outside current transit-candidate limits"];
+      return ["No transit stop within scoring range", "Outside current 1.2 km scoring range"];
     }
     const nearestM = nearestRoutedTransitM(score, transitMode);
     return nearestM !== null
