@@ -1126,6 +1126,10 @@ export function RouteEvidenceMap({
     () => mapTextSummary(routes, mode, routeData, transitPoiData, lampOverlayStatus, lampData, focusedExposureGap),
     [routes, mode, routeData, transitPoiData, lampOverlayStatus, lampData, focusedExposureGap]
   );
+  const visibleLampOverlaySummary = nightLightingSummary(
+    lampOverlayStatus,
+    lampData.features.length
+  );
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -1442,6 +1446,11 @@ export function RouteEvidenceMap({
         className={styles.oneMapAttribution}
         dangerouslySetInnerHTML={{ __html: ONE_MAP_ATTRIBUTION }}
       />
+      {visibleLampOverlaySummary && (
+        <p className={styles.lampOverlayStatus} aria-live="polite">
+          {visibleLampOverlaySummary}
+        </p>
+      )}
       <p id="route-map-summary" className={styles.screenReaderOnly}>
         {accessibleSummary}
       </p>

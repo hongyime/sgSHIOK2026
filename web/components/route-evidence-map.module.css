@@ -55,3 +55,18 @@
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
+.lampOverlayStatus {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  z-index: 3;
+  max-width: min(88vw, 360px);
+  margin: 0;
+  padding: 5px 7px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #24332f;
+  font-size: 11px;
+  line-height: 1.35;
+  box-shadow: 0 1px 3px rgba(36, 51, 47, 0.16);
+}

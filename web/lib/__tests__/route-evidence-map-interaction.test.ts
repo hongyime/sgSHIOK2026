@@ -14,6 +14,7 @@ describe("route evidence map interactions", () => {
 
   it("keeps route evidence and transit POIs visible on the subdued basemap", () => {
     const source = readFileSync(join(__dirname, "../../components/route-evidence-map.tsx"), "utf-8");
+    const cssSource = readFileSync(join(__dirname, "../../components/route-evidence-map.module.css"), "utf-8");
 
     expect(source).toContain('"line-width": 6.8');
     expect(source).toContain('"line-width": 4.8');
@@ -25,6 +26,11 @@ describe("route evidence map interactions", () => {
     expect(source).toContain("LAMP_OVERLAY_MIN_ZOOM");
     expect(source).toContain('setSourceData(map, "lamp-posts", lampData)');
     expect(source).toContain("nightLightingSummary(lampOverlayStatus, lampData.features.length)");
+    expect(source).toContain("visibleLampOverlaySummary");
+    expect(source).toContain("styles.lampOverlayStatus");
+    expect(source).toContain('{visibleLampOverlaySummary && (');
+    expect(cssSource).toContain(".lampOverlayStatus");
+    expect(cssSource).toContain("max-width: min(88vw, 360px);");
   });
 
   it("pre-fetches manifest on mount and wires interactive click-to-route in page.tsx", () => {

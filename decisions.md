@@ -206,3 +206,6 @@ Because the browser exposes `/data/lamp_posts_v1/` as the night-lighting layer, 
 
 2026-08-20 - P73 night-lighting source disclosure:
 The night-lighting layer note should name the lamp-post evidence scale and source date, not only say that the layer is map evidence outside the locked score. The browser now states that the LTA lamp-post layer has 126,144 points and that the source was last modified on 7 Jul 2026, while retaining the locked-score separation. The committed test suite uses temporary lamp-overlay fixtures rather than requiring the gitignored `web/public/data/lamp_posts_v1/` artifact to exist in a fresh clone; the local artifact proof remains in readiness evidence. This is browser copy and test hardening only; it reads but does not modify `web/public/data/`, does not alter inputs, exports, scoring, deployment, or locked weights.
+
+2026-08-20 - P74 visible night-lighting layer status:
+The night-lighting overlay status should be visible when the layer is on, not only present in the screen-reader map summary and debug output. The map now renders the existing status text for zoom-in, loading, unavailable, empty, and in-view states as a small overlay status, while keeping the same text in the non-visual map summary. This is browser UI only; it does not alter the lamp artifact, inputs, exports, scoring, deployment, or locked weights.
