@@ -48,7 +48,7 @@ describe("score card copy", () => {
     const smokeSource = readFileSync(join(__dirname, "../../scripts/browser-smoke.mjs"), "utf-8");
 
     expect(smokeSource).toContain('summary.cardText.includes("No full score in this bundle")');
-    expect(smokeSource).toContain('summary.cardText.includes("Awaiting bundle score")');
+    expect(smokeSource).toContain('summary.cardText.includes("Awaiting locked score")');
     expect(smokeSource).not.toContain("needs usable location evidence");
   });
 

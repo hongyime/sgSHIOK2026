@@ -535,3 +535,6 @@ The manifest-derived score availability disclosure should use the same `Locked s
 
 2026-08-21 - P196 preview locked-score metric label:
 Clicked-stop shelter-map previews should use the same `Locked score` label as other score-facing browser copy. The preview metric now says `Locked score: Preview only` instead of `Bundle score: Preview only`, while the nearby note still explains that clicked-stop previews are not part of the published score bundle yet. This is browser copy and test coverage only; it does not alter preview routing, score values, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-21 - P197 partial and awaiting locked-score labels:
+Partial and not-yet-scored browser states should name the secondary score as the locked score rather than as a bundle score. Partial records now say `Partial locked score`, and not-yet-scored records say `Awaiting locked score` while still keeping the `No full score in this bundle` context. This is browser copy and smoke-test alignment only; it does not alter score-state classification, scoring, exports, inputs, public data, deployment, or locked weights.

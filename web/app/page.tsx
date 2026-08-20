@@ -435,7 +435,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     return "Preview only: this clicked stop has shelter map evidence, but it is not part of the published score bundle yet.";
   }
   if (score.state === "SCORED_PARTIAL") {
-    return "Partial bundle score: one or more component scores are unavailable; locked weights count missing terms as zero.";
+    return "Partial locked score: one or more component scores are unavailable; locked weights count missing terms as zero.";
   }
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const reason = provenanceReason(score, transitMode);
@@ -702,7 +702,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
       ? [`Closest routed ${label} is ${formatDistance(nearestM)}`, "Current scoring range is 1.2 km"]
       : [`No ${label} walk within scoring range`, "Nearby transit may still exist beyond the 1.2 km scoring range"];
   }
-  if (score.state === "NOT_YET_SCORED") return ["No full score in this bundle", "Awaiting bundle score"];
+  if (score.state === "NOT_YET_SCORED") return ["No full score in this bundle", "Awaiting locked score"];
   if (score.paths?.routing_type === "direct_bus_fallback_unrouted") {
     return ["Nearby bus stop with service data", "Shelter-map walk not verified yet"];
   }

@@ -469,7 +469,7 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("Shelter exposure");
     expect(html).toContain(
-      "Partial bundle score: one or more component scores are unavailable; locked weights count missing terms as zero."
+      "Partial locked score: one or more component scores are unavailable; locked weights count missing terms as zero."
     );
     expect(html).not.toContain("one or more sub-scores are unavailable");
     expect(html).toContain("Shelter map evidence unavailable");
@@ -507,7 +507,7 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("No full score in this bundle");
-    expect(html).toContain("Awaiting bundle score");
+    expect(html).toContain("Awaiting locked score");
     expect(html).not.toContain("Location Evidence Missing");
     expect(html).toContain("Locked score no full score in this bundle.");
     expect(html).toContain(

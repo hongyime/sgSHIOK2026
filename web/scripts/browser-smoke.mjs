@@ -575,7 +575,7 @@ function collectChecks(summary, mapState, cdp, postal, inputMode, expectedState,
   const hasNotYetScored =
     summary.cardText.includes("Not scored") ||
     summary.cardText.includes("No full score in this bundle") ||
-    summary.cardText.includes("Awaiting bundle score");
+    summary.cardText.includes("Awaiting locked score");
   const routeSourceFeatures =
     Number(mapState?.debug?.sourceFeatureCounts?.shiokest || 0) +
     Number(mapState?.debug?.sourceFeatureCounts?.shortest || 0);
