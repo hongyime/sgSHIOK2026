@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P117: `b71a445`
+Remote main after P118: `7d6e79f`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -55,6 +55,7 @@ Status:
 - P115 is complete and pushed: graph-disconnected no-transit notes now say transit stops or exits exist instead of transit candidates.
 - P116 is complete and pushed: the title card now shows both route-evidence data-as-of date and static bundle generation date from the manifest.
 - P117 is complete and pushed: the title-card source freshness disclosure now reports the measured audit counts: 12 current, 6 stale, 2 manual, and 1 unknown-age.
+- P118 is complete and pushed: the title-card source freshness disclosure now identifies the unknown-age source as a candidate address source.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -98,5 +99,6 @@ Status:
 - P115 evidence is tracked at `qa/verification/P115-transit-stops-exist-copy.md`.
 - P116 evidence is tracked at `qa/verification/P116-bundle-generated-date-copy.md`.
 - P117 evidence is tracked at `qa/verification/P117-source-freshness-count-copy.md`.
+- P118 evidence is tracked at `qa/verification/P118-unknown-age-source-copy.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
