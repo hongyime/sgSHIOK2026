@@ -676,3 +676,6 @@ Clicked-stop previews should keep the shelter-map bundle frame even when explain
 
 2026-08-21 - P249 transit picker shelter-map bundle wording:
 The transit-stop picker helper should describe the artifact limitation as a shelter-map bundle limitation, not a score-bundle limitation. Its source comment now says the current shelter-map bundle does not ship ranked candidate lists or per-stop route geometry, preserving the straight-line-distance limitation and behavior. This is browser comment/test coverage only; it does not alter nearest-stop ranking, map rendering, routing, score values, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-21 - P250 deployed-bundle audit CLI wording:
+The current-bundle audit CLI is an operator-facing tool for the deployed shelter-map artifact, even though some fields inside that artifact are locked scores. Its argparse description now says `current deployed shelter-map bundle` instead of `current deployed score bundle`, with a focused test guard. This is CLI help text and test coverage only; it does not read bundles, run audits, mutate QA outputs, alter scoring, export, deploy, public data, inputs, or locked weights.

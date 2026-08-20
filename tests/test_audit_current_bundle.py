@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from scripts.audit_current_bundle import sample_postals, summarize_state_report
 
 
@@ -76,3 +78,10 @@ def test_summarize_state_report_keeps_only_operator_counts():
         "no_transit_count": 3,
         "not_yet_count": 1,
     }
+
+
+def test_audit_cli_description_names_deployed_shelter_map_bundle():
+    source = Path("scripts/audit_current_bundle.py").read_text(encoding="utf-8")
+
+    assert "Fast audit of the current deployed shelter-map bundle." in source
+    assert "Fast audit of the current deployed score bundle." not in source

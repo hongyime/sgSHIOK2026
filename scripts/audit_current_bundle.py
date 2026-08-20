@@ -434,7 +434,7 @@ def summarize_state_report(report: dict[str, Any]) -> dict[str, Any]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Fast audit of the current deployed score bundle.")
+    parser = argparse.ArgumentParser(description="Fast audit of the current deployed shelter-map bundle.")
     parser.add_argument("--bundle-dir", type=Path, default=None)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--replay-limit", type=int, default=30)
