@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P164: `099dd3f`
+Remote main after P165: `96cc662`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -102,6 +102,7 @@ Status:
 - P162 is complete and pushed: direct-bus fallback caveats now say shelter-map route access was not verified.
 - P163 is complete and pushed: selected shelter-map panels now show whether the night-lighting map layer is on or off.
 - P164 is complete and pushed: outside-bundle copy no longer implies an arbitrary OneMap result is inside frozen v1.
+- P165 is complete and pushed: no-results feedback now separates OneMap lookup failure from frozen-bundle measured misses.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -192,5 +193,6 @@ Status:
 - P162 evidence is tracked at `qa/verification/P162-direct-bus-fallback-shelter-map-copy.md`.
 - P163 evidence is tracked at `qa/verification/P163-night-lighting-layer-state.md`.
 - P164 evidence is tracked at `qa/verification/P164-outside-bundle-universe-caveat.md`.
+- P165 evidence is tracked at `qa/verification/P165-no-results-search-caveat.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
