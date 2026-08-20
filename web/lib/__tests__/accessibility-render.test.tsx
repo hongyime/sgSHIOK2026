@@ -221,6 +221,8 @@ describe("rendered accessibility output", () => {
   it("announces same shortest and sheltered display as a walk state", () => {
     expect(routeDisplayAnnouncement("shortest", true)).toBe("shortest same as sheltered walk");
     expect(routeDisplayAnnouncement("shortest", true)).not.toBe("shortest same as sheltered route");
+    expect(routeDisplayAnnouncement("both", false)).toBe("both walks");
+    expect(routeDisplayAnnouncement("both", false)).not.toBe("both routes");
   });
 
   it("falls back to walk active when no selected walk label is available", () => {

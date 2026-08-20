@@ -586,3 +586,6 @@ Non-visual map summaries should use the same walk language as the visible contro
 
 2026-08-21 - P219 disconnected transit shelter-map walk wording:
 No-transit disconnected states should describe the missing artifact as a shelter-map walk, not a generic transit or walking route. The no-transit title and reason chip now say `Shelter-map walk not connected yet`, matching the existing explanatory note that transit stops or exits exist but the shelter-map bundle has no connected shelter-map walk yet. This is browser copy and test coverage only; it does not alter candidate selection, routing, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P220 both-walks live-region wording:
+The walk-display live region should describe the Both mode as two walks, not routes. `routeDisplayAnnouncement("both")` now returns `both walks`, matching the Walk display control and the shelter-map walk framing. This is browser accessibility copy and test coverage only; it does not alter display mode behavior, map geometry, score values, scoring, exports, public data, deployment, or locked weights.
