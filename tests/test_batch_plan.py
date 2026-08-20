@@ -214,6 +214,15 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
         == "frozen v1 remains the 124443-record June 2020 OneMap-derived universe"
     )
     assert "candidate-source-first" in report["source_policy"]["v2"]
+    assert report["source_policy"]["recent_public_source_gap_sample"] == {
+        "measurement": "P19 recent public-source gap sample",
+        "source_rows_with_postals": 976,
+        "missing_rows": 8,
+        "missing_pct": 0.819672,
+        "source_window": "2021-2026",
+        "sources": ["HDB completion", "BCA MCST proxy"],
+        "verdict": "small current-source gap in frozen v1; candidate-source-first v2 remains required",
+    }
     assert report["source_policy"]["osm_addr_postcode_registry"] == {
         "measurement": "P125 live Overpass addr:postcode coverage",
         "valid_distinct_postcodes": 25879,

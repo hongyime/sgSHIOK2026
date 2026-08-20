@@ -45,6 +45,15 @@ OSM_ADDR_POSTCODE_COVERAGE = {
     "coverage_pct": 20.791045,
     "verdict": "not sufficient as primary registry",
 }
+RECENT_PUBLIC_SOURCE_GAP_SAMPLE = {
+    "measurement": "P19 recent public-source gap sample",
+    "source_rows_with_postals": 976,
+    "missing_rows": 8,
+    "missing_pct": 0.819672,
+    "source_window": "2021-2026",
+    "sources": ["HDB completion", "BCA MCST proxy"],
+    "verdict": "small current-source gap in frozen v1; candidate-source-first v2 remains required",
+}
 FULL_BATCH_RELEASE_SCOPE = {
     "status": "approved_in_principle_not_approved_to_run",
     "owner_approval_required_before_execution": True,
@@ -314,6 +323,7 @@ def build_batch_plan(
         "source_policy": {
             "frozen_v1": FROZEN_V1_POLICY,
             "v2": POSTAL_UNIVERSE_V2_POLICY,
+            "recent_public_source_gap_sample": RECENT_PUBLIC_SOURCE_GAP_SAMPLE,
             "osm_addr_postcode_registry": OSM_ADDR_POSTCODE_COVERAGE,
             "onemap_search_role": "candidate validation/geocoding, not national enumeration",
             "onemap_search_controls": ONEMAP_SEARCH_CONTROLS,

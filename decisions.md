@@ -700,3 +700,6 @@ Production-readiness source-freshness JSON now carries `scope: manifest_only` an
 
 2026-08-21 - P257 readiness source-freshness human summary:
 The production-readiness source-freshness human summary now starts `manifest-only source freshness checked at...` instead of the generic `source freshness checked at...`. This makes the no-upstream-probe limitation visible to text readers as well as JSON consumers. This is readiness wording and test coverage only; it does not probe upstream APIs, fetch sources, mutate manifests or inputs, score, export, deploy, public data, or locked weights.
+
+2026-08-21 - P258 structured recent-source gap policy:
+The P19 recent public-source miss measurement should be carried as structured policy data, not only prose. Dry-run batch planning and production readiness now expose `recent_public_source_gap_sample` beside OSM and OneMap controls: 976 HDB completion and BCA MCST proxy rows with postals from 2021-2026, 8 missing rows, 0.819672 percent missing, and the verdict that candidate-source-first v2 remains required. This is reporting/policy data only; it does not alter inputs, exports, public data, scoring, deployment, or locked weights.

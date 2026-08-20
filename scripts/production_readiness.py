@@ -19,6 +19,7 @@ from pipeline.batch_plan import (
     ONEMAP_SEARCH_CONTROLS,
     OSM_ADDR_POSTCODE_COVERAGE,
     PARAMS_PATH,
+    RECENT_PUBLIC_SOURCE_GAP_SAMPLE,
     build_batch_plan,
 )
 from pipeline.export import validate_static_artifacts
@@ -1023,6 +1024,7 @@ def readiness_features(
             "onemap_walk_validation": onemap_status,
         },
         "source_policy": {
+            "recent_public_source_gap_sample": RECENT_PUBLIC_SOURCE_GAP_SAMPLE,
             "osm_addr_postcode_registry": OSM_ADDR_POSTCODE_COVERAGE,
             "onemap_search_controls": ONEMAP_SEARCH_CONTROLS,
         },

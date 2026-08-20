@@ -493,6 +493,15 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         "documented_token_authenticated_call_limit_cap": 250,
         "higher_limit_requires_sla_case_by_case_approval": True,
     }
+    assert report["features"]["source_policy"]["recent_public_source_gap_sample"] == {
+        "measurement": "P19 recent public-source gap sample",
+        "source_rows_with_postals": 976,
+        "missing_rows": 8,
+        "missing_pct": 0.819672,
+        "source_window": "2021-2026",
+        "sources": ["HDB completion", "BCA MCST proxy"],
+        "verdict": "small current-source gap in frozen v1; candidate-source-first v2 remains required",
+    }
     assert (
         "outlier review/rescore"
         in report["features"]["not_incorporated"]["overture_addresses_sg_candidate"]
