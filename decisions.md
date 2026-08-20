@@ -697,3 +697,6 @@ The zero-mutation `run.py check --freshness-only` output now prints `Manifest-on
 
 2026-08-21 - P256 readiness source-freshness scope fields:
 Production-readiness source-freshness JSON now carries `scope: manifest_only` and `upstream_urls_probed: false` in reported, missing, and unreadable states. This makes the same no-upstream-probe limitation machine-readable for release-gate consumers, not only visible in CLI text and README prose. This is readiness reporting and test coverage only; it does not probe upstream APIs, fetch sources, mutate manifests or inputs, score, export, deploy, public data, or locked weights.
+
+2026-08-21 - P257 readiness source-freshness human summary:
+The production-readiness source-freshness human summary now starts `manifest-only source freshness checked at...` instead of the generic `source freshness checked at...`. This makes the no-upstream-probe limitation visible to text readers as well as JSON consumers. This is readiness wording and test coverage only; it does not probe upstream APIs, fetch sources, mutate manifests or inputs, score, export, deploy, public data, or locked weights.

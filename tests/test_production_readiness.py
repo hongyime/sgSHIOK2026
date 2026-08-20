@@ -332,7 +332,7 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
         "Oldest current source: fresh (Fresh, 1.0d of 30d threshold)"
     )
     assert status["summary"].startswith(
-        "source freshness checked at 2026-08-16T00:00:00+00:00: current 1"
+        "manifest-only source freshness checked at 2026-08-16T00:00:00+00:00: current 1"
     )
     assert status["warning"] == (
         "source freshness warning: stale sources: stale; unknown_age sources: unknown_age"

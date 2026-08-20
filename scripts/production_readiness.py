@@ -284,7 +284,7 @@ def source_freshness_readiness(
         if status_key != "current" and keys
     ]
     summary = (
-        f"source freshness checked at {checked_at.isoformat()}: "
+        f"manifest-only source freshness checked at {checked_at.isoformat()}: "
         f"current {counts.get('current', 0)}, "
         f"stale {counts.get('stale', 0)}, "
         f"manual {counts.get('manual', 0)}, "
