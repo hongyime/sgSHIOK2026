@@ -38,6 +38,24 @@ OSM_ADDR_POSTCODE_COVERAGE = {
     "coverage_pct": 20.791045,
     "verdict": "not sufficient as primary registry",
 }
+FULL_BATCH_RELEASE_SCOPE = {
+    "status": "approved_in_principle_not_approved_to_run",
+    "owner_approval_required_before_execution": True,
+    "one_attempt_only": True,
+    "must_prove_each_change_on_1200_subset_first": True,
+    "bundled_changes": [
+        "bus remodel",
+        "NO_TRANSIT_IN_RANGE partial-score fix",
+        "network conflation repair",
+        "promoted postal universe v2 if approved",
+    ],
+    "prohibited_without_explicit_owner_approval": [
+        "full rescore",
+        "piecemeal full-bundle rerun",
+        "production deploy",
+        "live-site repoint",
+    ],
+}
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -301,6 +319,7 @@ def build_batch_plan(
             "uses_project_conflated_graph": True,
             "epsg_internal": "EPSG:3414",
         },
+        "full_batch_release_scope": FULL_BATCH_RELEASE_SCOPE,
         "checkpoint_gates": {
             "island_network_qa_ok": island_ok,
             "requires_human_approval_for_universe": requires_universe_approval,

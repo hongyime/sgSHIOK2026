@@ -164,6 +164,24 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
     assert report["checkpoint_gates"]["island_network_qa_ok"] is True
     assert report["checkpoint_gates"]["requires_human_approval_for_universe"] is True
     assert report["checkpoint_gates"]["full_batch_allowed_now"] is False
+    assert report["full_batch_release_scope"] == {
+        "status": "approved_in_principle_not_approved_to_run",
+        "owner_approval_required_before_execution": True,
+        "one_attempt_only": True,
+        "must_prove_each_change_on_1200_subset_first": True,
+        "bundled_changes": [
+            "bus remodel",
+            "NO_TRANSIT_IN_RANGE partial-score fix",
+            "network conflation repair",
+            "promoted postal universe v2 if approved",
+        ],
+        "prohibited_without_explicit_owner_approval": [
+            "full rescore",
+            "piecemeal full-bundle rerun",
+            "production deploy",
+            "live-site repoint",
+        ],
+    }
     assert (
         "frozen v1 third-party OneMap-derived 2020 source"
         in report["checkpoint_gates"]["blockers"][2]

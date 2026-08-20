@@ -451,3 +451,6 @@ Live clicked-stop preview records now store `Clicked transit POI has shelter map
 
 2026-08-20 - P155 snap connector shelter-map route wording:
 The snap-connector helper now says the connector is the short link onto `the shelter-map route` instead of mapped walking-route evidence. This is browser copy and test coverage only; it does not alter endpoint connector distance, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P156 full-batch one-attempt planning scope:
+The dry-run batch planner now emits `full_batch_release_scope` to record that the expensive full batch is approved in principle but not approved to run, is one attempt only, requires each change to pass the 1,200-record subset first, and must bundle the bus remodel, `NO_TRANSIT_IN_RANGE` partial-score fix, network conflation repair, and any approved postal-universe v2 promotion. This is planning/reporting only; it does not run geocoding, scoring, export, deployment, public data writes, input rebuilds, or locked weight changes.
