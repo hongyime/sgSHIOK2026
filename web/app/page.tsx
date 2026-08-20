@@ -414,7 +414,7 @@ function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): str
 
 function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): string | null {
   if (score.paths?.routing_type === "live_onemap_preview") {
-    return "Preview only: this clicked stop has route evidence, but it is not an authoritative SHIOK score until an offline bundle includes it.";
+    return "Preview only: this clicked stop has route evidence, but it is not an authoritative SHIOK score until it is included in a published score bundle.";
   }
   if (score.state === "SCORED_PARTIAL") {
     return "Partial bundle score: one or more sub-scores are unavailable; locked weights count missing terms as zero.";

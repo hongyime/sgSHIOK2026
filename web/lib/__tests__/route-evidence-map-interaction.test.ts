@@ -149,12 +149,14 @@ describe("route evidence map interactions", () => {
     expect(liveScoringSource).toContain("subscores: null");
     expect(liveScoringSource).toContain('routing_type: "live_onemap_preview"');
     expect(liveScoringSource).toContain("authoritative_score: false");
-    expect(liveScoringSource).toContain("SHIOK scores come from offline bundle scoring.");
+    expect(liveScoringSource).toContain("authoritative SHIOK scores come from the published score bundle.");
+    expect(liveScoringSource).not.toContain("SHIOK scores come from offline bundle scoring.");
     expect(liveScoringSource).not.toContain("offline pipeline bundle");
 
     expect(pageSource).toContain("Preview route evidence only");
     expect(pageSource).toContain("Preview only: this clicked stop has route evidence");
-    expect(pageSource).toContain("until an offline bundle includes it");
+    expect(pageSource).toContain("until it is included in a published score bundle");
+    expect(pageSource).not.toContain("until an offline bundle includes it");
     expect(pageSource).toContain("liveRoutePreviewStatuses");
     expect(pageSource).toContain("Fetching OneMap walking preview");
     expect(pageSource).toContain("showing straight-line preview only");

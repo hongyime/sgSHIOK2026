@@ -293,3 +293,6 @@ Submitted address searches with no OneMap result should use the same measured fr
 
 2026-08-20 - P102 frozen-v1 awaiting-score copy:
 The not-yet-scored postal state should use the same frozen v1 address-universe framing as the title card and outside-bundle state. It now says the postal is in the frozen v1 address universe but the current offline bundle has not scored it yet, with compact labels No full score in this bundle and Awaiting bundle score. This is browser copy only; it does not alter state classification, search behavior, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P103 published-bundle preview authority copy:
+Live clicked-stop preview copy should describe authoritative SHIOK scores as coming from the published score bundle rather than from offline bundle scoring. The rendered preview note now says a clicked-stop route is not authoritative until it is included in a published score bundle, while the live preview provenance reason says authoritative scores come from the published score bundle. This is browser/provenance-copy only; it does not alter live preview route calculations, score values, state classification, scoring, exports, inputs, public data, deployment, or locked weights.
