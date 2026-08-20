@@ -47,6 +47,13 @@ describe("score card copy", () => {
     expect(layoutSource).not.toContain("measuring rain shelter, provisional heat proxy, crossing friction");
   });
 
+  it("keeps the footer aligned with route evidence framing", () => {
+    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+
+    expect(source).toContain("Source-derived route evidence.");
+    expect(source).not.toContain("Source-derived comfort index.");
+  });
+
   it("does not duplicate the sheltered % across primary and secondary rows", () => {
     // The primary summary grid already shows `Sheltered X%` for the active
     // route. The old secondary row rendered `Shiokest sheltered X%` and

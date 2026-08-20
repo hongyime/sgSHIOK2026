@@ -137,3 +137,6 @@ Heat copy should stay weaker than measured thermal or route-level canopy evidenc
 
 2026-08-16 - P48 clicked-stop preview failure disclosure:
 Clicked transit stops without precomputed route geometry use a preview path while the browser asks OneMap for a walking route. If that route is still loading or cannot be returned, the result card must say so instead of silently showing a straight-line preview as if it were equivalent route evidence. The browser now reports loading and unavailable preview states for arbitrary clicked stops, while preserving precomputed bundle candidates as authoritative. This is browser state/copy only; it does not alter OneMap API behavior, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P50 route-evidence footer:
+The page footer should not reintroduce the old comfort-index framing after the title card, result panel, README, and metadata have moved to shelter-first route evidence. The visible footer now says `Source-derived route evidence.` instead of `Source-derived comfort index.`. This is browser copy only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

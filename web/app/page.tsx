@@ -2035,7 +2035,7 @@ export default function Home() {
           </aside>
         )}
 
-        <footer className={styles.pageFooter}>Source-derived comfort index.</footer>
+        <footer className={styles.pageFooter}>Source-derived route evidence.</footer>
       </section>
     </main>
   );
