@@ -372,6 +372,7 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
     debug_path = tmp_path / "qa" / "island_debug.geojson"
     write_production_island_qa(qa_path)
 
+    progress_events: list[str] = []
     ok, report = build_readiness_report(
         project_root=tmp_path,
         web_dir=web_dir,
@@ -388,9 +389,13 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
             "ONEMAP_EMAIL": "owner@example.test",
             "ONEMAP_PASSWORD": "test-onemap",
         },
+        progress=progress_events.append,
     )
 
     assert ok, report
+    assert progress_events[0] == "resolving active bundle and QA paths"
+    assert "auditing bundle state" in progress_events
+    assert progress_events[-1] == "readiness report complete"
     assert report["ok"] is True
     assert report["release_gate_passed"] is False
     assert report["release_gate_status"] == "blocked"

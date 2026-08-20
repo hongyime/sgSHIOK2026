@@ -4,7 +4,7 @@ import argparse
 import json
 import os
 import sys
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
@@ -1024,12 +1024,20 @@ def build_readiness_report(
     production_deploy_approved: bool = False,
     owner_approval_note: str = "",
     environment: Mapping[str, str] | None = None,
+    progress: Callable[[str], None] | None = None,
 ) -> tuple[bool, dict[str, Any]]:
+    def mark(message: str) -> None:
+        if progress is not None:
+            progress(message)
+
+    mark("resolving active bundle and QA paths")
     bundle_dir = bundle_dir or active_bundle_dir()
     qa_path = qa_path or project_root / "qa" / "conflation_qa_island.json"
     debug_path = debug_path or project_root / "qa" / "island_debug.geojson"
 
+    mark("validating static bundle artifacts")
     validation_ok, validation = validate_static_artifacts(input_dir=bundle_dir)
+    mark("auditing bundle state")
     bundle_state_full = build_report(
         bundle_dir=bundle_dir,
         replay_limit=0,
@@ -1040,12 +1048,14 @@ def build_readiness_report(
     state_total = sum(int(value) for value in bundle_state["state_counts"].values())
     state_total_matches_manifest = state_total == int(bundle_state["manifest_record_count"])
 
+    mark("validating island network QA")
     island_ok, island_qa = validate_network_qa(
         qa_path,
         debug_path,
         require_debug=False,
         require_production_sources=True,
     )
+    mark("building dry-run batch plan")
     batch_ok, batch_plan = build_batch_plan(
         mode=mode,
         summary_path=summary_path,
@@ -1054,12 +1064,15 @@ def build_readiness_report(
         qa_path=qa_path,
         debug_path=debug_path,
     )
+    mark("checking Vercel, environment, source freshness, and lamp overlay")
     vercel = vercel_readiness(project_root, web_dir)
     env_status = environment_readiness(environment)
     source_freshness = source_freshness_readiness(project_root)
     lamp_overlay = lamp_overlay_artifact_status(web_dir)
+    mark("checking bundle freshness and score provenance")
     freshness = bundle_network_freshness(bundle_dir, network_path)
     score_provenance = bundle_score_provenance_status(bundle_dir)
+    mark("checking OneMap validation status")
     onemap_status = onemap_validation_status(
         project_root / "qa",
         active_bundle=str(bundle_state.get("bundle") or ""),
@@ -1204,14 +1217,17 @@ def build_readiness_report(
         "lamp_overlay": lamp_overlay,
         "source_freshness": source_freshness,
         "environment": env_status,
-        "features": readiness_features(
-            project_root / "qa",
-            active_bundle=str(bundle_state.get("bundle") or ""),
-            bundle_dir=bundle_dir,
-        ),
+        "features": {},
         "errors": errors,
         "warnings": warnings,
     }
+    mark("summarizing feature policy")
+    report["features"] = readiness_features(
+        project_root / "qa",
+        active_bundle=str(bundle_state.get("bundle") or ""),
+        bundle_dir=bundle_dir,
+    )
+    mark("readiness report complete")
     return not errors, report
 
 
@@ -1250,6 +1266,9 @@ def main() -> int:
         waive_onemap_validation=args.waive_onemap_validation,
         production_deploy_approved=args.production_deploy_approved,
         owner_approval_note=args.owner_approval_note,
+        progress=lambda message: print(
+            f"[production-readiness] {message}", file=sys.stderr, flush=True
+        ),
     )
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0 if ok else 1
