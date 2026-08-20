@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P258 is complete and committed: dry-run batch planning and production readiness now expose the P19 recent public-source gap sample as structured source-policy data. Focused batch-plan/readiness tests pass.
 - P257 is complete and committed: production-readiness source-freshness human summary now says manifest-only. Focused production-readiness tests pass.
 - P256 is complete and committed: production-readiness source-freshness JSON now exposes manifest-only/no-upstream-probe scope fields. Focused production-readiness tests pass.
 - P255 is complete and committed: zero-mutation freshness-only CLI output now states that no upstream URLs were probed. Focused fetch tests pass.
