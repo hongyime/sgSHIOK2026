@@ -677,12 +677,12 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
       return ["Transit candidate found", "Walking route not connected yet"];
     }
     if (reason === "no_transit_candidates_selected") {
-      return ["No nearby transit candidate selected", "Outside current candidate thresholds"];
+      return ["No nearby transit candidate selected", "Outside current transit-candidate limits"];
     }
     const nearestM = nearestRoutedTransitM(score, transitMode);
     return nearestM !== null
       ? [`Closest routed ${label} is ${formatDistance(nearestM)}`, "Current scoring range is 1.2 km"]
-      : [`No ${label} walk within scoring range`, "Nearby transit may still exist outside the current threshold"];
+      : [`No ${label} walk within scoring range`, "Nearby transit may still exist beyond the 1.2 km scoring range"];
   }
   if (score.state === "NOT_YET_SCORED") return ["No full score in this bundle", "Awaiting bundle score"];
   if (score.paths?.routing_type === "direct_bus_fallback_unrouted") {

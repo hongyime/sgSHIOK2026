@@ -299,3 +299,6 @@ Live clicked-stop preview copy should describe authoritative SHIOK scores as com
 
 2026-08-20 - P104 published-bundle awaiting-score copy:
 The not-yet-scored postal note should use the same published-bundle authority framing as clicked-stop previews. It now says the postal is in the frozen v1 address universe but the current published bundle has not scored it yet, replacing the remaining live current offline bundle phrase. This is browser copy only; it does not alter state classification, search behavior, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P105 no-transit range copy:
+No-transit reason chips should describe the current product limitation directly instead of using vague threshold language. Candidate-selection failures now say Outside current transit-candidate limits, and no-walk cases say nearby transit may still exist beyond the 1.2 km scoring range. This is browser copy only; it does not alter transit candidate selection, routing, state classification, scoring, exports, inputs, public data, deployment, or locked weights.
