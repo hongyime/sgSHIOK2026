@@ -388,9 +388,10 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("No full score in this bundle");
     expect(html).toContain("Awaiting bundle score");
     expect(html).toContain(
-      "This postal is in the frozen v1 address universe, but the current offline bundle has not scored it yet."
+      "This postal is in the frozen v1 address universe, but the current published bundle has not scored it yet."
     );
     expect(html).not.toContain("source universe");
+    expect(html).not.toContain("current offline bundle");
     expect(html).not.toContain("Awaiting offline bundle scoring");
     expect(html).not.toContain("Needs pipeline scoring evidence");
     expect(html).not.toContain("pipeline scoring evidence");

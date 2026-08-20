@@ -434,7 +434,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     return `No ${transitModeLabel(transitMode)} walk was found within the current scoring range.`;
   }
   if (score.state === "NOT_YET_SCORED") {
-    return "This postal is in the frozen v1 address universe, but the current offline bundle has not scored it yet.";
+    return "This postal is in the frozen v1 address universe, but the current published bundle has not scored it yet.";
   }
   const busFallback = directBusFallbackEvidence(score);
   if (busFallback) {
