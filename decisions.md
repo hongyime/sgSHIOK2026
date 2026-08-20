@@ -263,3 +263,6 @@ The score-card live region should announce the default route display with the us
 
 2026-08-20 - P92 map summary sheltered-route wording:
 The map's non-visual route summaries should use the same `sheltered route` language as the score card and route controls. Screen-reader map labels and summaries now say `sheltered route`, `shortest and sheltered routes`, and `sheltered-route segments` instead of `covered route` / `covered-route segments`. This is browser accessibility copy only; it does not alter map layers, route IDs, geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P93 score reason sheltered-route wording:
+The score-card reason chips should not describe the selected higher-shelter route as a `covered route`, because the measured route can still contain exposed gaps. The sheltered-percentage reason now says `sheltered on sheltered route`, matching the route controls, live region, and map summaries. This is browser copy only; it does not alter score reasons selection, scores, geometry, exports, public data, deployment, or locked weights.

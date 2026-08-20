@@ -14,7 +14,7 @@ describe("score card copy", () => {
     expect(source).toContain("Outside current candidate thresholds");
   });
 
-  it("keeps shortest route context visible when it matches the covered route", () => {
+  it("keeps shortest route context visible when it matches the sheltered route", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
     expect(source).toContain("Shortest same as sheltered route.");

@@ -305,7 +305,7 @@ function formatGapLocation(gap: ExposureGap): string | null {
  * spoken in percentage-points of shelter coverage.
  *
  * Returns null when:
- *   - the covered route and shortest route are the same (nothing to compare)
+ *   - the sheltered route and shortest route are the same (nothing to compare)
  *   - the score is a direct-bus fallback (routes are not comparable)
  *   - either coverage % is unknown
  *   - the delta is under 5pp (avoids clutter for tiny differences)
@@ -697,7 +697,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
     measuredReasons.push(`${formatDistance(score.paths.sheltered_m)} to ${transitModeLabel(transitMode)}`);
   }
   if (typeof score.paths.covered_ratio === "number") {
-    measuredReasons.push(`${Math.round(score.paths.covered_ratio * 100)}% sheltered on covered route`);
+    measuredReasons.push(`${Math.round(score.paths.covered_ratio * 100)}% sheltered on sheltered route`);
   }
   if (busFallback) {
     measuredReasons.push("Nearby bus evidence not route-verified");
