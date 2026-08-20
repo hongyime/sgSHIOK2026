@@ -65,6 +65,13 @@ describe("score card copy", () => {
     expect(smokeSource).toContain('arg === "--walk-mode" || arg === "--route-mode"');
   });
 
+  it("reports invalid browser smoke walk modes with walk wording", () => {
+    const smokeSource = readFileSync(join(__dirname, "../../scripts/browser-smoke.mjs"), "utf-8");
+
+    expect(smokeSource).toContain("invalid walk mode");
+    expect(smokeSource).not.toContain("invalid route mode");
+  });
+
   it("names walk mode in copied walk QA JSON while keeping route-mode compatibility", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 

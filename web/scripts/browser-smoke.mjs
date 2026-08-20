@@ -104,7 +104,7 @@ function parseArgs(argv) {
     throw new Error(`invalid transit mode: ${args.transitMode}`);
   }
   if (!Object.prototype.hasOwnProperty.call(ROUTE_MODE_LABELS, args.routeMode)) {
-    throw new Error(`invalid route mode: ${args.routeMode}`);
+    throw new Error(`invalid walk mode: ${args.routeMode}`);
   }
   if (!args.out) {
     const suffix = args.postals.length === 1 ? args.postal : `${args.postals[0]}_plus_${args.postals.length - 1}`;
@@ -421,7 +421,7 @@ async function selectTransitMode(cdp, transitMode, timeoutMs) {
 
 async function selectRouteMode(cdp, routeMode, timeoutMs) {
   const label = ROUTE_MODE_LABELS[routeMode];
-  if (!label) throw new Error(`invalid route mode: ${routeMode}`);
+  if (!label) throw new Error(`invalid walk mode: ${routeMode}`);
   if (routeMode === "shiokest") return;
   const sameRoute = await cdp.send("Runtime.evaluate", {
     returnByValue: true,
