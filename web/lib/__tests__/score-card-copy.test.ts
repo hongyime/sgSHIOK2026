@@ -150,6 +150,10 @@ describe("score card copy", () => {
     expect(tsxSource).toContain("routeDetailItems.push({ label: \"Greenery proxy\"");
     expect(tsxSource).not.toContain("routeDetailItems.push({ label: \"Shade proxy\"");
     expect(tsxSource).toContain("routeDetailItems.push({ label: \"Snap connector\"");
+    expect(tsxSource).toContain('routeDetailItems.push({ label: "Night lighting", value: "Map layer" });');
+    expect(tsxSource).toContain(
+      "Night lighting uses LTA lamp-post points as map evidence outside the locked score."
+    );
     expect(tsxSource).toContain(
       "Snap connector is the short link from the postal or transit point onto the shelter-map route."
     );

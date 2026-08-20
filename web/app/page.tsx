@@ -1134,16 +1134,20 @@ export function ScoreCard({
       ? "Same displayed value as rain shelter for this postal."
       : null;
   const routeDetailItems: Array<{ label: string; value: string }> = [];
+  const routeDetailNotes: string[] = [];
   if (shadeProxyPct !== null) {
     routeDetailItems.push({ label: "Greenery proxy", value: `${shadeProxyPct}%` });
+  }
+  if (score.paths) {
+    routeDetailItems.push({ label: "Night lighting", value: "Map layer" });
+    routeDetailNotes.push("Night lighting uses LTA lamp-post points as map evidence outside the locked score.");
   }
   if (endpointSnapM > 0) {
     routeDetailItems.push({ label: "Snap connector", value: formatDistance(endpointSnapM) });
   }
-  const connectorNote =
-    endpointSnapM > 0
-      ? "Snap connector is the short link from the postal or transit point onto the shelter-map route."
-      : null;
+  if (endpointSnapM > 0) {
+    routeDetailNotes.push("Snap connector is the short link from the postal or transit point onto the shelter-map route.");
+  }
   const longestGap = exposureGaps[0] ?? null;
   const visibleExposureGaps = exposureGaps.slice(0, 3);
   const totalExposureM = exposureGaps.reduce((total, gap) => total + gap.len_m, 0);
@@ -1493,7 +1497,9 @@ export function ScoreCard({
               {item.label} <strong>{item.value}</strong>
             </span>
           ))}
-          {connectorNote && <small>{connectorNote}</small>}
+          {routeDetailNotes.map((note) => (
+            <small key={note}>{note}</small>
+          ))}
         </div>
       )}
 
