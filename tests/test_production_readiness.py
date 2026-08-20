@@ -1,5 +1,7 @@
 import json
 import os
+import subprocess
+import sys
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -19,10 +21,25 @@ from scripts.production_readiness import (
 )
 from tests.test_export import sample_record
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
 
 def write_json(path: Path, payload: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload), encoding="utf-8")
+
+
+def test_production_readiness_script_runs_by_absolute_path(tmp_path: Path) -> None:
+    result = subprocess.run(
+        [sys.executable, str(PROJECT_ROOT / "scripts" / "production_readiness.py"), "--help"],
+        cwd=tmp_path,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+
+    assert result.returncode == 0
+    assert "Fast production-readiness report without scoring or deploying." in result.stdout
 
 
 def write_universe(path: Path, rows: int = 1) -> None:

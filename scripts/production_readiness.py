@@ -3,10 +3,15 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import sys
 from collections.abc import Mapping
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 import yaml
 
@@ -17,7 +22,6 @@ from pipeline.network_qa import validate_network_qa
 from pipeline.scoring_integration import SCORING_FINGERPRINT_FILES, SCORE_PROVENANCE_SOURCE_HASH_KEYS
 from scripts.audit_current_bundle import active_bundle_dir, build_report, summarize_state_report
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
 WEB_DIR = PROJECT_ROOT / "web"
 QA_DIR = PROJECT_ROOT / "qa"
 DEFAULT_NETWORK = PROJECT_ROOT / "processed" / "network_island.parquet"
