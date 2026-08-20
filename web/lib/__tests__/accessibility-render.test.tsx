@@ -162,7 +162,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Custom stop selected.");
     expect(html).toContain("Route display shortest");
     expect(html).toContain('aria-busy="true"');
-    expect(html).toContain("Loading Locked SHIOK score ranks.");
+    expect(html).toContain("Loading planning-area Locked SHIOK score ranks.");
     expect(html).toContain('aria-label="Route evidence panel"');
     expect(html).not.toContain("Postal 560231 score panel loaded.");
     expect(html).not.toContain("Score 72 out of 100.");
@@ -244,7 +244,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Walk to transit");
     expect(html).toContain("Bus service support");
     expect(html).toContain("Locked SHIOK score");
-    expect(html).toContain("Locked score order.");
+    expect(html).toContain("Planning-area order by locked score.");
     expect(html).not.toContain("Authoritative composite order.");
     expect(breakdownHtml).not.toContain(">Heat proxy<");
     expect(breakdownHtml).not.toContain(">Rain shelter<");

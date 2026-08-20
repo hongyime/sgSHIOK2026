@@ -233,3 +233,6 @@ Route details should explain endpoint connector distance in user-facing graph la
 
 2026-08-20 - P82 alternate-stop distance delta:
 The nearby-transit picker should make alternate-stop tradeoffs concrete when a user selects a non-best stop. Its comparison note now keeps the straight-line caveat and adds the metre delta, for example `42% farther than best (+42 m straight-line)`. This is browser presentation only; it does not alter candidate ranking, routing, inputs, public data, exports, scoring, deployment, or locked weights.
+
+2026-08-20 - P83 planning-area rank disclosure:
+The rank panel should say that its comparison set is the selected postal's planning area, because `fetchRankRecordsForPostalArea()` loads the area shard and split shard parts rather than a national ranking. The visible helper, loading text, empty state, and screen-reader rank status now say `planning-area`. This is browser presentation only; it does not alter ranking order, scoring, exports, inputs, public data, deployment, or locked weights.

@@ -168,9 +168,11 @@ export function rankAnnouncement({
   rankedCount: number;
   rankMetricLabel: string;
 }): string {
-  if (loading) return `Loading ${rankMetricLabel} ranks.`;
-  if (rankedCount === 0) return `No ${rankMetricLabel} ranks available.`;
-  return `${rankedCount} ${rankMetricLabel} rank${rankedCount === 1 ? "" : "s"} available.`;
+  if (loading) return `Loading planning-area ${rankMetricLabel} ranks.`;
+  if (rankedCount === 0) return `No planning-area ${rankMetricLabel} ranks available.`;
+  return `${rankedCount} planning-area ${rankMetricLabel} rank${
+    rankedCount === 1 ? "" : "s"
+  } available.`;
 }
 
 export function shouldFetchRankRecords({
@@ -1336,10 +1338,10 @@ export function ScoreCard({
               <strong>Rank by</strong>
               <span>
                 {!rankPanelOpen
-                  ? "Loads local ranks only when opened."
+                  ? "Loads planning-area ranks only when opened."
                   : rankMetric === "overall"
-                  ? "Locked score order."
-                  : "Single sub-score view; SHIOK score is unchanged."}
+                  ? "Planning-area order by locked score."
+                  : "Planning-area sub-score view; locked SHIOK score is unchanged."}
               </span>
             </div>
             {rankPanelOpen ? (
@@ -1369,9 +1371,13 @@ export function ScoreCard({
           {rankPanelOpen && (
             <div className={styles.rankList} role="status" aria-live="polite">
               <span className={styles.srOnly}>{rankStatus}</span>
-              {rankingLoading && <span className={styles.rankEmpty}>Loading local ranks...</span>}
+              {rankingLoading && (
+                <span className={styles.rankEmpty}>Loading planning-area ranks...</span>
+              )}
               {!rankingLoading && rankedRecords.length === 0 && (
-                <span className={styles.rankEmpty}>No comparable scored records in this area.</span>
+                <span className={styles.rankEmpty}>
+                  No comparable scored records in this planning area.
+                </span>
               )}
               {!rankingLoading &&
                 rankedRecords.map((item) => (
