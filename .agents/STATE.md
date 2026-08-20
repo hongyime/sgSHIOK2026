@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P131: `6bfdf86`
+Remote main after P132: `96392e4`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -69,6 +69,7 @@ Status:
 - P129 is complete and pushed: the route evidence hero now states total exposed metres and recorded exposed-gap count before naming the longest exposed gap.
 - P130 is complete and pushed: shelter source-strip labels now use product-facing evidence wording such as `LTA covered linkway` and `OSM shelter tags`.
 - P131 is complete and pushed: the visible app title and metadata title now say `S.H.I.O.K. Shelter Map` instead of `S.H.I.O.K. Index`.
+- P132 is complete and pushed: the no-selection route panel now names sheltered walk evidence, exposed gaps, and night lighting near transit.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -126,5 +127,6 @@ Status:
 - P129 evidence is tracked at `qa/verification/P129-exposure-hero-total-gaps.md`.
 - P130 evidence is tracked at `qa/verification/P130-shelter-source-labels.md`.
 - P131 evidence is tracked at `qa/verification/P131-shelter-map-title.md`.
+- P132 evidence is tracked at `qa/verification/P132-empty-state-shelter-map.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
