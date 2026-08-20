@@ -59,6 +59,14 @@ describe("score card copy", () => {
     expect(smokeSource).not.toContain('[aria-label="Route display"] button');
   });
 
+  it("names walk mode in copied walk QA JSON while keeping route-mode compatibility", () => {
+    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+
+    expect(source).toContain("Copy walk QA JSON");
+    expect(source).toContain("walk_mode: routeMode");
+    expect(source).toContain("route_mode: routeMode");
+  });
+
   it("puts data freshness and heat proxy copy in the title card", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
     const layoutSource = readFileSync(join(__dirname, "../../app/layout.tsx"), "utf-8");

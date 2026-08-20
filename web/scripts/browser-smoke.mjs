@@ -615,6 +615,10 @@ function collectChecks(summary, mapState, cdp, postal, inputMode, expectedState,
     keyboard_search_used: inputMode === "keyboard",
     transit_mode_selected:
       transitMode === "best_transit" || summary.activeTransitMode === TRANSIT_MODE_LABELS[transitMode],
+    walk_mode_selected:
+      routeMode === "shiokest" ||
+      summary.activeRouteMode === ROUTE_MODE_LABELS[routeMode] ||
+      hasSameRouteNote,
     route_mode_selected:
       routeMode === "shiokest" ||
       summary.activeRouteMode === ROUTE_MODE_LABELS[routeMode] ||
@@ -708,6 +712,7 @@ async function runPostalCase(cdp, args, postal, outputDir, shotBase) {
     input_mode: args.inputMode,
     expected_state: args.expectedState,
     transit_mode: args.transitMode,
+    walk_mode: args.routeMode,
     route_mode: args.routeMode,
     must_include: args.mustInclude,
     screenshots,
@@ -716,6 +721,7 @@ async function runPostalCase(cdp, args, postal, outputDir, shotBase) {
     map_label: summary.mapLabel,
     map_summary: summary.mapSummary,
     active_transit_mode: summary.activeTransitMode,
+    active_walk_mode: summary.activeRouteMode,
     active_route_mode: summary.activeRouteMode,
     same_route_note: summary.sameRouteNote,
     map_state: mapStatePath,
@@ -771,6 +777,7 @@ async function runSmoke(args) {
       input_mode: args.inputMode,
       expected_state: args.expectedState,
       transit_mode: args.transitMode,
+      walk_mode: args.routeMode,
       route_mode: args.routeMode,
     };
     writeJson(join(outputDir, "run_manifest.json"), manifest);
@@ -785,6 +792,7 @@ async function runSmoke(args) {
       input_mode: args.inputMode,
       expected_state: args.expectedState,
       transit_mode: args.transitMode,
+      walk_mode: args.routeMode,
       route_mode: args.routeMode,
       must_include: args.mustInclude,
     };

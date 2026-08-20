@@ -44,7 +44,9 @@ describe("deployment packaging", () => {
     expect(script).toContain("Input.dispatchKeyEvent");
     expect(script).toContain("keyboard_search_used");
     expect(script).toContain("transit_mode_selected");
+    expect(script).toContain("walk_mode_selected");
     expect(script).toContain("route_mode_selected");
+    expect(script).toContain("active_walk_mode");
     expect(script).toContain("debug-runs");
     expect(script).toContain("run_manifest.json");
     expect(script).toContain("route_evidence_panel_loaded");

@@ -815,6 +815,7 @@ function buildFeedbackPayload({
     postal: selection?.result.POSTAL ?? null,
     destination: selection?.score?.best_node?.name ?? null,
     transit_mode: transitMode,
+    walk_mode: routeMode,
     route_mode: routeMode,
     issue: "user_reported_better_walk_route",
     source: "user_drawn_qa_evidence_not_score_override",
