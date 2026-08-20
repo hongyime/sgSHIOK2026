@@ -323,3 +323,6 @@ The no-transit candidate-selection state should name the user-visible transit st
 
 2026-08-20 - P112 direct-bus option copy:
 The direct-bus fallback note should describe fallback evidence as user-facing bus options, not scoring candidates. It now says direct bus options were found while preserving the route-not-verified caveat and the locked-score bus-term caveat. This is browser copy only; it does not alter direct-bus fallback detection, bus scoring, routing, score values, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-20 - P113 bus fallback route-access copy:
+The direct-bus fallback warning should keep its conservative meaning without exposing walking-network implementation language. It now says nearby bus service is not route-verified and that walking-route access was not verified, preserving the 0 bus subscore and locked-score caveats. This is browser copy only; it does not alter fallback detection, routing, bus scoring, score values, exports, inputs, public data, deployment, or locked weights.

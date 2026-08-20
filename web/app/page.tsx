@@ -700,7 +700,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
     measuredReasons.push(`${Math.round(score.paths.covered_ratio * 100)}% sheltered on sheltered route`);
   }
   if (busFallback) {
-    measuredReasons.push("Nearby bus evidence not route-verified");
+    measuredReasons.push("Nearby bus service not route-verified");
     measuredReasons.push(busFallbackSummary(busFallback));
   }
 
@@ -712,7 +712,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
   if (busFallback && values[0]?.key === "bus") {
     const shelterReason = measuredReasons.find((reason) => reason.includes("sheltered"));
     return [
-      "Nearby bus evidence not route-verified",
+      "Nearby bus service not route-verified",
       shelterReason ?? measuredReasons[0] ?? busFallbackSummary(busFallback),
     ];
   }
@@ -1186,7 +1186,7 @@ export function ScoreCard({
           notes: [
             "A low value can mean weak service evidence, or that routing could not prove a trusted walk to a DataMall bus stop.",
             busFallback
-              ? `${busFallbackSummary(busFallback)} Walking network access was not verified, so this sub-score remains 0.`
+              ? `${busFallbackSummary(busFallback)} Walking-route access was not verified, so this sub-score remains 0.`
               : null,
           ].filter((note): note is string => Boolean(note)),
         },
