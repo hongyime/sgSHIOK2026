@@ -10,6 +10,7 @@ vi.mock("next/navigation", () => ({
 import {
   ScoreCard,
   SearchFeedback,
+  scoreCardAnnouncement,
   searchResultsAnnouncement,
   type FeedbackSegmentLabel,
   type LoadedSelection,
@@ -214,6 +215,11 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Walk display shiokest");
     expect(html).not.toContain("Published route selected.");
     expect(html).not.toContain("Route display sheltered");
+  });
+
+  it("falls back to walk active when no selected walk label is available", () => {
+    expect(scoreCardAnnouncement({ selection, routeMode: "shiokest" })).toContain("walk active.");
+    expect(scoreCardAnnouncement({ selection, routeMode: "shiokest" })).not.toContain("route active.");
   });
 
   it("shows when clicked-stop route preview falls back to straight-line evidence", () => {

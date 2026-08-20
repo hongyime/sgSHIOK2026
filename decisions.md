@@ -508,3 +508,6 @@ The traced correction actions should describe walk feedback, not generic route f
 
 2026-08-21 - P174 empty shelter-map walk status:
 The empty score-card live region should say no shelter-map walk is selected, not no route is selected. This keeps the pre-search screen-reader status aligned with the shelter-first walk workflow. This is browser accessibility copy and test coverage only; it does not alter search behavior, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P175 selected-walk live fallback:
+The score-card live region should fall back to `walk active` when no selected-walk label is available, not `route active`. This preserves the shelter-map walk framing even in defensive helper calls that do not pass a selected route label. This is browser accessibility copy and test coverage only; it does not alter route selection, map rendering, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
