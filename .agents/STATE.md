@@ -4,7 +4,7 @@ Date: 2026-08-20
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Remote main after P91: `ea21ab5`
+Remote main after P92: `5949015`
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -29,6 +29,7 @@ Status:
 - P89 is complete and pushed: the title-card score disclosure now starts `Bundle score availability` instead of `Score coverage`.
 - P90 is complete and pushed: night-lighting overlay status messages now repeat that lamp points are map evidence outside the locked score.
 - P91 is complete and pushed: the score-card live region now announces the default route display as `sheltered` instead of exposing the internal `shiokest` mode token.
+- P92 is complete and pushed: non-visual map summaries now say `sheltered route` / `sheltered-route segments` instead of `covered route` / `covered-route segments`.
 - Current source freshness on Prawn-E14: 12 current, 6 stale, 2 manual, 1 unknown-age. Stale sources are `nparks_heritage_road_green_buffers`, `nparks_heritage_trees`, `nparks_nature_ways`, `nparks_tracks`, `planning_area_boundary`, and `traffic_signals`; `overture_addresses_sg_candidate` has unknown age.
 - Evidence is tracked at `qa/verification/P76-source-freshness-readiness.md`.
 - P77 evidence is tracked at `qa/verification/P77-exposed-gap-summary.md`.
@@ -46,5 +47,6 @@ Status:
 - P89 evidence is tracked at `qa/verification/P89-bundle-score-availability.md`.
 - P90 evidence is tracked at `qa/verification/P90-night-lighting-score-separation.md`.
 - P91 evidence is tracked at `qa/verification/P91-route-display-announcement.md`.
+- P92 evidence is tracked at `qa/verification/P92-map-summary-sheltered-route.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
