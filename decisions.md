@@ -392,3 +392,6 @@ The repository README should use the same shelter-map framing as the browser tit
 
 2026-08-20 - P135 README shelter-map status:
 The README status line should describe the current live artifact in the same terms as the product title. It now says the project is a `live static shelter-map pilot over a 124,443-record source-derived universe` instead of the generic `static-first pilot` wording. This is documentation and test coverage only; it does not alter browser behavior, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P136 empty map summary shelter copy:
+The non-visual map summary should use the same shelter-map framing as the visible empty route panel. Before a postal is selected it now tells users to search for a postal code to show shelter map evidence, exposed gaps, and nearby transit, instead of generic route evidence. This is browser accessibility copy only; it does not alter map rendering, route geometry, scoring, exports, public data, deployment, or locked weights.
