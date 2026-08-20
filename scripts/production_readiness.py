@@ -196,6 +196,7 @@ def source_freshness_readiness(
             "state": "not_available",
             "config_path": str(config_path),
             "manifest_path": str(manifest_path),
+            "checked_at": checked_at.isoformat(),
             "summary": "source freshness not reported; sources config or raw manifest is absent",
             "counts": {},
             "by_status": {},
@@ -211,6 +212,7 @@ def source_freshness_readiness(
             "state": "unreadable",
             "config_path": str(config_path),
             "manifest_path": str(manifest_path),
+            "checked_at": checked_at.isoformat(),
             "summary": "source freshness not reported; local freshness metadata is unreadable",
             "counts": {},
             "by_status": {},
@@ -226,6 +228,7 @@ def source_freshness_readiness(
             "state": "unreadable",
             "config_path": str(config_path),
             "manifest_path": str(manifest_path),
+            "checked_at": checked_at.isoformat(),
             "summary": "source freshness not reported; sources config has invalid shape",
             "counts": {},
             "by_status": {},
@@ -275,7 +278,8 @@ def source_freshness_readiness(
         if status_key != "current" and keys
     ]
     summary = (
-        f"source freshness current {counts.get('current', 0)}, "
+        f"source freshness checked at {checked_at.isoformat()}: "
+        f"current {counts.get('current', 0)}, "
         f"stale {counts.get('stale', 0)}, "
         f"manual {counts.get('manual', 0)}, "
         f"unknown_policy {counts.get('unknown_policy', 0)}, "

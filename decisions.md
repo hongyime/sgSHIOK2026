@@ -658,3 +658,6 @@ The browser freshness sentence should not describe a fixed snapshot as merely th
 
 2026-08-21 - P243 readiness source-freshness timestamp:
 Production readiness source-freshness evidence should carry the timestamp used for manifest-only classification. `source_freshness_readiness()` now resolves a single `checked_at` value, passes it to every per-source freshness status, and includes that ISO-8601 timestamp in the returned `source_freshness` block. This is readiness-reporting metadata and test coverage only; it does not fetch sources, alter manifests, inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P244 readiness source-freshness summary timestamp:
+Production readiness source-freshness evidence should not require raw JSON inspection to find the timestamp used for manifest-only classification. The reported-state summary now starts with the ISO-8601 `checked_at` timestamp, and missing/unreadable source-freshness states carry the same `checked_at` field for consistency. This is readiness-reporting metadata and test coverage only; it does not fetch sources, alter manifests, inputs, scoring, exports, public data, deployment, or locked weights.

@@ -329,6 +329,9 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
     assert status["oldest_current_source"] == (
         "Oldest current source: fresh (Fresh, 1.0d of 30d threshold)"
     )
+    assert status["summary"].startswith(
+        "source freshness checked at 2026-08-16T00:00:00+00:00: current 1"
+    )
     assert status["warning"] == (
         "source freshness warning: stale sources: stale; unknown_age sources: unknown_age"
     )
@@ -339,6 +342,7 @@ def test_source_freshness_readiness_is_non_blocking_when_manifest_absent(tmp_pat
 
     assert status["ok"] is True
     assert status["state"] == "not_available"
+    assert "checked_at" in status
     assert status["warning"] is None
 
 
