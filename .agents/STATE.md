@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P236 code commit: `2756b4e`; state-only commits may follow it on `main`.
+Latest P237 code commit: `e4e6011`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P237 is complete and committed: README onboarding now discloses the active frozen bundle's locked-score availability: 95,157 full scores out of 124,443 records, with 29,286 records, roughly a quarter, not showing a full locked score because they are partial, beyond current transit range, or awaiting scoring. Focused README tests pass.
 - P236 is complete and committed: README onboarding now states that NParks Leaf Area Index can appear in source freshness as a tracked reference table, but is not route geometry, shade-proxy geometry, or score provenance. Focused README tests pass.
 - P235 is complete and committed: `run.py check --freshness-only` remains zero-mutation and now measures the oldest current source, NParks Leaf Area Index, at 112.6d of a 120d threshold while the classification stays 12 current, 6 stale, 2 manual, and 1 unknown-age source. The first-view freshness snapshot and copy guard were updated. Focused web copy tests pass.
 - P234 is complete and committed: editable maintained pipeline headers in `pipeline/__init__.py`, `pipeline/fetch.py`, and `pipeline/config/params.yaml` now name S.H.I.O.K. Shelter Map instead of the retired Index frame. `pipeline/config/weights.yaml` still contains its locked header and was not touched. Focused fetch tests pass.
