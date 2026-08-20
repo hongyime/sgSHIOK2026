@@ -404,3 +404,6 @@ The screen-reader live region for a loaded postal should announce the selected d
 
 2026-08-20 - P139 shelter-map panel region:
 The score-card region's accessible name should match the shelter-map product frame in every render state. Empty, outside-bundle, and loaded selections now expose `aria-label="Shelter map panel"` instead of `Route evidence panel`, and the browser-smoke selector follows that label. This is browser accessibility naming and test-selector maintenance only; it does not alter score-card state, route geometry, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-20 - P140 missing-address shelter-map bundle:
+Missing-address user states should describe the frozen/current artifact as a shelter-map bundle, not a score bundle, because the user is searching the shelter map first and the locked score is secondary. The no-results search hint and outside-bundle live-region announcement now say shelter-map bundle, while score-bundle language remains where copy specifically discusses preview score inclusion. This is browser copy and test coverage only; it does not alter search behavior, score lookup, route geometry, score values, scoring, exports, public data, deployment, or locked weights.

@@ -149,7 +149,8 @@ describe("rendered accessibility output", () => {
     );
     expect(noResultsHtml).toContain("No OneMap address result found.");
     expect(noResultsHtml).toContain("Try a 6-digit postal code");
-    expect(noResultsHtml).toContain("the frozen score bundle has measured recent-source misses");
+    expect(noResultsHtml).toContain("the frozen shelter-map bundle has measured recent-source misses");
+    expect(noResultsHtml).not.toContain("the frozen score bundle has measured recent-source misses");
     expect(noResultsHtml).not.toContain("newer completions may still be outside");
   });
 
@@ -246,8 +247,9 @@ describe("rendered accessibility output", () => {
       rankingRecords: [],
     });
 
-    expect(html).toContain("Postal 560231 is not in the current score bundle.");
+    expect(html).toContain("Postal 560231 is not in the current shelter-map bundle.");
     expect(html).toContain("Outside current bundle");
+    expect(html).not.toContain("Postal 560231 is not in the current score bundle.");
     expect(html).toContain(
       "No route evidence is published for this postal in the frozen June 2020 address universe."
     );

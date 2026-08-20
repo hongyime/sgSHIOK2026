@@ -155,7 +155,7 @@ export function scoreCardAnnouncement({
 }): string {
   if (!selection) return "No shelter map route selected.";
   const postal = postalTitle(selection);
-  if (!selection.score) return `${postal} is not in the current score bundle.`;
+  if (!selection.score) return `${postal} is not in the current shelter-map bundle.`;
   const scoreText = displayScore === null || displayScore === undefined
     ? "no full score in this bundle"
     : `${Math.round(displayScore)} out of 100`;
@@ -215,7 +215,7 @@ export function SearchFeedback({
       </p>
       {showNoResults && (
         <div className={styles.emptyBox} role="status">
-          No OneMap address result found. Try a 6-digit postal code; the frozen score bundle has measured recent-source misses.
+          No OneMap address result found. Try a 6-digit postal code; the frozen shelter-map bundle has measured recent-source misses.
         </div>
       )}
       {error && (
