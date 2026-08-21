@@ -817,3 +817,6 @@ README opening copy should match the settled shelter-map frame and CLAUDE.md by 
 
 2026-08-21 - P297 OneMap search input label:
 The first-view search input should state that address search uses OneMap while 6-digit postal lookup remains direct. The placeholder and accessible label now say `Search OneMap address or 6-digit postal`, reducing ambiguity between OneMap lookup and the frozen shelter-map bundle. This is browser copy and test coverage only; it does not alter search behavior, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P298 empty-search prompt:
+The empty shelter-map panel should match the search input's OneMap-address/direct-postal behavior instead of telling users only to find a postal code. It now says `Find an address or postal code` and names `OneMap address or 6-digit postal code` in the helper text. This is browser copy and test coverage only; it does not alter search behavior, scoring, exports, public data, deployment, or locked weights.

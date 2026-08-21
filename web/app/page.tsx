@@ -1039,8 +1039,8 @@ export function ScoreCard({
           {scoreCardAnnouncement({ selection, routeMode })}
         </p>
         <div className={styles.emptyState}>
-          <strong>Find a postal code</strong>
-          <span>Search a Singapore postal code to inspect the covered-walkway ratio, exposed gaps, and night lighting near transit.</span>
+          <strong>Find an address or postal code</strong>
+          <span>Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio, exposed gaps, and night lighting near transit.</span>
         </div>
       </section>
     );

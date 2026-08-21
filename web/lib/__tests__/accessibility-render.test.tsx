@@ -171,10 +171,12 @@ describe("rendered accessibility output", () => {
       rankingRecords: [],
     });
 
-    expect(html).toContain("Find a postal code");
+    expect(html).toContain("Find an address or postal code");
+    expect(html).not.toContain("Find a postal code");
     expect(html).toContain('aria-label="Shelter map panel"');
     expect(html).toContain("No shelter map walk selected.");
-    expect(html).toContain("Search a Singapore postal code to inspect the covered-walkway ratio, exposed gaps, and night lighting near transit.");
+    expect(html).toContain("Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio, exposed gaps, and night lighting near transit.");
+    expect(html).not.toContain("Search a Singapore postal code to inspect the covered-walkway ratio, exposed gaps, and night lighting near transit.");
     expect(html).not.toContain("No shelter map route selected.");
     expect(html).not.toContain('aria-label="Route evidence panel"');
     expect(html).not.toContain('aria-label="Score panel"');
