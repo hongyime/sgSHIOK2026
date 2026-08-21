@@ -203,7 +203,8 @@ describe("shelter map interactions", () => {
     expect(liveScoringSource).not.toContain("offline pipeline bundle");
 
     expect(pageSource).toContain("Preview shelter-map evidence only");
-    expect(pageSource).toContain("↺ Published walk");
+    expect(pageSource).toContain("↺ Published shelter-map walk");
+    expect(pageSource).not.toContain(">↺ Published walk</button>");
     expect(pageSource).toContain("Preview only: this clicked transit stop has shelter-map evidence");
     expect(pageSource).toContain("not part of the published shelter-map bundle yet");
     expect(pageSource).not.toContain("not part of the published score bundle yet");

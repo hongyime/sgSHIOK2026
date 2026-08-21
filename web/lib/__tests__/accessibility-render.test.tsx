@@ -235,7 +235,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Postal 560231 score panel loaded.");
     expect(html).not.toContain("Score 72 out of 100.");
     expect(html).not.toContain("Published route selected.");
-    expect(html).not.toContain("Published walk selected.");
+    expect(html).not.toContain("Published shelter-map walk selected.");
     expect(html).not.toContain("Route display shortest");
     expect(html).not.toContain('aria-label="Route evidence panel"');
     expect(html).not.toContain('aria-label="Score panel"');
@@ -245,7 +245,7 @@ describe("rendered accessibility output", () => {
     const html = renderScoreCard();
 
     expect(html).toContain("Walk display sheltered walk");
-    expect(html).toContain("Published walk selected.");
+    expect(html).toContain("Published shelter-map walk selected.");
     expect(html).not.toContain("Walk display shiokest");
     expect(html).not.toContain("Walk display sheltered;");
     expect(html).not.toContain("Published route selected.");
@@ -295,7 +295,8 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("Preview shelter-map evidence only");
-    expect(html).toContain("↺ Published walk");
+    expect(html).toContain("↺ Published shelter-map walk");
+    expect(html).not.toContain(">↺ Published walk</button>");
     expect(html).toContain("Shelter-map evidence preview");
     expect(html).toContain("Map evidence only");
     expect(html).not.toContain("Not scored in the current bundle");

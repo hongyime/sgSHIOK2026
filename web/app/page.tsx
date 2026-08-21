@@ -250,7 +250,7 @@ export function scoreCardAnnouncement({
     ? previewRoute
       ? "Preview shelter-map evidence selected."
       : "Custom transit stop selected."
-    : "Published walk selected.";
+    : "Published shelter-map walk selected.";
   const shelterText = shelterEvidenceText ?? shelterEvidenceAnnouncement(selection.score);
   return `${postal} shelter map panel loaded. ${stationName ?? "Transit target loaded"}. ${shelterText} Locked score ${scoreText}. ${stopText} Walk display ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
 }
@@ -1391,7 +1391,7 @@ export function ScoreCard({
                   className={styles.resetCustomStopBtn}
                   onClick={onResetChosenStop}
                 >
-                  ↺ Published walk
+                  ↺ Published shelter-map walk
                 </button>
               )}
             </div>
