@@ -1045,7 +1045,7 @@ function mapTextSummary(
   const selectedGapText = selectedExposureGapSummary(focusedExposureGap);
   if (routes.length === 0) {
     return [
-      `Singapore map with ${poiText}.`,
+      `Singapore shelter-map view with ${poiText}.`,
       lampText,
       "Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio, exposed gaps, and night lighting near transit.",
     ].filter(Boolean).join(" ");

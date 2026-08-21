@@ -46,7 +46,9 @@ describe("shelter map interactions", () => {
     expect(source).toContain("sheltered-walk segments");
     expect(source).toContain("shortest-walk segments");
     expect(source).toContain("Singapore shelter-map view for covered-walkway ratio, exposed gaps, transit stops, and night lighting evidence");
+    expect(source).toContain("Singapore shelter-map view with ${poiText}.");
     expect(source).not.toContain("Singapore shelter map for covered-walkway ratio, exposed gaps, transit stops, and night lighting evidence");
+    expect(source).not.toContain("Singapore map with ${poiText}.");
     expect(source).not.toContain("Singapore shelter map for covered-walkway ratio, exposed gaps, transit stops, and night-lighting evidence");
     expect(source).not.toContain("Singapore shelter map with MRT stations, LRT stations, bus stops, and night-lighting evidence");
     expect(source).not.toContain("Singapore shelter map with MRT stations, LRT stations, and bus stops");
