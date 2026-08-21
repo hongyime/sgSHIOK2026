@@ -9,7 +9,9 @@
  * route geometry alongside each postal, so:
  *   - Candidate distances here are STRAIGHT-LINE, not routed metres.
  *   - Coverage / sheltered ratios are NOT known for non-best candidates.
- *   - The map route line stays on the auto-picked best_transit stop.
+ *   - Selecting a candidate may update the displayed walk via precomputed
+ *     candidate geometry or a live OneMap preview; until then, comparisons stay
+ *     straight-line only.
  * The picker surface documents these limits (see `TransitStopPicker`).
  */
 import type {

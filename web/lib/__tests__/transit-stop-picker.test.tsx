@@ -120,9 +120,13 @@ describe("deriveNearestTransitCandidates", () => {
     const source = readFileSync(join(__dirname, "../nearest-transit.ts"), "utf-8");
     expect(source).toContain("The published shelter-map bundle does NOT ship a ranked candidate list");
     expect(source).toContain("scoring data that the published shelter-map bundle does not ship");
+    expect(source).toContain("Selecting a candidate may update the displayed walk via precomputed");
+    expect(source).toContain("candidate geometry or a live OneMap preview");
+    expect(source).toContain("straight-line only");
     expect(source).not.toContain("The current shelter-map bundle does NOT ship a ranked candidate list");
     expect(source).not.toContain("The current score bundle does NOT ship a ranked candidate list");
     expect(source).not.toContain("scoring data that today's bundle does not ship");
+    expect(source).not.toContain("The map route line stays on the auto-picked best_transit stop");
   });
 
   it("keeps transit picker comments aligned with the shelter-map panel frame", () => {
@@ -132,8 +136,10 @@ describe("deriveNearestTransitCandidates", () => {
     );
     expect(source).toContain("The shelter-map panel already announces the active stop's selected");
     expect(source).toContain("walk distance in its headline row");
+    expect(source).toContain("shelter-map panel updates after selection");
     expect(source).not.toContain("The primary score card already announces");
     expect(source).not.toContain("active stop's routed");
+    expect(source).not.toContain("See TODO(stop-picker)");
   });
 
   it("returns up to 5 nearest bus_stop + mrt_exit POIs sorted by distance", () => {

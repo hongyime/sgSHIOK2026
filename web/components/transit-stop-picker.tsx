@@ -36,8 +36,9 @@ function chipKindLabel(kind: TransitCandidate["kind"]): string {
 
 /**
  * Public copy used by the comparison note under the chip row.
- * Kept simple because sheltered % is NOT known for non-best candidates today.
- * See TODO(stop-picker) in `nearest-transit.ts` for the data gap.
+ * Kept simple because the chip comparison itself is straight-line only; the
+ * shelter-map panel updates after selection when candidate geometry or a live
+ * OneMap preview is available.
  */
 export function buildComparisonText(
   comparison: CandidateComparison | null | undefined

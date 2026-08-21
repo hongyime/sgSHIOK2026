@@ -1217,3 +1217,7 @@ Dry-run batch planning and production readiness should carry the cached P19 meas
 2026-08-21 - P460 dated DataMall discovery source policy:
 
 Dry-run batch planning and production readiness should carry the local check date for the DataMall geospatial discovery drift, matching the browser's first-view caveat. The `datamall_geospatial_discovery` policy now records `checked_at_local_date: 2026-08-21` while preserving the no-payload/no-manifest-write command, the changed Covered Linkway and bridge/underpass sources, and the new-numbered-input-version rule. This is reporting/test alignment only; it does not probe DataMall, fetch payloads, mutate manifests or inputs, score, export, deploy, public data, or touch locked weights.
+
+2026-08-21 - P461 selected-stop preview source contract:
+
+Transit-stop picker source comments should match the current selected-stop behavior. The published bundle still lacks a ranked per-stop candidate list, so chip comparisons remain straight-line only; however, selecting a candidate may update the displayed walk using precomputed candidate geometry or a live OneMap preview. The obsolete statement that the map route line stays on the auto-picked best transit stop is removed and guarded by tests. This is source-contract/test alignment only; it does not change runtime behavior, call OneMap, mutate public data, score, export, deploy, or touch locked weights.
