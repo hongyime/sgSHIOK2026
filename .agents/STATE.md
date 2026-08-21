@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P396 code commit: `3b4068b`; state-only commits may follow it on `main`.
+Latest P397 code commit: `5f7c1fc`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P397 is complete and committed: the walk display control and inline map legend now say `Shortest walk` instead of bare `Shortest`, with same-route legend state `Shortest walk (same)`. Focused web accessibility/source-copy tests, repo integrity, and protected-diff checks passed.
 - P396 is complete and committed: the selected-walk details strip now says `Access link` instead of `Snap connector`, and the note describes the short walk from the postal or transit point onto the shelter-map walk. Focused web accessibility/source-copy tests, repo integrity, and protected-diff checks passed.
 - P395 is complete and committed: source-strip connector layers now render as `Postal access walk`, `Transit access walk`, and `Bus-stop access walk` instead of connector jargon, while source-layer identifiers remain unchanged. Focused web accessibility render test, repo integrity, and protected-diff checks passed.
 - P394 is complete and committed: bridge/underpass source-strip and inline map legend labels now say `Bridge/underpass shelter`, making the shelter role explicit instead of naming only infrastructure. Focused web accessibility render test, repo integrity, and protected-diff checks passed.
