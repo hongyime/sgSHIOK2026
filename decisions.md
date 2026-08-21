@@ -1413,3 +1413,7 @@ The lower-level `pipeline.fetch check --help` text should match the public runne
 2026-08-22 - P510 fetch help Shelter Map source wording:
 
 `pipeline.fetch check --help` should use the S.H.I.O.K. Shelter Map product frame, not generic `SHIOK datasets` wording. The lower-level fetch/check description now says it fetches/checks upstream S.H.I.O.K. Shelter Map sources. This is lower-level CLI help/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P511 freshness stale action:
+
+The manifest-only freshness report should print the release action for stale sources, not only the stale-source list. When stale sources exist, `run.py check --freshness-only` now prints `Stale freshness action: report and plan a versioned refresh; do not mutate frozen v1 in place.` This is operator reporting/test coverage only; it does not probe upstream APIs beyond the manifest-only safe report, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.

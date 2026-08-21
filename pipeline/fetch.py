@@ -58,6 +58,10 @@ SIGNED_URL_QUERY_KEYS = {
     "x-amz-signature",
     "x-amz-signedheaders",
 }
+STALE_FRESHNESS_ACTION = (
+    "Stale freshness action: report and plan a versioned refresh; "
+    "do not mutate frozen v1 in place."
+)
 SHAPE_TYPES = {
     0: "Null",
     1: "Point",
@@ -379,6 +383,8 @@ def run_freshness_report(
         summary = freshness_key_summary(label, freshness_by_status[status_key])
         if summary:
             print(summary)
+    if freshness_by_status["stale"]:
+        print(STALE_FRESHNESS_ACTION)
     return 0
 
 
@@ -984,6 +990,8 @@ def run_check(
         summary = freshness_key_summary(label, freshness_by_status[status_key])
         if summary:
             print(summary)
+    if freshness_by_status["stale"]:
+        print(STALE_FRESHNESS_ACTION)
 
     if error_count > 0 or changed_count > 0:
         return 1

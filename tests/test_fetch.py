@@ -268,6 +268,10 @@ def test_run_check_reports_stale_freshness_without_failing(
     assert "Oldest current source:" not in out
     assert "Stale sources: sample (Sample)" in out
     assert "Manual sources: manual (Manual)" in out
+    assert (
+        "Stale freshness action: report and plan a versioned refresh; "
+        "do not mutate frozen v1 in place."
+    ) in out
 
 
 def test_run_freshness_report_does_not_probe_upstream(
@@ -328,6 +332,39 @@ def test_run_freshness_report_does_not_probe_upstream(
     assert "Stale sources: stale (Stale)" in out
     assert "Manual sources: manual (Manual)" in out
     assert "Unknown-age sources: unknown_age (Unknown Age)" in out
+    assert (
+        "Stale freshness action: report and plan a versioned refresh; "
+        "do not mutate frozen v1 in place."
+    ) in out
+
+
+def test_run_freshness_report_omits_stale_action_when_no_stale_sources(
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    monkeypatch.setattr(
+        fetch,
+        "load_manifest",
+        lambda: {"sources": {"fresh": {"fetched_at": "2026-08-15T00:00:00+00:00"}}},
+    )
+
+    assert (
+        fetch.run_freshness_report(
+            {"fresh": {"name": "Fresh", "kind": "datagov_polldownload"}},
+            freshness_defaults={
+                "datagov_polldownload": {
+                    "expected_cadence": "monthly",
+                    "stale_after_days": 30,
+                }
+            },
+            now=datetime(2026, 8, 16, tzinfo=UTC),
+        )
+        == 0
+    )
+
+    out = capsys.readouterr().out
+    assert "Freshness: current 1, stale 0, manual 0, unknown_policy 0, unknown_age 0" in out
+    assert "Stale freshness action:" not in out
 
 
 def test_run_geospatial_discovery_report_sanitizes_and_reports_drift(
