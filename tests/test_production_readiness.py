@@ -493,6 +493,15 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         "documented_token_authenticated_call_limit_cap": 250,
         "higher_limit_requires_sla_case_by_case_approval": True,
     }
+    assert (
+        report["features"]["source_policy"]["frozen_v1"]
+        == "frozen v1 remains the 124443-record June 2020 OneMap-derived universe"
+    )
+    assert "candidate-source-first" in report["features"]["source_policy"]["v2"]
+    assert (
+        report["features"]["source_policy"]["onemap_search_role"]
+        == "candidate validation/geocoding, not national enumeration"
+    )
     assert report["features"]["source_policy"]["recent_public_source_gap_sample"] == {
         "measurement": "P19 recent public-source gap sample",
         "source_rows_with_postals": 976,

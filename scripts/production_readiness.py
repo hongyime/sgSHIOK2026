@@ -16,9 +16,11 @@ if str(PROJECT_ROOT) not in sys.path:
 import yaml
 
 from pipeline.batch_plan import (
+    FROZEN_V1_POLICY,
     ONEMAP_SEARCH_CONTROLS,
     OSM_ADDR_POSTCODE_COVERAGE,
     PARAMS_PATH,
+    POSTAL_UNIVERSE_V2_POLICY,
     RECENT_PUBLIC_SOURCE_GAP_SAMPLE,
     build_batch_plan,
 )
@@ -1024,8 +1026,11 @@ def readiness_features(
             "onemap_walk_validation": onemap_status,
         },
         "source_policy": {
+            "frozen_v1": FROZEN_V1_POLICY,
+            "v2": POSTAL_UNIVERSE_V2_POLICY,
             "recent_public_source_gap_sample": RECENT_PUBLIC_SOURCE_GAP_SAMPLE,
             "osm_addr_postcode_registry": OSM_ADDR_POSTCODE_COVERAGE,
+            "onemap_search_role": "candidate validation/geocoding, not national enumeration",
             "onemap_search_controls": ONEMAP_SEARCH_CONTROLS,
         },
     }

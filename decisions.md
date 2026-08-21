@@ -709,3 +709,6 @@ Lamp overlay generation should enforce the same numeric artifact-version policy 
 
 2026-08-21 - P260 first-view freshness no-upstream-probe disclosure:
 The first-view freshness sentence should not rely on `manifest-only check` alone to convey that no live upstream check happened. The browser now adds `No upstream URLs were probed.` to the same data freshness line, preserving the existing 12 current, 6 stale, 2 manual, 1 unknown-age counts and stale-source list. This is browser honesty copy and test coverage only; it does not probe upstream APIs, fetch sources, mutate manifests or inputs, score, export, deploy, public data, or touch locked weights.
+
+2026-08-21 - P261 readiness structured universe policy:
+Production readiness should expose the settled postal-universe policy as structured data, not only prose. Its `features.source_policy` block now includes `frozen_v1`, `v2`, and `onemap_search_role` beside the existing P19 sample, OSM coverage, and OneMap controls, matching the operational policy already emitted by dry-run batch planning. This is readiness reporting and test coverage only; it does not fetch sources, mutate manifests or inputs, score, export, deploy, public data, or touch locked weights.
