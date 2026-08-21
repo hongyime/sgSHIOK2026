@@ -1281,3 +1281,7 @@ The readiness CLI should have a concise release-gate view because the full repor
 2026-08-22 - P477 readiness summary discoverability:
 
 The concise readiness gate summary should be discoverable from the task runner and README, not only from the underlying module help. `run.py --help` and README now name `readiness --gate-summary`, and the task-runner test suite proves the flag is forwarded to `scripts.production_readiness`. This is operator documentation and routing coverage only; it does not change readiness gate logic, skip validation, mutate inputs or public data, score, export, deploy, protected QA evidence, or locked weights.
+
+2026-08-22 - P478 P19 structured source labels:
+
+The structured P19 source-policy block should carry the same private-strata caveat as the human-facing copy. Its source labels now say `HDB completion geocoded rows` and `BCA MCST constitution-date proxy rows`, with explicit limitations that HDB postals come from OneMap geocoding and BCA MCST constitution date is onboarding proxy evidence rather than TOP or completion date. This is structured reporting and test coverage only; it does not mutate P19/P379 evidence, call APIs, build v2, score, export, deploy, public data, protected QA evidence, or locked weights.

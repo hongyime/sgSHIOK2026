@@ -117,7 +117,11 @@ RECENT_PUBLIC_SOURCE_GAP_SAMPLE = {
     ],
     "missing_pct": 0.819672,
     "source_window": "2021-2026",
-    "sources": ["HDB completion", "BCA MCST proxy"],
+    "sources": ["HDB completion geocoded rows", "BCA MCST constitution-date proxy rows"],
+    "source_limitations": [
+        "HDB rows use completion year but require OneMap geocoding to obtain postals",
+        "BCA MCST constitution date is private-strata onboarding proxy evidence, not TOP or completion date",
+    ],
     "verdict": "small current-source gap in frozen v1; candidate-source-first v2 remains required",
 }
 DATAMALL_GEOSPATIAL_DISCOVERY_POLICY = {
