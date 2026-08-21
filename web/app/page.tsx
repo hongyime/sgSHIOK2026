@@ -80,7 +80,7 @@ const SOURCE_LABELS: Record<string, string> = {
   lta_covered_linkway: "LTA covered linkway",
   osm_covered: "OSM shelter tags",
   inferred_hdb_void_deck: "HDB void-deck inference",
-  bridge_underpass: "Bridge/underpass",
+  bridge_underpass: "Bridge/underpass shelter",
   audited_shelter_correction: "Audited shelter",
   direct_unrouted_bus: "Direct bus estimate",
   bus_stop_access_connector: "Bus stop connector",
@@ -1011,7 +1011,7 @@ function InlineRouteLegend({
           </span>
           <span>
             <i className={styles.bridgeLine} />
-            Bridge/underpass
+            Bridge/underpass shelter
           </span>
         </>
       )}

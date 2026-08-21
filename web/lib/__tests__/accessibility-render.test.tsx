@@ -413,6 +413,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain('aria-label="Shelter source evidence"');
     expect(html).toContain("LTA covered linkway");
     expect(html).toContain("OSM shelter tags");
+    expect(html).toContain("Bridge/underpass shelter");
+    expect(html).not.toContain("Bridge/underpass</span>");
     expect(html).not.toContain("OSM covered");
     expect(html).toContain('aria-label="Map legend"');
     expect(html).toContain("Sheltered walk");
