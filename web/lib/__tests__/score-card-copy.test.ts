@@ -24,7 +24,8 @@ describe("score card copy", () => {
     expect(source).toContain("Nearby transit may still exist beyond the 1.2 km scoring range");
     expect(source).toContain("Shelter-map walk not verified yet");
     expect(source).toContain("Direct line to bus stop; shelter-map walk pending.");
-    expect(source).toContain("Shelter-map walk access was not verified, so this component score remains 0.");
+    expect(source).toContain("Shelter-map walk access was not verified, so the locked bus term remains 0.");
+    expect(source).not.toContain("Shelter-map walk access was not verified, so this component score remains 0.");
     expect(source).not.toContain("current walking graph could not connect a route yet");
     expect(source).not.toContain("Transit route not connected yet");
     expect(source).not.toContain("Transit stops or exits exist, but this shelter-map bundle has no connected walking route yet.");
@@ -330,12 +331,13 @@ describe("score card copy", () => {
     expect(source).not.toContain('aria-label="Rank by view"');
     expect(source).not.toContain("<strong>Rank by</strong>");
     expect(source).toContain("Planning-area list sorted by locked score; shelter evidence remains the primary view.");
-    expect(source).toContain("Planning-area component-score view; locked SHIOK score is unchanged.");
+    expect(source).toContain("Planning-area component evidence view; locked SHIOK score is unchanged.");
     expect(source).toContain("No comparable full locked scores in this planning area.");
     expect(source).not.toContain("No comparable scored records in this planning area.");
     expect(source).not.toContain("Authoritative composite order.");
     expect(source).not.toContain("Planning-area order by locked score.");
     expect(source).not.toContain("Planning-area sub-score view; locked SHIOK score is unchanged.");
+    expect(source).not.toContain("Planning-area component-score view; locked SHIOK score is unchanged.");
     expect(source).toContain("Four display rows; weights unchanged");
     expect(source).toContain('"No locked score"');
     expect(source).toContain('label: "Shelter exposure"');

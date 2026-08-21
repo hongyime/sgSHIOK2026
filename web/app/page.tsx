@@ -1224,7 +1224,7 @@ export function ScoreCard({
           notes: [
             "A low value can mean weak service evidence, or that routing could not prove a trusted walk to a DataMall bus stop.",
             busFallback
-              ? `${busFallbackSummary(busFallback)} Shelter-map walk access was not verified, so this component score remains 0.`
+              ? `${busFallbackSummary(busFallback)} Shelter-map walk access was not verified, so the locked bus term remains 0.`
               : null,
           ].filter((note): note is string => Boolean(note)),
         },
@@ -1397,7 +1397,7 @@ export function ScoreCard({
                   ? "Loads planning-area ranks only when opened."
                   : rankMetric === "overall"
                   ? "Planning-area list sorted by locked score; shelter evidence remains the primary view."
-                  : "Planning-area component-score view; locked SHIOK score is unchanged."}
+                  : "Planning-area component evidence view; locked SHIOK score is unchanged."}
               </span>
             </div>
             {rankPanelOpen ? (

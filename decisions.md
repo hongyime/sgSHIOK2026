@@ -862,3 +862,6 @@ Agent-facing startup guidance should carry the measured postal-universe policy, 
 
 2026-08-21 - P312 runner safe-report descriptions:
 The safe-report section of `run.py --help` should describe why each report is safe, not only name the tasks. The help now states the no-upstream/no-write boundary for `check --freshness-only`, the metadata-only/no-payload/no-manifest boundary for `check --geospatial-discovery-only`, the no-scoring/no-deploy boundary for `readiness`, and the no-scoring dry-run boundary for `batch-plan`. This is runner help text and test coverage only; it does not execute any report, API probe, scoring, export, ingest, network build, public-data mutation, deployment, or locked-weight change.
+
+2026-08-21 - P313 shelter-panel component wording:
+The shelter panel should not frame secondary evidence rows as standalone component scores when the product framing is shelter evidence first and the locked score secondary. The planning-area alternate rank mode now says `component evidence view`, and the bus fallback caveat says the `locked bus term remains 0` rather than `this component score remains 0`. This is web copy and test coverage only; it does not change score values, ranking inputs, exports, public data, pipeline inputs, or locked weights.
