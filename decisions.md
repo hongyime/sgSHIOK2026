@@ -1269,3 +1269,7 @@ The public NOTICE attribution block should advance when the shipped source set a
 2026-08-22 - P474 P379 direct-script safe default:
 
 The P379 MCST probe script itself should be safe when invoked directly, not only through `run.py`. `scripts.analysis.p19_mcst_missing_locations` now defaults to the same cache-status-only report as the runner and requires explicit `--probe` before it may call OneMap or write the P379 cache/report. `--refresh-cache` is now documented as a `--probe` modifier. This preserves the ability to run the bounded two-row probe intentionally while making accidental direct script invocation read-only by default. This is measurement-tooling safety only; it does not call OneMap, mutate P19/P379 evidence, build v2, score, export, deploy, or touch locked weights.
+
+2026-08-22 - P475 check task safe boundary:
+
+The task runner should not let the short command `run.py check` look like a safe report while dispatching the upstream network/hash probe. `run.py check` now requires exactly one of `--freshness-only` or `--geospatial-discovery-only`; bare and ambiguous invocations fail before spawning `pipeline.fetch`. The deliberate low-level probe remains available as `uv run python -m pipeline.fetch check` for maintainers who explicitly choose it. This is operator-safety tooling only; it does not call upstream APIs, fetch payloads, mutate manifests or inputs, score, export, deploy, public data, protected QA evidence, or locked weights.

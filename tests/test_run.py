@@ -87,6 +87,98 @@ def test_run_task_sets_pythonhashseed_for_module_subprocess(monkeypatch):
     ]
 
 
+def test_run_check_requires_safe_report_flag(monkeypatch, capsys):
+    calls = []
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        raise AssertionError("bare run.py check must not reach pipeline.fetch")
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("check", []) == 2
+
+    assert calls == []
+    err = capsys.readouterr().err
+    assert "run.py check requires exactly one safe report flag" in err
+    assert "Bare check probes upstream URLs and is not a zero-mutation report" in err
+
+
+def test_run_check_allows_freshness_only_report(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("check", ["--freshness-only"]) == 0
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "pipeline.fetch",
+                "check",
+                "--freshness-only",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_check_allows_geospatial_discovery_only_report(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("check", ["--geospatial-discovery-only", "--source", "covered_linkway"]) == 0
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "pipeline.fetch",
+                "check",
+                "--geospatial-discovery-only",
+                "--source",
+                "covered_linkway",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_check_rejects_ambiguous_safe_report_flags(monkeypatch, capsys):
+    calls = []
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        raise AssertionError("ambiguous run.py check must not reach pipeline.fetch")
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("check", ["--freshness-only", "--geospatial-discovery-only"]) == 2
+
+    assert calls == []
+    assert "requires exactly one safe report flag" in capsys.readouterr().err
+
+
 def test_run_task_exposes_p19_gap_status_as_read_only_module(monkeypatch):
     calls = []
 

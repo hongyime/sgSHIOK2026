@@ -28,8 +28,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+SAFE_CHECK_FLAGS = {"--freshness-only", "--geospatial-discovery-only"}
+
 STUBS = {
-    "check": "fetch listings, hash, diff vs manifest; use --freshness-only or --geospatial-discovery-only for zero-mutation reports",
+    "check": "refuses bare upstream checks; use --freshness-only or --geospatial-discovery-only for zero-mutation reports",
     "ingest": "download changed sources to raw/ (T0.3)",
     "lamp-overlay": "build compact lamp-post overlay artifact from existing raw source",
     "network": "build conflated graph + QA report (T1.1)",
@@ -80,7 +82,22 @@ def run_task(name: str, extra: list[str]) -> int:
         return run_module("pipeline.publish")
     if name == "test":
         return run_module("pytest")
-    if name in ("check", "ingest"):
+    if name == "check":
+        if "-h" in extra or "--help" in extra:
+            return run_module("pipeline.fetch", [name])
+        safe_flags = [flag for flag in extra if flag in SAFE_CHECK_FLAGS]
+        if len(safe_flags) != 1:
+            print(
+                "run.py check requires exactly one safe report flag: "
+                "--freshness-only or --geospatial-discovery-only. "
+                "Bare check probes upstream URLs and is not a zero-mutation report; "
+                "invoke `uv run python -m pipeline.fetch check` directly only when an "
+                "explicit network/hash probe is intended.",
+                file=sys.stderr,
+            )
+            return 2
+        return run_module("pipeline.fetch", [name])
+    if name == "ingest":
         return run_module("pipeline.fetch", [name])
     if name == "lamp-overlay":
         return run_module("pipeline.lamp_overlay")
