@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P544 code commit: `8d71a9a`; state-only commits may follow it on `main`.
+Latest P545 code commit: `bd66cf1`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P545 is complete and committed: selected records with null locked totals now show a `No full score` / `Published bundle` badge instead of visually leading with `Locked score`; numeric records still show `Locked score` with the 0-to-100 value. Focused web render/copy tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P544 is complete and committed: the browser first-view locked score coverage disclosure now says 95,157 of 124,443 records have a full locked score, replacing the internal phrase "full locked sorting index" in that disclosure while preserving planning-area sorting-index copy where it names the actual control behavior. Focused web tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P543 is complete and committed: the browser night lighting overlay now distinguishes partial lamp-post tile failures from fully loaded, empty, and unavailable viewports. Partial tile loads tell users that some lamp-post tiles are unavailable while showing the points that did load; all failed indexed tiles report unavailable instead of empty. Focused web tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P542 is complete and committed: browser first-view freshness copy now says NParks Leaf Area Index is 6.4 days from its 120-day threshold and lists stale sources by days past threshold, led by Planning Area Boundaries, NParks Tracks, and NParks Heritage Road Green Buffers. Focused web copy test, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
