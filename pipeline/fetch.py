@@ -1301,8 +1301,8 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help=(
             "For check: read raw/manifest.json and report source freshness "
-            "without probing upstream URLs, writing the manifest, or omitting "
-            "source names from grouped action summaries."
+            "without probing upstream URLs or writing the manifest; grouped "
+            "action summaries include source names."
         ),
     )
     parser.add_argument(

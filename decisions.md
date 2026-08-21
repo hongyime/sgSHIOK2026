@@ -1405,3 +1405,7 @@ The shared batch-plan/readiness source-freshness policy should machine-record th
 2026-08-22 - P508 fetch help freshness summary names:
 
 The lower-level `pipeline.fetch check --help` text should match the public runner help because `run.py check --help` delegates there. Its `--freshness-only` help now states that the report avoids upstream probes, writes no manifest, and keeps source names in grouped action summaries. This is lower-level CLI help/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P509 positive fetch help freshness wording:
+
+`pipeline.fetch check --help` should describe named freshness summaries positively. The `--freshness-only` help now says grouped action summaries include source names instead of saying the report avoids omitting names. This is lower-level CLI help/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.

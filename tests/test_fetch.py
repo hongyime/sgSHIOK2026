@@ -27,8 +27,9 @@ def test_fetch_check_help_names_freshness_summary_contract(
     assert excinfo.value.code == 0
     out = " ".join(capsys.readouterr().out.split())
     assert "read raw/manifest.json and report source freshness" in out
-    assert "without probing upstream URLs, writing the manifest, or omitting" in out
-    assert "source names from grouped action summaries" in out
+    assert "without probing upstream URLs or writing the manifest" in out
+    assert "grouped action summaries include source names" in out
+    assert "omitting source names" not in out
 
 
 def test_datagov_raw_filename_uses_content_disposition_extension() -> None:
