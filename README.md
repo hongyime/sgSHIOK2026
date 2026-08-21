@@ -64,11 +64,12 @@ appear in freshness as a tracked reference table, but it is not route geometry,
 shade-proxy geometry, or score provenance.
 LTA geospatial listings such as Covered Linkway use a quarterly cadence with a
 120-day stale threshold, so a current local freshness result does not prove no
-newer upstream release exists. To check DataMall geospatial discovery links
-without downloading payloads or writing the manifest, run
-`uv run python run.py check --geospatial-discovery-only`; a nonzero result means
-the current discovery URL differs from frozen v1 and any approved refresh must
-be a new numbered input version, not an in-place repair.
+newer upstream release exists. A 21 Aug 2026 metadata-only DataMall discovery
+check found current Covered Linkway and bridge/underpass discovery URLs differ
+from frozen v1, while traffic signals still matched. To rerun that
+discovery-only check without downloading payloads or writing the manifest, run
+`uv run python run.py check --geospatial-discovery-only`; changed discovery URLs
+require a new numbered input version, not an in-place repair.
 
 Before any full geocode, scoring, or release batch, run both
 `uv run python run.py readiness` and `uv run python run.py batch-plan`. The

@@ -1229,3 +1229,7 @@ The first-view Leaf Area Index caveat should use the settled walk-evidence frame
 2026-08-21 - P463 clicked-stop preview scope guard:
 
 Agent-facing scope guards should not forbid the clicked-stop OneMap preview surface that already exists. `CLAUDE.md` now says there is no turn-by-turn navigation, and that clicked-stop OneMap walk previews are evidence only and must not become live navigation or mutate locked scores. This preserves the static shelter-map product boundary while removing the contradictory `no live routing UI` phrase. This is documentation/test coverage only; it does not change browser behavior, call OneMap, score, export, deploy, public data, or touch locked weights.
+
+2026-08-21 - P464 dated README DataMall discovery guidance:
+
+README operator guidance should carry the same dated DataMall geospatial discovery result now shown in the browser and readiness policy. It now says the 21 Aug 2026 metadata-only check found Covered Linkway and bridge/underpass discovery URLs differ from frozen v1, while traffic signals still matched, and preserves the no-payload/no-manifest-write command plus the new-numbered-input-version rule. This is documentation/test alignment only; it does not call DataMall, download payloads, mutate manifests or inputs, score, export, deploy, public data, or touch locked weights.
