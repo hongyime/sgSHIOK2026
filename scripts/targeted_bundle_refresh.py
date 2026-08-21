@@ -555,7 +555,7 @@ def refresh_bundle(
     existing_postals = [postal for postal in selected_postals if postal in existing_lookup]
     missing_postals = [postal for postal in selected_postals if postal not in existing_lookup]
     if not existing_postals:
-        raise ValueError("none of the selected postals exist in the current bundle")
+        raise ValueError("none of the selected postals exist in the published shelter-map bundle")
 
     before_records: dict[str, dict[str, Any]] = {}
     for postal in existing_postals:

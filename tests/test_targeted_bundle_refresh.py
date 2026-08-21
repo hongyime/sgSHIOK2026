@@ -1,5 +1,6 @@
 import gzip
 import json
+from pathlib import Path
 
 from pipeline.export import encode_polyline, json_size
 from scripts.targeted_bundle_refresh import (
@@ -50,6 +51,13 @@ def test_targeted_bundle_refresh_reads_postal_file(tmp_path):
 
     assert postals_from_file(path) == ["000123", "560234", "000123"]
     assert unique_postals(postals_from_file(path)) == ["000123", "560234"]
+
+
+def test_targeted_bundle_refresh_absent_postal_error_names_published_bundle():
+    source = Path("scripts/targeted_bundle_refresh.py").read_text(encoding="utf-8")
+
+    assert "none of the selected postals exist in the published shelter-map bundle" in source
+    assert "none of the selected postals exist in the current bundle" not in source
 
 
 def test_selected_postals_from_inputs_does_not_read_default_partial_report(tmp_path):

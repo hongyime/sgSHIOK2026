@@ -940,3 +940,6 @@ The safe-report help for `run.py readiness` should name the published shelter-ma
 
 2026-08-21 - P338 audit bundle help published-bundle wording:
 The read-only active-bundle audit helper should use the same published shelter-map bundle wording as the rest of the operator surface. Its CLI description and `--state-only` help now name the published shelter-map bundle instead of the current bundle. This is operator help text and test coverage only; it does not run the audit, alter reports, score values, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P339 targeted refresh absent-postal wording:
+The targeted bundle refresh helper should name the published shelter-map bundle when selected postals are absent from the source bundle. Its early validation error now says none of the selected postals exist in the published shelter-map bundle instead of the current bundle. This is operator error text and test coverage only; it does not run refresh, scoring, export, alter reports, public data, pipeline inputs, or locked weights.
