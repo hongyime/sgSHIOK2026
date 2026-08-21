@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P513 code commit: `997bd86`; state-only commits may follow it on `main`.
+Latest P514 code commit: `0c4e3c7`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P514 is complete and committed: the browser first-view freshness line now says stale-source refreshes require a new numbered input version, not an in-place frozen-v1 mutation, matching CLI/readiness/docs stale-source policy. Focused web copy test, repo integrity, check-ignore, and protected-diff checks passed.
 - P513 is complete and committed: README and CLAUDE now state that stale source freshness means report the stale sources and plan a versioned refresh, not mutate frozen v1 in place, matching `run.py check --freshness-only` and production-readiness warnings. Focused docs tests, repo integrity, check-ignore, and protected-diff checks passed.
 - P512 is complete and committed: production-readiness source freshness warnings now append `Stale freshness action: report and plan a versioned refresh; do not mutate frozen v1 in place.` when stale sources exist, matching `run.py check --freshness-only` output. Focused readiness tests, real gate-summary warning probe, repo integrity, check-ignore, and protected-diff checks passed.
 - P511 is complete and committed: manifest-only freshness output now prints `Stale freshness action: report and plan a versioned refresh; do not mutate frozen v1 in place.` when stale sources exist, aligning safe report output with the structured stale-result policy. Focused fetch tests, real freshness-only output, repo integrity, check-ignore, and protected-diff checks passed.
