@@ -14,7 +14,11 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         "check --freshness-only | check --geospatial-discovery-only | p19-gap-status | p19-mcst-locations | p125-osm-status | readiness | readiness --gate-summary | batch-plan"
         in run.__doc__
     )
-    assert "check --freshness-only reads raw/manifest.json only; it probes no upstream URLs and writes no manifest." in run.__doc__
+    assert (
+        "check --freshness-only reads raw/manifest.json only; it probes no upstream URLs, writes no manifest, and groups action summaries with source names."
+        in run.__doc__
+    )
+    assert "check --freshness-only reads raw/manifest.json only; it probes no upstream URLs and writes no manifest." not in run.__doc__
     assert (
         "check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads and writes no manifest."
         in run.__doc__
@@ -39,7 +43,11 @@ def test_run_help_headline_does_not_flatten_all_tasks():
     assert "usage: run.py [-h] task" in help_text
     assert "{batch-plan,bus-arrivals" not in help_text
     assert "Safe reports:" in help_text
-    assert "check --freshness-only reads raw/manifest.json only; it probes no upstream URLs and writes no manifest." in help_text
+    assert (
+        "check --freshness-only reads raw/manifest.json only; it probes no upstream URLs, writes no manifest, and groups action summaries with source names."
+        in help_text
+    )
+    assert "check --freshness-only reads raw/manifest.json only; it probes no upstream URLs and writes no manifest." not in help_text
     assert (
         "check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads and writes no manifest."
         in help_text
