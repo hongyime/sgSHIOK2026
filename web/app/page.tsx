@@ -2154,7 +2154,7 @@ export default function Home() {
             </p>
             {lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}
             <p className={styles.sourceLine}>
-              Sources: LTA/data.gov.sg, OneMap/SLA, © OpenStreetMap contributors (
+              Sources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address universe (© OpenStreetMap contributors,{" "}
               <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">
                 ODbL
               </a>

@@ -228,7 +228,11 @@ describe("score card copy", () => {
     expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).toContain(
       "Locked score availability:"
     );
+    expect(source).toContain(
+      "Sources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address universe"
+    );
     expect(source).toContain("© OpenStreetMap contributors");
+    expect(source).not.toContain("Sources: LTA/data.gov.sg, OneMap/SLA, © OpenStreetMap contributors");
     expect(source).toContain("https://opendatacommons.org/licenses/odbl/1-0/");
     expect(source).toContain("ATTRIBUTION.md");
     expect(source).toContain("Heat proxy: shelter plus sparse NParks greenery, not measured temperature");
