@@ -6,9 +6,9 @@ Status: proposal only. This is not an implementation and does not change the app
 
 Make Section 10 lead with the artifact the project can defend today: the shelter-map
 walk trace and its exposed gaps. Keep the locked score visible, but
-stop presenting the current five component-score rows as five independent measurements.
+stop presenting the prior five component-score rows as five independent measurements.
 
-## Current State
+## Pre-P18 State
 
 | Position | Current screen copy | Problem |
 | --- | --- | --- |
@@ -17,7 +17,7 @@ stop presenting the current five component-score rows as five independent measur
 | 3 | Bus connectivity | Carries 20% of locked weight but still partly reflects routing/conflation success. |
 | 4 | Rain shelter | Uses covered-walkway shelter evidence. |
 | 5 | Heat: shelter + NParks shade proxy | Mostly the same covered-walkway shelter evidence as rain shelter, plus sparse greenery proxy. |
-| 6 | Crossing friction | Low discriminating value in the current bundle; weighted standard deviation is about 1.11 points and 59.9% of records are exactly 100. |
+| 6 | Crossing friction | Low discriminating value in the locked release bundle; weighted standard deviation is about 1.11 points and 59.9% of records are exactly 100. |
 
 ## Proposed State
 
@@ -31,7 +31,7 @@ stop presenting the current five component-score rows as five independent measur
 Rain and heat should move from separate rows into explanatory copy:
 
 ```text
-Rain shelter and heat comfort currently share mostly the same covered-walkway evidence.
+In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence.
 Heat also includes a sparse NParks greenery proxy, so SHIOK shows the shelter trace first
 instead of asking you to compare two near-duplicate rows.
 ```
@@ -47,7 +47,7 @@ signal with routing caveats, not as a pure frequency score.
 Locked score caveat copy:
 
 ```text
-The locked score is fixed for this release. Use it to sort the current bundle, then
+The locked score is fixed for this release. Use it to sort the published shelter-map bundle, then
 inspect the shelter map and exposed gaps before deciding whether the walk actually works
 for you.
 ```
@@ -91,7 +91,7 @@ SHIOK score       {total}
 Footer note:
 
 ```text
-SHIOK's current strongest evidence is the shelter-map walk trace. The score remains the
+SHIOK's strongest evidence in this locked release is the shelter-map walk trace. The score remains the
 locked release index, but rain and heat are not independent enough today to deserve two
 primary rows.
 ```

@@ -928,3 +928,6 @@ The shelter-exposure display row should describe the rain/heat overlap as a prop
 
 2026-08-21 - P334 README locked transit range wording:
 README onboarding should mirror the browser's locked-score availability wording. The active-bundle limitation now says non-full records may be "beyond locked transit range" instead of "beyond current transit range", matching the selected-card and first-view app copy. This is documentation and test coverage only; it does not change manifest parsing, state counts, score values, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P335 Section 10 proposal stale-current wording:
+The committed Section 10 presentation proposal should not preserve stale "current" language after P18 landed the four-row shelter-first presentation. The proposal now describes the old rows as the prior/pre-P18 state, uses the same locked-release rain/heat overlap sentence as the app, and says the locked score sorts the published shelter-map bundle. This is documentation and test coverage only; it does not change app rendering, score values, exports, public data, pipeline inputs, or locked weights.

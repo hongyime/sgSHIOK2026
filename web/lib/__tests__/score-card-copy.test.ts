@@ -377,13 +377,21 @@ describe("score card copy", () => {
     expect(source).not.toContain('label: "Rain shelter"');
     expect(source).not.toContain('label: "Heat proxy"');
     expect(source).not.toContain('label: "Crossing friction"');
-    expect(proposalSource).toContain("stop presenting the current five component-score rows");
+    expect(proposalSource).toContain("stop presenting the prior five component-score rows");
+    expect(proposalSource).toContain(
+      "In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence."
+    );
+    expect(proposalSource).toContain("Use it to sort the published shelter-map bundle");
+    expect(proposalSource).not.toContain("stop presenting the current five component-score rows");
+    expect(proposalSource).not.toContain("Rain shelter and heat comfort currently share mostly");
+    expect(proposalSource).not.toContain("sort the current bundle");
     expect(proposalSource).toContain("Selected walk distance from this postal code to the chosen MRT/LRT or bus access point.");
     expect(proposalSource).toContain("deciding whether the walk actually works");
     expect(proposalSource).toContain("[shelter-map walk]");
     expect(proposalSource).toContain("the shelter-map\nwalk trace and its exposed gaps");
     expect(proposalSource).toContain("walk distance and transit target rather than above walk exposure");
-    expect(proposalSource).toContain("current strongest evidence is the shelter-map walk trace");
+    expect(proposalSource).toContain("strongest evidence in this locked release is the shelter-map walk trace");
+    expect(proposalSource).not.toContain("current strongest evidence is the shelter-map walk trace");
     expect(proposalSource).not.toContain("five subscore rows");
     expect(proposalSource).not.toContain("Selected route distance from this postal code");
     expect(proposalSource).not.toContain("deciding whether a route actually works");
