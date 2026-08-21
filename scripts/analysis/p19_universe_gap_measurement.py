@@ -187,6 +187,15 @@ def json_file_status(path: Path, *, now: dt.datetime) -> dict[str, Any]:
             combined = payload.get("combined_recent_completion_signal")
             if isinstance(combined, dict):
                 status["combined_recent_completion_signal"] = combined
+            missing_postals_by_source: dict[str, Any] = {}
+            for source_key in ("hdb_2021_2026_geocoded", "mcst_2021_2026"):
+                source_summary = payload.get(source_key)
+                if isinstance(source_summary, dict) and isinstance(
+                    source_summary.get("missing_postals"), list
+                ):
+                    missing_postals_by_source[source_key] = source_summary["missing_postals"]
+            if missing_postals_by_source:
+                status["missing_postals_by_source"] = missing_postals_by_source
         elif path == DETAIL_OUTPUT:
             status["top_level_keys"] = sorted(str(key) for key in payload)
             hdb_rows = payload.get("hdb_rows")

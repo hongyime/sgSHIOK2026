@@ -994,3 +994,6 @@ Operator help and README onboarding should advertise that `p19-gap-status` repor
 
 2026-08-21 - P357 P19 cache-age structured policy:
 Structured source-policy reports should expose that `p19-gap-status` reports cache ages, not only that it is safe. The shared `recent_public_source_gap_sample` block now includes `cache_status_reports_age_days: true` alongside the existing no-API/no-write flags, so batch-plan and production readiness consumers can discover the age signal. This is reporting metadata and test coverage only; it does not run the P19 measurement, call data.gov.sg, OneMap, or Overpass, mutate `qa/p19`, load or mutate inputs, score, export, deploy, public data, or touch locked weights.
+
+2026-08-21 - P358 P19 missing-postal status:
+The read-only P19 cache-status command should expose which cached recent-source postals are missing from frozen v1, not only the aggregate 8-of-976 count. Its summary file status now includes `missing_postals_by_source` for HDB 2021-2026 geocoded rows and MCST 2021-2026 proxy rows, read from the existing cached summary. This is measurement-status reporting and test coverage only; it does not call data.gov.sg, OneMap, or Overpass, mutate `qa/p19`, load or mutate inputs, score, export, deploy, public data, or touch locked weights.

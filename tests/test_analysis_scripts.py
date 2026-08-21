@@ -50,6 +50,12 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
                     "rows_with_postal": 976,
                     "missing_rows": 8,
                 },
+                "hdb_2021_2026_geocoded": {
+                    "missing_postals": ["521400", "522400"],
+                },
+                "mcst_2021_2026": {
+                    "missing_postals": ["935456"],
+                },
             }
         ),
         encoding="utf-8",
@@ -78,6 +84,10 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
     assert report["files"]["summary"]["combined_recent_completion_signal"] == {
         "rows_with_postal": 976,
         "missing_rows": 8,
+    }
+    assert report["files"]["summary"]["missing_postals_by_source"] == {
+        "hdb_2021_2026_geocoded": ["521400", "522400"],
+        "mcst_2021_2026": ["935456"],
     }
     assert report["files"]["summary"]["age_days"] == 1.499
     assert report["files"]["detail"]["hdb_row_count"] == 2
