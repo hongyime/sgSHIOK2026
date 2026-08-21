@@ -1191,7 +1191,7 @@ export function ScoreCard({
   if (shadeProxyPct !== null) {
     routeDetailItems.push({ label: "Greenery proxy", value: `${shadeProxyPct}%` });
     routeDetailNotes.push(
-      "Greenery proxy uses sparse NParks route geometry for heat only; it is not measured temperature or Leaf Area Index."
+      "Greenery proxy uses sparse NParks walk-adjacent greenery geometry for heat only; it is not measured temperature or Leaf Area Index."
     );
   }
   if (score.paths) {

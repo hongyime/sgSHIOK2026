@@ -1027,3 +1027,6 @@ The title-card shelter-map evidence date and bundle-generated date should be tes
 
 2026-08-21 - P368 walk QA issue label:
 The copied walk QA JSON should use a walk-framed primary issue label. The browser payload now emits `issue: "user_reported_better_walk"` while preserving `route_mode` as a compatibility alias for the existing payload shape. Historical QA GeoJSON evidence still contains the old `user_reported_better_walk_route` label and is intentionally left untouched. This is browser payload copy and test coverage only; it does not mutate QA evidence, score, export, deploy, ingest, network, or touch locked weights.
+
+2026-08-21 - P369 greenery proxy walk-adjacent copy:
+The selected-walk details should not describe the heat greenery proxy as generic route geometry. The note now says `walk-adjacent greenery geometry`, keeping the feature framed as walk evidence while preserving the settled boundary that it is heat-only, sparse NParks geometry, not measured temperature and not Leaf Area Index. This is browser copy and test coverage only; it does not mutate shade geometry, source manifests, scoring, exports, public data, deployment, or locked weights.

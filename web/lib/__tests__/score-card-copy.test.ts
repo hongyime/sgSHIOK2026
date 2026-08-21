@@ -292,8 +292,9 @@ describe("score card copy", () => {
     expect(tsxSource).toContain("routeDetailItems.push({ label: \"Greenery proxy\"");
     expect(tsxSource).not.toContain("routeDetailItems.push({ label: \"Shade proxy\"");
     expect(tsxSource).toContain(
-      "Greenery proxy uses sparse NParks route geometry for heat only; it is not measured temperature or Leaf Area Index."
+      "Greenery proxy uses sparse NParks walk-adjacent greenery geometry for heat only; it is not measured temperature or Leaf Area Index."
     );
+    expect(tsxSource).not.toContain("Greenery proxy uses sparse NParks route geometry for heat only");
     expect(tsxSource).toContain("routeDetailItems.push({ label: \"Snap connector\"");
     expect(tsxSource).toContain('value: lampOverlayEnabled ? "Map layer on; zoom in for points" : "Map layer off",');
     expect(tsxSource).not.toContain('routeDetailItems.push({ label: "Night lighting", value: lampOverlayEnabled ? "Layer on" : "Layer off" });');
