@@ -916,7 +916,7 @@ function RouteModeControl({
         disabled={disabled}
         onClick={() => setMode("shiokest")}
       >
-        Sheltered
+        Sheltered walk
       </button>
       <button
         type="button"
@@ -925,7 +925,7 @@ function RouteModeControl({
         disabled={disabled}
         onClick={() => setMode("both")}
       >
-        Both
+        Both walks
       </button>
       <button
         type="button"

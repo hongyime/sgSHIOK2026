@@ -1108,3 +1108,6 @@ The selected-walk details strip should label the endpoint snap distance as `Acce
 
 2026-08-21 - P397 shortest-walk labels:
 The walk display control and map legend should say `Shortest walk` instead of bare `Shortest`, because the user is comparing walks to transit rather than abstract route modes. The same-route legend state now says `Shortest walk (same)`. This is browser copy and test coverage only; it does not mutate route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P398 walk-display button labels:
+The walk display segmented control should use parallel walk labels: `Sheltered walk`, `Both walks`, and `Shortest walk`. This keeps the control aligned with the shelter-first framing and avoids bare route-mode shorthand. This is browser copy and test coverage only; it does not mutate route geometry, scoring, exports, public data, deployment, or locked weights.

@@ -418,6 +418,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("OSM covered");
     expect(html).toContain('aria-label="Map legend"');
     expect(html).toContain("Sheltered walk");
+    expect(html).toContain("Both walks");
     expect(html).toContain("Shortest walk");
     expect(html).toContain("Exposed gaps");
     expect(html).toContain("HDB void-deck shelter");

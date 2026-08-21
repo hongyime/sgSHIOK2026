@@ -243,7 +243,10 @@ describe("score card copy", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
     const smokeSource = readFileSync(join(__dirname, "../../scripts/browser-smoke.mjs"), "utf-8");
 
-    expect(source).toContain("Sheltered\n      </button>");
+    expect(source).toContain("Sheltered walk\n      </button>");
+    expect(source).not.toContain("Sheltered\n      </button>");
+    expect(source).toContain("Both walks\n      </button>");
+    expect(source).not.toContain("Both\n      </button>");
     expect(source).toContain('"Sheltered walk"');
     expect(source).not.toContain('"Sheltered route"');
     expect(smokeSource).toContain('summary.cardText.includes("Sheltered walk")');
