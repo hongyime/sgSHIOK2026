@@ -282,6 +282,8 @@ describe("score card copy", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
     expect(source).toContain("buildRouteCompareNote");
+    expect(source).toContain("const sortedGaps = [...score.exposure_gaps].sort((a, b) => b.len_m - a.len_m);");
+    expect(source).toContain("longest gap ${formatDistance(longestGap.len_m)}");
     // Copy shape: "Shortest walk has 45% covered-walkway ratio (30pp lower)"
     expect(source).toContain("${otherLabel} has ${otherPct}% covered-walkway ratio (${magnitude}pp ${direction})");
     expect(source).toContain('const otherLabel = viewedIsShortest ? "Sheltered walk" : "Shortest walk";');

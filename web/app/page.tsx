@@ -182,11 +182,13 @@ function shelterEvidenceAnnouncement(score: ScoreRecord): string {
     parts.push(`${formatPercent(Math.round(score.paths.covered_ratio * 100))} covered-walkway ratio`);
   }
   if (score.exposure_gaps) {
-    const totalExposureM = score.exposure_gaps.reduce((total, gap) => total + gap.len_m, 0);
+    const sortedGaps = [...score.exposure_gaps].sort((a, b) => b.len_m - a.len_m);
+    const totalExposureM = sortedGaps.reduce((total, gap) => total + gap.len_m, 0);
+    const longestGap = sortedGaps[0];
     parts.push(
       `${formatDistance(totalExposureM)} exposed across ${score.exposure_gaps.length} gap${
         score.exposure_gaps.length === 1 ? "" : "s"
-      }`
+      }${longestGap ? `; longest gap ${formatDistance(longestGap.len_m)}` : ""}`
     );
   }
   return parts.length > 0 ? `Shelter evidence ${parts.join("; ")}.` : "Shelter evidence unavailable.";
