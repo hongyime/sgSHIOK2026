@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P271 code commit: `526c45a`; state-only commits may follow it on `main`.
+Latest P272 code commit: `1f678b8`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P272 is complete and committed: the P10 provenance coverage helper now names Leaf Area Index as a freshness-only non-score reference instead of the old vague `hash-shipped but unconsumed` wording, with a static regression test. Focused test and repo integrity pass.
 - P271 is complete and committed: bus-connector diagnostics now recommend refreshing a targeted shelter-map bundle, not a targeted score bundle, before using recovered rows as active validation failures. Focused diagnostic tests and repo integrity pass.
 - P270 is complete and committed: dry-run batch planning and production readiness now expose the manifest-only source-freshness policy as structured source-policy data: `uv run python run.py check --freshness-only`, no upstream probes, no manifest writes, release context only, and stale results require planned versioned refresh rather than frozen-v1 mutation. Focused batch-plan/readiness tests and repo integrity pass.
 - P269 is complete and committed: dry-run batch planning and production readiness now expose the settled `lamp_posts` policy as structured source-policy data: separate `web/public/data/lamp_posts_v1/` night-lighting map layer, not part of locked score, release-gated by readiness, and future artifacts require new numbered directories. Focused batch-plan/readiness tests and repo integrity pass.
