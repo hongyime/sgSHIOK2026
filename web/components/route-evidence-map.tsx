@@ -974,10 +974,10 @@ function routeModeLabel(mode: RouteDisplayMode): string {
 
 function mapAriaLabel(routes: RouteMapItem[], mode: RouteDisplayMode): string {
   if (routes.length === 0) {
-    return "Singapore shelter map for covered-walkway ratio, exposed gaps, transit stops, and night lighting evidence";
+    return "Singapore shelter-map view for covered-walkway ratio, exposed gaps, transit stops, and night lighting evidence";
   }
   const labels = routes.map((route) => route.label).join(", ");
-  return `Shelter map for ${labels}, showing ${routeModeLabel(mode)}`;
+  return `Shelter-map view for ${labels}, showing ${routeModeLabel(mode)}`;
 }
 
 function transitPoiSummary(pois: PointFeatureCollection): string {
@@ -1064,7 +1064,7 @@ function mapTextSummary(
       : `${routeData.exposure.features.length} exposed gaps`;
 
   return [
-    `Shelter map for ${routeLabels}.`,
+    `Shelter-map view for ${routeLabels}.`,
     `Showing ${visibleRoutes}, ${exposed}, and ${poiText}.`,
     selectedGapText,
     lampText,

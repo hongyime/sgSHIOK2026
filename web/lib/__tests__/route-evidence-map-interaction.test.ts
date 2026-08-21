@@ -45,12 +45,15 @@ describe("shelter map interactions", () => {
     expect(source).toContain('return "shortest and sheltered walks";');
     expect(source).toContain("sheltered-walk segments");
     expect(source).toContain("shortest-walk segments");
-    expect(source).toContain("Singapore shelter map for covered-walkway ratio, exposed gaps, transit stops, and night lighting evidence");
+    expect(source).toContain("Singapore shelter-map view for covered-walkway ratio, exposed gaps, transit stops, and night lighting evidence");
+    expect(source).not.toContain("Singapore shelter map for covered-walkway ratio, exposed gaps, transit stops, and night lighting evidence");
     expect(source).not.toContain("Singapore shelter map for covered-walkway ratio, exposed gaps, transit stops, and night-lighting evidence");
     expect(source).not.toContain("Singapore shelter map with MRT stations, LRT stations, bus stops, and night-lighting evidence");
     expect(source).not.toContain("Singapore shelter map with MRT stations, LRT stations, and bus stops");
-    expect(source).toContain("Shelter map for ${labels}, showing ${routeModeLabel(mode)}");
-    expect(source).toContain("Shelter map for ${routeLabels}.");
+    expect(source).toContain("Shelter-map view for ${labels}, showing ${routeModeLabel(mode)}");
+    expect(source).toContain("Shelter-map view for ${routeLabels}.");
+    expect(source).not.toContain("Shelter map for ${labels}, showing ${routeModeLabel(mode)}");
+    expect(source).not.toContain("Shelter map for ${routeLabels}.");
     expect(source).toContain("Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio, exposed gaps, and night lighting near transit.");
     expect(source).not.toContain("Search for a postal code to show covered-walkway ratio, exposed gaps, night lighting, and nearby transit.");
     expect(source).not.toContain("Search a OneMap address or 6-digit postal code to show covered-walkway ratio, exposed gaps, night lighting, and nearby transit.");
