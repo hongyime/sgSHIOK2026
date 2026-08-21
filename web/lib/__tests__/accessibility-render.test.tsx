@@ -367,7 +367,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Same displayed value as rain shelter for this postal.");
     expect(html).toContain("Heat proxy evidence: covered 149 m; greenery proxy 23 m.");
     expect(html).toContain("Night lighting");
-    expect(html).toContain("Layer off");
+    expect(html).toContain("Map layer off");
+    expect(html).not.toContain("Layer off");
     expect(html).toContain("Snap connector");
     expect(html).toContain("9 m");
     expect(html).toContain('aria-label="Walk details"');
@@ -384,8 +385,8 @@ describe("rendered accessibility output", () => {
     const html = renderScoreCard({ lampOverlayEnabled: true });
 
     expect(html).toContain("Night lighting");
-    expect(html).toContain("Layer on");
-    expect(html).not.toContain("Map layer");
+    expect(html).toContain("Map layer on");
+    expect(html).not.toContain("Layer on");
   });
 
   it("frames traced correction notes as walk feedback", () => {

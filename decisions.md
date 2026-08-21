@@ -808,3 +808,6 @@ The selected-walk details strip should describe night lighting as a map-layer st
 
 2026-08-21 - P294 footer night-lighting evidence:
 The first-view footer should name the night-lighting layer alongside covered-walkway and exposure-gap evidence, because night lighting is the settled second map layer even though it remains outside the locked score. The footer now says `Source-derived covered-walkway, exposure-gap, and night-lighting map evidence.` This is browser copy and test coverage only; it does not alter lamp data, map loading, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P295 night-lighting rendered test:
+Rendered accessibility coverage should guard the P293 `Map layer on` wording for selected-walk night-lighting state, not the retired ambiguous `Layer on` wording. This is test coverage and evidence only; it does not alter browser copy, lamp data, map loading, scoring, exports, public data, deployment, or locked weights.
