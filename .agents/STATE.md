@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P293 code commit: `57d7f19`; state-only commits may follow it on `main`.
+Latest P294 code commit: `7c3e5e2`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P294 is complete and committed: the first-view footer now names `night-lighting map evidence` alongside covered-walkway and exposure-gap evidence, keeping the footer evidence-framed and not score-framed. Focused score-card copy test and repo integrity pass.
 - P293 is complete and committed: selected-walk night-lighting detail values now say `Map layer on` / `Map layer off`, making clear the state belongs to the map overlay rather than score or route metrics. Focused score-card copy test and repo integrity pass.
 - P292 is complete and committed: the night-lighting layer hover title now starts with `Night lighting` while preserving the LTA lamp-post source and locked-score separation. Focused route-evidence-map interaction test and repo integrity pass.
 - P291 is complete and committed: address-search no-results copy now names the measured frozen-bundle limitation as 8 missing rows out of 976 from the recent public-source check, instead of vague measured-misses wording. Focused accessibility render test and repo integrity pass.
