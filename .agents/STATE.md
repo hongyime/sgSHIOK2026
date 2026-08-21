@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P412 code commit: `2628098`; state-only commits may follow it on `main`.
+Latest P413 code commit: `06b3906`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P413 is complete and committed: missing locked-score visible reasons, live-region copy, and browser-smoke acceptance now say `published shelter-map bundle` instead of bare `in this bundle`. Focused accessibility/copy/map-interaction tests, repo integrity, and protected-diff checks passed.
 - P412 is complete and committed: outside-bundle, disconnected-transit, and no-full-locked-score caveats now name the `published shelter-map bundle` instead of generic `this shelter-map bundle`, keeping absence copy tied to the shipped artifact. Focused accessibility/copy tests, repo integrity, and protected-diff checks passed.
 - P411 is complete and committed: planning-area comparison empty copy now stays locked-score-specific only for the locked-score view and says `No comparable planning-area records for ...` for non-overall evidence views. Focused accessibility/copy tests, repo integrity, and protected-diff checks passed.
 - P410 is complete and committed: the nearby-transit picker now says `Nearby transit targets` in both the visible header and chip-group aria-label, aligning the chips with transit-target walk comparison behavior. Focused picker/copy tests, repo integrity, and protected-diff checks passed.
