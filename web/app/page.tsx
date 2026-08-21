@@ -1007,7 +1007,7 @@ function InlineRouteLegend({
           </span>
           <span>
             <i className={styles.hdbLine} />
-            HDB inferred
+            HDB void-deck shelter
           </span>
           <span>
             <i className={styles.bridgeLine} />

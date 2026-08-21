@@ -417,6 +417,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain('aria-label="Map legend"');
     expect(html).toContain("Sheltered walk");
     expect(html).toContain("Exposed gaps");
+    expect(html).toContain("HDB void-deck shelter");
+    expect(html).not.toContain("HDB inferred");
     expect(html).not.toContain(">Exposed</span>");
     expect(html).not.toContain("LTA lamp points");
     expect(html).not.toContain("Sheltered route");

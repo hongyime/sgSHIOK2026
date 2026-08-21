@@ -1093,3 +1093,6 @@ The transit POI layer should let users visually distinguish MRT/LRT access point
 
 2026-08-21 - P392 exposed-gap legend wording:
 The map legend should name the red dashed layer as `Exposed gaps`, not merely `Exposed`, because the exposure-gaps array with per-gap length and coordinates is the product's headline artifact. This is browser copy and test coverage only; it does not mutate route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P393 HDB shelter legend wording:
+The map legend should name HDB inferred shelter as `HDB void-deck shelter` rather than `HDB inferred`, because users need to understand the physical shelter evidence instead of an implementation category. The source strip still keeps the more technical `HDB void-deck inference` label for evidence provenance. This is browser copy and test coverage only; it does not mutate route geometry, scoring, exports, public data, deployment, or locked weights.
