@@ -190,7 +190,8 @@ describe("score card copy", () => {
     expect(source).toContain(
       "{RECENT_PUBLIC_SOURCE_CHECK_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}."
     );
-    expect(source).toContain('const RECENT_PUBLIC_SOURCE_CHECK_LABEL = "16 Aug 2026 public-source check";');
+    expect(source).toContain('const RECENT_PUBLIC_SOURCE_CHECK_LABEL = "16 Aug 2026 public-source sample";');
+    expect(source).not.toContain('const RECENT_PUBLIC_SOURCE_CHECK_LABEL = "16 Aug 2026 public-source check";');
     expect(source).not.toContain("Recent public-source check: {RECENT_PUBLIC_SOURCE_GAP_COPY}.");
     expect(source).toContain(
       "6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) sampled 2021-2026 public-source rows with postals"

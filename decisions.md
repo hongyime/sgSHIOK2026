@@ -1313,3 +1313,7 @@ Operator-facing docs and structured readiness/batch-plan policy should date the 
 2026-08-22 - P485 P19 sample boundary wording:
 
 P19 is a sampled 976-row public-source gap check, not a complete current-source census. Browser, README, CLAUDE, readiness, and batch-plan wording now call it a sampled check or a sampled current-source gap while preserving the 6 coordinate-backed HDB rows, 2 unvalidated MCST proxy rows, and 0.82% arithmetic. This is documentation, browser copy, reporting copy, and test coverage only; it does not call APIs, mutate P19/P379 caches or inputs, score, export, deploy, public data, protected QA evidence, or locked weights.
+
+2026-08-22 - P486 browser P19 sample label:
+
+The browser's P19 first-view label should carry the same sample boundary as the body copy. It now says `16 Aug 2026 public-source sample` instead of `16 Aug 2026 public-source check`, including the known-postal outside-bundle copy. This is browser copy and test coverage only; it does not call APIs, mutate P19/P379 caches or inputs, score, export, deploy, public data, protected QA evidence, or locked weights.
