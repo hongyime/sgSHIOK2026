@@ -18,10 +18,14 @@ describe("score card copy", () => {
     expect(source).not.toContain("Closest routed ${label} is ${formatDistance(nearestM)}");
     expect(source).not.toContain("Closest routed transit found is about ${formatDistance(nearestM)}");
     expect(source).not.toContain("No routed ${transitModeLabel(transitMode)} within range");
-    expect(source).toContain("Current scoring range is 1.2 km");
-    expect(source).toContain("Outside current scoring range");
+    expect(source).toContain("Locked transit range is 1.2 km");
+    expect(source).toContain("Outside locked transit range");
     expect(source).not.toContain("Outside current 1.2 km scoring range");
-    expect(source).toContain("Nearby transit may still exist beyond the 1.2 km scoring range");
+    expect(source).toContain("Nearby transit may still exist beyond the locked 1.2 km transit range");
+    expect(source).not.toContain("current scoring range is 1.2 km");
+    expect(source).not.toContain("within the current scoring range");
+    expect(source).not.toContain("Current scoring range is 1.2 km");
+    expect(source).not.toContain("Outside current scoring range");
     expect(source).toContain("Shelter-map walk not verified yet");
     expect(source).toContain("Direct line to bus stop; shelter-map walk pending.");
     expect(source).toContain("Shelter-map walk access was not verified, so the locked bus term remains 0.");

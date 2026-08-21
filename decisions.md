@@ -910,3 +910,6 @@ Missing shelter/access display-row values should be framed as unavailable eviden
 
 2026-08-21 - P328 outside-bundle empty-state bundle naming:
 The outside-bundle visible empty state should name the shelter-map bundle explicitly, matching the surrounding product framing and the non-visual announcement. It now says "this shelter-map bundle is tied to the frozen June 2020 address universe" instead of "the current bundle is tied..." while preserving the 8-of-976 recent public-source caveat. This is web copy and test coverage only; it does not change lookup logic, score values, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P329 locked transit range copy:
+NO_TRANSIT_IN_RANGE copy should describe the 1.2 km constraint as a locked release transit range, not as the "current scoring range". The affected empty-state notes and reason chips now say "locked transit range" / "locked 1.2 km transit range" while preserving the same 1.2 km threshold and fallback behavior. This is web copy and test coverage only; it does not change transit selection, route lookup, score values, exports, public data, pipeline inputs, or locked weights.

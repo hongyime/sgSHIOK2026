@@ -449,9 +449,9 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     }
     const nearestM = nearestRoutedTransitM(score, transitMode);
     if (nearestM !== null) {
-      return `Closest connected shelter-map walk found is about ${formatDistance(nearestM)} away; current scoring range is 1.2 km.`;
+      return `Closest connected shelter-map walk found is about ${formatDistance(nearestM)} away; locked transit range is 1.2 km.`;
     }
-    return `No ${transitModeLabel(transitMode)} walk was found within the current scoring range.`;
+    return `No ${transitModeLabel(transitMode)} walk was found within the locked 1.2 km transit range.`;
   }
   if (score.state === "NOT_YET_SCORED") {
     return "This postal is in the frozen v1 address universe, but this shelter-map bundle has no published full locked score for it yet.";
@@ -697,12 +697,12 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
       return ["Transit stop or exit found", "Shelter-map walk not connected yet"];
     }
     if (reason === "no_transit_candidates_selected") {
-      return ["No qualifying transit stop within 1.2 km", "Outside current scoring range"];
+      return ["No qualifying transit stop within 1.2 km", "Outside locked transit range"];
     }
     const nearestM = nearestRoutedTransitM(score, transitMode);
     return nearestM !== null
-      ? [`Closest connected ${label} shelter-map walk is ${formatDistance(nearestM)}`, "Current scoring range is 1.2 km"]
-      : [`No ${label} walk within scoring range`, "Nearby transit may still exist beyond the 1.2 km scoring range"];
+      ? [`Closest connected ${label} shelter-map walk is ${formatDistance(nearestM)}`, "Locked transit range is 1.2 km"]
+      : [`No ${label} walk within locked transit range`, "Nearby transit may still exist beyond the locked 1.2 km transit range"];
   }
   if (score.state === "NOT_YET_SCORED") return ["No full locked score in this bundle", "Awaiting locked score"];
   if (score.paths?.routing_type === "direct_bus_fallback_unrouted") {
