@@ -292,8 +292,11 @@ describe("rendered accessibility output", () => {
       rankingRecords: [],
     });
 
-    expect(html).toContain("Postal 560231 is not in the current shelter-map bundle.");
+    expect(html).toContain(
+      "Postal 560231 is outside the shelter-map bundle tied to the frozen June 2020 address universe; recent public-source check found 8 missing rows out of 976."
+    );
     expect(html).toContain("Outside shelter-map bundle");
+    expect(html).not.toContain("Postal 560231 is not in the current shelter-map bundle.");
     expect(html).not.toContain("Postal 560231 is not in the current score bundle.");
     expect(html).not.toContain("Outside current bundle");
     expect(html).toContain(

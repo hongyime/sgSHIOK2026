@@ -164,7 +164,9 @@ export function scoreCardAnnouncement({
 }): string {
   if (!selection) return "No shelter map walk selected.";
   const postal = postalTitle(selection);
-  if (!selection.score) return `${postal} is not in the current shelter-map bundle.`;
+  if (!selection.score) {
+    return `${postal} is outside the shelter-map bundle tied to the frozen June 2020 address universe; recent public-source check found 8 missing rows out of 976.`;
+  }
   const scoreText = displayScore === null || displayScore === undefined
     ? "no full locked score in this bundle"
     : `${Math.round(displayScore)} out of 100`;
