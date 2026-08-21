@@ -227,8 +227,9 @@ describe("score card copy", () => {
     );
     expect(source).not.toContain("6 supporting sources are stale.");
     expect(source).toContain(
-      "Covered Linkway follows a quarterly 120-day freshness threshold; frozen v1 uses the Mar 2026 LTA geospatial listing. A 21 Aug 2026 metadata-only DataMall check found current shelter-layer discovery URLs differ from frozen v1, so any refresh must be a new numbered input version."
+      "Covered Linkway follows a quarterly 120-day freshness threshold; frozen v1 uses the Mar 2026 LTA geospatial listing. A 21 Aug 2026 metadata-only DataMall check found current Covered Linkway and bridge/underpass discovery URLs differ from frozen v1, so any refresh must be a new numbered input version."
     );
+    expect(source).not.toContain("current shelter-layer discovery URLs differ from frozen v1");
     expect(source).not.toContain(
       "frozen v1 uses the Mar 2026 LTA geospatial listing, and any refresh must be a new numbered input version."
     );

@@ -1201,3 +1201,7 @@ The tracked Section 10 presentation document now describes the P18 shelter-first
 2026-08-21 - P455 DataMall discovery drift first-view copy:
 
 The first-view Covered Linkway freshness caveat now carries the safe 21 Aug 2026 metadata-only DataMall discovery result: current shelter-layer discovery URLs differ from frozen v1, while no payload bytes were downloaded or compared. This distinction matters because the manifest-only freshness line truthfully says no upstream URLs were probed, but the separate discovery-only check is still a refresh signal. Frozen v1 remains untouched; any approved refresh must be a new numbered input version.
+
+2026-08-21 - P456 named DataMall discovery drift copy:
+
+The first-view DataMall discovery caveat should name the two drifted shelter layers rather than saying only `shelter-layer discovery URLs`. The measured discovery-only report named Covered Linkway and pedestrian bridge/underpass as changed, with traffic signals still matching, so the browser now says current Covered Linkway and bridge/underpass discovery URLs differ from frozen v1. This remains a copy/test clarification only; it does not fetch payloads, mutate inputs, score, export, deploy, or alter locked weights.
