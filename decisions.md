@@ -760,3 +760,6 @@ The cached P19 postal-universe gap measurement should be reachable through the p
 
 2026-08-21 - P278 measured address-universe caveat:
 The first-view address-universe caveat should carry the measured P19 gap count, not only the vague statement that recent-source misses exist. The title card now says the frozen v1 universe is from a June 2020 OneMap-derived postal scrape and that a 2021-2026 public-source sample found 8 missing rows out of 976. The detailed HDB completion and BCA MCST proxy line remains below it. This is browser copy and test coverage only; it does not alter search behavior, manifests, inputs, public data, scoring, export, deploy, or locked weights.
+
+2026-08-21 - P279 full locked score availability copy:
+The first-view availability disclosure should keep the secondary metric explicitly named as the locked score even inside the count phrase. The formatter now says `full locked scores` and `full locked score` instead of generic `full scores` and `full score`, while preserving the same manifest-derived counts and breakdown for partial shelter-map evidence, beyond-range rows, and awaiting-score rows. This is browser copy and test coverage only; it does not alter manifests, score values, inputs, public data, scoring, export, deploy, or locked weights.

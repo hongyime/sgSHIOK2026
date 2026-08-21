@@ -48,9 +48,9 @@ export function formatLockedScoreAvailabilityLine(manifest: Manifest | null): st
   const pctText = pct >= 0.22 && pct <= 0.28 ? "roughly a quarter" : `${Math.round(pct * 100)}%`;
   const breakdown = lockedScoreAvailabilityBreakdown(provenance.state_counts, notFull);
   const nonFullText = breakdown
-    ? `do not show a full score: ${breakdown}`
-    : "do not show a full score";
-  return `Locked score availability: ${formatWholeNumber(scored)} full scores out of ${formatWholeNumber(
+    ? `do not show a full locked score: ${breakdown}`
+    : "do not show a full locked score";
+  return `Locked score availability: ${formatWholeNumber(scored)} full locked scores out of ${formatWholeNumber(
     recordCount
   )}; ${formatWholeNumber(notFull)} records (${pctText}) ${nonFullText}.`;
 }
