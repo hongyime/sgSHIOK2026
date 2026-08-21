@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P422 code commit: `49eaf1a`; state-only commits may follow it on `main`.
+Latest P423 code commit: `9a04a80`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P423 is complete and committed: known HDB outside-bundle postals now say they are one of the 6 coordinate-backed HDB missing rows from frozen v1, while MCST proxy postals remain explicitly unvalidated source-quality evidence. Focused web accessibility/copy tests, repo integrity, and protected-diff checks passed.
 - P422 is complete and committed: the visible note under the `Night lighting` map-layer control now starts with `Night lighting layer` instead of `LTA lamp-post layer`, while preserving the 126,144 LTA lamp-post point count and source date. Focused web copy/map tests, repo integrity, and protected-diff checks passed.
 - P421 is complete and committed: structured batch-plan/readiness `night_lighting_layer.role` now says `separate night lighting map layer`, matching browser/docs copy while preserving machine-facing keys, `lamp-overlay`, artifact paths, release gates, and scoring policy. Focused batch-plan/readiness tests, repo integrity, and protected-diff checks passed.
 - P420 is complete and committed: README and CLAUDE now use plain `night lighting` in the product intro and local artifact/replacement-overlay boundary, matching browser copy while preserving `lamp-overlay`, `lamp_posts_v1/`, and internal layer identifiers. Focused README/agent-doc tests, repo integrity, and protected-diff checks passed.
