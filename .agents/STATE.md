@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P314 code commit: `3b93738`; state-only commits may follow it on `main`.
+Latest P315 code commit: `d2ce562`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P315 is complete and committed: the shelter-panel bus reason labels now say `Limited bus-service evidence` / `Stronger bus-service evidence` instead of connectivity verdicts, while the direct-bus fallback path still says nearby bus service is not walk-verified. Focused web copy/accessibility tests and repo integrity pass.
 - P314 is complete and committed: the shelter-panel heat reason now says `Stronger heat-proxy evidence` instead of `Better heat-proxy score`, keeping high/low heat reason chips evidence-framed. Focused web copy/accessibility tests and repo integrity pass.
 - P313 is complete and committed: shelter-panel copy now says the planning-area alternate rank mode is a `component evidence view`, and the direct-bus fallback caveat says the locked bus term remains 0 instead of calling it a component score. Focused web copy/accessibility tests and repo integrity pass.
 - P312 is complete and committed: `run.py --help` now describes the safety boundary for every listed safe report: freshness-only reads the manifest without upstream probes or manifest writes, geospatial discovery is metadata-only with no payload or manifest write, P19 status is cached/no-API/no-write, readiness is no-score/no-deploy, and batch-plan is a no-scoring dry run. Focused runner test, help output, and repo integrity pass.
