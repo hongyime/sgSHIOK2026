@@ -13,7 +13,19 @@ def test_p10_provenance_coverage_names_leaf_area_index_policy() -> None:
     )
 
     assert "leaf_area_index is a freshness-only non-score reference" in source
+    assert "path only in legacy published bundle; sha256,row_count,digest in P9+ manifests" in source
+    assert "path only in legacy published bundle; sha256,row_count,digest in P10+ manifests" in source
+    assert "path only in active bundle" not in source
     assert "hash-shipped but unconsumed" not in source
+
+
+def test_p10_coordinate_identity_names_legacy_published_bundle() -> None:
+    source = (PROJECT_ROOT / "scripts" / "analysis" / "p10_coordinate_identity.py").read_text(
+        encoding="utf-8"
+    )
+
+    assert "Read-only P10 coordinate identity analysis for the legacy published bundle." in source
+    assert "Read-only P10 coordinate identity analysis for the active bundle." not in source
 
 
 def test_p19_cache_status_only_reports_existing_measurement_caches(

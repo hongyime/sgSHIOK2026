@@ -21,12 +21,12 @@ def main() -> None:
         (
             "postal coordinate universe",
             "processed/score_batches/full_rescore_20260804_205430/partitions/*.parquet",
-            "path only in active bundle; sha256,row_count,digest in P9+ manifests",
+            "path only in legacy published bundle; sha256,row_count,digest in P9+ manifests",
         ),
         (
             "routing network graph",
             "processed/network_island.parquet",
-            "path only in active bundle; sha256,row_count,digest in P10+ manifests",
+            "path only in legacy published bundle; sha256,row_count,digest in P10+ manifests",
         ),
         (
             "bus stops/services/routes",

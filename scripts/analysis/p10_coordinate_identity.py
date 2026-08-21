@@ -1,4 +1,4 @@
-"""Read-only P10 coordinate identity analysis for the active bundle."""
+"""Read-only P10 coordinate identity analysis for the legacy published bundle."""
 
 from __future__ import annotations
 

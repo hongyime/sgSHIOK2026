@@ -946,3 +946,6 @@ The targeted bundle refresh helper should name the published shelter-map bundle 
 
 2026-08-21 - P340 compare-targeted published-bundle wording:
 The targeted comparison operator surface should name the published shelter-map bundle rather than an active/static/current bundle. `run.py` and `scripts/compare_targeted_scores.py` now describe compare-targeted as comparing a targeted score report against the published shelter-map bundle. This is operator help text and test coverage only; it does not run comparison, scoring, export, alter reports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P341 P10 analysis legacy-bundle wording:
+Reusable P10 analysis helpers should call the pre-provenance release the legacy published bundle, not the active bundle, because the later release standard distinguishes legacy provenance policy from artifact defects. The coordinate identity helper docstring and provenance coverage output now use legacy published bundle wording. This is analysis-script wording and test coverage only; it does not run analysis, alter reports, score values, exports, public data, pipeline inputs, or locked weights.
