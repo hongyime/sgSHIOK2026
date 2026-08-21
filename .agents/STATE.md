@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P565 code commit: `b23df37`; state-only commits may follow it on `main`.
+Latest P566 code commit: `1533dc6`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P566 is complete and committed: planning-area rank helper copy now distinguishes closed, locked-score sorting-index, evidence-view, and crossing-friction locked-term states, and the screen-reader chooser now says comparison view instead of evidence view. Focused rank/copy/accessibility tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P565 is complete and committed: planning-area rank metric labels now name the evidence users can inspect (rain covered-walkway evidence, walk-distance evidence, bus service-support evidence, heat proxy evidence, crossing-friction locked term) instead of old locked-term shorthand. Focused rank/copy/accessibility tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P564 is complete and committed: the exposure hero's non-visual label now says Walk exposure evidence instead of Walk shelter evidence, matching the visible covered-walkway ratio and exposed-gap content. Focused accessibility render test, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, aria-label search, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P563 is complete and committed: screen-reader status, unavailable metadata, planning-area helper copy, and transit-stop comparison copy now use walk evidence where they refer to covered-walkway ratio and exposed gaps on the walk, while retaining broader shelter-map evidence language for bundle/preview contexts. Focused web copy/accessibility/transit-stop tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
