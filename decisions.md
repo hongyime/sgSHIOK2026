@@ -1197,3 +1197,7 @@ Known HDB outside-bundle postals now say they are one of the 6 coordinate-backed
 2026-08-21 - P450 Section 10 reference status:
 
 The tracked Section 10 presentation document now describes the P18 shelter-first browser layout as an implemented reference rather than a proposal-only artifact. The product direction is settled: lead with shelter-map walk exposure, keep the locked score visible but secondary, and treat the prior five locked-term rows as pre-P18 context. This is documentation/test alignment only; it does not change app rendering, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P455 DataMall discovery drift first-view copy:
+
+The first-view Covered Linkway freshness caveat now carries the safe 21 Aug 2026 metadata-only DataMall discovery result: current shelter-layer discovery URLs differ from frozen v1, while no payload bytes were downloaded or compared. This distinction matters because the manifest-only freshness line truthfully says no upstream URLs were probed, but the separate discovery-only check is still a refresh signal. Frozen v1 remains untouched; any approved refresh must be a new numbered input version.
