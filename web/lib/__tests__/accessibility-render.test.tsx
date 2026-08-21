@@ -169,13 +169,14 @@ describe("rendered accessibility output", () => {
       <SearchFeedback results={[]} loading={false} error={null} searched={true} />
     );
     expect(searchResultsAnnouncement([], false, null, true)).toBe(
-      "No OneMap address result found for this search. Try a 6-digit postal code. Separately, the frozen shelter-map bundle's recent public-source check found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows with postals."
+      "No OneMap address result found for this search. Try a 6-digit postal code. Separately, the published shelter-map bundle is tied to the frozen June 2020 address universe, and the recent public-source check found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows with postals."
     );
     expect(noResultsHtml).toContain("No OneMap address result found for this search.");
     expect(noResultsHtml).toContain("Try a 6-digit postal code");
     expect(noResultsHtml).toContain(
-      "Separately, the frozen shelter-map bundle&#x27;s recent public-source check found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows with postals."
+      "Separately, the published shelter-map bundle is tied to the frozen June 2020 address universe, and the recent public-source check found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows with postals."
     );
+    expect(noResultsHtml).not.toContain("the frozen shelter-map bundle&#x27;s recent public-source check found");
     expect(noResultsHtml).not.toContain("the frozen shelter-map bundle has measured recent-source misses");
     expect(noResultsHtml).not.toContain("the frozen score bundle has measured recent-source misses");
     expect(noResultsHtml).not.toContain("Try a 6-digit postal code; the frozen shelter-map bundle");
