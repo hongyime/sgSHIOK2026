@@ -93,7 +93,9 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "does not probe upstream APIs" in normalized
     assert "reports current, stale, manual, and unknown-age sources" in normalized
     assert "NParks Leaf Area Index can appear in freshness as a tracked reference table" in normalized
-    assert "not route geometry, shade-proxy geometry, or score provenance" in normalized
+    assert "published legacy bundle may carry it as a non-score reference source hash" in normalized
+    assert "not route geometry, shade-proxy geometry, or score evidence" in normalized
+    assert "future score provenance excludes it" in normalized
     assert "LTA geospatial listings such as Covered Linkway use a quarterly cadence" in normalized
     assert "120-day stale threshold" in normalized
     assert "does not prove no newer upstream release exists" in normalized

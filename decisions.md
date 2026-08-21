@@ -1237,3 +1237,7 @@ README operator guidance should carry the same dated DataMall geospatial discove
 2026-08-21 - P465 browser DataMall matched-source boundary:
 
 The first-view Covered Linkway freshness caveat should not make DataMall geospatial discovery drift look broader than measured. Browser copy now says the 21 Aug 2026 metadata-only check found Covered Linkway and bridge/underpass discovery URLs differ from frozen v1, while traffic signals still matched. This keeps the user-facing caveat aligned with README and readiness structured policy. It is copy/test alignment only; it does not call DataMall, download payloads, mutate manifests or inputs, score, export, deploy, public data, or touch locked weights.
+
+2026-08-21 - P466 README legacy Leaf Area Index hash boundary:
+
+README operator guidance should distinguish the legacy published bundle from the future score-provenance policy. The current published manifest carries `leaf_area_index` as a source hash, but P23/P181 settled that LAI is a non-score reference table and future score provenance excludes it. README now says the published legacy bundle may carry LAI as a non-score reference source hash, while LAI remains outside route geometry, shade-proxy geometry, and score evidence. This is documentation/test alignment only; it does not mutate public data, source manifests, score provenance, scoring, exports, deployment, or locked weights.
