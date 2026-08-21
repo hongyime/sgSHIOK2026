@@ -1003,3 +1003,6 @@ Structured source-policy reports should carry the exact cached P19 missing-posta
 
 2026-08-21 - P360 known P19 miss browser copy:
 When a selected postal is one of the eight cached P19 recent-source misses, the browser should say that directly instead of showing only the aggregate 8-of-976 caveat. Generic no-result and other outside-bundle states keep the aggregate recent-source copy. This is web copy and test coverage only; it reads no protected data, runs no measurement, score, export, deploy, ingest, or network task, and does not touch locked weights.
+
+2026-08-21 - P361 known P19 miss source-group coverage:
+Known-miss browser copy must be tested for both cached P19 source groups, not only the HDB completion/geocoded branch. The focused render test now covers the MCST 2021-2026 proxy-row label as well. This is test coverage and evidence only; it does not change runtime behavior, read protected payloads, run measurements, score, export, deploy, ingest, network, or touch locked weights.

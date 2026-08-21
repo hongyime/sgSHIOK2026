@@ -321,7 +321,7 @@ describe("rendered accessibility output", () => {
   });
 
   it("names known P19 recent-source misses when the selected postal matches the cached list", () => {
-    const html = renderScoreCard({
+    const hdbHtml = renderScoreCard({
       selection: {
         ...selection,
         result: {
@@ -335,15 +335,35 @@ describe("rendered accessibility output", () => {
       },
       rankingRecords: [],
     });
+    const mcstHtml = renderScoreCard({
+      selection: {
+        ...selection,
+        result: {
+          ...selection.result,
+          BUILDING: "Postal 935456",
+          POSTAL: "935456",
+          SEARCHVAL: "S935456",
+        },
+        score: null,
+        geom: null,
+      },
+      rankingRecords: [],
+    });
 
-    expect(html).toContain(
+    expect(hdbHtml).toContain(
       "Postal 521400 is outside the shelter-map bundle tied to the frozen June 2020 address universe; this postal is one of the 8 cached recent public-source misses (HDB 2021-2026 geocoded rows)."
     );
-    expect(html).toContain(
+    expect(hdbHtml).toContain(
       "No shelter-map walk is published for this postal; this shelter-map bundle is tied to the frozen June 2020 address universe, and this postal is one of the 8 cached recent public-source misses (HDB 2021-2026 geocoded rows)."
     );
-    expect(html).not.toContain(
+    expect(hdbHtml).not.toContain(
       "Postal 521400 is outside the shelter-map bundle tied to the frozen June 2020 address universe; recent public-source check found 8 missing rows out of 976"
+    );
+    expect(mcstHtml).toContain(
+      "Postal 935456 is outside the shelter-map bundle tied to the frozen June 2020 address universe; this postal is one of the 8 cached recent public-source misses (MCST 2021-2026 proxy rows)."
+    );
+    expect(mcstHtml).toContain(
+      "No shelter-map walk is published for this postal; this shelter-map bundle is tied to the frozen June 2020 address universe, and this postal is one of the 8 cached recent public-source misses (MCST 2021-2026 proxy rows)."
     );
   });
 
