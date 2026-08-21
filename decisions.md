@@ -982,3 +982,6 @@ Browser-smoke scored-state output should expose a shelter-map-named locked-score
 
 2026-08-21 - P353 planning-area rank loading copy:
 The visible planning-area rank loading row should name the selected evidence view, matching the live-region announcement. It now renders `Loading planning-area {rankMetricLabel} ranks.` instead of the generic `Loading planning-area ranks...`, so users see whether the panel is loading locked-score ranks or a specific evidence view. This is browser copy and test coverage only; it does not alter rank data, scoring, exports, public data, inputs, deployment, or locked weights.
+
+2026-08-21 - P354 Leaf Area Index source note:
+`pipeline/config/sources.yaml` should use the same Leaf Area Index policy as README, readiness, and batch-plan: LAI is a tracked freshness reference table only, not route-level geometry, shade-proxy geometry, score provenance, or rain shelter geometry. This aligns source metadata with the settled P23/P181 policy. It does not fetch sources, mutate inputs, alter shade proxy geometry, scoring, exports, public data, deployment, or locked weights.

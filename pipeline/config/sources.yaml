@@ -121,7 +121,7 @@ sources:
     kind: "datagov_polldownload"
     dataset_id: "d_69141275d795e1fe2e496dda7c267d8d"
     verified: "2026-07-29"
-    notes: "data.gov.sg XLSX table; shade/heat calibration source only, not rain shelter geometry"
+    notes: "data.gov.sg XLSX table; tracked freshness reference only, not route-level geometry, shade-proxy geometry, score provenance, or rain shelter geometry"
 
   nparks_nature_ways:
     name: "NParks Nature Ways"

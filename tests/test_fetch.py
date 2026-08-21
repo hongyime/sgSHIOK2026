@@ -162,6 +162,11 @@ def test_source_config_has_freshness_policy_for_every_source() -> None:
     assert "S.H.I.O.K. Index" not in source_text
     assert "authenticated GeospatialWholeIsland fallback" in source_text
     assert "Refresh only as a new numbered input version." in source_text
+    assert (
+        "tracked freshness reference only, not route-level geometry, shade-proxy geometry, "
+        "score provenance, or rain shelter geometry"
+    ) in source_text
+    assert "shade/heat calibration source only" not in source_text
     assert "unauthenticated public download" not in source_text
     for key, spec in sources.items():
         policy = freshness_policy_for_source(spec, defaults)
