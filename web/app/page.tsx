@@ -176,22 +176,31 @@ export function routeDisplayAnnouncement(mode: RouteDisplayMode, sameRoute: bool
   return "sheltered walk";
 }
 
-function shelterEvidenceAnnouncement(score: ScoreRecord): string {
+function shelterEvidenceAnnouncementFromValues(
+  coveredRatio: number | null | undefined,
+  gaps: ExposureGap[] | null | undefined
+): string {
   const parts: string[] = [];
-  if (typeof score.paths?.covered_ratio === "number") {
-    parts.push(`${formatPercent(Math.round(score.paths.covered_ratio * 100))} covered-walkway ratio`);
+  if (typeof coveredRatio === "number") {
+    parts.push(`${formatPercent(coveredRatio)} covered-walkway ratio`);
   }
-  if (score.exposure_gaps) {
-    const sortedGaps = [...score.exposure_gaps].sort((a, b) => b.len_m - a.len_m);
+  if (gaps && gaps.length > 0) {
+    const sortedGaps = [...gaps].sort((a, b) => b.len_m - a.len_m);
     const totalExposureM = sortedGaps.reduce((total, gap) => total + gap.len_m, 0);
     const longestGap = sortedGaps[0];
     parts.push(
-      `${formatDistance(totalExposureM)} exposed across ${score.exposure_gaps.length} gap${
-        score.exposure_gaps.length === 1 ? "" : "s"
+      `${formatDistance(totalExposureM)} exposed across ${gaps.length} gap${
+        gaps.length === 1 ? "" : "s"
       }${longestGap ? `; longest gap ${formatDistance(longestGap.len_m)}` : ""}`
     );
   }
   return parts.length > 0 ? `Shelter evidence ${parts.join("; ")}.` : "Shelter evidence unavailable.";
+}
+
+function shelterEvidenceAnnouncement(score: ScoreRecord): string {
+  const coveredRatio =
+    typeof score.paths?.covered_ratio === "number" ? Math.round(score.paths.covered_ratio * 100) : null;
+  return shelterEvidenceAnnouncementFromValues(coveredRatio, score.exposure_gaps);
 }
 
 export function scoreCardAnnouncement({
@@ -203,6 +212,7 @@ export function scoreCardAnnouncement({
   previewRoute,
   routeMode,
   routeDisplayLabel,
+  shelterEvidenceText,
 }: {
   selection: LoadedSelection | null;
   stationName?: string;
@@ -212,6 +222,7 @@ export function scoreCardAnnouncement({
   previewRoute?: boolean;
   routeMode: RouteDisplayMode;
   routeDisplayLabel?: string;
+  shelterEvidenceText?: string;
 }): string {
   if (!selection) return "No shelter map walk selected.";
   const postal = postalTitle(selection);
@@ -226,7 +237,7 @@ export function scoreCardAnnouncement({
       ? "Preview shelter map evidence selected."
       : "Custom transit stop selected."
     : "Published walk selected.";
-  const shelterText = shelterEvidenceAnnouncement(selection.score);
+  const shelterText = shelterEvidenceText ?? shelterEvidenceAnnouncement(selection.score);
   return `${postal} shelter map panel loaded. ${stationName ?? "Transit target loaded"}. ${shelterText} Locked score ${scoreText}. ${stopText} Walk display ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
 }
 
@@ -1179,16 +1190,6 @@ export function ScoreCard({
   );
   const rankMetricLabel =
     RANK_METRIC_OPTIONS.find((option) => option.id === rankMetric)?.label ?? "Locked SHIOK score";
-  const scoreStatus = scoreCardAnnouncement({
-    selection,
-    stationName,
-    selectedRouteLabel,
-    displayScore,
-    isCustomStopSelected,
-    previewRoute,
-    routeMode,
-    routeDisplayLabel: routeDisplayAnnouncement(routeMode, sameRoute),
-  });
   const rankStatus = rankAnnouncement({
     loading: rankingLoading,
     rankedCount: rankedRecords.length,
@@ -1265,6 +1266,17 @@ export function ScoreCard({
       : `${formatDistance(totalExposureM)} exposed across ${exposureGaps.length} gap${
           exposureGaps.length === 1 ? "" : "s"
         }; ${longestGapText}`;
+  const scoreStatus = scoreCardAnnouncement({
+    selection,
+    stationName,
+    selectedRouteLabel,
+    displayScore,
+    isCustomStopSelected,
+    previewRoute,
+    routeMode,
+    routeDisplayLabel: routeDisplayAnnouncement(routeMode, sameRoute),
+    shelterEvidenceText: shelterEvidenceAnnouncementFromValues(selectedCoverage, exposureGaps),
+  });
   const gapSummaryText =
     exposureGaps.length === 0
       ? null

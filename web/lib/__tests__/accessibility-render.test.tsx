@@ -213,9 +213,10 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain('role="status"');
     expect(html).toContain("Postal 560231 shelter map panel loaded.");
-    expect(html).toContain("Shelter evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
+    expect(html).toContain("Shelter evidence 48% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
+    expect(html).not.toContain("Shelter evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
     expect(html).toContain("Locked score 72 out of 100.");
-    expect(html.indexOf("Shelter evidence 62% covered-walkway ratio")).toBeLessThan(
+    expect(html.indexOf("Shelter evidence 48% covered-walkway ratio")).toBeLessThan(
       html.indexOf("Locked score 72 out of 100.")
     );
     expect(html).toContain("<span>Locked score</span><strong>72/100</strong>");
@@ -617,6 +618,12 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("48% covered-walkway ratio on the shortest walk.");
     expect(html).toContain("181 m exposed across 2 gaps on the shortest walk.");
+    expect(html).toContain(
+      "Shelter evidence 48% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m."
+    );
+    expect(html).not.toContain(
+      "Shelter evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m."
+    );
     expect(html).not.toContain("covered-walkway ratio on the selected walk.");
     expect(html).not.toContain("exposed across 2 gaps on the selected walk.");
   });
@@ -636,6 +643,8 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("No exposed gaps are recorded for this shortest walk.");
+    expect(html).toContain("Shelter evidence 48% covered-walkway ratio.");
+    expect(html).not.toContain("0 m exposed across 0 gaps");
     expect(html).not.toContain("No exposed gaps are recorded for this selected walk.");
     expect(html).not.toContain("Exposed gaps on this walk");
   });
