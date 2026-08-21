@@ -3,6 +3,7 @@ import dataBundle from "../../data-bundle.json";
 import { existsSync, readFileSync } from "fs";
 import { gunzipSync } from "zlib";
 import { join } from "path";
+import { formatLockedScoreAvailabilityLine } from "../locked-score-availability";
 
 const DATA_DIR = join(__dirname, "../../public/data", dataBundle.bundle);
 
@@ -22,6 +23,18 @@ describe("generated data bundle", () => {
 
     expect(manifest.provenance).toEqual(
       expect.objectContaining({ record_count: 124443 })
+    );
+    expect(manifest.provenance.state_counts).toEqual({
+      NO_TRANSIT_IN_RANGE: 9827,
+      NOT_YET_SCORED: 476,
+      SCORED: 95157,
+      SCORED_PARTIAL: 18983,
+    });
+    expect(
+      Object.values(manifest.provenance.state_counts).reduce((total, count) => total + count, 0)
+    ).toBe(manifest.provenance.record_count);
+    expect(formatLockedScoreAvailabilityLine(manifest)).toBe(
+      "Locked score availability: 95,157 full locked scores out of 124,443; 29,286 records (23.5%, roughly a quarter) do not show a full locked score: 18,983 with partial shelter-map evidence, 9,827 beyond locked transit range, and 476 awaiting scoring."
     );
     expect(Object.keys(scoreIndex).length).toBeGreaterThan(50);
     expect(Object.keys(geomPostalIndex).length).toBe(
