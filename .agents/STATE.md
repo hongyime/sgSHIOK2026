@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P307 code commit: `8fb7bc7`; state-only commits may follow it on `main`.
+Latest P308 code commit: `59bdb9d`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P308 is complete and committed: the live OneMap clicked-stop preview reason now says `Map evidence only` instead of `Not scored in the current bundle`, matching the preview-only shelter-map evidence surface. Focused score-card copy and accessibility render tests plus repo integrity pass.
 - P307 is complete and committed: the `no_transit_candidates_selected` title/reason now says `No qualifying transit stop within 1.2 km`, avoiding a false implication that no transit exists near the postal. Focused score-card copy test and repo integrity pass.
 - P306 is complete and committed: the `SCORED_PARTIAL` state note now says shelter-map evidence may still be present while component scores are unavailable, separating partial locked-score availability from evidence availability. Focused score-card copy and accessibility render tests plus repo integrity pass.
 - P305 is complete and committed: the `NOT_YET_SCORED` state note now says the shelter-map bundle has no published full locked score for the frozen-universe postal, replacing internal `current published bundle has not scored it yet` wording. Focused score-card copy and accessibility render tests plus repo integrity pass.
