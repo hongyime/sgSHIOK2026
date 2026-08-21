@@ -160,6 +160,7 @@ SOURCE_FRESHNESS_POLICY = {
     "scope": "manifest_only",
     "upstream_urls_probed": False,
     "writes_manifest": False,
+    "grouped_summaries_include_source_names": True,
     "role": "release context, not a corruption or hash-repair signal",
     "stale_result": "report and plan a versioned refresh; do not mutate frozen v1 in place",
 }

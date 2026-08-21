@@ -1393,3 +1393,7 @@ README operator guidance should document that `run.py check --freshness-only` gr
 2026-08-22 - P505 agent-doc freshness summary names:
 
 Agent-facing docs should carry the same freshness-report boundary as README: `run.py check --freshness-only` is zero-mutation, reads only the local manifest and source config, probes no upstream APIs, and its grouped action summaries include source display names. This is docs/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P506 structured freshness policy named summaries:
+
+The shared batch-plan/readiness source-freshness policy should machine-record that grouped freshness summaries include source display names. `SOURCE_FRESHNESS_POLICY` now carries `grouped_summaries_include_source_names: true`, matching the CLI, README, agent docs, and browser copy. This is structured reporting/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
