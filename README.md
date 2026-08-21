@@ -106,7 +106,8 @@ reruns, deploy, or repoint the live site without explicit owner approval.
 $0 budget, no paid services, Vercel Hobby only, no Cloudflare; all heavy compute runs
 natively on this Windows machine (uv-managed Python); runtime backend surface is limited to
 the two current OneMap helper routes; all routing runs in python-igraph on the project's own
-graph; every published score is reproducible from hashed inputs + tagged code.
+graph; published score values, coordinates and route origins have been independently verified,
+while the active legacy bundle predates record-level scoring-input and network provenance.
 
 ## License And Attribution
 

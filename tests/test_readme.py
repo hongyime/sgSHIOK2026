@@ -89,3 +89,15 @@ def test_readme_documents_full_batch_approval_boundary() -> None:
     assert "approved postal-universe v2 promotion" in normalized
     assert "passes on the 1,200-record subset" in normalized
     assert "Do not run piecemeal full-bundle reruns" in normalized
+
+
+def test_readme_does_not_overclaim_legacy_bundle_reproducibility() -> None:
+    text = README.read_text(encoding="utf-8")
+    normalized = compact(text)
+
+    assert (
+        "published score values, coordinates and route origins have been independently verified"
+        in normalized
+    )
+    assert "active legacy bundle predates record-level scoring-input and network provenance" in normalized
+    assert "every published score is reproducible from hashed inputs + tagged code" not in normalized

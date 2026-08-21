@@ -772,3 +772,6 @@ README local-data guidance should use the same locked-score availability languag
 
 2026-08-21 - P282 README task-runner surface:
 README's repo map should reflect the current `run.py` operator surface, not only the old compact task list. The `run.py` line now separates safe reports (`check --freshness-only`, `check --geospatial-discovery-only`, `p19-gap-status`, `readiness`, `batch-plan`) from gated pipeline tasks (`ingest`, `network`, `score`, `export`, `validate`, `publish`, `test`) while preserving the publish-validate guard. This is documentation and test coverage only; it does not run or alter reports, inputs, scoring, export, public data, deploy, or locked weights.
+
+2026-08-21 - P283 README legacy provenance reproducibility:
+README ground rules should not overclaim that every published score is reproducible from hashed inputs and tagged code, because the active published bundle is an accepted legacy artifact that predates record-level scoring-input and network provenance. The ground-rule summary now states the narrower verified fact: published score values, coordinates, and route origins have been independently verified, while the legacy bundle lacks the later provenance fields. This is documentation and test coverage only; it does not alter manifests, score values, inputs, public data, scoring, export, deploy, or locked weights.
