@@ -37,7 +37,6 @@ def test_readme_documents_universe_source_policy() -> None:
         in normalized
     )
     assert "CANAAN and MYRA remain unvalidated MCST proxy warnings" in normalized
-    assert "8 missing rows out of 976 HDB completion and MCST proxy rows" not in normalized
     assert "P125 20 Aug 2026 Overpass coverage cross-check found 25,879 valid distinct OSM `addr:postcode` values" in normalized
     assert "P125 live Overpass measurement" not in normalized
     assert "P125 20 Aug 2026 Overpass measurement found" not in normalized

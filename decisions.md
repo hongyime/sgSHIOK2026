@@ -1373,3 +1373,7 @@ Readiness warnings should be readable without forcing the operator to map source
 2026-08-22 - P500 non-score source hash warning labels:
 
 Readiness score-provenance warnings should name known non-score reference source hashes without changing gate semantics. The active legacy bundle still reports structured `non_score_reference_source_hashes: ["leaf_area_index"]` and `unexpected_source_hashes: ["leaf_area_index"]`, but the human warning now says `leaf_area_index (NParks Leaf Area Index)` so operators can understand the LAI caveat without looking up the key. This is operator reporting/test coverage only; it does not mutate manifests, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P501 P19 stale test literals:
+
+Active tests should not preserve old exact P19 `8 missing rows` copy after the product wording moved to 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy warnings. Web and docs tests now rely on positive assertions for the current 6+2 copy and broader stale-label checks, while historical `decisions.md` entries remain append-only history. This is test/evidence cleanup only; it does not mutate P19/P379 evidence, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.

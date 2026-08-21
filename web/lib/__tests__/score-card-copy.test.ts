@@ -182,9 +182,6 @@ describe("score card copy", () => {
     expect(source).toContain(
       "Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape."
     );
-    expect(source).not.toContain(
-      "Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape; a 2021-2026 public-source sample found 8 missing rows out of 976."
-    );
     expect(source).not.toContain("measured recent-source misses exist.");
     expect(source).not.toContain("newer completions may be missing.");
     expect(source).toContain(
@@ -202,13 +199,7 @@ describe("score card copy", () => {
       "one of the 6 coordinate-backed HDB missing rows from frozen v1 in the ${RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}"
     );
     expect(source).not.toContain("one of the 6 coordinate-backed HDB missing rows from frozen v1 (${source})");
-    expect(source).not.toContain("one of the 8 recent public-source postals missing from frozen v1");
-    expect(source).not.toContain("8 missing rows out of 976 HDB completion and MCST proxy rows");
-    expect(source).not.toContain("8 missing rows out of 976 (0.82%) HDB completion and MCST proxy rows");
     expect(source).not.toContain("Recent public-sample check:");
-    expect(source).not.toContain(
-      "Recent public-sample check: 8 missing rows out of 976 completions from 2021-2026 with postals."
-    );
     expect(source).toContain(
       "20 Aug 2026 OSM addr:postcode coverage cross-check: 25,879 valid distinct postcodes measured; 25,873 overlap the 124,443 frozen postals, with 6 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry."
     );

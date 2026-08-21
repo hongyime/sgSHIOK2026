@@ -31,7 +31,6 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
         in normalized
     )
     assert "CANAAN and MYRA remain unvalidated MCST proxy warnings" in normalized
-    assert "P19 found 8 missing rows out of 976 HDB completion and MCST proxy rows" not in normalized
     assert "P125's 20 Aug 2026 Overpass coverage cross-check found 25,879 valid distinct OSM `addr:postcode` values" in normalized
     assert "P125's 20 Aug 2026 Overpass check found" not in normalized
     assert "valid distinct live OSM `addr:postcode` values" not in normalized
