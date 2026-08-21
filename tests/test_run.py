@@ -34,7 +34,12 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in run.__doc__
     assert "readiness --gate-summary prints the same release gate verdict and warnings without the full nested report." in run.__doc__
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in run.__doc__
-    assert "batch-plan dry-runs batch prerequisites and policy status without scoring." in run.__doc__
+    assert (
+        "batch-plan dry-runs one-attempt full-batch prerequisites and policy status "
+        "without scoring; execution still requires owner approval and bounded OneMap controls."
+        in run.__doc__
+    )
+    assert "batch-plan dry-runs batch prerequisites and policy status without scoring." not in run.__doc__
     assert "Gated pipeline tasks:" in run.__doc__
     assert (
         "ingest | lamp-overlay | network | score | score-batch | export | export-transit | validate | publish"
@@ -68,7 +73,12 @@ def test_run_help_headline_does_not_flatten_all_tasks():
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in help_text
     assert "readiness --gate-summary prints the same release gate verdict and warnings without the full nested report." in help_text
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in help_text
-    assert "batch-plan dry-runs batch prerequisites and policy status without scoring." in help_text
+    assert (
+        "batch-plan dry-runs one-attempt full-batch prerequisites and policy status "
+        "without scoring; execution still requires owner approval and bounded OneMap controls."
+        in help_text
+    )
+    assert "batch-plan dry-runs batch prerequisites and policy status without scoring." not in help_text
     assert "Gated pipeline tasks:" in help_text
     assert (
         "ingest | lamp-overlay | network | score | score-batch | export | export-transit | validate | publish"
@@ -95,6 +105,10 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
     )
     assert run.STUBS["compare-targeted"] == (
         "compare a targeted score report against the published shelter-map bundle"
+    )
+    assert run.STUBS["batch-plan"] == (
+        "dry-run one-attempt full postal geocode/scoring batch plan; execution still "
+        "requires owner approval and bounded OneMap controls"
     )
     assert "compare a targeted score report against the active bundle" not in run.STUBS.values()
 

@@ -12,7 +12,7 @@ Safe reports:
   p125-osm-status reads cached P125 20 Aug 2026 Overpass addr:postcode coverage cross-check and frozen v1 universe only, reporting OSM as geometry evidence rather than the address registry; it calls no APIs and writes no files.
   readiness validates the published shelter-map bundle and release gates without scoring or deploying.
   readiness --gate-summary prints the same release gate verdict and warnings without the full nested report.
-  batch-plan dry-runs batch prerequisites and policy status without scoring.
+  batch-plan dry-runs one-attempt full-batch prerequisites and policy status without scoring; execution still requires owner approval and bounded OneMap controls.
 
 Gated pipeline tasks:
   ingest | lamp-overlay | network | score | score-batch | export | export-transit | validate | publish
@@ -54,7 +54,7 @@ STUBS = {
     "bus-connector-diagnostics": "diagnose priority OneMap missing-bus connector cases",
     "candidate-audit": "audit ranked MRT/LRT and bus candidates for selected postals",
     "compare-targeted": "compare a targeted score report against the published shelter-map bundle",
-    "batch-plan": "dry-run full postal geocode/scoring batch plan (checkpoint C)",
+    "batch-plan": "dry-run one-attempt full postal geocode/scoring batch plan; execution still requires owner approval and bounded OneMap controls",
     "postal-universe": "build deterministic postal-code universe candidates",
     "geocode-universe": "bounded OneMap geocode fill for source-derived postal gaps",
     "export": "scores/{area}.json + geom/h3/{cell}.json + manifest (T1.5)",

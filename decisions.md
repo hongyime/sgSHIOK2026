@@ -1469,3 +1469,7 @@ The source config and readiness feature note should not imply that Overture Addr
 2026-08-22 - P524 agent OneMap token controls:
 
 Agent-facing startup guidance should carry the same postal-universe v2 OneMap Search boundary as README, batch-plan, and readiness: candidate validation is bounded by explicit token controls, 72-hour token refresh, and the current documented token-authenticated call-limit cap unless SLA approves a higher limit case-by-case. This is documentation/test coverage only; it does not call OneMap, mutate caches/inputs, build v2, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P525 runner batch-plan release boundary:
+
+`run.py --help` should expose the same full-batch release boundary as README, CLAUDE, batch-plan, and readiness. `batch-plan` is a dry-run safe report, but the full-batch execution it plans remains one-attempt only, requires owner approval, and must keep bounded OneMap controls. This is runner help/test coverage only; it does not run batch planning, call APIs, mutate caches/inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
