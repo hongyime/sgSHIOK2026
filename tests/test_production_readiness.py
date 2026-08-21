@@ -527,6 +527,8 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         "detail_path": "qa/p19/universe_gap_measurement_detail.json",
         "mcst_proxy_location_probe": {
             "command": "uv run python run.py p19-mcst-locations",
+            "command_calls_apis": False,
+            "command_writes_files": False,
             "cache_path": "qa/p379/p19_mcst_missing_onemap_cache.json",
             "report_path": "qa/p379/p19_mcst_missing_locations_report.json",
             "mcst_missing_rows": 2,

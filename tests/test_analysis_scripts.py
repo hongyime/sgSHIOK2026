@@ -407,3 +407,92 @@ def test_p379_locates_mcst_missing_rows_from_onemap_cache(tmp_path: Path) -> Non
         }
     ]
     assert report_path.is_file()
+
+
+def test_p379_cache_status_only_reports_existing_probe_without_writes(tmp_path: Path) -> None:
+    detail_path = tmp_path / "qa" / "p19" / "universe_gap_measurement_detail.json"
+    cache_path = tmp_path / "qa" / "p379" / "cache.json"
+    report_path = tmp_path / "qa" / "p379" / "report.json"
+    detail_path.parent.mkdir(parents=True)
+    cache_path.parent.mkdir(parents=True)
+    detail_path.write_text(
+        json.dumps(
+            {
+                "mcst_rows": [
+                    {
+                        "usr_mcno": "4918",
+                        "development_name": "MYRA",
+                        "development_location": "9 MEYAPPA CHETTIAR ROAD 935456",
+                        "postal": "935456",
+                        "mc_form_year": 2024,
+                        "in_v1": False,
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    cache_path.write_text(
+        json.dumps(
+            {
+                "9 MEYAPPA CHETTIAR ROAD 935456": {"status_code": 200, "found": 1},
+                "935456": {"status_code": 200, "found": 0},
+            }
+        ),
+        encoding="utf-8",
+    )
+    report_path.write_text(
+        json.dumps(
+            {
+                "mcst_missing_rows": 1,
+                "located_rows": 0,
+                "unlocated_rows": 1,
+                "unlocated": [
+                    {
+                        "development_name": "MYRA",
+                        "postal": "935456",
+                        "candidate_postals_by_query": {
+                            "9 MEYAPPA CHETTIAR ROAD 935456": ["935999"],
+                            "935456": [],
+                        },
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    before = {
+        path: path.read_text(encoding="utf-8")
+        for path in (detail_path, cache_path, report_path)
+    }
+    report = p379.cache_status_report(
+        detail_path=detail_path,
+        cache_path=cache_path,
+        report_path=report_path,
+    )
+    after = {
+        path: path.read_text(encoding="utf-8")
+        for path in (detail_path, cache_path, report_path)
+    }
+
+    assert after == before
+    assert report["mode"] == "p379_cache_status_only"
+    assert report["will_call_apis"] is False
+    assert report["will_write_files"] is False
+    assert report["will_score"] is False
+    assert report["will_export"] is False
+    assert report["will_mutate_p19"] is False
+    assert report["mcst_missing_rows_from_detail"] == 1
+    assert report["mcst_missing_rows"] == 1
+    assert report["located_rows"] == 0
+    assert report["unlocated_rows"] == 1
+    assert report["cache_query_count"] == 2
+    assert report["cache_queries"] == ["9 MEYAPPA CHETTIAR ROAD 935456", "935456"]
+    assert report["unlocated_developments"] == ["MYRA"]
+    assert report["conflicting_candidate_postals"] == {
+        "MYRA": {
+            "recorded_postal": "935456",
+            "candidate_postals": ["935999"],
+        }
+    }

@@ -1261,3 +1261,7 @@ Agent-facing startup guidance should carry the same P125 OSM measurement as READ
 2026-08-21 - P471 NOTICE lamp-post attribution:
 
 The public NOTICE attribution block should advance when the shipped source set advances. `NOTICE` now uses the S.H.I.O.K. Shelter Map name and lists `lamp_posts` as an LTA Singapore Open Data Licence source, matching the shipped `lamp_posts_v1` night lighting map layer. The repo-integrity expected NOTICE blob is intentionally updated to `5ccfd88ea706cb129bc602346d8db34fc8005781` so the sync-bot guard protects the newer attribution block rather than the older pre-night-lighting one. This is attribution/tripwire/test alignment only; it does not build lamp artifacts, mutate public data, score, export, deploy, or touch locked weights.
+
+2026-08-22 - P473 P19 MCST probe safe default:
+
+`run.py p19-mcst-locations` should be safe to inspect like the other P19/P125 status commands. The task runner now invokes `scripts.analysis.p19_mcst_missing_locations --cache-status-only`, which reads the existing P379 MCST probe cache/report and reports `will_call_apis: false` and `will_write_files: false` instead of defaulting to the write-capable OneMap probe. The underlying script still supports explicit direct refresh/probe runs, but operator policy and docs now mark the runner path as a read-only status command. This is measurement-tooling safety and documentation only; it does not call OneMap, mutate P19/P379 evidence, build v2, score, export, deploy, or touch locked weights.

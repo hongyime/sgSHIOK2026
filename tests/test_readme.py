@@ -109,7 +109,7 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "changed discovery URLs require a new numbered input version, not an in-place repair" in normalized
     assert "`pipeline/config/weights.yaml` — locked score weights." in normalized
     assert "`run.py` — cross-platform task runner for safe reports" in normalized
-    assert "`p19-gap-status`, `p125-osm-status`, `readiness`, `batch-plan`" in normalized
+    assert "`p19-gap-status`, `p19-mcst-locations`, `p125-osm-status`, `readiness`, `batch-plan`" in normalized
     assert (
         "and gated pipeline tasks (`ingest`, `lamp-overlay`, `network`, `score`, `export`, `validate`, `publish`, `test`)"
         in normalized

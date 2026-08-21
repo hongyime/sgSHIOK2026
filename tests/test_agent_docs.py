@@ -47,7 +47,7 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "Night Safety is a map overlay only" not in normalized
     assert "task runner: safe reports" in normalized
     assert "check --freshness-only, check --geospatial-discovery-only" in normalized
-    assert "p19-gap-status, p125-osm-status, readiness, batch-plan" in normalized
+    assert "p19-gap-status, p19-mcst-locations, p125-osm-status, readiness, batch-plan" in normalized
     assert "uv run python run.py <task>" in normalized
     assert "uv run python run.py test" in normalized
     assert "uv run python run.py publish" in normalized

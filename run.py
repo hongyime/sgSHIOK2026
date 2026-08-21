@@ -4,10 +4,11 @@
 Usage: uv run python run.py <task> [options]
 
 Safe reports:
-  check --freshness-only | check --geospatial-discovery-only | p19-gap-status | p125-osm-status | readiness | batch-plan
+  check --freshness-only | check --geospatial-discovery-only | p19-gap-status | p19-mcst-locations | p125-osm-status | readiness | batch-plan
   check --freshness-only reads raw/manifest.json only; it probes no upstream URLs and writes no manifest.
   check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads and writes no manifest.
   p19-gap-status reads cached P19 measurement status, evidence split, missing rows, MCST proxy probe and cache ages only; it calls no APIs and writes no files.
+  p19-mcst-locations reads existing P379 MCST proxy probe status only; it calls no APIs and writes no files.
   p125-osm-status reads cached P125 Overpass output and frozen v1 universe only; it calls no APIs and writes no files.
   readiness validates the published shelter-map bundle and release gates without scoring or deploying.
   batch-plan dry-runs batch prerequisites and policy status without scoring.
@@ -40,7 +41,7 @@ STUBS = {
     "onemap-outlier-triage": "build QA queues from profiled OneMap outlier replays",
     "overture-addresses": "probe Overture Addresses SG postal-universe candidate",
     "p19-gap-status": "read-only status, evidence split, missing rows, MCST proxy probe and cache ages for cached P19 postal-universe gap measurement",
-    "p19-mcst-locations": "bounded OneMap location probe for cached P19 MCST proxy missing rows",
+    "p19-mcst-locations": "read-only status for the cached P379 OneMap location probe of P19 MCST proxy missing rows",
     "p125-osm-status": "read-only status for cached P125 OSM addr:postcode coverage measurement",
     "readiness": "fast production-readiness report without scoring or deploying",
     "refresh-provenance": "refresh bundle manifest score provenance without rescoring",
@@ -102,7 +103,7 @@ def run_task(name: str, extra: list[str]) -> int:
     if name == "p19-gap-status":
         return run_module("scripts.analysis.p19_universe_gap_measurement", ["--cache-status-only"])
     if name == "p19-mcst-locations":
-        return run_module("scripts.analysis.p19_mcst_missing_locations")
+        return run_module("scripts.analysis.p19_mcst_missing_locations", ["--cache-status-only"])
     if name == "p125-osm-status":
         return run_module("scripts.analysis.p125_osm_postcode_status")
     if name == "readiness":

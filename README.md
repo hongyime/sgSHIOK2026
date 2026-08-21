@@ -93,7 +93,8 @@ reruns, deploy, or repoint the live site without explicit owner approval.
 - `.github/workflows/` — CI and repository automation workflows.
 - `env.example` — copy to `.env` and fill in (see prerequisites).
 - `run.py` — cross-platform task runner for safe reports (`check --freshness-only`,
-  `check --geospatial-discovery-only`, `p19-gap-status`, `p125-osm-status`, `readiness`, `batch-plan`)
+  `check --geospatial-discovery-only`, `p19-gap-status`, `p19-mcst-locations`,
+  `p125-osm-status`, `readiness`, `batch-plan`)
   and gated pipeline tasks (`ingest`, `lamp-overlay`, `network`, `score`,
   `export`, `validate`, `publish`, `test`). `publish` always runs `validate` first.
 

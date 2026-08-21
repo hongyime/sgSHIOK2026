@@ -1,7 +1,9 @@
-"""Locate cached P19 MCST proxy misses through bounded OneMap Search.
+"""Report or refresh cached P19 MCST proxy location probes.
 
-This is a two-row measurement for the P19 MCST proxy rows that are absent from
-frozen v1. It writes a new numbered P379 cache/report and never mutates the
+The default `run.py p19-mcst-locations` path uses `--cache-status-only` and
+only reads the existing P379 cache/report. Explicit direct script runs without
+that flag can locate the two P19 MCST proxy rows through bounded OneMap Search;
+that mode writes a new numbered P379 cache/report and never mutates the
 original P19 measurement files.
 """
 
@@ -222,11 +224,90 @@ def build_report(
     return report
 
 
+def cache_status_report(
+    *,
+    detail_path: Path = DETAIL_OUTPUT,
+    cache_path: Path = CACHE_OUTPUT,
+    report_path: Path = REPORT_OUTPUT,
+) -> dict[str, Any]:
+    report_payload = load_json(report_path, {})
+    cache_payload = load_json(cache_path, {})
+    rows = p19_mcst_missing_rows(detail_path)
+    cache_queries = sorted(cache_payload) if isinstance(cache_payload, dict) else []
+    unlocated = report_payload.get("unlocated", []) if isinstance(report_payload, dict) else []
+    conflicting_candidate_postals: dict[str, dict[str, Any]] = {}
+    if isinstance(unlocated, list):
+        for row in unlocated:
+            if not isinstance(row, dict):
+                continue
+            recorded_postal = normalize_postal(row.get("postal"))
+            development = row.get("development_name")
+            candidates = sorted(
+                {
+                    candidate
+                    for values in (row.get("candidate_postals_by_query") or {}).values()
+                    if isinstance(values, list)
+                    for candidate in values
+                    if normalize_postal(candidate) is not None
+                    and normalize_postal(candidate) != recorded_postal
+                }
+            )
+            if development and recorded_postal and candidates:
+                conflicting_candidate_postals[str(development)] = {
+                    "recorded_postal": recorded_postal,
+                    "candidate_postals": candidates,
+                }
+    return {
+        "mode": "p379_cache_status_only",
+        "will_call_apis": False,
+        "will_write_files": False,
+        "will_score": False,
+        "will_export": False,
+        "will_mutate_p19": False,
+        "detail_path": relative_path(detail_path),
+        "detail_exists": detail_path.is_file(),
+        "cache_path": relative_path(cache_path),
+        "cache_exists": cache_path.is_file(),
+        "cache_bytes": cache_path.stat().st_size if cache_path.is_file() else None,
+        "cache_query_count": len(cache_queries),
+        "cache_queries": cache_queries,
+        "report_path": relative_path(report_path),
+        "report_exists": report_path.is_file(),
+        "report_bytes": report_path.stat().st_size if report_path.is_file() else None,
+        "mcst_missing_rows_from_detail": len(rows),
+        "mcst_missing_rows": report_payload.get("mcst_missing_rows")
+        if isinstance(report_payload, dict)
+        else None,
+        "located_rows": report_payload.get("located_rows")
+        if isinstance(report_payload, dict)
+        else None,
+        "unlocated_rows": report_payload.get("unlocated_rows")
+        if isinstance(report_payload, dict)
+        else None,
+        "unlocated_developments": sorted(
+            {
+                str(row.get("development_name"))
+                for row in unlocated
+                if isinstance(row, dict) and row.get("development_name")
+            }
+        ),
+        "conflicting_candidate_postals": conflicting_candidate_postals,
+    }
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--delay-sec", type=float, default=0.25)
     parser.add_argument("--refresh-cache", action="store_true")
+    parser.add_argument(
+        "--cache-status-only",
+        action="store_true",
+        help="Read existing P379 cache/report status only; do not call OneMap and do not write files.",
+    )
     args = parser.parse_args(argv)
+    if args.cache_status_only:
+        print(json.dumps(cache_status_report(), indent=2, sort_keys=True))
+        return 0
     print(
         json.dumps(
             build_report(delay_sec=args.delay_sec, refresh_cache=args.refresh_cache),

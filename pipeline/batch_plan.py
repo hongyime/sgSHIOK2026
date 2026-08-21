@@ -68,6 +68,8 @@ RECENT_PUBLIC_SOURCE_GAP_SAMPLE = {
     "detail_path": "qa/p19/universe_gap_measurement_detail.json",
     "mcst_proxy_location_probe": {
         "command": "uv run python run.py p19-mcst-locations",
+        "command_calls_apis": False,
+        "command_writes_files": False,
         "cache_path": "qa/p379/p19_mcst_missing_onemap_cache.json",
         "report_path": "qa/p379/p19_mcst_missing_locations_report.json",
         "mcst_missing_rows": 2,

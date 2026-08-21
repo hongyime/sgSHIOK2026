@@ -11,7 +11,7 @@ def test_run_docstring_uses_uv_managed_invocation():
 def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     assert "Safe reports:" in run.__doc__
     assert (
-        "check --freshness-only | check --geospatial-discovery-only | p19-gap-status | p125-osm-status | readiness | batch-plan"
+        "check --freshness-only | check --geospatial-discovery-only | p19-gap-status | p19-mcst-locations | p125-osm-status | readiness | batch-plan"
         in run.__doc__
     )
     assert "check --freshness-only reads raw/manifest.json only; it probes no upstream URLs and writes no manifest." in run.__doc__
@@ -20,6 +20,7 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         in run.__doc__
     )
     assert "p19-gap-status reads cached P19 measurement status, evidence split, missing rows, MCST proxy probe and cache ages only; it calls no APIs and writes no files." in run.__doc__
+    assert "p19-mcst-locations reads existing P379 MCST proxy probe status only; it calls no APIs and writes no files." in run.__doc__
     assert "p125-osm-status reads cached P125 Overpass output and frozen v1 universe only; it calls no APIs and writes no files." in run.__doc__
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in run.__doc__
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in run.__doc__
@@ -43,6 +44,7 @@ def test_run_help_headline_does_not_flatten_all_tasks():
         in help_text
     )
     assert "p19-gap-status reads cached P19 measurement status, evidence split, missing rows, MCST proxy probe and cache ages only; it calls no APIs and writes no files." in help_text
+    assert "p19-mcst-locations reads existing P379 MCST proxy probe status only; it calls no APIs and writes no files." in help_text
     assert "p125-osm-status reads cached P125 Overpass output and frozen v1 universe only; it calls no APIs and writes no files." in help_text
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in help_text
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in help_text
@@ -162,6 +164,7 @@ def test_run_task_exposes_p19_mcst_location_probe_module(monkeypatch):
                 sys.executable,
                 "-m",
                 "scripts.analysis.p19_mcst_missing_locations",
+                "--cache-status-only",
             ],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
