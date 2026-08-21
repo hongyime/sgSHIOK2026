@@ -907,3 +907,6 @@ The OneMap address-search no-results live-region announcement should carry the s
 
 2026-08-21 - P327 missing locked-term display copy:
 Missing shelter/access display-row values should be framed as unavailable evidence or unavailable locked terms, not as generic "Not scored" component rows. The four-row shelter-map breakdown now renders missing per-term values as "Unavailable", uses "Shelter evidence unavailable" and "Access term unavailable" for the row metadata, and keeps the full locked-score fallback as "No full locked score". This is web copy and test coverage only; it does not change score values, row inclusion, ranking logic, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P328 outside-bundle empty-state bundle naming:
+The outside-bundle visible empty state should name the shelter-map bundle explicitly, matching the surrounding product framing and the non-visual announcement. It now says "this shelter-map bundle is tied to the frozen June 2020 address universe" instead of "the current bundle is tied..." while preserving the 8-of-976 recent public-source caveat. This is web copy and test coverage only; it does not change lookup logic, score values, exports, public data, pipeline inputs, or locked weights.

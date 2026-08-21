@@ -1058,7 +1058,7 @@ export function ScoreCard({
         <h2>{postalTitle(selection)}</h2>
         <div className={styles.emptyState}>
           <strong>Outside shelter-map bundle</strong>
-          <span>No shelter-map walk is published for this postal; the current bundle is tied to the frozen June 2020 address universe, and the recent public-source check found 8 missing rows out of 976.</span>
+          <span>No shelter-map walk is published for this postal; this shelter-map bundle is tied to the frozen June 2020 address universe, and the recent public-source check found 8 missing rows out of 976.</span>
         </div>
       </section>
     );
