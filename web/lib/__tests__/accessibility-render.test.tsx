@@ -528,8 +528,9 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Locked score no full locked score in this bundle.");
     expect(html).not.toContain("No full score in this bundle");
     expect(html).toContain(
-      "This postal is in the frozen v1 address universe, but the current published bundle has not scored it yet."
+      "This postal is in the frozen v1 address universe, but this shelter-map bundle has no published full locked score for it yet."
     );
+    expect(html).not.toContain("the current published bundle has not scored it yet");
     expect(html).not.toContain("Locked score not scored.");
     expect(html).not.toContain("source universe");
     expect(html).not.toContain("current offline bundle");

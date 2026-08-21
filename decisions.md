@@ -838,3 +838,6 @@ The planning-area comparison empty state should say that comparable full locked 
 
 2026-08-21 - P304 planning-area comparison header:
 The rank panel header should say `Compare planning-area records` instead of `Compare nearby records`, because the panel loads planning-area ranks rather than a distance-nearby sample. This is browser copy and rendered test coverage only; it does not alter rank loading, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P305 awaiting locked-score state note:
+The `NOT_YET_SCORED` state note should describe user-visible availability, not internal pipeline scoring status. It now says the postal is in the frozen v1 address universe but this shelter-map bundle has no published full locked score for it yet. This is browser copy and rendered test coverage only; it does not alter score states, score values, scoring, exports, public data, deployment, or locked weights.

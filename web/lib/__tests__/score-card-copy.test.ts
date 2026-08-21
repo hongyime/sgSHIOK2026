@@ -57,6 +57,11 @@ describe("score card copy", () => {
     expect(smokeSource).toContain('summary.cardText.includes("Awaiting locked score")');
     expect(smokeSource).not.toContain('summary.cardText.includes("No full score in this bundle")');
     expect(smokeSource).not.toContain("needs usable location evidence");
+    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    expect(source).toContain(
+      "This postal is in the frozen v1 address universe, but this shelter-map bundle has no published full locked score for it yet."
+    );
+    expect(source).not.toContain("the current published bundle has not scored it yet");
   });
 
   it("keeps browser smoke aligned with walk-display controls", () => {
