@@ -29,7 +29,11 @@ from pipeline.batch_plan import (
     build_batch_plan,
 )
 from pipeline.export import validate_static_artifacts
-from pipeline.fetch import oldest_current_freshness_summary, source_freshness_status
+from pipeline.fetch import (
+    STALE_FRESHNESS_ACTION,
+    oldest_current_freshness_summary,
+    source_freshness_status,
+)
 from pipeline.network_qa import validate_network_qa
 from pipeline.scoring_integration import SCORING_FINGERPRINT_FILES, SCORE_PROVENANCE_SOURCE_HASH_KEYS
 from scripts.audit_current_bundle import active_bundle_dir, build_report, summarize_state_report
@@ -301,6 +305,8 @@ def source_freshness_readiness(
         for status_key, keys in notable.items()
         if status_key != "current" and keys
     ]
+    if by_status["stale"]:
+        warning_parts.append(STALE_FRESHNESS_ACTION)
     summary = (
         f"manifest-only source freshness checked at {checked_at.isoformat()}: "
         f"current {counts.get('current', 0)}, "

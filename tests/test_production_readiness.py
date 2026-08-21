@@ -370,7 +370,10 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
         "manifest-only source freshness checked at 2026-08-16T00:00:00+00:00: current 1"
     )
     assert status["warning"] == (
-        "source freshness warning: stale sources: stale (Stale); unknown_age sources: unknown_age (Unknown Age)"
+        "source freshness warning: stale sources: stale (Stale); "
+        "unknown_age sources: unknown_age (Unknown Age); "
+        "Stale freshness action: report and plan a versioned refresh; "
+        "do not mutate frozen v1 in place."
     )
 
 
