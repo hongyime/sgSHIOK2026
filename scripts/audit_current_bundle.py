@@ -433,10 +433,14 @@ def summarize_state_report(report: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Fast audit of the published shelter-map bundle.")
     parser.add_argument("--bundle-dir", type=Path, default=None)
-    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument(
+        "--output",
+        type=Path,
+        help="Explicit audit report path; replay audits refuse the historical default.",
+    )
     parser.add_argument("--replay-limit", type=int, default=30)
     parser.add_argument("--network", type=Path, default=DEFAULT_NETWORK)
     parser.add_argument("--postal-universe", type=Path, default=DEFAULT_UNIVERSE)
@@ -445,12 +449,36 @@ def main() -> int:
         action="store_true",
         help="Print published shelter-map bundle state counts without writing a QA report.",
     )
-    args = parser.parse_args()
+    parser.add_argument(
+        "--confirm-replay-audit",
+        action="store_true",
+        help="Required before loading scoring context for the replay sample.",
+    )
+    args = parser.parse_args(argv)
+
+    replay_limit = max(0, int(args.replay_limit))
+    errors = []
+    if not args.state_only and args.output is None:
+        errors.append("published bundle audit requires explicit --output")
+    if not args.state_only and replay_limit > 0 and not args.confirm_replay_audit:
+        errors.append("published bundle replay audit requires --confirm-replay-audit")
+    if errors:
+        print(
+            json.dumps(
+                {
+                    "ok": False,
+                    "errors": errors,
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 1
 
     bundle_dir = args.bundle_dir if args.bundle_dir is not None else active_bundle_dir()
     report = build_report(
         bundle_dir=bundle_dir,
-        replay_limit=0 if args.state_only else max(0, int(args.replay_limit)),
+        replay_limit=0 if args.state_only else replay_limit,
         network_path=args.network,
         postal_universe_path=args.postal_universe,
     )

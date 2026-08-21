@@ -1501,3 +1501,7 @@ Partial resnap comparison is a bounded scoring operation, not a report-only audi
 2026-08-22 - P532 OneMap outlier replay confirmation guard:
 
 OneMap outlier replay is a bounded rescoring diagnostic, not a report-only audit. `scripts.replay_onemap_outliers` now requires both `--confirm-outlier-replay` and explicit `--output` before loading scoring context, calling `score_postal_gdf()`, or writing a replay report, instead of defaulting to `qa/onemap_outlier_replay_20260802.json`. This is command safety/test coverage only; it does not score, export, mutate public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P533 published bundle replay audit guard:
+
+The full published-bundle audit can replay sampled records through scoring context, so it is not equivalent to the read-only `--state-only` report. `scripts.audit_current_bundle` now keeps `--state-only` available without output or confirmation, but non-state audits require explicit `--output`, and replay samples require `--confirm-replay-audit` before active-bundle lookup, scoring-context loading, or report writes. This is command safety/test coverage only; it does not score, export, mutate public data, protected QA evidence, deployment, or locked weights.

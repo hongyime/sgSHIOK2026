@@ -1,6 +1,7 @@
+import json
 from pathlib import Path
 
-from scripts.audit_current_bundle import sample_postals, summarize_state_report
+from scripts.audit_current_bundle import main, sample_postals, summarize_state_report
 
 
 def _record(
@@ -88,3 +89,109 @@ def test_audit_cli_description_names_deployed_shelter_map_bundle():
     assert "Fast audit of the current deployed shelter-map bundle." not in source
     assert "Print current bundle state counts without writing a QA report." not in source
     assert "Fast audit of the current deployed score bundle." not in source
+
+
+def test_audit_cli_requires_confirmation_and_output_before_bundle_lookup(
+    monkeypatch, capsys
+):
+    from scripts import audit_current_bundle
+
+    def fail_active_bundle_dir():
+        raise AssertionError("active bundle lookup should not run before CLI guard")
+
+    monkeypatch.setattr(audit_current_bundle, "active_bundle_dir", fail_active_bundle_dir)
+
+    assert main(["--replay-limit", "1"]) == 1
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "errors": [
+            "published bundle audit requires explicit --output",
+            "published bundle replay audit requires --confirm-replay-audit",
+        ],
+        "ok": False,
+    }
+
+
+def test_audit_cli_state_only_remains_read_only_without_output(monkeypatch, capsys, tmp_path):
+    from scripts import audit_current_bundle
+
+    calls = []
+
+    def fake_active_bundle_dir():
+        return tmp_path / "bundle"
+
+    def fake_build_report(**kwargs):
+        calls.append(kwargs)
+        return {
+            "bundle": "generated_example",
+            "manifest_record_count": 2,
+            "state_counts": {"SCORED": 2},
+            "not_yet_scored": {"count": 0},
+            "no_transit_in_range": {"count": 0},
+        }
+
+    monkeypatch.setattr(audit_current_bundle, "active_bundle_dir", fake_active_bundle_dir)
+    monkeypatch.setattr(audit_current_bundle, "build_report", fake_build_report)
+
+    assert main(["--state-only"]) == 0
+
+    assert calls
+    assert calls[0]["replay_limit"] == 0
+    out = capsys.readouterr().out
+    summary = json.loads(out)
+    assert summary == {
+        "bundle": "generated_example",
+        "manifest_record_count": 2,
+        "no_transit_count": 0,
+        "not_yet_count": 0,
+        "state_counts": {"SCORED": 2},
+    }
+
+
+def test_audit_cli_runs_confirmed_replay_audit_with_explicit_output(
+    monkeypatch, capsys, tmp_path
+):
+    from scripts import audit_current_bundle
+
+    output = tmp_path / "bundle_audit.json"
+    calls = []
+
+    def fake_build_report(**kwargs):
+        calls.append(kwargs)
+        return {
+            "bundle": "generated_example",
+            "manifest_record_count": 2,
+            "state_counts": {"SCORED": 2},
+            "not_yet_scored": {"count": 0},
+            "no_transit_in_range": {"count": 0},
+        }
+
+    monkeypatch.setattr(audit_current_bundle, "build_report", fake_build_report)
+
+    assert (
+        main(
+            [
+                "--confirm-replay-audit",
+                "--bundle-dir",
+                str(tmp_path / "bundle"),
+                "--output",
+                str(output),
+                "--replay-limit",
+                "1",
+            ]
+        )
+        == 0
+    )
+
+    assert calls
+    assert calls[0]["replay_limit"] == 1
+    assert json.loads(output.read_text(encoding="utf-8"))["bundle"] == "generated_example"
+    out = capsys.readouterr().out
+    summary = json.loads(out)
+    assert summary == {
+        "ok": True,
+        "output": str(output),
+        "bundle": "generated_example",
+    }
