@@ -1554,7 +1554,7 @@ export function ScoreCard({
               </div>
               {feedbackSegmentLabels.map((label, index) => (
                 <label key={`segment-${index}`} className={styles.segmentLabel}>
-                  <span>Segment {index + 1}</span>
+                  <span>Walk segment {index + 1}</span>
                   <select
                     value={label}
                     onChange={(event) =>

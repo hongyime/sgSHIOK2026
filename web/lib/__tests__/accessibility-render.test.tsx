@@ -552,7 +552,9 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Copy walk QA JSON");
     expect(html).toContain("Done tracing");
     expect(html).toContain("2 points / 1 walk segments");
+    expect(html).toContain("Walk segment 1");
     expect(html).not.toContain("2 points / 1 segments");
+    expect(html).not.toContain(">Segment 1</span>");
     expect(html).not.toContain('placeholder="Optional route note"');
     expect(html).not.toContain("Copy QA JSON");
     expect(html).not.toContain("Suggest better route");

@@ -1135,3 +1135,6 @@ The score-card live region should announce the longest exposed gap as well as to
 
 2026-08-21 - P406 traced walk segment counter:
 The traced-correction feedback editor should count `walk segments` rather than generic `segments`, because the control is for user-suggested walking evidence corrections and now consistently uses walk-framed labels. This is browser copy and test coverage only; it does not mutate feedback JSON compatibility fields, route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P407 traced walk segment selector labels:
+The traced-correction feedback editor should label each segment selector as `Walk segment N` rather than generic `Segment N`, matching the walk-framed counter and correction actions. This is browser copy and test coverage only; it does not mutate feedback JSON compatibility fields, route geometry, scoring, exports, public data, deployment, or locked weights.
