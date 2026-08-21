@@ -1381,3 +1381,7 @@ Active tests should not preserve old exact P19 `8 missing rows` copy after the p
 2026-08-22 - P502 freshness summary source names:
 
 The manifest-only freshness report should include source display names in grouped stale/manual/unknown-age summaries, not only source keys. This keeps `run.py check --freshness-only` actionable as an operator report without requiring the user to cross-reference `pipeline/config/sources.yaml`. This is operator reporting/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P503 UI freshness source names:
+
+The browser first-view data-freshness line should use the same source display names as the manifest-only freshness report when listing stale sources. The stale list now names Traffic Signals, Planning Area Boundaries (MP2019 No Sea), NParks Nature Ways, NParks Tracks, NParks Heritage Trees, and NParks Heritage Road Green Buffers instead of a lowercased shorthand. This is copy/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
