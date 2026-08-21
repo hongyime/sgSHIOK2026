@@ -142,6 +142,7 @@ const SOURCE_IDS = [
 ] as const;
 const EMPTY_TRANSIT_POIS: TransitPoiCollection = { type: "FeatureCollection", features: [] };
 const TRANSIT_POI_HOT_PINK = "#ff2d75";
+const TRANSIT_POI_BUS_PURPLE = "#6f4c8b";
 const LAMP_OVERLAY_MIN_ZOOM = 13;
 const LAMP_LAYER_IDS = ["lamp-post-dots"] as const;
 type LampOverlayStatus = "off" | "below_zoom" | "loading" | "empty" | "loaded" | "unavailable";
@@ -511,7 +512,7 @@ function ensureRouteLayers(map: maplibregl.Map) {
       minzoom: 11.5,
       filter: ["==", ["get", "kind"], "bus_stop"],
       paint: {
-        "circle-color": TRANSIT_POI_HOT_PINK,
+        "circle-color": TRANSIT_POI_BUS_PURPLE,
         "circle-radius": ["interpolate", ["linear"], ["zoom"], 11.5, 5, 15, 7, 18, 9],
         "circle-opacity": 1.0,
         "circle-stroke-color": "#ffffff",
@@ -553,7 +554,7 @@ function ensureRouteLayers(map: maplibregl.Map) {
         "text-optional": true,
       },
       paint: {
-        "text-color": "#9d174d",
+        "text-color": "#4c3760",
         "text-halo-color": "#ffffff",
         "text-halo-width": 1.5,
         "text-opacity": ["interpolate", ["linear"], ["zoom"], 15.0, 0.7, 18, 0.95],

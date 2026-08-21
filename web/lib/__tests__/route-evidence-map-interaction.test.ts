@@ -15,12 +15,16 @@ describe("shelter map interactions", () => {
   it("keeps shelter-map evidence and transit POIs visible on the subdued basemap", () => {
     const source = readFileSync(join(__dirname, "../../components/route-evidence-map.tsx"), "utf-8");
     const cssSource = readFileSync(join(__dirname, "../../components/route-evidence-map.module.css"), "utf-8");
+    const appCssSource = readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8");
 
     expect(source).toContain('"line-width": 6.8');
     expect(source).toContain('"line-width": 4.8');
     expect(source).toContain('minzoom: 9.8');
     expect(source).toContain('minzoom: 11.5');
     expect(source).toContain('TRANSIT_POI_HOT_PINK');
+    expect(source).toContain('const TRANSIT_POI_BUS_PURPLE = "#6f4c8b";');
+    expect(source).toContain('"circle-color": TRANSIT_POI_BUS_PURPLE');
+    expect(source).toContain('"text-color": "#4c3760"');
     expect(source).toContain('"lamp-posts"');
     expect(source).toContain('id: "lamp-post-dots"');
     expect(source).toContain("LAMP_OVERLAY_MIN_ZOOM");
@@ -31,6 +35,7 @@ describe("shelter map interactions", () => {
     expect(source).toContain('{visibleLampOverlaySummary && (');
     expect(cssSource).toContain(".lampOverlayStatus");
     expect(cssSource).toContain("max-width: min(88vw, 360px);");
+    expect(appCssSource).toContain(".busDot {\n  background: #6f4c8b;");
   });
 
   it("uses sheltered walk copy in non-visual map summaries", () => {

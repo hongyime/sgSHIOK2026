@@ -1087,3 +1087,6 @@ Batch-plan and production-readiness source policy should expose the same lamp-ov
 
 2026-08-21 - P390 night-lighting map legend:
 The night-lighting overlay is the settled second map layer, so when it is enabled the visible map legend should name the lamp-post points instead of leaving them only in the toggle/status copy. The inline legend now adds `LTA lamp points` only while the lamp overlay is enabled, using the same yellow lamp marker color as the layer control. This is browser copy/styling and test coverage only; it does not rebuild the lamp artifact, write public data, score, export, deploy, or touch locked weights.
+
+2026-08-21 - P391 distinct bus-stop map color:
+The transit POI layer should let users visually distinguish MRT/LRT access points from bus stops while comparing walks to transit. Bus-stop dots and labels now use a distinct purple, and the inline legend bus dot matches that color; MRT/LRT dots remain hot pink. This is browser map styling and test coverage only; it does not mutate transit data, score, export, deploy, public data, or locked weights.
