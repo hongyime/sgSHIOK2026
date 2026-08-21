@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P436 code commit: `df01799`; state-only commits may follow it on `main`.
+Latest P437 code commit: `8ca6a67`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P437 is complete and committed: the bus fallback reason chip now says `Nearby bus service without verified shelter-map walk` instead of terse `not walk-verified` wording. Focused accessibility/source-copy tests, repo integrity, and protected-diff checks passed.
 - P436 is complete and committed: the `Bus service support` note now says the published shelter-map walk could not prove access to an official LTA bus stop, replacing the source-system phrase `DataMall bus stop`. Focused accessibility/source-copy tests, repo integrity, and protected-diff checks passed.
 - P435 is complete and committed: the shelter-map evidence reason chip now says `240 m sheltered walk to transit` instead of the context-free `240 m to transit`, so distance reasons name the walk that produced the evidence. Focused accessibility/source-copy tests, repo integrity, and protected-diff checks passed.
 - P434 is complete and committed: the `Best transit` target chip now says `displayed walk` instead of `current walk`, aligning the transit-target control with the displayed-walk wording used in the score card. Focused accessibility/source-copy tests, repo integrity, and protected-diff checks passed.
