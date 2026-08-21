@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P428 code commit: `a64c464`; state-only commits may follow it on `main`.
+Latest P429 code commit: `d4550a5`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P429 is complete and committed: exposure hero and exposed-gap summary copy now name the actual displayed walk (`sheltered walk`, `shortest walk`, `OneMap preview walk`, or `direct bus line estimate`) instead of generic `selected walk`. Focused accessibility render test, repo integrity, and protected-diff checks passed.
 - P428 is complete and committed: the exposure hero now names the primary metric directly as `62% covered-walkway ratio on the selected walk`, instead of the weaker `62% of the selected walk is covered`. Focused accessibility render test, repo integrity, and protected-diff checks passed.
 - P427 is complete and committed: `web/lib/data.ts` now documents that the browser defaults to the pinned published static shelter-map bundle in `web/data-bundle.json`, not the latest validated bundle. Focused data-base test, repo integrity, and protected-diff checks passed.
 - P426 is complete and committed: the night-lighting detail strip and layer note now say `zoom in for lamp-post points` / `load lamp-post points` instead of generic `points`, keeping the source-specific lamp-post wording consistent. Focused web copy/accessibility/map-interaction tests, repo integrity, and protected-diff checks passed.
