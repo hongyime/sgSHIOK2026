@@ -300,7 +300,7 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain(
-      "Postal 560231 is outside the shelter-map bundle tied to the frozen June 2020 address universe; recent public-source check found 8 missing rows out of 976 (0.82%) HDB completion and MCST proxy rows from 2021-2026 with postals."
+      "Postal 560231 is outside the shelter-map bundle tied to the frozen June 2020 address universe; the recent public-source check found 8 missing rows out of 976 (0.82%) HDB completion and MCST proxy rows from 2021-2026 with postals."
     );
     expect(html).toContain("Outside shelter-map bundle");
     expect(html).not.toContain("Postal 560231 is not in the current shelter-map bundle.");
@@ -318,6 +318,33 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("No shelter map route is published for this postal");
     expect(html).not.toContain("No shelter map route is published for this postal in the frozen June 2020 address universe.");
     expect(html).not.toContain("No route evidence is published for this postal");
+  });
+
+  it("names known P19 recent-source misses when the selected postal matches the cached list", () => {
+    const html = renderScoreCard({
+      selection: {
+        ...selection,
+        result: {
+          ...selection.result,
+          BUILDING: "Postal 521400",
+          POSTAL: "521400",
+          SEARCHVAL: "S521400",
+        },
+        score: null,
+        geom: null,
+      },
+      rankingRecords: [],
+    });
+
+    expect(html).toContain(
+      "Postal 521400 is outside the shelter-map bundle tied to the frozen June 2020 address universe; this postal is one of the 8 cached recent public-source misses (HDB 2021-2026 geocoded rows)."
+    );
+    expect(html).toContain(
+      "No shelter-map walk is published for this postal; this shelter-map bundle is tied to the frozen June 2020 address universe, and this postal is one of the 8 cached recent public-source misses (HDB 2021-2026 geocoded rows)."
+    );
+    expect(html).not.toContain(
+      "Postal 521400 is outside the shelter-map bundle tied to the frozen June 2020 address universe; recent public-source check found 8 missing rows out of 976"
+    );
   });
 
   it("renders the route exposure lead and four-row score presentation", () => {

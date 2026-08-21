@@ -101,6 +101,25 @@ const REASON_COPY: Record<keyof Subscores, { low: string; high: string }> = {
 const RECENT_PUBLIC_SOURCE_GAP_COPY =
   "8 missing rows out of 976 (0.82%) HDB completion and MCST proxy rows from 2021-2026 with postals";
 
+const RECENT_PUBLIC_SOURCE_MISSING_POSTAL_SOURCE: Record<string, string> = {
+  "521400": "HDB 2021-2026 geocoded rows",
+  "522400": "HDB 2021-2026 geocoded rows",
+  "523400": "HDB 2021-2026 geocoded rows",
+  "762936": "HDB 2021-2026 geocoded rows",
+  "763936": "HDB 2021-2026 geocoded rows",
+  "764936": "HDB 2021-2026 geocoded rows",
+  "378720": "MCST 2021-2026 proxy rows",
+  "935456": "MCST 2021-2026 proxy rows",
+};
+
+function recentPublicSourceGapCopyForPostal(postal?: string): string {
+  const source = postal ? RECENT_PUBLIC_SOURCE_MISSING_POSTAL_SOURCE[postal] : undefined;
+  if (source) {
+    return `this postal is one of the 8 cached recent public-source misses (${source})`;
+  }
+  return `the recent public-source check found ${RECENT_PUBLIC_SOURCE_GAP_COPY}`;
+}
+
 interface DirectBusFallbackEvidence {
   bestExpectedWaitMin: number;
   candidateCount: number | null;
@@ -184,7 +203,7 @@ export function scoreCardAnnouncement({
   if (!selection) return "No shelter map walk selected.";
   const postal = postalTitle(selection);
   if (!selection.score) {
-    return `${postal} is outside the shelter-map bundle tied to the frozen June 2020 address universe; recent public-source check found ${RECENT_PUBLIC_SOURCE_GAP_COPY}.`;
+    return `${postal} is outside the shelter-map bundle tied to the frozen June 2020 address universe; ${recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.`;
   }
   const scoreText = displayScore === null || displayScore === undefined
     ? "no full locked score in this bundle"
@@ -1078,7 +1097,7 @@ export function ScoreCard({
         <h2>{postalTitle(selection)}</h2>
         <div className={styles.emptyState}>
           <strong>Outside shelter-map bundle</strong>
-          <span>No shelter-map walk is published for this postal; this shelter-map bundle is tied to the frozen June 2020 address universe, and the recent public-source check found {RECENT_PUBLIC_SOURCE_GAP_COPY}.</span>
+          <span>No shelter-map walk is published for this postal; this shelter-map bundle is tied to the frozen June 2020 address universe, and {recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.</span>
         </div>
       </section>
     );

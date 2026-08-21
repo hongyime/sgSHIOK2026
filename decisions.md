@@ -1000,3 +1000,6 @@ The read-only P19 cache-status command should expose which cached recent-source 
 
 2026-08-21 - P359 P19 missing-postal structured policy:
 Structured source-policy reports should carry the exact cached P19 missing-postal lists, not only the aggregate 8-of-976 miss count. The shared `recent_public_source_gap_sample` block now includes `missing_postals_by_source` for the HDB and MCST source groups surfaced by P358 status output. This is reporting metadata and test coverage only; it does not run the P19 measurement, call data.gov.sg, OneMap, or Overpass, mutate `qa/p19`, load or mutate inputs, score, export, deploy, public data, or touch locked weights.
+
+2026-08-21 - P360 known P19 miss browser copy:
+When a selected postal is one of the eight cached P19 recent-source misses, the browser should say that directly instead of showing only the aggregate 8-of-976 caveat. Generic no-result and other outside-bundle states keep the aggregate recent-source copy. This is web copy and test coverage only; it reads no protected data, runs no measurement, score, export, deploy, ingest, or network task, and does not touch locked weights.
