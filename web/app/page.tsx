@@ -1148,7 +1148,7 @@ export function ScoreCard({
         </p>
         <div className={styles.emptyState}>
           <strong>Find an address or postal code</strong>
-          <span>Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio, exposed gaps, and night lighting on the walk to transit.</span>
+          <span>Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio and exposed gaps on the walk to transit, plus night lighting map evidence.</span>
         </div>
       </section>
     );
@@ -2162,7 +2162,7 @@ export default function Home() {
         <div className={styles.brandRow}>
           <div>
             <h1>S.H.I.O.K. Shelter Map</h1>
-            <p>See covered-walkway ratio, exposed gaps, and night lighting on the walk to transit</p>
+            <p>See covered-walkway ratio and exposed gaps on the walk to transit, plus night lighting map evidence</p>
             <p className={styles.dataLine}>
               Shelter-map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}
             </p>

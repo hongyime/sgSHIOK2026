@@ -56,7 +56,10 @@ describe("shelter map interactions", () => {
     expect(source).toContain("Shelter-map view for ${routeLabels}.");
     expect(source).not.toContain("Shelter map for ${labels}, showing ${routeModeLabel(mode)}");
     expect(source).not.toContain("Shelter map for ${routeLabels}.");
-    expect(source).toContain("Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio, exposed gaps, and night lighting on the walk to transit.");
+    expect(source).toContain(
+      "Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio and exposed gaps on the walk to transit, plus night lighting map evidence.",
+    );
+    expect(source).not.toContain("Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio, exposed gaps, and night lighting on the walk to transit.");
     expect(source).not.toContain("Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio, exposed gaps, and night lighting near transit.");
     expect(source).not.toContain("Search for a postal code to show covered-walkway ratio, exposed gaps, night lighting, and nearby transit.");
     expect(source).not.toContain("Search a OneMap address or 6-digit postal code to show covered-walkway ratio, exposed gaps, night lighting, and nearby transit.");
