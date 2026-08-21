@@ -12,8 +12,8 @@ GitHub Actions exists for repository automation and CI, not for heavy pipeline c
 
 ## Universe status
 
-The current postal universe is frozen v1: a 124,443-record source-derived set
-built around a June 2020 OneMap-derived postal scrape and later local sources.
+The current postal universe is frozen v1: 124,443 records built around a June
+2020 OneMap-derived postal scrape plus later local route and source evidence.
 The 16 Aug 2026 public-source check found a small current-source gap: 6
 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of
 976 (0.82%) 2021-2026 public-source rows with postals. The confirmed HDB gaps

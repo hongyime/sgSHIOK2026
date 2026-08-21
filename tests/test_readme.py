@@ -22,7 +22,8 @@ def test_readme_documents_universe_source_policy() -> None:
     assert "live static shelter-map pilot over a 124,443-record source-derived universe" not in normalized
     assert "live static-first pilot" not in normalized
     assert "## Universe status" in text
-    assert "124,443-record source-derived set" in normalized
+    assert "124,443 records built around a June 2020 OneMap-derived postal scrape plus later local route and source evidence" in normalized
+    assert "124,443-record source-derived set" not in normalized
     assert "The 16 Aug 2026 public-source check found a small current-source gap" in normalized
     assert (
         "6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%)"

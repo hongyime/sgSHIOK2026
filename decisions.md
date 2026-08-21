@@ -1297,3 +1297,7 @@ The first-view freshness line should not make NParks Leaf Area Index sound like 
 2026-08-22 - P481 README frozen-v1 status:
 
 The README status line should name the frozen v1 universe before the reader reaches the longer universe-policy section. It now says the project is a live static shelter-map pilot over the frozen v1 124,443-record universe instead of the vaguer source-derived universe. This is documentation and test coverage only; it does not alter browser rendering, scoring, exports, inputs, public data, deployment, protected QA evidence, or locked weights.
+
+2026-08-22 - P482 README universe provenance wording:
+
+The README universe section should describe what v1 is made from instead of repeating `source-derived set`. It now says frozen v1 is 124,443 records built around a June 2020 OneMap-derived postal scrape plus later local route and source evidence. This is documentation and test coverage only; it does not alter browser rendering, scoring, exports, inputs, public data, deployment, protected QA evidence, or locked weights.
