@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P488 code commit: `c53aea6`; state-only commits may follow it on `main`.
+Latest P489 code commit: `f8e02a0`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P489 is complete and committed: heat-presentation analysis now audits the current metadata string, and production-readiness lamp overlay warnings/errors use `night lighting` instead of stale `night-lighting` wording. The pre-fix focused heat-presentation test failed on the stale audit entry; targeted heat/readiness tests, repo integrity, check-ignore, and protected-diff checks passed after the fix.
 - P488 is complete and committed: README and `CLAUDE.md` now match `run.py --help` for safe reports and gated pipeline tasks, including `readiness --gate-summary`, `score-batch`, and `export-transit`; `test` is described as a local test task rather than a gated pipeline task. Focused docs tests, `run.py --help`, repo integrity, check-ignore, and protected-diff checks passed.
 - P487 is complete and committed: `run.py check --freshness-only` and the broader fetch check footer now name manual-policy freshness sources (`train_station_codes`, `osm_extract`) alongside stale and unknown-age summaries. Focused fetch tests, real freshness-only output, repo integrity, check-ignore, and protected-diff checks passed.
 - P486 is complete and committed: browser P19 first-view and known-postal labels now say `16 Aug 2026 public-source sample`, carrying the same sample boundary as the body copy. Focused web tests, repo integrity, check-ignore, and protected-diff checks passed.
