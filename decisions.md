@@ -1173,3 +1173,7 @@ The site metadata description now says "covered-walkway ratio, exposed gaps, nig
 2026-08-21 - P418 map accessible label headline evidence:
 
 The empty-map aria label now names covered-walkway ratio and exposed gaps before transit stops and night-lighting evidence. Non-visual users should hear the same shelter-first evidence framing as sighted users before search, not only a transit-POI inventory.
+
+2026-08-21 - P419 night lighting public copy:
+
+Shared metadata, the first-view footer, and the empty-map aria label now use `night lighting evidence` instead of `night-lighting evidence`. The rest of the visible product surface already used plain `night lighting`, and the non-hyphenated noun phrase is clearer for users while preserving internal lamp-layer identifiers.
