@@ -170,7 +170,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("Failed to load score data.");
     expect(source).not.toContain("Singapore walk-to-transit comfort");
     expect(source).toContain(
-      "Shelter map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}"
+      "Shelter-map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}"
     );
     expect(source).not.toContain(
       "Route evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}"
@@ -419,10 +419,10 @@ describe("score card copy", () => {
     const proposalSource = readFileSync(join(__dirname, "../../section10-presentation-proposal.md"), "utf-8");
     const weightsYaml = readFileSync(join(__dirname, "../../../pipeline/config/weights.yaml"), "utf-8");
 
-    expect(source).toContain("Shelter map evidence and locked score");
-    expect(source).toContain('aria-label="Shelter map evidence and locked score breakdown"');
-    expect(source).toContain('aria-label="Shelter map evidence reasons"');
-    expect(source).toContain("Shelter map evidence preview");
+    expect(source).toContain("Shelter-map evidence and locked score");
+    expect(source).toContain('aria-label="Shelter-map evidence and locked score breakdown"');
+    expect(source).toContain('aria-label="Shelter-map evidence reasons"');
+    expect(source).toContain("Shelter-map evidence preview");
     expect(source).toContain("Map evidence only");
     expect(source).toContain("No shelter-map walk selected.");
     expect(source).toContain("Preview shelter-map evidence only");
@@ -433,8 +433,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("Preview shelter map evidence selected.");
     expect(source).not.toContain("this clicked transit stop has shelter map evidence");
     expect(source).not.toContain("Not scored in the current bundle");
-    expect(source).toContain("Shelter map evidence unavailable");
-    expect(source).toContain("Shelter map evidence available");
+    expect(source).toContain("Shelter-map evidence unavailable");
+    expect(source).toContain("Shelter-map evidence available");
     expect(source).toContain("Locked score unavailable");
     expect(source).toContain("Locked terms unavailable");
     expect(source).not.toContain("Locked score incomplete");

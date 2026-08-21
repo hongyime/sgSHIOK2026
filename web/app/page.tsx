@@ -784,7 +784,7 @@ function resolveOriginLatLng(selection: LoadedSelection | null): { lat: number; 
 
 function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): string[] {
   if (score.paths?.routing_type === "live_onemap_preview") {
-    return ["Shelter map evidence preview", "Map evidence only"];
+    return ["Shelter-map evidence preview", "Map evidence only"];
   }
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const label = transitModeLabel(transitMode);
@@ -806,8 +806,8 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
   if (score.paths?.routing_type === "direct_bus_fallback_unrouted") {
     return ["Nearby bus service found", "No verified shelter-map walk yet"];
   }
-  if (!score.paths || !score.best_node) return ["Shelter map evidence unavailable", "Locked score unavailable"];
-  if (!score.subscores) return ["Locked terms unavailable", "Shelter map evidence available"];
+  if (!score.paths || !score.best_node) return ["Shelter-map evidence unavailable", "Locked score unavailable"];
+  if (!score.subscores) return ["Locked terms unavailable", "Shelter-map evidence available"];
 
   const measuredReasons: string[] = [];
   const busFallback = directBusFallbackEvidence(score);
@@ -1041,7 +1041,7 @@ function InlineRouteLegend({
     <div className={styles.inlineLegend} aria-label="Map legend">
       <span>
         <i className={directBusFallback || previewRoute ? styles.directBusLine : styles.shiokestLine} />
-        {directBusFallback ? "Direct bus line estimate" : previewRoute ? "Shelter map preview" : "Sheltered walk"}
+        {directBusFallback ? "Direct bus line estimate" : previewRoute ? "Shelter-map preview" : "Sheltered walk"}
       </span>
       {!directBusFallback && !previewRoute && (
         <>
@@ -1487,7 +1487,7 @@ export function ScoreCard({
         </div>
       )}
 
-      <div className={styles.reasonList} aria-label="Shelter map evidence reasons">
+      <div className={styles.reasonList} aria-label="Shelter-map evidence reasons">
         {reasons.map((reason) => (
           <span key={reason}>{reason}</span>
         ))}
@@ -1496,9 +1496,9 @@ export function ScoreCard({
       {stateNote && <p className={styles.stateNote}>{stateNote}</p>}
 
       {score.subscores && (
-        <div className={styles.scoreBreakdown} aria-label="Shelter map evidence and locked score breakdown">
+        <div className={styles.scoreBreakdown} aria-label="Shelter-map evidence and locked score breakdown">
           <div className={styles.scoreBreakdownHeader}>
-            <strong>Shelter map evidence and locked score</strong>
+            <strong>Shelter-map evidence and locked score</strong>
             <span>Four display rows; weights unchanged</span>
           </div>
           <div className={styles.subscoreList}>
@@ -2164,7 +2164,7 @@ export default function Home() {
             <h1>S.H.I.O.K. Shelter Map</h1>
             <p>See covered-walkway ratio, exposed gaps, and night lighting near transit</p>
             <p className={styles.dataLine}>
-              Shelter map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}
+              Shelter-map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}
             </p>
             <p className={styles.freshnessLine}>
               Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape.

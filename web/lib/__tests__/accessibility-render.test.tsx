@@ -296,11 +296,11 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("Preview shelter-map evidence only");
     expect(html).toContain("↺ Published walk");
-    expect(html).toContain("Shelter map evidence preview");
+    expect(html).toContain("Shelter-map evidence preview");
     expect(html).toContain("Map evidence only");
     expect(html).not.toContain("Not scored in the current bundle");
     expect(html).toContain("Preview shelter-map evidence selected.");
-    expect(html).toContain("Shelter map preview");
+    expect(html).toContain("Shelter-map preview");
     expect(html).toContain("OneMap preview walk");
     expect(html).not.toContain("Preview walk");
     expect(html).toContain("<span>Locked score</span><strong>Preview only</strong>");
@@ -417,7 +417,7 @@ describe("rendered accessibility output", () => {
       rankingRecords: [recordWithEqualRainHeat],
     });
     const breakdownHtml = html.slice(
-      html.indexOf('aria-label="Shelter map evidence and locked score breakdown"'),
+      html.indexOf('aria-label="Shelter-map evidence and locked score breakdown"'),
       html.indexOf('aria-label="Planning-area comparison"')
     );
 
@@ -444,10 +444,10 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain(">Exposed</span>");
     expect(html).not.toContain("LTA lamp points");
     expect(html).not.toContain("Sheltered route");
-    expect(html).toContain("Shelter map evidence and locked score");
-    expect(html).toContain('aria-label="Shelter map evidence and locked score breakdown"');
+    expect(html).toContain("Shelter-map evidence and locked score");
+    expect(html).toContain('aria-label="Shelter-map evidence and locked score breakdown"');
     expect(html).toContain("Four display rows; weights unchanged");
-    expect(html).toContain('aria-label="Shelter map evidence reasons"');
+    expect(html).toContain('aria-label="Shelter-map evidence reasons"');
     expect(html).not.toContain("Route evidence and locked score");
     expect(html).not.toContain('aria-label="Route shelter evidence"');
     expect(html).not.toContain('aria-label="Route evidence and locked score breakdown"');
@@ -821,7 +821,7 @@ describe("rendered accessibility output", () => {
       "Partial locked score: one or more component scores are unavailable; locked weights count missing terms as zero."
     );
     expect(html).not.toContain("one or more sub-scores are unavailable");
-    expect(html).toContain("Shelter map evidence unavailable");
+    expect(html).toContain("Shelter-map evidence unavailable");
     expect(html).toContain("Locked score unavailable");
     expect(html).toContain("<span>No full score</span><strong>Published bundle</strong>");
     expect(html).toContain("<strong>Unavailable</strong><small>Shelter evidence unavailable</small>");
