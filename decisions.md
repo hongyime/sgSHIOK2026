@@ -1429,3 +1429,7 @@ README and agent-facing docs should carry the same stale-source action as `run.p
 2026-08-22 - P514 browser stale freshness boundary:
 
 The browser first-view freshness line should not only name stale sources; it should also preserve the same release boundary shown in operator reports and docs. The line now says stale-source refreshes require a new numbered input version, not an in-place frozen-v1 mutation. This is browser copy/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P515 freshness help refresh boundary:
+
+`run.py --help` and `pipeline.fetch check --help` should expose the same stale-source boundary as the freshness report, readiness gate, docs, and browser copy. The help text now says stale sources require a versioned refresh while preserving the zero-mutation/no-upstream-probe contract. This is operator help/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.

@@ -31,6 +31,7 @@ def test_fetch_check_help_names_freshness_summary_contract(
     assert "read raw/manifest.json and report source freshness" in out
     assert "without probing upstream URLs or writing the manifest" in out
     assert "grouped action summaries include source names" in out
+    assert "stale sources require a versioned refresh" in out
     assert "omitting source names" not in out
 
 

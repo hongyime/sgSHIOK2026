@@ -1310,7 +1310,8 @@ def main(argv: list[str] | None = None) -> int:
         help=(
             "For check: read raw/manifest.json and report source freshness "
             "without probing upstream URLs or writing the manifest; grouped "
-            "action summaries include source names."
+            "action summaries include source names and stale sources require "
+            "a versioned refresh."
         ),
     )
     parser.add_argument(
