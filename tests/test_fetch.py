@@ -153,6 +153,15 @@ def test_source_freshness_line_reports_current_manifest_age() -> None:
     assert status["status"] == "current"
     assert round(status["days_until_stale"], 1) == 80.1
     assert round(status["days_past_stale"], 1) == 0.0
+    nearest = fetch.nearest_current_source_to_stale([status])
+    assert nearest is not None
+    assert nearest["source_key"] == "covered_linkway"
+    assert nearest["name"] == "Covered Linkway"
+    assert nearest["age_basis"] == "last_modified"
+    assert nearest["stale_after_days"] == 120
+    assert nearest["expected_cadence"] == "quarterly"
+    assert round(float(nearest["age_days"]), 1) == 39.9
+    assert round(float(nearest["days_until_stale"]), 1) == 80.1
     assert source_freshness_line(status) == (
         "[covered_linkway] Covered Linkway: freshness current — last_modified age 39.9d "
         "within 120d threshold with 80.1d until stale (quarterly)"

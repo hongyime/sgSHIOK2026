@@ -31,6 +31,7 @@ from pipeline.batch_plan import (
 from pipeline.export import validate_static_artifacts
 from pipeline.fetch import (
     STALE_FRESHNESS_ACTION,
+    nearest_current_source_to_stale,
     oldest_current_freshness_summary,
     source_freshness_status,
 )
@@ -317,6 +318,7 @@ def source_freshness_readiness(
     )
     warning = f"source freshness warning: {'; '.join(warning_parts)}" if warning_parts else None
     oldest_current = oldest_current_freshness_summary(by_status["current"])
+    nearest_current = nearest_current_source_to_stale(by_status["current"])
     return {
         "ok": True,
         "state": "reported",
@@ -327,6 +329,7 @@ def source_freshness_readiness(
         "upstream_urls_probed": False,
         "summary": summary,
         "oldest_current_source": oldest_current,
+        "nearest_current_source_to_stale": nearest_current,
         "counts": counts,
         "by_status": notable,
         "warning": warning,

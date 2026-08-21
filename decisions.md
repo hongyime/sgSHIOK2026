@@ -1525,3 +1525,7 @@ Manifest-only freshness should help schedule versioned refreshes before a batch 
 2026-08-22 - P538 oldest-current freshness planning summary:
 
 The freshness report's oldest-current summary is the first planning line operators scan before a batch run, so it must carry the same days-left signal as the per-source lines. `oldest_current_freshness_summary()` now includes days until stale, and the structured production-readiness `oldest_current_source` field receives the same text through the shared helper. This remains a manifest-only report and does not approve upstream probes, input mutation, scoring, export, deployment, public-data mutation, protected-QA mutation, or locked-weight changes.
+
+2026-08-22 - P539 structured nearest freshness source:
+
+Readiness consumers should not have to parse the oldest-current prose line to plan source refresh timing. `source_freshness_readiness()` now returns `nearest_current_source_to_stale` as structured fields (`source_key`, name, age basis, age days, threshold, days until stale, and cadence) while preserving the existing `oldest_current_source` text. This remains manifest-only and does not approve upstream probes, input mutation, scoring, export, deployment, public-data mutation, protected-QA mutation, or locked-weight changes.

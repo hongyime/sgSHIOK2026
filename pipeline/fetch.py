@@ -316,6 +316,18 @@ def freshness_key_summary(label: str, statuses: list[dict[str, Any]]) -> str | N
 
 
 def oldest_current_freshness_summary(statuses: list[dict[str, Any]]) -> str | None:
+    oldest = nearest_current_source_to_stale(statuses)
+    if oldest is None:
+        return None
+    return (
+        f"Oldest current source: {oldest['source_key']} "
+        f"({oldest['name']}, {float(oldest['age_days']):.1f}d "
+        f"of {oldest['stale_after_days']}d threshold, "
+        f"{float(oldest['days_until_stale']):.1f}d until stale)"
+    )
+
+
+def nearest_current_source_to_stale(statuses: list[dict[str, Any]]) -> dict[str, Any] | None:
     aged_current = [
         status
         for status in statuses
@@ -324,12 +336,16 @@ def oldest_current_freshness_summary(statuses: list[dict[str, Any]]) -> str | No
     if not aged_current:
         return None
     oldest = max(aged_current, key=lambda status: float(status["age_days"]))
-    return (
-        f"Oldest current source: {oldest['source_key']} "
-        f"({oldest['name']}, {float(oldest['age_days']):.1f}d "
-        f"of {oldest['stale_after_days']}d threshold, "
-        f"{float(oldest.get('days_until_stale') or 0.0):.1f}d until stale)"
-    )
+    return {
+        "source_key": oldest["source_key"],
+        "name": oldest["name"],
+        "status": oldest["status"],
+        "age_basis": oldest.get("age_basis"),
+        "age_days": round(float(oldest["age_days"]), 6),
+        "stale_after_days": oldest.get("stale_after_days"),
+        "days_until_stale": round(float(oldest.get("days_until_stale") or 0.0), 6),
+        "expected_cadence": oldest.get("expected_cadence"),
+    }
 
 
 def run_freshness_report(
