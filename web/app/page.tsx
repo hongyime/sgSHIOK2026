@@ -208,7 +208,7 @@ function shelterEvidenceAnnouncementFromValues(
       }${longestGap ? `; longest gap ${formatDistance(longestGap.len_m)}` : ""}`
     );
   }
-  return parts.length > 0 ? `Shelter evidence ${parts.join("; ")}.` : "Shelter evidence unavailable.";
+  return parts.length > 0 ? `Walk evidence ${parts.join("; ")}.` : "Walk evidence unavailable.";
 }
 
 function shelterEvidenceAnnouncement(score: ScoreRecord): string {
@@ -1333,7 +1333,7 @@ export function ScoreCard({
           value: score.paths ? formatPercent(selectedCoverage) : formatScore(null),
           meta: score.paths
             ? "Covered-walkway ratio"
-            : scoredMeta(score.subscores.rain ?? score.subscores.heat, "40% locked rain+heat", "Shelter evidence unavailable"),
+            : scoredMeta(score.subscores.rain ?? score.subscores.heat, "40% locked rain+heat", "Walk evidence unavailable"),
           notes: [
             "In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence.",
             "Heat also includes the sparse NParks greenery proxy, so SHIOK shows covered-walkway ratio first.",
@@ -1529,7 +1529,7 @@ export function ScoreCard({
                 {!rankPanelOpen
                   ? "Loads planning-area ranks only when opened."
                   : rankMetric === "overall"
-                  ? "Planning-area list uses locked score only as a sorting index; shelter evidence remains the primary view."
+                  ? "Planning-area list uses locked score only as a sorting index; walk evidence remains the primary view."
                   : "Planning-area evidence view; locked SHIOK score is unchanged."}
               </span>
             </div>

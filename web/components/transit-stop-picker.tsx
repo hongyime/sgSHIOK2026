@@ -49,7 +49,7 @@ export function buildComparisonText(
   const deltaM = Math.max(0, comparison.activeStraightM - comparison.bestStraightM);
   return `${pct}% farther than auto-picked stop (+${formatMeters(
     deltaM
-  )} straight-line only; shelter evidence updates after selection)`;
+  )} straight-line only; walk evidence updates after selection)`;
 }
 
 export function TransitStopPicker({

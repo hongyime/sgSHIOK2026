@@ -221,10 +221,10 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain('role="status"');
     expect(html).toContain("Postal 560231 shelter-map panel loaded.");
-    expect(html).toContain("Shelter evidence 48% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
-    expect(html).not.toContain("Shelter evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
+    expect(html).toContain("Walk evidence 48% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
+    expect(html).not.toContain("Walk evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
     expect(html).toContain("Locked score 72 out of 100.");
-    expect(html.indexOf("Shelter evidence 48% covered-walkway ratio")).toBeLessThan(
+    expect(html.indexOf("Walk evidence 48% covered-walkway ratio")).toBeLessThan(
       html.indexOf("Locked score 72 out of 100.")
     );
     expect(html).toContain("<span>Locked score</span><strong>72/100</strong>");
@@ -268,7 +268,7 @@ describe("rendered accessibility output", () => {
   it("falls back to walk active when no selected walk label is available", () => {
     expect(scoreCardAnnouncement({ selection, routeMode: "shiokest" })).toContain("walk active.");
     expect(scoreCardAnnouncement({ selection, routeMode: "shiokest" })).toContain(
-      "Shelter evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m."
+      "Walk evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m."
     );
     expect(scoreCardAnnouncement({ selection, routeMode: "shiokest" })).toContain(
       "longest gap 142 m"
@@ -488,9 +488,9 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Choose planning-area evidence view");
     expect(html).not.toContain("Rank records by");
     expect(html).toContain(
-      "Planning-area list uses locked score only as a sorting index; shelter evidence remains the primary view."
+      "Planning-area list uses locked score only as a sorting index; walk evidence remains the primary view."
     );
-    expect(html).not.toContain("Planning-area list sorted by locked score; shelter evidence remains the primary view.");
+    expect(html).not.toContain("Planning-area list sorted by locked score; walk evidence remains the primary view.");
     expect(html).not.toContain("Planning-area order by locked score.");
     expect(html).not.toContain('aria-label="Rank by view"');
     expect(html).not.toContain("<strong>Rank by</strong>");
@@ -643,10 +643,10 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Shortest walk distance to transit.");
     expect(html).not.toContain("Sheltered walk distance to transit.");
     expect(html).toContain(
-      "Shelter evidence 48% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m."
+      "Walk evidence 48% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m."
     );
     expect(html).not.toContain(
-      "Shelter evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m."
+      "Walk evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m."
     );
     expect(html).not.toContain("covered-walkway ratio on the selected walk.");
     expect(html).not.toContain("exposed across 2 gaps on the selected walk.");
@@ -668,7 +668,7 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("No exposed gaps are recorded for this shortest walk.");
     expect(html).toContain("Covered-walkway evidence");
-    expect(html).toContain("Shelter evidence 48% covered-walkway ratio.");
+    expect(html).toContain("Walk evidence 48% covered-walkway ratio.");
     expect(html).not.toContain("0 m exposed across 0 gaps");
     expect(html).not.toContain("Where the walk is exposed");
     expect(html).not.toContain("No exposed gaps are recorded for this selected walk.");
@@ -841,11 +841,11 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Shelter-map evidence unavailable");
     expect(html).toContain("Locked score unavailable");
     expect(html).toContain("<span>No full score</span><strong>Published bundle</strong>");
-    expect(html).toContain("<strong>Unavailable</strong><small>Shelter evidence unavailable</small>");
+    expect(html).toContain("<strong>Unavailable</strong><small>Walk evidence unavailable</small>");
     expect(html).toContain("<strong>Unavailable</strong><small>Access term unavailable</small>");
     expect(html).toContain("<strong>No full locked score</strong><small>Release sorting index unavailable</small>");
     expect(html).toContain("<strong>42</strong><small>20% locked bus</small>");
-    expect(html).not.toContain("<strong>0</strong><small>Shelter evidence unavailable</small>");
+    expect(html).not.toContain("<strong>0</strong><small>Walk evidence unavailable</small>");
     expect(html).not.toContain("<strong>0</strong><small>Access term unavailable</small>");
     expect(html).not.toContain("<strong>Not scored</strong><small>No shelter score</small>");
     expect(html).not.toContain("<strong>Not scored</strong><small>No access score</small>");

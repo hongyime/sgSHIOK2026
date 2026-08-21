@@ -186,7 +186,7 @@ describe("score card copy", () => {
     expect(source).toContain("function formatGeneratedDate(manifest: Manifest | null): string");
     expect(source).toContain("Locked score ${scoreText}");
     expect(source).toContain("function shelterEvidenceAnnouncement(score: ScoreRecord): string");
-    expect(source).toContain('return parts.length > 0 ? `Shelter evidence ${parts.join("; ")}.` : "Shelter evidence unavailable.";');
+    expect(source).toContain('return parts.length > 0 ? `Walk evidence ${parts.join("; ")}.` : "Walk evidence unavailable.";');
     expect(source).toContain("${shelterText} Locked score ${scoreText}.");
     expect(source).toContain(
       "Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape."
@@ -492,9 +492,9 @@ describe("score card copy", () => {
     expect(source).not.toContain('aria-label="Rank by view"');
     expect(source).not.toContain("<strong>Rank by</strong>");
     expect(source).toContain(
-      "Planning-area list uses locked score only as a sorting index; shelter evidence remains the primary view."
+      "Planning-area list uses locked score only as a sorting index; walk evidence remains the primary view."
     );
-    expect(source).not.toContain("Planning-area list sorted by locked score; shelter evidence remains the primary view.");
+    expect(source).not.toContain("Planning-area list sorted by locked score; walk evidence remains the primary view.");
     expect(source).toContain("Planning-area evidence view; locked SHIOK score is unchanged.");
     expect(source).not.toContain("Planning-area component evidence view; locked SHIOK score is unchanged.");
     expect(source).toContain("Loading planning-area {rankMetricLabel} ranks.");
