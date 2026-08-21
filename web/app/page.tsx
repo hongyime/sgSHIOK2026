@@ -1458,7 +1458,7 @@ export function ScoreCard({
             <div className={styles.rankList} role="status" aria-live="polite">
               <span className={styles.srOnly}>{rankStatus}</span>
               {rankingLoading && (
-                <span className={styles.rankEmpty}>Loading planning-area ranks...</span>
+                <span className={styles.rankEmpty}>Loading planning-area {rankMetricLabel} ranks.</span>
               )}
               {!rankingLoading && rankedRecords.length === 0 && (
                 <span className={styles.rankEmpty}>

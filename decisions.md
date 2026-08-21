@@ -979,3 +979,6 @@ The nearby-transit comparison note should not imply the auto-picked stop is obje
 
 2026-08-21 - P352 shelter-map smoke locked-score check:
 Browser-smoke scored-state output should expose a shelter-map-named locked-score check instead of forcing operators to read the legacy score-denominator key as canonical. The JSON now includes `shelter_map_has_locked_score` while retaining `score_has_max_denominator` as a compatibility alias for older QA artifacts and scripts. This is operator QA output naming and test coverage only; it does not alter browser rendering, score values, scoring, exports, public data, inputs, deployment, or locked weights.
+
+2026-08-21 - P353 planning-area rank loading copy:
+The visible planning-area rank loading row should name the selected evidence view, matching the live-region announcement. It now renders `Loading planning-area {rankMetricLabel} ranks.` instead of the generic `Loading planning-area ranks...`, so users see whether the panel is loading locked-score ranks or a specific evidence view. This is browser copy and test coverage only; it does not alter rank data, scoring, exports, public data, inputs, deployment, or locked weights.
