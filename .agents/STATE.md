@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P359 is complete and committed: `f739aaa` makes structured batch-plan/readiness P19 policy carry cached missing postals by source; focused batch-plan/readiness tests and repo integrity passed.
 - P358 is complete and committed: `0d2ceaf` makes read-only P19 cache status expose cached missing postals by source while preserving no-API/no-write behavior; focused analysis tests, p19-gap-status, and repo integrity passed.
 - P357 is complete and committed: `1c4d876` exposes `cache_status_reports_age_days: true` in structured batch-plan/readiness P19 policy; focused batch-plan/readiness tests and repo integrity passed.
 - P356 is complete and committed: `113a6d0` makes run.py help and README advertise that p19-gap-status reports cache ages while preserving the no-API/no-write boundary; focused runner/README tests and repo integrity passed.
