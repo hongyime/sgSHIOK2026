@@ -106,7 +106,7 @@ const OSM_ADDR_POSTCODE_COVERAGE_COPY =
   "Live OSM addr:postcode coverage: 25,873 of 124,443 frozen postals, with 6 valid OSM-only postcodes; OSM remains geometry evidence, not the address registry.";
 
 const COVERED_LINKWAY_FRESHNESS_COPY =
-  "Covered Linkway follows a quarterly 120-day freshness threshold; frozen v1 uses the Mar 2026 LTA geospatial listing. A 21 Aug 2026 metadata-only DataMall check found current Covered Linkway and bridge/underpass discovery URLs differ from frozen v1, so any refresh must be a new numbered input version.";
+  "Covered Linkway follows a quarterly 120-day freshness threshold; frozen v1 uses the Mar 2026 LTA geospatial listing. A 21 Aug 2026 metadata-only DataMall check found current Covered Linkway and bridge/underpass discovery URLs differ from frozen v1, while traffic signals still matched, so any refresh must be a new numbered input version.";
 
 const LEAF_AREA_INDEX_REFERENCE_COPY =
   "NParks Leaf Area Index is a freshness-only reference table here; walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature.";
