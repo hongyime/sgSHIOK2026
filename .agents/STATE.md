@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P295 code commit: `e3f48b4`; state-only commits may follow it on `main`.
+Latest P296 code commit: `ae4ad78`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P296 is complete and committed: README opening copy now says the app leads with exposed gaps on real routed walks, matching CLAUDE.md and the settled shelter-map framing; README tests reject the older routed-path wording. Focused README test and repo integrity pass.
 - P295 is complete and committed: rendered accessibility tests now guard `Map layer on` / `Map layer off` for selected-walk night-lighting state instead of the retired ambiguous `Layer on/off` wording. Focused accessibility render test and repo integrity pass.
 - P294 is complete and committed: the first-view footer now names `night-lighting map evidence` alongside covered-walkway and exposure-gap evidence, keeping the footer evidence-framed and not score-framed. Focused score-card copy test and repo integrity pass.
 - P293 is complete and committed: selected-walk night-lighting detail values now say `Map layer on` / `Map layer off`, making clear the state belongs to the map overlay rather than score or route metrics. Focused score-card copy test and repo integrity pass.
