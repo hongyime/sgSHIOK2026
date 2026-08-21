@@ -1473,3 +1473,7 @@ Agent-facing startup guidance should carry the same postal-universe v2 OneMap Se
 2026-08-22 - P525 runner batch-plan release boundary:
 
 `run.py --help` should expose the same full-batch release boundary as README, CLAUDE, batch-plan, and readiness. `batch-plan` is a dry-run safe report, but the full-batch execution it plans remains one-attempt only, requires owner approval, and must keep bounded OneMap controls. This is runner help/test coverage only; it does not run batch planning, call APIs, mutate caches/inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P526 geocode-universe versioned output guard:
+
+Confirmed `geocode-universe` runs must obey the numbered-artifact rule before any cache/API work. Non-dry bounded OneMap geocode fills now refuse unversioned outputs and existing output/summary paths, so they cannot repair frozen v1 in place or overwrite an existing candidate artifact. Dry runs remain available for planning. This is command safety/test coverage only; it does not call OneMap, mutate caches/inputs, build v2, score, export, public data, protected QA evidence, deployment, or locked weights.

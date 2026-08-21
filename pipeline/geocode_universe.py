@@ -17,7 +17,11 @@ import httpx
 import pandas as pd
 import yaml
 
-from pipeline.postal_universe import lat_lon_to_xy, normalize_postal_code
+from pipeline.postal_universe import (
+    lat_lon_to_xy,
+    normalize_postal_code,
+    require_new_artifact_paths,
+)
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RAW_DIR = PROJECT_ROOT / "raw"
@@ -293,6 +297,11 @@ def geocode_universe_gaps(
 
     output_path = output_path or default_output_path(input_path)
     summary_path = summary_path or default_summary_path(output_path)
+    if not dry_run:
+        try:
+            require_new_artifact_paths(output_path, summary_path)
+        except (FileExistsError, ValueError) as exc:
+            return False, {"ok": False, "errors": [str(exc)]}
     df = pd.read_parquet(input_path).copy()
     df["postal_code"] = df["postal_code"].astype(str).str.zfill(6)
 
@@ -398,20 +407,32 @@ def geocode_universe_gaps(
     return True, report
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Fill source-derived NEEDS_GEOCODE universe rows using bounded OneMap search."
+        description=(
+            "Fill source-derived NEEDS_GEOCODE universe rows using bounded OneMap search. "
+            "Non-dry runs require fresh numeric-version output artifacts; never repair "
+            "frozen v1 in place."
+        )
     )
     parser.add_argument("--input", type=Path, required=True)
-    parser.add_argument("--output", type=Path)
-    parser.add_argument("--summary", type=Path)
+    parser.add_argument(
+        "--output",
+        type=Path,
+        help="Fresh numeric-version parquet path; non-dry runs refuse unversioned or existing outputs.",
+    )
+    parser.add_argument(
+        "--summary",
+        type=Path,
+        help="Fresh numeric-version summary JSON path; defaults to <output stem>_summary.json.",
+    )
     parser.add_argument("--db", type=Path, default=GEOCODE_DB_PATH)
     parser.add_argument("--delay-sec", type=float)
     parser.add_argument("--limit", type=int)
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--confirm-bounded-geocode", action="store_true")
     parser.add_argument("--retry-cached-failures", action="store_true")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     ok, report = geocode_universe_gaps(
         input_path=args.input,

@@ -2,6 +2,7 @@ import sqlite3
 from pathlib import Path
 
 import pandas as pd
+import pytest
 
 from pipeline.geocode_universe import (
     cached_selection,
@@ -85,8 +86,8 @@ def test_selection_from_payload_requires_exact_postal_match():
 
 def test_geocode_universe_fills_only_source_derived_needs_geocode_rows(tmp_path: Path):
     input_path = tmp_path / "postal_universe_candidate_full_registered.parquet"
-    output_path = tmp_path / "postal_universe_candidate_full_registered_geocoded.parquet"
-    summary_path = tmp_path / "postal_universe_candidate_full_registered_geocoded_summary.json"
+    output_path = tmp_path / "postal_universe_candidate_full_registered_geocoded_v2.parquet"
+    summary_path = tmp_path / "postal_universe_candidate_full_registered_geocoded_v2_summary.json"
     db_path = tmp_path / "geocode_cache.db"
     write_universe(input_path)
 
@@ -141,7 +142,7 @@ def test_geocode_universe_fills_only_source_derived_needs_geocode_rows(tmp_path:
 
 def test_geocode_universe_reuses_success_cache_without_http(tmp_path: Path):
     input_path = tmp_path / "postal_universe_candidate_full_registered.parquet"
-    output_path = tmp_path / "postal_universe_candidate_full_registered_geocoded.parquet"
+    output_path = tmp_path / "postal_universe_candidate_full_registered_geocoded_v2.parquet"
     db_path = tmp_path / "geocode_cache.db"
     write_universe(input_path)
 
@@ -172,3 +173,53 @@ def test_geocode_universe_reuses_success_cache_without_http(tmp_path: Path):
     assert report["http_requests"] == 0
     assert report["cache_successes"] == 1
     assert report["filled_successes"] == 1
+
+
+def test_geocode_universe_rejects_unversioned_non_dry_output_before_http(tmp_path: Path):
+    input_path = tmp_path / "postal_universe_candidate_full_registered.parquet"
+    output_path = tmp_path / "postal_universe_candidate_full_registered_geocoded.parquet"
+    write_universe(input_path)
+
+    ok, report = geocode_universe_gaps(
+        input_path=input_path,
+        output_path=output_path,
+        delay_sec=0,
+        confirm_bounded_geocode=True,
+        fetcher=lambda postal: (_ for _ in ()).throw(AssertionError(postal)),
+    )
+
+    assert ok is False
+    assert "numeric version tag" in report["errors"][0]
+
+
+def test_geocode_universe_rejects_existing_non_dry_output_before_http(tmp_path: Path):
+    input_path = tmp_path / "postal_universe_candidate_full_registered.parquet"
+    output_path = tmp_path / "postal_universe_candidate_full_registered_geocoded_v2.parquet"
+    output_path.write_bytes(b"existing")
+    write_universe(input_path)
+
+    ok, report = geocode_universe_gaps(
+        input_path=input_path,
+        output_path=output_path,
+        delay_sec=0,
+        confirm_bounded_geocode=True,
+        fetcher=lambda postal: (_ for _ in ()).throw(AssertionError(postal)),
+    )
+
+    assert ok is False
+    assert "refusing to overwrite" in report["errors"][0]
+
+
+def test_geocode_universe_help_names_versioned_output_boundary(
+    capsys: pytest.CaptureFixture[str],
+):
+    from pipeline import geocode_universe
+
+    with pytest.raises(SystemExit) as excinfo:
+        geocode_universe.main(["--help"])
+
+    assert excinfo.value.code == 0
+    out = " ".join(capsys.readouterr().out.split())
+    assert "Non-dry runs require fresh numeric-version output artifacts" in out
+    assert "never repair frozen v1 in place" in out
+    assert "refuse unversioned or existing outputs" in out

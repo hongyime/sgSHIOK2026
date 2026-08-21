@@ -56,7 +56,7 @@ STUBS = {
     "compare-targeted": "compare a targeted score report against the published shelter-map bundle",
     "batch-plan": "dry-run one-attempt full postal geocode/scoring batch plan; execution still requires owner approval and bounded OneMap controls",
     "postal-universe": "build deterministic postal-code universe candidates",
-    "geocode-universe": "bounded OneMap geocode fill for source-derived postal gaps",
+    "geocode-universe": "bounded OneMap geocode fill for source-derived postal gaps; non-dry runs require fresh numeric-version outputs",
     "export": "scores/{area}.json + geom/h3/{cell}.json + manifest (T1.5)",
     "export-transit": "refresh transit POIs without rescoring",
     "validate": "golden set + OneMap comparison; blocks publish (T1.7)",

@@ -110,6 +110,10 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
         "dry-run one-attempt full postal geocode/scoring batch plan; execution still "
         "requires owner approval and bounded OneMap controls"
     )
+    assert run.STUBS["geocode-universe"] == (
+        "bounded OneMap geocode fill for source-derived postal gaps; non-dry runs "
+        "require fresh numeric-version outputs"
+    )
     assert "compare a targeted score report against the active bundle" not in run.STUBS.values()
 
 
