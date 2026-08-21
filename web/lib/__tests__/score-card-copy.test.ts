@@ -346,6 +346,8 @@ describe("score card copy", () => {
     expect(source).toContain("Rain shelter and heat comfort currently share mostly the same covered-walkway evidence.");
     expect(source).toContain("Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first.");
     expect(source).toContain("Heat proxy evidence: covered ${formatDistance(score.paths.covered_m)}");
+    expect(source).toContain('heat: { low: "Low heat-proxy evidence", high: "Stronger heat-proxy evidence" }');
+    expect(source).not.toContain("Better heat-proxy score");
     expect(source).toContain("Crossing friction remains a 5% locked term, but has low separation in this release.");
     expect(source).not.toContain('label: "Rain shelter"');
     expect(source).not.toContain('label: "Heat proxy"');

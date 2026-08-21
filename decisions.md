@@ -865,3 +865,6 @@ The safe-report section of `run.py --help` should describe why each report is sa
 
 2026-08-21 - P313 shelter-panel component wording:
 The shelter panel should not frame secondary evidence rows as standalone component scores when the product framing is shelter evidence first and the locked score secondary. The planning-area alternate rank mode now says `component evidence view`, and the bus fallback caveat says the `locked bus term remains 0` rather than `this component score remains 0`. This is web copy and test coverage only; it does not change score values, ranking inputs, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P314 heat reason evidence wording:
+The shelter panel's reason chips should frame heat as evidence, not as an independent score headline. The high-side heat reason now says `Stronger heat-proxy evidence` instead of `Better heat-proxy score`, matching the existing `Low heat-proxy evidence` low-side reason and the four-row shelter-map presentation. This is web copy and test coverage only; it does not change score values, score reasons selection, ranking inputs, exports, public data, pipeline inputs, or locked weights.

@@ -371,6 +371,7 @@ describe("rendered accessibility output", () => {
     );
     expect(html).toContain("Same displayed value as rain shelter for this postal.");
     expect(html).toContain("Heat proxy evidence: covered 149 m; greenery proxy 23 m.");
+    expect(html).not.toContain("Better heat-proxy score");
     expect(html).toContain("Night lighting");
     expect(html).toContain("Map layer off");
     expect(html).not.toContain("Layer off");

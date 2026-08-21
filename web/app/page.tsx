@@ -93,7 +93,7 @@ const SOURCE_LABELS: Record<string, string> = {
 const REASON_COPY: Record<keyof Subscores, { low: string; high: string }> = {
   access: { low: "Longer walk to transit", high: "Short walk to transit" },
   rain: { low: "Mostly exposed to rain", high: "Good rain shelter coverage" },
-  heat: { low: "Low heat-proxy evidence", high: "Better heat-proxy score" },
+  heat: { low: "Low heat-proxy evidence", high: "Stronger heat-proxy evidence" },
   bus: { low: "Limited bus connectivity", high: "Strong bus connectivity" },
   crossing: { low: "More crossing friction", high: "Easy crossing profile" },
 };
