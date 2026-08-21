@@ -1294,7 +1294,7 @@ def run_ingest(sources: dict[str, Any]) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Fetch/check upstream SHIOK datasets.")
+    parser = argparse.ArgumentParser(description="Fetch/check upstream S.H.I.O.K. Shelter Map sources.")
     parser.add_argument("action", choices=["check", "ingest"])
     parser.add_argument(
         "--freshness-only",

@@ -1409,3 +1409,7 @@ The lower-level `pipeline.fetch check --help` text should match the public runne
 2026-08-22 - P509 positive fetch help freshness wording:
 
 `pipeline.fetch check --help` should describe named freshness summaries positively. The `--freshness-only` help now says grouped action summaries include source names instead of saying the report avoids omitting names. This is lower-level CLI help/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P510 fetch help Shelter Map source wording:
+
+`pipeline.fetch check --help` should use the S.H.I.O.K. Shelter Map product frame, not generic `SHIOK datasets` wording. The lower-level fetch/check description now says it fetches/checks upstream S.H.I.O.K. Shelter Map sources. This is lower-level CLI help/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.

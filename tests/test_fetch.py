@@ -26,6 +26,8 @@ def test_fetch_check_help_names_freshness_summary_contract(
 
     assert excinfo.value.code == 0
     out = " ".join(capsys.readouterr().out.split())
+    assert "Fetch/check upstream S.H.I.O.K. Shelter Map sources." in out
+    assert "Fetch/check upstream SHIOK datasets." not in out
     assert "read raw/manifest.json and report source freshness" in out
     assert "without probing upstream URLs or writing the manifest" in out
     assert "grouped action summaries include source names" in out
