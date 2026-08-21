@@ -252,7 +252,7 @@ export function scoreCardAnnouncement({
       : "Custom transit stop selected."
     : "Published shelter-map walk selected.";
   const shelterText = shelterEvidenceText ?? shelterEvidenceAnnouncement(selection.score);
-  return `${postal} shelter map panel loaded. ${stationName ?? "Transit target loaded"}. ${shelterText} Locked score ${scoreText}. ${stopText} Walk display ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
+  return `${postal} shelter-map panel loaded. ${stationName ?? "Transit target loaded"}. ${shelterText} Locked score ${scoreText}. ${stopText} Walk display ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
 }
 
 export function rankAnnouncement({
@@ -1142,7 +1142,7 @@ export function ScoreCard({
 
   if (!selection) {
     return (
-      <section className={styles.scoreCard} aria-label="Shelter map panel">
+      <section className={styles.scoreCard} aria-label="Shelter-map panel">
         <p className={styles.srOnly} role="status" aria-live="polite">
           {scoreCardAnnouncement({ selection, routeMode })}
         </p>
@@ -1157,7 +1157,7 @@ export function ScoreCard({
   const { score } = selection;
   if (!score) {
     return (
-      <section className={styles.scoreCard} aria-label="Shelter map panel">
+      <section className={styles.scoreCard} aria-label="Shelter-map panel">
         <p className={styles.srOnly} role="status" aria-live="polite">
           {scoreCardAnnouncement({ selection, routeMode })}
         </p>
@@ -1374,7 +1374,7 @@ export function ScoreCard({
     : [];
 
   return (
-    <section className={styles.scoreCard} aria-label="Shelter map panel">
+    <section className={styles.scoreCard} aria-label="Shelter-map panel">
       <p className={styles.srOnly} role="status" aria-live="polite">
         {scoreStatus}
       </p>

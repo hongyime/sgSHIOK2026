@@ -186,7 +186,7 @@ describe("rendered accessibility output", () => {
     expect(noResultsHtml).not.toContain("newer completions may still be outside");
   });
 
-  it("introduces the shelter map panel before search", () => {
+  it("introduces the shelter-map panel before search", () => {
     const html = renderScoreCard({
       selection: null,
       rankingRecords: [],
@@ -194,7 +194,7 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("Find an address or postal code");
     expect(html).not.toContain("Find a postal code");
-    expect(html).toContain('aria-label="Shelter map panel"');
+    expect(html).toContain('aria-label="Shelter-map panel"');
     expect(html).toContain("No shelter-map walk selected.");
     expect(html).toContain("Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio, exposed gaps, and night lighting near transit.");
     expect(html).not.toContain("Search a Singapore postal code to inspect the covered-walkway ratio, exposed gaps, and night lighting near transit.");
@@ -216,7 +216,7 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain('role="status"');
-    expect(html).toContain("Postal 560231 shelter map panel loaded.");
+    expect(html).toContain("Postal 560231 shelter-map panel loaded.");
     expect(html).toContain("Shelter evidence 48% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
     expect(html).not.toContain("Shelter evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
     expect(html).toContain("Locked score 72 out of 100.");
@@ -230,7 +230,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain('aria-busy="true"');
     expect(html).toContain("Loading planning-area Locked score sorting index ranks.");
     expect(html).not.toContain("Loading planning-area Locked SHIOK score ranks.");
-    expect(html).toContain('aria-label="Shelter map panel"');
+    expect(html).toContain('aria-label="Shelter-map panel"');
     expect(html).not.toContain("Postal 560231 route evidence panel loaded.");
     expect(html).not.toContain("Postal 560231 score panel loaded.");
     expect(html).not.toContain("Score 72 out of 100.");
