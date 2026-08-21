@@ -41,8 +41,8 @@ instead of asking you to compare two near-duplicate rows.
 Bus caveat copy:
 
 ```text
-A low bus value can mean weak service evidence, but it can also mean the routing graph
-could not prove a trusted walk to a DataMall bus stop. Treat it as a service-support
+A low value can mean weak service evidence, or that the published shelter-map walk
+could not prove access to an official LTA bus stop. Treat it as a service-support
 signal with routing caveats, not as a pure frequency score.
 ```
 
