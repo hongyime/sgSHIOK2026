@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P282 code commit: `665d002`; state-only commits may follow it on `main`.
+Latest P283 code commit: `c857392`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P283 is complete and committed: README ground rules no longer overclaim every published score is reproducible from hashed inputs and tagged code; they now state verified published values/coordinates/route origins and the active legacy bundle's missing record-level scoring-input/network provenance. Focused README tests and repo integrity pass.
 - P282 is complete and committed: README's repo map now documents `run.py` safe reports (`check --freshness-only`, `check --geospatial-discovery-only`, `p19-gap-status`, `readiness`, `batch-plan`) separately from gated pipeline tasks. Focused README tests and repo integrity pass.
 - P281 is complete and committed: README local-data guidance now says `95,157 full locked scores out of 124,443 records`, aligning operator docs with the browser locked-score availability language. Focused README tests and repo integrity pass.
 - P280 is complete and committed: selected-card awaiting-score states now say `No full locked score in this bundle` in the title, reason chip, live announcement, and browser-smoke detector. Focused accessibility/score-card copy tests plus repo integrity pass.
