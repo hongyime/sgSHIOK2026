@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P305 code commit: `661ef84`; state-only commits may follow it on `main`.
+Latest P306 code commit: `b733d20`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P306 is complete and committed: the `SCORED_PARTIAL` state note now says shelter-map evidence may still be present while component scores are unavailable, separating partial locked-score availability from evidence availability. Focused score-card copy and accessibility render tests plus repo integrity pass.
 - P305 is complete and committed: the `NOT_YET_SCORED` state note now says the shelter-map bundle has no published full locked score for the frozen-universe postal, replacing internal `current published bundle has not scored it yet` wording. Focused score-card copy and accessibility render tests plus repo integrity pass.
 - P304 is complete and committed: the planning-area rank panel header now says `Compare planning-area records` instead of `Compare nearby records`, matching the actual planning-area rank source. Focused score-card copy and accessibility render tests plus repo integrity pass.
 - P303 is complete and committed: the planning-area comparison empty state now says `No comparable full locked scores in this planning area` instead of generic `No comparable scored records`, matching the panel's full-score dependency. Focused score-card copy test and repo integrity pass.
