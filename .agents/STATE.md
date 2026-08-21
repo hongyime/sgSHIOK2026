@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P445 code commit: `d8ef6cf`; state-only commits may follow it on `main`.
+Latest P446 code commit: `771a553`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P446 is complete and committed: generic browser outside-bundle and no-result recent-source caveats now name SUN PLAZA SPRING and YISHUN BEACON as the confirmed HDB gaps and CANAAN/MYRA as unvalidated MCST proxy rows, matching the P445 docs. Focused web source-copy/accessibility render tests, repo integrity, and protected-diff checks passed.
 - P445 is complete and committed: README and CLAUDE now name the confirmed P19 HDB missing-address clusters, SUN PLAZA SPRING and YISHUN BEACON, three postals each, while keeping CANAAN and MYRA as unvalidated MCST proxy warnings. Focused README/agent-doc tests, repo integrity, and protected-diff checks passed.
 - P444 is complete and committed: zero-mutation P19 status confirmed SUN PLAZA SPRING and YISHUN BEACON as the coordinate-backed HDB missing-address clusters; batch-plan/readiness source policy now carries those cluster names, postals, row counts, 2026 year, and cached OneMap coordinate source. Focused batch-plan/readiness tests, repo integrity, and protected-diff checks passed.
 - P443 is complete and committed: fresh zero-mutation P125 status confirmed OSM `addr:postcode` covers 25,873 of 124,443 frozen-v1 postals and has 6 valid OSM-only postcodes; the source-policy block now carries `valid_osm_only_postcodes: 6`. Focused batch-plan/readiness tests, repo integrity, and protected-diff checks passed.
