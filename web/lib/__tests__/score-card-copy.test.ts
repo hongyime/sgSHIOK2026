@@ -377,7 +377,8 @@ describe("score card copy", () => {
     expect(source).not.toContain('label: "Rain shelter"');
     expect(source).not.toContain('label: "Heat proxy"');
     expect(source).not.toContain('label: "Crossing friction"');
-    expect(proposalSource).toContain("stop presenting the prior five component-score rows");
+    expect(proposalSource).toContain("stop presenting the prior five locked-term rows");
+    expect(proposalSource).not.toContain("stop presenting the prior five component-score rows");
     expect(proposalSource).toContain(
       "In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence."
     );

@@ -6,7 +6,7 @@ Status: proposal only. This is not an implementation and does not change the app
 
 Make Section 10 lead with the artifact the project can defend today: the shelter-map
 walk trace and its exposed gaps. Keep the locked score visible, but
-stop presenting the prior five component-score rows as five independent measurements.
+stop presenting the prior five locked-term rows as five independent measurements.
 
 ## Pre-P18 State
 

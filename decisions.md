@@ -952,3 +952,6 @@ Reusable P10 analysis helpers should call the pre-provenance release the legacy 
 
 2026-08-21 - P342 readiness locked-term status wording:
 Production readiness should describe missing `subscore_status` capabilities as missing locked-term status in operator warnings, because the browser and docs now present the five weighted terms as locked terms rather than independent component scores. The underlying manifest field remains `subscore_status`; only the warning text changed. This is readiness copy and test coverage only; it does not run readiness, alter gates, score values, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P343 Section 10 proposal locked-term wording:
+The Section 10 proposal should use the same locked-term language as the app and readiness surfaces. It now says the prior five rows were locked-term rows rather than component-score rows, preserving the proposal's argument that the release should not present those terms as five independent measurements. This is proposal wording and test coverage only; it does not change app rendering, score values, exports, public data, pipeline inputs, or locked weights.
