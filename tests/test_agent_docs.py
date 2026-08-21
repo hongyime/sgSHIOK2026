@@ -21,9 +21,10 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "locked SHIOK score visible but secondary" in normalized
     assert "postal universe is frozen v1: 124,443 records" in normalized
     assert (
-        "The 16 Aug 2026 P19 sampled check found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) sampled 2021-2026"
+        "The 16 Aug 2026 P19 public-source sample found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) sampled 2021-2026"
         in normalized
     )
+    assert "The 16 Aug 2026 P19 sampled check found" not in normalized
     assert "P19 found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows" not in normalized
     assert (
         "confirmed HDB gaps are SUN PLAZA SPRING and YISHUN BEACON, three postals each"

@@ -24,7 +24,8 @@ def test_readme_documents_universe_source_policy() -> None:
     assert "## Universe status" in text
     assert "124,443 records built around a June 2020 OneMap-derived postal scrape plus later local route and source evidence" in normalized
     assert "124,443-record source-derived set" not in normalized
-    assert "The 16 Aug 2026 public-source check found a small sampled current-source gap" in normalized
+    assert "The 16 Aug 2026 public-source sample found a small sampled current-source gap" in normalized
+    assert "The 16 Aug 2026 public-source check found a small sampled current-source gap" not in normalized
     assert "small current-source gap" not in normalized
     assert (
         "6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) sampled 2021-2026"
