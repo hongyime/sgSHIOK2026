@@ -970,3 +970,6 @@ The selected walk details should separate the sparse NParks route-geometry green
 
 2026-08-21 - P349 shelter-first live announcement:
 The score-card live region should follow the same hierarchy as the visual presentation: shelter evidence first, locked score second. Screen-reader status now announces covered-walkway ratio and exposed-gap total before the locked score, preserving the same visible layout and score values. This is browser accessibility copy and test coverage only; it does not alter rendering order, scoring, exports, public data, inputs, deployment, or locked weights.
+
+2026-08-21 - P350 shelter-first share metadata:
+Link previews should carry the same shelter-first product frame as the first view instead of relying on generic metadata fallbacks. The Next metadata now sets Open Graph and Twitter summary fields with the covered-walkway exposure-gap, night-lighting, and secondary locked-score description. This is browser metadata and test coverage only; it does not alter app rendering, scoring, exports, public data, inputs, deployment, or locked weights.

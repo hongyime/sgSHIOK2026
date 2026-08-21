@@ -110,7 +110,13 @@ describe("score card copy", () => {
 
     expect(source).toContain("S.H.I.O.K. Shelter Map");
     expect(source).not.toContain("S.H.I.O.K. Index");
-    expect(layoutSource).toContain('title: "S.H.I.O.K. Shelter Map"');
+    expect(layoutSource).toContain('const metadataTitle = "S.H.I.O.K. Shelter Map";');
+    expect(layoutSource).toContain("const metadataDescription =");
+    expect(layoutSource).toContain("openGraph: {");
+    expect(layoutSource).toContain("twitter: {");
+    expect(layoutSource).toContain('siteName: "S.H.I.O.K. Shelter Map"');
+    expect(layoutSource).toContain('url: "https://sgshiok.vercel.app/"');
+    expect(layoutSource).toContain('card: "summary"');
     expect(layoutSource).not.toContain('title: "S.H.I.O.K. Index"');
     expect(source).toContain("See covered-walkway ratio and exposed gaps to transit");
     expect(source).not.toContain("Shelter-first walks to transit");
@@ -203,6 +209,7 @@ describe("score card copy", () => {
       "Explore covered-walkway exposure gaps, night-lighting evidence, and the secondary locked SHIOK score"
     );
     expect(layoutSource).not.toContain("measuring rain shelter, provisional heat proxy, crossing friction");
+    expect(layoutSource).not.toContain("Singapore walk-to-transit comfort score");
   });
 
   it("keeps the footer aligned with covered-walkway and night-lighting evidence framing", () => {

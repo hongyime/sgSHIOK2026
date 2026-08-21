@@ -1,10 +1,25 @@
 import React from "react";
 import "maplibre-gl/dist/maplibre-gl.css";
 
+const metadataTitle = "S.H.I.O.K. Shelter Map";
+const metadataDescription =
+  "Explore covered-walkway exposure gaps, night-lighting evidence, and the secondary locked SHIOK score for Singapore walks to transit.";
+
 export const metadata = {
-  title: "S.H.I.O.K. Shelter Map",
-  description:
-    "Explore covered-walkway exposure gaps, night-lighting evidence, and the secondary locked SHIOK score for Singapore walks to transit.",
+  title: metadataTitle,
+  description: metadataDescription,
+  openGraph: {
+    title: metadataTitle,
+    description: metadataDescription,
+    type: "website",
+    url: "https://sgshiok.vercel.app/",
+    siteName: "S.H.I.O.K. Shelter Map",
+  },
+  twitter: {
+    card: "summary",
+    title: metadataTitle,
+    description: metadataDescription,
+  },
 };
 
 export default function RootLayout({
