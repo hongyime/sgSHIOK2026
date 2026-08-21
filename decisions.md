@@ -976,3 +976,6 @@ Link previews should carry the same shelter-first product frame as the first vie
 
 2026-08-21 - P351 transit picker straight-line caveat:
 The nearby-transit comparison note should not imply the auto-picked stop is objectively best before shelter-map evidence is loaded for another selected stop. It now says a non-auto-picked stop is farther than the auto-picked stop on straight-line distance only, and that shelter evidence updates after selection. This is browser copy and test coverage only; it does not alter candidate selection, routing, scoring, exports, public data, inputs, deployment, or locked weights.
+
+2026-08-21 - P352 shelter-map smoke locked-score check:
+Browser-smoke scored-state output should expose a shelter-map-named locked-score check instead of forcing operators to read the legacy score-denominator key as canonical. The JSON now includes `shelter_map_has_locked_score` while retaining `score_has_max_denominator` as a compatibility alias for older QA artifacts and scripts. This is operator QA output naming and test coverage only; it does not alter browser rendering, score values, scoring, exports, public data, inputs, deployment, or locked weights.

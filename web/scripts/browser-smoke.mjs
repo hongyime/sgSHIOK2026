@@ -633,6 +633,7 @@ function collectChecks(summary, mapState, cdp, postal, inputMode, expectedState,
   if (expectedState === "scored") {
     return {
       ...checks,
+      shelter_map_has_locked_score: hasScore,
       score_has_max_denominator: hasScore,
       transit_legend_present: summary.cardText.includes("MRT/LRT") && summary.cardText.includes("Bus stop"),
       walk_mode_present:
