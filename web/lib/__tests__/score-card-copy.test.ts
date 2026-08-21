@@ -302,7 +302,10 @@ describe("score card copy", () => {
   it("keeps the footer aligned with covered-walkway and night-lighting evidence framing", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
-    expect(source).toContain("Source-derived covered-walkway ratio, exposed gaps, and night lighting map evidence.");
+    expect(source).toContain(
+      "Source-derived walk evidence: covered-walkway ratio and exposed gaps, plus night lighting map evidence.",
+    );
+    expect(source).not.toContain("Source-derived covered-walkway ratio, exposed gaps, and night lighting map evidence.");
     expect(source).not.toContain("Source-derived covered-walkway ratio, exposed gaps, and night-lighting map evidence.");
     expect(source).not.toContain("Source-derived covered-walkway and exposure-gap evidence.");
     expect(source).not.toContain("Source-derived shelter map evidence.");
