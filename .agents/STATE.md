@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P356 is complete and committed: `113a6d0` makes run.py help and README advertise that p19-gap-status reports cache ages while preserving the no-API/no-write boundary; focused runner/README tests and repo integrity passed.
 - P355 is complete and committed: `0d8d1b1` makes read-only P19 cache status report `age_days` for summary and Overpass cache timestamps; focused analysis tests, p19-gap-status, and repo integrity passed.
 - P354 is complete and committed: `f64eede` aligns `sources.yaml` with the Leaf Area Index reference-only policy; focused fetch tests and repo integrity passed.
 - P353 is complete and committed: `4b72bfc` makes visible planning-area rank loading copy include the selected rank/evidence label, matching the live-region status; focused score-card/accessibility tests and repo integrity passed.
