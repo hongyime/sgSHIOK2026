@@ -1120,3 +1120,6 @@ Clicked-stop live preview metrics should say `OneMap preview walk` rather than g
 
 2026-08-21 - P401 selected transit stop badge:
 The selected-stop badge should say `Viewing selected transit stop` rather than `Viewing selected stop`, because the selection changes the transit target used for the shelter-map walk comparison. This is browser copy and test coverage only; it does not mutate transit candidates, route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P402 transit-target availability labels:
+Transit target availability labels should say `current walk`, `published walk`, and `no published walk` instead of `selected walk`, `shelter-map walk`, and `no shelter-map walk`. This keeps the picker aligned with the published-bundle boundary while still showing which transit target has a usable walk. This is browser copy and test coverage only; it does not mutate transit target selection, route geometry, scoring, exports, public data, deployment, or locked weights.
