@@ -1493,3 +1493,7 @@ Bus-arrival snapshot collection is an API-calling future reliability input and m
 2026-08-22 - P530 targeted refresh confirmation guard:
 
 Targeted bundle refresh is a scoring and bundle-mutation operation, not a report. Its CLI now requires `--confirm-targeted-refresh` before resolving the active bundle, copying a bundle, scoring selected postals, or replacing score/geometry shards. This preserves the helper for deliberate, confirmed scripts while closing the accidental bare-command path. This is command safety/test coverage only; it does not score, export, mutate public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P531 partial resnap confirmation guard:
+
+Partial resnap comparison is a bounded scoring operation, not a report-only audit. `scripts.partial_resnap_rescore` now requires both `--confirm-rescore` and explicit `--output` before resolving the active bundle or calling `score_postals()`, instead of defaulting to the active bundle and `qa/partial_resnap_rescore_sample.json`. This is command safety/test coverage only; it does not score, export, mutate public data, protected QA evidence, deployment, or locked weights.

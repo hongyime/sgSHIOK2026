@@ -197,12 +197,16 @@ def build_report(
     }
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Bounded before/after rescore for resnap QA.")
     parser.add_argument("--bundle-dir", type=Path)
     parser.add_argument("--network", type=Path, default=DEFAULT_NETWORK)
     parser.add_argument("--postal-universe", type=Path, default=DEFAULT_UNIVERSE)
-    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument(
+        "--output",
+        type=Path,
+        help="Explicit report path; confirmed rescoring refuses the historical default.",
+    )
     parser.add_argument("--area", action="append", dest="areas")
     parser.add_argument("--per-area", type=int, default=6)
     parser.add_argument("--postal", action="append", dest="postals", default=[])
@@ -212,7 +216,30 @@ def main() -> int:
         action="store_true",
         help="Restrict selected NO_TRANSIT_IN_RANGE rows to records with bus stops within the direct-radius candidate set.",
     )
-    args = parser.parse_args()
+    parser.add_argument(
+        "--confirm-rescore",
+        action="store_true",
+        help="Required before resolving the active bundle and running bounded rescoring.",
+    )
+    args = parser.parse_args(argv)
+
+    errors = []
+    if not args.confirm_rescore:
+        errors.append("partial resnap rescore requires --confirm-rescore")
+    if args.output is None:
+        errors.append("partial resnap rescore requires explicit --output")
+    if errors:
+        print(
+            json.dumps(
+                {
+                    "ok": False,
+                    "errors": errors,
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 1
 
     report = build_report(
         bundle_dir=args.bundle_dir if args.bundle_dir else active_bundle_dir(),
