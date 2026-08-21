@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P541 code commit: `42d2cc3`; state-only commits may follow it on `main`.
+Latest P542 code commit: `2d304c5`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P542 is complete and committed: browser first-view freshness copy now says NParks Leaf Area Index is 6.4 days from its 120-day threshold and lists stale sources by days past threshold, led by Planning Area Boundaries, NParks Tracks, and NParks Heritage Road Green Buffers. Focused web copy test, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P541 is complete and committed: production readiness now sorts structured `stale_sources` by `days_past_stale` descending and exposes `most_overdue_stale_source` directly, preserving warning prose and `by_status` key lists. Focused production-readiness/README tests, collect-only count, structured most-overdue stale-source probe, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P540 is complete and committed: production readiness now exposes `stale_sources` as structured fields with source key, readable name, age basis, age days, stale threshold, days past stale, and cadence, while preserving warning prose and `by_status` key lists. Focused production-readiness/README tests, collect-only count, structured stale-source probe, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P539 is complete and committed: production readiness now exposes `nearest_current_source_to_stale` as structured fields while preserving the `oldest_current_source` prose summary, so downstream planning can consume the nearest freshness deadline without parsing text. Focused fetch/production-readiness/README tests, collect-only count, structured readiness probe, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
