@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P461 code commit: `5f42a7a`; state-only commits may follow it on `main`.
+Latest P462 code commit: `7a804e2`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P462 is complete and committed: the first-view Leaf Area Index caveat now says `walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry`, replacing the stale `route heat evidence` phrase while preserving the LAI freshness-only and not-measured-temperature caveats. Focused web source-copy test, repo integrity, and protected-diff checks passed.
 - P461 is complete and committed: the transit-stop picker source contract no longer says the map route line stays on the auto-picked best stop; it now records that selected candidates may update the displayed walk through precomputed candidate geometry or a live OneMap preview while chip comparisons remain straight-line only. Focused web transit-picker/map-preview tests, repo integrity, and protected-diff checks passed.
 - P460 is complete and committed: batch-plan/readiness structured DataMall geospatial discovery policy now records `checked_at_local_date: 2026-08-21`, matching the browser's dated metadata-only drift caveat while preserving the no-payload/no-manifest-write boundary. Focused batch-plan/readiness tests, repo integrity, and protected-diff checks passed.
 - P459 is complete and committed: batch-plan/readiness structured source policy now dates the P19 measurement as `P19 16 Aug 2026 public-source gap sample` and records `generated_at_utc: 2026-08-16T02:08:55.624822+00:00`. Focused batch-plan/readiness tests, repo integrity, and protected-diff checks passed.
