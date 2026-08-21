@@ -125,9 +125,11 @@ def test_source_freshness_status_marks_stale_manifest_entry() -> None:
     assert status["status"] == "stale"
     assert status["age_basis"] == "last_modified"
     assert round(status["age_days"], 1) == 39.9
+    assert round(status["days_past_stale"], 1) == 9.9
+    assert round(status["days_until_stale"], 1) == 0.0
     assert source_freshness_line(status) == (
         "[lamp_posts] Lamp Posts: STALE — last_modified age 39.9d "
-        "exceeds 30d threshold (monthly)"
+        "exceeds 30d threshold by 9.9d (monthly)"
     )
 
 
@@ -149,9 +151,11 @@ def test_source_freshness_line_reports_current_manifest_age() -> None:
     )
 
     assert status["status"] == "current"
+    assert round(status["days_until_stale"], 1) == 80.1
+    assert round(status["days_past_stale"], 1) == 0.0
     assert source_freshness_line(status) == (
         "[covered_linkway] Covered Linkway: freshness current — last_modified age 39.9d "
-        "within 120d threshold (quarterly)"
+        "within 120d threshold with 80.1d until stale (quarterly)"
     )
 
 
@@ -329,8 +333,14 @@ def test_run_freshness_report_does_not_probe_upstream(
     out = capsys.readouterr().out
     assert "Source freshness from raw/manifest.json at 2026-08-16T00:00:00+00:00..." in out
     assert "Manifest-only check: no upstream URLs were probed." in out
-    assert "[fresh] Fresh: freshness current — fetched_at age 1.0d within 30d threshold (monthly)" in out
-    assert "[stale] Stale: STALE" in out
+    assert (
+        "[fresh] Fresh: freshness current — fetched_at age 1.0d within 30d threshold "
+        "with 29.0d until stale (monthly)"
+    ) in out
+    assert (
+        "[stale] Stale: STALE — last_modified age 39.9d exceeds 30d threshold "
+        "by 9.9d (monthly)"
+    ) in out
     assert "[manual] Manual: freshness manual" in out
     assert "[unknown_age] Unknown Age: freshness unknown_age (monthly)" in out
     assert "Freshness: current 1, stale 1, manual 1, unknown_policy 0, unknown_age 1" in out

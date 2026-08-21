@@ -1517,3 +1517,7 @@ Operators need one read-only answer for the current postal-universe measurement 
 2026-08-22 - P536 postal-universe measurement rates:
 
 The consolidated postal-universe status should answer the measurement question directly, not only expose raw counts. `run.py universe-status` now reports P19 confirmed-missing and confirmed-plus-warning sample rates plus the P125 OSM-only-postcode share of frozen v1, still using cached evidence only and still not approving v2 build, scoring, export, input mutation, public-data mutation, deployment, or locked-weight changes.
+
+2026-08-22 - P537 source freshness planning deltas:
+
+Manifest-only freshness should help schedule versioned refreshes before a batch run, not only label sources current or stale. `run.py check --freshness-only` now reports days until stale for current timestamped sources and days past stale for stale sources, still reading only `raw/manifest.json` and `pipeline/config/sources.yaml`, probing no upstream URLs, writing no manifest, and preserving the rule that stale sources require a new numbered input version rather than frozen-v1 mutation.

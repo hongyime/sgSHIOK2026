@@ -70,7 +70,8 @@ For a zero-mutation source-age check, run
 `uv run python run.py check --freshness-only`; it reads `raw/manifest.json` and
 `pipeline/config/sources.yaml` only, does not probe upstream APIs, and reports
 current, stale, manual, and unknown-age sources; grouped action summaries include
-source names such as `traffic_signals (Traffic Signals)` so operators do not
+source names such as `traffic_signals (Traffic Signals)`, and current/stale
+lines include days until stale or days past stale so operators do not
 need to cross-reference `sources.yaml`. If stale sources appear, report them
 and plan a versioned refresh; do not mutate frozen v1 in place. NParks Leaf Area Index can appear in
 freshness as a tracked reference table, and the published legacy bundle may

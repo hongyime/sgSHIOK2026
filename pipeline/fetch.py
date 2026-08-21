@@ -263,6 +263,8 @@ def source_freshness_status(
         }
 
     age_days = max(0.0, (now_utc - source_time).total_seconds() / 86400.0)
+    days_until_stale = max(0.0, float(stale_after_days) - age_days)
+    days_past_stale = max(0.0, age_days - float(stale_after_days))
     return {
         "source_key": key,
         "name": name,
@@ -270,6 +272,8 @@ def source_freshness_status(
         "expected_cadence": expected_cadence,
         "stale_after_days": stale_after_days,
         "age_days": age_days,
+        "days_until_stale": days_until_stale,
+        "days_past_stale": days_past_stale,
         "age_basis": age_basis,
     }
 
@@ -282,6 +286,7 @@ def source_freshness_line(status: dict[str, Any]) -> str:
         return (
             f"[{key}] {name}: STALE — {status['age_basis']} age {age_days:.1f}d "
             f"exceeds {status['stale_after_days']}d threshold "
+            f"by {float(status.get('days_past_stale') or 0.0):.1f}d "
             f"({status.get('expected_cadence') or 'cadence unspecified'})"
         )
     if status["status"] == "manual":
@@ -291,6 +296,7 @@ def source_freshness_line(status: dict[str, Any]) -> str:
         return (
             f"[{key}] {name}: freshness current — {status['age_basis']} age {age_days:.1f}d "
             f"within {status['stale_after_days']}d threshold "
+            f"with {float(status.get('days_until_stale') or 0.0):.1f}d until stale "
             f"({status.get('expected_cadence') or 'cadence unspecified'})"
         )
     return (
