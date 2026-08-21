@@ -471,7 +471,9 @@ describe("score card copy", () => {
     expect(source).not.toContain("Use this locked composite");
     expect(source).toContain('aria-label="Planning-area comparison"');
     expect(source).toContain("Compare planning-area records");
+    expect(source).toContain("Show ranks");
     expect(source).not.toContain("Compare nearby records");
+    expect(source).not.toContain(">Show</button>");
     expect(source).toContain("Choose planning-area evidence view");
     expect(source).not.toContain("Rank records by");
     expect(source).not.toContain('aria-label="Rank by view"');

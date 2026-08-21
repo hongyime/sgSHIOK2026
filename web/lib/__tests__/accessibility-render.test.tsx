@@ -416,6 +416,14 @@ describe("rendered accessibility output", () => {
       },
       rankingRecords: [recordWithEqualRainHeat],
     });
+    const closedRankHtml = renderScoreCard({
+      selection: {
+        ...selection,
+        score: recordWithEqualRainHeat,
+      },
+      rankingRecords: [recordWithEqualRainHeat],
+      rankPanelOpen: false,
+    });
     const breakdownHtml = html.slice(
       html.indexOf('aria-label="Shelter-map evidence and locked score breakdown"'),
       html.indexOf('aria-label="Planning-area comparison"')
@@ -469,7 +477,9 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Locked SHIOK score");
     expect(html).toContain('aria-label="Planning-area comparison"');
     expect(html).toContain("Compare planning-area records");
+    expect(closedRankHtml).toContain("Show ranks");
     expect(html).not.toContain("Compare nearby records");
+    expect(closedRankHtml).not.toContain(">Show</button>");
     expect(html).toContain("Choose planning-area evidence view");
     expect(html).not.toContain("Rank records by");
     expect(html).toContain(

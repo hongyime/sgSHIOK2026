@@ -1553,7 +1553,7 @@ export function ScoreCard({
                 className={styles.rankToggle}
                 onClick={() => setRankPanelOpen(true)}
               >
-                Show
+                Show ranks
               </button>
             )}
           </div>
