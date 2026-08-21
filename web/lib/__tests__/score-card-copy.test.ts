@@ -191,7 +191,7 @@ describe("score card copy", () => {
       "Recent public-source check: {RECENT_PUBLIC_SOURCE_GAP_COPY}."
     );
     expect(source).toContain(
-      "6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows with postals"
+      "6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) 2021-2026 public-source rows with postals"
     );
     expect(source).toContain("one of the 6 coordinate-backed HDB missing rows from frozen v1");
     expect(source).not.toContain("one of the 8 recent public-source postals missing from frozen v1");
