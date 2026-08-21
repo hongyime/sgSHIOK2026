@@ -889,3 +889,6 @@ The planning-area rank dropdown should present non-overall rank modes as evidenc
 
 2026-08-21 - P321 planning-area rank helper evidence wording:
 The planning-area rank helper should match the rank menu's evidence-view framing. When the panel is open on a non-overall metric, it now says `Planning-area evidence view; locked SHIOK score is unchanged.` instead of `Planning-area component evidence view; locked SHIOK score is unchanged.` This is web copy and test coverage only; it does not change rank calculations, score values, ranking inputs, ranking order, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P322 planning-area rank select accessibility label:
+The planning-area rank select's screen-reader label should describe the same evidence-view surface sighted users see. It now says `Choose planning-area evidence view` instead of `Rank records by`, while the visible dropdown options and rank calculations remain unchanged. This is web accessibility copy and test coverage only; it does not change rank calculations, score values, ranking inputs, ranking order, exports, public data, pipeline inputs, or locked weights.

@@ -1402,7 +1402,7 @@ export function ScoreCard({
             </div>
             {rankPanelOpen ? (
               <label>
-                <span className={styles.srOnly}>Rank records by</span>
+                <span className={styles.srOnly}>Choose planning-area evidence view</span>
                 <select
                   value={rankMetric}
                   onChange={(event) => setRankMetric(event.target.value as RankMetric)}

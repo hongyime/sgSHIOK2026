@@ -332,6 +332,8 @@ describe("score card copy", () => {
     expect(source).toContain('aria-label="Planning-area comparison"');
     expect(source).toContain("Compare planning-area records");
     expect(source).not.toContain("Compare nearby records");
+    expect(source).toContain("Choose planning-area evidence view");
+    expect(source).not.toContain("Rank records by");
     expect(source).not.toContain('aria-label="Rank by view"');
     expect(source).not.toContain("<strong>Rank by</strong>");
     expect(source).toContain("Planning-area list sorted by locked score; shelter evidence remains the primary view.");
