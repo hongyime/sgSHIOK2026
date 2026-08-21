@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P284 code commit: `28e23e6`; state-only commits may follow it on `main`.
+Latest P285 code commit: `20400f8`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P285 is complete and committed: README publish/full-batch guidance now uses `uv run python run.py readiness`, and `tests/test_run.py` guards the readiness task dispatch to `scripts.production_readiness`. Focused README/run tests and repo integrity pass.
 - P284 is complete and committed: `CLAUDE.md` repo layout now documents `run.py` safe reports separately from gated pipeline tasks, matching README's current operator surface. Focused agent-doc test and repo integrity pass.
 - P283 is complete and committed: README ground rules no longer overclaim every published score is reproducible from hashed inputs and tagged code; they now state verified published values/coordinates/route origins and the active legacy bundle's missing record-level scoring-input/network provenance. Focused README tests and repo integrity pass.
 - P282 is complete and committed: README's repo map now documents `run.py` safe reports (`check --freshness-only`, `check --geospatial-discovery-only`, `p19-gap-status`, `readiness`, `batch-plan`) separately from gated pipeline tasks. Focused README tests and repo integrity pass.
