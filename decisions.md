@@ -937,3 +937,6 @@ The heat-presentation analysis helper should audit the current app copy, not ret
 
 2026-08-21 - P337 readiness help published-bundle wording:
 The safe-report help for `run.py readiness` should name the published shelter-map bundle rather than the generic current bundle. The docstring and help output now say readiness validates the published shelter-map bundle and release gates without scoring or deploying. This is operator help text and test coverage only; it does not run readiness, alter release gates, score values, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P338 audit bundle help published-bundle wording:
+The read-only active-bundle audit helper should use the same published shelter-map bundle wording as the rest of the operator surface. Its CLI description and `--state-only` help now name the published shelter-map bundle instead of the current bundle. This is operator help text and test coverage only; it does not run the audit, alter reports, score values, exports, public data, pipeline inputs, or locked weights.

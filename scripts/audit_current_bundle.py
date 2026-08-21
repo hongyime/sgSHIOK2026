@@ -434,7 +434,7 @@ def summarize_state_report(report: dict[str, Any]) -> dict[str, Any]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Fast audit of the current deployed shelter-map bundle.")
+    parser = argparse.ArgumentParser(description="Fast audit of the published shelter-map bundle.")
     parser.add_argument("--bundle-dir", type=Path, default=None)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--replay-limit", type=int, default=30)
@@ -443,7 +443,7 @@ def main() -> int:
     parser.add_argument(
         "--state-only",
         action="store_true",
-        help="Print current bundle state counts without writing a QA report.",
+        help="Print published shelter-map bundle state counts without writing a QA report.",
     )
     args = parser.parse_args()
 
