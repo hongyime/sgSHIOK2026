@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P438 code commit: `8cdeb99`; state-only commits may follow it on `main`.
+Latest P439 code commit: `dc86c86`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P439 is complete and committed: the first-view source line now says OpenStreetMap contributes geometry evidence, not the address universe, while retaining OSM attribution and ODbL link. Focused source-copy test, repo integrity, and protected-diff checks passed.
 - P438 is complete and committed: direct-bus fallback score reasons now say `Nearby bus service found` and `No verified shelter-map walk yet`, replacing the source-shaped `Nearby bus stop with service data` / `Shelter-map walk not verified yet` pair. Focused accessibility/source-copy tests, repo integrity, and protected-diff checks passed.
 - P437 is complete and committed: the bus fallback reason chip now says `Nearby bus service without verified shelter-map walk` instead of terse `not walk-verified` wording. Focused accessibility/source-copy tests, repo integrity, and protected-diff checks passed.
 - P436 is complete and committed: the `Bus service support` note now says the published shelter-map walk could not prove access to an official LTA bus stop, replacing the source-system phrase `DataMall bus stop`. Focused accessibility/source-copy tests, repo integrity, and protected-diff checks passed.
