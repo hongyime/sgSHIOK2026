@@ -1075,3 +1075,6 @@ Structured source-policy consumers should not have to infer the P19 evidence spl
 
 2026-08-21 - P386 readiness P19 evidence split:
 Production readiness should expose the P19 evidence split as a direct feature field, not only buried inside the full source-policy block. `features.recent_public_source_gap_evidence_split` now aliases the structured source-policy split so operators can read the confirmed-address versus source-quality-warning counts without traversing nested policy metadata. This is readiness reporting and test coverage only; it does not mutate inputs, QA evidence, public data, scoring, exports, deployment, or locked weights.
+
+2026-08-21 - P387 P19 status help evidence split:
+Operator help should advertise that `p19-gap-status` reports the P19 evidence split, not only missing rows, MCST probe and cache ages. `run.py --help` and README now name the evidence split in the read-only P19 status command description. This is documentation/help text and test coverage only; it does not call APIs, mutate inputs or QA evidence, score, export, deploy, or alter locked weights.
