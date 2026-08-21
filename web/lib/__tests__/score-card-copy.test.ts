@@ -202,6 +202,10 @@ describe("score card copy", () => {
       "Recent public-sample check: 8 missing rows out of 976 completions from 2021-2026 with postals."
     );
     expect(source).toContain(
+      "Live OSM addr:postcode coverage: 25,873 of 124,443 frozen postals, with 6 valid OSM-only postcodes; OSM remains geometry evidence, not the address registry."
+    );
+    expect(source).not.toContain("OSM remains the address registry");
+    expect(source).toContain(
       "Data freshness at the 21 Aug 2026 manifest-only check: 12 sources current, with NParks Leaf Area Index just under its 120-day quarterly threshold; 6 stale, 2 manual, and 1 candidate address source with unknown age. No upstream URLs were probed. Stale sources are traffic signals, planning area boundary, NParks nature ways, tracks, heritage trees and heritage road green buffers."
     );
     expect(source).toContain("No upstream URLs were probed.");

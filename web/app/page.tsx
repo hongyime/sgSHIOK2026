@@ -101,6 +101,9 @@ const REASON_COPY: Record<keyof Subscores, { low: string; high: string }> = {
 const RECENT_PUBLIC_SOURCE_GAP_COPY =
   "6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) 2021-2026 public-source rows with postals";
 
+const OSM_ADDR_POSTCODE_COVERAGE_COPY =
+  "Live OSM addr:postcode coverage: 25,873 of 124,443 frozen postals, with 6 valid OSM-only postcodes; OSM remains geometry evidence, not the address registry.";
+
 const RECENT_PUBLIC_SOURCE_MISSING_POSTAL_SOURCE: Record<string, string> = {
   "521400": "HDB 2021-2026 geocoded rows",
   "522400": "HDB 2021-2026 geocoded rows",
@@ -2148,6 +2151,9 @@ export default function Home() {
             </p>
             <p className={styles.freshnessLine}>
               Recent public-source check: {RECENT_PUBLIC_SOURCE_GAP_COPY}.
+            </p>
+            <p className={styles.freshnessLine}>
+              {OSM_ADDR_POSTCODE_COVERAGE_COPY}
             </p>
             <p className={styles.freshnessLine}>
               Data freshness at the 21 Aug 2026 manifest-only check: 12 sources current, with NParks Leaf Area Index just under its 120-day quarterly threshold; 6 stale, 2 manual, and 1 candidate address source with unknown age. No upstream URLs were probed. Stale sources are traffic signals, planning area boundary, NParks nature ways, tracks, heritage trees and heritage road green buffers.
