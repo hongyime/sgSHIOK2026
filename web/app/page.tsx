@@ -146,6 +146,22 @@ export function routeDisplayAnnouncement(mode: RouteDisplayMode, sameRoute: bool
   return "sheltered";
 }
 
+function shelterEvidenceAnnouncement(score: ScoreRecord): string {
+  const parts: string[] = [];
+  if (typeof score.paths?.covered_ratio === "number") {
+    parts.push(`${formatPercent(Math.round(score.paths.covered_ratio * 100))} covered-walkway ratio`);
+  }
+  if (score.exposure_gaps) {
+    const totalExposureM = score.exposure_gaps.reduce((total, gap) => total + gap.len_m, 0);
+    parts.push(
+      `${formatDistance(totalExposureM)} exposed across ${score.exposure_gaps.length} gap${
+        score.exposure_gaps.length === 1 ? "" : "s"
+      }`
+    );
+  }
+  return parts.length > 0 ? `Shelter evidence ${parts.join("; ")}.` : "Shelter evidence unavailable.";
+}
+
 export function scoreCardAnnouncement({
   selection,
   stationName,
@@ -178,7 +194,8 @@ export function scoreCardAnnouncement({
       ? "Preview shelter map evidence selected."
       : "Custom stop selected."
     : "Published walk selected.";
-  return `${postal} shelter map panel loaded. ${stationName ?? "Transit target loaded"}. Locked score ${scoreText}. ${stopText} Walk display ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
+  const shelterText = shelterEvidenceAnnouncement(selection.score);
+  return `${postal} shelter map panel loaded. ${stationName ?? "Transit target loaded"}. ${shelterText} Locked score ${scoreText}. ${stopText} Walk display ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
 }
 
 export function rankAnnouncement({

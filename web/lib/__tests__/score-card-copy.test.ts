@@ -137,6 +137,9 @@ describe("score card copy", () => {
     );
     expect(source).toContain("function formatGeneratedDate(manifest: Manifest | null): string");
     expect(source).toContain("Locked score ${scoreText}");
+    expect(source).toContain("function shelterEvidenceAnnouncement(score: ScoreRecord): string");
+    expect(source).toContain('return parts.length > 0 ? `Shelter evidence ${parts.join("; ")}.` : "Shelter evidence unavailable.";');
+    expect(source).toContain("${shelterText} Locked score ${scoreText}.");
     expect(source).toContain(
       "Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape."
     );
@@ -303,6 +306,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("comfortMode");
     expect(source).toContain("const displayScore = score.total;");
     expect(source).toContain("<span>Locked score</span>");
+    expect(source).toContain("shelterEvidenceAnnouncement(selection.score)");
   });
 
   it("shows four display rows without changing the locked weights", () => {

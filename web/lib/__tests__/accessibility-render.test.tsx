@@ -195,7 +195,11 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain('role="status"');
     expect(html).toContain("Postal 560231 shelter map panel loaded.");
+    expect(html).toContain("Shelter evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps.");
     expect(html).toContain("Locked score 72 out of 100.");
+    expect(html.indexOf("Shelter evidence 62% covered-walkway ratio")).toBeLessThan(
+      html.indexOf("Locked score 72 out of 100.")
+    );
     expect(html).toContain("<span>Locked score</span><strong>72/100</strong>");
     expect(html).toContain("Custom stop selected.");
     expect(html).toContain("Walk display shortest");
@@ -231,6 +235,9 @@ describe("rendered accessibility output", () => {
 
   it("falls back to walk active when no selected walk label is available", () => {
     expect(scoreCardAnnouncement({ selection, routeMode: "shiokest" })).toContain("walk active.");
+    expect(scoreCardAnnouncement({ selection, routeMode: "shiokest" })).toContain(
+      "Shelter evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps."
+    );
     expect(scoreCardAnnouncement({ selection, routeMode: "shiokest" })).not.toContain("route active.");
   });
 
