@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P523 code commit: `cc1cee0`; state-only commits may follow it on `main`.
+Latest P524 code commit: `e1c4287`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P524 is complete and committed: `CLAUDE.md` now carries the same postal-universe v2 OneMap Search boundary as README/batch-plan/readiness: candidate validation uses explicit token controls, 72-hour token refresh, and the documented token-authenticated call-limit cap unless SLA approves a higher limit case-by-case. Focused agent-doc test, doc probe, repo integrity, check-ignore, and protected-diff checks passed.
 - P523 is complete and committed: `pipeline/config/sources.yaml` and production-readiness feature notes now state Overture Addresses SG is candidate-only postal-universe evidence and does not approve scoring or address-registry use until raw archive, attribution, dedupe, coordinate-outlier review, and owner approval. Focused source-config/readiness tests, source-note probe, repo integrity, check-ignore, and protected-diff checks passed.
 - P522 is complete and committed: `pipeline.postal_universe --include-overture-candidate` help and generated summary warning now state that archived Overture Addresses SG is candidate-only postal-universe evidence, not scoring or address-registry approval, and does not change defaults. Focused postal-universe tests, help probe, repo integrity, check-ignore, and protected-diff checks passed.
 - P521 is complete and committed: Overture Addresses SG runner/module help now describes the command as candidate-only postal-universe evidence and not scoring or address-registry approval. Focused Overture/run tests, module help probe, repo integrity, check-ignore, and protected-diff checks passed.
