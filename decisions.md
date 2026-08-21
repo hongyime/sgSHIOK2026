@@ -1169,3 +1169,7 @@ The page footer now says "Source-derived covered-walkway ratio, exposed gaps, an
 2026-08-21 - P417 shared metadata evidence framing:
 
 The site metadata description now says "covered-walkway ratio, exposed gaps, night-lighting evidence" instead of "covered-walkway exposure gaps." Metadata is the share-card/search-snippet surface, so it should name the same distinct evidence artifacts as the first-view title and footer rather than compressing the ratio and gap evidence into one phrase.
+
+2026-08-21 - P418 map accessible label headline evidence:
+
+The empty-map aria label now names covered-walkway ratio and exposed gaps before transit stops and night-lighting evidence. Non-visual users should hear the same shelter-first evidence framing as sighted users before search, not only a transit-POI inventory.

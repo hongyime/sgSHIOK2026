@@ -967,7 +967,7 @@ function routeModeLabel(mode: RouteDisplayMode): string {
 
 function mapAriaLabel(routes: RouteMapItem[], mode: RouteDisplayMode): string {
   if (routes.length === 0) {
-    return "Singapore shelter map with MRT stations, LRT stations, bus stops, and night-lighting evidence";
+    return "Singapore shelter map for covered-walkway ratio, exposed gaps, transit stops, and night-lighting evidence";
   }
   const labels = routes.map((route) => route.label).join(", ");
   return `Shelter map for ${labels}, showing ${routeModeLabel(mode)}`;
