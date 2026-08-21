@@ -278,7 +278,8 @@
 }
 
 .scoreBadge {
-  min-width: 74px;
+  width: 96px;
+  min-height: 48px;
   border: 1px solid currentColor;
   border-radius: 8px;
   padding: 6px 7px;
@@ -296,13 +297,16 @@
   text-transform: uppercase;
   white-space: nowrap;
   opacity: 0.78;
+  text-align: center;
 }
 
 .scoreBadge strong {
   margin-top: 2px;
   font-size: 13px;
   font-weight: 900;
-  white-space: nowrap;
+  line-height: 1.08;
+  text-align: center;
+  white-space: normal;
 }
 
 .scoreGood {

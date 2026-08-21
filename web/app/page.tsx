@@ -376,6 +376,12 @@ function formatScoreWithMax(value: number | null | undefined, fallback = "No ful
   return typeof value === "number" ? `${Math.round(value)}/100` : fallback;
 }
 
+function lockedScoreBadgeCopy(value: number | null | undefined): { label: string; value: string } {
+  return typeof value === "number"
+    ? { label: "Locked score", value: formatScoreWithMax(value) }
+    : { label: "No full score", value: "Published bundle" };
+}
+
 function formatDistance(value: number | undefined): string {
   if (typeof value !== "number") return "Unavailable";
   return value >= 1000 ? `${(value / 1000).toFixed(1)} km` : `${Math.round(value)} m`;
@@ -1194,6 +1200,7 @@ export function ScoreCard({
     : null;
   const busFallback = directBusFallbackEvidence(score);
   const displayScore = score.total;
+  const scoreBadgeCopy = lockedScoreBadgeCopy(displayScore);
   const rankedRecords = useMemo(
     () => rankScoreRecords(rankingRecords, rankMetric, 5),
     [rankingRecords, rankMetric]
@@ -1386,8 +1393,8 @@ export function ScoreCard({
         </div>
         <div className={styles.scoreHeaderRight}>
           <div className={`${styles.scoreBadge} ${scoreClass(displayScore)}`}>
-            <span>Locked score</span>
-            <strong>{formatScoreWithMax(displayScore)}</strong>
+            <span>{scoreBadgeCopy.label}</span>
+            <strong>{scoreBadgeCopy.value}</strong>
           </div>
           <details
             className={styles.overflowMenu}

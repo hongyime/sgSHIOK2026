@@ -729,6 +729,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("one or more sub-scores are unavailable");
     expect(html).toContain("Shelter map evidence unavailable");
     expect(html).toContain("Locked score unavailable");
+    expect(html).toContain("<span>No full score</span><strong>Published bundle</strong>");
     expect(html).toContain("<strong>Unavailable</strong><small>Shelter evidence unavailable</small>");
     expect(html).toContain("<strong>Unavailable</strong><small>Access term unavailable</small>");
     expect(html).toContain("<strong>No full locked score</strong><small>Release sorting index unavailable</small>");
@@ -767,6 +768,7 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("No full locked score in published shelter-map bundle");
     expect(html).toContain("Awaiting locked score");
+    expect(html).toContain("<span>No full score</span><strong>Published bundle</strong>");
     expect(html).not.toContain("Location Evidence Missing");
     expect(html).toContain("Locked score unavailable in the published shelter-map bundle.");
     expect(html).not.toContain("Locked score no full locked score in this bundle.");

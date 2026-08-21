@@ -407,7 +407,9 @@ describe("score card copy", () => {
     expect(source).not.toContain("ComfortModeControl");
     expect(source).not.toContain("comfortMode");
     expect(source).toContain("const displayScore = score.total;");
-    expect(source).toContain("<span>Locked score</span>");
+    expect(source).toContain('label: "Locked score"');
+    expect(source).toContain('label: "No full score"');
+    expect(source).toContain('value: "Published bundle"');
     expect(source).toContain("shelterEvidenceAnnouncement(selection.score)");
   });
 
