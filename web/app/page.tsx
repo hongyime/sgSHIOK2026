@@ -1432,7 +1432,7 @@ export function ScoreCard({
               )}
               {!rankingLoading && rankedRecords.length === 0 && (
                 <span className={styles.rankEmpty}>
-                  No comparable scored records in this planning area.
+                  No comparable full locked scores in this planning area.
                 </span>
               )}
               {!rankingLoading &&

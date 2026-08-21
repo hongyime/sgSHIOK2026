@@ -832,3 +832,6 @@ The selected-postal load fallback should name shelter-map data rather than inter
 
 2026-08-21 - P302 OneMap busy-search copy:
 The OneMap rate-limit branch should name OneMap search rather than saying generic search is busy, because direct 6-digit postal lookup is local to the frozen shelter-map bundle while address lookup depends on OneMap. The 429 fallback now says `OneMap search is busy. Please try again in a moment.` This is browser copy and test coverage only; it does not alter OneMap request behavior, search, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P303 planning-area empty rank copy:
+The planning-area comparison empty state should say that comparable full locked scores are absent, not generic scored records, because the panel ranks full-score rows while the selected postal may still have shelter-map evidence. The empty state now says `No comparable full locked scores in this planning area.` This is browser copy and test coverage only; it does not alter rank loading, score values, scoring, exports, public data, deployment, or locked weights.
