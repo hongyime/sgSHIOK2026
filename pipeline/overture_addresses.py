@@ -380,9 +380,12 @@ def build_overture_candidate_report(
     return True, report
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Probe Overture Addresses SG as a postal-universe candidate."
+        description=(
+            "Probe Overture Addresses SG as candidate-only postal-universe evidence; "
+            "does not approve scoring or address-registry use."
+        )
     )
     parser.add_argument("--current-universe", type=Path, default=DEFAULT_CURRENT_UNIVERSE)
     parser.add_argument("--overture-path", default=DEFAULT_OVERTURE_PATH)
@@ -391,7 +394,7 @@ def main() -> int:
     parser.add_argument("--output", type=Path, default=None)
     parser.add_argument("--outlier-geojson", type=Path, default=None)
     parser.add_argument("--outlier-threshold-m", type=float, default=100.0)
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     ok, report = build_overture_candidate_report(
         current_universe_path=args.current_universe,

@@ -89,6 +89,10 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
         "read-only status for cached P125 20 Aug 2026 Overpass addr:postcode "
         "coverage cross-check and registry policy"
     )
+    assert run.STUBS["overture-addresses"] == (
+        "probe Overture Addresses SG as candidate-only postal-universe evidence, "
+        "not scoring or registry approval"
+    )
     assert run.STUBS["compare-targeted"] == (
         "compare a targeted score report against the published shelter-map bundle"
     )

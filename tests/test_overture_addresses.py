@@ -1,7 +1,9 @@
 from pathlib import Path
 
+import pytest
 import pyarrow.parquet as pq
 
+import pipeline.overture_addresses as overture_addresses
 from pipeline.overture_addresses import (
     archive_overture_postcode_rows,
     compare_coordinate_deltas,
@@ -10,6 +12,19 @@ from pipeline.overture_addresses import (
     normalize_postcode,
     wgs84_to_xy_transformer,
 )
+
+
+def test_overture_help_names_candidate_only_boundary(
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    with pytest.raises(SystemExit) as excinfo:
+        overture_addresses.main(["--help"])
+
+    assert excinfo.value.code == 0
+    out = " ".join(capsys.readouterr().out.split())
+    assert "candidate-only postal-universe evidence" in out
+    assert "does not approve scoring or address-registry use" in out
+    assert "as a postal-universe candidate" not in out
 
 
 def test_normalize_postcode_accepts_only_six_digits():

@@ -1453,3 +1453,7 @@ The DataMall geospatial discovery-only report should not stop at changed/error c
 2026-08-22 - P520 P125 help cross-check label:
 
 `p125-osm-status` help should name the cached report as the P125 20 Aug 2026 Overpass `addr:postcode` coverage cross-check, not generic P125 Overpass output. The command remains read-only and frames OSM as geometry evidence rather than the address registry. This is runner help/test coverage only; it does not mutate P125 caches, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P521 Overture candidate help boundary:
+
+Overture Addresses SG command help should match the settled candidate-source policy: it is candidate-only postal-universe evidence and does not approve scoring or address-registry use. This is help/test coverage only; it does not run the Overture probe, mutate archives/caches/inputs, score, export, public data, protected QA evidence, deployment, or locked weights.

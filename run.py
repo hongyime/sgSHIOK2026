@@ -42,7 +42,7 @@ STUBS = {
     "onemap-validation": "plan/evaluate OneMap walk-routing launch validation gate",
     "onemap-outlier-replay": "replay OneMap validation outliers through current local scoring",
     "onemap-outlier-triage": "build QA queues from profiled OneMap outlier replays",
-    "overture-addresses": "probe Overture Addresses SG postal-universe candidate",
+    "overture-addresses": "probe Overture Addresses SG as candidate-only postal-universe evidence, not scoring or registry approval",
     "p19-gap-status": "read-only status, evidence split, missing rows, MCST proxy probe and cache ages for cached P19 16 Aug 2026 public-source sample",
     "p19-mcst-locations": "read-only status for the cached P379 OneMap location probe of unvalidated P19 MCST proxy rows",
     "p125-osm-status": "read-only status for cached P125 20 Aug 2026 Overpass addr:postcode coverage cross-check and registry policy",
