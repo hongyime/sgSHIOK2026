@@ -3,6 +3,7 @@ import json
 import os
 
 from scripts.analysis import p19_universe_gap_measurement as p19
+from scripts.analysis import p19_mcst_missing_locations as p379
 from scripts.analysis import p125_osm_postcode_status as p125
 
 
@@ -258,3 +259,95 @@ def test_p125_osm_status_reports_cached_overpass_coverage(tmp_path: Path) -> Non
         "v1_only_sample": ["345678"],
         "verdict": "not sufficient as primary Singapore address registry",
     }
+
+
+def test_p379_locates_mcst_missing_rows_from_onemap_cache(tmp_path: Path) -> None:
+    detail_path = tmp_path / "qa" / "p19" / "universe_gap_measurement_detail.json"
+    cache_path = tmp_path / "qa" / "p379" / "cache.json"
+    report_path = tmp_path / "qa" / "p379" / "report.json"
+    detail_path.parent.mkdir(parents=True)
+    detail_path.write_text(
+        json.dumps(
+            {
+                "mcst_rows": [
+                    {
+                        "usr_mcno": "4918",
+                        "development_name": "MYRA",
+                        "development_location": "9 MEYAPPA CHETTIAR ROAD 935456",
+                        "postal": "935456",
+                        "mc_form_year": 2024,
+                        "in_v1": False,
+                    },
+                    {
+                        "usr_mcno": "1000",
+                        "development_name": "INSIDE",
+                        "development_location": "1 TEST ROAD 123456",
+                        "postal": "123456",
+                        "mc_form_year": 2024,
+                        "in_v1": True,
+                    },
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    cache_path.parent.mkdir(parents=True)
+    cache_path.write_text(
+        json.dumps(
+            {
+                "9 MEYAPPA CHETTIAR ROAD 935456": {
+                    "status_code": 200,
+                    "found": 1,
+                    "results": [
+                        {
+                            "POSTAL": "935456",
+                            "SEARCHVAL": "MYRA",
+                            "ADDRESS": "9 MEYAPPA CHETTIAR ROAD MYRA SINGAPORE 935456",
+                            "LATITUDE": "1.331234567",
+                            "LONGITUDE": "103.882345678",
+                        }
+                    ],
+                },
+                "935456": {"status_code": 200, "found": 0, "results": []},
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    report = p379.build_report(
+        detail_path=detail_path,
+        cache_path=cache_path,
+        report_path=report_path,
+        delay_sec=0.0,
+    )
+
+    assert report["mode"] == "p379_p19_mcst_missing_locations"
+    assert report["will_score"] is False
+    assert report["will_export"] is False
+    assert report["will_mutate_p19"] is False
+    assert report["mcst_missing_rows"] == 1
+    assert report["located_rows"] == 1
+    assert report["unlocated_rows"] == 0
+    assert report["cache_written"] is False
+    assert report["located"] == [
+        {
+            "postal": "935456",
+            "development_name": "MYRA",
+            "development_location": "9 MEYAPPA CHETTIAR ROAD 935456",
+            "mc_form_year": 2024,
+            "usr_mcno": "4918",
+            "queries": ["9 MEYAPPA CHETTIAR ROAD 935456", "935456"],
+            "matched_query": "9 MEYAPPA CHETTIAR ROAD 935456",
+            "status_code": 200,
+            "found": 1,
+            "candidate_postals_by_query": {
+                "9 MEYAPPA CHETTIAR ROAD 935456": ["935456"],
+                "935456": [],
+            },
+            "matched_postal": "935456",
+            "searchval": "MYRA",
+            "address": "9 MEYAPPA CHETTIAR ROAD MYRA SINGAPORE 935456",
+            "coordinate": {"lat": 1.3312346, "lon": 103.8823457},
+        }
+    ]
+    assert report_path.is_file()

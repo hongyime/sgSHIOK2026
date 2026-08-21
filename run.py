@@ -40,6 +40,7 @@ STUBS = {
     "onemap-outlier-triage": "build QA queues from profiled OneMap outlier replays",
     "overture-addresses": "probe Overture Addresses SG postal-universe candidate",
     "p19-gap-status": "read-only status, missing rows and cache ages for cached P19 postal-universe gap measurement",
+    "p19-mcst-locations": "bounded OneMap location probe for cached P19 MCST proxy missing rows",
     "p125-osm-status": "read-only status for cached P125 OSM addr:postcode coverage measurement",
     "readiness": "fast production-readiness report without scoring or deploying",
     "refresh-provenance": "refresh bundle manifest score provenance without rescoring",
@@ -100,6 +101,8 @@ def run_task(name: str, extra: list[str]) -> int:
         return run_module("pipeline.overture_addresses")
     if name == "p19-gap-status":
         return run_module("scripts.analysis.p19_universe_gap_measurement", ["--cache-status-only"])
+    if name == "p19-mcst-locations":
+        return run_module("scripts.analysis.p19_mcst_missing_locations")
     if name == "p125-osm-status":
         return run_module("scripts.analysis.p125_osm_postcode_status")
     if name == "readiness":

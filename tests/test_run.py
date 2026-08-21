@@ -106,6 +106,33 @@ def test_run_task_exposes_p19_gap_status_as_read_only_module(monkeypatch):
     ]
 
 
+def test_run_task_exposes_p19_mcst_location_probe_module(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("p19-mcst-locations", []) == 0
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "scripts.analysis.p19_mcst_missing_locations",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
 def test_run_task_exposes_p125_osm_status_as_read_only_module(monkeypatch):
     calls = []
 
