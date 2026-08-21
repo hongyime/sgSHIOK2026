@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P323 code commit: `a594faa`; state-only commits may follow it on `main`.
+Latest P324 code commit: `acaf76a`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P324 is complete and committed: the outside-bundle empty state now connects the frozen June 2020 address-universe limitation with the 8-of-976 recent public-source check without claiming the selected postal is a known miss. Focused accessibility/score-card tests and repo integrity pass.
 - P323 is complete and committed: unavailable display-row metadata now says `Bus evidence unavailable` and `No full locked score` instead of generic `No bus score` / `No locked score`. Focused score-card/accessibility tests and repo integrity pass.
 - P322 is complete and committed: the planning-area rank select's screen-reader label now says `Choose planning-area evidence view` instead of `Rank records by`, matching the visible evidence-view framing. Focused score-card/accessibility/subscore-ranking tests and repo integrity pass.
 - P321 is complete and committed: the open planning-area rank helper now says `Planning-area evidence view; locked SHIOK score is unchanged.` instead of `Planning-area component evidence view...`, matching the rank menu evidence framing. Focused score-card/subscore-ranking tests and repo integrity pass.
