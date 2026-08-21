@@ -98,6 +98,10 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
     assert run.STUBS["score-batch"] == (
         "resumable postal scoring batch runner; non-dry runs require explicit --output-dir"
     )
+    assert run.STUBS["bus-arrivals"] == (
+        "collect local LTA bus-arrival snapshots for future reliability scoring; "
+        "requires explicit --output"
+    )
     assert run.STUBS["p19-gap-status"] == (
         "read-only status, evidence split, missing rows, MCST proxy probe and cache ages "
         "for cached P19 16 Aug 2026 public-source sample"

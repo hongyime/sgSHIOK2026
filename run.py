@@ -51,7 +51,7 @@ STUBS = {
     "refresh-provenance": "fail-closed manifest provenance refresh; direct pipeline.export invocation must name --output explicitly",
     "score": "apply pipeline/config/weights.yaml (T1.4)",
     "score-batch": "resumable postal scoring batch runner; non-dry runs require explicit --output-dir",
-    "bus-arrivals": "collect local LTA bus-arrival snapshots for future reliability scoring",
+    "bus-arrivals": "collect local LTA bus-arrival snapshots for future reliability scoring; requires explicit --output",
     "bus-connector-diagnostics": "diagnose priority OneMap missing-bus connector cases",
     "candidate-audit": "audit ranked MRT/LRT and bus candidates for selected postals",
     "compare-targeted": "compare a targeted score report against the published shelter-map bundle",

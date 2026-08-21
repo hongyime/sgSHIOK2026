@@ -1485,3 +1485,7 @@ Write-capable export CLI actions must fail closed instead of using implicit defa
 2026-08-22 - P528 score-batch output guard:
 
 Non-dry score-batch CLI runs must name their output run directory explicitly. `pipeline.score_batch` no longer defaults non-dry CLI writes into `processed/score_batches`; it fails before loading inputs unless `--output-dir` is supplied. Dry runs still report the default target because they write nothing. This preserves the approved-script/direct-helper path where a run-specific directory is passed explicitly, while closing the accidental bare-command write path. This is command safety/test coverage only; it does not score, export, mutate processed data, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P529 bus-arrivals output guard:
+
+Bus-arrival snapshot collection is an API-calling future reliability input and must be deliberate. `pipeline.bus_arrivals collect` now requires explicit `--output` before it can call LTA or append JSONL records, instead of defaulting to `raw/bus_arrivals/arrivals.jsonl`. Direct helper calls remain available for tests and explicitly named local snapshot files. This is command safety/test coverage only; it does not call LTA, mutate raw data, score, export, public data, protected QA evidence, deployment, or locked weights.

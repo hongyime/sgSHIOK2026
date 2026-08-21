@@ -106,17 +106,35 @@ def collect_snapshots(
     }
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Collect local bus-arrival snapshots.")
     parser.add_argument("action", choices=["collect"])
     parser.add_argument("--stop", action="append", dest="stops", required=True)
     parser.add_argument("--service")
     parser.add_argument("--samples", type=int, default=1)
     parser.add_argument("--interval-sec", type=float, default=60.0)
-    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
-    args = parser.parse_args()
+    parser.add_argument(
+        "--output",
+        type=Path,
+        help="Explicit JSONL output path; collection refuses implicit raw/ defaults.",
+    )
+    args = parser.parse_args(argv)
 
     if args.action == "collect":
+        if args.output is None:
+            print(
+                json.dumps(
+                    {
+                        "ok": False,
+                        "errors": [
+                            "bus-arrivals collect requires explicit --output"
+                        ],
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 1
         report = collect_snapshots(
             stops=[str(stop).strip() for stop in args.stops if str(stop).strip()],
             output=args.output,

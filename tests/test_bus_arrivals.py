@@ -1,6 +1,6 @@
 import json
 
-from pipeline.bus_arrivals import append_jsonl, collect_snapshots, snapshot_record
+from pipeline.bus_arrivals import append_jsonl, collect_snapshots, main, snapshot_record
 
 
 def test_snapshot_record_is_honest_local_collection_payload():
@@ -56,3 +56,53 @@ def test_collect_snapshots_uses_injected_fetcher(monkeypatch, tmp_path):
     assert report["ok"] is True
     assert report["records_written"] == 2
     assert output.read_text(encoding="utf-8").count("\n") == 2
+
+
+def test_bus_arrivals_cli_requires_explicit_output_before_fetch(monkeypatch, capsys):
+    from pipeline import bus_arrivals
+
+    def fail_fetch(*_args, **_kwargs):
+        raise AssertionError("fetch should not run before output guard")
+
+    monkeypatch.setattr(bus_arrivals, "fetch_bus_arrival", fail_fetch)
+
+    assert main(["collect", "--stop", "54211"]) == 1
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "errors": ["bus-arrivals collect requires explicit --output"],
+        "ok": False,
+    }
+
+
+def test_bus_arrivals_cli_collects_with_explicit_output(monkeypatch, tmp_path, capsys):
+    from pipeline import bus_arrivals
+
+    def fake_fetch(stop, service_no=None):
+        return {"Services": [{"BusStopCode": stop, "ServiceNo": service_no}]}
+
+    monkeypatch.setattr(bus_arrivals, "fetch_bus_arrival", fake_fetch)
+    output = tmp_path / "arrivals.jsonl"
+
+    assert (
+        main(
+            [
+                "collect",
+                "--stop",
+                "54211",
+                "--service",
+                "169",
+                "--interval-sec",
+                "0",
+                "--output",
+                str(output),
+            ]
+        )
+        == 0
+    )
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report["records_written"] == 1
+    assert output.read_text(encoding="utf-8").count("\n") == 1
