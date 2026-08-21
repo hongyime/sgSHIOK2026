@@ -128,6 +128,22 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
         "missing_rows": 2,
         "missing_unique_postals": 2,
         "missing_postals": ["521400", "935456"],
+        "missing_development_clusters": [
+            {
+                "development": "MYRA",
+                "source": "mcst_2021_2026",
+                "missing_rows": 1,
+                "missing_postals": ["935456"],
+                "years": [2024],
+            },
+            {
+                "development": "SUN PLAZA SPRING",
+                "source": "hdb_2021_2026_geocoded",
+                "missing_rows": 1,
+                "missing_postals": ["521400"],
+                "years": [2026],
+            },
+        ],
         "missing_rows_by_source": {
             "hdb_2021_2026_geocoded": [
                 {

@@ -243,12 +243,39 @@ def missing_row_summary(detail_path: Path) -> dict[str, Any]:
         "mcst_2021_2026": mcst_rows,
     }
     by_year: dict[str, int] = {}
+    by_development: dict[str, dict[str, Any]] = {}
     for row in hdb_rows:
         year = str(row.get("year_completed"))
         by_year[year] = by_year.get(year, 0) + 1
+        development = str(row.get("searchval") or "UNKNOWN")
+        entry = by_development.setdefault(
+            development,
+            {
+                "source": "hdb_2021_2026_geocoded",
+                "missing_rows": 0,
+                "missing_postals": [],
+                "years": [],
+            },
+        )
+        entry["missing_rows"] += 1
+        entry["missing_postals"].append(row.get("postal"))
+        entry["years"].append(row.get("year_completed"))
     for row in mcst_rows:
         year = str(row.get("mc_form_year"))
         by_year[year] = by_year.get(year, 0) + 1
+        development = str(row.get("development_name") or "UNKNOWN")
+        entry = by_development.setdefault(
+            development,
+            {
+                "source": "mcst_2021_2026",
+                "missing_rows": 0,
+                "missing_postals": [],
+                "years": [],
+            },
+        )
+        entry["missing_rows"] += 1
+        entry["missing_postals"].append(row.get("postal"))
+        entry["years"].append(row.get("mc_form_year"))
     missing_postals = sorted(
         {
             str(row["postal"])
@@ -257,12 +284,28 @@ def missing_row_summary(detail_path: Path) -> dict[str, Any]:
             if row.get("postal")
         }
     )
+    development_clusters = [
+        {
+            "development": development,
+            "source": str(entry["source"]),
+            "missing_rows": int(entry["missing_rows"]),
+            "missing_postals": sorted(
+                str(postal) for postal in entry["missing_postals"] if postal
+            ),
+            "years": sorted({int(year) for year in entry["years"] if year}),
+        }
+        for development, entry in by_development.items()
+    ]
     return {
         "detail_path": detail_display_path,
         "detail_exists": True,
         "missing_rows": len(hdb_rows) + len(mcst_rows),
         "missing_unique_postals": len(missing_postals),
         "missing_postals": missing_postals,
+        "missing_development_clusters": sorted(
+            development_clusters,
+            key=lambda item: (-int(item["missing_rows"]), str(item["development"])),
+        ),
         "missing_rows_by_source": by_source,
         "missing_rows_by_year": dict(sorted(by_year.items())),
     }
