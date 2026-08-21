@@ -1063,3 +1063,6 @@ Browser outside-bundle copy should not present P19 MCST proxy rows as confirmed 
 
 2026-08-21 - P382 P19 aggregate caveat:
 The aggregate recent-source gap copy should preserve the 8-of-976 measurement while exposing the evidence split discovered after P377-P379. Browser, README, CLAUDE, and production-readiness text now say the sample found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) public-source rows with postals. This is copy, documentation, readiness reporting, and test coverage only; it does not mutate inputs, QA evidence, public data, scoring, exports, deployment, or locked weights.
+
+2026-08-21 - P383 P19 status MCST probe:
+`p19-gap-status` should report the same MCST proxy validation boundary that structured source policy advertises. The cache-status command now reads the existing P379 report/cache and emits a `mcst_proxy_location_probe` block with report/cache presence, 0 located / 2 unlocated rows, unlocated developments, conflicting candidate postals, and the no-score/no-export/no-P19-mutation flags. This is read-only status reporting and test coverage only; it does not call OneMap, mutate P19/P379 caches, build v2, score, export, deploy, or alter locked weights.

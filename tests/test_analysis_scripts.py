@@ -39,7 +39,11 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
     overpass_cache = qa_dir / "overpass_addr_postcodes_cache.json"
     summary = qa_dir / "universe_gap_measurement_summary.json"
     detail = qa_dir / "universe_gap_measurement_detail.json"
+    p379_dir = tmp_path / "qa" / "p379"
+    p379_report = p379_dir / "p19_mcst_missing_locations_report.json"
+    p379_cache = p379_dir / "p19_mcst_missing_onemap_cache.json"
     qa_dir.mkdir(parents=True)
+    p379_dir.mkdir(parents=True)
     hdb_cache.write_text(
         json.dumps(
             {
@@ -109,12 +113,38 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
         ),
         encoding="utf-8",
     )
+    p379_cache.write_text(json.dumps({"queries": {}}), encoding="utf-8")
+    p379_report.write_text(
+        json.dumps(
+            {
+                "mcst_missing_rows": 1,
+                "located_rows": 0,
+                "unlocated_rows": 1,
+                "will_score": False,
+                "will_export": False,
+                "will_mutate_p19": False,
+                "unlocated": [
+                    {
+                        "development_name": "MYRA",
+                        "postal": "935456",
+                        "candidate_postals_by_query": {
+                            "9 MEYAPPA CHETTIAR ROAD 935456": ["935999"],
+                            "935456": [],
+                        },
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
 
     monkeypatch.setattr(p19, "QA_DIR", qa_dir)
     monkeypatch.setattr(p19, "HDB_GEOCODE_CACHE", hdb_cache)
     monkeypatch.setattr(p19, "OVERPASS_CACHE", overpass_cache)
     monkeypatch.setattr(p19, "SUMMARY_OUTPUT", summary)
     monkeypatch.setattr(p19, "DETAIL_OUTPUT", detail)
+    monkeypatch.setattr(p19, "P379_MCST_LOCATION_REPORT", p379_report)
+    monkeypatch.setattr(p19, "P379_MCST_LOCATION_CACHE", p379_cache)
     monkeypatch.setattr(p19, "PROJECT_ROOT", tmp_path)
 
     report = p19.cache_status_report(now=p19.dt.datetime(2026, 8, 22, 12, 0, tzinfo=p19.dt.UTC))
@@ -194,6 +224,25 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
             ],
         },
         "missing_rows_by_year": {"2024": 1, "2026": 1},
+    }
+    assert report["mcst_proxy_location_probe"] == {
+        "report_path": "qa/p379/p19_mcst_missing_locations_report.json",
+        "report_exists": True,
+        "cache_path": "qa/p379/p19_mcst_missing_onemap_cache.json",
+        "cache_exists": True,
+        "mcst_missing_rows": 1,
+        "located_rows": 0,
+        "unlocated_rows": 1,
+        "unlocated_developments": ["MYRA"],
+        "conflicting_candidate_postals": {
+            "MYRA": {
+                "recorded_postal": "935456",
+                "candidate_postals": ["935999"],
+            }
+        },
+        "will_score": False,
+        "will_export": False,
+        "will_mutate_p19": False,
     }
 
 

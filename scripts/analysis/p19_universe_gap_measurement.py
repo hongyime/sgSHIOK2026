@@ -24,6 +24,9 @@ HDB_GEOCODE_CACHE = QA_DIR / "hdb_2021_2026_onemap_geocode_cache.json"
 OVERPASS_CACHE = QA_DIR / "overpass_addr_postcodes_cache.json"
 SUMMARY_OUTPUT = QA_DIR / "universe_gap_measurement_summary.json"
 DETAIL_OUTPUT = QA_DIR / "universe_gap_measurement_detail.json"
+P379_QA_DIR = PROJECT_ROOT / "qa" / "p379"
+P379_MCST_LOCATION_REPORT = P379_QA_DIR / "p19_mcst_missing_locations_report.json"
+P379_MCST_LOCATION_CACHE = P379_QA_DIR / "p19_mcst_missing_onemap_cache.json"
 
 DATASTORE_URL = "https://data.gov.sg/api/action/datastore_search"
 ONEMAP_SEARCH_URL = "https://www.onemap.gov.sg/api/common/elastic/search"
@@ -368,6 +371,65 @@ def missing_row_summary(
     }
 
 
+def mcst_proxy_location_probe_status(
+    report_path: Path,
+    *,
+    cache_path: Path | None = None,
+) -> dict[str, Any]:
+    report_display_path = str(report_path.relative_to(PROJECT_ROOT)).replace("\\", "/")
+    cache_display_path = (
+        str(cache_path.relative_to(PROJECT_ROOT)).replace("\\", "/")
+        if cache_path is not None
+        else None
+    )
+    if not report_path.is_file():
+        return {
+            "report_path": report_display_path,
+            "report_exists": False,
+            "cache_path": cache_display_path,
+            "cache_exists": bool(cache_path is not None and cache_path.is_file()),
+        }
+    payload = load_json(report_path, {})
+    unlocated = payload.get("unlocated", []) if isinstance(payload, dict) else []
+    conflicting_candidate_postals: dict[str, dict[str, Any]] = {}
+    for row in unlocated:
+        if not isinstance(row, dict):
+            continue
+        recorded_postal = normalize_postal(row.get("postal"))
+        candidates = sorted(
+            {
+                candidate
+                for postals in (row.get("candidate_postals_by_query") or {}).values()
+                for candidate in postals
+                if normalize_postal(candidate) and normalize_postal(candidate) != recorded_postal
+            }
+        )
+        if candidates:
+            development = str(row.get("development_name") or "UNKNOWN")
+            conflicting_candidate_postals[development] = {
+                "recorded_postal": recorded_postal,
+                "candidate_postals": candidates,
+            }
+    return {
+        "report_path": report_display_path,
+        "report_exists": True,
+        "cache_path": cache_display_path,
+        "cache_exists": bool(cache_path is not None and cache_path.is_file()),
+        "mcst_missing_rows": payload.get("mcst_missing_rows"),
+        "located_rows": payload.get("located_rows"),
+        "unlocated_rows": payload.get("unlocated_rows"),
+        "unlocated_developments": sorted(
+            str(row.get("development_name") or "UNKNOWN")
+            for row in unlocated
+            if isinstance(row, dict)
+        ),
+        "conflicting_candidate_postals": conflicting_candidate_postals,
+        "will_score": payload.get("will_score"),
+        "will_export": payload.get("will_export"),
+        "will_mutate_p19": payload.get("will_mutate_p19"),
+    }
+
+
 def cache_status_report(now: dt.datetime | None = None) -> dict[str, Any]:
     if now is None:
         now = dt.datetime.now(dt.UTC)
@@ -388,6 +450,10 @@ def cache_status_report(now: dt.datetime | None = None) -> dict[str, Any]:
         "missing_row_detail": missing_row_summary(
             DETAIL_OUTPUT,
             hdb_cache_path=HDB_GEOCODE_CACHE,
+        ),
+        "mcst_proxy_location_probe": mcst_proxy_location_probe_status(
+            P379_MCST_LOCATION_REPORT,
+            cache_path=P379_MCST_LOCATION_CACHE,
         ),
     }
 

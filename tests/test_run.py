@@ -19,7 +19,7 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         "check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads and writes no manifest."
         in run.__doc__
     )
-    assert "p19-gap-status reads cached P19 measurement status, missing rows and cache ages only; it calls no APIs and writes no files." in run.__doc__
+    assert "p19-gap-status reads cached P19 measurement status, missing rows, MCST proxy probe and cache ages only; it calls no APIs and writes no files." in run.__doc__
     assert "p125-osm-status reads cached P125 Overpass output and frozen v1 universe only; it calls no APIs and writes no files." in run.__doc__
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in run.__doc__
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in run.__doc__
@@ -39,7 +39,7 @@ def test_run_help_headline_does_not_flatten_all_tasks():
         "check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads and writes no manifest."
         in help_text
     )
-    assert "p19-gap-status reads cached P19 measurement status, missing rows and cache ages only; it calls no APIs and writes no files." in help_text
+    assert "p19-gap-status reads cached P19 measurement status, missing rows, MCST proxy probe and cache ages only; it calls no APIs and writes no files." in help_text
     assert "p125-osm-status reads cached P125 Overpass output and frozen v1 universe only; it calls no APIs and writes no files." in help_text
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in help_text
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in help_text
