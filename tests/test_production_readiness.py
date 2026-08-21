@@ -364,7 +364,7 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
     assert status["by_status"]["stale"] == ["stale"]
     assert status["by_status"]["unknown_age"] == ["unknown_age"]
     assert status["oldest_current_source"] == (
-        "Oldest current source: fresh (Fresh, 1.0d of 30d threshold)"
+        "Oldest current source: fresh (Fresh, 1.0d of 30d threshold, 29.0d until stale)"
     )
     assert status["summary"].startswith(
         "manifest-only source freshness checked at 2026-08-16T00:00:00+00:00: current 1"

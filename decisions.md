@@ -1521,3 +1521,7 @@ The consolidated postal-universe status should answer the measurement question d
 2026-08-22 - P537 source freshness planning deltas:
 
 Manifest-only freshness should help schedule versioned refreshes before a batch run, not only label sources current or stale. `run.py check --freshness-only` now reports days until stale for current timestamped sources and days past stale for stale sources, still reading only `raw/manifest.json` and `pipeline/config/sources.yaml`, probing no upstream URLs, writing no manifest, and preserving the rule that stale sources require a new numbered input version rather than frozen-v1 mutation.
+
+2026-08-22 - P538 oldest-current freshness planning summary:
+
+The freshness report's oldest-current summary is the first planning line operators scan before a batch run, so it must carry the same days-left signal as the per-source lines. `oldest_current_freshness_summary()` now includes days until stale, and the structured production-readiness `oldest_current_source` field receives the same text through the shared helper. This remains a manifest-only report and does not approve upstream probes, input mutation, scoring, export, deployment, public-data mutation, protected-QA mutation, or locked-weight changes.

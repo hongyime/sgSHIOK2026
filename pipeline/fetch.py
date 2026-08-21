@@ -327,7 +327,8 @@ def oldest_current_freshness_summary(statuses: list[dict[str, Any]]) -> str | No
     return (
         f"Oldest current source: {oldest['source_key']} "
         f"({oldest['name']}, {float(oldest['age_days']):.1f}d "
-        f"of {oldest['stale_after_days']}d threshold)"
+        f"of {oldest['stale_after_days']}d threshold, "
+        f"{float(oldest.get('days_until_stale') or 0.0):.1f}d until stale)"
     )
 
 
