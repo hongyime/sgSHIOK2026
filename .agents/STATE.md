@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P280 code commit: `77067b7`; state-only commits may follow it on `main`.
+Latest P281 code commit: `fc882ba`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P281 is complete and committed: README local-data guidance now says `95,157 full locked scores out of 124,443 records`, aligning operator docs with the browser locked-score availability language. Focused README tests and repo integrity pass.
 - P280 is complete and committed: selected-card awaiting-score states now say `No full locked score in this bundle` in the title, reason chip, live announcement, and browser-smoke detector. Focused accessibility/score-card copy tests plus repo integrity pass.
 - P279 is complete and committed: first-view locked-score availability copy now says `full locked scores` and `full locked score`, keeping the secondary metric explicitly named while preserving manifest-derived counts. Focused locked-score availability and score-card copy tests plus repo integrity pass.
 - P278 is complete and committed: first-view address-universe copy now names the measured P19 gap count directly, saying the 2021-2026 public-source sample found 8 missing rows out of 976. Focused web copy test and repo integrity pass.
