@@ -18,6 +18,19 @@ from pipeline.fetch import (
 )
 
 
+def test_fetch_check_help_names_freshness_summary_contract(
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    with pytest.raises(SystemExit) as excinfo:
+        fetch.main(["check", "--help"])
+
+    assert excinfo.value.code == 0
+    out = " ".join(capsys.readouterr().out.split())
+    assert "read raw/manifest.json and report source freshness" in out
+    assert "without probing upstream URLs, writing the manifest, or omitting" in out
+    assert "source names from grouped action summaries" in out
+
+
 def test_datagov_raw_filename_uses_content_disposition_extension() -> None:
     headers = httpx.Headers(
         {

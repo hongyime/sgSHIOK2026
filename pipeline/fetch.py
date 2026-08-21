@@ -1299,7 +1299,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--freshness-only",
         action="store_true",
-        help="For check: read raw/manifest.json and report source freshness without probing upstream URLs.",
+        help=(
+            "For check: read raw/manifest.json and report source freshness "
+            "without probing upstream URLs, writing the manifest, or omitting "
+            "source names from grouped action summaries."
+        ),
     )
     parser.add_argument(
         "--geospatial-discovery-only",

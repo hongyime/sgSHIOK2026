@@ -1401,3 +1401,7 @@ The shared batch-plan/readiness source-freshness policy should machine-record th
 2026-08-22 - P507 run help freshness summary names:
 
 `run.py --help` should carry the same freshness-only contract as the CLI output and docs: the report reads `raw/manifest.json`, probes no upstream URLs, writes no manifest, and groups action summaries with source names. This is runner help/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P508 fetch help freshness summary names:
+
+The lower-level `pipeline.fetch check --help` text should match the public runner help because `run.py check --help` delegates there. Its `--freshness-only` help now states that the report avoids upstream probes, writes no manifest, and keeps source names in grouped action summaries. This is lower-level CLI help/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
