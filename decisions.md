@@ -874,3 +874,6 @@ The shelter panel's bus reason chips should frame bus as service evidence, not a
 
 2026-08-21 - P316 empty map night-lighting label:
 The route map's empty-state non-visual label should name night-lighting evidence as part of the map scope, not only transit POIs. The no-route map aria label now says `Singapore shelter map with MRT stations, LRT stations, bus stops, and night-lighting evidence`, while route-specific summaries and the live night-lighting overlay status remain unchanged. This is accessibility copy and test coverage only; it does not change map data, lamp tiles, routes, scores, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P317 partial locked-score term wording:
+The partial locked-score note should describe missing locked-weight terms, not standalone component scores. Partial records now say `one or more locked terms are unavailable; locked weights count missing terms as zero`, while preserving the warning that shelter-map evidence may still be present. This is web copy and test coverage only; it does not change score state logic, score values, missing-term handling, exports, public data, pipeline inputs, or locked weights.

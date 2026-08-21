@@ -307,6 +307,9 @@ describe("score card copy", () => {
     expect(source).toContain("Locked score unavailable");
     expect(source).toContain("Locked score incomplete");
     expect(source).toContain(
+      "Partial locked score: shelter-map evidence may still be present, but one or more locked terms are unavailable; locked weights count missing terms as zero."
+    );
+    expect(source).not.toContain(
       "Partial locked score: shelter-map evidence may still be present, but one or more component scores are unavailable; locked weights count missing terms as zero."
     );
     expect(source).not.toContain(
