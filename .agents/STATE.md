@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P426 is complete and committed: the night-lighting detail strip and layer note now say `zoom in for lamp-post points` / `load lamp-post points` instead of generic `points`, keeping the source-specific lamp-post wording consistent. Focused web copy/accessibility/map-interaction tests, repo integrity, and protected-diff checks passed.
 - P425 is complete and committed: the night-lighting visible legend and non-visual map summaries now say `LTA lamp-post points` / `lamp-post point(s)` instead of bare `lamp point(s)`, matching the source and layer-note wording. Focused accessibility/map-interaction tests, repo integrity, and protected-diff checks passed.
 - P424 is complete and committed: the no-results OneMap fallback now says the published shelter-map bundle is tied to the frozen June 2020 address universe, instead of the possessive `frozen shelter-map bundle's recent public-source check`, aligning it with outside-bundle copy. Focused accessibility-render test, repo integrity, and protected-diff checks passed.
 - P423 is complete and committed: known HDB outside-bundle postals now say they are one of the 6 coordinate-backed HDB missing rows from frozen v1, while MCST proxy postals remain explicitly unvalidated source-quality evidence. Focused web accessibility/copy tests, repo integrity, and protected-diff checks passed.
