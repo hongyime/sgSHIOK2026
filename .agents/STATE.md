@@ -1,10 +1,10 @@
 # Current State
 
-Date: 2026-08-21
+Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P478 code commit: `b20310a`; state-only commits may follow it on `main`.
+Latest P479 code commit: `64a5d07`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P479 is complete and committed: the browser source-freshness line now says `21 Aug 2026 UTC manifest-only check`, matching the `run.py check --freshness-only` UTC timestamp instead of implying an unspecified local date. Focused web copy test, repo integrity, and protected-diff checks passed.
 - P478 is complete and committed: the structured P19 source-policy block now labels its sources as `HDB completion geocoded rows` and `BCA MCST constitution-date proxy rows`, with explicit limitations saying HDB postals come from OneMap geocoding and MCST constitution date is onboarding proxy evidence, not TOP/completion date. Focused batch-plan/readiness tests, repo integrity, and protected-diff checks passed.
 - P477 is complete and committed: README and `run.py --help` now advertise `readiness --gate-summary`, and `tests/test_run.py` proves `run.py readiness --gate-summary` forwards to `scripts.production_readiness --gate-summary`. Focused run/README tests, repo integrity, help check, and protected-diff checks passed.
 - P476 is complete and committed: `scripts.production_readiness --gate-summary` now prints the same computed release-gate verdict, checks, warnings, and errors without dumping the full nested readiness report. Focused production-readiness tests, help check, repo integrity, and protected-diff checks passed. Current local readiness remains blocked by the fresh same-bundle OneMap validation gate.
