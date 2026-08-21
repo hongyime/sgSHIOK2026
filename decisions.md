@@ -757,3 +757,6 @@ Operator onboarding should run readiness and batch-plan commands inside the proj
 
 2026-08-21 - P277 P19 gap status runner task:
 The cached P19 postal-universe gap measurement should be reachable through the project task runner, not only a long analysis-script invocation. `uv run python run.py p19-gap-status` now delegates to `scripts.analysis.p19_universe_gap_measurement --cache-status-only`, preserving the no-API/no-write boundary while making the measurement status discoverable beside other safe checks. This is operator tooling/reporting/test coverage only; it does not call APIs, mutate `qa/p19`, load or mutate inputs, score, export, deploy, public data, or locked weights.
+
+2026-08-21 - P278 measured address-universe caveat:
+The first-view address-universe caveat should carry the measured P19 gap count, not only the vague statement that recent-source misses exist. The title card now says the frozen v1 universe is from a June 2020 OneMap-derived postal scrape and that a 2021-2026 public-source sample found 8 missing rows out of 976. The detailed HDB completion and BCA MCST proxy line remains below it. This is browser copy and test coverage only; it does not alter search behavior, manifests, inputs, public data, scoring, export, deploy, or locked weights.

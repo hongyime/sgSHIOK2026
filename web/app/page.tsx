@@ -2036,7 +2036,7 @@ export default function Home() {
               Shelter map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}
             </p>
             <p className={styles.freshnessLine}>
-              Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape; measured recent-source misses exist.
+              Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape; a 2021-2026 public-source sample found 8 missing rows out of 976.
             </p>
             <p className={styles.freshnessLine}>
               Recent public-sample check: 8 missing rows out of 976 HDB completion and MCST proxy rows from 2021-2026 with postals.
