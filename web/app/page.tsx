@@ -797,7 +797,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
     measuredReasons.push(`${Math.round(score.paths.covered_ratio * 100)}% covered-walkway ratio on sheltered walk`);
   }
   if (busFallback) {
-    measuredReasons.push("Nearby bus service not walk-verified");
+    measuredReasons.push("Nearby bus service without verified shelter-map walk");
     measuredReasons.push(busFallbackSummary(busFallback));
   }
 
@@ -809,7 +809,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
   if (busFallback && values[0]?.key === "bus") {
     const shelterReason = measuredReasons.find((reason) => reason.includes("covered-walkway ratio"));
     return [
-      "Nearby bus service not walk-verified",
+      "Nearby bus service without verified shelter-map walk",
       shelterReason ?? measuredReasons[0] ?? busFallbackSummary(busFallback),
     ];
   }

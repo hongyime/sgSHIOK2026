@@ -443,6 +443,8 @@ describe("score card copy", () => {
     expect(source).toContain(
       "A low value can mean weak service evidence, or that the published shelter-map walk could not prove access to an official LTA bus stop."
     );
+    expect(source).toContain("Nearby bus service without verified shelter-map walk");
+    expect(source).not.toContain("Nearby bus service not walk-verified");
     expect(source).not.toContain("trusted walk to a DataMall bus stop");
     expect(source).toContain('bus: { low: "Limited bus-service evidence", high: "Stronger bus-service evidence" }');
     expect(source).not.toContain("Limited bus connectivity");
