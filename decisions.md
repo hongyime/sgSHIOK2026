@@ -1162,3 +1162,6 @@ The client-side nearest-transit helper should describe candidate-list limits as 
 
 2026-08-21 - P415 outside-bundle heading:
 The outside-bundle empty-state heading should say `Outside published shelter-map bundle`, matching the body copy and the settled published-artifact boundary. The previous `Outside shelter-map bundle` heading was accurate but less precise after P412/P413 moved the surrounding caveats to published-bundle wording. This is browser copy and test coverage only; it does not alter search behavior, route geometry, score values, exports, public data, deployment, or locked weights.
+2026-08-21 - P416 footer headline evidence copy:
+
+The page footer now says "Source-derived covered-walkway ratio, exposed gaps, and night-lighting map evidence." The prior "covered-walkway, exposure-gap" wording used an implementation-style singular adjective and did not match the settled product framing that the ratio and per-gap exposure evidence are the headline.
