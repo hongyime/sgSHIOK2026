@@ -1249,3 +1249,7 @@ The P125 Overpass measurement should be described as a distinct-postcode measure
 2026-08-21 - P468 readiness OSM postcode total:
 
 Production-readiness human policy text should match the structured P125 OSM source-policy block. It now says P125 found 25,879 valid distinct live OSM `addr:postcode` values and 25,873 overlapping frozen postals, rather than only saying OSM covers 25,873 frozen postals. This is readiness copy/test alignment only; it does not call Overpass, mutate cached P125 evidence, alter inputs, score, export, deploy, public data, or touch locked weights.
+
+2026-08-21 - P469 agent OSM postcode total:
+
+Agent-facing startup guidance should carry the same P125 OSM measurement as README, browser copy, and readiness. `CLAUDE.md` now says P125 found 25,879 valid distinct live OSM `addr:postcode` values, 25,873 overlapping frozen v1, and 6 valid OSM-only postcodes, while preserving that OSM is geometry evidence rather than the primary address registry. This is documentation/test alignment only; it does not call Overpass, mutate cached P125 evidence, alter inputs, score, export, deploy, public data, or touch locked weights.

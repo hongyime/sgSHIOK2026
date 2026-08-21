@@ -31,7 +31,8 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     )
     assert "CANAAN and MYRA remain unvalidated MCST proxy warnings" in normalized
     assert "P19 found 8 missing rows out of 976 HDB completion and MCST proxy rows" not in normalized
-    assert "P125 found live OSM `addr:postcode` covers only 25,873 frozen postals" in normalized
+    assert "P125 found 25,879 valid distinct live OSM `addr:postcode` values" in normalized
+    assert "25,873 overlap frozen v1 and 6 are valid OSM-only postcodes" in normalized
     assert "Treat OSM as geometry evidence, not the primary address registry" in normalized
     assert "candidate-source-first with bounded OneMap Search validation" in normalized
     assert "clicked-stop walk-preview evidence" in normalized
