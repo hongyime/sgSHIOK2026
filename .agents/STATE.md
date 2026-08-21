@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P431 code commit: `31408a3`; state-only commits may follow it on `main`.
+Latest P432 code commit: `ebc6697`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P432 is complete and committed: the score-card live region now announces the displayed walk's shelter evidence, so shortest-walk mode reads `48% covered-walkway ratio` instead of the base sheltered path's `62%`; no-gap live evidence no longer says `0 m exposed across 0 gaps`. Focused accessibility/source-copy tests, repo integrity, and protected-diff checks passed.
 - P431 is complete and committed: the exposed-gap section heading now says `Exposed gaps on {selectedWalkLabel}` instead of `Exposed gaps on this walk`, aligning the heading with sheltered/shortest/preview/direct-bus display copy. Focused accessibility/source-copy tests, repo integrity, and protected-diff checks passed.
 - P430 is complete and committed: reason chips now say `covered-walkway ratio on sheltered walk`, and the no-exposed-gaps fallback names the active displayed walk instead of generic `selected walk`. Focused accessibility render test, repo integrity, and protected-diff checks passed.
 - P429 is complete and committed: exposure hero and exposed-gap summary copy now name the actual displayed walk (`sheltered walk`, `shortest walk`, `OneMap preview walk`, or `direct bus line estimate`) instead of generic `selected walk`. Focused accessibility render test, repo integrity, and protected-diff checks passed.
