@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P362 is complete and committed: `58123e8` removes internal cache jargon from known P19 missing-postal browser copy while preserving source-group specificity; focused web tests and repo integrity passed.
 - P361 is complete and committed: `fa8b0fb` extends known P19 missing-postal browser-copy coverage to the MCST source group; focused render test and repo integrity passed.
 - P360 is complete and committed: `584a499` makes outside-bundle browser copy name a selected postal when it is one of the eight cached P19 recent-source misses; focused web tests and repo integrity passed.
 - P359 is complete and committed: `f739aaa` makes structured batch-plan/readiness P19 policy carry cached missing postals by source; focused batch-plan/readiness tests and repo integrity passed.
