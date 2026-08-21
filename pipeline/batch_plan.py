@@ -47,7 +47,7 @@ OSM_ADDR_POSTCODE_COVERAGE = {
 }
 RECENT_PUBLIC_SOURCE_GAP_SAMPLE = {
     "measurement": "P19 recent public-source gap sample",
-    "cache_status_command": "uv run python scripts/analysis/p19_universe_gap_measurement.py --cache-status-only",
+    "cache_status_command": "uv run python run.py p19-gap-status",
     "cache_status_calls_apis": False,
     "cache_status_writes_files": False,
     "summary_path": "qa/p19/universe_gap_measurement_summary.json",
