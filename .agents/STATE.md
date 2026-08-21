@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P321 code commit: `bbfe306`; state-only commits may follow it on `main`.
+Latest P322 code commit: `6761c60`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P322 is complete and committed: the planning-area rank select's screen-reader label now says `Choose planning-area evidence view` instead of `Rank records by`, matching the visible evidence-view framing. Focused score-card/accessibility/subscore-ranking tests and repo integrity pass.
 - P321 is complete and committed: the open planning-area rank helper now says `Planning-area evidence view; locked SHIOK score is unchanged.` instead of `Planning-area component evidence view...`, matching the rank menu evidence framing. Focused score-card/subscore-ranking tests and repo integrity pass.
 - P320 is complete and committed: the planning-area rank dropdown now frames every non-overall rank option as an evidence view (`Rain-shelter evidence`, `Transit-access evidence`, `Bus-service evidence`, `Heat-proxy evidence`, `Crossing-friction evidence`) while preserving the existing rank fields. Focused subscore-ranking/score-card tests and repo integrity pass.
 - P319 is complete and committed: the planning-area bus rank option now says `Bus-service evidence` instead of `Bus connectivity`, while still ranking by the existing locked bus field. Focused score-card/subscore-ranking tests and repo integrity pass.
