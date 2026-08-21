@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P385 code commit: `1509dee`; state-only commits may follow it on `main`.
+Latest P386 code commit: `03ff5b5`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P386 is complete and committed: production readiness now exposes `features.recent_public_source_gap_evidence_split` directly, aliasing the P19 source-policy split so operators can read the confirmed-address versus source-quality-warning counts without traversing nested policy metadata. Focused readiness test, narrow readiness feature output, repo integrity, and protected-diff checks passed.
 - P385 is complete and committed: `p19-gap-status` now exposes a top-level `evidence_split` derived from existing cached P19/P379 status blocks, matching batch-plan/readiness with 6 coordinate-backed/confirmed HDB missing rows and 2 unvalidated/source-quality MCST proxy rows. Focused analysis test, live safe status split command, repo integrity, and protected-diff checks passed.
 - P384 is complete and committed: structured batch-plan/readiness source policy now exposes a first-class P19 `evidence_split` with 6 coordinate-backed/confirmed HDB missing rows and 2 unvalidated/source-quality MCST proxy rows. Focused batch-plan/readiness tests, repo integrity, and protected-diff checks passed.
 - P383 is complete and committed: `p19-gap-status` now reads the existing P379 MCST proxy report/cache and emits a `mcst_proxy_location_probe` block with report/cache presence, 0 located / 2 unlocated rows, unlocated developments, CANAAN's conflicting candidate postal, and no-score/no-export/no-P19-mutation flags. Focused analysis/runner/README tests, the live safe status command, repo integrity, and protected-diff checks passed.
