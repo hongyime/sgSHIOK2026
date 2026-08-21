@@ -2229,14 +2229,52 @@ def validate_export_batch_args(
     return errors
 
 
-def main() -> int:
+def validate_write_output_args(
+    *,
+    action: str,
+    output_dir: Path | None,
+    require_empty: bool,
+    missing_output_message: str | None = None,
+) -> list[str]:
+    errors: list[str] = []
+    if output_dir is None:
+        errors.append(
+            missing_output_message
+            or f"{action} requires explicit --output; choose a new bundle directory"
+        )
+        return errors
+    if require_empty and output_dir.exists() and any(output_dir.iterdir()):
+        errors.append(
+            f"{action} output directory is not empty; choose a new timestamped bundle directory: {output_dir}"
+        )
+    return errors
+
+
+def print_error_report(errors: list[str]) -> None:
+    print(
+        json.dumps(
+            {
+                "ok": False,
+                "errors": errors,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+
+
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Export or validate static web data artifacts.")
     subparsers = parser.add_subparsers(dest="action", required=True)
 
     export_parser = subparsers.add_parser("export")
     export_parser.add_argument("--postal", action="append", dest="postals")
     export_parser.add_argument("--limit", type=int, default=5)
-    export_parser.add_argument("--output", type=Path, default=DEFAULT_EXPORT_DIR)
+    export_parser.add_argument(
+        "--output",
+        type=Path,
+        help="Explicit new output directory; non-empty directories are refused.",
+    )
     export_parser.add_argument(
         "--records-dir",
         type=Path,
@@ -2259,29 +2297,34 @@ def main() -> int:
     validate_parser.add_argument("--input", type=Path, default=DEFAULT_VALIDATE_DIR)
 
     transit_parser = subparsers.add_parser("export-transit")
-    transit_parser.add_argument("--output", type=Path, default=DEFAULT_EXPORT_DIR)
+    transit_parser.add_argument(
+        "--output",
+        type=Path,
+        help="Explicit new output directory; non-empty directories are refused.",
+    )
 
     provenance_parser = subparsers.add_parser("refresh-provenance")
-    provenance_parser.add_argument("--output", type=Path, default=DEFAULT_EXPORT_DIR)
+    provenance_parser.add_argument(
+        "--output",
+        type=Path,
+        help="Explicit existing bundle directory to mutate.",
+    )
 
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     if args.action == "export":
+        output_errors = validate_write_output_args(
+            action="export",
+            output_dir=args.output,
+            require_empty=True,
+        )
         guard_errors = validate_export_batch_args(
             full_batch=bool(args.full_batch),
             confirm_full_batch=bool(args.confirm_full_batch),
             postal_universe_path=args.postal_universe,
         )
-        if guard_errors:
-            print(
-                json.dumps(
-                    {
-                        "ok": False,
-                        "errors": guard_errors,
-                    },
-                    indent=2,
-                    sort_keys=True,
-                )
-            )
+        errors = output_errors + guard_errors
+        if errors:
+            print_error_report(errors)
             return 1
 
         if args.records_dir is not None:
@@ -2327,12 +2370,32 @@ def main() -> int:
         return 0 if ok else 1
 
     if args.action == "export-transit":
+        errors = validate_write_output_args(
+            action="export-transit",
+            output_dir=args.output,
+            require_empty=True,
+        )
+        if errors:
+            print_error_report(errors)
+            return 1
         report = export_transit_pois(output_dir=args.output)
         report["manifest_updated"] = refresh_transit_manifest(args.output, report)
         print(json.dumps(report, indent=2, sort_keys=True))
         return 0
 
     if args.action == "refresh-provenance":
+        errors = validate_write_output_args(
+            action="refresh-provenance",
+            output_dir=args.output,
+            require_empty=False,
+            missing_output_message=(
+                "refresh-provenance requires explicit --output; "
+                "in-place manifest mutation must name its bundle directory"
+            ),
+        )
+        if errors:
+            print_error_report(errors)
+            return 1
         report = refresh_score_provenance_manifest(args.output)
         print(json.dumps(report, indent=2, sort_keys=True))
         return 0 if report.get("ok") else 1

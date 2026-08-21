@@ -1477,3 +1477,7 @@ Agent-facing startup guidance should carry the same postal-universe v2 OneMap Se
 2026-08-22 - P526 geocode-universe versioned output guard:
 
 Confirmed `geocode-universe` runs must obey the numbered-artifact rule before any cache/API work. Non-dry bounded OneMap geocode fills now refuse unversioned outputs and existing output/summary paths, so they cannot repair frozen v1 in place or overwrite an existing candidate artifact. Dry runs remain available for planning. This is command safety/test coverage only; it does not call OneMap, mutate caches/inputs, build v2, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P527 export output guard:
+
+Write-capable export CLI actions must fail closed instead of using implicit default output directories. `pipeline.export export` and `export-transit` now require explicit `--output` and refuse non-empty targets, preserving the rule that release artifacts are written to fresh bundle directories rather than repaired in place. `refresh-provenance` now requires explicit `--output` and is documented as an in-place manifest mutation. `validate` remains read-only and keeps its default input. This is command safety/test coverage only; it does not score, export, mutate public data, deploy, modify protected QA evidence, or touch locked weights.

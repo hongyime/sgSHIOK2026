@@ -12,6 +12,7 @@ from pipeline.export import (
     geom_record,
     json_size,
     load_score_batch_records,
+    main as export_main,
     refresh_score_provenance_manifest,
     refresh_transit_manifest,
     route_edge_source_class,
@@ -1187,3 +1188,73 @@ def test_validate_export_batch_args_accepts_non_batch_default():
     )
 
     assert errors == []
+
+
+def test_export_cli_requires_explicit_output_before_loading_records(tmp_path: Path, capsys):
+    missing_records_dir = tmp_path / "missing_records"
+
+    assert export_main(["export", "--records-dir", str(missing_records_dir)]) == 1
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "errors": ["export requires explicit --output; choose a new bundle directory"],
+        "ok": False,
+    }
+
+
+def test_export_cli_refuses_non_empty_output_before_loading_records(
+    tmp_path: Path, capsys
+):
+    output_dir = tmp_path / "generated_20260822"
+    output_dir.mkdir()
+    (output_dir / "manifest.json").write_text("{}", encoding="utf-8")
+    missing_records_dir = tmp_path / "missing_records"
+
+    assert (
+        export_main(
+            [
+                "export",
+                "--output",
+                str(output_dir),
+                "--records-dir",
+                str(missing_records_dir),
+            ]
+        )
+        == 1
+    )
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "errors": [
+            f"export output directory is not empty; choose a new timestamped bundle directory: {output_dir}"
+        ],
+        "ok": False,
+    }
+
+
+def test_export_transit_cli_requires_explicit_output(capsys):
+    assert export_main(["export-transit"]) == 1
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "errors": [
+            "export-transit requires explicit --output; choose a new bundle directory"
+        ],
+        "ok": False,
+    }
+
+
+def test_refresh_provenance_cli_requires_explicit_output(capsys):
+    assert export_main(["refresh-provenance"]) == 1
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "errors": [
+            "refresh-provenance requires explicit --output; in-place manifest mutation must name its bundle directory"
+        ],
+        "ok": False,
+    }

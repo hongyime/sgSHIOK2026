@@ -15,7 +15,8 @@ Safe reports:
   batch-plan dry-runs one-attempt full-batch prerequisites and policy status without scoring; execution still requires owner approval and bounded OneMap controls.
 
 Gated pipeline tasks:
-  ingest | lamp-overlay | network | score | score-batch | export | export-transit | validate | publish
+  ingest | lamp-overlay | network | score | score-batch | export | export-transit | refresh-provenance | validate | publish
+  refresh-provenance is fail-closed; direct pipeline.export invocation must name --output explicitly.
 
 `publish` ALWAYS runs `validate` first — this gate is hard-coded and must never be removed.
 """
@@ -47,7 +48,7 @@ STUBS = {
     "p19-mcst-locations": "read-only status for the cached P379 OneMap location probe of unvalidated P19 MCST proxy rows",
     "p125-osm-status": "read-only status for cached P125 20 Aug 2026 Overpass addr:postcode coverage cross-check and registry policy",
     "readiness": "fast production-readiness report without scoring or deploying; use --gate-summary for concise release-gate output",
-    "refresh-provenance": "refresh bundle manifest score provenance without rescoring",
+    "refresh-provenance": "fail-closed manifest provenance refresh; direct pipeline.export invocation must name --output explicitly",
     "score": "apply pipeline/config/weights.yaml (T1.4)",
     "score-batch": "resumable postal scoring batch runner",
     "bus-arrivals": "collect local LTA bus-arrival snapshots for future reliability scoring",
