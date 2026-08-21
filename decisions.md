@@ -1241,3 +1241,7 @@ The first-view Covered Linkway freshness caveat should not make DataMall geospat
 2026-08-21 - P466 README legacy Leaf Area Index hash boundary:
 
 README operator guidance should distinguish the legacy published bundle from the future score-provenance policy. The current published manifest carries `leaf_area_index` as a source hash, but P23/P181 settled that LAI is a non-score reference table and future score provenance excludes it. README now says the published legacy bundle may carry LAI as a non-score reference source hash, while LAI remains outside route geometry, shade-proxy geometry, and score evidence. This is documentation/test alignment only; it does not mutate public data, source manifests, score provenance, scoring, exports, deployment, or locked weights.
+
+2026-08-21 - P467 OSM postcode total in product copy:
+
+The P125 Overpass measurement should be described as a distinct-postcode measurement, not only as a frozen-v1 overlap count. README and browser first-view copy now state that P125 found 25,879 valid distinct OSM `addr:postcode` values, of which 25,873 overlap the 124,443 frozen v1 postals and 6 are valid OSM-only postcodes. This keeps the OSM source policy empirical while preserving the conclusion that OSM remains geometry evidence rather than the address registry. This is copy/test alignment only; it does not call Overpass, mutate cached P125 evidence, alter inputs, score, export, deploy, public data, or touch locked weights.

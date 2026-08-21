@@ -34,7 +34,8 @@ def test_readme_documents_universe_source_policy() -> None:
     )
     assert "CANAAN and MYRA remain unvalidated MCST proxy warnings" in normalized
     assert "8 missing rows out of 976 HDB completion and MCST proxy rows" not in normalized
-    assert "P125 live Overpass measurement found OSM `addr:postcode` covers only 25,873" in normalized
+    assert "P125 live Overpass measurement found 25,879 valid distinct OSM `addr:postcode` values" in normalized
+    assert "25,873 overlap the 124,443 frozen postals and 6 are valid OSM-only postcodes" in normalized
     assert "OSM remains geometry evidence rather than an address registry" in normalized
     assert "OneMap Search validates and geocodes known candidates" in normalized
     assert "candidate-source-first" in normalized
