@@ -1209,3 +1209,7 @@ The first-view DataMall discovery caveat should name the two drifted shelter lay
 2026-08-21 - P457 dated P19 public-source check copy:
 
 The cached P19 recent public-source miss measurement was generated on 16 Aug 2026, so browser caveats should not describe it only as `recent`. First-view, search no-result, outside-bundle, and known HDB missing-row copy now name the `16 Aug 2026 public-source check` while preserving the measured 6 coordinate-backed HDB rows, 2 unvalidated MCST proxy rows, 976-row denominator, and 0.82% rate. This is copy/test clarity only; it does not call APIs, mutate P19 evidence, alter inputs, score, export, deploy, or touch locked weights.
+
+2026-08-21 - P459 dated P19 structured source policy:
+
+Dry-run batch planning and production readiness should carry the cached P19 measurement date as structured data, not only in prose. The `recent_public_source_gap_sample` policy now names `P19 16 Aug 2026 public-source gap sample` and records `generated_at_utc: 2026-08-16T02:08:55.624822+00:00`. This is reporting/test alignment only; it does not call APIs, mutate P19 evidence, alter inputs, score, export, deploy, or touch locked weights.

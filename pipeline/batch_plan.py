@@ -54,7 +54,8 @@ OSM_ADDR_POSTCODE_COVERAGE = {
     "verdict": "not sufficient as primary registry",
 }
 RECENT_PUBLIC_SOURCE_GAP_SAMPLE = {
-    "measurement": "P19 recent public-source gap sample",
+    "measurement": "P19 16 Aug 2026 public-source gap sample",
+    "generated_at_utc": "2026-08-16T02:08:55.624822+00:00",
     "cache_status_command": "uv run python run.py p19-gap-status",
     "cache_status_calls_apis": False,
     "cache_status_writes_files": False,

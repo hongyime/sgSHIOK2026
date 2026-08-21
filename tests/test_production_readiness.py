@@ -513,7 +513,8 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         "source_quality_warning_rows": 2,
     }
     assert report["features"]["source_policy"]["recent_public_source_gap_sample"] == {
-        "measurement": "P19 recent public-source gap sample",
+        "measurement": "P19 16 Aug 2026 public-source gap sample",
+        "generated_at_utc": "2026-08-16T02:08:55.624822+00:00",
         "cache_status_command": "uv run python run.py p19-gap-status",
         "cache_status_calls_apis": False,
         "cache_status_writes_files": False,

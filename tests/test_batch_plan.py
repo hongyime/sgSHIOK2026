@@ -217,7 +217,8 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
     )
     assert "candidate-source-first" in report["source_policy"]["v2"]
     assert report["source_policy"]["recent_public_source_gap_sample"] == {
-        "measurement": "P19 recent public-source gap sample",
+        "measurement": "P19 16 Aug 2026 public-source gap sample",
+        "generated_at_utc": "2026-08-16T02:08:55.624822+00:00",
         "cache_status_command": "uv run python run.py p19-gap-status",
         "cache_status_calls_apis": False,
         "cache_status_writes_files": False,
