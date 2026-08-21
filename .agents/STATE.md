@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P473 code commit: `dbfb5b3`; state-only commits may follow it on `main`.
+Latest P474 code commit: `a1a4e99`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P474 is complete and committed: direct `scripts.analysis.p19_mcst_missing_locations` invocation now defaults to cache-status-only mode and requires explicit `--probe` before it can call OneMap or write the P379 cache/report. Focused analysis/run tests and repo integrity passed.
 - P473 is complete and committed: `run.py p19-mcst-locations` now uses the P379 MCST proxy probe's new `--cache-status-only` mode by default, reporting existing cache/report status with `will_call_apis=false` and `will_write_files=false`. The explicit write/API probe remains available through the underlying script, while README/CLAUDE/batch-plan/readiness policy now mark the runner command as read-only. Expanded focused tests and repo integrity passed.
 - P472 is complete and committed: `ATTRIBUTION.md` now separates Overture candidate status from Leaf Area Index's legacy non-score reference role by renaming the section to `Candidate And Non-Score Reference Sources` and splitting LAI into its own paragraph. Focused attribution test and repo integrity passed.
 - P471 is complete and committed: `NOTICE` now uses the S.H.I.O.K. Shelter Map name, lists `lamp_posts` as an LTA Singapore Open Data Licence source for the shipped night lighting map layer, and the repo-integrity expected NOTICE blob is intentionally advanced to `5ccfd88ea706cb129bc602346d8db34fc8005781`. Focused repo-integrity tests and repo integrity passed.
