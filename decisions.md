@@ -943,3 +943,6 @@ The read-only active-bundle audit helper should use the same published shelter-m
 
 2026-08-21 - P339 targeted refresh absent-postal wording:
 The targeted bundle refresh helper should name the published shelter-map bundle when selected postals are absent from the source bundle. Its early validation error now says none of the selected postals exist in the published shelter-map bundle instead of the current bundle. This is operator error text and test coverage only; it does not run refresh, scoring, export, alter reports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P340 compare-targeted published-bundle wording:
+The targeted comparison operator surface should name the published shelter-map bundle rather than an active/static/current bundle. `run.py` and `scripts/compare_targeted_scores.py` now describe compare-targeted as comparing a targeted score report against the published shelter-map bundle. This is operator help text and test coverage only; it does not run comparison, scoring, export, alter reports, public data, pipeline inputs, or locked weights.

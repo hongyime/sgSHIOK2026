@@ -46,7 +46,7 @@ STUBS = {
     "bus-arrivals": "collect local LTA bus-arrival snapshots for future reliability scoring",
     "bus-connector-diagnostics": "diagnose priority OneMap missing-bus connector cases",
     "candidate-audit": "audit ranked MRT/LRT and bus candidates for selected postals",
-    "compare-targeted": "compare a targeted score report against the active bundle",
+    "compare-targeted": "compare a targeted score report against the published shelter-map bundle",
     "batch-plan": "dry-run full postal geocode/scoring batch plan (checkpoint C)",
     "postal-universe": "build deterministic postal-code universe candidates",
     "geocode-universe": "bounded OneMap geocode fill for source-derived postal gaps",

@@ -1,4 +1,5 @@
 from scripts.compare_targeted_scores import (
+    build_parser,
     compare_record,
     compare_records,
     load_candidate_records,
@@ -267,3 +268,10 @@ def test_load_candidate_records_accepts_targeted_refresh_report(tmp_path):
     )
 
     assert load_candidate_records(path) == [{"postal": "123456", "state": "SCORED", "total": 72.0}]
+
+
+def test_compare_targeted_parser_names_published_shelter_map_bundle():
+    help_text = build_parser().format_help()
+
+    assert "Compare a targeted score report against the published shelter-map bundle." in help_text
+    assert "Compare a targeted score report against the active static bundle." not in help_text

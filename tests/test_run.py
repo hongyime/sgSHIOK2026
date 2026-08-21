@@ -45,6 +45,13 @@ def test_run_help_headline_does_not_flatten_all_tasks():
     assert "Gated pipeline tasks:" in help_text
 
 
+def test_run_task_descriptions_name_published_shelter_map_bundle():
+    assert run.STUBS["compare-targeted"] == (
+        "compare a targeted score report against the published shelter-map bundle"
+    )
+    assert "compare a targeted score report against the active bundle" not in run.STUBS.values()
+
+
 def test_run_task_sets_pythonhashseed_for_module_subprocess(monkeypatch):
     calls = []
 

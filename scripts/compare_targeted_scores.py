@@ -308,7 +308,7 @@ def compare_records(
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Compare a targeted score report against the active static bundle."
+        description="Compare a targeted score report against the published shelter-map bundle."
     )
     parser.add_argument("--candidate", required=True, type=Path)
     parser.add_argument("--bundle-dir", type=Path, default=None)
