@@ -512,6 +512,11 @@ describe("score card copy", () => {
     expect(proposalSource).not.toContain("stop presenting the current five component-score rows");
     expect(proposalSource).not.toContain("Rain shelter and heat comfort currently share mostly");
     expect(proposalSource).not.toContain("sort the current bundle");
+    expect(proposalSource).toContain("{covered_ratio}% covered-walkway ratio on the displayed walk");
+    expect(proposalSource).toContain("Exposed gaps show where the displayed walk leaves shelter.");
+    expect(proposalSource).toContain("Exposed gaps on the displayed walk");
+    expect(proposalSource).not.toContain("{covered_ratio}% of the selected walk is covered.");
+    expect(proposalSource).not.toContain("Exposed gaps show where the selected walk leaves shelter.");
     expect(proposalSource).toContain("Selected walk distance from this postal code to the chosen MRT/LRT or bus access point.");
     expect(proposalSource).toContain(
       "the published shelter-map walk\ncould not prove access to an official LTA bus stop"
