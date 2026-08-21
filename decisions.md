@@ -1039,3 +1039,6 @@ Operators should be able to reprint the cached P125 OSM `addr:postcode` coverage
 
 2026-08-21 - P374 P125 status in structured source policy:
 The structured batch-plan and production-readiness source-policy blocks should expose the same safe P125 status command as README and run.py, not only the static P125 coverage numbers. `osm_addr_postcode_registry` now includes `cache_status_command: uv run python run.py p125-osm-status`, no-API/no-write flags, cached query/output paths, and the 23 invalid distinct OSM postcode tag count. This is reporting metadata and test coverage only; it does not call Overpass, mutate cached P125/P19 evidence, alter inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P375 P125 cache-age reporting:
+The P125 OSM status command should report the age of its cached Overpass query/output and frozen v1 universe file, matching the operational cache-age behavior already exposed for P19. `uv run python run.py p125-osm-status` now includes `mtime_utc` and `age_days` for existing files, and the structured P125 source-policy block declares `cache_status_reports_age_days: true`. This is read-only reporting and test coverage only; it does not call Overpass, mutate cached P125/P19 evidence, alter inputs, scoring, exports, public data, deployment, or locked weights.

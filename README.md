@@ -27,7 +27,7 @@ the current documented token-authenticated call-limit cap unless SLA approves a
 higher limit case-by-case. To inspect the cached P19 measurement and cache ages
 without calling data.gov.sg, OneMap, or Overpass, run
 `uv run python run.py p19-gap-status`. To reprint the cached P125 OSM coverage
-measurement without calling Overpass or writing files, run
+measurement and cache ages without calling Overpass or writing files, run
 `uv run python run.py p125-osm-status`.
 
 ## Local data artifacts

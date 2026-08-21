@@ -42,6 +42,7 @@ OSM_ADDR_POSTCODE_COVERAGE = {
     "cache_status_command": "uv run python run.py p125-osm-status",
     "cache_status_calls_apis": False,
     "cache_status_writes_files": False,
+    "cache_status_reports_age_days": True,
     "overpass_output_path": "qa/p125/overpass_sg_addr_postcode.json",
     "overpass_query_path": "qa/p125/overpass_sg_addr_postcode.query",
     "valid_distinct_postcodes": 25879,

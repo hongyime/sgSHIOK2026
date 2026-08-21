@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import json
 import re
 from pathlib import Path
@@ -32,16 +33,27 @@ def relative_path(path: Path) -> str:
         return str(path)
 
 
-def file_status(path: Path) -> dict[str, Any]:
-    return {
+def file_status(path: Path, *, now: dt.datetime | None = None) -> dict[str, Any]:
+    status: dict[str, Any] = {
         "path": relative_path(path),
         "exists": path.is_file(),
         "bytes": path.stat().st_size if path.is_file() else 0,
     }
+    if not path.is_file():
+        return status
+    if now is None:
+        now = dt.datetime.now(dt.UTC)
+    elif now.tzinfo is None:
+        now = now.replace(tzinfo=dt.UTC)
+    now = now.astimezone(dt.UTC)
+    mtime = dt.datetime.fromtimestamp(path.stat().st_mtime, tz=dt.UTC)
+    status["mtime_utc"] = mtime.isoformat()
+    status["age_days"] = round(max(0.0, (now - mtime).total_seconds() / 86400.0), 3)
+    return status
 
 
-def overpass_postcode_status(path: Path) -> dict[str, Any]:
-    status = file_status(path)
+def overpass_postcode_status(path: Path, *, now: dt.datetime | None = None) -> dict[str, Any]:
+    status = file_status(path, now=now)
     if not path.is_file():
         return status
     with path.open("r", encoding="utf-8") as f:
@@ -83,8 +95,8 @@ def overpass_postcode_status(path: Path) -> dict[str, Any]:
     return status
 
 
-def universe_postcode_status(path: Path) -> dict[str, Any]:
-    status = file_status(path)
+def universe_postcode_status(path: Path, *, now: dt.datetime | None = None) -> dict[str, Any]:
+    status = file_status(path, now=now)
     if not path.is_file():
         return status
     df = pd.read_parquet(path)
@@ -110,9 +122,10 @@ def status_report(
     overpass_output: Path = OVERPASS_OUTPUT,
     overpass_query: Path = OVERPASS_QUERY,
     universe_path: Path = V1_UNIVERSE,
+    now: dt.datetime | None = None,
 ) -> dict[str, Any]:
-    overpass = overpass_postcode_status(overpass_output)
-    universe = universe_postcode_status(universe_path)
+    overpass = overpass_postcode_status(overpass_output, now=now)
+    universe = universe_postcode_status(universe_path, now=now)
     valid_osm = set(overpass.get("valid_postcodes", []))
     universe_postals = set(universe.get("postals", []))
     overlap = valid_osm & universe_postals
@@ -127,7 +140,7 @@ def status_report(
         "will_call_apis": False,
         "will_write_files": False,
         "files": {
-            "overpass_query": file_status(overpass_query),
+            "overpass_query": file_status(overpass_query, now=now),
             "overpass_output": overpass,
             "v1_universe": universe,
         },

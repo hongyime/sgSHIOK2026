@@ -1,5 +1,6 @@
 from pathlib import Path
 import json
+import os
 
 from scripts.analysis import p19_universe_gap_measurement as p19
 from scripts.analysis import p125_osm_postcode_status as p125
@@ -115,13 +116,17 @@ def test_p125_osm_status_reports_cached_overpass_coverage(tmp_path: Path) -> Non
         ),
         encoding="utf-8",
     )
+    os.utime(overpass_query, (1797768000, 1797768000))
+    os.utime(overpass_output, (1797768000, 1797768000))
     pd = p125.pd
     pd.DataFrame({"POSTAL": ["123456", "345678"]}).to_parquet(universe_path, index=False)
+    os.utime(universe_path, (1797768000, 1797768000))
 
     report = p125.status_report(
         overpass_output=overpass_output,
         overpass_query=overpass_query,
         universe_path=universe_path,
+        now=p125.dt.datetime(2026, 12, 21, 12, 0, tzinfo=p125.dt.UTC),
     )
 
     assert report["mode"] == "p125_osm_status"
@@ -129,6 +134,8 @@ def test_p125_osm_status_reports_cached_overpass_coverage(tmp_path: Path) -> Non
     assert report["will_call_apis"] is False
     assert report["will_write_files"] is False
     assert report["files"]["overpass_output"]["overpass_elements"] == 3
+    assert report["files"]["overpass_output"]["age_days"] == 1.0
+    assert report["files"]["overpass_query"]["age_days"] == 1.0
     assert report["files"]["overpass_output"]["overpass_elements_by_type"] == {
         "node": 1,
         "relation": 1,
@@ -138,6 +145,7 @@ def test_p125_osm_status_reports_cached_overpass_coverage(tmp_path: Path) -> Non
     assert report["files"]["overpass_output"]["invalid_distinct_count"] == 1
     assert report["files"]["overpass_output"]["invalid_distinct_sample"] == ["bad"]
     assert report["files"]["v1_universe"]["row_count"] == 2
+    assert report["files"]["v1_universe"]["age_days"] == 1.0
     assert report["files"]["v1_universe"]["postal_column"] == "POSTAL"
     assert report["coverage"] == {
         "osm_valid_distinct_postcodes": 2,
