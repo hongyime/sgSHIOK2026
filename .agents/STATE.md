@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P370 code commit: `e1c6285`; state-only commits may follow it on `main`.
+Latest P371 code commit: `68dbbb4`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P371 is complete and committed: map empty-state search summary now uses the same `inspect covered-walkway ratio, exposed gaps, night lighting, and nearby transit` phrasing as the first-view search hint. Focused route-evidence-map interaction test and repo integrity passed.
 - P370 is complete and committed: first-view title-card subtitle now includes night lighting alongside covered-walkway ratio and exposed gaps, matching the settled second-layer evidence role. Focused score-card copy test and repo integrity passed.
 - P369 is complete and committed: selected-walk details now describe the heat greenery proxy as sparse NParks walk-adjacent greenery geometry rather than route geometry, while preserving the not-temperature/not-LAI boundary. Focused score-card/accessibility tests and repo integrity passed.
 - P368 is complete and committed: copied walk QA JSON now emits `issue: "user_reported_better_walk"` instead of the stale route-framed label while preserving `route_mode` compatibility. Focused score-card copy test and repo integrity passed.
