@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P418 code commit: `852136b`; state-only commits may follow it on `main`.
+Latest P419 code commit: `db6126b`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P419 is complete and committed: public-facing metadata, footer, and empty-map aria copy now use `night lighting evidence` instead of hyphenated `night-lighting evidence`, matching the first-view/search/freshness language while leaving internal lamp-layer identifiers unchanged. Focused web copy/map tests, repo integrity, and protected-diff checks passed.
 - P418 is complete and committed: the empty-map aria label now names `covered-walkway ratio, exposed gaps, transit stops, and night-lighting evidence` instead of only transit POIs plus night-lighting, giving non-visual users the same shelter-first headline evidence framing before search. Focused map-interaction test, repo integrity, and protected-diff checks passed.
 - P417 is complete and committed: shared Open Graph/Twitter metadata now says `covered-walkway ratio, exposed gaps, night-lighting evidence` instead of `covered-walkway exposure gaps`, matching the visible first-view/footer framing. Focused web copy test, repo integrity, and protected-diff checks passed.
 - P416 is complete and committed: the first-view footer now says `Source-derived covered-walkway ratio, exposed gaps, and night-lighting map evidence`, replacing the awkward singular `exposure-gap` adjective with the settled ratio/gaps/night-lighting product framing. Focused web copy test, repo integrity, and protected-diff checks passed.
