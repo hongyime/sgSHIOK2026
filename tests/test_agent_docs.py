@@ -37,6 +37,9 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "25,873 overlap frozen v1 and 6 are valid OSM-only postcodes" in normalized
     assert "Treat OSM as geometry evidence, not the primary address registry" in normalized
     assert "candidate-source-first with bounded OneMap Search validation" in normalized
+    assert "bounded OneMap Search validation under explicit token controls" in normalized
+    assert "72-hour token refresh" in normalized
+    assert "token-authenticated call-limit cap unless SLA approves a higher limit case-by-case" in normalized
     assert "clicked-stop walk-preview evidence" in normalized
     assert "preview-route evidence" not in normalized
     assert "Clicked-stop OneMap walk previews are evidence only" in normalized

@@ -15,7 +15,10 @@ unvalidated MCST proxy warnings. P125's 20 Aug 2026 Overpass coverage cross-chec
 found 25,879 valid distinct OSM `addr:postcode` values, of which 25,873
 overlap frozen v1 and 6 are valid OSM-only postcodes. Treat OSM as geometry
 evidence, not the primary address registry; any v2 universe is
-candidate-source-first with bounded OneMap Search validation.
+candidate-source-first with bounded OneMap Search validation under explicit
+token controls, 72-hour token refresh, and the current documented
+token-authenticated call-limit cap unless SLA approves a higher limit
+case-by-case.
 
 The former template documentation source files are not present in this repository because the shared
 configuration sync strips them from target repos. Treat the code, tests,

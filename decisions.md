@@ -1465,3 +1465,7 @@ The postal-universe builder's `--include-overture-candidate` help and generated 
 2026-08-22 - P523 Overture source policy boundary:
 
 The source config and readiness feature note should not imply that Overture Addresses SG is merely waiting on rescore time or generic promotion. It remains candidate-only postal-universe evidence, does not approve scoring or address-registry use, and requires raw archive, attribution, dedupe, coordinate-outlier review, and owner approval before any promotion. This is config/readiness wording and test coverage only; it does not probe Overture, build a universe, mutate archives/caches/inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P524 agent OneMap token controls:
+
+Agent-facing startup guidance should carry the same postal-universe v2 OneMap Search boundary as README, batch-plan, and readiness: candidate validation is bounded by explicit token controls, 72-hour token refresh, and the current documented token-authenticated call-limit cap unless SLA approves a higher limit case-by-case. This is documentation/test coverage only; it does not call OneMap, mutate caches/inputs, build v2, score, export, public data, protected QA evidence, deployment, or locked weights.
