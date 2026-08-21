@@ -751,3 +751,6 @@ Dry-run batch planning and production readiness should point operators at the re
 
 2026-08-21 - P275 README P19 cache-status command:
 Operator onboarding should name the safe way to inspect the cached P19 postal-universe gap measurement, not only state the 8-of-976 result. The README universe-status section now points to `uv run python scripts/analysis/p19_universe_gap_measurement.py --cache-status-only` and states that it does not call data.gov.sg, OneMap, or Overpass. This is documentation/test coverage only; it does not run the measurement, call APIs, mutate `qa/p19`, mutate inputs, score, export, deploy, public data, or touch locked weights.
+
+2026-08-21 - P276 README uv operator commands:
+Operator onboarding should run readiness and batch-plan commands inside the project environment, matching the existing `uv run` guidance for freshness and P19 cache-status checks. README local-data guidance now says `uv run python scripts/production_readiness.py` and `uv run python run.py batch-plan` instead of bare system `python`, avoiding missing-dependency failures before operators reach the intended safety checks. This is documentation/test coverage only; it does not run readiness, batch planning, geocoding, scoring, export, deploy, mutate inputs, public data, or locked weights.
