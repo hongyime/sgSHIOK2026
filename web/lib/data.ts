@@ -1,6 +1,6 @@
 /**
  * DATA ACCESS MODULE
- * Defaults to the latest validated static shelter-map bundle.
+ * Defaults to the pinned published static shelter-map bundle in web/data-bundle.json.
  */
 import dataBundle from "../data-bundle.json";
 
