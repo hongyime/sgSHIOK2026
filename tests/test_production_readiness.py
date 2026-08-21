@@ -512,6 +512,10 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         "detail_path": "qa/p19/universe_gap_measurement_detail.json",
         "source_rows_with_postals": 976,
         "missing_rows": 8,
+        "missing_postals_by_source": {
+            "hdb_2021_2026_geocoded": ["521400", "522400", "523400", "762936", "763936", "764936"],
+            "mcst_2021_2026": ["378720", "935456"],
+        },
         "missing_pct": 0.819672,
         "source_window": "2021-2026",
         "sources": ["HDB completion", "BCA MCST proxy"],
