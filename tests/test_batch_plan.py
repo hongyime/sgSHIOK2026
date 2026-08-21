@@ -299,6 +299,7 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
     }
     assert report["source_policy"]["datamall_geospatial_discovery"] == {
         "measurement": "P262/P264 DataMall geospatial discovery-only probe",
+        "checked_at_local_date": "2026-08-21",
         "command": "uv run python run.py check --geospatial-discovery-only",
         "payload_downloads": False,
         "manifest_writes": False,

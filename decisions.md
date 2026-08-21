@@ -1213,3 +1213,7 @@ The cached P19 recent public-source miss measurement was generated on 16 Aug 202
 2026-08-21 - P459 dated P19 structured source policy:
 
 Dry-run batch planning and production readiness should carry the cached P19 measurement date as structured data, not only in prose. The `recent_public_source_gap_sample` policy now names `P19 16 Aug 2026 public-source gap sample` and records `generated_at_utc: 2026-08-16T02:08:55.624822+00:00`. This is reporting/test alignment only; it does not call APIs, mutate P19 evidence, alter inputs, score, export, deploy, or touch locked weights.
+
+2026-08-21 - P460 dated DataMall discovery source policy:
+
+Dry-run batch planning and production readiness should carry the local check date for the DataMall geospatial discovery drift, matching the browser's first-view caveat. The `datamall_geospatial_discovery` policy now records `checked_at_local_date: 2026-08-21` while preserving the no-payload/no-manifest-write command, the changed Covered Linkway and bridge/underpass sources, and the new-numbered-input-version rule. This is reporting/test alignment only; it does not probe DataMall, fetch payloads, mutate manifests or inputs, score, export, deploy, public data, or touch locked weights.

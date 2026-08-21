@@ -120,6 +120,7 @@ RECENT_PUBLIC_SOURCE_GAP_SAMPLE = {
 }
 DATAMALL_GEOSPATIAL_DISCOVERY_POLICY = {
     "measurement": "P262/P264 DataMall geospatial discovery-only probe",
+    "checked_at_local_date": "2026-08-21",
     "command": "uv run python run.py check --geospatial-discovery-only",
     "payload_downloads": False,
     "manifest_writes": False,
