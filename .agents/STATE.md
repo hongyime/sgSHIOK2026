@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P399 code commit: `02e77e8`; state-only commits may follow it on `main`.
+Latest P400 code commit: `6a17f06`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P400 is complete and committed: clicked-stop live preview metric labels now say `OneMap preview walk` instead of generic `Preview walk`, clarifying that selected-stop preview evidence is fetched live from OneMap and remains outside the published shelter-map bundle. Focused web accessibility/map-interaction tests, repo integrity, and protected-diff checks passed.
 - P399 is complete and committed: direct bus fallback labels now say `Direct bus line estimate` instead of `Direct bus estimate`, while the shelter-map-walk-pending and locked-bus-term caveats remain unchanged. Focused web source-copy test, repo integrity, and protected-diff checks passed.
 - P398 is complete and committed: the walk display segmented-control labels now read `Sheltered walk`, `Both walks`, and `Shortest walk`, making the control a parallel walk comparison. Focused web accessibility/source-copy tests, repo integrity, and protected-diff checks passed.
 - P397 is complete and committed: the walk display control and inline map legend now say `Shortest walk` instead of bare `Shortest`, with same-route legend state `Shortest walk (same)`. Focused web accessibility/source-copy tests, repo integrity, and protected-diff checks passed.
