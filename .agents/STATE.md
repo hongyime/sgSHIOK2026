@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P334 code commit: `8caf130`; state-only commits may follow it on `main`.
+Latest P335 code commit: `514e037`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P335 is complete and committed: the committed Section 10 proposal no longer preserves stale `current` wording for the pre-P18 five-row presentation, and its rain/heat plus locked-score copy now matches locked-release/published-bundle language. Focused score-card copy tests and repo integrity pass.
 - P334 is complete and committed: README active-bundle onboarding now says non-full records may be `beyond locked transit range` instead of beyond current transit range, matching the browser's locked-score availability copy. Focused README tests and repo integrity pass.
 - P333 is complete and committed: the shelter-exposure row now says `In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence` instead of vague `currently share` wording. Focused accessibility/score-card tests and repo integrity pass.
 - P332 is complete and committed: the first-view locked-score availability disclosure now says records are `beyond locked transit range` instead of beyond current transit range. Focused locked-score availability/accessibility/score-card tests and repo integrity pass.
