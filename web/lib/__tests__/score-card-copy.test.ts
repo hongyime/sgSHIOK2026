@@ -273,12 +273,12 @@ describe("score card copy", () => {
     expect(tsxSource).toContain("routeDetailItems.push({ label: \"Greenery proxy\"");
     expect(tsxSource).not.toContain("routeDetailItems.push({ label: \"Shade proxy\"");
     expect(tsxSource).toContain("routeDetailItems.push({ label: \"Snap connector\"");
-    expect(tsxSource).toContain('routeDetailItems.push({ label: "Night lighting", value: lampOverlayEnabled ? "Map layer on" : "Map layer off" });');
+    expect(tsxSource).toContain('value: lampOverlayEnabled ? "Map layer on; zoom in for points" : "Map layer off",');
     expect(tsxSource).not.toContain('routeDetailItems.push({ label: "Night lighting", value: lampOverlayEnabled ? "Layer on" : "Layer off" });');
     expect(tsxSource).toContain("lampOverlayEnabled?: boolean;");
     expect(tsxSource).toContain("lampOverlayEnabled={lampOverlayEnabled}");
     expect(tsxSource).toContain(
-      "Night lighting uses LTA lamp-post points as map evidence outside the locked score."
+      "Night lighting uses LTA lamp-post points as map evidence outside the locked score; the map loads points only after you zoom into a neighbourhood."
     );
     expect(tsxSource).toContain(
       "Snap connector is the short link from the postal or transit point onto the shelter-map walk."

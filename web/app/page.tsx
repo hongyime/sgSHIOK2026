@@ -1156,8 +1156,13 @@ export function ScoreCard({
     routeDetailItems.push({ label: "Greenery proxy", value: `${shadeProxyPct}%` });
   }
   if (score.paths) {
-    routeDetailItems.push({ label: "Night lighting", value: lampOverlayEnabled ? "Map layer on" : "Map layer off" });
-    routeDetailNotes.push("Night lighting uses LTA lamp-post points as map evidence outside the locked score.");
+    routeDetailItems.push({
+      label: "Night lighting",
+      value: lampOverlayEnabled ? "Map layer on; zoom in for points" : "Map layer off",
+    });
+    routeDetailNotes.push(
+      "Night lighting uses LTA lamp-post points as map evidence outside the locked score; the map loads points only after you zoom into a neighbourhood."
+    );
   }
   if (endpointSnapM > 0) {
     routeDetailItems.push({ label: "Snap connector", value: formatDistance(endpointSnapM) });
