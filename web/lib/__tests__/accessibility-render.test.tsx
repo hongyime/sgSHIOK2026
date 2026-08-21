@@ -620,6 +620,24 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("exposed across 2 gaps on the selected walk.");
   });
 
+  it("names the displayed walk in the no-gap exposure fallback", () => {
+    const recordWithoutGaps: ScoreRecord = {
+      ...scoredRecord,
+      exposure_gaps: [],
+    };
+    const html = renderScoreCard({
+      routeMode: "shortest",
+      selection: {
+        ...selection,
+        score: recordWithoutGaps,
+      },
+      rankingRecords: [recordWithoutGaps],
+    });
+
+    expect(html).toContain("No exposed gaps are recorded for this shortest walk.");
+    expect(html).not.toContain("No exposed gaps are recorded for this selected walk.");
+  });
+
   it("labels transit target availability before a user switches modes", () => {
     const recordWithRouteOptions: ScoreRecord = {
       ...scoredRecord,
@@ -776,7 +794,8 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("Nearby bus service not walk-verified");
-    expect(html).toContain("62% covered-walkway ratio on selected walk");
+    expect(html).toContain("62% covered-walkway ratio on sheltered walk");
+    expect(html).not.toContain("62% covered-walkway ratio on selected walk");
     expect(html).toContain("3 direct bus options found; nearest 99 m; 0.4 min best scheduled wait.");
     expect(html).not.toContain("direct bus candidates found");
     expect(html).not.toContain("Direct line to bus stop; walking route pending.");
@@ -882,7 +901,8 @@ describe("rendered accessibility output", () => {
     expect(unflaggedBusHtml).not.toContain("Nearby bus evidence not route-verified");
 
     expect(flaggedNoBusHtml).toContain("Nearby bus service not walk-verified");
-    expect(flaggedNoBusHtml).toContain("62% covered-walkway ratio on selected walk");
+    expect(flaggedNoBusHtml).toContain("62% covered-walkway ratio on sheltered walk");
+    expect(flaggedNoBusHtml).not.toContain("62% covered-walkway ratio on selected walk");
     expect(unflaggedNoBusHtml).toContain("Limited bus-service evidence");
     expect(unflaggedNoBusHtml).not.toContain("Limited bus connectivity");
     expect(unflaggedNoBusHtml).not.toContain("Nearby bus service not walk-verified");

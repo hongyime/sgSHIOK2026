@@ -783,7 +783,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
     measuredReasons.push(`${formatDistance(score.paths.sheltered_m)} to ${transitModeLabel(transitMode)}`);
   }
   if (typeof score.paths.covered_ratio === "number") {
-    measuredReasons.push(`${Math.round(score.paths.covered_ratio * 100)}% covered-walkway ratio on selected walk`);
+    measuredReasons.push(`${Math.round(score.paths.covered_ratio * 100)}% covered-walkway ratio on sheltered walk`);
   }
   if (busFallback) {
     measuredReasons.push("Nearby bus service not walk-verified");
@@ -1249,15 +1249,6 @@ export function ScoreCard({
   const totalExposureM = exposureGaps.reduce((total, gap) => total + gap.len_m, 0);
   const gapsWithCoordinates = exposureGaps.filter((gap) => formatGapLocation(gap)).length;
   const hiddenGapCount = Math.max(0, exposureGaps.length - visibleExposureGaps.length);
-  const longestGapText = longestGap
-    ? `${formatDistance(longestGap.len_m)} is the longest exposed gap.`
-    : "No exposed gaps are recorded for this selected walk.";
-  const exposureHeroText =
-    exposureGaps.length === 0
-      ? longestGapText
-      : `${formatDistance(totalExposureM)} exposed across ${exposureGaps.length} gap${
-          exposureGaps.length === 1 ? "" : "s"
-        }; ${longestGapText}`;
   const selectedWalkLabel = previewRoute
     ? "OneMap preview walk"
     : directBusFallback
@@ -1265,6 +1256,15 @@ export function ScoreCard({
       : routeMode === "shortest" && !sameRoute
         ? "shortest walk"
         : "sheltered walk";
+  const longestGapText = longestGap
+    ? `${formatDistance(longestGap.len_m)} is the longest exposed gap.`
+    : `No exposed gaps are recorded for this ${selectedWalkLabel}.`;
+  const exposureHeroText =
+    exposureGaps.length === 0
+      ? longestGapText
+      : `${formatDistance(totalExposureM)} exposed across ${exposureGaps.length} gap${
+          exposureGaps.length === 1 ? "" : "s"
+        }; ${longestGapText}`;
   const gapSummaryText =
     exposureGaps.length === 0
       ? null
