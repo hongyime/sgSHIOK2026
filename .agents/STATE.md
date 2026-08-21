@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P348 is complete and committed: `351ec71` separates the selected-walk Greenery proxy from measured temperature and Leaf Area Index; focused browser copy tests and repo integrity passed.
 - P347 is complete and committed: `73c1a8a` clarifies the night-lighting walk-details copy so the enabled state says to zoom in for lamp-post points; focused web tests and repo integrity passed.
 - P346 is complete and committed: manifest-derived locked-score availability copy now reports `23.5%, roughly a quarter` for the current 29,286/124,443 non-full share, and README mirrors `23.5% or roughly a quarter`. Focused web/readme tests and repo integrity passed.
 - P345 is complete and committed: browser, README, CLAUDE, and readiness policy copy now include the P19 recent-source miss rate as `8 missing rows out of 976 (0.82%)`, matching P19 `row_miss_rate`/batch-plan `missing_pct`. Focused web, README, agent-doc, production-readiness tests and repo integrity passed.
