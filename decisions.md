@@ -853,3 +853,6 @@ The live OneMap clicked-stop preview reason should say `Map evidence only` inste
 
 2026-08-21 - P309 README P125 OSM measurement label:
 README universe-status onboarding should cite the P125 live Overpass measurement by name when explaining why OSM `addr:postcode` is not the primary address registry. The counts are unchanged: OSM covers only 25,873 of 124,443 frozen postals, so v2 remains candidate-source-first with bounded OneMap Search validation. This is documentation and test coverage only; it does not call APIs, mutate cached P125/P19 evidence, alter inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P310 CLAUDE universe-source policy:
+Agent-facing startup guidance should carry the measured postal-universe policy, not only the product frame and runner commands. `CLAUDE.md` now records frozen v1 as 124,443 records, P19's 8-of-976 recent public-source gap, P125's 25,873 frozen-postal OSM overlap, and the candidate-source-first v2 policy with bounded OneMap Search validation. This is documentation and test coverage only; it does not call APIs, mutate cached evidence, alter inputs, scoring, exports, public data, deployment, or locked weights.
