@@ -276,6 +276,17 @@ export function rankEmptyMessage(rankMetric: RankMetric, rankMetricLabel: string
   return `No comparable planning-area records for ${rankMetricLabel}.`;
 }
 
+export function rankPanelDescription(rankMetric: RankMetric, rankPanelOpen: boolean): string {
+  if (!rankPanelOpen) return "Loads planning-area ranks only when opened.";
+  if (rankMetric === "overall") {
+    return "Planning-area list uses locked score only as a sorting index; walk evidence remains the primary view.";
+  }
+  if (rankMetric === "crossing") {
+    return "Planning-area locked-term view; locked SHIOK score is unchanged.";
+  }
+  return "Planning-area evidence view; locked SHIOK score is unchanged.";
+}
+
 export function shouldFetchRankRecords({
   rankPanelOpen,
   postal,
@@ -1525,17 +1536,11 @@ export function ScoreCard({
           <div className={styles.rankHeader}>
             <div>
               <strong>Compare planning-area records</strong>
-              <span>
-                {!rankPanelOpen
-                  ? "Loads planning-area ranks only when opened."
-                  : rankMetric === "overall"
-                  ? "Planning-area list uses locked score only as a sorting index; walk evidence remains the primary view."
-                  : "Planning-area evidence view; locked SHIOK score is unchanged."}
-              </span>
+              <span>{rankPanelDescription(rankMetric, rankPanelOpen)}</span>
             </div>
             {rankPanelOpen ? (
               <label>
-                <span className={styles.srOnly}>Choose planning-area evidence view</span>
+                <span className={styles.srOnly}>Choose planning-area comparison view</span>
                 <select
                   value={rankMetric}
                   onChange={(event) => setRankMetric(event.target.value as RankMetric)}

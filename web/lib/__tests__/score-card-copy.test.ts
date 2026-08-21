@@ -502,7 +502,8 @@ describe("score card copy", () => {
     expect(source).toContain("Show ranks");
     expect(source).not.toContain("Compare nearby records");
     expect(source).not.toContain(">Show</button>");
-    expect(source).toContain("Choose planning-area evidence view");
+    expect(source).toContain("Choose planning-area comparison view");
+    expect(source).not.toContain("Choose planning-area evidence view");
     expect(source).not.toContain("Rank records by");
     expect(source).not.toContain('aria-label="Rank by view"');
     expect(source).not.toContain("<strong>Rank by</strong>");
@@ -511,6 +512,7 @@ describe("score card copy", () => {
     );
     expect(source).not.toContain("Planning-area list sorted by locked score; walk evidence remains the primary view.");
     expect(source).toContain("Planning-area evidence view; locked SHIOK score is unchanged.");
+    expect(source).toContain("Planning-area locked-term view; locked SHIOK score is unchanged.");
     expect(source).not.toContain("Planning-area component evidence view; locked SHIOK score is unchanged.");
     expect(source).toContain("Loading planning-area {rankMetricLabel} ranks.");
     expect(source).not.toContain("Loading planning-area ranks...");

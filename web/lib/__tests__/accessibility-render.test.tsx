@@ -15,6 +15,7 @@ import {
   formatGeneratedDate,
   routeDisplayAnnouncement,
   rankEmptyMessage,
+  rankPanelDescription,
   scoreCardAnnouncement,
   searchResultsAnnouncement,
   type FeedbackSegmentLabel,
@@ -486,7 +487,8 @@ describe("rendered accessibility output", () => {
     expect(closedRankHtml).toContain("Show ranks");
     expect(html).not.toContain("Compare nearby records");
     expect(closedRankHtml).not.toContain(">Show</button>");
-    expect(html).toContain("Choose planning-area evidence view");
+    expect(html).toContain("Choose planning-area comparison view");
+    expect(html).not.toContain("Choose planning-area evidence view");
     expect(html).not.toContain("Rank records by");
     expect(html).toContain(
       "Planning-area list uses locked score only as a sorting index; walk evidence remains the primary view."
@@ -552,6 +554,19 @@ describe("rendered accessibility output", () => {
     expect(evidenceHtml).toContain("No comparable planning-area records for Rain covered-walkway evidence.");
     expect(evidenceHtml).not.toContain("No comparable planning-area records for Rain-shelter evidence.");
     expect(evidenceHtml).not.toContain("No comparable full locked scores in this planning area.");
+  });
+
+  it("does not call crossing friction an evidence view in planning-area helper copy", () => {
+    expect(rankPanelDescription("overall", false)).toBe("Loads planning-area ranks only when opened.");
+    expect(rankPanelDescription("overall", true)).toBe(
+      "Planning-area list uses locked score only as a sorting index; walk evidence remains the primary view."
+    );
+    expect(rankPanelDescription("rain", true)).toBe(
+      "Planning-area evidence view; locked SHIOK score is unchanged."
+    );
+    expect(rankPanelDescription("crossing", true)).toBe(
+      "Planning-area locked-term view; locked SHIOK score is unchanged."
+    );
   });
 
   it("renders access-walk source labels without connector jargon", () => {
