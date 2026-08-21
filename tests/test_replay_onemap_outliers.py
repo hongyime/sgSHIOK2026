@@ -1,4 +1,7 @@
+import json
+
 from scripts.replay_onemap_outliers import (
+    main,
     replay_row,
     route_source_profile,
     select_outliers,
@@ -365,3 +368,74 @@ def test_summarize_rows_aggregates_route_source_profiles():
     }
     assert profiles["new_bus_shortest"]["flag_row_counts"] == {"direct_bus_fallback_m": 1}
     assert profiles["new_bus_shortest"]["source_layer_m"] == {"direct_bus_fallback": 50.0}
+
+
+def test_replay_onemap_outliers_cli_requires_confirmation_and_output_before_scoring(
+    monkeypatch, capsys
+):
+    from scripts import replay_onemap_outliers
+
+    def fail_replay_outliers(**kwargs):
+        raise AssertionError("replay should not score or write before CLI guard")
+
+    monkeypatch.setattr(replay_onemap_outliers, "replay_outliers", fail_replay_outliers)
+
+    assert main(["--limit", "1"]) == 1
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "errors": [
+            "OneMap outlier replay requires --confirm-outlier-replay",
+            "OneMap outlier replay requires explicit --output",
+        ],
+        "ok": False,
+    }
+
+
+def test_replay_onemap_outliers_cli_runs_confirmed_replay_with_explicit_output(
+    monkeypatch, tmp_path, capsys
+):
+    from scripts import replay_onemap_outliers
+
+    output = tmp_path / "onemap_outlier_replay.json"
+    calls = []
+
+    def fake_replay_outliers(**kwargs):
+        calls.append(kwargs)
+        return {
+            "selection": {"selected_postals": 1, "scored_postals": 1},
+            "sample_size": 1,
+            "rows": [{"postal": "123456"}],
+        }
+
+    monkeypatch.setattr(replay_onemap_outliers, "replay_outliers", fake_replay_outliers)
+
+    assert (
+        main(
+            [
+                "--confirm-outlier-replay",
+                "--report",
+                str(tmp_path / "report.json"),
+                "--postal-universe",
+                str(tmp_path / "universe.parquet"),
+                "--network",
+                str(tmp_path / "network.parquet"),
+                "--output",
+                str(output),
+                "--limit",
+                "1",
+            ]
+        )
+        == 0
+    )
+
+    assert calls
+    assert calls[0]["output_path"] == output
+    assert calls[0]["limit"] == 1
+    out = capsys.readouterr().out
+    summary = json.loads(out)
+    assert summary == {
+        "sample_size": 1,
+        "selection": {"scored_postals": 1, "selected_postals": 1},
+    }

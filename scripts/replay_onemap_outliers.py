@@ -411,21 +411,48 @@ def replay_outliers(
     return summary
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Replay OneMap validation outliers through current local scoring."
     )
     parser.add_argument("--report", type=Path, default=DEFAULT_REPORT)
     parser.add_argument("--postal-universe", type=Path, default=DEFAULT_UNIVERSE)
     parser.add_argument("--network", type=Path, default=DEFAULT_NETWORK)
-    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument(
+        "--output",
+        type=Path,
+        help="Explicit replay report path; confirmed replay refuses the historical default.",
+    )
     parser.add_argument("--limit", type=int, default=100)
     parser.add_argument("--node-type", default="bus_stop")
     parser.add_argument("--direction", default="project_longer_than_onemap")
     parser.add_argument("--min-abs-pct-delta", type=float, default=25.0)
     parser.add_argument("--min-onemap-walk-m-for-pct-rank", type=float, default=0.0)
     parser.add_argument("--route-source-profile", action="store_true")
-    args = parser.parse_args()
+    parser.add_argument(
+        "--confirm-outlier-replay",
+        action="store_true",
+        help="Required before loading scoring context and replaying selected outliers.",
+    )
+    args = parser.parse_args(argv)
+
+    errors = []
+    if not args.confirm_outlier_replay:
+        errors.append("OneMap outlier replay requires --confirm-outlier-replay")
+    if args.output is None:
+        errors.append("OneMap outlier replay requires explicit --output")
+    if errors:
+        print(
+            json.dumps(
+                {
+                    "ok": False,
+                    "errors": errors,
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 1
 
     summary = replay_outliers(
         report_path=args.report,

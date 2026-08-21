@@ -1497,3 +1497,7 @@ Targeted bundle refresh is a scoring and bundle-mutation operation, not a report
 2026-08-22 - P531 partial resnap confirmation guard:
 
 Partial resnap comparison is a bounded scoring operation, not a report-only audit. `scripts.partial_resnap_rescore` now requires both `--confirm-rescore` and explicit `--output` before resolving the active bundle or calling `score_postals()`, instead of defaulting to the active bundle and `qa/partial_resnap_rescore_sample.json`. This is command safety/test coverage only; it does not score, export, mutate public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P532 OneMap outlier replay confirmation guard:
+
+OneMap outlier replay is a bounded rescoring diagnostic, not a report-only audit. `scripts.replay_onemap_outliers` now requires both `--confirm-outlier-replay` and explicit `--output` before loading scoring context, calling `score_postal_gdf()`, or writing a replay report, instead of defaulting to `qa/onemap_outlier_replay_20260802.json`. This is command safety/test coverage only; it does not score, export, mutate public data, protected QA evidence, deployment, or locked weights.
