@@ -62,7 +62,7 @@ describe("deployment packaging", () => {
     expect(script).toContain("includesSmokeText(summary.cardText, text)");
     expect(script).toContain("pending_badge_absent");
     expect(script).toContain("not_yet_copy_distinct_from_no_transit");
-    expect(script).toContain("Transit beyond scoring range");
+    expect(script).toContain("Transit beyond locked range");
     expect(script).toContain("Closest connected shelter-map walk");
     expect(script).toContain("bodyHtml");
     expect(script).toContain("Runtime.exceptionThrown");

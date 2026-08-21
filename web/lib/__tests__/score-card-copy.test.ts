@@ -5,14 +5,16 @@ describe("score card copy", () => {
   it("distinguishes far connected shelter-map walks from disconnected walks", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
-    expect(source).toContain("Transit beyond scoring range");
+    expect(source).toContain("Transit beyond locked range");
     expect(source).toContain("Shelter-map walk not connected yet");
     expect(source).toContain("No connected ${transitModeLabel(transitMode)} shelter-map walk within range");
     expect(source).toContain("Transit stop or exit found");
     expect(source).toContain("No qualifying transit stop within 1.2 km");
     expect(source).not.toContain("No transit stop within scoring range");
     expect(source).toContain("Transit stops or exits exist, but this shelter-map bundle has no connected shelter-map walk yet.");
-    expect(source).toContain("No qualifying MRT/LRT exit or bus stop was found within the 1.2 km scoring range for this postal.");
+    expect(source).toContain("No qualifying MRT/LRT exit or bus stop was found within the locked 1.2 km transit range for this postal.");
+    expect(source).not.toContain("Transit beyond scoring range");
+    expect(source).not.toContain("within the 1.2 km scoring range for this postal");
     expect(source).toContain("Closest connected ${label} shelter-map walk is ${formatDistance(nearestM)}");
     expect(source).toContain("Closest connected shelter-map walk found is about ${formatDistance(nearestM)}");
     expect(source).not.toContain("Closest routed ${label} is ${formatDistance(nearestM)}");

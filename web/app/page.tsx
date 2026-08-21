@@ -428,7 +428,7 @@ function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): str
   if (reason === "transit_candidates_graph_disconnected") return "Shelter-map walk not connected yet";
   if (reason === "no_transit_candidates_selected") return "No qualifying transit stop within 1.2 km";
   return nearestRoutedTransitM(score, transitMode) !== null
-    ? "Transit beyond scoring range"
+    ? "Transit beyond locked range"
     : `No connected ${transitModeLabel(transitMode)} shelter-map walk within range`;
 }
 
@@ -445,7 +445,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
       return "Transit stops or exits exist, but this shelter-map bundle has no connected shelter-map walk yet.";
     }
     if (reason === "no_transit_candidates_selected") {
-      return "No qualifying MRT/LRT exit or bus stop was found within the 1.2 km scoring range for this postal.";
+      return "No qualifying MRT/LRT exit or bus stop was found within the locked 1.2 km transit range for this postal.";
     }
     const nearestM = nearestRoutedTransitM(score, transitMode);
     if (nearestM !== null) {

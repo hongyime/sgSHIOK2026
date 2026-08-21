@@ -913,3 +913,6 @@ The outside-bundle visible empty state should name the shelter-map bundle explic
 
 2026-08-21 - P329 locked transit range copy:
 NO_TRANSIT_IN_RANGE copy should describe the 1.2 km constraint as a locked release transit range, not as the "current scoring range". The affected empty-state notes and reason chips now say "locked transit range" / "locked 1.2 km transit range" while preserving the same 1.2 km threshold and fallback behavior. This is web copy and test coverage only; it does not change transit selection, route lookup, score values, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P330 transit range heading cleanup:
+NO_TRANSIT_IN_RANGE headings and no-candidate notes should not retain "scoring range" wording after the release range was reframed as locked. The far-connected-walk heading now says "Transit beyond locked range", and the no-candidate note says the postal has no qualifying MRT/LRT exit or bus stop within the locked 1.2 km transit range. This is web copy and test coverage only; it does not change transit selection, route lookup, score values, exports, public data, pipeline inputs, or locked weights.
