@@ -1021,3 +1021,6 @@ When a record has no full locked score, the breakdown row should not repeat `No 
 
 2026-08-21 - P366 locked-score manifest count guard:
 The generated-data web test should prove the first-view locked-score availability disclosure from the actual configured bundle manifest, not only from a synthetic helper fixture. The test now pins the published manifest state counts, verifies they sum to the 124,443 record count, and checks the formatted availability line from that manifest. This is test coverage and evidence only; it does not mutate public data, score, export, deploy, ingest, network, or touch locked weights.
+
+2026-08-21 - P367 title-card date-format guard:
+The title-card shelter-map evidence date and bundle-generated date should be tested as formatted user-visible values, not only as source-code expressions. The formatter test pins the current manifest timestamps to the Singapore-rendered dates `2 Aug 2026` and `5 Aug 2026`, and preserves the `Unavailable` fallback when manifest dates are absent. This is web test coverage only; it does not mutate public data, score, export, deploy, ingest, network, or touch locked weights.

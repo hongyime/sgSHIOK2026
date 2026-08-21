@@ -283,7 +283,7 @@ function normalizePostal(value: string): string | null {
   return trimmed.padStart(6, "0");
 }
 
-function formatDataDate(manifest: Manifest | null): string {
+export function formatDataDate(manifest: Manifest | null): string {
   if (!manifest?.data_as_of) return "Unavailable";
   return new Date(manifest.data_as_of).toLocaleDateString("en-SG", {
     day: "numeric",
@@ -292,7 +292,7 @@ function formatDataDate(manifest: Manifest | null): string {
   });
 }
 
-function formatGeneratedDate(manifest: Manifest | null): string {
+export function formatGeneratedDate(manifest: Manifest | null): string {
   if (!manifest?.generated_at) return "Unavailable";
   return new Date(manifest.generated_at).toLocaleDateString("en-SG", {
     day: "numeric",

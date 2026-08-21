@@ -10,6 +10,8 @@ vi.mock("next/navigation", () => ({
 import {
   ScoreCard,
   SearchFeedback,
+  formatDataDate,
+  formatGeneratedDate,
   routeDisplayAnnouncement,
   scoreCardAnnouncement,
   searchResultsAnnouncement,
@@ -116,6 +118,19 @@ function renderScoreCard(overrides: Partial<React.ComponentProps<typeof ScoreCar
 }
 
 describe("rendered accessibility output", () => {
+  it("formats manifest data dates for the title-card honesty line", () => {
+    const manifest = {
+      generated_at: "2026-08-05T14:00:15.974693+00:00",
+      data_as_of: "2026-08-01T21:49:20.977890+00:00",
+      provenance: {},
+    };
+
+    expect(formatDataDate(manifest)).toBe("2 Aug 2026");
+    expect(formatGeneratedDate(manifest)).toBe("5 Aug 2026");
+    expect(formatDataDate(null)).toBe("Unavailable");
+    expect(formatGeneratedDate(null)).toBe("Unavailable");
+  });
+
   it("renders visible map attribution instead of relying on source-only checks", () => {
     const html = renderToStaticMarkup(
       <RouteEvidenceMap
