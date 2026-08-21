@@ -18,7 +18,7 @@ stop presenting the prior five locked-term rows as five independent measurements
 | 2 | Access | Useful, but should sit beside walk distance and transit target rather than above walk exposure. |
 | 3 | Bus connectivity | Carries 20% of locked weight but still partly reflects routing/conflation success. |
 | 4 | Rain shelter | Uses covered-walkway shelter evidence. |
-| 5 | Heat: shelter + NParks shade proxy | Mostly the same covered-walkway shelter evidence as rain shelter, plus sparse greenery proxy. |
+| 5 | Heat: shelter plus sparse NParks greenery proxy | Mostly the same covered-walkway shelter evidence as rain shelter, plus sparse greenery proxy. |
 | 6 | Crossing friction | Low discriminating value in the locked release bundle; weighted standard deviation is about 1.11 points and 59.9% of records are exactly 100. |
 
 ## Implemented State
@@ -107,7 +107,7 @@ SHIOK score
 Access
 Bus connectivity
 Rain shelter
-Heat: shelter + NParks shade proxy
+Heat: shelter plus sparse NParks greenery proxy
 Crossing friction
 ```
 

@@ -517,6 +517,8 @@ describe("score card copy", () => {
       "the published shelter-map walk\ncould not prove access to an official LTA bus stop"
     );
     expect(proposalSource).not.toContain("trusted walk to a DataMall bus stop");
+    expect(proposalSource).toContain("Heat: shelter plus sparse NParks greenery proxy");
+    expect(proposalSource).not.toContain("Heat: shelter + NParks shade proxy");
     expect(proposalSource).toContain("deciding whether the walk actually works");
     expect(proposalSource).toContain("[shelter-map walk]");
     expect(proposalSource).toContain("the shelter-map\nwalk trace and its exposed gaps");
