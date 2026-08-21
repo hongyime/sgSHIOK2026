@@ -169,14 +169,16 @@ describe("rendered accessibility output", () => {
       <SearchFeedback results={[]} loading={false} error={null} searched={true} />
     );
     expect(searchResultsAnnouncement([], false, null, true)).toBe(
-      "No OneMap address result found for this search. Try a 6-digit postal code. Separately, the published shelter-map bundle is tied to the frozen June 2020 address universe, and the 16 Aug 2026 public-source sample found 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) sampled 2021-2026 public-source rows with postals."
+      "No OneMap address result found for this search. Try a 6-digit postal code. The published shelter-map bundle is tied to the frozen June 2020 address universe. 16 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) sampled 2021-2026 public-source rows with postals."
     );
-    expect(noResultsHtml).toContain("No OneMap address result found for this search.");
+    expect(noResultsHtml).toContain("No OneMap address result found.");
     expect(noResultsHtml).toContain("Try a 6-digit postal code");
     expect(noResultsHtml).toContain(
-      "Separately, the published shelter-map bundle is tied to the frozen June 2020 address universe, and the 16 Aug 2026 public-source sample found 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) sampled 2021-2026 public-source rows with postals."
+      "The published shelter-map bundle is tied to the frozen June 2020 address universe. 16 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) sampled 2021-2026 public-source rows with postals."
     );
+    expect(noResultsHtml).toContain("emptyBoxNote");
     expect(noResultsHtml).not.toContain("the recent public-source check found");
+    expect(noResultsHtml).not.toContain("Separately, the published shelter-map bundle");
     expect(noResultsHtml).not.toContain("the frozen shelter-map bundle&#x27;s recent public-source check found");
     expect(noResultsHtml).not.toContain("the frozen shelter-map bundle has measured recent-source misses");
     expect(noResultsHtml).not.toContain("the frozen score bundle has measured recent-source misses");

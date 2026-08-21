@@ -235,6 +235,17 @@
   background: #f6faf8;
 }
 
+.emptyBox p {
+  margin: 0;
+}
+
+.emptyBoxNote {
+  margin-top: 4px !important;
+  color: #61716b;
+  font-size: 11px;
+  font-weight: 700;
+}
+
 .detailOverlay {
   width: 100%;
   min-height: 0;

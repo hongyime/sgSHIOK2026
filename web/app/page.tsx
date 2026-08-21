@@ -141,6 +141,10 @@ function recentPublicSourceGapCopyForPostal(postal?: string): string {
   return `the ${RECENT_PUBLIC_SOURCE_SAMPLE_LABEL} found ${RECENT_PUBLIC_SOURCE_GAP_COPY}`;
 }
 
+function noSearchResultBundleCaveat(): string {
+  return `The published shelter-map bundle is tied to the frozen June 2020 address universe. ${RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: ${RECENT_PUBLIC_SOURCE_GAP_COPY}.`;
+}
+
 interface DirectBusFallbackEvidence {
   bestExpectedWaitMin: number;
   candidateCount: number | null;
@@ -174,7 +178,7 @@ export function searchResultsAnnouncement(
 ): string {
   if (loading || error) return "";
   if (searched && results.length === 0) {
-    return `No OneMap address result found for this search. Try a 6-digit postal code. Separately, the published shelter-map bundle is tied to the frozen June 2020 address universe, and the ${RECENT_PUBLIC_SOURCE_SAMPLE_LABEL} found ${RECENT_PUBLIC_SOURCE_GAP_COPY}.`;
+    return `No OneMap address result found for this search. Try a 6-digit postal code. ${noSearchResultBundleCaveat()}`;
   }
   if (results.length === 0) return "";
   return `${results.length} search result${results.length === 1 ? "" : "s"} available.`;
@@ -304,7 +308,8 @@ export function SearchFeedback({
       </p>
       {showNoResults && (
         <div className={styles.emptyBox} role="status">
-          No OneMap address result found for this search. Try a 6-digit postal code. Separately, the published shelter-map bundle is tied to the frozen June 2020 address universe, and the {RECENT_PUBLIC_SOURCE_SAMPLE_LABEL} found {RECENT_PUBLIC_SOURCE_GAP_COPY}.
+          <p>No OneMap address result found. Try a 6-digit postal code.</p>
+          <p className={styles.emptyBoxNote}>{noSearchResultBundleCaveat()}</p>
         </div>
       )}
       {error && (
