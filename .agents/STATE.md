@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P368 code commit: `d1cd68d`; state-only commits may follow it on `main`.
+Latest P369 code commit: `966e467`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P369 is complete and committed: selected-walk details now describe the heat greenery proxy as sparse NParks walk-adjacent greenery geometry rather than route geometry, while preserving the not-temperature/not-LAI boundary. Focused score-card/accessibility tests and repo integrity passed.
 - P368 is complete and committed: copied walk QA JSON now emits `issue: "user_reported_better_walk"` instead of the stale route-framed label while preserving `route_mode` compatibility. Focused score-card copy test and repo integrity passed.
 - P367 is complete and committed: title-card date helpers are now export-tested against the current manifest timestamps, pinning Singapore-rendered `2 Aug 2026` data-as-of and `5 Aug 2026` generated dates plus unavailable fallbacks. Focused accessibility render test and repo integrity passed.
 - P366 is complete and committed: generated-data web tests now pin the actual configured bundle state counts and verify the first-view locked-score availability line from the real manifest. Focused data test and repo integrity passed.
