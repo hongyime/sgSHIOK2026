@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P297 code commit: `2b08d62`; state-only commits may follow it on `main`.
+Latest P298 code commit: `faa054b`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P298 is complete and committed: the empty shelter-map panel now says `Find an address or postal code` and names OneMap address or 6-digit postal lookup, matching the search input behavior. Focused accessibility render test and repo integrity pass.
 - P297 is complete and committed: the first-view search input placeholder and accessible label now say `Search OneMap address or 6-digit postal`, making the OneMap address-search path explicit while preserving direct postal lookup. Focused score-card copy test and repo integrity pass.
 - P296 is complete and committed: README opening copy now says the app leads with exposed gaps on real routed walks, matching CLAUDE.md and the settled shelter-map framing; README tests reject the older routed-path wording. Focused README test and repo integrity pass.
 - P295 is complete and committed: rendered accessibility tests now guard `Map layer on` / `Map layer off` for selected-walk night-lighting state instead of the retired ambiguous `Layer on/off` wording. Focused accessibility render test and repo integrity pass.
