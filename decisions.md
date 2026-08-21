@@ -835,3 +835,6 @@ The OneMap rate-limit branch should name OneMap search rather than saying generi
 
 2026-08-21 - P303 planning-area empty rank copy:
 The planning-area comparison empty state should say that comparable full locked scores are absent, not generic scored records, because the panel ranks full-score rows while the selected postal may still have shelter-map evidence. The empty state now says `No comparable full locked scores in this planning area.` This is browser copy and test coverage only; it does not alter rank loading, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P304 planning-area comparison header:
+The rank panel header should say `Compare planning-area records` instead of `Compare nearby records`, because the panel loads planning-area ranks rather than a distance-nearby sample. This is browser copy and rendered test coverage only; it does not alter rank loading, score values, scoring, exports, public data, deployment, or locked weights.

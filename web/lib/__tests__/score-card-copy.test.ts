@@ -310,7 +310,8 @@ describe("score card copy", () => {
     expect(source).not.toContain('label: "Overall SHIOK"');
     expect(source).not.toContain("Use this locked composite");
     expect(source).toContain('aria-label="Planning-area comparison"');
-    expect(source).toContain("Compare nearby records");
+    expect(source).toContain("Compare planning-area records");
+    expect(source).not.toContain("Compare nearby records");
     expect(source).not.toContain('aria-label="Rank by view"');
     expect(source).not.toContain("<strong>Rank by</strong>");
     expect(source).toContain("Planning-area list sorted by locked score; shelter evidence remains the primary view.");

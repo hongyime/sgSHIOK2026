@@ -1391,7 +1391,7 @@ export function ScoreCard({
         <div className={styles.rankPanel} aria-label="Planning-area comparison" aria-busy={rankingLoading}>
           <div className={styles.rankHeader}>
             <div>
-              <strong>Compare nearby records</strong>
+              <strong>Compare planning-area records</strong>
               <span>
                 {!rankPanelOpen
                   ? "Loads planning-area ranks only when opened."
