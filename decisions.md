@@ -877,3 +877,6 @@ The route map's empty-state non-visual label should name night-lighting evidence
 
 2026-08-21 - P317 partial locked-score term wording:
 The partial locked-score note should describe missing locked-weight terms, not standalone component scores. Partial records now say `one or more locked terms are unavailable; locked weights count missing terms as zero`, while preserving the warning that shelter-map evidence may still be present. This is web copy and test coverage only; it does not change score state logic, score values, missing-term handling, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P318 no-subscore reason term wording:
+When a record has shelter-map paths but no subscore block, the shelter-panel reason chip should say `Locked terms unavailable` rather than `Locked score incomplete`. This keeps the reason aligned with the partial locked-score note and avoids implying that the shelter-map evidence itself is incomplete. This is web copy and test coverage only; it does not change score state logic, score values, missing-term handling, exports, public data, pipeline inputs, or locked weights.
