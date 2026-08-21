@@ -69,8 +69,10 @@ source of truth. If this file conflicts with those tracked artifacts, verify bef
 /raw             immutable downloaded payloads by hash (gitignored)
 /tests           pytest: unit tests for scoring, export, readiness, and browser contracts
 run.py           task runner: safe reports (check --freshness-only, check --geospatial-discovery-only,
-                 p19-gap-status, p19-mcst-locations, p125-osm-status, readiness, batch-plan)
-                 plus gated pipeline tasks
+                 p19-gap-status, p19-mcst-locations, p125-osm-status, readiness,
+                 readiness --gate-summary, batch-plan), gated pipeline tasks
+                 (ingest, lamp-overlay, network, score, score-batch, export,
+                 export-transit, validate, publish), and local test task
 ```
 
 ## Working conventions

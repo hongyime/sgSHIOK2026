@@ -99,7 +99,8 @@ reruns, deploy, or repoint the live site without explicit owner approval.
   `check --geospatial-discovery-only`, `p19-gap-status`, `p19-mcst-locations`,
   `p125-osm-status`, `readiness`, `readiness --gate-summary`, `batch-plan`)
   and gated pipeline tasks (`ingest`, `lamp-overlay`, `network`, `score`,
-  `export`, `validate`, `publish`, `test`). `publish` always runs `validate` first.
+  `score-batch`, `export`, `export-transit`, `validate`, `publish`), plus the
+  local `test` task. `publish` always runs `validate` first.
 
 ## Human prerequisites (do these once — agents can't register accounts)
 

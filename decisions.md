@@ -1321,3 +1321,7 @@ The browser's P19 first-view label should carry the same sample boundary as the 
 2026-08-22 - P487 freshness manual-source summaries:
 
 The manifest-only freshness report should name manual-policy sources the same way it already names stale and unknown-age sources. `run.py check --freshness-only` now prints `Manual sources: train_station_codes, osm_extract` for the current local manifest, and the broader fetch check path uses the same summary helper. This is operator reporting and test coverage only; it does not probe upstream APIs, fetch, ingest, score, export, deploy, mutate manifests or inputs, public data, protected QA evidence, or locked weights.
+
+2026-08-22 - P488 runner surface docs alignment:
+
+README and `CLAUDE.md` should describe the same task split as `run.py --help`. They now include `readiness --gate-summary` in safe reports, include `score-batch` and `export-transit` in gated pipeline tasks, and describe `test` as a local test task rather than a gated pipeline task. This is documentation and test coverage only; it does not execute runner tasks beyond `--help`, call APIs, mutate inputs, score, export, deploy, public data, protected QA evidence, or locked weights.
