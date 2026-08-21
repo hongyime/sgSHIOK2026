@@ -1505,3 +1505,7 @@ OneMap outlier replay is a bounded rescoring diagnostic, not a report-only audit
 2026-08-22 - P533 published bundle replay audit guard:
 
 The full published-bundle audit can replay sampled records through scoring context, so it is not equivalent to the read-only `--state-only` report. `scripts.audit_current_bundle` now keeps `--state-only` available without output or confirmation, but non-state audits require explicit `--output`, and replay samples require `--confirm-replay-audit` before active-bundle lookup, scoring-context loading, or report writes. This is command safety/test coverage only; it does not score, export, mutate public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P534 OneMap triage explicit outputs:
+
+OneMap outlier triage is report-only, but it writes five generated QA artifacts, so a bare command should not reuse historical filenames under `qa/`. `scripts.triage_onemap_outliers` now requires explicit paths for the queue JSON and all generated GeoJSON outputs before reading profile or validation inputs. This is command safety/test coverage only; it does not score, export, mutate protected QA evidence, public data, deployment, or locked weights.

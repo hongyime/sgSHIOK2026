@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 from scripts.triage_onemap_outliers import (
@@ -5,6 +6,7 @@ from scripts.triage_onemap_outliers import (
     classify_row,
     compact_row,
     missing_bus_connector_priority_geojson,
+    main,
     overpermissive_priority_geojson,
     routed_vs_validation_direct_sanity,
     source_flags,
@@ -812,3 +814,120 @@ def test_compact_row_preserves_user_facing_triage_fields():
     assert compact["old_validation_best_node"] == "Old Stop"
     assert compact["new_best_name"] == "New Stop"
     assert "source_flags" in compact
+
+
+def test_triage_cli_requires_explicit_outputs_before_input_reads(monkeypatch, capsys):
+    from scripts import triage_onemap_outliers
+
+    def fail_build_triage_queues(**kwargs):
+        raise AssertionError("triage inputs should not be read before output guard")
+
+    monkeypatch.setattr(triage_onemap_outliers, "build_triage_queues", fail_build_triage_queues)
+
+    assert main([]) == 1
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "errors": [
+            "OneMap outlier triage requires explicit output paths: --output, "
+            "--geojson-output, --missing-bus-priority-geojson-output, "
+            "--overpermissive-priority-geojson-output, "
+            "--validation-subset-priority-geojson-output"
+        ],
+        "ok": False,
+    }
+
+
+def test_triage_cli_runs_with_explicit_outputs(monkeypatch, capsys, tmp_path):
+    from scripts import triage_onemap_outliers
+
+    calls = []
+    written = []
+
+    def fake_build_triage_queues(**kwargs):
+        calls.append(("build", kwargs))
+        return {
+            "inputs": {"input_rows": 1},
+            "queues": {},
+            "validation_failure_summary": {"gate_passed": False},
+        }
+
+    def fake_read_json(path):
+        calls.append(("read_json", path))
+        return {"results": []}
+
+    def fake_write_json(path, payload):
+        written.append((path, payload))
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(payload), encoding="utf-8")
+
+    monkeypatch.setattr(triage_onemap_outliers, "build_triage_queues", fake_build_triage_queues)
+    monkeypatch.setattr(triage_onemap_outliers, "read_json", fake_read_json)
+    monkeypatch.setattr(triage_onemap_outliers, "write_json", fake_write_json)
+    monkeypatch.setattr(
+        triage_onemap_outliers,
+        "triage_geojson",
+        lambda queues: {"type": "FeatureCollection", "features": []},
+    )
+    monkeypatch.setattr(
+        triage_onemap_outliers,
+        "missing_bus_connector_priority_geojson",
+        lambda queues: {"type": "FeatureCollection", "features": []},
+    )
+    monkeypatch.setattr(
+        triage_onemap_outliers,
+        "overpermissive_priority_geojson",
+        lambda queues: {"type": "FeatureCollection", "features": []},
+    )
+    monkeypatch.setattr(
+        triage_onemap_outliers,
+        "validation_subset_priority_summary",
+        lambda report, subset_name, limit: {"subset": subset_name, "limit": limit},
+    )
+    monkeypatch.setattr(
+        triage_onemap_outliers,
+        "validation_subset_priority_geojson",
+        lambda report, subset_name, limit: {"type": "FeatureCollection", "features": []},
+    )
+
+    output = tmp_path / "triage.json"
+    geojson_output = tmp_path / "triage.geojson"
+    missing_bus = tmp_path / "missing_bus.geojson"
+    overpermissive = tmp_path / "overpermissive.geojson"
+    validation_subset = tmp_path / "validation_subset.geojson"
+    summary_output = tmp_path / "summary.json"
+
+    assert (
+        main(
+            [
+                "--output",
+                str(output),
+                "--geojson-output",
+                str(geojson_output),
+                "--missing-bus-priority-geojson-output",
+                str(missing_bus),
+                "--overpermissive-priority-geojson-output",
+                str(overpermissive),
+                "--validation-subset-priority-geojson-output",
+                str(validation_subset),
+                "--summary-output",
+                str(summary_output),
+            ]
+        )
+        == 0
+    )
+
+    assert calls[0][0] == "build"
+    assert {path for path, _payload in written} == {
+        output,
+        geojson_output,
+        missing_bus,
+        overpermissive,
+        validation_subset,
+        summary_output,
+    }
+    out = capsys.readouterr().out
+    printable = json.loads(out)
+    assert printable["inputs"] == {"input_rows": 1}
+    assert printable["summary_output"] == str(summary_output)

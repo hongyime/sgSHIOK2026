@@ -862,29 +862,37 @@ def overpermissive_path_summary(queues: dict[str, list[dict[str, Any]]]) -> dict
     }
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Build concrete QA queues from profiled OneMap validation outlier replays."
     )
     parser.add_argument("--longer-profile", type=Path, default=DEFAULT_LONGER_PROFILE)
     parser.add_argument("--shorter-profile", type=Path, default=DEFAULT_SHORTER_PROFILE)
     parser.add_argument("--validation-report", type=Path, default=DEFAULT_VALIDATION_REPORT)
-    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
-    parser.add_argument("--geojson-output", type=Path, default=DEFAULT_GEOJSON_OUTPUT)
+    parser.add_argument(
+        "--output",
+        type=Path,
+        help="Explicit triage queue JSON output; historical default is refused.",
+    )
+    parser.add_argument(
+        "--geojson-output",
+        type=Path,
+        help="Explicit triage queue GeoJSON output; historical default is refused.",
+    )
     parser.add_argument(
         "--missing-bus-priority-geojson-output",
         type=Path,
-        default=DEFAULT_MISSING_BUS_PRIORITY_GEOJSON_OUTPUT,
+        help="Explicit missing-bus priority GeoJSON output; historical default is refused.",
     )
     parser.add_argument(
         "--overpermissive-priority-geojson-output",
         type=Path,
-        default=DEFAULT_OVERPERMISSIVE_PRIORITY_GEOJSON_OUTPUT,
+        help="Explicit overpermissive priority GeoJSON output; historical default is refused.",
     )
     parser.add_argument(
         "--validation-subset-priority-geojson-output",
         type=Path,
-        default=DEFAULT_VALIDATION_SUBSET_PRIORITY_GEOJSON_OUTPUT,
+        help="Explicit validation-subset priority GeoJSON output; historical default is refused.",
     )
     parser.add_argument(
         "--validation-subset-priority-subset",
@@ -905,7 +913,31 @@ def main() -> int:
     )
     parser.add_argument("--validation-subset-priority-limit", type=int, default=50)
     parser.add_argument("--summary-output", type=Path, default=None)
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
+
+    required_outputs = {
+        "--output": args.output,
+        "--geojson-output": args.geojson_output,
+        "--missing-bus-priority-geojson-output": args.missing_bus_priority_geojson_output,
+        "--overpermissive-priority-geojson-output": args.overpermissive_priority_geojson_output,
+        "--validation-subset-priority-geojson-output": args.validation_subset_priority_geojson_output,
+    }
+    missing_outputs = [flag for flag, value in required_outputs.items() if value is None]
+    if missing_outputs:
+        print(
+            json.dumps(
+                {
+                    "ok": False,
+                    "errors": [
+                        "OneMap outlier triage requires explicit output paths: "
+                        + ", ".join(missing_outputs)
+                    ],
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 1
 
     payload = build_triage_queues(
         longer_profile_path=args.longer_profile,
