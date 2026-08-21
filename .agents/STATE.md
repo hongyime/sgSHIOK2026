@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P391 code commit: `98df154`; state-only commits may follow it on `main`.
+Latest P392 code commit: `85192da`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P392 is complete and committed: the inline map legend now names the red dashed exposure layer `Exposed gaps` instead of `Exposed`, aligning the legend with the headline exposure-gaps artifact. Focused web accessibility/copy tests, repo integrity, and protected-diff checks passed.
 - P391 is complete and committed: bus-stop POIs now use a distinct purple in the MapLibre layer and matching inline map legend dot, while MRT/LRT remains hot pink. Focused web accessibility/map interaction tests, repo integrity, and protected-diff checks passed.
 - P390 is complete and committed: when the night-lighting overlay is enabled, the inline map legend now includes `LTA lamp points` with the lamp-layer marker color; the legend item remains absent when the overlay is off. Focused web accessibility/map interaction tests, repo integrity, and protected-diff checks passed.
 - P389 is complete and committed: structured batch-plan/readiness night-lighting policy now exposes the same lamp-overlay replacement boundary as run.py/README, including the owner-approved replacement command example, owner-approval-required flag, and existing-artifact mutation ban. Focused batch-plan/readiness tests, policy readout, repo integrity, and protected-diff checks passed.
