@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P364 is complete and committed: `458f487` tightens the web test for locked-score visual hierarchy by comparing actual exposure-hero and score-badge CSS font sizes; focused score-card copy test and repo integrity passed.
 - P363 is complete and committed: `7d7cc43` adds a cross-source test guard tying the browser P19 known-miss mapping to the structured Python policy block; focused batch-plan tests and repo integrity passed.
 - P362 is complete and committed: `58123e8` removes internal cache jargon from known P19 missing-postal browser copy while preserving source-group specificity; focused web tests and repo integrity passed.
 - P361 is complete and committed: `fa8b0fb` extends known P19 missing-postal browser-copy coverage to the MCST source group; focused render test and repo integrity passed.
