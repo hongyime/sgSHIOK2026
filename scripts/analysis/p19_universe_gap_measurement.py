@@ -20,6 +20,10 @@ import pandas as pd
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 QA_DIR = PROJECT_ROOT / "qa" / "p19"
 V1_UNIVERSE = PROJECT_ROOT / "processed" / "postal_universe_candidate_full_registered_geocoded.parquet"
+HDB_GEOCODE_CACHE = QA_DIR / "hdb_2021_2026_onemap_geocode_cache.json"
+OVERPASS_CACHE = QA_DIR / "overpass_addr_postcodes_cache.json"
+SUMMARY_OUTPUT = QA_DIR / "universe_gap_measurement_summary.json"
+DETAIL_OUTPUT = QA_DIR / "universe_gap_measurement_detail.json"
 
 DATASTORE_URL = "https://data.gov.sg/api/action/datastore_search"
 ONEMAP_SEARCH_URL = "https://www.onemap.gov.sg/api/common/elastic/search"
@@ -142,6 +146,59 @@ def load_json(path: Path, default: Any) -> Any:
         return json.load(f)
 
 
+def json_file_status(path: Path) -> dict[str, Any]:
+    status: dict[str, Any] = {
+        "path": str(path.relative_to(PROJECT_ROOT)),
+        "exists": path.is_file(),
+        "bytes": path.stat().st_size if path.is_file() else 0,
+    }
+    if not path.is_file():
+        return status
+    try:
+        payload = load_json(path, {})
+    except json.JSONDecodeError as exc:
+        status["read_error"] = str(exc)
+        return status
+    if isinstance(payload, dict):
+        if path == HDB_GEOCODE_CACHE:
+            status["cached_query_count"] = len(payload)
+            status["sample_cached_queries"] = sorted(str(key) for key in payload)[:10]
+        elif path == OVERPASS_CACHE:
+            status["top_level_keys"] = sorted(str(key) for key in payload)
+            status["cached_postcode_count"] = len(payload.get("postcodes", []))
+            status["queried_at_utc"] = payload.get("queried_at_utc")
+        elif path == SUMMARY_OUTPUT:
+            status["top_level_keys"] = sorted(str(key) for key in payload)
+            status["generated_at_utc"] = payload.get("generated_at_utc")
+            combined = payload.get("combined_recent_completion_signal")
+            if isinstance(combined, dict):
+                status["combined_recent_completion_signal"] = combined
+        elif path == DETAIL_OUTPUT:
+            status["top_level_keys"] = sorted(str(key) for key in payload)
+            hdb_rows = payload.get("hdb_rows")
+            mcst_rows = payload.get("mcst_rows")
+            status["hdb_row_count"] = len(hdb_rows) if isinstance(hdb_rows, list) else None
+            status["mcst_row_count"] = len(mcst_rows) if isinstance(mcst_rows, list) else None
+        else:
+            status["top_level_keys"] = sorted(str(key) for key in payload)
+    return status
+
+
+def cache_status_report() -> dict[str, Any]:
+    return {
+        "mode": "cache_status_only",
+        "will_call_apis": False,
+        "will_write_files": False,
+        "qa_dir": str(QA_DIR.relative_to(PROJECT_ROOT)),
+        "files": {
+            "hdb_onemap_geocode_cache": json_file_status(HDB_GEOCODE_CACHE),
+            "overpass_addr_postcodes_cache": json_file_status(OVERPASS_CACHE),
+            "summary": json_file_status(SUMMARY_OUTPUT),
+            "detail": json_file_status(DETAIL_OUTPUT),
+        },
+    }
+
+
 def write_json(path: Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as f:
@@ -203,7 +260,7 @@ def cached_block_road_match(cached: dict[str, Any], row: dict[str, Any]) -> bool
 
 
 def geocode_hdb_rows(rows: list[dict[str, Any]], delay_sec: float) -> list[dict[str, Any]]:
-    cache_path = QA_DIR / "hdb_2021_2026_onemap_geocode_cache.json"
+    cache_path = HDB_GEOCODE_CACHE
     cache: dict[str, Any] = load_json(cache_path, {})
     changed = False
     with httpx.Client(timeout=30.0, headers={"User-Agent": USER_AGENT}) as client:
@@ -276,7 +333,7 @@ def geocode_hdb_rows(rows: list[dict[str, Any]], delay_sec: float) -> list[dict[
 
 
 def overpass_postcodes() -> dict[str, Any]:
-    cache_path = QA_DIR / "overpass_addr_postcodes_cache.json"
+    cache_path = OVERPASS_CACHE
     cached = load_json(cache_path, None)
     if cached is not None:
         return cached
@@ -352,7 +409,15 @@ def summarise_group(rows: list[dict[str, Any]], postal_field: str, v1_postals: s
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--delay-sec", type=float, default=0.25)
+    parser.add_argument(
+        "--cache-status-only",
+        action="store_true",
+        help="Read existing qa/p19 caches/reports and exit before loading inputs or calling APIs.",
+    )
     args = parser.parse_args()
+    if args.cache_status_only:
+        print(json.dumps(cache_status_report(), indent=2, sort_keys=True))
+        return
 
     v1 = pd.read_parquet(V1_UNIVERSE, columns=["postal_code", "status"])
     v1_postals = set(v1["postal_code"].astype(str))
@@ -453,8 +518,8 @@ def main() -> None:
             for row in mcst_recent
         ],
     }
-    write_json(QA_DIR / "universe_gap_measurement_summary.json", summary)
-    write_json(QA_DIR / "universe_gap_measurement_detail.json", detail)
+    write_json(SUMMARY_OUTPUT, summary)
+    write_json(DETAIL_OUTPUT, detail)
     print(json.dumps(summary, indent=2, sort_keys=True))
 
 
