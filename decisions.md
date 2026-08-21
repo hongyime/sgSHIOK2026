@@ -925,3 +925,6 @@ The first-view locked-score availability disclosure should use the same locked t
 
 2026-08-21 - P333 rain/heat locked-release copy:
 The shelter-exposure display row should describe the rain/heat overlap as a property of this locked release, not as a vague current condition. It now says "In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence." This is web copy and test coverage only; it does not change row inclusion, score values, ranking logic, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P334 README locked transit range wording:
+README onboarding should mirror the browser's locked-score availability wording. The active-bundle limitation now says non-full records may be "beyond locked transit range" instead of "beyond current transit range", matching the selected-card and first-view app copy. This is documentation and test coverage only; it does not change manifest parsing, state counts, score values, exports, public data, pipeline inputs, or locked weights.

@@ -35,7 +35,7 @@ shelter-map bundle remains configured as
 `web/public/data/generated_20260805_prefer_scored_routed/`. That bundle has
 95,157 full locked scores out of 124,443 records; 29,286 records, roughly a quarter, do
 not show a full locked score because they have partial shelter-map evidence, are
-beyond current transit range, or are awaiting scoring. The night-lighting map
+beyond locked transit range, or are awaiting scoring. The night-lighting map
 layer is a separate local artifact at `web/public/data/lamp_posts_v1/`: 700 H3-r8
 tile files plus `manifest.json`, 126,144 LTA lamp-post points, source last
 modified 7 Jul 2026. It is map evidence only and is not part of the locked score.
