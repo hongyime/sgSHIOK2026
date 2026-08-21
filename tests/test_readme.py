@@ -18,7 +18,8 @@ def test_readme_documents_universe_source_policy() -> None:
     assert "adds night lighting evidence as a map layer" in normalized
     assert "adds night-lighting evidence as a map layer" not in normalized
     assert "covered-walkway ratio and exposed gaps on real routed paths" not in normalized
-    assert "live static shelter-map pilot over a 124,443-record source-derived universe" in normalized
+    assert "live static shelter-map pilot over the frozen v1 124,443-record universe" in normalized
+    assert "live static shelter-map pilot over a 124,443-record source-derived universe" not in normalized
     assert "live static-first pilot" not in normalized
     assert "## Universe status" in text
     assert "124,443-record source-derived set" in normalized

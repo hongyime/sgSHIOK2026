@@ -1293,3 +1293,7 @@ The browser source-freshness date should not present a UTC measurement date as i
 2026-08-22 - P480 Leaf Area Index freshness framing:
 
 The first-view freshness line should not make NParks Leaf Area Index sound like a core route-evidence freshness boundary. The manifest-only freshness report still names `leaf_area_index` as the oldest current source, but browser copy now leads with the count summary and explicitly calls Leaf Area Index a freshness-only reference table near its 120-day threshold. The separate LAI caveat remains in place. This is browser copy and test coverage only; it does not rerun freshness beyond the zero-mutation report, probe upstream APIs, mutate manifests or inputs, score, export, deploy, public data, protected QA evidence, or locked weights.
+
+2026-08-22 - P481 README frozen-v1 status:
+
+The README status line should name the frozen v1 universe before the reader reaches the longer universe-policy section. It now says the project is a live static shelter-map pilot over the frozen v1 124,443-record universe instead of the vaguer source-derived universe. This is documentation and test coverage only; it does not alter browser rendering, scoring, exports, inputs, public data, deployment, protected QA evidence, or locked weights.
