@@ -226,6 +226,10 @@ describe("score card copy", () => {
       "Source freshness: shelter, bus stops and night lighting are current; stale supporting sources include traffic signals and some greenery or boundary references."
     );
     expect(source).not.toContain("6 supporting sources are stale.");
+    expect(source).toContain(
+      "Covered Linkway follows a quarterly 120-day freshness threshold; frozen v1 uses the Mar 2026 LTA geospatial listing, and any refresh must be a new numbered input version."
+    );
+    expect(source).not.toContain("refresh the current Covered Linkway in place");
     expect(source).toContain('import { formatLockedScoreAvailabilityLine } from "../lib/locked-score-availability";');
     expect(source).toContain("formatLockedScoreAvailabilityLine(manifest)");
     expect(source).toContain("styles.coverageLine");
