@@ -820,3 +820,6 @@ The first-view search input should state that address search uses OneMap while 6
 
 2026-08-21 - P298 empty-search prompt:
 The empty shelter-map panel should match the search input's OneMap-address/direct-postal behavior instead of telling users only to find a postal code. It now says `Find an address or postal code` and names `OneMap address or 6-digit postal code` in the helper text. This is browser copy and test coverage only; it does not alter search behavior, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P299 map empty-search summary:
+The map's non-visual empty summary should match the visible search behavior by naming OneMap address search and direct 6-digit postal lookup. It now says `Search a OneMap address or 6-digit postal code` before listing covered-walkway ratio, exposed gaps, night lighting, and nearby transit. This is browser copy and test coverage only; it does not alter map data, search behavior, scoring, exports, public data, deployment, or locked weights.

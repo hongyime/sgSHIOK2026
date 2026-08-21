@@ -43,7 +43,8 @@ describe("shelter map interactions", () => {
     expect(source).toContain("Singapore shelter map with MRT stations, LRT stations, and bus stops");
     expect(source).toContain("Shelter map for ${labels}, showing ${routeModeLabel(mode)}");
     expect(source).toContain("Shelter map for ${routeLabels}.");
-    expect(source).toContain("Search for a postal code to show covered-walkway ratio, exposed gaps, night lighting, and nearby transit.");
+    expect(source).toContain("Search a OneMap address or 6-digit postal code to show covered-walkway ratio, exposed gaps, night lighting, and nearby transit.");
+    expect(source).not.toContain("Search for a postal code to show covered-walkway ratio, exposed gaps, night lighting, and nearby transit.");
     expect(source).not.toContain("Singapore transit map with MRT stations, LRT stations, and bus stops");
     expect(source).not.toContain('return "sheltered route";');
     expect(source).not.toContain('return "shortest and sheltered routes";');
