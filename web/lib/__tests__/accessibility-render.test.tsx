@@ -416,6 +416,8 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("OSM covered");
     expect(html).toContain('aria-label="Map legend"');
     expect(html).toContain("Sheltered walk");
+    expect(html).toContain("Exposed gaps");
+    expect(html).not.toContain(">Exposed</span>");
     expect(html).not.toContain("LTA lamp points");
     expect(html).not.toContain("Sheltered route");
     expect(html).toContain("Shelter map evidence and locked score");

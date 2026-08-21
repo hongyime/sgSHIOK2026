@@ -1003,7 +1003,7 @@ function InlineRouteLegend({
           </span>
           <span>
             <i className={styles.gapLine} />
-            Exposed
+            Exposed gaps
           </span>
           <span>
             <i className={styles.hdbLine} />

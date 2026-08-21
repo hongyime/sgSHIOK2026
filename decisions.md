@@ -1090,3 +1090,6 @@ The night-lighting overlay is the settled second map layer, so when it is enable
 
 2026-08-21 - P391 distinct bus-stop map color:
 The transit POI layer should let users visually distinguish MRT/LRT access points from bus stops while comparing walks to transit. Bus-stop dots and labels now use a distinct purple, and the inline legend bus dot matches that color; MRT/LRT dots remain hot pink. This is browser map styling and test coverage only; it does not mutate transit data, score, export, deploy, public data, or locked weights.
+
+2026-08-21 - P392 exposed-gap legend wording:
+The map legend should name the red dashed layer as `Exposed gaps`, not merely `Exposed`, because the exposure-gaps array with per-gap length and coordinates is the product's headline artifact. This is browser copy and test coverage only; it does not mutate route geometry, scoring, exports, public data, deployment, or locked weights.
