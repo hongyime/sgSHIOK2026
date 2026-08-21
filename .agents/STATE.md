@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P492 code commit: `b23e4f2`; state-only commits may follow it on `main`.
+Latest P493 code commit: `be3ac8a`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P493 is complete and committed: `run.py p19-gap-status` now includes a read-only `release_policy` block naming the `16 Aug 2026 public-source sample`, classifying 6 coordinate-backed HDB rows as confirmed address-universe gaps and 2 MCST proxy rows as source-quality warnings in the real cached status output. Focused analysis tests, real status parse, repo integrity, check-ignore, and protected-diff checks passed.
 - P492 is complete and committed: browser source now names the P19 label `RECENT_PUBLIC_SOURCE_SAMPLE_LABEL` instead of the stale `RECENT_PUBLIC_SOURCE_CHECK_LABEL`, preserving rendered copy and measured counts. Focused web copy test, identifier search, repo integrity, check-ignore, and protected-diff checks passed.
 - P491 is complete and committed: README, `CLAUDE.md`, and production readiness now use `public-source sample` wording for the 16 Aug 2026 P19 sampled public-source measurement, matching the browser boundary wording while preserving the measured counts and denominator. Focused docs/readiness tests, stale-wording search, repo integrity, check-ignore, and protected-diff checks passed.
 - P490 is complete and committed: heat-presentation analysis line references now match current browser source lines, and the focused test asserts exact-line matches as well as string resolution. Pre-fix measurement showed 7 of 9 audit entries had stale line numbers; focused heat analysis tests, repo integrity, check-ignore, and protected-diff checks passed after the fix.
