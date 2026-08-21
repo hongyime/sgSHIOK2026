@@ -56,8 +56,9 @@ source of truth. If this file conflicts with those tracked artifacts, verify bef
 /web             Next.js app (app router), public/data/ artifacts land here
 /decisions.md    Durable decision log for measured product and engineering choices
 /raw             immutable downloaded payloads by hash (gitignored)
-/tests           pytest: unit tests for every scoring formula + golden set
-run.py           task runner: check | ingest | network | score | export | validate | publish | test
+/tests           pytest: unit tests for scoring, export, readiness, and browser contracts
+run.py           task runner: safe reports (check --freshness-only, check --geospatial-discovery-only,
+                 p19-gap-status, readiness, batch-plan) plus gated pipeline tasks
 ```
 
 ## Working conventions

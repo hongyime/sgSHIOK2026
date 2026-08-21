@@ -24,3 +24,7 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "preview route evidence" not in normalized
     assert "Night lighting is a map overlay only" in normalized
     assert "Night Safety is a map overlay only" not in normalized
+    assert "task runner: safe reports" in normalized
+    assert "check --freshness-only, check --geospatial-discovery-only" in normalized
+    assert "p19-gap-status, readiness, batch-plan" in normalized
+    assert "check | ingest | network | score | export | validate | publish | test" not in normalized

@@ -775,3 +775,6 @@ README's repo map should reflect the current `run.py` operator surface, not only
 
 2026-08-21 - P283 README legacy provenance reproducibility:
 README ground rules should not overclaim that every published score is reproducible from hashed inputs and tagged code, because the active published bundle is an accepted legacy artifact that predates record-level scoring-input and network provenance. The ground-rule summary now states the narrower verified fact: published score values, coordinates, and route origins have been independently verified, while the legacy bundle lacks the later provenance fields. This is documentation and test coverage only; it does not alter manifests, score values, inputs, public data, scoring, export, deploy, or locked weights.
+
+2026-08-21 - P284 CLAUDE task-runner surface:
+`CLAUDE.md` is part of the agent startup surface, so its repo-layout `run.py` description should match README's safe-report/gated-task split. The doc now names safe reports (`check --freshness-only`, `check --geospatial-discovery-only`, `p19-gap-status`, `readiness`, `batch-plan`) and describes the remaining runner surface as gated pipeline tasks instead of the old compact task list. This is agent-facing documentation and test coverage only; it does not run or alter reports, inputs, scoring, export, public data, deploy, or locked weights.
