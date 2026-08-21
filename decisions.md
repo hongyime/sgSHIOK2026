@@ -1185,3 +1185,7 @@ README and CLAUDE now use plain `night lighting` in the product introduction, lo
 2026-08-21 - P421 structured night lighting policy copy:
 
 The structured batch-plan/readiness source-policy role for `night_lighting_layer` now says `separate night lighting map layer`, matching browser and documentation copy. Machine-facing keys, `lamp-overlay`, `lamp_posts_v1/`, source identity, release gates, and scoring policy remain unchanged.
+
+2026-08-21 - P422 night lighting layer note:
+
+The visible note under the `Night lighting` map-layer control now starts with `Night lighting layer` instead of `LTA lamp-post layer`, while still naming the 126,144 LTA lamp-post points and source date. The control should present the user-facing layer first and the raw source second.

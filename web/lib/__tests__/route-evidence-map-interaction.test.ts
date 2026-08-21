@@ -96,8 +96,9 @@ describe("shelter map interactions", () => {
     );
     expect(pageSource).toContain("night-lighting-layer-note");
     expect(pageSource).toContain(
-      "LTA lamp-post layer: 126,144 points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load points. Map evidence only; not part of the locked score."
+      "Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load points. Map evidence only; not part of the locked score."
     );
+    expect(pageSource).not.toContain("LTA lamp-post layer: 126,144 points");
   });
 
   it("summarizes the night-lighting overlay for non-visual map users", async () => {
