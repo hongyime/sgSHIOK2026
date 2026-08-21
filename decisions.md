@@ -1189,3 +1189,7 @@ The structured batch-plan/readiness source-policy role for `night_lighting_layer
 2026-08-21 - P422 night lighting layer note:
 
 The visible note under the `Night lighting` map-layer control now starts with `Night lighting layer` instead of `LTA lamp-post layer`, while still naming the 126,144 LTA lamp-post points and source date. The control should present the user-facing layer first and the raw source second.
+
+2026-08-21 - P423 HDB missing-row copy:
+
+Known HDB outside-bundle postals now say they are one of the 6 coordinate-backed HDB missing rows from frozen v1, instead of one of 8 recent public-source postals. The 2 MCST proxy rows remain explicitly unvalidated source-quality evidence, so the browser copy preserves the P19/P379 evidence split at the individual-postal level.

@@ -193,6 +193,8 @@ describe("score card copy", () => {
     expect(source).toContain(
       "6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows with postals"
     );
+    expect(source).toContain("one of the 6 coordinate-backed HDB missing rows from frozen v1");
+    expect(source).not.toContain("one of the 8 recent public-source postals missing from frozen v1");
     expect(source).not.toContain("8 missing rows out of 976 HDB completion and MCST proxy rows");
     expect(source).not.toContain("8 missing rows out of 976 (0.82%) HDB completion and MCST proxy rows");
     expect(source).not.toContain("Recent public-sample check:");

@@ -382,10 +382,13 @@ describe("rendered accessibility output", () => {
     });
 
     expect(hdbHtml).toContain(
-      "Postal 521400 is outside the published shelter-map bundle tied to the frozen June 2020 address universe; this postal is one of the 8 recent public-source postals missing from frozen v1 (HDB 2021-2026 geocoded rows)."
+      "Postal 521400 is outside the published shelter-map bundle tied to the frozen June 2020 address universe; this postal is one of the 6 coordinate-backed HDB missing rows from frozen v1 (HDB 2021-2026 geocoded rows)."
     );
     expect(hdbHtml).toContain(
-      "No shelter-map walk is published for this postal; the published shelter-map bundle is tied to the frozen June 2020 address universe, and this postal is one of the 8 recent public-source postals missing from frozen v1 (HDB 2021-2026 geocoded rows)."
+      "No shelter-map walk is published for this postal; the published shelter-map bundle is tied to the frozen June 2020 address universe, and this postal is one of the 6 coordinate-backed HDB missing rows from frozen v1 (HDB 2021-2026 geocoded rows)."
+    );
+    expect(hdbHtml).not.toContain(
+      "this postal is one of the 8 recent public-source postals missing from frozen v1 (HDB 2021-2026 geocoded rows)"
     );
     expect(hdbHtml).not.toContain(
       "Postal 521400 is outside the published shelter-map bundle tied to the frozen June 2020 address universe; recent public-source check found 8 missing rows out of 976"
