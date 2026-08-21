@@ -38,7 +38,7 @@ ONEMAP_SEARCH_CONTROLS = {
     "higher_limit_requires_sla_case_by_case_approval": True,
 }
 OSM_ADDR_POSTCODE_COVERAGE = {
-    "measurement": "P125 live Overpass addr:postcode coverage",
+    "measurement": "P125 20 Aug 2026 Overpass addr:postcode coverage",
     "cache_status_command": "uv run python run.py p125-osm-status",
     "cache_status_calls_apis": False,
     "cache_status_writes_files": False,

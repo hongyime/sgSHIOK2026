@@ -1305,3 +1305,7 @@ The README universe section should describe what v1 is made from instead of repe
 2026-08-22 - P483 browser OSM coverage check date:
 
 The browser OSM postcode coverage line should not present a cached Overpass measurement as an undated live fact. P125 evidence records the Overpass OSM base timestamp as `2026-08-20T13:44:51Z`, so the first-view copy now starts `20 Aug 2026 OSM addr:postcode check`. This is browser copy and test coverage only; it does not call Overpass, mutate caches or inputs, score, export, deploy, public data, protected QA evidence, or locked weights.
+
+2026-08-22 - P484 dated P125 policy surfaces:
+
+Operator-facing docs and structured readiness/batch-plan policy should date the cached P125 Overpass postcode measurement instead of saying `live OSM` or `P125 live Overpass`. README, CLAUDE, production readiness, and batch-plan policy now name the P125 20 Aug 2026 Overpass check while preserving the measured counts. This is documentation, reporting copy, and test coverage only; it does not call Overpass, mutate caches or inputs, score, export, deploy, public data, protected QA evidence, or locked weights.

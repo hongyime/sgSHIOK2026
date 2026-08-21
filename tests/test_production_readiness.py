@@ -503,7 +503,7 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         not in report["features"]["not_incorporated"]["canonical_140k_postal_universe"]
     )
     assert (
-        "P125 found 25879 valid distinct live OSM addr:postcode values, 25873 overlapping frozen postals"
+        "P125's 20 Aug 2026 Overpass check found 25879 valid distinct OSM addr:postcode values, 25873 overlapping frozen postals"
         in report["features"]["not_incorporated"]["canonical_140k_postal_universe"]
     )
     assert (
@@ -630,7 +630,7 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         report["features"]["validation_gates"]["onemap_walk_validation"]["state"] == "not_collected"
     )
     assert report["features"]["source_policy"]["osm_addr_postcode_registry"] == {
-        "measurement": "P125 live Overpass addr:postcode coverage",
+        "measurement": "P125 20 Aug 2026 Overpass addr:postcode coverage",
         "cache_status_command": "uv run python run.py p125-osm-status",
         "cache_status_calls_apis": False,
         "cache_status_writes_files": False,
