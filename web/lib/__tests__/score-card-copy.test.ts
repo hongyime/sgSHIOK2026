@@ -301,6 +301,12 @@ describe("score card copy", () => {
     expect(source).toContain("Shelter map evidence available");
     expect(source).toContain("Locked score unavailable");
     expect(source).toContain("Locked score incomplete");
+    expect(source).toContain(
+      "Partial locked score: shelter-map evidence may still be present, but one or more component scores are unavailable; locked weights count missing terms as zero."
+    );
+    expect(source).not.toContain(
+      "Partial locked score: one or more component scores are unavailable; locked weights count missing terms as zero."
+    );
     expect(source).not.toContain("Route evidence and locked score");
     expect(source).not.toContain('aria-label="Route evidence and locked score breakdown"');
     expect(source).not.toContain('aria-label="Route evidence reasons"');

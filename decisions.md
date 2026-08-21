@@ -841,3 +841,6 @@ The rank panel header should say `Compare planning-area records` instead of `Com
 
 2026-08-21 - P305 awaiting locked-score state note:
 The `NOT_YET_SCORED` state note should describe user-visible availability, not internal pipeline scoring status. It now says the postal is in the frozen v1 address universe but this shelter-map bundle has no published full locked score for it yet. This is browser copy and rendered test coverage only; it does not alter score states, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P306 partial locked-score state note:
+The `SCORED_PARTIAL` state note should not imply that missing component scores mean the selected postal lacks shelter-map evidence. It now says shelter-map evidence may still be present while one or more component scores are unavailable and locked weights count missing terms as zero. This is browser copy and rendered test coverage only; it does not alter score states, score values, scoring, exports, public data, deployment, or locked weights.
