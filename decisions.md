@@ -1057,3 +1057,6 @@ The two P19 MCST proxy rows absent from frozen v1 were checked with a bounded On
 
 2026-08-21 - P380 MCST proxy probe in source policy:
 Structured source-policy reports should distinguish the coordinate-backed HDB P19 gap from the unvalidated MCST proxy rows. The shared P19 policy block now names the P379 MCST location probe, its cache/report paths, the 0 located / 2 unlocated result, CANAAN's conflicting candidate postal 387720 versus recorded 378720, and the no-score/no-export/no-P19-mutation boundary. This is reporting metadata and test coverage only; it does not call OneMap, mutate P19/P379 caches, build v2, score, export, deploy, or alter locked weights.
+
+2026-08-21 - P381 MCST proxy browser caveat:
+Browser outside-bundle copy should not present P19 MCST proxy rows as confirmed missing frozen-v1 postals after P379 showed they are unvalidated proxy evidence. HDB known-miss postals keep the confirmed recent-source missing-postal wording, while MCST proxy postals now say the row is unvalidated source-quality evidence rather than a confirmed missing address, naming MYRA's no-match result and CANAAN's postal conflict where applicable. This is browser copy and test coverage only; it does not mutate inputs, QA evidence, public data, scoring, exports, deployment, or locked weights.

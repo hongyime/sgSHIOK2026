@@ -112,7 +112,18 @@ const RECENT_PUBLIC_SOURCE_MISSING_POSTAL_SOURCE: Record<string, string> = {
   "935456": "MCST 2021-2026 proxy rows",
 };
 
+const RECENT_PUBLIC_SOURCE_UNVALIDATED_PROXY_COPY: Record<string, string> = {
+  "378720":
+    "this postal appears only in an unvalidated MCST proxy row; OneMap Search for CANAAN returned candidate postal 387720, so recorded 378720 is source-quality evidence rather than a confirmed missing address",
+  "935456":
+    "this postal appears only in an unvalidated MCST proxy row; OneMap Search did not locate MYRA at the recorded postal, so it is source-quality evidence rather than a confirmed missing address",
+};
+
 function recentPublicSourceGapCopyForPostal(postal?: string): string {
+  const proxyCopy = postal ? RECENT_PUBLIC_SOURCE_UNVALIDATED_PROXY_COPY[postal] : undefined;
+  if (proxyCopy) {
+    return proxyCopy;
+  }
   const source = postal ? RECENT_PUBLIC_SOURCE_MISSING_POSTAL_SOURCE[postal] : undefined;
   if (source) {
     return `this postal is one of the 8 recent public-source postals missing from frozen v1 (${source})`;

@@ -516,4 +516,10 @@ def test_browser_known_p19_missing_postals_match_structured_policy() -> None:
     }
 
     assert browser_mapping == expected
+    for postal in RECENT_PUBLIC_SOURCE_GAP_SAMPLE["missing_postals_by_source"][
+        "mcst_2021_2026"
+    ]:
+        assert f'"{postal}":' in page_source
+    assert "unvalidated MCST proxy row" in page_source
+    assert "source-quality evidence rather than a confirmed missing address" in page_source
     assert "cached recent public-source misses" not in page_source
