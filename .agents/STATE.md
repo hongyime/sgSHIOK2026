@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P532 code commit: `a0532fa`; state-only commits may follow it on `main`.
+Latest P533 code commit: `5d4a736`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P533 is complete and committed: `scripts.audit_current_bundle` now keeps `--state-only` available without output or confirmation, but non-state audits require explicit `--output`, and replay samples require `--confirm-replay-audit` before active-bundle lookup, scoring-context loading, or report writes. Focused audit/run tests, repo integrity, check-ignore, and protected-diff checks passed. No replay scoring, scoring, export, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P532 is complete and committed: `scripts.replay_onemap_outliers` now requires `--confirm-outlier-replay` plus explicit `--output` before loading scoring context, calling `score_postal_gdf()`, or writing its replay report. Focused replay/run tests, repo integrity, check-ignore, and protected-diff checks passed. No replay scoring, scoring, export, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P531 is complete and committed: `scripts.partial_resnap_rescore` now requires `--confirm-rescore` plus explicit `--output` before active bundle lookup or `score_postals()` calls. Focused partial-resnap tests, repo integrity, check-ignore, and protected-diff checks passed. No bounded rescore, scoring, export, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P530 is complete and committed: `scripts.targeted_bundle_refresh` CLI now requires `--confirm-targeted-refresh` before active bundle lookup, bundle copying, targeted scoring, or score/geometry shard replacement. Focused targeted-refresh tests, repo integrity, check-ignore, and protected-diff checks passed. No targeted scoring, scoring, export, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
