@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P471 code commit: `f69108d`; state-only commits may follow it on `main`.
+Latest P472 code commit: `7660f57`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P472 is complete and committed: `ATTRIBUTION.md` now separates Overture candidate status from Leaf Area Index's legacy non-score reference role by renaming the section to `Candidate And Non-Score Reference Sources` and splitting LAI into its own paragraph. Focused attribution test and repo integrity passed.
 - P471 is complete and committed: `NOTICE` now uses the S.H.I.O.K. Shelter Map name, lists `lamp_posts` as an LTA Singapore Open Data Licence source for the shipped night lighting map layer, and the repo-integrity expected NOTICE blob is intentionally advanced to `5ccfd88ea706cb129bc602346d8db34fc8005781`. Focused repo-integrity tests and repo integrity passed.
 - P470 is complete and committed: `ATTRIBUTION.md` now lists `lamp_posts` as an LTA Singapore Open Data Licence source used for the separate night lighting map layer, and no longer says lamp posts are unshipped. `NOTICE` was intentionally left unchanged because repo integrity pins its historical blob. Focused attribution test and repo integrity passed.
 - P469 is complete and committed: `CLAUDE.md` now carries the full P125 distinct OSM postcode measurement, 25,879 valid distinct live OSM `addr:postcode` values, 25,873 overlapping frozen v1, and 6 valid OSM-only postcodes, matching README/browser/readiness. Focused agent-doc test and repo integrity passed.
