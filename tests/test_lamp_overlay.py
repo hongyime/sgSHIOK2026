@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from pipeline.lamp_overlay import build_lamp_overlay_artifact, load_lamp_points
+from pipeline.lamp_overlay import build_lamp_overlay_artifact, is_versioned_output_dir, load_lamp_points
 
 
 def _write_lamp_geojson(path: Path) -> None:
@@ -96,3 +96,18 @@ def test_build_lamp_overlay_artifact_refuses_nonempty_output_dir(tmp_path: Path)
 
     with pytest.raises(FileExistsError, match="choose a new versioned path"):
         build_lamp_overlay_artifact(input_path=source, output_dir=output)
+
+
+def test_lamp_overlay_output_dir_must_be_numeric_version(tmp_path: Path) -> None:
+    source = tmp_path / "lamp_posts.geojson"
+    output = tmp_path / "lamp_overlay"
+    _write_lamp_geojson(source)
+
+    assert is_versioned_output_dir(tmp_path / "lamp_overlay_v2")
+    assert not is_versioned_output_dir(output)
+    assert not is_versioned_output_dir(tmp_path / "lamp_overlay_vnext")
+
+    with pytest.raises(ValueError, match="numeric version tag"):
+        build_lamp_overlay_artifact(input_path=source, output_dir=output)
+
+    assert not output.exists()

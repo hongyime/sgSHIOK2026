@@ -703,3 +703,6 @@ The production-readiness source-freshness human summary now starts `manifest-onl
 
 2026-08-21 - P258 structured recent-source gap policy:
 The P19 recent public-source miss measurement should be carried as structured policy data, not only prose. Dry-run batch planning and production readiness now expose `recent_public_source_gap_sample` beside OSM and OneMap controls: 976 HDB completion and BCA MCST proxy rows with postals from 2021-2026, 8 missing rows, 0.819672 percent missing, and the verdict that candidate-source-first v2 remains required. This is reporting/policy data only; it does not alter inputs, exports, public data, scoring, deployment, or locked weights.
+
+2026-08-21 - P259 lamp overlay versioned output guard:
+Lamp overlay generation should enforce the same numeric artifact-version policy as postal-universe work. `pipeline.lamp_overlay` now rejects output directory names that do not end in a positive numeric version tag such as `_v2`, and it does so before creating the directory. Existing non-empty-output protection remains in place. This is a generation-safety guard and test coverage only; it does not build a lamp artifact, mutate existing artifacts, alter public data, score, export, deploy, or touch locked weights.

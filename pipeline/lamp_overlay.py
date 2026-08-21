@@ -21,6 +21,14 @@ DEFAULT_LAMP_SOURCE = RAW_DIR / DEFAULT_LAMP_SOURCE_SHA256 / "lamp_posts.geojson
 DEFAULT_H3_RESOLUTION = 8
 
 
+def is_versioned_output_dir(path: Path) -> bool:
+    name = path.name
+    if "_v" not in name:
+        return False
+    version = name.rsplit("_v", 1)[1]
+    return version.isdigit() and int(version) > 0
+
+
 def sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
     with open(path, "rb") as f:
@@ -92,6 +100,11 @@ def _write_json(path: Path, payload: Any) -> int:
 
 
 def _prepare_output_dir(output_dir: Path) -> None:
+    if not is_versioned_output_dir(output_dir):
+        raise ValueError(
+            "lamp overlay output directory must end with a numeric version tag such as _v2; "
+            f"got: {output_dir}"
+        )
     output_dir.mkdir(parents=True, exist_ok=True)
     existing = [child for child in output_dir.iterdir()]
     if existing:
