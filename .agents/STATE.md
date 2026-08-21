@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P483 code commit: `ef8b5f2`; state-only commits may follow it on `main`.
+Latest P484 code commit: `9924ca2`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P484 is complete and committed: README, CLAUDE, production readiness, batch-plan policy, and the read-only P125 status script now date the cached P125 Overpass postcode measurement as the 20 Aug 2026 check instead of using `live` labels. Focused docs/readiness/batch-plan/analysis/web tests, repo integrity, check-ignore, P125 cache-status, and protected-diff checks passed.
 - P483 is complete and committed: the browser OSM postcode coverage line now starts `20 Aug 2026 OSM addr:postcode check`, dating the cached P125 Overpass measurement instead of presenting it as an undated live fact. Focused web copy test, repo integrity, check-ignore, P125 cache-status, and protected-diff checks passed.
 - P482 is complete and committed: the README universe section now describes frozen v1 as 124,443 records built around a June 2020 OneMap-derived postal scrape plus later local route/source evidence, replacing the vague `source-derived set` phrase. Focused README tests, repo integrity, check-ignore, and protected-diff checks passed.
 - P481 is complete and committed: the README status line now names the frozen v1 124,443-record universe instead of the vaguer source-derived universe before the longer universe-policy section. Focused README tests, repo integrity, check-ignore, and protected-diff checks passed.
