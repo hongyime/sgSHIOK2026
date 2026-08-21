@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P416 code commit: `5b731d4`; state-only commits may follow it on `main`.
+Latest P417 code commit: `c1adbb2`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P417 is complete and committed: shared Open Graph/Twitter metadata now says `covered-walkway ratio, exposed gaps, night-lighting evidence` instead of `covered-walkway exposure gaps`, matching the visible first-view/footer framing. Focused web copy test, repo integrity, and protected-diff checks passed.
 - P416 is complete and committed: the first-view footer now says `Source-derived covered-walkway ratio, exposed gaps, and night-lighting map evidence`, replacing the awkward singular `exposure-gap` adjective with the settled ratio/gaps/night-lighting product framing. Focused web copy test, repo integrity, and protected-diff checks passed.
 - P415 is complete and committed: the outside-bundle empty-state heading now says `Outside published shelter-map bundle`, matching the body copy and published-artifact caveat boundary. Focused accessibility-render test, repo integrity, and protected-diff checks passed.
 - P414 is complete and committed: the nearest-transit source contract now says the `published shelter-map bundle` does not ship ranked/per-stop routed candidate evidence, replacing `current`/`today's` bundle language. Focused transit-picker test, repo integrity, and protected-diff checks passed.
