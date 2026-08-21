@@ -195,9 +195,10 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Find an address or postal code");
     expect(html).not.toContain("Find a postal code");
     expect(html).toContain('aria-label="Shelter map panel"');
-    expect(html).toContain("No shelter map walk selected.");
+    expect(html).toContain("No shelter-map walk selected.");
     expect(html).toContain("Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio, exposed gaps, and night lighting near transit.");
     expect(html).not.toContain("Search a Singapore postal code to inspect the covered-walkway ratio, exposed gaps, and night lighting near transit.");
+    expect(html).not.toContain("No shelter map walk selected.");
     expect(html).not.toContain("No shelter map route selected.");
     expect(html).not.toContain('aria-label="Route evidence panel"');
     expect(html).not.toContain('aria-label="Score panel"');
@@ -293,12 +294,12 @@ describe("rendered accessibility output", () => {
       rankingRecords: [],
     });
 
-    expect(html).toContain("Preview shelter map evidence only");
+    expect(html).toContain("Preview shelter-map evidence only");
     expect(html).toContain("↺ Published walk");
     expect(html).toContain("Shelter map evidence preview");
     expect(html).toContain("Map evidence only");
     expect(html).not.toContain("Not scored in the current bundle");
-    expect(html).toContain("Preview shelter map evidence selected.");
+    expect(html).toContain("Preview shelter-map evidence selected.");
     expect(html).toContain("Shelter map preview");
     expect(html).toContain("OneMap preview walk");
     expect(html).not.toContain("Preview walk");
@@ -307,7 +308,7 @@ describe("rendered accessibility output", () => {
       "OneMap walking preview is unavailable for this selected transit stop; showing straight-line preview only."
     );
     expect(html).toContain(
-      "Preview only: this clicked transit stop has shelter map evidence, but it is not part of the published shelter-map bundle yet."
+      "Preview only: this clicked transit stop has shelter-map evidence, but it is not part of the published shelter-map bundle yet."
     );
     expect(html).not.toContain("this selected stop");
     expect(html).not.toContain("this clicked stop has shelter map evidence");

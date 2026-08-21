@@ -238,7 +238,7 @@ export function scoreCardAnnouncement({
   routeDisplayLabel?: string;
   shelterEvidenceText?: string;
 }): string {
-  if (!selection) return "No shelter map walk selected.";
+  if (!selection) return "No shelter-map walk selected.";
   const postal = postalTitle(selection);
   if (!selection.score) {
     return `${postal} is outside the published shelter-map bundle tied to the frozen June 2020 address universe; ${recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.`;
@@ -248,7 +248,7 @@ export function scoreCardAnnouncement({
     : `${Math.round(displayScore)} out of 100`;
   const stopText = isCustomStopSelected
     ? previewRoute
-      ? "Preview shelter map evidence selected."
+      ? "Preview shelter-map evidence selected."
       : "Custom transit stop selected."
     : "Published walk selected.";
   const shelterText = shelterEvidenceText ?? shelterEvidenceAnnouncement(selection.score);
@@ -530,7 +530,7 @@ function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): str
 
 function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): string | null {
   if (score.paths?.routing_type === "live_onemap_preview") {
-    return "Preview only: this clicked transit stop has shelter map evidence, but it is not part of the published shelter-map bundle yet.";
+    return "Preview only: this clicked transit stop has shelter-map evidence, but it is not part of the published shelter-map bundle yet.";
   }
   if (score.state === "SCORED_PARTIAL") {
     return "Partial locked score: shelter-map evidence may still be present, but one or more locked terms are unavailable; locked weights count missing terms as zero.";
@@ -687,7 +687,7 @@ function selectionForChosenStop(
     };
   }
 
-  // 3. Fallback: show shelter map evidence only while OneMap loads in background.
+  // 3. Fallback: show shelter-map evidence only while OneMap loads in background.
   const matchedCandidate = candidates.find((c) => c.id === chosenStopId);
   const poiFeature = mapTransitPois.features.find(
     (f) => f.properties?.id === chosenStopId
@@ -1384,7 +1384,7 @@ export function ScoreCard({
           <p>{stationName}</p>
           {isCustomStopSelected && (
             <div className={styles.customStopBar}>
-              <span>{previewRoute ? "Preview shelter map evidence only" : "Viewing selected transit stop"}</span>
+              <span>{previewRoute ? "Preview shelter-map evidence only" : "Viewing selected transit stop"}</span>
               {onResetChosenStop && (
                 <button
                   type="button"

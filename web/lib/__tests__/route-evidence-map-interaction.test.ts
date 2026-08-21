@@ -191,7 +191,7 @@ describe("shelter map interactions", () => {
     expect(liveScoringSource).toContain("from the shelter-map bundle with locked weights.");
     expect(liveScoringSource).toContain("preview shelter-map evidence");
     expect(liveScoringSource).toContain("preview-only shelter-map evidence");
-    expect(liveScoringSource).toContain("Clicked transit POI has shelter map evidence only");
+    expect(liveScoringSource).toContain("Clicked transit POI has shelter-map evidence only");
     expect(liveScoringSource).not.toContain("preview route evidence");
     expect(liveScoringSource).not.toContain("preview-only route evidence");
     expect(liveScoringSource).toContain("published locked scores come from the shelter-map bundle.");
@@ -202,9 +202,9 @@ describe("shelter map interactions", () => {
     expect(liveScoringSource).not.toContain("SHIOK scores come from offline bundle scoring.");
     expect(liveScoringSource).not.toContain("offline pipeline bundle");
 
-    expect(pageSource).toContain("Preview shelter map evidence only");
+    expect(pageSource).toContain("Preview shelter-map evidence only");
     expect(pageSource).toContain("↺ Published walk");
-    expect(pageSource).toContain("Preview only: this clicked transit stop has shelter map evidence");
+    expect(pageSource).toContain("Preview only: this clicked transit stop has shelter-map evidence");
     expect(pageSource).toContain("not part of the published shelter-map bundle yet");
     expect(pageSource).not.toContain("not part of the published score bundle yet");
     expect(pageSource).not.toContain("Preview route evidence only");
@@ -245,7 +245,7 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("if (candGeomOption && baseSelection.geom)");
     expect(pageSource).toContain('routing_type: candScore?.routing_type ?? "precomputed_candidate"');
     expect(pageSource.indexOf("if (candGeomOption && baseSelection.geom)")).toBeLessThan(
-      pageSource.indexOf("Fallback: show shelter map evidence only while OneMap loads in background")
+      pageSource.indexOf("Fallback: show shelter-map evidence only while OneMap loads in background")
     );
   });
 });

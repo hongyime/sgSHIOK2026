@@ -424,6 +424,14 @@ describe("score card copy", () => {
     expect(source).toContain('aria-label="Shelter map evidence reasons"');
     expect(source).toContain("Shelter map evidence preview");
     expect(source).toContain("Map evidence only");
+    expect(source).toContain("No shelter-map walk selected.");
+    expect(source).toContain("Preview shelter-map evidence only");
+    expect(source).toContain("Preview shelter-map evidence selected.");
+    expect(source).toContain("this clicked transit stop has shelter-map evidence");
+    expect(source).not.toContain("No shelter map walk selected.");
+    expect(source).not.toContain("Preview shelter map evidence only");
+    expect(source).not.toContain("Preview shelter map evidence selected.");
+    expect(source).not.toContain("this clicked transit stop has shelter map evidence");
     expect(source).not.toContain("Not scored in the current bundle");
     expect(source).toContain("Shelter map evidence unavailable");
     expect(source).toContain("Shelter map evidence available");
