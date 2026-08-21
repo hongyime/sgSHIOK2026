@@ -895,3 +895,6 @@ The planning-area rank select's screen-reader label should describe the same evi
 
 2026-08-21 - P323 display-row unavailable fallback wording:
 Unavailable display-row metadata should name the missing thing rather than generic score availability. The bus row fallback now says `Bus evidence unavailable` instead of `No bus score`, and the locked score row fallback now says `No full locked score` instead of `No locked score`. This is web copy and test coverage only; it does not change row inclusion, score values, ranking inputs, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P324 outside-bundle empty-state recent-source caveat:
+The outside-bundle empty state should connect the frozen June 2020 address-universe limitation with the measured recent-source check, without claiming the searched postal is definitely a known miss. It now says the current bundle is tied to the frozen June 2020 address universe and that the recent public-source check found 8 missing rows out of 976. This is web copy and test coverage only; it does not change lookup logic, score values, exports, public data, pipeline inputs, or locked weights.
