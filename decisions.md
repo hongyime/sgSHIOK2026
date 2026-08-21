@@ -1030,3 +1030,6 @@ The copied walk QA JSON should use a walk-framed primary issue label. The browse
 
 2026-08-21 - P369 greenery proxy walk-adjacent copy:
 The selected-walk details should not describe the heat greenery proxy as generic route geometry. The note now says `walk-adjacent greenery geometry`, keeping the feature framed as walk evidence while preserving the settled boundary that it is heat-only, sparse NParks geometry, not measured temperature and not Leaf Area Index. This is browser copy and test coverage only; it does not mutate shade geometry, source manifests, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P370 title-card night-lighting subtitle:
+The first-view subtitle should name night lighting as the second map-evidence layer, not only the covered-walkway ratio and exposed gaps. The title card now says `See covered-walkway ratio, exposed gaps, and night lighting near transit`, matching the settled shelter-first product framing while keeping the locked score secondary. This is browser copy and test coverage only; it does not mutate lamp artifacts, public data, scoring, exports, deployment, or locked weights.

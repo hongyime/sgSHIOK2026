@@ -127,7 +127,8 @@ describe("score card copy", () => {
     expect(layoutSource).toContain('url: "https://sgshiok.vercel.app/"');
     expect(layoutSource).toContain('card: "summary"');
     expect(layoutSource).not.toContain('title: "S.H.I.O.K. Index"');
-    expect(source).toContain("See covered-walkway ratio and exposed gaps to transit");
+    expect(source).toContain("See covered-walkway ratio, exposed gaps, and night lighting near transit");
+    expect(source).not.toContain("See covered-walkway ratio and exposed gaps to transit");
     expect(source).not.toContain("Shelter-first walks to transit");
     expect(source).toContain('placeholder="Search OneMap address or 6-digit postal"');
     expect(source).toContain('aria-label="Search OneMap address or 6-digit postal"');

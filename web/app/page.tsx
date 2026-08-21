@@ -2080,7 +2080,7 @@ export default function Home() {
         <div className={styles.brandRow}>
           <div>
             <h1>S.H.I.O.K. Shelter Map</h1>
-            <p>See covered-walkway ratio and exposed gaps to transit</p>
+            <p>See covered-walkway ratio, exposed gaps, and night lighting near transit</p>
             <p className={styles.dataLine}>
               Shelter map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}
             </p>
