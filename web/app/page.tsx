@@ -1138,7 +1138,7 @@ export function ScoreCard({
   const selectedRouteLabel = directBusFallback
     ? "Direct bus line estimate"
     : previewRoute
-      ? "Preview walk"
+      ? "OneMap preview walk"
     : routeMode === "shortest" && !sameRoute
       ? "Shortest walk"
       : "Sheltered walk";
@@ -1417,7 +1417,7 @@ export function ScoreCard({
 
       {score.paths && previewRoute && (
         <div className={styles.summaryGrid}>
-          <Metric label="Preview walk" value={formatDistance(selectedDistance)} />
+          <Metric label="OneMap preview walk" value={formatDistance(selectedDistance)} />
           <Metric label="Covered-walkway ratio" value={formatPercent(selectedCoverage)} />
           <Metric label="Locked score" value="Preview only" />
         </div>

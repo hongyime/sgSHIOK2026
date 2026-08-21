@@ -209,7 +209,8 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("showing straight-line preview only");
     expect(pageSource).toContain('[chosenStopId]: "loading"');
     expect(pageSource).toContain('[chosenStopId]: "unavailable"');
-    expect(pageSource).toContain('<Metric label="Preview walk" value={formatDistance(selectedDistance)} />');
+    expect(pageSource).toContain('<Metric label="OneMap preview walk" value={formatDistance(selectedDistance)} />');
+    expect(pageSource).not.toContain('<Metric label="Preview walk" value={formatDistance(selectedDistance)} />');
     expect(pageSource).toContain('<Metric label="Covered-walkway ratio" value={formatPercent(selectedCoverage)} />');
     expect(pageSource).not.toContain('<Metric label="Sheltered evidence" value={formatPercent(selectedCoverage)} />');
     expect(pageSource).toContain('<Metric label="Locked score" value="Preview only" />');
