@@ -16,10 +16,11 @@ The current postal universe is frozen v1: a 124,443-record source-derived set
 built around a June 2020 OneMap-derived postal scrape and later local sources.
 Recent public-source checks found a small current-source gap: 6 coordinate-backed
 HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026
-public-source rows with postals. The
-P125 live Overpass measurement found OSM `addr:postcode` covers only 25,873 of
-the 124,443 frozen postals, so OSM remains geometry evidence rather than an
-address registry. OneMap Search validates and
+public-source rows with postals. The confirmed HDB gaps are SUN PLAZA SPRING
+and YISHUN BEACON, three postals each; CANAAN and MYRA remain unvalidated MCST
+proxy warnings. The P125 live Overpass measurement found OSM `addr:postcode`
+covers only 25,873 of the 124,443 frozen postals, so OSM remains geometry
+evidence rather than an address registry. OneMap Search validates and
 geocodes known candidates, but it is a keyword search endpoint, not a national
 postal enumerator. Any v2 universe should therefore be candidate-source-first:
 use current free source datasets to propose rows, then pass bounded candidates

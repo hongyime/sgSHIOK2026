@@ -24,6 +24,11 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
         "P19 found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%)"
         in normalized
     )
+    assert (
+        "confirmed HDB gaps are SUN PLAZA SPRING and YISHUN BEACON, three postals each"
+        in normalized
+    )
+    assert "CANAAN and MYRA remain unvalidated MCST proxy warnings" in normalized
     assert "P19 found 8 missing rows out of 976 HDB completion and MCST proxy rows" not in normalized
     assert "P125 found live OSM `addr:postcode` covers only 25,873 frozen postals" in normalized
     assert "Treat OSM as geometry evidence, not the primary address registry" in normalized

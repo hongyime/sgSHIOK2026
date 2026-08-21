@@ -26,6 +26,11 @@ def test_readme_documents_universe_source_policy() -> None:
         "6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%)"
         in normalized
     )
+    assert (
+        "confirmed HDB gaps are SUN PLAZA SPRING and YISHUN BEACON, three postals each"
+        in normalized
+    )
+    assert "CANAAN and MYRA remain unvalidated MCST proxy warnings" in normalized
     assert "8 missing rows out of 976 HDB completion and MCST proxy rows" not in normalized
     assert "P125 live Overpass measurement found OSM `addr:postcode` covers only 25,873" in normalized
     assert "OSM remains geometry evidence rather than an address registry" in normalized
