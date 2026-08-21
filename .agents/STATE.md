@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P511 code commit: `d671263`; state-only commits may follow it on `main`.
+Latest P512 code commit: `86384a5`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P512 is complete and committed: production-readiness source freshness warnings now append `Stale freshness action: report and plan a versioned refresh; do not mutate frozen v1 in place.` when stale sources exist, matching `run.py check --freshness-only` output. Focused readiness tests, real gate-summary warning probe, repo integrity, check-ignore, and protected-diff checks passed.
 - P511 is complete and committed: manifest-only freshness output now prints `Stale freshness action: report and plan a versioned refresh; do not mutate frozen v1 in place.` when stale sources exist, aligning safe report output with the structured stale-result policy. Focused fetch tests, real freshness-only output, repo integrity, check-ignore, and protected-diff checks passed.
 - P510 is complete and committed: lower-level `pipeline.fetch check --help` now describes upstream S.H.I.O.K. Shelter Map sources instead of generic `SHIOK datasets`, keeping fetch/check help in the shelter-map product frame. Focused fetch tests, direct fetch help output, repo integrity, check-ignore, and protected-diff checks passed.
 - P509 is complete and committed: lower-level `pipeline.fetch check --help` now uses positive named-summary wording, saying grouped action summaries include source names instead of saying the report avoids omitting names. Focused fetch tests, direct fetch help output, repo integrity, check-ignore, and protected-diff checks passed.
