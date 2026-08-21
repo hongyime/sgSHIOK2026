@@ -26,7 +26,7 @@ stop presenting the prior five locked-term rows as five independent measurements
 | Position | Display row | On-screen copy | Detail copy |
 | --- | --- | --- | --- |
 | 1 | Shelter exposure | `{covered_ratio}% covered-walkway ratio on the displayed walk` | `Exposed gaps show where the displayed walk leaves shelter.` |
-| 2 | Walk to transit | `{sheltered_m} to {transit_target}` | `Selected walk distance from this postal code to the chosen MRT/LRT or bus access point.` |
+| 2 | Walk to transit | `{sheltered_m} to {transit_target}` | `Sheltered walk distance from this postal code to the chosen MRT/LRT or bus access point.` |
 | 3 | Bus service support | `Bus support: {bus_label}` | `Shown with routing caveats where exact bus-stop walking evidence is unresolved.` |
 | 4 | Locked score | `SHIOK score: {total}` | `Release sorting score using the locked weights; not five independent evidence sources.` |
 

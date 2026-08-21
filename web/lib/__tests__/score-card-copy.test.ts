@@ -517,7 +517,8 @@ describe("score card copy", () => {
     expect(proposalSource).toContain("Exposed gaps on the displayed walk");
     expect(proposalSource).not.toContain("{covered_ratio}% of the selected walk is covered.");
     expect(proposalSource).not.toContain("Exposed gaps show where the selected walk leaves shelter.");
-    expect(proposalSource).toContain("Selected walk distance from this postal code to the chosen MRT/LRT or bus access point.");
+    expect(proposalSource).toContain("Sheltered walk distance from this postal code to the chosen MRT/LRT or bus access point.");
+    expect(proposalSource).not.toContain("Selected walk distance from this postal code");
     expect(proposalSource).toContain(
       "the published shelter-map walk\ncould not prove access to an official LTA bus stop"
     );
