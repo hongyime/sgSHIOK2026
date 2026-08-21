@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P302 code commit: `01e033a`; state-only commits may follow it on `main`.
+Latest P303 code commit: `a04e5ac`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P303 is complete and committed: the planning-area comparison empty state now says `No comparable full locked scores in this planning area` instead of generic `No comparable scored records`, matching the panel's full-score dependency. Focused score-card copy test and repo integrity pass.
 - P302 is complete and committed: the OneMap 429/rate-limit branch now says `OneMap search is busy` instead of generic `Search is busy`, keeping address-search failures distinct from direct postal lookup. Focused score-card copy test and repo integrity pass.
 - P301 is complete and committed: the selected-postal load fallback now says `Failed to load shelter-map data` instead of `Failed to load score data`, keeping load-failure copy aligned with the shelter-map product frame. Focused score-card copy test and repo integrity pass.
 - P300 is complete and committed: OneMap search error copy now names the OneMap path for selected-result postal failures and generic address-search failures. Focused score-card copy test and repo integrity pass.
