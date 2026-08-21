@@ -194,11 +194,12 @@ describe("shelter map interactions", () => {
 
     expect(pageSource).toContain("Preview shelter map evidence only");
     expect(pageSource).toContain("↺ Published walk");
-    expect(pageSource).toContain("Preview only: this clicked stop has shelter map evidence");
+    expect(pageSource).toContain("Preview only: this clicked transit stop has shelter map evidence");
     expect(pageSource).toContain("not part of the published shelter-map bundle yet");
     expect(pageSource).not.toContain("not part of the published score bundle yet");
     expect(pageSource).not.toContain("Preview route evidence only");
     expect(pageSource).not.toContain("↺ Scored route");
+    expect(pageSource).not.toContain("Preview only: this clicked stop has shelter map evidence");
     expect(pageSource).not.toContain("Preview only: this clicked stop has route evidence");
     expect(pageSource).not.toContain("not an authoritative SHIOK score");
     expect(pageSource).not.toContain("until an offline bundle includes it");

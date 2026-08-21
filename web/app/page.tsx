@@ -484,7 +484,7 @@ function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): str
 
 function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): string | null {
   if (score.paths?.routing_type === "live_onemap_preview") {
-    return "Preview only: this clicked stop has shelter map evidence, but it is not part of the published shelter-map bundle yet.";
+    return "Preview only: this clicked transit stop has shelter map evidence, but it is not part of the published shelter-map bundle yet.";
   }
   if (score.state === "SCORED_PARTIAL") {
     return "Partial locked score: shelter-map evidence may still be present, but one or more locked terms are unavailable; locked weights count missing terms as zero.";
@@ -840,10 +840,10 @@ function isPreviewRoute(score: ScoreRecord): boolean {
 
 function liveRoutePreviewStatusNote(status: LiveRoutePreviewStatus | null | undefined): string | null {
   if (status === "loading") {
-    return "Fetching OneMap walking preview; the selected stop is shown as a straight-line preview until that walk preview returns.";
+    return "Fetching OneMap walking preview; the selected transit stop is shown as a straight-line preview until that walk preview returns.";
   }
   if (status === "unavailable") {
-    return "OneMap walking preview is unavailable for this selected stop; showing straight-line preview only.";
+    return "OneMap walking preview is unavailable for this selected transit stop; showing straight-line preview only.";
   }
   return null;
 }
