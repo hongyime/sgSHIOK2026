@@ -467,6 +467,10 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("240 m to transit");
     expect(html).not.toContain("Selected route distance to transit.");
     expect(html).toContain("Bus service support");
+    expect(html).toContain(
+      "A low value can mean weak service evidence, or that the published shelter-map walk could not prove access to an official LTA bus stop."
+    );
+    expect(html).not.toContain("trusted walk to a DataMall bus stop");
     expect(html).toContain("Locked SHIOK score");
     expect(html).toContain('aria-label="Planning-area comparison"');
     expect(html).toContain("Compare planning-area records");

@@ -1331,7 +1331,7 @@ export function ScoreCard({
           value: formatScore(score.subscores.bus),
           meta: scoredMeta(score.subscores.bus, "20% locked bus", "Bus evidence unavailable"),
           notes: [
-            "A low value can mean weak service evidence, or that routing could not prove a trusted walk to a DataMall bus stop.",
+            "A low value can mean weak service evidence, or that the published shelter-map walk could not prove access to an official LTA bus stop.",
             busFallback
               ? `${busFallbackSummary(busFallback)} Shelter-map walk access was not verified, so the locked bus term remains 0.`
               : null,
