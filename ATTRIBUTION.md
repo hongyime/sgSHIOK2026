@@ -1,10 +1,10 @@
 # Attribution
 
-S.H.I.O.K. is a civic comfort-index pilot. Public outputs include source-derived
-scores, route geometry, evidence summaries, and map views. This file records the
-sources that reach shipped artifacts, their publishers, licences, and the
-derived use in this repository. It is attribution and engineering provenance,
-not legal advice.
+S.H.I.O.K. Shelter Map is a civic shelter-map pilot. Public outputs include
+source-derived scores, route geometry, evidence summaries, night lighting
+evidence, and map views. This file records the sources that reach shipped
+artifacts, their publishers, licences, and the derived use in this repository.
+It is attribution and engineering provenance, not legal advice.
 
 ## Licences
 
@@ -49,6 +49,7 @@ and treated as Singapore Open Data Licence v1.0 inputs:
 | nparks_tracks | data.gov.sg / National Parks Board | https://data.gov.sg/open-data-licence | Track geometry used in greenery proxy and route context. |
 | nparks_heritage_trees | data.gov.sg / National Parks Board | https://data.gov.sg/open-data-licence | Heritage tree locations used in greenery proxy evidence. |
 | nparks_heritage_road_green_buffers | data.gov.sg / National Parks Board | https://data.gov.sg/open-data-licence | Heritage road green-buffer geometry used in greenery proxy evidence. |
+| lamp_posts | Land Transport Authority | https://data.gov.sg/open-data-licence | Lamp-post locations used as the separate night lighting map layer. |
 
 Contains information from the datasets listed above, accessed on 2026-08-11
 from data.gov.sg, LTA DataMall, OneMap, and the named public-sector publishers,
@@ -74,6 +75,6 @@ version 1.0: https://data.gov.sg/open-data-licence
 ## Candidate Or Unshipped Sources
 
 Overture was probed as a candidate source but is not identified as reaching
-shipped artifacts in the P1 audit. Lamp posts were also not identified as
-reaching shipped artifacts. Leaf area index hashes ship in provenance, but the
-audited values are not consumed by shipped scoring.
+shipped artifacts in the P1 audit. Leaf area index hashes ship in legacy
+provenance as a non-score reference source, but the audited values are not
+consumed by shipped scoring.

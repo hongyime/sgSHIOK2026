@@ -1253,3 +1253,7 @@ Production-readiness human policy text should match the structured P125 OSM sour
 2026-08-21 - P469 agent OSM postcode total:
 
 Agent-facing startup guidance should carry the same P125 OSM measurement as README, browser copy, and readiness. `CLAUDE.md` now says P125 found 25,879 valid distinct live OSM `addr:postcode` values, 25,873 overlapping frozen v1, and 6 valid OSM-only postcodes, while preserving that OSM is geometry evidence rather than the primary address registry. This is documentation/test alignment only; it does not call Overpass, mutate cached P125 evidence, alter inputs, score, export, deploy, public data, or touch locked weights.
+
+2026-08-21 - P470 lamp-post attribution status:
+
+`ATTRIBUTION.md` should reflect the current shipped night lighting layer, not the older P1 audit state. Lamp posts now reach shipped artifacts through the separate `web/public/data/lamp_posts_v1/` night lighting map layer, so the attribution table lists `lamp_posts` as an LTA Singapore Open Data Licence source and the candidate-source note no longer says lamp posts are unshipped. `NOTICE` remains untouched because repo integrity pins its historical blob. This is attribution/documentation/test alignment only; it does not build lamp artifacts, mutate public data, score, export, deploy, or touch locked weights.
