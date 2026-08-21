@@ -225,8 +225,28 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
         "cache_status_reports_missing_rows": True,
         "cache_status_reports_missing_development_clusters": True,
         "cache_status_reports_hdb_cluster_coordinates": True,
+        "cache_status_reports_mcst_proxy_location_probe": True,
         "summary_path": "qa/p19/universe_gap_measurement_summary.json",
         "detail_path": "qa/p19/universe_gap_measurement_detail.json",
+        "mcst_proxy_location_probe": {
+            "command": "uv run python run.py p19-mcst-locations",
+            "cache_path": "qa/p379/p19_mcst_missing_onemap_cache.json",
+            "report_path": "qa/p379/p19_mcst_missing_locations_report.json",
+            "mcst_missing_rows": 2,
+            "located_rows": 0,
+            "unlocated_rows": 2,
+            "conflicting_candidate_postals": {
+                "CANAAN": {
+                    "recorded_postal": "378720",
+                    "candidate_postals": ["387720"],
+                }
+            },
+            "unlocated_developments": ["CANAAN", "MYRA"],
+            "will_score": False,
+            "will_export": False,
+            "will_mutate_p19": False,
+            "verdict": "MCST proxy rows remain unvalidated; HDB clusters are the coordinate-backed actionable gap",
+        },
         "source_rows_with_postals": 976,
         "missing_rows": 8,
         "missing_postals_by_source": {
