@@ -1069,3 +1069,6 @@ The aggregate recent-source gap copy should preserve the 8-of-976 measurement wh
 
 2026-08-21 - P384 P19 evidence split in source policy:
 Structured source-policy consumers should not have to infer the P19 evidence split from prose or nested status reports. The shared recent-public-source gap block now includes `evidence_split`: 6 coordinate-backed HDB missing rows, 2 unvalidated MCST proxy rows, 6 confirmed missing-address rows, and 2 source-quality-warning rows. This is reporting metadata and test coverage only; it does not mutate inputs, QA evidence, public data, scoring, exports, deployment, or locked weights.
+
+2026-08-21 - P385 P19 status evidence split:
+`p19-gap-status` should expose the same evidence split as batch-plan and readiness, not require operators to infer it from development clusters and the MCST probe. The cache-status report now includes top-level `evidence_split` derived from existing cached P19/P379 status blocks: 6 coordinate-backed/confirmed HDB missing rows and 2 unvalidated/source-quality MCST proxy rows. This is read-only reporting and test coverage only; it does not call APIs, mutate P19/P379 caches, build v2, score, export, deploy, or alter locked weights.

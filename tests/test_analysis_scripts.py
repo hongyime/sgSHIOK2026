@@ -244,6 +244,13 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
         "will_export": False,
         "will_mutate_p19": False,
     }
+    assert report["evidence_split"] == {
+        "detail_exists": True,
+        "coordinate_backed_hdb_missing_rows": 1,
+        "unvalidated_mcst_proxy_rows": 1,
+        "confirmed_missing_address_rows": 1,
+        "source_quality_warning_rows": 1,
+    }
 
 
 def test_p125_osm_status_reports_cached_overpass_coverage(tmp_path: Path) -> None:

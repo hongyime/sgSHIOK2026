@@ -430,12 +430,54 @@ def mcst_proxy_location_probe_status(
     }
 
 
+def evidence_split_status(
+    missing_detail: dict[str, Any],
+    mcst_probe: dict[str, Any],
+) -> dict[str, Any]:
+    if not missing_detail.get("detail_exists"):
+        return {
+            "detail_exists": False,
+        }
+    clusters = missing_detail.get("missing_development_clusters") or []
+    coordinate_backed_hdb_rows = sum(
+        int(cluster.get("missing_rows", 0))
+        for cluster in clusters
+        if cluster.get("source") == "hdb_2021_2026_geocoded"
+        and cluster.get("coordinate_source") == "cached_onemap_search_result"
+    )
+    mcst_rows = sum(
+        int(cluster.get("missing_rows", 0))
+        for cluster in clusters
+        if cluster.get("source") == "mcst_2021_2026"
+    )
+    unvalidated_mcst_rows = (
+        int(mcst_probe["unlocated_rows"])
+        if mcst_probe.get("report_exists") and mcst_probe.get("unlocated_rows") is not None
+        else mcst_rows
+    )
+    return {
+        "detail_exists": True,
+        "coordinate_backed_hdb_missing_rows": coordinate_backed_hdb_rows,
+        "unvalidated_mcst_proxy_rows": unvalidated_mcst_rows,
+        "confirmed_missing_address_rows": coordinate_backed_hdb_rows,
+        "source_quality_warning_rows": unvalidated_mcst_rows,
+    }
+
+
 def cache_status_report(now: dt.datetime | None = None) -> dict[str, Any]:
     if now is None:
         now = dt.datetime.now(dt.UTC)
     elif now.tzinfo is None:
         now = now.replace(tzinfo=dt.UTC)
     now = now.astimezone(dt.UTC)
+    missing_detail = missing_row_summary(
+        DETAIL_OUTPUT,
+        hdb_cache_path=HDB_GEOCODE_CACHE,
+    )
+    mcst_probe = mcst_proxy_location_probe_status(
+        P379_MCST_LOCATION_REPORT,
+        cache_path=P379_MCST_LOCATION_CACHE,
+    )
     return {
         "mode": "cache_status_only",
         "will_call_apis": False,
@@ -447,14 +489,9 @@ def cache_status_report(now: dt.datetime | None = None) -> dict[str, Any]:
             "summary": json_file_status(SUMMARY_OUTPUT, now=now),
             "detail": json_file_status(DETAIL_OUTPUT, now=now),
         },
-        "missing_row_detail": missing_row_summary(
-            DETAIL_OUTPUT,
-            hdb_cache_path=HDB_GEOCODE_CACHE,
-        ),
-        "mcst_proxy_location_probe": mcst_proxy_location_probe_status(
-            P379_MCST_LOCATION_REPORT,
-            cache_path=P379_MCST_LOCATION_CACHE,
-        ),
+        "missing_row_detail": missing_detail,
+        "mcst_proxy_location_probe": mcst_probe,
+        "evidence_split": evidence_split_status(missing_detail, mcst_probe),
     }
 
 
