@@ -1349,3 +1349,7 @@ The cached P19 gap status report should expose the same release-policy classific
 2026-08-22 - P494 P125 OSM source-policy status:
 
 The cached P125 OSM addr:postcode status and shared source-policy block should state OSM's product role explicitly: geometry evidence and coverage cross-check, not the address registry. The direct `p125-osm-status` output and the batch-plan/readiness policy now carry `source_role`, `registry_policy`, and the full verdict `not sufficient as primary Singapore address registry` while preserving the measured 25,879 valid distinct OSM postcodes, 25,873 overlap, 6 OSM-only postcodes, and 20.791045% v1 coverage. This is reporting/test coverage only; it does not call Overpass, mutate P125 caches, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P495 P125 operator-help wording:
+
+Runner help and README should describe `p125-osm-status` the same way as the structured P125 policy: a cached OSM addr:postcode coverage cross-check and registry-policy report, not a generic address-coverage measurement. The command documentation now states that it reports OSM as geometry evidence and coverage cross-check rather than the address registry, while retaining its no-API/no-write boundary. This is documentation/help/test coverage only; it does not call Overpass, mutate P125 caches, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.

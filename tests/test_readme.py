@@ -54,7 +54,8 @@ def test_readme_documents_universe_source_policy() -> None:
     )
     assert "without calling data.gov.sg, OneMap, or Overpass" in normalized
     assert "uv run python run.py p125-osm-status" in normalized
-    assert "cached P125 OSM coverage measurement and cache ages" in normalized
+    assert "cached P125 OSM coverage cross-check, registry policy, and cache ages" in normalized
+    assert "cached P125 OSM coverage measurement and cache ages" not in normalized
     assert "without calling Overpass or writing files" in normalized
 
 
