@@ -718,3 +718,6 @@ A metadata-only DataMall geospatial discovery probe found that current authentic
 
 2026-08-21 - P263 DataMall signed URL regression:
 Current DataMall geospatial fallback returns `dmgeospatial` S3 links with `X-Amz-*` presigned query parameters. `stable_manifest_url()` already strips those parameters before manifest persistence, and fetch tests now explicitly guard that current URL shape. This is provenance-safety test coverage only; it does not fetch sources, mutate manifests or inputs, score, export, deploy, public data, or touch locked weights.
+
+2026-08-21 - P265 README DataMall discovery-only command:
+README local-data guidance should name the safe command for checking current LTA DataMall geospatial discovery links, not just tell operators to check upstream. It now documents `uv run python run.py check --geospatial-discovery-only`, including that the command downloads no payloads, writes no manifest, and treats a changed discovery URL as a reason for a new numbered input version rather than an in-place repair. This is documentation and test coverage only; it does not fetch source payloads, mutate manifests or inputs, score, export, deploy, public data, or touch locked weights.

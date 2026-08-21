@@ -59,6 +59,9 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "LTA geospatial listings such as Covered Linkway use a quarterly cadence" in normalized
     assert "120-day stale threshold" in normalized
     assert "does not prove no newer upstream release exists" in normalized
+    assert "uv run python run.py check --geospatial-discovery-only" in normalized
+    assert "without downloading payloads or writing the manifest" in normalized
+    assert "new numbered input version, not an in-place repair" in normalized
     assert "`pipeline/config/weights.yaml` — locked score weights." in normalized
     assert "locked composite-score weights" not in normalized
 
