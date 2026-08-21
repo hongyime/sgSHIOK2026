@@ -240,9 +240,10 @@ describe("score card copy", () => {
     );
     expect(source).not.toContain("refresh the current Covered Linkway in place");
     expect(source).toContain(
-      "NParks Leaf Area Index is a freshness-only reference table here; route heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature."
+      "NParks Leaf Area Index is a freshness-only reference table here; walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature."
     );
     expect(source).not.toContain("Leaf Area Index is route heat evidence");
+    expect(source).not.toContain("route heat evidence uses shelter");
     expect(source).toContain('import { formatLockedScoreAvailabilityLine } from "../lib/locked-score-availability";');
     expect(source).toContain("formatLockedScoreAvailabilityLine(manifest)");
     expect(source).toContain("styles.coverageLine");

@@ -109,7 +109,7 @@ const COVERED_LINKWAY_FRESHNESS_COPY =
   "Covered Linkway follows a quarterly 120-day freshness threshold; frozen v1 uses the Mar 2026 LTA geospatial listing. A 21 Aug 2026 metadata-only DataMall check found current Covered Linkway and bridge/underpass discovery URLs differ from frozen v1, so any refresh must be a new numbered input version.";
 
 const LEAF_AREA_INDEX_REFERENCE_COPY =
-  "NParks Leaf Area Index is a freshness-only reference table here; route heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature.";
+  "NParks Leaf Area Index is a freshness-only reference table here; walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature.";
 
 const RECENT_PUBLIC_SOURCE_MISSING_POSTAL_SOURCE: Record<string, string> = {
   "521400": "HDB 2021-2026 geocoded rows",
