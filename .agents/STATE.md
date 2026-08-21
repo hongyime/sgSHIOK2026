@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P300 code commit: `1502445`; state-only commits may follow it on `main`.
+Latest P301 code commit: `4f48863`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P301 is complete and committed: the selected-postal load fallback now says `Failed to load shelter-map data` instead of `Failed to load score data`, keeping load-failure copy aligned with the shelter-map product frame. Focused score-card copy test and repo integrity pass.
 - P300 is complete and committed: OneMap search error copy now names the OneMap path for selected-result postal failures and generic address-search failures. Focused score-card copy test and repo integrity pass.
 - P299 is complete and committed: the map's non-visual empty summary now says `Search a OneMap address or 6-digit postal code`, matching the visible search surface. Focused route-evidence-map interaction test and repo integrity pass.
 - P298 is complete and committed: the empty shelter-map panel now says `Find an address or postal code` and names OneMap address or 6-digit postal lookup, matching the search input behavior. Focused accessibility render test and repo integrity pass.
