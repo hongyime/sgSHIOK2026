@@ -109,6 +109,8 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "published legacy bundle may carry it as a non-score reference source hash" in normalized
     assert "not route geometry, shade-proxy geometry, or score evidence" in normalized
     assert "future score provenance excludes it" in normalized
+    assert "current unknown-age source is the Overture Maps Addresses Singapore candidate" in normalized
+    assert "cached manifest has no timestamp for that candidate archive" in normalized
     assert "LTA geospatial listings such as Covered Linkway use a quarterly cadence" in normalized
     assert "120-day stale threshold" in normalized
     assert "does not prove no newer upstream release exists" in normalized

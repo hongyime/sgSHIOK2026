@@ -216,8 +216,9 @@ describe("score card copy", () => {
     expect(source).not.toContain("Live OSM addr:postcode coverage:");
     expect(source).not.toContain("OSM remains the address registry");
     expect(source).toContain(
-      "Data freshness at the 21 Aug 2026 UTC manifest-only check: 12 sources current, 6 stale, 2 manual, and 1 candidate address source with unknown age. No upstream URLs were probed. The oldest current item is NParks Leaf Area Index, a freshness-only reference table near its 120-day threshold. Stale sources are traffic signals, planning area boundary, NParks nature ways, tracks, heritage trees and heritage road green buffers."
+      "Data freshness at the 21 Aug 2026 UTC manifest-only check: 12 sources current, 6 stale, 2 manual, and Overture Maps Addresses - Singapore candidate has unknown age. No upstream URLs were probed. The oldest current item is NParks Leaf Area Index, a freshness-only reference table near its 120-day threshold. Stale sources are traffic signals, planning area boundary, NParks nature ways, tracks, heritage trees and heritage road green buffers."
     );
+    expect(source).not.toContain("1 candidate address source with unknown age");
     expect(source).not.toContain("with NParks Leaf Area Index just under its 120-day quarterly threshold");
     expect(source).toContain("No upstream URLs were probed.");
     expect(source).not.toContain("oldest current source was NParks Leaf Area Index at 112.6 days old");

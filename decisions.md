@@ -1361,3 +1361,7 @@ The P125 structured `measurement` label should not lag behind the settled OSM re
 2026-08-22 - P497 P125 copy cross-check wording:
 
 User-facing and agent-facing P125 copy should use the same release-policy label as the structured status report. README, `CLAUDE.md`, production-readiness copy, and browser first-view source copy now describe the P125 result as an Overpass/OSM addr:postcode coverage cross-check, while preserving the measured 25,879 valid distinct OSM postcodes, 25,873 overlap, 6 OSM-only postcodes, and the statement that OSM is geometry evidence rather than the address registry. This is copy/test coverage only; it does not call Overpass, mutate P125 caches, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P498 Overture unknown-age freshness naming:
+
+The browser and README freshness caveat should name the source with unknown age rather than hiding it behind `1 candidate address source`. The zero-mutation freshness report names `overture_addresses_sg_candidate`, so README now records that the Overture Maps Addresses Singapore candidate has no timestamp in the cached manifest, and the browser first-view freshness line names `Overture Maps Addresses - Singapore candidate` directly. This is copy/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.

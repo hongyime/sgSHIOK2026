@@ -68,7 +68,9 @@ current, stale, manual, and unknown-age sources. NParks Leaf Area Index can
 appear in freshness as a tracked reference table, and the published legacy
 bundle may carry it as a non-score reference source hash, but it is not route
 geometry, shade-proxy geometry, or score evidence; future score provenance
-excludes it.
+excludes it. The current unknown-age source is the Overture Maps Addresses
+Singapore candidate, because the cached manifest has no timestamp for that
+candidate archive.
 LTA geospatial listings such as Covered Linkway use a quarterly cadence with a
 120-day stale threshold, so a current local freshness result does not prove no
 newer upstream release exists. A 21 Aug 2026 metadata-only DataMall discovery
