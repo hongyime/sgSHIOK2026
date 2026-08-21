@@ -1285,3 +1285,7 @@ The concise readiness gate summary should be discoverable from the task runner a
 2026-08-22 - P478 P19 structured source labels:
 
 The structured P19 source-policy block should carry the same private-strata caveat as the human-facing copy. Its source labels now say `HDB completion geocoded rows` and `BCA MCST constitution-date proxy rows`, with explicit limitations that HDB postals come from OneMap geocoding and BCA MCST constitution date is onboarding proxy evidence rather than TOP or completion date. This is structured reporting and test coverage only; it does not mutate P19/P379 evidence, call APIs, build v2, score, export, deploy, public data, protected QA evidence, or locked weights.
+
+2026-08-22 - P479 freshness timestamp timezone:
+
+The browser source-freshness date should not present a UTC measurement date as if it were an unspecified local date. `run.py check --freshness-only` prints an ISO UTC timestamp; the current check time was `2026-08-21T16:47:08.896536+00:00`, which is 22 Aug in Singapore. The first-view browser copy now says `21 Aug 2026 UTC manifest-only check`. This is browser copy and test coverage only; it does not rerun freshness, probe upstream APIs, mutate manifests or inputs, score, export, deploy, public data, protected QA evidence, or locked weights.
