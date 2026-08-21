@@ -110,6 +110,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("Selected result has no usable postal code.");
     expect(source).toContain("Failed to search OneMap address.");
     expect(source).not.toContain("Failed to search postal location.");
+    expect(source).toContain("Failed to load shelter-map data.");
+    expect(source).not.toContain("Failed to load score data.");
     expect(source).not.toContain("Singapore walk-to-transit comfort");
     expect(source).toContain(
       "Shelter map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}"

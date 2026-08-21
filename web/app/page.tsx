@@ -1848,7 +1848,7 @@ export default function Home() {
       setCopyStatus("");
       setChosenStopId(null);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to load score data.");
+      setError(err instanceof Error ? err.message : "Failed to load shelter-map data.");
     } finally {
       setLoading(false);
     }

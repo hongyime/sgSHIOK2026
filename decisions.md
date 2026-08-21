@@ -826,3 +826,6 @@ The map's non-visual empty summary should match the visible search behavior by n
 
 2026-08-21 - P300 OneMap search error copy:
 Search error copy should distinguish OneMap lookup failures from direct postal lookup and frozen-bundle availability. The selected-result postal error now says `Selected OneMap result has no usable postal code`, and the generic search fallback says `Failed to search OneMap address`. This is browser copy and test coverage only; it does not alter search behavior, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P301 shelter-map load error copy:
+The selected-postal load fallback should name shelter-map data rather than internal score data, because the first-view product promise is covered-walkway, exposure-gap, night-lighting, and transit evidence with the locked score secondary. The non-Error fallback now says `Failed to load shelter-map data`; thrown fetch errors still pass through unchanged. This is browser copy and test coverage only; it does not alter loading behavior, search, scoring, exports, public data, deployment, or locked weights.
