@@ -376,7 +376,10 @@ describe("rendered accessibility output", () => {
     expect(breakdownHtml).not.toContain(">Heat proxy<");
     expect(breakdownHtml).not.toContain(">Rain shelter<");
     expect(breakdownHtml).not.toContain(">Crossing friction<");
-    expect(html).toContain("Rain shelter and heat comfort currently share mostly the same covered-walkway evidence.");
+    expect(html).toContain(
+      "In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence."
+    );
+    expect(html).not.toContain("Rain shelter and heat comfort currently share mostly the same covered-walkway evidence.");
     expect(html).toContain(
       "Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first."
     );

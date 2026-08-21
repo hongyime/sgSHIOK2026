@@ -922,3 +922,6 @@ The locked-score display row should say the locked score sorts the published she
 
 2026-08-21 - P332 locked-score availability transit-range copy:
 The first-view locked-score availability disclosure should use the same locked transit-range wording as the selected-card NO_TRANSIT_IN_RANGE states. Records in NO_TRANSIT_IN_RANGE now appear as "beyond locked transit range" instead of "beyond current transit range" while preserving the manifest-derived counts and roughly-a-quarter disclosure. This is web copy and test coverage only; it does not change manifest parsing, state counts, score values, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P333 rain/heat locked-release copy:
+The shelter-exposure display row should describe the rain/heat overlap as a property of this locked release, not as a vague current condition. It now says "In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence." This is web copy and test coverage only; it does not change row inclusion, score values, ranking logic, exports, public data, pipeline inputs, or locked weights.
