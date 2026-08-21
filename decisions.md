@@ -1325,3 +1325,7 @@ The manifest-only freshness report should name manual-policy sources the same wa
 2026-08-22 - P488 runner surface docs alignment:
 
 README and `CLAUDE.md` should describe the same task split as `run.py --help`. They now include `readiness --gate-summary` in safe reports, include `score-batch` and `export-transit` in gated pipeline tasks, and describe `test` as a local test task rather than a gated pipeline task. This is documentation and test coverage only; it does not execute runner tasks beyond `--help`, call APIs, mutate inputs, score, export, deploy, public data, protected QA evidence, or locked weights.
+
+2026-08-22 - P489 night lighting operator wording:
+
+Readiness and analysis surfaces should use the same `night lighting` wording as the browser and docs. The heat-presentation UI audit now points at the current metadata string, and production readiness warning/error text says `night lighting` instead of `night-lighting`. This is operator/audit wording and test coverage only; it does not change the lamp overlay artifact, map rendering, inputs, scoring, exports, deployment, public data, protected QA evidence, or locked weights.

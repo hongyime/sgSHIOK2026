@@ -409,6 +409,8 @@ def test_lamp_overlay_artifact_status_blocks_missing_deploy_artifact(tmp_path: P
     assert status["state"] == "missing"
     assert "lamp_posts_v1" in status["manifest_path"]
     assert "local deploy artifact manifest is missing" in status["warning"]
+    assert "night lighting browser layer" in status["warning"]
+    assert "night-lighting" not in status["warning"]
 
 
 def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Path):

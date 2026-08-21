@@ -332,7 +332,7 @@ def lamp_overlay_artifact_status(web_dir: Path = WEB_DIR) -> dict[str, Any]:
             "missing_tile_count": None,
             "size_mismatch_count": None,
             "warning": (
-                "night-lighting browser layer points at /data/lamp_posts_v1/, but the "
+                "night lighting browser layer points at /data/lamp_posts_v1/, but the "
                 "local deploy artifact manifest is missing"
             ),
         }
@@ -349,7 +349,7 @@ def lamp_overlay_artifact_status(web_dir: Path = WEB_DIR) -> dict[str, Any]:
             "point_count": 0,
             "missing_tile_count": None,
             "size_mismatch_count": None,
-            "warning": f"night-lighting overlay manifest is unreadable: {exc}",
+            "warning": f"night lighting overlay manifest is unreadable: {exc}",
         }
 
     tiles = manifest.get("tiles")
@@ -423,7 +423,7 @@ def lamp_overlay_artifact_status(web_dir: Path = WEB_DIR) -> dict[str, Any]:
             reasons.append(f"{len(size_mismatches)} referenced tile file size mismatch(es)")
         if not tile_bytes_match:
             reasons.append("manifest tile_bytes does not match local tile bytes")
-        warning = "night-lighting overlay artifact is not release-ready: " + "; ".join(reasons)
+        warning = "night lighting overlay artifact is not release-ready: " + "; ".join(reasons)
 
     return {
         "ok": ok,
@@ -1138,7 +1138,7 @@ def build_readiness_report(
     if not vercel["linked"]:
         warnings.append("Vercel project is not linked in this local checkout")
     if not lamp_overlay["ok"]:
-        errors.append("night-lighting overlay artifact is not release-ready")
+        errors.append("night lighting overlay artifact is not release-ready")
     warnings.extend(env_status["warnings"])
     if lamp_overlay["warning"]:
         warnings.append(str(lamp_overlay["warning"]))

@@ -15,7 +15,7 @@ UI_AUDIT_ENTRIES = [
     {
         "file": "web/app/layout.tsx",
         "line": 7,
-        "string": "Explore covered-walkway exposure gaps, night-lighting evidence, and the secondary locked SHIOK score for Singapore walks to transit.",
+        "string": "Explore covered-walkway ratio, exposed gaps, night lighting evidence, and the secondary locked SHIOK score for Singapore walks to transit.",
         "verdict": "Acceptable: metadata leads with the shelter/exposure artifact and keeps the locked score secondary.",
         "action": "No fix required.",
     },
