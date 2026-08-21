@@ -246,6 +246,11 @@ export function rankAnnouncement({
   } available.`;
 }
 
+export function rankEmptyMessage(rankMetric: RankMetric, rankMetricLabel: string): string {
+  if (rankMetric === "overall") return "No comparable full locked scores in this planning area.";
+  return `No comparable planning-area records for ${rankMetricLabel}.`;
+}
+
 export function shouldFetchRankRecords({
   rankPanelOpen,
   postal,
@@ -1509,9 +1514,7 @@ export function ScoreCard({
                 <span className={styles.rankEmpty}>Loading planning-area {rankMetricLabel} ranks.</span>
               )}
               {!rankingLoading && rankedRecords.length === 0 && (
-                <span className={styles.rankEmpty}>
-                  No comparable full locked scores in this planning area.
-                </span>
+                <span className={styles.rankEmpty}>{rankEmptyMessage(rankMetric, rankMetricLabel)}</span>
               )}
               {!rankingLoading &&
                 rankedRecords.map((item) => (

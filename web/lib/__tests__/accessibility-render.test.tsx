@@ -14,6 +14,7 @@ import {
   formatDataDate,
   formatGeneratedDate,
   routeDisplayAnnouncement,
+  rankEmptyMessage,
   scoreCardAnnouncement,
   searchResultsAnnouncement,
   type FeedbackSegmentLabel,
@@ -501,6 +502,22 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("onto the shelter-map route");
     expect(html).not.toContain("onto mapped walking-route evidence");
     expect(html).not.toContain("onto the walking graph");
+  });
+
+  it("matches planning-area empty copy to the selected comparison view", () => {
+    expect(rankEmptyMessage("overall", "Locked SHIOK score")).toBe(
+      "No comparable full locked scores in this planning area."
+    );
+    expect(rankEmptyMessage("rain", "Rain-shelter evidence")).toBe(
+      "No comparable planning-area records for Rain-shelter evidence."
+    );
+
+    const evidenceHtml = renderScoreCard({
+      rankMetric: "rain",
+      rankingRecords: [],
+    });
+    expect(evidenceHtml).toContain("No comparable planning-area records for Rain-shelter evidence.");
+    expect(evidenceHtml).not.toContain("No comparable full locked scores in this planning area.");
   });
 
   it("renders access-walk source labels without connector jargon", () => {

@@ -406,6 +406,8 @@ describe("score card copy", () => {
     expect(source).toContain("Loading planning-area {rankMetricLabel} ranks.");
     expect(source).not.toContain("Loading planning-area ranks...");
     expect(source).toContain("No comparable full locked scores in this planning area.");
+    expect(source).toContain("No comparable planning-area records for ${rankMetricLabel}.");
+    expect(source).toContain('rankEmptyMessage(rankMetric, rankMetricLabel)');
     expect(source).not.toContain("No comparable scored records in this planning area.");
     expect(source).not.toContain("Authoritative composite order.");
     expect(source).not.toContain("Planning-area order by locked score.");

@@ -1147,3 +1147,6 @@ The score-card live region should say `Custom transit stop selected` rather than
 
 2026-08-21 - P410 transit target picker heading:
 The nearby-transit picker should introduce its selectable chips as `Nearby transit targets`, not just `Nearby transit` or `Nearby transit stops`, because choosing a chip changes the transit target for the shelter-map walk comparison. This is browser copy and test coverage only; it does not mutate transit candidates, live-preview routing, route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P411 planning-area empty evidence copy:
+The planning-area comparison empty state should match the selected comparison view. `No comparable full locked scores in this planning area` is accurate for the locked-score view but misleading after the user switches to rain-shelter, access, bus, heat, or crossing evidence. Non-overall evidence views now say `No comparable planning-area records for ...`, preserving the locked-score wording only for the locked-score sort. This is browser copy and test coverage only; it does not alter ranking data, ranking order, score values, exports, public data, deployment, or locked weights.
