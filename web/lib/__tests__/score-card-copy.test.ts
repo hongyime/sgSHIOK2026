@@ -100,8 +100,10 @@ describe("score card copy", () => {
     expect(layoutSource).not.toContain('title: "S.H.I.O.K. Index"');
     expect(source).toContain("See covered-walkway ratio and exposed gaps to transit");
     expect(source).not.toContain("Shelter-first walks to transit");
-    expect(source).toContain('placeholder="Search address or 6-digit postal"');
-    expect(source).toContain('aria-label="Search address or 6-digit postal"');
+    expect(source).toContain('placeholder="Search OneMap address or 6-digit postal"');
+    expect(source).toContain('aria-label="Search OneMap address or 6-digit postal"');
+    expect(source).not.toContain('placeholder="Search address or 6-digit postal"');
+    expect(source).not.toContain('aria-label="Search address or 6-digit postal"');
     expect(source).toContain("Enter at least 3 characters for OneMap search, or use a 6-digit postal code.");
     expect(source).not.toContain("Enter at least 3 characters or a 6-digit postal code.");
     expect(source).not.toContain("Singapore walk-to-transit comfort");

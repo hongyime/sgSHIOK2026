@@ -814,3 +814,6 @@ Rendered accessibility coverage should guard the P293 `Map layer on` wording for
 
 2026-08-21 - P296 README routed-walk framing:
 README opening copy should match the settled shelter-map frame and CLAUDE.md by saying the app leads with exposed gaps on real routed walks, not generic routed paths. This is documentation and test coverage only; it does not alter browser copy, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P297 OneMap search input label:
+The first-view search input should state that address search uses OneMap while 6-digit postal lookup remains direct. The placeholder and accessible label now say `Search OneMap address or 6-digit postal`, reducing ambiguity between OneMap lookup and the frozen shelter-map bundle. This is browser copy and test coverage only; it does not alter search behavior, scoring, exports, public data, deployment, or locked weights.
