@@ -715,3 +715,6 @@ Production readiness should expose the settled postal-universe policy as structu
 
 2026-08-21 - P262 DataMall geospatial discovery drift:
 A metadata-only DataMall geospatial discovery probe found that current authenticated discovery for Covered Linkway and pedestrian overhead bridge/underpass resolves to generic `dmgeospatial` S3 paths, while frozen v1 records dated `Mar2026` static URLs in `raw/manifest.json`; traffic signals still matches the frozen redacted base URL. This is not proof that bytes changed, because no source payload was downloaded and no input was rebuilt. It is a release-risk signal: any approved future release batch that refreshes LTA geospatial sources must do so as a new numbered input version and compare hashes/counts against frozen v1. Existing v1 artifacts remain untouched.
+
+2026-08-21 - P263 DataMall signed URL regression:
+Current DataMall geospatial fallback returns `dmgeospatial` S3 links with `X-Amz-*` presigned query parameters. `stable_manifest_url()` already strips those parameters before manifest persistence, and fetch tests now explicitly guard that current URL shape. This is provenance-safety test coverage only; it does not fetch sources, mutate manifests or inputs, score, export, deploy, public data, or touch locked weights.

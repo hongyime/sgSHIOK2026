@@ -56,6 +56,19 @@ def test_stable_manifest_url_strips_signed_s3_query() -> None:
     )
 
 
+def test_stable_manifest_url_strips_datamall_x_amz_signature() -> None:
+    url = (
+        "https://dmgeospatial.s3.ap-southeast-1.amazonaws.com/CoveredLinkWay.zip?"
+        "X-Amz-Security-Token=token&X-Amz-Algorithm=AWS4-HMAC-SHA256&"
+        "X-Amz-Date=20260821T001240Z&X-Amz-SignedHeaders=host&"
+        "X-Amz-Expires=300&X-Amz-Credential=credential&X-Amz-Signature=signature"
+    )
+
+    assert stable_manifest_url(url) == (
+        "https://dmgeospatial.s3.ap-southeast-1.amazonaws.com/CoveredLinkWay.zip"
+    )
+
+
 def test_stable_manifest_url_preserves_normal_query() -> None:
     url = "https://example.test/api?searchVal=560234&returnGeom=Y"
 
