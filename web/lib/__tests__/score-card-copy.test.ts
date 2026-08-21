@@ -108,6 +108,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("Enter at least 3 characters or a 6-digit postal code.");
     expect(source).toContain("Selected OneMap result has no usable postal code.");
     expect(source).not.toContain("Selected result has no usable postal code.");
+    expect(source).toContain("OneMap search is busy. Please try again in a moment.");
+    expect(source).not.toContain("Search is busy. Please try again in a moment.");
     expect(source).toContain("Failed to search OneMap address.");
     expect(source).not.toContain("Failed to search postal location.");
     expect(source).toContain("Failed to load shelter-map data.");

@@ -829,3 +829,6 @@ Search error copy should distinguish OneMap lookup failures from direct postal l
 
 2026-08-21 - P301 shelter-map load error copy:
 The selected-postal load fallback should name shelter-map data rather than internal score data, because the first-view product promise is covered-walkway, exposure-gap, night-lighting, and transit evidence with the locked score secondary. The non-Error fallback now says `Failed to load shelter-map data`; thrown fetch errors still pass through unchanged. This is browser copy and test coverage only; it does not alter loading behavior, search, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P302 OneMap busy-search copy:
+The OneMap rate-limit branch should name OneMap search rather than saying generic search is busy, because direct 6-digit postal lookup is local to the frozen shelter-map bundle while address lookup depends on OneMap. The 429 fallback now says `OneMap search is busy. Please try again in a moment.` This is browser copy and test coverage only; it does not alter OneMap request behavior, search, scoring, exports, public data, deployment, or locked weights.

@@ -1960,7 +1960,7 @@ export default function Home() {
       setResults(data.results);
     } catch (err) {
       if (err instanceof OneMapSearchError && err.status === 429) {
-        setError("Search is busy. Please try again in a moment.");
+        setError("OneMap search is busy. Please try again in a moment.");
         return;
       }
       setError(err instanceof Error ? err.message : "Failed to search OneMap address.");
