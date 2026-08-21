@@ -1001,9 +1001,9 @@ export function nightLightingSummary(status: LampOverlayStatus, lampCount: numbe
     return `Night lighting overlay is on; lamp-post tiles are unavailable for the current map view. ${caveat}`;
   }
   if (status === "empty" || lampCount === 0) {
-    return `Night lighting overlay is on; no lamp points are indexed in the current map view. ${caveat}`;
+    return `Night lighting overlay is on; no lamp-post points are indexed in the current map view. ${caveat}`;
   }
-  return `Night lighting overlay is on with ${lampCount} lamp point${
+  return `Night lighting overlay is on with ${lampCount} lamp-post point${
     lampCount === 1 ? "" : "s"
   } in view. ${caveat}`;
 }

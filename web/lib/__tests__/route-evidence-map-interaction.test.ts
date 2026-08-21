@@ -86,7 +86,8 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("lampOverlayEnabled");
     expect(pageSource).toContain("showLampOverlay={lampOverlayEnabled}");
     expect(pageSource).toContain("showLampOverlay?: boolean;");
-    expect(pageSource).toContain("LTA lamp points");
+    expect(pageSource).toContain("LTA lamp-post points");
+    expect(pageSource).not.toContain("LTA lamp points");
     expect(pageSource).toContain("Night lighting");
     expect(pageSource).toContain(
       'title="Night lighting: LTA lamp-post locations; map evidence only, not part of the locked score"'
@@ -112,16 +113,16 @@ describe("shelter map interactions", () => {
       "Night lighting overlay is on; LTA lamp-post points are loading for the current map view. Map evidence only; not part of the locked score."
     );
     expect(nightLightingSummary("empty", 0)).toBe(
-      "Night lighting overlay is on; no lamp points are indexed in the current map view. Map evidence only; not part of the locked score."
+      "Night lighting overlay is on; no lamp-post points are indexed in the current map view. Map evidence only; not part of the locked score."
     );
     expect(nightLightingSummary("unavailable", 0)).toBe(
       "Night lighting overlay is on; lamp-post tiles are unavailable for the current map view. Map evidence only; not part of the locked score."
     );
     expect(nightLightingSummary("loaded", 1)).toBe(
-      "Night lighting overlay is on with 1 lamp point in view. Map evidence only; not part of the locked score."
+      "Night lighting overlay is on with 1 lamp-post point in view. Map evidence only; not part of the locked score."
     );
     expect(nightLightingSummary("loaded", 14)).toBe(
-      "Night lighting overlay is on with 14 lamp points in view. Map evidence only; not part of the locked score."
+      "Night lighting overlay is on with 14 lamp-post points in view. Map evidence only; not part of the locked score."
     );
   });
 

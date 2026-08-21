@@ -1042,7 +1042,7 @@ function InlineRouteLegend({
       {showLampOverlay && (
         <span>
           <i className={styles.lampDot} />
-          LTA lamp points
+          LTA lamp-post points
         </span>
       )}
     </div>
