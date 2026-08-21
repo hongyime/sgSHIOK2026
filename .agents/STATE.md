@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P521 code commit: `492415d`; state-only commits may follow it on `main`.
+Latest P522 code commit: `00dc2bb`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P522 is complete and committed: `pipeline.postal_universe --include-overture-candidate` help and generated summary warning now state that archived Overture Addresses SG is candidate-only postal-universe evidence, not scoring or address-registry approval, and does not change defaults. Focused postal-universe tests, help probe, repo integrity, check-ignore, and protected-diff checks passed.
 - P521 is complete and committed: Overture Addresses SG runner/module help now describes the command as candidate-only postal-universe evidence and not scoring or address-registry approval. Focused Overture/run tests, module help probe, repo integrity, check-ignore, and protected-diff checks passed.
 - P520 is complete and committed: `p125-osm-status` runner help now names the cached report as the P125 20 Aug 2026 Overpass `addr:postcode` coverage cross-check and keeps OSM framed as geometry evidence rather than the address registry. Focused run tests, help/status probes, repo integrity, check-ignore, and protected-diff checks passed.
 - P519 is complete and committed: `p19-mcst-locations` help and README now describe the cached P379 probe as status for unvalidated P19 MCST proxy rows, preserving the source-quality warning boundary and no-API/no-write contract. Focused run/README tests, help/status probes, repo integrity, check-ignore, and protected-diff checks passed.
