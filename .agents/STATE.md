@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P497 code commit: `96a0490`; state-only commits may follow it on `main`.
+Latest P498 code commit: `765a3bf`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P498 is complete and committed: README and browser first-view freshness copy now name the unknown-age source as Overture Maps Addresses Singapore candidate instead of a generic candidate address source, based on the zero-mutation manifest-only freshness report. Focused README/web copy tests, real freshness-only output, repo integrity, check-ignore, and protected-diff checks passed.
 - P497 is complete and committed: README, `CLAUDE.md`, production-readiness copy, and browser first-view source copy now describe P125 as an Overpass/OSM addr:postcode coverage cross-check, matching structured policy while preserving measured counts and the OSM-not-registry caveat. Focused docs/readiness tests, focused web copy test, stale-phrase search, repo integrity, check-ignore, and protected-diff checks passed.
 - P496 is complete and committed: the P125 structured `measurement` label now says `P125 20 Aug 2026 Overpass addr:postcode coverage cross-check`, matching the settled policy that OSM addr:postcode is geometry evidence and a coverage cross-check rather than the address registry. Focused analysis/batch-plan/readiness tests, real P125 status output, repo integrity, check-ignore, and protected-diff checks passed.
 - P495 is complete and committed: README and `run.py --help` now describe `p125-osm-status` as a cached OSM coverage cross-check and registry-policy report, explicitly saying OSM is geometry evidence and coverage cross-check rather than the address registry while preserving the no-API/no-write boundary. Focused README/run tests, runner help, repo integrity, check-ignore, and protected-diff checks passed.
