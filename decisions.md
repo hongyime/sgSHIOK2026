@@ -796,3 +796,6 @@ The task runner help should not make the argparse choice list compete with the c
 
 2026-08-21 - P290 title-card gap copy:
 The browser title card should state the frozen address universe and the measured recent-source gap without repeating the same 8-of-976 fact twice. The first freshness line now says the address universe is frozen v1 from a June 2020 OneMap-derived postal scrape, and the next line names the P19 recent public-source check with 8 missing rows out of 976 HDB completion and MCST proxy rows from 2021-2026. This is browser copy and test coverage only; it does not alter search, manifests, inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P291 no-results gap copy:
+The address-search no-results message should use the same measured frozen-bundle limitation as the title card instead of vague `measured recent-source misses` wording. It now says the frozen shelter-map bundle's recent public-source check found 8 missing rows out of 976 while preserving the separate OneMap lookup failure and 6-digit postal-code suggestion. This is browser copy and test coverage only; it does not alter OneMap search behavior, scoring, inputs, exports, public data, deployment, or locked weights.
