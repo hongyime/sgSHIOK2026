@@ -7,7 +7,7 @@ decision supersedes it.
 ## Goal
 
 Make Section 10 lead with the artifact the project can defend today: the shelter-map
-walk trace and its exposed gaps. Keep the locked score visible, but
+walk evidence and its exposed gaps. Keep the locked score visible, but
 stop presenting the prior five locked-term rows as five independent measurements.
 
 ## Pre-P18 State
@@ -34,7 +34,7 @@ Rain and heat should move from separate rows into explanatory copy:
 
 ```text
 In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence.
-Heat also includes a sparse NParks greenery proxy, so SHIOK shows the shelter trace first
+Heat also includes a sparse NParks greenery proxy, so SHIOK shows covered-walkway ratio first
 instead of asking you to compare two near-duplicate rows.
 ```
 
@@ -93,7 +93,7 @@ SHIOK score       {total}
 Footer note:
 
 ```text
-SHIOK's strongest evidence in this locked release is the shelter-map walk trace. The score remains the
+SHIOK's strongest evidence in this locked release is the covered-walkway ratio and exposed gaps on the shelter-map walk. The score remains the
 locked release index, but rain and heat are not independent enough today to deserve two
 primary rows.
 ```

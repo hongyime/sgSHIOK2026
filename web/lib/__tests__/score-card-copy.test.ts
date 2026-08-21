@@ -574,9 +574,14 @@ describe("score card copy", () => {
     expect(proposalSource).not.toContain("Heat: shelter + NParks shade proxy");
     expect(proposalSource).toContain("deciding whether the walk actually works");
     expect(proposalSource).toContain("[shelter-map walk]");
-    expect(proposalSource).toContain("the shelter-map\nwalk trace and its exposed gaps");
+    expect(proposalSource).toContain("the shelter-map\nwalk evidence and its exposed gaps");
     expect(proposalSource).toContain("walk distance and transit target rather than above walk exposure");
-    expect(proposalSource).toContain("strongest evidence in this locked release is the shelter-map walk trace");
+    expect(proposalSource).toContain(
+      "strongest evidence in this locked release is the covered-walkway ratio and exposed gaps on the shelter-map walk"
+    );
+    expect(proposalSource).toContain("SHIOK shows covered-walkway ratio first");
+    expect(proposalSource).not.toContain("SHIOK shows the shelter trace first");
+    expect(proposalSource).not.toContain("strongest evidence in this locked release is the shelter-map walk trace");
     expect(proposalSource).not.toContain("current strongest evidence is the shelter-map walk trace");
     expect(proposalSource).not.toContain("five subscore rows");
     expect(proposalSource).not.toContain("Selected route distance from this postal code");
