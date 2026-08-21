@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P551 code commit: `da45842`; state-only commits may follow it on `main`.
+Latest P552 code commit: `356f6a5`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P552 is complete and committed: collapsed planning-area comparison button now says `Show ranks` instead of generic `Show`, making the lazy-loaded planning-area rank panel self-describing. Focused web render/copy tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed after correcting the focused render assertion to use a closed rank-panel fixture. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P551 is complete and committed: selected-walk details now show night lighting as `Available; map layer off` when the lamp overlay is disabled, preserving the existing on-state `Map layer on; zoom in for lamp-post points` and making the second map layer visible even before toggling it. Focused web render/copy tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P550 is complete and committed: remaining user-facing adjective phrases now use `Shelter-map evidence` consistently in preview reason chips, unavailable/available reason chips, evidence breakdown headings, aria labels, route legend preview copy, and the data-as-of line, while keeping the product noun `S.H.I.O.K. Shelter Map` and the panel label unchanged. Focused web render/copy/map tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P549 is complete and committed: user-facing no-selection and live OneMap preview copy/provenance now consistently use `shelter-map` as an adjective (`No shelter-map walk selected`, `Preview shelter-map evidence`, and `Clicked transit POI has shelter-map evidence only`). Focused web render/copy/live-preview tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed after updating a stale map-interaction test expectation. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
