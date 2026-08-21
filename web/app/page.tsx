@@ -1320,7 +1320,7 @@ export function ScoreCard({
           <p>{stationName}</p>
           {isCustomStopSelected && (
             <div className={styles.customStopBar}>
-              <span>{previewRoute ? "Preview shelter map evidence only" : "Viewing selected stop"}</span>
+              <span>{previewRoute ? "Preview shelter map evidence only" : "Viewing selected transit stop"}</span>
               {onResetChosenStop && (
                 <button
                   type="button"

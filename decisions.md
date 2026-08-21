@@ -1117,3 +1117,6 @@ Direct bus fallback labels should say `Direct bus line estimate` rather than `Di
 
 2026-08-21 - P400 OneMap preview walk label:
 Clicked-stop live preview metrics should say `OneMap preview walk` rather than generic `Preview walk`, because that selected-stop path is fetched from OneMap and is not part of the published shelter-map bundle. This is browser copy and test coverage only; it does not mutate live-preview routing, score values, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P401 selected transit stop badge:
+The selected-stop badge should say `Viewing selected transit stop` rather than `Viewing selected stop`, because the selection changes the transit target used for the shelter-map walk comparison. This is browser copy and test coverage only; it does not mutate transit candidates, route geometry, scoring, exports, public data, deployment, or locked weights.

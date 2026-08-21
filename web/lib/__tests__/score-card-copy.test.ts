@@ -90,6 +90,13 @@ describe("score card copy", () => {
     expect(smokeSource).not.toContain('[aria-label="Route display"] button');
   });
 
+  it("names selected transit stops explicitly in the selected-stop badge", () => {
+    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+
+    expect(source).toContain("Viewing selected transit stop");
+    expect(source).not.toContain("Viewing selected stop");
+  });
+
   it("accepts walk-mode browser smoke arguments while preserving route-mode compatibility", () => {
     const smokeSource = readFileSync(join(__dirname, "../../scripts/browser-smoke.mjs"), "utf-8");
 
