@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P526 code commit: `da1dfc0`; state-only commits may follow it on `main`.
+Latest P527 code commit: `83b203e`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P527 is complete and committed: `pipeline.export export` and `export-transit` now require explicit `--output` and refuse non-empty targets, while `refresh-provenance` requires explicit `--output` and is documented as an in-place manifest mutation. Focused export/run tests, repo integrity, check-ignore, and protected-diff checks passed. No scoring, export, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P526 is complete and committed: confirmed non-dry `geocode-universe` runs now refuse unversioned outputs and existing output/summary paths before cache/API work, preserving the numbered-artifact/no-in-place-repair rule for bounded OneMap geocode fills. Focused geocode/run tests, help probe, repo integrity, check-ignore, and protected-diff checks passed.
 - P525 is complete and committed: `run.py --help` and the `batch-plan` stub now expose that batch planning is a one-attempt full-batch dry run whose execution still requires owner approval and bounded OneMap controls. Focused runner tests, help probe, repo integrity, check-ignore, and protected-diff checks passed.
 - P524 is complete and committed: `CLAUDE.md` now carries the same postal-universe v2 OneMap Search boundary as README/batch-plan/readiness: candidate validation uses explicit token controls, 72-hour token refresh, and the documented token-authenticated call-limit cap unless SLA approves a higher limit case-by-case. Focused agent-doc test, doc probe, repo integrity, check-ignore, and protected-diff checks passed.
