@@ -115,7 +115,7 @@ const RECENT_PUBLIC_SOURCE_MISSING_POSTAL_SOURCE: Record<string, string> = {
 function recentPublicSourceGapCopyForPostal(postal?: string): string {
   const source = postal ? RECENT_PUBLIC_SOURCE_MISSING_POSTAL_SOURCE[postal] : undefined;
   if (source) {
-    return `this postal is one of the 8 cached recent public-source misses (${source})`;
+    return `this postal is one of the 8 recent public-source postals missing from frozen v1 (${source})`;
   }
   return `the recent public-source check found ${RECENT_PUBLIC_SOURCE_GAP_COPY}`;
 }

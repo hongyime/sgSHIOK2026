@@ -1006,3 +1006,6 @@ When a selected postal is one of the eight cached P19 recent-source misses, the 
 
 2026-08-21 - P361 known P19 miss source-group coverage:
 Known-miss browser copy must be tested for both cached P19 source groups, not only the HDB completion/geocoded branch. The focused render test now covers the MCST 2021-2026 proxy-row label as well. This is test coverage and evidence only; it does not change runtime behavior, read protected payloads, run measurements, score, export, deploy, ingest, network, or touch locked weights.
+
+2026-08-21 - P362 known P19 miss public wording:
+Browser copy for a known P19 missing postal should describe the public product limitation, not the cache implementation. The known-miss branch now says the postal is one of the 8 recent public-source postals missing from frozen v1, while keeping the HDB/MCST source-group label. This is web copy and test coverage only; it does not read protected payloads, run measurements, score, export, deploy, ingest, network, or touch locked weights.
