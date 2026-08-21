@@ -35,7 +35,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("within the current scoring range");
     expect(source).not.toContain("Current scoring range is 1.2 km");
     expect(source).not.toContain("Outside current scoring range");
-    expect(source).toContain("Shelter-map walk not verified yet");
+    expect(source).toContain("No verified shelter-map walk yet");
     expect(source).toContain("Direct line to bus stop; shelter-map walk pending.");
     expect(source).toContain("Shelter-map walk access was not verified, so the locked bus term remains 0.");
     expect(source).toContain("Direct bus line estimate");
@@ -444,6 +444,10 @@ describe("score card copy", () => {
       "A low value can mean weak service evidence, or that the published shelter-map walk could not prove access to an official LTA bus stop."
     );
     expect(source).toContain("Nearby bus service without verified shelter-map walk");
+    expect(source).toContain("Nearby bus service found");
+    expect(source).toContain("No verified shelter-map walk yet");
+    expect(source).not.toContain("Nearby bus stop with service data");
+    expect(source).not.toContain("Shelter-map walk not verified yet");
     expect(source).not.toContain("Nearby bus service not walk-verified");
     expect(source).not.toContain("trusted walk to a DataMall bus stop");
     expect(source).toContain('bus: { low: "Limited bus-service evidence", high: "Stronger bus-service evidence" }');

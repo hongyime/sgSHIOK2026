@@ -815,6 +815,8 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("Nearby bus service without verified shelter-map walk");
+    expect(html).not.toContain("Nearby bus stop with service data");
+    expect(html).not.toContain("Shelter-map walk not verified yet");
     expect(html).toContain("62% covered-walkway ratio on sheltered walk");
     expect(html).not.toContain("62% covered-walkway ratio on selected walk");
     expect(html).toContain("3 direct bus options found; nearest 99 m; 0.4 min best scheduled wait.");
@@ -834,6 +836,26 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("20%");
     expect(html).not.toContain("Limited bus-service evidence");
     expect(html).not.toContain("Limited bus connectivity");
+  });
+
+  it("renders direct bus fallback score reasons without implying a verified walk", () => {
+    const fallbackRecord: ScoreRecord = {
+      ...scoredRecord,
+      paths: { ...scoredRecord.paths!, routing_type: "direct_bus_fallback_unrouted" },
+    };
+
+    const html = renderScoreCard({
+      selection: {
+        ...selection,
+        score: fallbackRecord,
+      },
+      rankingRecords: [fallbackRecord],
+    });
+
+    expect(html).toContain("Nearby bus service found");
+    expect(html).toContain("No verified shelter-map walk yet");
+    expect(html).not.toContain("Nearby bus stop with service data");
+    expect(html).not.toContain("Shelter-map walk not verified yet");
   });
 
   it("keeps the low-bus verdict for genuine zero-bus records without fallback evidence", () => {

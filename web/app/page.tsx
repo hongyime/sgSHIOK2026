@@ -783,7 +783,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
     return ["No full locked score in published shelter-map bundle", "Awaiting locked score"];
   }
   if (score.paths?.routing_type === "direct_bus_fallback_unrouted") {
-    return ["Nearby bus stop with service data", "Shelter-map walk not verified yet"];
+    return ["Nearby bus service found", "No verified shelter-map walk yet"];
   }
   if (!score.paths || !score.best_node) return ["Shelter map evidence unavailable", "Locked score unavailable"];
   if (!score.subscores) return ["Locked terms unavailable", "Shelter map evidence available"];
