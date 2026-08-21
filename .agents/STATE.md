@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P286 code commit: `06eb898`; state-only commits may follow it on `main`.
+Latest P287 code commit: `f7d3888`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P287 is complete and committed: `run.py --help` now advertises `uv run python run.py <task> [options]`, with `tests/test_run.py` guarding against the older bare `python run.py` usage line. Focused runner tests, help output, and repo integrity pass.
 - P286 is complete and committed: `CLAUDE.md` now uses the uv-managed runner command (`uv run python run.py ...`) for task orchestration, tests, and publish guidance, with `tests/test_agent_docs.py` guarding against the older bare `python run.py ...` commands. Focused agent-doc test and repo integrity pass.
 - P285 is complete and committed: README publish/full-batch guidance now uses `uv run python run.py readiness`, and `tests/test_run.py` guards the readiness task dispatch to `scripts.production_readiness`. Focused README/run tests and repo integrity pass.
 - P284 is complete and committed: `CLAUDE.md` repo layout now documents `run.py` safe reports separately from gated pipeline tasks, matching README's current operator surface. Focused agent-doc test and repo integrity pass.
