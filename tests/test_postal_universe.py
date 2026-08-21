@@ -14,6 +14,7 @@ from pipeline.postal_universe import (
     ONEMAP_2020_SOURCE_KEY,
     OTHER_UEN_SOURCE_KEY,
     OVERTURE_ADDRESSES_SOURCE_KEY,
+    OVERTURE_ADDRESSES_POLICY_WARNING,
     SLA_DWELLING_SOURCE_KEY,
     URA_DWELLING_SOURCE_KEY,
     SourceRow,
@@ -315,6 +316,21 @@ def test_postal_universe_cli_rejects_unversioned_defaults_before_loading_sources
     assert '"ok": false' in out
     assert "numeric version tag" in out
     assert "[postal-universe] loading" not in out
+
+
+def test_postal_universe_help_names_overture_candidate_policy(
+    capsys: pytest.CaptureFixture[str],
+):
+    with pytest.raises(SystemExit) as excinfo:
+        postal_universe.main(["--help"])
+
+    assert excinfo.value.code == 0
+    out = " ".join(capsys.readouterr().out.split())
+    assert "candidate-only postal-universe evidence" in out
+    assert "does not approve scoring or address-registry use" in out
+    assert "does not change defaults" in out
+    assert "does not approve scoring or address-registry approval" not in out
+    assert "scoring or address-registry approval" in OVERTURE_ADDRESSES_POLICY_WARNING
 
 
 def test_merge_source_rows_prefers_current_coordinates_and_keeps_source_membership():

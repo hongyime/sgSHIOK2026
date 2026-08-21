@@ -47,6 +47,11 @@ OVERTURE_ADDRESSES_RAW_NAME = "overture_addresses_sg_postcode_candidates.parquet
 OVERTURE_ADDRESSES_URL = (
     "s3://overturemaps-us-west-2/release/2026-07-22.0/theme=addresses/type=address/*"
 )
+OVERTURE_ADDRESSES_POLICY_WARNING = (
+    "overture_addresses_sg_candidate is candidate-only postal-universe evidence, "
+    "not scoring or address-registry approval; it is Alpha/OpenAddresses-SLA-OneMap-derived "
+    "and must pass raw archive, attribution, dedupe, and coordinate QA before full-batch use"
+)
 SLA_DWELLING_SOURCE_KEY = "sla_dwelling_information"
 SLA_DWELLING_DATASET_ID = "d_e4495201ba4f77fa2ef9855bad6d2cd1"
 SLA_DWELLING_RAW_NAME = "sla_dwelling_information.geojson"
@@ -1169,9 +1174,7 @@ def build_universe(
             "postal_universe_onemap_2020 is a third-party OneMap-derived 2020 dump and must be human-approved before full-batch use"
         )
     if include_overture_candidate:
-        warnings.append(
-            "overture_addresses_sg_candidate is Alpha/OpenAddresses-SLA-OneMap-derived and must pass raw archive, attribution, dedupe, and coordinate QA before full-batch use"
-        )
+        warnings.append(OVERTURE_ADDRESSES_POLICY_WARNING)
 
     summary = {
         "generated_at": datetime.now(UTC).isoformat(),
@@ -1192,8 +1195,11 @@ def build_universe(
     return df, summary
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser(description="Build postal universe candidates.")
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Build postal universe candidates.",
+        formatter_class=argparse.RawTextHelpFormatter,
+    )
     parser.add_argument(
         "--mode",
         choices=["official_current", "candidate_full_registered", "candidate_full_all"],
@@ -1213,14 +1219,18 @@ def main() -> int:
     parser.add_argument(
         "--include-overture-candidate",
         action="store_true",
-        help="Include the archived Overture Addresses SG candidate; does not change defaults.",
+        help=(
+            "Include archived Overture Addresses SG as candidate-only postal-universe "
+            "evidence; does not approve scoring or address-registry use and does not "
+            "change defaults."
+        ),
     )
     parser.add_argument(
         "--overture-candidate",
         type=Path,
         help="Override archived Overture postcode-candidate parquet path.",
     )
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     try:
         df, summary = build_universe(
