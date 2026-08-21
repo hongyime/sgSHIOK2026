@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P549 code commit: `1f60c26`; state-only commits may follow it on `main`.
+Latest P550 code commit: `1c92f03`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P550 is complete and committed: remaining user-facing adjective phrases now use `Shelter-map evidence` consistently in preview reason chips, unavailable/available reason chips, evidence breakdown headings, aria labels, route legend preview copy, and the data-as-of line, while keeping the product noun `S.H.I.O.K. Shelter Map` and the panel label unchanged. Focused web render/copy/map tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P549 is complete and committed: user-facing no-selection and live OneMap preview copy/provenance now consistently use `shelter-map` as an adjective (`No shelter-map walk selected`, `Preview shelter-map evidence`, and `Clicked transit POI has shelter-map evidence only`). Focused web render/copy/live-preview tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed after updating a stale map-interaction test expectation. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P548 is complete and committed: selected-walk exposure hero now labels zero-gap routes as `Covered-walkway evidence` instead of `Where the walk is exposed`, while routes with exposure gaps keep the exposed-walk label. Focused web render/copy tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P547 is complete and committed: search no-result feedback now separates the immediate OneMap result failure from the frozen June 2020 published-bundle caveat, while the screen-reader announcement and tests preserve the measured 16 Aug 2026 public-source sample facts. Focused web render/copy tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
