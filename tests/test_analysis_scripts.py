@@ -251,6 +251,16 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
         "confirmed_missing_address_rows": 1,
         "source_quality_warning_rows": 1,
     }
+    assert report["release_policy"] == {
+        "measurement_label": "16 Aug 2026 public-source sample",
+        "status": "sample_classified",
+        "confirmed_missing_address_rows": 1,
+        "source_quality_warning_rows": 1,
+        "summary": (
+            "1 coordinate-backed HDB missing row confirmed as address-universe gap; "
+            "1 MCST proxy row remains a source-quality warning"
+        ),
+    }
 
 
 def test_p125_osm_status_reports_cached_overpass_coverage(tmp_path: Path) -> None:

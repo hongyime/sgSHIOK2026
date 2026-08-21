@@ -1341,3 +1341,7 @@ README, `CLAUDE.md`, and production readiness should use the same `public-source
 2026-08-22 - P492 P19 browser sample identifier:
 
 Browser source should not name the 16 Aug 2026 P19 sample label as a `check` identifier after the product copy moved to `public-source sample`. `RECENT_PUBLIC_SOURCE_CHECK_LABEL` is renamed to `RECENT_PUBLIC_SOURCE_SAMPLE_LABEL` while preserving the rendered text and the measured P19 counts. This is browser source/test naming only; it does not change rendered copy, call APIs, mutate P19/P379 caches, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P493 P19 release-policy status:
+
+The cached P19 gap status report should expose the same release-policy classification as the browser/readiness copy: the measurement is the `16 Aug 2026 public-source sample`, coordinate-backed HDB rows are confirmed address-universe gaps, and unlocated MCST proxy rows are source-quality warnings. The read-only `p19-gap-status` output now derives a `release_policy` block from existing cached detail and P379 probe status without calling APIs or writing files. This is reporting/test coverage only; it does not mutate P19/P379 caches, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.

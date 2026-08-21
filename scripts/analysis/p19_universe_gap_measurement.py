@@ -464,6 +464,39 @@ def evidence_split_status(
     }
 
 
+def release_policy_status(evidence_split: dict[str, Any]) -> dict[str, Any]:
+    def row_phrase(count: int, label: str) -> str:
+        noun = "row" if count == 1 else "rows"
+        return f"{count} {label} {noun}"
+
+    if not evidence_split.get("detail_exists"):
+        return {
+            "measurement_label": "16 Aug 2026 public-source sample",
+            "status": "missing_detail",
+            "confirmed_missing_address_rows": 0,
+            "source_quality_warning_rows": 0,
+            "summary": "cached P19 detail is absent; release policy cannot classify the sample",
+        }
+    confirmed_rows = int(evidence_split.get("confirmed_missing_address_rows") or 0)
+    warning_rows = int(evidence_split.get("source_quality_warning_rows") or 0)
+    gap_noun = "gap" if confirmed_rows == 1 else "gaps"
+    warning_clause = (
+        f"{row_phrase(warning_rows, 'MCST proxy')} remains a source-quality warning"
+        if warning_rows == 1
+        else f"{row_phrase(warning_rows, 'MCST proxy')} remain source-quality warnings"
+    )
+    return {
+        "measurement_label": "16 Aug 2026 public-source sample",
+        "status": "sample_classified",
+        "confirmed_missing_address_rows": confirmed_rows,
+        "source_quality_warning_rows": warning_rows,
+        "summary": (
+            f"{row_phrase(confirmed_rows, 'coordinate-backed HDB missing')} confirmed as "
+            f"address-universe {gap_noun}; {warning_clause}"
+        ),
+    }
+
+
 def cache_status_report(now: dt.datetime | None = None) -> dict[str, Any]:
     if now is None:
         now = dt.datetime.now(dt.UTC)
@@ -478,6 +511,7 @@ def cache_status_report(now: dt.datetime | None = None) -> dict[str, Any]:
         P379_MCST_LOCATION_REPORT,
         cache_path=P379_MCST_LOCATION_CACHE,
     )
+    evidence_split = evidence_split_status(missing_detail, mcst_probe)
     return {
         "mode": "cache_status_only",
         "will_call_apis": False,
@@ -491,7 +525,8 @@ def cache_status_report(now: dt.datetime | None = None) -> dict[str, Any]:
         },
         "missing_row_detail": missing_detail,
         "mcst_proxy_location_probe": mcst_probe,
-        "evidence_split": evidence_split_status(missing_detail, mcst_probe),
+        "evidence_split": evidence_split,
+        "release_policy": release_policy_status(evidence_split),
     }
 
 
