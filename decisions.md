@@ -1529,3 +1529,7 @@ The freshness report's oldest-current summary is the first planning line operato
 2026-08-22 - P539 structured nearest freshness source:
 
 Readiness consumers should not have to parse the oldest-current prose line to plan source refresh timing. `source_freshness_readiness()` now returns `nearest_current_source_to_stale` as structured fields (`source_key`, name, age basis, age days, threshold, days until stale, and cadence) while preserving the existing `oldest_current_source` text. This remains manifest-only and does not approve upstream probes, input mutation, scoring, export, deployment, public-data mutation, protected-QA mutation, or locked-weight changes.
+
+2026-08-22 - P540 structured stale freshness sources:
+
+Stale-source planning needs more than a prose warning and a list of keys. `source_freshness_readiness()` now returns `stale_sources` as structured fields (`source_key`, name, age basis, age days, threshold, days past stale, and cadence) while preserving the existing warning text and `by_status` key lists. This remains manifest-only and does not approve upstream probes, input mutation, scoring, export, deployment, public-data mutation, protected-QA mutation, or locked-weight changes.

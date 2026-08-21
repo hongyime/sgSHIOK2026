@@ -376,6 +376,17 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
         "days_until_stale": 29.0,
         "expected_cadence": "monthly",
     }
+    assert status["stale_sources"] == [
+        {
+            "source_key": "stale",
+            "name": "Stale",
+            "age_basis": "last_modified",
+            "age_days": 39.911944,
+            "stale_after_days": 30,
+            "days_past_stale": 9.911944,
+            "expected_cadence": "monthly",
+        }
+    ]
     assert status["summary"].startswith(
         "manifest-only source freshness checked at 2026-08-16T00:00:00+00:00: current 1"
     )
