@@ -1165,3 +1165,7 @@ The outside-bundle empty-state heading should say `Outside published shelter-map
 2026-08-21 - P416 footer headline evidence copy:
 
 The page footer now says "Source-derived covered-walkway ratio, exposed gaps, and night-lighting map evidence." The prior "covered-walkway, exposure-gap" wording used an implementation-style singular adjective and did not match the settled product framing that the ratio and per-gap exposure evidence are the headline.
+
+2026-08-21 - P417 shared metadata evidence framing:
+
+The site metadata description now says "covered-walkway ratio, exposed gaps, night-lighting evidence" instead of "covered-walkway exposure gaps." Metadata is the share-card/search-snippet surface, so it should name the same distinct evidence artifacts as the first-view title and footer rather than compressing the ratio and gap evidence into one phrase.

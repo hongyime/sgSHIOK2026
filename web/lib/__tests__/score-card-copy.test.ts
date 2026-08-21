@@ -240,8 +240,9 @@ describe("score card copy", () => {
     expect(source).not.toContain("Heat: shelter plus NParks shade proxy");
     expect(source).not.toContain("Heat proxy: shelter + sparse NParks greenery");
     expect(layoutSource).toContain(
-      "Explore covered-walkway exposure gaps, night-lighting evidence, and the secondary locked SHIOK score"
+      "Explore covered-walkway ratio, exposed gaps, night-lighting evidence, and the secondary locked SHIOK score"
     );
+    expect(layoutSource).not.toContain("covered-walkway exposure gaps");
     expect(layoutSource).not.toContain("measuring rain shelter, provisional heat proxy, crossing friction");
     expect(layoutSource).not.toContain("Singapore walk-to-transit comfort score");
   });
