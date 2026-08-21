@@ -1131,7 +1131,7 @@ export function ScoreCard({
         </p>
         <h2>{postalTitle(selection)}</h2>
         <div className={styles.emptyState}>
-          <strong>Outside shelter-map bundle</strong>
+          <strong>Outside published shelter-map bundle</strong>
           <span>No shelter-map walk is published for this postal; the published shelter-map bundle is tied to the frozen June 2020 address universe, and {recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.</span>
         </div>
       </section>

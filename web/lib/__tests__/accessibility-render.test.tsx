@@ -330,7 +330,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain(
       "Postal 560231 is outside the published shelter-map bundle tied to the frozen June 2020 address universe; the recent public-source check found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows with postals."
     );
-    expect(html).toContain("Outside shelter-map bundle");
+    expect(html).toContain("Outside published shelter-map bundle");
+    expect(html).not.toContain("Outside shelter-map bundle");
     expect(html).not.toContain("outside the shelter-map bundle tied to the frozen June 2020 address universe");
     expect(html).not.toContain("Postal 560231 is not in the current shelter-map bundle.");
     expect(html).not.toContain("Postal 560231 is not in the current score bundle.");

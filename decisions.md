@@ -1159,3 +1159,6 @@ Missing locked-score status should say `published shelter-map bundle`, including
 
 2026-08-21 - P414 transit candidate source contract:
 The client-side nearest-transit helper should describe candidate-list limits as a property of the `published shelter-map bundle`, not the `current` bundle. These comments guide future browser work around straight-line candidate chips versus routed per-candidate evidence, so they should use the same artifact boundary as user-facing caveats. This is source-contract wording and test coverage only; it does not alter candidate derivation, transit selection, route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P415 outside-bundle heading:
+The outside-bundle empty-state heading should say `Outside published shelter-map bundle`, matching the body copy and the settled published-artifact boundary. The previous `Outside shelter-map bundle` heading was accurate but less precise after P412/P413 moved the surrounding caveats to published-bundle wording. This is browser copy and test coverage only; it does not alter search behavior, route geometry, score values, exports, public data, deployment, or locked weights.
