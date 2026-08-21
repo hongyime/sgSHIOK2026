@@ -50,6 +50,11 @@ That readiness check validates the shelter-map bundle and also verifies that the
 lamp overlay artifact is present and internally consistent. Do not rebuild,
 overwrite, or mutate existing public data directories to repair a missing
 artifact; copy or create only a new versioned artifact after owner approval.
+If a replacement night-lighting overlay is approved, run
+`uv run python run.py lamp-overlay -- --output web/public/data/lamp_posts_v2`
+or another new numeric version path; the builder refuses non-empty output
+directories, and `lamp_posts_v1/` remains the published artifact until a later
+release decision points the site elsewhere.
 For a zero-mutation source-age check, run
 `uv run python run.py check --freshness-only`; it reads `raw/manifest.json` and
 `pipeline/config/sources.yaml` only, does not probe upstream APIs, and reports
@@ -84,8 +89,8 @@ reruns, deploy, or repoint the live site without explicit owner approval.
 - `env.example` — copy to `.env` and fill in (see prerequisites).
 - `run.py` — cross-platform task runner for safe reports (`check --freshness-only`,
   `check --geospatial-discovery-only`, `p19-gap-status`, `p125-osm-status`, `readiness`, `batch-plan`)
-  and gated pipeline tasks (`ingest`, `network`, `score`, `export`, `validate`,
-  `publish`, `test`). `publish` always runs `validate` first.
+  and gated pipeline tasks (`ingest`, `lamp-overlay`, `network`, `score`,
+  `export`, `validate`, `publish`, `test`). `publish` always runs `validate` first.
 
 ## Human prerequisites (do these once — agents can't register accounts)
 

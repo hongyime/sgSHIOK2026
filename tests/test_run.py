@@ -25,7 +25,10 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in run.__doc__
     assert "batch-plan dry-runs batch prerequisites and policy status without scoring." in run.__doc__
     assert "Gated pipeline tasks:" in run.__doc__
-    assert "ingest | network | score | score-batch | export | export-transit | validate | publish" in run.__doc__
+    assert (
+        "ingest | lamp-overlay | network | score | score-batch | export | export-transit | validate | publish"
+        in run.__doc__
+    )
 
 
 def test_run_help_headline_does_not_flatten_all_tasks():
@@ -45,6 +48,10 @@ def test_run_help_headline_does_not_flatten_all_tasks():
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in help_text
     assert "batch-plan dry-runs batch prerequisites and policy status without scoring." in help_text
     assert "Gated pipeline tasks:" in help_text
+    assert (
+        "ingest | lamp-overlay | network | score | score-batch | export | export-transit | validate | publish"
+        in help_text
+    )
 
 
 def test_run_task_descriptions_name_published_shelter_map_bundle():
@@ -99,6 +106,35 @@ def test_run_task_exposes_p19_gap_status_as_read_only_module(monkeypatch):
                 "-m",
                 "scripts.analysis.p19_universe_gap_measurement",
                 "--cache-status-only",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_task_exposes_lamp_overlay_as_gated_module(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("lamp-overlay", ["--output", "web/public/data/lamp_posts_v2"]) == 0
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "pipeline.lamp_overlay",
+                "--output",
+                "web/public/data/lamp_posts_v2",
             ],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},

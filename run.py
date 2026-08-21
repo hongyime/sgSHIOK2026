@@ -13,7 +13,7 @@ Safe reports:
   batch-plan dry-runs batch prerequisites and policy status without scoring.
 
 Gated pipeline tasks:
-  ingest | network | score | score-batch | export | export-transit | validate | publish
+  ingest | lamp-overlay | network | score | score-batch | export | export-transit | validate | publish
 
 `publish` ALWAYS runs `validate` first — this gate is hard-coded and must never be removed.
 """

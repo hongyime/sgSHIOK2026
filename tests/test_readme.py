@@ -71,6 +71,10 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "validates the shelter-map bundle" in normalized
     assert "validates the score bundle" not in normalized
     assert "Do not rebuild, overwrite, or mutate existing public data directories" in normalized
+    assert "uv run python run.py lamp-overlay -- --output web/public/data/lamp_posts_v2" in normalized
+    assert "another new numeric version path" in normalized
+    assert "builder refuses non-empty output directories" in normalized
+    assert "lamp_posts_v1/` remains the published artifact" in normalized
     assert "uv run python run.py check --freshness-only" in normalized
     assert "zero-mutation source-age check" in normalized
     assert "does not probe upstream APIs" in normalized
@@ -86,7 +90,10 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "`pipeline/config/weights.yaml` — locked score weights." in normalized
     assert "`run.py` — cross-platform task runner for safe reports" in normalized
     assert "`p19-gap-status`, `p125-osm-status`, `readiness`, `batch-plan`" in normalized
-    assert "and gated pipeline tasks (`ingest`, `network`, `score`, `export`, `validate`, `publish`, `test`)" in normalized
+    assert (
+        "and gated pipeline tasks (`ingest`, `lamp-overlay`, `network`, `score`, `export`, `validate`, `publish`, `test`)"
+        in normalized
+    )
     assert "locked composite-score weights" not in normalized
 
 
