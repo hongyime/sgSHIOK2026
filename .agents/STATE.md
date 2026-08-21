@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P337 code commit: `e060c78`; state-only commits may follow it on `main`.
+Latest P338 code commit: `77580ea`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P338 is complete and committed: `scripts/audit_current_bundle.py` CLI help now names the published shelter-map bundle in its description and `--state-only` help instead of generic/current bundle wording. Focused audit-current-bundle tests and repo integrity pass.
 - P337 is complete and committed: `run.py` safe-report help now says readiness validates the published shelter-map bundle and release gates without scoring or deploying instead of the generic current bundle. Focused runner tests and repo integrity pass.
 - P336 is complete and committed: `scripts/analysis/analyze_heat_presentation.py` now audits the current heat-proxy and locked-release rain/heat copy instead of retired strings, and its resolver test passes again. Focused heat-presentation tests and repo integrity pass.
 - P335 is complete and committed: the committed Section 10 proposal no longer preserves stale `current` wording for the pre-P18 five-row presentation, and its rain/heat plus locked-score copy now matches locked-release/published-bundle language. Focused score-card copy tests and repo integrity pass.
