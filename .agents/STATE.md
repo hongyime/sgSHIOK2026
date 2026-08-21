@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P372 code commit: `a0150c8`; state-only commits may follow it on `main`.
+Latest P373 code commit: `161b737`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P373 is complete and committed: added `uv run python run.py p125-osm-status`, a read-only cached P125 OSM `addr:postcode` coverage report that calls no APIs and writes no files. It reproduces the settled 25,879 valid OSM postcodes / 25,873 v1 overlap / 20.791045% coverage and reports 23 invalid distinct OSM postcode tags. Focused analysis/run/README/agent-doc tests and repo integrity passed.
 - P372 is complete and committed: map empty-state search summary now matches the first-view title-card framing exactly as `inspect covered-walkway ratio, exposed gaps, and night lighting near transit`. Focused route-evidence-map interaction test and repo integrity passed.
 - P371 is complete and committed: map empty-state search summary now uses the same `inspect covered-walkway ratio, exposed gaps, night lighting, and nearby transit` phrasing as the first-view search hint. Focused route-evidence-map interaction test and repo integrity passed.
 - P370 is complete and committed: first-view title-card subtitle now includes night lighting alongside covered-walkway ratio and exposed gaps, matching the settled second-layer evidence role. Focused score-card copy test and repo integrity passed.
