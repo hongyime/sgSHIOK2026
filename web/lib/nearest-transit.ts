@@ -5,7 +5,7 @@
  * transit POI collection, rank the nearest bus_stop / mrt_exit POIs by direct
  * (haversine) distance and pick the top N candidates.
  *
- * The current shelter-map bundle does NOT ship a ranked candidate list or per-stop
+ * The published shelter-map bundle does NOT ship a ranked candidate list or per-stop
  * route geometry alongside each postal, so:
  *   - Candidate distances here are STRAIGHT-LINE, not routed metres.
  *   - Coverage / sheltered ratios are NOT known for non-best candidates.
@@ -164,7 +164,7 @@ export interface CandidateComparison {
  * Percentage of extra straight-line distance for the active pick vs the best.
  * Returns null when either side is missing or the best distance is not positive.
  * NOTE: this is direct distance only — routed comparisons need per-candidate
- * scoring data that today's bundle does not ship.
+ * scoring data that the published shelter-map bundle does not ship.
  */
 export function candidateComparison(
   active: TransitCandidate | null | undefined,

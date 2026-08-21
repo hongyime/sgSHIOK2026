@@ -1156,3 +1156,6 @@ User-facing caveats about absent walks, disconnected transit, and missing full l
 
 2026-08-21 - P413 published bundle missing-score wording:
 Missing locked-score status should say `published shelter-map bundle`, including the live-region phrase and not-yet-scored visible reasons. Bare `in this bundle` copy is less precise than the settled published-artifact framing. This is browser copy, smoke-script alignment, and test coverage only; it does not alter score states, score values, search behavior, route geometry, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P414 transit candidate source contract:
+The client-side nearest-transit helper should describe candidate-list limits as a property of the `published shelter-map bundle`, not the `current` bundle. These comments guide future browser work around straight-line candidate chips versus routed per-candidate evidence, so they should use the same artifact boundary as user-facing caveats. This is source-contract wording and test coverage only; it does not alter candidate derivation, transit selection, route geometry, scoring, exports, public data, deployment, or locked weights.

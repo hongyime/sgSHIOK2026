@@ -118,8 +118,11 @@ describe("haversineMeters", () => {
 describe("deriveNearestTransitCandidates", () => {
   it("documents candidate limits against the shelter-map bundle, not a score bundle", () => {
     const source = readFileSync(join(__dirname, "../nearest-transit.ts"), "utf-8");
-    expect(source).toContain("The current shelter-map bundle does NOT ship a ranked candidate list");
+    expect(source).toContain("The published shelter-map bundle does NOT ship a ranked candidate list");
+    expect(source).toContain("scoring data that the published shelter-map bundle does not ship");
+    expect(source).not.toContain("The current shelter-map bundle does NOT ship a ranked candidate list");
     expect(source).not.toContain("The current score bundle does NOT ship a ranked candidate list");
+    expect(source).not.toContain("scoring data that today's bundle does not ship");
   });
 
   it("keeps transit picker comments aligned with the shelter-map panel frame", () => {
