@@ -222,6 +222,7 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
         "cache_status_calls_apis": False,
         "cache_status_writes_files": False,
         "cache_status_reports_age_days": True,
+        "cache_status_reports_missing_rows": True,
         "summary_path": "qa/p19/universe_gap_measurement_summary.json",
         "detail_path": "qa/p19/universe_gap_measurement_detail.json",
         "source_rows_with_postals": 976,

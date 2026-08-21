@@ -207,6 +207,67 @@ def json_file_status(path: Path, *, now: dt.datetime) -> dict[str, Any]:
     return status
 
 
+def missing_row_summary(detail_path: Path) -> dict[str, Any]:
+    detail_display_path = str(detail_path.relative_to(PROJECT_ROOT)).replace("\\", "/")
+    if not detail_path.is_file():
+        return {
+            "detail_path": detail_display_path,
+            "detail_exists": False,
+        }
+    payload = load_json(detail_path, {})
+    hdb_rows = [
+        {
+            "postal": row.get("postal"),
+            "year_completed": row.get("year_completed"),
+            "blk_no": row.get("blk_no"),
+            "street": row.get("street"),
+            "searchval": row.get("searchval"),
+            "total_dwelling_units": row.get("total_dwelling_units"),
+        }
+        for row in payload.get("hdb_rows", [])
+        if row.get("in_v1") is False
+    ]
+    mcst_rows = [
+        {
+            "postal": row.get("postal"),
+            "mc_form_year": row.get("mc_form_year"),
+            "development_name": row.get("development_name"),
+            "development_location": row.get("development_location"),
+            "usr_mcno": row.get("usr_mcno"),
+        }
+        for row in payload.get("mcst_rows", [])
+        if row.get("in_v1") is False
+    ]
+    by_source = {
+        "hdb_2021_2026_geocoded": hdb_rows,
+        "mcst_2021_2026": mcst_rows,
+    }
+    by_year: dict[str, int] = {}
+    for row in hdb_rows:
+        year = str(row.get("year_completed"))
+        by_year[year] = by_year.get(year, 0) + 1
+    for row in mcst_rows:
+        year = str(row.get("mc_form_year"))
+        by_year[year] = by_year.get(year, 0) + 1
+    missing_postals = sorted(
+        {
+            str(row["postal"])
+            for rows in by_source.values()
+            for row in rows
+            if row.get("postal")
+        }
+    )
+    return {
+        "detail_path": detail_display_path,
+        "detail_exists": True,
+        "missing_rows": len(hdb_rows) + len(mcst_rows),
+        "missing_unique_postals": len(missing_postals),
+        "missing_postals": missing_postals,
+        "missing_rows_by_source": by_source,
+        "missing_rows_by_year": dict(sorted(by_year.items())),
+    }
+
+
 def cache_status_report(now: dt.datetime | None = None) -> dict[str, Any]:
     if now is None:
         now = dt.datetime.now(dt.UTC)
@@ -224,6 +285,7 @@ def cache_status_report(now: dt.datetime | None = None) -> dict[str, Any]:
             "summary": json_file_status(SUMMARY_OUTPUT, now=now),
             "detail": json_file_status(DETAIL_OUTPUT, now=now),
         },
+        "missing_row_detail": missing_row_summary(DETAIL_OUTPUT),
     }
 
 

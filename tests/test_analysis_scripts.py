@@ -62,7 +62,35 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
         ),
         encoding="utf-8",
     )
-    detail.write_text(json.dumps({"hdb_rows": [{}, {}], "mcst_rows": [{}]}), encoding="utf-8")
+    detail.write_text(
+        json.dumps(
+            {
+                "hdb_rows": [
+                    {
+                        "blk_no": "400A",
+                        "street": "TAMPINES ST 41",
+                        "year_completed": 2026,
+                        "total_dwelling_units": 110,
+                        "postal": "521400",
+                        "searchval": "SUN PLAZA SPRING",
+                        "in_v1": False,
+                    },
+                    {"postal": "341111", "in_v1": True},
+                ],
+                "mcst_rows": [
+                    {
+                        "usr_mcno": "4918",
+                        "development_name": "MYRA",
+                        "development_location": "9 MEYAPPA CHETTIAR ROAD 935456",
+                        "postal": "935456",
+                        "mc_form_year": 2024,
+                        "in_v1": False,
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
 
     monkeypatch.setattr(p19, "QA_DIR", qa_dir)
     monkeypatch.setattr(p19, "HDB_GEOCODE_CACHE", hdb_cache)
@@ -94,6 +122,35 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
     assert report["files"]["summary"]["age_days"] == 1.499
     assert report["files"]["detail"]["hdb_row_count"] == 2
     assert report["files"]["detail"]["mcst_row_count"] == 1
+    assert report["missing_row_detail"] == {
+        "detail_path": "qa/p19/universe_gap_measurement_detail.json",
+        "detail_exists": True,
+        "missing_rows": 2,
+        "missing_unique_postals": 2,
+        "missing_postals": ["521400", "935456"],
+        "missing_rows_by_source": {
+            "hdb_2021_2026_geocoded": [
+                {
+                    "postal": "521400",
+                    "year_completed": 2026,
+                    "blk_no": "400A",
+                    "street": "TAMPINES ST 41",
+                    "searchval": "SUN PLAZA SPRING",
+                    "total_dwelling_units": 110,
+                }
+            ],
+            "mcst_2021_2026": [
+                {
+                    "postal": "935456",
+                    "mc_form_year": 2024,
+                    "development_name": "MYRA",
+                    "development_location": "9 MEYAPPA CHETTIAR ROAD 935456",
+                    "usr_mcno": "4918",
+                }
+            ],
+        },
+        "missing_rows_by_year": {"2024": 1, "2026": 1},
+    }
 
 
 def test_p125_osm_status_reports_cached_overpass_coverage(tmp_path: Path) -> None:
