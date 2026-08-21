@@ -461,7 +461,8 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain('aria-label="Score reasons"');
     expect(html).toContain("Shelter exposure");
     expect(html).toContain("Walk to transit");
-    expect(html).toContain("Selected walk distance to transit.");
+    expect(html).toContain("Sheltered walk distance to transit.");
+    expect(html).not.toContain("Selected walk distance to transit.");
     expect(html).not.toContain("Selected route distance to transit.");
     expect(html).toContain("Bus service support");
     expect(html).toContain("Locked SHIOK score");
@@ -618,6 +619,8 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("48% covered-walkway ratio on the shortest walk.");
     expect(html).toContain("181 m exposed across 2 gaps on the shortest walk.");
+    expect(html).toContain("Shortest walk distance to transit.");
+    expect(html).not.toContain("Sheltered walk distance to transit.");
     expect(html).toContain(
       "Shelter evidence 48% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m."
     );

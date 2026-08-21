@@ -1257,6 +1257,13 @@ export function ScoreCard({
       : routeMode === "shortest" && !sameRoute
         ? "shortest walk"
         : "sheltered walk";
+  const selectedWalkSentenceLabel = previewRoute
+    ? "OneMap preview walk"
+    : directBusFallback
+      ? "Direct bus line estimate"
+      : routeMode === "shortest" && !sameRoute
+        ? "Shortest walk"
+        : "Sheltered walk";
   const longestGapText = longestGap
     ? `${formatDistance(longestGap.len_m)} is the longest exposed gap.`
     : `No exposed gaps are recorded for this ${selectedWalkLabel}.`;
@@ -1316,7 +1323,7 @@ export function ScoreCard({
           label: "Walk to transit",
           value: score.paths ? formatDistance(selectedDistance) : formatScore(score.subscores.access),
           meta: scoredMeta(score.subscores.access, "35% locked access", "Access term unavailable"),
-          notes: [`Selected walk distance to ${transitModeLabel(transitMode)}.`],
+          notes: [`${selectedWalkSentenceLabel} distance to ${transitModeLabel(transitMode)}.`],
         },
         {
           id: "bus",
