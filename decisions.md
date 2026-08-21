@@ -748,3 +748,6 @@ The P19 postal-universe gap measurement should have a cheap read-only status mod
 
 2026-08-21 - P274 P19 cache status in source-policy surfaces:
 Dry-run batch planning and production readiness should point operators at the read-only P19 cache-status check wherever they report the recent public-source gap sample. The shared `RECENT_PUBLIC_SOURCE_GAP_SAMPLE` policy now includes the `--cache-status-only` command, declares that it calls no APIs and writes no files, and names the cached summary/detail paths. This is reporting/test coverage only; it does not run the P19 measurement, call data.gov.sg, OneMap, or Overpass, mutate `qa/p19`, mutate inputs, score, export, deploy, public data, or touch locked weights.
+
+2026-08-21 - P275 README P19 cache-status command:
+Operator onboarding should name the safe way to inspect the cached P19 postal-universe gap measurement, not only state the 8-of-976 result. The README universe-status section now points to `uv run python scripts/analysis/p19_universe_gap_measurement.py --cache-status-only` and states that it does not call data.gov.sg, OneMap, or Overpass. This is documentation/test coverage only; it does not run the measurement, call APIs, mutate `qa/p19`, mutate inputs, score, export, deploy, public data, or touch locked weights.
