@@ -530,6 +530,15 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         "coverage_pct": 20.791045,
         "verdict": "not sufficient as primary registry",
     }
+    assert report["features"]["source_policy"]["datamall_geospatial_discovery"] == {
+        "measurement": "P262/P264 DataMall geospatial discovery-only probe",
+        "command": "uv run python run.py check --geospatial-discovery-only",
+        "payload_downloads": False,
+        "manifest_writes": False,
+        "changed_sources": ["covered_linkway", "overhead_bridge_underpass"],
+        "matched_sources": ["traffic_signals"],
+        "verdict": "changed discovery URLs require a new numbered input version, not an in-place repair",
+    }
     assert report["batch_plan"]["full_batch_release_scope"] == {
         "status": "approved_in_principle_not_approved_to_run",
         "owner_approval_required_before_execution": True,

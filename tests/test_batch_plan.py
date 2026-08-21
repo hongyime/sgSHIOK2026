@@ -231,6 +231,15 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
         "coverage_pct": 20.791045,
         "verdict": "not sufficient as primary registry",
     }
+    assert report["source_policy"]["datamall_geospatial_discovery"] == {
+        "measurement": "P262/P264 DataMall geospatial discovery-only probe",
+        "command": "uv run python run.py check --geospatial-discovery-only",
+        "payload_downloads": False,
+        "manifest_writes": False,
+        "changed_sources": ["covered_linkway", "overhead_bridge_underpass"],
+        "matched_sources": ["traffic_signals"],
+        "verdict": "changed discovery URLs require a new numbered input version, not an in-place repair",
+    }
     assert (
         report["source_policy"]["onemap_search_role"]
         == "candidate validation/geocoding, not national enumeration"

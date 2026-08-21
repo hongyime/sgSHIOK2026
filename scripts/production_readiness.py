@@ -16,6 +16,7 @@ if str(PROJECT_ROOT) not in sys.path:
 import yaml
 
 from pipeline.batch_plan import (
+    DATAMALL_GEOSPATIAL_DISCOVERY_POLICY,
     FROZEN_V1_POLICY,
     ONEMAP_SEARCH_CONTROLS,
     OSM_ADDR_POSTCODE_COVERAGE,
@@ -1030,6 +1031,7 @@ def readiness_features(
             "v2": POSTAL_UNIVERSE_V2_POLICY,
             "recent_public_source_gap_sample": RECENT_PUBLIC_SOURCE_GAP_SAMPLE,
             "osm_addr_postcode_registry": OSM_ADDR_POSTCODE_COVERAGE,
+            "datamall_geospatial_discovery": DATAMALL_GEOSPATIAL_DISCOVERY_POLICY,
             "onemap_search_role": "candidate validation/geocoding, not national enumeration",
             "onemap_search_controls": ONEMAP_SEARCH_CONTROLS,
         },

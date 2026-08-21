@@ -54,6 +54,15 @@ RECENT_PUBLIC_SOURCE_GAP_SAMPLE = {
     "sources": ["HDB completion", "BCA MCST proxy"],
     "verdict": "small current-source gap in frozen v1; candidate-source-first v2 remains required",
 }
+DATAMALL_GEOSPATIAL_DISCOVERY_POLICY = {
+    "measurement": "P262/P264 DataMall geospatial discovery-only probe",
+    "command": "uv run python run.py check --geospatial-discovery-only",
+    "payload_downloads": False,
+    "manifest_writes": False,
+    "changed_sources": ["covered_linkway", "overhead_bridge_underpass"],
+    "matched_sources": ["traffic_signals"],
+    "verdict": "changed discovery URLs require a new numbered input version, not an in-place repair",
+}
 FULL_BATCH_RELEASE_SCOPE = {
     "status": "approved_in_principle_not_approved_to_run",
     "owner_approval_required_before_execution": True,
@@ -325,6 +334,7 @@ def build_batch_plan(
             "v2": POSTAL_UNIVERSE_V2_POLICY,
             "recent_public_source_gap_sample": RECENT_PUBLIC_SOURCE_GAP_SAMPLE,
             "osm_addr_postcode_registry": OSM_ADDR_POSTCODE_COVERAGE,
+            "datamall_geospatial_discovery": DATAMALL_GEOSPATIAL_DISCOVERY_POLICY,
             "onemap_search_role": "candidate validation/geocoding, not national enumeration",
             "onemap_search_controls": ONEMAP_SEARCH_CONTROLS,
             "requires_human_approval_for_universe": requires_universe_approval,
