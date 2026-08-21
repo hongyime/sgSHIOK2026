@@ -98,6 +98,9 @@ const REASON_COPY: Record<keyof Subscores, { low: string; high: string }> = {
   crossing: { low: "More crossing friction", high: "Easy crossing profile" },
 };
 
+const RECENT_PUBLIC_SOURCE_GAP_COPY =
+  "8 missing rows out of 976 (0.82%) HDB completion and MCST proxy rows from 2021-2026 with postals";
+
 interface DirectBusFallbackEvidence {
   bestExpectedWaitMin: number;
   candidateCount: number | null;
@@ -131,7 +134,7 @@ export function searchResultsAnnouncement(
 ): string {
   if (loading || error) return "";
   if (searched && results.length === 0) {
-    return "No OneMap address result found for this search. Try a 6-digit postal code. Separately, the frozen shelter-map bundle's recent public-source check found 8 missing rows out of 976.";
+    return `No OneMap address result found for this search. Try a 6-digit postal code. Separately, the frozen shelter-map bundle's recent public-source check found ${RECENT_PUBLIC_SOURCE_GAP_COPY}.`;
   }
   if (results.length === 0) return "";
   return `${results.length} search result${results.length === 1 ? "" : "s"} available.`;
@@ -165,7 +168,7 @@ export function scoreCardAnnouncement({
   if (!selection) return "No shelter map walk selected.";
   const postal = postalTitle(selection);
   if (!selection.score) {
-    return `${postal} is outside the shelter-map bundle tied to the frozen June 2020 address universe; recent public-source check found 8 missing rows out of 976.`;
+    return `${postal} is outside the shelter-map bundle tied to the frozen June 2020 address universe; recent public-source check found ${RECENT_PUBLIC_SOURCE_GAP_COPY}.`;
   }
   const scoreText = displayScore === null || displayScore === undefined
     ? "no full locked score in this bundle"
@@ -226,7 +229,7 @@ export function SearchFeedback({
       </p>
       {showNoResults && (
         <div className={styles.emptyBox} role="status">
-          No OneMap address result found for this search. Try a 6-digit postal code. Separately, the frozen shelter-map bundle's recent public-source check found 8 missing rows out of 976.
+          No OneMap address result found for this search. Try a 6-digit postal code. Separately, the frozen shelter-map bundle's recent public-source check found {RECENT_PUBLIC_SOURCE_GAP_COPY}.
         </div>
       )}
       {error && (
@@ -1058,7 +1061,7 @@ export function ScoreCard({
         <h2>{postalTitle(selection)}</h2>
         <div className={styles.emptyState}>
           <strong>Outside shelter-map bundle</strong>
-          <span>No shelter-map walk is published for this postal; this shelter-map bundle is tied to the frozen June 2020 address universe, and the recent public-source check found 8 missing rows out of 976.</span>
+          <span>No shelter-map walk is published for this postal; this shelter-map bundle is tied to the frozen June 2020 address universe, and the recent public-source check found {RECENT_PUBLIC_SOURCE_GAP_COPY}.</span>
         </div>
       </section>
     );
@@ -2041,7 +2044,7 @@ export default function Home() {
               Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape.
             </p>
             <p className={styles.freshnessLine}>
-              Recent public-source check: 8 missing rows out of 976 HDB completion and MCST proxy rows from 2021-2026 with postals.
+              Recent public-source check: {RECENT_PUBLIC_SOURCE_GAP_COPY}.
             </p>
             <p className={styles.freshnessLine}>
               Data freshness at the 21 Aug 2026 manifest-only check: 12 sources current, with NParks Leaf Area Index just under its 120-day quarterly threshold; 6 stale, 2 manual, and 1 candidate address source with unknown age. No upstream URLs were probed. Stale sources are traffic signals, planning area boundary, NParks nature ways, tracks, heritage trees and heritage road green buffers.

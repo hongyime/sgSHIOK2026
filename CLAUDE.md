@@ -7,7 +7,7 @@ night-lighting evidence as a map layer, and keeps the locked SHIOK score visible
 but secondary.
 
 The postal universe is frozen v1: 124,443 records built around a June 2020
-OneMap-derived postal scrape. P19 found 8 missing rows out of 976 HDB completion
+OneMap-derived postal scrape. P19 found 8 missing rows out of 976 (0.82%) HDB completion
 and MCST proxy rows with postals from 2021-2026, and P125 found live OSM
 `addr:postcode` covers only 25,873 frozen postals. Treat OSM as geometry
 evidence, not the primary address registry; any v2 universe is

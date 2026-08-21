@@ -958,3 +958,6 @@ The Section 10 proposal should use the same locked-term language as the app and 
 
 2026-08-21 - P344 freshness age threshold copy:
 The browser freshness line should not freeze a decimal day age that drifts within the same dated manifest-only check. The latest zero-mutation freshness run still reports 12 current sources, 6 stale, 2 manual, and 1 unknown-age candidate source, with NParks Leaf Area Index as the oldest current source at 112.9 days of a 120-day threshold. The UI now says that source is just under its 120-day quarterly threshold instead of preserving the earlier 112.6-day number. This is web copy, evidence, and test coverage only; it does not probe upstream URLs, mutate inputs, alter source manifests, score, export, deploy, public data, or locked weights.
+
+2026-08-21 - P345 recent-source gap percentage copy:
+The browser and README recent-source disclosure should show the measured P19 miss rate, not only the raw 8-of-976 count. The copy now says `8 missing rows out of 976 (0.82%) HDB completion and MCST proxy rows from 2021-2026 with postals`, matching P19's `row_miss_rate: 0.008197` / batch-plan `missing_pct: 0.819672`. This is web and documentation copy with tests only; it does not call APIs, mutate QA caches, alter inputs, score, export, deploy, public data, or locked weights.
