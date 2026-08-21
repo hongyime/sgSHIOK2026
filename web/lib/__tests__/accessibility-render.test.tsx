@@ -328,15 +328,17 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain(
-      "Postal 560231 is outside the shelter-map bundle tied to the frozen June 2020 address universe; the recent public-source check found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows with postals."
+      "Postal 560231 is outside the published shelter-map bundle tied to the frozen June 2020 address universe; the recent public-source check found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows with postals."
     );
     expect(html).toContain("Outside shelter-map bundle");
+    expect(html).not.toContain("outside the shelter-map bundle tied to the frozen June 2020 address universe");
     expect(html).not.toContain("Postal 560231 is not in the current shelter-map bundle.");
     expect(html).not.toContain("Postal 560231 is not in the current score bundle.");
     expect(html).not.toContain("Outside current bundle");
     expect(html).toContain(
-      "No shelter-map walk is published for this postal; this shelter-map bundle is tied to the frozen June 2020 address universe, and the recent public-source check found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows with postals."
+      "No shelter-map walk is published for this postal; the published shelter-map bundle is tied to the frozen June 2020 address universe, and the recent public-source check found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows with postals."
     );
+    expect(html).not.toContain("No shelter-map walk is published for this postal; this shelter-map bundle is tied");
     expect(html).not.toContain(
       "No shelter-map walk is published for this postal; the current bundle is tied to the frozen June 2020 address universe.</span>"
     );
@@ -379,20 +381,20 @@ describe("rendered accessibility output", () => {
     });
 
     expect(hdbHtml).toContain(
-      "Postal 521400 is outside the shelter-map bundle tied to the frozen June 2020 address universe; this postal is one of the 8 recent public-source postals missing from frozen v1 (HDB 2021-2026 geocoded rows)."
+      "Postal 521400 is outside the published shelter-map bundle tied to the frozen June 2020 address universe; this postal is one of the 8 recent public-source postals missing from frozen v1 (HDB 2021-2026 geocoded rows)."
     );
     expect(hdbHtml).toContain(
-      "No shelter-map walk is published for this postal; this shelter-map bundle is tied to the frozen June 2020 address universe, and this postal is one of the 8 recent public-source postals missing from frozen v1 (HDB 2021-2026 geocoded rows)."
+      "No shelter-map walk is published for this postal; the published shelter-map bundle is tied to the frozen June 2020 address universe, and this postal is one of the 8 recent public-source postals missing from frozen v1 (HDB 2021-2026 geocoded rows)."
     );
     expect(hdbHtml).not.toContain(
-      "Postal 521400 is outside the shelter-map bundle tied to the frozen June 2020 address universe; recent public-source check found 8 missing rows out of 976"
+      "Postal 521400 is outside the published shelter-map bundle tied to the frozen June 2020 address universe; recent public-source check found 8 missing rows out of 976"
     );
     expect(hdbHtml).not.toContain("cached recent public-source misses");
     expect(mcstHtml).toContain(
-      "Postal 935456 is outside the shelter-map bundle tied to the frozen June 2020 address universe; this postal appears only in an unvalidated MCST proxy row; OneMap Search did not locate MYRA at the recorded postal, so it is source-quality evidence rather than a confirmed missing address."
+      "Postal 935456 is outside the published shelter-map bundle tied to the frozen June 2020 address universe; this postal appears only in an unvalidated MCST proxy row; OneMap Search did not locate MYRA at the recorded postal, so it is source-quality evidence rather than a confirmed missing address."
     );
     expect(mcstHtml).toContain(
-      "No shelter-map walk is published for this postal; this shelter-map bundle is tied to the frozen June 2020 address universe, and this postal appears only in an unvalidated MCST proxy row; OneMap Search did not locate MYRA at the recorded postal, so it is source-quality evidence rather than a confirmed missing address."
+      "No shelter-map walk is published for this postal; the published shelter-map bundle is tied to the frozen June 2020 address universe, and this postal appears only in an unvalidated MCST proxy row; OneMap Search did not locate MYRA at the recorded postal, so it is source-quality evidence rather than a confirmed missing address."
     );
     expect(mcstHtml).not.toContain(
       "this postal is one of the 8 recent public-source postals missing from frozen v1 (MCST 2021-2026 proxy rows)"
@@ -715,8 +717,9 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Locked score no full locked score in this bundle.");
     expect(html).not.toContain("No full score in this bundle");
     expect(html).toContain(
-      "This postal is in the frozen v1 address universe, but this shelter-map bundle has no published full locked score for it yet."
+      "This postal is in the frozen v1 address universe, but the published shelter-map bundle has no full locked score for it yet."
     );
+    expect(html).not.toContain("this shelter-map bundle has no published full locked score");
     expect(html).not.toContain("the current published bundle has not scored it yet");
     expect(html).not.toContain("Locked score not scored.");
     expect(html).not.toContain("source universe");

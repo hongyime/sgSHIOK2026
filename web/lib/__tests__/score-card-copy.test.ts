@@ -18,7 +18,7 @@ describe("score card copy", () => {
     expect(source).toContain("Transit stop or exit found");
     expect(source).toContain("No qualifying transit stop within 1.2 km");
     expect(source).not.toContain("No transit stop within scoring range");
-    expect(source).toContain("Transit stops or exits exist, but this shelter-map bundle has no connected shelter-map walk yet.");
+    expect(source).toContain("Transit stops or exits exist, but the published shelter-map bundle has no connected shelter-map walk yet.");
     expect(source).toContain("No qualifying MRT/LRT exit or bus stop was found within the locked 1.2 km transit range for this postal.");
     expect(source).not.toContain("Transit beyond scoring range");
     expect(source).not.toContain("within the 1.2 km scoring range for this postal");
@@ -43,6 +43,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("Shelter-map walk access was not verified, so this component score remains 0.");
     expect(source).not.toContain("current walking graph could not connect a route yet");
     expect(source).not.toContain("Transit route not connected yet");
+    expect(source).not.toContain("Transit stops or exits exist, but this shelter-map bundle has no connected shelter-map walk yet.");
     expect(source).not.toContain("Transit stops or exits exist, but this shelter-map bundle has no connected walking route yet.");
     expect(source).not.toContain("Walking route not connected yet");
     expect(source).not.toContain("Walking-route shelter not verified yet");
@@ -78,8 +79,9 @@ describe("score card copy", () => {
     expect(smokeSource).not.toContain("needs usable location evidence");
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
     expect(source).toContain(
-      "This postal is in the frozen v1 address universe, but this shelter-map bundle has no published full locked score for it yet."
+      "This postal is in the frozen v1 address universe, but the published shelter-map bundle has no full locked score for it yet."
     );
+    expect(source).not.toContain("this shelter-map bundle has no published full locked score for it yet");
     expect(source).not.toContain("the current published bundle has not scored it yet");
   });
 

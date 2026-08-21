@@ -216,7 +216,7 @@ export function scoreCardAnnouncement({
   if (!selection) return "No shelter map walk selected.";
   const postal = postalTitle(selection);
   if (!selection.score) {
-    return `${postal} is outside the shelter-map bundle tied to the frozen June 2020 address universe; ${recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.`;
+    return `${postal} is outside the published shelter-map bundle tied to the frozen June 2020 address universe; ${recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.`;
   }
   const scoreText = displayScore === null || displayScore === undefined
     ? "unavailable in this bundle"
@@ -506,7 +506,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const reason = provenanceReason(score, transitMode);
     if (reason === "transit_candidates_graph_disconnected") {
-      return "Transit stops or exits exist, but this shelter-map bundle has no connected shelter-map walk yet.";
+      return "Transit stops or exits exist, but the published shelter-map bundle has no connected shelter-map walk yet.";
     }
     if (reason === "no_transit_candidates_selected") {
       return "No qualifying MRT/LRT exit or bus stop was found within the locked 1.2 km transit range for this postal.";
@@ -518,7 +518,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     return `No ${transitModeLabel(transitMode)} walk was found within the locked 1.2 km transit range.`;
   }
   if (score.state === "NOT_YET_SCORED") {
-    return "This postal is in the frozen v1 address universe, but this shelter-map bundle has no published full locked score for it yet.";
+    return "This postal is in the frozen v1 address universe, but the published shelter-map bundle has no full locked score for it yet.";
   }
   const busFallback = directBusFallbackEvidence(score);
   if (busFallback) {
@@ -1130,7 +1130,7 @@ export function ScoreCard({
         <h2>{postalTitle(selection)}</h2>
         <div className={styles.emptyState}>
           <strong>Outside shelter-map bundle</strong>
-          <span>No shelter-map walk is published for this postal; this shelter-map bundle is tied to the frozen June 2020 address universe, and {recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.</span>
+          <span>No shelter-map walk is published for this postal; the published shelter-map bundle is tied to the frozen June 2020 address universe, and {recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.</span>
         </div>
       </section>
     );
