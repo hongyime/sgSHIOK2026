@@ -319,18 +319,23 @@ def source_freshness_readiness(
     warning = f"source freshness warning: {'; '.join(warning_parts)}" if warning_parts else None
     oldest_current = oldest_current_freshness_summary(by_status["current"])
     nearest_current = nearest_current_source_to_stale(by_status["current"])
-    stale_sources = [
-        {
-            "source_key": item["source_key"],
-            "name": item["name"],
-            "age_basis": item.get("age_basis"),
-            "age_days": round(float(item["age_days"]), 6),
-            "stale_after_days": item.get("stale_after_days"),
-            "days_past_stale": round(float(item.get("days_past_stale") or 0.0), 6),
-            "expected_cadence": item.get("expected_cadence"),
-        }
-        for item in by_status["stale"]
-    ]
+    stale_sources = sorted(
+        [
+            {
+                "source_key": item["source_key"],
+                "name": item["name"],
+                "age_basis": item.get("age_basis"),
+                "age_days": round(float(item["age_days"]), 6),
+                "stale_after_days": item.get("stale_after_days"),
+                "days_past_stale": round(float(item.get("days_past_stale") or 0.0), 6),
+                "expected_cadence": item.get("expected_cadence"),
+            }
+            for item in by_status["stale"]
+        ],
+        key=lambda item: float(item["days_past_stale"]),
+        reverse=True,
+    )
+    most_overdue_stale_source = stale_sources[0] if stale_sources else None
     return {
         "ok": True,
         "state": "reported",
@@ -342,6 +347,7 @@ def source_freshness_readiness(
         "summary": summary,
         "oldest_current_source": oldest_current,
         "nearest_current_source_to_stale": nearest_current,
+        "most_overdue_stale_source": most_overdue_stale_source,
         "stale_sources": stale_sources,
         "counts": counts,
         "by_status": notable,

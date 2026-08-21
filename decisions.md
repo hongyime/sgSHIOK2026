@@ -1533,3 +1533,7 @@ Readiness consumers should not have to parse the oldest-current prose line to pl
 2026-08-22 - P540 structured stale freshness sources:
 
 Stale-source planning needs more than a prose warning and a list of keys. `source_freshness_readiness()` now returns `stale_sources` as structured fields (`source_key`, name, age basis, age days, threshold, days past stale, and cadence) while preserving the existing warning text and `by_status` key lists. This remains manifest-only and does not approve upstream probes, input mutation, scoring, export, deployment, public-data mutation, protected-QA mutation, or locked-weight changes.
+
+2026-08-22 - P541 prioritized stale freshness sources:
+
+Structured stale-source data should be immediately useful for refresh planning. `source_freshness_readiness()` now sorts `stale_sources` by `days_past_stale` descending and exposes `most_overdue_stale_source` as the first item, while preserving existing warning text and `by_status` key lists. This remains manifest-only and does not approve upstream probes, input mutation, scoring, export, deployment, public-data mutation, protected-QA mutation, or locked-weight changes.

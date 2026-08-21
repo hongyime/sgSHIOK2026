@@ -320,6 +320,9 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
                 "  stale:",
                 "    name: Stale",
                 "    kind: datagov_polldownload",
+                "  stale_less:",
+                "    name: Less Stale",
+                "    kind: datagov_polldownload",
                 "  manual:",
                 "    name: Manual",
                 "    kind: osm_pbf",
@@ -336,10 +339,11 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
         tmp_path / "raw" / "manifest.json",
         {
             "sources": {
-                "fresh": {"fetched_at": "2026-08-15T00:00:00+00:00"},
-                "stale": {"last_modified": "Tue, 07 Jul 2026 02:06:48 GMT"},
-                "manual": {"last_modified": "Mon, 01 Jan 2024 00:00:00 GMT"},
-                "unknown_age": {},
+                    "fresh": {"fetched_at": "2026-08-15T00:00:00+00:00"},
+                    "stale": {"last_modified": "Tue, 07 Jul 2026 02:06:48 GMT"},
+                    "stale_less": {"last_modified": "Wed, 15 Jul 2026 00:00:00 GMT"},
+                    "manual": {"last_modified": "Mon, 01 Jan 2024 00:00:00 GMT"},
+                    "unknown_age": {},
             }
         },
     )
@@ -356,12 +360,12 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
     assert status["upstream_urls_probed"] is False
     assert status["counts"] == {
         "current": 1,
-        "stale": 1,
+        "stale": 2,
         "manual": 1,
         "unknown_policy": 0,
         "unknown_age": 1,
     }
-    assert status["by_status"]["stale"] == ["stale"]
+    assert status["by_status"]["stale"] == ["stale", "stale_less"]
     assert status["by_status"]["unknown_age"] == ["unknown_age"]
     assert status["oldest_current_source"] == (
         "Oldest current source: fresh (Fresh, 1.0d of 30d threshold, 29.0d until stale)"
@@ -385,13 +389,23 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
             "stale_after_days": 30,
             "days_past_stale": 9.911944,
             "expected_cadence": "monthly",
+        },
+        {
+            "source_key": "stale_less",
+            "name": "Less Stale",
+            "age_basis": "last_modified",
+            "age_days": 32.0,
+            "stale_after_days": 30,
+            "days_past_stale": 2.0,
+            "expected_cadence": "monthly",
         }
     ]
+    assert status["most_overdue_stale_source"] == status["stale_sources"][0]
     assert status["summary"].startswith(
         "manifest-only source freshness checked at 2026-08-16T00:00:00+00:00: current 1"
     )
     assert status["warning"] == (
-        "source freshness warning: stale sources: stale (Stale); "
+        "source freshness warning: stale sources: stale (Stale), stale_less (Less Stale); "
         "unknown_age sources: unknown_age (Unknown Age); "
         "Stale freshness action: report and plan a versioned refresh; "
         "do not mutate frozen v1 in place."
