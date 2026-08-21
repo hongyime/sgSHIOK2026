@@ -1445,3 +1445,7 @@ The DataMall geospatial discovery-only report should not stop at changed/error c
 2026-08-22 - P518 P19 help sample label:
 
 `p19-gap-status` help should name the cached result as the P19 16 Aug 2026 public-source sample, not a generic measurement, because it is sampled gap evidence rather than a complete current-source census. The command remains read-only and reports existing cache status without API calls or file writes. This is runner help/test coverage only; it does not mutate P19/P379 caches, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P519 P19 MCST help boundary:
+
+`p19-mcst-locations` help and README should describe the cached P379 probe as status for unvalidated P19 MCST proxy rows, not confirmed missing addresses. The command remains cache-status-only by default and reports existing evidence without API calls or file writes. This is runner/docs/test coverage only; it does not mutate P19/P379 caches, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.

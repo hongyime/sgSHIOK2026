@@ -27,8 +27,8 @@ postal enumerator. Any v2 universe should therefore be candidate-source-first:
 use current free source datasets to propose rows, then pass bounded candidates
 through OneMap Search under explicit token controls, 72-hour token refresh, and
 the current documented token-authenticated call-limit cap unless SLA approves a
-higher limit case-by-case. To inspect the cached P19 measurement, evidence
-split, missing rows, MCST proxy probe and cache ages without calling data.gov.sg, OneMap, or
+higher limit case-by-case. To inspect the cached P19 16 Aug 2026 public-source
+sample, evidence split, missing rows, unvalidated MCST proxy probe and cache ages without calling data.gov.sg, OneMap, or
 Overpass, run
 `uv run python run.py p19-gap-status`. To reprint the cached P125 OSM
 coverage cross-check, registry policy, and cache ages without calling Overpass
