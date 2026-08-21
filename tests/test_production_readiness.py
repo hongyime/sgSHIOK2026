@@ -577,6 +577,7 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         "overpass_query_path": "qa/p125/overpass_sg_addr_postcode.query",
         "valid_distinct_postcodes": 25879,
         "overlap_frozen_v1_postals": 25873,
+        "valid_osm_only_postcodes": 6,
         "frozen_v1_postals": 124443,
         "coverage_pct": 20.791045,
         "invalid_distinct_postcode_tags": 23,
