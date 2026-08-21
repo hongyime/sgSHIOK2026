@@ -334,6 +334,7 @@ def run_freshness_report(
     freshness_by_status: dict[str, list[dict[str, Any]]] = {
         "current": [],
         "stale": [],
+        "manual": [],
         "unknown_policy": [],
         "unknown_age": [],
     }
@@ -368,6 +369,7 @@ def run_freshness_report(
         print(oldest_current)
     for label, status_key in (
         ("Stale sources", "stale"),
+        ("Manual sources", "manual"),
         ("Unknown-policy sources", "unknown_policy"),
         ("Unknown-age sources", "unknown_age"),
     ):
@@ -771,6 +773,7 @@ def run_check(
     freshness_by_status: dict[str, list[dict[str, Any]]] = {
         "current": [],
         "stale": [],
+        "manual": [],
         "unknown_policy": [],
         "unknown_age": [],
     }
@@ -971,6 +974,7 @@ def run_check(
         print(oldest_current)
     for label, status_key in (
         ("Stale sources", "stale"),
+        ("Manual sources", "manual"),
         ("Unknown-policy sources", "unknown_policy"),
         ("Unknown-age sources", "unknown_age"),
     ):

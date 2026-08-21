@@ -1317,3 +1317,7 @@ P19 is a sampled 976-row public-source gap check, not a complete current-source 
 2026-08-22 - P486 browser P19 sample label:
 
 The browser's P19 first-view label should carry the same sample boundary as the body copy. It now says `16 Aug 2026 public-source sample` instead of `16 Aug 2026 public-source check`, including the known-postal outside-bundle copy. This is browser copy and test coverage only; it does not call APIs, mutate P19/P379 caches or inputs, score, export, deploy, public data, protected QA evidence, or locked weights.
+
+2026-08-22 - P487 freshness manual-source summaries:
+
+The manifest-only freshness report should name manual-policy sources the same way it already names stale and unknown-age sources. `run.py check --freshness-only` now prints `Manual sources: train_station_codes, osm_extract` for the current local manifest, and the broader fetch check path uses the same summary helper. This is operator reporting and test coverage only; it does not probe upstream APIs, fetch, ingest, score, export, deploy, mutate manifests or inputs, public data, protected QA evidence, or locked weights.

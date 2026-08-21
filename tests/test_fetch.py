@@ -222,11 +222,15 @@ def test_run_check_reports_stale_freshness_without_failing(
                 "sample": {
                     "last_modified": "Tue, 07 Jul 2026 02:06:48 GMT",
                     "fetched_at": "2026-07-26T07:50:33.401278+00:00",
-                }
+                },
+                "manual": {"last_modified": "Mon, 01 Jan 2024 00:00:00 GMT"},
             }
         },
     )
-    sources = {"sample": {"name": "Sample", "kind": "manual_probe"}}
+    sources = {
+        "sample": {"name": "Sample", "kind": "manual_probe"},
+        "manual": {"name": "Manual", "kind": "osm_pbf", "refresh": "manual"},
+    }
 
     assert (
         fetch.run_check(
@@ -244,9 +248,10 @@ def test_run_check_reports_stale_freshness_without_failing(
     out = capsys.readouterr().out
     assert "[sample] Sample: STALE" in out
     assert "[sample] Sample: Stub check (listing/probe required)" in out
-    assert "Freshness: current 0, stale 1, manual 0, unknown_policy 0, unknown_age 0" in out
+    assert "Freshness: current 0, stale 1, manual 1, unknown_policy 0, unknown_age 0" in out
     assert "Oldest current source:" not in out
     assert "Stale sources: sample" in out
+    assert "Manual sources: manual" in out
 
 
 def test_run_freshness_report_does_not_probe_upstream(
@@ -305,6 +310,7 @@ def test_run_freshness_report_does_not_probe_upstream(
     assert "Freshness: current 1, stale 1, manual 1, unknown_policy 0, unknown_age 1" in out
     assert "Oldest current source: fresh (Fresh, 1.0d of 30d threshold)" in out
     assert "Stale sources: stale" in out
+    assert "Manual sources: manual" in out
     assert "Unknown-age sources: unknown_age" in out
 
 
