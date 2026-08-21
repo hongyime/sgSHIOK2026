@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P529 code commit: `752f932`; state-only commits may follow it on `main`.
+Latest P530 code commit: `fc3a2ef`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P530 is complete and committed: `scripts.targeted_bundle_refresh` CLI now requires `--confirm-targeted-refresh` before active bundle lookup, bundle copying, targeted scoring, or score/geometry shard replacement. Focused targeted-refresh tests, repo integrity, check-ignore, and protected-diff checks passed. No targeted scoring, scoring, export, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P529 is complete and committed: `pipeline.bus_arrivals collect` now requires explicit `--output` before it can call LTA or append JSONL snapshots, closing the default `raw/bus_arrivals/arrivals.jsonl` write path. Focused bus-arrivals/run tests, repo integrity, check-ignore, and protected-diff checks passed. No live LTA calls, raw-data writes, scoring, export, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P528 is complete and committed: non-dry `pipeline.score_batch` CLI runs now require explicit `--output-dir` before loading inputs, while dry runs remain allowed without output because they write nothing. Focused score-batch/run tests, repo integrity, check-ignore, and protected-diff checks passed. No scoring, export, processed-data writes, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P527 is complete and committed: `pipeline.export export` and `export-transit` now require explicit `--output` and refuse non-empty targets, while `refresh-provenance` requires explicit `--output` and is documented as an in-place manifest mutation. Focused export/run tests, repo integrity, check-ignore, and protected-diff checks passed. No scoring, export, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
