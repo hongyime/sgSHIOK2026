@@ -781,3 +781,6 @@ README ground rules should not overclaim that every published score is reproduci
 
 2026-08-21 - P285 README runner readiness command:
 Operator documentation should invoke production readiness through the project task runner now that `run.py readiness` is documented as a safe report. README publish and full-batch planning guidance now uses `uv run python run.py readiness` instead of calling `scripts/production_readiness.py` directly, and `tests/test_run.py` guards that the task dispatches to `scripts.production_readiness` with `PYTHONHASHSEED=0`. This is documentation and task-runner test coverage only; it does not run readiness, scoring, export, deploy, public data, or locked weights.
+
+2026-08-21 - P286 agent runner command:
+Agent-facing operator guidance should use the uv-managed task runner command consistently. `CLAUDE.md` now documents `uv run python run.py <task>`, `uv run python run.py test`, and `uv run python run.py publish`, with test coverage rejecting the older bare `python run.py ...` guidance. This is documentation and test coverage only; it does not execute tasks, alter the runner, change scoring, mutate exports, touch public data, or modify locked weights.

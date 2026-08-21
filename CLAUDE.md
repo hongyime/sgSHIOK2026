@@ -39,7 +39,7 @@ source of truth. If this file conflicts with those tracked artifacts, verify bef
 
 ## Stack (locked)
 
-- **Pipeline:** Python 3.12 (managed by `uv`, `uv.lock` committed) — geopandas, shapely 2, pyproj, duckdb, python-igraph, h3; orchestrated by `python run.py <task>` (cross-platform; there is no make).
+- **Pipeline:** Python 3.12 (managed by `uv`, `uv.lock` committed) — geopandas, shapely 2, pyproj, duckdb, python-igraph, h3; orchestrated by `uv run python run.py <task>` (cross-platform; there is no make).
 - **Router (amended 2026-07-25, owner sign-off):** both passes run in-process on the project's own
   conflated graph via python-igraph — weights `length_m` (shortest) and
   `sheltered_cost = length_m × (1 + λ×(1−covered))` (λ in params.yaml). No Valhalla, no OSRM:
@@ -64,7 +64,7 @@ run.py           task runner: safe reports (check --freshness-only, check --geos
 ## Working conventions
 
 - Work task-by-task from the owner-approved brief or issue; one branch/commit per task.
-- A task is DONE only when its acceptance criteria pass and `python run.py test` is green.
+- A task is DONE only when its acceptance criteria pass and `uv run python run.py test` is green.
 - Write the test for a scoring formula before the formula (they are pure functions — keep them so).
 - Every pipeline stage prints a one-line summary (counts, timings) and writes a log under `logs/`.
 - **Decide vs ask:** decide freely on implementation details (libraries within the stack, file
@@ -81,7 +81,7 @@ run.py           task runner: safe reports (check --freshness-only, check --geos
   guards everywhere, workers receive plain arrays and rebuild the igraph graph per process — never pickle
   graph objects); enable long paths once (`git config core.longpaths true` + Windows LongPathsEnabled);
   `.gitattributes` enforces LF.
-- `python run.py publish` runs `validate` first (hard-coded gate), then
+- `uv run python run.py publish` runs `validate` first (hard-coded gate), then
   `vercel deploy --prod --archive=tgz`. It is the only deploy path.
 
 ## What NOT to build (scope guards)

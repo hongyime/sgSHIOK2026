@@ -27,4 +27,10 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "task runner: safe reports" in normalized
     assert "check --freshness-only, check --geospatial-discovery-only" in normalized
     assert "p19-gap-status, readiness, batch-plan" in normalized
+    assert "uv run python run.py <task>" in normalized
+    assert "uv run python run.py test" in normalized
+    assert "uv run python run.py publish" in normalized
+    assert "`python run.py <task>`" not in normalized
+    assert "`python run.py test`" not in normalized
+    assert "`python run.py publish`" not in normalized
     assert "check | ingest | network | score | export | validate | publish | test" not in normalized
