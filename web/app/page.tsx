@@ -791,7 +791,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
   const measuredReasons: string[] = [];
   const busFallback = directBusFallbackEvidence(score);
   if (typeof score.paths.sheltered_m === "number") {
-    measuredReasons.push(`${formatDistance(score.paths.sheltered_m)} to ${transitModeLabel(transitMode)}`);
+    measuredReasons.push(`${formatDistance(score.paths.sheltered_m)} sheltered walk to ${transitModeLabel(transitMode)}`);
   }
   if (typeof score.paths.covered_ratio === "number") {
     measuredReasons.push(`${Math.round(score.paths.covered_ratio * 100)}% covered-walkway ratio on sheltered walk`);

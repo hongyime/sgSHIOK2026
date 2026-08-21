@@ -235,6 +235,8 @@ describe("score card copy", () => {
     expect(source).toContain("Night lighting");
     expect(source).toContain("Exposed gaps on {selectedWalkLabel}");
     expect(source).not.toContain("Exposed gaps on this walk");
+    expect(source).toContain("${formatDistance(score.paths.sheltered_m)} sheltered walk to ${transitModeLabel(transitMode)}");
+    expect(source).not.toContain("${formatDistance(score.paths.sheltered_m)} to ${transitModeLabel(transitMode)}");
     expect(source).toContain("include map coordinates.");
     expect(source).toContain(
       "Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load lamp-post points. Map evidence only; not part of the locked score."

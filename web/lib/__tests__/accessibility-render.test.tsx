@@ -462,7 +462,9 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Shelter exposure");
     expect(html).toContain("Walk to transit");
     expect(html).toContain("Sheltered walk distance to transit.");
+    expect(html).toContain("240 m sheltered walk to transit");
     expect(html).not.toContain("Selected walk distance to transit.");
+    expect(html).not.toContain("240 m to transit");
     expect(html).not.toContain("Selected route distance to transit.");
     expect(html).toContain("Bus service support");
     expect(html).toContain("Locked SHIOK score");
