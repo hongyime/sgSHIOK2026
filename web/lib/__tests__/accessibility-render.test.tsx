@@ -507,8 +507,9 @@ describe("rendered accessibility output", () => {
     );
     expect(html).not.toContain("Rain shelter and heat comfort currently share mostly the same covered-walkway evidence.");
     expect(html).toContain(
-      "Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first."
+      "Heat also includes the sparse NParks greenery proxy, so SHIOK shows covered-walkway ratio first."
     );
+    expect(html).not.toContain("SHIOK shows the shelter trace first.");
     expect(html).toContain("Same displayed value as rain shelter for this postal.");
     expect(html).toContain("Heat proxy evidence: covered 149 m; greenery proxy 23 m.");
     expect(html).not.toContain("Better heat-proxy score");

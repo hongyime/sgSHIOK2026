@@ -476,7 +476,8 @@ describe("score card copy", () => {
       '{ id: "overall", label: "Locked SHIOK score" }'
     );
     expect(source).toContain('?? "Locked score sorting index"');
-    expect(source).toContain("Start with the shelter trace and exposed gaps; use the locked score only to sort the published shelter-map bundle.");
+    expect(source).toContain("Start with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map bundle.");
+    expect(source).not.toContain("Start with the shelter trace and exposed gaps; use the locked score only to sort the published shelter-map bundle.");
     expect(source).not.toContain("Start with the shelter trace and exposed gaps; use the locked score only to sort the current bundle.");
     expect(source).not.toContain("Use this locked score to sort the current bundle");
     expect(source).not.toContain('label: "Overall SHIOK"');
@@ -533,7 +534,8 @@ describe("score card copy", () => {
     expect(source).not.toContain(
       "Rain shelter and heat comfort currently share mostly the same covered-walkway evidence."
     );
-    expect(source).toContain("Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first.");
+    expect(source).toContain("Heat also includes the sparse NParks greenery proxy, so SHIOK shows covered-walkway ratio first.");
+    expect(source).not.toContain("Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first.");
     expect(source).toContain("Heat proxy evidence: covered ${formatDistance(score.paths.covered_m)}");
     expect(source).toContain('heat: { low: "Low heat-proxy evidence", high: "Stronger heat-proxy evidence" }');
     expect(source).not.toContain("Better heat-proxy score");

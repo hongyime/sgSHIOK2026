@@ -1336,7 +1336,7 @@ export function ScoreCard({
             : scoredMeta(score.subscores.rain ?? score.subscores.heat, "40% locked rain+heat", "Shelter evidence unavailable"),
           notes: [
             "In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence.",
-            "Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first.",
+            "Heat also includes the sparse NParks greenery proxy, so SHIOK shows covered-walkway ratio first.",
             heatMatchesRain,
             heatEvidenceDetail,
           ].filter((note): note is string => Boolean(note)),
@@ -1366,7 +1366,7 @@ export function ScoreCard({
           value: formatLockedScore(displayScore),
           meta: scoredMeta(displayScore, "Release sorting index", "Release sorting index unavailable"),
           notes: [
-            "Start with the shelter trace and exposed gaps; use the locked score only to sort the published shelter-map bundle.",
+            "Start with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map bundle.",
             "Crossing friction remains a 5% locked term, but has low separation in this release.",
           ],
         },
