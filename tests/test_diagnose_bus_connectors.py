@@ -259,3 +259,10 @@ def test_diagnostic_action_summary_separates_rescore_and_model_fix_rows():
     assert summary["top_needs_rescore_candidates"][2]["target_transit_name"] == (
         "ESPLANADE MRT STATION Exit B"
     )
+    assert (
+        "Refresh a targeted shelter-map bundle for recovered rows before using them as active validation failures."
+        in summary["recommended_next_actions"]
+    )
+    assert not any(
+        "targeted score bundle" in action for action in summary["recommended_next_actions"]
+    )

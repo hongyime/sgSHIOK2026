@@ -365,7 +365,7 @@ def diagnostic_action_summary(rows: list[dict[str, Any]]) -> dict[str, Any]:
             compact_action_row(row) for row in current_routable[:10]
         ],
         "recommended_next_actions": [
-            "Refresh a targeted score bundle for recovered rows before using them as active validation failures.",
+            "Refresh a targeted shelter-map bundle for recovered rows before using them as active validation failures.",
             "Treat alternate-snap rows as transit endpoint geometry QA; do not relax trust thresholds globally.",
             "Review current-routable rows for missing pedestrian connectors, barriers, or OneMap endpoint differences.",
         ],

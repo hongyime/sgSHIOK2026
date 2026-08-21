@@ -736,3 +736,6 @@ Dry-run batch planning and production readiness should expose the settled lamp-p
 
 2026-08-21 - P270 structured source-freshness policy:
 Dry-run batch planning and production readiness should expose the source-freshness check boundary in structured source-policy data. The manifest-only command is `uv run python run.py check --freshness-only`; it probes no upstream URLs, writes no manifest, and reports release context rather than corruption or hash-repair status. A stale result means plan a versioned refresh, not an in-place frozen-v1 mutation. This is reporting/test coverage only; it does not probe upstream APIs, fetch sources, mutate manifests or inputs, score, export, deploy, public data, or locked weights.
+
+2026-08-21 - P271 bus-connector diagnostic shelter-map wording:
+Bus-connector diagnostics should tell operators to refresh a targeted shelter-map bundle, not a targeted score bundle, before promoting recovered rows into active validation failures. The diagnostic still concerns score-bearing rows, but the current artifact is the shelter-map bundle with locked scores inside it; using score-bundle language weakens the settled shelter-first operator frame. This is diagnostic copy and test coverage only; it does not run diagnostics, score, export, deploy, mutate public data, mutate inputs, or touch locked weights.
