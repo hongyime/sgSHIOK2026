@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P290 code commit: `809310e`; state-only commits may follow it on `main`.
+Latest P291 code commit: `7bea35f`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P291 is complete and committed: address-search no-results copy now names the measured frozen-bundle limitation as 8 missing rows out of 976 from the recent public-source check, instead of vague measured-misses wording. Focused accessibility render test and repo integrity pass.
 - P290 is complete and committed: the title card now states the frozen June 2020 address universe once and carries the measured P19 8-of-976 recent public-source miss count in a separate line, avoiding duplicate gap facts. Focused web copy test and repo integrity pass.
 - P289 is complete and committed: `run.py --help` now uses `task` as the positional headline instead of repeating argparse's full task choice list, keeping the safe/gated help sections as the primary command-selection surface. Focused runner tests, help output, and repo integrity pass.
 - P288 is complete and committed: `run.py --help` now separates safe reports from gated pipeline tasks and preserves formatting with `RawDescriptionHelpFormatter`. Focused runner tests, help output, and repo integrity pass.
