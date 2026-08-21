@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P555 code commit: `ddcfea2`; state-only commits may follow it on `main`.
+Latest P556 code commit: `b4ff3f7`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P556 is complete and committed: the no-route map screen-reader summary now opens with `Singapore shelter-map view` instead of generic `Singapore map`, matching the route-map aria label and shelter-map product framing. Focused route-map interaction test, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P555 is complete and committed: route map non-visual aria/text summaries now say `shelter-map view` instead of `shelter map`, aligning the map text-equivalent with the settled shelter-map adjective framing while keeping the branded page title unchanged. Focused route-map interaction test, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P554 is complete and committed: score-card accessible labels and live status now use `Shelter-map panel` / `shelter-map panel loaded`, and browser smoke now queries the same accessible name. Focused web accessibility/deployment/copy tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P553 is complete and committed: the selected-transit-stop reset button and screen-reader status now say `Published shelter-map walk` / `Published shelter-map walk selected`, making the control explicitly return users to the published shelter-map walk rather than a generic walk. Focused web render/copy/map-interaction tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
