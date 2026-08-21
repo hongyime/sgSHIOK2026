@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P288 code commit: `a2d8e48`; state-only commits may follow it on `main`.
+Latest P289 code commit: `0b60af8`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P289 is complete and committed: `run.py --help` now uses `task` as the positional headline instead of repeating argparse's full task choice list, keeping the safe/gated help sections as the primary command-selection surface. Focused runner tests, help output, and repo integrity pass.
 - P288 is complete and committed: `run.py --help` now separates safe reports from gated pipeline tasks and preserves formatting with `RawDescriptionHelpFormatter`. Focused runner tests, help output, and repo integrity pass.
 - P287 is complete and committed: `run.py --help` now advertises `uv run python run.py <task> [options]`, with `tests/test_run.py` guarding against the older bare `python run.py` usage line. Focused runner tests, help output, and repo integrity pass.
 - P286 is complete and committed: `CLAUDE.md` now uses the uv-managed runner command (`uv run python run.py ...`) for task orchestration, tests, and publish guidance, with `tests/test_agent_docs.py` guarding against the older bare `python run.py ...` commands. Focused agent-doc test and repo integrity pass.
