@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P502 code commit: `6d67a6f`; state-only commits may follow it on `main`.
+Latest P503 code commit: `357af6a`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P503 is complete and committed: the browser first-view data-freshness line now names the stale sources with the same display names used by `run.py check --freshness-only`, instead of a lowercased shorthand list. Focused web copy test, repo integrity, check-ignore, and protected-diff checks passed.
 - P502 is complete and committed: `run.py check --freshness-only` grouped stale/manual/unknown-age summaries now include source display names beside source keys, matching the operator readability policy used by readiness warnings. Focused fetch tests, real freshness-only report, repo integrity, check-ignore, and protected-diff checks passed.
 - P501 is complete and committed: active docs/web tests no longer preserve exact old P19 `8 missing rows` copy literals after product wording moved to 6 coordinate-backed HDB rows plus 2 unvalidated MCST proxy rows. Current 6+2 P19 sample wording remains positively asserted. Focused docs/web tests, active-string search, repo integrity, check-ignore, and protected-diff checks passed.
 - P500 is complete and committed: production-readiness score-provenance warnings now label known non-score reference source hashes, so `leaf_area_index` is shown as `leaf_area_index (NParks Leaf Area Index)` in human warnings while structured key lists remain unchanged. Focused score-provenance test, real readiness gate summary, repo integrity, check-ignore, and protected-diff checks passed.
