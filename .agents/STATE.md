@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P516 code commit: `4548c46`; state-only commits may follow it on `main`.
+Latest P517 code commit: `35f7b9c`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P517 is complete and committed: `run.py check --geospatial-discovery-only` now prints a geospatial discovery action line when changed URLs or errors are present: report and plan a new numbered input version, do not repair frozen v1 in place. Focused fetch tests, real discovery-only probe, repo integrity, check-ignore, and protected-diff checks passed.
 - P516 is complete and committed: `run.py --help`, `pipeline.fetch check --help`, and CLAUDE now say metadata-only DataMall discovery URL changes require new-version inputs/new numbered input versions, preserving the no-payload/no-manifest-write boundary. Focused run/fetch/agent-doc tests, help probes, repo integrity, check-ignore, and protected-diff checks passed.
 - P515 is complete and committed: `run.py --help` and `pipeline.fetch check --help` now say stale sources require a versioned refresh while preserving the zero-mutation/no-upstream-probe freshness contract. Focused run/fetch tests, help probes, repo integrity, check-ignore, and protected-diff checks passed.
 - P514 is complete and committed: the browser first-view freshness line now says stale-source refreshes require a new numbered input version, not an in-place frozen-v1 mutation, matching CLI/readiness/docs stale-source policy. Focused web copy test, repo integrity, check-ignore, and protected-diff checks passed.
