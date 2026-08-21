@@ -850,3 +850,6 @@ The short `NO_TRANSIT_IN_RANGE` copy for `no_transit_candidates_selected` should
 
 2026-08-21 - P308 preview reason map-evidence copy:
 The live OneMap clicked-stop preview reason should say `Map evidence only` instead of `Not scored in the current bundle`, because the preview intentionally displays covered-walkway evidence for a stop that is outside the published locked-score bundle. This is browser copy and rendered test coverage only; it does not alter live preview geometry, score states, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P309 README P125 OSM measurement label:
+README universe-status onboarding should cite the P125 live Overpass measurement by name when explaining why OSM `addr:postcode` is not the primary address registry. The counts are unchanged: OSM covers only 25,873 of 124,443 frozen postals, so v2 remains candidate-source-first with bounded OneMap Search validation. This is documentation and test coverage only; it does not call APIs, mutate cached P125/P19 evidence, alter inputs, scoring, exports, public data, deployment, or locked weights.

@@ -21,6 +21,7 @@ def test_readme_documents_universe_source_policy() -> None:
     assert "## Universe status" in text
     assert "124,443-record source-derived set" in normalized
     assert "8 missing rows out of 976 HDB completion and MCST proxy rows" in normalized
+    assert "P125 live Overpass measurement found OSM `addr:postcode` covers only 25,873" in normalized
     assert "OSM remains geometry evidence rather than an address registry" in normalized
     assert "OneMap Search validates and geocodes known candidates" in normalized
     assert "candidate-source-first" in normalized
