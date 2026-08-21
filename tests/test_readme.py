@@ -30,6 +30,7 @@ def test_readme_documents_universe_source_policy() -> None:
     assert "token-authenticated call-limit cap" in normalized
     assert "higher limit case-by-case" in normalized
     assert "uv run python run.py p19-gap-status" in normalized
+    assert "cached P19 measurement and cache ages" in normalized
     assert "without calling data.gov.sg, OneMap, or Overpass" in normalized
 
 

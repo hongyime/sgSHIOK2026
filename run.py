@@ -7,7 +7,7 @@ Safe reports:
   check --freshness-only | check --geospatial-discovery-only | p19-gap-status | readiness | batch-plan
   check --freshness-only reads raw/manifest.json only; it probes no upstream URLs and writes no manifest.
   check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads and writes no manifest.
-  p19-gap-status reads cached P19 measurement status only; it calls no APIs and writes no files.
+  p19-gap-status reads cached P19 measurement status and cache ages only; it calls no APIs and writes no files.
   readiness validates the published shelter-map bundle and release gates without scoring or deploying.
   batch-plan dry-runs batch prerequisites and policy status without scoring.
 
@@ -38,7 +38,7 @@ STUBS = {
     "onemap-outlier-replay": "replay OneMap validation outliers through current local scoring",
     "onemap-outlier-triage": "build QA queues from profiled OneMap outlier replays",
     "overture-addresses": "probe Overture Addresses SG postal-universe candidate",
-    "p19-gap-status": "read-only status for cached P19 postal-universe gap measurement",
+    "p19-gap-status": "read-only status and cache ages for cached P19 postal-universe gap measurement",
     "readiness": "fast production-readiness report without scoring or deploying",
     "refresh-provenance": "refresh bundle manifest score provenance without rescoring",
     "score": "apply pipeline/config/weights.yaml (T1.4)",

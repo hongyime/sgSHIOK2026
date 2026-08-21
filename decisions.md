@@ -988,3 +988,6 @@ The visible planning-area rank loading row should name the selected evidence vie
 
 2026-08-21 - P355 P19 cache status age:
 The read-only P19 cache-status output should report the age of its cached Overpass query and summary measurement, not only their timestamps. `uv run python run.py p19-gap-status` now adds `age_days` for those cached files while preserving `will_call_apis: false` and `will_write_files: false`. This is operator measurement-status reporting and test coverage only; it does not call data.gov.sg, OneMap, or Overpass, mutate `qa/p19`, load or mutate inputs, score, export, deploy, public data, or touch locked weights.
+
+2026-08-21 - P356 P19 cache-age help:
+Operator help and README onboarding should advertise that `p19-gap-status` reports cache ages, not only cached measurement status. The no-API/no-write boundary remains explicit in both surfaces. This is documentation and task-runner help text only; it does not run the P19 measurement, call data.gov.sg, OneMap, or Overpass, mutate `qa/p19`, load or mutate inputs, score, export, deploy, public data, or touch locked weights.

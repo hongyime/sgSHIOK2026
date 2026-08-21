@@ -24,8 +24,9 @@ postal enumerator. Any v2 universe should therefore be candidate-source-first:
 use current free source datasets to propose rows, then pass bounded candidates
 through OneMap Search under explicit token controls, 72-hour token refresh, and
 the current documented token-authenticated call-limit cap unless SLA approves a
-higher limit case-by-case. To inspect the cached P19 measurement without calling
-data.gov.sg, OneMap, or Overpass, run `uv run python run.py p19-gap-status`.
+higher limit case-by-case. To inspect the cached P19 measurement and cache ages
+without calling data.gov.sg, OneMap, or Overpass, run
+`uv run python run.py p19-gap-status`.
 
 ## Local data artifacts
 
