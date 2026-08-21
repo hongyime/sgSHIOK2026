@@ -964,3 +964,6 @@ The browser and README recent-source disclosure should show the measured P19 mis
 
 2026-08-21 - P346 locked-score availability exact share:
 The browser's manifest-derived locked-score availability line should quantify the no-full-score share instead of only saying `roughly a quarter`. For the current manifest counts, 29,286 non-full records out of 124,443 is 23.5%, so the browser line now says `23.5%, roughly a quarter` and README mirrors `23.5% or roughly a quarter`. This is web/docs copy and tests only; it does not alter manifests, score values, scoring, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P348 greenery proxy source boundary:
+The selected walk details should separate the sparse NParks route-geometry greenery proxy from NParks Leaf Area Index and measured thermal evidence. The browser now adds a detail-strip note that greenery proxy is sparse NParks route geometry for heat only, not measured temperature or Leaf Area Index. This is browser copy and test coverage only; it does not alter shade geometry, source manifests, freshness policy, scoring, exports, public data, deployment, or locked weights.

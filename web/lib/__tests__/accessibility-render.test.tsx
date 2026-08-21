@@ -386,6 +386,9 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Same displayed value as rain shelter for this postal.");
     expect(html).toContain("Heat proxy evidence: covered 149 m; greenery proxy 23 m.");
     expect(html).not.toContain("Better heat-proxy score");
+    expect(html).toContain(
+      "Greenery proxy uses sparse NParks route geometry for heat only; it is not measured temperature or Leaf Area Index."
+    );
     expect(html).toContain("Night lighting");
     expect(html).toContain("Map layer off");
     expect(html).not.toContain("Map layer on; zoom in for points");
