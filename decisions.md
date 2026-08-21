@@ -823,3 +823,6 @@ The empty shelter-map panel should match the search input's OneMap-address/direc
 
 2026-08-21 - P299 map empty-search summary:
 The map's non-visual empty summary should match the visible search behavior by naming OneMap address search and direct 6-digit postal lookup. It now says `Search a OneMap address or 6-digit postal code` before listing covered-walkway ratio, exposed gaps, night lighting, and nearby transit. This is browser copy and test coverage only; it does not alter map data, search behavior, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P300 OneMap search error copy:
+Search error copy should distinguish OneMap lookup failures from direct postal lookup and frozen-bundle availability. The selected-result postal error now says `Selected OneMap result has no usable postal code`, and the generic search fallback says `Failed to search OneMap address`. This is browser copy and test coverage only; it does not alter search behavior, scoring, exports, public data, deployment, or locked weights.

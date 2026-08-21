@@ -1821,7 +1821,7 @@ export default function Home() {
   const loadSelection = async (result: SearchResult) => {
     const postal = normalizePostal(result.POSTAL);
     if (!postal) {
-      setError("Selected result has no usable postal code.");
+      setError("Selected OneMap result has no usable postal code.");
       return;
     }
     setLoading(true);
@@ -1963,7 +1963,7 @@ export default function Home() {
         setError("Search is busy. Please try again in a moment.");
         return;
       }
-      setError(err instanceof Error ? err.message : "Failed to search postal location.");
+      setError(err instanceof Error ? err.message : "Failed to search OneMap address.");
     } finally {
       setLoading(false);
     }

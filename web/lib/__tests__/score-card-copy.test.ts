@@ -106,6 +106,10 @@ describe("score card copy", () => {
     expect(source).not.toContain('aria-label="Search address or 6-digit postal"');
     expect(source).toContain("Enter at least 3 characters for OneMap search, or use a 6-digit postal code.");
     expect(source).not.toContain("Enter at least 3 characters or a 6-digit postal code.");
+    expect(source).toContain("Selected OneMap result has no usable postal code.");
+    expect(source).not.toContain("Selected result has no usable postal code.");
+    expect(source).toContain("Failed to search OneMap address.");
+    expect(source).not.toContain("Failed to search postal location.");
     expect(source).not.toContain("Singapore walk-to-transit comfort");
     expect(source).toContain(
       "Shelter map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}"
