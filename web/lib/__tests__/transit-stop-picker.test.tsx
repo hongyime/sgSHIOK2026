@@ -260,7 +260,9 @@ describe("buildComparisonText", () => {
   it("returns the % farther string when the pick is farther", () => {
     expect(
       buildComparisonText({ fartherPct: 42, bestStraightM: 100, activeStraightM: 142 })
-    ).toBe("42% farther than best (+42 m straight-line)");
+    ).toBe(
+      "42% farther than auto-picked stop (+42 m straight-line only; shelter evidence updates after selection)"
+    );
   });
   it("returns null when the pick is not farther", () => {
     expect(buildComparisonText({ fartherPct: 0, bestStraightM: 100, activeStraightM: 100 })).toBeNull();
@@ -316,14 +318,17 @@ describe("TransitStopPicker component", () => {
     expect(html).toContain("Reset to best");
   });
 
-  it("renders the farther-than-best comparison note with metre delta when non-best is active", () => {
+  it("renders the straight-line comparison note with metre delta when non-best is active", () => {
     const html = renderPicker({
       candidates,
       activeStopId: "bus:66421", // furthest of the top-5 fixtures
       bestStopId,
       onSelect: () => {},
     });
-    expect(html).toMatch(/\d+% farther than best \(\+\d+ m straight-line\)/);
+    expect(html).toMatch(
+      /\d+% farther than auto-picked stop \(\+\d+ m straight-line only; shelter evidence updates after selection\)/
+    );
+    expect(html).not.toContain("farther than best");
   });
 
   it("uses aria-current on the active chip and NOT on inactive chips", () => {

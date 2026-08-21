@@ -973,3 +973,6 @@ The score-card live region should follow the same hierarchy as the visual presen
 
 2026-08-21 - P350 shelter-first share metadata:
 Link previews should carry the same shelter-first product frame as the first view instead of relying on generic metadata fallbacks. The Next metadata now sets Open Graph and Twitter summary fields with the covered-walkway exposure-gap, night-lighting, and secondary locked-score description. This is browser metadata and test coverage only; it does not alter app rendering, scoring, exports, public data, inputs, deployment, or locked weights.
+
+2026-08-21 - P351 transit picker straight-line caveat:
+The nearby-transit comparison note should not imply the auto-picked stop is objectively best before shelter-map evidence is loaded for another selected stop. It now says a non-auto-picked stop is farther than the auto-picked stop on straight-line distance only, and that shelter evidence updates after selection. This is browser copy and test coverage only; it does not alter candidate selection, routing, scoring, exports, public data, inputs, deployment, or locked weights.
