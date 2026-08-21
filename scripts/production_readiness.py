@@ -18,6 +18,7 @@ import yaml
 from pipeline.batch_plan import (
     DATAMALL_GEOSPATIAL_DISCOVERY_POLICY,
     FROZEN_V1_POLICY,
+    NON_SCORE_REFERENCE_SOURCE_POLICY,
     ONEMAP_SEARCH_CONTROLS,
     OSM_ADDR_POSTCODE_COVERAGE,
     PARAMS_PATH,
@@ -1032,6 +1033,7 @@ def readiness_features(
             "recent_public_source_gap_sample": RECENT_PUBLIC_SOURCE_GAP_SAMPLE,
             "osm_addr_postcode_registry": OSM_ADDR_POSTCODE_COVERAGE,
             "datamall_geospatial_discovery": DATAMALL_GEOSPATIAL_DISCOVERY_POLICY,
+            "non_score_reference_sources": NON_SCORE_REFERENCE_SOURCE_POLICY,
             "onemap_search_role": "candidate validation/geocoding, not national enumeration",
             "onemap_search_controls": ONEMAP_SEARCH_CONTROLS,
         },

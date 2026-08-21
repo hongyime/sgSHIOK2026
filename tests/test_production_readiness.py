@@ -539,6 +539,14 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         "matched_sources": ["traffic_signals"],
         "verdict": "changed discovery URLs require a new numbered input version, not an in-place repair",
     }
+    assert report["features"]["source_policy"]["non_score_reference_sources"] == {
+        "leaf_area_index": {
+            "role": "source freshness reference table only",
+            "reason": "species/generic LAI table; not route-level geometry or shade-proxy geometry",
+            "score_provenance": "excluded from score source hashes",
+            "promotion_requires": "separate species-located canopy inventory and approved model design",
+        }
+    }
     assert report["batch_plan"]["full_batch_release_scope"] == {
         "status": "approved_in_principle_not_approved_to_run",
         "owner_approval_required_before_execution": True,

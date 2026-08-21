@@ -240,6 +240,14 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
         "matched_sources": ["traffic_signals"],
         "verdict": "changed discovery URLs require a new numbered input version, not an in-place repair",
     }
+    assert report["source_policy"]["non_score_reference_sources"] == {
+        "leaf_area_index": {
+            "role": "source freshness reference table only",
+            "reason": "species/generic LAI table; not route-level geometry or shade-proxy geometry",
+            "score_provenance": "excluded from score source hashes",
+            "promotion_requires": "separate species-located canopy inventory and approved model design",
+        }
+    }
     assert (
         report["source_policy"]["onemap_search_role"]
         == "candidate validation/geocoding, not national enumeration"

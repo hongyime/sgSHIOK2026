@@ -63,6 +63,14 @@ DATAMALL_GEOSPATIAL_DISCOVERY_POLICY = {
     "matched_sources": ["traffic_signals"],
     "verdict": "changed discovery URLs require a new numbered input version, not an in-place repair",
 }
+NON_SCORE_REFERENCE_SOURCE_POLICY = {
+    "leaf_area_index": {
+        "role": "source freshness reference table only",
+        "reason": "species/generic LAI table; not route-level geometry or shade-proxy geometry",
+        "score_provenance": "excluded from score source hashes",
+        "promotion_requires": "separate species-located canopy inventory and approved model design",
+    }
+}
 FULL_BATCH_RELEASE_SCOPE = {
     "status": "approved_in_principle_not_approved_to_run",
     "owner_approval_required_before_execution": True,
@@ -335,6 +343,7 @@ def build_batch_plan(
             "recent_public_source_gap_sample": RECENT_PUBLIC_SOURCE_GAP_SAMPLE,
             "osm_addr_postcode_registry": OSM_ADDR_POSTCODE_COVERAGE,
             "datamall_geospatial_discovery": DATAMALL_GEOSPATIAL_DISCOVERY_POLICY,
+            "non_score_reference_sources": NON_SCORE_REFERENCE_SOURCE_POLICY,
             "onemap_search_role": "candidate validation/geocoding, not national enumeration",
             "onemap_search_controls": ONEMAP_SEARCH_CONTROLS,
             "requires_human_approval_for_universe": requires_universe_approval,
