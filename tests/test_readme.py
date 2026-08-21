@@ -32,6 +32,8 @@ def test_readme_documents_universe_source_policy() -> None:
     assert "uv run python run.py p19-gap-status" in normalized
     assert "cached P19 measurement and cache ages" in normalized
     assert "without calling data.gov.sg, OneMap, or Overpass" in normalized
+    assert "uv run python run.py p125-osm-status" in normalized
+    assert "without calling Overpass or writing files" in normalized
 
 
 def test_readme_documents_local_lamp_overlay_artifact() -> None:
@@ -76,7 +78,7 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "new numbered input version, not an in-place repair" in normalized
     assert "`pipeline/config/weights.yaml` — locked score weights." in normalized
     assert "`run.py` — cross-platform task runner for safe reports" in normalized
-    assert "`p19-gap-status`, `readiness`, `batch-plan`" in normalized
+    assert "`p19-gap-status`, `p125-osm-status`, `readiness`, `batch-plan`" in normalized
     assert "and gated pipeline tasks (`ingest`, `network`, `score`, `export`, `validate`, `publish`, `test`)" in normalized
     assert "locked composite-score weights" not in normalized
 

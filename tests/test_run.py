@@ -11,7 +11,7 @@ def test_run_docstring_uses_uv_managed_invocation():
 def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     assert "Safe reports:" in run.__doc__
     assert (
-        "check --freshness-only | check --geospatial-discovery-only | p19-gap-status | readiness | batch-plan"
+        "check --freshness-only | check --geospatial-discovery-only | p19-gap-status | p125-osm-status | readiness | batch-plan"
         in run.__doc__
     )
     assert "check --freshness-only reads raw/manifest.json only; it probes no upstream URLs and writes no manifest." in run.__doc__
@@ -20,6 +20,7 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         in run.__doc__
     )
     assert "p19-gap-status reads cached P19 measurement status and cache ages only; it calls no APIs and writes no files." in run.__doc__
+    assert "p125-osm-status reads cached P125 Overpass output and frozen v1 universe only; it calls no APIs and writes no files." in run.__doc__
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in run.__doc__
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in run.__doc__
     assert "batch-plan dry-runs batch prerequisites and policy status without scoring." in run.__doc__
@@ -39,6 +40,7 @@ def test_run_help_headline_does_not_flatten_all_tasks():
         in help_text
     )
     assert "p19-gap-status reads cached P19 measurement status and cache ages only; it calls no APIs and writes no files." in help_text
+    assert "p125-osm-status reads cached P125 Overpass output and frozen v1 universe only; it calls no APIs and writes no files." in help_text
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in help_text
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in help_text
     assert "batch-plan dry-runs batch prerequisites and policy status without scoring." in help_text
@@ -97,6 +99,33 @@ def test_run_task_exposes_p19_gap_status_as_read_only_module(monkeypatch):
                 "-m",
                 "scripts.analysis.p19_universe_gap_measurement",
                 "--cache-status-only",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_task_exposes_p125_osm_status_as_read_only_module(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("p125-osm-status", []) == 0
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "scripts.analysis.p125_osm_postcode_status",
             ],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},

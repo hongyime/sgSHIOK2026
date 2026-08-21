@@ -26,7 +26,9 @@ through OneMap Search under explicit token controls, 72-hour token refresh, and
 the current documented token-authenticated call-limit cap unless SLA approves a
 higher limit case-by-case. To inspect the cached P19 measurement and cache ages
 without calling data.gov.sg, OneMap, or Overpass, run
-`uv run python run.py p19-gap-status`.
+`uv run python run.py p19-gap-status`. To reprint the cached P125 OSM coverage
+measurement without calling Overpass or writing files, run
+`uv run python run.py p125-osm-status`.
 
 ## Local data artifacts
 
@@ -79,7 +81,7 @@ reruns, deploy, or repoint the live site without explicit owner approval.
 - `.github/workflows/` — CI and repository automation workflows.
 - `env.example` — copy to `.env` and fill in (see prerequisites).
 - `run.py` — cross-platform task runner for safe reports (`check --freshness-only`,
-  `check --geospatial-discovery-only`, `p19-gap-status`, `readiness`, `batch-plan`)
+  `check --geospatial-discovery-only`, `p19-gap-status`, `p125-osm-status`, `readiness`, `batch-plan`)
   and gated pipeline tasks (`ingest`, `network`, `score`, `export`, `validate`,
   `publish`, `test`). `publish` always runs `validate` first.
 

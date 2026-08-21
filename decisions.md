@@ -1033,3 +1033,6 @@ The selected-walk details should not describe the heat greenery proxy as generic
 
 2026-08-21 - P370 title-card night-lighting subtitle:
 The first-view subtitle should name night lighting as the second map-evidence layer, not only the covered-walkway ratio and exposed gaps. The title card now says `See covered-walkway ratio, exposed gaps, and night lighting near transit`, matching the settled shelter-first product framing while keeping the locked score secondary. This is browser copy and test coverage only; it does not mutate lamp artifacts, public data, scoring, exports, deployment, or locked weights.
+
+2026-08-21 - P373 P125 cached OSM status command:
+Operators should be able to reprint the cached P125 OSM `addr:postcode` coverage measurement without rerunning Overpass or relying on an untracked absolute-path QA scratch script. `uv run python run.py p125-osm-status` now reads `qa/p125/overpass_sg_addr_postcode.json`, `qa/p125/overpass_sg_addr_postcode.query`, and the frozen v1 postal-universe parquet, reports coverage and safety flags, and declares `will_call_apis: false` / `will_write_files: false`. This is read-only reporting and test coverage only; it does not call Overpass, mutate cached P125/P19 evidence, alter inputs, scoring, exports, public data, deployment, or locked weights.
