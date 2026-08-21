@@ -858,7 +858,7 @@ function buildFeedbackPayload({
     transit_mode: transitMode,
     walk_mode: routeMode,
     route_mode: routeMode,
-    issue: "user_reported_better_walk_route",
+    issue: "user_reported_better_walk",
     source: "user_drawn_qa_evidence_not_score_override",
     waypoints: points.map((point) => [point.lat, point.lng]),
     segment_labels: segmentLabels.slice(0, Math.max(0, points.length - 1)),

@@ -106,6 +106,8 @@ describe("score card copy", () => {
     expect(source).toContain("Copy walk QA JSON");
     expect(source).toContain("walk_mode: routeMode");
     expect(source).toContain("route_mode: routeMode");
+    expect(source).toContain('issue: "user_reported_better_walk"');
+    expect(source).not.toContain('issue: "user_reported_better_walk_route"');
     const smokeSource = readFileSync(join(__dirname, "../../scripts/browser-smoke.mjs"), "utf-8");
     expect(smokeSource).toContain("shelter_map_panel_loaded");
     expect(smokeSource).toContain("shelter_map_panel_excerpt");

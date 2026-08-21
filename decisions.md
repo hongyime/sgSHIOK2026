@@ -1024,3 +1024,6 @@ The generated-data web test should prove the first-view locked-score availabilit
 
 2026-08-21 - P367 title-card date-format guard:
 The title-card shelter-map evidence date and bundle-generated date should be tested as formatted user-visible values, not only as source-code expressions. The formatter test pins the current manifest timestamps to the Singapore-rendered dates `2 Aug 2026` and `5 Aug 2026`, and preserves the `Unavailable` fallback when manifest dates are absent. This is web test coverage only; it does not mutate public data, score, export, deploy, ingest, network, or touch locked weights.
+
+2026-08-21 - P368 walk QA issue label:
+The copied walk QA JSON should use a walk-framed primary issue label. The browser payload now emits `issue: "user_reported_better_walk"` while preserving `route_mode` as a compatibility alias for the existing payload shape. Historical QA GeoJSON evidence still contains the old `user_reported_better_walk_route` label and is intentionally left untouched. This is browser payload copy and test coverage only; it does not mutate QA evidence, score, export, deploy, ingest, network, or touch locked weights.
