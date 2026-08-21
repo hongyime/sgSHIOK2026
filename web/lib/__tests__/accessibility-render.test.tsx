@@ -698,6 +698,95 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("<span>Bus</span><small>route evidence</small>");
   });
 
+  it("explains no-transit records when a connected walk exists only beyond the locked range", () => {
+    const noTransitRecord: ScoreRecord = {
+      ...scoredRecord,
+      state: "NO_TRANSIT_IN_RANGE",
+      total: null,
+      subscores: null,
+      best_node: null,
+      paths: null,
+      exposure_gaps: null,
+      provenance: {
+        routing_diagnostics: {
+          nearest_routed_m: 1500,
+        },
+      },
+    };
+    const html = renderScoreCard({
+      selection: {
+        ...selection,
+        score: noTransitRecord,
+      },
+      rankingRecords: [noTransitRecord],
+    });
+
+    expect(html).toContain("Connected walk beyond 1.2 km");
+    expect(html).toContain("Closest connected transit shelter-map walk is 1.5 km");
+    expect(html).toContain("Locked transit range is 1.2 km");
+    expect(html).toContain(
+      "Closest connected shelter-map walk found is about 1.5 km away; locked transit range is 1.2 km."
+    );
+    expect(html).toContain("<span>No full score</span><strong>Published bundle</strong>");
+    expect(html).not.toContain("Transit beyond locked range");
+  });
+
+  it("explains no-transit records when candidates exist but are disconnected", () => {
+    const disconnectedRecord: ScoreRecord = {
+      ...scoredRecord,
+      state: "NO_TRANSIT_IN_RANGE",
+      total: null,
+      subscores: null,
+      best_node: null,
+      paths: null,
+      exposure_gaps: null,
+      provenance: {
+        reason: "transit_candidates_graph_disconnected",
+      },
+    };
+    const html = renderScoreCard({
+      selection: {
+        ...selection,
+        score: disconnectedRecord,
+      },
+      rankingRecords: [disconnectedRecord],
+    });
+
+    expect(html).toContain("Shelter-map walk not connected yet");
+    expect(html).toContain("Transit stop or exit found");
+    expect(html).toContain("Transit stops or exits exist, but the published shelter-map bundle has no connected shelter-map walk yet.");
+    expect(html).toContain("<span>No full score</span><strong>Published bundle</strong>");
+    expect(html).not.toContain("No qualifying MRT/LRT exit or bus stop was found");
+  });
+
+  it("explains no-transit records when no qualifying candidate was selected", () => {
+    const noCandidateRecord: ScoreRecord = {
+      ...scoredRecord,
+      state: "NO_TRANSIT_IN_RANGE",
+      total: null,
+      subscores: null,
+      best_node: null,
+      paths: null,
+      exposure_gaps: null,
+      provenance: {
+        reason: "no_transit_candidates_selected",
+      },
+    };
+    const html = renderScoreCard({
+      selection: {
+        ...selection,
+        score: noCandidateRecord,
+      },
+      rankingRecords: [noCandidateRecord],
+    });
+
+    expect(html).toContain("No qualifying transit stop within 1.2 km");
+    expect(html).toContain("Outside locked transit range");
+    expect(html).toContain("No qualifying MRT/LRT exit or bus stop was found within the locked 1.2 km transit range for this postal.");
+    expect(html).toContain("<span>No full score</span><strong>Published bundle</strong>");
+    expect(html).not.toContain("Shelter-map walk not connected yet");
+  });
+
   it("keeps null locked-term rows unavailable instead of inventing numbers", () => {
     const partialRecord: ScoreRecord = {
       ...scoredRecord,

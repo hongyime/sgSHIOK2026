@@ -519,7 +519,7 @@ function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): str
   if (reason === "transit_candidates_graph_disconnected") return "Shelter-map walk not connected yet";
   if (reason === "no_transit_candidates_selected") return "No qualifying transit stop within 1.2 km";
   return nearestRoutedTransitM(score, transitMode) !== null
-    ? "Transit beyond locked range"
+    ? "Connected walk beyond 1.2 km"
     : `No connected ${transitModeLabel(transitMode)} shelter-map walk within range`;
 }
 

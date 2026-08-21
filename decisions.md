@@ -1553,3 +1553,7 @@ The first-view bundle coverage disclosure is user-facing product honesty, not an
 2026-08-22 - P545 record-level no-full-score badge:
 
 When a selected postal has no full locked score in the published bundle, the score badge itself should say so instead of relying only on the explanatory state note. Null-score records now show a compact `No full score` / `Published bundle` badge, while numeric records still show `Locked score` with the 0-to-100 value. This is web copy/layout/test work only; it does not score, export, mutate public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P546 no-transit record state copy:
+
+`NO_TRANSIT_IN_RANGE` records cover different situations, and the selected-record panel should not collapse them into a generic transit failure. The far-connected-walk title now says `Connected walk beyond 1.2 km`, while disconnected-candidate and no-candidate records keep distinct copy. Rendered tests pin all three no-transit shapes, and the browser smoke classifier accepts the new far-connected-walk text. This is web copy/test work only; it does not score, export, mutate public data, protected QA evidence, deployment, or locked weights.

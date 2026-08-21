@@ -570,7 +570,7 @@ function collectChecks(summary, mapState, cdp, postal, inputMode, expectedState,
     summary.cardText.includes("No routed") ||
     summary.cardText.includes("No transit found nearby") ||
     summary.cardText.includes("No best transit walk was found") ||
-    summary.cardText.includes("Transit beyond locked range") ||
+    summary.cardText.includes("Connected walk beyond 1.2 km") ||
     summary.cardText.includes("Closest connected shelter-map walk");
   const hasNotYetScored =
     summary.cardText.includes("Not scored") ||
