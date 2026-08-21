@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P343 code commit: `3aba3f1`; state-only commits may follow it on `main`.
+Latest P344 code commit: `a528c70`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P344 is complete and committed: a zero-mutation freshness check on 2026-08-21 confirmed the same 12 current / 6 stale / 2 manual / 1 unknown-age source counts, but the browser's frozen 112.6-day age had drifted to 112.9 days. The UI copy now says NParks Leaf Area Index is just under its 120-day quarterly threshold; focused web copy test and repo integrity passed.
 - P343 is complete and committed: Section 10 proposal wording now says the prior five rows were locked-term rows rather than component-score rows; focused web copy test and repo integrity passed.
 - P342 is complete and committed: production readiness warnings now describe missing `subscore_status` provenance as incomplete locked-term status instead of component-score status, while keeping the manifest field name unchanged. Focused production-readiness tests and repo integrity pass.
 - P341 is complete and committed: reusable P10 analysis helper wording now calls the pre-provenance target the legacy published bundle instead of the active bundle. Focused analysis-script tests and repo integrity pass.
