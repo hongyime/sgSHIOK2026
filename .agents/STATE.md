@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P466 code commit: `7cb87ef`; state-only commits may follow it on `main`.
+Latest P467 code commit: `6b351ef`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P467 is complete and committed: README and browser first-view copy now state the full P125 distinct OSM postcode measurement, 25,879 valid distinct OSM `addr:postcode` values, 25,873 overlapping frozen v1, and 6 valid OSM-only postcodes. Focused README/web copy tests and repo integrity passed.
 - P466 is complete and committed: README now distinguishes the published legacy bundle's `leaf_area_index` non-score reference source hash from the future policy that excludes LAI from score provenance; LAI remains outside route geometry, shade-proxy geometry, and score evidence. Focused README test and repo integrity passed.
 - P465 is complete and committed: the browser first-view Covered Linkway freshness caveat now says traffic signals still matched in the same 21 Aug 2026 metadata-only DataMall check that found Covered Linkway and bridge/underpass discovery URLs changed. Focused web source-copy test and repo integrity passed.
 - P464 is complete and committed: README operator guidance now names the 21 Aug 2026 metadata-only DataMall discovery result, including Covered Linkway and bridge/underpass drift, traffic signals still matching, and the no-payload/no-manifest-write discovery-only check boundary. Focused README test and repo integrity passed.
