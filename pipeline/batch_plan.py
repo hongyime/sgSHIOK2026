@@ -79,6 +79,14 @@ NIGHT_LIGHTING_LAYER_POLICY = {
     "release_gate": "production readiness validates manifest, source identity, tile index, tile files, and tile byte totals",
     "versioning": "new lamp overlay artifacts must use a new numbered directory",
 }
+SOURCE_FRESHNESS_POLICY = {
+    "command": "uv run python run.py check --freshness-only",
+    "scope": "manifest_only",
+    "upstream_urls_probed": False,
+    "writes_manifest": False,
+    "role": "release context, not a corruption or hash-repair signal",
+    "stale_result": "report and plan a versioned refresh; do not mutate frozen v1 in place",
+}
 FULL_BATCH_RELEASE_SCOPE = {
     "status": "approved_in_principle_not_approved_to_run",
     "owner_approval_required_before_execution": True,
@@ -353,6 +361,7 @@ def build_batch_plan(
             "datamall_geospatial_discovery": DATAMALL_GEOSPATIAL_DISCOVERY_POLICY,
             "non_score_reference_sources": NON_SCORE_REFERENCE_SOURCE_POLICY,
             "night_lighting_layer": NIGHT_LIGHTING_LAYER_POLICY,
+            "source_freshness": SOURCE_FRESHNESS_POLICY,
             "onemap_search_role": "candidate validation/geocoding, not national enumeration",
             "onemap_search_controls": ONEMAP_SEARCH_CONTROLS,
             "requires_human_approval_for_universe": requires_universe_approval,

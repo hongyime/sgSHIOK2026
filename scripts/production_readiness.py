@@ -25,6 +25,7 @@ from pipeline.batch_plan import (
     PARAMS_PATH,
     POSTAL_UNIVERSE_V2_POLICY,
     RECENT_PUBLIC_SOURCE_GAP_SAMPLE,
+    SOURCE_FRESHNESS_POLICY,
     build_batch_plan,
 )
 from pipeline.export import validate_static_artifacts
@@ -1036,6 +1037,7 @@ def readiness_features(
             "datamall_geospatial_discovery": DATAMALL_GEOSPATIAL_DISCOVERY_POLICY,
             "non_score_reference_sources": NON_SCORE_REFERENCE_SOURCE_POLICY,
             "night_lighting_layer": NIGHT_LIGHTING_LAYER_POLICY,
+            "source_freshness": SOURCE_FRESHNESS_POLICY,
             "onemap_search_role": "candidate validation/geocoding, not national enumeration",
             "onemap_search_controls": ONEMAP_SEARCH_CONTROLS,
         },

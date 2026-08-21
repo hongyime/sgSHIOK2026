@@ -558,6 +558,14 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         ),
         "versioning": "new lamp overlay artifacts must use a new numbered directory",
     }
+    assert report["features"]["source_policy"]["source_freshness"] == {
+        "command": "uv run python run.py check --freshness-only",
+        "scope": "manifest_only",
+        "upstream_urls_probed": False,
+        "writes_manifest": False,
+        "role": "release context, not a corruption or hash-repair signal",
+        "stale_result": "report and plan a versioned refresh; do not mutate frozen v1 in place",
+    }
     assert report["batch_plan"]["full_batch_release_scope"] == {
         "status": "approved_in_principle_not_approved_to_run",
         "owner_approval_required_before_execution": True,

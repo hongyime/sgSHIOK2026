@@ -733,3 +733,6 @@ Dry-run batch planning and production readiness should expose the settled Leaf A
 
 2026-08-21 - P269 structured night-lighting layer policy:
 Dry-run batch planning and production readiness should expose the settled lamp-post policy in structured source-policy data: `lamp_posts` powers the separate `web/public/data/lamp_posts_v1/` night-lighting map layer, is not part of the locked score, is release-gated by production readiness, and future lamp overlay artifacts must use new numbered directories. This is reporting/test coverage only; it does not build or mutate lamp artifacts, public data, source manifests, scoring, export, deploy, or locked weights.
+
+2026-08-21 - P270 structured source-freshness policy:
+Dry-run batch planning and production readiness should expose the source-freshness check boundary in structured source-policy data. The manifest-only command is `uv run python run.py check --freshness-only`; it probes no upstream URLs, writes no manifest, and reports release context rather than corruption or hash-repair status. A stale result means plan a versioned refresh, not an in-place frozen-v1 mutation. This is reporting/test coverage only; it does not probe upstream APIs, fetch sources, mutate manifests or inputs, score, export, deploy, public data, or locked weights.
