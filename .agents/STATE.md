@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P407 code commit: `539dfe3`; state-only commits may follow it on `main`.
+Latest P408 code commit: `f228ec6`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P408 is complete and committed: traced-correction feedback counts now pluralize correctly (`1 point / 0 walk segments`, `2 points / 1 walk segment`, plural beyond that), fixing the visible `2 points / 1 walk segments` grammar issue. Focused web accessibility/copy tests, repo integrity, and protected-diff checks passed.
 - P407 is complete and committed: traced-correction feedback segment selectors now say `Walk segment N` instead of generic `Segment N`, matching the walk-segment counter and correction actions. Focused web accessibility/copy tests, repo integrity, and protected-diff checks passed.
 - P406 is complete and committed: traced-correction feedback now counts `walk segments` instead of generic segments, keeping the feedback editor aligned with `Suggest better walk`, `Copy walk QA JSON`, and `Optional walk note`. Focused web accessibility/copy tests, repo integrity, and protected-diff checks passed.
 - P405 is complete and committed: the score-card live-region shelter evidence now announces the longest exposed gap alongside total exposed distance and gap count, matching the visible exposure hero for non-visual users. Focused web accessibility/copy tests, repo integrity, and protected-diff checks passed.
