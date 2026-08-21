@@ -739,3 +739,6 @@ Dry-run batch planning and production readiness should expose the source-freshne
 
 2026-08-21 - P271 bus-connector diagnostic shelter-map wording:
 Bus-connector diagnostics should tell operators to refresh a targeted shelter-map bundle, not a targeted score bundle, before promoting recovered rows into active validation failures. The diagnostic still concerns score-bearing rows, but the current artifact is the shelter-map bundle with locked scores inside it; using score-bundle language weakens the settled shelter-first operator frame. This is diagnostic copy and test coverage only; it does not run diagnostics, score, export, deploy, mutate public data, mutate inputs, or touch locked weights.
+
+2026-08-21 - P272 P10 provenance coverage Leaf Area Index wording:
+The P10 provenance coverage helper should no longer describe shade/greenery source hashes as possibly `hash-shipped but unconsumed`, because Leaf Area Index now has an explicit settled policy: it is a freshness-only non-score reference, while scored shade/greenery inputs remain identified through source hashes when present. This is analysis-helper wording and static test coverage only; it does not run the helper, probe sources, mutate manifests or inputs, score, export, deploy, mutate public data, or touch locked weights.

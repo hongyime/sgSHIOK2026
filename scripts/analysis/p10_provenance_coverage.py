@@ -41,7 +41,7 @@ def main() -> None:
         (
             "shade and greenery proxy layers",
             "sources.yaml nparks and greenery/shade sources",
-            "identified through raw/manifest.json source hashes when present; some sources may be hash-shipped but unconsumed per P1/P5 findings",
+            "scored shade/greenery inputs are identified through raw/manifest.json source hashes when present; leaf_area_index is a freshness-only non-score reference",
         ),
         (
             "crossing data",
