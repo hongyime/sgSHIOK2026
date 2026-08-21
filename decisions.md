@@ -766,3 +766,6 @@ The first-view availability disclosure should keep the secondary metric explicit
 
 2026-08-21 - P280 selected-card full locked score copy:
 Selected-card empty score states should use the same locked-score frame as the first-view availability disclosure. The awaiting-score card title, reason chip, live announcement, and browser-smoke detector now say `No full locked score in this bundle` instead of generic `No full score in this bundle`, keeping missing locked-score availability separate from shelter-map evidence availability. This is browser copy/test/smoke coverage only; it does not alter route evidence, score values, manifests, inputs, public data, scoring, export, deploy, or locked weights.
+
+2026-08-21 - P281 README full locked score copy:
+README local-data guidance should use the same locked-score availability language as the browser first view. The active bundle description now says `95,157 full locked scores out of 124,443 records` instead of generic `full scores`, while preserving the same missing-count breakdown and deployment/artifact constraints. This is documentation and test coverage only; it does not alter manifests, score values, inputs, public data, scoring, export, deploy, or locked weights.
