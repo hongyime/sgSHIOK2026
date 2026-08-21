@@ -1181,3 +1181,7 @@ Shared metadata, the first-view footer, and the empty-map aria label now use `ni
 2026-08-21 - P420 docs night lighting public copy:
 
 README and CLAUDE now use plain `night lighting` in the product introduction, local artifact description, and replacement-overlay boundary. This keeps documentation aligned with the browser copy from P419 while preserving the `lamp-overlay` task name, `lamp_posts_v1/` artifact path, and internal layer identifiers.
+
+2026-08-21 - P421 structured night lighting policy copy:
+
+The structured batch-plan/readiness source-policy role for `night_lighting_layer` now says `separate night lighting map layer`, matching browser and documentation copy. Machine-facing keys, `lamp-overlay`, `lamp_posts_v1/`, source identity, release gates, and scoring policy remain unchanged.

@@ -604,7 +604,7 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         "artifact": "web/public/data/lamp_posts_v1/",
         "replacement_command_example": "uv run python run.py lamp-overlay -- --output web/public/data/lamp_posts_v2",
         "owner_approval_required_for_replacement": True,
-        "role": "separate night-lighting map layer",
+        "role": "separate night lighting map layer",
         "score_role": "not part of the locked score",
         "release_gate": (
             "production readiness validates manifest, source identity, tile index, "
