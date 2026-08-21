@@ -496,6 +496,13 @@ describe("score card copy", () => {
     expect(source).not.toContain('label: "Rain shelter"');
     expect(source).not.toContain('label: "Heat proxy"');
     expect(source).not.toContain('label: "Crossing friction"');
+    expect(proposalSource).toContain("# Section 10 Presentation Reference");
+    expect(proposalSource).toContain("Status: implemented in P18.");
+    expect(proposalSource).toContain("## Implemented State");
+    expect(proposalSource).toContain("| Position | Display row | On-screen copy | Detail copy |");
+    expect(proposalSource).not.toContain("# Section 10 Presentation Proposal");
+    expect(proposalSource).not.toContain("Status: proposal only.");
+    expect(proposalSource).not.toContain("## Proposed State");
     expect(proposalSource).toContain("stop presenting the prior five locked-term rows");
     expect(proposalSource).not.toContain("stop presenting the prior five component-score rows");
     expect(proposalSource).toContain(

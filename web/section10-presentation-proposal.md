@@ -1,6 +1,8 @@
-# Section 10 Presentation Proposal
+# Section 10 Presentation Reference
 
-Status: proposal only. This is not an implementation and does not change the app UI.
+Status: implemented in P18. This reference documents the settled browser framing;
+future edits should preserve the shelter-first hierarchy unless a new product
+decision supersedes it.
 
 ## Goal
 
@@ -19,9 +21,9 @@ stop presenting the prior five locked-term rows as five independent measurements
 | 5 | Heat: shelter + NParks shade proxy | Mostly the same covered-walkway shelter evidence as rain shelter, plus sparse greenery proxy. |
 | 6 | Crossing friction | Low discriminating value in the locked release bundle; weighted standard deviation is about 1.11 points and 59.9% of records are exactly 100. |
 
-## Proposed State
+## Implemented State
 
-| Position | Proposed row | On-screen copy | Detail copy |
+| Position | Display row | On-screen copy | Detail copy |
 | --- | --- | --- | --- |
 | 1 | Shelter exposure | `Sheltered walk: {covered_ratio}%` | `Exposed gaps show where the selected walk leaves shelter.` |
 | 2 | Walk to transit | `{sheltered_m} to {transit_target}` | `Selected walk distance from this postal code to the chosen MRT/LRT or bus access point.` |

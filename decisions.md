@@ -1193,3 +1193,7 @@ The visible note under the `Night lighting` map-layer control now starts with `N
 2026-08-21 - P423 HDB missing-row copy:
 
 Known HDB outside-bundle postals now say they are one of the 6 coordinate-backed HDB missing rows from frozen v1, instead of one of 8 recent public-source postals. The 2 MCST proxy rows remain explicitly unvalidated source-quality evidence, so the browser copy preserves the P19/P379 evidence split at the individual-postal level.
+
+2026-08-21 - P450 Section 10 reference status:
+
+The tracked Section 10 presentation document now describes the P18 shelter-first browser layout as an implemented reference rather than a proposal-only artifact. The product direction is settled: lead with shelter-map walk exposure, keep the locked score visible but secondary, and treat the prior five locked-term rows as pre-P18 context. This is documentation/test alignment only; it does not change app rendering, scoring, exports, public data, deployment, or locked weights.
