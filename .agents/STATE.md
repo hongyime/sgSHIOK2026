@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P553 code commit: `53e46a2`; state-only commits may follow it on `main`.
+Latest P554 code commit: `f4d01b1`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P554 is complete and committed: score-card accessible labels and live status now use `Shelter-map panel` / `shelter-map panel loaded`, and browser smoke now queries the same accessible name. Focused web accessibility/deployment/copy tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P553 is complete and committed: the selected-transit-stop reset button and screen-reader status now say `Published shelter-map walk` / `Published shelter-map walk selected`, making the control explicitly return users to the published shelter-map walk rather than a generic walk. Focused web render/copy/map-interaction tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P552 is complete and committed: collapsed planning-area comparison button now says `Show ranks` instead of generic `Show`, making the lazy-loaded planning-area rank panel self-describing. Focused web render/copy tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed after correcting the focused render assertion to use a closed rank-panel fixture. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P551 is complete and committed: selected-walk details now show night lighting as `Available; map layer off` when the lamp overlay is disabled, preserving the existing on-state `Map layer on; zoom in for lamp-post points` and making the second map layer visible even before toggling it. Focused web render/copy tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
