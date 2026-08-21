@@ -207,10 +207,13 @@ describe("score card copy", () => {
     expect(source).not.toContain("Live OSM addr:postcode coverage:");
     expect(source).not.toContain("OSM remains the address registry");
     expect(source).toContain(
-      "Data freshness at the 21 Aug 2026 UTC manifest-only check: 12 sources current, 6 stale, 2 manual, and Overture Maps Addresses - Singapore candidate has unknown age. No upstream URLs were probed. The oldest current item is NParks Leaf Area Index, a freshness-only reference table near its 120-day threshold. Stale sources are Traffic Signals, Planning Area Boundaries (MP2019 No Sea), NParks Nature Ways, NParks Tracks, NParks Heritage Trees, and NParks Heritage Road Green Buffers. Stale-source refreshes require a new numbered input version, not an in-place frozen-v1 mutation."
+      "Data freshness at the 21 Aug 2026 UTC manifest-only check: 12 sources current, 6 stale, 2 manual, and Overture Maps Addresses - Singapore candidate has unknown age. No upstream URLs were probed. The oldest current item is NParks Leaf Area Index, a freshness-only reference table 6.4 days from its 120-day threshold. Stale sources by days past threshold are Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Traffic Signals, NParks Heritage Trees, and NParks Nature Ways. Stale-source refreshes require a new numbered input version, not an in-place frozen-v1 mutation."
     );
     expect(source).toContain("Stale-source refreshes require a new numbered input version");
     expect(source).toContain("not an in-place frozen-v1 mutation");
+    expect(source).toContain("Stale sources by days past threshold");
+    expect(source).toContain("6.4 days from its 120-day threshold");
+    expect(source).not.toContain("Stale sources are Traffic Signals, Planning Area Boundaries");
     expect(source).not.toContain("Stale sources are traffic signals, planning area boundary");
     expect(source).not.toContain("1 candidate address source with unknown age");
     expect(source).not.toContain("with NParks Leaf Area Index just under its 120-day quarterly threshold");

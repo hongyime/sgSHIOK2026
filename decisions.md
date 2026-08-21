@@ -1537,3 +1537,7 @@ Stale-source planning needs more than a prose warning and a list of keys. `sourc
 2026-08-22 - P541 prioritized stale freshness sources:
 
 Structured stale-source data should be immediately useful for refresh planning. `source_freshness_readiness()` now sorts `stale_sources` by `days_past_stale` descending and exposes `most_overdue_stale_source` as the first item, while preserving existing warning text and `by_status` key lists. This remains manifest-only and does not approve upstream probes, input mutation, scoring, export, deployment, public-data mutation, protected-QA mutation, or locked-weight changes.
+
+2026-08-22 - P542 browser freshness priority copy:
+
+The browser first-view data freshness line should match the prioritized manifest-only freshness report users are being asked to trust. It now states that NParks Leaf Area Index is 6.4 days from its 120-day threshold and lists stale sources by days past threshold, led by Planning Area Boundaries, then NParks Tracks, then NParks Heritage Road Green Buffers. This is copy/test work only; it does not approve upstream probes, input mutation, scoring, export, deployment, public-data mutation, protected-QA mutation, or locked-weight changes.
