@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P331 code commit: `2f61b94`; state-only commits may follow it on `main`.
+Latest P332 code commit: `5b47a9e`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P332 is complete and committed: the first-view locked-score availability disclosure now says records are `beyond locked transit range` instead of beyond current transit range. Focused locked-score availability/accessibility/score-card tests and repo integrity pass.
 - P331 is complete and committed: the locked-score display-row note now says the locked score sorts the published shelter-map bundle instead of the current bundle. Focused accessibility/score-card tests and repo integrity pass.
 - P330 is complete and committed: remaining NO_TRANSIT_IN_RANGE heading/no-candidate copy now uses locked transit range wording, and browser-smoke no-transit detection recognizes `Transit beyond locked range`. Focused accessibility/score-card/deployment tests and repo integrity pass.
 - P329 is complete and committed: NO_TRANSIT_IN_RANGE copy now describes the 1.2 km constraint as the locked transit range instead of the current scoring range. Focused accessibility/score-card tests and repo integrity pass.
