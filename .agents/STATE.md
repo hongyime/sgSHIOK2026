@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P413 code commit: `06b3906`; state-only commits may follow it on `main`.
+Latest P414 code commit: `6c89c20`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P414 is complete and committed: the nearest-transit source contract now says the `published shelter-map bundle` does not ship ranked/per-stop routed candidate evidence, replacing `current`/`today's` bundle language. Focused transit-picker test, repo integrity, and protected-diff checks passed.
 - P413 is complete and committed: missing locked-score visible reasons, live-region copy, and browser-smoke acceptance now say `published shelter-map bundle` instead of bare `in this bundle`. Focused accessibility/copy/map-interaction tests, repo integrity, and protected-diff checks passed.
 - P412 is complete and committed: outside-bundle, disconnected-transit, and no-full-locked-score caveats now name the `published shelter-map bundle` instead of generic `this shelter-map bundle`, keeping absence copy tied to the shipped artifact. Focused accessibility/copy tests, repo integrity, and protected-diff checks passed.
 - P411 is complete and committed: planning-area comparison empty copy now stays locked-score-specific only for the locked-score view and says `No comparable planning-area records for ...` for non-overall evidence views. Focused accessibility/copy tests, repo integrity, and protected-diff checks passed.
