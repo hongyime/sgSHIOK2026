@@ -250,8 +250,8 @@ def test_run_check_reports_stale_freshness_without_failing(
     assert "[sample] Sample: Stub check (listing/probe required)" in out
     assert "Freshness: current 0, stale 1, manual 1, unknown_policy 0, unknown_age 0" in out
     assert "Oldest current source:" not in out
-    assert "Stale sources: sample" in out
-    assert "Manual sources: manual" in out
+    assert "Stale sources: sample (Sample)" in out
+    assert "Manual sources: manual (Manual)" in out
 
 
 def test_run_freshness_report_does_not_probe_upstream(
@@ -309,9 +309,9 @@ def test_run_freshness_report_does_not_probe_upstream(
     assert "[unknown_age] Unknown Age: freshness unknown_age (monthly)" in out
     assert "Freshness: current 1, stale 1, manual 1, unknown_policy 0, unknown_age 1" in out
     assert "Oldest current source: fresh (Fresh, 1.0d of 30d threshold)" in out
-    assert "Stale sources: stale" in out
-    assert "Manual sources: manual" in out
-    assert "Unknown-age sources: unknown_age" in out
+    assert "Stale sources: stale (Stale)" in out
+    assert "Manual sources: manual (Manual)" in out
+    assert "Unknown-age sources: unknown_age (Unknown Age)" in out
 
 
 def test_run_geospatial_discovery_report_sanitizes_and_reports_drift(

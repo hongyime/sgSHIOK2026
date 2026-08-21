@@ -292,10 +292,13 @@ def source_freshness_line(status: dict[str, Any]) -> str:
 
 
 def freshness_key_summary(label: str, statuses: list[dict[str, Any]]) -> str | None:
-    keys = [str(status["source_key"]) for status in statuses]
-    if not keys:
+    source_labels = [
+        f"{status['source_key']} ({status['name']})"
+        for status in statuses
+    ]
+    if not source_labels:
         return None
-    return f"{label}: {', '.join(keys)}"
+    return f"{label}: {', '.join(source_labels)}"
 
 
 def oldest_current_freshness_summary(statuses: list[dict[str, Any]]) -> str | None:

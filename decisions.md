@@ -1377,3 +1377,7 @@ Readiness score-provenance warnings should name known non-score reference source
 2026-08-22 - P501 P19 stale test literals:
 
 Active tests should not preserve old exact P19 `8 missing rows` copy after the product wording moved to 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy warnings. Web and docs tests now rely on positive assertions for the current 6+2 copy and broader stale-label checks, while historical `decisions.md` entries remain append-only history. This is test/evidence cleanup only; it does not mutate P19/P379 evidence, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P502 freshness summary source names:
+
+The manifest-only freshness report should include source display names in grouped stale/manual/unknown-age summaries, not only source keys. This keeps `run.py check --freshness-only` actionable as an operator report without requiring the user to cross-reference `pipeline/config/sources.yaml`. This is operator reporting/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
