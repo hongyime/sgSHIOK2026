@@ -2163,7 +2163,7 @@ export default function Home() {
               {OSM_ADDR_POSTCODE_COVERAGE_COPY}
             </p>
             <p className={styles.freshnessLine}>
-              Data freshness at the 21 Aug 2026 UTC manifest-only check: 12 sources current, 6 stale, 2 manual, and Overture Maps Addresses - Singapore candidate has unknown age. No upstream URLs were probed. The oldest current item is NParks Leaf Area Index, a freshness-only reference table near its 120-day threshold. Stale sources are Traffic Signals, Planning Area Boundaries (MP2019 No Sea), NParks Nature Ways, NParks Tracks, NParks Heritage Trees, and NParks Heritage Road Green Buffers.
+              Data freshness at the 21 Aug 2026 UTC manifest-only check: 12 sources current, 6 stale, 2 manual, and Overture Maps Addresses - Singapore candidate has unknown age. No upstream URLs were probed. The oldest current item is NParks Leaf Area Index, a freshness-only reference table near its 120-day threshold. Stale sources are Traffic Signals, Planning Area Boundaries (MP2019 No Sea), NParks Nature Ways, NParks Tracks, NParks Heritage Trees, and NParks Heritage Road Green Buffers. Stale-source refreshes require a new numbered input version, not an in-place frozen-v1 mutation.
             </p>
             <p className={styles.freshnessLine}>
               {COVERED_LINKWAY_FRESHNESS_COPY}

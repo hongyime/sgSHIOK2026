@@ -1425,3 +1425,7 @@ Production-readiness source freshness warnings should carry the same stale-sourc
 2026-08-22 - P513 freshness docs stale action:
 
 README and agent-facing docs should carry the same stale-source action as `run.py check --freshness-only` and the production-readiness warning. When stale sources appear, operators should report them and plan a versioned refresh, not mutate frozen v1 in place. This is docs/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P514 browser stale freshness boundary:
+
+The browser first-view freshness line should not only name stale sources; it should also preserve the same release boundary shown in operator reports and docs. The line now says stale-source refreshes require a new numbered input version, not an in-place frozen-v1 mutation. This is browser copy/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
