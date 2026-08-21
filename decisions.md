@@ -919,3 +919,6 @@ NO_TRANSIT_IN_RANGE headings and no-candidate notes should not retain "scoring r
 
 2026-08-21 - P331 locked-score sort target copy:
 The locked-score display row should say the locked score sorts the published shelter-map bundle, not the generic current bundle. This keeps the secondary score row tied to the frozen release artifact while preserving the same score value, row order, and locked-score availability behavior. This is web copy and test coverage only; it does not change score values, ranking logic, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P332 locked-score availability transit-range copy:
+The first-view locked-score availability disclosure should use the same locked transit-range wording as the selected-card NO_TRANSIT_IN_RANGE states. Records in NO_TRANSIT_IN_RANGE now appear as "beyond locked transit range" instead of "beyond current transit range" while preserving the manifest-derived counts and roughly-a-quarter disclosure. This is web copy and test coverage only; it does not change manifest parsing, state counts, score values, exports, public data, pipeline inputs, or locked weights.
