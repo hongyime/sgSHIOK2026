@@ -1394,7 +1394,7 @@ export function ScoreCard({
       {score.paths && (
         <div className={styles.exposureHero} aria-label="Walk shelter evidence">
           <span>Where the walk is exposed</span>
-          <strong>{formatPercent(selectedCoverage)} of the {selectedWalkLabel} is covered.</strong>
+          <strong>{formatPercent(selectedCoverage)} covered-walkway ratio on the {selectedWalkLabel}.</strong>
           <p>{exposureHeroText}</p>
         </div>
       )}
