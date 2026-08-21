@@ -859,3 +859,6 @@ Agent-facing startup guidance should carry the measured postal-universe policy, 
 
 2026-08-21 - P311 runner P19 safe-report boundary:
 `run.py --help` should make the `p19-gap-status` safety boundary visible, not only list the task name. The help now states that `p19-gap-status` reads cached P19 measurement status only, calls no APIs, and writes no files. This is task-runner help text and test coverage only; it does not run P19 status, call data.gov.sg, OneMap, or Overpass, mutate QA caches, alter inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P312 runner safe-report descriptions:
+The safe-report section of `run.py --help` should describe why each report is safe, not only name the tasks. The help now states the no-upstream/no-write boundary for `check --freshness-only`, the metadata-only/no-payload/no-manifest boundary for `check --geospatial-discovery-only`, the no-scoring/no-deploy boundary for `readiness`, and the no-scoring dry-run boundary for `batch-plan`. This is runner help text and test coverage only; it does not execute any report, API probe, scoring, export, ingest, network build, public-data mutation, deployment, or locked-weight change.

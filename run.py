@@ -5,7 +5,11 @@ Usage: uv run python run.py <task> [options]
 
 Safe reports:
   check --freshness-only | check --geospatial-discovery-only | p19-gap-status | readiness | batch-plan
+  check --freshness-only reads raw/manifest.json only; it probes no upstream URLs and writes no manifest.
+  check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads and writes no manifest.
   p19-gap-status reads cached P19 measurement status only; it calls no APIs and writes no files.
+  readiness validates the current bundle and release gates without scoring or deploying.
+  batch-plan dry-runs batch prerequisites and policy status without scoring.
 
 Gated pipeline tasks:
   ingest | network | score | score-batch | export | export-transit | validate | publish
