@@ -955,3 +955,6 @@ Production readiness should describe missing `subscore_status` capabilities as m
 
 2026-08-21 - P343 Section 10 proposal locked-term wording:
 The Section 10 proposal should use the same locked-term language as the app and readiness surfaces. It now says the prior five rows were locked-term rows rather than component-score rows, preserving the proposal's argument that the release should not present those terms as five independent measurements. This is proposal wording and test coverage only; it does not change app rendering, score values, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P344 freshness age threshold copy:
+The browser freshness line should not freeze a decimal day age that drifts within the same dated manifest-only check. The latest zero-mutation freshness run still reports 12 current sources, 6 stale, 2 manual, and 1 unknown-age candidate source, with NParks Leaf Area Index as the oldest current source at 112.9 days of a 120-day threshold. The UI now says that source is just under its 120-day quarterly threshold instead of preserving the earlier 112.6-day number. This is web copy, evidence, and test coverage only; it does not probe upstream URLs, mutate inputs, alter source manifests, score, export, deploy, public data, or locked weights.

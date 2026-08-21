@@ -2044,7 +2044,7 @@ export default function Home() {
               Recent public-source check: 8 missing rows out of 976 HDB completion and MCST proxy rows from 2021-2026 with postals.
             </p>
             <p className={styles.freshnessLine}>
-              Data freshness at the 21 Aug 2026 manifest-only check: 12 sources current, oldest current source was NParks Leaf Area Index at 112.6 days old; 6 stale, 2 manual, and 1 candidate address source with unknown age. No upstream URLs were probed. Stale sources are traffic signals, planning area boundary, NParks nature ways, tracks, heritage trees and heritage road green buffers.
+              Data freshness at the 21 Aug 2026 manifest-only check: 12 sources current, with NParks Leaf Area Index just under its 120-day quarterly threshold; 6 stale, 2 manual, and 1 candidate address source with unknown age. No upstream URLs were probed. Stale sources are traffic signals, planning area boundary, NParks nature ways, tracks, heritage trees and heritage road green buffers.
             </p>
             {lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}
             <p className={styles.sourceLine}>
