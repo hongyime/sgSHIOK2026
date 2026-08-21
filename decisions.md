@@ -1225,3 +1225,7 @@ Transit-stop picker source comments should match the current selected-stop behav
 2026-08-21 - P462 walk heat evidence copy:
 
 The first-view Leaf Area Index caveat should use the settled walk-evidence frame instead of saying `route heat evidence`. The browser now says walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, while preserving that LAI is freshness-only and not measured temperature. This is browser copy/test coverage only; it does not alter heat scoring, inputs, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P463 clicked-stop preview scope guard:
+
+Agent-facing scope guards should not forbid the clicked-stop OneMap preview surface that already exists. `CLAUDE.md` now says there is no turn-by-turn navigation, and that clicked-stop OneMap walk previews are evidence only and must not become live navigation or mutate locked scores. This preserves the static shelter-map product boundary while removing the contradictory `no live routing UI` phrase. This is documentation/test coverage only; it does not change browser behavior, call OneMap, score, export, deploy, public data, or touch locked weights.

@@ -96,7 +96,7 @@ run.py           task runner: safe reports (check --freshness-only, check --geos
 
 ## What NOT to build (scope guards)
 
-- No turn-by-turn navigation, no live routing UI (walk display is shelter-map evidence only).
+- No turn-by-turn navigation. Clicked-stop OneMap walk previews are evidence only; they must not become live navigation or mutate locked scores.
 - No database, no ORM, no auth, no user state, no cron on Vercel.
 - No `GET /api/shiok/{postal}` endpoint — the frontend reads static JSON directly.
 - No island-wide map tiles in MVP (Phase 2 item, feature-flagged).

@@ -36,7 +36,10 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "candidate-source-first with bounded OneMap Search validation" in normalized
     assert "clicked-stop walk-preview evidence" in normalized
     assert "preview-route evidence" not in normalized
-    assert "walk display is shelter-map evidence only" in normalized
+    assert "Clicked-stop OneMap walk previews are evidence only" in normalized
+    assert "must not become live navigation or mutate locked scores" in normalized
+    assert "no live routing UI" not in normalized
+    assert "walk display is shelter-map evidence only" not in normalized
     assert "route display is score" not in normalized
     assert "preview route evidence" not in normalized
     assert "Night lighting is a map overlay only" in normalized
