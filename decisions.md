@@ -1353,3 +1353,7 @@ The cached P125 OSM addr:postcode status and shared source-policy block should s
 2026-08-22 - P495 P125 operator-help wording:
 
 Runner help and README should describe `p125-osm-status` the same way as the structured P125 policy: a cached OSM addr:postcode coverage cross-check and registry-policy report, not a generic address-coverage measurement. The command documentation now states that it reports OSM as geometry evidence and coverage cross-check rather than the address registry, while retaining its no-API/no-write boundary. This is documentation/help/test coverage only; it does not call Overpass, mutate P125 caches, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P496 P125 structured measurement label:
+
+The P125 structured `measurement` label should not lag behind the settled OSM release policy. It now says `P125 20 Aug 2026 Overpass addr:postcode coverage cross-check`, matching the adjacent `source_role`, `registry_policy`, and verdict fields that classify OSM addr:postcode data as geometry evidence and a coverage cross-check rather than the address registry. This is reporting/test coverage only; it does not call Overpass, mutate P125 caches, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.

@@ -636,7 +636,7 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         report["features"]["validation_gates"]["onemap_walk_validation"]["state"] == "not_collected"
     )
     assert report["features"]["source_policy"]["osm_addr_postcode_registry"] == {
-        "measurement": "P125 20 Aug 2026 Overpass addr:postcode coverage",
+        "measurement": "P125 20 Aug 2026 Overpass addr:postcode coverage cross-check",
         "cache_status_command": "uv run python run.py p125-osm-status",
         "cache_status_calls_apis": False,
         "cache_status_writes_files": False,

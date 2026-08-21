@@ -288,7 +288,7 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
         "verdict": "small sampled current-source gap in frozen v1; candidate-source-first v2 remains required",
     }
     assert report["source_policy"]["osm_addr_postcode_registry"] == {
-        "measurement": "P125 20 Aug 2026 Overpass addr:postcode coverage",
+        "measurement": "P125 20 Aug 2026 Overpass addr:postcode coverage cross-check",
         "cache_status_command": "uv run python run.py p125-osm-status",
         "cache_status_calls_apis": False,
         "cache_status_writes_files": False,

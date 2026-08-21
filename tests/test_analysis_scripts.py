@@ -297,7 +297,7 @@ def test_p125_osm_status_reports_cached_overpass_coverage(tmp_path: Path) -> Non
     )
 
     assert report["mode"] == "p125_osm_status"
-    assert report["measurement"] == "P125 20 Aug 2026 Overpass addr:postcode coverage"
+    assert report["measurement"] == "P125 20 Aug 2026 Overpass addr:postcode coverage cross-check"
     assert report["will_call_apis"] is False
     assert report["will_write_files"] is False
     assert report["files"]["overpass_output"]["overpass_elements"] == 3

@@ -1,4 +1,4 @@
-"""Read-only status for the cached P125 OSM addr:postcode measurement."""
+"""Read-only status for the cached P125 OSM addr:postcode coverage cross-check."""
 
 from __future__ import annotations
 
@@ -136,7 +136,7 @@ def status_report(
     universe.pop("postals", None)
     return {
         "mode": "p125_osm_status",
-        "measurement": "P125 20 Aug 2026 Overpass addr:postcode coverage",
+        "measurement": "P125 20 Aug 2026 Overpass addr:postcode coverage cross-check",
         "will_call_apis": False,
         "will_write_files": False,
         "files": {
