@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P557 code commit: `293303f`; state-only commits may follow it on `main`.
+Latest P558 code commit: `a653073`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P558 is complete and committed: metadata description now frames covered-walkway ratio, exposed gaps, night lighting evidence, and the secondary locked score as evidence `on Singapore walks to transit` instead of `for Singapore walks to transit`, matching the visible walk-evidence framing. Focused web copy test, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P557 is complete and committed: first-use title-card, empty-panel, and no-route map-summary copy now frame covered-walkway ratio, exposed gaps, and night lighting as evidence `on the walk to transit` rather than merely near transit. Focused web accessibility/copy/route-map tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P556 is complete and committed: the no-route map screen-reader summary now opens with `Singapore shelter-map view` instead of generic `Singapore map`, matching the route-map aria label and shelter-map product framing. Focused route-map interaction test, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P555 is complete and committed: route map non-visual aria/text summaries now say `shelter-map view` instead of `shelter map`, aligning the map text-equivalent with the settled shelter-map adjective framing while keeping the branded page title unchanged. Focused route-map interaction test, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
