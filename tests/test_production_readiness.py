@@ -468,7 +468,7 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         not in report["features"]["not_incorporated"]["canonical_140k_postal_universe"]
     )
     assert (
-        "P125 found live OSM addr:postcode covers only 25873 frozen postals"
+        "P125 found 25879 valid distinct live OSM addr:postcode values, 25873 overlapping frozen postals"
         in report["features"]["not_incorporated"]["canonical_140k_postal_universe"]
     )
     assert (
