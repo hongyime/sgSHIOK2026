@@ -1541,3 +1541,7 @@ Structured stale-source data should be immediately useful for refresh planning. 
 2026-08-22 - P542 browser freshness priority copy:
 
 The browser first-view data freshness line should match the prioritized manifest-only freshness report users are being asked to trust. It now states that NParks Leaf Area Index is 6.4 days from its 120-day threshold and lists stale sources by days past threshold, led by Planning Area Boundaries, then NParks Tracks, then NParks Heritage Road Green Buffers. This is copy/test work only; it does not approve upstream probes, input mutation, scoring, export, deployment, public-data mutation, protected-QA mutation, or locked-weight changes.
+
+2026-08-22 - P543 partial lamp overlay tile failures:
+
+The night lighting overlay is map evidence, so failed lamp-post tile loads must be visible as evidence availability problems rather than reported as a clean empty viewport. The browser now distinguishes fully loaded, partially loaded, empty, and unavailable lamp overlay states. This is web/test behavior only; it does not regenerate the lamp overlay artifact, score, export, mutate public data, protected QA evidence, deployment, or locked weights.

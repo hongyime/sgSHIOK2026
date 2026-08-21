@@ -145,7 +145,14 @@ const TRANSIT_POI_HOT_PINK = "#ff2d75";
 const TRANSIT_POI_BUS_PURPLE = "#6f4c8b";
 const LAMP_OVERLAY_MIN_ZOOM = 13;
 const LAMP_LAYER_IDS = ["lamp-post-dots"] as const;
-type LampOverlayStatus = "off" | "below_zoom" | "loading" | "empty" | "loaded" | "unavailable";
+type LampOverlayStatus =
+  | "off"
+  | "below_zoom"
+  | "loading"
+  | "empty"
+  | "partial"
+  | "loaded"
+  | "unavailable";
 const TRANSIT_POI_LAYER_IDS = [
   "mrt-station-halo",
   "mrt-station-dot",
@@ -1000,6 +1007,11 @@ export function nightLightingSummary(status: LampOverlayStatus, lampCount: numbe
   if (status === "unavailable") {
     return `Night lighting overlay is on; lamp-post tiles are unavailable for the current map view. ${caveat}`;
   }
+  if (status === "partial") {
+    return `Night lighting overlay is on with ${lampCount} lamp-post point${
+      lampCount === 1 ? "" : "s"
+    } in view; some lamp-post tiles are unavailable. ${caveat}`;
+  }
   if (status === "empty" || lampCount === 0) {
     return `Night lighting overlay is on; no lamp-post points are indexed in the current map view. ${caveat}`;
   }
@@ -1319,7 +1331,18 @@ export function RouteEvidenceMap({
           .map((tile) => lampTileCacheRef.current.get(tile.cell))
           .filter((tile): tile is LampTilePayload => tile !== null && tile !== undefined);
         const nextLampData = lampTilesToFeatureCollection(visibleTiles);
-        setLampOverlayStatus(nextLampData.features.length === 0 ? "empty" : "loaded");
+        const unavailableTileCount = tiles.filter(
+          (tile) => lampTileCacheRef.current.get(tile.cell) === null
+        ).length;
+        setLampOverlayStatus(
+          nextLampData.features.length === 0
+            ? unavailableTileCount > 0
+              ? "unavailable"
+              : "empty"
+            : unavailableTileCount > 0
+              ? "partial"
+              : "loaded"
+        );
         setLampData(nextLampData);
       })().catch(() => {
         if (active) {

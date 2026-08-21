@@ -118,6 +118,12 @@ describe("shelter map interactions", () => {
     expect(nightLightingSummary("unavailable", 0)).toBe(
       "Night lighting overlay is on; lamp-post tiles are unavailable for the current map view. Map evidence only; not part of the locked score."
     );
+    expect(nightLightingSummary("partial", 1)).toBe(
+      "Night lighting overlay is on with 1 lamp-post point in view; some lamp-post tiles are unavailable. Map evidence only; not part of the locked score."
+    );
+    expect(nightLightingSummary("partial", 14)).toBe(
+      "Night lighting overlay is on with 14 lamp-post points in view; some lamp-post tiles are unavailable. Map evidence only; not part of the locked score."
+    );
     expect(nightLightingSummary("loaded", 1)).toBe(
       "Night lighting overlay is on with 1 lamp-post point in view. Map evidence only; not part of the locked score."
     );
