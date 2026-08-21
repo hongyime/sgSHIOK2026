@@ -75,6 +75,12 @@ run.py           task runner: safe reports (check --freshness-only, check --geos
                  export-transit, validate, publish), and local test task
 ```
 
+`uv run python run.py check --freshness-only` is a zero-mutation source-age
+report: it reads `raw/manifest.json` and `pipeline/config/sources.yaml`, probes
+no upstream APIs, and its grouped action summaries include source names such as
+`traffic_signals (Traffic Signals)` so operators do not need to cross-reference
+`sources.yaml`.
+
 ## Working conventions
 
 - Work task-by-task from the owner-approved brief or issue; one branch/commit per task.

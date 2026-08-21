@@ -52,6 +52,11 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "p19-gap-status, p19-mcst-locations, p125-osm-status, readiness, readiness --gate-summary, batch-plan" in normalized
     assert "score-batch, export, export-transit" in normalized
     assert "and local test task" in normalized
+    assert "check --freshness-only` is a zero-mutation source-age report" in normalized
+    assert "reads `raw/manifest.json` and `pipeline/config/sources.yaml`, probes no upstream APIs" in normalized
+    assert "grouped action summaries include source names" in normalized
+    assert "traffic_signals (Traffic Signals)" in normalized
+    assert "so operators do not need to cross-reference `sources.yaml`" in normalized
     assert "uv run python run.py <task>" in normalized
     assert "uv run python run.py test" in normalized
     assert "uv run python run.py publish" in normalized
