@@ -541,15 +541,16 @@ describe("rendered accessibility output", () => {
     expect(rankEmptyMessage("overall", "Locked score sorting index")).toBe(
       "No comparable full locked scores in this planning area."
     );
-    expect(rankEmptyMessage("rain", "Rain-shelter evidence")).toBe(
-      "No comparable planning-area records for Rain-shelter evidence."
+    expect(rankEmptyMessage("rain", "Rain covered-walkway evidence")).toBe(
+      "No comparable planning-area records for Rain covered-walkway evidence."
     );
 
     const evidenceHtml = renderScoreCard({
       rankMetric: "rain",
       rankingRecords: [],
     });
-    expect(evidenceHtml).toContain("No comparable planning-area records for Rain-shelter evidence.");
+    expect(evidenceHtml).toContain("No comparable planning-area records for Rain covered-walkway evidence.");
+    expect(evidenceHtml).not.toContain("No comparable planning-area records for Rain-shelter evidence.");
     expect(evidenceHtml).not.toContain("No comparable full locked scores in this planning area.");
   });
 

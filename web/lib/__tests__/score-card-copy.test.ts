@@ -472,8 +472,23 @@ describe("score card copy", () => {
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
       '{ id: "overall", label: "Locked score sorting index" }'
     );
+    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
+      '{ id: "rain", label: "Rain covered-walkway evidence" }'
+    );
+    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
+      '{ id: "access", label: "Walk-distance evidence" }'
+    );
+    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
+      '{ id: "bus", label: "Bus service-support evidence" }'
+    );
+    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
+      '{ id: "crossing", label: "Crossing-friction locked term" }'
+    );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
       '{ id: "overall", label: "Locked SHIOK score" }'
+    );
+    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
+      '{ id: "rain", label: "Rain-shelter evidence" }'
     );
     expect(source).toContain('?? "Locked score sorting index"');
     expect(source).toContain("Start with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map bundle.");

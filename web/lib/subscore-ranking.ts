@@ -4,11 +4,11 @@ export type RankMetric = "overall" | keyof Subscores;
 
 export const RANK_METRIC_OPTIONS: Array<{ id: RankMetric; label: string }> = [
   { id: "overall", label: "Locked score sorting index" },
-  { id: "rain", label: "Rain-shelter evidence" },
-  { id: "access", label: "Transit-access evidence" },
-  { id: "bus", label: "Bus-service evidence" },
-  { id: "heat", label: "Heat-proxy evidence" },
-  { id: "crossing", label: "Crossing-friction evidence" },
+  { id: "rain", label: "Rain covered-walkway evidence" },
+  { id: "access", label: "Walk-distance evidence" },
+  { id: "bus", label: "Bus service-support evidence" },
+  { id: "heat", label: "Heat proxy evidence" },
+  { id: "crossing", label: "Crossing-friction locked term" },
 ];
 
 export interface RankedScoreRecord {
