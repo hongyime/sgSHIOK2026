@@ -1012,3 +1012,6 @@ Browser copy for a known P19 missing postal should describe the public product l
 
 2026-08-21 - P363 P19 known-miss drift guard:
 The TypeScript browser list of known P19 missing postals must stay byte-for-byte aligned with the structured Python source-policy block. A focused batch-plan test now parses `web/app/page.tsx` and compares its known-miss postal/source mapping to `RECENT_PUBLIC_SOURCE_GAP_SAMPLE["missing_postals_by_source"]`, while also rejecting internal cache wording in browser source. This is test coverage and evidence only; it does not change runtime behavior, read protected payloads, run measurements, score, export, deploy, ingest, network, or touch locked weights.
+
+2026-08-21 - P364 locked-score visual hierarchy guard:
+The browser test for the locked score staying visually secondary should compare the actual CSS font sizes for the shelter exposure hero and locked-score badge, not only assert loose `font-size` substrings exist somewhere in the stylesheet. This is test coverage and evidence only; it does not change runtime behavior, score, export, deploy, ingest, network, public data, protected QA, or locked weights.

@@ -1,6 +1,13 @@
 import { readFileSync } from "fs";
 import { join } from "path";
 
+function cssFontSizePx(cssSource: string, selector: string): number {
+  const escapedSelector = selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const match = cssSource.match(new RegExp(`${escapedSelector}\\s*\\{[^}]*font-size:\\s*(\\d+)px;`, "m"));
+  if (!match) throw new Error(`Missing font-size for ${selector}`);
+  return Number.parseInt(match[1], 10);
+}
+
 describe("score card copy", () => {
   it("distinguishes far connected shelter-map walks from disconnected walks", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
@@ -432,10 +439,12 @@ describe("score card copy", () => {
   it("keeps the locked score visually secondary to the shelter evidence", () => {
     const cssSource = readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8");
 
-    expect(cssSource).toContain(".exposureHero strong");
-    expect(cssSource).toContain("font-size: 17px;");
-    expect(cssSource).toContain(".scoreBadge strong");
-    expect(cssSource).toContain("font-size: 13px;");
+    const exposureHeroFontSize = cssFontSizePx(cssSource, ".exposureHero strong");
+    const lockedScoreFontSize = cssFontSizePx(cssSource, ".scoreBadge strong");
+
+    expect(exposureHeroFontSize).toBeGreaterThan(lockedScoreFontSize);
+    expect(exposureHeroFontSize).toBe(17);
+    expect(lockedScoreFontSize).toBe(13);
     expect(cssSource).toContain(".scoreBadge span");
     expect(cssSource).toContain("font-size: 9px;");
     expect(cssSource).not.toContain(".scoreBadge strong {\n    font-size: 18px;");
