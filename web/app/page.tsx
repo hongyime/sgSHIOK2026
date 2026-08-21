@@ -1549,7 +1549,7 @@ export function ScoreCard({
           {feedbackPoints.length > 0 && (
             <div className={styles.feedbackEditor}>
               <div className={styles.feedbackMeta}>
-                {feedbackPoints.length} points / {Math.max(0, feedbackPoints.length - 1)} segments
+                {feedbackPoints.length} points / {Math.max(0, feedbackPoints.length - 1)} walk segments
                 {copyStatus ? <span>{copyStatus}</span> : null}
               </div>
               {feedbackSegmentLabels.map((label, index) => (

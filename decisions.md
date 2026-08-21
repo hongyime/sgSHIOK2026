@@ -1132,3 +1132,6 @@ The score-card live-region walk-display text should announce `sheltered walk` an
 
 2026-08-21 - P405 exposure-gap live-region summary:
 The score-card live region should announce the longest exposed gap as well as total exposed distance and gap count, because the longest gap is visible in the shelter evidence hero and is the most actionable part of the exposure-gaps array for non-visual users. This is accessibility copy and test coverage only; it does not mutate route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P406 traced walk segment counter:
+The traced-correction feedback editor should count `walk segments` rather than generic `segments`, because the control is for user-suggested walking evidence corrections and now consistently uses walk-framed labels. This is browser copy and test coverage only; it does not mutate feedback JSON compatibility fields, route geometry, scoring, exports, public data, deployment, or locked weights.
