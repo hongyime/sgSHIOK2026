@@ -991,8 +991,9 @@ def readiness_features(
         "not_incorporated": {
             "canonical_140k_postal_universe": (
                 "not claimed; frozen v1 remains the 124443-record June 2020 OneMap-derived "
-                "universe; P19 found 8 missing rows out of 976 (0.82%) HDB completion and MCST "
-                "proxy rows with postals, P125 found live OSM addr:postcode covers only "
+                "universe; P19 found 6 coordinate-backed HDB missing rows plus 2 unvalidated "
+                "MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows with "
+                "postals, P125 found live OSM addr:postcode covers only "
                 "25873 frozen postals, and P64 found OneMap Search validates candidates "
                 "but is not an enumerator"
             ),

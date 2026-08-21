@@ -167,12 +167,12 @@ describe("rendered accessibility output", () => {
       <SearchFeedback results={[]} loading={false} error={null} searched={true} />
     );
     expect(searchResultsAnnouncement([], false, null, true)).toBe(
-      "No OneMap address result found for this search. Try a 6-digit postal code. Separately, the frozen shelter-map bundle's recent public-source check found 8 missing rows out of 976 (0.82%) HDB completion and MCST proxy rows from 2021-2026 with postals."
+      "No OneMap address result found for this search. Try a 6-digit postal code. Separately, the frozen shelter-map bundle's recent public-source check found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows with postals."
     );
     expect(noResultsHtml).toContain("No OneMap address result found for this search.");
     expect(noResultsHtml).toContain("Try a 6-digit postal code");
     expect(noResultsHtml).toContain(
-      "Separately, the frozen shelter-map bundle&#x27;s recent public-source check found 8 missing rows out of 976 (0.82%) HDB completion and MCST proxy rows from 2021-2026 with postals."
+      "Separately, the frozen shelter-map bundle&#x27;s recent public-source check found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows with postals."
     );
     expect(noResultsHtml).not.toContain("the frozen shelter-map bundle has measured recent-source misses");
     expect(noResultsHtml).not.toContain("the frozen score bundle has measured recent-source misses");
@@ -315,14 +315,14 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain(
-      "Postal 560231 is outside the shelter-map bundle tied to the frozen June 2020 address universe; the recent public-source check found 8 missing rows out of 976 (0.82%) HDB completion and MCST proxy rows from 2021-2026 with postals."
+      "Postal 560231 is outside the shelter-map bundle tied to the frozen June 2020 address universe; the recent public-source check found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows with postals."
     );
     expect(html).toContain("Outside shelter-map bundle");
     expect(html).not.toContain("Postal 560231 is not in the current shelter-map bundle.");
     expect(html).not.toContain("Postal 560231 is not in the current score bundle.");
     expect(html).not.toContain("Outside current bundle");
     expect(html).toContain(
-      "No shelter-map walk is published for this postal; this shelter-map bundle is tied to the frozen June 2020 address universe, and the recent public-source check found 8 missing rows out of 976 (0.82%) HDB completion and MCST proxy rows from 2021-2026 with postals."
+      "No shelter-map walk is published for this postal; this shelter-map bundle is tied to the frozen June 2020 address universe, and the recent public-source check found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows with postals."
     );
     expect(html).not.toContain(
       "No shelter-map walk is published for this postal; the current bundle is tied to the frozen June 2020 address universe.</span>"

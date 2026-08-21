@@ -14,8 +14,9 @@ GitHub Actions exists for repository automation and CI, not for heavy pipeline c
 
 The current postal universe is frozen v1: a 124,443-record source-derived set
 built around a June 2020 OneMap-derived postal scrape and later local sources.
-Recent public-source checks found a small current-source gap: 8 missing rows
-out of 976 (0.82%) HDB completion and MCST proxy rows from 2021-2026 with postals. The
+Recent public-source checks found a small current-source gap: 6 coordinate-backed
+HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026
+public-source rows with postals. The
 P125 live Overpass measurement found OSM `addr:postcode` covers only 25,873 of
 the 124,443 frozen postals, so OSM remains geometry evidence rather than an
 address registry. OneMap Search validates and

@@ -99,7 +99,7 @@ const REASON_COPY: Record<keyof Subscores, { low: string; high: string }> = {
 };
 
 const RECENT_PUBLIC_SOURCE_GAP_COPY =
-  "8 missing rows out of 976 (0.82%) HDB completion and MCST proxy rows from 2021-2026 with postals";
+  "6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows with postals";
 
 const RECENT_PUBLIC_SOURCE_MISSING_POSTAL_SOURCE: Record<string, string> = {
   "521400": "HDB 2021-2026 geocoded rows",

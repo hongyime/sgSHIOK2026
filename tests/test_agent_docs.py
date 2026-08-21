@@ -18,7 +18,10 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "covered-walkway ratio and exposed gaps on real routed walks" in normalized
     assert "locked SHIOK score visible but secondary" in normalized
     assert "postal universe is frozen v1: 124,443 records" in normalized
-    assert "P19 found 8 missing rows out of 976 (0.82%) HDB completion and MCST proxy rows" in normalized
+    assert (
+        "P19 found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%)"
+        in normalized
+    )
     assert "P19 found 8 missing rows out of 976 HDB completion and MCST proxy rows" not in normalized
     assert "P125 found live OSM `addr:postcode` covers only 25,873 frozen postals" in normalized
     assert "Treat OSM as geometry evidence, not the primary address registry" in normalized

@@ -168,9 +168,10 @@ describe("score card copy", () => {
       "Recent public-source check: {RECENT_PUBLIC_SOURCE_GAP_COPY}."
     );
     expect(source).toContain(
-      "8 missing rows out of 976 (0.82%) HDB completion and MCST proxy rows from 2021-2026 with postals"
+      "6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows with postals"
     );
     expect(source).not.toContain("8 missing rows out of 976 HDB completion and MCST proxy rows");
+    expect(source).not.toContain("8 missing rows out of 976 (0.82%) HDB completion and MCST proxy rows");
     expect(source).not.toContain("Recent public-sample check:");
     expect(source).not.toContain(
       "Recent public-sample check: 8 missing rows out of 976 completions from 2021-2026 with postals."
