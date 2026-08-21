@@ -259,6 +259,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Preview shelter map evidence only");
     expect(html).toContain("↺ Published walk");
     expect(html).toContain("Shelter map evidence preview");
+    expect(html).toContain("Map evidence only");
+    expect(html).not.toContain("Not scored in the current bundle");
     expect(html).toContain("Preview shelter map evidence selected.");
     expect(html).toContain("Shelter map preview");
     expect(html).toContain("<span>Locked score</span><strong>Preview only</strong>");

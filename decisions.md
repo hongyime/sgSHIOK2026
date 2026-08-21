@@ -847,3 +847,6 @@ The `SCORED_PARTIAL` state note should not imply that missing component scores m
 
 2026-08-21 - P307 no-transit qualifying-stop copy:
 The short `NO_TRANSIT_IN_RANGE` copy for `no_transit_candidates_selected` should not sound like no transit exists near the postal. The title/reason now say `No qualifying transit stop within 1.2 km`, while the detailed note continues to name the 1.2 km scoring range and qualifying MRT/LRT exit or bus stop criteria. This is browser copy and test coverage only; it does not alter candidate selection, score states, score values, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P308 preview reason map-evidence copy:
+The live OneMap clicked-stop preview reason should say `Map evidence only` instead of `Not scored in the current bundle`, because the preview intentionally displays covered-walkway evidence for a stop that is outside the published locked-score bundle. This is browser copy and rendered test coverage only; it does not alter live preview geometry, score states, score values, scoring, exports, public data, deployment, or locked weights.

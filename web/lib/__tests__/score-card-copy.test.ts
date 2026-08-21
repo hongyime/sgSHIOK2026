@@ -299,6 +299,8 @@ describe("score card copy", () => {
     expect(source).toContain('aria-label="Shelter map evidence and locked score breakdown"');
     expect(source).toContain('aria-label="Shelter map evidence reasons"');
     expect(source).toContain("Shelter map evidence preview");
+    expect(source).toContain("Map evidence only");
+    expect(source).not.toContain("Not scored in the current bundle");
     expect(source).toContain("Shelter map evidence unavailable");
     expect(source).toContain("Shelter map evidence available");
     expect(source).toContain("Locked score unavailable");
