@@ -4,12 +4,13 @@
 Usage: uv run python run.py <task> [options]
 
 Safe reports:
-  check --freshness-only | check --geospatial-discovery-only | p19-gap-status | p19-mcst-locations | p125-osm-status | readiness | readiness --gate-summary | batch-plan
+  check --freshness-only | check --geospatial-discovery-only | universe-status | p19-gap-status | p19-mcst-locations | p125-osm-status | readiness | readiness --gate-summary | batch-plan
   check --freshness-only reads raw/manifest.json only; it probes no upstream URLs, writes no manifest, groups action summaries with source names, and says stale sources require a versioned refresh.
   check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads, writes no manifest, and treats changed discovery URLs as new-version inputs.
   p19-gap-status reads cached P19 16 Aug 2026 public-source sample status, evidence split, missing rows, MCST proxy probe and cache ages only; it calls no APIs and writes no files.
   p19-mcst-locations reads existing P379 status for unvalidated P19 MCST proxy rows only; it calls no APIs and writes no files.
   p125-osm-status reads cached P125 20 Aug 2026 Overpass addr:postcode coverage cross-check and frozen v1 universe only, reporting OSM as geometry evidence rather than the address registry; it calls no APIs and writes no files.
+  universe-status consolidates the cached P19 and P125 postal-universe measurements without APIs or writes; it is evidence for sizing v1 gaps, not approval to build or promote v2.
   readiness validates the published shelter-map bundle and release gates without scoring or deploying.
   readiness --gate-summary prints the same release gate verdict and warnings without the full nested report.
   batch-plan dry-runs one-attempt full-batch prerequisites and policy status without scoring; execution still requires owner approval and bounded OneMap controls.
@@ -47,6 +48,7 @@ STUBS = {
     "p19-gap-status": "read-only status, evidence split, missing rows, MCST proxy probe and cache ages for cached P19 16 Aug 2026 public-source sample",
     "p19-mcst-locations": "read-only status for the cached P379 OneMap location probe of unvalidated P19 MCST proxy rows",
     "p125-osm-status": "read-only status for cached P125 20 Aug 2026 Overpass addr:postcode coverage cross-check and registry policy",
+    "universe-status": "read-only consolidated status for cached P19 and P125 postal-universe measurements",
     "readiness": "fast production-readiness report without scoring or deploying; use --gate-summary for concise release-gate output",
     "refresh-provenance": "fail-closed manifest provenance refresh; direct pipeline.export invocation must name --output explicitly",
     "score": "apply pipeline/config/weights.yaml (T1.4)",
@@ -125,6 +127,8 @@ def run_task(name: str, extra: list[str]) -> int:
         return run_module("scripts.analysis.p19_mcst_missing_locations", ["--cache-status-only"])
     if name == "p125-osm-status":
         return run_module("scripts.analysis.p125_osm_postcode_status")
+    if name == "universe-status":
+        return run_module("scripts.analysis.universe_measurement_status")
     if name == "readiness":
         return run_module("scripts.production_readiness")
     if name == "refresh-provenance":

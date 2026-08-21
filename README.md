@@ -33,7 +33,10 @@ Overpass, run
 `uv run python run.py p19-gap-status`. To reprint the cached P125 OSM
 coverage cross-check, registry policy, and cache ages without calling Overpass
 or writing files, run
-`uv run python run.py p125-osm-status`.
+`uv run python run.py p125-osm-status`. To see both postal-universe
+measurements in one no-API/no-write report, run
+`uv run python run.py universe-status`; it sizes the frozen-v1 gap but does not
+approve building or promoting v2.
 
 ## Local data artifacts
 

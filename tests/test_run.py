@@ -11,7 +11,7 @@ def test_run_docstring_uses_uv_managed_invocation():
 def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     assert "Safe reports:" in run.__doc__
     assert (
-        "check --freshness-only | check --geospatial-discovery-only | p19-gap-status | p19-mcst-locations | p125-osm-status | readiness | readiness --gate-summary | batch-plan"
+        "check --freshness-only | check --geospatial-discovery-only | universe-status | p19-gap-status | p19-mcst-locations | p125-osm-status | readiness | readiness --gate-summary | batch-plan"
         in run.__doc__
     )
     assert (
@@ -31,6 +31,7 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     assert "p19-mcst-locations reads existing P379 MCST proxy probe status only" not in run.__doc__
     assert "p125-osm-status reads cached P125 20 Aug 2026 Overpass addr:postcode coverage cross-check and frozen v1 universe only, reporting OSM as geometry evidence rather than the address registry; it calls no APIs and writes no files." in run.__doc__
     assert "p125-osm-status reads cached P125 Overpass output" not in run.__doc__
+    assert "universe-status consolidates the cached P19 and P125 postal-universe measurements without APIs or writes; it is evidence for sizing v1 gaps, not approval to build or promote v2." in run.__doc__
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in run.__doc__
     assert "readiness --gate-summary prints the same release gate verdict and warnings without the full nested report." in run.__doc__
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in run.__doc__
@@ -71,6 +72,7 @@ def test_run_help_headline_does_not_flatten_all_tasks():
     assert "p19-mcst-locations reads existing P379 MCST proxy probe status only" not in help_text
     assert "p125-osm-status reads cached P125 20 Aug 2026 Overpass addr:postcode coverage cross-check and frozen v1 universe only, reporting OSM as geometry evidence rather than the address registry; it calls no APIs and writes no files." in help_text
     assert "p125-osm-status reads cached P125 Overpass output" not in help_text
+    assert "universe-status consolidates the cached P19 and P125 postal-universe measurements without APIs or writes; it is evidence for sizing v1 gaps, not approval to build or promote v2." in help_text
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in help_text
     assert "readiness --gate-summary prints the same release gate verdict and warnings without the full nested report." in help_text
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in help_text
@@ -113,6 +115,9 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
     assert run.STUBS["p125-osm-status"] == (
         "read-only status for cached P125 20 Aug 2026 Overpass addr:postcode "
         "coverage cross-check and registry policy"
+    )
+    assert run.STUBS["universe-status"] == (
+        "read-only consolidated status for cached P19 and P125 postal-universe measurements"
     )
     assert run.STUBS["overture-addresses"] == (
         "probe Overture Addresses SG as candidate-only postal-universe evidence, "
@@ -353,6 +358,33 @@ def test_run_task_exposes_p125_osm_status_as_read_only_module(monkeypatch):
                 sys.executable,
                 "-m",
                 "scripts.analysis.p125_osm_postcode_status",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_task_exposes_universe_status_as_read_only_module(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("universe-status", []) == 0
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "scripts.analysis.universe_measurement_status",
             ],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},

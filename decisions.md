@@ -1509,3 +1509,7 @@ The full published-bundle audit can replay sampled records through scoring conte
 2026-08-22 - P534 OneMap triage explicit outputs:
 
 OneMap outlier triage is report-only, but it writes five generated QA artifacts, so a bare command should not reuse historical filenames under `qa/`. `scripts.triage_onemap_outliers` now requires explicit paths for the queue JSON and all generated GeoJSON outputs before reading profile or validation inputs. This is command safety/test coverage only; it does not score, export, mutate protected QA evidence, public data, deployment, or locked weights.
+
+2026-08-22 - P535 postal-universe measurement status:
+
+Operators need one read-only answer for the current postal-universe measurement evidence before deciding whether v2 work is justified. `run.py universe-status` now consolidates the cached P19 public-source gap sample and P125 OSM addr:postcode coverage cross-check without APIs or writes. It sizes frozen-v1 gaps only; it does not approve a v2 build, scoring, export, input mutation, public-data mutation, deployment, or locked-weight changes.

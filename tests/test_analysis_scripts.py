@@ -5,9 +5,71 @@ import os
 from scripts.analysis import p19_universe_gap_measurement as p19
 from scripts.analysis import p19_mcst_missing_locations as p379
 from scripts.analysis import p125_osm_postcode_status as p125
+from scripts.analysis import universe_measurement_status as universe_status
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_universe_status_consolidates_cached_measurements(monkeypatch) -> None:
+    monkeypatch.setattr(
+        universe_status.p19,
+        "cache_status_report",
+        lambda: {
+            "will_call_apis": False,
+            "will_write_files": False,
+            "evidence_split": {
+                "confirmed_missing_address_rows": 6,
+                "source_quality_warning_rows": 2,
+            },
+            "release_policy": {
+                "measurement_label": "16 Aug 2026 public-source sample",
+                "status": "sample_classified",
+                "summary": "6 coordinate-backed HDB missing rows confirmed",
+            },
+        },
+    )
+    monkeypatch.setattr(
+        universe_status.p125,
+        "status_report",
+        lambda: {
+            "measurement": "P125 20 Aug 2026 Overpass addr:postcode coverage cross-check",
+            "will_call_apis": False,
+            "will_write_files": False,
+            "coverage": {
+                "osm_valid_distinct_postcodes": 25879,
+                "osm_valid_in_v1": 25873,
+                "osm_valid_not_in_v1": 6,
+                "v1_distinct_postals": 124443,
+                "osm_coverage_of_v1_pct": 20.791045,
+                "source_role": "geometry evidence and coverage cross-check",
+                "registry_policy": "not the address registry",
+                "verdict": "not sufficient as primary Singapore address registry",
+            },
+        },
+    )
+
+    report = universe_status.status_report()
+
+    assert report["will_call_apis"] is False
+    assert report["will_write_files"] is False
+    assert (
+        report["measurements"]["recent_public_source_gap_sample"][
+            "confirmed_missing_address_rows"
+        ]
+        == 6
+    )
+    assert (
+        report["measurements"]["recent_public_source_gap_sample"][
+            "source_quality_warning_rows"
+        ]
+        == 2
+    )
+    assert (
+        report["measurements"]["osm_addr_postcode_coverage"]["osm_valid_not_in_v1"]
+        == 6
+    )
+    assert "do not approve a v2 promotion" in report["decision_boundary"]
 
 
 def test_p10_provenance_coverage_names_leaf_area_index_policy() -> None:
