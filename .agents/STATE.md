@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P561 code commit: `c02825e`; state-only commits may follow it on `main`.
+Latest P562 code commit: `f0eecaf`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P562 is complete and committed: the Section 10 presentation reference now matches implemented live copy by replacing internal shelter trace language with covered-walkway ratio, exposed-gap, and shelter-map walk evidence language. Focused web copy test, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, stale-phrase search, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P561 is complete and committed: live score-breakdown notes now replace internal shelter trace wording with explicit covered-walkway ratio and exposed-gap language, keeping the visible evidence named plainly. Focused web copy/accessibility tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P560 is complete and committed: first-view and no-selection prompts now describe covered-walkway ratio and exposed gaps as on-walk evidence, while naming night lighting as map evidence instead of implying a routed-path lighting metric. Focused web copy/accessibility/map tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P559 is complete and committed: footer copy now separates source-derived walk evidence (covered-walkway ratio and exposed gaps) from night lighting map evidence, preserving the shelter-first distinction between on-walk evidence and map-only lighting evidence. Focused web copy test, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
