@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P469 code commit: `7b8b842`; state-only commits may follow it on `main`.
+Latest P470 code commit: `62c5368`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P470 is complete and committed: `ATTRIBUTION.md` now lists `lamp_posts` as an LTA Singapore Open Data Licence source used for the separate night lighting map layer, and no longer says lamp posts are unshipped. `NOTICE` was intentionally left unchanged because repo integrity pins its historical blob. Focused attribution test and repo integrity passed.
 - P469 is complete and committed: `CLAUDE.md` now carries the full P125 distinct OSM postcode measurement, 25,879 valid distinct live OSM `addr:postcode` values, 25,873 overlapping frozen v1, and 6 valid OSM-only postcodes, matching README/browser/readiness. Focused agent-doc test and repo integrity passed.
 - P468 is complete and committed: production-readiness human policy text now surfaces the P125 total, 25,879 valid distinct live OSM `addr:postcode` values, plus 25,873 overlapping frozen postals, matching the structured source-policy block. Focused production-readiness tests and repo integrity passed.
 - P467 is complete and committed: README and browser first-view copy now state the full P125 distinct OSM postcode measurement, 25,879 valid distinct OSM `addr:postcode` values, 25,873 overlapping frozen v1, and 6 valid OSM-only postcodes. Focused README/web copy tests and repo integrity passed.
