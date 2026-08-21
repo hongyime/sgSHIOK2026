@@ -36,7 +36,9 @@ or writing files, run
 `uv run python run.py p125-osm-status`. To see both postal-universe
 measurements in one no-API/no-write report, run
 `uv run python run.py universe-status`; it sizes the frozen-v1 gap but does not
-approve building or promoting v2.
+approve building or promoting v2. The consolidated report includes the P19
+confirmed-missing and confirmed-plus-warning sample rates and the P125
+OSM-only-postcode share of the frozen v1 universe.
 
 ## Local data artifacts
 

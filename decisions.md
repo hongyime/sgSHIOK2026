@@ -1513,3 +1513,7 @@ OneMap outlier triage is report-only, but it writes five generated QA artifacts,
 2026-08-22 - P535 postal-universe measurement status:
 
 Operators need one read-only answer for the current postal-universe measurement evidence before deciding whether v2 work is justified. `run.py universe-status` now consolidates the cached P19 public-source gap sample and P125 OSM addr:postcode coverage cross-check without APIs or writes. It sizes frozen-v1 gaps only; it does not approve a v2 build, scoring, export, input mutation, public-data mutation, deployment, or locked-weight changes.
+
+2026-08-22 - P536 postal-universe measurement rates:
+
+The consolidated postal-universe status should answer the measurement question directly, not only expose raw counts. `run.py universe-status` now reports P19 confirmed-missing and confirmed-plus-warning sample rates plus the P125 OSM-only-postcode share of frozen v1, still using cached evidence only and still not approving v2 build, scoring, export, input mutation, public-data mutation, deployment, or locked-weight changes.

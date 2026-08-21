@@ -27,6 +27,13 @@ def test_universe_status_consolidates_cached_measurements(monkeypatch) -> None:
                 "status": "sample_classified",
                 "summary": "6 coordinate-backed HDB missing rows confirmed",
             },
+            "files": {
+                "summary": {
+                    "combined_recent_completion_signal": {
+                        "rows_with_postal": 976,
+                    },
+                },
+            },
         },
     )
     monkeypatch.setattr(
@@ -68,6 +75,30 @@ def test_universe_status_consolidates_cached_measurements(monkeypatch) -> None:
     assert (
         report["measurements"]["osm_addr_postcode_coverage"]["osm_valid_not_in_v1"]
         == 6
+    )
+    assert (
+        report["measurements"]["recent_public_source_gap_sample"][
+            "sample_rows_with_postal"
+        ]
+        == 976
+    )
+    assert (
+        report["measurements"]["recent_public_source_gap_sample"][
+            "confirmed_missing_address_row_rate_pct"
+        ]
+        == 0.614754
+    )
+    assert (
+        report["measurements"]["recent_public_source_gap_sample"][
+            "missing_or_source_quality_warning_row_rate_pct"
+        ]
+        == 0.819672
+    )
+    assert (
+        report["measurements"]["osm_addr_postcode_coverage"][
+            "osm_valid_not_in_v1_as_share_of_v1_pct"
+        ]
+        == 0.004821
     )
     assert "do not approve a v2 promotion" in report["decision_boundary"]
 
