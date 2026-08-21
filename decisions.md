@@ -1072,3 +1072,6 @@ Structured source-policy consumers should not have to infer the P19 evidence spl
 
 2026-08-21 - P385 P19 status evidence split:
 `p19-gap-status` should expose the same evidence split as batch-plan and readiness, not require operators to infer it from development clusters and the MCST probe. The cache-status report now includes top-level `evidence_split` derived from existing cached P19/P379 status blocks: 6 coordinate-backed/confirmed HDB missing rows and 2 unvalidated/source-quality MCST proxy rows. This is read-only reporting and test coverage only; it does not call APIs, mutate P19/P379 caches, build v2, score, export, deploy, or alter locked weights.
+
+2026-08-21 - P386 readiness P19 evidence split:
+Production readiness should expose the P19 evidence split as a direct feature field, not only buried inside the full source-policy block. `features.recent_public_source_gap_evidence_split` now aliases the structured source-policy split so operators can read the confirmed-address versus source-quality-warning counts without traversing nested policy metadata. This is readiness reporting and test coverage only; it does not mutate inputs, QA evidence, public data, scoring, exports, deployment, or locked weights.

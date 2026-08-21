@@ -1030,6 +1030,9 @@ def readiness_features(
         "validation_gates": {
             "onemap_walk_validation": onemap_status,
         },
+        "recent_public_source_gap_evidence_split": RECENT_PUBLIC_SOURCE_GAP_SAMPLE[
+            "evidence_split"
+        ],
         "source_policy": {
             "frozen_v1": FROZEN_V1_POLICY,
             "v2": POSTAL_UNIVERSE_V2_POLICY,

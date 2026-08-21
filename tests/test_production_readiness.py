@@ -502,6 +502,12 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         report["features"]["source_policy"]["onemap_search_role"]
         == "candidate validation/geocoding, not national enumeration"
     )
+    assert report["features"]["recent_public_source_gap_evidence_split"] == {
+        "coordinate_backed_hdb_missing_rows": 6,
+        "unvalidated_mcst_proxy_rows": 2,
+        "confirmed_missing_address_rows": 6,
+        "source_quality_warning_rows": 2,
+    }
     assert report["features"]["source_policy"]["recent_public_source_gap_sample"] == {
         "measurement": "P19 recent public-source gap sample",
         "cache_status_command": "uv run python run.py p19-gap-status",
