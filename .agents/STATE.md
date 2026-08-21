@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P340 code commit: `9fa0abb`; state-only commits may follow it on `main`.
+Latest P341 code commit: `6292eb7`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P341 is complete and committed: reusable P10 analysis helper wording now calls the pre-provenance target the legacy published bundle instead of the active bundle. Focused analysis-script tests and repo integrity pass.
 - P340 is complete and committed: `run.py` and `scripts/compare_targeted_scores.py` now describe targeted comparison against the published shelter-map bundle instead of active/static bundle wording. Focused runner/compare-targeted tests and repo integrity pass.
 - P339 is complete and committed: `scripts/targeted_bundle_refresh.py` absent-postal validation now says selected postals are not in the published shelter-map bundle instead of the current bundle. Focused targeted-bundle-refresh tests and repo integrity pass.
 - P338 is complete and committed: `scripts/audit_current_bundle.py` CLI help now names the published shelter-map bundle in its description and `--state-only` help instead of generic/current bundle wording. Focused audit-current-bundle tests and repo integrity pass.
