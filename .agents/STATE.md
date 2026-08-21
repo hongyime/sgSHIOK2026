@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P264 code commit: `519196e`; state-only commits may follow it on `main`.
+Latest P265 code commit: `69eabe5`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P265 is complete and committed: README local-data guidance now names `uv run python run.py check --geospatial-discovery-only` as the no-payload, no-manifest-write way to check current DataMall geospatial discovery links, and states changed discovery URLs require a new numbered input version rather than an in-place repair. README tests and repo integrity pass.
 - P264 is complete and committed: `run.py check --geospatial-discovery-only` now performs a zero-mutation DataMall geospatial discovery probe, sanitizes signed URLs before output, and exits nonzero when current discovery paths differ from `raw/manifest.json`. Focused fetch tests pass; the real probe currently reports two changed discovery URLs and one match.
 - P263 is complete and committed: fetch tests now explicitly guard stripping current DataMall `X-Amz-*` presigned URL parameters before manifest persistence. Focused fetch tests pass.
 - P262 is complete and committed: metadata-only DataMall geospatial discovery found current Covered Linkway and overhead bridge/underpass discovery URLs differ from frozen v1 dated Mar2026 manifest URLs; no payload downloaded, no input mutated.
