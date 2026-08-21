@@ -1099,3 +1099,6 @@ The map legend should name HDB inferred shelter as `HDB void-deck shelter` rathe
 
 2026-08-21 - P394 bridge shelter label:
 Bridge and underpass route segments should be labelled as `Bridge/underpass shelter` in the visible map legend and source strip, because the product surface is explaining shelter evidence rather than infrastructure categories alone. This is browser copy and test coverage only; it does not mutate route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P395 access-walk source labels:
+Route source-strip connector layers should render as `Postal access walk`, `Transit access walk`, and `Bus-stop access walk` instead of connector jargon. These labels describe the walk segment a resident sees while keeping the underlying source-layer identifiers unchanged for compatibility. This is browser copy and test coverage only; it does not mutate route geometry, scoring, exports, public data, deployment, or locked weights.

@@ -487,6 +487,31 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("onto the walking graph");
   });
 
+  it("renders access-walk source labels without connector jargon", () => {
+    const connectorSelection: LoadedSelection = {
+      ...selection,
+      geom: {
+        ...selection.geom!,
+        route_segments: {
+          sheltered: [
+            { geom: "", len_m: 85, is_covered: false, source_layer: "origin_graph_snap_connector" },
+            { geom: "", len_m: 74, is_covered: false, source_layer: "destination_graph_snap_connector" },
+            { geom: "", len_m: 63, is_covered: false, source_layer: "bus_stop_access_connector" },
+          ],
+        },
+      },
+    };
+
+    const html = renderScoreCard({ selection: connectorSelection });
+
+    expect(html).toContain("Postal access walk");
+    expect(html).toContain("Transit access walk");
+    expect(html).toContain("Bus-stop access walk");
+    expect(html).not.toContain("Postal connector");
+    expect(html).not.toContain("Transit connector");
+    expect(html).not.toContain("Bus stop connector");
+  });
+
   it("reflects the night-lighting map layer state in route details", () => {
     const html = renderScoreCard({ lampOverlayEnabled: true });
 

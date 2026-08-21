@@ -83,9 +83,9 @@ const SOURCE_LABELS: Record<string, string> = {
   bridge_underpass: "Bridge/underpass shelter",
   audited_shelter_correction: "Audited shelter",
   direct_unrouted_bus: "Direct bus estimate",
-  bus_stop_access_connector: "Bus stop connector",
-  origin_graph_snap_connector: "Postal connector",
-  destination_graph_snap_connector: "Transit connector",
+  bus_stop_access_connector: "Bus-stop access walk",
+  origin_graph_snap_connector: "Postal access walk",
+  destination_graph_snap_connector: "Transit access walk",
   covered_unknown: "Mapped shelter",
   exposed: "Exposed",
 };
