@@ -264,7 +264,8 @@ describe("score card copy", () => {
     expect(source).toContain("Suggest better walk");
     expect(source).toContain("Copy walk QA JSON");
     expect(source).toContain('placeholder="Optional walk note"');
-    expect(source).toContain("walk segments");
+    expect(source).toContain("formatFeedbackTraceCount(feedbackPoints.length)");
+    expect(source).toContain("walk segment${");
     expect(source).toContain("Walk segment {index + 1}");
     expect(source).not.toContain("sheltered route and shortest route");
     expect(source).not.toContain(">Covered");

@@ -1138,3 +1138,6 @@ The traced-correction feedback editor should count `walk segments` rather than g
 
 2026-08-21 - P407 traced walk segment selector labels:
 The traced-correction feedback editor should label each segment selector as `Walk segment N` rather than generic `Segment N`, matching the walk-framed counter and correction actions. This is browser copy and test coverage only; it does not mutate feedback JSON compatibility fields, route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P408 traced walk count grammar:
+The traced-correction feedback editor should pluralize point and walk-segment counts correctly, because `2 points / 1 walk segments` is visibly unpolished in the user feedback flow. The counter now renders `1 point / 0 walk segments`, `2 points / 1 walk segment`, and plural segments beyond that. This is browser copy and test coverage only; it does not mutate feedback JSON compatibility fields, route geometry, scoring, exports, public data, deployment, or locked weights.

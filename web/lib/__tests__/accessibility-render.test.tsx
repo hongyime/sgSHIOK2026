@@ -10,6 +10,7 @@ vi.mock("next/navigation", () => ({
 import {
   ScoreCard,
   SearchFeedback,
+  formatFeedbackTraceCount,
   formatDataDate,
   formatGeneratedDate,
   routeDisplayAnnouncement,
@@ -551,8 +552,12 @@ describe("rendered accessibility output", () => {
     expect(html).toContain('placeholder="Optional walk note"');
     expect(html).toContain("Copy walk QA JSON");
     expect(html).toContain("Done tracing");
-    expect(html).toContain("2 points / 1 walk segments");
+    expect(html).toContain("2 points / 1 walk segment");
     expect(html).toContain("Walk segment 1");
+    expect(formatFeedbackTraceCount(1)).toBe("1 point / 0 walk segments");
+    expect(formatFeedbackTraceCount(2)).toBe("2 points / 1 walk segment");
+    expect(formatFeedbackTraceCount(3)).toBe("3 points / 2 walk segments");
+    expect(html).not.toContain("2 points / 1 walk segments");
     expect(html).not.toContain("2 points / 1 segments");
     expect(html).not.toContain(">Segment 1</span>");
     expect(html).not.toContain('placeholder="Optional route note"');

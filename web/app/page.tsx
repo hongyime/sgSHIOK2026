@@ -367,6 +367,13 @@ function scoredMeta(value: number | null | undefined, scoredText: string, missin
   return typeof value === "number" ? scoredText : missingText;
 }
 
+export function formatFeedbackTraceCount(pointCount: number): string {
+  const segmentCount = Math.max(0, pointCount - 1);
+  return `${pointCount} point${pointCount === 1 ? "" : "s"} / ${segmentCount} walk segment${
+    segmentCount === 1 ? "" : "s"
+  }`;
+}
+
 function formatGapLocation(gap: ExposureGap): string | null {
   if (!gap.location) return null;
   return `${gap.location.lat.toFixed(5)}, ${gap.location.lon.toFixed(5)}`;
@@ -1549,7 +1556,7 @@ export function ScoreCard({
           {feedbackPoints.length > 0 && (
             <div className={styles.feedbackEditor}>
               <div className={styles.feedbackMeta}>
-                {feedbackPoints.length} points / {Math.max(0, feedbackPoints.length - 1)} walk segments
+                {formatFeedbackTraceCount(feedbackPoints.length)}
                 {copyStatus ? <span>{copyStatus}</span> : null}
               </div>
               {feedbackSegmentLabels.map((label, index) => (
