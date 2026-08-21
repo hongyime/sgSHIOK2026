@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P402 code commit: `d8ddf21`; state-only commits may follow it on `main`.
+Latest P403 code commit: `aff6d27`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P403 is complete and committed: OneMap preview status/caveat copy now says `selected transit stop` and `clicked transit stop`, aligning preview copy with the selected transit-stop badge. Focused web accessibility/map-interaction tests, repo integrity, and protected-diff checks passed.
 - P402 is complete and committed: transit target availability labels now say `current walk`, `published walk`, and `no published walk`, replacing `selected walk`, `shelter-map walk`, and `no shelter-map walk` to make the published-bundle boundary clearer. Focused web accessibility render test, repo integrity, and protected-diff checks passed.
 - P401 is complete and committed: the selected-stop badge now says `Viewing selected transit stop` instead of `Viewing selected stop`, clarifying that the custom selection changes the transit target for the walk comparison. Focused web source-copy test, repo integrity, and protected-diff checks passed.
 - P400 is complete and committed: clicked-stop live preview metric labels now say `OneMap preview walk` instead of generic `Preview walk`, clarifying that selected-stop preview evidence is fetched live from OneMap and remains outside the published shelter-map bundle. Focused web accessibility/map-interaction tests, repo integrity, and protected-diff checks passed.
