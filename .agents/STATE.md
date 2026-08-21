@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P380 code commit: `23ae099`; state-only commits may follow it on `main`.
+Latest P381 code commit: `8c91811`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P381 is complete and committed: outside-bundle browser copy now treats P19 MCST proxy postals as unvalidated source-quality evidence rather than confirmed frozen-v1 missing addresses, while HDB known-miss postals keep confirmed missing-postal wording. Focused batch-plan drift guard, accessibility render test, repo integrity, and protected-diff checks passed.
 - P380 is complete and committed: structured batch-plan/readiness source policy now carries the P379 MCST proxy location probe result, including 0 located / 2 unlocated rows, CANAAN's conflicting candidate postal 387720 versus recorded 378720, and the no-score/no-export/no-P19-mutation boundary. Focused batch-plan/readiness tests and repo integrity passed.
 - P379 is complete and committed: added `uv run python run.py p19-mcst-locations`, a bounded OneMap probe that writes only new `qa/p379/` cache/report files and leaves P19 evidence untouched. It found neither MCST proxy missing postal locatable: CANAAN's recorded 378720 location resolves to OneMap postal 387720, and MYRA returns no candidates. Focused analysis/runner tests and repo integrity passed.
 - P378 is complete and committed: `p19-gap-status` now enriches HDB missing-development clusters with cached OneMap coordinate source, coordinate count, centroid, and bbox. SUN PLAZA SPRING and YISHUN BEACON are located from existing P19 cache; MCST proxy clusters remain unlocated because P19 did not geocode/cache MCST coordinates. Focused analysis/batch-plan/readiness tests and repo integrity passed.
