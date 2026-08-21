@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P534 code commit: `0ea9b4d`; state-only commits may follow it on `main`.
+Latest P535 code commit: `85e9e12`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P535 is complete and committed: `run.py universe-status` now consolidates cached P19 public-source gap sample evidence and P125 OSM `addr:postcode` coverage cross-check evidence into one read-only no-API/no-write operator report. Focused analysis/run/README tests, collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P534 is complete and committed: `scripts.triage_onemap_outliers` now requires explicit paths for the queue JSON and all generated GeoJSON outputs before reading profile/validation inputs or writing generated QA artifacts. Focused triage/run tests, repo integrity, check-ignore, and protected-diff checks passed. No scoring, export, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P533 is complete and committed: `scripts.audit_current_bundle` now keeps `--state-only` available without output or confirmation, but non-state audits require explicit `--output`, and replay samples require `--confirm-replay-audit` before active-bundle lookup, scoring-context loading, or report writes. Focused audit/run tests, repo integrity, check-ignore, and protected-diff checks passed. No replay scoring, scoring, export, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P532 is complete and committed: `scripts.replay_onemap_outliers` now requires `--confirm-outlier-replay` plus explicit `--output` before loading scoring context, calling `score_postal_gdf()`, or writing its replay report. Focused replay/run tests, repo integrity, check-ignore, and protected-diff checks passed. No replay scoring, scoring, export, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
