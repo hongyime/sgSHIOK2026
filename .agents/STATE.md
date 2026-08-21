@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P318 code commit: `1d821e9`; state-only commits may follow it on `main`.
+Latest P319 code commit: `680ffbd`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P319 is complete and committed: the planning-area bus rank option now says `Bus-service evidence` instead of `Bus connectivity`, while still ranking by the existing locked bus field. Focused score-card/subscore-ranking tests and repo integrity pass.
 - P318 is complete and committed: the no-subscore shelter-panel reason chip now says `Locked terms unavailable` instead of `Locked score incomplete`, keeping missing locked terms separate from available shelter-map evidence. Focused web copy test and repo integrity pass.
 - P317 is complete and committed: the partial locked-score note now says one or more locked terms are unavailable, rather than one or more component scores, while preserving the missing-term-as-zero warning. Focused web copy/accessibility tests and repo integrity pass.
 - P316 is complete and committed: the route map's no-route aria label now includes night-lighting evidence alongside MRT/LRT stations and bus stops, matching the settled night-lighting-as-second-layer product scope. Focused route-map interaction test and repo integrity pass.
