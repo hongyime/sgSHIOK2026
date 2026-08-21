@@ -3,7 +3,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 
 const metadataTitle = "S.H.I.O.K. Shelter Map";
 const metadataDescription =
-  "Explore covered-walkway ratio, exposed gaps, night lighting evidence, and the secondary locked SHIOK score for Singapore walks to transit.";
+  "Explore covered-walkway ratio, exposed gaps, night lighting evidence, and the secondary locked SHIOK score on Singapore walks to transit.";
 
 export const metadata = {
   title: metadataTitle,
