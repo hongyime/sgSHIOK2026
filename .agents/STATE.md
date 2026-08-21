@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P480 code commit: `6bc6dfd`; state-only commits may follow it on `main`.
+Latest P481 code commit: `451b5b8`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P481 is complete and committed: the README status line now names the frozen v1 124,443-record universe instead of the vaguer source-derived universe before the longer universe-policy section. Focused README tests, repo integrity, check-ignore, and protected-diff checks passed.
 - P480 is complete and committed: the first-view freshness line now leads with manifest-only freshness counts and explicitly frames NParks Leaf Area Index as the oldest current freshness-only reference table, not a core route-evidence boundary. Focused web copy test, repo integrity, check-ignore, and protected-diff checks passed.
 - P479 is complete and committed: the browser source-freshness line now says `21 Aug 2026 UTC manifest-only check`, matching the `run.py check --freshness-only` UTC timestamp instead of implying an unspecified local date. Focused web copy test, repo integrity, and protected-diff checks passed.
 - P478 is complete and committed: the structured P19 source-policy block now labels its sources as `HDB completion geocoded rows` and `BCA MCST constitution-date proxy rows`, with explicit limitations saying HDB postals come from OneMap geocoding and MCST constitution date is onboarding proxy evidence, not TOP/completion date. Focused batch-plan/readiness tests, repo integrity, and protected-diff checks passed.
