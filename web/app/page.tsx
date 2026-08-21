@@ -1220,7 +1220,7 @@ export function ScoreCard({
           id: "bus",
           label: "Bus service support",
           value: formatScore(score.subscores.bus),
-          meta: scoredMeta(score.subscores.bus, "20% locked bus", "No bus score"),
+          meta: scoredMeta(score.subscores.bus, "20% locked bus", "Bus evidence unavailable"),
           notes: [
             "A low value can mean weak service evidence, or that routing could not prove a trusted walk to a DataMall bus stop.",
             busFallback
@@ -1232,7 +1232,7 @@ export function ScoreCard({
           id: "locked-score",
           label: "Locked SHIOK score",
           value: formatLockedScore(displayScore),
-          meta: scoredMeta(displayScore, "Release sorting index", "No locked score"),
+          meta: scoredMeta(displayScore, "Release sorting index", "No full locked score"),
           notes: [
             "Start with the shelter trace and exposed gaps; use the locked score only to sort the current bundle.",
             "Crossing friction remains a 5% locked term, but has low separation in this release.",

@@ -892,3 +892,6 @@ The planning-area rank helper should match the rank menu's evidence-view framing
 
 2026-08-21 - P322 planning-area rank select accessibility label:
 The planning-area rank select's screen-reader label should describe the same evidence-view surface sighted users see. It now says `Choose planning-area evidence view` instead of `Rank records by`, while the visible dropdown options and rank calculations remain unchanged. This is web accessibility copy and test coverage only; it does not change rank calculations, score values, ranking inputs, ranking order, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P323 display-row unavailable fallback wording:
+Unavailable display-row metadata should name the missing thing rather than generic score availability. The bus row fallback now says `Bus evidence unavailable` instead of `No bus score`, and the locked score row fallback now says `No full locked score` instead of `No locked score`. This is web copy and test coverage only; it does not change row inclusion, score values, ranking inputs, exports, public data, pipeline inputs, or locked weights.
