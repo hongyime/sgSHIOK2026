@@ -799,3 +799,6 @@ The browser title card should state the frozen address universe and the measured
 
 2026-08-21 - P291 no-results gap copy:
 The address-search no-results message should use the same measured frozen-bundle limitation as the title card instead of vague `measured recent-source misses` wording. It now says the frozen shelter-map bundle's recent public-source check found 8 missing rows out of 976 while preserving the separate OneMap lookup failure and 6-digit postal-code suggestion. This is browser copy and test coverage only; it does not alter OneMap search behavior, scoring, inputs, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P292 night-lighting tooltip:
+The night-lighting layer's hover title should use the same user-facing layer name as the visible control instead of leading with raw lamp-post terminology. The button title now starts with `Night lighting`, then names the LTA lamp-post source and repeats that the layer is map evidence outside the locked score. This is browser copy and test coverage only; it does not alter lamp data, map loading, scoring, exports, public data, deployment, or locked weights.
