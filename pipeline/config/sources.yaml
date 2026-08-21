@@ -30,14 +30,14 @@ sources:
     kind: "datamall_geospatial_listing"
     search_keyword: "CoveredLinkWay"
     verified: "2026-07-26"
-    notes: "Zipped SHP from LTA DataMall geospatial listing (unauthenticated public download)"
+    notes: "Zipped SHP from LTA DataMall geospatial listing; frozen v1 records a static Mar2026 URL, while current discovery may require authenticated GeospatialWholeIsland fallback. Refresh only as a new numbered input version."
 
   overhead_bridge_underpass:
     name: "Pedestrian Overhead Bridge / Underpass"
     kind: "datamall_geospatial_listing"
     search_keyword: "PedestrainOverheadbridge_UnderPass"
     verified: "2026-07-26"
-    notes: "Zipped SHP from LTA DataMall geospatial listing (unauthenticated public download)"
+    notes: "Zipped SHP from LTA DataMall geospatial listing; frozen v1 records a static Mar2026 URL, while current discovery may require authenticated GeospatialWholeIsland fallback. Refresh only as a new numbered input version."
 
   bus_stops:
     name: "Bus Stops"
@@ -80,7 +80,7 @@ sources:
     kind: "datamall_geospatial_listing"
     search_keyword: "TrafficLight"
     verified: "2026-07-26"
-    notes: "Zipped SHP from LTA DataMall geospatial listing (unauthenticated); data.gov.sg initiate-download returned 404 for d_f40071375d045d94726e2570075d5069 so source switched to DataMall static"
+    notes: "Zipped SHP from LTA DataMall geospatial listing; current discovery-only check still matches the frozen v1 redacted DataMall URL. If discovery changes, refresh only as a new numbered input version."
 
   lamp_posts:
     name: "Lamp Posts"

@@ -160,6 +160,9 @@ def test_source_config_has_freshness_policy_for_every_source() -> None:
     assert len(sources) == 21
     assert "S.H.I.O.K. Shelter Map" in source_text
     assert "S.H.I.O.K. Index" not in source_text
+    assert "authenticated GeospatialWholeIsland fallback" in source_text
+    assert "Refresh only as a new numbered input version." in source_text
+    assert "unauthenticated public download" not in source_text
     for key, spec in sources.items():
         policy = freshness_policy_for_source(spec, defaults)
         assert policy.get("expected_cadence"), key
