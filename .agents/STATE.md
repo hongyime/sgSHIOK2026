@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P434 code commit: `13b5c85`; state-only commits may follow it on `main`.
+Latest P435 code commit: `00963ae`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P435 is complete and committed: the shelter-map evidence reason chip now says `240 m sheltered walk to transit` instead of the context-free `240 m to transit`, so distance reasons name the walk that produced the evidence. Focused accessibility/source-copy tests, repo integrity, and protected-diff checks passed.
 - P434 is complete and committed: the `Best transit` target chip now says `displayed walk` instead of `current walk`, aligning the transit-target control with the displayed-walk wording used in the score card. Focused accessibility/source-copy tests, repo integrity, and protected-diff checks passed.
 - P433 is complete and committed: the `Walk to transit` display row now names the active displayed walk (`Sheltered walk distance...` or `Shortest walk distance...`) instead of generic `Selected walk distance...`. Focused accessibility/source-copy tests, repo integrity, and protected-diff checks passed.
 - P432 is complete and committed: the score-card live region now announces the displayed walk's shelter evidence, so shortest-walk mode reads `48% covered-walkway ratio` instead of the base sheltered path's `62%`; no-gap live evidence no longer says `0 m exposed across 0 gaps`. Focused accessibility/source-copy tests, repo integrity, and protected-diff checks passed.
