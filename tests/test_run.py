@@ -20,7 +20,8 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         in run.__doc__
     )
     assert "p19-gap-status reads cached P19 measurement status only; it calls no APIs and writes no files." in run.__doc__
-    assert "readiness validates the current bundle and release gates without scoring or deploying." in run.__doc__
+    assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in run.__doc__
+    assert "readiness validates the current bundle and release gates without scoring or deploying." not in run.__doc__
     assert "batch-plan dry-runs batch prerequisites and policy status without scoring." in run.__doc__
     assert "Gated pipeline tasks:" in run.__doc__
     assert "ingest | network | score | score-batch | export | export-transit | validate | publish" in run.__doc__
@@ -38,7 +39,8 @@ def test_run_help_headline_does_not_flatten_all_tasks():
         in help_text
     )
     assert "p19-gap-status reads cached P19 measurement status only; it calls no APIs and writes no files." in help_text
-    assert "readiness validates the current bundle and release gates without scoring or deploying." in help_text
+    assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in help_text
+    assert "readiness validates the current bundle and release gates without scoring or deploying." not in help_text
     assert "batch-plan dry-runs batch prerequisites and policy status without scoring." in help_text
     assert "Gated pipeline tasks:" in help_text
 

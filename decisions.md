@@ -934,3 +934,6 @@ The committed Section 10 presentation proposal should not preserve stale "curren
 
 2026-08-21 - P336 heat presentation audit string alignment:
 The heat-presentation analysis helper should audit the current app copy, not retired strings from earlier presentation phases. Its UI audit entries now use "Stronger heat-proxy evidence" and the locked-release rain/heat overlap sentence, and tests reject the old "Better heat-proxy score" and "currently share" strings. This is analysis metadata and test coverage only; it does not run bundle analysis, alter app rendering, score values, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P337 readiness help published-bundle wording:
+The safe-report help for `run.py readiness` should name the published shelter-map bundle rather than the generic current bundle. The docstring and help output now say readiness validates the published shelter-map bundle and release gates without scoring or deploying. This is operator help text and test coverage only; it does not run readiness, alter release gates, score values, exports, public data, pipeline inputs, or locked weights.
