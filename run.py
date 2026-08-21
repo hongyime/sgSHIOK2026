@@ -9,7 +9,7 @@ Safe reports:
   check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads, writes no manifest, and treats changed discovery URLs as new-version inputs.
   p19-gap-status reads cached P19 16 Aug 2026 public-source sample status, evidence split, missing rows, MCST proxy probe and cache ages only; it calls no APIs and writes no files.
   p19-mcst-locations reads existing P379 status for unvalidated P19 MCST proxy rows only; it calls no APIs and writes no files.
-  p125-osm-status reads cached P125 Overpass output and frozen v1 universe only, reporting OSM as geometry evidence and coverage cross-check rather than the address registry; it calls no APIs and writes no files.
+  p125-osm-status reads cached P125 20 Aug 2026 Overpass addr:postcode coverage cross-check and frozen v1 universe only, reporting OSM as geometry evidence rather than the address registry; it calls no APIs and writes no files.
   readiness validates the published shelter-map bundle and release gates without scoring or deploying.
   readiness --gate-summary prints the same release gate verdict and warnings without the full nested report.
   batch-plan dry-runs batch prerequisites and policy status without scoring.
@@ -45,7 +45,7 @@ STUBS = {
     "overture-addresses": "probe Overture Addresses SG postal-universe candidate",
     "p19-gap-status": "read-only status, evidence split, missing rows, MCST proxy probe and cache ages for cached P19 16 Aug 2026 public-source sample",
     "p19-mcst-locations": "read-only status for the cached P379 OneMap location probe of unvalidated P19 MCST proxy rows",
-    "p125-osm-status": "read-only status for cached P125 OSM addr:postcode coverage cross-check and registry policy",
+    "p125-osm-status": "read-only status for cached P125 20 Aug 2026 Overpass addr:postcode coverage cross-check and registry policy",
     "readiness": "fast production-readiness report without scoring or deploying; use --gate-summary for concise release-gate output",
     "refresh-provenance": "refresh bundle manifest score provenance without rescoring",
     "score": "apply pipeline/config/weights.yaml (T1.4)",
