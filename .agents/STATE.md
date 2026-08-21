@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P354 is complete and committed: `f64eede` aligns `sources.yaml` with the Leaf Area Index reference-only policy; focused fetch tests and repo integrity passed.
 - P353 is complete and committed: `4b72bfc` makes visible planning-area rank loading copy include the selected rank/evidence label, matching the live-region status; focused score-card/accessibility tests and repo integrity passed.
 - P352 is complete and committed: `016c8f4` adds `shelter_map_has_locked_score` to browser-smoke scored-state JSON while preserving `score_has_max_denominator` as a compatibility alias; focused deployment test and repo integrity passed.
 - P351 is complete and committed: `12ca972` clarifies transit picker comparison copy as straight-line only with shelter evidence updating after selection; focused component test and repo integrity passed.
