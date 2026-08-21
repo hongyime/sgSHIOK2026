@@ -259,6 +259,22 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
             "hdb_2021_2026_geocoded": ["521400", "522400", "523400", "762936", "763936", "764936"],
             "mcst_2021_2026": ["378720", "935456"],
         },
+        "coordinate_backed_hdb_missing_development_clusters": [
+            {
+                "development": "SUN PLAZA SPRING",
+                "missing_postals": ["521400", "522400", "523400"],
+                "missing_rows": 3,
+                "year_completed": 2026,
+                "coordinate_source": "cached_onemap_search_result",
+            },
+            {
+                "development": "YISHUN BEACON",
+                "missing_postals": ["762936", "763936", "764936"],
+                "missing_rows": 3,
+                "year_completed": 2026,
+                "coordinate_source": "cached_onemap_search_result",
+            },
+        ],
         "missing_pct": 0.819672,
         "source_window": "2021-2026",
         "sources": ["HDB completion", "BCA MCST proxy"],
