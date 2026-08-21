@@ -377,6 +377,61 @@ def run_freshness_report(
     return 0
 
 
+def run_geospatial_discovery_report(sources: dict[str, Any]) -> int:
+    """Compare manifest DataMall geospatial discovery URLs without downloading payloads."""
+    manifest = load_manifest()
+    manifest_sources: dict[str, Any] = manifest.get("sources", {})
+    geospatial_sources = {
+        key: spec
+        for key, spec in sources.items()
+        if spec.get("kind") == "datamall_geospatial_listing"
+    }
+
+    print("DataMall geospatial discovery check...")
+    print("Discovery-only check: no payloads are downloaded and no manifest files are written.")
+    if not geospatial_sources:
+        print("No datamall_geospatial_listing sources selected.")
+        return 0
+
+    matched_count = 0
+    changed_count = 0
+    error_count = 0
+    for key, spec in geospatial_sources.items():
+        name = str(spec.get("name") or key)
+        keyword = str(spec.get("search_keyword") or "").strip()
+        current_entry: dict[str, Any] = manifest_sources.get(key, {})
+        manifest_url = stable_manifest_url(str(current_entry.get("url_as_discovered") or ""))
+        if not keyword:
+            error_count += 1
+            print(f"[{key}] {name}: ERROR missing search_keyword")
+            continue
+        try:
+            discovered_url = stable_manifest_url(resolve_datamall_geospatial_url(keyword))
+        except (httpx.HTTPError, ValueError, OSError) as exc:
+            error_count += 1
+            print(f"[{key}] {name}: ERROR {exc}")
+            continue
+
+        matches = bool(manifest_url) and manifest_url == discovered_url
+        if matches:
+            matched_count += 1
+        else:
+            changed_count += 1
+        print(
+            f"[{key}] {name}: "
+            f"keyword={keyword} "
+            f"match={'true' if matches else 'false'} "
+            f"manifest_url={manifest_url or '<missing>'} "
+            f"discovered_url={discovered_url}"
+        )
+
+    print(
+        "DataMall geospatial discovery: "
+        f"matched {matched_count}, changed {changed_count}, errors {error_count}"
+    )
+    return 1 if changed_count or error_count else 0
+
+
 def resolve_datagov_download_url(dataset_id: str) -> str:
     """Resolve data.gov.sg dataset download URL via initiate-download API with retry logic."""
     url = f"https://api-open.data.gov.sg/v1/public/api/datasets/{dataset_id}/initiate-download"
@@ -1240,6 +1295,11 @@ def main(argv: list[str] | None = None) -> int:
         help="For check: read raw/manifest.json and report source freshness without probing upstream URLs.",
     )
     parser.add_argument(
+        "--geospatial-discovery-only",
+        action="store_true",
+        help="For check: resolve DataMall geospatial listing URLs without downloading payloads or writing the manifest.",
+    )
+    parser.add_argument(
         "--source",
         action="append",
         default=[],
@@ -1253,13 +1313,24 @@ def main(argv: list[str] | None = None) -> int:
         print(str(exc), file=sys.stderr)
         return 2
 
+    if args.freshness_only and args.geospatial_discovery_only:
+        print(
+            "--freshness-only and --geospatial-discovery-only are mutually exclusive",
+            file=sys.stderr,
+        )
+        return 2
     if args.action == "check" and args.freshness_only:
         return run_freshness_report(sources)
+    if args.action == "check" and args.geospatial_discovery_only:
+        return run_geospatial_discovery_report(sources)
     if args.action == "check":
         return run_check(sources)
     elif args.action == "ingest":
-        if args.freshness_only:
-            print("--freshness-only is only valid with check", file=sys.stderr)
+        if args.freshness_only or args.geospatial_discovery_only:
+            print(
+                "--freshness-only and --geospatial-discovery-only are only valid with check",
+                file=sys.stderr,
+            )
             return 2
         return run_ingest(sources)
     else:

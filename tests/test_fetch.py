@@ -300,6 +300,75 @@ def test_run_freshness_report_does_not_probe_upstream(
     assert "Unknown-age sources: unknown_age" in out
 
 
+def test_run_geospatial_discovery_report_sanitizes_and_reports_drift(
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    monkeypatch.setattr(
+        fetch,
+        "load_manifest",
+        lambda: {
+            "sources": {
+                "covered_linkway": {
+                    "url_as_discovered": (
+                        "https://datamall.lta.gov.sg/content/dam/datamall/datasets/"
+                        "Geospatial/CoveredLinkWay_Mar2026.zip"
+                    )
+                },
+                "traffic_signals": {
+                    "url_as_discovered": (
+                        "https://datamall.lta.gov.sg/content/dam/datamall/datasets/"
+                        "Geospatial/TrafficLight_Mar2026.zip"
+                    )
+                },
+            }
+        },
+    )
+    discovered = {
+        "CoveredLinkWay": (
+            "https://dmgeospatial.s3.ap-southeast-1.amazonaws.com/CoveredLinkWay.zip?"
+            "X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Signature=secret"
+        ),
+        "TrafficLight": (
+            "https://datamall.lta.gov.sg/content/dam/datamall/datasets/"
+            "Geospatial/TrafficLight_Mar2026.zip"
+        ),
+    }
+    monkeypatch.setattr(
+        fetch,
+        "resolve_datamall_geospatial_url",
+        lambda keyword: discovered[keyword],
+    )
+    sources = {
+        "covered_linkway": {
+            "name": "Covered Linkway",
+            "kind": "datamall_geospatial_listing",
+            "search_keyword": "CoveredLinkWay",
+        },
+        "traffic_signals": {
+            "name": "Traffic Signals",
+            "kind": "datamall_geospatial_listing",
+            "search_keyword": "TrafficLight",
+        },
+        "bus_stops": {
+            "name": "Bus Stops",
+            "kind": "datamall_api_paginated",
+            "endpoint": "https://example.test",
+        },
+    }
+
+    assert fetch.run_geospatial_discovery_report(sources) == 1
+
+    out = capsys.readouterr().out
+    assert "Discovery-only check: no payloads are downloaded and no manifest files are written." in out
+    assert "[covered_linkway] Covered Linkway: keyword=CoveredLinkWay match=false" in out
+    assert "discovered_url=https://dmgeospatial.s3.ap-southeast-1.amazonaws.com/CoveredLinkWay.zip" in out
+    assert "X-Amz-Signature" not in out
+    assert "[traffic_signals] Traffic Signals: keyword=TrafficLight match=true" in out
+    assert "[bus_stops]" not in out
+    assert "DataMall geospatial discovery: matched 1, changed 1, errors 0" in out
+
+
 def test_static_raw_filename_prefers_configured_filename() -> None:
     assert (
         static_raw_filename(

@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 STUBS = {
-    "check": "fetch listings, hash, diff vs manifest; use --freshness-only for manifest-only staleness report",
+    "check": "fetch listings, hash, diff vs manifest; use --freshness-only or --geospatial-discovery-only for zero-mutation reports",
     "ingest": "download changed sources to raw/ (T0.3)",
     "lamp-overlay": "build compact lamp-post overlay artifact from existing raw source",
     "network": "build conflated graph + QA report (T1.1)",
