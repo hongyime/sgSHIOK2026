@@ -802,3 +802,6 @@ The address-search no-results message should use the same measured frozen-bundle
 
 2026-08-21 - P292 night-lighting tooltip:
 The night-lighting layer's hover title should use the same user-facing layer name as the visible control instead of leading with raw lamp-post terminology. The button title now starts with `Night lighting`, then names the LTA lamp-post source and repeats that the layer is map evidence outside the locked score. This is browser copy and test coverage only; it does not alter lamp data, map loading, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P293 night-lighting detail state:
+The selected-walk details strip should describe night lighting as a map-layer state, not as an ambiguous `Layer on/off` route detail. The value now says `Map layer on` or `Map layer off`, preserving the note that LTA lamp-post points are map evidence outside the locked score. This is browser copy and test coverage only; it does not alter lamp data, map loading, scoring, exports, public data, deployment, or locked weights.

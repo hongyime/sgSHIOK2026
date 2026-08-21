@@ -1151,7 +1151,7 @@ export function ScoreCard({
     routeDetailItems.push({ label: "Greenery proxy", value: `${shadeProxyPct}%` });
   }
   if (score.paths) {
-    routeDetailItems.push({ label: "Night lighting", value: lampOverlayEnabled ? "Layer on" : "Layer off" });
+    routeDetailItems.push({ label: "Night lighting", value: lampOverlayEnabled ? "Map layer on" : "Map layer off" });
     routeDetailNotes.push("Night lighting uses LTA lamp-post points as map evidence outside the locked score.");
   }
   if (endpointSnapM > 0) {
