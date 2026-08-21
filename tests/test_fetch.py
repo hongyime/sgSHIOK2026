@@ -185,6 +185,9 @@ def test_source_config_has_freshness_policy_for_every_source() -> None:
         "tracked freshness reference only, not route-level geometry, shade-proxy geometry, "
         "score provenance, or rain shelter geometry"
     ) in source_text
+    assert "Candidate-only postal-universe evidence" in source_text
+    assert "Does not approve scoring or address-registry use" in source_text
+    assert "Promote only after attribution" not in source_text
     assert "shade/heat calibration source only" not in source_text
     assert "unauthenticated public download" not in source_text
     for key, spec in sources.items():

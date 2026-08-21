@@ -628,8 +628,16 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         "verdict": "small sampled current-source gap in frozen v1; candidate-source-first v2 remains required",
     }
     assert (
-        "outlier review/rescore"
+        "candidate-only postal-universe evidence"
         in report["features"]["not_incorporated"]["overture_addresses_sg_candidate"]
+    )
+    assert (
+        "does not approve scoring or address-registry use"
+        in report["features"]["not_incorporated"]["overture_addresses_sg_candidate"]
+    )
+    assert (
+        "outlier review/rescore"
+        not in report["features"]["not_incorporated"]["overture_addresses_sg_candidate"]
     )
     assert (
         "has not been collected yet"

@@ -1032,9 +1032,11 @@ def readiness_features(
                 "not active production until full rescore/export/deploy"
             ),
             "overture_addresses_sg_candidate": (
-                "optional archive/probe implemented; produced 125876-postal candidate universe "
-                "with 1671 Overture-only postcodes; coordinate QA implemented with p95 23.5m "
-                "and 41 postcodes over 1km; not active production until outlier review/rescore"
+                "optional archive/probe implemented as candidate-only postal-universe evidence; "
+                "produced 125876-postal candidate universe with 1671 Overture-only postcodes; "
+                "coordinate QA implemented with p95 23.5m and 41 postcodes over 1km; "
+                "does not approve scoring or address-registry use until raw archive, attribution, "
+                "dedupe, coordinate-outlier review, and owner approval"
             ),
             "nparks_lai_route_level_canopy": (
                 "LAI is a species/generic reference table, not route geometry or a "

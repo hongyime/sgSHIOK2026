@@ -1461,3 +1461,7 @@ Overture Addresses SG command help should match the settled candidate-source pol
 2026-08-22 - P522 postal-universe Overture policy help:
 
 The postal-universe builder's `--include-overture-candidate` help and generated summary warning should carry the same Overture source boundary as the dedicated probe: archived Overture Addresses SG is candidate-only postal-universe evidence, not scoring or address-registry approval, and does not change defaults. This is help/warning/test coverage only; it does not build a universe, probe Overture, mutate archives/caches/inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P523 Overture source policy boundary:
+
+The source config and readiness feature note should not imply that Overture Addresses SG is merely waiting on rescore time or generic promotion. It remains candidate-only postal-universe evidence, does not approve scoring or address-registry use, and requires raw archive, attribution, dedupe, coordinate-outlier review, and owner approval before any promotion. This is config/readiness wording and test coverage only; it does not probe Overture, build a universe, mutate archives/caches/inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
