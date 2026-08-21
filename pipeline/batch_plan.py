@@ -120,9 +120,12 @@ NON_SCORE_REFERENCE_SOURCE_POLICY = {
 NIGHT_LIGHTING_LAYER_POLICY = {
     "source_key": "lamp_posts",
     "artifact": "web/public/data/lamp_posts_v1/",
+    "replacement_command_example": "uv run python run.py lamp-overlay -- --output web/public/data/lamp_posts_v2",
+    "owner_approval_required_for_replacement": True,
     "role": "separate night-lighting map layer",
     "score_role": "not part of the locked score",
     "release_gate": "production readiness validates manifest, source identity, tile index, tile files, and tile byte totals",
+    "existing_artifact_mutation": "forbidden",
     "versioning": "new lamp overlay artifacts must use a new numbered directory",
 }
 SOURCE_FRESHNESS_POLICY = {

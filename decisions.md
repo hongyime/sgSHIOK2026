@@ -1078,3 +1078,9 @@ Production readiness should expose the P19 evidence split as a direct feature fi
 
 2026-08-21 - P387 P19 status help evidence split:
 Operator help should advertise that `p19-gap-status` reports the P19 evidence split, not only missing rows, MCST probe and cache ages. `run.py --help` and README now name the evidence split in the read-only P19 status command description. This is documentation/help text and test coverage only; it does not call APIs, mutate inputs or QA evidence, score, export, deploy, or alter locked weights.
+
+2026-08-21 - P388 lamp overlay runner boundary:
+`lamp-overlay` already existed as a `run.py` dispatch path for `pipeline.lamp_overlay`, but the visible runner help did not name it in the gated pipeline task list. The help text and README now expose it as a gated, owner-approved replacement-artifact command that must write a new numeric directory such as `web/public/data/lamp_posts_v2` and must not mutate `lamp_posts_v1`. This is operator documentation and test coverage only; it does not run the builder, write public data, score, export, deploy, or touch locked weights.
+
+2026-08-21 - P389 structured lamp overlay replacement policy:
+Batch-plan and production-readiness source policy should expose the same lamp-overlay replacement boundary as the runner and README. The structured `night_lighting_layer` policy now names the owner-approved replacement command example, marks replacement as owner-approval-required, and declares existing artifact mutation forbidden. This is reporting/test coverage only; it does not run the builder, write public data, score, export, deploy, or touch locked weights.
