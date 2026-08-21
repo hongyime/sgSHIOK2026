@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P465 code commit: `6621f7e`; state-only commits may follow it on `main`.
+Latest P466 code commit: `7cb87ef`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P466 is complete and committed: README now distinguishes the published legacy bundle's `leaf_area_index` non-score reference source hash from the future policy that excludes LAI from score provenance; LAI remains outside route geometry, shade-proxy geometry, and score evidence. Focused README test and repo integrity passed.
 - P465 is complete and committed: the browser first-view Covered Linkway freshness caveat now says traffic signals still matched in the same 21 Aug 2026 metadata-only DataMall check that found Covered Linkway and bridge/underpass discovery URLs changed. Focused web source-copy test and repo integrity passed.
 - P464 is complete and committed: README operator guidance now names the 21 Aug 2026 metadata-only DataMall discovery result, including Covered Linkway and bridge/underpass drift, traffic signals still matching, and the no-payload/no-manifest-write discovery-only check boundary. Focused README test and repo integrity passed.
 - P463 is complete and committed: `CLAUDE.md` no longer bans `live routing UI` in conflict with clicked-stop OneMap walk previews; it now says previews are evidence only and must not become navigation or mutate locked scores. Focused agent-doc test, repo integrity, and protected-diff checks passed.
