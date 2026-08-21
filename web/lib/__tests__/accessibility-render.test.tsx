@@ -683,10 +683,11 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain('aria-label="Transit target"');
-    expect(html).toContain("<span>Best transit</span><small>current walk</small>");
+    expect(html).toContain("<span>Best transit</span><small>displayed walk</small>");
     expect(html).toContain("<span>MRT/LRT</span><small>no published walk</small>");
     expect(html).toContain("<span>Bus</span><small>published walk</small>");
     expect(html).not.toContain("<span>Best transit</span><small>selected walk</small>");
+    expect(html).not.toContain("<span>Best transit</span><small>current walk</small>");
     expect(html).not.toContain("<span>Best transit</span><small>selected route</small>");
     expect(html).not.toContain("<span>MRT/LRT</span><small>no shelter-map walk</small>");
     expect(html).not.toContain("<span>Bus</span><small>shelter-map walk</small>");

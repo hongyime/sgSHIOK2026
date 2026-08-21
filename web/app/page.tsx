@@ -978,7 +978,7 @@ function TransitModeControl({
 }) {
   if (!score.route_options) return null;
   const availabilityLabel = (option: (typeof TRANSIT_MODE_OPTIONS)[number], available: boolean) => {
-    if (option.id === "best_transit") return available ? "current walk" : "unavailable";
+    if (option.id === "best_transit") return available ? "displayed walk" : "unavailable";
     if (available) return "published walk";
     return "no published walk";
   };
