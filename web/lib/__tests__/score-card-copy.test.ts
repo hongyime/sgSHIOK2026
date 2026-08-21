@@ -97,6 +97,10 @@ describe("score card copy", () => {
     expect(source).toContain("Custom transit stop selected.");
     expect(source).not.toContain("Viewing selected stop");
     expect(source).not.toContain("Custom stop selected.");
+    const pickerSource = readFileSync(join(__dirname, "../../components/transit-stop-picker.tsx"), "utf-8");
+    expect(pickerSource).toContain("Nearby transit targets");
+    expect(pickerSource).toContain('aria-label="Nearby transit targets"');
+    expect(pickerSource).not.toContain('aria-label="Nearby transit stops"');
   });
 
   it("accepts walk-mode browser smoke arguments while preserving route-mode compatibility", () => {

@@ -298,6 +298,10 @@ describe("TransitStopPicker component", () => {
     const chipMatches = html.match(/data-chip-id="[^"]+"/g) ?? [];
     // 5 candidate chips + 0 reset (activeStopId is null / matches best)
     expect(chipMatches).toHaveLength(5);
+    expect(html).toContain("Nearby transit targets");
+    expect(html).toContain('aria-label="Nearby transit targets"');
+    expect(html).not.toContain("Nearby transit</div>");
+    expect(html).not.toContain('aria-label="Nearby transit stops"');
     expect(html).toContain(`data-chip-id="${bestStopId}"`);
     // Best chip has aria-current
     expect(html).toMatch(new RegExp(`data-chip-id="${bestStopId}"[^>]*aria-current="true"`));

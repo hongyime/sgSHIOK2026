@@ -112,12 +112,12 @@ export function TransitStopPicker({
 
   return (
     <div className={styles.pickerShell} aria-label="Transit stop picker">
-      <div className={styles.pickerHeader}>Nearby transit</div>
+      <div className={styles.pickerHeader}>Nearby transit targets</div>
       <div
         ref={containerRef}
         className={styles.chipRow}
         role="group"
-        aria-label="Nearby transit stops"
+        aria-label="Nearby transit targets"
         onKeyDown={handleKeyDown}
       >
         {showReset && (

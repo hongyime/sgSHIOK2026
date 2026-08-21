@@ -1144,3 +1144,6 @@ The traced-correction feedback editor should pluralize point and walk-segment co
 
 2026-08-21 - P409 custom transit stop live-region wording:
 The score-card live region should say `Custom transit stop selected` rather than generic `Custom stop selected`, matching the visible selected-transit-stop badge and clarifying that the user changed the transit target for the walk comparison. This is accessibility copy and test coverage only; it does not mutate live-preview routing, transit candidates, route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P410 transit target picker heading:
+The nearby-transit picker should introduce its selectable chips as `Nearby transit targets`, not just `Nearby transit` or `Nearby transit stops`, because choosing a chip changes the transit target for the shelter-map walk comparison. This is browser copy and test coverage only; it does not mutate transit candidates, live-preview routing, route geometry, scoring, exports, public data, deployment, or locked weights.
