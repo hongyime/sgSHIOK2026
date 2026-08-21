@@ -437,6 +437,10 @@ def test_run_geospatial_discovery_report_sanitizes_and_reports_drift(
     assert "[traffic_signals] Traffic Signals: keyword=TrafficLight match=true" in out
     assert "[bus_stops]" not in out
     assert "DataMall geospatial discovery: matched 1, changed 1, errors 0" in out
+    assert (
+        "Geospatial discovery action: report and plan a new numbered input version; "
+        "do not repair frozen v1 in place."
+    ) in out
 
 
 def test_static_raw_filename_prefers_configured_filename() -> None:

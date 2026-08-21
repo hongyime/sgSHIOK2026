@@ -1437,3 +1437,7 @@ The browser first-view freshness line should not only name stale sources; it sho
 2026-08-22 - P516 geospatial discovery help version boundary:
 
 The metadata-only DataMall geospatial discovery command should expose the same new-version boundary as README. `run.py --help`, `pipeline.fetch check --help`, and CLAUDE now say changed discovery URLs require new-version inputs/new numbered input versions while preserving the no-payload-download and no-manifest-write contract. This is operator help/docs/test coverage only; it does not probe upstream APIs in this task, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P517 geospatial discovery action output:
+
+The DataMall geospatial discovery-only report should not stop at changed/error counts; it should print the release action when changed discovery URLs or errors are present. The report now prints `Geospatial discovery action: report and plan a new numbered input version; do not repair frozen v1 in place.` while preserving the metadata-only/no-payload/no-manifest-write boundary. This is operator reporting/test coverage only; it does not mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.

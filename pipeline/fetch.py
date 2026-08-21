@@ -62,6 +62,10 @@ STALE_FRESHNESS_ACTION = (
     "Stale freshness action: report and plan a versioned refresh; "
     "do not mutate frozen v1 in place."
 )
+GEOSPATIAL_DISCOVERY_CHANGE_ACTION = (
+    "Geospatial discovery action: report and plan a new numbered input version; "
+    "do not repair frozen v1 in place."
+)
 SHAPE_TYPES = {
     0: "Null",
     1: "Point",
@@ -440,6 +444,8 @@ def run_geospatial_discovery_report(sources: dict[str, Any]) -> int:
         "DataMall geospatial discovery: "
         f"matched {matched_count}, changed {changed_count}, errors {error_count}"
     )
+    if changed_count or error_count:
+        print(GEOSPATIAL_DISCOVERY_CHANGE_ACTION)
     return 1 if changed_count or error_count else 0
 
 
