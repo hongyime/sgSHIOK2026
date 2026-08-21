@@ -643,7 +643,7 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
                 "scoring code/config fingerprints: " + ", ".join(missing_fingerprints)
             )
         if missing_subscores:
-            reasons.append("component-score status: " + ", ".join(missing_subscores))
+            reasons.append("locked-term status: " + ", ".join(missing_subscores))
         if blocking_provenance_signals:
             reasons.append(
                 "blocking provenance signals: "
@@ -666,7 +666,7 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
         if not ok:
             warning = (
                 "active bundle manifest lacks score source hashes, scoring code/config "
-                "fingerprints, complete component-score status, or fails provenance integrity "
+                "fingerprints, complete locked-term status, or fails provenance integrity "
                 "signals: "
                 + "; ".join(reasons)
                 + "; regenerate/export the bundle with current code before using it as "

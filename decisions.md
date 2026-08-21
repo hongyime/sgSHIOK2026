@@ -949,3 +949,6 @@ The targeted comparison operator surface should name the published shelter-map b
 
 2026-08-21 - P341 P10 analysis legacy-bundle wording:
 Reusable P10 analysis helpers should call the pre-provenance release the legacy published bundle, not the active bundle, because the later release standard distinguishes legacy provenance policy from artifact defects. The coordinate identity helper docstring and provenance coverage output now use legacy published bundle wording. This is analysis-script wording and test coverage only; it does not run analysis, alter reports, score values, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P342 readiness locked-term status wording:
+Production readiness should describe missing `subscore_status` capabilities as missing locked-term status in operator warnings, because the browser and docs now present the five weighted terms as locked terms rather than independent component scores. The underlying manifest field remains `subscore_status`; only the warning text changed. This is readiness copy and test coverage only; it does not run readiness, alter gates, score values, exports, public data, pipeline inputs, or locked weights.

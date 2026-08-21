@@ -1096,10 +1096,12 @@ def test_build_readiness_report_warns_when_bundle_manifest_lacks_score_provenanc
         for warning in report["warnings"]
     )
     assert any(
-        "complete component-score status" in warning
-        and "component-score status: access, bus, crossing, heat, rain" in warning
+        "complete locked-term status" in warning
+        and "locked-term status: access, bus, crossing, heat, rain" in warning
         for warning in report["warnings"]
     )
+    assert all("complete component-score status" not in warning for warning in report["warnings"])
+    assert all("component-score status: access" not in warning for warning in report["warnings"])
     assert all("complete subscore status" not in warning for warning in report["warnings"])
     assert all("subscore status: access" not in warning for warning in report["warnings"])
 
