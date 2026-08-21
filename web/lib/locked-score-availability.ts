@@ -60,7 +60,7 @@ export function formatLockedScoreAvailabilityLine(manifest: Manifest | null): st
   const nonFullText = breakdown
     ? `do not show a full locked score: ${breakdown}`
     : "do not show a full locked score";
-  return `Locked score availability: ${formatWholeNumber(scored)} full locked scores out of ${formatWholeNumber(
+  return `Locked score coverage: ${formatWholeNumber(scored)} of ${formatWholeNumber(
     recordCount
-  )}; ${formatWholeNumber(notFull)} records (${pctText}) ${nonFullText}.`;
+  )} records have a full locked sorting index; ${formatWholeNumber(notFull)} records (${pctText}) ${nonFullText}.`;
 }

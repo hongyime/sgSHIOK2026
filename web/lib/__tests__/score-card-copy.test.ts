@@ -226,7 +226,10 @@ describe("score card copy", () => {
     expect(source).toContain("formatLockedScoreAvailabilityLine(manifest)");
     expect(source).toContain("styles.coverageLine");
     expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).toContain(
-      "Locked score availability:"
+      "Locked score coverage:"
+    );
+    expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).toContain(
+      "full locked sorting index"
     );
     expect(source).toContain(
       "Sources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address universe"
