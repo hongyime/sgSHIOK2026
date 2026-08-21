@@ -502,9 +502,10 @@ describe("rendered accessibility output", () => {
     );
     expect(html).not.toContain("Greenery proxy uses sparse NParks route geometry for heat only");
     expect(html).toContain("Night lighting");
-    expect(html).toContain("Map layer off");
+    expect(html).toContain("Available; map layer off");
     expect(html).not.toContain("Map layer on; zoom in for points");
-    expect(html).not.toContain("Layer off");
+    expect(html).not.toContain(">Map layer off</strong>");
+    expect(html).not.toContain(">Layer off</strong>");
     expect(html).toContain("Access link");
     expect(html).not.toContain("Snap connector");
     expect(html).toContain("9 m");

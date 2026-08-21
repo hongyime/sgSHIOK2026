@@ -1255,7 +1255,7 @@ export function ScoreCard({
   if (score.paths) {
     routeDetailItems.push({
       label: "Night lighting",
-      value: lampOverlayEnabled ? "Map layer on; zoom in for lamp-post points" : "Map layer off",
+      value: lampOverlayEnabled ? "Map layer on; zoom in for lamp-post points" : "Available; map layer off",
     });
     routeDetailNotes.push(
       "Night lighting uses LTA lamp-post points as map evidence outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
