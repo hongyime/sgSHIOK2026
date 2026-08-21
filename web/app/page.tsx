@@ -1397,7 +1397,7 @@ export function ScoreCard({
                   ? "Loads planning-area ranks only when opened."
                   : rankMetric === "overall"
                   ? "Planning-area list sorted by locked score; shelter evidence remains the primary view."
-                  : "Planning-area component evidence view; locked SHIOK score is unchanged."}
+                  : "Planning-area evidence view; locked SHIOK score is unchanged."}
               </span>
             </div>
             {rankPanelOpen ? (

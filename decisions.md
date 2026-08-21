@@ -886,3 +886,6 @@ The planning-area rank dropdown should use the same bus-service evidence wording
 
 2026-08-21 - P320 planning-area rank labels as evidence views:
 The planning-area rank dropdown should present non-overall rank modes as evidence views, not as independent component-score names. The option labels now read `Rain-shelter evidence`, `Transit-access evidence`, `Bus-service evidence`, `Heat-proxy evidence`, and `Crossing-friction evidence`; the `Locked SHIOK score` option remains the overall sort. This is web copy and test coverage only; it does not change rank calculations, score values, ranking inputs, ranking order, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P321 planning-area rank helper evidence wording:
+The planning-area rank helper should match the rank menu's evidence-view framing. When the panel is open on a non-overall metric, it now says `Planning-area evidence view; locked SHIOK score is unchanged.` instead of `Planning-area component evidence view; locked SHIOK score is unchanged.` This is web copy and test coverage only; it does not change rank calculations, score values, ranking inputs, ranking order, exports, public data, pipeline inputs, or locked weights.
