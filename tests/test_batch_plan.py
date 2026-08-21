@@ -237,10 +237,16 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
     }
     assert report["source_policy"]["osm_addr_postcode_registry"] == {
         "measurement": "P125 live Overpass addr:postcode coverage",
+        "cache_status_command": "uv run python run.py p125-osm-status",
+        "cache_status_calls_apis": False,
+        "cache_status_writes_files": False,
+        "overpass_output_path": "qa/p125/overpass_sg_addr_postcode.json",
+        "overpass_query_path": "qa/p125/overpass_sg_addr_postcode.query",
         "valid_distinct_postcodes": 25879,
         "overlap_frozen_v1_postals": 25873,
         "frozen_v1_postals": 124443,
         "coverage_pct": 20.791045,
+        "invalid_distinct_postcode_tags": 23,
         "verdict": "not sufficient as primary registry",
     }
     assert report["source_policy"]["datamall_geospatial_discovery"] == {

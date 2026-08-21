@@ -534,10 +534,16 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
     )
     assert report["features"]["source_policy"]["osm_addr_postcode_registry"] == {
         "measurement": "P125 live Overpass addr:postcode coverage",
+        "cache_status_command": "uv run python run.py p125-osm-status",
+        "cache_status_calls_apis": False,
+        "cache_status_writes_files": False,
+        "overpass_output_path": "qa/p125/overpass_sg_addr_postcode.json",
+        "overpass_query_path": "qa/p125/overpass_sg_addr_postcode.query",
         "valid_distinct_postcodes": 25879,
         "overlap_frozen_v1_postals": 25873,
         "frozen_v1_postals": 124443,
         "coverage_pct": 20.791045,
+        "invalid_distinct_postcode_tags": 23,
         "verdict": "not sufficient as primary registry",
     }
     assert report["features"]["source_policy"]["datamall_geospatial_discovery"] == {
