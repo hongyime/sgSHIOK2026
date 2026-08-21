@@ -712,3 +712,6 @@ The first-view freshness sentence should not rely on `manifest-only check` alone
 
 2026-08-21 - P261 readiness structured universe policy:
 Production readiness should expose the settled postal-universe policy as structured data, not only prose. Its `features.source_policy` block now includes `frozen_v1`, `v2`, and `onemap_search_role` beside the existing P19 sample, OSM coverage, and OneMap controls, matching the operational policy already emitted by dry-run batch planning. This is readiness reporting and test coverage only; it does not fetch sources, mutate manifests or inputs, score, export, deploy, public data, or touch locked weights.
+
+2026-08-21 - P262 DataMall geospatial discovery drift:
+A metadata-only DataMall geospatial discovery probe found that current authenticated discovery for Covered Linkway and pedestrian overhead bridge/underpass resolves to generic `dmgeospatial` S3 paths, while frozen v1 records dated `Mar2026` static URLs in `raw/manifest.json`; traffic signals still matches the frozen redacted base URL. This is not proof that bytes changed, because no source payload was downloaded and no input was rebuilt. It is a release-risk signal: any approved future release batch that refreshes LTA geospatial sources must do so as a new numbered input version and compare hashes/counts against frozen v1. Existing v1 artifacts remain untouched.
