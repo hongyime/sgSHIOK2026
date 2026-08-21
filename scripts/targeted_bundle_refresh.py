@@ -667,7 +667,7 @@ def refresh_bundle(
     }
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Patch a copied static bundle with targeted rescores."
     )
@@ -684,7 +684,30 @@ def main() -> int:
         help="Optional targeted-rescore report to read postals from. Omitted means no report input.",
     )
     parser.add_argument("--output", type=Path, default=None)
-    args = parser.parse_args()
+    parser.add_argument(
+        "--confirm-targeted-refresh",
+        action="store_true",
+        help=(
+            "Required before copying a bundle, running targeted scoring, and writing "
+            "replacement score/geometry shards."
+        ),
+    )
+    args = parser.parse_args(argv)
+
+    if not args.confirm_targeted_refresh:
+        print(
+            json.dumps(
+                {
+                    "ok": False,
+                    "errors": [
+                        "targeted bundle refresh requires --confirm-targeted-refresh"
+                    ],
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 1
 
     source_dir = args.source_bundle_dir if args.source_bundle_dir else active_bundle_dir()
     stamp = datetime.now(UTC).strftime("%Y%m%d_%H%M%S")

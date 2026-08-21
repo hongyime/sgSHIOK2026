@@ -1489,3 +1489,7 @@ Non-dry score-batch CLI runs must name their output run directory explicitly. `p
 2026-08-22 - P529 bus-arrivals output guard:
 
 Bus-arrival snapshot collection is an API-calling future reliability input and must be deliberate. `pipeline.bus_arrivals collect` now requires explicit `--output` before it can call LTA or append JSONL records, instead of defaulting to `raw/bus_arrivals/arrivals.jsonl`. Direct helper calls remain available for tests and explicitly named local snapshot files. This is command safety/test coverage only; it does not call LTA, mutate raw data, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P530 targeted refresh confirmation guard:
+
+Targeted bundle refresh is a scoring and bundle-mutation operation, not a report. Its CLI now requires `--confirm-targeted-refresh` before resolving the active bundle, copying a bundle, scoring selected postals, or replacing score/geometry shards. This preserves the helper for deliberate, confirmed scripts while closing the accidental bare-command path. This is command safety/test coverage only; it does not score, export, mutate public data, protected QA evidence, deployment, or locked weights.

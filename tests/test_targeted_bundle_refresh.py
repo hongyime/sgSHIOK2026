@@ -5,6 +5,7 @@ from pathlib import Path
 from pipeline.export import encode_polyline, json_size
 from scripts.targeted_bundle_refresh import (
     load_geom_shard,
+    main,
     postals_from_file,
     read_json,
     rebalance_geom_parents,
@@ -83,6 +84,74 @@ def test_selected_postals_from_inputs_reads_explicit_partial_report(tmp_path):
         postal_file=None,
         postals=["42"],
     ) == ["000123", "560234", "000042"]
+
+
+def test_targeted_bundle_refresh_cli_requires_confirmation_before_active_bundle_lookup(
+    monkeypatch, capsys
+):
+    from scripts import targeted_bundle_refresh
+
+    def fail_active_bundle_dir():
+        raise AssertionError("active bundle lookup should not run before confirmation guard")
+
+    monkeypatch.setattr(targeted_bundle_refresh, "active_bundle_dir", fail_active_bundle_dir)
+
+    assert main(["--postal", "560234"]) == 1
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "errors": [
+            "targeted bundle refresh requires --confirm-targeted-refresh"
+        ],
+        "ok": False,
+    }
+
+
+def test_targeted_bundle_refresh_cli_runs_confirmed_refresh_with_explicit_report(
+    monkeypatch, tmp_path, capsys
+):
+    from scripts import targeted_bundle_refresh
+
+    source_dir = tmp_path / "source_bundle"
+    output = tmp_path / "targeted_report.json"
+    calls = []
+
+    def fake_refresh_bundle(**kwargs):
+        calls.append(kwargs)
+        return {
+            "patched_count": 1,
+            "converted_count": 0,
+            "state_counts": {"SCORED": 1},
+        }
+
+    monkeypatch.setattr(targeted_bundle_refresh, "refresh_bundle", fake_refresh_bundle)
+
+    assert (
+        main(
+            [
+                "--confirm-targeted-refresh",
+                "--source-bundle-dir",
+                str(source_dir),
+                "--target-bundle",
+                "generated_20260822_targeted_test",
+                "--postal",
+                "560234",
+                "--output",
+                str(output),
+            ]
+        )
+        == 0
+    )
+
+    assert calls
+    assert calls[0]["source_dir"] == source_dir
+    assert calls[0]["postals"] == ["560234"]
+    report = json.loads(output.read_text(encoding="utf-8"))
+    assert report["patched_count"] == 1
+    out = capsys.readouterr().out
+    summary = json.loads(out)
+    assert summary["target_bundle"] == "generated_20260822_targeted_test"
 
 
 def test_targeted_refresh_score_provenance_is_scoped_to_targeted_records():
