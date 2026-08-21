@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P351 is complete and committed: `12ca972` clarifies transit picker comparison copy as straight-line only with shelter evidence updating after selection; focused component test and repo integrity passed.
 - P350 is complete and committed: `d45a2b6` adds explicit Open Graph and Twitter summary metadata using the shelter-first description; focused copy test and repo integrity passed.
 - P349 is complete and committed: `d17d251` makes score-card live-region announcements put covered-walkway ratio and exposed-gap total before the locked score; focused accessibility/copy tests and repo integrity passed.
 - P348 is complete and committed: `351ec71` separates the selected-walk Greenery proxy from measured temperature and Leaf Area Index; focused browser copy tests and repo integrity passed.
