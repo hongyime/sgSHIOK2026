@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P506 code commit: `582402e`; state-only commits may follow it on `main`.
+Latest P507 code commit: `101717c`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P507 is complete and committed: `run.py --help` now says `check --freshness-only` probes no upstream URLs, writes no manifest, and groups action summaries with source names, aligning runner help with the CLI, README, agent docs, browser copy, and structured policy. Focused runner tests, help output, repo integrity, check-ignore, and protected-diff checks passed.
 - P506 is complete and committed: shared batch-plan/readiness `SOURCE_FRESHNESS_POLICY` now records `grouped_summaries_include_source_names: true`, aligning structured policy with the CLI, README, agent docs, and browser freshness copy. Focused batch-plan/readiness tests, repo integrity, check-ignore, and protected-diff checks passed.
 - P505 is complete and committed: `CLAUDE.md` now documents that `run.py check --freshness-only` is a zero-mutation local source-age report whose grouped summaries include source display names, matching README/browser/CLI freshness guidance. Focused agent-doc test, repo integrity, check-ignore, and protected-diff checks passed.
 - P504 is complete and committed: README operator guidance now documents that `run.py check --freshness-only` grouped action summaries include source display names, matching P502 CLI output and P503 first-view copy. Focused README test, repo integrity, check-ignore, and protected-diff checks passed.
