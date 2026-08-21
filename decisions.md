@@ -868,3 +868,6 @@ The shelter panel should not frame secondary evidence rows as standalone compone
 
 2026-08-21 - P314 heat reason evidence wording:
 The shelter panel's reason chips should frame heat as evidence, not as an independent score headline. The high-side heat reason now says `Stronger heat-proxy evidence` instead of `Better heat-proxy score`, matching the existing `Low heat-proxy evidence` low-side reason and the four-row shelter-map presentation. This is web copy and test coverage only; it does not change score values, score reasons selection, ranking inputs, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P315 bus reason service-evidence wording:
+The shelter panel's bus reason chips should frame bus as service evidence, not as an unqualified connectivity verdict. The bus low/high reason labels now say `Limited bus-service evidence` and `Stronger bus-service evidence`, while the direct-bus fallback path still uses `Nearby bus service not walk-verified`. This is web copy and test coverage only; it does not change score values, reason selection, routing, ranking inputs, exports, public data, pipeline inputs, or locked weights.

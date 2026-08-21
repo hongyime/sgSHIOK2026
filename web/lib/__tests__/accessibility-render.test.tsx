@@ -584,6 +584,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Locked score caveat: the bus term remains 0");
     expect(html).toContain("Bus service support");
     expect(html).toContain("20%");
+    expect(html).not.toContain("Limited bus-service evidence");
     expect(html).not.toContain("Limited bus connectivity");
   });
 
@@ -602,7 +603,8 @@ describe("rendered accessibility output", () => {
       rankingRecords: [noBusRecord],
     });
 
-    expect(html).toContain("Limited bus connectivity");
+    expect(html).toContain("Limited bus-service evidence");
+    expect(html).not.toContain("Limited bus connectivity");
     expect(html).not.toContain("Nearby bus service not walk-verified");
     expect(html).not.toContain("Nearby bus service not route-verified");
     expect(html).not.toContain("Nearby bus evidence not route-verified");
@@ -674,7 +676,8 @@ describe("rendered accessibility output", () => {
 
     expect(flaggedNoBusHtml).toContain("Nearby bus service not walk-verified");
     expect(flaggedNoBusHtml).toContain("62% covered-walkway ratio on selected walk");
-    expect(unflaggedNoBusHtml).toContain("Limited bus connectivity");
+    expect(unflaggedNoBusHtml).toContain("Limited bus-service evidence");
+    expect(unflaggedNoBusHtml).not.toContain("Limited bus connectivity");
     expect(unflaggedNoBusHtml).not.toContain("Nearby bus service not walk-verified");
     expect(unflaggedNoBusHtml).not.toContain("Nearby bus service not route-verified");
     expect(unflaggedNoBusHtml).not.toContain("Nearby bus evidence not route-verified");

@@ -343,6 +343,9 @@ describe("score card copy", () => {
     expect(source).toContain('label: "Shelter exposure"');
     expect(source).toContain('label: "Walk to transit"');
     expect(source).toContain('label: "Bus service support"');
+    expect(source).toContain('bus: { low: "Limited bus-service evidence", high: "Stronger bus-service evidence" }');
+    expect(source).not.toContain("Limited bus connectivity");
+    expect(source).not.toContain("Strong bus connectivity");
     expect(source).toContain("Rain shelter and heat comfort currently share mostly the same covered-walkway evidence.");
     expect(source).toContain("Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first.");
     expect(source).toContain("Heat proxy evidence: covered ${formatDistance(score.paths.covered_m)}");
