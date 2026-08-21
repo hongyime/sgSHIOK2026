@@ -856,3 +856,6 @@ README universe-status onboarding should cite the P125 live Overpass measurement
 
 2026-08-21 - P310 CLAUDE universe-source policy:
 Agent-facing startup guidance should carry the measured postal-universe policy, not only the product frame and runner commands. `CLAUDE.md` now records frozen v1 as 124,443 records, P19's 8-of-976 recent public-source gap, P125's 25,873 frozen-postal OSM overlap, and the candidate-source-first v2 policy with bounded OneMap Search validation. This is documentation and test coverage only; it does not call APIs, mutate cached evidence, alter inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P311 runner P19 safe-report boundary:
+`run.py --help` should make the `p19-gap-status` safety boundary visible, not only list the task name. The help now states that `p19-gap-status` reads cached P19 measurement status only, calls no APIs, and writes no files. This is task-runner help text and test coverage only; it does not run P19 status, call data.gov.sg, OneMap, or Overpass, mutate QA caches, alter inputs, scoring, exports, public data, deployment, or locked weights.

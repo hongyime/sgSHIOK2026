@@ -14,6 +14,7 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         "check --freshness-only | check --geospatial-discovery-only | p19-gap-status | readiness | batch-plan"
         in run.__doc__
     )
+    assert "p19-gap-status reads cached P19 measurement status only; it calls no APIs and writes no files." in run.__doc__
     assert "Gated pipeline tasks:" in run.__doc__
     assert "ingest | network | score | score-batch | export | export-transit | validate | publish" in run.__doc__
 
@@ -24,6 +25,7 @@ def test_run_help_headline_does_not_flatten_all_tasks():
     assert "usage: run.py [-h] task" in help_text
     assert "{batch-plan,bus-arrivals" not in help_text
     assert "Safe reports:" in help_text
+    assert "p19-gap-status reads cached P19 measurement status only; it calls no APIs and writes no files." in help_text
     assert "Gated pipeline tasks:" in help_text
 
 

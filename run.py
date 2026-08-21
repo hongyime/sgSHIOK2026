@@ -5,6 +5,7 @@ Usage: uv run python run.py <task> [options]
 
 Safe reports:
   check --freshness-only | check --geospatial-discovery-only | p19-gap-status | readiness | batch-plan
+  p19-gap-status reads cached P19 measurement status only; it calls no APIs and writes no files.
 
 Gated pipeline tasks:
   ingest | network | score | score-batch | export | export-transit | validate | publish
