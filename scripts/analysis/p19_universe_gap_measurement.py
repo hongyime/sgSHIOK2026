@@ -146,7 +146,19 @@ def load_json(path: Path, default: Any) -> Any:
         return json.load(f)
 
 
-def json_file_status(path: Path) -> dict[str, Any]:
+def iso_age_days(value: Any, now: dt.datetime) -> float | None:
+    if not isinstance(value, str) or not value:
+        return None
+    try:
+        parsed = dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=dt.UTC)
+    return round(max(0.0, (now - parsed.astimezone(dt.UTC)).total_seconds() / 86400.0), 3)
+
+
+def json_file_status(path: Path, *, now: dt.datetime) -> dict[str, Any]:
     status: dict[str, Any] = {
         "path": str(path.relative_to(PROJECT_ROOT)),
         "exists": path.is_file(),
@@ -167,9 +179,11 @@ def json_file_status(path: Path) -> dict[str, Any]:
             status["top_level_keys"] = sorted(str(key) for key in payload)
             status["cached_postcode_count"] = len(payload.get("postcodes", []))
             status["queried_at_utc"] = payload.get("queried_at_utc")
+            status["age_days"] = iso_age_days(payload.get("queried_at_utc"), now)
         elif path == SUMMARY_OUTPUT:
             status["top_level_keys"] = sorted(str(key) for key in payload)
             status["generated_at_utc"] = payload.get("generated_at_utc")
+            status["age_days"] = iso_age_days(payload.get("generated_at_utc"), now)
             combined = payload.get("combined_recent_completion_signal")
             if isinstance(combined, dict):
                 status["combined_recent_completion_signal"] = combined
@@ -184,17 +198,22 @@ def json_file_status(path: Path) -> dict[str, Any]:
     return status
 
 
-def cache_status_report() -> dict[str, Any]:
+def cache_status_report(now: dt.datetime | None = None) -> dict[str, Any]:
+    if now is None:
+        now = dt.datetime.now(dt.UTC)
+    elif now.tzinfo is None:
+        now = now.replace(tzinfo=dt.UTC)
+    now = now.astimezone(dt.UTC)
     return {
         "mode": "cache_status_only",
         "will_call_apis": False,
         "will_write_files": False,
         "qa_dir": str(QA_DIR.relative_to(PROJECT_ROOT)),
         "files": {
-            "hdb_onemap_geocode_cache": json_file_status(HDB_GEOCODE_CACHE),
-            "overpass_addr_postcodes_cache": json_file_status(OVERPASS_CACHE),
-            "summary": json_file_status(SUMMARY_OUTPUT),
-            "detail": json_file_status(DETAIL_OUTPUT),
+            "hdb_onemap_geocode_cache": json_file_status(HDB_GEOCODE_CACHE, now=now),
+            "overpass_addr_postcodes_cache": json_file_status(OVERPASS_CACHE, now=now),
+            "summary": json_file_status(SUMMARY_OUTPUT, now=now),
+            "detail": json_file_status(DETAIL_OUTPUT, now=now),
         },
     }
 

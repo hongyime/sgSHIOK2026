@@ -63,7 +63,7 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
     monkeypatch.setattr(p19, "DETAIL_OUTPUT", detail)
     monkeypatch.setattr(p19, "PROJECT_ROOT", tmp_path)
 
-    report = p19.cache_status_report()
+    report = p19.cache_status_report(now=p19.dt.datetime(2026, 8, 22, 12, 0, tzinfo=p19.dt.UTC))
 
     assert report["mode"] == "cache_status_only"
     assert report["will_call_apis"] is False
@@ -74,9 +74,11 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
     ]
     assert "top_level_keys" not in report["files"]["hdb_onemap_geocode_cache"]
     assert report["files"]["overpass_addr_postcodes_cache"]["cached_postcode_count"] == 1
+    assert report["files"]["overpass_addr_postcodes_cache"]["age_days"] == 1.5
     assert report["files"]["summary"]["combined_recent_completion_signal"] == {
         "rows_with_postal": 976,
         "missing_rows": 8,
     }
+    assert report["files"]["summary"]["age_days"] == 1.499
     assert report["files"]["detail"]["hdb_row_count"] == 2
     assert report["files"]["detail"]["mcst_row_count"] == 1
