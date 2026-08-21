@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P310 code commit: `0d65a8d`; state-only commits may follow it on `main`.
+Latest P311 code commit: `9a8eb70`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P311 is complete and committed: `run.py --help` now states `p19-gap-status` reads cached P19 measurement status only, calls no APIs, and writes no files. Focused runner test, help output, and repo integrity pass.
 - P310 is complete and committed: `CLAUDE.md` now carries the frozen-v1, P19, P125, OSM-registry, and candidate-source-first v2 policy before agents propose postal-universe work. Focused agent-doc test and repo integrity pass.
 - P309 is complete and committed: README universe-status onboarding now cites the P125 live Overpass measurement when stating OSM `addr:postcode` covers only 25,873 of 124,443 frozen postals. Focused README test and repo integrity pass.
 - P308 is complete and committed: the live OneMap clicked-stop preview reason now says `Map evidence only` instead of `Not scored in the current bundle`, matching the preview-only shelter-map evidence surface. Focused score-card copy and accessibility render tests plus repo integrity pass.
