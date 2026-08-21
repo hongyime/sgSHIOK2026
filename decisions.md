@@ -901,3 +901,6 @@ The outside-bundle empty state should connect the frozen June 2020 address-unive
 
 2026-08-21 - P325 outside-bundle live-region caveat:
 The outside-bundle live-region announcement should carry the same frozen-universe and recent-source caveat as the visible empty state. It now says the selected postal is outside the shelter-map bundle tied to the frozen June 2020 address universe and that the recent public-source check found 8 missing rows out of 976, instead of only saying it is not in the current shelter-map bundle. This is web accessibility copy and test coverage only; it does not change lookup logic, score values, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P326 search no-results live-region recent-source caveat:
+The OneMap address-search no-results live-region announcement should carry the same recent-source caveat as the visible no-results box. It now says no OneMap address result was found, suggests a 6-digit postal code, and separately notes the frozen shelter-map bundle's recent public-source check found 8 missing rows out of 976. This is web accessibility copy and test coverage only; it does not change search logic, API calls, score values, exports, public data, pipeline inputs, or locked weights.
