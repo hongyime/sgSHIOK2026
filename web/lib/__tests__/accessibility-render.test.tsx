@@ -224,7 +224,8 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Custom stop selected.");
     expect(html).toContain("Walk display shortest walk");
     expect(html).toContain('aria-busy="true"');
-    expect(html).toContain("Loading planning-area Locked SHIOK score ranks.");
+    expect(html).toContain("Loading planning-area Locked score sorting index ranks.");
+    expect(html).not.toContain("Loading planning-area Locked SHIOK score ranks.");
     expect(html).toContain('aria-label="Shelter map panel"');
     expect(html).not.toContain("Postal 560231 route evidence panel loaded.");
     expect(html).not.toContain("Postal 560231 score panel loaded.");
@@ -525,7 +526,7 @@ describe("rendered accessibility output", () => {
   });
 
   it("matches planning-area empty copy to the selected comparison view", () => {
-    expect(rankEmptyMessage("overall", "Locked SHIOK score")).toBe(
+    expect(rankEmptyMessage("overall", "Locked score sorting index")).toBe(
       "No comparable full locked scores in this planning area."
     );
     expect(rankEmptyMessage("rain", "Rain-shelter evidence")).toBe(

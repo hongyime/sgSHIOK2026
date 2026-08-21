@@ -1189,7 +1189,7 @@ export function ScoreCard({
     [rankingRecords, rankMetric]
   );
   const rankMetricLabel =
-    RANK_METRIC_OPTIONS.find((option) => option.id === rankMetric)?.label ?? "Locked SHIOK score";
+    RANK_METRIC_OPTIONS.find((option) => option.id === rankMetric)?.label ?? "Locked score sorting index";
   const rankStatus = rankAnnouncement({
     loading: rankingLoading,
     rankedCount: rankedRecords.length,

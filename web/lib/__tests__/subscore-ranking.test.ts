@@ -18,7 +18,7 @@ function score(postal: string, total: number, rain: number, access: number): Sco
 describe("planning-area evidence ranking", () => {
   it("labels non-overall rank options as evidence views", () => {
     expect(RANK_METRIC_OPTIONS).toEqual([
-      { id: "overall", label: "Locked SHIOK score" },
+      { id: "overall", label: "Locked score sorting index" },
       { id: "rain", label: "Rain-shelter evidence" },
       { id: "access", label: "Transit-access evidence" },
       { id: "bus", label: "Bus-service evidence" },
