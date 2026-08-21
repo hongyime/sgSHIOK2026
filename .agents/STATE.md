@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P404 code commit: `30a0e72`; state-only commits may follow it on `main`.
+Latest P405 code commit: `649e401`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P405 is complete and committed: the score-card live-region shelter evidence now announces the longest exposed gap alongside total exposed distance and gap count, matching the visible exposure hero for non-visual users. Focused web accessibility/copy tests, repo integrity, and protected-diff checks passed.
 - P404 is complete and committed: live-region walk display announcements now say `sheltered walk` and `shortest walk` instead of bare mode names, matching the visible walk display controls. Focused web accessibility render test, repo integrity, and protected-diff checks passed.
 - P403 is complete and committed: OneMap preview status/caveat copy now says `selected transit stop` and `clicked transit stop`, aligning preview copy with the selected transit-stop badge. Focused web accessibility/map-interaction tests, repo integrity, and protected-diff checks passed.
 - P402 is complete and committed: transit target availability labels now say `current walk`, `published walk`, and `no published walk`, replacing `selected walk`, `shelter-map walk`, and `no shelter-map walk` to make the published-bundle boundary clearer. Focused web accessibility render test, repo integrity, and protected-diff checks passed.
