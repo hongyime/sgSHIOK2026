@@ -72,9 +72,10 @@ version 1.0: https://data.gov.sg/open-data-licence
   Produced Work or a Derivative Database under ODbL section 4.4 remains an open
   legal classification question.
 
-## Candidate Or Unshipped Sources
+## Candidate And Non-Score Reference Sources
 
 Overture was probed as a candidate source but is not identified as reaching
-shipped artifacts in the P1 audit. Leaf area index hashes ship in legacy
-provenance as a non-score reference source, but the audited values are not
-consumed by shipped scoring.
+shipped artifacts in the P1 audit.
+
+Leaf area index hashes ship in legacy provenance as a non-score reference
+source, but the audited values are not consumed by shipped scoring.
