@@ -1258,12 +1258,19 @@ export function ScoreCard({
       : `${formatDistance(totalExposureM)} exposed across ${exposureGaps.length} gap${
           exposureGaps.length === 1 ? "" : "s"
         }; ${longestGapText}`;
+  const selectedWalkLabel = previewRoute
+    ? "OneMap preview walk"
+    : directBusFallback
+      ? "direct bus line estimate"
+      : routeMode === "shortest" && !sameRoute
+        ? "shortest walk"
+        : "sheltered walk";
   const gapSummaryText =
     exposureGaps.length === 0
       ? null
       : `${formatDistance(totalExposureM)} exposed across ${exposureGaps.length} gap${
           exposureGaps.length === 1 ? "" : "s"
-        } on the selected walk.`;
+        } on the ${selectedWalkLabel}.`;
   const gapListScopeText =
     hiddenGapCount > 0
       ? `Showing the longest ${visibleExposureGaps.length}; ${hiddenGapCount} shorter gap${
@@ -1276,7 +1283,6 @@ export function ScoreCard({
           exposureGaps.length === 1 ? "" : "s"
         } include map coordinates.`
       : "No map coordinates are recorded for these exposed gaps.";
-  const selectedWalkLabel = previewRoute ? "preview walk" : "selected walk";
   const evidenceRows: EvidenceBreakdownRow[] = score.subscores
     ? [
         {

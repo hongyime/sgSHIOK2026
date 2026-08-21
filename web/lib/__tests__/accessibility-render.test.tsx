@@ -427,7 +427,8 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("Where the walk is exposed");
     expect(html).toContain('aria-label="Walk shelter evidence"');
-    expect(html).toContain("62% covered-walkway ratio on the selected walk.");
+    expect(html).toContain("62% covered-walkway ratio on the sheltered walk.");
+    expect(html).not.toContain("62% covered-walkway ratio on the selected walk.");
     expect(html).not.toContain("62% of the selected walk is covered.");
     expect(html).toContain("181 m exposed across 2 gaps; 142 m is the longest exposed gap.");
     expect(html).toContain("142 m is the longest exposed gap.");
@@ -598,13 +599,25 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("Exposed gaps on this walk");
     expect(html).toContain("142 m");
-    expect(html).toContain("181 m exposed across 2 gaps on the selected walk.");
+    expect(html).toContain("181 m exposed across 2 gaps on the sheltered walk.");
+    expect(html).not.toContain("181 m exposed across 2 gaps on the selected walk.");
     expect(html).toContain("All recorded exposed gaps are shown.");
     expect(html).toContain("2 of 2 exposed gaps include map coordinates.");
     expect(html).toContain("Longest open-air stretch");
     expect(html).toContain("Near 1.37123, 103.84235");
     expect(html).toContain("Near 1.37091, 103.84101");
     expect(html).toContain('aria-label="Focus map on Longest open-air stretch near 1.37123, 103.84235"');
+  });
+
+  it("names the shortest walk in exposure copy when that display is active", () => {
+    const html = renderScoreCard({
+      routeMode: "shortest",
+    });
+
+    expect(html).toContain("48% covered-walkway ratio on the shortest walk.");
+    expect(html).toContain("181 m exposed across 2 gaps on the shortest walk.");
+    expect(html).not.toContain("covered-walkway ratio on the selected walk.");
+    expect(html).not.toContain("exposed across 2 gaps on the selected walk.");
   });
 
   it("labels transit target availability before a user switches modes", () => {
