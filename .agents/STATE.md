@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P342 code commit: `ebb2e88`; state-only commits may follow it on `main`.
+Latest P343 code commit: `3aba3f1`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P343 is complete and committed: Section 10 proposal wording now says the prior five rows were locked-term rows rather than component-score rows; focused web copy test and repo integrity passed.
 - P342 is complete and committed: production readiness warnings now describe missing `subscore_status` provenance as incomplete locked-term status instead of component-score status, while keeping the manifest field name unchanged. Focused production-readiness tests and repo integrity pass.
 - P341 is complete and committed: reusable P10 analysis helper wording now calls the pre-provenance target the legacy published bundle instead of the active bundle. Focused analysis-script tests and repo integrity pass.
 - P340 is complete and committed: `run.py` and `scripts/compare_targeted_scores.py` now describe targeted comparison against the published shelter-map bundle instead of active/static bundle wording. Focused runner/compare-targeted tests and repo integrity pass.
