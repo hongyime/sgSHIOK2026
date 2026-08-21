@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P540 code commit: `70c26c1`; state-only commits may follow it on `main`.
+Latest P541 code commit: `42d2cc3`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P541 is complete and committed: production readiness now sorts structured `stale_sources` by `days_past_stale` descending and exposes `most_overdue_stale_source` directly, preserving warning prose and `by_status` key lists. Focused production-readiness/README tests, collect-only count, structured most-overdue stale-source probe, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P540 is complete and committed: production readiness now exposes `stale_sources` as structured fields with source key, readable name, age basis, age days, stale threshold, days past stale, and cadence, while preserving warning prose and `by_status` key lists. Focused production-readiness/README tests, collect-only count, structured stale-source probe, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P539 is complete and committed: production readiness now exposes `nearest_current_source_to_stale` as structured fields while preserving the `oldest_current_source` prose summary, so downstream planning can consume the nearest freshness deadline without parsing text. Focused fetch/production-readiness/README tests, collect-only count, structured readiness probe, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P538 is complete and committed: the shared oldest-current freshness summary now includes days until stale, so both `run.py check --freshness-only` and production readiness surface the same planning signal for the nearest current source to cross its threshold. Focused fetch/production-readiness/README tests, collect-only count, real freshness report, readiness gate-summary probe, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
