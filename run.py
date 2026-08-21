@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """S.H.I.O.K. task runner (cross-platform replacement for make).
 
-Usage: python run.py <task> [options]
+Usage: uv run python run.py <task> [options]
 Tasks: batch-plan | bus-arrivals | bus-connector-diagnostics | candidate-audit | check | compare-targeted | ingest | lamp-overlay | network | network-debug | network-preflight | network-qa | onemap-validation | onemap-outlier-replay | onemap-outlier-triage | overture-addresses | p19-gap-status | readiness | refresh-provenance | score | score-batch | postal-universe | geocode-universe | export | export-transit | validate | publish | test | shell
 `publish` ALWAYS runs `validate` first — this gate is hard-coded and must never be removed.
 Stubs below are replaced task-by-task per docs/BUILD_PLAN.md.

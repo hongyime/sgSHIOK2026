@@ -784,3 +784,6 @@ Operator documentation should invoke production readiness through the project ta
 
 2026-08-21 - P286 agent runner command:
 Agent-facing operator guidance should use the uv-managed task runner command consistently. `CLAUDE.md` now documents `uv run python run.py <task>`, `uv run python run.py test`, and `uv run python run.py publish`, with test coverage rejecting the older bare `python run.py ...` guidance. This is documentation and test coverage only; it does not execute tasks, alter the runner, change scoring, mutate exports, touch public data, or modify locked weights.
+
+2026-08-21 - P287 runner help command:
+The task runner's own help text should match the uv-managed invocation shown in README and `CLAUDE.md`. `run.py` now advertises `Usage: uv run python run.py <task> [options]`, with a focused test rejecting the older bare-system-Python usage line. This is command-help text and test coverage only; it does not execute tasks, change runner dispatch, score, export, deploy, mutate public data, or touch locked weights.

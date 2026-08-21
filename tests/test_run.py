@@ -3,6 +3,11 @@ import sys
 import run
 
 
+def test_run_docstring_uses_uv_managed_invocation():
+    assert "Usage: uv run python run.py <task> [options]" in run.__doc__
+    assert "Usage: python run.py <task> [options]" not in run.__doc__
+
+
 def test_run_task_sets_pythonhashseed_for_module_subprocess(monkeypatch):
     calls = []
 
