@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P518 code commit: `4ab5bd4`; state-only commits may follow it on `main`.
+Latest P519 code commit: `cdb9dd2`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P519 is complete and committed: `p19-mcst-locations` help and README now describe the cached P379 probe as status for unvalidated P19 MCST proxy rows, preserving the source-quality warning boundary and no-API/no-write contract. Focused run/README tests, help/status probes, repo integrity, check-ignore, and protected-diff checks passed.
 - P518 is complete and committed: `p19-gap-status` runner help now labels the cached result as the P19 16 Aug 2026 public-source sample instead of a generic measurement, preserving the no-API/no-write boundary. Focused run tests, help/status probes, repo integrity, check-ignore, and protected-diff checks passed.
 - P517 is complete and committed: `run.py check --geospatial-discovery-only` now prints a geospatial discovery action line when changed URLs or errors are present: report and plan a new numbered input version, do not repair frozen v1 in place. Focused fetch tests, real discovery-only probe, repo integrity, check-ignore, and protected-diff checks passed.
 - P516 is complete and committed: `run.py --help`, `pipeline.fetch check --help`, and CLAUDE now say metadata-only DataMall discovery URL changes require new-version inputs/new numbered input versions, preserving the no-payload/no-manifest-write boundary. Focused run/fetch/agent-doc tests, help probes, repo integrity, check-ignore, and protected-diff checks passed.
