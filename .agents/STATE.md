@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P457 code commit: `de0cc2a`; state-only commits may follow it on `main`.
+Latest P458 code commit: `588bb10`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P458 is complete and committed: README, CLAUDE, and production readiness now date the P19 universe-gap policy as the `16 Aug 2026 P19 check`, matching browser copy. Focused Python docs/readiness tests, repo integrity, and protected-diff checks passed.
 - P457 is complete and committed: browser first-view, no-result, outside-bundle, and known HDB missing-row caveats now date the cached P19 public-source miss signal as the `16 Aug 2026 public-source check`. Focused web source/render tests, repo integrity, and protected-diff checks passed.
 - P456 is complete and committed: the first-view DataMall discovery caveat now names Covered Linkway and bridge/underpass as the drifted layers instead of vague `shelter-layer` wording. Focused web source-copy test, repo integrity, and protected-diff checks passed.
 - P455 is complete and committed: the first-view Covered Linkway caveat now surfaces the 21 Aug 2026 metadata-only DataMall discovery drift for current shelter-layer URLs while preserving the new-version-only refresh rule. Focused web source-copy test, repo integrity, and protected-diff checks passed.
