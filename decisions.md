@@ -1066,3 +1066,6 @@ The aggregate recent-source gap copy should preserve the 8-of-976 measurement wh
 
 2026-08-21 - P383 P19 status MCST probe:
 `p19-gap-status` should report the same MCST proxy validation boundary that structured source policy advertises. The cache-status command now reads the existing P379 report/cache and emits a `mcst_proxy_location_probe` block with report/cache presence, 0 located / 2 unlocated rows, unlocated developments, conflicting candidate postals, and the no-score/no-export/no-P19-mutation flags. This is read-only status reporting and test coverage only; it does not call OneMap, mutate P19/P379 caches, build v2, score, export, deploy, or alter locked weights.
+
+2026-08-21 - P384 P19 evidence split in source policy:
+Structured source-policy consumers should not have to infer the P19 evidence split from prose or nested status reports. The shared recent-public-source gap block now includes `evidence_split`: 6 coordinate-backed HDB missing rows, 2 unvalidated MCST proxy rows, 6 confirmed missing-address rows, and 2 source-quality-warning rows. This is reporting metadata and test coverage only; it does not mutate inputs, QA evidence, public data, scoring, exports, deployment, or locked weights.

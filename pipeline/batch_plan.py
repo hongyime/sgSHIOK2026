@@ -85,6 +85,12 @@ RECENT_PUBLIC_SOURCE_GAP_SAMPLE = {
     },
     "source_rows_with_postals": 976,
     "missing_rows": 8,
+    "evidence_split": {
+        "coordinate_backed_hdb_missing_rows": 6,
+        "unvalidated_mcst_proxy_rows": 2,
+        "confirmed_missing_address_rows": 6,
+        "source_quality_warning_rows": 2,
+    },
     "missing_postals_by_source": {
         "hdb_2021_2026_geocoded": ["521400", "522400", "523400", "762936", "763936", "764936"],
         "mcst_2021_2026": ["378720", "935456"],
