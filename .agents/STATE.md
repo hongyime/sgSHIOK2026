@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P487 code commit: `7cb265d`; state-only commits may follow it on `main`.
+Latest P488 code commit: `c53aea6`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P488 is complete and committed: README and `CLAUDE.md` now match `run.py --help` for safe reports and gated pipeline tasks, including `readiness --gate-summary`, `score-batch`, and `export-transit`; `test` is described as a local test task rather than a gated pipeline task. Focused docs tests, `run.py --help`, repo integrity, check-ignore, and protected-diff checks passed.
 - P487 is complete and committed: `run.py check --freshness-only` and the broader fetch check footer now name manual-policy freshness sources (`train_station_codes`, `osm_extract`) alongside stale and unknown-age summaries. Focused fetch tests, real freshness-only output, repo integrity, check-ignore, and protected-diff checks passed.
 - P486 is complete and committed: browser P19 first-view and known-postal labels now say `16 Aug 2026 public-source sample`, carrying the same sample boundary as the body copy. Focused web tests, repo integrity, check-ignore, and protected-diff checks passed.
 - P485 is complete and committed: browser, README, CLAUDE, readiness, and batch-plan wording now mark the P19 976-row public-source gap result as sampled rather than a complete current-source census. Focused docs/readiness/batch-plan/web tests, repo integrity, check-ignore, P19 cache-status, and protected-diff checks passed. Process note: one small correction during P485 used a relative PowerShell write path while already in `C:\sgSHIOK2026`; the resulting diff was inspected and narrow, but future writes must use absolute paths only.
