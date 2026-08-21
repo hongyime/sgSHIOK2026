@@ -16,6 +16,8 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "S.H.I.O.K. Index" not in text
     assert "comfort score" not in text
     assert "covered-walkway ratio and exposed gaps on real routed walks" in normalized
+    assert "night lighting evidence as a map layer" in normalized
+    assert "night-lighting evidence as a map layer" not in normalized
     assert "locked SHIOK score visible but secondary" in normalized
     assert "postal universe is frozen v1: 124,443 records" in normalized
     assert (

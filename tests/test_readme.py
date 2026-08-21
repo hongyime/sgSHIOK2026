@@ -15,6 +15,8 @@ def test_readme_documents_universe_source_policy() -> None:
     assert text.startswith("# S.H.I.O.K. Shelter Map")
     assert "# S.H.I.O.K. Index" not in text
     assert "covered-walkway ratio and exposed gaps on real routed walks" in normalized
+    assert "adds night lighting evidence as a map layer" in normalized
+    assert "adds night-lighting evidence as a map layer" not in normalized
     assert "covered-walkway ratio and exposed gaps on real routed paths" not in normalized
     assert "live static shelter-map pilot over a 124,443-record source-derived universe" in normalized
     assert "live static-first pilot" not in normalized
@@ -59,6 +61,8 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "beyond locked transit range" in normalized
     assert "beyond current transit range" not in normalized
     assert "awaiting scoring" in normalized
+    assert "night lighting map layer is a separate local artifact" in normalized
+    assert "night-lighting map layer is a separate local artifact" not in normalized
     assert "`web/public/data/lamp_posts_v1/`" in normalized
     assert "700 H3-r8 tile files plus `manifest.json`" in normalized
     assert "126,144 LTA lamp-post points" in normalized
@@ -72,6 +76,8 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "validates the score bundle" not in normalized
     assert "Do not rebuild, overwrite, or mutate existing public data directories" in normalized
     assert "uv run python run.py lamp-overlay -- --output web/public/data/lamp_posts_v2" in normalized
+    assert "replacement night lighting overlay" in normalized
+    assert "replacement night-lighting overlay" not in normalized
     assert "another new numeric version path" in normalized
     assert "builder refuses non-empty output directories" in normalized
     assert "lamp_posts_v1/` remains the published artifact" in normalized

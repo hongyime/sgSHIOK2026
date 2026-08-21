@@ -2,7 +2,7 @@
 
 A free, non-commercial civic web app for Singapore postal records that answers:
 if I move here, what is the walk to transit actually like? It leads with the
-covered-walkway ratio and exposed gaps on real routed walks, adds night-lighting
+covered-walkway ratio and exposed gaps on real routed walks, adds night lighting
 evidence as a map layer, and keeps the locked SHIOK score visible but secondary.
 
 **Status:** live static shelter-map pilot over a 124,443-record source-derived universe.
@@ -40,7 +40,7 @@ shelter-map bundle remains configured as
 `web/public/data/generated_20260805_prefer_scored_routed/`. That bundle has
 95,157 full locked scores out of 124,443 records; 29,286 records, 23.5% or roughly a quarter, do
 not show a full locked score because they have partial shelter-map evidence, are
-beyond locked transit range, or are awaiting scoring. The night-lighting map
+beyond locked transit range, or are awaiting scoring. The night lighting map
 layer is a separate local artifact at `web/public/data/lamp_posts_v1/`: 700 H3-r8
 tile files plus `manifest.json`, 126,144 LTA lamp-post points, source last
 modified 7 Jul 2026. It is map evidence only and is not part of the locked score.
@@ -50,7 +50,7 @@ That readiness check validates the shelter-map bundle and also verifies that the
 lamp overlay artifact is present and internally consistent. Do not rebuild,
 overwrite, or mutate existing public data directories to repair a missing
 artifact; copy or create only a new versioned artifact after owner approval.
-If a replacement night-lighting overlay is approved, run
+If a replacement night lighting overlay is approved, run
 `uv run python run.py lamp-overlay -- --output web/public/data/lamp_posts_v2`
 or another new numeric version path; the builder refuses non-empty output
 directories, and `lamp_posts_v1/` remains the published artifact until a later

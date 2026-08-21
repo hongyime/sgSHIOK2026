@@ -1177,3 +1177,7 @@ The empty-map aria label now names covered-walkway ratio and exposed gaps before
 2026-08-21 - P419 night lighting public copy:
 
 Shared metadata, the first-view footer, and the empty-map aria label now use `night lighting evidence` instead of `night-lighting evidence`. The rest of the visible product surface already used plain `night lighting`, and the non-hyphenated noun phrase is clearer for users while preserving internal lamp-layer identifiers.
+
+2026-08-21 - P420 docs night lighting public copy:
+
+README and CLAUDE now use plain `night lighting` in the product introduction, local artifact description, and replacement-overlay boundary. This keeps documentation aligned with the browser copy from P419 while preserving the `lamp-overlay` task name, `lamp_posts_v1/` artifact path, and internal layer identifiers.

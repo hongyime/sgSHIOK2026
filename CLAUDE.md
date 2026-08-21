@@ -3,7 +3,7 @@
 You are building S.H.I.O.K. Shelter Map: a free, non-commercial civic web app
 that answers "if I move here, what is the walk to transit actually like?" It
 leads with covered-walkway ratio and exposed gaps on real routed walks, adds
-night-lighting evidence as a map layer, and keeps the locked SHIOK score visible
+night lighting evidence as a map layer, and keeps the locked SHIOK score visible
 but secondary.
 
 The postal universe is frozen v1: 124,443 records built around a June 2020
