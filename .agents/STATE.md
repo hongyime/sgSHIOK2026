@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P266 code commit: `d7e7240`; state-only commits may follow it on `main`.
+Latest P267 code commit: `045b57a`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P267 is complete and committed: DataMall geospatial source notes now reflect frozen-v1 static/redacted URLs versus current authenticated `GeospatialWholeIsland` fallback, and state that refreshes must be new numbered input versions. Focused fetch tests and repo integrity pass.
 - P266 is complete and committed: dry-run batch planning and production readiness now expose structured DataMall geospatial discovery policy from P262/P264, including the no-payload/no-manifest-write command, changed sources, matching traffic-signals source, and versioned-input response. Focused batch-plan/readiness tests and repo integrity pass.
 - P265 is complete and committed: README local-data guidance now names `uv run python run.py check --geospatial-discovery-only` as the no-payload, no-manifest-write way to check current DataMall geospatial discovery links, and states changed discovery URLs require a new numbered input version rather than an in-place repair. README tests and repo integrity pass.
 - P264 is complete and committed: `run.py check --geospatial-discovery-only` now performs a zero-mutation DataMall geospatial discovery probe, sanitizes signed URLs before output, and exits nonzero when current discovery paths differ from `raw/manifest.json`. Focused fetch tests pass; the real probe currently reports two changed discovery URLs and one match.
