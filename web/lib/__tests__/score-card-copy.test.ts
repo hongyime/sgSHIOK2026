@@ -188,12 +188,17 @@ describe("score card copy", () => {
     expect(source).not.toContain("measured recent-source misses exist.");
     expect(source).not.toContain("newer completions may be missing.");
     expect(source).toContain(
-      "Recent public-source check: {RECENT_PUBLIC_SOURCE_GAP_COPY}."
+      "{RECENT_PUBLIC_SOURCE_CHECK_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}."
     );
+    expect(source).toContain('const RECENT_PUBLIC_SOURCE_CHECK_LABEL = "16 Aug 2026 public-source check";');
+    expect(source).not.toContain("Recent public-source check: {RECENT_PUBLIC_SOURCE_GAP_COPY}.");
     expect(source).toContain(
       "6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) 2021-2026 public-source rows with postals"
     );
-    expect(source).toContain("one of the 6 coordinate-backed HDB missing rows from frozen v1");
+    expect(source).toContain(
+      "one of the 6 coordinate-backed HDB missing rows from frozen v1 in the ${RECENT_PUBLIC_SOURCE_CHECK_LABEL}"
+    );
+    expect(source).not.toContain("one of the 6 coordinate-backed HDB missing rows from frozen v1 (${source})");
     expect(source).not.toContain("one of the 8 recent public-source postals missing from frozen v1");
     expect(source).not.toContain("8 missing rows out of 976 HDB completion and MCST proxy rows");
     expect(source).not.toContain("8 missing rows out of 976 (0.82%) HDB completion and MCST proxy rows");

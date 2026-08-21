@@ -1205,3 +1205,7 @@ The first-view Covered Linkway freshness caveat now carries the safe 21 Aug 2026
 2026-08-21 - P456 named DataMall discovery drift copy:
 
 The first-view DataMall discovery caveat should name the two drifted shelter layers rather than saying only `shelter-layer discovery URLs`. The measured discovery-only report named Covered Linkway and pedestrian bridge/underpass as changed, with traffic signals still matching, so the browser now says current Covered Linkway and bridge/underpass discovery URLs differ from frozen v1. This remains a copy/test clarification only; it does not fetch payloads, mutate inputs, score, export, deploy, or alter locked weights.
+
+2026-08-21 - P457 dated P19 public-source check copy:
+
+The cached P19 recent public-source miss measurement was generated on 16 Aug 2026, so browser caveats should not describe it only as `recent`. First-view, search no-result, outside-bundle, and known HDB missing-row copy now name the `16 Aug 2026 public-source check` while preserving the measured 6 coordinate-backed HDB rows, 2 unvalidated MCST proxy rows, 976-row denominator, and 0.82% rate. This is copy/test clarity only; it does not call APIs, mutate P19 evidence, alter inputs, score, export, deploy, or touch locked weights.
