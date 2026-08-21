@@ -153,6 +153,8 @@ def status_report(
             "osm_coverage_of_v1_pct": round(coverage, 6),
             "osm_only_sample": sorted(osm_only)[:50],
             "v1_only_sample": sorted(universe_only)[:50],
+            "source_role": "geometry evidence and coverage cross-check",
+            "registry_policy": "not the address registry",
             "verdict": "not sufficient as primary Singapore address registry",
         },
     }

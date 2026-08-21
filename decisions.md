@@ -1345,3 +1345,7 @@ Browser source should not name the 16 Aug 2026 P19 sample label as a `check` ide
 2026-08-22 - P493 P19 release-policy status:
 
 The cached P19 gap status report should expose the same release-policy classification as the browser/readiness copy: the measurement is the `16 Aug 2026 public-source sample`, coordinate-backed HDB rows are confirmed address-universe gaps, and unlocated MCST proxy rows are source-quality warnings. The read-only `p19-gap-status` output now derives a `release_policy` block from existing cached detail and P379 probe status without calling APIs or writing files. This is reporting/test coverage only; it does not mutate P19/P379 caches, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P494 P125 OSM source-policy status:
+
+The cached P125 OSM addr:postcode status and shared source-policy block should state OSM's product role explicitly: geometry evidence and coverage cross-check, not the address registry. The direct `p125-osm-status` output and the batch-plan/readiness policy now carry `source_role`, `registry_policy`, and the full verdict `not sufficient as primary Singapore address registry` while preserving the measured 25,879 valid distinct OSM postcodes, 25,873 overlap, 6 OSM-only postcodes, and 20.791045% v1 coverage. This is reporting/test coverage only; it does not call Overpass, mutate P125 caches, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.

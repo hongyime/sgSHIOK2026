@@ -301,7 +301,9 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
         "frozen_v1_postals": 124443,
         "coverage_pct": 20.791045,
         "invalid_distinct_postcode_tags": 23,
-        "verdict": "not sufficient as primary registry",
+        "source_role": "geometry evidence and coverage cross-check",
+        "registry_policy": "not the address registry",
+        "verdict": "not sufficient as primary Singapore address registry",
     }
     assert report["source_policy"]["datamall_geospatial_discovery"] == {
         "measurement": "P262/P264 DataMall geospatial discovery-only probe",

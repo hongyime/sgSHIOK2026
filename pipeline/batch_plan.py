@@ -51,7 +51,9 @@ OSM_ADDR_POSTCODE_COVERAGE = {
     "frozen_v1_postals": 124443,
     "coverage_pct": 20.791045,
     "invalid_distinct_postcode_tags": 23,
-    "verdict": "not sufficient as primary registry",
+    "source_role": "geometry evidence and coverage cross-check",
+    "registry_policy": "not the address registry",
+    "verdict": "not sufficient as primary Singapore address registry",
 }
 RECENT_PUBLIC_SOURCE_GAP_SAMPLE = {
     "measurement": "P19 16 Aug 2026 public-source gap sample",

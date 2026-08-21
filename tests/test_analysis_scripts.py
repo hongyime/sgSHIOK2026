@@ -323,6 +323,8 @@ def test_p125_osm_status_reports_cached_overpass_coverage(tmp_path: Path) -> Non
         "osm_coverage_of_v1_pct": 50.0,
         "osm_only_sample": ["234567"],
         "v1_only_sample": ["345678"],
+        "source_role": "geometry evidence and coverage cross-check",
+        "registry_policy": "not the address registry",
         "verdict": "not sufficient as primary Singapore address registry",
     }
 
