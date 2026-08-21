@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P365 code commit: `ea5e073`; state-only commits may follow it on `main`.
+Latest P366 code commit: `155c9ff`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P366 is complete and committed: generated-data web tests now pin the actual configured bundle state counts and verify the first-view locked-score availability line from the real manifest. Focused data test and repo integrity passed.
 - P365 is complete and committed: locked-score unavailable copy now says the release sorting index is unavailable instead of repeating `No full locked score` as both row value and metadata, and the live-region sentence now says `Locked score unavailable in this bundle.` Focused accessibility render test and repo integrity passed.
 - P364 is complete and committed: `458f487` tightens the web test for locked-score visual hierarchy by comparing actual exposure-hero and score-badge CSS font sizes; focused score-card copy test and repo integrity passed.
 - P363 is complete and committed: `7d7cc43` adds a cross-source test guard tying the browser P19 known-miss mapping to the structured Python policy block; focused batch-plan tests and repo integrity passed.
