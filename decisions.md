@@ -706,3 +706,6 @@ The P19 recent public-source miss measurement should be carried as structured po
 
 2026-08-21 - P259 lamp overlay versioned output guard:
 Lamp overlay generation should enforce the same numeric artifact-version policy as postal-universe work. `pipeline.lamp_overlay` now rejects output directory names that do not end in a positive numeric version tag such as `_v2`, and it does so before creating the directory. Existing non-empty-output protection remains in place. This is a generation-safety guard and test coverage only; it does not build a lamp artifact, mutate existing artifacts, alter public data, score, export, deploy, or touch locked weights.
+
+2026-08-21 - P260 first-view freshness no-upstream-probe disclosure:
+The first-view freshness sentence should not rely on `manifest-only check` alone to convey that no live upstream check happened. The browser now adds `No upstream URLs were probed.` to the same data freshness line, preserving the existing 12 current, 6 stale, 2 manual, 1 unknown-age counts and stale-source list. This is browser honesty copy and test coverage only; it does not probe upstream APIs, fetch sources, mutate manifests or inputs, score, export, deploy, public data, or touch locked weights.

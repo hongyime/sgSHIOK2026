@@ -123,8 +123,9 @@ describe("score card copy", () => {
       "Recent public-sample check: 8 missing rows out of 976 completions from 2021-2026 with postals."
     );
     expect(source).toContain(
-      "Data freshness at the 21 Aug 2026 manifest-only check: 12 sources current, oldest current source was NParks Leaf Area Index at 112.6 days old; 6 stale, 2 manual, and 1 candidate address source with unknown age. Stale sources are traffic signals, planning area boundary, NParks nature ways, tracks, heritage trees and heritage road green buffers."
+      "Data freshness at the 21 Aug 2026 manifest-only check: 12 sources current, oldest current source was NParks Leaf Area Index at 112.6 days old; 6 stale, 2 manual, and 1 candidate address source with unknown age. No upstream URLs were probed. Stale sources are traffic signals, planning area boundary, NParks nature ways, tracks, heritage trees and heritage road green buffers."
     );
+    expect(source).toContain("No upstream URLs were probed.");
     expect(source).not.toContain(
       "Data freshness at latest manifest-only check:"
     );
