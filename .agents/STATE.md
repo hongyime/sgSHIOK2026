@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P262 is complete and committed: metadata-only DataMall geospatial discovery found current Covered Linkway and overhead bridge/underpass discovery URLs differ from frozen v1 dated Mar2026 manifest URLs; no payload downloaded, no input mutated.
 - P261 is complete and committed: production readiness now exposes frozen-v1, v2, and OneMap role postal-universe policy as structured source-policy fields. Focused production-readiness tests pass.
 - P260 is complete and committed: first-view freshness copy now explicitly says no upstream URLs were probed for the manifest-only check. Focused web copy test passes.
 - P259 is complete and committed: lamp overlay generation now rejects unversioned output directory names before creating them, matching numeric artifact-version policy. Focused lamp-overlay tests pass.
