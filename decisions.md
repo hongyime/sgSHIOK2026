@@ -1309,3 +1309,7 @@ The browser OSM postcode coverage line should not present a cached Overpass meas
 2026-08-22 - P484 dated P125 policy surfaces:
 
 Operator-facing docs and structured readiness/batch-plan policy should date the cached P125 Overpass postcode measurement instead of saying `live OSM` or `P125 live Overpass`. README, CLAUDE, production readiness, and batch-plan policy now name the P125 20 Aug 2026 Overpass check while preserving the measured counts. This is documentation, reporting copy, and test coverage only; it does not call Overpass, mutate caches or inputs, score, export, deploy, public data, protected QA evidence, or locked weights.
+
+2026-08-22 - P485 P19 sample boundary wording:
+
+P19 is a sampled 976-row public-source gap check, not a complete current-source census. Browser, README, CLAUDE, readiness, and batch-plan wording now call it a sampled check or a sampled current-source gap while preserving the 6 coordinate-backed HDB rows, 2 unvalidated MCST proxy rows, and 0.82% arithmetic. This is documentation, browser copy, reporting copy, and test coverage only; it does not call APIs, mutate P19/P379 caches or inputs, score, export, deploy, public data, protected QA evidence, or locked weights.

@@ -99,7 +99,7 @@ const REASON_COPY: Record<keyof Subscores, { low: string; high: string }> = {
 };
 
 const RECENT_PUBLIC_SOURCE_GAP_COPY =
-  "6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) 2021-2026 public-source rows with postals";
+  "6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) sampled 2021-2026 public-source rows with postals";
 const RECENT_PUBLIC_SOURCE_CHECK_LABEL = "16 Aug 2026 public-source check";
 
 const OSM_ADDR_POSTCODE_COVERAGE_COPY =

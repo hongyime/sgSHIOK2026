@@ -495,7 +495,7 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
     assert report["features"]["incorporated"]["ura_no_dwelling_units_postal_source"] is True
     assert "124443" in report["features"]["not_incorporated"]["ura_expanded_scores_live"]
     assert (
-        "the 16 Aug 2026 P19 check found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%)"
+        "the 16 Aug 2026 P19 sampled check found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) sampled 2021-2026"
         in report["features"]["not_incorporated"]["canonical_140k_postal_universe"]
     )
     assert (
@@ -616,7 +616,7 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
             "HDB rows use completion year but require OneMap geocoding to obtain postals",
             "BCA MCST constitution date is private-strata onboarding proxy evidence, not TOP or completion date",
         ],
-        "verdict": "small current-source gap in frozen v1; candidate-source-first v2 remains required",
+        "verdict": "small sampled current-source gap in frozen v1; candidate-source-first v2 remains required",
     }
     assert (
         "outlier review/rescore"

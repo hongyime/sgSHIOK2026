@@ -122,7 +122,7 @@ RECENT_PUBLIC_SOURCE_GAP_SAMPLE = {
         "HDB rows use completion year but require OneMap geocoding to obtain postals",
         "BCA MCST constitution date is private-strata onboarding proxy evidence, not TOP or completion date",
     ],
-    "verdict": "small current-source gap in frozen v1; candidate-source-first v2 remains required",
+    "verdict": "small sampled current-source gap in frozen v1; candidate-source-first v2 remains required",
 }
 DATAMALL_GEOSPATIAL_DISCOVERY_POLICY = {
     "measurement": "P262/P264 DataMall geospatial discovery-only probe",

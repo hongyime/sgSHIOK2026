@@ -169,12 +169,12 @@ describe("rendered accessibility output", () => {
       <SearchFeedback results={[]} loading={false} error={null} searched={true} />
     );
     expect(searchResultsAnnouncement([], false, null, true)).toBe(
-      "No OneMap address result found for this search. Try a 6-digit postal code. Separately, the published shelter-map bundle is tied to the frozen June 2020 address universe, and the 16 Aug 2026 public-source check found 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) 2021-2026 public-source rows with postals."
+      "No OneMap address result found for this search. Try a 6-digit postal code. Separately, the published shelter-map bundle is tied to the frozen June 2020 address universe, and the 16 Aug 2026 public-source check found 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) sampled 2021-2026 public-source rows with postals."
     );
     expect(noResultsHtml).toContain("No OneMap address result found for this search.");
     expect(noResultsHtml).toContain("Try a 6-digit postal code");
     expect(noResultsHtml).toContain(
-      "Separately, the published shelter-map bundle is tied to the frozen June 2020 address universe, and the 16 Aug 2026 public-source check found 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) 2021-2026 public-source rows with postals."
+      "Separately, the published shelter-map bundle is tied to the frozen June 2020 address universe, and the 16 Aug 2026 public-source check found 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) sampled 2021-2026 public-source rows with postals."
     );
     expect(noResultsHtml).not.toContain("the recent public-source check found");
     expect(noResultsHtml).not.toContain("the frozen shelter-map bundle&#x27;s recent public-source check found");
@@ -332,7 +332,7 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain(
-      "Postal 560231 is outside the published shelter-map bundle tied to the frozen June 2020 address universe; the 16 Aug 2026 public-source check found 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) 2021-2026 public-source rows with postals."
+      "Postal 560231 is outside the published shelter-map bundle tied to the frozen June 2020 address universe; the 16 Aug 2026 public-source check found 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) sampled 2021-2026 public-source rows with postals."
     );
     expect(html).toContain("Outside published shelter-map bundle");
     expect(html).not.toContain("Outside shelter-map bundle");
@@ -341,7 +341,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Postal 560231 is not in the current score bundle.");
     expect(html).not.toContain("Outside current bundle");
     expect(html).toContain(
-      "No shelter-map walk is published for this postal; the published shelter-map bundle is tied to the frozen June 2020 address universe, and the 16 Aug 2026 public-source check found 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) 2021-2026 public-source rows with postals."
+      "No shelter-map walk is published for this postal; the published shelter-map bundle is tied to the frozen June 2020 address universe, and the 16 Aug 2026 public-source check found 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) sampled 2021-2026 public-source rows with postals."
     );
     expect(html).not.toContain("No shelter-map walk is published for this postal; this shelter-map bundle is tied");
     expect(html).not.toContain(

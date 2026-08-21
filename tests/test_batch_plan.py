@@ -285,7 +285,7 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
             "HDB rows use completion year but require OneMap geocoding to obtain postals",
             "BCA MCST constitution date is private-strata onboarding proxy evidence, not TOP or completion date",
         ],
-        "verdict": "small current-source gap in frozen v1; candidate-source-first v2 remains required",
+        "verdict": "small sampled current-source gap in frozen v1; candidate-source-first v2 remains required",
     }
     assert report["source_policy"]["osm_addr_postcode_registry"] == {
         "measurement": "P125 20 Aug 2026 Overpass addr:postcode coverage",
