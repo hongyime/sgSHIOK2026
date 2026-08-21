@@ -1009,3 +1009,6 @@ Known-miss browser copy must be tested for both cached P19 source groups, not on
 
 2026-08-21 - P362 known P19 miss public wording:
 Browser copy for a known P19 missing postal should describe the public product limitation, not the cache implementation. The known-miss branch now says the postal is one of the 8 recent public-source postals missing from frozen v1, while keeping the HDB/MCST source-group label. This is web copy and test coverage only; it does not read protected payloads, run measurements, score, export, deploy, ingest, network, or touch locked weights.
+
+2026-08-21 - P363 P19 known-miss drift guard:
+The TypeScript browser list of known P19 missing postals must stay byte-for-byte aligned with the structured Python source-policy block. A focused batch-plan test now parses `web/app/page.tsx` and compares its known-miss postal/source mapping to `RECENT_PUBLIC_SOURCE_GAP_SAMPLE["missing_postals_by_source"]`, while also rejecting internal cache wording in browser source. This is test coverage and evidence only; it does not change runtime behavior, read protected payloads, run measurements, score, export, deploy, ingest, network, or touch locked weights.

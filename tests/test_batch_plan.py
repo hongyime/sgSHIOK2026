@@ -1,10 +1,12 @@
 import json
+import re
 from pathlib import Path
 
 import pyarrow as pa
 import pyarrow.parquet as pq
 
 from pipeline.batch_plan import (
+    RECENT_PUBLIC_SOURCE_GAP_SAMPLE,
     api_environment_readiness,
     build_batch_plan,
     default_universe_paths,
@@ -459,3 +461,29 @@ def test_batch_plan_rejects_missing_or_mismatched_universe_artifact(tmp_path: Pa
 
     assert not ok
     assert "postal universe row mismatch: parquet has 2, summary has 3" in report["errors"]
+
+
+def test_browser_known_p19_missing_postals_match_structured_policy() -> None:
+    page_source = (Path(__file__).resolve().parents[1] / "web" / "app" / "page.tsx").read_text(
+        encoding="utf-8"
+    )
+    browser_mapping = dict(
+        re.findall(
+            r'"(\d{6})": "(HDB 2021-2026 geocoded rows|MCST 2021-2026 proxy rows)"',
+            page_source,
+        )
+    )
+    source_labels = {
+        "hdb_2021_2026_geocoded": "HDB 2021-2026 geocoded rows",
+        "mcst_2021_2026": "MCST 2021-2026 proxy rows",
+    }
+    expected = {
+        postal: source_labels[source_key]
+        for source_key, postals in RECENT_PUBLIC_SOURCE_GAP_SAMPLE[
+            "missing_postals_by_source"
+        ].items()
+        for postal in postals
+    }
+
+    assert browser_mapping == expected
+    assert "cached recent public-source misses" not in page_source
