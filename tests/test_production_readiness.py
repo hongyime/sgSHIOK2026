@@ -507,6 +507,7 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         "cache_status_command": "uv run python run.py p19-gap-status",
         "cache_status_calls_apis": False,
         "cache_status_writes_files": False,
+        "cache_status_reports_age_days": True,
         "summary_path": "qa/p19/universe_gap_measurement_summary.json",
         "detail_path": "qa/p19/universe_gap_measurement_detail.json",
         "source_rows_with_postals": 976,
