@@ -39,7 +39,7 @@ layer is a separate local artifact at `web/public/data/lamp_posts_v1/`: 700 H3-r
 tile files plus `manifest.json`, 126,144 LTA lamp-post points, source last
 modified 7 Jul 2026. It is map evidence only and is not part of the locked score.
 
-Before any Vercel publish attempt, run `uv run python scripts/production_readiness.py`.
+Before any Vercel publish attempt, run `uv run python run.py readiness`.
 That readiness check validates the shelter-map bundle and also verifies that the local
 lamp overlay artifact is present and internally consistent. Do not rebuild,
 overwrite, or mutate existing public data directories to repair a missing
@@ -59,7 +59,7 @@ the current discovery URL differs from frozen v1 and any approved refresh must
 be a new numbered input version, not an in-place repair.
 
 Before any full geocode, scoring, or release batch, run both
-`uv run python scripts/production_readiness.py` and `uv run python run.py batch-plan`. The
+`uv run python run.py readiness` and `uv run python run.py batch-plan`. The
 next full-batch release is approved in principle but is not approved to run. It
 is one attempt only, requires explicit owner approval before execution, and must
 bundle the bus remodel, the `NO_TRANSIT_IN_RANGE` partial-score fix, network

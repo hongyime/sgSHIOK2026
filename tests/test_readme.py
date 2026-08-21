@@ -49,7 +49,8 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "source last modified 7 Jul 2026" in normalized
     assert "Map evidence only" not in normalized
     assert "map evidence only and is not part of the locked score" in normalized
-    assert "uv run python scripts/production_readiness.py" in normalized
+    assert "uv run python run.py readiness" in normalized
+    assert "uv run python scripts/production_readiness.py" not in normalized
     assert "`python scripts/production_readiness.py`" not in normalized
     assert "validates the shelter-map bundle" in normalized
     assert "validates the score bundle" not in normalized
@@ -77,7 +78,7 @@ def test_readme_documents_full_batch_approval_boundary() -> None:
     text = README.read_text(encoding="utf-8")
     normalized = compact(text)
 
-    assert "uv run python scripts/production_readiness.py" in normalized
+    assert "uv run python run.py readiness" in normalized
     assert "uv run python run.py batch-plan" in normalized
     assert "`python run.py batch-plan`" not in normalized
     assert "next full-batch release is approved in principle but is not approved to run" in normalized
