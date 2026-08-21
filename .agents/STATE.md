@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P448 code commit: `7347240`; state-only commits may follow it on `main`.
+Latest P449 code commit: `9f1e9d6`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P449 is complete and committed: browser first-view copy now states NParks Leaf Area Index is a freshness-only reference table, while route heat evidence uses shelter plus sparse walk-adjacent greenery geometry and not LAI or measured temperature. Focused web source-copy test, repo integrity, and protected-diff checks passed.
 - P448 is complete and committed: browser first-view copy now surfaces the Covered Linkway quarterly 120-day freshness threshold, says frozen v1 uses the Mar 2026 LTA geospatial listing, and states any refresh must be a new numbered input version. Focused web source-copy test, repo integrity, and protected-diff checks passed.
 - P447 is complete and committed: browser first-view copy now surfaces the P125 OSM addr:postcode measurement, 25,873 of 124,443 frozen postals with 6 valid OSM-only postcodes, and keeps OSM as geometry evidence rather than the address registry. Focused web source-copy test, repo integrity, and protected-diff checks passed.
 - P446 is complete and committed: generic browser outside-bundle and no-result recent-source caveats now name SUN PLAZA SPRING and YISHUN BEACON as the confirmed HDB gaps and CANAAN/MYRA as unvalidated MCST proxy rows, matching the P445 docs. Focused web source-copy/accessibility render tests, repo integrity, and protected-diff checks passed.
