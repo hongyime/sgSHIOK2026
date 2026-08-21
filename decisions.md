@@ -1277,3 +1277,7 @@ The task runner should not let the short command `run.py check` look like a safe
 2026-08-22 - P476 readiness gate summary:
 
 The readiness CLI should have a concise release-gate view because the full report is intentionally large: it validates thousands of existing static artifact files and then emits deeply nested batch, bundle, provenance, source-policy, and feature metadata. `scripts.production_readiness --gate-summary` now prints only the same computed gate verdict, checks, warnings, errors, and release-gate summary without changing any gate logic. This is operator-output ergonomics only; it does not skip validation, waive OneMap, mutate inputs or public data, score, export, deploy, protected QA evidence, or locked weights.
+
+2026-08-22 - P477 readiness summary discoverability:
+
+The concise readiness gate summary should be discoverable from the task runner and README, not only from the underlying module help. `run.py --help` and README now name `readiness --gate-summary`, and the task-runner test suite proves the flag is forwarded to `scripts.production_readiness`. This is operator documentation and routing coverage only; it does not change readiness gate logic, skip validation, mutate inputs or public data, score, export, deploy, protected QA evidence, or locked weights.

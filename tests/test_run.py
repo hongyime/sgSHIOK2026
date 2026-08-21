@@ -11,7 +11,7 @@ def test_run_docstring_uses_uv_managed_invocation():
 def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     assert "Safe reports:" in run.__doc__
     assert (
-        "check --freshness-only | check --geospatial-discovery-only | p19-gap-status | p19-mcst-locations | p125-osm-status | readiness | batch-plan"
+        "check --freshness-only | check --geospatial-discovery-only | p19-gap-status | p19-mcst-locations | p125-osm-status | readiness | readiness --gate-summary | batch-plan"
         in run.__doc__
     )
     assert "check --freshness-only reads raw/manifest.json only; it probes no upstream URLs and writes no manifest." in run.__doc__
@@ -23,6 +23,7 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     assert "p19-mcst-locations reads existing P379 MCST proxy probe status only; it calls no APIs and writes no files." in run.__doc__
     assert "p125-osm-status reads cached P125 Overpass output and frozen v1 universe only; it calls no APIs and writes no files." in run.__doc__
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in run.__doc__
+    assert "readiness --gate-summary prints the same release gate verdict and warnings without the full nested report." in run.__doc__
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in run.__doc__
     assert "batch-plan dry-runs batch prerequisites and policy status without scoring." in run.__doc__
     assert "Gated pipeline tasks:" in run.__doc__
@@ -47,6 +48,7 @@ def test_run_help_headline_does_not_flatten_all_tasks():
     assert "p19-mcst-locations reads existing P379 MCST proxy probe status only; it calls no APIs and writes no files." in help_text
     assert "p125-osm-status reads cached P125 Overpass output and frozen v1 universe only; it calls no APIs and writes no files." in help_text
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in help_text
+    assert "readiness --gate-summary prints the same release gate verdict and warnings without the full nested report." in help_text
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in help_text
     assert "batch-plan dry-runs batch prerequisites and policy status without scoring." in help_text
     assert "Gated pipeline tasks:" in help_text
@@ -308,6 +310,29 @@ def test_run_task_exposes_readiness_report_module(monkeypatch):
     assert calls == [
         {
             "cmd": [sys.executable, "-m", "scripts.production_readiness"],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_task_forwards_readiness_gate_summary_flag(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("readiness", ["--gate-summary"]) == 0
+
+    assert calls == [
+        {
+            "cmd": [sys.executable, "-m", "scripts.production_readiness", "--gate-summary"],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
         }

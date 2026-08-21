@@ -78,6 +78,11 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "Map evidence only" not in normalized
     assert "map evidence only and is not part of the locked score" in normalized
     assert "uv run python run.py readiness" in normalized
+    assert "uv run python run.py readiness --gate-summary" in normalized
+    assert (
+        "prints the same gate verdict, checks and warnings without the full nested report"
+        in normalized
+    )
     assert "uv run python scripts/production_readiness.py" not in normalized
     assert "`python scripts/production_readiness.py`" not in normalized
     assert "validates the shelter-map bundle" in normalized
@@ -109,7 +114,7 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "changed discovery URLs require a new numbered input version, not an in-place repair" in normalized
     assert "`pipeline/config/weights.yaml` — locked score weights." in normalized
     assert "`run.py` — cross-platform task runner for safe reports" in normalized
-    assert "`p19-gap-status`, `p19-mcst-locations`, `p125-osm-status`, `readiness`, `batch-plan`" in normalized
+    assert "`p19-gap-status`, `p19-mcst-locations`, `p125-osm-status`, `readiness`, `readiness --gate-summary`, `batch-plan`" in normalized
     assert (
         "and gated pipeline tasks (`ingest`, `lamp-overlay`, `network`, `score`, `export`, `validate`, `publish`, `test`)"
         in normalized

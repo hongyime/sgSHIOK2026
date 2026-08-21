@@ -48,10 +48,13 @@ tile files plus `manifest.json`, 126,144 LTA lamp-post points, source last
 modified 7 Jul 2026. It is map evidence only and is not part of the locked score.
 
 Before any Vercel publish attempt, run `uv run python run.py readiness`.
-That readiness check validates the shelter-map bundle and also verifies that the local
-lamp overlay artifact is present and internally consistent. Do not rebuild,
-overwrite, or mutate existing public data directories to repair a missing
-artifact; copy or create only a new versioned artifact after owner approval.
+For routine release review, `uv run python run.py readiness --gate-summary`
+prints the same gate verdict, checks and warnings without the full nested
+report. The readiness check validates the shelter-map bundle and also verifies
+that the local lamp overlay artifact is present and internally consistent. Do
+not rebuild, overwrite, or mutate existing public data directories to repair a
+missing artifact; copy or create only a new versioned artifact after owner
+approval.
 If a replacement night lighting overlay is approved, run
 `uv run python run.py lamp-overlay -- --output web/public/data/lamp_posts_v2`
 or another new numeric version path; the builder refuses non-empty output
@@ -94,7 +97,7 @@ reruns, deploy, or repoint the live site without explicit owner approval.
 - `env.example` — copy to `.env` and fill in (see prerequisites).
 - `run.py` — cross-platform task runner for safe reports (`check --freshness-only`,
   `check --geospatial-discovery-only`, `p19-gap-status`, `p19-mcst-locations`,
-  `p125-osm-status`, `readiness`, `batch-plan`)
+  `p125-osm-status`, `readiness`, `readiness --gate-summary`, `batch-plan`)
   and gated pipeline tasks (`ingest`, `lamp-overlay`, `network`, `score`,
   `export`, `validate`, `publish`, `test`). `publish` always runs `validate` first.
 
