@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P274 code commit: `56c4a57`; state-only commits may follow it on `main`.
+Latest P275 code commit: `b802bf9`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P275 is complete and committed: README universe-status onboarding now names the read-only P19 cache-status command and its no-data.gov.sg/no-OneMap/no-Overpass boundary. Focused README tests and repo integrity pass.
 - P274 is complete and committed: dry-run batch planning and production readiness now expose the P19 read-only cache-status command and cached report paths in their recent public-source gap source-policy block. Focused batch-plan/readiness tests and repo integrity pass.
 - P273 is complete and committed: the P19 postal-universe gap measurement helper now has a read-only `--cache-status-only` mode that reports existing `qa/p19` cache/report counts without loading inputs, calling APIs, or writing files. Focused tests and repo integrity pass.
 - P272 is complete and committed: the P10 provenance coverage helper now names Leaf Area Index as a freshness-only non-score reference instead of the old vague `hash-shipped but unconsumed` wording, with a static regression test. Focused test and repo integrity pass.
