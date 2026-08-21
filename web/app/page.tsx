@@ -1440,7 +1440,7 @@ export function ScoreCard({
       <TransitModeControl score={score} mode={transitMode} setMode={setTransitMode} />
 
       {score.paths && (
-        <div className={styles.exposureHero} aria-label="Walk shelter evidence">
+        <div className={styles.exposureHero} aria-label="Walk exposure evidence">
           <span>{exposureHeroLabel}</span>
           <strong>{formatPercent(selectedCoverage)} covered-walkway ratio on the {selectedWalkLabel}.</strong>
           <p>{exposureHeroText}</p>

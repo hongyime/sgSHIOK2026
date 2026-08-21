@@ -435,7 +435,8 @@ describe("rendered accessibility output", () => {
     );
 
     expect(html).toContain("Where the walk is exposed");
-    expect(html).toContain('aria-label="Walk shelter evidence"');
+    expect(html).toContain('aria-label="Walk exposure evidence"');
+    expect(html).not.toContain('aria-label="Walk shelter evidence"');
     expect(html).toContain("62% covered-walkway ratio on the sheltered walk.");
     expect(html).not.toContain("62% covered-walkway ratio on the selected walk.");
     expect(html).not.toContain("62% of the selected walk is covered.");
