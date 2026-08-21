@@ -25,7 +25,8 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         in run.__doc__
     )
     assert "check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads and writes no manifest." not in run.__doc__
-    assert "p19-gap-status reads cached P19 measurement status, evidence split, missing rows, MCST proxy probe and cache ages only; it calls no APIs and writes no files." in run.__doc__
+    assert "p19-gap-status reads cached P19 16 Aug 2026 public-source sample status, evidence split, missing rows, MCST proxy probe and cache ages only; it calls no APIs and writes no files." in run.__doc__
+    assert "p19-gap-status reads cached P19 measurement status" not in run.__doc__
     assert "p19-mcst-locations reads existing P379 MCST proxy probe status only; it calls no APIs and writes no files." in run.__doc__
     assert "p125-osm-status reads cached P125 Overpass output and frozen v1 universe only, reporting OSM as geometry evidence and coverage cross-check rather than the address registry; it calls no APIs and writes no files." in run.__doc__
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in run.__doc__
@@ -56,7 +57,8 @@ def test_run_help_headline_does_not_flatten_all_tasks():
         in help_text
     )
     assert "check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads and writes no manifest." not in help_text
-    assert "p19-gap-status reads cached P19 measurement status, evidence split, missing rows, MCST proxy probe and cache ages only; it calls no APIs and writes no files." in help_text
+    assert "p19-gap-status reads cached P19 16 Aug 2026 public-source sample status, evidence split, missing rows, MCST proxy probe and cache ages only; it calls no APIs and writes no files." in help_text
+    assert "p19-gap-status reads cached P19 measurement status" not in help_text
     assert "p19-mcst-locations reads existing P379 MCST proxy probe status only; it calls no APIs and writes no files." in help_text
     assert "p125-osm-status reads cached P125 Overpass output and frozen v1 universe only, reporting OSM as geometry evidence and coverage cross-check rather than the address registry; it calls no APIs and writes no files." in help_text
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in help_text
@@ -71,6 +73,10 @@ def test_run_help_headline_does_not_flatten_all_tasks():
 
 
 def test_run_task_descriptions_name_published_shelter_map_bundle():
+    assert run.STUBS["p19-gap-status"] == (
+        "read-only status, evidence split, missing rows, MCST proxy probe and cache ages "
+        "for cached P19 16 Aug 2026 public-source sample"
+    )
     assert run.STUBS["compare-targeted"] == (
         "compare a targeted score report against the published shelter-map bundle"
     )

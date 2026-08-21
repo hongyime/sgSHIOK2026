@@ -1441,3 +1441,7 @@ The metadata-only DataMall geospatial discovery command should expose the same n
 2026-08-22 - P517 geospatial discovery action output:
 
 The DataMall geospatial discovery-only report should not stop at changed/error counts; it should print the release action when changed discovery URLs or errors are present. The report now prints `Geospatial discovery action: report and plan a new numbered input version; do not repair frozen v1 in place.` while preserving the metadata-only/no-payload/no-manifest-write boundary. This is operator reporting/test coverage only; it does not mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P518 P19 help sample label:
+
+`p19-gap-status` help should name the cached result as the P19 16 Aug 2026 public-source sample, not a generic measurement, because it is sampled gap evidence rather than a complete current-source census. The command remains read-only and reports existing cache status without API calls or file writes. This is runner help/test coverage only; it does not mutate P19/P379 caches, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.
