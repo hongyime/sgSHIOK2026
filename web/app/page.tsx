@@ -1295,6 +1295,7 @@ export function ScoreCard({
       : `${formatDistance(totalExposureM)} exposed across ${exposureGaps.length} gap${
           exposureGaps.length === 1 ? "" : "s"
         }; ${longestGapText}`;
+  const exposureHeroLabel = exposureGaps.length === 0 ? "Covered-walkway evidence" : "Where the walk is exposed";
   const scoreStatus = scoreCardAnnouncement({
     selection,
     stationName,
@@ -1440,7 +1441,7 @@ export function ScoreCard({
 
       {score.paths && (
         <div className={styles.exposureHero} aria-label="Walk shelter evidence">
-          <span>Where the walk is exposed</span>
+          <span>{exposureHeroLabel}</span>
           <strong>{formatPercent(selectedCoverage)} covered-walkway ratio on the {selectedWalkLabel}.</strong>
           <p>{exposureHeroText}</p>
         </div>
