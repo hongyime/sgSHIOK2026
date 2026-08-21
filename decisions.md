@@ -1153,3 +1153,6 @@ The planning-area comparison empty state should match the selected comparison vi
 
 2026-08-21 - P412 published bundle caveats:
 User-facing caveats about absent walks, disconnected transit, and missing full locked scores should name the `published shelter-map bundle`, not generic `this shelter-map bundle` or the unqualified bundle. The app is explaining what the shipped static artifact lacks, not a mutable local pipeline state. This is browser copy and test coverage only; it does not alter search behavior, route geometry, score values, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P413 published bundle missing-score wording:
+Missing locked-score status should say `published shelter-map bundle`, including the live-region phrase and not-yet-scored visible reasons. Bare `in this bundle` copy is less precise than the settled published-artifact framing. This is browser copy, smoke-script alignment, and test coverage only; it does not alter score states, score values, search behavior, route geometry, exports, public data, deployment, or locked weights.

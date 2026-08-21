@@ -219,7 +219,7 @@ export function scoreCardAnnouncement({
     return `${postal} is outside the published shelter-map bundle tied to the frozen June 2020 address universe; ${recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.`;
   }
   const scoreText = displayScore === null || displayScore === undefined
-    ? "unavailable in this bundle"
+    ? "unavailable in the published shelter-map bundle"
     : `${Math.round(displayScore)} out of 100`;
   const stopText = isCustomStopSelected
     ? previewRoute
@@ -768,7 +768,9 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
       ? [`Closest connected ${label} shelter-map walk is ${formatDistance(nearestM)}`, "Locked transit range is 1.2 km"]
       : [`No ${label} walk within locked transit range`, "Nearby transit may still exist beyond the locked 1.2 km transit range"];
   }
-  if (score.state === "NOT_YET_SCORED") return ["No full locked score in this bundle", "Awaiting locked score"];
+  if (score.state === "NOT_YET_SCORED") {
+    return ["No full locked score in published shelter-map bundle", "Awaiting locked score"];
+  }
   if (score.paths?.routing_type === "direct_bus_fallback_unrouted") {
     return ["Nearby bus stop with service data", "Shelter-map walk not verified yet"];
   }
@@ -1162,7 +1164,7 @@ export function ScoreCard({
       : score.state === "NO_TRANSIT_IN_RANGE"
       ? noTransitTitle(score, transitMode)
       : score.state === "NOT_YET_SCORED"
-        ? "No full locked score in this bundle"
+        ? "No full locked score in published shelter-map bundle"
       : toProperCase(score.best_node?.name ?? "No transit found nearby");
   const reasons = scoreReasons(score, transitMode);
   const stateNote = scoreStateNote(score, transitMode);

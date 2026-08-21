@@ -574,7 +574,7 @@ function collectChecks(summary, mapState, cdp, postal, inputMode, expectedState,
     summary.cardText.includes("Closest connected shelter-map walk");
   const hasNotYetScored =
     summary.cardText.includes("Not scored") ||
-    summary.cardText.includes("No full locked score in this bundle") ||
+    summary.cardText.includes("No full locked score in published shelter-map bundle") ||
     summary.cardText.includes("Awaiting locked score");
   const routeSourceFeatures =
     Number(mapState?.debug?.sourceFeatureCounts?.shiokest || 0) +

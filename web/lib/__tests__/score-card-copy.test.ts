@@ -73,14 +73,19 @@ describe("score card copy", () => {
   it("keeps browser smoke aligned with awaiting bundle-score copy", () => {
     const smokeSource = readFileSync(join(__dirname, "../../scripts/browser-smoke.mjs"), "utf-8");
 
-    expect(smokeSource).toContain('summary.cardText.includes("No full locked score in this bundle")');
+    expect(smokeSource).toContain('summary.cardText.includes("No full locked score in published shelter-map bundle")');
     expect(smokeSource).toContain('summary.cardText.includes("Awaiting locked score")');
+    expect(smokeSource).not.toContain('summary.cardText.includes("No full locked score in this bundle")');
     expect(smokeSource).not.toContain('summary.cardText.includes("No full score in this bundle")');
     expect(smokeSource).not.toContain("needs usable location evidence");
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
     expect(source).toContain(
       "This postal is in the frozen v1 address universe, but the published shelter-map bundle has no full locked score for it yet."
     );
+    expect(source).toContain("unavailable in the published shelter-map bundle");
+    expect(source).toContain("No full locked score in published shelter-map bundle");
+    expect(source).not.toContain("unavailable in this bundle");
+    expect(source).not.toContain("No full locked score in this bundle");
     expect(source).not.toContain("this shelter-map bundle has no published full locked score for it yet");
     expect(source).not.toContain("the current published bundle has not scored it yet");
   });

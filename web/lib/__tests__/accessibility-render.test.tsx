@@ -710,11 +710,13 @@ describe("rendered accessibility output", () => {
       rankingRecords: [],
     });
 
-    expect(html).toContain("No full locked score in this bundle");
+    expect(html).toContain("No full locked score in published shelter-map bundle");
     expect(html).toContain("Awaiting locked score");
     expect(html).not.toContain("Location Evidence Missing");
-    expect(html).toContain("Locked score unavailable in this bundle.");
+    expect(html).toContain("Locked score unavailable in the published shelter-map bundle.");
     expect(html).not.toContain("Locked score no full locked score in this bundle.");
+    expect(html).not.toContain("No full locked score in this bundle");
+    expect(html).not.toContain("Locked score unavailable in this bundle.");
     expect(html).not.toContain("No full score in this bundle");
     expect(html).toContain(
       "This postal is in the frozen v1 address universe, but the published shelter-map bundle has no full locked score for it yet."
