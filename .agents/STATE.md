@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P536 code commit: `070072b`; state-only commits may follow it on `main`.
+Latest P537 code commit: `5ddd657`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P537 is complete and committed: manifest-only source freshness now reports days until stale for current timestamped sources and days past stale for stale sources, improving versioned-refresh planning without upstream probes or manifest writes. Focused fetch/README tests, collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P536 is complete and committed: `run.py universe-status` now reports derived cached measurement rates for the postal-universe decision boundary: P19 confirmed-missing row rate, P19 confirmed-plus-source-quality-warning row rate, and P125 OSM-only-postcode share of frozen v1. Focused analysis/run/README tests, collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, API probe, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P535 is complete and committed: `run.py universe-status` now consolidates cached P19 public-source gap sample evidence and P125 OSM `addr:postcode` coverage cross-check evidence into one read-only no-API/no-write operator report. Focused analysis/run/README tests, collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P534 is complete and committed: `scripts.triage_onemap_outliers` now requires explicit paths for the queue JSON and all generated GeoJSON outputs before reading profile/validation inputs or writing generated QA artifacts. Focused triage/run tests, repo integrity, check-ignore, and protected-diff checks passed. No scoring, export, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
