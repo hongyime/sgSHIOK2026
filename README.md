@@ -66,7 +66,8 @@ For a zero-mutation source-age check, run
 `pipeline/config/sources.yaml` only, does not probe upstream APIs, and reports
 current, stale, manual, and unknown-age sources; grouped action summaries include
 source names such as `traffic_signals (Traffic Signals)` so operators do not
-need to cross-reference `sources.yaml`. NParks Leaf Area Index can appear in
+need to cross-reference `sources.yaml`. If stale sources appear, report them
+and plan a versioned refresh; do not mutate frozen v1 in place. NParks Leaf Area Index can appear in
 freshness as a tracked reference table, and the published legacy bundle may
 carry it as a non-score reference source hash, but it is not route geometry,
 shade-proxy geometry, or score evidence; future score provenance excludes it.

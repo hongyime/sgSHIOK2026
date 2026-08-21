@@ -107,6 +107,8 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "grouped action summaries include source names" in normalized
     assert "traffic_signals (Traffic Signals)" in normalized
     assert "so operators do not need to cross-reference `sources.yaml`" in normalized
+    assert "If stale sources appear, report them" in normalized
+    assert "plan a versioned refresh; do not mutate frozen v1 in place" in normalized
     assert "NParks Leaf Area Index can appear in freshness as a tracked reference table" in normalized
     assert "published legacy bundle may carry it as a non-score reference source hash" in normalized
     assert "not route geometry, shade-proxy geometry, or score evidence" in normalized

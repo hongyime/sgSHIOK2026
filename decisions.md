@@ -1421,3 +1421,7 @@ The manifest-only freshness report should print the release action for stale sou
 2026-08-22 - P512 readiness stale freshness action:
 
 Production-readiness source freshness warnings should carry the same stale-source action as `run.py check --freshness-only`, because readiness is the release-facing operator gate. When stale sources exist, the warning now appends `Stale freshness action: report and plan a versioned refresh; do not mutate frozen v1 in place.` This is operator reporting/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P513 freshness docs stale action:
+
+README and agent-facing docs should carry the same stale-source action as `run.py check --freshness-only` and the production-readiness warning. When stale sources appear, operators should report them and plan a versioned refresh, not mutate frozen v1 in place. This is docs/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.

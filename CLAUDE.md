@@ -79,7 +79,8 @@ run.py           task runner: safe reports (check --freshness-only, check --geos
 report: it reads `raw/manifest.json` and `pipeline/config/sources.yaml`, probes
 no upstream APIs, and its grouped action summaries include source names such as
 `traffic_signals (Traffic Signals)` so operators do not need to cross-reference
-`sources.yaml`.
+`sources.yaml`. If stale sources appear, report them and plan a versioned
+refresh; do not mutate frozen v1 in place.
 
 ## Working conventions
 
