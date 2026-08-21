@@ -9,6 +9,7 @@ from pipeline.score_batch import (
     chunk_path,
     chunk_slices,
     json_safe_score_record,
+    main as score_batch_main,
     read_chunk_postals,
     validate_full_batch_gate,
 )
@@ -206,6 +207,46 @@ def test_score_batch_dry_run_does_not_create_outputs(tmp_path: Path):
     assert report["dry_run"] is True
     assert report["chunk_count"] == 2
     assert not output_dir.exists()
+
+
+def test_score_batch_cli_requires_explicit_output_dir_before_loading_inputs(
+    tmp_path: Path, capsys
+):
+    missing_universe = tmp_path / "missing.parquet"
+
+    assert score_batch_main(["--postal-universe", str(missing_universe)]) == 1
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "errors": ["score-batch requires explicit --output-dir for non-dry runs"],
+        "ok": False,
+    }
+
+
+def test_score_batch_cli_allows_dry_run_without_output_dir(tmp_path: Path, capsys):
+    universe_path = tmp_path / "postal_universe.parquet"
+    write_universe(universe_path)
+
+    assert (
+        score_batch_main(
+            [
+                "--postal-universe",
+                str(universe_path),
+                "--network",
+                str(universe_path),
+                "--dry-run",
+                "--limit",
+                "2",
+            ]
+        )
+        == 0
+    )
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report["dry_run"] is True
+    assert report["output_dir"].endswith("processed\\score_batches")
 
 
 def test_json_safe_score_record_serializes_shapely_geometries():

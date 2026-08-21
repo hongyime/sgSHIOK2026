@@ -492,11 +492,18 @@ def build_score_batch(
     return True, report
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Run a resumable postal scoring batch.")
     parser.add_argument("--postal-universe", type=Path, required=True)
     parser.add_argument("--network", type=Path, default=NETWORK_PATH)
-    parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        help=(
+            "Explicit output directory for non-dry runs; dry runs report the default "
+            "processed/score_batches target without writing it."
+        ),
+    )
     parser.add_argument("--limit", type=int, default=5)
     parser.add_argument("--chunk-size", type=int, default=500)
     parser.add_argument("--no-geometry", action="store_true")
@@ -512,11 +519,26 @@ def main() -> int:
         action="store_true",
         help="Required with --full-batch after human checkpoint approval.",
     )
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
+
+    if args.output_dir is None and not args.dry_run:
+        print(
+            json.dumps(
+                {
+                    "ok": False,
+                    "errors": [
+                        "score-batch requires explicit --output-dir for non-dry runs"
+                    ],
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 1
 
     ok, report = build_score_batch(
         postal_universe_path=args.postal_universe,
-        output_dir=args.output_dir,
+        output_dir=args.output_dir or DEFAULT_OUTPUT_DIR,
         network_path=args.network,
         limit=None if args.full_batch else args.limit,
         chunk_size=args.chunk_size,

@@ -1481,3 +1481,7 @@ Confirmed `geocode-universe` runs must obey the numbered-artifact rule before an
 2026-08-22 - P527 export output guard:
 
 Write-capable export CLI actions must fail closed instead of using implicit default output directories. `pipeline.export export` and `export-transit` now require explicit `--output` and refuse non-empty targets, preserving the rule that release artifacts are written to fresh bundle directories rather than repaired in place. `refresh-provenance` now requires explicit `--output` and is documented as an in-place manifest mutation. `validate` remains read-only and keeps its default input. This is command safety/test coverage only; it does not score, export, mutate public data, deploy, modify protected QA evidence, or touch locked weights.
+
+2026-08-22 - P528 score-batch output guard:
+
+Non-dry score-batch CLI runs must name their output run directory explicitly. `pipeline.score_batch` no longer defaults non-dry CLI writes into `processed/score_batches`; it fails before loading inputs unless `--output-dir` is supplied. Dry runs still report the default target because they write nothing. This preserves the approved-script/direct-helper path where a run-specific directory is passed explicitly, while closing the accidental bare-command write path. This is command safety/test coverage only; it does not score, export, mutate processed data, public data, protected QA evidence, deployment, or locked weights.

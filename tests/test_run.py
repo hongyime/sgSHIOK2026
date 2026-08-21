@@ -95,6 +95,9 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
         "fail-closed manifest provenance refresh; direct pipeline.export invocation must "
         "name --output explicitly"
     )
+    assert run.STUBS["score-batch"] == (
+        "resumable postal scoring batch runner; non-dry runs require explicit --output-dir"
+    )
     assert run.STUBS["p19-gap-status"] == (
         "read-only status, evidence split, missing rows, MCST proxy probe and cache ages "
         "for cached P19 16 Aug 2026 public-source sample"

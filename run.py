@@ -50,7 +50,7 @@ STUBS = {
     "readiness": "fast production-readiness report without scoring or deploying; use --gate-summary for concise release-gate output",
     "refresh-provenance": "fail-closed manifest provenance refresh; direct pipeline.export invocation must name --output explicitly",
     "score": "apply pipeline/config/weights.yaml (T1.4)",
-    "score-batch": "resumable postal scoring batch runner",
+    "score-batch": "resumable postal scoring batch runner; non-dry runs require explicit --output-dir",
     "bus-arrivals": "collect local LTA bus-arrival snapshots for future reliability scoring",
     "bus-connector-diagnostics": "diagnose priority OneMap missing-bus connector cases",
     "candidate-audit": "audit ranked MRT/LRT and bus candidates for selected postals",
