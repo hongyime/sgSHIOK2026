@@ -1,4 +1,4 @@
-import { rankScoreRecords } from "../subscore-ranking";
+import { RANK_METRIC_OPTIONS, rankScoreRecords } from "../subscore-ranking";
 import type { ScoreRecord } from "../types";
 
 function score(postal: string, total: number, rain: number, access: number): ScoreRecord {
@@ -16,6 +16,10 @@ function score(postal: string, total: number, rain: number, access: number): Sco
 }
 
 describe("component-score ranking", () => {
+  it("labels the bus rank option as service evidence", () => {
+    expect(RANK_METRIC_OPTIONS.find((option) => option.id === "bus")?.label).toBe("Bus-service evidence");
+  });
+
   it("sorts by authoritative total for the overall view", () => {
     const ranked = rankScoreRecords(
       [score("100002", 80, 10, 50), score("100001", 90, 20, 40)],

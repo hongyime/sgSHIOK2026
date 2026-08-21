@@ -880,3 +880,6 @@ The partial locked-score note should describe missing locked-weight terms, not s
 
 2026-08-21 - P318 no-subscore reason term wording:
 When a record has shelter-map paths but no subscore block, the shelter-panel reason chip should say `Locked terms unavailable` rather than `Locked score incomplete`. This keeps the reason aligned with the partial locked-score note and avoids implying that the shelter-map evidence itself is incomplete. This is web copy and test coverage only; it does not change score state logic, score values, missing-term handling, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P319 bus rank option service-evidence wording:
+The planning-area rank dropdown should use the same bus-service evidence wording as the shelter panel, not the older `Bus connectivity` label. The bus rank option now says `Bus-service evidence`; it still ranks by the existing locked bus subscore field and does not change rank calculations. This is web copy and test coverage only; it does not change score values, ranking inputs, ranking order, exports, public data, pipeline inputs, or locked weights.
