@@ -18,6 +18,15 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     assert "ingest | network | score | score-batch | export | export-transit | validate | publish" in run.__doc__
 
 
+def test_run_help_headline_does_not_flatten_all_tasks():
+    help_text = run.build_parser().format_help()
+
+    assert "usage: run.py [-h] task" in help_text
+    assert "{batch-plan,bus-arrivals" not in help_text
+    assert "Safe reports:" in help_text
+    assert "Gated pipeline tasks:" in help_text
+
+
 def test_run_task_sets_pythonhashseed_for_module_subprocess(monkeypatch):
     calls = []
 

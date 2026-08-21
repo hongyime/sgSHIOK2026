@@ -127,13 +127,18 @@ def run_task(name: str, extra: list[str]) -> int:
     return 0
 
 
-def main() -> int:
+def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="run.py",
         description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
-    parser.add_argument("task", choices=sorted(STUBS))
+    parser.add_argument("task", choices=sorted(STUBS), metavar="task")
+    return parser
+
+
+def main() -> int:
+    parser = build_parser()
     args, extra = parser.parse_known_args()
     return run_task(args.task, extra)
 

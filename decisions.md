@@ -790,3 +790,6 @@ The task runner's own help text should match the uv-managed invocation shown in 
 
 2026-08-21 - P288 runner help safe gates:
 The task runner help should make the safe-report boundary visible before an operator chooses a task. `run.py --help` now separates safe reports (`check --freshness-only`, `check --geospatial-discovery-only`, `p19-gap-status`, `readiness`, `batch-plan`) from gated pipeline tasks (`ingest`, `network`, `score`, `score-batch`, `export`, `export-transit`, `validate`, `publish`). This is command-help text and test coverage only; it does not execute tasks, change dispatch, score, export, deploy, mutate public data, or touch locked weights.
+
+2026-08-21 - P289 runner help task headline:
+The task runner help should not make the argparse choice list compete with the curated safe-report/gated-task split. The parser now uses `task` as the positional metavar and exposes a testable `build_parser()` helper, so `run.py --help` leads with `usage: run.py [-h] task` and the safe/gated sections carry the task taxonomy. This is help formatting and test coverage only; it does not execute tasks, change dispatch, score, export, deploy, mutate public data, or touch locked weights.
