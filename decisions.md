@@ -1433,3 +1433,7 @@ The browser first-view freshness line should not only name stale sources; it sho
 2026-08-22 - P515 freshness help refresh boundary:
 
 `run.py --help` and `pipeline.fetch check --help` should expose the same stale-source boundary as the freshness report, readiness gate, docs, and browser copy. The help text now says stale sources require a versioned refresh while preserving the zero-mutation/no-upstream-probe contract. This is operator help/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P516 geospatial discovery help version boundary:
+
+The metadata-only DataMall geospatial discovery command should expose the same new-version boundary as README. `run.py --help`, `pipeline.fetch check --help`, and CLAUDE now say changed discovery URLs require new-version inputs/new numbered input versions while preserving the no-payload-download and no-manifest-write contract. This is operator help/docs/test coverage only; it does not probe upstream APIs in this task, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.

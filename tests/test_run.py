@@ -21,9 +21,10 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     assert "check --freshness-only reads raw/manifest.json only; it probes no upstream URLs and writes no manifest." not in run.__doc__
     assert "and groups action summaries with source names." not in run.__doc__
     assert (
-        "check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads and writes no manifest."
+        "check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads, writes no manifest, and treats changed discovery URLs as new-version inputs."
         in run.__doc__
     )
+    assert "check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads and writes no manifest." not in run.__doc__
     assert "p19-gap-status reads cached P19 measurement status, evidence split, missing rows, MCST proxy probe and cache ages only; it calls no APIs and writes no files." in run.__doc__
     assert "p19-mcst-locations reads existing P379 MCST proxy probe status only; it calls no APIs and writes no files." in run.__doc__
     assert "p125-osm-status reads cached P125 Overpass output and frozen v1 universe only, reporting OSM as geometry evidence and coverage cross-check rather than the address registry; it calls no APIs and writes no files." in run.__doc__
@@ -51,9 +52,10 @@ def test_run_help_headline_does_not_flatten_all_tasks():
     assert "check --freshness-only reads raw/manifest.json only; it probes no upstream URLs and writes no manifest." not in help_text
     assert "and groups action summaries with source names." not in help_text
     assert (
-        "check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads and writes no manifest."
+        "check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads, writes no manifest, and treats changed discovery URLs as new-version inputs."
         in help_text
     )
+    assert "check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads and writes no manifest." not in help_text
     assert "p19-gap-status reads cached P19 measurement status, evidence split, missing rows, MCST proxy probe and cache ages only; it calls no APIs and writes no files." in help_text
     assert "p19-mcst-locations reads existing P379 MCST proxy probe status only; it calls no APIs and writes no files." in help_text
     assert "p125-osm-status reads cached P125 Overpass output and frozen v1 universe only, reporting OSM as geometry evidence and coverage cross-check rather than the address registry; it calls no APIs and writes no files." in help_text

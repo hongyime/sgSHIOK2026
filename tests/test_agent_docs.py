@@ -59,6 +59,8 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "so operators do not need to cross-reference `sources.yaml`" in normalized
     assert "If stale sources appear, report them" in normalized
     assert "plan a versioned refresh; do not mutate frozen v1 in place" in normalized
+    assert "check --geospatial-discovery-only` probes DataMall discovery metadata only" in normalized
+    assert "changed discovery URLs require a new numbered input version, not an in-place repair" in normalized
     assert "uv run python run.py <task>" in normalized
     assert "uv run python run.py test" in normalized
     assert "uv run python run.py publish" in normalized

@@ -1317,7 +1317,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--geospatial-discovery-only",
         action="store_true",
-        help="For check: resolve DataMall geospatial listing URLs without downloading payloads or writing the manifest.",
+        help=(
+            "For check: resolve DataMall geospatial listing URLs without "
+            "downloading payloads or writing the manifest; changed discovery "
+            "URLs require new-version inputs."
+        ),
     )
     parser.add_argument(
         "--source",

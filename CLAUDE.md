@@ -81,6 +81,9 @@ no upstream APIs, and its grouped action summaries include source names such as
 `traffic_signals (Traffic Signals)` so operators do not need to cross-reference
 `sources.yaml`. If stale sources appear, report them and plan a versioned
 refresh; do not mutate frozen v1 in place.
+`uv run python run.py check --geospatial-discovery-only` probes DataMall
+discovery metadata only; changed discovery URLs require a new numbered input
+version, not an in-place repair.
 
 ## Working conventions
 
