@@ -496,3 +496,43 @@ def test_p379_cache_status_only_reports_existing_probe_without_writes(tmp_path: 
             "candidate_postals": ["935999"],
         }
     }
+
+
+def test_p379_main_defaults_to_cache_status_only(monkeypatch, capsys) -> None:
+    calls: list[str] = []
+
+    def fake_cache_status_report() -> dict[str, object]:
+        calls.append("status")
+        return {"mode": "p379_cache_status_only", "will_call_apis": False, "will_write_files": False}
+
+    def fake_build_report(**_: object) -> dict[str, object]:
+        calls.append("probe")
+        return {"mode": "p379_p19_mcst_missing_locations"}
+
+    monkeypatch.setattr(p379, "cache_status_report", fake_cache_status_report)
+    monkeypatch.setattr(p379, "build_report", fake_build_report)
+
+    assert p379.main([]) == 0
+
+    assert calls == ["status"]
+    assert '"mode": "p379_cache_status_only"' in capsys.readouterr().out
+
+
+def test_p379_main_requires_explicit_probe_for_write_capable_mode(monkeypatch, capsys) -> None:
+    calls: list[dict[str, object]] = []
+
+    def fake_cache_status_report() -> dict[str, object]:
+        calls.append({"kind": "status"})
+        return {"mode": "p379_cache_status_only"}
+
+    def fake_build_report(**kwargs: object) -> dict[str, object]:
+        calls.append({"kind": "probe", **kwargs})
+        return {"mode": "p379_p19_mcst_missing_locations"}
+
+    monkeypatch.setattr(p379, "cache_status_report", fake_cache_status_report)
+    monkeypatch.setattr(p379, "build_report", fake_build_report)
+
+    assert p379.main(["--probe", "--refresh-cache", "--delay-sec", "0"]) == 0
+
+    assert calls == [{"kind": "probe", "delay_sec": 0.0, "refresh_cache": True}]
+    assert '"mode": "p379_p19_mcst_missing_locations"' in capsys.readouterr().out

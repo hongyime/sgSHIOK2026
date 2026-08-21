@@ -1,10 +1,9 @@
-"""Report or refresh cached P19 MCST proxy location probes.
+"""Report or explicitly refresh cached P19 MCST proxy location probes.
 
-The default `run.py p19-mcst-locations` path uses `--cache-status-only` and
-only reads the existing P379 cache/report. Explicit direct script runs without
-that flag can locate the two P19 MCST proxy rows through bounded OneMap Search;
-that mode writes a new numbered P379 cache/report and never mutates the
-original P19 measurement files.
+The default path only reads the existing P379 cache/report. Explicit direct
+script runs with `--probe` can locate the two P19 MCST proxy rows through
+bounded OneMap Search; that mode writes a new numbered P379 cache/report and
+never mutates the original P19 measurement files.
 """
 
 from __future__ import annotations
@@ -298,14 +297,23 @@ def cache_status_report(
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--delay-sec", type=float, default=0.25)
-    parser.add_argument("--refresh-cache", action="store_true")
+    parser.add_argument(
+        "--probe",
+        action="store_true",
+        help="Call OneMap for missing cache entries and write the P379 cache/report.",
+    )
+    parser.add_argument(
+        "--refresh-cache",
+        action="store_true",
+        help="With --probe, re-query cached OneMap searches before writing the P379 report.",
+    )
     parser.add_argument(
         "--cache-status-only",
         action="store_true",
-        help="Read existing P379 cache/report status only; do not call OneMap and do not write files.",
+        help="Read existing P379 cache/report status only; retained for explicitness because this is the default.",
     )
     args = parser.parse_args(argv)
-    if args.cache_status_only:
+    if not args.probe:
         print(json.dumps(cache_status_report(), indent=2, sort_keys=True))
         return 0
     print(

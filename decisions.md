@@ -1265,3 +1265,7 @@ The public NOTICE attribution block should advance when the shipped source set a
 2026-08-22 - P473 P19 MCST probe safe default:
 
 `run.py p19-mcst-locations` should be safe to inspect like the other P19/P125 status commands. The task runner now invokes `scripts.analysis.p19_mcst_missing_locations --cache-status-only`, which reads the existing P379 MCST probe cache/report and reports `will_call_apis: false` and `will_write_files: false` instead of defaulting to the write-capable OneMap probe. The underlying script still supports explicit direct refresh/probe runs, but operator policy and docs now mark the runner path as a read-only status command. This is measurement-tooling safety and documentation only; it does not call OneMap, mutate P19/P379 evidence, build v2, score, export, deploy, or touch locked weights.
+
+2026-08-22 - P474 P379 direct-script safe default:
+
+The P379 MCST probe script itself should be safe when invoked directly, not only through `run.py`. `scripts.analysis.p19_mcst_missing_locations` now defaults to the same cache-status-only report as the runner and requires explicit `--probe` before it may call OneMap or write the P379 cache/report. `--refresh-cache` is now documented as a `--probe` modifier. This preserves the ability to run the bounded two-row probe intentionally while making accidental direct script invocation read-only by default. This is measurement-tooling safety only; it does not call OneMap, mutate P19/P379 evidence, build v2, score, export, deploy, or touch locked weights.
