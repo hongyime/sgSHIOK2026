@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P376 code commit: `a6ed62f`; state-only commits may follow it on `main`.
+Latest P377 code commit: `f4991a0`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P377 is complete and committed: `p19-gap-status` now derives `missing_development_clusters` from cached P19 detail evidence, showing the eight frozen-v1 missing rows collapse to SUN PLAZA SPRING, YISHUN BEACON, CANAAN, and MYRA, and source policy declares `cache_status_reports_missing_development_clusters`. Focused analysis/batch-plan/readiness tests and repo integrity passed.
 - P376 is complete and committed: `p19-gap-status` now derives a read-only `missing_row_detail` block from cached P19 detail evidence, naming all eight frozen-v1 missing rows and their source/year distribution, and source policy declares `cache_status_reports_missing_rows`. Focused analysis/batch-plan/readiness/runner/README tests and repo integrity passed.
 - P375 is complete and committed: P125 OSM status now reports `mtime_utc` and `age_days` for cached Overpass query/output and frozen v1 universe files, and structured source policy declares `cache_status_reports_age_days`. Focused analysis/batch-plan/readiness/README tests and repo integrity passed.
 - P374 is complete and committed: batch-plan and production-readiness structured source-policy output now expose the safe P125 OSM status command, no-API/no-write flags, cached query/output paths, and 23 invalid distinct OSM postcode tags. Focused batch-plan/readiness tests, batch-plan, readiness, and repo integrity passed; readiness still reports the pre-existing release-gate blockers.
