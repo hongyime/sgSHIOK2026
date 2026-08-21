@@ -257,6 +257,9 @@ describe("score card copy", () => {
       "Locked score coverage:"
     );
     expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).toContain(
+      "full locked score"
+    );
+    expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).not.toContain(
       "full locked sorting index"
     );
     expect(source).toContain(

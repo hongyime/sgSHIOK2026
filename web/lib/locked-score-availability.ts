@@ -62,5 +62,5 @@ export function formatLockedScoreAvailabilityLine(manifest: Manifest | null): st
     : "do not show a full locked score";
   return `Locked score coverage: ${formatWholeNumber(scored)} of ${formatWholeNumber(
     recordCount
-  )} records have a full locked sorting index; ${formatWholeNumber(notFull)} records (${pctText}) ${nonFullText}.`;
+  )} records have a full locked score; ${formatWholeNumber(notFull)} records (${pctText}) ${nonFullText}.`;
 }

@@ -1545,3 +1545,7 @@ The browser first-view data freshness line should match the prioritized manifest
 2026-08-22 - P543 partial lamp overlay tile failures:
 
 The night lighting overlay is map evidence, so failed lamp-post tile loads must be visible as evidence availability problems rather than reported as a clean empty viewport. The browser now distinguishes fully loaded, partially loaded, empty, and unavailable lamp overlay states. This is web/test behavior only; it does not regenerate the lamp overlay artifact, score, export, mutate public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P544 first-view locked score availability wording:
+
+The first-view bundle coverage disclosure is user-facing product honesty, not an operator sorting-control label. It now says that 95,157 of 124,443 records have a full locked score, while 29,286 records do not show one. The planning-area ranking UI still describes the locked score as a sorting index where that is the actual interaction. This is web copy/test work only; it does not score, export, mutate public data, protected QA evidence, deployment, or locked weights.
