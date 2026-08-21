@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P460 code commit: `629b04e`; state-only commits may follow it on `main`.
+Latest P461 code commit: `5f42a7a`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P461 is complete and committed: the transit-stop picker source contract no longer says the map route line stays on the auto-picked best stop; it now records that selected candidates may update the displayed walk through precomputed candidate geometry or a live OneMap preview while chip comparisons remain straight-line only. Focused web transit-picker/map-preview tests, repo integrity, and protected-diff checks passed.
 - P460 is complete and committed: batch-plan/readiness structured DataMall geospatial discovery policy now records `checked_at_local_date: 2026-08-21`, matching the browser's dated metadata-only drift caveat while preserving the no-payload/no-manifest-write boundary. Focused batch-plan/readiness tests, repo integrity, and protected-diff checks passed.
 - P459 is complete and committed: batch-plan/readiness structured source policy now dates the P19 measurement as `P19 16 Aug 2026 public-source gap sample` and records `generated_at_utc: 2026-08-16T02:08:55.624822+00:00`. Focused batch-plan/readiness tests, repo integrity, and protected-diff checks passed.
 - P458 is complete and committed: README, CLAUDE, and production readiness now date the P19 universe-gap policy as the `16 Aug 2026 P19 check`, matching browser copy. Focused Python docs/readiness tests, repo integrity, and protected-diff checks passed.
