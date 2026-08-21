@@ -1232,10 +1232,10 @@ export function ScoreCard({
   if (score.paths) {
     routeDetailItems.push({
       label: "Night lighting",
-      value: lampOverlayEnabled ? "Map layer on; zoom in for points" : "Map layer off",
+      value: lampOverlayEnabled ? "Map layer on; zoom in for lamp-post points" : "Map layer off",
     });
     routeDetailNotes.push(
-      "Night lighting uses LTA lamp-post points as map evidence outside the locked score; the map loads points only after you zoom into a neighbourhood."
+      "Night lighting uses LTA lamp-post points as map evidence outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
     );
   }
   if (endpointSnapM > 0) {
@@ -2157,7 +2157,7 @@ export default function Home() {
               </button>
             </div>
             <p id="night-lighting-layer-note" className={styles.layerNote}>
-              Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load points. Map evidence only; not part of the locked score.
+              Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load lamp-post points. Map evidence only; not part of the locked score.
             </p>
           </div>
         </div>

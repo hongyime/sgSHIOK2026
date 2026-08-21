@@ -236,7 +236,7 @@ describe("score card copy", () => {
     expect(source).toContain("Exposed gaps on this walk");
     expect(source).toContain("include map coordinates.");
     expect(source).toContain(
-      "Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load points. Map evidence only; not part of the locked score."
+      "Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load lamp-post points. Map evidence only; not part of the locked score."
     );
     expect(source).not.toContain("LTA lamp-post layer: 126,144 points");
     expect(source).not.toContain("Heat: shelter + NParks shade proxy");
@@ -336,12 +336,13 @@ describe("score card copy", () => {
     expect(tsxSource).not.toContain("Greenery proxy uses sparse NParks route geometry for heat only");
     expect(tsxSource).toContain("routeDetailItems.push({ label: \"Access link\"");
     expect(tsxSource).not.toContain("routeDetailItems.push({ label: \"Snap connector\"");
-    expect(tsxSource).toContain('value: lampOverlayEnabled ? "Map layer on; zoom in for points" : "Map layer off",');
+    expect(tsxSource).toContain('value: lampOverlayEnabled ? "Map layer on; zoom in for lamp-post points" : "Map layer off",');
+    expect(tsxSource).not.toContain('value: lampOverlayEnabled ? "Map layer on; zoom in for points" : "Map layer off",');
     expect(tsxSource).not.toContain('routeDetailItems.push({ label: "Night lighting", value: lampOverlayEnabled ? "Layer on" : "Layer off" });');
     expect(tsxSource).toContain("lampOverlayEnabled?: boolean;");
     expect(tsxSource).toContain("lampOverlayEnabled={lampOverlayEnabled}");
     expect(tsxSource).toContain(
-      "Night lighting uses LTA lamp-post points as map evidence outside the locked score; the map loads points only after you zoom into a neighbourhood."
+      "Night lighting uses LTA lamp-post points as map evidence outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
     );
     expect(tsxSource).toContain(
       "Access link is the short walk from the postal or transit point onto the shelter-map walk."

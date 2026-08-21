@@ -556,12 +556,13 @@ describe("rendered accessibility output", () => {
     const html = renderScoreCard({ lampOverlayEnabled: true });
 
     expect(html).toContain("Night lighting");
-    expect(html).toContain("Map layer on; zoom in for points");
+    expect(html).toContain("Map layer on; zoom in for lamp-post points");
     expect(html).toContain("LTA lamp-post points");
     expect(html).not.toContain("LTA lamp points");
+    expect(html).not.toContain("Map layer on; zoom in for points");
     expect(html).not.toContain("Layer on");
     expect(html).toContain(
-      "Night lighting uses LTA lamp-post points as map evidence outside the locked score; the map loads points only after you zoom into a neighbourhood."
+      "Night lighting uses LTA lamp-post points as map evidence outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
     );
   });
 
