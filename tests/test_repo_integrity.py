@@ -21,6 +21,14 @@ def test_repo_integrity_accepts_current_tripwire_files(tmp_path: Path):
     assert check_repo_integrity(tmp_path) == []
 
 
+def test_notice_names_shelter_map_and_lamp_posts() -> None:
+    text = (PROJECT_ROOT / "NOTICE").read_text(encoding="utf-8")
+
+    assert text.startswith("S.H.I.O.K. Shelter Map")
+    assert "S.H.I.O.K. Index" not in text
+    assert "lamp_posts, published by the Land Transport Authority" in text
+
+
 def test_repo_integrity_rejects_notice_revert(tmp_path: Path):
     write_fixture(tmp_path)
     (tmp_path / "NOTICE").write_text("Copyright (c) 2026 sgSHIOK contributors\n", encoding="utf-8")

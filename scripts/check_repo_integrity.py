@@ -4,7 +4,7 @@ import argparse
 import hashlib
 from pathlib import Path
 
-EXPECTED_NOTICE_GIT_BLOB_SHA1 = "116404a4b4192d6fd737e54f66f647f7d73fa22d"
+EXPECTED_NOTICE_GIT_BLOB_SHA1 = "5ccfd88ea706cb129bc602346d8db34fc8005781"
 AGENTS_REQUIRED_TEXT = (
     "durable project decisions live in `decisions.md`, not in `.agents/JOURNAL.md`",
     "ignores dot-directories unless they are explicitly allowlisted",

@@ -1257,3 +1257,7 @@ Agent-facing startup guidance should carry the same P125 OSM measurement as READ
 2026-08-21 - P470 lamp-post attribution status:
 
 `ATTRIBUTION.md` should reflect the current shipped night lighting layer, not the older P1 audit state. Lamp posts now reach shipped artifacts through the separate `web/public/data/lamp_posts_v1/` night lighting map layer, so the attribution table lists `lamp_posts` as an LTA Singapore Open Data Licence source and the candidate-source note no longer says lamp posts are unshipped. `NOTICE` remains untouched because repo integrity pins its historical blob. This is attribution/documentation/test alignment only; it does not build lamp artifacts, mutate public data, score, export, deploy, or touch locked weights.
+
+2026-08-21 - P471 NOTICE lamp-post attribution:
+
+The public NOTICE attribution block should advance when the shipped source set advances. `NOTICE` now uses the S.H.I.O.K. Shelter Map name and lists `lamp_posts` as an LTA Singapore Open Data Licence source, matching the shipped `lamp_posts_v1` night lighting map layer. The repo-integrity expected NOTICE blob is intentionally updated to `5ccfd88ea706cb129bc602346d8db34fc8005781` so the sync-bot guard protects the newer attribution block rather than the older pre-night-lighting one. This is attribution/tripwire/test alignment only; it does not build lamp artifacts, mutate public data, score, export, deploy, or touch locked weights.

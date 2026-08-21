@@ -1,4 +1,4 @@
-S.H.I.O.K. Index
+S.H.I.O.K. Shelter Map
 Copyright 2026 The Prawn Organisation
 
 This product includes or derives public-facing data and map display from the
@@ -44,6 +44,8 @@ following sources. See ATTRIBUTION.md for details on how each source is used.
 - nparks_heritage_road_green_buffers, published through data.gov.sg with
   National Parks Board source attribution under the Singapore Open Data Licence
   v1.0.
+- lamp_posts, published by the Land Transport Authority under the Singapore
+  Open Data Licence v1.0.
 - osm_extract, obtained from Geofabrik/OpenStreetMap. Contains information from
   OpenStreetMap, which is made available under the Open Database License.
   © OpenStreetMap contributors.
