@@ -207,7 +207,35 @@ def json_file_status(path: Path, *, now: dt.datetime) -> dict[str, Any]:
     return status
 
 
-def missing_row_summary(detail_path: Path) -> dict[str, Any]:
+def cached_hdb_coordinate(
+    row: dict[str, Any],
+    hdb_cache: dict[str, Any],
+) -> dict[str, float] | None:
+    query = row.get("query")
+    postal = normalize_postal(row.get("postal"))
+    if not isinstance(query, str) or postal is None:
+        return None
+    cached = hdb_cache.get(query)
+    if not isinstance(cached, dict):
+        return None
+    for result in cached.get("results") or []:
+        if normalize_postal(result.get("POSTAL")) != postal:
+            continue
+        try:
+            return {
+                "lat": round(float(result["LATITUDE"]), 7),
+                "lon": round(float(result["LONGITUDE"]), 7),
+            }
+        except (KeyError, TypeError, ValueError):
+            return None
+    return None
+
+
+def missing_row_summary(
+    detail_path: Path,
+    *,
+    hdb_cache_path: Path | None = None,
+) -> dict[str, Any]:
     detail_display_path = str(detail_path.relative_to(PROJECT_ROOT)).replace("\\", "/")
     if not detail_path.is_file():
         return {
@@ -215,6 +243,9 @@ def missing_row_summary(detail_path: Path) -> dict[str, Any]:
             "detail_exists": False,
         }
     payload = load_json(detail_path, {})
+    raw_hdb_missing = [
+        row for row in payload.get("hdb_rows", []) if row.get("in_v1") is False
+    ]
     hdb_rows = [
         {
             "postal": row.get("postal"),
@@ -224,8 +255,7 @@ def missing_row_summary(detail_path: Path) -> dict[str, Any]:
             "searchval": row.get("searchval"),
             "total_dwelling_units": row.get("total_dwelling_units"),
         }
-        for row in payload.get("hdb_rows", [])
-        if row.get("in_v1") is False
+        for row in raw_hdb_missing
     ]
     mcst_rows = [
         {
@@ -242,9 +272,14 @@ def missing_row_summary(detail_path: Path) -> dict[str, Any]:
         "hdb_2021_2026_geocoded": hdb_rows,
         "mcst_2021_2026": mcst_rows,
     }
+    hdb_cache = (
+        load_json(hdb_cache_path, {})
+        if hdb_cache_path is not None and hdb_cache_path.is_file()
+        else {}
+    )
     by_year: dict[str, int] = {}
     by_development: dict[str, dict[str, Any]] = {}
-    for row in hdb_rows:
+    for raw_row, row in zip(raw_hdb_missing, hdb_rows, strict=True):
         year = str(row.get("year_completed"))
         by_year[year] = by_year.get(year, 0) + 1
         development = str(row.get("searchval") or "UNKNOWN")
@@ -255,11 +290,15 @@ def missing_row_summary(detail_path: Path) -> dict[str, Any]:
                 "missing_rows": 0,
                 "missing_postals": [],
                 "years": [],
+                "coordinates": [],
             },
         )
         entry["missing_rows"] += 1
         entry["missing_postals"].append(row.get("postal"))
         entry["years"].append(row.get("year_completed"))
+        coordinate = cached_hdb_coordinate(raw_row, hdb_cache)
+        if coordinate is not None:
+            entry["coordinates"].append(coordinate)
     for row in mcst_rows:
         year = str(row.get("mc_form_year"))
         by_year[year] = by_year.get(year, 0) + 1
@@ -296,6 +335,24 @@ def missing_row_summary(detail_path: Path) -> dict[str, Any]:
         }
         for development, entry in by_development.items()
     ]
+    for cluster in development_clusters:
+        coordinates = by_development[cluster["development"]].get("coordinates", [])
+        if not coordinates:
+            continue
+        lats = [float(coordinate["lat"]) for coordinate in coordinates]
+        lons = [float(coordinate["lon"]) for coordinate in coordinates]
+        cluster["coordinate_source"] = "cached_onemap_search_result"
+        cluster["coordinate_count"] = len(coordinates)
+        cluster["centroid"] = {
+            "lat": round(sum(lats) / len(lats), 7),
+            "lon": round(sum(lons) / len(lons), 7),
+        }
+        cluster["bbox"] = {
+            "min_lat": round(min(lats), 7),
+            "min_lon": round(min(lons), 7),
+            "max_lat": round(max(lats), 7),
+            "max_lon": round(max(lons), 7),
+        }
     return {
         "detail_path": detail_display_path,
         "detail_exists": True,
@@ -328,7 +385,10 @@ def cache_status_report(now: dt.datetime | None = None) -> dict[str, Any]:
             "summary": json_file_status(SUMMARY_OUTPUT, now=now),
             "detail": json_file_status(DETAIL_OUTPUT, now=now),
         },
-        "missing_row_detail": missing_row_summary(DETAIL_OUTPUT),
+        "missing_row_detail": missing_row_summary(
+            DETAIL_OUTPUT,
+            hdb_cache_path=HDB_GEOCODE_CACHE,
+        ),
     }
 
 

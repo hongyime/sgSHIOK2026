@@ -39,7 +39,23 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
     summary = qa_dir / "universe_gap_measurement_summary.json"
     detail = qa_dir / "universe_gap_measurement_detail.json"
     qa_dir.mkdir(parents=True)
-    hdb_cache.write_text(json.dumps({"1 TEST ROAD": {"found": 1}}), encoding="utf-8")
+    hdb_cache.write_text(
+        json.dumps(
+            {
+                "1 TEST ROAD": {"found": 1},
+                "400A TAMPINES ST 41": {
+                    "results": [
+                        {
+                            "POSTAL": "521400",
+                            "LATITUDE": "1.3585795422464",
+                            "LONGITUDE": "103.949531894985",
+                        }
+                    ]
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
     overpass_cache.write_text(
         json.dumps({"queried_at_utc": "2026-08-21T00:00:00+00:00", "postcodes": ["123456"]}),
         encoding="utf-8",
@@ -72,6 +88,7 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
                         "year_completed": 2026,
                         "total_dwelling_units": 110,
                         "postal": "521400",
+                        "query": "400A TAMPINES ST 41",
                         "searchval": "SUN PLAZA SPRING",
                         "in_v1": False,
                     },
@@ -104,9 +121,10 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
     assert report["mode"] == "cache_status_only"
     assert report["will_call_apis"] is False
     assert report["will_write_files"] is False
-    assert report["files"]["hdb_onemap_geocode_cache"]["cached_query_count"] == 1
+    assert report["files"]["hdb_onemap_geocode_cache"]["cached_query_count"] == 2
     assert report["files"]["hdb_onemap_geocode_cache"]["sample_cached_queries"] == [
-        "1 TEST ROAD"
+        "1 TEST ROAD",
+        "400A TAMPINES ST 41",
     ]
     assert "top_level_keys" not in report["files"]["hdb_onemap_geocode_cache"]
     assert report["files"]["overpass_addr_postcodes_cache"]["cached_postcode_count"] == 1
@@ -142,6 +160,15 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
                 "missing_rows": 1,
                 "missing_postals": ["521400"],
                 "years": [2026],
+                "coordinate_source": "cached_onemap_search_result",
+                "coordinate_count": 1,
+                "centroid": {"lat": 1.3585795, "lon": 103.9495319},
+                "bbox": {
+                    "min_lat": 1.3585795,
+                    "min_lon": 103.9495319,
+                    "max_lat": 1.3585795,
+                    "max_lon": 103.9495319,
+                },
             },
         ],
         "missing_rows_by_source": {
