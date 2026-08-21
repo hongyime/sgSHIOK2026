@@ -224,7 +224,7 @@ export function scoreCardAnnouncement({
   const stopText = isCustomStopSelected
     ? previewRoute
       ? "Preview shelter map evidence selected."
-      : "Custom stop selected."
+      : "Custom transit stop selected."
     : "Published walk selected.";
   const shelterText = shelterEvidenceAnnouncement(selection.score);
   return `${postal} shelter map panel loaded. ${stationName ?? "Transit target loaded"}. ${shelterText} Locked score ${scoreText}. ${stopText} Walk display ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;

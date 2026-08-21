@@ -94,7 +94,9 @@ describe("score card copy", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
     expect(source).toContain("Viewing selected transit stop");
+    expect(source).toContain("Custom transit stop selected.");
     expect(source).not.toContain("Viewing selected stop");
+    expect(source).not.toContain("Custom stop selected.");
   });
 
   it("accepts walk-mode browser smoke arguments while preserving route-mode compatibility", () => {

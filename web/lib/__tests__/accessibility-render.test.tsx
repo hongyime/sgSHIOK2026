@@ -217,7 +217,8 @@ describe("rendered accessibility output", () => {
       html.indexOf("Locked score 72 out of 100.")
     );
     expect(html).toContain("<span>Locked score</span><strong>72/100</strong>");
-    expect(html).toContain("Custom stop selected.");
+    expect(html).toContain("Custom transit stop selected.");
+    expect(html).not.toContain("Custom stop selected.");
     expect(html).toContain("Walk display shortest walk");
     expect(html).toContain('aria-busy="true"');
     expect(html).toContain("Loading planning-area Locked SHIOK score ranks.");

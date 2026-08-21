@@ -1141,3 +1141,6 @@ The traced-correction feedback editor should label each segment selector as `Wal
 
 2026-08-21 - P408 traced walk count grammar:
 The traced-correction feedback editor should pluralize point and walk-segment counts correctly, because `2 points / 1 walk segments` is visibly unpolished in the user feedback flow. The counter now renders `1 point / 0 walk segments`, `2 points / 1 walk segment`, and plural segments beyond that. This is browser copy and test coverage only; it does not mutate feedback JSON compatibility fields, route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P409 custom transit stop live-region wording:
+The score-card live region should say `Custom transit stop selected` rather than generic `Custom stop selected`, matching the visible selected-transit-stop badge and clarifying that the user changed the transit target for the walk comparison. This is accessibility copy and test coverage only; it does not mutate live-preview routing, transit candidates, route geometry, scoring, exports, public data, deployment, or locked weights.
