@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P524 code commit: `e1c4287`; state-only commits may follow it on `main`.
+Latest P525 code commit: `f870563`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P525 is complete and committed: `run.py --help` and the `batch-plan` stub now expose that batch planning is a one-attempt full-batch dry run whose execution still requires owner approval and bounded OneMap controls. Focused runner tests, help probe, repo integrity, check-ignore, and protected-diff checks passed.
 - P524 is complete and committed: `CLAUDE.md` now carries the same postal-universe v2 OneMap Search boundary as README/batch-plan/readiness: candidate validation uses explicit token controls, 72-hour token refresh, and the documented token-authenticated call-limit cap unless SLA approves a higher limit case-by-case. Focused agent-doc test, doc probe, repo integrity, check-ignore, and protected-diff checks passed.
 - P523 is complete and committed: `pipeline/config/sources.yaml` and production-readiness feature notes now state Overture Addresses SG is candidate-only postal-universe evidence and does not approve scoring or address-registry use until raw archive, attribution, dedupe, coordinate-outlier review, and owner approval. Focused source-config/readiness tests, source-note probe, repo integrity, check-ignore, and protected-diff checks passed.
 - P522 is complete and committed: `pipeline.postal_universe --include-overture-candidate` help and generated summary warning now state that archived Overture Addresses SG is candidate-only postal-universe evidence, not scoring or address-registry approval, and does not change defaults. Focused postal-universe tests, help probe, repo integrity, check-ignore, and protected-diff checks passed.
