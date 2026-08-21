@@ -931,3 +931,6 @@ README onboarding should mirror the browser's locked-score availability wording.
 
 2026-08-21 - P335 Section 10 proposal stale-current wording:
 The committed Section 10 presentation proposal should not preserve stale "current" language after P18 landed the four-row shelter-first presentation. The proposal now describes the old rows as the prior/pre-P18 state, uses the same locked-release rain/heat overlap sentence as the app, and says the locked score sorts the published shelter-map bundle. This is documentation and test coverage only; it does not change app rendering, score values, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P336 heat presentation audit string alignment:
+The heat-presentation analysis helper should audit the current app copy, not retired strings from earlier presentation phases. Its UI audit entries now use "Stronger heat-proxy evidence" and the locked-release rain/heat overlap sentence, and tests reject the old "Better heat-proxy score" and "currently share" strings. This is analysis metadata and test coverage only; it does not run bundle analysis, alter app rendering, score values, exports, public data, pipeline inputs, or locked weights.

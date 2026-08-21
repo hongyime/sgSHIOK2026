@@ -22,8 +22,8 @@ UI_AUDIT_ENTRIES = [
     {
         "file": "web/app/page.tsx",
         "line": 96,
-        "string": 'heat: { low: "Low heat-proxy evidence", high: "Better heat-proxy score" },',
-        "verdict": "Acceptable: reason chips describe the proxy score rather than measured thermal comfort.",
+        "string": 'heat: { low: "Low heat-proxy evidence", high: "Stronger heat-proxy evidence" },',
+        "verdict": "Acceptable: reason chips describe the proxy evidence rather than measured thermal comfort.",
         "action": "No fix required.",
     },
     {
@@ -43,7 +43,7 @@ UI_AUDIT_ENTRIES = [
     {
         "file": "web/app/page.tsx",
         "line": 1206,
-        "string": "Rain shelter and heat comfort currently share mostly the same covered-walkway evidence.",
+        "string": "In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence.",
         "verdict": "Acceptable disclosure: it names the rain/heat dependency directly in the presentation row.",
         "action": "No fix required.",
     },
