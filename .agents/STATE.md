@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P384 code commit: `8bc1e89`; state-only commits may follow it on `main`.
+Latest P385 code commit: `1509dee`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P385 is complete and committed: `p19-gap-status` now exposes a top-level `evidence_split` derived from existing cached P19/P379 status blocks, matching batch-plan/readiness with 6 coordinate-backed/confirmed HDB missing rows and 2 unvalidated/source-quality MCST proxy rows. Focused analysis test, live safe status split command, repo integrity, and protected-diff checks passed.
 - P384 is complete and committed: structured batch-plan/readiness source policy now exposes a first-class P19 `evidence_split` with 6 coordinate-backed/confirmed HDB missing rows and 2 unvalidated/source-quality MCST proxy rows. Focused batch-plan/readiness tests, repo integrity, and protected-diff checks passed.
 - P383 is complete and committed: `p19-gap-status` now reads the existing P379 MCST proxy report/cache and emits a `mcst_proxy_location_probe` block with report/cache presence, 0 located / 2 unlocated rows, unlocated developments, CANAAN's conflicting candidate postal, and no-score/no-export/no-P19-mutation flags. Focused analysis/runner/README tests, the live safe status command, repo integrity, and protected-diff checks passed.
 - P382 is complete and committed: browser, README, CLAUDE, and readiness aggregate P19 copy now preserves the 8-of-976 measurement while naming the evidence split as 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows. Focused docs/readiness/browser tests, repo integrity, and protected-diff checks passed.
