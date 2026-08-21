@@ -46,6 +46,9 @@ REQUIRED_SCORING_FINGERPRINTS = {
     rel_path.replace("/", "\\") for rel_path in SCORING_FINGERPRINT_FILES
 }
 NON_SCORE_REFERENCE_SOURCE_HASH_KEYS = {"leaf_area_index"}
+SOURCE_HASH_WARNING_LABELS = {
+    "leaf_area_index": "NParks Leaf Area Index",
+}
 BLOCKING_PROVENANCE_SIGNALS = {
     "scoring_fingerprint_changed_during_run": "scoring fingerprint changed during run",
     "mixed_scoring_fingerprint_digests": "mixed scoring fingerprint digests",
@@ -83,6 +86,11 @@ NETWORK_PROVENANCE_FIELDS = {
     "network_provenance_complete",
     "networks_by_digest",
 }
+
+
+def source_hash_warning_label(source_key: str) -> str:
+    label = SOURCE_HASH_WARNING_LABELS.get(source_key)
+    return f"{source_key} ({label})" if label else source_key
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -635,7 +643,10 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
         if non_score_reference_source_hashes:
             warning += (
                 "; non-score reference source hashes present: "
-                + ", ".join(non_score_reference_source_hashes)
+                + ", ".join(
+                    source_hash_warning_label(key)
+                    for key in non_score_reference_source_hashes
+                )
             )
     elif not ok or warning_provenance_signals or non_score_reference_source_hashes:
         reasons: list[str] = []
@@ -664,7 +675,10 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
         if non_score_reference_source_hashes:
             reasons.append(
                 "non-score reference source hashes: "
-                + ", ".join(non_score_reference_source_hashes)
+                + ", ".join(
+                    source_hash_warning_label(key)
+                    for key in non_score_reference_source_hashes
+                )
             )
         if not ok:
             warning = (

@@ -1349,7 +1349,7 @@ def test_bundle_score_provenance_reports_non_score_reference_hashes_without_bloc
     assert status["source_hash_count"] == len(SCORE_PROVENANCE_SOURCE_HASH_KEYS) + 1
     assert status["non_score_reference_source_hashes"] == ["leaf_area_index"]
     assert status["unexpected_source_hashes"] == ["leaf_area_index"]
-    assert "non-score reference source hashes: leaf_area_index" in status["warning"]
+    assert "non-score reference source hashes: leaf_area_index (NParks Leaf Area Index)" in status["warning"]
 
 
 def test_bundle_score_provenance_blocks_real_p10_stale_resume_shape(tmp_path: Path):

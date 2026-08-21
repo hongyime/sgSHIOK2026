@@ -1369,3 +1369,7 @@ The browser and README freshness caveat should name the source with unknown age 
 2026-08-22 - P499 source-freshness warning names:
 
 Readiness warnings should be readable without forcing the operator to map source keys back through `sources.yaml`. Source-freshness warnings now keep structured `by_status` keys unchanged but include each non-current source's display name in the human warning string, for example `overture_addresses_sg_candidate (Overture Maps Addresses — Singapore candidate)`. This is operator reporting/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P500 non-score source hash warning labels:
+
+Readiness score-provenance warnings should name known non-score reference source hashes without changing gate semantics. The active legacy bundle still reports structured `non_score_reference_source_hashes: ["leaf_area_index"]` and `unexpected_source_hashes: ["leaf_area_index"]`, but the human warning now says `leaf_area_index (NParks Leaf Area Index)` so operators can understand the LAI caveat without looking up the key. This is operator reporting/test coverage only; it does not mutate manifests, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.
