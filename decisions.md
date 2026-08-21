@@ -1126,3 +1126,6 @@ Transit target availability labels should say `current walk`, `published walk`, 
 
 2026-08-21 - P403 selected transit stop preview copy:
 OneMap preview status and preview-only caveat copy should say `selected transit stop` and `clicked transit stop` rather than generic stop wording. This keeps selected-stop preview copy aligned with the transit-target badge and makes clear that the clicked item changes the transit target, not the origin postal. This is browser copy and test coverage only; it does not mutate live-preview routing, transit candidates, route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P404 walk display live-region labels:
+The score-card live-region walk-display text should announce `sheltered walk` and `shortest walk` instead of bare `sheltered` and `shortest`, matching the visible walk display controls. Same-route shortest mode now announces `shortest walk same as sheltered walk`. This is accessibility copy and test coverage only; it does not mutate route geometry, scoring, exports, public data, deployment, or locked weights.

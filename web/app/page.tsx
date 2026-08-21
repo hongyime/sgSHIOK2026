@@ -172,8 +172,8 @@ export function searchResultsAnnouncement(
 
 export function routeDisplayAnnouncement(mode: RouteDisplayMode, sameRoute: boolean): string {
   if (mode === "both") return "both walks";
-  if (mode === "shortest") return sameRoute ? "shortest same as sheltered walk" : "shortest";
-  return "sheltered";
+  if (mode === "shortest") return sameRoute ? "shortest walk same as sheltered walk" : "shortest walk";
+  return "sheltered walk";
 }
 
 function shelterEvidenceAnnouncement(score: ScoreRecord): string {

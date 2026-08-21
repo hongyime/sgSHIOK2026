@@ -217,7 +217,7 @@ describe("rendered accessibility output", () => {
     );
     expect(html).toContain("<span>Locked score</span><strong>72/100</strong>");
     expect(html).toContain("Custom stop selected.");
-    expect(html).toContain("Walk display shortest");
+    expect(html).toContain("Walk display shortest walk");
     expect(html).toContain('aria-busy="true"');
     expect(html).toContain("Loading planning-area Locked SHIOK score ranks.");
     expect(html).toContain('aria-label="Shelter map panel"');
@@ -231,18 +231,21 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain('aria-label="Score panel"');
   });
 
-  it("announces the default walk display as sheltered instead of the internal mode name", () => {
+  it("announces the default walk display as sheltered walk instead of the internal mode name", () => {
     const html = renderScoreCard();
 
-    expect(html).toContain("Walk display sheltered");
+    expect(html).toContain("Walk display sheltered walk");
     expect(html).toContain("Published walk selected.");
     expect(html).not.toContain("Walk display shiokest");
+    expect(html).not.toContain("Walk display sheltered;");
     expect(html).not.toContain("Published route selected.");
     expect(html).not.toContain("Route display sheltered");
   });
 
   it("announces same shortest and sheltered display as a walk state", () => {
-    expect(routeDisplayAnnouncement("shortest", true)).toBe("shortest same as sheltered walk");
+    expect(routeDisplayAnnouncement("shortest", true)).toBe("shortest walk same as sheltered walk");
+    expect(routeDisplayAnnouncement("shortest", false)).toBe("shortest walk");
+    expect(routeDisplayAnnouncement("shortest", true)).not.toBe("shortest same as sheltered walk");
     expect(routeDisplayAnnouncement("shortest", true)).not.toBe("shortest same as sheltered route");
     expect(routeDisplayAnnouncement("both", false)).toBe("both walks");
     expect(routeDisplayAnnouncement("both", false)).not.toBe("both routes");
