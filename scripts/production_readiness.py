@@ -286,7 +286,10 @@ def source_freshness_readiness(
         for status_key, statuses in by_status.items()
     }
     warning_parts = [
-        f"{status_key} sources: {', '.join(keys)}"
+        f"{status_key} sources: "
+        + ", ".join(
+            f"{item['source_key']} ({item['name']})" for item in by_status[status_key]
+        )
         for status_key, keys in notable.items()
         if status_key != "current" and keys
     ]

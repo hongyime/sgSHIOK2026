@@ -1365,3 +1365,7 @@ User-facing and agent-facing P125 copy should use the same release-policy label 
 2026-08-22 - P498 Overture unknown-age freshness naming:
 
 The browser and README freshness caveat should name the source with unknown age rather than hiding it behind `1 candidate address source`. The zero-mutation freshness report names `overture_addresses_sg_candidate`, so README now records that the Overture Maps Addresses Singapore candidate has no timestamp in the cached manifest, and the browser first-view freshness line names `Overture Maps Addresses - Singapore candidate` directly. This is copy/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P499 source-freshness warning names:
+
+Readiness warnings should be readable without forcing the operator to map source keys back through `sources.yaml`. Source-freshness warnings now keep structured `by_status` keys unchanged but include each non-current source's display name in the human warning string, for example `overture_addresses_sg_candidate (Overture Maps Addresses — Singapore candidate)`. This is operator reporting/test coverage only; it does not probe upstream APIs, mutate manifests or inputs, score, export, public data, protected QA evidence, deployment, or locked weights.
