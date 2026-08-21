@@ -48,6 +48,7 @@ def test_heat_presentation_ui_audit_entries_still_resolve() -> None:
 
     assert entries
     assert [entry for entry in entries if not entry["line_match"]] == []
+    assert [entry for entry in entries if not entry["expected_line_match"]] == []
     strings = {entry["string"] for entry in entries}
     assert (
         "Explore covered-walkway ratio, exposed gaps, night lighting evidence, and the secondary locked SHIOK score for Singapore walks to transit."

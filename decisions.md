@@ -1329,3 +1329,7 @@ README and `CLAUDE.md` should describe the same task split as `run.py --help`. T
 2026-08-22 - P489 night lighting operator wording:
 
 Readiness and analysis surfaces should use the same `night lighting` wording as the browser and docs. The heat-presentation UI audit now points at the current metadata string, and production readiness warning/error text says `night lighting` instead of `night-lighting`. This is operator/audit wording and test coverage only; it does not change the lamp overlay artifact, map rendering, inputs, scoring, exports, deployment, public data, protected QA evidence, or locked weights.
+
+2026-08-22 - P490 heat-presentation audit line references:
+
+The heat-presentation analysis should identify the exact current browser lines it audits, not only search for matching strings somewhere in the file. The UI audit line references now match current `web/app/layout.tsx`, `web/app/page.tsx`, and `web/lib/transit-popup.ts`, and the focused test asserts both string resolution and exact-line matches. This is analysis metadata and test coverage only; it does not change browser rendering, inputs, scoring, exports, deployment, public data, protected QA evidence, or locked weights.
