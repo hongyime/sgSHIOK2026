@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P545 code commit: `bd66cf1`; state-only commits may follow it on `main`.
+Latest P546 code commit: `266e046`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P546 is complete and committed: `NO_TRANSIT_IN_RANGE` selected-record copy now names far connected shelter-map walks as `Connected walk beyond 1.2 km`, while rendered tests pin far-connected, disconnected-candidate, and no-candidate states separately; the browser smoke classifier recognizes the new far-connected-walk text. Focused web render/copy/deployment tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P545 is complete and committed: selected records with null locked totals now show a `No full score` / `Published bundle` badge instead of visually leading with `Locked score`; numeric records still show `Locked score` with the 0-to-100 value. Focused web render/copy tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P544 is complete and committed: the browser first-view locked score coverage disclosure now says 95,157 of 124,443 records have a full locked score, replacing the internal phrase "full locked sorting index" in that disclosure while preserving planning-area sorting-index copy where it names the actual control behavior. Focused web tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P543 is complete and committed: the browser night lighting overlay now distinguishes partial lamp-post tile failures from fully loaded, empty, and unavailable viewports. Partial tile loads tell users that some lamp-post tiles are unavailable while showing the points that did load; all failed indexed tiles report unavailable instead of empty. Focused web tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
