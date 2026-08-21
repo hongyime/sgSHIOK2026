@@ -1105,3 +1105,6 @@ Route source-strip connector layers should render as `Postal access walk`, `Tran
 
 2026-08-21 - P396 access-link walk detail:
 The selected-walk details strip should label the endpoint snap distance as `Access link` rather than `Snap connector`, because the latter is graph implementation jargon. The note now says it is the short walk from the postal or transit point onto the shelter-map walk. This is browser copy and test coverage only; it does not mutate route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P397 shortest-walk labels:
+The walk display control and map legend should say `Shortest walk` instead of bare `Shortest`, because the user is comparing walks to transit rather than abstract route modes. The same-route legend state now says `Shortest walk (same)`. This is browser copy and test coverage only; it does not mutate route geometry, scoring, exports, public data, deployment, or locked weights.

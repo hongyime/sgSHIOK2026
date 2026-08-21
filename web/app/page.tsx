@@ -934,7 +934,7 @@ function RouteModeControl({
         disabled={disabled}
         onClick={() => setMode("shortest")}
       >
-        Shortest
+        Shortest walk
       </button>
     </div>
   );
@@ -999,7 +999,7 @@ function InlineRouteLegend({
         <>
           <span>
             <i className={styles.shortestLine} />
-            {sameRoute ? "Shortest (same)" : "Shortest"}
+            {sameRoute ? "Shortest walk (same)" : "Shortest walk"}
           </span>
           <span>
             <i className={styles.gapLine} />

@@ -63,7 +63,8 @@ describe("score card copy", () => {
 
     expect(source).toContain("Shortest same as sheltered walk.");
     expect(source).not.toContain("Shortest same as sheltered route.");
-    expect(source).toContain('sameRoute ? "Shortest (same)" : "Shortest"');
+    expect(source).toContain('sameRoute ? "Shortest walk (same)" : "Shortest walk"');
+    expect(source).not.toContain('sameRoute ? "Shortest (same)" : "Shortest"');
   });
 
   it("keeps browser smoke aligned with awaiting bundle-score copy", () => {
