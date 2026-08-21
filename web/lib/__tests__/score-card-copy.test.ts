@@ -230,6 +230,10 @@ describe("score card copy", () => {
       "Covered Linkway follows a quarterly 120-day freshness threshold; frozen v1 uses the Mar 2026 LTA geospatial listing, and any refresh must be a new numbered input version."
     );
     expect(source).not.toContain("refresh the current Covered Linkway in place");
+    expect(source).toContain(
+      "NParks Leaf Area Index is a freshness-only reference table here; route heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature."
+    );
+    expect(source).not.toContain("Leaf Area Index is route heat evidence");
     expect(source).toContain('import { formatLockedScoreAvailabilityLine } from "../lib/locked-score-availability";');
     expect(source).toContain("formatLockedScoreAvailabilityLine(manifest)");
     expect(source).toContain("styles.coverageLine");
