@@ -510,7 +510,8 @@
 }
 
 .inlineLegend .mrtDot,
-.inlineLegend .busDot {
+.inlineLegend .busDot,
+.inlineLegend .lampDot {
   width: 9px;
   height: 9px;
   border: 1px solid #ffffff;
@@ -547,6 +548,10 @@
 
 .busDot {
   background: #ff2d75;
+}
+
+.lampDot {
+  background: #eab308;
 }
 
 .sourceStrip {

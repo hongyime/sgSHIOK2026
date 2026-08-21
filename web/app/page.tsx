@@ -982,10 +982,12 @@ function InlineRouteLegend({
   sameRoute,
   directBusFallback,
   previewRoute = false,
+  showLampOverlay = false,
 }: {
   sameRoute: boolean;
   directBusFallback: boolean;
   previewRoute?: boolean;
+  showLampOverlay?: boolean;
 }) {
   return (
     <div className={styles.inlineLegend} aria-label="Map legend">
@@ -1021,6 +1023,12 @@ function InlineRouteLegend({
         <i className={styles.busDot} />
         Bus stop
       </span>
+      {showLampOverlay && (
+        <span>
+          <i className={styles.lampDot} />
+          LTA lamp points
+        </span>
+      )}
     </div>
   );
 }
@@ -1380,6 +1388,7 @@ export function ScoreCard({
           sameRoute={sameRoute}
           directBusFallback={directBusFallback}
           previewRoute={previewRoute}
+          showLampOverlay={lampOverlayEnabled}
         />
       )}
       {sourceBreakdown.length > 0 && (

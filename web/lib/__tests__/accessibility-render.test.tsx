@@ -416,6 +416,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("OSM covered");
     expect(html).toContain('aria-label="Map legend"');
     expect(html).toContain("Sheltered walk");
+    expect(html).not.toContain("LTA lamp points");
     expect(html).not.toContain("Sheltered route");
     expect(html).toContain("Shelter map evidence and locked score");
     expect(html).toContain('aria-label="Shelter map evidence and locked score breakdown"');
@@ -485,6 +486,7 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("Night lighting");
     expect(html).toContain("Map layer on; zoom in for points");
+    expect(html).toContain("LTA lamp points");
     expect(html).not.toContain("Layer on");
     expect(html).toContain(
       "Night lighting uses LTA lamp-post points as map evidence outside the locked score; the map loads points only after you zoom into a neighbourhood."

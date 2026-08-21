@@ -78,6 +78,8 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("setRouteMode={handleRouteModeChange}");
     expect(pageSource).toContain("lampOverlayEnabled");
     expect(pageSource).toContain("showLampOverlay={lampOverlayEnabled}");
+    expect(pageSource).toContain("showLampOverlay?: boolean;");
+    expect(pageSource).toContain("LTA lamp points");
     expect(pageSource).toContain("Night lighting");
     expect(pageSource).toContain(
       'title="Night lighting: LTA lamp-post locations; map evidence only, not part of the locked score"'

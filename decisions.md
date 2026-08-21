@@ -1084,3 +1084,6 @@ Operator help should advertise that `p19-gap-status` reports the P19 evidence sp
 
 2026-08-21 - P389 structured lamp overlay replacement policy:
 Batch-plan and production-readiness source policy should expose the same lamp-overlay replacement boundary as the runner and README. The structured `night_lighting_layer` policy now names the owner-approved replacement command example, marks replacement as owner-approval-required, and declares existing artifact mutation forbidden. This is reporting/test coverage only; it does not run the builder, write public data, score, export, deploy, or touch locked weights.
+
+2026-08-21 - P390 night-lighting map legend:
+The night-lighting overlay is the settled second map layer, so when it is enabled the visible map legend should name the lamp-post points instead of leaving them only in the toggle/status copy. The inline legend now adds `LTA lamp points` only while the lamp overlay is enabled, using the same yellow lamp marker color as the layer control. This is browser copy/styling and test coverage only; it does not rebuild the lamp artifact, write public data, score, export, deploy, or touch locked weights.
