@@ -475,13 +475,15 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Map layer off");
     expect(html).not.toContain("Map layer on; zoom in for points");
     expect(html).not.toContain("Layer off");
-    expect(html).toContain("Snap connector");
+    expect(html).toContain("Access link");
+    expect(html).not.toContain("Snap connector");
     expect(html).toContain("9 m");
     expect(html).toContain('aria-label="Walk details"');
     expect(html).not.toContain('aria-label="Route details"');
     expect(html).toContain(
-      "Snap connector is the short link from the postal or transit point onto the shelter-map walk."
+      "Access link is the short walk from the postal or transit point onto the shelter-map walk."
     );
+    expect(html).not.toContain("Snap connector is the short link");
     expect(html).not.toContain("onto the shelter-map route");
     expect(html).not.toContain("onto mapped walking-route evidence");
     expect(html).not.toContain("onto the walking graph");

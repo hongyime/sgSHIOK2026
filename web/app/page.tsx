@@ -1223,10 +1223,10 @@ export function ScoreCard({
     );
   }
   if (endpointSnapM > 0) {
-    routeDetailItems.push({ label: "Snap connector", value: formatDistance(endpointSnapM) });
+    routeDetailItems.push({ label: "Access link", value: formatDistance(endpointSnapM) });
   }
   if (endpointSnapM > 0) {
-    routeDetailNotes.push("Snap connector is the short link from the postal or transit point onto the shelter-map walk.");
+    routeDetailNotes.push("Access link is the short walk from the postal or transit point onto the shelter-map walk.");
   }
   const longestGap = exposureGaps[0] ?? null;
   const visibleExposureGaps = exposureGaps.slice(0, 3);

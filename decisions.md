@@ -1102,3 +1102,6 @@ Bridge and underpass route segments should be labelled as `Bridge/underpass shel
 
 2026-08-21 - P395 access-walk source labels:
 Route source-strip connector layers should render as `Postal access walk`, `Transit access walk`, and `Bus-stop access walk` instead of connector jargon. These labels describe the walk segment a resident sees while keeping the underlying source-layer identifiers unchanged for compatibility. This is browser copy and test coverage only; it does not mutate route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P396 access-link walk detail:
+The selected-walk details strip should label the endpoint snap distance as `Access link` rather than `Snap connector`, because the latter is graph implementation jargon. The note now says it is the short walk from the postal or transit point onto the shelter-map walk. This is browser copy and test coverage only; it does not mutate route geometry, scoring, exports, public data, deployment, or locked weights.

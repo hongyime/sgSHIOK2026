@@ -281,7 +281,7 @@ describe("score card copy", () => {
     expect(source).not.toContain('aria-label="Route comparison"');
   });
 
-  it("keeps greenery proxy and snap connector in a subtle walk-details strip, not a duplicate metric row", () => {
+  it("keeps greenery proxy and access link in a subtle walk-details strip, not a duplicate metric row", () => {
     const cssSource = readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8");
     const tsxSource = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
@@ -297,7 +297,8 @@ describe("score card copy", () => {
       "Greenery proxy uses sparse NParks walk-adjacent greenery geometry for heat only; it is not measured temperature or Leaf Area Index."
     );
     expect(tsxSource).not.toContain("Greenery proxy uses sparse NParks route geometry for heat only");
-    expect(tsxSource).toContain("routeDetailItems.push({ label: \"Snap connector\"");
+    expect(tsxSource).toContain("routeDetailItems.push({ label: \"Access link\"");
+    expect(tsxSource).not.toContain("routeDetailItems.push({ label: \"Snap connector\"");
     expect(tsxSource).toContain('value: lampOverlayEnabled ? "Map layer on; zoom in for points" : "Map layer off",');
     expect(tsxSource).not.toContain('routeDetailItems.push({ label: "Night lighting", value: lampOverlayEnabled ? "Layer on" : "Layer off" });');
     expect(tsxSource).toContain("lampOverlayEnabled?: boolean;");
@@ -306,8 +307,9 @@ describe("score card copy", () => {
       "Night lighting uses LTA lamp-post points as map evidence outside the locked score; the map loads points only after you zoom into a neighbourhood."
     );
     expect(tsxSource).toContain(
-      "Snap connector is the short link from the postal or transit point onto the shelter-map walk."
+      "Access link is the short walk from the postal or transit point onto the shelter-map walk."
     );
+    expect(tsxSource).not.toContain("Snap connector is the short link");
     expect(tsxSource).not.toContain("onto the shelter-map route");
     expect(tsxSource).not.toContain("onto mapped walking-route evidence");
     expect(tsxSource).not.toContain("onto the walking graph");
