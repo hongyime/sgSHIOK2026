@@ -1613,7 +1613,7 @@ export function ScoreCard({
 
       {exposureGaps.length > 0 && (
         <div className={styles.gapList}>
-          <h3>Exposed gaps on this walk</h3>
+          <h3>Exposed gaps on {selectedWalkLabel}</h3>
           <p className={styles.gapSummary}>
             <span>{gapSummaryText}</span>
             <span>{gapListScopeText}</span>

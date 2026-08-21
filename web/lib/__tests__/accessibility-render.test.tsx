@@ -597,7 +597,8 @@ describe("rendered accessibility output", () => {
   it("renders exposed gap lengths with coordinates", () => {
     const html = renderScoreCard();
 
-    expect(html).toContain("Exposed gaps on this walk");
+    expect(html).toContain("Exposed gaps on sheltered walk");
+    expect(html).not.toContain("Exposed gaps on this walk");
     expect(html).toContain("142 m");
     expect(html).toContain("181 m exposed across 2 gaps on the sheltered walk.");
     expect(html).not.toContain("181 m exposed across 2 gaps on the selected walk.");
@@ -636,6 +637,7 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("No exposed gaps are recorded for this shortest walk.");
     expect(html).not.toContain("No exposed gaps are recorded for this selected walk.");
+    expect(html).not.toContain("Exposed gaps on this walk");
   });
 
   it("labels transit target availability before a user switches modes", () => {
