@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P442 code commit: `7673602`; state-only commits may follow it on `main`.
+Latest P443 code commit: `04add91`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P443 is complete and committed: fresh zero-mutation P125 status confirmed OSM `addr:postcode` covers 25,873 of 124,443 frozen-v1 postals and has 6 valid OSM-only postcodes; the source-policy block now carries `valid_osm_only_postcodes: 6`. Focused batch-plan/readiness tests, repo integrity, and protected-diff checks passed.
 - P442 is complete and committed: the first-view locked-score disclosure now starts as `Locked score coverage` and says full records have a locked sorting index, while preserving the 29,286 / 23.5% roughly-quarter missing-score disclosure. Focused locked-score/data/source-copy tests, repo integrity, and protected-diff checks passed.
 - P441 is complete and committed: the planning-area comparison selector now labels the overall option `Locked score sorting index`, while the score-card row remains `Locked SHIOK score`. Focused accessibility/source-copy/ranking tests, repo integrity, and protected-diff checks passed.
 - P440 is complete and committed: the planning-area comparison panel now says the locked score is used only as a sorting index, keeping shelter evidence primary. Focused accessibility/source-copy tests, repo integrity, and protected-diff checks passed.
