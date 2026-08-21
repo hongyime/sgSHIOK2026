@@ -805,3 +805,6 @@ The night-lighting layer's hover title should use the same user-facing layer nam
 
 2026-08-21 - P293 night-lighting detail state:
 The selected-walk details strip should describe night lighting as a map-layer state, not as an ambiguous `Layer on/off` route detail. The value now says `Map layer on` or `Map layer off`, preserving the note that LTA lamp-post points are map evidence outside the locked score. This is browser copy and test coverage only; it does not alter lamp data, map loading, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P294 footer night-lighting evidence:
+The first-view footer should name the night-lighting layer alongside covered-walkway and exposure-gap evidence, because night lighting is the settled second map layer even though it remains outside the locked score. The footer now says `Source-derived covered-walkway, exposure-gap, and night-lighting map evidence.` This is browser copy and test coverage only; it does not alter lamp data, map loading, scoring, exports, public data, deployment, or locked weights.

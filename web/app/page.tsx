@@ -2146,7 +2146,7 @@ export default function Home() {
           </aside>
         )}
 
-        <footer className={styles.pageFooter}>Source-derived covered-walkway and exposure-gap evidence.</footer>
+        <footer className={styles.pageFooter}>Source-derived covered-walkway, exposure-gap, and night-lighting map evidence.</footer>
       </section>
     </main>
   );
