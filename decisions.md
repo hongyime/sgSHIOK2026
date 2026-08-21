@@ -811,3 +811,6 @@ The first-view footer should name the night-lighting layer alongside covered-wal
 
 2026-08-21 - P295 night-lighting rendered test:
 Rendered accessibility coverage should guard the P293 `Map layer on` wording for selected-walk night-lighting state, not the retired ambiguous `Layer on` wording. This is test coverage and evidence only; it does not alter browser copy, lamp data, map loading, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P296 README routed-walk framing:
+README opening copy should match the settled shelter-map frame and CLAUDE.md by saying the app leads with exposed gaps on real routed walks, not generic routed paths. This is documentation and test coverage only; it does not alter browser copy, scoring, exports, public data, deployment, or locked weights.

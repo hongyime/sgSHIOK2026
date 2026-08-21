@@ -2,7 +2,7 @@
 
 A free, non-commercial civic web app for Singapore postal records that answers:
 if I move here, what is the walk to transit actually like? It leads with the
-covered-walkway ratio and exposed gaps on real routed paths, adds night-lighting
+covered-walkway ratio and exposed gaps on real routed walks, adds night-lighting
 evidence as a map layer, and keeps the locked SHIOK score visible but secondary.
 
 **Status:** live static shelter-map pilot over a 124,443-record source-derived universe.

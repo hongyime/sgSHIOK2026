@@ -14,6 +14,8 @@ def test_readme_documents_universe_source_policy() -> None:
 
     assert text.startswith("# S.H.I.O.K. Shelter Map")
     assert "# S.H.I.O.K. Index" not in text
+    assert "covered-walkway ratio and exposed gaps on real routed walks" in normalized
+    assert "covered-walkway ratio and exposed gaps on real routed paths" not in normalized
     assert "live static shelter-map pilot over a 124,443-record source-derived universe" in normalized
     assert "live static-first pilot" not in normalized
     assert "## Universe status" in text
