@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P374 code commit: `009ce73`; state-only commits may follow it on `main`.
+Latest P375 code commit: `15d9692`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P375 is complete and committed: P125 OSM status now reports `mtime_utc` and `age_days` for cached Overpass query/output and frozen v1 universe files, and structured source policy declares `cache_status_reports_age_days`. Focused analysis/batch-plan/readiness/README tests and repo integrity passed.
 - P374 is complete and committed: batch-plan and production-readiness structured source-policy output now expose the safe P125 OSM status command, no-API/no-write flags, cached query/output paths, and 23 invalid distinct OSM postcode tags. Focused batch-plan/readiness tests, batch-plan, readiness, and repo integrity passed; readiness still reports the pre-existing release-gate blockers.
 - P373 is complete and committed: added `uv run python run.py p125-osm-status`, a read-only cached P125 OSM `addr:postcode` coverage report that calls no APIs and writes no files. It reproduces the settled 25,879 valid OSM postcodes / 25,873 v1 overlap / 20.791045% coverage and reports 23 invalid distinct OSM postcode tags. Focused analysis/run/README/agent-doc tests and repo integrity passed.
 - P372 is complete and committed: map empty-state search summary now matches the first-view title-card framing exactly as `inspect covered-walkway ratio, exposed gaps, and night lighting near transit`. Focused route-evidence-map interaction test and repo integrity passed.
