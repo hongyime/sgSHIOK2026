@@ -1111,3 +1111,6 @@ The walk display control and map legend should say `Shortest walk` instead of ba
 
 2026-08-21 - P398 walk-display button labels:
 The walk display segmented control should use parallel walk labels: `Sheltered walk`, `Both walks`, and `Shortest walk`. This keeps the control aligned with the shelter-first framing and avoids bare route-mode shorthand. This is browser copy and test coverage only; it does not mutate route geometry, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-21 - P399 direct-bus line label:
+Direct bus fallback labels should say `Direct bus line estimate` rather than `Direct bus estimate`, because these records use a direct line to a bus stop while shelter-map walk verification is still pending. The existing caveat that the locked bus term remains 0 stays unchanged. This is browser copy and smoke/test coverage only; it does not mutate transit data, route geometry, scoring, exports, public data, deployment, or locked weights.

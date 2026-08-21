@@ -38,6 +38,8 @@ describe("score card copy", () => {
     expect(source).toContain("Shelter-map walk not verified yet");
     expect(source).toContain("Direct line to bus stop; shelter-map walk pending.");
     expect(source).toContain("Shelter-map walk access was not verified, so the locked bus term remains 0.");
+    expect(source).toContain("Direct bus line estimate");
+    expect(source).not.toContain("Direct bus estimate");
     expect(source).not.toContain("Shelter-map walk access was not verified, so this component score remains 0.");
     expect(source).not.toContain("current walking graph could not connect a route yet");
     expect(source).not.toContain("Transit route not connected yet");

@@ -638,10 +638,10 @@ function collectChecks(summary, mapState, cdp, postal, inputMode, expectedState,
       transit_legend_present: summary.cardText.includes("MRT/LRT") && summary.cardText.includes("Bus stop"),
       walk_mode_present:
         summary.cardText.includes("Sheltered walk") ||
-        summary.cardText.includes("Direct bus estimate"),
+        summary.cardText.includes("Direct bus line estimate"),
       route_mode_present:
         summary.cardText.includes("Sheltered walk") ||
-        summary.cardText.includes("Direct bus estimate"),
+        summary.cardText.includes("Direct bus line estimate"),
       route_source_features_present: routeSourceFeatures > 0,
       route_rendered_features_present: routeRenderedFeatures > 0 || (routeSourceFeatures > 0 && routeLayersVisible),
     };
