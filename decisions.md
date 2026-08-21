@@ -1357,3 +1357,7 @@ Runner help and README should describe `p125-osm-status` the same way as the str
 2026-08-22 - P496 P125 structured measurement label:
 
 The P125 structured `measurement` label should not lag behind the settled OSM release policy. It now says `P125 20 Aug 2026 Overpass addr:postcode coverage cross-check`, matching the adjacent `source_role`, `registry_policy`, and verdict fields that classify OSM addr:postcode data as geometry evidence and a coverage cross-check rather than the address registry. This is reporting/test coverage only; it does not call Overpass, mutate P125 caches, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P497 P125 copy cross-check wording:
+
+User-facing and agent-facing P125 copy should use the same release-policy label as the structured status report. README, `CLAUDE.md`, production-readiness copy, and browser first-view source copy now describe the P125 result as an Overpass/OSM addr:postcode coverage cross-check, while preserving the measured 25,879 valid distinct OSM postcodes, 25,873 overlap, 6 OSM-only postcodes, and the statement that OSM is geometry evidence rather than the address registry. This is copy/test coverage only; it does not call Overpass, mutate P125 caches, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.

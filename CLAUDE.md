@@ -11,7 +11,7 @@ OneMap-derived postal scrape. The 16 Aug 2026 P19 public-source sample found 6
 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976
 (0.82%) sampled 2021-2026 public-source rows with postals. The confirmed HDB gaps are
 SUN PLAZA SPRING and YISHUN BEACON, three postals each; CANAAN and MYRA remain
-unvalidated MCST proxy warnings. P125's 20 Aug 2026 Overpass check
+unvalidated MCST proxy warnings. P125's 20 Aug 2026 Overpass coverage cross-check
 found 25,879 valid distinct OSM `addr:postcode` values, of which 25,873
 overlap frozen v1 and 6 are valid OSM-only postcodes. Treat OSM as geometry
 evidence, not the primary address registry; any v2 universe is

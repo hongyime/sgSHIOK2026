@@ -993,7 +993,7 @@ def readiness_features(
                 "not claimed; frozen v1 remains the 124443-record June 2020 OneMap-derived "
                 "universe; the 16 Aug 2026 P19 public-source sample found 6 coordinate-backed HDB missing "
                 "rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) sampled 2021-2026 "
-                "public-source rows with postals, P125's 20 Aug 2026 Overpass check found 25879 valid distinct OSM "
+                "public-source rows with postals, P125's 20 Aug 2026 Overpass coverage cross-check found 25879 valid distinct OSM "
                 "addr:postcode values, 25873 overlapping frozen postals, and P64 found OneMap "
                 "Search validates candidates but is not an enumerator"
             ),
