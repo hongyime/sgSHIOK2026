@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P389 code commit: `ac461c7`; state-only commits may follow it on `main`.
+Latest P390 code commit: `b301f64`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P390 is complete and committed: when the night-lighting overlay is enabled, the inline map legend now includes `LTA lamp points` with the lamp-layer marker color; the legend item remains absent when the overlay is off. Focused web accessibility/map interaction tests, repo integrity, and protected-diff checks passed.
 - P389 is complete and committed: structured batch-plan/readiness night-lighting policy now exposes the same lamp-overlay replacement boundary as run.py/README, including the owner-approved replacement command example, owner-approval-required flag, and existing-artifact mutation ban. Focused batch-plan/readiness tests, policy readout, repo integrity, and protected-diff checks passed.
 - P388 is complete and committed: `run.py --help` now names `lamp-overlay` in the gated pipeline task list, README documents the owner-approved new-version-only command boundary for replacement night-lighting overlays, and tests pin the runner dispatch without running the artifact builder. Focused runner/README tests, help output, repo integrity, and protected-diff checks passed.
 - P387 is complete and committed: `run.py --help` and README now advertise that `p19-gap-status` reports the P19 evidence split, alongside missing rows, MCST proxy probe and cache ages. Focused runner/README tests, help output, repo integrity, and protected-diff checks passed.
