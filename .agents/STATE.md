@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P268 code commit: `8cd2db9`; state-only commits may follow it on `main`.
+Latest P269 code commit: `49b949f`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P269 is complete and committed: dry-run batch planning and production readiness now expose the settled `lamp_posts` policy as structured source-policy data: separate `web/public/data/lamp_posts_v1/` night-lighting map layer, not part of locked score, release-gated by readiness, and future artifacts require new numbered directories. Focused batch-plan/readiness tests and repo integrity pass.
 - P268 is complete and committed: dry-run batch planning and production readiness now expose `leaf_area_index` as a structured non-score reference source policy: freshness context only, excluded from score source hashes, and requiring separate species-located canopy inventory/model approval before any route-level use. Focused batch-plan/readiness tests and repo integrity pass.
 - P267 is complete and committed: DataMall geospatial source notes now reflect frozen-v1 static/redacted URLs versus current authenticated `GeospatialWholeIsland` fallback, and state that refreshes must be new numbered input versions. Focused fetch tests and repo integrity pass.
 - P266 is complete and committed: dry-run batch planning and production readiness now expose structured DataMall geospatial discovery policy from P262/P264, including the no-payload/no-manifest-write command, changed sources, matching traffic-signals source, and versioned-input response. Focused batch-plan/readiness tests and repo integrity pass.
