@@ -188,9 +188,10 @@ describe("score card copy", () => {
     expect(source).not.toContain("measured recent-source misses exist.");
     expect(source).not.toContain("newer completions may be missing.");
     expect(source).toContain(
-      "{RECENT_PUBLIC_SOURCE_CHECK_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}."
+      "{RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}."
     );
-    expect(source).toContain('const RECENT_PUBLIC_SOURCE_CHECK_LABEL = "16 Aug 2026 public-source sample";');
+    expect(source).toContain('const RECENT_PUBLIC_SOURCE_SAMPLE_LABEL = "16 Aug 2026 public-source sample";');
+    expect(source).not.toContain("RECENT_PUBLIC_SOURCE_CHECK_LABEL");
     expect(source).not.toContain('const RECENT_PUBLIC_SOURCE_CHECK_LABEL = "16 Aug 2026 public-source check";');
     expect(source).not.toContain("Recent public-source check: {RECENT_PUBLIC_SOURCE_GAP_COPY}.");
     expect(source).toContain(
@@ -198,7 +199,7 @@ describe("score card copy", () => {
     );
     expect(source).not.toContain("out of 976 (0.82%) 2021-2026 public-source rows with postals");
     expect(source).toContain(
-      "one of the 6 coordinate-backed HDB missing rows from frozen v1 in the ${RECENT_PUBLIC_SOURCE_CHECK_LABEL}"
+      "one of the 6 coordinate-backed HDB missing rows from frozen v1 in the ${RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}"
     );
     expect(source).not.toContain("one of the 6 coordinate-backed HDB missing rows from frozen v1 (${source})");
     expect(source).not.toContain("one of the 8 recent public-source postals missing from frozen v1");

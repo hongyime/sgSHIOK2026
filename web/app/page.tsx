@@ -100,7 +100,7 @@ const REASON_COPY: Record<keyof Subscores, { low: string; high: string }> = {
 
 const RECENT_PUBLIC_SOURCE_GAP_COPY =
   "6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) sampled 2021-2026 public-source rows with postals";
-const RECENT_PUBLIC_SOURCE_CHECK_LABEL = "16 Aug 2026 public-source sample";
+const RECENT_PUBLIC_SOURCE_SAMPLE_LABEL = "16 Aug 2026 public-source sample";
 
 const OSM_ADDR_POSTCODE_COVERAGE_COPY =
   "20 Aug 2026 OSM addr:postcode check: 25,879 valid distinct postcodes measured; 25,873 overlap the 124,443 frozen postals, with 6 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry.";
@@ -136,9 +136,9 @@ function recentPublicSourceGapCopyForPostal(postal?: string): string {
   }
   const source = postal ? RECENT_PUBLIC_SOURCE_MISSING_POSTAL_SOURCE[postal] : undefined;
   if (source) {
-    return `this postal is one of the 6 coordinate-backed HDB missing rows from frozen v1 in the ${RECENT_PUBLIC_SOURCE_CHECK_LABEL} (${source})`;
+    return `this postal is one of the 6 coordinate-backed HDB missing rows from frozen v1 in the ${RECENT_PUBLIC_SOURCE_SAMPLE_LABEL} (${source})`;
   }
-  return `the ${RECENT_PUBLIC_SOURCE_CHECK_LABEL} found ${RECENT_PUBLIC_SOURCE_GAP_COPY}`;
+  return `the ${RECENT_PUBLIC_SOURCE_SAMPLE_LABEL} found ${RECENT_PUBLIC_SOURCE_GAP_COPY}`;
 }
 
 interface DirectBusFallbackEvidence {
@@ -174,7 +174,7 @@ export function searchResultsAnnouncement(
 ): string {
   if (loading || error) return "";
   if (searched && results.length === 0) {
-    return `No OneMap address result found for this search. Try a 6-digit postal code. Separately, the published shelter-map bundle is tied to the frozen June 2020 address universe, and the ${RECENT_PUBLIC_SOURCE_CHECK_LABEL} found ${RECENT_PUBLIC_SOURCE_GAP_COPY}.`;
+    return `No OneMap address result found for this search. Try a 6-digit postal code. Separately, the published shelter-map bundle is tied to the frozen June 2020 address universe, and the ${RECENT_PUBLIC_SOURCE_SAMPLE_LABEL} found ${RECENT_PUBLIC_SOURCE_GAP_COPY}.`;
   }
   if (results.length === 0) return "";
   return `${results.length} search result${results.length === 1 ? "" : "s"} available.`;
@@ -304,7 +304,7 @@ export function SearchFeedback({
       </p>
       {showNoResults && (
         <div className={styles.emptyBox} role="status">
-          No OneMap address result found for this search. Try a 6-digit postal code. Separately, the published shelter-map bundle is tied to the frozen June 2020 address universe, and the {RECENT_PUBLIC_SOURCE_CHECK_LABEL} found {RECENT_PUBLIC_SOURCE_GAP_COPY}.
+          No OneMap address result found for this search. Try a 6-digit postal code. Separately, the published shelter-map bundle is tied to the frozen June 2020 address universe, and the {RECENT_PUBLIC_SOURCE_SAMPLE_LABEL} found {RECENT_PUBLIC_SOURCE_GAP_COPY}.
         </div>
       )}
       {error && (
@@ -2157,7 +2157,7 @@ export default function Home() {
               Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape.
             </p>
             <p className={styles.freshnessLine}>
-              {RECENT_PUBLIC_SOURCE_CHECK_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}.
+              {RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}.
             </p>
             <p className={styles.freshnessLine}>
               {OSM_ADDR_POSTCODE_COVERAGE_COPY}

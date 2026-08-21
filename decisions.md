@@ -1337,3 +1337,7 @@ The heat-presentation analysis should identify the exact current browser lines i
 2026-08-22 - P491 P19 sample wording alignment:
 
 README, `CLAUDE.md`, and production readiness should use the same `public-source sample` wording as the browser for the 16 Aug 2026 P19 measurement. The headline source-policy text no longer calls the sampled measurement a `check`, while retaining the 6 coordinate-backed HDB missing rows, 2 unvalidated MCST proxy rows, 976-row denominator, and 0.82% miss-rate context. This is documentation/reporting copy and test coverage only; it does not call APIs, mutate P19/P379 caches, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.
+
+2026-08-22 - P492 P19 browser sample identifier:
+
+Browser source should not name the 16 Aug 2026 P19 sample label as a `check` identifier after the product copy moved to `public-source sample`. `RECENT_PUBLIC_SOURCE_CHECK_LABEL` is renamed to `RECENT_PUBLIC_SOURCE_SAMPLE_LABEL` while preserving the rendered text and the measured P19 counts. This is browser source/test naming only; it does not change rendered copy, call APIs, mutate P19/P379 caches, inputs, scoring, exports, public data, protected QA evidence, deployment, or locked weights.
