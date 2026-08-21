@@ -763,3 +763,6 @@ The first-view address-universe caveat should carry the measured P19 gap count, 
 
 2026-08-21 - P279 full locked score availability copy:
 The first-view availability disclosure should keep the secondary metric explicitly named as the locked score even inside the count phrase. The formatter now says `full locked scores` and `full locked score` instead of generic `full scores` and `full score`, while preserving the same manifest-derived counts and breakdown for partial shelter-map evidence, beyond-range rows, and awaiting-score rows. This is browser copy and test coverage only; it does not alter manifests, score values, inputs, public data, scoring, export, deploy, or locked weights.
+
+2026-08-21 - P280 selected-card full locked score copy:
+Selected-card empty score states should use the same locked-score frame as the first-view availability disclosure. The awaiting-score card title, reason chip, live announcement, and browser-smoke detector now say `No full locked score in this bundle` instead of generic `No full score in this bundle`, keeping missing locked-score availability separate from shelter-map evidence availability. This is browser copy/test/smoke coverage only; it does not alter route evidence, score values, manifests, inputs, public data, scoring, export, deploy, or locked weights.

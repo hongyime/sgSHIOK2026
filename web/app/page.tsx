@@ -166,7 +166,7 @@ export function scoreCardAnnouncement({
   const postal = postalTitle(selection);
   if (!selection.score) return `${postal} is not in the current shelter-map bundle.`;
   const scoreText = displayScore === null || displayScore === undefined
-    ? "no full score in this bundle"
+    ? "no full locked score in this bundle"
     : `${Math.round(displayScore)} out of 100`;
   const stopText = isCustomStopSelected
     ? previewRoute
@@ -306,7 +306,7 @@ function formatPercent(value: number | null): string {
 }
 
 function formatLockedScore(value: number | null | undefined): string {
-  return typeof value === "number" ? `${Math.round(value)}/100` : "No full score";
+  return typeof value === "number" ? `${Math.round(value)}/100` : "No full locked score";
 }
 
 function scoredMeta(value: number | null | undefined, scoredText: string, missingText: string): string {
@@ -702,7 +702,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
       ? [`Closest connected ${label} shelter-map walk is ${formatDistance(nearestM)}`, "Current scoring range is 1.2 km"]
       : [`No ${label} walk within scoring range`, "Nearby transit may still exist beyond the 1.2 km scoring range"];
   }
-  if (score.state === "NOT_YET_SCORED") return ["No full score in this bundle", "Awaiting locked score"];
+  if (score.state === "NOT_YET_SCORED") return ["No full locked score in this bundle", "Awaiting locked score"];
   if (score.paths?.routing_type === "direct_bus_fallback_unrouted") {
     return ["Nearby bus stop with service data", "Shelter-map walk not verified yet"];
   }
@@ -1088,7 +1088,7 @@ export function ScoreCard({
       : score.state === "NO_TRANSIT_IN_RANGE"
       ? noTransitTitle(score, transitMode)
       : score.state === "NOT_YET_SCORED"
-        ? "No full score in this bundle"
+        ? "No full locked score in this bundle"
       : toProperCase(score.best_node?.name ?? "No transit found nearby");
   const reasons = scoreReasons(score, transitMode);
   const stateNote = scoreStateNote(score, transitMode);
