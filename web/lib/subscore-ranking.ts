@@ -4,11 +4,11 @@ export type RankMetric = "overall" | keyof Subscores;
 
 export const RANK_METRIC_OPTIONS: Array<{ id: RankMetric; label: string }> = [
   { id: "overall", label: "Locked SHIOK score" },
-  { id: "rain", label: "Rain shelter" },
-  { id: "access", label: "Transit access" },
+  { id: "rain", label: "Rain-shelter evidence" },
+  { id: "access", label: "Transit-access evidence" },
   { id: "bus", label: "Bus-service evidence" },
-  { id: "heat", label: "Heat proxy" },
-  { id: "crossing", label: "Crossing friction" },
+  { id: "heat", label: "Heat-proxy evidence" },
+  { id: "crossing", label: "Crossing-friction evidence" },
 ];
 
 export interface RankedScoreRecord {

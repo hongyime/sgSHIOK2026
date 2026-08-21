@@ -15,9 +15,16 @@ function score(postal: string, total: number, rain: number, access: number): Sco
   };
 }
 
-describe("component-score ranking", () => {
-  it("labels the bus rank option as service evidence", () => {
-    expect(RANK_METRIC_OPTIONS.find((option) => option.id === "bus")?.label).toBe("Bus-service evidence");
+describe("planning-area evidence ranking", () => {
+  it("labels non-overall rank options as evidence views", () => {
+    expect(RANK_METRIC_OPTIONS).toEqual([
+      { id: "overall", label: "Locked SHIOK score" },
+      { id: "rain", label: "Rain-shelter evidence" },
+      { id: "access", label: "Transit-access evidence" },
+      { id: "bus", label: "Bus-service evidence" },
+      { id: "heat", label: "Heat-proxy evidence" },
+      { id: "crossing", label: "Crossing-friction evidence" },
+    ]);
   });
 
   it("sorts by authoritative total for the overall view", () => {
@@ -30,7 +37,7 @@ describe("component-score ranking", () => {
     expect(ranked[0]?.value).toBe(90);
   });
 
-  it("sorts by one component score without changing stored totals", () => {
+  it("sorts by one evidence metric without changing stored totals", () => {
     const ranked = rankScoreRecords(
       [score("100002", 80, 10, 50), score("100001", 90, 20, 40)],
       "access"
