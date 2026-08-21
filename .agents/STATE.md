@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P275 code commit: `b802bf9`; state-only commits may follow it on `main`.
+Latest P276 code commit: `9a9ce74`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P276 is complete and committed: README operator commands for production readiness and batch planning now use `uv run python ...` rather than bare system `python`, matching the rest of the safe-check guidance. Focused README tests and repo integrity pass.
 - P275 is complete and committed: README universe-status onboarding now names the read-only P19 cache-status command and its no-data.gov.sg/no-OneMap/no-Overpass boundary. Focused README tests and repo integrity pass.
 - P274 is complete and committed: dry-run batch planning and production readiness now expose the P19 read-only cache-status command and cached report paths in their recent public-source gap source-policy block. Focused batch-plan/readiness tests and repo integrity pass.
 - P273 is complete and committed: the P19 postal-universe gap measurement helper now has a read-only `--cache-status-only` mode that reports existing `qa/p19` cache/report counts without loading inputs, calling APIs, or writing files. Focused tests and repo integrity pass.
