@@ -578,13 +578,14 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Locked score unavailable");
     expect(html).toContain("<strong>Unavailable</strong><small>Shelter evidence unavailable</small>");
     expect(html).toContain("<strong>Unavailable</strong><small>Access term unavailable</small>");
-    expect(html).toContain("<strong>No full locked score</strong><small>No full locked score</small>");
+    expect(html).toContain("<strong>No full locked score</strong><small>Release sorting index unavailable</small>");
     expect(html).toContain("<strong>42</strong><small>20% locked bus</small>");
     expect(html).not.toContain("<strong>0</strong><small>Shelter evidence unavailable</small>");
     expect(html).not.toContain("<strong>0</strong><small>Access term unavailable</small>");
     expect(html).not.toContain("<strong>Not scored</strong><small>No shelter score</small>");
     expect(html).not.toContain("<strong>Not scored</strong><small>No access score</small>");
     expect(html).not.toContain("<strong>Not scored</strong><small>No locked score</small>");
+    expect(html).not.toContain("<strong>No full locked score</strong><small>No full locked score</small>");
     expect(html).not.toContain("<strong>No full locked score</strong><small>No locked score</small>");
     expect(html).not.toContain("Score not available");
     expect(html).not.toContain("Bundle score unavailable");
@@ -614,7 +615,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("No full locked score in this bundle");
     expect(html).toContain("Awaiting locked score");
     expect(html).not.toContain("Location Evidence Missing");
-    expect(html).toContain("Locked score no full locked score in this bundle.");
+    expect(html).toContain("Locked score unavailable in this bundle.");
+    expect(html).not.toContain("Locked score no full locked score in this bundle.");
     expect(html).not.toContain("No full score in this bundle");
     expect(html).toContain(
       "This postal is in the frozen v1 address universe, but this shelter-map bundle has no published full locked score for it yet."

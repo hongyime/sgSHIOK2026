@@ -1015,3 +1015,6 @@ The TypeScript browser list of known P19 missing postals must stay byte-for-byte
 
 2026-08-21 - P364 locked-score visual hierarchy guard:
 The browser test for the locked score staying visually secondary should compare the actual CSS font sizes for the shelter exposure hero and locked-score badge, not only assert loose `font-size` substrings exist somewhere in the stylesheet. This is test coverage and evidence only; it does not change runtime behavior, score, export, deploy, ingest, network, public data, protected QA, or locked weights.
+
+2026-08-21 - P365 unavailable locked-score copy:
+When a record has no full locked score, the breakdown row should not repeat `No full locked score` as both value and metadata. The value remains the user-facing missing-score state, while the row metadata now says `Release sorting index unavailable`, and the live-region sentence says `Locked score unavailable in this bundle.` This is browser copy and accessibility test coverage only; it does not score, export, deploy, ingest, network, mutate public data or protected QA, or touch locked weights.

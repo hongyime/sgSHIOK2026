@@ -206,7 +206,7 @@ export function scoreCardAnnouncement({
     return `${postal} is outside the shelter-map bundle tied to the frozen June 2020 address universe; ${recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.`;
   }
   const scoreText = displayScore === null || displayScore === undefined
-    ? "no full locked score in this bundle"
+    ? "unavailable in this bundle"
     : `${Math.round(displayScore)} out of 100`;
   const stopText = isCustomStopSelected
     ? previewRoute
@@ -1281,7 +1281,7 @@ export function ScoreCard({
           id: "locked-score",
           label: "Locked SHIOK score",
           value: formatLockedScore(displayScore),
-          meta: scoredMeta(displayScore, "Release sorting index", "No full locked score"),
+          meta: scoredMeta(displayScore, "Release sorting index", "Release sorting index unavailable"),
           notes: [
             "Start with the shelter trace and exposed gaps; use the locked score only to sort the published shelter-map bundle.",
             "Crossing friction remains a 5% locked term, but has low separation in this release.",
