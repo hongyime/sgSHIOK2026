@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P455 code commit: `a928a3b`; state-only commits may follow it on `main`.
+Latest P456 code commit: `7d41a94`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P456 is complete and committed: the first-view DataMall discovery caveat now names Covered Linkway and bridge/underpass as the drifted layers instead of vague `shelter-layer` wording. Focused web source-copy test, repo integrity, and protected-diff checks passed.
 - P455 is complete and committed: the first-view Covered Linkway caveat now surfaces the 21 Aug 2026 metadata-only DataMall discovery drift for current shelter-layer URLs while preserving the new-version-only refresh rule. Focused web source-copy test, repo integrity, and protected-diff checks passed.
 - P454 is complete and committed: the Section 10 reference's Walk to transit detail now says `Sheltered walk distance...` instead of stale `Selected walk distance...`, matching the shipped browser row. Focused web source-copy test, repo integrity, and protected-diff checks passed.
 - P453 is complete and committed: the Section 10 reference now uses displayed-walk shelter copy for the covered-walkway ratio and exposed-gap heading instead of older selected-walk wording. Focused web source-copy test, repo integrity, and protected-diff checks passed.
