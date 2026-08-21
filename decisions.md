@@ -769,3 +769,6 @@ Selected-card empty score states should use the same locked-score frame as the f
 
 2026-08-21 - P281 README full locked score copy:
 README local-data guidance should use the same locked-score availability language as the browser first view. The active bundle description now says `95,157 full locked scores out of 124,443 records` instead of generic `full scores`, while preserving the same missing-count breakdown and deployment/artifact constraints. This is documentation and test coverage only; it does not alter manifests, score values, inputs, public data, scoring, export, deploy, or locked weights.
+
+2026-08-21 - P282 README task-runner surface:
+README's repo map should reflect the current `run.py` operator surface, not only the old compact task list. The `run.py` line now separates safe reports (`check --freshness-only`, `check --geospatial-discovery-only`, `p19-gap-status`, `readiness`, `batch-plan`) from gated pipeline tasks (`ingest`, `network`, `score`, `export`, `validate`, `publish`, `test`) while preserving the publish-validate guard. This is documentation and test coverage only; it does not run or alter reports, inputs, scoring, export, public data, deploy, or locked weights.

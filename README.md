@@ -76,8 +76,10 @@ reruns, deploy, or repoint the live site without explicit owner approval.
 - `pipeline/config/params.yaml` — tunable pipeline constants.
 - `.github/workflows/` — CI and repository automation workflows.
 - `env.example` — copy to `.env` and fill in (see prerequisites).
-- `run.py` — cross-platform task runner (check | ingest | network | score | export |
-  validate | publish | test). `publish` always runs `validate` first.
+- `run.py` — cross-platform task runner for safe reports (`check --freshness-only`,
+  `check --geospatial-discovery-only`, `p19-gap-status`, `readiness`, `batch-plan`)
+  and gated pipeline tasks (`ingest`, `network`, `score`, `export`, `validate`,
+  `publish`, `test`). `publish` always runs `validate` first.
 
 ## Human prerequisites (do these once — agents can't register accounts)
 

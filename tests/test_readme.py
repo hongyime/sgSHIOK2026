@@ -67,6 +67,9 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "without downloading payloads or writing the manifest" in normalized
     assert "new numbered input version, not an in-place repair" in normalized
     assert "`pipeline/config/weights.yaml` — locked score weights." in normalized
+    assert "`run.py` — cross-platform task runner for safe reports" in normalized
+    assert "`p19-gap-status`, `readiness`, `batch-plan`" in normalized
+    assert "and gated pipeline tasks (`ingest`, `network`, `score`, `export`, `validate`, `publish`, `test`)" in normalized
     assert "locked composite-score weights" not in normalized
 
 
