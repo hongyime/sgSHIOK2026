@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P476 code commit: `89b9c82`; state-only commits may follow it on `main`.
+Latest P477 code commit: `ebec0fd`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P477 is complete and committed: README and `run.py --help` now advertise `readiness --gate-summary`, and `tests/test_run.py` proves `run.py readiness --gate-summary` forwards to `scripts.production_readiness --gate-summary`. Focused run/README tests, repo integrity, help check, and protected-diff checks passed.
 - P476 is complete and committed: `scripts.production_readiness --gate-summary` now prints the same computed release-gate verdict, checks, warnings, and errors without dumping the full nested readiness report. Focused production-readiness tests, help check, repo integrity, and protected-diff checks passed. Current local readiness remains blocked by the fresh same-bundle OneMap validation gate.
 - P475 is complete and committed: `run.py check` now fails closed unless exactly one zero-mutation safe report flag is supplied (`--freshness-only` or `--geospatial-discovery-only`). The low-level upstream network/hash probe remains available through direct `pipeline.fetch check` invocation. Focused runner tests, repo integrity, and protected-diff checks passed.
 - P474 is complete and committed: direct `scripts.analysis.p19_mcst_missing_locations` invocation now defaults to cache-status-only mode and requires explicit `--probe` before it can call OneMap or write the P379 cache/report. Focused analysis/run tests and repo integrity passed.
