@@ -1275,6 +1275,23 @@ def build_readiness_report(
     return not errors, report
 
 
+def readiness_output_payload(
+    report: dict[str, Any], *, gate_summary_only: bool = False
+) -> dict[str, Any]:
+    """Return the CLI output payload for the requested verbosity."""
+    if not gate_summary_only:
+        return report
+    return {
+        "ok": report.get("ok"),
+        "release_gate_passed": report.get("release_gate_passed"),
+        "release_gate_status": report.get("release_gate_status"),
+        "generated_at": report.get("generated_at"),
+        "release_gate_summary": report.get("release_gate_summary", {}),
+        "warnings": report.get("warnings", []),
+        "errors": report.get("errors", []),
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Fast production-readiness report without scoring or deploying."
@@ -1296,6 +1313,11 @@ def main() -> int:
         action="store_true",
         help="Record explicit owner approval for production deployment.",
     )
+    parser.add_argument(
+        "--gate-summary",
+        action="store_true",
+        help="Print only the release gate verdict, checks, warnings, and errors.",
+    )
     parser.add_argument("--owner-approval-note", default="")
     args = parser.parse_args()
 
@@ -1314,7 +1336,13 @@ def main() -> int:
             f"[production-readiness] {message}", file=sys.stderr, flush=True
         ),
     )
-    print(json.dumps(report, indent=2, sort_keys=True))
+    print(
+        json.dumps(
+            readiness_output_payload(report, gate_summary_only=args.gate_summary),
+            indent=2,
+            sort_keys=True,
+        )
+    )
     return 0 if ok else 1
 
 

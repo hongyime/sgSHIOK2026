@@ -1273,3 +1273,7 @@ The P379 MCST probe script itself should be safe when invoked directly, not only
 2026-08-22 - P475 check task safe boundary:
 
 The task runner should not let the short command `run.py check` look like a safe report while dispatching the upstream network/hash probe. `run.py check` now requires exactly one of `--freshness-only` or `--geospatial-discovery-only`; bare and ambiguous invocations fail before spawning `pipeline.fetch`. The deliberate low-level probe remains available as `uv run python -m pipeline.fetch check` for maintainers who explicitly choose it. This is operator-safety tooling only; it does not call upstream APIs, fetch payloads, mutate manifests or inputs, score, export, deploy, public data, protected QA evidence, or locked weights.
+
+2026-08-22 - P476 readiness gate summary:
+
+The readiness CLI should have a concise release-gate view because the full report is intentionally large: it validates thousands of existing static artifact files and then emits deeply nested batch, bundle, provenance, source-policy, and feature metadata. `scripts.production_readiness --gate-summary` now prints only the same computed gate verdict, checks, warnings, errors, and release-gate summary without changing any gate logic. This is operator-output ergonomics only; it does not skip validation, waive OneMap, mutate inputs or public data, score, export, deploy, protected QA evidence, or locked weights.

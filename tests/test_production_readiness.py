@@ -16,6 +16,7 @@ from scripts.production_readiness import (
     bundle_score_provenance_status,
     environment_readiness,
     lamp_overlay_artifact_status,
+    readiness_output_payload,
     source_freshness_readiness,
     vercel_readiness,
 )
@@ -40,6 +41,40 @@ def test_production_readiness_script_runs_by_absolute_path(tmp_path: Path) -> No
 
     assert result.returncode == 0
     assert "Fast production-readiness report without scoring or deploying." in result.stdout
+    assert "--gate-summary" in result.stdout
+
+
+def test_readiness_output_payload_can_return_gate_summary_only() -> None:
+    report = {
+        "ok": True,
+        "release_gate_passed": False,
+        "release_gate_status": "blocked",
+        "generated_at": "2026-08-22T00:00:00+00:00",
+        "release_gate_summary": {
+            "active_bundle": "generated_test",
+            "checks": {"onemap_validation_same_bundle_fresh": False},
+        },
+        "warnings": ["source freshness warning"],
+        "errors": [],
+        "batch_plan": {"large": "omitted"},
+        "bundle": {"large": "omitted"},
+        "features": {"large": "omitted"},
+    }
+
+    payload = readiness_output_payload(report, gate_summary_only=True)
+
+    assert payload == {
+        "ok": True,
+        "release_gate_passed": False,
+        "release_gate_status": "blocked",
+        "generated_at": "2026-08-22T00:00:00+00:00",
+        "release_gate_summary": {
+            "active_bundle": "generated_test",
+            "checks": {"onemap_validation_same_bundle_fresh": False},
+        },
+        "warnings": ["source freshness warning"],
+        "errors": [],
+    }
 
 
 def write_universe(path: Path, rows: int = 1) -> None:
