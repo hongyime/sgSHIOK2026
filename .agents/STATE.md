@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P451 code commit: `6596cad`; state-only commits may follow it on `main`.
+Latest P452 code commit: `df339d6`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P452 is complete and committed: the Section 10 reference now says `Heat: shelter plus sparse NParks greenery proxy` instead of the old `NParks shade proxy` shorthand, matching the browser's current heat-evidence boundary. Focused web source-copy test, repo integrity, and protected-diff checks passed.
 - P451 is complete and committed: the Section 10 reference bus caveat now matches the shipped browser wording, saying the published shelter-map walk may not prove access to an official LTA bus stop instead of using the old DataMall/trusted-walk phrase. Focused web source-copy test, repo integrity, and protected-diff checks passed.
 - P450 is complete and committed: the tracked Section 10 presentation document now marks the P18 shelter-first layout as an implemented reference rather than a proposal-only artifact, with tests and a decisions.md entry pinning that settled status. Focused web source-copy test, repo integrity, and protected-diff checks passed.
 - P449 is complete and committed: browser first-view copy now states NParks Leaf Area Index is a freshness-only reference table, while route heat evidence uses shelter plus sparse walk-adjacent greenery geometry and not LAI or measured temperature. Focused web source-copy test, repo integrity, and protected-diff checks passed.
