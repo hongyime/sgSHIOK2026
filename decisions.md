@@ -1301,3 +1301,7 @@ The README status line should name the frozen v1 universe before the reader reac
 2026-08-22 - P482 README universe provenance wording:
 
 The README universe section should describe what v1 is made from instead of repeating `source-derived set`. It now says frozen v1 is 124,443 records built around a June 2020 OneMap-derived postal scrape plus later local route and source evidence. This is documentation and test coverage only; it does not alter browser rendering, scoring, exports, inputs, public data, deployment, protected QA evidence, or locked weights.
+
+2026-08-22 - P483 browser OSM coverage check date:
+
+The browser OSM postcode coverage line should not present a cached Overpass measurement as an undated live fact. P125 evidence records the Overpass OSM base timestamp as `2026-08-20T13:44:51Z`, so the first-view copy now starts `20 Aug 2026 OSM addr:postcode check`. This is browser copy and test coverage only; it does not call Overpass, mutate caches or inputs, score, export, deploy, public data, protected QA evidence, or locked weights.
