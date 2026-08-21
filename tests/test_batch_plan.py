@@ -248,6 +248,17 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
             "promotion_requires": "separate species-located canopy inventory and approved model design",
         }
     }
+    assert report["source_policy"]["night_lighting_layer"] == {
+        "source_key": "lamp_posts",
+        "artifact": "web/public/data/lamp_posts_v1/",
+        "role": "separate night-lighting map layer",
+        "score_role": "not part of the locked score",
+        "release_gate": (
+            "production readiness validates manifest, source identity, tile index, "
+            "tile files, and tile byte totals"
+        ),
+        "versioning": "new lamp overlay artifacts must use a new numbered directory",
+    }
     assert (
         report["source_policy"]["onemap_search_role"]
         == "candidate validation/geocoding, not national enumeration"

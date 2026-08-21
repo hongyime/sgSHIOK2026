@@ -547,6 +547,17 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
             "promotion_requires": "separate species-located canopy inventory and approved model design",
         }
     }
+    assert report["features"]["source_policy"]["night_lighting_layer"] == {
+        "source_key": "lamp_posts",
+        "artifact": "web/public/data/lamp_posts_v1/",
+        "role": "separate night-lighting map layer",
+        "score_role": "not part of the locked score",
+        "release_gate": (
+            "production readiness validates manifest, source identity, tile index, "
+            "tile files, and tile byte totals"
+        ),
+        "versioning": "new lamp overlay artifacts must use a new numbered directory",
+    }
     assert report["batch_plan"]["full_batch_release_scope"] == {
         "status": "approved_in_principle_not_approved_to_run",
         "owner_approval_required_before_execution": True,

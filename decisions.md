@@ -730,3 +730,6 @@ Dry-run batch planning and production readiness should carry the P262/P264 DataM
 
 2026-08-21 - P268 structured Leaf Area Index reference policy:
 Dry-run batch planning and production readiness should expose the settled Leaf Area Index policy in structured source-policy data. `leaf_area_index` now appears as a non-score reference source: it is tracked for source freshness only, excluded from score source hashes, and cannot become route-level shade evidence without a separate species-located canopy inventory and approved model design. This is reporting/test coverage only; it does not alter manifests, source hashes, shade geometry, scoring, export, deploy, public data, or locked weights.
+
+2026-08-21 - P269 structured night-lighting layer policy:
+Dry-run batch planning and production readiness should expose the settled lamp-post policy in structured source-policy data: `lamp_posts` powers the separate `web/public/data/lamp_posts_v1/` night-lighting map layer, is not part of the locked score, is release-gated by production readiness, and future lamp overlay artifacts must use new numbered directories. This is reporting/test coverage only; it does not build or mutate lamp artifacts, public data, source manifests, scoring, export, deploy, or locked weights.
