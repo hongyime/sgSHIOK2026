@@ -904,3 +904,6 @@ The outside-bundle live-region announcement should carry the same frozen-univers
 
 2026-08-21 - P326 search no-results live-region recent-source caveat:
 The OneMap address-search no-results live-region announcement should carry the same recent-source caveat as the visible no-results box. It now says no OneMap address result was found, suggests a 6-digit postal code, and separately notes the frozen shelter-map bundle's recent public-source check found 8 missing rows out of 976. This is web accessibility copy and test coverage only; it does not change search logic, API calls, score values, exports, public data, pipeline inputs, or locked weights.
+
+2026-08-21 - P327 missing locked-term display copy:
+Missing shelter/access display-row values should be framed as unavailable evidence or unavailable locked terms, not as generic "Not scored" component rows. The four-row shelter-map breakdown now renders missing per-term values as "Unavailable", uses "Shelter evidence unavailable" and "Access term unavailable" for the row metadata, and keeps the full locked-score fallback as "No full locked score". This is web copy and test coverage only; it does not change score values, row inclusion, ranking logic, exports, public data, pipeline inputs, or locked weights.

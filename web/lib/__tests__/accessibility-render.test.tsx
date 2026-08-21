@@ -476,7 +476,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("<span>Bus</span><small>route evidence</small>");
   });
 
-  it("keeps null score rows as Not scored instead of inventing numbers", () => {
+  it("keeps null locked-term rows unavailable instead of inventing numbers", () => {
     const partialRecord: ScoreRecord = {
       ...scoredRecord,
       state: "SCORED_PARTIAL",
@@ -507,12 +507,14 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("one or more sub-scores are unavailable");
     expect(html).toContain("Shelter map evidence unavailable");
     expect(html).toContain("Locked score unavailable");
-    expect(html).toContain("<strong>Not scored</strong><small>No shelter score</small>");
-    expect(html).toContain("<strong>Not scored</strong><small>No access score</small>");
+    expect(html).toContain("<strong>Unavailable</strong><small>Shelter evidence unavailable</small>");
+    expect(html).toContain("<strong>Unavailable</strong><small>Access term unavailable</small>");
     expect(html).toContain("<strong>No full locked score</strong><small>No full locked score</small>");
     expect(html).toContain("<strong>42</strong><small>20% locked bus</small>");
-    expect(html).not.toContain("<strong>0</strong><small>No shelter score</small>");
-    expect(html).not.toContain("<strong>0</strong><small>No access score</small>");
+    expect(html).not.toContain("<strong>0</strong><small>Shelter evidence unavailable</small>");
+    expect(html).not.toContain("<strong>0</strong><small>Access term unavailable</small>");
+    expect(html).not.toContain("<strong>Not scored</strong><small>No shelter score</small>");
+    expect(html).not.toContain("<strong>Not scored</strong><small>No access score</small>");
     expect(html).not.toContain("<strong>Not scored</strong><small>No locked score</small>");
     expect(html).not.toContain("<strong>No full locked score</strong><small>No locked score</small>");
     expect(html).not.toContain("Score not available");

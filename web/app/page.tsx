@@ -291,10 +291,10 @@ function scoreClass(total: number | null): string {
 }
 
 function formatScore(value: number | null | undefined): string {
-  return typeof value === "number" ? `${Math.round(value)}` : "Not scored";
+  return typeof value === "number" ? `${Math.round(value)}` : "Unavailable";
 }
 
-function formatScoreWithMax(value: number | null | undefined, fallback = "No score"): string {
+function formatScoreWithMax(value: number | null | undefined, fallback = "No full locked score"): string {
   return typeof value === "number" ? `${Math.round(value)}/100` : fallback;
 }
 
@@ -1203,7 +1203,7 @@ export function ScoreCard({
           value: score.paths ? formatPercent(selectedCoverage) : formatScore(null),
           meta: score.paths
             ? "Covered-walkway ratio"
-            : scoredMeta(score.subscores.rain ?? score.subscores.heat, "40% locked rain+heat", "No shelter score"),
+            : scoredMeta(score.subscores.rain ?? score.subscores.heat, "40% locked rain+heat", "Shelter evidence unavailable"),
           notes: [
             "Rain shelter and heat comfort currently share mostly the same covered-walkway evidence.",
             "Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first.",
@@ -1215,7 +1215,7 @@ export function ScoreCard({
           id: "access",
           label: "Walk to transit",
           value: score.paths ? formatDistance(selectedDistance) : formatScore(score.subscores.access),
-          meta: scoredMeta(score.subscores.access, "35% locked access", "No access score"),
+          meta: scoredMeta(score.subscores.access, "35% locked access", "Access term unavailable"),
           notes: [`Selected walk distance to ${transitModeLabel(transitMode)}.`],
         },
         {
