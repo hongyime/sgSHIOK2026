@@ -1236,7 +1236,7 @@ export function ScoreCard({
           value: formatLockedScore(displayScore),
           meta: scoredMeta(displayScore, "Release sorting index", "No full locked score"),
           notes: [
-            "Start with the shelter trace and exposed gaps; use the locked score only to sort the current bundle.",
+            "Start with the shelter trace and exposed gaps; use the locked score only to sort the published shelter-map bundle.",
             "Crossing friction remains a 5% locked term, but has low separation in this release.",
           ],
         },

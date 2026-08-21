@@ -331,7 +331,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("Bundle score unavailable");
     expect(source).not.toContain("Bundle score incomplete");
     expect(source).toContain('label: "Locked SHIOK score"');
-    expect(source).toContain("Start with the shelter trace and exposed gaps; use the locked score only to sort the current bundle.");
+    expect(source).toContain("Start with the shelter trace and exposed gaps; use the locked score only to sort the published shelter-map bundle.");
+    expect(source).not.toContain("Start with the shelter trace and exposed gaps; use the locked score only to sort the current bundle.");
     expect(source).not.toContain("Use this locked score to sort the current bundle");
     expect(source).not.toContain('label: "Overall SHIOK"');
     expect(source).not.toContain("Use this locked composite");
