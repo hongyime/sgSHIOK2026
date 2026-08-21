@@ -2036,10 +2036,10 @@ export default function Home() {
               Shelter map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}
             </p>
             <p className={styles.freshnessLine}>
-              Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape; a 2021-2026 public-source sample found 8 missing rows out of 976.
+              Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape.
             </p>
             <p className={styles.freshnessLine}>
-              Recent public-sample check: 8 missing rows out of 976 HDB completion and MCST proxy rows from 2021-2026 with postals.
+              Recent public-source check: 8 missing rows out of 976 HDB completion and MCST proxy rows from 2021-2026 with postals.
             </p>
             <p className={styles.freshnessLine}>
               Data freshness at the 21 Aug 2026 manifest-only check: 12 sources current, oldest current source was NParks Leaf Area Index at 112.6 days old; 6 stale, 2 manual, and 1 candidate address source with unknown age. No upstream URLs were probed. Stale sources are traffic signals, planning area boundary, NParks nature ways, tracks, heritage trees and heritage road green buffers.

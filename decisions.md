@@ -793,3 +793,6 @@ The task runner help should make the safe-report boundary visible before an oper
 
 2026-08-21 - P289 runner help task headline:
 The task runner help should not make the argparse choice list compete with the curated safe-report/gated-task split. The parser now uses `task` as the positional metavar and exposes a testable `build_parser()` helper, so `run.py --help` leads with `usage: run.py [-h] task` and the safe/gated sections carry the task taxonomy. This is help formatting and test coverage only; it does not execute tasks, change dispatch, score, export, deploy, mutate public data, or touch locked weights.
+
+2026-08-21 - P290 title-card gap copy:
+The browser title card should state the frozen address universe and the measured recent-source gap without repeating the same 8-of-976 fact twice. The first freshness line now says the address universe is frozen v1 from a June 2020 OneMap-derived postal scrape, and the next line names the P19 recent public-source check with 8 missing rows out of 976 HDB completion and MCST proxy rows from 2021-2026. This is browser copy and test coverage only; it does not alter search, manifests, inputs, scoring, exports, public data, deployment, or locked weights.
