@@ -7,10 +7,11 @@ night lighting evidence as a map layer, and keeps the locked SHIOK score visible
 but secondary.
 
 The postal universe is frozen v1: 124,443 records built around a June 2020
-OneMap-derived postal scrape. P19 found 6 coordinate-backed HDB missing rows plus
-2 unvalidated MCST proxy rows out of 976 (0.82%) 2021-2026 public-source rows
-with postals. The confirmed HDB gaps are SUN PLAZA SPRING and YISHUN BEACON,
-three postals each; CANAAN and MYRA remain unvalidated MCST proxy warnings. P125
+OneMap-derived postal scrape. The 16 Aug 2026 P19 check found 6
+coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976
+(0.82%) 2021-2026 public-source rows with postals. The confirmed HDB gaps are
+SUN PLAZA SPRING and YISHUN BEACON, three postals each; CANAAN and MYRA remain
+unvalidated MCST proxy warnings. P125
 found live OSM `addr:postcode` covers only 25,873 frozen postals. Treat OSM as
 geometry evidence, not the primary address registry; any v2 universe is
 candidate-source-first with bounded OneMap Search validation.
