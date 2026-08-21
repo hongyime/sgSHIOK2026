@@ -8,6 +8,16 @@ def test_run_docstring_uses_uv_managed_invocation():
     assert "Usage: python run.py <task> [options]" not in run.__doc__
 
 
+def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
+    assert "Safe reports:" in run.__doc__
+    assert (
+        "check --freshness-only | check --geospatial-discovery-only | p19-gap-status | readiness | batch-plan"
+        in run.__doc__
+    )
+    assert "Gated pipeline tasks:" in run.__doc__
+    assert "ingest | network | score | score-batch | export | export-transit | validate | publish" in run.__doc__
+
+
 def test_run_task_sets_pythonhashseed_for_module_subprocess(monkeypatch):
     calls = []
 

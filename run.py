@@ -2,9 +2,14 @@
 """S.H.I.O.K. task runner (cross-platform replacement for make).
 
 Usage: uv run python run.py <task> [options]
-Tasks: batch-plan | bus-arrivals | bus-connector-diagnostics | candidate-audit | check | compare-targeted | ingest | lamp-overlay | network | network-debug | network-preflight | network-qa | onemap-validation | onemap-outlier-replay | onemap-outlier-triage | overture-addresses | p19-gap-status | readiness | refresh-provenance | score | score-batch | postal-universe | geocode-universe | export | export-transit | validate | publish | test | shell
+
+Safe reports:
+  check --freshness-only | check --geospatial-discovery-only | p19-gap-status | readiness | batch-plan
+
+Gated pipeline tasks:
+  ingest | network | score | score-batch | export | export-transit | validate | publish
+
 `publish` ALWAYS runs `validate` first — this gate is hard-coded and must never be removed.
-Stubs below are replaced task-by-task per docs/BUILD_PLAN.md.
 """
 
 import argparse
@@ -123,7 +128,11 @@ def run_task(name: str, extra: list[str]) -> int:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(prog="run.py", description=__doc__)
+    parser = argparse.ArgumentParser(
+        prog="run.py",
+        description=__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
     parser.add_argument("task", choices=sorted(STUBS))
     args, extra = parser.parse_known_args()
     return run_task(args.task, extra)

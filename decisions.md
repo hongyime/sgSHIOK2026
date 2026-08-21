@@ -787,3 +787,6 @@ Agent-facing operator guidance should use the uv-managed task runner command con
 
 2026-08-21 - P287 runner help command:
 The task runner's own help text should match the uv-managed invocation shown in README and `CLAUDE.md`. `run.py` now advertises `Usage: uv run python run.py <task> [options]`, with a focused test rejecting the older bare-system-Python usage line. This is command-help text and test coverage only; it does not execute tasks, change runner dispatch, score, export, deploy, mutate public data, or touch locked weights.
+
+2026-08-21 - P288 runner help safe gates:
+The task runner help should make the safe-report boundary visible before an operator chooses a task. `run.py --help` now separates safe reports (`check --freshness-only`, `check --geospatial-discovery-only`, `p19-gap-status`, `readiness`, `batch-plan`) from gated pipeline tasks (`ingest`, `network`, `score`, `score-batch`, `export`, `export-transit`, `validate`, `publish`). This is command-help text and test coverage only; it does not execute tasks, change dispatch, score, export, deploy, mutate public data, or touch locked weights.
