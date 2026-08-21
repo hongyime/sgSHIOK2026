@@ -14,6 +14,13 @@ function formatWholeNumber(value: number): string {
   return new Intl.NumberFormat("en-SG").format(value);
 }
 
+function formatPercent(value: number): string {
+  return new Intl.NumberFormat("en-SG", {
+    maximumFractionDigits: 1,
+    minimumFractionDigits: 1,
+  }).format(value * 100);
+}
+
 function lockedScoreAvailabilityBreakdown(stateCounts: unknown, notFull: number): string | null {
   const partial = stateCount(stateCounts, "SCORED_PARTIAL");
   const noTransit = stateCount(stateCounts, "NO_TRANSIT_IN_RANGE");
@@ -45,7 +52,10 @@ export function formatLockedScoreAvailabilityLine(manifest: Manifest | null): st
   if (scored === null || scored < 0 || scored > recordCount) return null;
   const notFull = recordCount - scored;
   const pct = notFull / recordCount;
-  const pctText = pct >= 0.22 && pct <= 0.28 ? "roughly a quarter" : `${Math.round(pct * 100)}%`;
+  const pctText =
+    pct >= 0.22 && pct <= 0.28
+      ? `${formatPercent(pct)}%, roughly a quarter`
+      : `${Math.round(pct * 100)}%`;
   const breakdown = lockedScoreAvailabilityBreakdown(provenance.state_counts, notFull);
   const nonFullText = breakdown
     ? `do not show a full locked score: ${breakdown}`

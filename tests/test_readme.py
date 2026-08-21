@@ -43,7 +43,8 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "`web/public/data/generated_20260805_prefer_scored_routed/`" in normalized
     assert "95,157 full locked scores out of 124,443 records" in normalized
     assert "95,157 full scores out of 124,443 records" not in normalized
-    assert "29,286 records, roughly a quarter, do not show a full locked score" in normalized
+    assert "29,286 records, 23.5% or roughly a quarter, do not show a full locked score" in normalized
+    assert "29,286 records, roughly a quarter, do not show a full locked score" not in normalized
     assert "partial shelter-map evidence" in normalized
     assert "beyond locked transit range" in normalized
     assert "beyond current transit range" not in normalized

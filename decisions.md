@@ -961,3 +961,6 @@ The browser freshness line should not freeze a decimal day age that drifts withi
 
 2026-08-21 - P345 recent-source gap percentage copy:
 The browser and README recent-source disclosure should show the measured P19 miss rate, not only the raw 8-of-976 count. The copy now says `8 missing rows out of 976 (0.82%) HDB completion and MCST proxy rows from 2021-2026 with postals`, matching P19's `row_miss_rate: 0.008197` / batch-plan `missing_pct: 0.819672`. This is web and documentation copy with tests only; it does not call APIs, mutate QA caches, alter inputs, score, export, deploy, public data, or locked weights.
+
+2026-08-21 - P346 locked-score availability exact share:
+The browser's manifest-derived locked-score availability line should quantify the no-full-score share instead of only saying `roughly a quarter`. For the current manifest counts, 29,286 non-full records out of 124,443 is 23.5%, so the browser line now says `23.5%, roughly a quarter` and README mirrors `23.5% or roughly a quarter`. This is web/docs copy and tests only; it does not alter manifests, score values, scoring, exports, public data, pipeline inputs, or locked weights.
