@@ -4,7 +4,7 @@ Date: 2026-08-21
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P327 code commit: `d9acdf7`; state-only commits may follow it on `main`.
+Latest P328 code commit: `b9d0ab7`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P328 is complete and committed: the outside-bundle visible empty state now says `this shelter-map bundle is tied to the frozen June 2020 address universe` instead of generic `the current bundle`, while preserving the 8-of-976 recent-source caveat. Focused accessibility/score-card tests and repo integrity pass.
 - P327 is complete and committed: missing shelter/access display-row values now render as `Unavailable` with `Shelter evidence unavailable` / `Access term unavailable` metadata instead of generic `Not scored` rows. Focused accessibility/score-card tests and repo integrity pass.
 - P326 is complete and committed: the OneMap search no-results live-region announcement now includes the same frozen shelter-map bundle 8-of-976 recent public-source caveat as the visible no-results box. Focused accessibility/score-card tests and repo integrity pass.
 - P325 is complete and committed: the outside-bundle live-region announcement now carries the same frozen June 2020 address-universe and 8-of-976 recent public-source caveat as the visible empty state. Focused accessibility/score-card tests and repo integrity pass.
