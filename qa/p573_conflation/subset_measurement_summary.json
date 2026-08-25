@@ -1,0 +1,1713 @@
+{
+  "affected_bus_zero_count": 208,
+  "affected_rows": [
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "000135",
+      "reason": "none",
+      "shard": "BISHAN_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "018593",
+      "reason": "none",
+      "shard": "MARINA_SOUTH.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 178.2,
+      "nearest_graph_routed_m": 367.2,
+      "postal": "018906",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "018907",
+      "reason": "none",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 102.3,
+      "nearest_graph_routed_m": 125.9,
+      "postal": "018910",
+      "reason": "low_trust_bus_stop_road_centerline_route",
+      "shard": "MARINA_SOUTH.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 147.4,
+      "nearest_graph_routed_m": 342.2,
+      "postal": "018916",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 168.4,
+      "nearest_graph_routed_m": 509.5,
+      "postal": "018925",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "018927",
+      "reason": "none",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "018928",
+      "reason": "none",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "018929",
+      "reason": "none",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "018935",
+      "reason": "none",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "018936",
+      "reason": "none",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "018937",
+      "reason": "none",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 147.0,
+      "nearest_graph_routed_m": 542.0,
+      "postal": "018940",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 85.6,
+      "nearest_graph_routed_m": 91.8,
+      "postal": "018947",
+      "reason": "dominant_unrouted_bus_endpoint_and_access_connectors",
+      "shard": "STRAITS_VIEW.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "018948",
+      "reason": "none",
+      "shard": "STRAITS_VIEW.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 141.1,
+      "nearest_graph_routed_m": 716.3,
+      "postal": "018951",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "MARINA_SOUTH.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "018953",
+      "reason": "none",
+      "shard": "MARINA_SOUTH.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 138.8,
+      "nearest_graph_routed_m": 324.7,
+      "postal": "018955",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 200.3,
+      "nearest_graph_routed_m": 533.0,
+      "postal": "018958",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 205.8,
+      "nearest_graph_routed_m": 532.6,
+      "postal": "018959",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 84.7,
+      "nearest_graph_routed_m": 736.8,
+      "postal": "018972",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 78.6,
+      "nearest_graph_routed_m": 709.7,
+      "postal": "018973",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 198.4,
+      "nearest_graph_routed_m": 487.8,
+      "postal": "018974",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "018978",
+      "reason": "none",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "018979",
+      "reason": "none",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 80.9,
+      "nearest_graph_routed_m": 202.6,
+      "postal": "018980",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 70.7,
+      "nearest_graph_routed_m": 512.3,
+      "postal": "018981",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 68.3,
+      "nearest_graph_routed_m": 258.1,
+      "postal": "018988",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "STRAITS_VIEW.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 88.8,
+      "nearest_graph_routed_m": 446.2,
+      "postal": "018989",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "019396",
+      "reason": "none",
+      "shard": "MARINA_SOUTH.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "019397",
+      "reason": "none",
+      "shard": "STRAITS_VIEW.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 183.5,
+      "nearest_graph_routed_m": 399.2,
+      "postal": "019959",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "038975",
+      "reason": "none",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "038980",
+      "reason": "none",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 75.7,
+      "nearest_graph_routed_m": 576.0,
+      "postal": "039593",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 173.8,
+      "nearest_graph_routed_m": 436.0,
+      "postal": "039594",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 136.1,
+      "nearest_graph_routed_m": 553.8,
+      "postal": "039805",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 117.8,
+      "nearest_graph_routed_m": 327.0,
+      "postal": "048422",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 137.4,
+      "nearest_graph_routed_m": 332.6,
+      "postal": "048423",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "048508",
+      "reason": "none",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "048616",
+      "reason": "none",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 183.8,
+      "nearest_graph_routed_m": 620.4,
+      "postal": "048618",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 150.3,
+      "nearest_graph_routed_m": 621.3,
+      "postal": "048621",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "048624",
+      "reason": "none",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "048696",
+      "reason": "none",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 114.8,
+      "nearest_graph_routed_m": 336.8,
+      "postal": "048825",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 152.8,
+      "nearest_graph_routed_m": 352.4,
+      "postal": "048941",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 161.0,
+      "nearest_graph_routed_m": 360.0,
+      "postal": "048942",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 186.0,
+      "nearest_graph_routed_m": 378.1,
+      "postal": "048979",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 207.2,
+      "nearest_graph_routed_m": 439.7,
+      "postal": "048980",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 90.0,
+      "nearest_graph_routed_m": 326.9,
+      "postal": "049034",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 88.1,
+      "nearest_graph_routed_m": 323.6,
+      "postal": "049035",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 82.0,
+      "nearest_graph_routed_m": 310.4,
+      "postal": "049036",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 82.0,
+      "nearest_graph_routed_m": 310.4,
+      "postal": "049037",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "049317",
+      "reason": "none",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 112.1,
+      "nearest_graph_routed_m": 306.2,
+      "postal": "049327",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 105.1,
+      "nearest_graph_routed_m": 278.1,
+      "postal": "049370",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 102.4,
+      "nearest_graph_routed_m": 277.4,
+      "postal": "049371",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 100.2,
+      "nearest_graph_routed_m": 278.5,
+      "postal": "049372",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 98.2,
+      "nearest_graph_routed_m": 295.3,
+      "postal": "049373",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 96.4,
+      "nearest_graph_routed_m": 293.9,
+      "postal": "049374",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 92.5,
+      "nearest_graph_routed_m": 301.3,
+      "postal": "049377",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 92.3,
+      "nearest_graph_routed_m": 308.0,
+      "postal": "049378",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 91.6,
+      "nearest_graph_routed_m": 316.9,
+      "postal": "049379",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 92.4,
+      "nearest_graph_routed_m": 316.7,
+      "postal": "049380",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 93.5,
+      "nearest_graph_routed_m": 328.9,
+      "postal": "049381",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 94.9,
+      "nearest_graph_routed_m": 328.1,
+      "postal": "049382",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 96.5,
+      "nearest_graph_routed_m": 336.5,
+      "postal": "049383",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 98.7,
+      "nearest_graph_routed_m": 336.6,
+      "postal": "049384",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 101.5,
+      "nearest_graph_routed_m": 344.4,
+      "postal": "049385",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 104.8,
+      "nearest_graph_routed_m": 353.6,
+      "postal": "049386",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 107.5,
+      "nearest_graph_routed_m": 353.6,
+      "postal": "049387",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 110.7,
+      "nearest_graph_routed_m": 365.4,
+      "postal": "049388",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 114.3,
+      "nearest_graph_routed_m": 364.7,
+      "postal": "049389",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 117.9,
+      "nearest_graph_routed_m": 373.6,
+      "postal": "049390",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 121.6,
+      "nearest_graph_routed_m": 373.7,
+      "postal": "049391",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 125.5,
+      "nearest_graph_routed_m": 382.4,
+      "postal": "049392",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 129.8,
+      "nearest_graph_routed_m": 382.8,
+      "postal": "049393",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 134.5,
+      "nearest_graph_routed_m": 389.4,
+      "postal": "049394",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 139.3,
+      "nearest_graph_routed_m": 396.7,
+      "postal": "049395",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 144.2,
+      "nearest_graph_routed_m": 400.8,
+      "postal": "049396",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 147.7,
+      "nearest_graph_routed_m": 404.6,
+      "postal": "049397",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 154.2,
+      "nearest_graph_routed_m": 360.4,
+      "postal": "049398",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 176.2,
+      "nearest_graph_routed_m": 366.1,
+      "postal": "049400",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 181.9,
+      "nearest_graph_routed_m": 364.4,
+      "postal": "049401",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "049402",
+      "reason": "none",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 182.4,
+      "nearest_graph_routed_m": 373.8,
+      "postal": "049403",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 178.6,
+      "nearest_graph_routed_m": 437.3,
+      "postal": "049404",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 174.9,
+      "nearest_graph_routed_m": 433.9,
+      "postal": "049405",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "049406",
+      "reason": "none",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 168.6,
+      "nearest_graph_routed_m": 433.1,
+      "postal": "049407",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 165.9,
+      "nearest_graph_routed_m": 368.7,
+      "postal": "049409",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 168.7,
+      "nearest_graph_routed_m": 361.9,
+      "postal": "049411",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 169.2,
+      "nearest_graph_routed_m": 362.7,
+      "postal": "049412",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 164.7,
+      "nearest_graph_routed_m": 358.6,
+      "postal": "049413",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 151.2,
+      "nearest_graph_routed_m": 357.9,
+      "postal": "049415",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 146.6,
+      "nearest_graph_routed_m": 360.7,
+      "postal": "049416",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 142.0,
+      "nearest_graph_routed_m": 364.1,
+      "postal": "049417",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 137.3,
+      "nearest_graph_routed_m": 368.1,
+      "postal": "049418",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 132.7,
+      "nearest_graph_routed_m": 325.2,
+      "postal": "049419",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 128.2,
+      "nearest_graph_routed_m": 322.2,
+      "postal": "049420",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 123.7,
+      "nearest_graph_routed_m": 319.6,
+      "postal": "049421",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 120.1,
+      "nearest_graph_routed_m": 311.6,
+      "postal": "049422",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 120.4,
+      "nearest_graph_routed_m": 309.7,
+      "postal": "049423",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 102.7,
+      "nearest_graph_routed_m": 303.5,
+      "postal": "049426",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 98.8,
+      "nearest_graph_routed_m": 303.0,
+      "postal": "049427",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 95.1,
+      "nearest_graph_routed_m": 303.8,
+      "postal": "049428",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 91.6,
+      "nearest_graph_routed_m": 292.7,
+      "postal": "049429",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 88.2,
+      "nearest_graph_routed_m": 292.7,
+      "postal": "049430",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 84.9,
+      "nearest_graph_routed_m": 294.0,
+      "postal": "049431",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 81.8,
+      "nearest_graph_routed_m": 296.1,
+      "postal": "049432",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 251.4,
+      "nearest_graph_routed_m": 503.9,
+      "postal": "049513",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 170.2,
+      "nearest_graph_routed_m": 361.5,
+      "postal": "049745",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 154.3,
+      "nearest_graph_routed_m": 399.2,
+      "postal": "049747",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 155.9,
+      "nearest_graph_routed_m": 395.9,
+      "postal": "049748",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "049816",
+      "reason": "none",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 187.2,
+      "nearest_graph_routed_m": 429.8,
+      "postal": "049817",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 196.6,
+      "nearest_graph_routed_m": 401.2,
+      "postal": "049818",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "049819",
+      "reason": "none",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 215.6,
+      "nearest_graph_routed_m": 437.9,
+      "postal": "049820",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 204.7,
+      "nearest_graph_routed_m": 412.5,
+      "postal": "049821",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 201.3,
+      "nearest_graph_routed_m": 443.5,
+      "postal": "049822",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 198.9,
+      "nearest_graph_routed_m": 429.8,
+      "postal": "049823",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 190.3,
+      "nearest_graph_routed_m": 394.8,
+      "postal": "049824",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 184.9,
+      "nearest_graph_routed_m": 389.7,
+      "postal": "049825",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 179.2,
+      "nearest_graph_routed_m": 385.2,
+      "postal": "049826",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 168.7,
+      "nearest_graph_routed_m": 421.7,
+      "postal": "049828",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 160.6,
+      "nearest_graph_routed_m": 401.2,
+      "postal": "049829",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 156.3,
+      "nearest_graph_routed_m": 397.9,
+      "postal": "049830",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 152.4,
+      "nearest_graph_routed_m": 397.9,
+      "postal": "049831",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 148.5,
+      "nearest_graph_routed_m": 389.7,
+      "postal": "049832",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 144.8,
+      "nearest_graph_routed_m": 382.5,
+      "postal": "049833",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 140.9,
+      "nearest_graph_routed_m": 382.8,
+      "postal": "049834",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 136.8,
+      "nearest_graph_routed_m": 373.6,
+      "postal": "049835",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 133.0,
+      "nearest_graph_routed_m": 365.1,
+      "postal": "049836",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 129.9,
+      "nearest_graph_routed_m": 355.1,
+      "postal": "049837",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 133.9,
+      "nearest_graph_routed_m": 369.4,
+      "postal": "049838",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 124.5,
+      "nearest_graph_routed_m": 345.3,
+      "postal": "049839",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 128.8,
+      "nearest_graph_routed_m": 362.6,
+      "postal": "049840",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 127.3,
+      "nearest_graph_routed_m": 361.9,
+      "postal": "049841",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 118.7,
+      "nearest_graph_routed_m": 328.9,
+      "postal": "049842",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 117.5,
+      "nearest_graph_routed_m": 329.4,
+      "postal": "049843",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 125.5,
+      "nearest_graph_routed_m": 370.0,
+      "postal": "049844",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 116.0,
+      "nearest_graph_routed_m": 308.0,
+      "postal": "049845",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 117.8,
+      "nearest_graph_routed_m": 300.9,
+      "postal": "049846",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 125.3,
+      "nearest_graph_routed_m": 320.7,
+      "postal": "049847",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 120.5,
+      "nearest_graph_routed_m": 295.0,
+      "postal": "049848",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 121.9,
+      "nearest_graph_routed_m": 277.1,
+      "postal": "049849",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 123.5,
+      "nearest_graph_routed_m": 276.1,
+      "postal": "049850",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 125.3,
+      "nearest_graph_routed_m": 277.0,
+      "postal": "049851",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 154.0,
+      "nearest_graph_routed_m": 339.1,
+      "postal": "049858",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "049859",
+      "reason": "none",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "049866",
+      "reason": "none",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 125.5,
+      "nearest_graph_routed_m": 464.3,
+      "postal": "049873",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "050032",
+      "reason": "none",
+      "shard": "OUTRAM_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 219.8,
+      "nearest_graph_routed_m": 534.7,
+      "postal": "058282",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 123.8,
+      "nearest_graph_routed_m": 274.9,
+      "postal": "058283",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "058681",
+      "reason": "none",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "058683",
+      "reason": "none",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "058684",
+      "reason": "none",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "058686",
+      "reason": "none",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "058688",
+      "reason": "none",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "058693",
+      "reason": "none",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 132.2,
+      "nearest_graph_routed_m": 202.5,
+      "postal": "059108",
+      "reason": "large_unrouted_bus_stop_access_connector",
+      "shard": "OUTRAM_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 169.2,
+      "nearest_graph_routed_m": 373.6,
+      "postal": "059568",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 138.8,
+      "nearest_graph_routed_m": 291.5,
+      "postal": "059570",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "059573",
+      "reason": "none",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "059810",
+      "reason": "none",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "059815",
+      "reason": "none",
+      "shard": "SINGAPORE_RIVER_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "068605",
+      "reason": "none",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "068606",
+      "reason": "none",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "068607",
+      "reason": "none",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "068609",
+      "reason": "none",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "068610",
+      "reason": "none",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 286.3,
+      "nearest_graph_routed_m": 632.5,
+      "postal": "068619",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 285.3,
+      "nearest_graph_routed_m": 635.5,
+      "postal": "068624",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 292.2,
+      "nearest_graph_routed_m": 632.2,
+      "postal": "068626",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 117.9,
+      "nearest_graph_routed_m": 298.6,
+      "postal": "068724",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 122.1,
+      "nearest_graph_routed_m": 292.6,
+      "postal": "068725",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 126.0,
+      "nearest_graph_routed_m": 286.2,
+      "postal": "068726",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 132.6,
+      "nearest_graph_routed_m": 290.4,
+      "postal": "068727",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 137.7,
+      "nearest_graph_routed_m": 293.8,
+      "postal": "068728",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 144.5,
+      "nearest_graph_routed_m": 299.8,
+      "postal": "068729",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 153.0,
+      "nearest_graph_routed_m": 324.4,
+      "postal": "068730",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 154.9,
+      "nearest_graph_routed_m": 325.4,
+      "postal": "068731",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 158.7,
+      "nearest_graph_routed_m": 318.6,
+      "postal": "068732",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "068733",
+      "reason": "none",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "068734",
+      "reason": "none",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "068735",
+      "reason": "none",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "068736",
+      "reason": "none",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 85.9,
+      "nearest_graph_routed_m": 420.0,
+      "postal": "068897",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 262.6,
+      "nearest_graph_routed_m": 536.8,
+      "postal": "069110",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 131.0,
+      "nearest_graph_routed_m": 314.9,
+      "postal": "069111",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 208.0,
+      "nearest_graph_routed_m": 516.4,
+      "postal": "069112",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 175.7,
+      "nearest_graph_routed_m": 381.1,
+      "postal": "069114",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 108.0,
+      "nearest_graph_routed_m": 366.9,
+      "postal": "069119",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 214.6,
+      "nearest_graph_routed_m": 526.7,
+      "postal": "069120",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "069121",
+      "reason": "none",
+      "shard": "DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "069247",
+      "reason": "none",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "069248",
+      "reason": "none",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": null,
+      "nearest_graph_routed_m": null,
+      "postal": "069253",
+      "reason": "none",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 173.0,
+      "nearest_graph_routed_m": 477.3,
+      "postal": "069415",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 101.8,
+      "nearest_graph_routed_m": 278.9,
+      "postal": "069438",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 107.0,
+      "nearest_graph_routed_m": 282.4,
+      "postal": "069440",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 110.9,
+      "nearest_graph_routed_m": 285.5,
+      "postal": "069442",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 115.2,
+      "nearest_graph_routed_m": 289.3,
+      "postal": "069443",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_002.json"
+    },
+    {
+      "bus_subscore": 0.0,
+      "nearest_direct_m": 149.9,
+      "nearest_graph_routed_m": 327.2,
+      "postal": "069446",
+      "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius",
+      "shard": "OUTRAM_PART_002.json"
+    }
+  ],
+  "affected_share_of_subset": 0.173333,
+  "implausible_graph_route_band_250_305": {
+    "affected_with_reason_count": 154,
+    "band_250_305_count": 5,
+    "band_250_305_share_within_reason": 0.032468,
+    "reason": "implausible_graph_route_to_datamall_bus_stop_within_direct_radius"
+  },
+  "nearest_direct_m_summary": {
+    "band_250_305_count": 5,
+    "band_250_305_share_among_affected": 0.024038,
+    "bins": {
+      "0-60": 0,
+      "125-250": 89,
+      "250-305": 5,
+      "305-400": 0,
+      "400+": 0,
+      "60-125": 63,
+      "missing": 51
+    },
+    "max": 292.2,
+    "median": 133.0,
+    "min": 68.3,
+    "non_null_count": 157,
+    "p25": 108.0,
+    "p75": 168.4,
+    "p95": 209.32
+  },
+  "reason_counts_expanded_histogram": {
+    "dominant_unrouted_bus_endpoint_and_access_connectors": 1,
+    "implausible_graph_route_to_datamall_bus_stop_within_direct_radius": 227,
+    "large_unrouted_bus_stop_access_connector": 1,
+    "low_trust_bus_stop_road_centerline_route": 1
+  },
+  "reason_histogram": {
+    "dominant_unrouted_bus_endpoint_and_access_connectors": 1,
+    "implausible_graph_route_to_datamall_bus_stop_within_direct_radius": 154,
+    "large_unrouted_bus_stop_access_connector": 1,
+    "low_trust_bus_stop_road_centerline_route": 1,
+    "none": 51
+  },
+  "scored_rows_seen": 95157,
+  "source_bundle": "web\\public\\data\\generated_20260805_prefer_scored_routed",
+  "subset_count": 1200,
+  "task": "P573"
+}

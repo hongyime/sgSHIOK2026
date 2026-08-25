@@ -1,0 +1,18 @@
+{
+  "affected_bus_zero_count": 208,
+  "reason_counts_expanded_histogram": {
+    "dominant_unrouted_bus_endpoint_and_access_connectors": 1,
+    "implausible_graph_route_to_datamall_bus_stop_within_direct_radius": 227,
+    "large_unrouted_bus_stop_access_connector": 1,
+    "low_trust_bus_stop_road_centerline_route": 1
+  },
+  "reason_histogram": {
+    "dominant_unrouted_bus_endpoint_and_access_connectors": 1,
+    "implausible_graph_route_to_datamall_bus_stop_within_direct_radius": 154,
+    "large_unrouted_bus_stop_access_connector": 1,
+    "low_trust_bus_stop_road_centerline_route": 1,
+    "none": 51
+  },
+  "source": "qa/p573_conflation/subset_measurement_summary.json",
+  "task": "P573"
+}
