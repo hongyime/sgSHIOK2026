@@ -147,3 +147,91 @@ tests/test_repo_integrity.py fixture setup FileNotFoundError: C:\sgSHIOK2026\.ve
 Because the first floor command was red, npm --prefix web test and uv run python -m pytest --collect-only -q were not run.
 STATUS=RED_FLOOR
 ```
+
+## P569 TEST FLOOR RED AGAIN
+
+```text
+uv run python run.py test > qa\p567_baseline\pytest_full.txt 2>&1
+EXIT=0
+437 passed in 652.97s (0:10:52)
+
+npm --prefix web test > qa\p567_baseline\web_tests.txt 2>&1
+EXIT=1
+VERDICT: FAIL - expected exit 0 with 151 tests passing
+
+Failed web tests:
+FAIL lib/__tests__/route-evidence-map-interaction.test.ts > shelter map interactions > summarizes the night-lighting overlay for non-visual map users
+Error: Test timed out in 5000ms.
+Location: lib/__tests__/route-evidence-map-interaction.test.ts:114
+
+FAIL lib/__tests__/score-prefix-index.test.ts > fetchScoreForPostal > uses the score prefix index before falling back to the full score index
+Error: Test timed out in 5000ms.
+Location: lib/__tests__/score-prefix-index.test.ts:22
+
+Web summary:
+Test Files 2 failed | 21 passed (23)
+Tests 2 failed | 149 passed (151)
+
+Because the web floor was red, uv run python -m pytest --collect-only -q was not run.
+STATUS=RED_FLOOR_AGAIN
+```
+
+## P569 TEST FLOOR RED AGAIN - 2026-08-25 fresh web rerun
+
+```text
+npm --prefix web test > qa\p567_baseline\web_tests.txt 2>&1
+EXIT=1
+VERDICT: FAIL - expected exit 0 with 151 tests passing
+
+Failed web test:
+FAIL lib/__tests__/typescript-contract.test.ts > typescript contracts > type-checks rank payload projections
+Error: Test timed out in 30000ms.
+Location: lib/__tests__/typescript-contract.test.ts:6
+
+Web summary:
+Test Files 1 failed | 22 passed (23)
+Tests 1 failed | 150 passed (151)
+Duration 102.99s
+
+This was not the previously observed two-test 5000ms timeout pattern in
+route-evidence-map-interaction.test.ts:114 and score-prefix-index.test.ts:22.
+Because the web floor was red for a different test, uv run python -m pytest
+--collect-only -q was not run in this lane.
+STATUS=RED_FLOOR_AGAIN
+```
+
+## P569 TEST FLOOR GREEN
+
+```text
+uv run python run.py test > qa\p567_baseline\pytest_full.txt 2>&1
+EXIT=0
+437 passed in 652.97s (0:10:52)
+
+npm --prefix web test > qa\p567_baseline\web_tests.txt 2>&1
+EXIT=0
+Test Files 23 passed (23)
+Tests 151 passed (151)
+Duration 98.17s
+
+npm --prefix web test > qa\p567_baseline\web_tests_second.txt 2>&1
+EXIT=0
+Test Files 23 passed (23)
+Tests 151 passed (151)
+Duration 90.62s
+
+uv run python -m pytest --collect-only -q > qa\p567_baseline\collect_only.txt 2>&1
+EXIT=0
+437 tests collected in 23.97s
+```
+
+Previous full-suite attempts produced different timeout casualties per run
+because parallel Vitest workers starved heavy dynamic imports and the `tsc
+--noEmit` spawn inside `typescript-contract.test.ts`. The existing `--runInBand`
+flag was found unwired; the runner now defaults to one worker with an explicit
+`--parallel` escape hatch. Two consecutive green full web runs certify the web
+floor stability.
+
+Commits resolving the seven Python failures and stabilizing web: `93aa184`
+(`fix(config): restore sync-reverted owner files`), `50f95a4` (`fix(analysis):
+align heat ui audit with copy`), and `7cc9973` (`fix(test): serialize web suite
+by default`).
