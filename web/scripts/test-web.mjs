@@ -9,9 +9,14 @@ const vitestBin = resolve(
   ".bin",
   process.platform === "win32" ? "vitest.cmd" : "vitest"
 );
-const passthroughArgs = process.argv.slice(2).filter((arg) => arg !== "--runInBand");
+const rawArgs = process.argv.slice(2);
+const isParallel = rawArgs.includes("--parallel");
+const passthroughArgs = rawArgs.filter(
+  (arg) => arg !== "--parallel" && arg !== "--runInBand"
+);
+const workerArgs = isParallel ? [] : ["--maxWorkers", "1", "--no-file-parallelism"];
 
-const result = spawnSync(vitestBin, ["run", "--globals", ...passthroughArgs], {
+const result = spawnSync(vitestBin, ["run", "--globals", ...workerArgs, ...passthroughArgs], {
   cwd: root,
   stdio: "inherit",
   shell: process.platform === "win32",
