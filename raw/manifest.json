@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-01T21:49:20.977890+00:00",
+  "generated_at": "2026-08-25T12:35:08.603848+00:00",
   "sources": {
     "acra_registered_entities": {
       "bytes": 231948757,
@@ -48,12 +48,24 @@
     },
     "covered_linkway": {
       "bytes": 1096785,
-      "etag": "W/\"10bc51-6577cb5926587\"",
-      "fetched_at": "2026-07-26T07:50:20.678116+00:00",
-      "last_modified": "Sun, 26 Jul 2026 05:16:34 GMT",
+      "etag": "\"012843640a9c839cb9110759b5e875b3\"",
+      "fetched_at": "2026-08-25T12:34:12.393459+00:00",
+      "last_modified": "Fri, 06 Mar 2026 08:24:22 GMT",
       "sha256": "d943fe2a992ad50c449c40484e0c642da480598b17f6008907c7b253d87b19ee",
       "source_name": "Covered Linkway",
-      "url_as_discovered": "https://datamall.lta.gov.sg/content/dam/datamall/datasets/Geospatial/CoveredLinkWay_Mar2026.zip"
+      "url_as_discovered": "https://dmgeospatial.s3.ap-southeast-1.amazonaws.com/CoveredLinkWay.zip",
+      "validation": {
+        "baseline_status": "new_baseline",
+        "count_field": "feature_count",
+        "feature_count": 7012,
+        "geometry_types": [
+          "Polygon"
+        ],
+        "max_count_delta_ratio": 0.2,
+        "payload_type": "zip",
+        "record_count": 7012,
+        "zip_entry_count": 10
+      }
     },
     "lamp_posts": {
       "bytes": 41907845,
@@ -147,12 +159,24 @@
     },
     "overhead_bridge_underpass": {
       "bytes": 478973,
-      "etag": "W/\"74efd-6577cb59c5098\"",
-      "fetched_at": "2026-07-26T07:50:21.030704+00:00",
-      "last_modified": "Sun, 26 Jul 2026 05:16:34 GMT",
+      "etag": "\"cef6c33337a04cef058eea6517c52d41\"",
+      "fetched_at": "2026-08-25T12:35:08.486350+00:00",
+      "last_modified": "Fri, 06 Mar 2026 08:24:03 GMT",
       "sha256": "bfa4a0a08a32c72a1ca35aad30e89f940a59ef6fdc137ddf8135a50760d7d444",
       "source_name": "Pedestrian Overhead Bridge / Underpass",
-      "url_as_discovered": "https://datamall.lta.gov.sg/content/dam/datamall/datasets/Geospatial/PedestrainOverheadbridge_UnderPass_Mar2026.zip"
+      "url_as_discovered": "https://dmgeospatial.s3.ap-southeast-1.amazonaws.com/PedestrainOverheadbridge_UnderPass.zip",
+      "validation": {
+        "baseline_status": "new_baseline",
+        "count_field": "feature_count",
+        "feature_count": 770,
+        "geometry_types": [
+          "Polygon"
+        ],
+        "max_count_delta_ratio": 0.2,
+        "payload_type": "zip",
+        "record_count": 770,
+        "zip_entry_count": 10
+      }
     },
     "planning_area_boundary": {
       "bytes": 2092229,
