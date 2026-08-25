@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P570-P572 complete on 2026-08-25 by Codex: P570 versioned refresh plan, P571 native ingest, and P572 post-refresh verification show all eight targeted sources were refreshed or verified unchanged; six stale-by-age sources returned 304 unchanged, while `covered_linkway` and `overhead_bridge_underpass` downloaded bytes matching existing content-addressed SHA directories, so manifest-only freshness may still flag upstream `last_modified` stale-by-basis caveats without evidence of changed content.
 - P566 is complete and committed: planning-area rank helper copy now distinguishes closed, locked-score sorting-index, evidence-view, and crossing-friction locked-term states, and the screen-reader chooser now says comparison view instead of evidence view. Focused rank/copy/accessibility tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P565 is complete and committed: planning-area rank metric labels now name the evidence users can inspect (rain covered-walkway evidence, walk-distance evidence, bus service-support evidence, heat proxy evidence, crossing-friction locked term) instead of old locked-term shorthand. Focused rank/copy/accessibility tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P564 is complete and committed: the exposure hero's non-visual label now says Walk exposure evidence instead of Walk shelter evidence, matching the visible covered-walkway ratio and exposed-gap content. Focused accessibility render test, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, aria-label search, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
@@ -617,12 +618,38 @@ Status:
 <!-- MOLT_AUTO_START -->
 ## Auto State
 
-- Updated: 2026-08-25 12:51:41 +08:00
+- Updated: 2026-08-25 14:38:13 +08:00
 - Machine: PRAWN-E14
 - Harness: codex
 - Event: session-start
 - Branch: main
-- HEAD: 95bc69f
+- HEAD: efbf5bc
 - Dirty files: 20
 - Resume hint: Read .agents/STATE.md, then the latest file in .agents/handoffs/ if present.
 <!-- MOLT_AUTO_END -->
+
+P569 certification lane stopped on 2026-08-25: fresh full web floor
+`npm --prefix web test > qa\p567_baseline\web_tests.txt 2>&1` exited 1 with
+`lib/__tests__/typescript-contract.test.ts:6` timing out at 30000ms. This was
+not the earlier two-test 5000ms timeout pattern, so collect-only was not run,
+no evidence commit was made, and no push was attempted. Details were appended to
+`qa/verification/P567-baseline-reports.md`.
+
+P569 resumed on 2026-08-25 by Codex: web runner serialized by default and pushed
+as `7cc9973` after focused `typescript-contract.test.ts` sanity gate passed.
+`--parallel` remains the escape hatch. `.agents/` changes are local handoff only
+and must not be staged.
+
+P569 completed on 2026-08-25 by Codex: two consecutive full web runs passed with
+151 tests each, Python collect-only found 437 tests, evidence was appended to
+`qa/verification/P567-baseline-reports.md`, committed as `efbf5bc`, and pushed.
+
+P570 in progress on 2026-08-25 14:42:55 +08:00 by Codex: read freshness/discovery baselines and sources.yaml; raw store is manifest sha256 directories with no raw\<key> numbered dirs, so plan will assign raw\<key>\v2 next-version directories. .agents remains local only and must not be staged.
+
+P570 complete on 2026-08-25 14:45:57 +08:00 by Codex: committed and pushed c10a958 docs(evidence): P570 versioned refresh plan. Only qa/p570_refresh_plan.md was staged; protected-path guard passed; no downloads or data mutations performed.
+
+P571 blocked on 2026-08-25 by Codex: `uv run python -m pipeline.fetch ingest --help` exposes `ingest --source <key>` only, while the P570 plan requires targeting new `raw\<key>\v2` directories. Current `pipeline.fetch` writes payloads to content-addressed `raw\<sha256>` directories and has no per-source output-dir or hash-sidecar contract for `raw\<key>\v2`. No downloads, payload writes, manifest writes, staging, commit, or push were performed. Evidence: `qa/verification/P571-ingest-refreshes.md`.
+
+P571 corrected native ingest started on 2026-08-25 by Codex: executing exactly eight source refreshes through `uv run python -m pipeline.fetch ingest --source KEY`; content-addressed `raw\SHA256` directories are the versioning contract. `leaf_area_index` remains watch-only. `.agents/` is local only and must not be staged.
+
+P571 corrected native ingest completed on 2026-08-25 by Codex: all eight requested native ingest commands exited 0; six returned 304 unchanged and two DataMall geospatial sources downloaded bytes that matched existing content-addressed SHA directories. Evidence committed in `qa/verification/P571-ingest-refreshes.md`; `.agents/` remains local only and was not staged.
