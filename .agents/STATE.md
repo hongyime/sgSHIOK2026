@@ -613,3 +613,16 @@ Status:
 - P181 evidence is tracked at `qa/verification/P181-score-source-hash-policy-readiness.md`.
 - P75 landed at `682d9b1`: README documents gitignored local data artifacts and the `lamp_posts_v1` deploy artifact contract.
 - Do not run scoring, export, rescore, subset runs, ingest, network build, input rebuilds, public data writes, deployment, or weight changes unless the owner explicitly approves.
+
+<!-- MOLT_AUTO_START -->
+## Auto State
+
+- Updated: 2026-08-25 12:51:41 +08:00
+- Machine: PRAWN-E14
+- Harness: codex
+- Event: session-start
+- Branch: main
+- HEAD: 95bc69f
+- Dirty files: 20
+- Resume hint: Read .agents/STATE.md, then the latest file in .agents/handoffs/ if present.
+<!-- MOLT_AUTO_END -->
