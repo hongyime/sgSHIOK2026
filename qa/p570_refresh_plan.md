@@ -1,0 +1,18 @@
+# P570 Versioned Refresh Plan
+
+This plan covers exactly eight refresh targets plus one watch row. Evidence is from `qa\p567_baseline\freshness.txt` and `qa\p567_baseline\discovery.txt`; cadence and fetch method are from `pipeline\config\sources.yaml`. Existing raw storage is content-addressed in `raw\manifest.json`; no `raw\<key>` numbered directories were present, so the current manifest-backed input is treated as v1 and each assigned refresh directory is `raw\<key>\v2`.
+
+| Key | Fetch method | Expected cadence | Current version directory observed | Assigned new numbered version directory | Upstream discovery URL status |
+| --- | --- | --- | --- | --- | --- |
+| `traffic_signals` | `datamall_geospatial_listing` | quarterly | `raw\942ff2506603f431f0782a3acdc70fec75d4b15c73b54f1a983c804c60d818af` | `raw\traffic_signals\v2` | Freshness baseline: STALE, last_modified age 171.8d exceeds 120d threshold by 51.8d. Discovery baseline: match=true, manifest_url=https://dmgeospatial.s3.ap-southeast-1.amazonaws.com/TrafficLight.zip, discovered_url=https://dmgeospatial.s3.ap-southeast-1.amazonaws.com/TrafficLight.zip. |
+| `planning_area_boundary` | `datagov_polldownload` | quarterly | `raw\f23856251b467089f788d0fff72ef5a38e753f21aa69b4352401d7ed50d380cc` | `raw\planning_area_boundary\v2` | Freshness baseline: STALE, last_modified age 263.1d exceeds 120d threshold by 143.1d. |
+| `nparks_nature_ways` | `datagov_polldownload` | quarterly | `raw\9b4e0e1e9d868cc9bff468e1b3028214707f2a41661bc8f279c61e88094f2d11` | `raw\nparks_nature_ways\v2` | Freshness baseline: STALE, last_modified age 131.1d exceeds 120d threshold by 11.1d. |
+| `nparks_tracks` | `datagov_polldownload` | quarterly | `raw\2df9d9170d716ceefc2e82aa8889a21a27a3a086996bf330a6ab6b21cb1f0627` | `raw\nparks_tracks\v2` | Freshness baseline: STALE, last_modified age 243.1d exceeds 120d threshold by 123.1d. |
+| `nparks_heritage_trees` | `datagov_polldownload` | quarterly | `raw\7f9a1b6413735824704993994b5491c30dcb9d1b746e80a5c17a6f59629d835f` | `raw\nparks_heritage_trees\v2` | Freshness baseline: STALE, last_modified age 146.1d exceeds 120d threshold by 26.1d. |
+| `nparks_heritage_road_green_buffers` | `datagov_polldownload` | quarterly | `raw\87238ae673f898a30b1fcbf5b5527625b4c49c7aa1769567adb92b93b9b685b5` | `raw\nparks_heritage_road_green_buffers\v2` | Freshness baseline: STALE, last_modified age 205.1d exceeds 120d threshold by 85.1d. |
+| `covered_linkway` | `datamall_geospatial_listing` | quarterly | `raw\d943fe2a992ad50c449c40484e0c642da480598b17f6008907c7b253d87b19ee` | `raw\covered_linkway\v2` | Discovery baseline: match=false, manifest_url=https://datamall.lta.gov.sg/content/dam/datamall/datasets/Geospatial/CoveredLinkWay_Mar2026.zip, discovered_url=https://dmgeospatial.s3.ap-southeast-1.amazonaws.com/CoveredLinkWay.zip. Freshness baseline: current, last_modified age 30.0d within 120d threshold with 90.0d until stale. |
+| `overhead_bridge_underpass` | `datamall_geospatial_listing` | quarterly | `raw\bfa4a0a08a32c72a1ca35aad30e89f940a59ef6fdc137ddf8135a50760d7d444` | `raw\overhead_bridge_underpass\v2` | Discovery baseline: match=false, manifest_url=https://datamall.lta.gov.sg/content/dam/datamall/datasets/Geospatial/PedestrainOverheadbridge_UnderPass_Mar2026.zip, discovered_url=https://dmgeospatial.s3.ap-southeast-1.amazonaws.com/PedestrainOverheadbridge_UnderPass.zip. Freshness baseline: current, last_modified age 30.0d within 120d threshold with 90.0d until stale. |
+
+| Watch key | Current age | Threshold | Margin | Decision rule |
+| --- | --- | --- | --- | --- |
+| `leaf_area_index` | 116.9d | 120d | 3.1d | Refresh during execution ONLY if freshness rerun shows the threshold crossed, else leave untouched. |
