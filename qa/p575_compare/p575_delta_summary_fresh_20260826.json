@@ -1,0 +1,33 @@
+{
+  "active_records_loaded": 1200,
+  "assertions": {
+    "a_bus_zero_count_decreases": true,
+    "b_no_covered_ratio_regressions": true,
+    "c_median_abs_total_lte_5": true
+  },
+  "bus": {
+    "baseline_zero_count_routed_verifiable": 208,
+    "candidate_zero_count_routed_verifiable": 174,
+    "changed_count": 45,
+    "max_abs_delta": 100.0,
+    "median_abs_delta": 0.0,
+    "positive_to_zero_count": 0,
+    "routed_verifiable_count": 1199,
+    "zero_to_positive_count": 34
+  },
+  "candidate_records": 1200,
+  "changed_rows_any_total_bus_or_coverage": 46,
+  "covered_ratio": {
+    "regression_count": 0,
+    "regressions": []
+  },
+  "ids": 1200,
+  "missing": [],
+  "total": {
+    "changed_count": 46,
+    "max_abs_delta": 22.8,
+    "max_signed_delta": 22.8,
+    "median_abs_delta": 0.0,
+    "min_signed_delta": 0.0
+  }
+}

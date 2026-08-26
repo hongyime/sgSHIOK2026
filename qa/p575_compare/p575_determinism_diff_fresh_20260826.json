@@ -1,0 +1,19 @@
+{
+  "diff_line_count": 0,
+  "diff_preview": [],
+  "files_compared": [
+    "batch_manifest.json",
+    "chunks/chunk_00001_000135_038971.json"
+  ],
+  "normalized_fields": [
+    "generated_at",
+    "manifest_path",
+    "output_dir",
+    "path strings containing determinism run directory"
+  ],
+  "normalized_identical": true,
+  "run_a": "C:\\sgSHIOK2026\\processed\\score_batches\\subset_p575_determinism_a_20260826",
+  "run_b": "C:\\sgSHIOK2026\\processed\\score_batches\\subset_p575_determinism_b_20260826",
+  "sha256_a_normalized": "47946a259a04273cbc2ec382ead191355af41d606e3766b05b78b6ff27388824",
+  "sha256_b_normalized": "47946a259a04273cbc2ec382ead191355af41d606e3766b05b78b6ff27388824"
+}
