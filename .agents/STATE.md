@@ -653,3 +653,5 @@ P571 blocked on 2026-08-25 by Codex: `uv run python -m pipeline.fetch ingest --h
 P571 corrected native ingest started on 2026-08-25 by Codex: executing exactly eight source refreshes through `uv run python -m pipeline.fetch ingest --source KEY`; content-addressed `raw\SHA256` directories are the versioning contract. `leaf_area_index` remains watch-only. `.agents/` is local only and must not be staged.
 
 P571 corrected native ingest completed on 2026-08-25 by Codex: all eight requested native ingest commands exited 0; six returned 304 unchanged and two DataMall geospatial sources downloaded bytes that matched existing content-addressed SHA directories. Evidence committed in `qa/verification/P571-ingest-refreshes.md`; `.agents/` remains local only and was not staged.
+
+P575 in progress on 2026-08-26 by Codex: module contracts read; qa\p573_subset_ids.json has 1200 ids; prepared qa\p575_compare\p575_subset_universe.parquet and first50 slice for scoring. .agents remains local only and must not be staged.
