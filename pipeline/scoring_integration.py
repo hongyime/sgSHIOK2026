@@ -10,7 +10,7 @@ import math
 import sqlite3
 import subprocess
 from collections import Counter
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any, Mapping, cast
 
@@ -623,6 +623,110 @@ def bus_connectivity_from_routed_candidates(
         nearest_routed_m=min(routed_distances) if routed_distances else None,
         straight_line_stop_count=straight_line_stop_count,
     )
+
+
+def repair_bus_stop_snaps_for_origin(
+    candidates: list[CandidateNode],
+    origin_node: tuple[float, float],
+    routing_graph: RoutingGraph,
+    nodes: list[tuple[float, float]],
+    node_xy: np.ndarray,
+    bus_params: dict[str, Any],
+) -> tuple[list[CandidateNode], list[dict[str, Any]]]:
+    search_m = float(bus_params.get("access_connector_search_m", 50.0))
+    routed_max_m = float(bus_params.get("routed_max_m", 250.0))
+    max_candidates = int(bus_params.get("access_connector_max_candidates", 24))
+    repaired: list[CandidateNode] = []
+    rows: list[dict[str, Any]] = []
+
+    for candidate in candidates:
+        if candidate.node_type != "bus_stop" or candidate.point_xy is None:
+            repaired.append(candidate)
+            continue
+        if float(candidate.snap_distance_m) > search_m:
+            repaired.append(candidate)
+            continue
+
+        stop_xy = np.asarray(candidate.point_xy, dtype=float)
+        distances = np.linalg.norm(node_xy - stop_xy, axis=1)
+        nearby = [
+            (float(distances[index]), int(index))
+            for index in np.flatnonzero(distances <= search_m)
+        ]
+        if not nearby:
+            repaired.append(candidate)
+            continue
+
+        ordered = sorted(nearby)[:max_candidates]
+        destinations = [nodes[index] for _, index in ordered]
+        route_results = routing_graph.route(
+            {origin_node: destinations},
+            0.0,
+            1.0,
+            include_geometry=False,
+        )
+        route_by_destination = {
+            route["destination"]: float(route["shortest_length_m"]) for route in route_results
+        }
+        original_graph_route_m = route_by_destination.get(candidate.graph_node)
+        original_total_m = (
+            original_graph_route_m + float(candidate.snap_distance_m)
+            if original_graph_route_m is not None
+            else float("inf")
+        )
+        if original_total_m <= routed_max_m:
+            repaired.append(candidate)
+            continue
+        if original_graph_route_m is not None and bus_route_direct_fallback_reason(
+            candidate,
+            {"shortest_length_m": original_total_m},
+            bus_params,
+        ):
+            repaired.append(candidate)
+            continue
+
+        viable: list[tuple[float, float, tuple[float, float], float]] = []
+        for snap_m, index in ordered:
+            destination = nodes[index]
+            graph_route_m = route_by_destination.get(destination)
+            if graph_route_m is None:
+                continue
+            total_m = graph_route_m + snap_m
+            if total_m <= routed_max_m:
+                viable.append((total_m, snap_m, destination, graph_route_m))
+
+        if not viable:
+            repaired.append(candidate)
+            continue
+
+        total_m, snap_m, graph_node, graph_route_m = min(
+            viable,
+            key=lambda item: (item[0], item[1], item[2]),
+        )
+        repaired_candidate = replace(
+            candidate,
+            graph_node=graph_node,
+            snap_distance_m=snap_m,
+        )
+        repaired.append(repaired_candidate)
+        rows.append(
+            {
+                "name": candidate.name,
+                "bus_stop_code": candidate.exit_code,
+                "original_graph_node": candidate.graph_node,
+                "repaired_graph_node": graph_node,
+                "original_graph_route_m": (
+                    round(original_graph_route_m, 1)
+                    if original_graph_route_m is not None
+                    else None
+                ),
+                "repaired_graph_route_m": round(graph_route_m, 1),
+                "repaired_snap_distance_m": round(snap_m, 1),
+                "repaired_total_m": round(total_m, 1),
+            }
+        )
+
+    return repaired, rows
 
 
 def count_dbscan_clusters(points_xy: np.ndarray, eps_m: float, min_samples: int) -> int:
@@ -2378,6 +2482,14 @@ def score_postal_row(
         bus_index,
         bus_candidate_selection_radius_m,
     )
+    bus_candidates, bus_stop_snap_repair_rows = repair_bus_stop_snaps_for_origin(
+        bus_candidates,
+        origin_node,
+        routing_graph,
+        nodes,
+        node_xy,
+        params["bus_connectivity"],
+    )
     candidates = mrt_candidates + bus_candidates
     provenance = (
         copy.deepcopy(base_provenance)
@@ -2398,6 +2510,16 @@ def score_postal_row(
         "bus_stop_candidate_tolerance_m": round(bus_candidate_tolerance_m, 1),
         "bus_stop_candidate_selection_radius_m": round(bus_candidate_selection_radius_m, 1),
     }
+    if bus_stop_snap_repair_rows:
+        bus_params = params["bus_connectivity"]
+        provenance["bus_stop_snap_repair"] = {
+            "reason": "datamall_bus_stop_reassigned_to_nearby_graph_node_with_routed_bus_cap",
+            "candidate_count": len(bus_stop_snap_repair_rows),
+            "search_m": round(float(bus_params.get("access_connector_search_m", 50.0)), 1),
+            "routed_max_m": round(float(bus_params.get("routed_max_m", 250.0)), 1),
+            "max_candidates": int(bus_params.get("access_connector_max_candidates", 24)),
+            "examples": bus_stop_snap_repair_rows[:5],
+        }
     record_data_as_of = (
         data_as_of if data_as_of is not None else load_manifest().get("generated_at")
     )

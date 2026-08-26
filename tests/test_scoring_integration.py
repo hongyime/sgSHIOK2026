@@ -876,6 +876,75 @@ def test_bus_access_connector_appends_exposed_endpoint_to_plausible_graph_route(
     assert route["geometry"].coords[-1] == (100.0, 0.0)
 
 
+def test_score_postal_row_repairs_bus_stop_snap_before_routed_bus_cap():
+    edges = pd.DataFrame(
+        [
+            {
+                "u": (0.0, 0.0),
+                "v": (240.0, 0.0),
+                "length_m": 290.0,
+                "is_covered": 0,
+                "highway": "footway",
+                "geometry": LineString([(0.0, 0.0), (240.0, 0.0)]),
+            },
+            {
+                "u": (0.0, 0.0),
+                "v": (245.0, 0.0),
+                "length_m": 245.0,
+                "is_covered": 0,
+                "highway": "footway",
+                "geometry": LineString([(0.0, 0.0), (245.0, 0.0)]),
+            },
+        ]
+    )
+    routing_graph = RoutingGraph(edges)
+    nodes = [(0.0, 0.0), (240.0, 0.0), (245.0, 0.0)]
+    node_xy = np.asarray(nodes, dtype=float)
+    empty_exits = gpd.GeoDataFrame(
+        {"STATION_NA": [], "EXIT_CODE": [], "OBJECTID": []},
+        geometry=[],
+        crs="EPSG:3414",
+    )
+    empty_signals = gpd.GeoDataFrame(geometry=[], crs="EPSG:3414")
+    crossing_counter = CrossingCounter(empty_signals, None, eps_m=20.0, min_samples=2)
+
+    class BadSnapBusIndex:
+        def nearby_stop_candidates(self, _postal_point, _straight_line_radius_m):
+            return [
+                BusStopCandidate(
+                    bus_stop_code="54321",
+                    description="Opp Test Blk",
+                    graph_node=(240.0, 0.0),
+                    straight_line_m=240.0,
+                    snap_distance_m=0.0,
+                    service_headways_min={("10", 1): 8.0},
+                    point_xy=(240.0, 0.0),
+                )
+            ]
+
+    record = score_postal_row(
+        pd.Series({"postal_code": "123462", "geometry": Point(0.0, 0.0)}),
+        empty_exits,
+        edges.to_dict("list"),
+        routing_graph,
+        nodes,
+        node_xy,
+        PARAMS,
+        WEIGHTS,
+        crossing_counter,
+        bus_index=BadSnapBusIndex(),
+        include_geometry=True,
+        base_provenance={},
+    )
+
+    assert record["best_node"]["type"] == "bus_stop"
+    assert record["best_node"]["routed_m"] == 250.0
+    assert record["best_node"]["snap_distance_m"] == 5.0
+    assert record["subscores"]["bus"] > 0
+    assert record["provenance"]["bus_stop_snap_repair"]["candidate_count"] == 1
+    assert "direct_bus_fallback" not in record["provenance"]
+
+
 def test_bus_access_connector_rejects_implausibly_short_route():
     candidate = CandidateNode(
         node_type="bus_stop",
