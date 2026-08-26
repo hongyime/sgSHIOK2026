@@ -952,11 +952,7 @@ def score_candidate_route(
         "total": composite,
         "subscores": {
             "access": round_nullable_score(access),
-            "bus": (
-                0.0
-                if bus_data_available and bus == NO_TRANSIT_IN_RANGE
-                else round_nullable_score(bus) if bus_data_available else None
-            ),
+            "bus": round_nullable_score(bus) if bus_data_available else None,
             "rain": round_nullable_score(rain),
             "heat": round_nullable_score(heat),
             "crossing": round_nullable_score(crossing),

@@ -390,7 +390,7 @@ def test_record_assembly_marks_missing_bus_data_partial_without_fabricating_subs
     assert record["exposure_gaps"][0]["len_m"] == 160.0
 
 
-def test_record_assembly_scores_real_zero_bus_as_zero_not_partial():
+def test_record_assembly_scores_unrouted_bus_as_null_partial():
     candidate = CandidateNode(
         node_type="mrt_lrt_exit",
         name="TEST MRT STATION Exit 1",
@@ -421,8 +421,8 @@ def test_record_assembly_scores_real_zero_bus_as_zero_not_partial():
     )
     record = assemble_score_record("123456", [candidate_score], None, {})
 
-    assert record["state"] == "SCORED"
-    assert record["subscores"]["bus"] == 0.0
+    assert record["state"] == "SCORED_PARTIAL"
+    assert record["subscores"]["bus"] is None
     assert record["total"] == 80.0
 
 
