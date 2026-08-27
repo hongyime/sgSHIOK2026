@@ -70,6 +70,28 @@ describe("generated data bundle", () => {
     );
   });
 
+  it("score prefix index matches the score shard index", () => {
+    const scoreIndex = readJson<Record<string, string[]>>("scores/index.json");
+    const scorePrefixIndex = readJson<Record<string, string[]>>("scores/prefix-index.json");
+    const expectedPrefixIndex: Record<string, string[]> = {};
+    for (const [shard, postals] of Object.entries(scoreIndex)) {
+      for (const postal of postals) {
+        const prefix = postal.slice(0, 3);
+        expectedPrefixIndex[prefix] ??= [];
+        if (!expectedPrefixIndex[prefix].includes(shard)) {
+          expectedPrefixIndex[prefix].push(shard);
+        }
+      }
+    }
+    for (const shards of Object.values(expectedPrefixIndex)) {
+      shards.sort();
+    }
+
+    expect(scorePrefixIndex).toEqual(
+      Object.fromEntries(Object.entries(expectedPrefixIndex).sort())
+    );
+  });
+
   it("postal geometry index resolves a route shard", () => {
     const geomPostalIndex = readJson<Record<string, string>>("geom/postal-index.json");
     const shard = geomPostalIndex["560234"];
