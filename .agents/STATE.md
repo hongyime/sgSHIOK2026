@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P585 export-validation commit: `8e20bcb`; state-only commits may follow it on `main`.
+Latest P586 export-validation commit: `4384f9b`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P586 is complete and committed: static validation now requires matching geometry-shard `route_options` entries for non-best score-shard route options that advertise `paths`, preventing switchable MRT/LRT or bus walks that the browser cannot draw. Focused route-option validation tests, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P585 is complete and committed: `validate_score_record()` now rejects path-bearing `NO_TRANSIT_IN_RANGE` records that are missing `best_node` or `exposure_gaps`, preserving the coherent P580 browser-inspectable shape while leaving all-null scoreless no-transit records available for disconnected/no-candidate cases. Focused validation tests, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P584 is complete and committed: `load_score_batch_records()` is now pinned to preserve P580-style path-bearing `NO_TRANSIT_IN_RANGE` chunk records despite the legacy best-transit repick shim. The existing code already returned no-transit records unchanged; the new regression covers the actual chunk-load path and raised Python collection from 441 to 442. Focused loader tests, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P583 is complete and committed: the exported manifest now documents P580 `NO_TRANSIT_IN_RANGE` semantics, and static validation now requires geometry for any score record with `paths`, including scoreless no-transit records beyond the locked range. Focused export contract tests, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
