@@ -28,9 +28,12 @@ def test_readme_documents_universe_source_policy() -> None:
     assert "The 16 Aug 2026 public-source check found a small sampled current-source gap" not in normalized
     assert "small current-source gap" not in normalized
     assert (
-        "6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) sampled 2021-2026"
+        "6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 sampled 2021-2026"
         in normalized
     )
+    assert "0.61% confirmed missing rows, or 0.82% including source-quality warnings" in normalized
+    assert "directional scale would be 765 confirmed missing rows, or 1,020 including warnings" in normalized
+    assert "not a measured full-universe gap" in normalized
     assert "Recent public-source checks found a small current-source gap" not in normalized
     assert (
         "confirmed HDB gaps are SUN PLAZA SPRING and YISHUN BEACON, three postals each"

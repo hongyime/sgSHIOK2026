@@ -16,9 +16,13 @@ The current postal universe is frozen v1: 124,443 records built around a June
 2020 OneMap-derived postal scrape plus later local route and source evidence.
 The 16 Aug 2026 public-source sample found a small sampled current-source gap: 6
 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of
-976 (0.82%) sampled 2021-2026 public-source rows with postals. The confirmed HDB gaps
-are SUN PLAZA SPRING and YISHUN BEACON, three postals each; CANAAN and MYRA
-remain unvalidated MCST proxy warnings. The P125 20 Aug 2026 Overpass coverage cross-check found
+976 sampled 2021-2026 public-source rows with postals. That is 0.61%
+confirmed missing rows, or 0.82% including source-quality warnings. If that
+sample row rate were applied to the 124,443 frozen v1 distinct postals, the
+directional scale would be 765 confirmed missing rows, or 1,020 including
+warnings; that is not a measured full-universe gap. The confirmed HDB gaps are
+SUN PLAZA SPRING and YISHUN BEACON, three postals each; CANAAN and MYRA remain
+unvalidated MCST proxy warnings. The P125 20 Aug 2026 Overpass coverage cross-check found
 25,879 valid distinct OSM `addr:postcode` values: 25,873 overlap the 124,443
 frozen postals and 6 are valid OSM-only postcodes, so OSM remains geometry
 evidence rather than an address registry. OneMap Search validates and
