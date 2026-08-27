@@ -2124,7 +2124,12 @@ def validate_static_artifacts(
                 route_options = record.get("route_options")
                 if isinstance(route_options, dict):
                     for key, option in route_options.items():
-                        if key == "best_transit" or not isinstance(option, dict):
+                        option_context = f"scores/{area}.json:{postal}:route_options.{key}"
+                        if not isinstance(option, dict):
+                            errors.append(f"{option_context}: record must be an object")
+                            continue
+                        validate_score_record(option, errors, option_context)
+                        if key == "best_transit":
                             continue
                         if option.get("paths") is not None:
                             route_options_with_geom_required[postal].add(str(key))

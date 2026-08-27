@@ -604,6 +604,59 @@ def test_validate_requires_geometry_for_switchable_route_options(tmp_path: Path)
     ]
 
 
+def test_validate_rejects_incomplete_switchable_route_options(tmp_path: Path):
+    record = sample_record("560238")
+    record["route_options"] = {
+        "best_transit": {
+            "state": "SCORED",
+            "total": record["total"],
+            "subscores": record["subscores"],
+            "best_node": record["best_node"],
+            "paths": record["paths"],
+            "exposure_gaps": record["exposure_gaps"],
+        },
+        "mrt_lrt": {
+            "state": "SCORED",
+            "total": 75.0,
+            "subscores": record["subscores"],
+            "best_node": {"type": "mrt_lrt_exit", "name": "MRT Option", "routed_m": 390.0},
+            "paths": {
+                "shortest_m": 390.0,
+                "sheltered_m": 430.0,
+                "covered_ratio": 0.55,
+                "detour_pct": 10.3,
+            },
+            "exposure_gaps": None,
+        },
+        "bus": {
+            "state": "SCORED",
+            "total": 62.0,
+            "subscores": record["subscores"],
+            "best_node": None,
+            "paths": {
+                "shortest_m": 420.0,
+                "sheltered_m": 470.0,
+                "covered_ratio": 0.51,
+                "detour_pct": 11.9,
+            },
+            "exposure_gaps": [],
+        },
+    }
+    record["_geometry_options"] = {
+        "mrt_lrt": record["_geometry"],
+        "bus": record["_geometry"],
+    }
+
+    export_static_artifacts([record], output_dir=tmp_path)
+    ok, validation = validate_static_artifacts(tmp_path)
+
+    assert not ok
+    assert validation["errors"] == [
+        "scores/TEST_AREA.json:560238:route_options.bus: best_node missing for SCORED",
+        "scores/TEST_AREA.json:560238:route_options.mrt_lrt: exposure_gaps missing for SCORED",
+    ]
+
+
 def test_refresh_score_provenance_manifest_preserves_candidates_field(tmp_path: Path):
     export_static_artifacts([sample_record_with_candidates("560234")], output_dir=tmp_path)
     scores_dir = tmp_path / "scores"
