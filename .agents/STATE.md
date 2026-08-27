@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P591 export-validation commit: `0b850aa`; state-only commits may follow it on `main`.
+Latest P592 export-validation commit: `bd6fc56`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P592 is complete and committed: static export validation now validates score-shard candidate summaries as browser-visible `TransitCandidate` records, enforcing required fields, candidate cap, state validity, `geometry_ref == "<postal>_<node_id>" or null`, and matching geom candidate presence for non-null refs. Focused candidate summary/reference tests, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P591 is complete and committed: static export validation now rejects non-object candidate geometry entries and `geom.candidates[<node_id>]` entries missing `shortest`, `sheltered`, or `exposure_gaps`, aligning candidate stop geometry with the browser `PostalRouteGeomOption` contract used by the precomputed transit-stop picker. Focused candidate-geometry shape test, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P590 is complete and committed: static export validation now rejects non-object geometry `route_options` and geometry route options missing `shortest`, `sheltered`, or `exposure_gaps`, aligning geom route-option shards with the browser `PostalRouteGeomOption` contract. Focused geom route-option shape test, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P589 is complete and committed: static export validation now rejects unknown `route_options` keys in score shards and geometry shards, keeping the bundle contract aligned with the manifest/browser modes `best_transit`, `mrt_lrt`, and `bus`. Focused route-option key test, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
