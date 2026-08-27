@@ -1351,6 +1351,15 @@ def export_static_artifacts(
                     "geometry_ref_format": "<postal>_<node_id>",
                     "node_id_prefixes": ["bus:", "mrt:"],
                 },
+                "route_options": {
+                    "keys": ["best_transit", "mrt_lrt", "bus"],
+                    "best_transit_geometry": "uses the top-level geom shard record",
+                    "switchable_geometry_ref_format": "geom.<cell>.json[postal].route_options[<option_key>]",
+                    "switchable_geometry_requirement": (
+                        "non-best route_options with paths require matching geom shard "
+                        "route_options entries"
+                    ),
+                },
                 "state_semantics": {
                     NO_TRANSIT_IN_RANGE: {
                         "score_fields": "total and subscores are null",
@@ -1381,6 +1390,7 @@ def export_static_artifacts(
             # no scored non-best candidates.
             "record_shape": {
                 "candidates_map": "geom.<cell>.json[postal].candidates[<node_id>]",
+                "route_options_map": "geom.<cell>.json[postal].route_options[<option_key>]",
             },
         },
         "transit": {

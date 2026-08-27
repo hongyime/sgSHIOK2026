@@ -495,6 +495,17 @@ def test_export_static_artifacts_preserves_no_transit_walk_evidence(tmp_path: Pa
     no_transit_semantics = manifest["scores"]["record_shape"]["state_semantics"][
         "NO_TRANSIT_IN_RANGE"
     ]
+    assert manifest["scores"]["record_shape"]["route_options"] == {
+        "keys": ["best_transit", "mrt_lrt", "bus"],
+        "best_transit_geometry": "uses the top-level geom shard record",
+        "switchable_geometry_ref_format": "geom.<cell>.json[postal].route_options[<option_key>]",
+        "switchable_geometry_requirement": (
+            "non-best route_options with paths require matching geom shard route_options entries"
+        ),
+    }
+    assert manifest["geom"]["record_shape"]["route_options_map"] == (
+        "geom.<cell>.json[postal].route_options[<option_key>]"
+    )
     assert no_transit_semantics == {
         "score_fields": "total and subscores are null",
         "walk_evidence": (
