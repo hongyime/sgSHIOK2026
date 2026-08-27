@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P601 export-validation commit: `5ddd3b9`; state-only commits may follow it on `main`.
+Latest P602 web-validation commit: `02d5ed7`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P602 is complete and committed: `web/scripts/ensure-data-bundle.mjs` now exposes a pure `buildTransitH3ShardCollections()` helper and guards CLI execution so tests can import shard derivation without writing under `web/public/data`. The protected public transit H3 shard set was checked read-only: 558 expected cells, 558 shard files, 6,011 shard features, zero wrong-cell features, and zero missing/extra ids. Focused shard-builder web test, full web test suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests are now 152 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P601 is complete and committed: static export validation now rejects missing kind-specific transit POI metadata (`bus_stop.code`, `mrt_exit.station`, `mrt_exit.exit`, and positive `mrt_station.exit_count`). The protected public transit POI artifact was checked read-only and has zero missing required metadata across 6,011 features. Focused metadata regression, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; Python collection is now 457. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P600 is complete and committed: static export validation now rejects transit POI ids whose namespace prefix does not match `properties.kind` (`bus_stop` -> `bus:`, `mrt_exit` -> `mrt:`, `mrt_station` -> `station:`), matching the browser-facing transit POI identity contract. Focused id/kind mismatch regression, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; Python collection is now 456. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P599 is complete and committed: static export validation now rejects duplicate transit POI ids, matching the browser transit-stop picker behavior that de-duplicates POIs by id and would otherwise silently hide candidates. Focused duplicate transit POI id regression, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; Python collection is now 455. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
