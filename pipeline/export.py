@@ -2138,11 +2138,13 @@ def validate_static_artifacts(
     score_index_path = artifact_json_path(input_dir, "scores/index.json")
     geom_index_path = artifact_json_path(input_dir, "geom/index.json")
     geom_postal_index_path = artifact_json_path(input_dir, "geom/postal-index.json")
+    transit_path = artifact_json_path(input_dir, "transit/pois.json")
     for rel_path, required in [
         ("manifest.json", manifest_path),
         ("scores/index.json", score_index_path),
         ("geom/index.json", geom_index_path),
         ("geom/postal-index.json", geom_postal_index_path),
+        ("transit/pois.json", transit_path),
     ]:
         if not required.is_file():
             errors.append(f"missing required file: {rel_path}")
@@ -2387,7 +2389,7 @@ def validate_static_artifacts(
         warnings.append(f"{len(extra_geom)} geometry postals are not in scores/index.json")
 
     transit_features = 0
-    transit_path = artifact_json_path(input_dir, "transit/pois.json")
+    transit_counts: dict[str, int] = {}
     if transit_path.is_file():
         mark("validating transit POI artifact")
         transit = read_artifact_json(input_dir, "transit/pois.json")
@@ -2399,6 +2401,7 @@ def validate_static_artifacts(
                 errors.append("transit/pois.json features must be a list")
             else:
                 transit_features = len(features)
+                transit_kind_counts: Counter[str] = Counter()
                 for index, feature in enumerate(features):
                     if not isinstance(feature, dict):
                         errors.append(f"transit/pois.json:{index}: feature must be an object")
@@ -2418,6 +2421,18 @@ def validate_static_artifacts(
                         "bus_stop",
                     }:
                         errors.append(f"transit/pois.json:{index}: invalid kind")
+                    elif isinstance(properties.get("kind"), str):
+                        transit_kind_counts[str(properties["kind"])] += 1
+                transit_counts = dict(sorted(transit_kind_counts.items()))
+    if isinstance(manifest, dict):
+        manifest_transit = manifest.get("transit")
+        if isinstance(manifest_transit, dict):
+            if manifest_transit.get("feature_count") != transit_features:
+                errors.append(
+                    "manifest transit.feature_count does not match transit/pois.json"
+                )
+            if manifest_transit.get("counts") != transit_counts:
+                errors.append("manifest transit.counts does not match transit/pois.json")
 
     report = {
         "input_dir": str(input_dir),

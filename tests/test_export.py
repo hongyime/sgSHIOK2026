@@ -330,6 +330,23 @@ def test_validate_rejects_stale_score_prefix_index(tmp_path: Path):
     ]
 
 
+def test_validate_rejects_stale_transit_manifest_counts(tmp_path: Path):
+    export_static_artifacts([sample_record("123456")], output_dir=tmp_path)
+    manifest_path = tmp_path / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["transit"]["feature_count"] = 999
+    manifest["transit"]["counts"] = {"bus_stop": 999}
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    ok, validation = validate_static_artifacts(tmp_path)
+
+    assert not ok
+    assert validation["errors"] == [
+        "manifest transit.feature_count does not match transit/pois.json",
+        "manifest transit.counts does not match transit/pois.json",
+    ]
+
+
 def test_route_segments_split_disjoint_multiline_parts_without_fake_connector():
     segments = route_segment_geometries(
         [
