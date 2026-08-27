@@ -2027,6 +2027,11 @@ def validate_score_record(record: dict[str, Any], errors: list[str], context: st
             errors.append(f"{context}: total must be null for {state}")
         if record.get("subscores") is not None:
             errors.append(f"{context}: subscores must be null for {state}")
+        if state == NO_TRANSIT_IN_RANGE and record.get("paths") is not None:
+            if record.get("best_node") is None:
+                errors.append(f"{context}: best_node missing for path-bearing {state}")
+            if record.get("exposure_gaps") is None:
+                errors.append(f"{context}: exposure_gaps missing for path-bearing {state}")
 
 
 def validate_static_artifacts(

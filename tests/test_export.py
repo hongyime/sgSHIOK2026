@@ -542,6 +542,22 @@ def test_validate_requires_geometry_for_no_transit_walk_evidence(tmp_path: Path)
     assert validation["errors"] == ["1 records requiring geometry missing geometry shards"]
 
 
+def test_validate_rejects_incomplete_no_transit_walk_evidence_records(tmp_path: Path):
+    missing_best_node = no_transit_walk_evidence_record("560235")
+    missing_best_node["best_node"] = None
+    missing_exposure_gaps = no_transit_walk_evidence_record("560236")
+    missing_exposure_gaps["exposure_gaps"] = None
+
+    export_static_artifacts([missing_best_node, missing_exposure_gaps], output_dir=tmp_path)
+    ok, validation = validate_static_artifacts(tmp_path)
+
+    assert not ok
+    assert validation["errors"] == [
+        "scores/TEST_AREA.json:560235: best_node missing for path-bearing NO_TRANSIT_IN_RANGE",
+        "scores/TEST_AREA.json:560236: exposure_gaps missing for path-bearing NO_TRANSIT_IN_RANGE",
+    ]
+
+
 def test_refresh_score_provenance_manifest_preserves_candidates_field(tmp_path: Path):
     export_static_artifacts([sample_record_with_candidates("560234")], output_dir=tmp_path)
     scores_dir = tmp_path / "scores"
