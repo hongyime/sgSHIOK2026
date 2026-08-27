@@ -2458,6 +2458,25 @@ def validate_static_artifacts(
                                 f"transit/pois.json:{index}: id {poi_id!r} "
                                 f"does not match kind {kind!r}"
                             )
+                        if kind == "bus_stop" and (
+                            not isinstance(properties.get("code"), str)
+                            or not properties.get("code")
+                        ):
+                            errors.append(f"transit/pois.json:{index}: missing bus code")
+                        if kind == "mrt_exit":
+                            for field in ("station", "exit"):
+                                if (
+                                    not isinstance(properties.get(field), str)
+                                    or not properties.get(field)
+                                ):
+                                    errors.append(
+                                        f"transit/pois.json:{index}: missing MRT {field}"
+                                    )
+                        if kind == "mrt_station" and not (
+                            isinstance(properties.get("exit_count"), int)
+                            and properties.get("exit_count") > 0
+                        ):
+                            errors.append(f"transit/pois.json:{index}: missing exit_count")
                         if poi_id in transit_ids:
                             errors.append(
                                 f"transit/pois.json:{index}: duplicate id {poi_id!r} "
