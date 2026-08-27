@@ -590,6 +590,23 @@ def test_load_score_batch_records_roundtrips_records_without_candidates(tmp_path
     assert "candidates" not in loaded[0]
 
 
+def test_load_score_batch_records_preserves_no_transit_walk_evidence(tmp_path: Path):
+    chunks_dir = tmp_path / "chunks"
+    record = json_safe_score_record(no_transit_walk_evidence_record("560235"))
+    write_json(chunks_dir / "chunk_00001_560235_560235.json", [record])
+
+    loaded = load_score_batch_records(tmp_path)
+
+    assert loaded == [record]
+    assert loaded[0]["state"] == "NO_TRANSIT_IN_RANGE"
+    assert loaded[0]["total"] is None
+    assert loaded[0]["subscores"] is None
+    assert loaded[0]["best_node"]["routed_m"] == 1500.0
+    assert loaded[0]["paths"]["covered_ratio"] == 0.48
+    assert loaded[0]["route_options"]["best_transit"]["state"] == "NO_TRANSIT_IN_RANGE"
+    assert loaded[0]["provenance"]["reason"] == "routed_candidates_beyond_access_range"
+
+
 def test_station_code_rows_from_xls_bytes_parses_official_schema(monkeypatch):
     class FakeSheet:
         nrows = 3
