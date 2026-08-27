@@ -841,6 +841,24 @@ def test_validate_rejects_incomplete_geom_route_options(tmp_path: Path):
     ]
 
 
+def test_validate_rejects_stale_geom_postal_index(tmp_path: Path):
+    export_static_artifacts([sample_record("560244")], output_dir=tmp_path)
+    postal_index_path = tmp_path / "geom" / "postal-index.json"
+    postal_index = json.loads(postal_index_path.read_text(encoding="utf-8"))
+    expected_shard = postal_index["560244"]
+    postal_index["560244"] = "886520d835ffff0"
+    postal_index["999999"] = expected_shard
+    postal_index_path.write_text(json.dumps(postal_index), encoding="utf-8")
+
+    ok, validation = validate_static_artifacts(tmp_path)
+
+    assert not ok
+    assert validation["errors"] == [
+        f"geom/postal-index.json:560244: expected shard {expected_shard}, got 886520d835ffff0",
+        "geom/postal-index.json:999999: postal not present in geom shards",
+    ]
+
+
 def test_refresh_score_provenance_manifest_preserves_candidates_field(tmp_path: Path):
     export_static_artifacts([sample_record_with_candidates("560234")], output_dir=tmp_path)
     scores_dir = tmp_path / "scores"

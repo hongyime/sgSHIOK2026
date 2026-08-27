@@ -2137,10 +2137,12 @@ def validate_static_artifacts(
     manifest_path = artifact_json_path(input_dir, "manifest.json")
     score_index_path = artifact_json_path(input_dir, "scores/index.json")
     geom_index_path = artifact_json_path(input_dir, "geom/index.json")
+    geom_postal_index_path = artifact_json_path(input_dir, "geom/postal-index.json")
     for rel_path, required in [
         ("manifest.json", manifest_path),
         ("scores/index.json", score_index_path),
         ("geom/index.json", geom_index_path),
+        ("geom/postal-index.json", geom_postal_index_path),
     ]:
         if not required.is_file():
             errors.append(f"missing required file: {rel_path}")
@@ -2236,6 +2238,7 @@ def validate_static_artifacts(
                     score_prefixes = len(prefix_payload)
 
     geom_postals: set[str] = set()
+    actual_geom_postal_index: dict[str, str] = {}
     geom_postals_with_route_segments: set[str] = set()
     geom_route_options: dict[str, set[str]] = defaultdict(set)
     geom_candidates: dict[str, set[str]] = defaultdict(set)
@@ -2270,6 +2273,13 @@ def validate_static_artifacts(
                     continue
                 postal = str(item.get("postal"))
                 geom_postals.add(postal)
+                existing_shard = actual_geom_postal_index.get(postal)
+                if existing_shard is not None and existing_shard != target_cell:
+                    errors.append(
+                        f"geom postal {postal} appears in multiple shards: "
+                        f"{existing_shard}, {target_cell}"
+                    )
+                actual_geom_postal_index[postal] = str(target_cell)
                 for key in ["shortest", "sheltered", "exposure_gaps"]:
                     if key not in item:
                         errors.append(f"geom/h3/{target_cell}.json:{postal}: missing {key}")
@@ -2318,6 +2328,26 @@ def validate_static_artifacts(
             if shard_index == len(geom_targets) or shard_index % 250 == 0:
                 mark(f"validated {shard_index}/{len(geom_targets)} geometry shards")
         mark(f"validated {len(geom_postals)} geometry records")
+
+    if geom_postal_index_path.is_file():
+        postal_index_payload = read_artifact_json(input_dir, "geom/postal-index.json")
+        if not isinstance(postal_index_payload, dict):
+            errors.append("geom/postal-index.json must be an object")
+        else:
+            postal_index_lookup = {
+                str(postal): str(shard) for postal, shard in postal_index_payload.items()
+            }
+            for postal, expected_shard in sorted(actual_geom_postal_index.items()):
+                indexed_shard = postal_index_lookup.get(postal)
+                if indexed_shard is None:
+                    errors.append(f"geom/postal-index.json missing postal: {postal}")
+                elif indexed_shard != expected_shard:
+                    errors.append(
+                        f"geom/postal-index.json:{postal}: expected shard "
+                        f"{expected_shard}, got {indexed_shard}"
+                    )
+            for postal in sorted(set(postal_index_lookup) - set(actual_geom_postal_index)):
+                errors.append(f"geom/postal-index.json:{postal}: postal not present in geom shards")
 
     missing_geom = postals_with_geom_required - geom_postals
     if missing_geom:
