@@ -101,4 +101,50 @@ describe("fetchGeomForPostal", () => {
       { cache: "no-store" }
     );
   });
+
+  it("falls back to the full postal index when the postal prefix shard is stale", async () => {
+    vi.stubEnv("NEXT_PUBLIC_DATA_BASE", "/data/generated/");
+    const childRecord = {
+      postal: "560234",
+      shortest: "encoded-shortest",
+      sheltered: "encoded-sheltered",
+      exposure_gaps: [],
+    };
+
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = bareUrl(input);
+      if (url.endsWith("/geom/postal-prefix/560.json")) {
+        return jsonResponse(true, { "560234": "stale-child" });
+      }
+      if (url.endsWith("/geom/h3/stale-child.json")) {
+        return jsonResponse(true, [{ ...childRecord, postal: "560999" }]);
+      }
+      if (url.endsWith("/geom/postal-index.json")) {
+        return jsonResponse(true, { "560234": "postal-child" });
+      }
+      if (url.endsWith("/geom/h3/postal-child.json")) return jsonResponse(true, [childRecord]);
+      return jsonResponse(false);
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const { fetchGeomForPostal } = await import("../data");
+
+    await expect(fetchGeomForPostal("560234")).resolves.toEqual(childRecord);
+    expect(fetchMock).toHaveBeenCalledWith(
+      expect.stringMatching(/^\/data\/generated\/geom\/postal-prefix\/560\.json\?v=/),
+      { cache: "no-store" }
+    );
+    expect(fetchMock).toHaveBeenCalledWith(
+      expect.stringMatching(/^\/data\/generated\/geom\/h3\/stale-child\.json\?v=/),
+      { cache: "no-store" }
+    );
+    expect(fetchMock).toHaveBeenCalledWith(
+      expect.stringMatching(/^\/data\/generated\/geom\/postal-index\.json\?v=/),
+      { cache: "no-store" }
+    );
+    expect(fetchMock).toHaveBeenCalledWith(
+      expect.stringMatching(/^\/data\/generated\/geom\/h3\/postal-child\.json\?v=/),
+      { cache: "no-store" }
+    );
+  });
 });
