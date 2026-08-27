@@ -2204,12 +2204,24 @@ def validate_static_artifacts(
                         geom_postals_with_route_segments.add(postal)
                 route_options = item.get("route_options")
                 if isinstance(route_options, dict):
-                    for key in route_options:
+                    for key, option in route_options.items():
                         if key not in VALID_ROUTE_OPTION_KEYS:
                             errors.append(
                                 f"geom/h3/{target_cell}.json:{postal}:route_options.{key}: "
                                 "invalid route option key"
                             )
+                        if not isinstance(option, dict):
+                            errors.append(
+                                f"geom/h3/{target_cell}.json:{postal}:route_options.{key}: "
+                                "record must be an object"
+                            )
+                            continue
+                        for required_key in ["shortest", "sheltered", "exposure_gaps"]:
+                            if required_key not in option:
+                                errors.append(
+                                    f"geom/h3/{target_cell}.json:{postal}:route_options.{key}: "
+                                    f"missing {required_key}"
+                                )
                     geom_route_options[postal].update(str(key) for key in route_options)
             if shard_index == len(geom_targets) or shard_index % 250 == 0:
                 mark(f"validated {shard_index}/{len(geom_targets)} geometry shards")
