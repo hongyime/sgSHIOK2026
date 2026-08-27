@@ -4,7 +4,7 @@ Date: 2026-08-22
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P566 code commit: `1533dc6`; state-only commits may follow it on `main`.
+Latest P580 code commit: `a48d34f`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P580 is complete and committed: `assemble_score_record` now preserves far-connected `NO_TRANSIT_IN_RANGE` walk evidence supplied as out-of-range routed carriers, keeping score fields null while exposing `best_node`, `paths`, `exposure_gaps`, per-type route options, and candidate summaries; empty/disconnected no-transit records remain all-null and candidate-free. Focused scoring-integration selection, related scoring/scoring-integration/export tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P570-P572 complete on 2026-08-25 by Codex: P570 versioned refresh plan, P571 native ingest, and P572 post-refresh verification show all eight targeted sources were refreshed or verified unchanged; six stale-by-age sources returned 304 unchanged, while `covered_linkway` and `overhead_bridge_underpass` downloaded bytes matching existing content-addressed SHA directories, so manifest-only freshness may still flag upstream `last_modified` stale-by-basis caveats without evidence of changed content.
 - P566 is complete and committed: planning-area rank helper copy now distinguishes closed, locked-score sorting-index, evidence-view, and crossing-friction locked-term states, and the screen-reader chooser now says comparison view instead of evidence view. Focused rank/copy/accessibility tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P565 is complete and committed: planning-area rank metric labels now name the evidence users can inspect (rain covered-walkway evidence, walk-distance evidence, bus service-support evidence, heat proxy evidence, crossing-friction locked term) instead of old locked-term shorthand. Focused rank/copy/accessibility tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
