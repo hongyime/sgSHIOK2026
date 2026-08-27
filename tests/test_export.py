@@ -175,6 +175,43 @@ def unscored_record(postal: str) -> dict:
     }
 
 
+def no_transit_walk_evidence_record(postal: str = "560235") -> dict:
+    record = sample_record(postal)
+    record["state"] = "NO_TRANSIT_IN_RANGE"
+    record["total"] = None
+    record["subscores"] = None
+    record["best_node"] = {
+        "type": "mrt_lrt_exit",
+        "name": "TEST MRT Exit 2",
+        "routed_m": 1500.0,
+        "station": "TEST MRT",
+    }
+    record["paths"] = {
+        "shortest_m": 1300.0,
+        "sheltered_m": 1500.0,
+        "detour_pct": 15.4,
+        "covered_m": 720.0,
+        "covered_ratio": 0.48,
+        "shade_m": 120.0,
+        "shade_ratio": 0.08,
+        "routing_type": "sheltered",
+    }
+    record["exposure_gaps"] = [{"len_m": 180.2, "label": "far connected gap"}]
+    record["route_options"] = {
+        "best_transit": {
+            "state": "NO_TRANSIT_IN_RANGE",
+            "total": None,
+            "subscores": None,
+            "best_node": record["best_node"],
+            "paths": record["paths"],
+            "exposure_gaps": record["exposure_gaps"],
+        }
+    }
+    record["provenance"]["reason"] = "routed_candidates_beyond_access_range"
+    record["provenance"]["routing_diagnostics"] = {"nearest_routed_m": 1500.0}
+    return record
+
+
 def test_slugify_area():
     assert slugify_area("Downtown Core") == "DOWNTOWN_CORE"
     assert slugify_area(None) == "UNKNOWN"
@@ -447,6 +484,35 @@ def test_export_static_artifacts_writes_candidates_into_score_and_geom_shards(tm
     assert set(entry["candidates"]) == {"bus:66361", "mrt:21491"}
     assert entry["candidates"]["bus:66361"]["shortest"]
     assert "postal" not in entry["candidates"]["bus:66361"]
+
+
+def test_export_static_artifacts_preserves_no_transit_walk_evidence(tmp_path: Path):
+    export_static_artifacts([no_transit_walk_evidence_record("560235")], output_dir=tmp_path)
+    ok, validation = validate_static_artifacts(tmp_path)
+    assert ok, validation
+
+    score_payload = json.loads(next((tmp_path / "scores").glob("TEST_AREA*.json")).read_text())
+    score = score_payload[0]
+    assert score["postal"] == "560235"
+    assert score["state"] == "NO_TRANSIT_IN_RANGE"
+    assert score["total"] is None
+    assert score["subscores"] is None
+    assert score["best_node"]["routed_m"] == 1500.0
+    assert score["paths"]["covered_ratio"] == 0.48
+    assert score["paths"]["sheltered_m"] == 1500.0
+    assert score["exposure_gaps"] == [{"len_m": 180.2, "label": "far connected gap"}]
+    assert score["route_options"]["best_transit"]["state"] == "NO_TRANSIT_IN_RANGE"
+    assert score["route_options"]["best_transit"]["total"] is None
+    assert score["provenance"]["reason"] == "routed_candidates_beyond_access_range"
+    assert score["provenance"]["routing_diagnostics"] == {"nearest_routed_m": 1500.0}
+    assert "_geometry" not in score
+
+    postal_index = json.loads((tmp_path / "geom" / "postal-index.json").read_text())
+    shard = postal_index["560235"]
+    geom_payload = json.loads((tmp_path / "geom" / "h3" / f"{shard}.json").read_text())
+    entry = next(record for record in geom_payload if record["postal"] == "560235")
+    assert entry["route_segments"]["sheltered"][0]["len_m"] == 50.0
+    assert entry["exposure_gaps"][0]["len_m"] == 180.2
 
 
 def test_refresh_score_provenance_manifest_preserves_candidates_field(tmp_path: Path):
