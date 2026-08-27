@@ -486,6 +486,24 @@ def test_export_static_artifacts_writes_candidates_into_score_and_geom_shards(tm
     assert "postal" not in entry["candidates"]["bus:66361"]
 
 
+def test_validate_rejects_incomplete_candidate_geometry(tmp_path: Path):
+    export_static_artifacts([sample_record_with_candidates("560241")], output_dir=tmp_path)
+    postal_index = json.loads((tmp_path / "geom" / "postal-index.json").read_text())
+    shard_path = tmp_path / "geom" / "h3" / f"{postal_index['560241']}.json"
+    geom_payload = json.loads(shard_path.read_text(encoding="utf-8"))
+    geom_payload[0]["candidates"]["bus:66361"].pop("shortest")
+    geom_payload[0]["candidates"]["bus:66361"].pop("exposure_gaps")
+    shard_path.write_text(json.dumps(geom_payload), encoding="utf-8")
+
+    ok, validation = validate_static_artifacts(tmp_path)
+
+    assert not ok
+    assert validation["errors"] == [
+        "geom/h3/886520d835fffff.json:560241:candidates.bus:66361: missing shortest",
+        "geom/h3/886520d835fffff.json:560241:candidates.bus:66361: missing exposure_gaps",
+    ]
+
+
 def test_export_static_artifacts_preserves_no_transit_walk_evidence(tmp_path: Path):
     export_static_artifacts([no_transit_walk_evidence_record("560235")], output_dir=tmp_path)
     ok, validation = validate_static_artifacts(tmp_path)

@@ -2223,6 +2223,18 @@ def validate_static_artifacts(
                                     f"missing {required_key}"
                                 )
                     geom_route_options[postal].update(str(key) for key in route_options)
+                candidates = item.get("candidates")
+                if isinstance(candidates, dict):
+                    for node_id, candidate in candidates.items():
+                        candidate_context = (
+                            f"geom/h3/{target_cell}.json:{postal}:candidates.{node_id}"
+                        )
+                        if not isinstance(candidate, dict):
+                            errors.append(f"{candidate_context}: record must be an object")
+                            continue
+                        for required_key in ["shortest", "sheltered", "exposure_gaps"]:
+                            if required_key not in candidate:
+                                errors.append(f"{candidate_context}: missing {required_key}")
             if shard_index == len(geom_targets) or shard_index % 250 == 0:
                 mark(f"validated {shard_index}/{len(geom_targets)} geometry shards")
         mark(f"validated {len(geom_postals)} geometry records")
