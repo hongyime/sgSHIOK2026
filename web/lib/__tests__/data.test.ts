@@ -92,6 +92,23 @@ describe("generated data bundle", () => {
     );
   });
 
+  it("geometry postal prefix shards match the full postal index", () => {
+    const geomPostalIndex = readJson<Record<string, string>>("geom/postal-index.json");
+    const expectedPrefixIndex: Record<string, Record<string, string>> = {};
+    for (const [postal, shard] of Object.entries(geomPostalIndex)) {
+      const prefix = postal.slice(0, 3);
+      expectedPrefixIndex[prefix] ??= {};
+      expectedPrefixIndex[prefix][postal] = shard;
+    }
+
+    for (const [prefix, expected] of Object.entries(expectedPrefixIndex)) {
+      const prefixIndex = readJson<Record<string, string>>(
+        `geom/postal-prefix/${prefix}.json`
+      );
+      expect(prefixIndex).toEqual(expected);
+    }
+  }, 15000);
+
   it("postal geometry index resolves a route shard", () => {
     const geomPostalIndex = readJson<Record<string, string>>("geom/postal-index.json");
     const shard = geomPostalIndex["560234"];
