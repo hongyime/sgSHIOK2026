@@ -201,7 +201,7 @@ describe("score card copy", () => {
     expect(source).not.toContain('const RECENT_PUBLIC_SOURCE_CHECK_LABEL = "16 Aug 2026 public-source check";');
     expect(source).not.toContain("Recent public-source check: {RECENT_PUBLIC_SOURCE_GAP_COPY}.");
     expect(source).toContain(
-      "6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) sampled 2021-2026 public-source rows with postals"
+      "6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including source-quality warnings"
     );
     expect(source).not.toContain("out of 976 (0.82%) 2021-2026 public-source rows with postals");
     expect(source).toContain(
@@ -216,12 +216,14 @@ describe("score card copy", () => {
     expect(source).not.toContain("Live OSM addr:postcode coverage:");
     expect(source).not.toContain("OSM remains the address registry");
     expect(source).toContain(
-      "Data freshness at the 21 Aug 2026 UTC manifest-only check: 12 sources current, 6 stale, 2 manual, and Overture Maps Addresses - Singapore candidate has unknown age. No upstream URLs were probed. The oldest current item is NParks Leaf Area Index, a freshness-only reference table 6.4 days from its 120-day threshold. Stale sources by days past threshold are Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Traffic Signals, NParks Heritage Trees, and NParks Nature Ways. Stale-source refreshes require a new numbered input version, not an in-place frozen-v1 mutation."
+      "Data freshness at the 27 Aug 2026 UTC manifest-only check: 10 sources current, 8 stale, 2 manual, and Overture Maps Addresses - Singapore candidate has unknown age. No upstream URLs were probed. The oldest current item is NParks Leaf Area Index, a freshness-only reference table 0.3 days from its 120-day threshold. Stale sources by days past threshold are Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Covered Linkway, Pedestrian Overhead Bridge / Underpass, Traffic Signals, NParks Heritage Trees, and NParks Nature Ways. Stale-source refreshes require a new numbered input version, not an in-place frozen-v1 mutation."
     );
     expect(source).toContain("Stale-source refreshes require a new numbered input version");
     expect(source).toContain("not an in-place frozen-v1 mutation");
     expect(source).toContain("Stale sources by days past threshold");
-    expect(source).toContain("6.4 days from its 120-day threshold");
+    expect(source).toContain("0.3 days from its 120-day threshold");
+    expect(source).not.toContain("6.4 days from its 120-day threshold");
+    expect(source).not.toContain("Data freshness at the 21 Aug 2026 UTC manifest-only check: 12 sources current, 6 stale");
     expect(source).not.toContain("Stale sources are Traffic Signals, Planning Area Boundaries");
     expect(source).not.toContain("Stale sources are traffic signals, planning area boundary");
     expect(source).not.toContain("1 candidate address source with unknown age");
@@ -246,8 +248,9 @@ describe("score card copy", () => {
     );
     expect(source).not.toContain("6 supporting sources are stale.");
     expect(source).toContain(
-      "Covered Linkway follows a quarterly 120-day freshness threshold; frozen v1 uses the Mar 2026 LTA geospatial listing. A 21 Aug 2026 metadata-only DataMall check found current Covered Linkway and bridge/underpass discovery URLs differ from frozen v1, while traffic signals still matched, so any refresh must be a new numbered input version."
+      "Covered Linkway follows a quarterly 120-day freshness threshold; frozen v1 uses the Mar 2026 LTA geospatial listing. A 21 Aug 2026 metadata-only DataMall check found Covered Linkway and bridge/underpass discovery URLs differ from frozen v1, while traffic signals still matched, so any refresh must be a new numbered input version."
     );
+    expect(source).not.toContain("check found current Covered Linkway");
     expect(source).toContain("traffic signals still matched");
     expect(source).not.toContain("current shelter-layer discovery URLs differ from frozen v1");
     expect(source).not.toContain(

@@ -99,14 +99,14 @@ const REASON_COPY: Record<keyof Subscores, { low: string; high: string }> = {
 };
 
 const RECENT_PUBLIC_SOURCE_GAP_COPY =
-  "6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 (0.82%) sampled 2021-2026 public-source rows with postals";
+  "6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including source-quality warnings";
 const RECENT_PUBLIC_SOURCE_SAMPLE_LABEL = "16 Aug 2026 public-source sample";
 
 const OSM_ADDR_POSTCODE_COVERAGE_COPY =
   "20 Aug 2026 OSM addr:postcode coverage cross-check: 25,879 valid distinct postcodes measured; 25,873 overlap the 124,443 frozen postals, with 6 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry.";
 
 const COVERED_LINKWAY_FRESHNESS_COPY =
-  "Covered Linkway follows a quarterly 120-day freshness threshold; frozen v1 uses the Mar 2026 LTA geospatial listing. A 21 Aug 2026 metadata-only DataMall check found current Covered Linkway and bridge/underpass discovery URLs differ from frozen v1, while traffic signals still matched, so any refresh must be a new numbered input version.";
+  "Covered Linkway follows a quarterly 120-day freshness threshold; frozen v1 uses the Mar 2026 LTA geospatial listing. A 21 Aug 2026 metadata-only DataMall check found Covered Linkway and bridge/underpass discovery URLs differ from frozen v1, while traffic signals still matched, so any refresh must be a new numbered input version.";
 
 const LEAF_AREA_INDEX_REFERENCE_COPY =
   "NParks Leaf Area Index is a freshness-only reference table here; walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature.";
@@ -2215,7 +2215,7 @@ export default function Home() {
               {OSM_ADDR_POSTCODE_COVERAGE_COPY}
             </p>
             <p className={styles.freshnessLine}>
-              Data freshness at the 21 Aug 2026 UTC manifest-only check: 12 sources current, 6 stale, 2 manual, and Overture Maps Addresses - Singapore candidate has unknown age. No upstream URLs were probed. The oldest current item is NParks Leaf Area Index, a freshness-only reference table 6.4 days from its 120-day threshold. Stale sources by days past threshold are Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Traffic Signals, NParks Heritage Trees, and NParks Nature Ways. Stale-source refreshes require a new numbered input version, not an in-place frozen-v1 mutation.
+              Data freshness at the 27 Aug 2026 UTC manifest-only check: 10 sources current, 8 stale, 2 manual, and Overture Maps Addresses - Singapore candidate has unknown age. No upstream URLs were probed. The oldest current item is NParks Leaf Area Index, a freshness-only reference table 0.3 days from its 120-day threshold. Stale sources by days past threshold are Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Covered Linkway, Pedestrian Overhead Bridge / Underpass, Traffic Signals, NParks Heritage Trees, and NParks Nature Ways. Stale-source refreshes require a new numbered input version, not an in-place frozen-v1 mutation.
             </p>
             <p className={styles.freshnessLine}>
               {COVERED_LINKWAY_FRESHNESS_COPY}
