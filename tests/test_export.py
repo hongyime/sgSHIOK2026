@@ -657,6 +657,43 @@ def test_validate_rejects_incomplete_switchable_route_options(tmp_path: Path):
     ]
 
 
+def test_validate_rejects_unknown_route_option_keys(tmp_path: Path):
+    record = sample_record("560239")
+    record["route_options"] = {
+        "best_transit": {
+            "state": "SCORED",
+            "total": record["total"],
+            "subscores": record["subscores"],
+            "best_node": record["best_node"],
+            "paths": record["paths"],
+            "exposure_gaps": record["exposure_gaps"],
+        },
+        "taxi": {
+            "state": "SCORED",
+            "total": 68.0,
+            "subscores": record["subscores"],
+            "best_node": {"type": "taxi_stand", "name": "Taxi Option", "routed_m": 360.0},
+            "paths": {
+                "shortest_m": 360.0,
+                "sheltered_m": 390.0,
+                "covered_ratio": 0.57,
+                "detour_pct": 8.3,
+            },
+            "exposure_gaps": [],
+        },
+    }
+    record["_geometry_options"] = {"taxi": record["_geometry"]}
+
+    export_static_artifacts([record], output_dir=tmp_path)
+    ok, validation = validate_static_artifacts(tmp_path)
+
+    assert not ok
+    assert validation["errors"] == [
+        "scores/TEST_AREA.json:560239:route_options.taxi: invalid route option key",
+        "geom/h3/886520d835fffff.json:560239:route_options.taxi: invalid route option key",
+    ]
+
+
 def test_refresh_score_provenance_manifest_preserves_candidates_field(tmp_path: Path):
     export_static_artifacts([sample_record_with_candidates("560234")], output_dir=tmp_path)
     scores_dir = tmp_path / "scores"

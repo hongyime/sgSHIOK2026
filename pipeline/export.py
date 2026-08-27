@@ -48,6 +48,7 @@ MAX_FILE_BYTES = 5 * 1024 * 1024
 GEOM_PROMOTION_THRESHOLD_BYTES = int(MAX_FILE_BYTES * 0.9)
 GEOM_MAX_PROMOTION_RESOLUTION = 12
 VALID_STATES = {"SCORED", "SCORED_PARTIAL", NOT_YET_SCORED, NO_TRANSIT_IN_RANGE}
+VALID_ROUTE_OPTION_KEYS = {"best_transit", "mrt_lrt", "bus"}
 TRANSIT_SOURCE_KEYS = (
     "mrt_lrt_exits",
     "train_station_codes",
@@ -2125,6 +2126,8 @@ def validate_static_artifacts(
                 if isinstance(route_options, dict):
                     for key, option in route_options.items():
                         option_context = f"scores/{area}.json:{postal}:route_options.{key}"
+                        if key not in VALID_ROUTE_OPTION_KEYS:
+                            errors.append(f"{option_context}: invalid route option key")
                         if not isinstance(option, dict):
                             errors.append(f"{option_context}: record must be an object")
                             continue
@@ -2201,6 +2204,12 @@ def validate_static_artifacts(
                         geom_postals_with_route_segments.add(postal)
                 route_options = item.get("route_options")
                 if isinstance(route_options, dict):
+                    for key in route_options:
+                        if key not in VALID_ROUTE_OPTION_KEYS:
+                            errors.append(
+                                f"geom/h3/{target_cell}.json:{postal}:route_options.{key}: "
+                                "invalid route option key"
+                            )
                     geom_route_options[postal].update(str(key) for key in route_options)
             if shard_index == len(geom_targets) or shard_index % 250 == 0:
                 mark(f"validated {shard_index}/{len(geom_targets)} geometry shards")
