@@ -1,6 +1,28 @@
 import { describe, expect, it, vi } from "vitest";
 
-import { buildTransitH3ShardCollections } from "../../scripts/ensure-data-bundle.mjs";
+import {
+  buildPostalPrefixShardMappings,
+  buildTransitH3ShardCollections,
+} from "../../scripts/ensure-data-bundle.mjs";
+
+describe("buildPostalPrefixShardMappings", () => {
+  it("groups postal-to-geometry shard mappings by first three postal digits", () => {
+    const shards = buildPostalPrefixShardMappings({
+      "018989": "cell-a",
+      "018990": "cell-b",
+      "238801": "cell-c",
+    });
+
+    expect([...shards.keys()].sort()).toEqual(["018", "238"]);
+    expect(shards.get("018")).toEqual({
+      "018989": "cell-a",
+      "018990": "cell-b",
+    });
+    expect(shards.get("238")).toEqual({
+      "238801": "cell-c",
+    });
+  });
+});
 
 describe("buildTransitH3ShardCollections", () => {
   it("groups transit POIs into H3 feature collections and skips invalid points", () => {

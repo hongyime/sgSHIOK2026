@@ -49,15 +49,18 @@ function ensureGzipCompanion(path) {
   writeFileSync(`${path}.gz`, gzipSync(readFileSync(path)));
 }
 
-function writePostalPrefixShards(targetRoot, postalIndex) {
+export function buildPostalPrefixShardMappings(postalIndex) {
   const prefixes = new Map();
   for (const [postal, shard] of Object.entries(postalIndex || {})) {
     const prefix = String(postal).slice(0, 3);
     if (!prefixes.has(prefix)) prefixes.set(prefix, {});
     prefixes.get(prefix)[postal] = shard;
   }
+  return prefixes;
+}
 
-  for (const [prefix, mapping] of prefixes) {
+function writePostalPrefixShards(targetRoot, postalIndex) {
+  for (const [prefix, mapping] of buildPostalPrefixShardMappings(postalIndex)) {
     writeGzJson(join(targetRoot, "geom", "postal-prefix", `${prefix}.json.gz`), mapping);
   }
 }
