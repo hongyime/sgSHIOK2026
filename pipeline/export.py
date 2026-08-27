@@ -1369,6 +1369,14 @@ def export_static_artifacts(
                 },
                 "route_options": {
                     "keys": ["best_transit", "mrt_lrt", "bus"],
+                    "required_fields": [
+                        "state",
+                        "total",
+                        "subscores",
+                        "best_node",
+                        "paths",
+                        "exposure_gaps",
+                    ],
                     "best_transit_geometry": "uses the top-level geom shard record",
                     "switchable_geometry_ref_format": "geom.<cell>.json[postal].route_options[<option_key>]",
                     "switchable_geometry_requirement": (
@@ -1408,6 +1416,7 @@ def export_static_artifacts(
                 "candidates_map": "geom.<cell>.json[postal].candidates[<node_id>]",
                 "candidates_map_required_fields": ["shortest", "sheltered", "exposure_gaps"],
                 "route_options_map": "geom.<cell>.json[postal].route_options[<option_key>]",
+                "route_options_map_required_fields": ["shortest", "sheltered", "exposure_gaps"],
             },
         },
         "transit": {

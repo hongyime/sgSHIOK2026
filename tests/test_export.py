@@ -582,6 +582,14 @@ def test_export_static_artifacts_preserves_no_transit_walk_evidence(tmp_path: Pa
     }
     assert manifest["scores"]["record_shape"]["route_options"] == {
         "keys": ["best_transit", "mrt_lrt", "bus"],
+        "required_fields": [
+            "state",
+            "total",
+            "subscores",
+            "best_node",
+            "paths",
+            "exposure_gaps",
+        ],
         "best_transit_geometry": "uses the top-level geom shard record",
         "switchable_geometry_ref_format": "geom.<cell>.json[postal].route_options[<option_key>]",
         "switchable_geometry_requirement": (
@@ -592,6 +600,11 @@ def test_export_static_artifacts_preserves_no_transit_walk_evidence(tmp_path: Pa
         "geom.<cell>.json[postal].route_options[<option_key>]"
     )
     assert manifest["geom"]["record_shape"]["candidates_map_required_fields"] == [
+        "shortest",
+        "sheltered",
+        "exposure_gaps",
+    ]
+    assert manifest["geom"]["record_shape"]["route_options_map_required_fields"] == [
         "shortest",
         "sheltered",
         "exposure_gaps",
