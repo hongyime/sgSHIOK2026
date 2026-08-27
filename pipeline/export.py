@@ -2219,6 +2219,8 @@ def validate_static_artifacts(
             if shard_index == len(score_items) or shard_index % 25 == 0:
                 mark(f"validated {shard_index}/{len(score_items)} score shards")
         mark(f"validated {len(indexed_postals)} indexed score records")
+    else:
+        score_index = {}
 
     manifest = None
     if manifest_path.is_file():
@@ -2236,6 +2238,22 @@ def validate_static_artifacts(
                     errors.append(f"{prefix_rel_path} must be an object")
                 else:
                     score_prefixes = len(prefix_payload)
+                    expected_prefix_index = score_prefix_index(
+                        {
+                            str(shard): [str(postal) for postal in postals]
+                            for shard, postals in score_index.items()
+                            if isinstance(postals, list)
+                        }
+                    )
+                    normalized_prefix_index = {
+                        str(prefix): [str(shard) for shard in shards]
+                        for prefix, shards in prefix_payload.items()
+                        if isinstance(shards, list)
+                    }
+                    if normalized_prefix_index != expected_prefix_index:
+                        errors.append(
+                            f"{prefix_rel_path} does not match scores/index.json prefixes"
+                        )
 
     geom_postals: set[str] = set()
     actual_geom_postal_index: dict[str, str] = {}

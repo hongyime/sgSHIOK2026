@@ -313,6 +313,23 @@ def test_validate_accepts_gzipped_json_artifacts(tmp_path: Path):
     assert validation["geometry_postals_with_route_segments"] == 2
 
 
+def test_validate_rejects_stale_score_prefix_index(tmp_path: Path):
+    records = [sample_record("123456"), sample_record("654321")]
+    export_static_artifacts(records, output_dir=tmp_path)
+    prefix_index_path = tmp_path / "scores" / "prefix-index.json"
+    prefix_index = json.loads(prefix_index_path.read_text(encoding="utf-8"))
+    prefix_index["123"] = []
+    prefix_index["999"] = ["TEST_AREA"]
+    prefix_index_path.write_text(json.dumps(prefix_index), encoding="utf-8")
+
+    ok, validation = validate_static_artifacts(tmp_path)
+
+    assert not ok
+    assert validation["errors"] == [
+        "scores/prefix-index.json does not match scores/index.json prefixes"
+    ]
+
+
 def test_route_segments_split_disjoint_multiline_parts_without_fake_connector():
     segments = route_segment_geometries(
         [
