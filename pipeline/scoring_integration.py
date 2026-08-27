@@ -1802,6 +1802,49 @@ def public_route_option(candidate_score: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def public_no_transit_evidence_option(candidate_score: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "state": NO_TRANSIT_IN_RANGE,
+        "total": None,
+        "subscores": None,
+        "best_node": candidate_score["best_node"],
+        "paths": candidate_score["paths"],
+        "exposure_gaps": candidate_score.get("exposure_gaps"),
+    }
+
+
+def no_transit_evidence_sort_key(candidate_score: dict[str, Any]) -> tuple[float, float]:
+    paths = candidate_score.get("paths") if isinstance(candidate_score.get("paths"), dict) else {}
+    best_node = (
+        candidate_score.get("best_node") if isinstance(candidate_score.get("best_node"), dict) else {}
+    )
+    shortest_m = paths.get("shortest_m")
+    if not isinstance(shortest_m, int | float):
+        shortest_m = best_node.get("routed_m")
+    straight_line_m = best_node.get("straight_line_m")
+    return (
+        float(shortest_m) if isinstance(shortest_m, int | float) else float("inf"),
+        float(straight_line_m) if isinstance(straight_line_m, int | float) else float("inf"),
+    )
+
+
+def best_no_transit_evidence_candidate(
+    candidate_scores: list[dict[str, Any]],
+    node_type: str | None = None,
+) -> dict[str, Any] | None:
+    routed_no_transit = [
+        candidate_score
+        for candidate_score in candidate_scores
+        if candidate_score.get("total") == NO_TRANSIT_IN_RANGE
+        and isinstance(candidate_score.get("paths"), dict)
+        and isinstance(candidate_score.get("best_node"), dict)
+        and (node_type is None or candidate_score["best_node"].get("type") == node_type)
+    ]
+    if not routed_no_transit:
+        return None
+    return min(routed_no_transit, key=no_transit_evidence_sort_key)
+
+
 def repick_best_transit_from_route_options(record: dict[str, Any]) -> dict[str, Any]:
     """Re-elect ``best_transit`` on an already-assembled score record.
 
@@ -1951,8 +1994,11 @@ def public_candidate_summary(
     paths = raw_paths if isinstance(raw_paths, dict) else {}
     raw_subscores = candidate_score.get("subscores")
     subscores = raw_subscores if isinstance(raw_subscores, dict) else {}
-    has_pending_subscores = any(value is None for value in subscores.values())
-    state = "SCORED_PARTIAL" if has_pending_subscores else "SCORED"
+    if candidate_score.get("total") == NO_TRANSIT_IN_RANGE:
+        state = NO_TRANSIT_IN_RANGE
+    else:
+        has_pending_subscores = any(value is None for value in subscores.values())
+        state = "SCORED_PARTIAL" if has_pending_subscores else "SCORED"
     geometry_ref = (
         f"{postal}_{node_id}" if isinstance(candidate_score.get("_geometry"), dict) else None
     )
@@ -2254,6 +2300,41 @@ def assemble_score_record(
         candidate for candidate in candidate_scores if isinstance(candidate["total"], int | float)
     ]
     if not scored_candidates:
+        best_evidence = best_no_transit_evidence_candidate(candidate_scores)
+        if best_evidence is not None:
+            mrt_evidence = best_no_transit_evidence_candidate(candidate_scores, "mrt_lrt_exit")
+            bus_evidence = best_no_transit_evidence_candidate(candidate_scores, "bus_stop")
+            route_options = {
+                "best_transit": public_no_transit_evidence_option(best_evidence),
+                "mrt_lrt": (
+                    public_no_transit_evidence_option(mrt_evidence)
+                    if mrt_evidence is not None
+                    else empty_route_option("mrt_lrt_exit")
+                ),
+                "bus": (
+                    public_no_transit_evidence_option(bus_evidence)
+                    if bus_evidence is not None
+                    else empty_route_option("bus_stop")
+                ),
+            }
+            record = {
+                "postal": postal,
+                "state": NO_TRANSIT_IN_RANGE,
+                "total": None,
+                "subscores": None,
+                "best_node": best_evidence["best_node"],
+                "paths": best_evidence["paths"],
+                "exposure_gaps": best_evidence.get("exposure_gaps"),
+                "route_options": route_options,
+                "data_as_of": data_as_of,
+                "provenance": provenance,
+            }
+            candidate_summaries = build_candidate_summaries(candidate_scores, postal)
+            if candidate_summaries:
+                record["candidates"] = candidate_summaries
+            if "_geometry" in best_evidence:
+                record["_geometry"] = best_evidence["_geometry"]
+            return record
         return {
             "postal": postal,
             "state": NO_TRANSIT_IN_RANGE,

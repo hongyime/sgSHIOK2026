@@ -2259,7 +2259,74 @@ def test_assemble_score_record_omits_candidates_for_no_transit_records():
     record = assemble_score_record("560234", [], None, {"reason": "test"})
 
     assert record["state"] == "NO_TRANSIT_IN_RANGE"
+    assert record["total"] is None
+    assert record["subscores"] is None
+    assert record["best_node"] is None
+    assert record["paths"] is None
+    assert record["exposure_gaps"] is None
+    assert "route_options" not in record
     assert "candidates" not in record
+
+
+def test_assemble_score_record_preserves_far_connected_no_transit_walk_evidence():
+    candidate = _mrt_candidate(
+        station="FAR MRT STATION",
+        exit_code="Exit 1",
+        object_id="999",
+        straight_line_m=1100.0,
+    )
+    no_transit_candidate = _scored_candidate(
+        candidate,
+        total=0.0,
+        shortest_m=1300.0,
+        sheltered_m=1250.0,
+        covered_ratio=0.64,
+        shade_ratio=0.44,
+        routing_type="sheltered",
+        subscores=None,
+        include_geometry=True,
+    )
+    no_transit_candidate["total"] = "NO_TRANSIT_IN_RANGE"
+    no_transit_candidate["subscores"] = None
+    no_transit_candidate["exposure_gaps"] = [{"len_m": 72.4, "label": "exposed gap"}]
+    no_transit_bus = _scored_candidate(
+        _bus_candidate(name="Far Bus", exit_code="98765", straight_line_m=900.0),
+        total=0.0,
+        shortest_m=1500.0,
+        sheltered_m=1400.0,
+        covered_ratio=0.4,
+        routing_type="sheltered",
+    )
+    no_transit_bus["total"] = "NO_TRANSIT_IN_RANGE"
+    no_transit_bus["subscores"] = None
+
+    record = assemble_score_record(
+        "560234",
+        [no_transit_bus, no_transit_candidate],
+        "2026-08-26T00:00:00Z",
+        {"reason": "all_routed_transit_candidates_beyond_access_range"},
+    )
+
+    assert record["state"] == "NO_TRANSIT_IN_RANGE"
+    assert record["total"] is None
+    assert record["subscores"] is None
+    assert record["best_node"]["type"] == "mrt_lrt_exit"
+    assert record["best_node"]["routed_m"] == 1300.0
+    assert record["paths"]["shortest_m"] == 1300.0
+    assert record["paths"]["covered_ratio"] == 0.64
+    assert record["exposure_gaps"] == [{"len_m": 72.4, "label": "exposed gap"}]
+    assert record["route_options"]["best_transit"]["state"] == "NO_TRANSIT_IN_RANGE"
+    assert record["route_options"]["best_transit"]["total"] is None
+    assert record["route_options"]["best_transit"]["subscores"] is None
+    assert record["route_options"]["best_transit"]["paths"]["shortest_m"] == 1300.0
+    assert record["route_options"]["mrt_lrt"]["paths"]["shortest_m"] == 1300.0
+    assert record["route_options"]["bus"]["paths"]["shortest_m"] == 1500.0
+    assert {candidate["state"] for candidate in record["candidates"]} == {"NO_TRANSIT_IN_RANGE"}
+    assert {candidate["paths"]["shortest_m"] for candidate in record["candidates"]} == {
+        1300.0,
+        1500.0,
+    }
+    assert "sheltered" in record["_geometry"]
 
 
 def test_assemble_score_record_populates_candidate_geometries_when_included():
