@@ -2045,6 +2045,44 @@ def validate_score_record(record: dict[str, Any], errors: list[str], context: st
                 errors.append(f"{context}: exposure_gaps missing for path-bearing {state}")
 
 
+def validate_candidate_summary(
+    candidate: dict[str, Any],
+    errors: list[str],
+    context: str,
+    postal: str,
+) -> str | None:
+    for key in [
+        "node_id",
+        "node_name",
+        "node_type",
+        "direct_distance_m",
+        "paths",
+        "geometry_ref",
+        "route_trust",
+        "routing_type",
+        "state",
+    ]:
+        if key not in candidate:
+            errors.append(f"{context}: missing {key}")
+    node_id = candidate.get("node_id")
+    if not isinstance(node_id, str) or not node_id:
+        errors.append(f"{context}: node_id must be a non-empty string")
+        return None
+    state = candidate.get("state")
+    if state not in VALID_STATES:
+        errors.append(f"{context}: invalid state {state!r}")
+    if not isinstance(candidate.get("paths"), dict):
+        errors.append(f"{context}: paths must be an object")
+    geometry_ref = candidate.get("geometry_ref")
+    if geometry_ref is None:
+        return None
+    expected_ref = f"{postal}_{node_id}"
+    if geometry_ref != expected_ref:
+        errors.append(f"{context}: geometry_ref must be {expected_ref!r} or null")
+        return None
+    return node_id
+
+
 def validate_static_artifacts(
     input_dir: Path = DEFAULT_VALIDATE_DIR,
     progress: Callable[[str], None] | None = None,
@@ -2085,6 +2123,7 @@ def validate_static_artifacts(
     indexed_postals: set[str] = set()
     postals_with_geom_required: set[str] = set()
     route_options_with_geom_required: dict[str, set[str]] = defaultdict(set)
+    candidates_with_geom_required: dict[str, set[str]] = defaultdict(set)
     score_prefixes = 0
     if score_index_path.is_file():
         mark("validating score index and shards")
@@ -2122,6 +2161,20 @@ def validate_static_artifacts(
                     or record.get("paths") is not None
                 ):
                     postals_with_geom_required.add(postal)
+                candidates = record.get("candidates")
+                if isinstance(candidates, list):
+                    if len(candidates) > 5:
+                        errors.append(f"scores/{area}.json:{postal}: candidates exceeds cap 5")
+                    for index, candidate in enumerate(candidates):
+                        candidate_context = f"scores/{area}.json:{postal}:candidates[{index}]"
+                        if not isinstance(candidate, dict):
+                            errors.append(f"{candidate_context}: record must be an object")
+                            continue
+                        node_id = validate_candidate_summary(
+                            candidate, errors, candidate_context, postal
+                        )
+                        if node_id is not None:
+                            candidates_with_geom_required[postal].add(node_id)
                 route_options = record.get("route_options")
                 if isinstance(route_options, dict):
                     for key, option in route_options.items():
@@ -2160,6 +2213,7 @@ def validate_static_artifacts(
     geom_postals: set[str] = set()
     geom_postals_with_route_segments: set[str] = set()
     geom_route_options: dict[str, set[str]] = defaultdict(set)
+    geom_candidates: dict[str, set[str]] = defaultdict(set)
     if geom_index_path.is_file():
         mark("validating geometry index and shards")
         geom_index = read_artifact_json(input_dir, "geom/index.json")
@@ -2235,6 +2289,7 @@ def validate_static_artifacts(
                         for required_key in ["shortest", "sheltered", "exposure_gaps"]:
                             if required_key not in candidate:
                                 errors.append(f"{candidate_context}: missing {required_key}")
+                    geom_candidates[postal].update(str(node_id) for node_id in candidates)
             if shard_index == len(geom_targets) or shard_index % 250 == 0:
                 mark(f"validated {shard_index}/{len(geom_targets)} geometry shards")
         mark(f"validated {len(geom_postals)} geometry records")
@@ -2247,6 +2302,12 @@ def validate_static_artifacts(
         for option in missing_options:
             errors.append(
                 f"scores route_options:{postal}: {option} has paths but missing geom route option"
+            )
+    for postal, required_candidates in sorted(candidates_with_geom_required.items()):
+        missing_candidates = sorted(required_candidates - geom_candidates.get(postal, set()))
+        for node_id in missing_candidates:
+            errors.append(
+                f"scores candidates:{postal}: {node_id} has geometry_ref but missing geom candidate"
             )
     extra_geom = geom_postals - indexed_postals
     if extra_geom:

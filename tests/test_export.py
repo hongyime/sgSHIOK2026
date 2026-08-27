@@ -504,6 +504,52 @@ def test_validate_rejects_incomplete_candidate_geometry(tmp_path: Path):
     ]
 
 
+def test_validate_rejects_malformed_score_candidates(tmp_path: Path):
+    record = sample_record_with_candidates("560242")
+    record["candidates"][0].pop("node_name")
+    record["candidates"][0]["geometry_ref"] = "560242_bus:missing"
+    record["candidates"][1]["state"] = "BROKEN"
+    record["candidates"].append({**record["candidates"][1], "node_id": "bus:extra1"})
+    record["candidates"].append({**record["candidates"][1], "node_id": "bus:extra2"})
+    record["candidates"].append({**record["candidates"][1], "node_id": "bus:extra3"})
+    record["candidates"].append({**record["candidates"][1], "node_id": "bus:extra4"})
+
+    export_static_artifacts([record], output_dir=tmp_path)
+    ok, validation = validate_static_artifacts(tmp_path)
+
+    assert not ok
+    assert validation["errors"] == [
+        "scores/TEST_AREA.json:560242: candidates exceeds cap 5",
+        "scores/TEST_AREA.json:560242:candidates[0]: missing node_name",
+        "scores/TEST_AREA.json:560242:candidates[0]: geometry_ref must be '560242_bus:66361' or null",
+        "scores/TEST_AREA.json:560242:candidates[1]: invalid state 'BROKEN'",
+        "scores/TEST_AREA.json:560242:candidates[2]: invalid state 'BROKEN'",
+        "scores/TEST_AREA.json:560242:candidates[2]: geometry_ref must be '560242_bus:extra1' or null",
+        "scores/TEST_AREA.json:560242:candidates[3]: invalid state 'BROKEN'",
+        "scores/TEST_AREA.json:560242:candidates[3]: geometry_ref must be '560242_bus:extra2' or null",
+        "scores/TEST_AREA.json:560242:candidates[4]: invalid state 'BROKEN'",
+        "scores/TEST_AREA.json:560242:candidates[4]: geometry_ref must be '560242_bus:extra3' or null",
+        "scores/TEST_AREA.json:560242:candidates[5]: invalid state 'BROKEN'",
+        "scores/TEST_AREA.json:560242:candidates[5]: geometry_ref must be '560242_bus:extra4' or null",
+    ]
+
+
+def test_validate_requires_geom_for_candidate_geometry_ref(tmp_path: Path):
+    export_static_artifacts([sample_record_with_candidates("560243")], output_dir=tmp_path)
+    postal_index = json.loads((tmp_path / "geom" / "postal-index.json").read_text())
+    shard_path = tmp_path / "geom" / "h3" / f"{postal_index['560243']}.json"
+    geom_payload = json.loads(shard_path.read_text(encoding="utf-8"))
+    geom_payload[0]["candidates"].pop("bus:66361")
+    shard_path.write_text(json.dumps(geom_payload), encoding="utf-8")
+
+    ok, validation = validate_static_artifacts(tmp_path)
+
+    assert not ok
+    assert validation["errors"] == [
+        "scores candidates:560243: bus:66361 has geometry_ref but missing geom candidate"
+    ]
+
+
 def test_export_static_artifacts_preserves_no_transit_walk_evidence(tmp_path: Path):
     export_static_artifacts([no_transit_walk_evidence_record("560235")], output_dir=tmp_path)
     ok, validation = validate_static_artifacts(tmp_path)
