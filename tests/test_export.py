@@ -559,6 +559,27 @@ def test_export_static_artifacts_preserves_no_transit_walk_evidence(tmp_path: Pa
     no_transit_semantics = manifest["scores"]["record_shape"]["state_semantics"][
         "NO_TRANSIT_IN_RANGE"
     ]
+    assert manifest["scores"]["record_shape"]["candidates"] == {
+        "cap": 5,
+        "sort_key": "direct_distance_m_ascending",
+        "geometry_ref_format": "<postal>_<node_id>",
+        "required_fields": [
+            "node_id",
+            "node_name",
+            "node_type",
+            "direct_distance_m",
+            "paths",
+            "geometry_ref",
+            "route_trust",
+            "routing_type",
+            "state",
+        ],
+        "geometry_requirement": (
+            "non-null geometry_ref requires matching "
+            "geom.<cell>.json[postal].candidates[<node_id>]"
+        ),
+        "node_id_prefixes": ["bus:", "mrt:"],
+    }
     assert manifest["scores"]["record_shape"]["route_options"] == {
         "keys": ["best_transit", "mrt_lrt", "bus"],
         "best_transit_geometry": "uses the top-level geom shard record",
@@ -570,6 +591,11 @@ def test_export_static_artifacts_preserves_no_transit_walk_evidence(tmp_path: Pa
     assert manifest["geom"]["record_shape"]["route_options_map"] == (
         "geom.<cell>.json[postal].route_options[<option_key>]"
     )
+    assert manifest["geom"]["record_shape"]["candidates_map_required_fields"] == [
+        "shortest",
+        "sheltered",
+        "exposure_gaps",
+    ]
     assert no_transit_semantics == {
         "score_fields": "total and subscores are null",
         "walk_evidence": (

@@ -1350,6 +1350,21 @@ def export_static_artifacts(
                     "cap": 5,
                     "sort_key": "direct_distance_m_ascending",
                     "geometry_ref_format": "<postal>_<node_id>",
+                    "required_fields": [
+                        "node_id",
+                        "node_name",
+                        "node_type",
+                        "direct_distance_m",
+                        "paths",
+                        "geometry_ref",
+                        "route_trust",
+                        "routing_type",
+                        "state",
+                    ],
+                    "geometry_requirement": (
+                        "non-null geometry_ref requires matching "
+                        "geom.<cell>.json[postal].candidates[<node_id>]"
+                    ),
                     "node_id_prefixes": ["bus:", "mrt:"],
                 },
                 "route_options": {
@@ -1391,6 +1406,7 @@ def export_static_artifacts(
             # no scored non-best candidates.
             "record_shape": {
                 "candidates_map": "geom.<cell>.json[postal].candidates[<node_id>]",
+                "candidates_map_required_fields": ["shortest", "sheltered", "exposure_gaps"],
                 "route_options_map": "geom.<cell>.json[postal].route_options[<option_key>]",
             },
         },
