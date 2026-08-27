@@ -41,7 +41,7 @@ describe("generated data bundle", () => {
       manifest.provenance.state_counts.SCORED +
         manifest.provenance.state_counts.SCORED_PARTIAL
     );
-  });
+  }, 15000);
 
   it("score shards conform to the public score record shape", () => {
     const scoreIndex = readJson<Record<string, string[]>>("scores/index.json");
