@@ -382,6 +382,27 @@ def test_validate_rejects_duplicate_transit_poi_ids(tmp_path: Path):
     ]
 
 
+def test_validate_rejects_transit_poi_id_kind_mismatch(tmp_path: Path):
+    export_static_artifacts([sample_record("123456")], output_dir=tmp_path)
+    transit_path = tmp_path / "transit" / "pois.json"
+    transit = json.loads(transit_path.read_text(encoding="utf-8"))
+    kind = transit["features"][0]["properties"]["kind"]
+    bad_id = {
+        "bus_stop": "mrt:wrong",
+        "mrt_exit": "bus:wrong",
+        "mrt_station": "bus:wrong",
+    }[kind]
+    transit["features"][0]["properties"]["id"] = bad_id
+    transit_path.write_text(json.dumps(transit), encoding="utf-8")
+
+    ok, validation = validate_static_artifacts(tmp_path)
+
+    assert not ok
+    assert validation["errors"] == [
+        f"transit/pois.json:0: id {bad_id!r} does not match kind {kind!r}"
+    ]
+
+
 def test_route_segments_split_disjoint_multiline_parts_without_fake_connector():
     segments = route_segment_geometries(
         [

@@ -2443,6 +2443,21 @@ def validate_static_artifacts(
                         errors.append(f"transit/pois.json:{index}: missing id")
                     elif isinstance(properties.get("id"), str):
                         poi_id = str(properties["id"])
+                        kind = (
+                            properties.get("kind") if isinstance(properties, dict) else None
+                        )
+                        expected_prefixes = {
+                            "bus_stop": "bus:",
+                            "mrt_exit": "mrt:",
+                            "mrt_station": "station:",
+                        }
+                        if isinstance(kind, str) and not poi_id.startswith(
+                            expected_prefixes.get(kind, "\0")
+                        ):
+                            errors.append(
+                                f"transit/pois.json:{index}: id {poi_id!r} "
+                                f"does not match kind {kind!r}"
+                            )
                         if poi_id in transit_ids:
                             errors.append(
                                 f"transit/pois.json:{index}: duplicate id {poi_id!r} "
