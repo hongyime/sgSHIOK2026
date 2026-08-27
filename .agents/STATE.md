@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P606 web-validation commit: `e52c6c6`; state-only commits may follow it on `main`.
+Latest P607 web-validation commit: `a979679`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P607 is complete and committed: generated-bundle web tests now verify `scores/prefix-index.json` exactly matches the prefix-to-shard mapping derived from `scores/index.json`. The protected public score prefix artifact was checked read-only: 304 score shards, 124,443 postal refs, 542 prefixes, zero mismatches. Focused data test, full web test suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests are now 156 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P606 is complete and committed: the known-heavy generated-bundle manifest/index web test now has an explicit 15-second timeout after P605 observed a transient full-suite timeout under E14 load. Assertions are unchanged. Focused data test, full web test suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 155 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P605 is complete and committed: browser score lookup fallback is now pinned when derived `scores/prefix-index.json` points to a score shard that does not contain the requested postal; `fetchScoreForPostal()` falls back to full `scores/index.json` and recovers the score record. Focused score data-fetch test, full web test suite rerun, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests are now 155 and Python collection remains 457. First full web run hit a transient `lib/__tests__/data.test.ts` 5-second timeout, then the focused data test and full suite rerun passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P604 is complete and committed: browser geometry lookup fallback is now pinned when a derived `geom/postal-prefix/{prefix}.json` shard points to a route shard that does not contain the requested postal; `fetchGeomForPostal()` falls back to full `geom/postal-index.json` and recovers the geometry. Focused browser data-fetch test, full web test suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests are now 154 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
