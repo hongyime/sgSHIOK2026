@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P588 export-validation commit: `9a7f9f8`; state-only commits may follow it on `main`.
+Latest P589 export-validation commit: `9477c01`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P589 is complete and committed: static export validation now rejects unknown `route_options` keys in score shards and geometry shards, keeping the bundle contract aligned with the manifest/browser modes `best_transit`, `mrt_lrt`, and `bus`. Focused route-option key test, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P588 is complete and committed: static export validation now validates each `route_options` entry with the same state/field rules as top-level score records before checking non-best option geometry references. This prevents switchable MRT/LRT or bus options from advertising `paths` while omitting their own `best_node` or `exposure_gaps`. Focused route-option shape tests, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P587 is complete and committed: exported manifests now document the P586 route-option geometry contract, including score-shard switchable `route_options` geometry references and geom-shard `route_options_map`. Focused export contract tests, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P586 is complete and committed: static validation now requires matching geometry-shard `route_options` entries for non-best score-shard route options that advertise `paths`, preventing switchable MRT/LRT or bus walks that the browser cannot draw. Focused route-option validation tests, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
