@@ -491,6 +491,22 @@ def test_export_static_artifacts_preserves_no_transit_walk_evidence(tmp_path: Pa
     ok, validation = validate_static_artifacts(tmp_path)
     assert ok, validation
 
+    manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
+    no_transit_semantics = manifest["scores"]["record_shape"]["state_semantics"][
+        "NO_TRANSIT_IN_RANGE"
+    ]
+    assert no_transit_semantics == {
+        "score_fields": "total and subscores are null",
+        "walk_evidence": (
+            "best_node, paths, exposure_gaps, and route_options may be present when a "
+            "connected walk exists beyond the locked 1.2 km range"
+        ),
+        "geometry_requirement": (
+            "records with paths require a matching geom shard even when total and subscores "
+            "are null"
+        ),
+    }
+
     score_payload = json.loads(next((tmp_path / "scores").glob("TEST_AREA*.json")).read_text())
     score = score_payload[0]
     assert score["postal"] == "560235"
@@ -513,6 +529,17 @@ def test_export_static_artifacts_preserves_no_transit_walk_evidence(tmp_path: Pa
     entry = next(record for record in geom_payload if record["postal"] == "560235")
     assert entry["route_segments"]["sheltered"][0]["len_m"] == 50.0
     assert entry["exposure_gaps"][0]["len_m"] == 180.2
+
+
+def test_validate_requires_geometry_for_no_transit_walk_evidence(tmp_path: Path):
+    record = no_transit_walk_evidence_record("560235")
+    record.pop("_geometry")
+
+    export_static_artifacts([record], output_dir=tmp_path)
+    ok, validation = validate_static_artifacts(tmp_path)
+
+    assert not ok
+    assert validation["errors"] == ["1 records requiring geometry missing geometry shards"]
 
 
 def test_refresh_score_provenance_manifest_preserves_candidates_field(tmp_path: Path):

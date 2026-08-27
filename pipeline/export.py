@@ -1351,6 +1351,19 @@ def export_static_artifacts(
                     "geometry_ref_format": "<postal>_<node_id>",
                     "node_id_prefixes": ["bus:", "mrt:"],
                 },
+                "state_semantics": {
+                    NO_TRANSIT_IN_RANGE: {
+                        "score_fields": "total and subscores are null",
+                        "walk_evidence": (
+                            "best_node, paths, exposure_gaps, and route_options may be present "
+                            "when a connected walk exists beyond the locked 1.2 km range"
+                        ),
+                        "geometry_requirement": (
+                            "records with paths require a matching geom shard even when total "
+                            "and subscores are null"
+                        ),
+                    }
+                },
             },
             "scoring_fingerprint_digest_counts_by_shard": score_digest_counts_by_shard,
             "scoring_input_digest_counts_by_shard": score_input_digest_counts_by_shard,
@@ -2054,7 +2067,7 @@ def validate_static_artifacts(
             errors.append(f"missing required file: {rel_path}")
 
     indexed_postals: set[str] = set()
-    scored_postals_with_geom_required: set[str] = set()
+    postals_with_geom_required: set[str] = set()
     score_prefixes = 0
     if score_index_path.is_file():
         mark("validating score index and shards")
@@ -2087,8 +2100,11 @@ def validate_static_artifacts(
                 postal = str(record.get("postal"))
                 indexed_postals.add(postal)
                 validate_score_record(record, errors, f"scores/{area}.json:{postal}")
-                if record.get("state") in {"SCORED", "SCORED_PARTIAL"}:
-                    scored_postals_with_geom_required.add(postal)
+                if (
+                    record.get("state") in {"SCORED", "SCORED_PARTIAL"}
+                    or record.get("paths") is not None
+                ):
+                    postals_with_geom_required.add(postal)
             if shard_index == len(score_items) or shard_index % 25 == 0:
                 mark(f"validated {shard_index}/{len(score_items)} score shards")
         mark(f"validated {len(indexed_postals)} indexed score records")
@@ -2158,9 +2174,9 @@ def validate_static_artifacts(
                 mark(f"validated {shard_index}/{len(geom_targets)} geometry shards")
         mark(f"validated {len(geom_postals)} geometry records")
 
-    missing_geom = scored_postals_with_geom_required - geom_postals
+    missing_geom = postals_with_geom_required - geom_postals
     if missing_geom:
-        errors.append(f"{len(missing_geom)} scored postals missing geometry shards")
+        errors.append(f"{len(missing_geom)} records requiring geometry missing geometry shards")
     extra_geom = geom_postals - indexed_postals
     if extra_geom:
         warnings.append(f"{len(extra_geom)} geometry postals are not in scores/index.json")
