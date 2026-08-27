@@ -347,6 +347,25 @@ def test_validate_rejects_stale_transit_manifest_counts(tmp_path: Path):
     ]
 
 
+def test_validate_rejects_malformed_transit_poi_features(tmp_path: Path):
+    export_static_artifacts([sample_record("123456")], output_dir=tmp_path)
+    transit_path = tmp_path / "transit" / "pois.json"
+    transit = json.loads(transit_path.read_text(encoding="utf-8"))
+    transit["features"][0]["geometry"]["coordinates"] = [0, 0]
+    transit["features"][0]["properties"].pop("id")
+    transit["features"][0]["properties"]["name"] = ""
+    transit_path.write_text(json.dumps(transit), encoding="utf-8")
+
+    ok, validation = validate_static_artifacts(tmp_path)
+
+    assert not ok
+    assert validation["errors"] == [
+        "transit/pois.json:0: coordinates outside Singapore bounds",
+        "transit/pois.json:0: missing id",
+        "transit/pois.json:0: missing name",
+    ]
+
+
 def test_route_segments_split_disjoint_multiline_parts_without_fake_connector():
     segments = route_segment_geometries(
         [

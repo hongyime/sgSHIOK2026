@@ -2415,6 +2415,19 @@ def validate_static_artifacts(
                     )
                     if not isinstance(coordinates, list) or len(coordinates) < 2:
                         errors.append(f"transit/pois.json:{index}: missing coordinates")
+                    else:
+                        lon, lat = coordinates[0], coordinates[1]
+                        if not (
+                            isinstance(lon, int | float)
+                            and isinstance(lat, int | float)
+                            and math.isfinite(float(lon))
+                            and math.isfinite(float(lat))
+                            and 103.5 <= float(lon) <= 104.2
+                            and 1.1 <= float(lat) <= 1.6
+                        ):
+                            errors.append(
+                                f"transit/pois.json:{index}: coordinates outside Singapore bounds"
+                            )
                     if not isinstance(properties, dict) or properties.get("kind") not in {
                         "mrt_exit",
                         "mrt_station",
@@ -2423,6 +2436,14 @@ def validate_static_artifacts(
                         errors.append(f"transit/pois.json:{index}: invalid kind")
                     elif isinstance(properties.get("kind"), str):
                         transit_kind_counts[str(properties["kind"])] += 1
+                    if not isinstance(properties, dict) or not isinstance(
+                        properties.get("id"), str
+                    ) or not properties.get("id"):
+                        errors.append(f"transit/pois.json:{index}: missing id")
+                    if not isinstance(properties, dict) or not isinstance(
+                        properties.get("name"), str
+                    ) or not properties.get("name"):
+                        errors.append(f"transit/pois.json:{index}: missing name")
                 transit_counts = dict(sorted(transit_kind_counts.items()))
     if isinstance(manifest, dict):
         manifest_transit = manifest.get("transit")
