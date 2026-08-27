@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P584 score-batch loader test commit: `77381d0`; state-only commits may follow it on `main`.
+Latest P585 export-validation commit: `8e20bcb`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P585 is complete and committed: `validate_score_record()` now rejects path-bearing `NO_TRANSIT_IN_RANGE` records that are missing `best_node` or `exposure_gaps`, preserving the coherent P580 browser-inspectable shape while leaving all-null scoreless no-transit records available for disconnected/no-candidate cases. Focused validation tests, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P584 is complete and committed: `load_score_batch_records()` is now pinned to preserve P580-style path-bearing `NO_TRANSIT_IN_RANGE` chunk records despite the legacy best-transit repick shim. The existing code already returned no-transit records unchanged; the new regression covers the actual chunk-load path and raised Python collection from 441 to 442. Focused loader tests, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P583 is complete and committed: the exported manifest now documents P580 `NO_TRANSIT_IN_RANGE` semantics, and static validation now requires geometry for any score record with `paths`, including scoreless no-transit records beyond the locked range. Focused export contract tests, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P582 is complete and committed: static export is now pinned to preserve P580-style `NO_TRANSIT_IN_RANGE` walk evidence through score shards and geometry shards while keeping locked score fields null and private geometry out of score JSON. No export code change was required; the test proved existing export behavior and raised Python collection from 439 to 440. Focused export tests, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
