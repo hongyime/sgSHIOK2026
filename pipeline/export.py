@@ -2402,6 +2402,7 @@ def validate_static_artifacts(
             else:
                 transit_features = len(features)
                 transit_kind_counts: Counter[str] = Counter()
+                transit_ids: dict[str, int] = {}
                 for index, feature in enumerate(features):
                     if not isinstance(feature, dict):
                         errors.append(f"transit/pois.json:{index}: feature must be an object")
@@ -2440,6 +2441,15 @@ def validate_static_artifacts(
                         properties.get("id"), str
                     ) or not properties.get("id"):
                         errors.append(f"transit/pois.json:{index}: missing id")
+                    elif isinstance(properties.get("id"), str):
+                        poi_id = str(properties["id"])
+                        if poi_id in transit_ids:
+                            errors.append(
+                                f"transit/pois.json:{index}: duplicate id {poi_id!r} "
+                                f"(first seen at {transit_ids[poi_id]})"
+                            )
+                        else:
+                            transit_ids[poi_id] = index
                     if not isinstance(properties, dict) or not isinstance(
                         properties.get("name"), str
                     ) or not properties.get("name"):

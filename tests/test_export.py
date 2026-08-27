@@ -366,6 +366,22 @@ def test_validate_rejects_malformed_transit_poi_features(tmp_path: Path):
     ]
 
 
+def test_validate_rejects_duplicate_transit_poi_ids(tmp_path: Path):
+    export_static_artifacts([sample_record("123456")], output_dir=tmp_path)
+    transit_path = tmp_path / "transit" / "pois.json"
+    transit = json.loads(transit_path.read_text(encoding="utf-8"))
+    duplicate_id = transit["features"][0]["properties"]["id"]
+    transit["features"][1]["properties"]["id"] = duplicate_id
+    transit_path.write_text(json.dumps(transit), encoding="utf-8")
+
+    ok, validation = validate_static_artifacts(tmp_path)
+
+    assert not ok
+    assert validation["errors"] == [
+        f"transit/pois.json:1: duplicate id {duplicate_id!r} (first seen at 0)"
+    ]
+
+
 def test_route_segments_split_disjoint_multiline_parts_without_fake_connector():
     segments = route_segment_geometries(
         [
