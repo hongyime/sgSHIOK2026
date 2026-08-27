@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P595 export-validation commit: `7617ed3`; state-only commits may follow it on `main`.
+Latest P596 export-validation commit: `2a799cc`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P596 is complete and committed: static export validation now recomputes `scores/prefix-index.json` from `scores/index.json` and rejects stale, missing, or extra prefix mappings before browser score-shard lookup can silently miss valid postals. Focused score prefix-index regression, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; Python collection is now 452. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P595 is complete and committed: static export validation now requires `geom/postal-index.json` and verifies that every postal maps to the geometry shard where the postal record actually appears, rejecting stale extra postals, wrong shard mappings, missing postal-index entries, and duplicate geom postals split across shards. Focused geom postal-index regression, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; Python collection is now 451. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P594 is complete and committed: exported manifests now document route-option required score fields and required geometry route-option evidence fields, matching the validation already enforced for switchable transit options. Focused manifest test, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P593 is complete and committed: exported manifests now document the score candidate required fields, the non-null candidate `geometry_ref` cross-file invariant, and the required geometry candidate evidence fields. The existing export contract test now pins the manifest additions. Focused manifest test, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
