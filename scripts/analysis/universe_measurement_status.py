@@ -16,12 +16,19 @@ def _percent(numerator: Any, denominator: Any) -> float | None:
     return round(float(numerator) / float(denominator) * 100.0, 6)
 
 
+def _scaled_count(numerator: Any, denominator: Any, scale: Any) -> int | None:
+    if numerator is None or denominator in (None, 0) or scale is None:
+        return None
+    return int(round(float(numerator) / float(denominator) * float(scale)))
+
+
 def status_report() -> dict[str, Any]:
     p19_status = p19.cache_status_report()
     p125_status = p125.status_report()
     p19_policy = p19_status.get("release_policy")
     p19_split = p19_status.get("evidence_split")
     p19_files = p19_status.get("files")
+    p19_missing_detail = p19_status.get("missing_row_detail")
     p125_coverage = p125_status.get("coverage")
     if not isinstance(p19_policy, dict):
         p19_policy = {}
@@ -29,6 +36,8 @@ def status_report() -> dict[str, Any]:
         p19_split = {}
     if not isinstance(p19_files, dict):
         p19_files = {}
+    if not isinstance(p19_missing_detail, dict):
+        p19_missing_detail = {}
     if not isinstance(p125_coverage, dict):
         p125_coverage = {}
     p19_summary = p19_files.get("summary")
@@ -64,12 +73,32 @@ def status_report() -> dict[str, Any]:
                 "will_call_apis": p19_status.get("will_call_apis") is True,
                 "will_write_files": p19_status.get("will_write_files") is True,
                 "sample_rows_with_postal": p19_rows_with_postal,
+                "sample_missing_unique_postals": p19_missing_detail.get(
+                    "missing_unique_postals"
+                ),
+                "sample_missing_postals": p19_missing_detail.get("missing_postals"),
+                "sample_missing_development_clusters": p19_missing_detail.get(
+                    "missing_development_clusters"
+                ),
                 "confirmed_missing_address_row_rate_pct": _percent(
                     confirmed_missing, p19_rows_with_postal
                 ),
                 "missing_or_source_quality_warning_row_rate_pct": _percent(
                     total_missing_or_warning, p19_rows_with_postal
                 ),
+                "directional_if_sample_rate_applied_to_v1_distinct_postals": {
+                    "basis": (
+                        "Directional scale only: applies recent-completion sample row rates "
+                        "to the frozen-v1 distinct postal count; it is not a measured full-universe gap."
+                    ),
+                    "v1_distinct_postals": v1_distinct_postals,
+                    "confirmed_missing_address_rows_estimate": _scaled_count(
+                        confirmed_missing, p19_rows_with_postal, v1_distinct_postals
+                    ),
+                    "missing_or_source_quality_warning_rows_estimate": _scaled_count(
+                        total_missing_or_warning, p19_rows_with_postal, v1_distinct_postals
+                    ),
+                },
             },
             "osm_addr_postcode_coverage": {
                 "measurement": p125_status.get("measurement"),

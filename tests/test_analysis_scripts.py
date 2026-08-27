@@ -34,6 +34,19 @@ def test_universe_status_consolidates_cached_measurements(monkeypatch) -> None:
                     },
                 },
             },
+            "missing_row_detail": {
+                "missing_unique_postals": 8,
+                "missing_postals": ["521400", "522400", "523400"],
+                "missing_development_clusters": [
+                    {
+                        "development": "SUN PLAZA SPRING",
+                        "source": "hdb_2021_2026_geocoded",
+                        "missing_rows": 3,
+                        "missing_postals": ["521400", "522400", "523400"],
+                        "years": [2026],
+                    }
+                ],
+            },
         },
     )
     monkeypatch.setattr(
@@ -84,6 +97,26 @@ def test_universe_status_consolidates_cached_measurements(monkeypatch) -> None:
     )
     assert (
         report["measurements"]["recent_public_source_gap_sample"][
+            "sample_missing_unique_postals"
+        ]
+        == 8
+    )
+    assert report["measurements"]["recent_public_source_gap_sample"][
+        "sample_missing_postals"
+    ] == ["521400", "522400", "523400"]
+    assert report["measurements"]["recent_public_source_gap_sample"][
+        "sample_missing_development_clusters"
+    ] == [
+        {
+            "development": "SUN PLAZA SPRING",
+            "source": "hdb_2021_2026_geocoded",
+            "missing_rows": 3,
+            "missing_postals": ["521400", "522400", "523400"],
+            "years": [2026],
+        }
+    ]
+    assert (
+        report["measurements"]["recent_public_source_gap_sample"][
             "confirmed_missing_address_row_rate_pct"
         ]
         == 0.614754
@@ -94,6 +127,17 @@ def test_universe_status_consolidates_cached_measurements(monkeypatch) -> None:
         ]
         == 0.819672
     )
+    assert report["measurements"]["recent_public_source_gap_sample"][
+        "directional_if_sample_rate_applied_to_v1_distinct_postals"
+    ] == {
+        "basis": (
+            "Directional scale only: applies recent-completion sample row rates "
+            "to the frozen-v1 distinct postal count; it is not a measured full-universe gap."
+        ),
+        "v1_distinct_postals": 124443,
+        "confirmed_missing_address_rows_estimate": 765,
+        "missing_or_source_quality_warning_rows_estimate": 1020,
+    }
     assert (
         report["measurements"]["osm_addr_postcode_coverage"][
             "osm_valid_not_in_v1_as_share_of_v1_pct"
