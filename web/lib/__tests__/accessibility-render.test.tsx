@@ -743,9 +743,23 @@ describe("rendered accessibility output", () => {
       state: "NO_TRANSIT_IN_RANGE",
       total: null,
       subscores: null,
-      best_node: null,
-      paths: null,
-      exposure_gaps: null,
+      best_node: {
+        ...scoredRecord.best_node!,
+        type: "mrt_lrt_exit",
+        name: "Ang Mo Kio Exit A",
+        routed_m: 1500,
+        station: "Ang Mo Kio",
+      },
+      paths: {
+        ...scoredRecord.paths!,
+        shortest_m: 1300,
+        sheltered_m: 1500,
+        covered_m: 720,
+        covered_ratio: 0.48,
+        shade_m: 120,
+        shade_ratio: 0.08,
+      },
+      exposure_gaps: [{ len_m: 180.2, label: "far-gap", location: { lat: 1.369, lon: 103.845 } }],
       provenance: {
         routing_diagnostics: {
           nearest_routed_m: 1500,
@@ -766,8 +780,17 @@ describe("rendered accessibility output", () => {
     expect(html).toContain(
       "Closest connected shelter-map walk found is about 1.5 km away; locked transit range is 1.2 km."
     );
+    expect(html).toContain("Covered-walkway ratio");
+    expect(html).toContain("48%");
+    expect(html).toContain("1.5 km");
+    expect(html).toContain("Exposed gaps on sheltered walk");
+    expect(html).toContain("Walk evidence is shown because a connected shelter-map walk exists, but the locked score is suppressed beyond the 1.2 km transit range.");
+    expect(html).toContain("Outside locked access range");
+    expect(html).toContain("Locked bus term unavailable");
+    expect(html).toContain("No full locked score is published for this postal, but the route evidence remains inspectable.");
     expect(html).toContain("<span>No full score</span><strong>Published bundle</strong>");
     expect(html).not.toContain("Transit beyond locked range");
+    expect(html).not.toContain("Shelter-map evidence unavailable");
   });
 
   it("explains no-transit records when candidates exist but are disconnected", () => {

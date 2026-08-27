@@ -1382,6 +1382,40 @@ export function ScoreCard({
           ],
         },
       ]
+    : score.paths
+      ? [
+          {
+            id: "shelter",
+            label: "Shelter exposure",
+            value: formatPercent(selectedCoverage),
+            meta: "Covered-walkway ratio",
+            notes: [
+              "Walk evidence is shown because a connected shelter-map walk exists, but the locked score is suppressed beyond the 1.2 km transit range.",
+              heatEvidenceDetail,
+            ].filter((note): note is string => Boolean(note)),
+          },
+          {
+            id: "access",
+            label: "Walk to transit",
+            value: formatDistance(selectedDistance),
+            meta: "Outside locked access range",
+            notes: [`${selectedWalkSentenceLabel} distance to ${transitModeLabel(transitMode)}.`],
+          },
+          {
+            id: "bus",
+            label: "Bus service support",
+            value: formatScore(null),
+            meta: "Locked bus term unavailable",
+            notes: ["Locked bus evidence is not computed for records outside the 1.2 km transit range."],
+          },
+          {
+            id: "locked-score",
+            label: "Locked SHIOK score",
+            value: formatLockedScore(displayScore),
+            meta: "Release sorting index unavailable",
+            notes: ["No full locked score is published for this postal, but the route evidence remains inspectable."],
+          },
+        ]
     : [];
 
   return (
@@ -1506,7 +1540,7 @@ export function ScoreCard({
       {previewStatusNote && <p className={styles.stateNote}>{previewStatusNote}</p>}
       {stateNote && <p className={styles.stateNote}>{stateNote}</p>}
 
-      {score.subscores && (
+      {evidenceRows.length > 0 && (
         <div className={styles.scoreBreakdown} aria-label="Shelter-map evidence and locked score breakdown">
           <div className={styles.scoreBreakdownHeader}>
             <strong>Shelter-map evidence and locked score</strong>
