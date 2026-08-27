@@ -1,5 +1,6 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { basename, dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { gunzipSync, gzipSync } from "node:zlib";
 import { latLngToCell } from "h3-js";
 
@@ -61,25 +62,34 @@ function writePostalPrefixShards(targetRoot, postalIndex) {
   }
 }
 
-function writeTransitH3Shards(targetRoot, transitPois) {
+export function buildTransitH3ShardCollections(transitPois, cellForLatLng = latLngToCell) {
   const cells = new Map();
   for (const feature of transitPois?.features || []) {
     const [lng, lat] = feature?.geometry?.coordinates || [];
     if (!Number.isFinite(lat) || !Number.isFinite(lng)) continue;
-    const cell = latLngToCell(lat, lng, 8);
+    const cell = cellForLatLng(lat, lng, 8);
     if (!cells.has(cell)) cells.set(cell, []);
     cells.get(cell).push(feature);
   }
 
-  for (const [cell, features] of cells) {
-    writeGzJson(join(targetRoot, "transit", "h3", `${cell}.json.gz`), {
-      type: "FeatureCollection",
-      features,
-      provenance: {
-        source: "transit/pois.json",
-        h3_resolution: 8,
+  return new Map(
+    [...cells.entries()].map(([cell, features]) => [
+      cell,
+      {
+        type: "FeatureCollection",
+        features,
+        provenance: {
+          source: "transit/pois.json",
+          h3_resolution: 8,
+        },
       },
-    });
+    ])
+  );
+}
+
+function writeTransitH3Shards(targetRoot, transitPois) {
+  for (const [cell, collection] of buildTransitH3ShardCollections(transitPois)) {
+    writeGzJson(join(targetRoot, "transit", "h3", `${cell}.json.gz`), collection);
   }
 }
 
@@ -180,15 +190,21 @@ function ensureDerivedLookupShards(targetRoot) {
   writeTransitH3Shards(targetRoot, transitPois);
 }
 
-const bundle = normalizeBundle(process.argv[2] || process.env.SHIOK_DATA_BUNDLE || configuredBundle());
-const target = join(process.cwd(), "public", "data", bundle);
-const manifestPath = join(target, "manifest.json");
+async function main() {
+  const bundle = normalizeBundle(process.argv[2] || process.env.SHIOK_DATA_BUNDLE || configuredBundle());
+  const target = join(process.cwd(), "public", "data", bundle);
+  const manifestPath = join(target, "manifest.json");
 
-if (existsSync(manifestPath)) {
-  console.log(`using local data bundle ${target}`);
-  ensureDerivedLookupShards(target);
-} else {
-  await downloadRemoteBundle(bundle, target);
-  ensureDerivedLookupShards(target);
-  console.log(`downloaded data bundle ${target}`);
+  if (existsSync(manifestPath)) {
+    console.log(`using local data bundle ${target}`);
+    ensureDerivedLookupShards(target);
+  } else {
+    await downloadRemoteBundle(bundle, target);
+    ensureDerivedLookupShards(target);
+    console.log(`downloaded data bundle ${target}`);
+  }
+}
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+  await main();
 }
