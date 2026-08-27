@@ -1,10 +1,10 @@
 # Current State
 
-Date: 2026-08-22
+Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P580 code commit: `a48d34f`; state-only commits may follow it on `main`.
+Latest P581 code commit: `28c72b4`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P581 is complete and committed: the browser now keeps `NO_TRANSIT_IN_RANGE` records scoreless while still showing the four-row shelter-map evidence/locked-score panel when P580-style walk evidence is present. The far-connected no-transit render test now uses the path-bearing P580 shape instead of the old all-null shape, and the TypeScript contract test timeout was raised because direct `tsc --noEmit --pretty false` passes but exceeds the old 30-second Vitest budget on E14. Focused no-transit browser tests, full web tests, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P580 is complete and committed: `assemble_score_record` now preserves far-connected `NO_TRANSIT_IN_RANGE` walk evidence supplied as out-of-range routed carriers, keeping score fields null while exposing `best_node`, `paths`, `exposure_gaps`, per-type route options, and candidate summaries; empty/disconnected no-transit records remain all-null and candidate-free. Focused scoring-integration selection, related scoring/scoring-integration/export tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P570-P572 complete on 2026-08-25 by Codex: P570 versioned refresh plan, P571 native ingest, and P572 post-refresh verification show all eight targeted sources were refreshed or verified unchanged; six stale-by-age sources returned 304 unchanged, while `covered_linkway` and `overhead_bridge_underpass` downloaded bytes matching existing content-addressed SHA directories, so manifest-only freshness may still flag upstream `last_modified` stale-by-basis caveats without evidence of changed content.
 - P566 is complete and committed: planning-area rank helper copy now distinguishes closed, locked-score sorting-index, evidence-view, and crossing-friction locked-term states, and the screen-reader chooser now says comparison view instead of evidence view. Focused rank/copy/accessibility tests, full web tests, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
