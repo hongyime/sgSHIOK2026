@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P597 export-validation commit: `c8a3e1b`; state-only commits may follow it on `main`.
+Latest P598 export-validation commit: `a5131bf`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P598 is complete and committed: static export validation now rejects malformed transit POI features with missing stable ids, missing names, or non-finite/out-of-Singapore point coordinates, matching the browser transit-stop picker dependency on usable POI ids and coordinates. Focused transit POI feature regression, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; Python collection is now 454. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P597 is complete and committed: static export validation now requires `transit/pois.json`, counts actual transit POI kinds, and rejects stale `manifest.transit.feature_count` or `manifest.transit.counts` metadata so the browser stop-picker artifact cannot silently drift from manifest reporting. Focused transit manifest-count regression, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; Python collection is now 453. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P596 is complete and committed: static export validation now recomputes `scores/prefix-index.json` from `scores/index.json` and rejects stale, missing, or extra prefix mappings before browser score-shard lookup can silently miss valid postals. Focused score prefix-index regression, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; Python collection is now 452. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P595 is complete and committed: static export validation now requires `geom/postal-index.json` and verifies that every postal maps to the geometry shard where the postal record actually appears, rejecting stale extra postals, wrong shard mappings, missing postal-index entries, and duplicate geom postals split across shards. Focused geom postal-index regression, full `tests/test_export.py`, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; Python collection is now 451. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
