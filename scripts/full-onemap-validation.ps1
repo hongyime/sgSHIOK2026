@@ -5,6 +5,7 @@ param(
     [double]$DelaySec = 2.0,
     [int]$MaxBatches = 0,
     [string]$RunId = "",
+    [switch]$ConfirmFullOnemapValidation,
     [switch]$IncludeResults
 )
 
@@ -24,6 +25,21 @@ $StatusPath = Join-Path $RunDir "status.json"
 $LatestReportPath = Join-Path $RunDir "latest_cached_report.json"
 $CacheDir = Join-Path $RepoRoot "raw\validation\onemap_walk_od"
 $FatalLogPath = Join-Path $RunDir "fatal.log"
+
+function Write-FullOnemapPlan {
+    param([string]$Reason)
+    Write-Output ""
+    Write-Output "plan_only=true"
+    Write-Output "full_onemap_validation=not_started"
+    Write-Output "reason=$Reason"
+    Write-Output "commands:"
+    Write-Output ".\scripts\full-onemap-validation.ps1 -DataBundle $DataBundle -RunId $RunId -ConfirmFullOnemapValidation"
+}
+
+if (-not $ConfirmFullOnemapValidation) {
+    Write-FullOnemapPlan -Reason "confirm_full_onemap_validation_not_set"
+    return
+}
 
 New-Item -ItemType Directory -Force -Path $RunDir | Out-Null
 

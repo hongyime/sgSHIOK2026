@@ -7,6 +7,7 @@ param(
     [int]$PollSeconds = 300,
     [int]$StaleMinutes = 20,
     [int]$MaxRestarts = 25,
+    [switch]$ConfirmFullOnemapValidation,
     [int]$MaxLoops = 0
 )
 
@@ -20,6 +21,21 @@ $StatusPath = Join-Path $RunDir "status.json"
 $CacheDir = Join-Path $RepoRoot "raw\validation\onemap_walk_od"
 $WatchLog = Join-Path $RunDir "watchdog.log"
 $WatchStatusPath = Join-Path $RunDir "watchdog_status.json"
+
+function Write-FullOnemapWatchPlan {
+    param([string]$Reason)
+    Write-Output ""
+    Write-Output "plan_only=true"
+    Write-Output "full_onemap_watch=not_started"
+    Write-Output "reason=$Reason"
+    Write-Output "commands:"
+    Write-Output ".\scripts\watch-full-onemap-validation.ps1 -DataBundle $DataBundle -RunId $RunId -ConfirmFullOnemapValidation"
+}
+
+if (-not $ConfirmFullOnemapValidation) {
+    Write-FullOnemapWatchPlan -Reason "confirm_full_onemap_validation_not_set"
+    return
+}
 
 New-Item -ItemType Directory -Force -Path $RunDir | Out-Null
 
@@ -74,7 +90,8 @@ function Start-Runner {
         "-DelaySec",
         "$DelaySec",
         "-RunId",
-        $RunId
+        $RunId,
+        "-ConfirmFullOnemapValidation"
     )
     $process = Start-Process -FilePath "powershell.exe" -ArgumentList $args -PassThru -WindowStyle Hidden
     Write-WatchLog "started runner pid=$($process.Id)"

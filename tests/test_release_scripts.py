@@ -90,3 +90,30 @@ def test_full_rescore_script_requires_distinct_activation_confirm() -> None:
     activation_write = source.index("[System.IO.File]::WriteAllText(")
     assert activation_gate < export_command
     assert export_command < activation_write
+
+
+def test_full_onemap_validation_wrapper_requires_confirmation_before_writes() -> None:
+    source = (PROJECT_ROOT / "scripts" / "full-onemap-validation.ps1").read_text(encoding="utf-8")
+
+    assert "[switch]$ConfirmFullOnemapValidation" in source
+    assert "confirm_full_onemap_validation_not_set" in source
+
+    confirm_gate = source.index("if (-not $ConfirmFullOnemapValidation)")
+    first_write = source.index("New-Item -ItemType Directory")
+    collect_confirm = source.index('"--confirm-onemap-collection"')
+    assert confirm_gate < first_write
+    assert first_write < collect_confirm
+
+
+def test_full_onemap_watch_wrapper_requires_confirmation_and_forwards_it() -> None:
+    source = (PROJECT_ROOT / "scripts" / "watch-full-onemap-validation.ps1").read_text(encoding="utf-8")
+
+    assert "[switch]$ConfirmFullOnemapValidation" in source
+    assert "confirm_full_onemap_validation_not_set" in source
+
+    confirm_gate = source.index("if (-not $ConfirmFullOnemapValidation)")
+    first_write = source.index("New-Item -ItemType Directory")
+    forwarded = source.index('"-ConfirmFullOnemapValidation"')
+    start_process = source.index("Start-Process")
+    assert confirm_gate < first_write
+    assert forwarded < start_process
