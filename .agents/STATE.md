@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest commit: `1739ae5` (`fix: guard score batch no-resume outputs`)
+Latest commit: `bd52d57` (`docs: record universe measurement status`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,7 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P718 is complete and pushed: `pipeline.score_batch.build_score_batch()` now refuses file output paths and refuses `resume=False` with a non-empty output directory before input loading or scoring context creation.
-- Evidence: `qa/verification/P718-score-batch-no-resume-guard.md`.
-- Checks: `tests/test_score_batch.py` passed 11/11; Python collect-only is 506; repo integrity passed; diff-check passed; protected-diff guard passed.
+- P719 is complete and pushed: cached universe-measurement status was recorded, showing the 2021-2026 public-source sample found 6 confirmed coordinate-backed HDB missing rows plus 2 MCST source-quality warnings out of 976 rows with postals.
+- Evidence: `qa/verification/P719-universe-measurement-status.md`.
+- Checks: `run.py universe-status` completed read-only; repo integrity passed; diff-check passed; protected-diff guard passed.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
