@@ -1434,7 +1434,7 @@ export function ScoreCard({
             id: "access",
             label: "Walk to transit",
             value: formatDistance(selectedDistance),
-            meta: "Outside locked access range",
+            meta: "Outside locked transit range",
             notes: [`${selectedWalkSentenceLabel} distance to ${transitModeLabel(transitMode)}.`],
           },
           {
