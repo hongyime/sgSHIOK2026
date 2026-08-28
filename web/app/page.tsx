@@ -556,7 +556,7 @@ function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): str
   if (reason === "no_transit_candidates_selected") return "No qualifying transit target within 1.2 km";
   return nearestRoutedTransitM(score, transitMode) !== null
     ? "Connected walk beyond 1.2 km"
-    : `No connected ${transitModeLabel(transitMode)} shelter-map walk within range`;
+    : `No connected shelter-map walk to ${transitModeLabel(transitMode)} within range`;
 }
 
 function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): string | null {
@@ -578,7 +578,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     if (nearestM !== null) {
       return `Closest connected shelter-map walk found is about ${formatDistance(nearestM)} away; locked transit range is 1.2 km.`;
     }
-    return `No ${transitModeLabel(transitMode)} walk was found within the locked 1.2 km transit range.`;
+    return `No shelter-map walk to ${transitModeLabel(transitMode)} was found within the locked 1.2 km transit range.`;
   }
   if (score.state === "NOT_YET_SCORED") {
     return "This postal is in the frozen v1 address universe, but the published shelter-map bundle has no full locked score for it yet.";

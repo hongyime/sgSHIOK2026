@@ -970,6 +970,31 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Shelter-map walk not connected yet");
   });
 
+  it("phrases mode-specific no-walk states as walks to transit targets", () => {
+    const noBusWalkRecord: ScoreRecord = {
+      ...scoredRecord,
+      state: "NO_TRANSIT_IN_RANGE",
+      total: null,
+      subscores: null,
+      best_node: null,
+      paths: null,
+      exposure_gaps: null,
+    };
+    const html = renderScoreCard({
+      transitMode: "bus",
+      selection: {
+        ...selection,
+        score: noBusWalkRecord,
+      },
+      rankingRecords: [noBusWalkRecord],
+    });
+
+    expect(html).toContain("No connected shelter-map walk to bus stop within range");
+    expect(html).toContain("No shelter-map walk to bus stop was found within the locked 1.2 km transit range.");
+    expect(html).not.toContain("No connected bus stop shelter-map walk within range");
+    expect(html).not.toContain("No bus stop walk was found within the locked 1.2 km transit range.");
+  });
+
   it("keeps null locked-term rows unavailable instead of inventing numbers", () => {
     const partialRecord: ScoreRecord = {
       ...scoredRecord,
