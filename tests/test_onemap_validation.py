@@ -14,6 +14,7 @@ from pipeline.onemap_validation import (
     evaluate_cached_results,
     haversine_distance_m,
     load_gate_config,
+    main,
     onemap_distance_sanity,
     route_cache_key,
     validation_route_trust,
@@ -566,6 +567,49 @@ def test_collect_onemap_walk_cache_requires_explicit_confirmation(tmp_path: Path
     assert not ok
     assert "requires --confirm-onemap-collection" in report["errors"][0]
     assert report["will_call_onemap"] is False
+
+
+def test_onemap_validation_cli_requires_explicit_output_before_build(monkeypatch, capsys):
+    from pipeline import onemap_validation
+
+    def fail_build(*_args, **_kwargs):
+        raise AssertionError("sample builder should not run before output preflight")
+
+    monkeypatch.setattr(onemap_validation, "build_validation_sample", fail_build)
+
+    assert main(["plan", "--sample-size", "1"]) == 1
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": [
+            "onemap-validation plan requires explicit --output; choose a fresh QA report path"
+        ],
+        "ok": False,
+    }
+
+
+def test_onemap_validation_cli_refuses_existing_output_before_sample_read(
+    monkeypatch, tmp_path: Path, capsys
+):
+    from pipeline import onemap_validation
+
+    def fail_read(*_args, **_kwargs):
+        raise AssertionError("sample should not be read before output preflight")
+
+    monkeypatch.setattr(onemap_validation, "read_json", fail_read)
+    output = tmp_path / "report.json"
+    output.write_text("", encoding="utf-8")
+
+    assert (
+        main(["evaluate", "--sample", str(tmp_path / "sample.json"), "--output", str(output)])
+        == 1
+    )
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": [f"onemap-validation evaluate output already exists: {output}"],
+        "ok": False,
+    }
 
 
 def test_collect_onemap_walk_cache_writes_fake_fetcher_result(tmp_path: Path):

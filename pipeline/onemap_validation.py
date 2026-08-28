@@ -9,6 +9,7 @@ import json
 import math
 import os
 import re
+import sys
 import time
 from collections import Counter, defaultdict
 from collections.abc import Callable, Iterable
@@ -105,6 +106,27 @@ def read_json(path: Path) -> Any:
 def write_json(path: Path, payload: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def _cli_option_present(argv: list[str], option: str) -> bool:
+    return option in argv or any(arg.startswith(f"{option}=") for arg in argv)
+
+
+def _output_preflight_errors(
+    *, action: str, output: Path, output_option_present: bool
+) -> list[str]:
+    errors = []
+    if not output_option_present:
+        errors.append(
+            f"{action} requires explicit --output; choose a fresh QA report path"
+        )
+    elif output.exists():
+        errors.append(f"{action} output already exists: {output}")
+    return errors
+
+
+def _print_cli_errors(errors: list[str]) -> None:
+    print(json.dumps({"errors": errors, "ok": False}, indent=2, sort_keys=True))
 
 
 def decode_polyline(encoded: str, precision: int = 5) -> list[tuple[float, float]]:
@@ -1360,7 +1382,8 @@ def collect_onemap_walk_cache(
     return bool(report["ok"]), report
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    raw_argv = sys.argv[1:] if argv is None else list(argv)
     parser = argparse.ArgumentParser(description="Plan/evaluate OneMap walk validation.")
     subparsers = parser.add_subparsers(dest="action", required=True)
 
@@ -1416,8 +1439,18 @@ def main() -> int:
         help="Cache terminal OneMap HTTP errors so resumed full validation can progress.",
     )
 
-    args = parser.parse_args()
+    args = parser.parse_args(raw_argv)
+    output_option_present = _cli_option_present(raw_argv, "--output")
+
     if args.action == "plan":
+        errors = _output_preflight_errors(
+            action="onemap-validation plan",
+            output=args.output,
+            output_option_present=output_option_present,
+        )
+        if errors:
+            _print_cli_errors(errors)
+            return 1
         payload = build_validation_sample(
             bundle_dir=args.bundle_dir,
             postal_universe_path=args.postal_universe,
@@ -1431,6 +1464,14 @@ def main() -> int:
         return 0 if payload["ok"] else 1
 
     if args.action == "plan-targeted":
+        errors = _output_preflight_errors(
+            action="onemap-validation plan-targeted",
+            output=args.output,
+            output_option_present=output_option_present,
+        )
+        if errors:
+            _print_cli_errors(errors)
+            return 1
         payload = build_targeted_risk_validation_sample(
             bundle_dir=args.bundle_dir,
             postal_universe_path=args.postal_universe,
@@ -1445,6 +1486,14 @@ def main() -> int:
         return 0 if payload["ok"] else 1
 
     if args.action == "evaluate":
+        errors = _output_preflight_errors(
+            action="onemap-validation evaluate",
+            output=args.output,
+            output_option_present=output_option_present,
+        )
+        if errors:
+            _print_cli_errors(errors)
+            return 1
         sample_payload = read_json(args.sample)
         if not isinstance(sample_payload, dict):
             raise TypeError(f"sample must contain a JSON object: {args.sample}")
@@ -1458,6 +1507,14 @@ def main() -> int:
         return 0 if payload["ok"] else 1
 
     if args.action == "collect":
+        errors = _output_preflight_errors(
+            action="onemap-validation collect",
+            output=args.output,
+            output_option_present=output_option_present,
+        )
+        if errors:
+            _print_cli_errors(errors)
+            return 1
         sample_payload = read_json(args.sample)
         if not isinstance(sample_payload, dict):
             raise TypeError(f"sample must contain a JSON object: {args.sample}")
