@@ -1791,3 +1791,7 @@ Approved shelter-correction promotion is intentionally possible only after human
 2026-08-29 - P789 hidden exposed-gap coordinate summary:
 
 Hidden exposed gaps remain part of the route evidence and can still be map-focused when coordinates exist, so the collapsed shorter-gap disclosure should say how many hidden gaps carry map coordinates instead of only saying they are included in the total. This is browser copy/test/evidence work only; it does not alter route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.
+
+2026-08-29 - P790 active exposed-gap selected label:
+
+Focused exposed-gap rows should expose their selected map state visibly, not only through styling and `aria-pressed`. A coordinate-backed gap now changes its action label from `Focus on map` to `Selected on map` after it is focused. This is browser copy/state/test work only; it does not alter route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.

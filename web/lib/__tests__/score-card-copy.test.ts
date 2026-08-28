@@ -402,6 +402,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("Showing the longest ${visibleExposureGaps.length};");
     expect(source).toContain("styles.gapAction");
     expect(source).toContain("Focus on map");
+    expect(source).toContain("Selected on map");
     expect(source).not.toContain(">Focus map</small>");
     expect(readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8")).toContain(
       "grid-template-columns: 58px minmax(0, 1fr) auto;"

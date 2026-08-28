@@ -1785,7 +1785,9 @@ export function ScoreCard({
                 <strong>{formatDistance(gap.len_m)}</strong>
                 <span>{exposureGapCopy(gap.len_m, index)}</span>
                 {location && <small className={styles.gapCoordinate}>Map coordinate {location}</small>}
-                {focusTarget && onFocusExposureGap && <small className={styles.gapAction}>Focus on map</small>}
+                {focusTarget && onFocusExposureGap && (
+                  <small className={styles.gapAction}>{activeGap ? "Selected on map" : "Focus on map"}</small>
+                )}
               </>
             );
             if (focusTarget && onFocusExposureGap) {
@@ -1828,7 +1830,9 @@ export function ScoreCard({
                     <strong>{formatDistance(gap.len_m)}</strong>
                     <span>{exposureGapCopy(gap.len_m, index)}</span>
                     {location && <small className={styles.gapCoordinate}>Map coordinate {location}</small>}
-                    {focusTarget && onFocusExposureGap && <small className={styles.gapAction}>Focus on map</small>}
+                    {focusTarget && onFocusExposureGap && (
+                      <small className={styles.gapAction}>{activeGap ? "Selected on map" : "Focus on map"}</small>
+                    )}
                   </>
                 );
                 if (focusTarget && onFocusExposureGap) {
