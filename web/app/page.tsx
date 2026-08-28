@@ -1340,7 +1340,11 @@ export function ScoreCard({
     routeDetailItems.push({ label: "Access link", value: formatDistance(endpointSnapM) });
   }
   if (endpointSnapM > 0) {
-    routeDetailNotes.push("Access link is the short walk from the postal or transit point onto the shelter-map walk.");
+    routeDetailNotes.push(
+      directBusFallback
+        ? "Access link is the short connector from the postal or transit point onto the straight-line bus estimate."
+        : "Access link is the short walk from the postal or transit point onto the shelter-map walk."
+    );
   }
   const longestGap = exposureGaps[0] ?? null;
   const visibleExposureGaps = exposureGaps.slice(0, 3);
@@ -1378,7 +1382,12 @@ export function ScoreCard({
       : `${formatDistance(totalExposureM)} exposed across ${exposureGaps.length} gap${
           exposureGaps.length === 1 ? "" : "s"
         }; ${longestGapText}`;
-  const exposureHeroLabel = exposureGaps.length === 0 ? "Covered-walkway evidence" : "Where the walk is exposed";
+  const exposureHeroLabel =
+    exposureGaps.length === 0
+      ? "Covered-walkway evidence"
+      : directBusFallback
+        ? "Where the estimate is exposed"
+        : "Where the walk is exposed";
   const scoreStatus = scoreCardAnnouncement({
     selection,
     stationName,
@@ -1761,7 +1770,10 @@ export function ScoreCard({
       )}
 
       {score.paths && routeDetailItems.length > 0 && (
-        <div className={styles.routeDetails} aria-label="Walk details">
+        <div
+          className={styles.routeDetails}
+          aria-label={directBusFallback ? "Direct-bus fallback details" : "Walk details"}
+        >
           {routeDetailItems.map((item) => (
             <span key={item.label}>
               {item.label} <strong>{item.value}</strong>

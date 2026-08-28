@@ -563,11 +563,14 @@ describe("score card copy", () => {
     expect(tsxSource).toContain(
       "Access link is the short walk from the postal or transit point onto the shelter-map walk."
     );
+    expect(tsxSource).toContain(
+      "Access link is the short connector from the postal or transit point onto the straight-line bus estimate."
+    );
     expect(tsxSource).not.toContain("Snap connector is the short link");
     expect(tsxSource).not.toContain("onto the shelter-map route");
     expect(tsxSource).not.toContain("onto mapped walking-route evidence");
     expect(tsxSource).not.toContain("onto the walking graph");
-    expect(tsxSource).toContain('aria-label="Walk details"');
+    expect(tsxSource).toContain('aria-label={directBusFallback ? "Direct-bus fallback details" : "Walk details"}');
     expect(tsxSource).not.toContain('aria-label="Route details"');
   });
 
