@@ -274,6 +274,9 @@ describe("score card copy", () => {
     expect(source).toContain('import { formatLockedScoreAvailabilityLine } from "../lib/locked-score-availability";');
     expect(source).toContain("formatLockedScoreAvailabilityLine(manifest)");
     expect(source).toContain("styles.coverageLine");
+    expect(source).toContain("lockedScoreAvailabilityLine?: string | null;");
+    expect(source).toContain("lockedScoreAvailabilityLine={lockedScoreAvailabilityLine}");
+    expect(source).toContain("{lockedScoreAvailabilityLine && <span>{lockedScoreAvailabilityLine}</span>}");
     expect(source).toContain("{lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}");
     expectSourceOrder(source, [
       "Shelter-map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}",

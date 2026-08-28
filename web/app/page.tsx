@@ -1120,6 +1120,7 @@ export function ScoreCard({
   focusedExposureGapKey = null,
   onFocusExposureGap,
   lampOverlayEnabled = false,
+  lockedScoreAvailabilityLine = null,
 }: {
   selection: LoadedSelection | null;
   routeMode: RouteDisplayMode;
@@ -1148,6 +1149,7 @@ export function ScoreCard({
   focusedExposureGapKey?: string | null;
   onFocusExposureGap?: (gap: FocusedExposureGap) => void;
   lampOverlayEnabled?: boolean;
+  lockedScoreAvailabilityLine?: string | null;
 }) {
   const [overflowOpen, setOverflowOpen] = useState(false);
 
@@ -1160,6 +1162,8 @@ export function ScoreCard({
         <div className={styles.emptyState}>
           <strong>Find an address or postal code</strong>
           <span>Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio and exposed gaps on the walk to transit, plus night lighting map evidence.</span>
+          <span>The published shelter-map bundle is tied to the frozen June 2020 address universe.</span>
+          {lockedScoreAvailabilityLine && <span>{lockedScoreAvailabilityLine}</span>}
         </div>
       </section>
     );
@@ -2321,6 +2325,7 @@ export default function Home() {
               focusedExposureGapKey={focusedExposureGap?.key ?? null}
               onFocusExposureGap={setFocusedExposureGap}
               lampOverlayEnabled={lampOverlayEnabled}
+              lockedScoreAvailabilityLine={lockedScoreAvailabilityLine}
             />
           </aside>
         )}
