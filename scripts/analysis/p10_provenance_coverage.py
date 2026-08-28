@@ -5,6 +5,10 @@ from pathlib import Path
 
 import yaml
 
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+SOURCES_CONFIG = PROJECT_ROOT / "pipeline" / "config" / "sources.yaml"
+RAW_MANIFEST = PROJECT_ROOT / "raw" / "manifest.json"
+
 
 def source_names_from_raw_manifest(path: Path) -> list[str]:
     if not path.exists():
@@ -15,8 +19,8 @@ def source_names_from_raw_manifest(path: Path) -> list[str]:
 
 
 def main() -> None:
-    sources = yaml.safe_load(Path("pipeline/config/sources.yaml").read_text(encoding="utf-8"))
-    raw_sources = source_names_from_raw_manifest(Path("raw/manifest.json"))
+    sources = yaml.safe_load(SOURCES_CONFIG.read_text(encoding="utf-8"))
+    raw_sources = source_names_from_raw_manifest(RAW_MANIFEST)
     rows = [
         (
             "postal coordinate universe",

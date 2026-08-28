@@ -5,6 +5,7 @@ from pathlib import Path
 from scripts.analysis import p10_compare_subset_outputs as p10_compare
 from scripts.analysis import p10_manifest_network_block as p10_network_block
 from scripts.analysis import p10_network_payload_cost as p10_payload_cost
+from scripts.analysis import p10_provenance_coverage as p10_provenance
 from scripts.analysis import p19_universe_gap_measurement as p19
 from scripts.analysis import p19_mcst_missing_locations as p379
 from scripts.analysis import p125_osm_postcode_status as p125
@@ -189,6 +190,7 @@ def test_p10_analysis_scripts_resolve_default_inputs_from_project_root(
         "p10_compare_subset_outputs.py",
         "p10_manifest_network_block.py",
         "p10_network_payload_cost.py",
+        "p10_provenance_coverage.py",
     ]:
         source = (PROJECT_ROOT / "scripts" / "analysis" / script_name).read_text(
             encoding="utf-8"
@@ -222,6 +224,8 @@ def test_p10_analysis_scripts_resolve_default_inputs_from_project_root(
         p10_payload_cost.BUNDLE
         == PROJECT_ROOT / "web" / "public" / "data" / "generated_20260805_prefer_scored_routed"
     )
+    assert p10_provenance.SOURCES_CONFIG == PROJECT_ROOT / "pipeline" / "config" / "sources.yaml"
+    assert p10_provenance.RAW_MANIFEST == PROJECT_ROOT / "raw" / "manifest.json"
 
 
 def test_p19_cache_status_only_reports_existing_measurement_caches(
