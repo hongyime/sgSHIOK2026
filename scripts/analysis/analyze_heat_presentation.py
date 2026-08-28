@@ -5,16 +5,12 @@ import json
 from pathlib import Path
 from typing import Any
 
+from scripts.analysis.report_io import is_protected_report_path
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_BUNDLE = PROJECT_ROOT / "web" / "public" / "data" / "generated_20260805_prefer_scored_routed"
 DEFAULT_OUTPUT = PROJECT_ROOT / "qa" / "analysis" / "heat_presentation_investigation.json"
-PROTECTED_OUTPUT_ROOTS = (
-    PROJECT_ROOT / "web" / "public" / "data",
-    PROJECT_ROOT / "qa" / "releases",
-)
-PROTECTED_OUTPUT_FILES = (PROJECT_ROOT / "checksums.json",)
-PROTECTED_QA_PREFIXES = ("p6_", "p7_", "p8_", "p9_", "p10_")
 
 
 class _AuditString(str):
@@ -259,27 +255,8 @@ def resolve_repo_path(path: Path, repo_root: Path = PROJECT_ROOT) -> Path:
     return path if path.is_absolute() else repo_root / path
 
 
-def is_protected_output_path(path: Path) -> bool:
-    resolved = resolve_repo_path(path).resolve(strict=False)
-    if any(resolved == protected.resolve(strict=False) for protected in PROTECTED_OUTPUT_FILES):
-        return True
-    if any(
-        resolved.is_relative_to(protected.resolve(strict=False))
-        for protected in PROTECTED_OUTPUT_ROOTS
-    ):
-        return True
-    try:
-        relative = resolved.relative_to(PROJECT_ROOT.resolve(strict=False))
-    except ValueError:
-        return False
-    parts = relative.parts
-    return len(parts) >= 2 and parts[0] == "qa" and (
-        parts[1] == "p11" or parts[1].startswith(PROTECTED_QA_PREFIXES)
-    )
-
-
 def write_report(path: Path, report: dict[str, Any], *, overwrite: bool = False) -> None:
-    if is_protected_output_path(path):
+    if is_protected_report_path(path):
         raise ValueError(f"refusing protected analysis output path: {path}")
     if path.exists() and not overwrite:
         raise FileExistsError(f"refusing to overwrite existing analysis output: {path}")

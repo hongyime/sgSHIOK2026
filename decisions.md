@@ -1775,3 +1775,7 @@ Shelter correction should be named consistently wherever the user starts it. The
 2026-08-29 - P785 shared analysis report output guard:
 
 `scripts.analysis.report_io.write_new_text_report()` is the common writer for many scratch analysis helpers, so protected output refusal belongs there as well as in individual high-risk scripts. The shared writer now refuses `web/public/data/`, `qa/releases/`, `qa/p6_*` through `qa/p10_*`, `qa/p11/`, and `checksums.json` before creating parent directories or writing files. This keeps normal scratch reports available while making protected evidence and public-data payloads fail closed by default. This is guard/test hygiene only; it does not run analysis, score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
+
+2026-08-29 - P786 shared report guard refactor:
+
+Protected analysis output-path policy should have one implementation. `scripts/mayflower_qa_summary.py` and `scripts/analysis/analyze_heat_presentation.py` now call the shared `scripts.analysis.report_io.is_protected_report_path()` helper instead of maintaining local copies of the same root and prefix checks. This is refactor/test hygiene only; it does not change report semantics, run analysis, score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
