@@ -2,12 +2,17 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from collections import Counter
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT_ROOT))
+
+from scripts.analysis.report_io import write_new_text_report
+
 DEFAULT_LONGER_PROFILE = (
     PROJECT_ROOT / "qa" / "onemap_outlier_replay_bus_longer_profile_100_20260802.json"
 )
@@ -50,8 +55,15 @@ def read_json(path: Path) -> Any:
 
 
 def write_json(path: Path, payload: dict[str, Any]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    write_new_text_report(path, json.dumps(payload, indent=2, sort_keys=True) + "\n")
+
+
+def existing_output_errors(outputs: list[Path | None]) -> list[str]:
+    return [
+        f"refusing to overwrite existing analysis output: {path}"
+        for path in outputs
+        if path is not None and path.exists()
+    ]
 
 
 def display_path(path: Path) -> str:
@@ -923,15 +935,20 @@ def main(argv: list[str] | None = None) -> int:
         "--validation-subset-priority-geojson-output": args.validation_subset_priority_geojson_output,
     }
     missing_outputs = [flag for flag, value in required_outputs.items() if value is None]
-    if missing_outputs:
+    output_errors = existing_output_errors([*required_outputs.values(), args.summary_output])
+    if missing_outputs or output_errors:
+        errors = []
+        if missing_outputs:
+            errors.append(
+                "OneMap outlier triage requires explicit output paths: "
+                + ", ".join(missing_outputs)
+            )
+        errors.extend(output_errors)
         print(
             json.dumps(
                 {
                     "ok": False,
-                    "errors": [
-                        "OneMap outlier triage requires explicit output paths: "
-                        + ", ".join(missing_outputs)
-                    ],
+                    "errors": errors,
                 },
                 indent=2,
                 sort_keys=True,

@@ -931,3 +931,46 @@ def test_triage_cli_runs_with_explicit_outputs(monkeypatch, capsys, tmp_path):
     printable = json.loads(out)
     assert printable["inputs"] == {"input_rows": 1}
     assert printable["summary_output"] == str(summary_output)
+
+
+def test_triage_cli_refuses_existing_explicit_output_before_input_reads(
+    monkeypatch, capsys, tmp_path
+):
+    from scripts import triage_onemap_outliers
+
+    def fail_build_triage_queues(**kwargs):
+        raise AssertionError("triage inputs should not be read before output guard")
+
+    monkeypatch.setattr(triage_onemap_outliers, "build_triage_queues", fail_build_triage_queues)
+
+    output = tmp_path / "triage.json"
+    geojson_output = tmp_path / "triage.geojson"
+    missing_bus = tmp_path / "missing_bus.geojson"
+    overpermissive = tmp_path / "overpermissive.geojson"
+    validation_subset = tmp_path / "validation_subset.geojson"
+    output.write_text("{}\n", encoding="utf-8")
+
+    assert (
+        main(
+            [
+                "--output",
+                str(output),
+                "--geojson-output",
+                str(geojson_output),
+                "--missing-bus-priority-geojson-output",
+                str(missing_bus),
+                "--overpermissive-priority-geojson-output",
+                str(overpermissive),
+                "--validation-subset-priority-geojson-output",
+                str(validation_subset),
+            ]
+        )
+        == 1
+    )
+
+    assert output.read_text(encoding="utf-8") == "{}\n"
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": [f"refusing to overwrite existing analysis output: {output}"],
+        "ok": False,
+    }
