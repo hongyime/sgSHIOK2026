@@ -214,7 +214,7 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
     )
     assert run.STUBS["bus-arrivals"] == (
         "collect local LTA bus-arrival snapshots for future reliability scoring; "
-        "requires explicit --output"
+        "requires explicit --output and --confirm-bus-arrivals"
     )
     assert run.STUBS["p19-gap-status"] == (
         "read-only status, evidence split, missing rows, MCST proxy probe and cache ages "
@@ -264,7 +264,9 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
     assert run.STUBS["export-transit"] == (
         "refresh transit POIs without rescoring; requires explicit --output and --confirm-export"
     )
-    assert run.STUBS["publish"] == "vercel deploy --prod --archive=tgz (only deploy path)"
+    assert run.STUBS["publish"] == (
+        "vercel deploy --prod --archive=tgz (only deploy path); requires --confirm-publish"
+    )
     assert "compare a targeted score report against the active bundle" not in run.STUBS.values()
 
 
@@ -608,6 +610,150 @@ def test_run_score_batch_allows_dry_run_without_confirm(monkeypatch):
                 "--dry-run",
                 "--postal-universe",
                 "processed/subset.parquet",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_task_refuses_bus_arrivals_without_confirm(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "bus-arrivals",
+        ["--output", "logs/bus_arrivals.jsonl"],
+        "run.py bus-arrivals calls DataMall and appends local snapshot output",
+        "--confirm-bus-arrivals",
+    )
+
+
+def test_run_task_strips_bus_arrivals_confirm(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert (
+        run.run_task(
+            "bus-arrivals",
+            ["--output", "logs/bus_arrivals.jsonl", "--confirm-bus-arrivals"],
+        )
+        == 0
+    )
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "pipeline.bus_arrivals",
+                "--output",
+                "logs/bus_arrivals.jsonl",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_task_refuses_bus_connector_diagnostics_without_confirm(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "bus-connector-diagnostics",
+        ["--output", "qa/p740/bus_connectors.json"],
+        "run.py bus-connector-diagnostics writes diagnostic reports",
+        "--confirm-bus-connector-diagnostics",
+    )
+
+
+def test_run_task_forwards_confirmed_bus_connector_diagnostics(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert (
+        run.run_task(
+            "bus-connector-diagnostics",
+            [
+                "--output",
+                "qa/p740/bus_connectors.json",
+                "--confirm-bus-connector-diagnostics",
+            ],
+        )
+        == 0
+    )
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "scripts.diagnose_bus_connectors",
+                "--output",
+                "qa/p740/bus_connectors.json",
+                "--confirm-bus-connector-diagnostics",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_task_refuses_candidate_audit_without_confirm(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "candidate-audit",
+        ["--output", "qa/p740/candidate_audit.json"],
+        "run.py candidate-audit writes candidate audit reports",
+        "--confirm-candidate-audit",
+    )
+
+
+def test_run_task_forwards_confirmed_candidate_audit(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert (
+        run.run_task(
+            "candidate-audit",
+            ["--output", "qa/p740/candidate_audit.json", "--confirm-candidate-audit"],
+        )
+        == 0
+    )
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "scripts.audit_postal_candidates",
+                "--output",
+                "qa/p740/candidate_audit.json",
+                "--confirm-candidate-audit",
             ],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},

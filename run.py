@@ -53,6 +53,9 @@ REFRESH_PROVENANCE_CONFIRM_FLAG = "--confirm-refresh-provenance"
 PUBLISH_CONFIRM_FLAG = "--confirm-publish"
 ONEMAP_PROBE_CONFIRM_FLAG = "--confirm-onemap-probe"
 BOUNDED_GEOCODE_CONFIRM_FLAG = "--confirm-bounded-geocode"
+BUS_ARRIVALS_CONFIRM_FLAG = "--confirm-bus-arrivals"
+BUS_CONNECTOR_DIAGNOSTICS_CONFIRM_FLAG = "--confirm-bus-connector-diagnostics"
+CANDIDATE_AUDIT_CONFIRM_FLAG = "--confirm-candidate-audit"
 
 STUBS = {
     "check": "refuses bare upstream checks; use --freshness-only or --geospatial-discovery-only for zero-mutation reports",
@@ -75,7 +78,7 @@ STUBS = {
     "refresh-provenance": "fail-closed manifest provenance refresh; requires explicit --output and --confirm-refresh-provenance",
     "score": "apply pipeline/config/weights.yaml (T1.4); requires --confirm-score-run",
     "score-batch": "resumable postal scoring batch runner; non-dry limited runs require explicit --output-dir and --confirm-score-batch-run",
-    "bus-arrivals": "collect local LTA bus-arrival snapshots for future reliability scoring; requires explicit --output",
+    "bus-arrivals": "collect local LTA bus-arrival snapshots for future reliability scoring; requires explicit --output and --confirm-bus-arrivals",
     "bus-connector-diagnostics": "diagnose priority OneMap missing-bus connector cases; requires --confirm-bus-connector-diagnostics",
     "candidate-audit": "audit ranked MRT/LRT and bus candidates for selected postals; requires --confirm-candidate-audit",
     "compare-targeted": "compare a targeted score report against the published shelter-map bundle",
@@ -85,7 +88,7 @@ STUBS = {
     "export": "scores/{area}.json + geom/h3/{cell}.json + manifest (T1.5); requires --confirm-export, and live scoring requires --confirm-live-score-export",
     "export-transit": "refresh transit POIs without rescoring; requires explicit --output and --confirm-export",
     "validate": "golden set + OneMap comparison; blocks publish (T1.7)",
-    "publish": "vercel deploy --prod --archive=tgz (only deploy path)",
+    "publish": "vercel deploy --prod --archive=tgz (only deploy path); requires --confirm-publish",
     "test": "pytest (T0.1)",
     "shell": "not needed on native Windows; use your activated venv",
 }
@@ -246,10 +249,38 @@ def run_task(name: str, extra: list[str]) -> int:
                 return 2
         return run_module("pipeline.score_batch")
     if name == "bus-arrivals":
-        return run_module("pipeline.bus_arrivals")
+        if not require_runner_flag(
+            extra=extra,
+            flag=BUS_ARRIVALS_CONFIRM_FLAG,
+            message=(
+                "run.py bus-arrivals calls DataMall and appends local snapshot output; pass "
+                "--confirm-bus-arrivals only after owner approval and with explicit --output."
+            ),
+        ):
+            return 2
+        forwarded = [arg for arg in extra if arg != BUS_ARRIVALS_CONFIRM_FLAG]
+        return run_module("pipeline.bus_arrivals", extra_args=forwarded)
     if name == "bus-connector-diagnostics":
+        if not require_runner_flag(
+            extra=extra,
+            flag=BUS_CONNECTOR_DIAGNOSTICS_CONFIRM_FLAG,
+            message=(
+                "run.py bus-connector-diagnostics writes diagnostic reports; pass "
+                "--confirm-bus-connector-diagnostics only after owner approval."
+            ),
+        ):
+            return 2
         return run_module("scripts.diagnose_bus_connectors")
     if name == "candidate-audit":
+        if not require_runner_flag(
+            extra=extra,
+            flag=CANDIDATE_AUDIT_CONFIRM_FLAG,
+            message=(
+                "run.py candidate-audit writes candidate audit reports; pass "
+                "--confirm-candidate-audit only after owner approval."
+            ),
+        ):
+            return 2
         return run_module("scripts.audit_postal_candidates")
     if name == "compare-targeted":
         return run_module("scripts.compare_targeted_scores")

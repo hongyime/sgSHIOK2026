@@ -1600,3 +1600,7 @@ Batch planning must not treat a historical completed bounded geocode fill backed
 2026-08-28 - P739 runner-level writer gates:
 
 The task runner should fail closed before launching dangerous modules, not rely on those modules to reject unsafe defaults after startup. `run.py` now prechecks confirmation flags for network builds, scoring, non-dry score batches, exports, transit exports, provenance refreshes, OneMap probes, non-dry bounded geocode fills, and publishes. Dry-run score batches and dry-run bounded geocode fills remain callable without confirmation. This is runner guard/test coverage only; it does not run scoring, export, rescore, subset scoring, ingest, network build, OneMap probe, public-data writes, deployment, protected QA evidence mutation, or locked weights.
+
+2026-08-28 - P740 remaining runner confirmation gates:
+
+P739's intent was correct but incomplete: an early `publish` branch still bypassed the new publish gate, and `bus-arrivals`, `bus-connector-diagnostics`, and `candidate-audit` still launched writer/network modules before runner-level confirmation. The runner now removes the publish bypass, prechecks those remaining confirmations, strips runner-only flags before forwarding where needed, and keeps read-only/dry-run reports callable. This is runner guard/test coverage only; it does not run bus-arrival collection, diagnostics, candidate audits, scoring, export, rescore, subset scoring, ingest, network build, OneMap probe, public-data writes, deployment, protected QA evidence mutation, or locked weights.
