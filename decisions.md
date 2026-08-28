@@ -1735,3 +1735,7 @@ Legacy helper scripts `pipeline.verify_datagov_ids`, `pipeline.inspect_datagov`,
 2026-08-29 - P766 legacy DataMall static parser confirmation guard:
 
 `pipeline.parse_static_datamall` calls the live LTA DataMall static-data page to inspect geospatial ZIP links. Direct execution now requires `--confirm-datamall-static-parse` before the HTTP request, while the underlying parser helper remains importable for approved probes and tests. This is guard/test hygiene only; it does not call DataMall, fetch payloads, mutate raw inputs, score, export, deploy, public data, protected QA evidence, or locked weights.
+
+2026-08-29 - P776 planning-area rank label alignment:
+
+Planning-area rank controls remain sortable over the locked bundle's stored fields, but their labels must not imply that every stored subscore is a first-class evidence axis. Rain is now labelled as covered-walkway evidence, access remains walk-distance evidence, and bus, heat, and crossing are labelled as locked-score factors. This keeps the shipped data and locked weights unchanged while aligning the rank panel with the shelter-first, four-row presentation. This is web copy/test hygiene only; it does not score, export, rescore, mutate public data, protected QA evidence, raw or processed inputs, deploy, or touch locked weights.

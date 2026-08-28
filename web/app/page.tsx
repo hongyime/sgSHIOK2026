@@ -320,7 +320,7 @@ export function rankPanelDescription(rankMetric: RankMetric, rankPanelOpen: bool
   if (rankMetric === "overall") {
     return "Planning-area list uses locked score only as a sorting index; shelter-map walk evidence remains the primary view.";
   }
-  if (rankMetric === "crossing") {
+  if (rankMetric === "bus" || rankMetric === "heat" || rankMetric === "crossing") {
     return "Planning-area locked-score factor view; locked SHIOK score is unchanged.";
   }
   return "Planning-area evidence view; locked SHIOK score is unchanged.";

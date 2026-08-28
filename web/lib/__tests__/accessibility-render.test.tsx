@@ -626,16 +626,17 @@ describe("rendered accessibility output", () => {
     expect(rankEmptyMessage("overall", "Locked score sorting index")).toBe(
       "No comparable full locked scores in this planning area."
     );
-    expect(rankEmptyMessage("rain", "Rain covered-walkway evidence")).toBe(
-      "No comparable planning-area records for rain covered-walkway evidence."
+    expect(rankEmptyMessage("rain", "Covered-walkway evidence")).toBe(
+      "No comparable planning-area records for covered-walkway evidence."
     );
 
     const evidenceHtml = renderScoreCard({
       rankMetric: "rain",
       rankingRecords: [],
     });
-    expect(evidenceHtml).toContain("No comparable planning-area records for rain covered-walkway evidence.");
+    expect(evidenceHtml).toContain("No comparable planning-area records for covered-walkway evidence.");
     expect(evidenceHtml).not.toContain("No comparable planning-area records for Rain-shelter evidence.");
+    expect(evidenceHtml).not.toContain("No comparable planning-area records for rain covered-walkway evidence.");
     expect(evidenceHtml).not.toContain("No comparable full locked scores in this planning area.");
   });
 
@@ -644,16 +645,16 @@ describe("rendered accessibility output", () => {
       rankAnnouncement({
         loading: true,
         rankedCount: 0,
-        rankMetricLabel: "Rain covered-walkway evidence",
+        rankMetricLabel: "Covered-walkway evidence",
       })
-    ).toBe("Loading planning-area rain covered-walkway evidence ranks.");
+    ).toBe("Loading planning-area covered-walkway evidence ranks.");
     expect(
       rankAnnouncement({
         loading: false,
         rankedCount: 0,
-        rankMetricLabel: "Bus service-support evidence",
+        rankMetricLabel: "Bus service-support score factor",
       })
-    ).toBe("No planning-area bus service-support evidence ranks available.");
+    ).toBe("No planning-area bus service-support score factor ranks available.");
     expect(
       rankAnnouncement({
         loading: false,
@@ -670,6 +671,12 @@ describe("rendered accessibility output", () => {
     );
     expect(rankPanelDescription("rain", true)).toBe(
       "Planning-area evidence view; locked SHIOK score is unchanged."
+    );
+    expect(rankPanelDescription("bus", true)).toBe(
+      "Planning-area locked-score factor view; locked SHIOK score is unchanged."
+    );
+    expect(rankPanelDescription("heat", true)).toBe(
+      "Planning-area locked-score factor view; locked SHIOK score is unchanged."
     );
     expect(rankPanelDescription("crossing", true)).toBe(
       "Planning-area locked-score factor view; locked SHIOK score is unchanged."

@@ -16,13 +16,13 @@ function score(postal: string, total: number, rain: number, access: number): Sco
 }
 
 describe("planning-area evidence ranking", () => {
-  it("labels non-overall rank options as evidence views", () => {
+  it("labels rank options by evidence view versus locked-score factor", () => {
     expect(RANK_METRIC_OPTIONS).toEqual([
       { id: "overall", label: "Locked score sorting index" },
-      { id: "rain", label: "Rain covered-walkway evidence" },
+      { id: "rain", label: "Covered-walkway evidence" },
       { id: "access", label: "Walk-distance evidence" },
-      { id: "bus", label: "Bus service-support evidence" },
-      { id: "heat", label: "Heat proxy evidence" },
+      { id: "bus", label: "Bus service-support score factor" },
+      { id: "heat", label: "Heat proxy score factor" },
       { id: "crossing", label: "Crossing-friction score factor" },
     ]);
   });

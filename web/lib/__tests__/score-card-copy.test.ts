@@ -609,13 +609,16 @@ describe("score card copy", () => {
       '{ id: "overall", label: "Locked score sorting index" }'
     );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
-      '{ id: "rain", label: "Rain covered-walkway evidence" }'
+      '{ id: "rain", label: "Covered-walkway evidence" }'
     );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
       '{ id: "access", label: "Walk-distance evidence" }'
     );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
-      '{ id: "bus", label: "Bus service-support evidence" }'
+      '{ id: "bus", label: "Bus service-support score factor" }'
+    );
+    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
+      '{ id: "heat", label: "Heat proxy score factor" }'
     );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
       '{ id: "crossing", label: "Crossing-friction score factor" }'
@@ -628,6 +631,15 @@ describe("score card copy", () => {
     );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
       '{ id: "rain", label: "Rain-shelter evidence" }'
+    );
+    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
+      '{ id: "rain", label: "Rain covered-walkway evidence" }'
+    );
+    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
+      '{ id: "bus", label: "Bus service-support evidence" }'
+    );
+    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
+      '{ id: "heat", label: "Heat proxy evidence" }'
     );
     expect(source).toContain('?? "Locked score sorting index"');
     expect(source).toContain("Start with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map bundle.");
