@@ -9,6 +9,7 @@ from shapely.geometry import LineString, Point
 from pipeline.bus import BusStopCandidate
 from pipeline.routing import RoutingGraph, route_worker
 from pipeline.scoring_integration import (
+    CONFIRM_SCORE_RUN_FLAG,
     HEAT_SPATIAL_SOURCE_KEYS,
     NETWORK_PATH,
     SCORING_FINGERPRINT_FILES,
@@ -129,6 +130,49 @@ def test_score_cli_refuses_existing_output_before_scoring(monkeypatch, tmp_path,
         "error": f"score output already exists: {output}",
         "ok": False,
     }
+
+
+def test_score_cli_requires_confirm_score_run_before_scoring(monkeypatch, capsys):
+    def fail_score(*_args, **_kwargs):
+        raise AssertionError("score_postals should not run without explicit confirmation")
+
+    monkeypatch.setattr("pipeline.scoring_integration.score_postals", fail_score)
+
+    assert score_main(["--postal", "560234"]) == 1
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "error": "scoring requires --confirm-score-run after owner approval; do not score to repair frozen-v1 hash mismatches",
+        "ok": False,
+    }
+
+
+def test_score_cli_confirm_score_run_reaches_scoring(monkeypatch, capsys):
+    calls = []
+
+    def fake_score_postals(**kwargs):
+        calls.append(kwargs)
+        return [
+            {
+                "postal": "560234",
+                "score": 99.0,
+            }
+        ]
+
+    monkeypatch.setattr("pipeline.scoring_integration.score_postals", fake_score_postals)
+
+    assert score_main([CONFIRM_SCORE_RUN_FLAG, "--postal", "560234"]) == 0
+
+    assert json.loads(capsys.readouterr().out) == [{"postal": "560234", "score": 99.0}]
+    assert calls == [
+        {
+            "postal_codes": ["560234"],
+            "limit": 5,
+            "include_geometry": False,
+            "network_path": NETWORK_PATH,
+            "postal_universe_path": None,
+        }
+    ]
 
 
 def test_default_scoring_network_is_island_graph():

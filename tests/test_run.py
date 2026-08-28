@@ -58,6 +58,11 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         in run.__doc__
     )
     assert (
+        "score runs routed scoring even at its default limit; it requires "
+        "--confirm-score-run after owner approval."
+        in run.__doc__
+    )
+    assert (
         "onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe."
         in run.__doc__
     )
@@ -115,6 +120,11 @@ def test_run_help_headline_does_not_flatten_all_tasks():
         in help_text
     )
     assert (
+        "score runs routed scoring even at its default limit; it requires "
+        "--confirm-score-run after owner approval."
+        in help_text
+    )
+    assert (
         "onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe."
         in help_text
     )
@@ -130,6 +140,9 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
     )
     assert run.STUBS["network"] == (
         "build conflated graph + QA report (T1.1); requires --confirm-network-build"
+    )
+    assert run.STUBS["score"] == (
+        "apply pipeline/config/weights.yaml (T1.4); requires --confirm-score-run"
     )
     assert run.STUBS["score-batch"] == (
         "resumable postal scoring batch runner; non-dry runs require explicit --output-dir"
@@ -384,6 +397,59 @@ def test_run_network_forwards_confirm_network_build(monkeypatch):
                 "--area",
                 "island",
                 "--confirm-network-build",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_score_requires_confirm_score_run_via_module(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 1
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("score", []) == 1
+
+    assert calls == [
+        {
+            "cmd": [sys.executable, "-m", "pipeline.scoring_integration"],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_score_forwards_confirm_score_run(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("score", ["--postal", "560234", "--confirm-score-run"]) == 0
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "pipeline.scoring_integration",
+                "--postal",
+                "560234",
+                "--confirm-score-run",
             ],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},

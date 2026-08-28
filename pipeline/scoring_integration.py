@@ -48,6 +48,7 @@ WEIGHTS_PATH = PROJECT_ROOT / "pipeline" / "config" / "weights.yaml"
 NETWORK_PATH = PROCESSED_DIR / "network_island.parquet"
 GEOCODE_DB_PATH = RAW_DIR / "geocode_cache.db"
 MANIFEST_PATH = RAW_DIR / "manifest.json"
+CONFIRM_SCORE_RUN_FLAG = "--confirm-score-run"
 SubscoreValue = float | str
 
 LOW_TRUST_BUS_ROAD_HIGHWAYS = {
@@ -3173,6 +3174,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--include-geometry", action="store_true")
     parser.add_argument("--output", type=Path, help="Write score records JSON instead of printing")
     parser.add_argument(
+        CONFIRM_SCORE_RUN_FLAG,
+        action="store_true",
+        help="Confirm this invocation may run scoring after owner approval.",
+    )
+    parser.add_argument(
         "--full-batch",
         action="store_true",
         help="Score all eligible rows from --postal-universe; requires --confirm-full-batch.",
@@ -3189,6 +3195,19 @@ def main(argv: list[str] | None = None) -> int:
                 {
                     "ok": False,
                     "error": f"score output already exists: {args.output}",
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 1
+
+    if not args.confirm_score_run:
+        print(
+            json.dumps(
+                {
+                    "ok": False,
+                    "error": "scoring requires --confirm-score-run after owner approval; do not score to repair frozen-v1 hash mismatches",
                 },
                 indent=2,
                 sort_keys=True,

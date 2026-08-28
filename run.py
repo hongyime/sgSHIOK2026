@@ -19,6 +19,7 @@ Gated pipeline tasks:
   ingest | lamp-overlay | network | score | score-batch | export | export-transit | refresh-provenance | validate | publish | onemap-probe
   ingest mutates raw/ and raw/manifest.json; through run.py it requires --confirm-input-refresh, and any refresh must write a new numbered input version rather than repair frozen v1.
   network writes processed network artifacts and QA outputs; it requires --confirm-network-build after owner approval.
+  score runs routed scoring even at its default limit; it requires --confirm-score-run after owner approval.
   refresh-provenance is fail-closed; direct pipeline.export invocation must name --output explicitly.
   onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe.
 
@@ -56,7 +57,7 @@ STUBS = {
     "universe-status": "read-only consolidated status for cached P19 and P125 postal-universe measurements",
     "readiness": "fast production-readiness report without scoring or deploying; use --gate-summary for concise release-gate output",
     "refresh-provenance": "fail-closed manifest provenance refresh; direct pipeline.export invocation must name --output explicitly",
-    "score": "apply pipeline/config/weights.yaml (T1.4)",
+    "score": "apply pipeline/config/weights.yaml (T1.4); requires --confirm-score-run",
     "score-batch": "resumable postal scoring batch runner; non-dry runs require explicit --output-dir",
     "bus-arrivals": "collect local LTA bus-arrival snapshots for future reliability scoring; requires explicit --output",
     "bus-connector-diagnostics": "diagnose priority OneMap missing-bus connector cases",
