@@ -1713,6 +1713,7 @@ export function ScoreCard({
                 <strong>{formatDistance(gap.len_m)}</strong>
                 <span>{exposureGapCopy(gap.len_m, index)}</span>
                 {location && <small className={styles.gapCoordinate}>Map coordinate {location}</small>}
+                {focusTarget && onFocusExposureGap && <small className={styles.gapAction}>Focus map</small>}
               </>
             );
             if (focusTarget && onFocusExposureGap) {

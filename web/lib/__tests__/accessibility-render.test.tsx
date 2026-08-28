@@ -680,6 +680,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Longest open-air stretch");
     expect(html).toContain("Map coordinate 1.37123, 103.84235");
     expect(html).toContain("Map coordinate 1.37091, 103.84101");
+    expect(html).toContain("Focus map");
     expect(html).not.toContain("Near 1.37123, 103.84235");
     expect(html).toContain(
       'aria-label="Focus map on Longest open-air stretch at map coordinate 1.37123, 103.84235"'

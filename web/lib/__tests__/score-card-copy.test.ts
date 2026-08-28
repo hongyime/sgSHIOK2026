@@ -311,6 +311,11 @@ describe("score card copy", () => {
     expect(source).toContain("${formatDistance(score.paths.sheltered_m)} sheltered walk to ${transitModeLabel(transitMode)}");
     expect(source).not.toContain("${formatDistance(score.paths.sheltered_m)} to ${transitModeLabel(transitMode)}");
     expect(source).toContain("include map coordinates.");
+    expect(source).toContain("styles.gapAction");
+    expect(source).toContain("Focus map");
+    expect(readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8")).toContain(
+      "grid-template-columns: 58px minmax(0, 1fr) auto;"
+    );
     expect(source).toContain(
       "Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load lamp-post points. Map evidence only; not part of the locked score."
     );

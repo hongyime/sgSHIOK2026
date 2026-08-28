@@ -1043,7 +1043,7 @@
   border-radius: 6px;
   padding: 3px 4px;
   display: grid;
-  grid-template-columns: 58px minmax(0, 1fr);
+  grid-template-columns: 58px minmax(0, 1fr) auto;
   gap: 6px;
   color: #5d6d67;
   background: transparent;
@@ -1070,6 +1070,16 @@ button.gapItem:hover,
   color: #43564f;
   font-size: 10px;
   font-weight: 800;
+}
+
+.gapAction {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  align-self: center;
+  color: #8f2a22;
+  font-size: 10px;
+  font-weight: 900;
+  white-space: nowrap;
 }
 
 .pageFooter {
