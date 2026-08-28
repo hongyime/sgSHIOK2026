@@ -1592,3 +1592,7 @@ Confirmed non-dry bounded OneMap geocode fills must not mutate the unversioned l
 2026-08-28 - P737 batch-plan completed geocode cache boundary:
 
 Batch planning must not treat a historical completed bounded geocode fill backed by an unversioned mutable cache path as clean future full-batch evidence. `pipeline.batch_plan` now reports `completed_fill_cache_versioned` and adds a checkpoint blocker when a completed fill names an unversioned cache path, while still reading the historical summary and reporting unresolved rows. This is dry-run planning/test coverage only; it does not call OneMap, geocode, mutate raw inputs/caches, score, export, deploy, public data, protected QA evidence, or locked weights.
+
+2026-08-28 - P738 lamp-overlay runner confirmation gate:
+
+`run.py lamp-overlay` is a writer because it builds a compact lamp-post artifact directory from existing raw lamp data. The runner now requires `--confirm-lamp-overlay` before invoking `pipeline.lamp_overlay`, strips that runner-only flag before forwarding, and names the requirement in the task documentation and stub text. This is runner guard/test coverage only; it does not build a lamp overlay, mutate raw inputs, mutate public data, score, export, deploy, protected QA evidence, or locked weights.

@@ -54,6 +54,11 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         in run.__doc__
     )
     assert (
+        "lamp-overlay writes a compact lamp-post artifact directory from existing raw data; "
+        "it requires explicit --output and --confirm-lamp-overlay."
+        in run.__doc__
+    )
+    assert (
         "network writes processed network artifacts and QA outputs; it requires "
         "--confirm-network-build after owner approval."
         in run.__doc__
@@ -133,6 +138,11 @@ def test_run_help_headline_does_not_flatten_all_tasks():
         in help_text
     )
     assert (
+        "lamp-overlay writes a compact lamp-post artifact directory from existing raw data; "
+        "it requires explicit --output and --confirm-lamp-overlay."
+        in help_text
+    )
+    assert (
         "network writes processed network artifacts and QA outputs; it requires "
         "--confirm-network-build after owner approval."
         in help_text
@@ -168,6 +178,10 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
     assert run.STUBS["refresh-provenance"] == (
         "fail-closed manifest provenance refresh; direct pipeline.export invocation must "
         "name --output explicitly"
+    )
+    assert run.STUBS["lamp-overlay"] == (
+        "build compact lamp-post overlay artifact from existing raw source; requires "
+        "explicit --output and --confirm-lamp-overlay"
     )
     assert run.STUBS["ingest"] == (
         "download changed sources to raw/ (T0.3); run.py requires --confirm-input-refresh"
@@ -588,7 +602,13 @@ def test_run_task_exposes_lamp_overlay_as_gated_module(monkeypatch):
 
     monkeypatch.setattr(run.subprocess, "run", fake_run)
 
-    assert run.run_task("lamp-overlay", ["--output", "web/public/data/lamp_posts_v2"]) == 0
+    assert (
+        run.run_task(
+            "lamp-overlay",
+            ["--output", "web/public/data/lamp_posts_v2", "--confirm-lamp-overlay"],
+        )
+        == 0
+    )
 
     assert calls == [
         {
@@ -603,6 +623,24 @@ def test_run_task_exposes_lamp_overlay_as_gated_module(monkeypatch):
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
         }
     ]
+
+
+def test_run_task_refuses_lamp_overlay_without_confirm(monkeypatch, capsys):
+    calls = []
+
+    def fake_run(*args, **kwargs):
+        calls.append((args, kwargs))
+        raise AssertionError("lamp-overlay should not run without confirmation")
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("lamp-overlay", ["--output", "web/public/data/lamp_posts_v2"]) == 2
+
+    captured = capsys.readouterr()
+    assert calls == []
+    assert "run.py lamp-overlay writes a compact lamp-post artifact directory" in captured.err
+    assert "--confirm-lamp-overlay" in captured.err
+    assert "Do not overwrite existing public-data artifacts" in captured.err
 
 
 def test_run_task_exposes_p19_mcst_location_probe_module(monkeypatch):
