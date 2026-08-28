@@ -4,8 +4,9 @@ import json
 from pathlib import Path
 from typing import Any
 
-BASE = Path("qa/p9_input_provenance_20260813/bundle")
-NEW = Path("qa/p10_network_provenance_20260813/exported_bundle")
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+BASE = PROJECT_ROOT / "qa" / "p9_input_provenance_20260813" / "bundle"
+NEW = PROJECT_ROOT / "qa" / "p10_network_provenance_20260813" / "exported_bundle"
 
 VALUE_KEYS = (
     "postal",

@@ -1,7 +1,10 @@
-from pathlib import Path
 import json
 import os
+from pathlib import Path
 
+from scripts.analysis import p10_compare_subset_outputs as p10_compare
+from scripts.analysis import p10_manifest_network_block as p10_network_block
+from scripts.analysis import p10_network_payload_cost as p10_payload_cost
 from scripts.analysis import p19_universe_gap_measurement as p19
 from scripts.analysis import p19_mcst_missing_locations as p379
 from scripts.analysis import p125_osm_postcode_status as p125
@@ -175,6 +178,50 @@ def test_p10_unresolved_network_probe_writes_only_to_temporary_directory() -> No
 
     assert "tempfile.TemporaryDirectory" in source
     assert "qa/p10_network_provenance_20260813/unresolved_network_probe" not in source
+
+
+def test_p10_analysis_scripts_resolve_default_inputs_from_project_root(
+    tmp_path: Path, monkeypatch
+) -> None:
+    monkeypatch.chdir(tmp_path)
+
+    for script_name in [
+        "p10_compare_subset_outputs.py",
+        "p10_manifest_network_block.py",
+        "p10_network_payload_cost.py",
+    ]:
+        source = (PROJECT_ROOT / "scripts" / "analysis" / script_name).read_text(
+            encoding="utf-8"
+        )
+
+        assert "PROJECT_ROOT = Path(__file__).resolve().parents[2]" in source
+
+    compare_source = (
+        PROJECT_ROOT / "scripts" / "analysis" / "p10_compare_subset_outputs.py"
+    ).read_text(encoding="utf-8")
+    assert 'BASE = Path("qa/p9_input_provenance_20260813/bundle")' not in compare_source
+    assert 'NEW = Path("qa/p10_network_provenance_20260813/exported_bundle")' not in compare_source
+    assert p10_compare.BASE == PROJECT_ROOT / "qa" / "p9_input_provenance_20260813" / "bundle"
+    assert (
+        p10_compare.NEW
+        == PROJECT_ROOT / "qa" / "p10_network_provenance_20260813" / "exported_bundle"
+    )
+    assert (
+        p10_network_block.BEFORE
+        == PROJECT_ROOT / "qa" / "p9_input_provenance_20260813" / "bundle" / "manifest.json"
+    )
+    assert (
+        p10_network_block.AFTER
+        == PROJECT_ROOT
+        / "qa"
+        / "p10_network_provenance_20260813"
+        / "exported_bundle"
+        / "manifest.json"
+    )
+    assert (
+        p10_payload_cost.BUNDLE
+        == PROJECT_ROOT / "web" / "public" / "data" / "generated_20260805_prefer_scored_routed"
+    )
 
 
 def test_p19_cache_status_only_reports_existing_measurement_caches(

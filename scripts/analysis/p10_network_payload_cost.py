@@ -4,7 +4,8 @@ import copy
 import json
 from pathlib import Path
 
-BUNDLE = Path("web/public/data/generated_20260805_prefer_scored_routed")
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+BUNDLE = PROJECT_ROOT / "web" / "public" / "data" / "generated_20260805_prefer_scored_routed"
 SHARD = BUNDLE / "scores" / "ANG_MO_KIO_PART_001.json"
 TOTAL_RECORDS = 124_443
 
