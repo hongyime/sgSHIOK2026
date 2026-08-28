@@ -184,6 +184,10 @@ def export_current_fingerprint_bundle(output_dir: Path) -> None:
     manifest_path = output_dir / "manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     fingerprints = scoring_fingerprints()
+    manifest["provenance"]["source_hashes"] = {
+        source_key: f"{index:064x}"
+        for index, source_key in enumerate(sorted(SCORE_PROVENANCE_SOURCE_HASH_KEYS), start=1)
+    }
     manifest["provenance"]["scoring_fingerprints"] = fingerprints
     manifest["provenance"]["scoring_fingerprint_files"] = sorted(fingerprints)
     manifest["provenance"]["scoring_fingerprint_changed_during_run"] = False
@@ -1432,6 +1436,31 @@ def test_bundle_score_provenance_reports_non_score_reference_hashes_without_bloc
     assert status["non_score_reference_source_hashes"] == ["leaf_area_index"]
     assert status["unexpected_source_hashes"] == ["leaf_area_index"]
     assert "non-score reference source hashes: leaf_area_index (NParks Leaf Area Index)" in status["warning"]
+
+
+def test_bundle_score_provenance_blocks_missing_expected_score_source_hashes(
+    tmp_path: Path,
+):
+    bundle_dir = tmp_path / "generated_test"
+    export_current_fingerprint_bundle(bundle_dir)
+    manifest_path = bundle_dir / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["provenance"]["source_hashes"] = {"leaf_area_index": "f" * 64}
+    write_json(manifest_path, manifest)
+
+    status = bundle_score_provenance_status(bundle_dir)
+
+    assert status["ok"] is False
+    assert status["state"] == "failed"
+    assert status["source_hash_count"] == 1
+    assert status["source_hash_keys"] == ["leaf_area_index"]
+    assert status["missing_expected_score_source_hashes"] == sorted(
+        SCORE_PROVENANCE_SOURCE_HASH_KEYS
+    )
+    assert status["unexpected_source_hashes"] == ["leaf_area_index"]
+    assert status["non_score_reference_source_hashes"] == ["leaf_area_index"]
+    assert "score source hashes: " in status["warning"]
+    assert "leaf_area_index" in status["warning"]
 
 
 def test_bundle_score_provenance_blocks_real_p10_stale_resume_shape(tmp_path: Path):

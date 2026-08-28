@@ -1858,3 +1858,7 @@ Clicked-transit OneMap preview walks are shelter-map evidence only, not publishe
 2026-08-29 - P814 score-card evidence announcements:
 
 The score-card evidence region should be named consistently for assistive technology, and direct-bus fallback announcements must not imply a verified shelter-map walk. Non-empty exposed-gap lists now carry the same `Exposed gap evidence` accessible label as the zero-gap evidence state. Direct-bus fallback status text now says `Straight-line bus estimate evidence` while ordinary routed walks keep `Shelter-map walk evidence`. This is browser accessibility/test/evidence work only; it does not score, export, rescore, mutate route geometry, public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
+
+2026-08-29 - P815 score-source hash gate:
+
+The readiness gate must require the expected score-source hashes, not merely any source hash. A bundle with only non-score reference hashes such as `leaf_area_index` is now a provenance defect even though complete bundles may still carry that non-score reference hash as a warning. The current-bundle test fixture now includes the expected score-source hash set so positive tests exercise the same policy. This is readiness/test/evidence work only; it does not score, export, rescore, mutate route geometry, public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.

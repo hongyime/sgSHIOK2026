@@ -649,6 +649,7 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
 
     failed = (
         source_hash_count <= 0
+        or bool(missing_expected_source_hashes)
         or bool(missing_subscores)
         or bool(blocking_provenance_signals)
         or (bool(missing_fingerprints) and scoring_schema_present)
@@ -680,6 +681,10 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
         reasons: list[str] = []
         if source_hash_count <= 0:
             reasons.append("score source hashes")
+        elif missing_expected_source_hashes:
+            reasons.append(
+                "score source hashes: " + ", ".join(missing_expected_source_hashes)
+            )
         if missing_fingerprints:
             reasons.append(
                 "scoring code/config fingerprints: " + ", ".join(missing_fingerprints)
