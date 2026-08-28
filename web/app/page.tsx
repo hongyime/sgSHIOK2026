@@ -1035,7 +1035,7 @@ function TransitModeControl({
     return "no published walk";
   };
   return (
-    <div className={`${styles.segmented} ${styles.transitSegmented}`} aria-label="Transit target">
+    <div className={`${styles.segmented} ${styles.transitSegmented}`} aria-label="Transit target type">
       {TRANSIT_MODE_OPTIONS.map((option) => {
         const routeOption = option.id === "best_transit" ? score : score.route_options?.[option.id];
         const available = Boolean(routeOption?.paths);
