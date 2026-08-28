@@ -2,6 +2,7 @@
 param(
     [Parameter(Mandatory = $true)]
     [string]$DataBundle,
+    [switch]$ConfirmActivation,
     [switch]$SkipRemoteCheck
 )
 
@@ -14,6 +15,25 @@ $WebIgnorePath = Join-Path $WebDir ".vercelignore"
 
 if (-not $DataBundle -or $DataBundle.Contains("/") -or $DataBundle.Contains("\")) {
     throw "Invalid data bundle: $DataBundle"
+}
+
+function Write-ActivationPlan {
+    param([string]$Reason)
+    Write-Output "== S.H.I.O.K. data bundle activation =="
+    Write-Output "repo=$RepoRoot"
+    Write-Output "bundle=$DataBundle"
+    Write-Output "plan_only=true"
+    Write-Output "activation=not_started"
+    Write-Output "reason=$Reason"
+    Write-Output "commands:"
+    Write-Output ".\scripts\activate-data-bundle.bat -DataBundle $DataBundle -ConfirmActivation"
+    Write-Output ""
+    Write-Output "This validates the selected bundle, checks its production manifest unless skipped, then rewrites web/data-bundle.json and Vercel allowlists. It does not deploy."
+}
+
+if (-not $ConfirmActivation) {
+    Write-ActivationPlan -Reason "confirm_activation_not_set"
+    return
 }
 
 $DataDir = Join-Path $WebDir "public\data\$DataBundle"

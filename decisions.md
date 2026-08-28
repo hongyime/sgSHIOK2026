@@ -1636,3 +1636,7 @@ The postal-universe prep wrapper predates two runner guards: `run.py postal-univ
 2026-08-28 - P748 postal-universe prep wrapper geocode flag:
 
 The postal-universe prep wrapper must pass the cache path using the module's actual `--db` option, not the stale `--cache-db` spelling. The test now asserts the versioned cache path is supplied through `--db` and that `--cache-db` is absent, so future wrapper drift is caught without running geocoding. This is wrapper/test hygiene only; it does not build a universe, geocode, call OneMap, mutate raw or processed artifacts, score, export, deploy, protected QA evidence, or locked weights.
+
+2026-08-28 - P749 direct bundle activation confirmation:
+
+`scripts/activate-data-bundle.ps1` rewrites `web/data-bundle.json` and the Vercel allowlists, so direct invocation must require its own `-ConfirmActivation` gate instead of relying on the higher-level release wrapper's `-ConfirmProduction`. The release wrapper now passes `-ConfirmActivation` after production approval, preserving the approved release flow while making direct activation fail closed. This is release-wrapper guard/test hygiene only; it does not validate a bundle, activate a bundle, deploy, mutate public data, score, export, protected QA evidence, or locked weights.

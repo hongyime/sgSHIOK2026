@@ -24,3 +24,27 @@ def test_prepare_postal_universe_script_passes_runner_confirms_and_versioned_cac
     assert '"--db", $GeocodeCachePath' in source
     assert '"--cache-db", $GeocodeCachePath' not in source
     assert '"--confirm-bounded-geocode"' in source
+
+
+def test_activate_data_bundle_script_requires_direct_activation_confirm() -> None:
+    source = (PROJECT_ROOT / "scripts" / "activate-data-bundle.ps1").read_text(encoding="utf-8")
+
+    assert "[switch]$ConfirmActivation" in source
+    assert "confirm_activation_not_set" in source
+    assert "Write-ActivationPlan" in source
+    assert '[System.IO.File]::WriteAllText(' in source
+
+    confirm_check = source.index("if (-not $ConfirmActivation)")
+    first_write = source.index("[System.IO.File]::WriteAllText(")
+    assert confirm_check < first_write
+
+
+def test_release_data_bundle_script_passes_activation_confirm() -> None:
+    source = (PROJECT_ROOT / "scripts" / "release-data-bundle.ps1").read_text(encoding="utf-8")
+
+    activation_line = next(
+        line.strip()
+        for line in source.splitlines()
+        if "activate-data-bundle.ps1" in line and "-DataBundle $DataBundle" in line
+    )
+    assert "-ConfirmActivation" in activation_line

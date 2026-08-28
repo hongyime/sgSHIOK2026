@@ -99,7 +99,7 @@ try {
     $Deadline = (Get-Date).AddSeconds($RemoteWaitSeconds)
     while ($true) {
         try {
-            & (Join-Path $PSScriptRoot "activate-data-bundle.ps1") -DataBundle $DataBundle
+            & (Join-Path $PSScriptRoot "activate-data-bundle.ps1") -DataBundle $DataBundle -ConfirmActivation
             if ($LASTEXITCODE -ne 0) { throw "activation failed" }
             break
         }
