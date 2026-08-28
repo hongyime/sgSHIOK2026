@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `e8794a3` (`docs: align agent publish instructions`)
+Latest substantive commit: `bb7dab5` (`fix: pass postal universe prep confirmations`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,8 +18,8 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P745 is complete and pushed: `CLAUDE.md` now documents `validate` as a read-only safe report and shows publish with both `--confirm-publish` and `--confirm-production`.
-- Evidence: `qa/verification/P745-agent-publish-instructions.md`.
-- P736-P744 also remain complete: bounded geocode caches must be versioned, batch-plan blocks unversioned completed fills, lamp-overlay/postal-universe/report-writer tasks require confirmation, high-risk writer/network/deploy tasks fail closed at the runner, validate is documented as read-only, and the deploy wrapper passes both publish confirmations.
-- Checks: `uv run pytest tests/test_agent_docs.py tests/test_release_scripts.py tests/test_run.py tests/test_readme.py -q` passed 65/65; `uv run pytest -q --collect-only` collected 568; repo integrity passed; diff-check and protected-diff guard passed.
+- P746 is complete and pushed: `scripts/prepare-postal-universe.ps1` now passes `--confirm-postal-universe` and a version-derived `raw\geocode_cache_${Version}.db` cache path.
+- Evidence: `qa/verification/P746-postal-universe-prep-wrapper.md`.
+- P736-P745 also remain complete: bounded geocode caches must be versioned, batch-plan blocks unversioned completed fills, lamp-overlay/postal-universe/report-writer tasks require confirmation, high-risk writer/network/deploy tasks fail closed at the runner, validate is documented as read-only, the deploy wrapper passes both publish confirmations, and agent publish instructions match.
+- Checks: `uv run pytest tests/test_release_scripts.py -q` passed 2/2; `uv run pytest -q --collect-only` collected 569; repo integrity passed; diff-check and protected-diff guard passed.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
