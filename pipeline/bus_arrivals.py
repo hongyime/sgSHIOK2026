@@ -20,6 +20,7 @@ from pipeline.bus import datamall_headers
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_OUTPUT = PROJECT_ROOT / "raw" / "bus_arrivals" / "arrivals.jsonl"
 BUS_ARRIVAL_ENDPOINT = "https://datamall2.mytransport.sg/ltaodataservice/v3/BusArrival"
+CONFIRM_BUS_ARRIVALS_FLAG = "--confirm-bus-arrivals"
 
 
 def snapshot_record(
@@ -120,9 +121,28 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         help="Explicit JSONL output path; collection refuses implicit raw/ defaults.",
     )
+    parser.add_argument(
+        CONFIRM_BUS_ARRIVALS_FLAG,
+        action="store_true",
+        help="Required before calling DataMall and appending local bus-arrival snapshots.",
+    )
     args = parser.parse_args(argv)
 
     if args.action == "collect":
+        if not args.confirm_bus_arrivals:
+            print(
+                json.dumps(
+                    {
+                        "ok": False,
+                        "errors": [
+                            "bus-arrivals collect requires --confirm-bus-arrivals after owner approval"
+                        ],
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 1
         if args.output is None:
             print(
                 json.dumps(

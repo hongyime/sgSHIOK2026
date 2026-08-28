@@ -320,8 +320,7 @@ def run_task(name: str, extra: list[str]) -> int:
             ),
         ):
             return 2
-        forwarded = [arg for arg in extra if arg != BUS_ARRIVALS_CONFIRM_FLAG]
-        return run_module("pipeline.bus_arrivals", extra_args=forwarded)
+        return run_module("pipeline.bus_arrivals")
     if name == "bus-connector-diagnostics":
         if not require_runner_flag(
             extra=extra,

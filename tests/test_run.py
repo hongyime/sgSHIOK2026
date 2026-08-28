@@ -761,7 +761,7 @@ def test_run_task_refuses_bus_arrivals_without_confirm(monkeypatch, capsys):
     )
 
 
-def test_run_task_strips_bus_arrivals_confirm(monkeypatch):
+def test_run_task_forwards_bus_arrivals_confirm(monkeypatch):
     calls = []
 
     class FakeCompletedProcess:
@@ -789,6 +789,7 @@ def test_run_task_strips_bus_arrivals_confirm(monkeypatch):
                 "pipeline.bus_arrivals",
                 "--output",
                 "logs/bus_arrivals.jsonl",
+                "--confirm-bus-arrivals",
             ],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},

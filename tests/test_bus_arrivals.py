@@ -82,6 +82,24 @@ def test_collect_snapshots_refuses_existing_output_before_fetch(monkeypatch, tmp
         raise AssertionError("expected existing output to be refused")
 
 
+def test_bus_arrivals_cli_requires_confirm_before_output_guard(monkeypatch, capsys):
+    from pipeline import bus_arrivals
+
+    def fail_fetch(*_args, **_kwargs):
+        raise AssertionError("fetch should not run before confirmation")
+
+    monkeypatch.setattr(bus_arrivals, "fetch_bus_arrival", fail_fetch)
+
+    assert main(["collect", "--stop", "54211", "--output", "logs/bus_arrivals.jsonl"]) == 1
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "errors": ["bus-arrivals collect requires --confirm-bus-arrivals after owner approval"],
+        "ok": False,
+    }
+
+
 def test_bus_arrivals_cli_requires_explicit_output_before_fetch(monkeypatch, capsys):
     from pipeline import bus_arrivals
 
@@ -90,7 +108,7 @@ def test_bus_arrivals_cli_requires_explicit_output_before_fetch(monkeypatch, cap
 
     monkeypatch.setattr(bus_arrivals, "fetch_bus_arrival", fail_fetch)
 
-    assert main(["collect", "--stop", "54211"]) == 1
+    assert main(["collect", "--stop", "54211", "--confirm-bus-arrivals"]) == 1
 
     out = capsys.readouterr().out
     report = json.loads(out)
@@ -110,7 +128,19 @@ def test_bus_arrivals_cli_refuses_existing_output_before_fetch(monkeypatch, tmp_
     output = tmp_path / "arrivals.jsonl"
     output.write_text("", encoding="utf-8")
 
-    assert main(["collect", "--stop", "54211", "--output", str(output)]) == 1
+    assert (
+        main(
+            [
+                "collect",
+                "--stop",
+                "54211",
+                "--output",
+                str(output),
+                "--confirm-bus-arrivals",
+            ]
+        )
+        == 1
+    )
 
     out = capsys.readouterr().out
     report = json.loads(out)
@@ -141,6 +171,7 @@ def test_bus_arrivals_cli_collects_with_explicit_output(monkeypatch, tmp_path, c
                 "0",
                 "--output",
                 str(output),
+                "--confirm-bus-arrivals",
             ]
         )
         == 0
