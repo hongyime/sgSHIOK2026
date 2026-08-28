@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P650 web commit: `0069da5`; state-only commits may follow it on `main`.
+Latest P651 web commit: `2d8a580`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P651 is complete and committed: the partial locked-score caveat now says the locked formula counts unavailable terms as zero, replacing internal-sounding `one or more locked terms are unavailable; locked weights count missing terms as zero` wording while preserving the warning. Focused render/source tests, full web suite, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P650 is complete and committed: the direct-bus fallback bus-support note now says direct bus service is shown as fallback evidence, then names the missing verified shelter-map walk to an official LTA bus stop. Focused render/source tests, full web suite, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed; web tests remain 166 and Python collection remains 457. The first focused run caught a stale source-copy assertion for the old note, which was corrected before commit. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P649 is complete and committed: the direct-bus fallback locked-score caveat now says `nearby direct bus service evidence could not be connected to a verified shelter-map walk` instead of broader `nearby bus evidence`, aligning the caveat with the direct-bus fallback path. Focused render/source tests, full web suite, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P648 is complete and committed: the remaining direct-bus fallback found reason now says `Nearby direct bus service found` instead of broader `Nearby bus service found`, keeping it aligned with the direct-bus evidence path. Focused render/source tests, full web suite, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
