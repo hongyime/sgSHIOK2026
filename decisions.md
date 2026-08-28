@@ -1616,3 +1616,7 @@ The task runner remains the safety boundary for commands that write diagnostic e
 2026-08-28 - P743 validate runner classification:
 
 `run.py validate` is a read-only static-bundle verifier, not a writer or deployment action. It remains callable without a runner confirmation and is now documented with the safe reports rather than the gated pipeline tasks. `publish` remains gated separately and still runs validation before deployment. This is documentation/test alignment only; it does not validate the live bundle, export, score, rescore, mutate public data, mutate protected QA evidence, deploy, or touch locked weights.
+
+2026-08-28 - P744 production deploy wrapper confirmations:
+
+The production deploy wrapper must satisfy both safety boundaries: `run.py publish` requires the runner-owned `--confirm-publish`, and `pipeline.publish --deploy` requires the module-owned `--confirm-production`. `scripts/deploy-production.ps1` now passes both flags so an explicitly invoked release wrapper still reaches the publish module, while unconfirmed runner use remains blocked. This is script/test hygiene only; it does not deploy, validate a bundle, export, score, mutate public data, mutate protected QA evidence, or touch locked weights.

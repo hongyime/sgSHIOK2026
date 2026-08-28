@@ -35,7 +35,7 @@ try {
         if ($LASTEXITCODE -ne 0) { throw "web tests failed" }
     }
 
-    uv run python run.py publish --input "web/public/data/$DataBundle" --deploy --confirm-production
+    uv run python run.py publish --input "web/public/data/$DataBundle" --deploy --confirm-publish --confirm-production
     if ($LASTEXITCODE -ne 0) { throw "production deploy failed" }
 }
 finally {
