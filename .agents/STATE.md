@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P677 web commit: `4a1addd`; state-only commits may follow it on `main`.
+Latest P678 web commit: `c871866`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P678 is complete and committed: selected-walk night-lighting detail note now says lamp-post points are `a night-lighting map layer outside the locked score` instead of `night-lighting map evidence outside the locked score`, keeping night lighting separate from score evidence. Focused render/source tests, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P677 is complete and committed: page metadata now names `the night-lighting map layer` instead of generic `night lighting evidence`, matching the visible UI while keeping covered-walkway ratio and exposed gaps first and the locked SHIOK score secondary. Focused source-copy test, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P676 is complete and committed: clicked-transit preview badge now says `Preview shelter-map evidence` instead of `Preview shelter-map evidence only`, leaving the not-published-yet caveat in the longer preview explanation. Focused render/source/map tests, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P675 is complete and committed: clicked-transit live preview provenance now says `preview shelter-map evidence only` instead of generic `shelter-map evidence only`, so it cannot be read as a published-bundle claim. Focused live-route/map tests, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
