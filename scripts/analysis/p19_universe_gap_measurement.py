@@ -1,7 +1,8 @@
 """Measure current postal-universe coverage from public address signals.
 
-This script is read/measurement only: it does not mutate raw/, processed/, or
-web/public/data/. It writes resumable API caches under qa/p19/.
+This script is read/status-only by default. Explicit `--measure` mode calls
+public APIs and writes resumable API caches under qa/p19/, while still not
+mutating raw/, processed/, or web/public/data/.
 """
 
 from __future__ import annotations
@@ -741,12 +742,17 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--delay-sec", type=float, default=0.25)
     parser.add_argument(
+        "--measure",
+        action="store_true",
+        help="Call public APIs and write/update qa/p19 measurement cache/report files.",
+    )
+    parser.add_argument(
         "--cache-status-only",
         action="store_true",
         help="Read existing qa/p19 caches/reports and exit before loading inputs or calling APIs.",
     )
     args = parser.parse_args()
-    if args.cache_status_only:
+    if args.cache_status_only or not args.measure:
         print(json.dumps(cache_status_report(), indent=2, sort_keys=True))
         return
 

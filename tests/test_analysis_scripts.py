@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 from pathlib import Path
 
 from scripts.analysis import p10_compare_subset_outputs as p10_compare
@@ -487,6 +488,94 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
             "1 MCST proxy row remains a source-quality warning"
         ),
     }
+
+
+def test_p19_main_defaults_to_cache_status_only_before_loading_inputs(
+    monkeypatch, capsys
+) -> None:
+    calls: list[str] = []
+
+    def fake_cache_status_report() -> dict[str, object]:
+        calls.append("status")
+        return {"mode": "cache_status_only", "will_call_apis": False, "will_write_files": False}
+
+    def fail_read_parquet(*_: object, **__: object) -> object:
+        raise AssertionError("postal universe should not load before --measure")
+
+    monkeypatch.setattr(p19, "cache_status_report", fake_cache_status_report)
+    monkeypatch.setattr(p19.pd, "read_parquet", fail_read_parquet)
+    monkeypatch.setattr(sys, "argv", ["p19_universe_gap_measurement.py"])
+
+    assert p19.main() is None
+
+    assert calls == ["status"]
+    assert '"mode": "cache_status_only"' in capsys.readouterr().out
+
+
+def test_p19_main_measure_flag_reaches_measurement_path(monkeypatch) -> None:
+    calls: list[str] = []
+
+    class FakeSeries:
+        def __init__(self, values: list[str]) -> None:
+            self.values = values
+
+        def astype(self, _kind: str) -> "FakeSeries":
+            return self
+
+        def __iter__(self):
+            return iter(self.values)
+
+        def value_counts(self, dropna: bool = False) -> dict[str, int]:
+            count = len(self.values)
+
+            class FakeCounts:
+                def to_dict(self) -> dict[str, int]:
+                    return {"ok": count}
+
+            return FakeCounts()
+
+    class FakeFrame:
+        def __init__(self) -> None:
+            self.columns = {
+                "postal_code": FakeSeries(["123456"]),
+                "status": FakeSeries(["ok"]),
+            }
+
+        def __getitem__(self, key: str) -> FakeSeries:
+            return self.columns[key]
+
+        def __len__(self) -> int:
+            return 1
+
+    def fake_read_parquet(*_: object, **__: object) -> FakeFrame:
+        calls.append("read_parquet")
+        return FakeFrame()
+
+    def fake_fetch_datastore(resource_id: str) -> dict[str, object]:
+        calls.append(f"fetch:{resource_id}")
+        return {"total": 0, "records": []}
+
+    written: list[Path] = []
+
+    monkeypatch.setattr(p19.pd, "read_parquet", fake_read_parquet)
+    monkeypatch.setattr(p19, "fetch_datastore", fake_fetch_datastore)
+    monkeypatch.setattr(
+        p19,
+        "geocode_hdb_rows",
+        lambda rows, delay_sec: [{"postal": "123456", "year_completed": 2026}],
+    )
+    monkeypatch.setattr(p19, "overpass_postcodes", lambda: {"postcodes": []})
+    monkeypatch.setattr(p19, "write_json", lambda path, payload: written.append(path))
+    monkeypatch.setattr(sys, "argv", ["p19_universe_gap_measurement.py", "--measure"])
+
+    assert p19.main() is None
+
+    assert calls == [
+        "read_parquet",
+        f"fetch:{p19.HDB_PROPERTY_INFO_ID}",
+        f"fetch:{p19.BCA_MCST_ID}",
+    ]
+    assert written == [p19.SUMMARY_OUTPUT, p19.DETAIL_OUTPUT]
 
 
 def test_p125_osm_status_reports_cached_overpass_coverage(tmp_path: Path) -> None:
