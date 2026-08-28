@@ -1632,3 +1632,7 @@ The postal-universe prep wrapper predates two runner guards: `run.py postal-univ
 2026-08-28 - P747 legacy geocode entry point retired:
 
 `pipeline/geocode.py` was a legacy direct CLI that could call OneMap and write the unversioned mutable `raw/geocode_cache.db` outside the guarded `run.py geocode-universe` path. Its importable helper functions remain for history, but direct invocation now exits with a retirement message pointing to the dry-run and confirmed versioned-cache flow. The runner also now forwards `geocode-universe` arguments to `pipeline.geocode_universe`, so the confirmed wrapper path reaches the module with its explicit input, output, and cache arguments. This is guard/test hygiene only; it does not call OneMap, geocode, mutate raw inputs/caches, score, export, deploy, protected QA evidence, or locked weights.
+
+2026-08-28 - P748 postal-universe prep wrapper geocode flag:
+
+The postal-universe prep wrapper must pass the cache path using the module's actual `--db` option, not the stale `--cache-db` spelling. The test now asserts the versioned cache path is supplied through `--db` and that `--cache-db` is absent, so future wrapper drift is caught without running geocoding. This is wrapper/test hygiene only; it does not build a universe, geocode, call OneMap, mutate raw or processed artifacts, score, export, deploy, protected QA evidence, or locked weights.

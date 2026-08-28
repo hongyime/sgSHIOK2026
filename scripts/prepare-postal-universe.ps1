@@ -85,7 +85,7 @@ try {
         "--input", $UniversePath,
         "--output", $GeocodedPath,
         "--summary", $GeocodedSummaryPath,
-        "--cache-db", $GeocodeCachePath,
+        "--db", $GeocodeCachePath,
         "--confirm-bounded-geocode"
     )
     if ($RetryCachedFailures) { $GeocodeArgs += "--retry-cached-failures" }

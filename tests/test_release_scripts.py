@@ -21,5 +21,6 @@ def test_prepare_postal_universe_script_passes_runner_confirms_and_versioned_cac
 
     assert '$GeocodeCachePath = "raw\\geocode_cache_${Version}.db"' in source
     assert '"--confirm-postal-universe"' in source
-    assert '"--cache-db", $GeocodeCachePath' in source
+    assert '"--db", $GeocodeCachePath' in source
+    assert '"--cache-db", $GeocodeCachePath' not in source
     assert '"--confirm-bounded-geocode"' in source
