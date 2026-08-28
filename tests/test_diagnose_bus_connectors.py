@@ -1,4 +1,7 @@
+import sys
+
 from pipeline.scoring_integration import CandidateNode
+from scripts import diagnose_bus_connectors
 from scripts.diagnose_bus_connectors import (
     choose_target_bus_candidate,
     choose_target_mrt_lrt_candidate,
@@ -11,6 +14,7 @@ from scripts.diagnose_bus_connectors import (
     score_recovers_target_mrt_lrt,
     stop_names_match,
     validation_route_trust,
+    write_json,
     within_onemap_threshold,
 )
 
@@ -266,3 +270,33 @@ def test_diagnostic_action_summary_separates_rescore_and_model_fix_rows():
     assert not any(
         "targeted score bundle" in action for action in summary["recommended_next_actions"]
     )
+
+
+def test_diagnose_bus_connectors_cli_requires_explicit_outputs_before_input_reads(
+    monkeypatch, capsys
+) -> None:
+    def fail_if_loaded(**_kwargs):
+        raise AssertionError("diagnostics should not load before explicit output validation")
+
+    monkeypatch.setattr(diagnose_bus_connectors, "build_diagnostics", fail_if_loaded)
+    monkeypatch.setattr(sys, "argv", ["diagnose_bus_connectors.py"])
+
+    assert diagnose_bus_connectors.main() == 2
+
+    captured = capsys.readouterr()
+    assert "bus connector diagnostics requires explicit --output" in captured.err
+    assert "bus connector diagnostics requires explicit --geojson-output" in captured.err
+
+
+def test_diagnose_bus_connectors_write_json_refuses_existing_output(tmp_path) -> None:
+    output = tmp_path / "diagnostics.json"
+    output.write_text("{}\n", encoding="utf-8")
+
+    try:
+        write_json(output, {"ok": True})
+    except FileExistsError as exc:
+        assert "refusing to overwrite existing analysis output" in str(exc)
+    else:
+        raise AssertionError("existing bus connector diagnostics output was overwritten")
+
+    assert output.read_text(encoding="utf-8") == "{}\n"

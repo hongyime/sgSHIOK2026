@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from collections import Counter
 from datetime import UTC, datetime
 from pathlib import Path
@@ -10,6 +11,9 @@ from typing import Any
 
 import numpy as np
 from pyproj import Transformer
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT_ROOT))
 
 from pipeline.scoring_integration import (
     CandidateNode,
@@ -23,8 +27,8 @@ from pipeline.scoring_integration import (
     select_bus_stop_candidates,
     select_mrt_exit_candidates,
 )
+from scripts.analysis.report_io import write_new_text_report
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PRIORITY_GEOJSON = (
     PROJECT_ROOT / "qa" / "onemap_missing_bus_connector_priority_20260802.geojson"
 )
@@ -42,8 +46,16 @@ def read_json(path: Path) -> Any:
 
 
 def write_json(path: Path, payload: dict[str, Any]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    write_new_text_report(path, json.dumps(payload, indent=2, sort_keys=True) + "\n")
+
+
+def explicit_output_errors(output: Path, geojson_output: Path) -> list[str]:
+    errors = []
+    if output == DEFAULT_OUTPUT:
+        errors.append("bus connector diagnostics requires explicit --output")
+    if geojson_output == DEFAULT_GEOJSON_OUTPUT:
+        errors.append("bus connector diagnostics requires explicit --geojson-output")
+    return errors
 
 
 def display_path(path: Path) -> str:
@@ -848,6 +860,11 @@ def main() -> int:
     parser.add_argument("--alternate-snap-search-m", type=float, default=50.0)
     parser.add_argument("--alternate-snap-max-candidates", type=int, default=24)
     args = parser.parse_args()
+
+    errors = explicit_output_errors(args.output, args.geojson_output)
+    if errors:
+        print(json.dumps({"errors": errors}, indent=2, sort_keys=True), file=sys.stderr)
+        return 2
 
     diagnostics = build_diagnostics(
         priority_geojson_path=args.priority_geojson,
