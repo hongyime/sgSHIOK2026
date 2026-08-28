@@ -1298,7 +1298,7 @@ export function ScoreCard({
       value: nightLightingRouteDetailValue(lampOverlayEnabled),
     });
     routeDetailNotes.push(
-      "Night lighting uses LTA lamp-post points as map evidence outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
+      "Night lighting uses LTA lamp-post points as night-lighting map evidence outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
     );
   }
   if (endpointSnapM > 0) {
@@ -2284,7 +2284,7 @@ export default function Home() {
                 className={`${styles.layerToggle} ${lampOverlayEnabled ? styles.layerToggleActive : ""}`}
                 aria-pressed={lampOverlayEnabled}
                 aria-describedby="night-lighting-layer-note"
-                title="Night lighting: LTA lamp-post locations; map evidence only, not part of the locked score"
+                title="Night lighting: LTA lamp-post locations; night-lighting map layer only, not part of the locked score"
                 onClick={() => setLampOverlayEnabled((enabled) => !enabled)}
               >
                 <span className={styles.lampSwatch} aria-hidden="true" />

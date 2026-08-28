@@ -101,10 +101,13 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain('{lampOverlayEnabled ? "Night lighting on" : "Night lighting off"}');
     expect(pageSource).not.toContain(">Night lighting</button>");
     expect(pageSource).toContain(
-      'title="Night lighting: LTA lamp-post locations; map evidence only, not part of the locked score"'
+      'title="Night lighting: LTA lamp-post locations; night-lighting map layer only, not part of the locked score"'
     );
     expect(pageSource).not.toContain(
       'title="LTA lamp post locations; map evidence only, not part of the locked score"'
+    );
+    expect(pageSource).not.toContain(
+      'title="Night lighting: LTA lamp-post locations; map evidence only, not part of the locked score"'
     );
     expect(pageSource).toContain("night-lighting-layer-note");
     expect(pageSource).toContain("nightLightingLayerNote(lampOverlayEnabled)");
