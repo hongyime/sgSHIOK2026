@@ -1036,10 +1036,10 @@ def readiness_features(
         "not_incorporated": {
             "canonical_140k_postal_universe": (
                 "not claimed; frozen v1 remains the 124443-record June 2020 OneMap-derived "
-                "universe; the 16 Aug 2026 P19 public-source sample found 6 coordinate-backed HDB missing "
+                "universe; the P19 v2 28 Aug 2026 public-source sample found 6 coordinate-backed HDB missing "
                 "rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) sampled 2021-2026 "
-                "public-source rows with postals, P125's 20 Aug 2026 Overpass coverage cross-check found 25879 valid distinct OSM "
-                "addr:postcode values, 25873 overlapping frozen postals, and P64 found OneMap "
+                "public-source rows with postals, and its Overpass coverage cross-check found 25919 valid distinct OSM "
+                "addr:postcode values, 25899 overlapping frozen postals, 20 valid OSM-only postcodes, and P64 found OneMap "
                 "Search validates candidates but is not an enumerator"
             ),
             "postal_universe_v2_source_policy": (

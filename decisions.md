@@ -7,6 +7,9 @@ The first viewport should sell the shelter-map action before it reads like prove
 2026-08-29 - P773 P379 MCST probe confirmation gate:
 The P379 MCST proxy location probe is retained but its direct `--probe` mode now requires `--confirm-p379-probe` before OneMap calls or cache/report writes. Explicit non-historical output paths remain required. The default remains cache-status-only and read-only. This is safety/test/evidence work only; it does not run the probe, call APIs, score, export, rescore, ingest, build network, mutate inputs, deploy, touch protected payloads, or change locked weights.
 
+2026-08-29 - P807 refreshed OSM coverage in source-policy surfaces:
+Batch-plan and production-readiness source-policy reporting should use the freshest committed Overpass `addr:postcode` coverage cross-check. The shared `OSM_ADDR_POSTCODE_COVERAGE` block now cites the P19 v2 28 Aug 2026 Overpass result from `qa/p19/overpass_addr_postcodes_cache_v2.json`: 25,919 valid distinct OSM postcodes, 25,899 overlapping frozen v1, 20 valid OSM-only postcodes, and 20.811938% frozen-v1 coverage. P125 remains historical evidence and its read-only status command remains available, but it is no longer the freshest source-policy numerator. This is reporting/test/evidence work only; it does not call Overpass, mutate cached evidence, alter inputs, score, export, deploy, public data, or touch locked weights.
+
 2026-08-29 - P772 P19 measurement confirmation gate:
 The P19 recent-public-source measurement remains useful but its direct `--measure` mode is write- and API-capable, so it now requires `--confirm-p19-measure` plus explicit non-historical output/cache paths before loading protected inputs or calling public APIs. The default remains cache-status-only and read-only. This is safety/test/evidence work only; it does not run the measurement, call APIs, score, export, rescore, ingest, build network, mutate inputs, deploy, touch protected payloads, or change locked weights.
 

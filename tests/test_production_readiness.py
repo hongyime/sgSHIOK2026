@@ -535,7 +535,7 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
     assert report["features"]["incorporated"]["ura_no_dwelling_units_postal_source"] is True
     assert "124443" in report["features"]["not_incorporated"]["ura_expanded_scores_live"]
     assert (
-        "the 16 Aug 2026 P19 public-source sample found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) sampled 2021-2026"
+        "the P19 v2 28 Aug 2026 public-source sample found 6 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of 976 (0.82%) sampled 2021-2026"
         in report["features"]["not_incorporated"]["canonical_140k_postal_universe"]
     )
     assert (
@@ -547,7 +547,7 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         not in report["features"]["not_incorporated"]["canonical_140k_postal_universe"]
     )
     assert (
-        "P125's 20 Aug 2026 Overpass coverage cross-check found 25879 valid distinct OSM addr:postcode values, 25873 overlapping frozen postals"
+        "its Overpass coverage cross-check found 25919 valid distinct OSM addr:postcode values, 25899 overlapping frozen postals, 20 valid OSM-only postcodes"
         in report["features"]["not_incorporated"]["canonical_140k_postal_universe"]
     )
     assert (
@@ -712,19 +712,19 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         report["features"]["validation_gates"]["onemap_walk_validation"]["state"] == "not_collected"
     )
     assert report["features"]["source_policy"]["osm_addr_postcode_registry"] == {
-        "measurement": "P125 20 Aug 2026 Overpass addr:postcode coverage cross-check",
-        "cache_status_command": "uv run python run.py p125-osm-status",
+        "measurement": "P19 v2 28 Aug 2026 Overpass addr:postcode coverage cross-check",
+        "cache_status_command": "uv run python run.py p19-gap-status",
         "cache_status_calls_apis": False,
         "cache_status_writes_files": False,
         "cache_status_reports_age_days": True,
-        "overpass_output_path": "qa/p125/overpass_sg_addr_postcode.json",
-        "overpass_query_path": "qa/p125/overpass_sg_addr_postcode.query",
-        "valid_distinct_postcodes": 25879,
-        "overlap_frozen_v1_postals": 25873,
-        "valid_osm_only_postcodes": 6,
+        "overpass_output_path": "qa/p19/overpass_addr_postcodes_cache_v2.json",
+        "overpass_query_path": None,
+        "valid_distinct_postcodes": 25919,
+        "overlap_frozen_v1_postals": 25899,
+        "valid_osm_only_postcodes": 20,
         "frozen_v1_postals": 124443,
-        "coverage_pct": 20.791045,
-        "invalid_distinct_postcode_tags": 23,
+        "coverage_pct": 20.811938,
+        "invalid_distinct_postcode_tags": None,
         "source_role": "geometry evidence and coverage cross-check",
         "registry_policy": "not the address registry",
         "verdict": "not sufficient as primary Singapore address registry",
