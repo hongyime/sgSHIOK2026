@@ -1,9 +1,9 @@
 # Current State
 
-Date: 2026-08-28
+Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `157e65e` (`fix: require confirmation for datamall static parser`)
+Latest substantive commit: `9ff26b7` (`fix: shorten first-view freshness disclosure`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,8 +18,9 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P766 is complete and pushed: direct `pipeline.parse_static_datamall` now requires `--confirm-datamall-static-parse` before live DataMall static page HTTP requests.
-- Evidence: `qa/verification/P766-datamall-static-parser-confirmation.md`.
+- P767 is complete and pushed: retired `pipeline.rescope`, which previously performed OSM/HDB raw-data reads at import time from a relative `raw/` path.
+- P768 is complete and pushed: shortened the first-view data-freshness disclosure and moved full stale-source detail into an expandable block.
+- Evidence: `qa/verification/P767-rescope-retired.md` and `qa/verification/P768-freshness-copy-density.md`.
 - P736-P765 also remain complete: bounded geocode caches must be versioned, batch-plan blocks unversioned completed fills, lamp-overlay/postal-universe/report-writer tasks require confirmation, high-risk writer/network/deploy tasks fail closed at the runner, full OneMap wrappers require explicit approval, validate is documented as read-only, publish/activation/deploy wrappers pass required confirmations, full-rescore deploy and activation require distinct approvals, agent publish instructions match, postal-universe prep passes required confirmations/cache paths, legacy direct geocode and network entry points are guarded/retired, geocode cache paths use `--db`, README DataMall discovery copy matches latest recorded evidence, direct fetch ingest requires module-owned approval, direct bus-arrivals collection requires module-owned approval, direct bus API ingest requires module-owned approval, direct postal-universe build requires module-owned approval, direct lamp-overlay build requires module-owned approval, direct export writer subcommands require module-owned approval, direct Overture probes require module-owned approval, direct network-debug rebuild requires module-owned approval, production preflight requires wrapper-owned approval, direct DataMall probes require module-owned approval, and direct data.gov.sg probes require module-owned approval.
-- Checks: `uv run pytest tests/test_parse_static_datamall.py -q` passed 3/3; `uv run pytest -q --collect-only` collected 611; repo integrity passed; diff-check and protected-diff guard passed.
+- Checks: `uv run pytest tests/test_legacy_geocode.py -q` passed 2/2; `npm --prefix web test -- score-card-copy.test.ts` passed 16/16; `uv run pytest -q --collect-only` collected 612; repo integrity passed; protected-diff guard passed.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
