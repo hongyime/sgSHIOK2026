@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P657 web commit: `61e1973`; state-only commits may follow it on `main`.
+Latest P667 web commit: `34122fe`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P667 is complete and committed: populated live-region copy now says `Shelter-map walk evidence ...` instead of generic `Walk evidence ...`, and the outside-transit-range shelter row note now starts `Shelter-map walk evidence is shown ...`. Focused render/source tests, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P666 is complete and committed: unavailable shelter/bus row fallbacks now say `Shelter-map walk evidence unavailable`, `Shelter-map walk unavailable`, and `Bus support unavailable` instead of broad `Walk evidence unavailable` / `Bus evidence unavailable`, matching the shelter-map and bus-support row labels. Focused render/source tests, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P665 is complete and committed: shelter exposure fallback scored metadata now says `40% locked shelter exposure` instead of `40% locked rain+heat`, keeping the locked 40% contribution visible without exposing the internal duplicated rain/heat construction. The first focused test caught an over-broad rendered assertion and confirmed path-backed rows still show `Covered-walkway ratio`; corrected focused render/source tests, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P664 is complete and committed: scored row metadata now says `35% locked walk-to-transit` and `20% locked bus support` instead of internal `35% locked access` / `20% locked bus`, keeping locked percentages visible while aligning with the row labels users see. Focused render/source tests, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
