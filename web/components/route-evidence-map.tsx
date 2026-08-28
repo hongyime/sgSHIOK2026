@@ -1028,7 +1028,7 @@ export function selectedExposureGapSummary(focusedExposureGap: FocusedExposureGa
   ) {
     return null;
   }
-  return `Selected exposed gap marker near ${focusedExposureGap.lat.toFixed(5)}, ${focusedExposureGap.lon.toFixed(5)}.`;
+  return `Selected exposed gap marker at map coordinate ${focusedExposureGap.lat.toFixed(5)}, ${focusedExposureGap.lon.toFixed(5)}.`;
 }
 
 function mapTextSummary(

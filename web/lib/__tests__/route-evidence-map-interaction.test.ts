@@ -166,7 +166,10 @@ describe("shelter map interactions", () => {
     expect(selectedExposureGapSummary(null)).toBeNull();
     expect(selectedExposureGapSummary({ key: "bad", lat: Number.NaN, lon: 103.84235 })).toBeNull();
     expect(selectedExposureGapSummary({ key: "gap-1", lat: 1.371234, lon: 103.842354 })).toBe(
-      "Selected exposed gap marker near 1.37123, 103.84235."
+      "Selected exposed gap marker at map coordinate 1.37123, 103.84235."
+    );
+    expect(selectedExposureGapSummary({ key: "gap-1", lat: 1.371234, lon: 103.842354 })).not.toContain(
+      "near 1.37123, 103.84235"
     );
   });
 
