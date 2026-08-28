@@ -1676,3 +1676,7 @@ Full OneMap validation wrappers must not bypass runner-level approval by self-su
 2026-08-28 - P758 postal-universe direct-build confirmation guard:
 
 `pipeline.postal_universe` can write new processed postal-universe parquet/summary artifacts and, with `--download-missing`, fetch source inputs. Direct execution now requires `--confirm-postal-universe` before `build_universe()` runs, while confirmed invocations still keep the existing versioned-output and no-overwrite checks. This is guard/test hygiene only; it does not build a universe, download inputs, mutate raw or processed artifacts, protected QA evidence, public data, score, export, deploy, or touch locked weights.
+
+2026-08-28 - P759 lamp-overlay direct-build confirmation guard:
+
+`pipeline.lamp_overlay` can write a new compact lamp-post overlay artifact directory, usually under `web/public/data/`, outside the guarded runner path. Direct execution now requires `--confirm-lamp-overlay` before calling `build_lamp_overlay_artifact()`, and `run.py lamp-overlay` forwards the same module-owned confirmation instead of stripping it. This is guard/test hygiene only; it does not build a lamp overlay, mutate public data, protected QA evidence, raw inputs, score, export, deploy, or touch locked weights.

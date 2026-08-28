@@ -179,8 +179,7 @@ def run_task(name: str, extra: list[str]) -> int:
                 file=sys.stderr,
             )
             return 2
-        forwarded = [arg for arg in extra if arg != LAMP_OVERLAY_CONFIRM_FLAG]
-        return run_module("pipeline.lamp_overlay", extra_args=forwarded)
+        return run_module("pipeline.lamp_overlay")
     if name == "network":
         if not require_runner_flag(
             extra=extra,

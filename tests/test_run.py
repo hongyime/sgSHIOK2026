@@ -951,6 +951,7 @@ def test_run_task_exposes_lamp_overlay_as_gated_module(monkeypatch):
                 "pipeline.lamp_overlay",
                 "--output",
                 "web/public/data/lamp_posts_v2",
+                "--confirm-lamp-overlay",
             ],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},

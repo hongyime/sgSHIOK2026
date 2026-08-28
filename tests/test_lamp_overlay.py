@@ -3,7 +3,12 @@ from pathlib import Path
 
 import pytest
 
-from pipeline.lamp_overlay import build_lamp_overlay_artifact, is_versioned_output_dir, load_lamp_points
+from pipeline.lamp_overlay import (
+    build_lamp_overlay_artifact,
+    is_versioned_output_dir,
+    load_lamp_points,
+    main,
+)
 
 
 def _write_lamp_geojson(path: Path) -> None:
@@ -110,4 +115,23 @@ def test_lamp_overlay_output_dir_must_be_numeric_version(tmp_path: Path) -> None
     with pytest.raises(ValueError, match="numeric version tag"):
         build_lamp_overlay_artifact(input_path=source, output_dir=output)
 
+    assert not output.exists()
+
+
+def test_lamp_overlay_cli_requires_confirm_before_build(monkeypatch, tmp_path: Path, capsys):
+    output = tmp_path / "lamp_overlay_v2"
+
+    def fail_build(*_args, **_kwargs):
+        raise AssertionError("build should not run before confirmation")
+
+    monkeypatch.setattr("pipeline.lamp_overlay.build_lamp_overlay_artifact", fail_build)
+
+    assert main(["--output", str(output)]) == 2
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "errors": ["lamp overlay build requires --confirm-lamp-overlay after owner approval"],
+        "ok": False,
+    }
     assert not output.exists()

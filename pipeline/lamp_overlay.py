@@ -19,6 +19,7 @@ DEFAULT_LAMP_SOURCE_SHA256 = (
 )
 DEFAULT_LAMP_SOURCE = RAW_DIR / DEFAULT_LAMP_SOURCE_SHA256 / "lamp_posts.geojson"
 DEFAULT_H3_RESOLUTION = 8
+CONFIRM_LAMP_OVERLAY_FLAG = "--confirm-lamp-overlay"
 
 
 def is_versioned_output_dir(path: Path) -> bool:
@@ -194,7 +195,27 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--input", type=Path, default=DEFAULT_LAMP_SOURCE)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--h3-resolution", type=int, default=DEFAULT_H3_RESOLUTION)
+    parser.add_argument(
+        CONFIRM_LAMP_OVERLAY_FLAG,
+        action="store_true",
+        help="Required before writing a new lamp overlay artifact directory.",
+    )
     args = parser.parse_args(argv)
+
+    if not args.confirm_lamp_overlay:
+        print(
+            json.dumps(
+                {
+                    "ok": False,
+                    "errors": [
+                        "lamp overlay build requires --confirm-lamp-overlay after owner approval"
+                    ],
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 2
 
     build_lamp_overlay_artifact(
         input_path=args.input,
