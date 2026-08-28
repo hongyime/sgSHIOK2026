@@ -311,6 +311,19 @@ def probe_output_errors(*, cache_path: Path | None, report_path: Path | None) ->
     return errors
 
 
+def probe_guard_errors(
+    *,
+    confirm_probe: bool,
+    cache_path: Path | None,
+    report_path: Path | None,
+) -> list[str]:
+    errors: list[str] = []
+    if not confirm_probe:
+        errors.append("P379 MCST probe requires --confirm-p379-probe after owner approval")
+    errors.extend(probe_output_errors(cache_path=cache_path, report_path=report_path))
+    return errors
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--delay-sec", type=float, default=0.25)
@@ -330,6 +343,11 @@ def main(argv: list[str] | None = None) -> int:
         help="Read existing P379 cache/report status only; retained for explicitness because this is the default.",
     )
     parser.add_argument(
+        "--confirm-p379-probe",
+        action="store_true",
+        help="Required with --probe after owner approval for OneMap calls and output writes.",
+    )
+    parser.add_argument(
         "--cache-output",
         type=Path,
         default=None,
@@ -345,7 +363,11 @@ def main(argv: list[str] | None = None) -> int:
     if not args.probe:
         print(json.dumps(cache_status_report(), indent=2, sort_keys=True))
         return 0
-    errors = probe_output_errors(cache_path=args.cache_output, report_path=args.report_output)
+    errors = probe_guard_errors(
+        confirm_probe=args.confirm_p379_probe,
+        cache_path=args.cache_output,
+        report_path=args.report_output,
+    )
     if errors:
         print(json.dumps({"errors": errors, "ok": False}, indent=2, sort_keys=True))
         return 2

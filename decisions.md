@@ -1,3 +1,6 @@
+2026-08-29 - P773 P379 MCST probe confirmation gate:
+The P379 MCST proxy location probe is retained but its direct `--probe` mode now requires `--confirm-p379-probe` before OneMap calls or cache/report writes. Explicit non-historical output paths remain required. The default remains cache-status-only and read-only. This is safety/test/evidence work only; it does not run the probe, call APIs, score, export, rescore, ingest, build network, mutate inputs, deploy, touch protected payloads, or change locked weights.
+
 2026-08-29 - P772 P19 measurement confirmation gate:
 The P19 recent-public-source measurement remains useful but its direct `--measure` mode is write- and API-capable, so it now requires `--confirm-p19-measure` plus explicit non-historical output/cache paths before loading protected inputs or calling public APIs. The default remains cache-status-only and read-only. This is safety/test/evidence work only; it does not run the measurement, call APIs, score, export, rescore, ingest, build network, mutate inputs, deploy, touch protected payloads, or change locked weights.
 

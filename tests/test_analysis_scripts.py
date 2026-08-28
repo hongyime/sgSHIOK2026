@@ -1030,6 +1030,7 @@ def test_p379_main_requires_explicit_probe_for_write_capable_mode(
         p379.main(
             [
                 "--probe",
+                "--confirm-p379-probe",
                 "--refresh-cache",
                 "--delay-sec",
                 "0",
@@ -1054,6 +1055,34 @@ def test_p379_main_requires_explicit_probe_for_write_capable_mode(
     assert '"mode": "p379_p19_mcst_missing_locations"' in capsys.readouterr().out
 
 
+def test_p379_probe_requires_confirmation_before_build(
+    monkeypatch, tmp_path: Path, capsys
+) -> None:
+    def fake_build_report(**_: object) -> dict[str, object]:
+        raise AssertionError("probe should not build without confirmation")
+
+    monkeypatch.setattr(p379, "build_report", fake_build_report)
+
+    assert (
+        p379.main(
+            [
+                "--probe",
+                "--cache-output",
+                str(tmp_path / "qa" / "p379" / "new-cache.json"),
+                "--report-output",
+                str(tmp_path / "qa" / "p379" / "new-report.json"),
+            ]
+        )
+        == 2
+    )
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": ["P379 MCST probe requires --confirm-p379-probe after owner approval"],
+        "ok": False,
+    }
+
+
 def test_p379_probe_requires_explicit_numbered_outputs_before_build(
     monkeypatch, capsys
 ) -> None:
@@ -1067,6 +1096,7 @@ def test_p379_probe_requires_explicit_numbered_outputs_before_build(
     report = json.loads(capsys.readouterr().out)
     assert report == {
         "errors": [
+            "P379 MCST probe requires --confirm-p379-probe after owner approval",
             "P379 MCST probe requires explicit --cache-output",
             "P379 MCST probe requires explicit --report-output",
         ],
@@ -1086,6 +1116,7 @@ def test_p379_probe_refuses_historical_default_outputs_before_build(
         p379.main(
             [
                 "--probe",
+                "--confirm-p379-probe",
                 "--cache-output",
                 str(p379.CACHE_OUTPUT),
                 "--report-output",
@@ -1122,6 +1153,7 @@ def test_p379_probe_refuses_existing_report_before_build(
         p379.main(
             [
                 "--probe",
+                "--confirm-p379-probe",
                 "--cache-output",
                 str(cache_path),
                 "--report-output",
