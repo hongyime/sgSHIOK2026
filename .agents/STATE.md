@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `aed6445` (`fix: cover all manifest sources in freshness policy`)
+Latest substantive commit: `df59dfe` (`fix: clarify sampled universe gap in title card`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,8 +18,8 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P732 is complete and pushed: `pipeline/config/sources.yaml` now covers every source recorded in `raw/manifest.json`; `overture_addresses_sg_candidate` remains config-only and unknown-age.
-- Evidence: `qa/verification/P732-freshness-source-coverage.md`.
-- UI freshness copy now reports the measured 28 Aug 2026 manifest-only state: 11 current, 9 stale, 3 manual, 1 unknown-age.
-- Checks: `uv run pytest tests/test_fetch.py tests/test_readme.py -q` passed 28/28; `npm --prefix web test -- score-card-copy.test.ts --runInBand` passed 16/16; collect-only found 531 tests; repo integrity passed; diff-check and protected-diff guard passed.
+- P733 is complete and pushed: the first-view recent public-source gap copy now says the 16 Aug 2026 gap measurement is a sample, not a measured full-universe gap.
+- Evidence: `qa/verification/P733-sampled-universe-gap-copy.md`.
+- `decisions.md` now has durable P732 and P733 entries.
+- Checks: `npm --prefix web test -- score-card-copy.test.ts --runInBand` passed 16/16; `uv run pytest -q --collect-only` collected 531; repo integrity passed; diff-check and protected-diff guard passed.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
