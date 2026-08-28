@@ -1743,3 +1743,7 @@ Planning-area rank controls remain sortable over the locked bundle's stored fiel
 2026-08-29 - P777 exposed-gap disclosure:
 
 The score card should keep the three longest exposed gaps immediately scannable, but the remaining recorded gaps must still be inspectable because the gap list is the project's distinctive shelter evidence. Hidden shorter gaps are now placed behind a compact disclosure in the same list, preserving the existing summary and focus-on-map behavior without changing any route, score, export, public-data payload, protected evidence, or locked weights.
+
+2026-08-29 - P778 night-lighting detail priority:
+
+Night lighting is the second product layer after shelter exposure, while the sparse greenery proxy is supporting heat caveat material. The score-card walk-details strip now lists Night lighting before Greenery proxy so the UI hierarchy matches the product hierarchy. This is browser ordering and test coverage only; it does not alter lamp overlay data, shade geometry, route geometry, score values, exports, public data, protected evidence, deployments, or locked weights.

@@ -506,6 +506,9 @@ describe("score card copy", () => {
 
     expect(tsxSource).toContain("routeDetailItems.push({ label: \"Greenery proxy\"");
     expect(tsxSource).not.toContain("routeDetailItems.push({ label: \"Shade proxy\"");
+    expect(tsxSource.indexOf('label: "Night lighting"')).toBeLessThan(
+      tsxSource.indexOf('routeDetailItems.push({ label: "Greenery proxy"')
+    );
     expect(tsxSource).toContain(
       "Greenery proxy uses sparse NParks walk-adjacent greenery geometry for heat only; it is not measured temperature or Leaf Area Index."
     );

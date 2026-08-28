@@ -1301,12 +1301,6 @@ export function ScoreCard({
       : null;
   const routeDetailItems: Array<{ label: string; value: string }> = [];
   const routeDetailNotes: string[] = [];
-  if (shadeProxyPct !== null) {
-    routeDetailItems.push({ label: "Greenery proxy", value: `${shadeProxyPct}%` });
-    routeDetailNotes.push(
-      "Greenery proxy uses sparse NParks walk-adjacent greenery geometry for heat only; it is not measured temperature or Leaf Area Index."
-    );
-  }
   if (score.paths) {
     routeDetailItems.push({
       label: "Night lighting",
@@ -1314,6 +1308,12 @@ export function ScoreCard({
     });
     routeDetailNotes.push(
       "Night lighting uses LTA lamp-post points as a night-lighting map layer outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
+    );
+  }
+  if (shadeProxyPct !== null) {
+    routeDetailItems.push({ label: "Greenery proxy", value: `${shadeProxyPct}%` });
+    routeDetailNotes.push(
+      "Greenery proxy uses sparse NParks walk-adjacent greenery geometry for heat only; it is not measured temperature or Leaf Area Index."
     );
   }
   if (endpointSnapM > 0) {
