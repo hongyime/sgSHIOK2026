@@ -1811,3 +1811,7 @@ The score-availability line should read like product disclosure rather than an a
 2026-08-29 - P794 direct-bus fallback straight-line wording:
 
 Direct-bus fallback displays must name the route-distance evidence as a `Straight-line bus estimate`, because the fallback is not a verified shelter-map walk to transit. The UI still says `direct bus service` where it describes the underlying service evidence and locked bus-score caveat. This is browser copy/test/evidence work only; it does not alter manifests, route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.
+
+2026-08-29 - P795 data-limits summary coverage:
+
+The collapsed data-limits disclosure should expose both user-facing release limitations before expansion: the frozen v1 address list and incomplete locked-score coverage. The detailed body remains the place for source freshness, sampled address-universe gaps, OSM postcode coverage, and attribution. This is browser copy/test/evidence work only; it does not alter manifests, route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.
