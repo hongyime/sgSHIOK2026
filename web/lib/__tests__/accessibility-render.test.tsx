@@ -273,7 +273,8 @@ describe("rendered accessibility output", () => {
       html.indexOf("Locked score 72 out of 100.")
     );
     expect(html).toContain("<span>Locked score</span><strong>72/100</strong>");
-    expect(html).toContain("Custom transit stop selected.");
+    expect(html).toContain("Custom transit target selected.");
+    expect(html).not.toContain("Custom transit stop selected.");
     expect(html).not.toContain("Custom stop selected.");
     expect(html).toContain("Walk display shortest walk");
     expect(html).toContain('aria-busy="true"');
@@ -370,12 +371,14 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Preview walk");
     expect(html).toContain("<span>Locked score</span><strong>Preview only</strong>");
     expect(html).toContain(
-      "OneMap walking preview is unavailable for this selected transit stop; showing straight-line preview only."
+      "OneMap walking preview is unavailable for this selected transit target; showing straight-line preview only."
     );
     expect(html).toContain(
-      "Preview only: this clicked transit stop has shelter-map evidence, but it is not part of the published shelter-map bundle yet."
+      "Preview only: this clicked transit target has shelter-map evidence, but it is not part of the published shelter-map bundle yet."
     );
     expect(html).not.toContain("this selected stop");
+    expect(html).not.toContain("this selected transit stop");
+    expect(html).not.toContain("this clicked transit stop");
     expect(html).not.toContain("this clicked stop has shelter map evidence");
     expect(html).not.toContain("not part of the published score bundle yet");
     expect(html).not.toContain("not an authoritative SHIOK score");

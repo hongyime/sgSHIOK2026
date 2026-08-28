@@ -110,13 +110,15 @@ describe("score card copy", () => {
     expect(smokeSource).not.toContain('[aria-label="Route display"] button');
   });
 
-  it("names selected transit stops explicitly in the selected-stop badge", () => {
+  it("names selected transit targets explicitly in the selected-target badge", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
-    expect(source).toContain("Viewing selected transit stop");
-    expect(source).toContain("Custom transit stop selected.");
+    expect(source).toContain("Viewing selected transit target");
+    expect(source).toContain("Custom transit target selected.");
     expect(source).toContain("Published shelter-map walk selected.");
     expect(source).toContain("↺ Published shelter-map walk");
+    expect(source).not.toContain("Viewing selected transit stop");
+    expect(source).not.toContain("Custom transit stop selected.");
     expect(source).not.toContain("Viewing selected stop");
     expect(source).not.toContain("Custom stop selected.");
     expect(source).not.toContain("Published walk selected.");
@@ -480,7 +482,8 @@ describe("score card copy", () => {
     expect(source).toContain("No shelter-map walk selected.");
     expect(source).toContain("Preview shelter-map evidence only");
     expect(source).toContain("Preview shelter-map evidence selected.");
-    expect(source).toContain("this clicked transit stop has shelter-map evidence");
+    expect(source).toContain("this clicked transit target has shelter-map evidence");
+    expect(source).not.toContain("this clicked transit stop has shelter-map evidence");
     expect(source).not.toContain("No shelter map walk selected.");
     expect(source).not.toContain("Preview shelter map evidence only");
     expect(source).not.toContain("Preview shelter map evidence selected.");
