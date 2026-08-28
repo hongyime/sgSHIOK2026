@@ -77,12 +77,24 @@ SCORING_FINGERPRINT_PROVENANCE_FIELDS = {
     "scoring_fingerprint_provenance_complete",
     "scoring_fingerprints_by_digest",
 }
+REQUIRED_SCORING_FINGERPRINT_PROVENANCE_FIELDS = SCORING_FINGERPRINT_PROVENANCE_FIELDS | {
+    "scoring_fingerprint_algorithm",
+    "scoring_fingerprint_changed_during_run",
+    "mixed_scoring_fingerprint_digests",
+    "scoring_fingerprint_digests_missing_maps",
+}
 SCORING_INPUT_PROVENANCE_FIELDS = {
     "scoring_input_digest",
     "scoring_input_digest_counts",
     "records_missing_scoring_input_digest",
     "scoring_input_provenance_complete",
     "scoring_inputs_by_digest",
+}
+REQUIRED_SCORING_INPUT_PROVENANCE_FIELDS = SCORING_INPUT_PROVENANCE_FIELDS | {
+    "scoring_input_algorithm",
+    "scoring_input_changed_during_run",
+    "mixed_scoring_input_digests",
+    "scoring_input_digests_missing_maps",
 }
 NETWORK_PROVENANCE_FIELDS = {
     "network_digest",
@@ -91,11 +103,24 @@ NETWORK_PROVENANCE_FIELDS = {
     "network_provenance_complete",
     "networks_by_digest",
 }
+REQUIRED_NETWORK_PROVENANCE_FIELDS = NETWORK_PROVENANCE_FIELDS | {
+    "network_algorithm",
+    "network_changed_during_run",
+    "mixed_network_digests",
+    "network_digests_missing_maps",
+}
 
 
 def source_hash_warning_label(source_key: str) -> str:
     label = SOURCE_HASH_WARNING_LABELS.get(source_key)
     return f"{source_key} ({label})" if label else source_key
+
+
+def missing_required_provenance_fields(
+    provenance: Mapping[str, Any],
+    required_fields: set[str],
+) -> list[str]:
+    return sorted(field for field in required_fields if field not in provenance)
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -637,6 +662,77 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
         key in provenance for key in SCORING_INPUT_PROVENANCE_FIELDS
     )
     network_schema_present = any(key in provenance for key in NETWORK_PROVENANCE_FIELDS)
+    missing_scoring_provenance_fields = (
+        missing_required_provenance_fields(
+            provenance,
+            REQUIRED_SCORING_FINGERPRINT_PROVENANCE_FIELDS,
+        )
+        if scoring_schema_present
+        else []
+    )
+    missing_scoring_input_provenance_fields = (
+        missing_required_provenance_fields(
+            provenance,
+            REQUIRED_SCORING_INPUT_PROVENANCE_FIELDS,
+        )
+        if scoring_input_schema_present
+        else []
+    )
+    missing_network_provenance_fields = (
+        missing_required_provenance_fields(
+            provenance,
+            REQUIRED_NETWORK_PROVENANCE_FIELDS,
+        )
+        if network_schema_present
+        else []
+    )
+    missing_scoring_fingerprint_digest_count = int(
+        provenance.get("records_missing_scoring_fingerprint_digest") or 0
+    )
+    missing_scoring_input_digest_count = int(
+        provenance.get("records_missing_scoring_input_digest") or 0
+    )
+    missing_network_digest_count = int(
+        provenance.get("records_missing_network_digest") or 0
+    )
+    missing_scoring_fingerprint_digest_maps = sorted(
+        provenance.get("scoring_fingerprint_digests_missing_maps") or []
+    )
+    missing_scoring_input_digest_maps = sorted(
+        provenance.get("scoring_input_digests_missing_maps") or []
+    )
+    missing_network_digest_maps = sorted(
+        provenance.get("network_digests_missing_maps") or []
+    )
+    incomplete_fingerprint_provenance = (
+        incomplete_fingerprint_provenance
+        or bool(missing_scoring_provenance_fields)
+        or missing_scoring_fingerprint_digest_count > 0
+        or bool(missing_scoring_fingerprint_digest_maps)
+    )
+    provenance_signals["incomplete_scoring_fingerprint_provenance"] = (
+        incomplete_fingerprint_provenance
+    )
+    provenance_signals["incomplete_scoring_input_provenance"] = (
+        provenance_signals["incomplete_scoring_input_provenance"]
+        or bool(missing_scoring_input_provenance_fields)
+        or missing_scoring_input_digest_count > 0
+        or bool(missing_scoring_input_digest_maps)
+    )
+    provenance_signals["incomplete_network_provenance"] = (
+        provenance_signals["incomplete_network_provenance"]
+        or bool(missing_network_provenance_fields)
+        or missing_network_digest_count > 0
+        or bool(missing_network_digest_maps)
+    )
+    blocking_provenance_signals = [
+        key for key, blocked in provenance_signals.items() if blocked
+        and key in BLOCKING_PROVENANCE_SIGNALS
+    ]
+    warning_provenance_signals = [
+        key for key, warned in provenance_signals.items() if warned
+        and key in WARNING_PROVENANCE_SIGNALS
+    ]
     legacy_missing_capabilities: list[str] = []
     if missing_fingerprints and not scoring_schema_present:
         legacy_missing_capabilities.append("full 18-file scoring fingerprint set")
@@ -698,6 +794,49 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
                     BLOCKING_PROVENANCE_SIGNALS[key] for key in blocking_provenance_signals
                 )
             )
+        if missing_scoring_provenance_fields:
+            reasons.append(
+                "missing scoring fingerprint provenance fields: "
+                + ", ".join(missing_scoring_provenance_fields)
+            )
+        if missing_scoring_input_provenance_fields:
+            reasons.append(
+                "missing scoring input provenance fields: "
+                + ", ".join(missing_scoring_input_provenance_fields)
+            )
+        if missing_network_provenance_fields:
+            reasons.append(
+                "missing network provenance fields: "
+                + ", ".join(missing_network_provenance_fields)
+            )
+        if missing_scoring_fingerprint_digest_count:
+            reasons.append(
+                "records missing scoring fingerprint digest: "
+                + str(missing_scoring_fingerprint_digest_count)
+            )
+        if missing_scoring_input_digest_count:
+            reasons.append(
+                "records missing scoring input digest: "
+                + str(missing_scoring_input_digest_count)
+            )
+        if missing_network_digest_count:
+            reasons.append(
+                "records missing network digest: " + str(missing_network_digest_count)
+            )
+        if missing_scoring_fingerprint_digest_maps:
+            reasons.append(
+                "scoring fingerprint digests missing maps: "
+                + ", ".join(missing_scoring_fingerprint_digest_maps)
+            )
+        if missing_scoring_input_digest_maps:
+            reasons.append(
+                "scoring input digests missing maps: "
+                + ", ".join(missing_scoring_input_digest_maps)
+            )
+        if missing_network_digest_maps:
+            reasons.append(
+                "network digests missing maps: " + ", ".join(missing_network_digest_maps)
+            )
         if warning_provenance_signals:
             reasons.append(
                 "non-blocking provenance signals: "
@@ -744,6 +883,21 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
         "missing_scoring_fingerprints": missing_fingerprints,
         "missing_subscore_status": missing_subscores,
         "legacy_missing_capabilities": legacy_missing_capabilities,
+        "missing_scoring_provenance_fields": missing_scoring_provenance_fields,
+        "missing_scoring_input_provenance_fields": (
+            missing_scoring_input_provenance_fields
+        ),
+        "missing_network_provenance_fields": missing_network_provenance_fields,
+        "records_missing_scoring_fingerprint_digest": (
+            missing_scoring_fingerprint_digest_count
+        ),
+        "records_missing_scoring_input_digest": missing_scoring_input_digest_count,
+        "records_missing_network_digest": missing_network_digest_count,
+        "scoring_fingerprint_digests_missing_maps": (
+            missing_scoring_fingerprint_digest_maps
+        ),
+        "scoring_input_digests_missing_maps": missing_scoring_input_digest_maps,
+        "network_digests_missing_maps": missing_network_digest_maps,
         "mixed_scoring_fingerprint_digests": mixed_fingerprints,
         "incomplete_scoring_fingerprint_provenance": incomplete_fingerprint_provenance,
         "scoring_fingerprint_changed_during_run": provenance_signals[

@@ -1870,3 +1870,7 @@ Direct-bus fallback is published fallback evidence, not a published routed shelt
 2026-08-29 - P817 direct-bus region labels:
 
 Direct-bus fallback source and reason regions must not be announced as shelter-map evidence regions. The score card now labels fallback source evidence as `Direct-bus fallback source evidence` and fallback reasons as `Direct-bus fallback evidence reasons`, while verified shelter-map walks keep the existing shelter labels. This is browser accessibility/test/evidence work only; it does not score, export, rescore, mutate route geometry, public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
+
+2026-08-29 - P818 partial modern provenance readiness gate:
+
+Readiness should fail a bundle manifest that contains only part of the modern record-level provenance schema. Legacy artifacts with no record-level digest schema can remain `legacy`, but once any scoring-fingerprint, scoring-input, or network digest-count field appears, the matching algorithm, changed/mixed flags, completeness flag, digest maps, missing-map list, and missing-record count must also be present and clean. This closes the `refresh_score_provenance_manifest()` partial-refresh shape, where digest counts could be written without the full exporter integrity signals. This is readiness/test/evidence work only; it does not run scoring, export, rescore, ingest, network builds, deployment, public-data writes, protected evidence mutation, or locked-weight changes.

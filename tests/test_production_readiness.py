@@ -190,13 +190,35 @@ def export_current_fingerprint_bundle(output_dir: Path) -> None:
     }
     manifest["provenance"]["scoring_fingerprints"] = fingerprints
     manifest["provenance"]["scoring_fingerprint_files"] = sorted(fingerprints)
+    manifest["provenance"]["scoring_fingerprint_algorithm"] = "sha256-json-sort-keys-24hex"
+    manifest["provenance"]["scoring_fingerprint_digest"] = "a" * 24
+    manifest["provenance"]["record_scoring_fingerprint_digest"] = "a" * 24
+    manifest["provenance"]["score_batch_start_scoring_fingerprint_digest"] = "a" * 24
+    manifest["provenance"]["export_scoring_fingerprint_digest"] = "a" * 24
+    manifest["provenance"]["scoring_fingerprint_digest_counts"] = {"a" * 24: 1}
+    manifest["provenance"]["scoring_fingerprints_by_digest"] = {"a" * 24: fingerprints}
+    manifest["provenance"]["scoring_fingerprint_digests_missing_maps"] = []
     manifest["provenance"]["scoring_fingerprint_changed_during_run"] = False
+    manifest["provenance"]["mixed_scoring_fingerprint_digests"] = False
+    manifest["provenance"]["records_missing_scoring_fingerprint_digest"] = 0
     manifest["provenance"]["scoring_fingerprint_provenance_complete"] = True
+    manifest["provenance"]["scoring_input_algorithm"] = "sha256-json-sort-keys-24hex"
+    manifest["provenance"]["scoring_input_digest"] = "b" * 24
+    manifest["provenance"]["scoring_input_digest_counts"] = {"b" * 24: 1}
+    manifest["provenance"]["scoring_inputs_by_digest"] = {"b" * 24: {"inputs": []}}
+    manifest["provenance"]["scoring_input_digests_missing_maps"] = []
     manifest["provenance"]["scoring_input_changed_during_run"] = False
     manifest["provenance"]["mixed_scoring_input_digests"] = False
+    manifest["provenance"]["records_missing_scoring_input_digest"] = 0
     manifest["provenance"]["scoring_input_provenance_complete"] = True
+    manifest["provenance"]["network_algorithm"] = "sha256-json-sort-keys-24hex"
+    manifest["provenance"]["network_digest"] = "c" * 24
+    manifest["provenance"]["network_digest_counts"] = {"c" * 24: 1}
+    manifest["provenance"]["networks_by_digest"] = {"c" * 24: {"networks": []}}
+    manifest["provenance"]["network_digests_missing_maps"] = []
     manifest["provenance"]["network_changed_during_run"] = False
     manifest["provenance"]["mixed_network_digests"] = False
+    manifest["provenance"]["records_missing_network_digest"] = 0
     manifest["provenance"]["network_provenance_complete"] = True
     write_json(manifest_path, manifest)
 
@@ -1461,6 +1483,70 @@ def test_bundle_score_provenance_blocks_missing_expected_score_source_hashes(
     assert status["non_score_reference_source_hashes"] == ["leaf_area_index"]
     assert "score source hashes: " in status["warning"]
     assert "leaf_area_index" in status["warning"]
+
+
+def test_bundle_score_provenance_blocks_partial_modern_refresh_shape(
+    tmp_path: Path,
+):
+    bundle_dir = tmp_path / "generated_test"
+    export_current_fingerprint_bundle(bundle_dir)
+    manifest_path = bundle_dir / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    provenance = manifest["provenance"]
+    for field in [
+        "scoring_fingerprint_algorithm",
+        "scoring_fingerprint_digest",
+        "record_scoring_fingerprint_digest",
+        "score_batch_start_scoring_fingerprint_digest",
+        "export_scoring_fingerprint_digest",
+        "scoring_fingerprint_changed_during_run",
+        "mixed_scoring_fingerprint_digests",
+        "scoring_fingerprints_by_digest",
+        "scoring_fingerprint_digests_missing_maps",
+        "scoring_fingerprint_provenance_complete",
+        "scoring_input_algorithm",
+        "scoring_input_digest",
+        "scoring_input_changed_during_run",
+        "mixed_scoring_input_digests",
+        "scoring_inputs_by_digest",
+        "scoring_input_digests_missing_maps",
+        "scoring_input_provenance_complete",
+        "network_algorithm",
+        "network_digest",
+        "network_changed_during_run",
+        "mixed_network_digests",
+        "networks_by_digest",
+        "network_digests_missing_maps",
+        "network_provenance_complete",
+    ]:
+        provenance.pop(field, None)
+    provenance["scoring_fingerprint_digest_counts"] = {"a" * 24: 1}
+    provenance["records_missing_scoring_fingerprint_digest"] = 0
+    provenance["scoring_input_digest_counts"] = {"b" * 24: 1}
+    provenance["records_missing_scoring_input_digest"] = 1
+    provenance["network_digest_counts"] = {"c" * 24: 1}
+    provenance["records_missing_network_digest"] = 0
+    write_json(manifest_path, manifest)
+
+    status = bundle_score_provenance_status(bundle_dir)
+
+    assert status["ok"] is False
+    assert status["state"] == "failed"
+    assert status["blocking_provenance_signals"] == [
+        "incomplete_scoring_fingerprint_provenance",
+        "incomplete_scoring_input_provenance",
+        "incomplete_network_provenance",
+    ]
+    assert "scoring_fingerprint_changed_during_run" in status[
+        "missing_scoring_provenance_fields"
+    ]
+    assert "scoring_inputs_by_digest" in status[
+        "missing_scoring_input_provenance_fields"
+    ]
+    assert "networks_by_digest" in status["missing_network_provenance_fields"]
+    assert status["records_missing_scoring_input_digest"] == 1
+    assert "missing scoring fingerprint provenance fields" in status["warning"]
+    assert "records missing scoring input digest: 1" in status["warning"]
 
 
 def test_bundle_score_provenance_blocks_real_p10_stale_resume_shape(tmp_path: Path):
