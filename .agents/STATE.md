@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P654 web commit: `b589e1d`; state-only commits may follow it on `main`.
+Latest P655 web commit: `1364387`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P655 is complete and committed: the locked-score row now says crossing friction still contributes 5% to the locked score, replacing `5% locked term` wording while preserving the low-separation caveat. Focused render/source tests, full web suite, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P654 is complete and committed: reason chips for records with shelter-map evidence but missing subscores now say `Locked score inputs unavailable` instead of internal `Locked terms unavailable` wording. Focused render/source tests, full web suite, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P653 is complete and committed: no-full-score bus rows now say `Bus service not scored` and explain that bus service support is not computed outside the locked 1.2 km transit range, replacing internal `Locked bus term unavailable` wording. Focused render/source tests, full web suite, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P652 is complete and committed: direct-bus fallback score-card status now announces `Evidence display direct bus service estimate` instead of the default walk-display context, avoiding `Walk display sheltered walk` for records that are explicitly not verified shelter-map walks. Focused render/source tests, full web suite, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
