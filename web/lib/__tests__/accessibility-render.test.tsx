@@ -797,6 +797,28 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("No map coordinates are recorded for these exposed gaps.");
   });
 
+  it("names exposed gaps when the displayed gap list is truncated", () => {
+    const recordWithFourGaps: ScoreRecord = {
+      ...scoredRecord,
+      exposure_gaps: [
+        { len_m: 142.4, label: "gap-long", location: { lat: 1.37123, lon: 103.84235 } },
+        { len_m: 64.2, label: "gap-medium" },
+        { len_m: 38.2, label: "gap-short" },
+        { len_m: 12.1, label: "gap-hidden" },
+      ],
+    };
+    const html = renderScoreCard({
+      selection: {
+        ...selection,
+        score: recordWithFourGaps,
+      },
+      rankingRecords: [recordWithFourGaps],
+    });
+
+    expect(html).toContain("Showing the 3 longest exposed gaps; 1 shorter exposed gap included in the total.");
+    expect(html).not.toContain("Showing the longest 3; 1 shorter gap included in the total.");
+  });
+
   it("names the shortest walk in exposure copy when that display is active", () => {
     const html = renderScoreCard({
       routeMode: "shortest",

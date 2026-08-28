@@ -1351,7 +1351,7 @@ export function ScoreCard({
         } on the ${selectedWalkLabel}.`;
   const gapListScopeText =
     hiddenGapCount > 0
-      ? `Showing the longest ${visibleExposureGaps.length}; ${hiddenGapCount} shorter gap${
+      ? `Showing the ${visibleExposureGaps.length} longest exposed gaps; ${hiddenGapCount} shorter exposed gap${
           hiddenGapCount === 1 ? "" : "s"
         } included in the total.`
       : "All recorded exposed gaps are shown.";
