@@ -188,7 +188,7 @@ print(json.dumps({"chunk_count": len(chunks), "records": records, "state_counts"
     $manifestScript | uv run python - $CombinedDir
     if ($LASTEXITCODE -ne 0) { throw "combined manifest failed" }
 
-    uv run python run.py export --records-dir $CombinedDir --output $ExportDir --full-batch --confirm-full-batch --postal-universe $UniversePath --network $NetworkPath
+    uv run python run.py export --records-dir $CombinedDir --output $ExportDir --confirm-export --full-batch --confirm-full-batch --postal-universe $UniversePath --network $NetworkPath
     if ($LASTEXITCODE -ne 0) { throw "export failed" }
 
     uv run python run.py validate --input $ExportDir

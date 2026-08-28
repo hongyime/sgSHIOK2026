@@ -43,6 +43,7 @@ from pipeline.scoring_integration import (
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_EXPORT_DIR = PROJECT_ROOT / "web" / "public" / "data" / "generated"
 DEFAULT_VALIDATE_DIR = PROJECT_ROOT / "web" / "public" / "data"
+CONFIRM_EXPORT_FLAG = "--confirm-export"
 CONFIRM_LIVE_SCORE_EXPORT_FLAG = "--confirm-live-score-export"
 MAX_DATA_FILES = 5000
 MAX_FILE_BYTES = 5 * 1024 * 1024
@@ -2531,6 +2532,14 @@ def validate_export_batch_args(
     return errors
 
 
+def validate_export_confirmation_args(*, confirm_export: bool) -> list[str]:
+    if confirm_export:
+        return []
+    return [
+        "export requires --confirm-export after owner approval; choose a new bundle directory"
+    ]
+
+
 def validate_live_score_export_args(
     *,
     records_dir: Path | None,
@@ -2599,6 +2608,11 @@ def main(argv: list[str] | None = None) -> int:
     export_parser.add_argument("--postal-universe", type=Path)
     export_parser.add_argument("--network", type=Path, default=NETWORK_PATH)
     export_parser.add_argument(
+        CONFIRM_EXPORT_FLAG,
+        action="store_true",
+        help="Confirm this export may write a new bundle after owner approval.",
+    )
+    export_parser.add_argument(
         CONFIRM_LIVE_SCORE_EXPORT_FLAG,
         action="store_true",
         help="Confirm this export may score live records after owner approval.",
@@ -2638,17 +2652,22 @@ def main(argv: list[str] | None = None) -> int:
             output_dir=args.output,
             require_empty=True,
         )
-        guard_errors = validate_export_batch_args(
-            full_batch=bool(args.full_batch),
-            confirm_full_batch=bool(args.confirm_full_batch),
-            postal_universe_path=args.postal_universe,
-        )
-        live_score_errors = validate_live_score_export_args(
-            records_dir=args.records_dir,
-            full_batch=bool(args.full_batch),
-            confirm_live_score_export=bool(args.confirm_live_score_export),
-        )
-        errors = output_errors + guard_errors + live_score_errors
+        errors = output_errors
+        if not errors:
+            guard_errors = validate_export_batch_args(
+                full_batch=bool(args.full_batch),
+                confirm_full_batch=bool(args.confirm_full_batch),
+                postal_universe_path=args.postal_universe,
+            )
+            live_score_errors = validate_live_score_export_args(
+                records_dir=args.records_dir,
+                full_batch=bool(args.full_batch),
+                confirm_live_score_export=bool(args.confirm_live_score_export),
+            )
+            confirm_errors = validate_export_confirmation_args(
+                confirm_export=bool(args.confirm_export)
+            )
+            errors = confirm_errors + guard_errors + live_score_errors
         if errors:
             print_error_report(errors)
             return 1

@@ -6,6 +6,7 @@ import pytest
 from shapely.geometry import LineString, MultiLineString
 
 from pipeline.export import (
+    CONFIRM_EXPORT_FLAG,
     CONFIRM_LIVE_SCORE_EXPORT_FLAG,
     build_transit_poi_collection,
     encode_polyline,
@@ -20,6 +21,7 @@ from pipeline.export import (
     route_segment_geometries,
     slugify_area,
     station_code_rows_from_xls_bytes,
+    validate_export_confirmation_args,
     validate_export_batch_args,
     validate_live_score_export_args,
     validate_static_artifacts,
@@ -1737,6 +1739,16 @@ def test_validate_export_batch_args_accepts_non_batch_default():
     assert errors == []
 
 
+def test_validate_export_confirmation_args_blocks_unconfirmed_export():
+    assert validate_export_confirmation_args(confirm_export=False) == [
+        "export requires --confirm-export after owner approval; choose a new bundle directory"
+    ]
+
+
+def test_validate_export_confirmation_args_allows_confirmed_export():
+    assert validate_export_confirmation_args(confirm_export=True) == []
+
+
 def test_validate_live_score_export_args_blocks_unconfirmed_live_export():
     errors = validate_live_score_export_args(
         records_dir=None,
@@ -1782,7 +1794,7 @@ def test_export_cli_requires_live_score_confirmation_before_scoring(
     output_dir = tmp_path / "generated_20260822"
     monkeypatch.setattr("pipeline.export.score_postals", fail_score_postals)
 
-    assert export_main(["export", "--output", str(output_dir)]) == 1
+    assert export_main(["export", "--output", str(output_dir), CONFIRM_EXPORT_FLAG]) == 1
 
     out = capsys.readouterr().out
     report = json.loads(out)
@@ -1838,6 +1850,7 @@ def test_export_cli_confirmed_live_score_reaches_scoring(tmp_path: Path, monkeyp
                 "export",
                 "--output",
                 str(output_dir),
+                CONFIRM_EXPORT_FLAG,
                 CONFIRM_LIVE_SCORE_EXPORT_FLAG,
                 "--postal",
                 "560234",
@@ -1881,6 +1894,7 @@ def test_export_cli_refuses_non_empty_output_before_loading_records(
                 "export",
                 "--output",
                 str(output_dir),
+                "--confirm-export",
                 "--records-dir",
                 str(missing_records_dir),
             ]
@@ -1896,6 +1910,36 @@ def test_export_cli_refuses_non_empty_output_before_loading_records(
         ],
         "ok": False,
     }
+
+
+def test_export_cli_requires_export_confirmation_before_loading_records(
+    tmp_path: Path, capsys
+):
+    output_dir = tmp_path / "generated_20260822"
+    missing_records_dir = tmp_path / "missing_records"
+
+    assert (
+        export_main(
+            [
+                "export",
+                "--output",
+                str(output_dir),
+                "--records-dir",
+                str(missing_records_dir),
+            ]
+        )
+        == 1
+    )
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "errors": [
+            "export requires --confirm-export after owner approval; choose a new bundle directory"
+        ],
+        "ok": False,
+    }
+    assert not output_dir.exists()
 
 
 def test_export_transit_cli_requires_explicit_output(capsys):
