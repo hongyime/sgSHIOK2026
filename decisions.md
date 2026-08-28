@@ -1799,3 +1799,7 @@ Focused exposed-gap rows should expose their selected map state visibly, not onl
 2026-08-29 - P791 walk comparison baseline copy:
 
 The inline covered-walkway comparison should state what the alternate walk is higher or lower than. It now names the baseline walk in the percentage-point comparison, for example `14pp lower than sheltered walk`, while keeping the underlying route and score values unchanged. This is browser copy/test/evidence work only; it does not alter route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.
+
+2026-08-29 - P792 data-limits summary:
+
+The first-card data-limits disclosure should reveal the highest-impact limitation before it is opened. Its summary now says `Data limits: frozen v1 address list`, making the June 2020 address-universe caveat visible without expanding the full evidence notes. This is browser copy/test/evidence work only; it does not alter manifests, route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.
