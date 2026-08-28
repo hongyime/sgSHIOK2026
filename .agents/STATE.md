@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest commit: `8c817bc` (`docs: update agent state after browser freshness`)
+Latest commit: `5efe6ec` (`fix: preflight historical analysis report outputs`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,7 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P722 is complete and pushed: browser first-view freshness copy now matches the 28 Aug 2026 10:27 UTC manifest-only check and names Bus Stops, Bus Services, and Bus Routes as current but 1.7 days from stale.
-- Evidence: `qa/verification/P722-browser-freshness-bus-window.md`.
-- Checks: focused web copy test passed; full web suite passed 166/166; repo integrity passed; diff-check passed; protected-diff guard passed.
+- P723 is complete and pushed: historical bus analysis report CLIs now preflight existing output paths before reading bundle data, and the heat-presentation audit coordinates now match the current P18 copy.
+- Evidence: `qa/verification/P723-analysis-report-preflight.md`.
+- Checks: `uv run pytest tests/test_analysis_scripts.py tests/test_heat_presentation_analysis.py -q` passed 23/23; `uv run pytest -q --collect-only` collected 507; `uv run pytest -q` passed 507/507; repo integrity passed; diff-check passed; protected-diff guard passed.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
