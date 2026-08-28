@@ -58,6 +58,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("within the current scoring range");
     expect(source).not.toContain("Current scoring range is 1.2 km");
     expect(source).not.toContain("Outside current scoring range");
+    expect(source).toContain('if (option.id === "best_transit") return available ? "displayed walk" : "no published walk";');
+    expect(source).not.toContain('if (option.id === "best_transit") return available ? "displayed walk" : "unavailable";');
     expect(source).toContain("No verified shelter-map walk yet");
     expect(source).toContain("Direct line to bus stop; shelter-map walk pending.");
     expect(source).toContain("Shelter-map walk access was not verified, so the locked bus term remains 0.");

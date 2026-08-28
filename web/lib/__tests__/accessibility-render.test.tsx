@@ -852,6 +852,24 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("<span>Bus</span><small>shelter map route</small>");
     expect(html).not.toContain("<span>MRT/LRT</span><small>no route evidence</small>");
     expect(html).not.toContain("<span>Bus</span><small>route evidence</small>");
+
+    const noDisplayedWalkHtml = renderScoreCard({
+      selection: {
+        ...selection,
+        score: {
+          ...recordWithRouteOptions,
+          state: "NO_TRANSIT_IN_RANGE",
+          total: null,
+          subscores: null,
+          best_node: null,
+          paths: null,
+          exposure_gaps: null,
+        },
+      },
+      rankingRecords: [recordWithRouteOptions],
+    });
+    expect(noDisplayedWalkHtml).toContain("<span>Auto-picked</span><small>no published walk</small>");
+    expect(noDisplayedWalkHtml).not.toContain("<span>Auto-picked</span><small>unavailable</small>");
   });
 
   it("explains no-transit records when a connected walk exists only beyond the locked range", () => {
