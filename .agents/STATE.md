@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `d03eb62` (`fix: require confirmation for candidate audits`)
+Latest substantive commit: `bd68806` (`fix: require confirmation for bus connector diagnostics`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,7 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P729 is complete and pushed: `candidate-audit` now fails closed unless `--confirm-candidate-audit` is supplied.
-- Evidence: `qa/verification/P729-candidate-audit-confirmation.md`.
-- Checks: `uv run pytest tests/test_audit_output_guards.py tests/test_run.py -q` passed 29/29; `uv run pytest -q --collect-only` collected 526; repo integrity passed; diff-check passed; protected-diff guard passed; direct `run.py candidate-audit` and module invocations returned exit 2 before scoring or creating `qa/p729`.
+- P730 is complete and pushed: `bus-connector-diagnostics` now fails closed unless `--confirm-bus-connector-diagnostics` is supplied.
+- Evidence: `qa/verification/P730-bus-connector-diagnostics-confirmation.md`.
+- Checks: `uv run pytest tests/test_diagnose_bus_connectors.py tests/test_run.py -q` passed 37/37; `uv run pytest -q --collect-only` collected 528; repo integrity passed; diff-check passed; protected-diff guard passed; direct `run.py bus-connector-diagnostics` and module invocations returned exit 2 before input reads, scoring, or creating `qa/p730`.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
