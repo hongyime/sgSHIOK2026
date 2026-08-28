@@ -71,9 +71,9 @@ interface EvidenceBreakdownRow {
 type LiveRoutePreviewStatus = "loading" | "unavailable";
 
 const TRANSIT_MODE_OPTIONS: Array<{ id: TransitAccessMode; label: string }> = [
-  { id: "best_transit", label: "Best transit" },
-  { id: "mrt_lrt", label: "MRT/LRT" },
-  { id: "bus", label: "Bus" },
+  { id: "best_transit", label: "Auto-picked" },
+  { id: "mrt_lrt", label: "MRT/LRT exits" },
+  { id: "bus", label: "Bus stops" },
 ];
 
 const SOURCE_LABELS: Record<string, string> = {
