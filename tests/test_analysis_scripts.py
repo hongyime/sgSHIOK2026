@@ -168,6 +168,15 @@ def test_p10_coordinate_identity_names_legacy_published_bundle() -> None:
     assert "Read-only P10 coordinate identity analysis for the active bundle." not in source
 
 
+def test_p10_unresolved_network_probe_writes_only_to_temporary_directory() -> None:
+    source = (
+        PROJECT_ROOT / "scripts" / "analysis" / "p10_unresolved_network_probe.py"
+    ).read_text(encoding="utf-8")
+
+    assert "tempfile.TemporaryDirectory" in source
+    assert "qa/p10_network_provenance_20260813/unresolved_network_probe" not in source
+
+
 def test_p19_cache_status_only_reports_existing_measurement_caches(
     tmp_path: Path, monkeypatch
 ) -> None:

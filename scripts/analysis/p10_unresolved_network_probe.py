@@ -2,14 +2,13 @@ from __future__ import annotations
 
 import json
 import sys
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
 from pipeline.export import export_static_artifacts
-
-OUT = Path("qa/p10_network_provenance_20260813/unresolved_network_probe")
 
 
 def main() -> int:
@@ -43,12 +42,13 @@ def main() -> int:
         },
     }
 
-    try:
-        export_static_artifacts([record], output_dir=OUT)
-    except ValueError as exc:
-        print(f"raised={type(exc).__name__}")
-        print(f"message={exc}")
-        return 0
+    with tempfile.TemporaryDirectory(prefix="sgshiok-p10-unresolved-network-probe-") as tmp:
+        try:
+            export_static_artifacts([record], output_dir=Path(tmp))
+        except ValueError as exc:
+            print(f"raised={type(exc).__name__}")
+            print(f"message={exc}")
+            return 0
 
     print("raised=None")
     return 1
