@@ -1656,3 +1656,7 @@ Full-batch approval is not bundle activation approval. `scripts/full-rescore-pro
 2026-08-28 - P753 full OneMap wrapper confirmation guard:
 
 Full OneMap validation wrappers must not bypass runner-level approval by self-supplying collection confirmations. `scripts/full-onemap-validation.ps1` now returns a plan-only response unless `-ConfirmFullOnemapValidation` is supplied before it creates QA output or calls collection, and `scripts/watch-full-onemap-validation.ps1` requires the same approval before creating watchdog output or restarting the runner. This is wrapper guard/test hygiene only; it does not collect OneMap data, validate a report, mutate raw caches, public data, protected QA evidence, deploy, score, export, or touch locked weights.
+
+2026-08-28 - P754 legacy network build direct-entry guard:
+
+`scripts/run_network_build.py` is a legacy direct network builder and must not run outside an explicit network-build approval. Direct execution now requires `--confirm-network-build` before calling `run_build()`, and import-time creation of `qa/` and `processed/` has been removed so unit-test imports do not write output directories. This is guard/test hygiene only; it does not run a network build, score, export, mutate processed artifacts, public data, protected QA evidence, or locked weights.

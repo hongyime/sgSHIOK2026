@@ -1,6 +1,7 @@
 import builtins
 import json
 import math
+import sys
 import tempfile
 import warnings
 import zipfile
@@ -37,8 +38,6 @@ RAW_DIR = PROJECT_ROOT / "raw"
 QA_DIR = PROJECT_ROOT / "qa"
 PROCESSED_DIR = PROJECT_ROOT / "processed"
 AUDITED_SHELTER_CORRECTIONS_PATH = PROJECT_ROOT / "data" / "audited_shelter_corrections.geojson"
-QA_DIR.mkdir(exist_ok=True, parents=True)
-PROCESSED_DIR.mkdir(exist_ok=True, parents=True)
 PILOT_AREAS = ["Toa Payoh", "Bukit Timah", "Downtown Core"]
 VALID_SCOPES = {"pilot", "island"}
 DOMINANT_COMPONENTS_BY_SCOPE = {"pilot": 3, "island": 1}
@@ -1486,7 +1485,8 @@ def run_build(scope: str = "pilot"):
     if scope not in VALID_SCOPES:
         raise ValueError(f"unknown network scope: {scope}")
 
-    QA_DIR.mkdir(exist_ok=True)
+    QA_DIR.mkdir(exist_ok=True, parents=True)
+    PROCESSED_DIR.mkdir(exist_ok=True, parents=True)
     print(f"Building pedestrian network scope: {scope}")
     dominant_component_count = DOMINANT_COMPONENTS_BY_SCOPE[scope]
     qa_path = QA_DIR / f"conflation_qa_{scope}.json"
@@ -2605,5 +2605,38 @@ def run_build(scope: str = "pilot"):
     edges_export.to_parquet(network_path)
 
 
-if __name__ == "__main__":
+def main(argv: list[str] | None = None) -> int:
+    args = list(sys.argv[1:] if argv is None else argv)
+    if "--confirm-network-build" not in args:
+        print(
+            json.dumps(
+                {
+                    "ok": False,
+                    "errors": [
+                        "scripts.run_network_build writes processed network artifacts and requires --confirm-network-build"
+                    ],
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 2
+    forwarded = [arg for arg in args if arg != "--confirm-network-build"]
+    if forwarded:
+        print(
+            json.dumps(
+                {
+                    "ok": False,
+                    "errors": [f"unexpected arguments: {forwarded}"],
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 2
     run_build()
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
