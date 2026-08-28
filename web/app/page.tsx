@@ -855,7 +855,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
     return ["No full locked score in published shelter-map bundle", "Partial shelter-map evidence may be available"];
   }
   if (score.paths?.routing_type === "direct_bus_fallback_unrouted") {
-    return ["Nearby direct bus service found", "No verified shelter-map walk yet"];
+    return ["Nearby direct bus service found", "Straight-line bus estimate; shelter-map walk pending.", "No verified shelter-map walk yet"];
   }
   if (!score.paths || !score.best_node) return ["Shelter-map evidence unavailable", "Locked score unavailable"];
   if (!score.subscores) return ["Locked score inputs unavailable", "Shelter-map evidence available"];
@@ -996,7 +996,7 @@ function RouteModeControl({
   directBusFallback: boolean;
 }) {
   if (directBusFallback) {
-    return <div className={styles.sameRouteNote}>Direct line to bus stop; shelter-map walk pending.</div>;
+    return <div className={styles.sameRouteNote}>Straight-line bus estimate; shelter-map walk pending.</div>;
   }
 
   if (sameRoute) {
@@ -1093,7 +1093,7 @@ function InlineRouteLegend({
     <div className={styles.inlineLegend} aria-label="Map legend">
       <span>
         <i className={directBusFallback || previewRoute ? styles.directBusLine : styles.shiokestLine} />
-        {directBusFallback ? "Direct bus service estimate" : previewRoute ? "Shelter-map preview" : "Sheltered walk"}
+        {directBusFallback ? "Straight-line bus estimate" : previewRoute ? "Shelter-map preview" : "Sheltered walk"}
       </span>
       {!directBusFallback && !previewRoute && (
         <>
@@ -1242,7 +1242,7 @@ export function ScoreCard({
     routeMode === "shortest" && !sameRoute ? score.paths?.shortest_m : score.paths?.sheltered_m;
   const selectedCoverage = routeMode === "shortest" && !sameRoute ? shortestCoveredRatio : coveredRatio;
   const selectedRouteLabel = directBusFallback
-    ? "Direct bus service estimate"
+    ? "Straight-line bus estimate"
     : previewRoute
       ? "OneMap preview walk"
     : routeMode === "shortest" && !sameRoute
@@ -1336,14 +1336,14 @@ export function ScoreCard({
   const selectedWalkLabel = previewRoute
     ? "OneMap preview walk"
     : directBusFallback
-      ? "direct bus service estimate"
+      ? "straight-line bus estimate"
       : routeMode === "shortest" && !sameRoute
         ? "shortest walk"
         : "sheltered walk";
   const selectedWalkSentenceLabel = previewRoute
     ? "OneMap preview walk"
     : directBusFallback
-      ? "Direct bus service estimate"
+      ? "Straight-line bus estimate"
       : routeMode === "shortest" && !sameRoute
         ? "Shortest walk"
         : "Sheltered walk";
@@ -1372,7 +1372,7 @@ export function ScoreCard({
     previewRoute,
     routeMode,
     displayContextLabel: directBusFallback ? "Evidence display" : "Walk display",
-    routeDisplayLabel: directBusFallback ? "direct bus service estimate" : routeDisplayAnnouncement(routeMode, sameRoute),
+    routeDisplayLabel: directBusFallback ? "straight-line bus estimate" : routeDisplayAnnouncement(routeMode, sameRoute),
     shelterEvidenceText: shelterEvidenceAnnouncementFromValues(selectedCoverage, exposureGaps),
   });
   const gapSummaryText =

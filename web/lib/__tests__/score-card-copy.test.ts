@@ -71,12 +71,12 @@ describe("score card copy", () => {
     );
     expect(source).not.toContain("the bus term remains 0");
     expect(source).not.toContain("locked bus term remains 0");
-    expect(source).toContain("Direct bus service estimate");
+    expect(source).toContain("Straight-line bus estimate");
     expect(source).not.toContain("Direct bus line estimate");
     expect(source).not.toContain("Direct bus estimate");
     expect(source).toContain('displayContextLabel: directBusFallback ? "Evidence display" : "Walk display"');
     expect(source).toContain(
-      'routeDisplayLabel: directBusFallback ? "direct bus service estimate" : routeDisplayAnnouncement(routeMode, sameRoute)'
+      'routeDisplayLabel: directBusFallback ? "straight-line bus estimate" : routeDisplayAnnouncement(routeMode, sameRoute)'
     );
     expect(source).toContain("selectedWalkPrepPhrase");
     expect(source).toContain("selectedWalkHeadingPhrase");
@@ -89,6 +89,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("Walking-route shelter not verified yet");
     expect(source).not.toContain("Walking-route access was not verified");
     expect(source).not.toContain("Direct line to bus stop; walking route pending.");
+    expect(source).toContain("Straight-line bus estimate; shelter-map walk pending.");
+    expect(source).not.toContain("Direct line to bus stop; shelter-map walk pending.");
     expect(source).not.toContain("Shelter-map route not verified yet");
     expect(source).not.toContain("Shelter-map route access was not verified");
     expect(source).not.toContain("Outside current candidate thresholds");
