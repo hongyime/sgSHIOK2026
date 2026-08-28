@@ -120,8 +120,8 @@ export function nightLightingLayerNote(lampOverlayEnabled: boolean): string {
 
 export function nightLightingRouteDetailValue(lampOverlayEnabled: boolean): string {
   return lampOverlayEnabled
-    ? "Map layer on; zoom in for lamp-post points"
-    : "Map layer off; switch on night lighting, then zoom in";
+    ? "Night-lighting layer on; zoom in for lamp-post points"
+    : "Night-lighting layer off; switch on night lighting, then zoom in";
 }
 
 const RECENT_PUBLIC_SOURCE_MISSING_POSTAL_SOURCE: Record<string, string> = {
