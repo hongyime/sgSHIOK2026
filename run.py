@@ -169,8 +169,7 @@ def run_task(name: str, extra: list[str]) -> int:
                 file=sys.stderr,
             )
             return 2
-        forwarded = [arg for arg in extra if arg != INPUT_REFRESH_CONFIRM_FLAG]
-        return run_module("pipeline.fetch", [name], forwarded)
+        return run_module("pipeline.fetch", [name])
     if name == "lamp-overlay":
         if LAMP_OVERLAY_CONFIRM_FLAG not in extra:
             print(

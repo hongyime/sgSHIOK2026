@@ -506,7 +506,7 @@ def test_run_ingest_requires_confirm_input_refresh(monkeypatch, capsys):
     assert "Do not use ingest to repair frozen-v1 hash mismatches." in err
 
 
-def test_run_ingest_strips_runner_confirm_flag_before_fetch(monkeypatch):
+def test_run_ingest_forwards_confirm_flag_to_fetch_module(monkeypatch):
     calls = []
 
     class FakeCompletedProcess:
@@ -527,6 +527,7 @@ def test_run_ingest_strips_runner_confirm_flag_before_fetch(monkeypatch):
                 "-m",
                 "pipeline.fetch",
                 "ingest",
+                "--confirm-input-refresh",
                 "--source",
                 "lamp_posts",
             ],

@@ -37,6 +37,20 @@ def test_fetch_check_help_names_freshness_summary_contract(
     assert "omitting source names" not in out
 
 
+def test_fetch_ingest_requires_confirm_before_loading_sources(monkeypatch, capsys) -> None:
+    def fail_load_sources():
+        raise AssertionError("load_sources should not run without input-refresh confirmation")
+
+    monkeypatch.setattr(fetch, "load_sources", fail_load_sources)
+
+    assert fetch.main(["ingest"]) == 2
+
+    err = capsys.readouterr().err
+    assert "ingest mutates raw/ and raw/manifest.json" in err
+    assert "--confirm-input-refresh" in err
+    assert "Do not use ingest to repair frozen-v1 hash mismatches." in err
+
+
 def test_datagov_raw_filename_uses_content_disposition_extension() -> None:
     headers = httpx.Headers(
         {

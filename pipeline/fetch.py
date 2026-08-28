@@ -66,6 +66,7 @@ GEOSPATIAL_DISCOVERY_CHANGE_ACTION = (
     "Geospatial discovery action: report and plan a new numbered input version; "
     "do not repair frozen v1 in place."
 )
+CONFIRM_INPUT_REFRESH_FLAG = "--confirm-input-refresh"
 SHAPE_TYPES = {
     0: "Null",
     1: "Point",
@@ -1365,13 +1366,15 @@ def main(argv: list[str] | None = None) -> int:
         default=[],
         help="Restrict to one source key. Can be passed multiple times.",
     )
+    parser.add_argument(
+        CONFIRM_INPUT_REFRESH_FLAG,
+        action="store_true",
+        help=(
+            "Required with ingest after owner approval; refreshes must create new "
+            "numbered inputs and must not repair frozen-v1 hash mismatches in place."
+        ),
+    )
     args = parser.parse_args(argv)
-
-    try:
-        sources = select_sources(load_sources(), args.source)
-    except ValueError as exc:
-        print(str(exc), file=sys.stderr)
-        return 2
 
     if args.freshness_only and args.geospatial_discovery_only:
         print(
@@ -1379,6 +1382,29 @@ def main(argv: list[str] | None = None) -> int:
             file=sys.stderr,
         )
         return 2
+    if args.action == "ingest":
+        if args.freshness_only or args.geospatial_discovery_only:
+            print(
+                "--freshness-only and --geospatial-discovery-only are only valid with check",
+                file=sys.stderr,
+            )
+            return 2
+        if not args.confirm_input_refresh:
+            print(
+                "ingest mutates raw/ and raw/manifest.json; pass "
+                f"{CONFIRM_INPUT_REFRESH_FLAG} only after approval to create a new "
+                "numbered input version. Do not use ingest to repair frozen-v1 hash "
+                "mismatches.",
+                file=sys.stderr,
+            )
+            return 2
+
+    try:
+        sources = select_sources(load_sources(), args.source)
+    except ValueError as exc:
+        print(str(exc), file=sys.stderr)
+        return 2
+
     if args.action == "check" and args.freshness_only:
         return run_freshness_report(sources)
     if args.action == "check" and args.geospatial_discovery_only:
@@ -1386,12 +1412,6 @@ def main(argv: list[str] | None = None) -> int:
     if args.action == "check":
         return run_check(sources)
     elif args.action == "ingest":
-        if args.freshness_only or args.geospatial_discovery_only:
-            print(
-                "--freshness-only and --geospatial-discovery-only are only valid with check",
-                file=sys.stderr,
-            )
-            return 2
         return run_ingest(sources)
     else:
         print(f"Unknown action: {args.action}", file=sys.stderr)

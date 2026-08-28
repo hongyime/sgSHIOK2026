@@ -1660,3 +1660,7 @@ Full OneMap validation wrappers must not bypass runner-level approval by self-su
 2026-08-28 - P754 legacy network build direct-entry guard:
 
 `scripts/run_network_build.py` is a legacy direct network builder and must not run outside an explicit network-build approval. Direct execution now requires `--confirm-network-build` before calling `run_build()`, and import-time creation of `qa/` and `processed/` has been removed so unit-test imports do not write output directories. This is guard/test hygiene only; it does not run a network build, score, export, mutate processed artifacts, public data, protected QA evidence, or locked weights.
+
+2026-08-28 - P755 fetch ingest module confirmation guard:
+
+`pipeline.fetch ingest` must own the same input-refresh approval as `run.py ingest` because direct module execution can mutate `raw/` and `raw/manifest.json`. The fetch module now requires `--confirm-input-refresh` for ingest and rejects unconfirmed ingest before source config loading, while `run.py` forwards the confirmation instead of stripping it. This is guard/test hygiene only; it does not ingest, refetch, rebuild inputs, probe upstream sources, mutate raw inputs, protected QA evidence, public data, or locked weights.
