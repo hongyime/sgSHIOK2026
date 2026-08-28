@@ -1404,7 +1404,7 @@ def test_run_task_refuses_export_transit_without_confirm(monkeypatch, capsys):
     )
 
 
-def test_run_task_strips_export_confirm_for_export_transit(monkeypatch):
+def test_run_task_forwards_export_confirm_for_export_transit(monkeypatch):
     calls = []
 
     class FakeCompletedProcess:
@@ -1433,6 +1433,7 @@ def test_run_task_strips_export_confirm_for_export_transit(monkeypatch):
                 "export-transit",
                 "--output",
                 "web/public/data/transit_v2",
+                "--confirm-export",
             ],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
@@ -1451,7 +1452,7 @@ def test_run_task_refuses_refresh_provenance_without_confirm(monkeypatch, capsys
     )
 
 
-def test_run_task_strips_refresh_provenance_confirm(monkeypatch):
+def test_run_task_forwards_refresh_provenance_confirm(monkeypatch):
     calls = []
 
     class FakeCompletedProcess:
@@ -1480,6 +1481,7 @@ def test_run_task_strips_refresh_provenance_confirm(monkeypatch):
                 "refresh-provenance",
                 "--output",
                 "web/public/data/generated_v2",
+                "--confirm-refresh-provenance",
             ],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},

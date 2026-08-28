@@ -284,8 +284,7 @@ def run_task(name: str, extra: list[str]) -> int:
             ),
         ):
             return 2
-        forwarded = [arg for arg in extra if arg != REFRESH_PROVENANCE_CONFIRM_FLAG]
-        return run_module("pipeline.export", ["refresh-provenance"], forwarded)
+        return run_module("pipeline.export", ["refresh-provenance"])
     if name == "score":
         if not require_runner_flag(
             extra=extra,
@@ -398,8 +397,7 @@ def run_task(name: str, extra: list[str]) -> int:
             ),
         ):
             return 2
-        forwarded = [arg for arg in extra if arg != EXPORT_CONFIRM_FLAG]
-        return run_module("pipeline.export", ["export-transit"], forwarded)
+        return run_module("pipeline.export", ["export-transit"])
     if name == "validate":
         return run_module("pipeline.export", ["validate"])
     if name == "publish":

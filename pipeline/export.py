@@ -45,6 +45,7 @@ DEFAULT_EXPORT_DIR = PROJECT_ROOT / "web" / "public" / "data" / "generated"
 DEFAULT_VALIDATE_DIR = PROJECT_ROOT / "web" / "public" / "data"
 CONFIRM_EXPORT_FLAG = "--confirm-export"
 CONFIRM_LIVE_SCORE_EXPORT_FLAG = "--confirm-live-score-export"
+CONFIRM_REFRESH_PROVENANCE_FLAG = "--confirm-refresh-provenance"
 MAX_DATA_FILES = 5000
 MAX_FILE_BYTES = 5 * 1024 * 1024
 GEOM_PROMOTION_THRESHOLD_BYTES = int(MAX_FILE_BYTES * 0.9)
@@ -2540,6 +2541,17 @@ def validate_export_confirmation_args(*, confirm_export: bool) -> list[str]:
     ]
 
 
+def validate_refresh_provenance_confirmation_args(
+    *, confirm_refresh_provenance: bool
+) -> list[str]:
+    if confirm_refresh_provenance:
+        return []
+    return [
+        "refresh-provenance requires --confirm-refresh-provenance after owner approval; "
+        "in-place manifest mutation must name its bundle directory"
+    ]
+
+
 def validate_live_score_export_args(
     *,
     records_dir: Path | None,
@@ -2637,12 +2649,22 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         help="Explicit new output directory; non-empty directories are refused.",
     )
+    transit_parser.add_argument(
+        CONFIRM_EXPORT_FLAG,
+        action="store_true",
+        help="Confirm this transit export may write a new artifact directory.",
+    )
 
     provenance_parser = subparsers.add_parser("refresh-provenance")
     provenance_parser.add_argument(
         "--output",
         type=Path,
         help="Explicit existing bundle directory to mutate.",
+    )
+    provenance_parser.add_argument(
+        CONFIRM_REFRESH_PROVENANCE_FLAG,
+        action="store_true",
+        help="Confirm this command may mutate bundle provenance metadata.",
     )
 
     args = parser.parse_args(argv)
@@ -2720,6 +2742,8 @@ def main(argv: list[str] | None = None) -> int:
             output_dir=args.output,
             require_empty=True,
         )
+        if not errors:
+            errors = validate_export_confirmation_args(confirm_export=bool(args.confirm_export))
         if errors:
             print_error_report(errors)
             return 1
@@ -2738,6 +2762,10 @@ def main(argv: list[str] | None = None) -> int:
                 "in-place manifest mutation must name its bundle directory"
             ),
         )
+        if not errors:
+            errors = validate_refresh_provenance_confirmation_args(
+                confirm_refresh_provenance=bool(args.confirm_refresh_provenance)
+            )
         if errors:
             print_error_report(errors)
             return 1

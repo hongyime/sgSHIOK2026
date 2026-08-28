@@ -8,6 +8,7 @@ from shapely.geometry import LineString, MultiLineString
 from pipeline.export import (
     CONFIRM_EXPORT_FLAG,
     CONFIRM_LIVE_SCORE_EXPORT_FLAG,
+    CONFIRM_REFRESH_PROVENANCE_FLAG,
     build_transit_poi_collection,
     encode_polyline,
     export_static_artifacts,
@@ -1955,6 +1956,27 @@ def test_export_transit_cli_requires_explicit_output(capsys):
     }
 
 
+def test_export_transit_cli_requires_confirmation_before_writing(tmp_path: Path, monkeypatch, capsys):
+    output = tmp_path / "transit_v2"
+
+    def fail_export_transit_pois(*_args, **_kwargs):
+        raise AssertionError("transit export should not run before confirmation")
+
+    monkeypatch.setattr("pipeline.export.export_transit_pois", fail_export_transit_pois)
+
+    assert export_main(["export-transit", "--output", str(output)]) == 1
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "errors": [
+            "export requires --confirm-export after owner approval; choose a new bundle directory"
+        ],
+        "ok": False,
+    }
+    assert not output.exists()
+
+
 def test_refresh_provenance_cli_requires_explicit_output(capsys):
     assert export_main(["refresh-provenance"]) == 1
 
@@ -1963,6 +1985,32 @@ def test_refresh_provenance_cli_requires_explicit_output(capsys):
     assert report == {
         "errors": [
             "refresh-provenance requires explicit --output; in-place manifest mutation must name its bundle directory"
+        ],
+        "ok": False,
+    }
+
+
+def test_refresh_provenance_cli_requires_confirmation_before_mutating(
+    tmp_path: Path, monkeypatch, capsys
+):
+    output = tmp_path / "generated_v2"
+
+    def fail_refresh_score_provenance_manifest(*_args, **_kwargs):
+        raise AssertionError("refresh-provenance should not run before confirmation")
+
+    monkeypatch.setattr(
+        "pipeline.export.refresh_score_provenance_manifest",
+        fail_refresh_score_provenance_manifest,
+    )
+
+    assert export_main(["refresh-provenance", "--output", str(output)]) == 1
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "errors": [
+            "refresh-provenance requires --confirm-refresh-provenance after owner approval; "
+            "in-place manifest mutation must name its bundle directory"
         ],
         "ok": False,
     }
