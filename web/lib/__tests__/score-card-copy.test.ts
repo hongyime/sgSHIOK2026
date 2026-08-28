@@ -381,8 +381,9 @@ describe("score card copy", () => {
     expect(source).not.toContain("Heat: shelter plus NParks shade proxy");
     expect(source).not.toContain("Heat proxy: shelter + sparse NParks greenery");
     expect(layoutSource).toContain(
-      "Explore covered-walkway ratio, exposed gaps, night lighting evidence, and the secondary locked SHIOK score on Singapore walks to transit."
+      "Explore covered-walkway ratio, exposed gaps, the night-lighting map layer, and the secondary locked SHIOK score on Singapore walks to transit."
     );
+    expect(layoutSource).not.toContain("night lighting evidence");
     expect(layoutSource).not.toContain("secondary locked SHIOK score for Singapore walks to transit");
     expect(layoutSource).not.toContain("covered-walkway exposure gaps");
     expect(layoutSource).not.toContain("night-lighting evidence");
