@@ -64,7 +64,8 @@ describe("score card copy", () => {
     expect(source).toContain('if (option.id === "best_transit") return available ? "displayed walk" : "no published walk";');
     expect(source).not.toContain('if (option.id === "best_transit") return available ? "displayed walk" : "unavailable";');
     expect(source).toContain("No verified shelter-map walk yet");
-    expect(source).toContain("Direct line to bus stop; shelter-map walk pending.");
+    expect(source).toContain("Nearby direct bus service without verified shelter-map walk");
+    expect(source).not.toContain("Nearby bus service without verified shelter-map walk");
     expect(source).toContain("Shelter-map walk access was not verified, so the locked bus term remains 0.");
     expect(source).toContain("Direct bus line estimate");
     expect(source).not.toContain("Direct bus estimate");
@@ -612,7 +613,8 @@ describe("score card copy", () => {
     expect(source).toContain(
       "A low value can mean weak service evidence, or that the published shelter-map walk could not prove access to an official LTA bus stop."
     );
-    expect(source).toContain("Nearby bus service without verified shelter-map walk");
+    expect(source).toContain("Nearby direct bus service without verified shelter-map walk");
+    expect(source).not.toContain("Nearby bus service without verified shelter-map walk");
     expect(source).toContain("Nearby bus service found");
     expect(source).toContain("No verified shelter-map walk yet");
     expect(source).not.toContain("Nearby bus stop with service data");
