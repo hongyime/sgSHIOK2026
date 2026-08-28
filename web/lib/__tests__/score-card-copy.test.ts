@@ -66,13 +66,15 @@ describe("score card copy", () => {
     expect(source).toContain("No verified shelter-map walk yet");
     expect(source).toContain("Nearby direct bus service without verified shelter-map walk");
     expect(source).not.toContain("Nearby bus service without verified shelter-map walk");
-    expect(source).toContain("Shelter-map walk access was not verified, so the locked bus term remains 0.");
+    expect(source).toContain(
+      "Direct bus service is shown as fallback evidence; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus term remains 0."
+    );
     expect(source).toContain("Direct bus service estimate");
     expect(source).not.toContain("Direct bus line estimate");
     expect(source).not.toContain("Direct bus estimate");
     expect(source).toContain("selectedWalkPrepPhrase");
     expect(source).toContain("selectedWalkHeadingPhrase");
-    expect(source).not.toContain("Shelter-map walk access was not verified, so this component score remains 0.");
+    expect(source).not.toContain("Shelter-map walk access was not verified");
     expect(source).not.toContain("current walking graph could not connect a route yet");
     expect(source).not.toContain("Transit route not connected yet");
     expect(source).not.toContain("Transit stops or exits exist, but this shelter-map bundle has no connected shelter-map walk yet.");
@@ -617,6 +619,10 @@ describe("score card copy", () => {
     expect(source).toContain(
       "A low value can mean weak service evidence, or that the published shelter-map walk could not prove access to an official LTA bus stop."
     );
+    expect(source).toContain(
+      "Direct bus service is shown as fallback evidence; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus term remains 0."
+    );
+    expect(source).not.toContain("Shelter-map walk access was not verified");
     expect(source).toContain("Nearby direct bus service without verified shelter-map walk");
     expect(source).not.toContain("Nearby bus service without verified shelter-map walk");
     expect(source).toContain("nearby direct bus service evidence could not be connected");

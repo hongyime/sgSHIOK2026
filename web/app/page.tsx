@@ -1400,7 +1400,7 @@ export function ScoreCard({
           notes: [
             "A low value can mean weak service evidence, or that the published shelter-map walk could not prove access to an official LTA bus stop.",
             busFallback
-              ? `${busFallbackSummary(busFallback)} Shelter-map walk access was not verified, so the locked bus term remains 0.`
+              ? `${busFallbackSummary(busFallback)} Direct bus service is shown as fallback evidence; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus term remains 0.`
               : null,
           ].filter((note): note is string => Boolean(note)),
         },
