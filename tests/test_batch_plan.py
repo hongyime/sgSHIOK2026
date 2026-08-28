@@ -221,7 +221,7 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
         is False
     )
     assert readiness_by_change["promoted postal universe v2"]["status"] == (
-        "not_approved_from_current_sample"
+        "not_approved_from_stale_sample"
     )
     assert (
         "not every bundled full-batch change has prerequisite subset evidence"
@@ -239,6 +239,17 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
     assert report["source_policy"]["recent_public_source_gap_sample"] == {
         "measurement": "P19 16 Aug 2026 public-source gap sample",
         "generated_at_utc": "2026-08-16T02:08:55.624822+00:00",
+        "currentness": {
+            "status": "stale",
+            "fresh_for_current_gap_sizing": False,
+            "stale_after_days": 7,
+            "stale_after_utc": "2026-08-23T02:08:55.624822+00:00",
+            "dynamic_status_command": "uv run python run.py p19-gap-status",
+            "reason": (
+                "the cached 16 Aug 2026 sample is historical evidence; current gap sizing "
+                "requires explicit owner approval and new versioned outputs"
+            ),
+        },
         "cache_status_command": "uv run python run.py p19-gap-status",
         "cache_status_calls_apis": False,
         "cache_status_writes_files": False,
@@ -311,10 +322,11 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
             "missing_or_source_quality_warning_rows_estimate": 1020,
         },
         "v2_build_decision": {
-            "status": "not_approved_from_current_sample",
+            "status": "not_approved_from_stale_sample",
             "reason": (
-                "current cached sample indicates a small gap; building postal-universe v2 "
-                "requires separate owner approval and candidate-source-first scope"
+                "cached sample is stale for current gap sizing and indicates only a small "
+                "historical gap; building postal-universe v2 requires separate owner approval, "
+                "candidate-source-first scope, and new versioned outputs"
             ),
         },
         "source_window": "2021-2026",
@@ -323,7 +335,10 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
             "HDB rows use completion year but require OneMap geocoding to obtain postals",
             "BCA MCST constitution date is private-strata onboarding proxy evidence, not TOP or completion date",
         ],
-        "verdict": "small sampled current-source gap in frozen v1; v2 remains candidate-source-first if approved",
+        "verdict": (
+            "small sampled historical current-source gap in frozen v1; refresh or v2 remains "
+            "candidate-source-first if approved"
+        ),
     }
     assert report["source_policy"]["osm_addr_postcode_registry"] == {
         "measurement": "P125 20 Aug 2026 Overpass addr:postcode coverage cross-check",
