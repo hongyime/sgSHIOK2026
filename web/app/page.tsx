@@ -277,16 +277,23 @@ export function rankAnnouncement({
   rankedCount: number;
   rankMetricLabel: string;
 }): string {
-  if (loading) return `Loading planning-area ${rankMetricLabel} ranks.`;
-  if (rankedCount === 0) return `No planning-area ${rankMetricLabel} ranks available.`;
-  return `${rankedCount} planning-area ${rankMetricLabel} rank${
+  const sentenceLabel = rankSentenceMetricLabel(rankMetricLabel);
+  if (loading) return `Loading planning-area ${sentenceLabel} ranks.`;
+  if (rankedCount === 0) return `No planning-area ${sentenceLabel} ranks available.`;
+  return `${rankedCount} planning-area ${sentenceLabel} rank${
     rankedCount === 1 ? "" : "s"
   } available.`;
 }
 
+function rankSentenceMetricLabel(rankMetricLabel: string): string {
+  return rankMetricLabel.length === 0
+    ? rankMetricLabel
+    : `${rankMetricLabel[0].toLowerCase()}${rankMetricLabel.slice(1)}`;
+}
+
 export function rankEmptyMessage(rankMetric: RankMetric, rankMetricLabel: string): string {
   if (rankMetric === "overall") return "No comparable full locked scores in this planning area.";
-  return `No comparable planning-area records for ${rankMetricLabel}.`;
+  return `No comparable planning-area records for ${rankSentenceMetricLabel(rankMetricLabel)}.`;
 }
 
 export function rankPanelDescription(rankMetric: RankMetric, rankPanelOpen: boolean): string {
@@ -1240,6 +1247,7 @@ export function ScoreCard({
   );
   const rankMetricLabel =
     RANK_METRIC_OPTIONS.find((option) => option.id === rankMetric)?.label ?? "Locked score sorting index";
+  const rankSentenceLabel = rankSentenceMetricLabel(rankMetricLabel);
   const rankStatus = rankAnnouncement({
     loading: rankingLoading,
     rankedCount: rankedRecords.length,
@@ -1617,7 +1625,7 @@ export function ScoreCard({
             <div className={styles.rankList} role="status" aria-live="polite">
               <span className={styles.srOnly}>{rankStatus}</span>
               {rankingLoading && (
-                <span className={styles.rankEmpty}>Loading planning-area {rankMetricLabel} ranks.</span>
+                <span className={styles.rankEmpty}>Loading planning-area {rankSentenceLabel} ranks.</span>
               )}
               {!rankingLoading && rankedRecords.length === 0 && (
                 <span className={styles.rankEmpty}>{rankEmptyMessage(rankMetric, rankMetricLabel)}</span>

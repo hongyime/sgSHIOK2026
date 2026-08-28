@@ -17,6 +17,7 @@ import {
   nightLightingLayerNote,
   nightLightingRouteDetailValue,
   routeDisplayAnnouncement,
+  rankAnnouncement,
   rankEmptyMessage,
   rankPanelDescription,
   scoreCardAnnouncement,
@@ -278,8 +279,9 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Custom stop selected.");
     expect(html).toContain("Walk display shortest walk");
     expect(html).toContain('aria-busy="true"');
-    expect(html).toContain("Loading planning-area Locked score sorting index ranks.");
+    expect(html).toContain("Loading planning-area locked score sorting index ranks.");
     expect(html).not.toContain("Loading planning-area Locked SHIOK score ranks.");
+    expect(html).not.toContain("Loading planning-area Locked score sorting index ranks.");
     expect(html).toContain('aria-label="Shelter-map panel"');
     expect(html).not.toContain("Postal 560231 route evidence panel loaded.");
     expect(html).not.toContain("Postal 560231 score panel loaded.");
@@ -614,16 +616,40 @@ describe("rendered accessibility output", () => {
       "No comparable full locked scores in this planning area."
     );
     expect(rankEmptyMessage("rain", "Rain covered-walkway evidence")).toBe(
-      "No comparable planning-area records for Rain covered-walkway evidence."
+      "No comparable planning-area records for rain covered-walkway evidence."
     );
 
     const evidenceHtml = renderScoreCard({
       rankMetric: "rain",
       rankingRecords: [],
     });
-    expect(evidenceHtml).toContain("No comparable planning-area records for Rain covered-walkway evidence.");
+    expect(evidenceHtml).toContain("No comparable planning-area records for rain covered-walkway evidence.");
     expect(evidenceHtml).not.toContain("No comparable planning-area records for Rain-shelter evidence.");
     expect(evidenceHtml).not.toContain("No comparable full locked scores in this planning area.");
+  });
+
+  it("uses sentence-case comparison labels in planning-area status copy", () => {
+    expect(
+      rankAnnouncement({
+        loading: true,
+        rankedCount: 0,
+        rankMetricLabel: "Rain covered-walkway evidence",
+      })
+    ).toBe("Loading planning-area rain covered-walkway evidence ranks.");
+    expect(
+      rankAnnouncement({
+        loading: false,
+        rankedCount: 0,
+        rankMetricLabel: "Bus service-support evidence",
+      })
+    ).toBe("No planning-area bus service-support evidence ranks available.");
+    expect(
+      rankAnnouncement({
+        loading: false,
+        rankedCount: 5,
+        rankMetricLabel: "Locked score sorting index",
+      })
+    ).toBe("5 planning-area locked score sorting index ranks available.");
   });
 
   it("does not call crossing friction an evidence view in planning-area helper copy", () => {

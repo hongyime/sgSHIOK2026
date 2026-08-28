@@ -567,10 +567,10 @@ describe("score card copy", () => {
     expect(source).toContain("Planning-area evidence view; locked SHIOK score is unchanged.");
     expect(source).toContain("Planning-area locked-term view; locked SHIOK score is unchanged.");
     expect(source).not.toContain("Planning-area component evidence view; locked SHIOK score is unchanged.");
-    expect(source).toContain("Loading planning-area {rankMetricLabel} ranks.");
+    expect(source).toContain("Loading planning-area {rankSentenceLabel} ranks.");
     expect(source).not.toContain("Loading planning-area ranks...");
     expect(source).toContain("No comparable full locked scores in this planning area.");
-    expect(source).toContain("No comparable planning-area records for ${rankMetricLabel}.");
+    expect(source).toContain("No comparable planning-area records for ${rankSentenceMetricLabel(rankMetricLabel)}.");
     expect(source).toContain('rankEmptyMessage(rankMetric, rankMetricLabel)');
     expect(source).not.toContain("No comparable scored records in this planning area.");
     expect(source).not.toContain("Authoritative composite order.");
