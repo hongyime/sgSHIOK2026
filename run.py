@@ -16,8 +16,9 @@ Safe reports:
   batch-plan dry-runs one-attempt full-batch prerequisites and policy status without scoring; execution still requires owner approval and bounded OneMap controls.
 
 Gated pipeline tasks:
-  ingest | lamp-overlay | network | score | score-batch | export | export-transit | refresh-provenance | validate | publish
+  ingest | lamp-overlay | network | score | score-batch | export | export-transit | refresh-provenance | validate | publish | onemap-probe
   refresh-provenance is fail-closed; direct pipeline.export invocation must name --output explicitly.
+  onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe.
 
 `publish` ALWAYS runs `validate` first — this gate is hard-coded and must never be removed.
 """
@@ -42,6 +43,7 @@ STUBS = {
     "network-preflight": "verify network build inputs without building graph",
     "network-qa": "validate conflation QA report acceptance gates",
     "onemap-validation": "plan/evaluate OneMap walk-routing launch validation gate",
+    "onemap-probe": "network-heavy OneMap rate probe; requires explicit --output and --confirm-onemap-probe",
     "onemap-outlier-replay": "replay OneMap validation outliers through current local scoring",
     "onemap-outlier-triage": "build QA queues from profiled OneMap outlier replays",
     "overture-addresses": "probe Overture Addresses SG as candidate-only postal-universe evidence, not scoring or registry approval",
@@ -115,6 +117,8 @@ def run_task(name: str, extra: list[str]) -> int:
         return run_module("pipeline.network_qa")
     if name == "onemap-validation":
         return run_module("pipeline.onemap_validation")
+    if name == "onemap-probe":
+        return run_module("pipeline.probe_onemap")
     if name == "onemap-outlier-replay":
         return run_module("scripts.replay_onemap_outliers")
     if name == "onemap-outlier-triage":

@@ -44,7 +44,11 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     assert "Gated pipeline tasks:" in run.__doc__
     assert (
         "ingest | lamp-overlay | network | score | score-batch | export | "
-        "export-transit | refresh-provenance | validate | publish"
+        "export-transit | refresh-provenance | validate | publish | onemap-probe"
+        in run.__doc__
+    )
+    assert (
+        "onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe."
         in run.__doc__
     )
 
@@ -87,7 +91,11 @@ def test_run_help_headline_does_not_flatten_all_tasks():
     assert "Gated pipeline tasks:" in help_text
     assert (
         "ingest | lamp-overlay | network | score | score-batch | export | "
-        "export-transit | refresh-provenance | validate | publish"
+        "export-transit | refresh-provenance | validate | publish | onemap-probe"
+        in help_text
+    )
+    assert (
+        "onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe."
         in help_text
     )
 
@@ -122,6 +130,9 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
     assert run.STUBS["overture-addresses"] == (
         "probe Overture Addresses SG as candidate-only postal-universe evidence, "
         "not scoring or registry approval"
+    )
+    assert run.STUBS["onemap-probe"] == (
+        "network-heavy OneMap rate probe; requires explicit --output and --confirm-onemap-probe"
     )
     assert run.STUBS["compare-targeted"] == (
         "compare a targeted score report against the published shelter-map bundle"
@@ -358,6 +369,39 @@ def test_run_task_exposes_p125_osm_status_as_read_only_module(monkeypatch):
                 sys.executable,
                 "-m",
                 "scripts.analysis.p125_osm_postcode_status",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_task_exposes_onemap_probe_as_gated_module(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task(
+        "onemap-probe",
+        ["--output", "logs/onemap_probe_v2.csv", "--confirm-onemap-probe"],
+    ) == 0
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "pipeline.probe_onemap",
+                "--output",
+                "logs/onemap_probe_v2.csv",
+                "--confirm-onemap-probe",
             ],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
