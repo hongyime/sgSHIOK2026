@@ -10,6 +10,7 @@ from pipeline.score_batch import (
     chunk_slices,
     json_safe_score_record,
     main as score_batch_main,
+    output_dir_preflight_errors,
     read_chunk_postals,
     validate_full_batch_gate,
 )
@@ -207,6 +208,40 @@ def test_score_batch_dry_run_does_not_create_outputs(tmp_path: Path):
     assert report["dry_run"] is True
     assert report["chunk_count"] == 2
     assert not output_dir.exists()
+
+
+def test_score_batch_no_resume_refuses_nonempty_output_before_loading_inputs(tmp_path: Path):
+    missing_universe = tmp_path / "missing.parquet"
+    output_dir = tmp_path / "scores"
+    output_dir.mkdir()
+    (output_dir / "batch_manifest.json").write_text("existing\n", encoding="utf-8")
+
+    ok, report = build_score_batch(
+        postal_universe_path=missing_universe,
+        output_dir=output_dir,
+        network_path=missing_universe,
+        resume=False,
+    )
+
+    assert not ok
+    assert report == {
+        "errors": [
+            "--no-resume requires an empty or new --output-dir; "
+            f"refusing to overwrite existing batch output: {output_dir}"
+        ],
+        "ok": False,
+    }
+
+
+def test_score_batch_preflight_refuses_file_output_path(tmp_path: Path):
+    output_path = tmp_path / "scores"
+    output_path.write_text("existing\n", encoding="utf-8")
+
+    assert output_dir_preflight_errors(
+        output_dir=output_path,
+        dry_run=False,
+        resume=True,
+    ) == [f"score-batch output path exists and is not a directory: {output_path}"]
 
 
 def test_score_batch_cli_requires_explicit_output_dir_before_loading_inputs(

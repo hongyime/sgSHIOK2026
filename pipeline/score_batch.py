@@ -69,6 +69,24 @@ def write_json(path: Path, payload: Any) -> int:
     return len(content)
 
 
+def output_dir_preflight_errors(
+    *,
+    output_dir: Path,
+    dry_run: bool,
+    resume: bool,
+) -> list[str]:
+    if dry_run or not output_dir.exists():
+        return []
+    if not output_dir.is_dir():
+        return [f"score-batch output path exists and is not a directory: {output_dir}"]
+    if not resume and any(output_dir.iterdir()):
+        return [
+            "--no-resume requires an empty or new --output-dir; "
+            f"refusing to overwrite existing batch output: {output_dir}"
+        ]
+    return []
+
+
 def read_existing_scoring_fingerprint_maps(output_dir: Path) -> dict[str, dict[str, str]]:
     manifest_path = output_dir / "batch_manifest.json"
     if not manifest_path.is_file():
@@ -335,6 +353,13 @@ def build_score_batch(
         return False, {"ok": False, "errors": ["limit must be >= 0"]}
     if chunk_size <= 0:
         return False, {"ok": False, "errors": ["chunk_size must be positive"]}
+    output_errors = output_dir_preflight_errors(
+        output_dir=output_dir,
+        dry_run=dry_run,
+        resume=resume,
+    )
+    if output_errors:
+        return False, {"ok": False, "errors": output_errors}
 
     gate_ok, qa_report, gate_errors = validate_full_batch_gate(
         full_batch=full_batch,
