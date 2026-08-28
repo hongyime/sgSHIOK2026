@@ -1771,3 +1771,7 @@ Shelter correction should be named consistently wherever the user starts it. The
 2026-08-29 - P784 heat presentation analysis protected output roots:
 
 `scripts/analysis/analyze_heat_presentation.py` may overwrite explicit scratch reports when requested, but overwrite cannot be allowed to target protected evidence or public-data payloads. The report writer now refuses `web/public/data/`, `qa/releases/`, `qa/p6_*` through `qa/p10_*`, `qa/p11/`, and `checksums.json` before any write, even with `overwrite=True`. The script's UI audit line references were also refreshed after later score-card copy/layout edits. This is guard/test hygiene only; it does not run the analysis, score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
+
+2026-08-29 - P785 shared analysis report output guard:
+
+`scripts.analysis.report_io.write_new_text_report()` is the common writer for many scratch analysis helpers, so protected output refusal belongs there as well as in individual high-risk scripts. The shared writer now refuses `web/public/data/`, `qa/releases/`, `qa/p6_*` through `qa/p10_*`, `qa/p11/`, and `checksums.json` before creating parent directories or writing files. This keeps normal scratch reports available while making protected evidence and public-data payloads fail closed by default. This is guard/test hygiene only; it does not run analysis, score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.

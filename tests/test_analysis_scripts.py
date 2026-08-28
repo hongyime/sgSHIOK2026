@@ -256,6 +256,36 @@ def test_analysis_report_writer_refuses_to_overwrite_existing_file(tmp_path: Pat
     assert output.read_text(encoding="utf-8") == "first"
 
 
+def test_analysis_report_writer_refuses_protected_output_paths() -> None:
+    protected_paths = [
+        PROJECT_ROOT / "checksums.json",
+        PROJECT_ROOT / "web" / "public" / "data" / "new-analysis-report.json",
+        PROJECT_ROOT / "qa" / "p7_new_guard_probe" / "report.json",
+    ]
+
+    for output in protected_paths:
+        try:
+            assert_new_text_report_path(output)
+        except ValueError as exc:
+            assert "refusing protected analysis output path" in str(exc)
+        else:
+            raise AssertionError(f"protected report path was accepted: {output}")
+
+
+def test_analysis_report_writer_does_not_create_protected_parent() -> None:
+    output = PROJECT_ROOT / "qa" / "p8_new_guard_probe" / "report.json"
+
+    try:
+        write_new_text_report(output, "blocked\n")
+    except ValueError as exc:
+        assert "refusing protected analysis output path" in str(exc)
+    else:
+        raise AssertionError("protected report path was written")
+
+    assert not output.exists()
+    assert not output.parent.exists()
+
+
 def test_historical_bus_reports_use_non_overwriting_writer() -> None:
     for script_name in [
         "bus_zero_audit.py",
