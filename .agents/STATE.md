@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `822b974` (`fix: expose per-change full-batch readiness`)
+Latest substantive commit: `844d779` (`docs: fix stale decision path references`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,8 +18,8 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P734 is complete and pushed: `run.py batch-plan` now exposes `full_batch_change_readiness` for each bundled full-batch change.
-- Evidence: `qa/verification/P734-full-batch-change-readiness.md`.
-- The full-batch gate stays closed when any bundled change lacks prerequisite subset evidence; `NO_TRANSIT_IN_RANGE` and postal-universe v2 remain not ready for inclusion.
-- Checks: `uv run pytest tests/test_batch_plan.py -q` passed 10/10; `uv run pytest -q --collect-only` collected 531; repo integrity passed; diff-check and protected-diff guard passed.
+- P735 is complete and pushed: stale `docs/decisions.md` references in scoring/export comments now point to root `decisions.md`.
+- Evidence: `qa/verification/P735-decision-path-hygiene.md`.
+- A source-text guard in `tests/test_agent_docs.py` prevents the stale decision path from returning in the affected files.
+- Checks: `uv run pytest tests/test_agent_docs.py tests/test_scoring_integration.py -q` passed 70/70; `uv run pytest -q --collect-only` collected 532; repo integrity passed; diff-check and protected-diff guard passed.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
