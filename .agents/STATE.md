@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `844d779` (`docs: fix stale decision path references`)
+Latest substantive commit: `301618d` (`fix: require versioned bounded geocode cache`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,8 +18,8 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P735 is complete and pushed: stale `docs/decisions.md` references in scoring/export comments now point to root `decisions.md`.
-- Evidence: `qa/verification/P735-decision-path-hygiene.md`.
-- A source-text guard in `tests/test_agent_docs.py` prevents the stale decision path from returning in the affected files.
-- Checks: `uv run pytest tests/test_agent_docs.py tests/test_scoring_integration.py -q` passed 70/70; `uv run pytest -q --collect-only` collected 532; repo integrity passed; diff-check and protected-diff guard passed.
+- P736 is complete and pushed: confirmed non-dry bounded OneMap geocode fills now reject unversioned cache paths such as `raw/geocode_cache.db` before opening the cache or calling OneMap.
+- Evidence: `qa/verification/P736-geocode-cache-versioning.md`.
+- `run.py` now lists `geocode-universe` as a gated pipeline task because it can call OneMap and write a cache, parquet, and summary.
+- Checks: `uv run pytest tests/test_geocode_universe.py tests/test_run.py -q` passed 31/31; `uv run pytest -q --collect-only` collected 533; repo integrity passed; diff-check and protected-diff guard passed.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
