@@ -401,6 +401,16 @@ def test_batch_plan_treats_completed_geocode_fill_remaining_rows_as_unresolved(
             "needs_geocode": 1,
             "geocode_fill": {
                 "ok": True,
+                "cache_db": r"C:\shiok\raw\geocode_cache.db",
+                "input": r"C:\shiok\processed\postal_universe_candidate_full_registered.parquet",
+                "output": (
+                    r"C:\shiok\processed"
+                    r"\postal_universe_candidate_full_registered_geocoded.parquet"
+                ),
+                "summary": (
+                    r"C:\shiok\processed"
+                    r"\postal_universe_candidate_full_registered_geocoded_summary.json"
+                ),
                 "queued_postals": 2,
                 "http_requests": 2,
                 "cache_successes": 0,
@@ -435,6 +445,17 @@ def test_batch_plan_treats_completed_geocode_fill_remaining_rows_as_unresolved(
     assert ok, report
     assert report["bounded_geocoding"]["requests"] == 0
     assert report["bounded_geocoding"]["unresolved_after_bounded_geocode"] == 1
+    assert report["bounded_geocoding"]["completed_fill"]["cache_db"] == r"raw\geocode_cache.db"
+    assert report["bounded_geocoding"]["completed_fill"]["input"] == (
+        r"processed\postal_universe_candidate_full_registered.parquet"
+    )
+    assert report["bounded_geocoding"]["completed_fill"]["output"] == (
+        r"processed\postal_universe_candidate_full_registered_geocoded.parquet"
+    )
+    assert report["bounded_geocoding"]["completed_fill"]["summary"] == (
+        r"processed\postal_universe_candidate_full_registered_geocoded_summary.json"
+    )
+    assert r"C:\shiok" not in json.dumps(report["bounded_geocoding"]["completed_fill"])
     assert report["scoring_batch"]["would_score_after_bounded_geocoding"] == 2
     assert report["scoring_batch"]["would_emit_records"] == 3
     assert report["scoring_batch"]["would_emit_not_yet_scored"] == 1

@@ -324,6 +324,31 @@ def parquet_row_count(path: Path) -> int:
     return int(pq.read_metadata(path).num_rows)
 
 
+def display_project_artifact_path(value: Any) -> Any:
+    if not isinstance(value, str):
+        return value
+    try:
+        path = Path(value)
+    except (OSError, ValueError):
+        return value
+    parts_lower = [part.lower() for part in path.parts]
+    known_roots = {"raw", "processed"}
+    for index, part in enumerate(parts_lower):
+        if part in known_roots:
+            return "\\".join(path.parts[index:])
+    return value
+
+
+def display_geocode_fill_report(report: Any) -> Any:
+    if not isinstance(report, dict):
+        return report
+    normalized = dict(report)
+    for key in ("cache_db", "input", "output", "summary"):
+        if key in normalized:
+            normalized[key] = display_project_artifact_path(normalized[key])
+    return normalized
+
+
 def default_universe_paths(
     mode: str,
     processed_dir: Path = PROCESSED_DIR,
@@ -390,6 +415,7 @@ def build_batch_plan(
     needs_geocode = int(summary.get("needs_geocode") or 0)
     ready_to_score = int(summary.get("ready_to_score") or 0)
     geocode_fill = summary.get("geocode_fill") if isinstance(summary, dict) else None
+    geocode_fill_display = display_geocode_fill_report(geocode_fill)
     geocode_fill_complete = (
         isinstance(geocode_fill, dict)
         and geocode_fill.get("ok") is True
@@ -474,7 +500,7 @@ def build_batch_plan(
             "requests": remaining_geocode_requests,
             "minimum_wall_clock_seconds": wall_clock_seconds,
             "minimum_wall_clock_human": format_duration(wall_clock_seconds),
-            "completed_fill": geocode_fill if geocode_fill_complete else None,
+            "completed_fill": geocode_fill_display if geocode_fill_complete else None,
             "unresolved_after_bounded_geocode": needs_geocode if geocode_fill_complete else None,
         },
         "scoring_batch": {
