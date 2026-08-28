@@ -221,7 +221,9 @@ function shelterEvidenceAnnouncementFromValues(
       }${longestGap ? `; longest gap ${formatDistance(longestGap.len_m)}` : ""}`
     );
   }
-  return parts.length > 0 ? `Walk evidence ${parts.join("; ")}.` : "Shelter-map walk evidence unavailable.";
+  return parts.length > 0
+    ? `Shelter-map walk evidence ${parts.join("; ")}.`
+    : "Shelter-map walk evidence unavailable.";
 }
 
 function shelterEvidenceAnnouncement(score: ScoreRecord): string {
@@ -1426,7 +1428,7 @@ export function ScoreCard({
             value: formatPercent(selectedCoverage),
             meta: "Covered-walkway ratio",
             notes: [
-              "Walk evidence is shown because a connected shelter-map walk exists, but the locked score is suppressed beyond the 1.2 km transit range.",
+              "Shelter-map walk evidence is shown because a connected shelter-map walk exists, but the locked score is suppressed beyond the 1.2 km transit range.",
               heatEvidenceDetail,
             ].filter((note): note is string => Boolean(note)),
           },

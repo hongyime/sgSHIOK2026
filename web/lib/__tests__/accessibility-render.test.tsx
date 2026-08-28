@@ -267,10 +267,10 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain('role="status"');
     expect(html).toContain("Postal 560231 shelter-map panel loaded.");
-    expect(html).toContain("Walk evidence 48% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
-    expect(html).not.toContain("Walk evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
+    expect(html).toContain("Shelter-map walk evidence 48% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
+    expect(html).not.toContain("Shelter-map walk evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
     expect(html).toContain("Locked score 72 out of 100.");
-    expect(html.indexOf("Walk evidence 48% covered-walkway ratio")).toBeLessThan(
+    expect(html.indexOf("Shelter-map walk evidence 48% covered-walkway ratio")).toBeLessThan(
       html.indexOf("Locked score 72 out of 100.")
     );
     expect(html).toContain("<span>Locked score</span><strong>72/100</strong>");
@@ -331,7 +331,7 @@ describe("rendered accessibility output", () => {
   it("falls back to walk active when no selected walk label is available", () => {
     expect(scoreCardAnnouncement({ selection, routeMode: "shiokest" })).toContain("walk active.");
     expect(scoreCardAnnouncement({ selection, routeMode: "shiokest" })).toContain(
-      "Walk evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m."
+      "Shelter-map walk evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m."
     );
     expect(scoreCardAnnouncement({ selection, routeMode: "shiokest" })).toContain(
       "longest gap 142 m"
@@ -833,10 +833,10 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Shortest walk distance to transit.");
     expect(html).not.toContain("Sheltered walk distance to transit.");
     expect(html).toContain(
-      "Walk evidence 48% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m."
+      "Shelter-map walk evidence 48% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m."
     );
     expect(html).not.toContain(
-      "Walk evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m."
+      "Shelter-map walk evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m."
     );
     expect(html).not.toContain("covered-walkway ratio on the selected walk.");
     expect(html).not.toContain("exposed across 2 gaps on the selected walk.");
@@ -858,7 +858,7 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("No exposed gaps are recorded for this shortest walk.");
     expect(html).toContain("Covered-walkway evidence");
-    expect(html).toContain("Walk evidence 48% covered-walkway ratio.");
+    expect(html).toContain("Shelter-map walk evidence 48% covered-walkway ratio.");
     expect(html).not.toContain("0 m exposed across 0 gaps");
     expect(html).not.toContain("Where the walk is exposed");
     expect(html).not.toContain("No exposed gaps are recorded for this selected walk.");
@@ -980,7 +980,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("48%");
     expect(html).toContain("1.5 km");
     expect(html).toContain("Exposed gaps on sheltered walk");
-    expect(html).toContain("Walk evidence is shown because a connected shelter-map walk exists, but the locked score is suppressed beyond the 1.2 km transit range.");
+    expect(html).toContain("Shelter-map walk evidence is shown because a connected shelter-map walk exists, but the locked score is suppressed beyond the 1.2 km transit range.");
     expect(html).toContain("Outside locked transit range");
     expect(html).not.toContain("Outside locked access range");
     expect(html).toContain("Bus service not scored");

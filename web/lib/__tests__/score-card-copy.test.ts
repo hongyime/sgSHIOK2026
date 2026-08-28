@@ -245,7 +245,7 @@ describe("score card copy", () => {
     expect(source).toContain("function formatGeneratedDate(manifest: Manifest | null): string");
     expect(source).toContain("Locked score ${scoreText}");
     expect(source).toContain("function shelterEvidenceAnnouncement(score: ScoreRecord): string");
-    expect(source).toContain('return parts.length > 0 ? `Walk evidence ${parts.join("; ")}.` : "Shelter-map walk evidence unavailable.";');
+    expect(source).toContain('`Shelter-map walk evidence ${parts.join("; ")}.`');
     expect(source).not.toContain('"Walk evidence unavailable"');
     expect(source).toContain("${shelterText} Locked score ${scoreText}.");
     expect(source).toContain(
