@@ -1838,3 +1838,7 @@ Operator-facing source-policy surfaces must use the current P19 v2 28 Aug 2026 p
 2026-08-29 - P809 web freshness snapshot:
 
 The first-view data-limits freshness copy should track the latest no-write manifest-only measurement when that measurement changes operator-relevant age windows. The 2026-08-28T22:21:36Z check kept the same classification counts as the earlier 11:52 UTC snapshot, but moved bus source inputs to 1.2 days from stale and HDB Existing Building to 68.8 days into its 120-day threshold with 51.2 days until stale. Browser copy and tests now use that newer measured snapshot. This is web copy/test/evidence work only; it does not probe upstream URLs beyond the manifest-only local report, fetch sources, mutate raw or processed inputs, score, export, deploy, mutate public data, protected evidence, or touch locked weights.
+
+2026-08-29 - P810 agent docs P19 v2 alignment:
+
+Agent-facing operating context should match the current P19 v2 source-policy surface instead of preserving older P125 coverage numbers. `CLAUDE.md` now names the P19 v2 28 Aug 2026 public-source sample and the same run's Overpass coverage values: 25,919 valid OSM addr:postcode values, 25,899 overlapping frozen v1, and 20 valid OSM-only postcodes. `p125-osm-status` remains listed as a historical safe report command. This is docs/test/evidence work only; it does not score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
