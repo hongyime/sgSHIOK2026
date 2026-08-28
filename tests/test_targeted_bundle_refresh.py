@@ -7,6 +7,7 @@ from scripts.targeted_bundle_refresh import (
     load_geom_shard,
     main,
     postals_from_file,
+    preflight_output_errors,
     read_json,
     rebalance_geom_parents,
     selected_postals_from_inputs,
@@ -106,6 +107,50 @@ def test_targeted_bundle_refresh_cli_requires_confirmation_before_active_bundle_
         ],
         "ok": False,
     }
+
+
+def test_targeted_bundle_refresh_cli_refuses_existing_report_before_bundle_lookup(
+    monkeypatch, tmp_path, capsys
+):
+    from scripts import targeted_bundle_refresh
+
+    output = tmp_path / "targeted_report.json"
+    output.write_text("existing\n", encoding="utf-8")
+
+    def fail_active_bundle_dir():
+        raise AssertionError("active bundle lookup should not run before output guard")
+
+    monkeypatch.setattr(targeted_bundle_refresh, "active_bundle_dir", fail_active_bundle_dir)
+
+    assert (
+        main(
+            [
+                "--confirm-targeted-refresh",
+                "--postal",
+                "560234",
+                "--output",
+                str(output),
+            ]
+        )
+        == 2
+    )
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": [f"refusing to overwrite existing analysis output: {output}"],
+        "ok": False,
+    }
+    assert output.read_text(encoding="utf-8") == "existing\n"
+
+
+def test_targeted_bundle_refresh_preflight_names_existing_target_bundle(tmp_path):
+    target_dir = tmp_path / "generated_existing_targeted"
+    report_output = tmp_path / "targeted_report.json"
+    target_dir.mkdir()
+
+    assert preflight_output_errors(target_dir=target_dir, report_output=report_output) == [
+        f"target bundle already exists: {target_dir}"
+    ]
 
 
 def test_targeted_bundle_refresh_cli_runs_confirmed_refresh_with_explicit_report(

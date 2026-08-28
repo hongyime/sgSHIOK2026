@@ -35,6 +35,7 @@ from pipeline.export import (
 from pipeline.onemap_validation import decode_polyline
 from pipeline.scoring import NO_TRANSIT_IN_RANGE
 from pipeline.scoring_integration import score_postals
+from scripts.analysis.report_io import write_new_text_report
 
 DEFAULT_NETWORK = PROJECT_ROOT / "processed" / "network_island.parquet"
 DEFAULT_UNIVERSE = (
@@ -142,6 +143,15 @@ def copy_bundle(source_dir: Path, target_dir: Path) -> None:
     if target_dir.exists():
         raise FileExistsError(f"target bundle already exists: {target_dir}")
     shutil.copytree(source_dir, target_dir)
+
+
+def preflight_output_errors(*, target_dir: Path, report_output: Path) -> list[str]:
+    errors: list[str] = []
+    if target_dir.exists():
+        errors.append(f"target bundle already exists: {target_dir}")
+    if report_output.exists():
+        errors.append(f"refusing to overwrite existing analysis output: {report_output}")
+    return errors
 
 
 def load_score_index(bundle_dir: Path) -> dict[str, list[str]]:
@@ -709,10 +719,16 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 1
 
-    source_dir = args.source_bundle_dir if args.source_bundle_dir else active_bundle_dir()
     stamp = datetime.now(UTC).strftime("%Y%m%d_%H%M%S")
     target_bundle = args.target_bundle or f"generated_{stamp}_targeted"
     target_dir = PROJECT_ROOT / "web" / "public" / "data" / target_bundle
+    output = args.output or PROJECT_ROOT / "qa" / f"targeted_bundle_refresh_{target_bundle}.json"
+    errors = preflight_output_errors(target_dir=target_dir, report_output=output)
+    if errors:
+        print(json.dumps({"errors": errors, "ok": False}, indent=2, sort_keys=True))
+        return 2
+
+    source_dir = args.source_bundle_dir if args.source_bundle_dir else active_bundle_dir()
     selected_postals = selected_postals_from_inputs(
         partial_report=args.from_partial_report,
         postal_file=args.postal_file,
@@ -725,9 +741,7 @@ def main(argv: list[str] | None = None) -> int:
         network_path=args.network,
         postal_universe_path=args.postal_universe,
     )
-    output = args.output or PROJECT_ROOT / "qa" / f"targeted_bundle_refresh_{target_bundle}.json"
-    output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")
+    write_new_text_report(output, json.dumps(report, indent=2, sort_keys=True))
     print(
         json.dumps(
             {
