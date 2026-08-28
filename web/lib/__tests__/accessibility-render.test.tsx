@@ -678,9 +678,12 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("All recorded exposed gaps are shown.");
     expect(html).toContain("2 of 2 exposed gaps include map coordinates.");
     expect(html).toContain("Longest open-air stretch");
-    expect(html).toContain("Near 1.37123, 103.84235");
-    expect(html).toContain("Near 1.37091, 103.84101");
-    expect(html).toContain('aria-label="Focus map on Longest open-air stretch near 1.37123, 103.84235"');
+    expect(html).toContain("Map coordinate 1.37123, 103.84235");
+    expect(html).toContain("Map coordinate 1.37091, 103.84101");
+    expect(html).not.toContain("Near 1.37123, 103.84235");
+    expect(html).toContain(
+      'aria-label="Focus map on Longest open-air stretch at map coordinate 1.37123, 103.84235"'
+    );
   });
 
   it("names the shortest walk in exposure copy when that display is active", () => {

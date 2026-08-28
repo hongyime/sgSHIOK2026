@@ -1712,7 +1712,7 @@ export function ScoreCard({
               <>
                 <strong>{formatDistance(gap.len_m)}</strong>
                 <span>{exposureGapCopy(gap.len_m, index)}</span>
-                {location && <small className={styles.gapCoordinate}>Near {location}</small>}
+                {location && <small className={styles.gapCoordinate}>Map coordinate {location}</small>}
               </>
             );
             if (focusTarget && onFocusExposureGap) {
@@ -1722,7 +1722,7 @@ export function ScoreCard({
                   type="button"
                   className={`${styles.gapItem} ${activeGap ? styles.gapItemActive : ""}`}
                   aria-pressed={activeGap}
-                  aria-label={`Focus map on ${exposureGapCopy(gap.len_m, index)} near ${location}`}
+                  aria-label={`Focus map on ${exposureGapCopy(gap.len_m, index)} at map coordinate ${location}`}
                   onClick={() => onFocusExposureGap(focusTarget)}
                 >
                   {gapContent}
