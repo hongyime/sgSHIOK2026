@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest commit: `bf70309` (`fix: prevent bus-arrival output appends`)
+Latest commit: `39af2fb` (`fix: preflight onemap validation outputs`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,7 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P712 is complete and pushed: `pipeline.bus_arrivals.collect_snapshots()` and the CLI now refuse existing explicit output paths before any LTA fetch, preventing accidental append/mutation of prior bus-arrival snapshots.
-- Evidence: `qa/verification/P712-bus-arrivals-output-guard.md`.
-- Checks: `tests/test_bus_arrivals.py` passed 7/7; Python collect-only is 494; repo integrity passed; diff-check passed; protected-diff guard passed.
-- No data collection, scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
+- P713 is complete and pushed: `pipeline.onemap_validation` now requires an explicit fresh `--output` for `plan`, `plan-targeted`, `evaluate`, and `collect` before sample building, sample reading, cache evaluation, or OneMap collection can start.
+- Evidence: `qa/verification/P713-onemap-validation-output-guard.md`.
+- Checks: `tests/test_onemap_validation.py` passed 27/27; Python collect-only is 496; repo integrity passed; diff-check passed; protected-diff guard passed.
+- No OneMap collection, scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
