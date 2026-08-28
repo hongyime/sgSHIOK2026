@@ -236,7 +236,7 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("Fetching OneMap walking preview");
     expect(pageSource).toContain("until that walk preview returns");
     expect(pageSource).not.toContain("until that route returns");
-    expect(pageSource).toContain("showing straight-line preview only");
+    expect(pageSource).toContain("showing straight-line distance only");
     expect(pageSource).toContain('[chosenStopId]: "loading"');
     expect(pageSource).toContain('[chosenStopId]: "unavailable"');
     expect(pageSource).toContain('<Metric label="OneMap preview walk" value={formatDistance(selectedDistance)} />');

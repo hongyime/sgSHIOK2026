@@ -373,7 +373,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Preview walk");
     expect(html).toContain("<span>Locked score</span><strong>Preview only</strong>");
     expect(html).toContain(
-      "OneMap walking preview is unavailable for this selected transit target; showing straight-line preview only."
+      "OneMap walking preview is unavailable for this selected transit target; showing straight-line distance only."
     );
     expect(html).toContain(
       "Preview only: this clicked transit target has shelter-map evidence, but it is not part of the published shelter-map bundle yet."

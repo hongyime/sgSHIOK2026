@@ -921,10 +921,10 @@ function isPreviewRoute(score: ScoreRecord): boolean {
 
 function liveRoutePreviewStatusNote(status: LiveRoutePreviewStatus | null | undefined): string | null {
   if (status === "loading") {
-    return "Fetching OneMap walking preview; the selected transit target is shown as a straight-line preview until that walk preview returns.";
+    return "Fetching OneMap walking preview; the selected transit target is shown by straight-line distance until that walk preview returns.";
   }
   if (status === "unavailable") {
-    return "OneMap walking preview is unavailable for this selected transit target; showing straight-line preview only.";
+    return "OneMap walking preview is unavailable for this selected transit target; showing straight-line distance only.";
   }
   return null;
 }
