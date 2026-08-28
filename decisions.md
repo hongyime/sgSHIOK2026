@@ -1846,3 +1846,7 @@ Agent-facing operating context should match the current P19 v2 source-policy sur
 2026-08-29 - P811 zero-gap evidence state:
 
 Zero recorded exposed gaps are favorable shelter-map evidence, not absence of evidence. The score card now renders a compact `Exposed gap evidence` block for scored, non-preview, non-direct-bus-fallback walks with no recorded gaps, stating that no exposed gaps are recorded and that all recorded segments stay under covered-walkway or connector evidence. Routes with gaps keep the existing sorted gap list and map-focus actions. This is browser UI/test/evidence work only; it does not score, export, rescore, mutate route geometry, public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
+
+2026-08-29 - P812 active exposed-gap ARIA label:
+
+Focused exposed-gap rows should expose the same selected-map state to screen-reader users that sighted users see. The gap button accessible label now changes from `Focus on map for...` to `Selected on map for...` when that gap is focused, while `aria-pressed` remains the machine-readable state. Both visible and hidden gap buttons use the same helper. This is browser accessibility/test/evidence work only; it does not score, export, rescore, mutate route geometry, public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.

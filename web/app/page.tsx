@@ -511,6 +511,11 @@ function exposureGapCopy(lenM: number, index: number): string {
   return `${rank} short exposed stretch`;
 }
 
+function exposureGapMapActionLabel(gap: ExposureGap, index: number, location: string, active: boolean): string {
+  const action = active ? "Selected on map for" : "Focus on map for";
+  return `${action} ${exposureGapCopy(gap.len_m, index)} at map coordinate ${location}`;
+}
+
 function exposureGapFocusTarget(score: ScoreRecord, gap: ExposureGap, index: number): FocusedExposureGap | null {
   if (!gap.location) return null;
   const { lat, lon } = gap.location;
@@ -1811,7 +1816,7 @@ export function ScoreCard({
                   type="button"
                   className={`${styles.gapItem} ${activeGap ? styles.gapItemActive : ""}`}
                   aria-pressed={activeGap}
-                  aria-label={`Focus on map for ${exposureGapCopy(gap.len_m, index)} at map coordinate ${location}`}
+                  aria-label={exposureGapMapActionLabel(gap, index, location, activeGap)}
                   onClick={() => onFocusExposureGap(focusTarget)}
                 >
                   {gapContent}
@@ -1856,7 +1861,7 @@ export function ScoreCard({
                       type="button"
                       className={`${styles.gapItem} ${activeGap ? styles.gapItemActive : ""}`}
                       aria-pressed={activeGap}
-                      aria-label={`Focus on map for ${exposureGapCopy(gap.len_m, index)} at map coordinate ${location}`}
+                      aria-label={exposureGapMapActionLabel(gap, index, location, activeGap)}
                       onClick={() => onFocusExposureGap(focusTarget)}
                     >
                       {gapContent}

@@ -845,4 +845,13 @@ describe("score card copy", () => {
     expect(source).toContain("No exposed gaps are recorded for this ${selectedWalkLabel}.");
     expect(source).not.toContain("0 m exposed across 0 gaps");
   });
+
+  it("keeps exposed-gap button labels aligned with active map selection state", () => {
+    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+
+    expect(source).toContain("function exposureGapMapActionLabel");
+    expect(source).toContain('const action = active ? "Selected on map for" : "Focus on map for";');
+    expect(source).toContain("aria-label={exposureGapMapActionLabel(gap, index, location, activeGap)}");
+    expect(source).not.toContain("aria-label={`Focus on map for ${exposureGapCopy(gap.len_m, index)}");
+  });
 });

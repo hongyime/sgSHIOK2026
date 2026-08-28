@@ -815,6 +815,22 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("1 of 1 exposed gap include map coordinates.");
   });
 
+  it("matches active exposed-gap accessible labels to the selected map state", () => {
+    const focusKey = `${scoredRecord.postal}:0:1.37123:103.84235:142`;
+    const html = renderScoreCard({
+      focusedExposureGapKey: focusKey,
+    });
+
+    expect(html).toContain(
+      'aria-label="Selected on map for Longest open-air stretch at map coordinate 1.37123, 103.84235"'
+    );
+    expect(html).toContain("Selected on map");
+    expect(html).toContain('aria-pressed="true"');
+    expect(html).not.toContain(
+      'aria-label="Focus on map for Longest open-air stretch at map coordinate 1.37123, 103.84235"'
+    );
+  });
+
   it("uses singular grammar when one exposed gap has no map coordinates", () => {
     const recordWithUnlocatedGap: ScoreRecord = {
       ...scoredRecord,
