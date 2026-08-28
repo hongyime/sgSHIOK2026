@@ -10,8 +10,13 @@ from scripts.analysis import p10_provenance_coverage as p10_provenance
 from scripts.analysis import p19_universe_gap_measurement as p19
 from scripts.analysis import p19_mcst_missing_locations as p379
 from scripts.analysis import p125_osm_postcode_status as p125
-from scripts.analysis import universe_measurement_status as universe_status
-from scripts.analysis.report_io import write_new_text_report
+from scripts.analysis import (
+    bus_fallback_blast_radius,
+    bus_zero_audit,
+    p4_bus_saturation_analysis,
+    universe_measurement_status as universe_status,
+)
+from scripts.analysis.report_io import assert_new_text_report_path, write_new_text_report
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -235,6 +240,13 @@ def test_analysis_report_writer_refuses_to_overwrite_existing_file(tmp_path: Pat
     write_new_text_report(output, "first")
 
     try:
+        assert_new_text_report_path(output)
+    except FileExistsError as exc:
+        assert "refusing to overwrite existing analysis output" in str(exc)
+    else:
+        raise AssertionError("expected FileExistsError")
+
+    try:
         write_new_text_report(output, "second")
     except FileExistsError as exc:
         assert "refusing to overwrite existing analysis output" in str(exc)
@@ -256,6 +268,34 @@ def test_historical_bus_reports_use_non_overwriting_writer() -> None:
 
         assert "write_new_text_report(args.output" in source
         assert "args.output.write_text" not in source
+
+
+def test_historical_bus_reports_preflight_existing_output_before_analysis(
+    tmp_path: Path, monkeypatch
+) -> None:
+    output = tmp_path / "existing.txt"
+    output.write_text("existing\n", encoding="utf-8")
+
+    scripts = [
+        (bus_zero_audit, "audit_bundle"),
+        (bus_fallback_blast_radius, "analyze"),
+        (p4_bus_saturation_analysis, "analyze"),
+    ]
+
+    def fail_if_called(*_args, **_kwargs):
+        raise AssertionError("analysis should not run when output already exists")
+
+    for module, analysis_name in scripts:
+        monkeypatch.setattr(module, analysis_name, fail_if_called)
+        monkeypatch.setattr(sys, "argv", [module.__file__, "--output", str(output)])
+        try:
+            module.main()
+        except FileExistsError as exc:
+            assert "refusing to overwrite existing analysis output" in str(exc)
+        else:
+            raise AssertionError("expected FileExistsError")
+
+    assert output.read_text(encoding="utf-8") == "existing\n"
 
 
 def test_p19_cache_status_only_reports_existing_measurement_caches(

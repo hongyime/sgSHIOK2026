@@ -22,7 +22,7 @@ from typing import Any
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.analysis.report_io import write_new_text_report
+from scripts.analysis.report_io import assert_new_text_report_path, write_new_text_report
 
 BUNDLE_NAME = "generated_20260805_prefer_scored_routed"
 LOCAL_BUNDLE = PROJECT_ROOT / "web" / "public" / "data" / BUNDLE_NAME
@@ -357,6 +357,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
+    assert_new_text_report_path(args.output)
     source = choose_bundle_source(force_remote=bool(args.force_remote))
     report = audit_bundle(source)
     write_new_text_report(args.output, report)
