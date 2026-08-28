@@ -1755,3 +1755,7 @@ The map tracing workflow is a shelter-evidence correction path, not generic rout
 2026-08-29 - P780 560234 shelter audit confirmation gate:
 
 `scripts/audit_560234_shelter.py` is a direct historical diagnostic that reads raw, processed, and public-data bundle inputs and writes GeoJSON/Markdown audit reports. It now requires `--confirm-560234-shelter-audit` after explicit output/no-overwrite preflight and before the audit can load protected inputs. This is safety/test/evidence work only; it does not run the audit, read protected inputs beyond static code inspection, score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
+
+2026-08-29 - P781 generated-data web test timeout:
+
+The generated-bundle geometry postal-prefix consistency test reads the large local public-data index and every derived prefix shard. On Prawn-E14 the assertion itself remains valid, but the old 15-second per-test timeout failed intermittently during full-suite runs and direct runs. The timeout for that one disk-heavy test is now 60 seconds; global Vitest timing remains unchanged. This is test-infrastructure hygiene only; it reads but does not mutate public data, and it does not score, export, rescore, ingest, rebuild inputs, deploy, or touch locked weights.
