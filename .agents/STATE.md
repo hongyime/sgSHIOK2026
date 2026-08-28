@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest commit: `1066ed0` (`docs: record leaf area index provenance policy`)
+Latest commit: `8adeecb` (`docs: refresh browser freshness bus window`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,7 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P721 is complete and pushed: Leaf Area Index policy was verified as closed for future score provenance; `leaf_area_index` is excluded from `SCORE_PROVENANCE_SOURCE_HASH_KEYS`, while heat/shade provenance uses the five spatial NParks geometry proxy keys.
-- Evidence: `qa/verification/P721-leaf-area-index-policy-closed.md`.
-- Checks: focused scoring-provenance test passed; repo integrity passed; diff-check passed; protected-diff guard passed.
+- P722 is complete and pushed: browser first-view freshness copy now matches the 28 Aug 2026 10:27 UTC manifest-only check and names Bus Stops, Bus Services, and Bus Routes as current but 1.7 days from stale.
+- Evidence: `qa/verification/P722-browser-freshness-bus-window.md`.
+- Checks: focused web copy test passed; full web suite passed 166/166; repo integrity passed; diff-check passed; protected-diff guard passed.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
