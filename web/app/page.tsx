@@ -1392,7 +1392,7 @@ export function ScoreCard({
           id: "access",
           label: "Walk to transit",
           value: score.paths ? formatDistance(selectedDistance) : formatScore(score.subscores.access),
-          meta: scoredMeta(score.subscores.access, "35% locked access", "Access term unavailable"),
+          meta: scoredMeta(score.subscores.access, "35% locked access", "Walk-to-transit score unavailable"),
           notes: [`${selectedWalkSentenceLabel} distance to ${transitModeLabel(transitMode)}.`],
         },
         {

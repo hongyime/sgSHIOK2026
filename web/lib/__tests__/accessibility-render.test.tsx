@@ -1116,12 +1116,13 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Locked score unavailable");
     expect(html).toContain("<span>No full locked score</span><strong>Published bundle</strong>");
     expect(html).toContain("<strong>Unavailable</strong><small>Walk evidence unavailable</small>");
-    expect(html).toContain("<strong>Unavailable</strong><small>Access term unavailable</small>");
+    expect(html).toContain("<strong>Unavailable</strong><small>Walk-to-transit score unavailable</small>");
     expect(html).toContain("<strong>No full locked score</strong><small>Locked score unavailable</small>");
     expect(html).not.toContain("<strong>No full locked score</strong><small>Release sorting index unavailable</small>");
     expect(html).toContain("<strong>42</strong><small>20% locked bus</small>");
     expect(html).not.toContain("<strong>0</strong><small>Walk evidence unavailable</small>");
-    expect(html).not.toContain("<strong>0</strong><small>Access term unavailable</small>");
+    expect(html).not.toContain("<strong>0</strong><small>Walk-to-transit score unavailable</small>");
+    expect(html).not.toContain("Access term unavailable");
     expect(html).not.toContain("<strong>Not scored</strong><small>No shelter score</small>");
     expect(html).not.toContain("<strong>Not scored</strong><small>No access score</small>");
     expect(html).not.toContain("<strong>Not scored</strong><small>No locked score</small>");
