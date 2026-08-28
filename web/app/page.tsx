@@ -1359,7 +1359,7 @@ export function ScoreCard({
     gapsWithCoordinates > 0
       ? `${gapsWithCoordinates} of ${exposureGaps.length} exposed gap${
           exposureGaps.length === 1 ? "" : "s"
-        } include map coordinates.`
+        } ${gapsWithCoordinates === 1 ? "includes" : "include"} map coordinates.`
       : "No map coordinates are recorded for these exposed gaps.";
   const evidenceRows: EvidenceBreakdownRow[] = score.subscores
     ? [

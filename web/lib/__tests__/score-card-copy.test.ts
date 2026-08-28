@@ -346,7 +346,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("Exposed gaps on this walk");
     expect(source).toContain("${formatDistance(score.paths.sheltered_m)} sheltered walk to ${transitModeLabel(transitMode)}");
     expect(source).not.toContain("${formatDistance(score.paths.sheltered_m)} to ${transitModeLabel(transitMode)}");
-    expect(source).toContain("include map coordinates.");
+    expect(source).toContain('${gapsWithCoordinates === 1 ? "includes" : "include"} map coordinates.');
+    expect(source).not.toContain("} include map coordinates.");
     expect(source).toContain("styles.gapAction");
     expect(source).toContain("Focus map");
     expect(readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8")).toContain(

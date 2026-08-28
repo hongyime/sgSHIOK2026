@@ -763,6 +763,23 @@ describe("rendered accessibility output", () => {
     );
   });
 
+  it("uses singular grammar when one exposed gap includes map coordinates", () => {
+    const recordWithOneGap: ScoreRecord = {
+      ...scoredRecord,
+      exposure_gaps: [{ len_m: 64.2, label: "solo-gap", location: { lat: 1.37123, lon: 103.84235 } }],
+    };
+    const html = renderScoreCard({
+      selection: {
+        ...selection,
+        score: recordWithOneGap,
+      },
+      rankingRecords: [recordWithOneGap],
+    });
+
+    expect(html).toContain("1 of 1 exposed gap includes map coordinates.");
+    expect(html).not.toContain("1 of 1 exposed gap include map coordinates.");
+  });
+
   it("names the shortest walk in exposure copy when that display is active", () => {
     const html = renderScoreCard({
       routeMode: "shortest",
