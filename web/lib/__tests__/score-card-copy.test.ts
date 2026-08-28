@@ -316,9 +316,10 @@ describe("score card copy", () => {
     expect(readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8")).toContain(
       "grid-template-columns: 58px minmax(0, 1fr) auto;"
     );
-    expect(source).toContain(
-      "Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load lamp-post points. Map evidence only; not part of the locked score."
-    );
+    expect(source).toContain("nightLightingLayerNote(lampOverlayEnabled)");
+    expect(source).toContain("export function nightLightingLayerNote(lampOverlayEnabled: boolean): string");
+    expect(source).toContain("Switch on and zoom into a neighbourhood to load lamp-post points.");
+    expect(source).toContain("Zoom into a neighbourhood to load lamp-post points.");
     expect(source).not.toContain("LTA lamp-post layer: 126,144 points");
     expect(source).not.toContain("Heat: shelter + NParks shade proxy");
     expect(source).not.toContain("Heat: shelter plus NParks shade proxy");

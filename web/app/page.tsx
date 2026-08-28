@@ -111,6 +111,13 @@ const COVERED_LINKWAY_FRESHNESS_COPY =
 const LEAF_AREA_INDEX_REFERENCE_COPY =
   "NParks Leaf Area Index is a freshness-only reference table here; walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature.";
 
+export function nightLightingLayerNote(lampOverlayEnabled: boolean): string {
+  const action = lampOverlayEnabled
+    ? "Zoom into a neighbourhood to load lamp-post points."
+    : "Switch on and zoom into a neighbourhood to load lamp-post points.";
+  return `Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. ${action} Map evidence only; not part of the locked score.`;
+}
+
 const RECENT_PUBLIC_SOURCE_MISSING_POSTAL_SOURCE: Record<string, string> = {
   "521400": "HDB 2021-2026 geocoded rows",
   "522400": "HDB 2021-2026 geocoded rows",
@@ -2258,7 +2265,7 @@ export default function Home() {
               </button>
             </div>
             <p id="night-lighting-layer-note" className={styles.layerNote}>
-              Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load lamp-post points. Map evidence only; not part of the locked score.
+              {nightLightingLayerNote(lampOverlayEnabled)}
             </p>
           </div>
         </div>

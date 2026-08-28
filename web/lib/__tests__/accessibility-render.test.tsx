@@ -14,6 +14,7 @@ import {
   formatFeedbackTraceCount,
   formatDataDate,
   formatGeneratedDate,
+  nightLightingLayerNote,
   routeDisplayAnnouncement,
   rankEmptyMessage,
   rankPanelDescription,
@@ -205,6 +206,15 @@ describe("rendered accessibility output", () => {
     expect(noResultsHtml).not.toContain("the frozen score bundle has measured recent-source misses");
     expect(noResultsHtml).not.toContain("Try a 6-digit postal code; the frozen shelter-map bundle");
     expect(noResultsHtml).not.toContain("newer completions may still be outside");
+  });
+
+  it("formats the night-lighting layer note for off and on states", () => {
+    expect(nightLightingLayerNote(false)).toBe(
+      "Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load lamp-post points. Map evidence only; not part of the locked score."
+    );
+    expect(nightLightingLayerNote(true)).toBe(
+      "Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. Zoom into a neighbourhood to load lamp-post points. Map evidence only; not part of the locked score."
+    );
   });
 
   it("introduces the shelter-map panel before search", () => {
