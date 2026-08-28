@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `bd68806` (`fix: require confirmation for bus connector diagnostics`)
+Latest substantive commit: `b9ed2ed` (`fix: require confirmation for bundle exports`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,7 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P730 is complete and pushed: `bus-connector-diagnostics` now fails closed unless `--confirm-bus-connector-diagnostics` is supplied.
-- Evidence: `qa/verification/P730-bus-connector-diagnostics-confirmation.md`.
-- Checks: `uv run pytest tests/test_diagnose_bus_connectors.py tests/test_run.py -q` passed 37/37; `uv run pytest -q --collect-only` collected 528; repo integrity passed; diff-check passed; protected-diff guard passed; direct `run.py bus-connector-diagnostics` and module invocations returned exit 2 before input reads, scoring, or creating `qa/p730`.
+- P731 is complete and pushed: every `pipeline.export export` / `run.py export` bundle write now requires `--confirm-export`; live-scoring export still additionally requires `--confirm-live-score-export`.
+- Evidence: `qa/verification/P731-export-confirmation.md`.
+- Checks: `uv run pytest tests/test_export.py tests/test_run.py -q` passed 87/87; `uv run pytest -q --collect-only` collected 531; repo integrity passed; diff-check passed; protected-diff guard passed; direct unconfirmed export commands returned exit 1 before records-dir reads, scoring, or creating `qa/p731`.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
