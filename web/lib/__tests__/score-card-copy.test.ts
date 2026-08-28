@@ -660,7 +660,10 @@ describe("score card copy", () => {
     expect(source).toContain("Heat proxy evidence: covered ${formatDistance(score.paths.covered_m)}");
     expect(source).toContain('heat: { low: "Low heat-proxy evidence", high: "Stronger heat-proxy evidence" }');
     expect(source).not.toContain("Better heat-proxy score");
-    expect(source).toContain("Crossing friction remains a 5% locked term, but has low separation in this release.");
+    expect(source).toContain(
+      "Crossing friction still contributes 5% to the locked score, but has low separation in this release."
+    );
+    expect(source).not.toContain("Crossing friction remains a 5% locked term");
     expect(source).not.toContain('label: "Rain shelter"');
     expect(source).not.toContain('label: "Heat proxy"');
     expect(source).not.toContain('label: "Crossing friction"');

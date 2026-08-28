@@ -1414,7 +1414,7 @@ export function ScoreCard({
           meta: scoredMeta(displayScore, "Release sorting index", "Release sorting index unavailable"),
           notes: [
             "Start with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map bundle.",
-            "Crossing friction remains a 5% locked term, but has low separation in this release.",
+            "Crossing friction still contributes 5% to the locked score, but has low separation in this release.",
           ],
         },
       ]
