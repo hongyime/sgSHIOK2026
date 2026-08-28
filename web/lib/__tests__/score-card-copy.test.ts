@@ -526,6 +526,10 @@ describe("score card copy", () => {
     expect(source).toContain("Shelter-map evidence and locked score");
     expect(source).toContain('aria-label="Shelter-map evidence and locked score breakdown"');
     expect(source).toContain('aria-label="Shelter-map evidence reasons"');
+    expect(source).toContain("35% locked walk-to-transit");
+    expect(source).toContain("20% locked bus support");
+    expect(source).not.toContain("35% locked access");
+    expect(source).not.toContain('"20% locked bus",');
     expect(source).toContain("Shelter-map evidence preview");
     expect(source).toContain("Map evidence only");
     expect(source).toContain("No shelter-map walk selected.");

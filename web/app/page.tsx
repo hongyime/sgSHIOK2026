@@ -1392,14 +1392,14 @@ export function ScoreCard({
           id: "access",
           label: "Walk to transit",
           value: score.paths ? formatDistance(selectedDistance) : formatScore(score.subscores.access),
-          meta: scoredMeta(score.subscores.access, "35% locked access", "Walk-to-transit score unavailable"),
+          meta: scoredMeta(score.subscores.access, "35% locked walk-to-transit", "Walk-to-transit score unavailable"),
           notes: [`${selectedWalkSentenceLabel} distance to ${transitModeLabel(transitMode)}.`],
         },
         {
           id: "bus",
           label: "Bus service support",
           value: formatScore(score.subscores.bus),
-          meta: scoredMeta(score.subscores.bus, "20% locked bus", "Bus evidence unavailable"),
+          meta: scoredMeta(score.subscores.bus, "20% locked bus support", "Bus evidence unavailable"),
           notes: [
             "A low value can mean weak service evidence, or that the published shelter-map walk could not prove access to an official LTA bus stop.",
             busFallback

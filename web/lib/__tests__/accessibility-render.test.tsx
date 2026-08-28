@@ -1120,7 +1120,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("<strong>Unavailable</strong><small>Walk-to-transit score unavailable</small>");
     expect(html).toContain("<strong>No full locked score</strong><small>Locked score unavailable</small>");
     expect(html).not.toContain("<strong>No full locked score</strong><small>Release sorting index unavailable</small>");
-    expect(html).toContain("<strong>42</strong><small>20% locked bus</small>");
+    expect(html).toContain("<strong>42</strong><small>20% locked bus support</small>");
+    expect(html).not.toContain("<strong>42</strong><small>20% locked bus</small>");
     expect(html).not.toContain("<strong>0</strong><small>Walk evidence unavailable</small>");
     expect(html).not.toContain("<strong>0</strong><small>Walk-to-transit score unavailable</small>");
     expect(html).not.toContain("Access term unavailable");
