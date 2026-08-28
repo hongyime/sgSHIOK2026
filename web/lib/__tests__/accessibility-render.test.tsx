@@ -671,6 +671,9 @@ describe("rendered accessibility output", () => {
       "Planning-area evidence view; locked SHIOK score is unchanged."
     );
     expect(rankPanelDescription("crossing", true)).toBe(
+      "Planning-area locked-score factor view; locked SHIOK score is unchanged."
+    );
+    expect(rankPanelDescription("crossing", true)).not.toBe(
       "Planning-area locked-term view; locked SHIOK score is unchanged."
     );
   });

@@ -574,6 +574,9 @@ describe("score card copy", () => {
       '{ id: "bus", label: "Bus service-support evidence" }'
     );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
+      '{ id: "crossing", label: "Crossing-friction score factor" }'
+    );
+    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
       '{ id: "crossing", label: "Crossing-friction locked term" }'
     );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
@@ -604,7 +607,8 @@ describe("score card copy", () => {
     );
     expect(source).not.toContain("Planning-area list sorted by locked score; walk evidence remains the primary view.");
     expect(source).toContain("Planning-area evidence view; locked SHIOK score is unchanged.");
-    expect(source).toContain("Planning-area locked-term view; locked SHIOK score is unchanged.");
+    expect(source).toContain("Planning-area locked-score factor view; locked SHIOK score is unchanged.");
+    expect(source).not.toContain("Planning-area locked-term view; locked SHIOK score is unchanged.");
     expect(source).not.toContain("Planning-area component evidence view; locked SHIOK score is unchanged.");
     expect(source).toContain("Loading planning-area {rankSentenceLabel} ranks.");
     expect(source).not.toContain("Loading planning-area ranks...");

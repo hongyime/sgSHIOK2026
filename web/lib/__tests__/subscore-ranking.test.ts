@@ -23,7 +23,7 @@ describe("planning-area evidence ranking", () => {
       { id: "access", label: "Walk-distance evidence" },
       { id: "bus", label: "Bus service-support evidence" },
       { id: "heat", label: "Heat proxy evidence" },
-      { id: "crossing", label: "Crossing-friction locked term" },
+      { id: "crossing", label: "Crossing-friction score factor" },
     ]);
   });
 
