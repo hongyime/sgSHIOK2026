@@ -91,6 +91,10 @@ describe("score card copy", () => {
     expect(source).not.toContain("Direct line to bus stop; walking route pending.");
     expect(source).toContain("Straight-line bus estimate; shelter-map walk pending.");
     expect(source).not.toContain("Direct line to bus stop; shelter-map walk pending.");
+    expect(source).toContain('const comparisonMetricLabel = directBusFallback ? "Verified shelter-map walk" : "Extra walk";');
+    expect(source).toContain('const comparisonMetricValue = directBusFallback ? "Pending" : extraWalkLabel;');
+    expect(source).toContain('<Metric label={comparisonMetricLabel} value={comparisonMetricValue} />');
+    expect(source).not.toContain('<Metric label="Extra walk" value={extraWalkLabel} />');
     expect(source).not.toContain("Shelter-map route not verified yet");
     expect(source).not.toContain("Shelter-map route access was not verified");
     expect(source).not.toContain("Outside current candidate thresholds");
