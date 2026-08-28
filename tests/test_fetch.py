@@ -168,6 +168,28 @@ def test_source_freshness_line_reports_current_manifest_age() -> None:
     )
 
 
+def test_source_freshness_line_does_not_round_positive_window_to_zero() -> None:
+    status = {
+        "source_key": "leaf_area_index",
+        "name": "NParks Leaf Area Index",
+        "status": "current",
+        "age_basis": "last_modified",
+        "age_days": 119.970586,
+        "stale_after_days": 120,
+        "days_until_stale": 0.029414,
+        "expected_cadence": "quarterly",
+    }
+
+    assert source_freshness_line(status) == (
+        "[leaf_area_index] NParks Leaf Area Index: freshness current — "
+        "last_modified age 120.0d within 120d threshold with <0.1d until stale (quarterly)"
+    )
+    assert fetch.oldest_current_freshness_summary([status]) == (
+        "Oldest current source: leaf_area_index (NParks Leaf Area Index, "
+        "120.0d of 120d threshold, <0.1d until stale)"
+    )
+
+
 def test_source_freshness_status_respects_manual_sources() -> None:
     status = source_freshness_status(
         "osm_extract",

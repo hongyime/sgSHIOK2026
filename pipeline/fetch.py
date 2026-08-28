@@ -296,13 +296,20 @@ def source_freshness_line(status: dict[str, Any]) -> str:
         return (
             f"[{key}] {name}: freshness current — {status['age_basis']} age {age_days:.1f}d "
             f"within {status['stale_after_days']}d threshold "
-            f"with {float(status.get('days_until_stale') or 0.0):.1f}d until stale "
+            f"with {format_freshness_days_until_stale(status.get('days_until_stale'))} until stale "
             f"({status.get('expected_cadence') or 'cadence unspecified'})"
         )
     return (
         f"[{key}] {name}: freshness {status['status']} "
         f"({status.get('expected_cadence') or 'cadence unspecified'})"
     )
+
+
+def format_freshness_days_until_stale(value: Any) -> str:
+    days = float(value or 0.0)
+    if 0.0 < days < 0.05:
+        return "<0.1d"
+    return f"{days:.1f}d"
 
 
 def freshness_key_summary(label: str, statuses: list[dict[str, Any]]) -> str | None:
@@ -323,7 +330,7 @@ def oldest_current_freshness_summary(statuses: list[dict[str, Any]]) -> str | No
         f"Oldest current source: {oldest['source_key']} "
         f"({oldest['name']}, {float(oldest['age_days']):.1f}d "
         f"of {oldest['stale_after_days']}d threshold, "
-        f"{float(oldest['days_until_stale']):.1f}d until stale)"
+        f"{format_freshness_days_until_stale(oldest['days_until_stale'])} until stale)"
     )
 
 
