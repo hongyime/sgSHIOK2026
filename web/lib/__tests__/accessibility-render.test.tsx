@@ -361,7 +361,7 @@ describe("rendered accessibility output", () => {
       rankingRecords: [],
     });
 
-    expect(html).toContain("Preview shelter-map evidence only");
+    expect(html).toContain("Preview shelter-map evidence");
     expect(html).toContain("↺ Published shelter-map walk");
     expect(html).not.toContain(">↺ Published walk</button>");
     expect(html).toContain("Shelter-map evidence preview");

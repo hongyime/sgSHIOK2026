@@ -224,7 +224,8 @@ describe("shelter map interactions", () => {
     expect(liveScoringSource).not.toContain("SHIOK scores come from offline bundle scoring.");
     expect(liveScoringSource).not.toContain("offline pipeline bundle");
 
-    expect(pageSource).toContain("Preview shelter-map evidence only");
+    expect(pageSource).toContain("Preview shelter-map evidence");
+    expect(pageSource).not.toContain("Preview shelter-map evidence only");
     expect(pageSource).toContain("↺ Published shelter-map walk");
     expect(pageSource).not.toContain(">↺ Published walk</button>");
     expect(pageSource).toContain("Preview only: this clicked transit target has shelter-map evidence");

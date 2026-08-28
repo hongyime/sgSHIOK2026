@@ -536,7 +536,8 @@ describe("score card copy", () => {
     expect(source).toContain("Shelter-map evidence preview");
     expect(source).toContain("Not in published bundle");
     expect(source).toContain("No shelter-map walk selected.");
-    expect(source).toContain("Preview shelter-map evidence only");
+    expect(source).toContain("Preview shelter-map evidence");
+    expect(source).not.toContain("Preview shelter-map evidence only");
     expect(source).toContain("Preview shelter-map evidence selected.");
     expect(source).toContain("this clicked transit target has shelter-map evidence");
     expect(source).not.toContain("this clicked transit stop has shelter-map evidence");
