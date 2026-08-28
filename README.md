@@ -66,7 +66,7 @@ not rebuild, overwrite, or mutate existing public data directories to repair a
 missing artifact; copy or create only a new versioned artifact after owner
 approval.
 If a replacement night lighting overlay is approved, run
-`uv run python run.py lamp-overlay -- --output web/public/data/lamp_posts_v2`
+`uv run python run.py lamp-overlay --output web/public/data/lamp_posts_v2 --confirm-lamp-overlay`
 or another new numeric version path; the builder refuses non-empty output
 directories, and `lamp_posts_v1/` remains the published artifact until a later
 release decision points the site elsewhere.
@@ -120,7 +120,8 @@ reruns, deploy, or repoint the live site without explicit owner approval.
   `check --geospatial-discovery-only`, `p19-gap-status`, `p19-mcst-locations`,
   `p125-osm-status`, `readiness`, `readiness --gate-summary`, `batch-plan`)
   and gated pipeline tasks (`ingest`, `lamp-overlay`, `network`, `score`,
-  `score-batch`, `export`, `export-transit`, `validate`, `publish`), plus the
+  `score-batch`, `postal-universe`, `geocode-universe`, `export`,
+  `export-transit`, `validate`, `publish`), plus the
   local `test` task. `publish` always runs `validate` first.
 
 ## Human prerequisites (do these once — agents can't register accounts)

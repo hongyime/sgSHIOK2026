@@ -96,7 +96,7 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "validates the shelter-map bundle" in normalized
     assert "validates the score bundle" not in normalized
     assert "Do not rebuild, overwrite, or mutate existing public data directories" in normalized
-    assert "uv run python run.py lamp-overlay -- --output web/public/data/lamp_posts_v2" in normalized
+    assert "uv run python run.py lamp-overlay --output web/public/data/lamp_posts_v2 --confirm-lamp-overlay" in normalized
     assert "replacement night lighting overlay" in normalized
     assert "replacement night-lighting overlay" not in normalized
     assert "another new numeric version path" in normalized
@@ -132,7 +132,7 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "`pipeline/config/weights.yaml` — locked score weights." in normalized
     assert "`run.py` — cross-platform task runner for safe reports" in normalized
     assert "`p19-gap-status`, `p19-mcst-locations`, `p125-osm-status`, `readiness`, `readiness --gate-summary`, `batch-plan`" in normalized
-    assert "and gated pipeline tasks (`ingest`, `lamp-overlay`, `network`, `score`, `score-batch`, `export`, `export-transit`, `validate`, `publish`)" in normalized
+    assert "and gated pipeline tasks (`ingest`, `lamp-overlay`, `network`, `score`, `score-batch`, `postal-universe`, `geocode-universe`, `export`, `export-transit`, `validate`, `publish`)" in normalized
     assert "plus the local `test` task" in normalized
     assert "and gated pipeline tasks (`ingest`, `lamp-overlay`, `network`, `score`, `export`, `validate`, `publish`, `test`)" not in normalized
     assert "locked composite-score weights" not in normalized

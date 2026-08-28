@@ -364,7 +364,7 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
     assert report["source_policy"]["night_lighting_layer"] == {
         "source_key": "lamp_posts",
         "artifact": "web/public/data/lamp_posts_v1/",
-        "replacement_command_example": "uv run python run.py lamp-overlay -- --output web/public/data/lamp_posts_v2",
+        "replacement_command_example": "uv run python run.py lamp-overlay --output web/public/data/lamp_posts_v2 --confirm-lamp-overlay",
         "owner_approval_required_for_replacement": True,
         "role": "separate night lighting map layer",
         "score_role": "not part of the locked score",

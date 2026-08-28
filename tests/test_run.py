@@ -87,6 +87,11 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         in run.__doc__
     )
     assert (
+        "postal-universe writes a new postal-universe parquet and summary, and "
+        "--download-missing can fetch source inputs; it requires --confirm-postal-universe."
+        in run.__doc__
+    )
+    assert (
         "geocode-universe can call OneMap and write a bounded geocode-fill parquet, "
         "summary, and cache; non-dry runs require --confirm-bounded-geocode, "
         "fresh numeric-version outputs, and an explicitly versioned geocode cache."
@@ -179,6 +184,11 @@ def test_run_help_headline_does_not_flatten_all_tasks():
         in help_text
     )
     assert (
+        "postal-universe writes a new postal-universe parquet and summary, and "
+        "--download-missing can fetch source inputs; it requires --confirm-postal-universe."
+        in help_text
+    )
+    assert (
         "geocode-universe can call OneMap and write a bounded geocode-fill parquet, "
         "summary, and cache; non-dry runs require --confirm-bounded-geocode, "
         "fresh numeric-version outputs, and an explicitly versioned geocode cache."
@@ -256,6 +266,9 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
     assert run.STUBS["geocode-universe"] == (
         "bounded OneMap geocode fill for source-derived postal gaps; non-dry runs "
         "require fresh numeric-version outputs and an explicitly versioned geocode cache"
+    )
+    assert run.STUBS["postal-universe"] == (
+        "build deterministic postal-code universe candidates; requires --confirm-postal-universe"
     )
     assert run.STUBS["export"] == (
         "scores/{area}.json + geom/h3/{cell}.json + manifest (T1.5); requires "
@@ -1178,6 +1191,65 @@ def test_run_task_refuses_geocode_universe_without_confirm(monkeypatch, capsys):
         "run.py geocode-universe can call OneMap",
         "--confirm-bounded-geocode",
     )
+
+
+def test_run_task_refuses_postal_universe_without_confirm(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "postal-universe",
+        [
+            "--mode",
+            "candidate_full_registered",
+            "--output",
+            "processed/postal_universe_candidate_full_registered_v2.parquet",
+        ],
+        "run.py postal-universe writes postal-universe parquet and summary artifacts",
+        "--confirm-postal-universe",
+    )
+
+
+def test_run_task_strips_postal_universe_confirm(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert (
+        run.run_task(
+            "postal-universe",
+            [
+                "--mode",
+                "candidate_full_registered",
+                "--output",
+                "processed/postal_universe_candidate_full_registered_v2.parquet",
+                "--confirm-postal-universe",
+            ],
+        )
+        == 0
+    )
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "pipeline.postal_universe",
+                "--mode",
+                "candidate_full_registered",
+                "--output",
+                "processed/postal_universe_candidate_full_registered_v2.parquet",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
 
 
 def test_run_task_allows_geocode_universe_dry_run_without_confirm(monkeypatch):

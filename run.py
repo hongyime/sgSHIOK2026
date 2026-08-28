@@ -26,6 +26,7 @@ Gated pipeline tasks:
   export-transit writes transit POI artifacts; it requires explicit --output and --confirm-export.
   refresh-provenance is fail-closed; it requires explicit --output and --confirm-refresh-provenance.
   onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe.
+  postal-universe writes a new postal-universe parquet and summary, and --download-missing can fetch source inputs; it requires --confirm-postal-universe.
   geocode-universe can call OneMap and write a bounded geocode-fill parquet, summary, and cache; non-dry runs require --confirm-bounded-geocode, fresh numeric-version outputs, and an explicitly versioned geocode cache.
   publish deploys the static bundle; it requires --confirm-publish after owner approval.
 
@@ -56,6 +57,7 @@ BOUNDED_GEOCODE_CONFIRM_FLAG = "--confirm-bounded-geocode"
 BUS_ARRIVALS_CONFIRM_FLAG = "--confirm-bus-arrivals"
 BUS_CONNECTOR_DIAGNOSTICS_CONFIRM_FLAG = "--confirm-bus-connector-diagnostics"
 CANDIDATE_AUDIT_CONFIRM_FLAG = "--confirm-candidate-audit"
+POSTAL_UNIVERSE_CONFIRM_FLAG = "--confirm-postal-universe"
 
 STUBS = {
     "check": "refuses bare upstream checks; use --freshness-only or --geospatial-discovery-only for zero-mutation reports",
@@ -83,7 +85,7 @@ STUBS = {
     "candidate-audit": "audit ranked MRT/LRT and bus candidates for selected postals; requires --confirm-candidate-audit",
     "compare-targeted": "compare a targeted score report against the published shelter-map bundle",
     "batch-plan": "dry-run one-attempt full postal geocode/scoring batch plan; execution still requires owner approval and bounded OneMap controls",
-    "postal-universe": "build deterministic postal-code universe candidates",
+    "postal-universe": "build deterministic postal-code universe candidates; requires --confirm-postal-universe",
     "geocode-universe": "bounded OneMap geocode fill for source-derived postal gaps; non-dry runs require fresh numeric-version outputs and an explicitly versioned geocode cache",
     "export": "scores/{area}.json + geom/h3/{cell}.json + manifest (T1.5); requires --confirm-export, and live scoring requires --confirm-live-score-export",
     "export-transit": "refresh transit POIs without rescoring; requires explicit --output and --confirm-export",
@@ -285,7 +287,18 @@ def run_task(name: str, extra: list[str]) -> int:
     if name == "compare-targeted":
         return run_module("scripts.compare_targeted_scores")
     if name == "postal-universe":
-        return run_module("pipeline.postal_universe")
+        if not require_runner_flag(
+            extra=extra,
+            flag=POSTAL_UNIVERSE_CONFIRM_FLAG,
+            message=(
+                "run.py postal-universe writes postal-universe parquet and summary "
+                "artifacts; pass --confirm-postal-universe only after owner approval "
+                "to create a new numeric-version universe."
+            ),
+        ):
+            return 2
+        forwarded = [arg for arg in extra if arg != POSTAL_UNIVERSE_CONFIRM_FLAG]
+        return run_module("pipeline.postal_universe", extra_args=forwarded)
     if name == "geocode-universe":
         if not wants_help(extra) and "--dry-run" not in extra:
             if BOUNDED_GEOCODE_CONFIRM_FLAG not in extra:
