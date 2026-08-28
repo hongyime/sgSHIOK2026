@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P642 web commit: `1af3df5`; state-only commits may follow it on `main`.
+Latest P643 web commit: `7f3c836`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P643 is complete and committed: a single exposed gap without coordinates now says `No map coordinates are recorded for this exposed gap` instead of plural `these exposed gaps`, while plural lists keep the plural fallback. Focused render/source tests, full web rerun, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed; web tests are now 165 and Python collection remains 457. The first full web run hit the known heavy generated-bundle prefix-index timeout, then the immediate rerun passed without code changes. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P642 is complete and committed: exposed-gap coordinate summaries now use singular grammar (`1 of 1 exposed gap includes map coordinates`) instead of the prior `include` typo while preserving plural `include` for multi-gap summaries. Focused render/source tests, full web suite, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed; web tests are now 164 and Python collection remains 457. The first full web run caught a stale source-copy guard, which was corrected before commit. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P641 is complete and committed: no-walk reason chips now phrase mode-specific failures as shelter-map walks to transit targets (`No shelter-map walk to bus stop within locked transit range`) instead of target-as-adjective wording (`No bus stop walk within locked transit range`). Focused accessibility/copy tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 163 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P640 is complete and committed: the auto-picked transit target type now reports `no published walk` when the published bundle has no paths, matching the MRT/LRT exits and bus stops statuses instead of using vague `unavailable`. Focused accessibility/copy tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 163 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
