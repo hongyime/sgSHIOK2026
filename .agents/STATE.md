@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `55d3cf7` (`fix: require confirmation for lamp overlay runner`)
+Latest substantive commit: `ef25ede` (`fix: fail closed for runner writer tasks`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,8 +18,8 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P738 is complete and pushed: `run.py lamp-overlay` now requires `--confirm-lamp-overlay` before invoking the lamp-post artifact writer.
-- Evidence: `qa/verification/P738-lamp-overlay-runner-gate.md`.
-- P736/P737 also remain complete: confirmed bounded geocode fills require a versioned cache path, and batch-plan blocks completed fills backed by unversioned caches.
-- Checks: `uv run pytest tests/test_run.py -q` passed 25/25; `uv run pytest -q --collect-only` collected 534; repo integrity passed; diff-check and protected-diff guard passed.
+- P739 is complete and pushed: `run.py` now fails closed before launching network, scoring, non-dry score-batch, export, transit-export, provenance-refresh, OneMap-probe, non-dry geocode-universe, and publish tasks without their confirmation flags.
+- Evidence: `qa/verification/P739-runner-writer-gates.md`.
+- P736/P737/P738 also remain complete: bounded geocode caches must be versioned, batch-plan blocks unversioned completed fills, and `lamp-overlay` requires `--confirm-lamp-overlay`.
+- Checks: `uv run pytest tests/test_run.py -q` passed 38/38; `uv run pytest -q --collect-only` collected 547; repo integrity passed; diff-check and protected-diff guard passed.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
