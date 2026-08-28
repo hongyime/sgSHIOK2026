@@ -1739,3 +1739,7 @@ Legacy helper scripts `pipeline.verify_datagov_ids`, `pipeline.inspect_datagov`,
 2026-08-29 - P776 planning-area rank label alignment:
 
 Planning-area rank controls remain sortable over the locked bundle's stored fields, but their labels must not imply that every stored subscore is a first-class evidence axis. Rain is now labelled as covered-walkway evidence, access remains walk-distance evidence, and bus, heat, and crossing are labelled as locked-score factors. This keeps the shipped data and locked weights unchanged while aligning the rank panel with the shelter-first, four-row presentation. This is web copy/test hygiene only; it does not score, export, rescore, mutate public data, protected QA evidence, raw or processed inputs, deploy, or touch locked weights.
+
+2026-08-29 - P777 exposed-gap disclosure:
+
+The score card should keep the three longest exposed gaps immediately scannable, but the remaining recorded gaps must still be inspectable because the gap list is the project's distinctive shelter evidence. Hidden shorter gaps are now placed behind a compact disclosure in the same list, preserving the existing summary and focus-on-map behavior without changing any route, score, export, public-data payload, protected evidence, or locked weights.

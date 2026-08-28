@@ -1324,6 +1324,7 @@ export function ScoreCard({
   }
   const longestGap = exposureGaps[0] ?? null;
   const visibleExposureGaps = exposureGaps.slice(0, 3);
+  const hiddenExposureGaps = exposureGaps.slice(visibleExposureGaps.length);
   const totalExposureM = exposureGaps.reduce((total, gap) => total + gap.len_m, 0);
   const gapsWithCoordinates = exposureGaps.filter((gap) => formatGapLocation(gap)).length;
   const hiddenGapCount = Math.max(0, exposureGaps.length - visibleExposureGaps.length);
@@ -1785,6 +1786,44 @@ export function ScoreCard({
               </div>
             );
           })}
+          {hiddenExposureGaps.length > 0 && (
+            <details className={styles.hiddenGapList}>
+              <summary>Show {hiddenExposureGaps.length} shorter exposed gap{hiddenExposureGaps.length === 1 ? "" : "s"}</summary>
+              {hiddenExposureGaps.map((gap, hiddenIndex) => {
+                const index = visibleExposureGaps.length + hiddenIndex;
+                const location = formatGapLocation(gap);
+                const focusTarget = exposureGapFocusTarget(score, gap, index);
+                const activeGap = Boolean(focusTarget && focusTarget.key === focusedExposureGapKey);
+                const gapContent = (
+                  <>
+                    <strong>{formatDistance(gap.len_m)}</strong>
+                    <span>{exposureGapCopy(gap.len_m, index)}</span>
+                    {location && <small className={styles.gapCoordinate}>Map coordinate {location}</small>}
+                    {focusTarget && onFocusExposureGap && <small className={styles.gapAction}>Focus on map</small>}
+                  </>
+                );
+                if (focusTarget && onFocusExposureGap) {
+                  return (
+                    <button
+                      key={focusTarget.key}
+                      type="button"
+                      className={`${styles.gapItem} ${activeGap ? styles.gapItemActive : ""}`}
+                      aria-pressed={activeGap}
+                      aria-label={`Focus on map for ${exposureGapCopy(gap.len_m, index)} at map coordinate ${location}`}
+                      onClick={() => onFocusExposureGap(focusTarget)}
+                    >
+                      {gapContent}
+                    </button>
+                  );
+                }
+                return (
+                  <div key={`${gap.label}-${index}`} className={styles.gapItem}>
+                    {gapContent}
+                  </div>
+                );
+              })}
+            </details>
+          )}
         </div>
       )}
     </section>

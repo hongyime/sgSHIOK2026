@@ -827,6 +827,8 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("Showing the 3 longest exposed gaps; 1 shorter exposed gap included in the total.");
+    expect(html).toContain("Show 1 shorter exposed gap");
+    expect(html).toContain("Gap 4 short exposed stretch");
     expect(html).not.toContain("Showing the longest 3; 1 shorter gap included in the total.");
   });
 

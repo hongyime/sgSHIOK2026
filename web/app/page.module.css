@@ -1132,6 +1132,18 @@ button.gapItem:hover,
   background: #fff5f3;
 }
 
+.hiddenGapList {
+  display: grid;
+  gap: 4px;
+}
+
+.hiddenGapList summary {
+  color: #20352f;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 900;
+}
+
 .gapItem strong {
   color: #c4332b;
 }
