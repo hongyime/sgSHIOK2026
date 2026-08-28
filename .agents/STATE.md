@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P619 web commit: `e05b659`; state-only commits may follow it on `main`.
+Latest P620 web commit: `53180c8`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P620 is complete and committed: the selected-walk Night lighting detail now says `Map layer off; switch on night lighting, then zoom in` when the layer is off, while the on state remains `Map layer on; zoom in for lamp-post points`. Focused accessibility/copy tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests are now 160 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P619 is complete and committed: the night-lighting layer note is now state-aware, using exported `nightLightingLayerNote(false/true)` so off says `Switch on...` and on says `Zoom...` only. Focused route/copy/accessibility web tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests are now 159 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P618 is complete and committed: the night-lighting map-layer toggle now shows visible stateful text (`Night lighting off` / `Night lighting on`) instead of relying on color plus `aria-pressed` alone. Focused route/copy/accessibility web tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 158 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P617 is complete and committed: coordinate-backed exposed-gap rows now show a visible `Focus map` affordance when they are actionable map-focus buttons, backed by a fixed third grid column and render/source tests. Focused accessibility/copy tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 158 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
