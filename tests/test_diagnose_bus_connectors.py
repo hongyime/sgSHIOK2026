@@ -1,3 +1,4 @@
+import json
 import sys
 
 from pipeline.scoring_integration import CandidateNode
@@ -286,6 +287,93 @@ def test_diagnose_bus_connectors_cli_requires_explicit_outputs_before_input_read
     captured = capsys.readouterr()
     assert "bus connector diagnostics requires explicit --output" in captured.err
     assert "bus connector diagnostics requires explicit --geojson-output" in captured.err
+
+
+def test_diagnose_bus_connectors_cli_requires_confirmation_before_input_reads(
+    monkeypatch, tmp_path, capsys
+) -> None:
+    def fail_if_loaded(**_kwargs):
+        raise AssertionError("diagnostics should not load before confirmation validation")
+
+    output = tmp_path / "diagnostics.json"
+    geojson_output = tmp_path / "diagnostics.geojson"
+    monkeypatch.setattr(diagnose_bus_connectors, "build_diagnostics", fail_if_loaded)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "diagnose_bus_connectors.py",
+            "--output",
+            str(output),
+            "--geojson-output",
+            str(geojson_output),
+        ],
+    )
+
+    assert diagnose_bus_connectors.main() == 2
+
+    captured = capsys.readouterr()
+    assert (
+        "bus connector diagnostics requires --confirm-bus-connector-diagnostics"
+        in captured.err
+    )
+    assert not output.exists()
+    assert not geojson_output.exists()
+
+
+def test_diagnose_bus_connectors_cli_confirmed_run_reaches_diagnostics(
+    monkeypatch, tmp_path, capsys
+) -> None:
+    calls = []
+    output = tmp_path / "diagnostics.json"
+    geojson_output = tmp_path / "diagnostics.geojson"
+    priority_geojson = tmp_path / "priority.geojson"
+    priority_geojson.write_text(
+        '{"type":"FeatureCollection","features":[]}',
+        encoding="utf-8",
+    )
+
+    def fake_build_diagnostics(**kwargs):
+        calls.append(kwargs)
+        return {
+            "generated_at": "2026-08-28T00:00:00+00:00",
+            "inputs": {"feature_count": 0},
+            "summary": {},
+            "rows": [],
+        }
+
+    monkeypatch.setattr(diagnose_bus_connectors, "build_diagnostics", fake_build_diagnostics)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "diagnose_bus_connectors.py",
+            "--priority-geojson",
+            str(priority_geojson),
+            "--output",
+            str(output),
+            "--geojson-output",
+            str(geojson_output),
+            "--confirm-bus-connector-diagnostics",
+        ],
+    )
+
+    assert diagnose_bus_connectors.main() == 0
+
+    captured = capsys.readouterr()
+    report = json.loads(captured.out)
+    assert report["geojson_output"] == str(geojson_output)
+    assert report["inputs"] == {"feature_count": 0}
+    assert calls == [
+        {
+            "priority_geojson_path": priority_geojson,
+            "postal_universe_path": diagnose_bus_connectors.DEFAULT_UNIVERSE,
+            "network_path": diagnose_bus_connectors.DEFAULT_NETWORK,
+            "alternate_snap_search_m": 50.0,
+            "alternate_snap_max_candidates": 24,
+            "transit_type": "bus_stop",
+        }
+    ]
 
 
 def test_diagnose_bus_connectors_write_json_refuses_existing_output(tmp_path) -> None:

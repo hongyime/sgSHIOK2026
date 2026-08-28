@@ -201,6 +201,10 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
         "audit ranked MRT/LRT and bus candidates for selected postals; requires "
         "--confirm-candidate-audit"
     )
+    assert run.STUBS["bus-connector-diagnostics"] == (
+        "diagnose priority OneMap missing-bus connector cases; requires "
+        "--confirm-bus-connector-diagnostics"
+    )
     assert run.STUBS["batch-plan"] == (
         "dry-run one-attempt full postal geocode/scoring batch plan; execution still "
         "requires owner approval and bounded OneMap controls"

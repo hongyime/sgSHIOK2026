@@ -62,7 +62,7 @@ STUBS = {
     "score": "apply pipeline/config/weights.yaml (T1.4); requires --confirm-score-run",
     "score-batch": "resumable postal scoring batch runner; non-dry limited runs require explicit --output-dir and --confirm-score-batch-run",
     "bus-arrivals": "collect local LTA bus-arrival snapshots for future reliability scoring; requires explicit --output",
-    "bus-connector-diagnostics": "diagnose priority OneMap missing-bus connector cases",
+    "bus-connector-diagnostics": "diagnose priority OneMap missing-bus connector cases; requires --confirm-bus-connector-diagnostics",
     "candidate-audit": "audit ranked MRT/LRT and bus candidates for selected postals; requires --confirm-candidate-audit",
     "compare-targeted": "compare a targeted score report against the published shelter-map bundle",
     "batch-plan": "dry-run one-attempt full postal geocode/scoring batch plan; execution still requires owner approval and bounded OneMap controls",

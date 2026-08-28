@@ -38,6 +38,7 @@ DEFAULT_UNIVERSE = (
 DEFAULT_OUTPUT = PROJECT_ROOT / "qa" / "bus_connector_diagnostics_priority_20260802.json"
 DEFAULT_GEOJSON_OUTPUT = PROJECT_ROOT / "qa" / "bus_connector_diagnostics_priority_20260802.geojson"
 DEFAULT_NETWORK = PROJECT_ROOT / "processed" / "network_island.parquet"
+CONFIRM_BUS_CONNECTOR_DIAGNOSTICS_FLAG = "--confirm-bus-connector-diagnostics"
 
 
 def read_json(path: Path) -> Any:
@@ -859,11 +860,30 @@ def main() -> int:
     )
     parser.add_argument("--alternate-snap-search-m", type=float, default=50.0)
     parser.add_argument("--alternate-snap-max-candidates", type=int, default=24)
+    parser.add_argument(
+        CONFIRM_BUS_CONNECTOR_DIAGNOSTICS_FLAG,
+        action="store_true",
+        help="Confirm this diagnostic may score current routes after owner approval.",
+    )
     args = parser.parse_args()
 
     errors = explicit_output_errors(args.output, args.geojson_output)
     if errors:
         print(json.dumps({"errors": errors}, indent=2, sort_keys=True), file=sys.stderr)
+        return 2
+    if not args.confirm_bus_connector_diagnostics:
+        print(
+            json.dumps(
+                {
+                    "errors": [
+                        "bus connector diagnostics requires --confirm-bus-connector-diagnostics after owner approval"
+                    ]
+                },
+                indent=2,
+                sort_keys=True,
+            ),
+            file=sys.stderr,
+        )
         return 2
 
     diagnostics = build_diagnostics(
