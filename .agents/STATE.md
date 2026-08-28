@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `ab2c071` (`fix: require confirmation for full OneMap wrappers`)
+Latest substantive commit: `1d2e52a` (`fix: guard legacy network build entrypoint`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,8 +18,8 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P753 is complete and pushed: `scripts/full-onemap-validation.ps1` and `scripts/watch-full-onemap-validation.ps1` now require `-ConfirmFullOnemapValidation` before creating QA output or launching OneMap collection, and the watchdog forwards that confirmation to the runner.
-- Evidence: `qa/verification/P753-full-onemap-wrapper-confirmation.md`.
-- P736-P752 also remain complete: bounded geocode caches must be versioned, batch-plan blocks unversioned completed fills, lamp-overlay/postal-universe/report-writer tasks require confirmation, high-risk writer/network/deploy tasks fail closed at the runner, validate is documented as read-only, publish/activation/deploy wrappers pass required confirmations, full-rescore deploy and activation require distinct approvals, agent publish instructions match, postal-universe prep passes required confirmations/cache paths, the legacy direct geocode entry point is retired, geocode cache paths use `--db`, and README DataMall discovery copy matches latest recorded evidence.
-- Checks: `uv run pytest tests/test_release_scripts.py tests/test_run.py tests/test_onemap_validation.py tests/test_probe_onemap.py -q` passed 99/99; `uv run pytest -q --collect-only` collected 578; repo integrity passed; diff-check and protected-diff guard passed.
+- P754 is complete and pushed: legacy direct `scripts/run_network_build.py` now requires `--confirm-network-build` before calling `run_build()`, and importing it no longer creates `qa/` or `processed/`.
+- Evidence: `qa/verification/P754-legacy-network-build-guard.md`.
+- P736-P753 also remain complete: bounded geocode caches must be versioned, batch-plan blocks unversioned completed fills, lamp-overlay/postal-universe/report-writer tasks require confirmation, high-risk writer/network/deploy tasks fail closed at the runner, full OneMap wrappers require explicit approval, validate is documented as read-only, publish/activation/deploy wrappers pass required confirmations, full-rescore deploy and activation require distinct approvals, agent publish instructions match, postal-universe prep passes required confirmations/cache paths, the legacy direct geocode entry point is retired, geocode cache paths use `--db`, and README DataMall discovery copy matches latest recorded evidence.
+- Checks: `uv run pytest tests/test_legacy_network_build.py tests/test_shelter_skeleton.py tests/test_hdb_void_deck_inference.py tests/test_osm_tags.py tests/test_audited_shelter_corrections.py -q` passed 23/23; `uv run pytest -q --collect-only` collected 580; repo integrity passed; diff-check and protected-diff guard passed.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
