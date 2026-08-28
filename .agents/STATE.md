@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P648 web commit: `ac59693`; state-only commits may follow it on `main`.
+Latest P649 web commit: `c2db1ff`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P649 is complete and committed: the direct-bus fallback locked-score caveat now says `nearby direct bus service evidence could not be connected to a verified shelter-map walk` instead of broader `nearby bus evidence`, aligning the caveat with the direct-bus fallback path. Focused render/source tests, full web suite, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P648 is complete and committed: the remaining direct-bus fallback found reason now says `Nearby direct bus service found` instead of broader `Nearby bus service found`, keeping it aligned with the direct-bus evidence path. Focused render/source tests, full web suite, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P647 is complete and committed: direct-bus fallback exposure copy now says `covered-walkway ratio for the direct bus service estimate` and `Exposed gaps for direct bus service estimate` instead of using walk-style `on the direct bus service estimate` phrasing. Ordinary sheltered, shortest, and preview walk wording keeps the existing `on` phrasing. Focused render/source tests, full web suite, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed; web tests remain 166 and Python collection remains 457. The first focused test run caught a stale source-copy guard, which was corrected before commit. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P646 is complete and committed: direct-bus fallback labels now say `Direct bus service estimate` instead of `Direct bus line estimate`, keeping the fallback framed as bus-service evidence rather than line geometry while preserving the unverified shelter-map walk caveat. Focused render/source tests, full web suite, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
