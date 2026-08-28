@@ -286,7 +286,7 @@ def source_freshness_line(status: dict[str, Any]) -> str:
         return (
             f"[{key}] {name}: STALE — {status['age_basis']} age {age_days:.1f}d "
             f"exceeds {status['stale_after_days']}d threshold "
-            f"by {float(status.get('days_past_stale') or 0.0):.1f}d "
+            f"by {format_freshness_day_window(status.get('days_past_stale'))} "
             f"({status.get('expected_cadence') or 'cadence unspecified'})"
         )
     if status["status"] == "manual":
@@ -296,7 +296,7 @@ def source_freshness_line(status: dict[str, Any]) -> str:
         return (
             f"[{key}] {name}: freshness current — {status['age_basis']} age {age_days:.1f}d "
             f"within {status['stale_after_days']}d threshold "
-            f"with {format_freshness_days_until_stale(status.get('days_until_stale'))} until stale "
+            f"with {format_freshness_day_window(status.get('days_until_stale'))} until stale "
             f"({status.get('expected_cadence') or 'cadence unspecified'})"
         )
     return (
@@ -305,7 +305,7 @@ def source_freshness_line(status: dict[str, Any]) -> str:
     )
 
 
-def format_freshness_days_until_stale(value: Any) -> str:
+def format_freshness_day_window(value: Any) -> str:
     days = float(value or 0.0)
     if 0.0 < days < 0.05:
         return "<0.1d"
@@ -330,7 +330,7 @@ def oldest_current_freshness_summary(statuses: list[dict[str, Any]]) -> str | No
         f"Oldest current source: {oldest['source_key']} "
         f"({oldest['name']}, {float(oldest['age_days']):.1f}d "
         f"of {oldest['stale_after_days']}d threshold, "
-        f"{format_freshness_days_until_stale(oldest['days_until_stale'])} until stale)"
+        f"{format_freshness_day_window(oldest['days_until_stale'])} until stale)"
     )
 
 

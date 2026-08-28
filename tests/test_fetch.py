@@ -133,6 +133,24 @@ def test_source_freshness_status_marks_stale_manifest_entry() -> None:
     )
 
 
+def test_source_freshness_line_does_not_round_stale_delta_to_zero() -> None:
+    status = {
+        "source_key": "leaf_area_index",
+        "name": "NParks Leaf Area Index",
+        "status": "stale",
+        "age_basis": "last_modified",
+        "age_days": 120.029414,
+        "stale_after_days": 120,
+        "days_past_stale": 0.029414,
+        "expected_cadence": "quarterly",
+    }
+
+    assert source_freshness_line(status) == (
+        "[leaf_area_index] NParks Leaf Area Index: STALE — "
+        "last_modified age 120.0d exceeds 120d threshold by <0.1d (quarterly)"
+    )
+
+
 def test_source_freshness_line_reports_current_manifest_age() -> None:
     status = source_freshness_status(
         "covered_linkway",
