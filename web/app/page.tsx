@@ -1522,7 +1522,7 @@ export function ScoreCard({
                 aria-pressed={feedbackEnabled}
                 onClick={() => setFeedbackEnabled(!feedbackEnabled)}
               >
-                {feedbackEnabled ? "Done tracing shelter" : "Trace shelter correction"}
+                {feedbackEnabled ? "Done tracing shelter" : "Report missing shelter"}
               </button>
               <button
                 type="button"

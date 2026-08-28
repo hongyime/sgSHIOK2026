@@ -455,7 +455,7 @@ describe("score card copy", () => {
     expect(smokeSource).toContain('summary.cardText.includes("Sheltered walk")');
     expect(smokeSource).not.toContain('summary.cardText.includes("Sheltered route")');
     expect(source).toContain('aria-label="Walk display"');
-    expect(source).toContain("Trace shelter correction");
+    expect(source).not.toContain("Trace shelter correction");
     expect(source).toContain("Done tracing shelter");
     expect(source).toContain("Report missing shelter");
     expect(source).toContain("Copy correction report");

@@ -1763,3 +1763,7 @@ The generated-bundle geometry postal-prefix consistency test reads the large loc
 2026-08-29 - P782 Mayflower QA summary protected output roots:
 
 `scripts/mayflower_qa_summary.py` is a historical analysis helper whose reports are useful as scratch QA artifacts, but its explicit output paths must not be able to create new files under protected evidence or public-data payload roots. The CLI now refuses outputs under `web/public/data/`, `qa/releases/`, `qa/p6_*` through `qa/p10_*`, `qa/p11/`, and `checksums.json` before active bundle discovery or input reads. Normal explicit scratch outputs remain allowed and still use non-overwriting writes. This is guard/test hygiene only; it does not run the Mayflower analysis, score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
+
+2026-08-29 - P783 shelter correction entry-point copy:
+
+Shelter correction should be named consistently wherever the user starts it. The exposed-gap action and inactive overflow action now both say `Report missing shelter`, while the active tracing state remains `Done tracing shelter`. This is browser copy/test hygiene only; it does not score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
