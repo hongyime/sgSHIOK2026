@@ -70,6 +70,8 @@ describe("score card copy", () => {
     expect(source).toContain("Direct bus service estimate");
     expect(source).not.toContain("Direct bus line estimate");
     expect(source).not.toContain("Direct bus estimate");
+    expect(source).toContain("selectedWalkPrepPhrase");
+    expect(source).toContain("selectedWalkHeadingPhrase");
     expect(source).not.toContain("Shelter-map walk access was not verified, so this component score remains 0.");
     expect(source).not.toContain("current walking graph could not connect a route yet");
     expect(source).not.toContain("Transit route not connected yet");
@@ -344,8 +346,9 @@ describe("score card copy", () => {
     expect(source).toContain("ATTRIBUTION.md");
     expect(source).toContain("Heat proxy: shelter plus sparse NParks greenery, not measured temperature");
     expect(source).toContain("Night lighting");
-    expect(source).toContain("Exposed gaps on {selectedWalkLabel}");
+    expect(source).toContain("Exposed gaps {selectedWalkHeadingPhrase}");
     expect(source).not.toContain("Exposed gaps on this walk");
+    expect(source).not.toContain("Exposed gaps on {selectedWalkLabel}");
     expect(source).toContain("${formatDistance(score.paths.sheltered_m)} sheltered walk to ${transitModeLabel(transitMode)}");
     expect(source).not.toContain("${formatDistance(score.paths.sheltered_m)} to ${transitModeLabel(transitMode)}");
     expect(source).toContain('${gapsWithCoordinates === 1 ? "includes" : "include"} map coordinates.');

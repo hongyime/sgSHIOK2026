@@ -1322,6 +1322,12 @@ export function ScoreCard({
       : routeMode === "shortest" && !sameRoute
         ? "Shortest walk"
         : "Sheltered walk";
+  const selectedWalkPrepPhrase = directBusFallback
+    ? `for the ${selectedWalkLabel}`
+    : `on the ${selectedWalkLabel}`;
+  const selectedWalkHeadingPhrase = directBusFallback
+    ? `for ${selectedWalkLabel}`
+    : `on ${selectedWalkLabel}`;
   const longestGapText = longestGap
     ? `${formatDistance(longestGap.len_m)} is the longest exposed gap.`
     : `No exposed gaps are recorded for this ${selectedWalkLabel}.`;
@@ -1348,7 +1354,7 @@ export function ScoreCard({
       ? null
       : `${formatDistance(totalExposureM)} exposed across ${exposureGaps.length} gap${
           exposureGaps.length === 1 ? "" : "s"
-        } on the ${selectedWalkLabel}.`;
+        } ${selectedWalkPrepPhrase}.`;
   const gapListScopeText =
     hiddenGapCount > 0
       ? `Showing the ${visibleExposureGaps.length} longest exposed gaps; ${hiddenGapCount} shorter exposed gap${
@@ -1514,7 +1520,7 @@ export function ScoreCard({
       {score.paths && (
         <div className={styles.exposureHero} aria-label="Walk exposure evidence">
           <span>{exposureHeroLabel}</span>
-          <strong>{formatPercent(selectedCoverage)} covered-walkway ratio on the {selectedWalkLabel}.</strong>
+          <strong>{formatPercent(selectedCoverage)} covered-walkway ratio {selectedWalkPrepPhrase}.</strong>
           <p>{exposureHeroText}</p>
         </div>
       )}
@@ -1721,7 +1727,7 @@ export function ScoreCard({
 
       {exposureGaps.length > 0 && (
         <div className={styles.gapList}>
-          <h3>Exposed gaps on {selectedWalkLabel}</h3>
+          <h3>Exposed gaps {selectedWalkHeadingPhrase}</h3>
           <p className={styles.gapSummary}>
             <span>{gapSummaryText}</span>
             <span>{gapListScopeText}</span>
