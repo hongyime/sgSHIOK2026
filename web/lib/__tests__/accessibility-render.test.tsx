@@ -902,7 +902,8 @@ describe("rendered accessibility output", () => {
       rankingRecords: [noCandidateRecord],
     });
 
-    expect(html).toContain("No qualifying transit stop within 1.2 km");
+    expect(html).toContain("No qualifying transit target within 1.2 km");
+    expect(html).not.toContain("No qualifying transit stop within 1.2 km");
     expect(html).toContain("Outside locked transit range");
     expect(html).toContain("No qualifying MRT/LRT exit or bus stop was found within the locked 1.2 km transit range for this postal.");
     expect(html).toContain("<span>No full score</span><strong>Published bundle</strong>");

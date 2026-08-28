@@ -546,7 +546,7 @@ function nearestRoutedTransitM(score: ScoreRecord, transitMode: TransitAccessMod
 function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): string {
   const reason = provenanceReason(score, transitMode);
   if (reason === "transit_candidates_graph_disconnected") return "Shelter-map walk not connected yet";
-  if (reason === "no_transit_candidates_selected") return "No qualifying transit stop within 1.2 km";
+  if (reason === "no_transit_candidates_selected") return "No qualifying transit target within 1.2 km";
   return nearestRoutedTransitM(score, transitMode) !== null
     ? "Connected walk beyond 1.2 km"
     : `No connected ${transitModeLabel(transitMode)} shelter-map walk within range`;
@@ -817,7 +817,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
       return ["Transit stop or exit found", "Shelter-map walk not connected yet"];
     }
     if (reason === "no_transit_candidates_selected") {
-      return ["No qualifying transit stop within 1.2 km", "Outside locked transit range"];
+      return ["No qualifying transit target within 1.2 km", "Outside locked transit range"];
     }
     const nearestM = nearestRoutedTransitM(score, transitMode);
     return nearestM !== null
