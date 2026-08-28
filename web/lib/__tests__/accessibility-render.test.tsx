@@ -193,12 +193,12 @@ describe("rendered accessibility output", () => {
       <SearchFeedback results={[]} loading={false} error={null} searched={true} />
     );
     expect(searchResultsAnnouncement([], false, null, true)).toBe(
-      "No OneMap address result found for this search. Try a 6-digit postal code. The published shelter-map bundle is tied to the frozen June 2020 address universe. 16 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including source-quality warnings."
+      "No OneMap address result found for this search. Try a 6-digit postal code. The published shelter-map bundle is tied to the frozen June 2020 address universe. 16 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including source-quality warnings. This is a sample, not a measured full-universe gap."
     );
     expect(noResultsHtml).toContain("No OneMap address result found.");
     expect(noResultsHtml).toContain("Try a 6-digit postal code");
     expect(noResultsHtml).toContain(
-      "The published shelter-map bundle is tied to the frozen June 2020 address universe. 16 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including source-quality warnings."
+      "The published shelter-map bundle is tied to the frozen June 2020 address universe. 16 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including source-quality warnings. This is a sample, not a measured full-universe gap."
     );
     expect(noResultsHtml).toContain("emptyBoxNote");
     expect(noResultsHtml).not.toContain("the recent public-source check found");
@@ -760,10 +760,10 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Longest open-air stretch");
     expect(html).toContain("Map coordinate 1.37123, 103.84235");
     expect(html).toContain("Map coordinate 1.37091, 103.84101");
-    expect(html).toContain("Focus map");
+    expect(html).toContain("Focus on map");
     expect(html).not.toContain("Near 1.37123, 103.84235");
     expect(html).toContain(
-      'aria-label="Focus map on Longest open-air stretch at map coordinate 1.37123, 103.84235"'
+      'aria-label="Focus on map for Longest open-air stretch at map coordinate 1.37123, 103.84235"'
     );
   });
 

@@ -1,3 +1,6 @@
+2026-08-29 - P774 first-card product density:
+The first viewport should sell the shelter-map action before it reads like provenance evidence. Keep the title, product sentence, data-as-of line, locked-score coverage line, search, and night-lighting toggle visible, but move address-universe, recent-source sample, OSM postcode, source freshness, attribution, and heat-proxy caveats into a `Data limits` disclosure below search/results. Exposed-gap rows should use action wording, `Focus on map`, because the exposure gaps are the product's strongest inspectable artifact. This is web/test/evidence work only; it does not score, export, rescore, ingest, build network, mutate inputs, deploy, touch protected payloads, or change locked weights.
+
 2026-08-29 - P773 P379 MCST probe confirmation gate:
 The P379 MCST proxy location probe is retained but its direct `--probe` mode now requires `--confirm-p379-probe` before OneMap calls or cache/report writes. Explicit non-historical output paths remain required. The default remains cache-status-only and read-only. This is safety/test/evidence work only; it does not run the probe, call APIs, score, export, rescore, ingest, build network, mutate inputs, deploy, touch protected payloads, or change locked weights.
 

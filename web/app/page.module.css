@@ -25,6 +25,7 @@
 .brandRow,
 .scoreCard,
 .resultList,
+.dataLimits,
 .errorBox {
   border: 1px solid rgba(62, 75, 70, 0.18);
   border-radius: 8px;
@@ -94,6 +95,30 @@
   text-underline-offset: 2px;
 }
 
+.dataLimits {
+  padding: 8px 10px;
+  color: #5d6d67;
+  font-size: 10px;
+}
+
+.dataLimits summary {
+  cursor: pointer;
+  color: #334943;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.dataLimits p {
+  margin: 5px 0 0;
+}
+
+.dataLimits a {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .mapLayerControls {
   margin-top: 8px;
   display: flex;
@@ -153,7 +178,8 @@
 .segmentLabel select:focus-visible,
 .feedbackEditor textarea:focus-visible,
 .overflowSummary:focus-visible,
-.overflowMenuBody button:focus-visible {
+.overflowMenuBody button:focus-visible,
+.dataLimits:focus-within {
   outline: 3px solid rgba(0, 143, 134, 0.42);
   outline-offset: 2px;
 }

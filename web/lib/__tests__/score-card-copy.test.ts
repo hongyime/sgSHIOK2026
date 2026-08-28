@@ -346,6 +346,11 @@ describe("score card copy", () => {
     expect(source).toContain("{lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}");
     expectSourceOrder(source, [
       "Shelter-map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}",
+      "{lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}",
+      '<form onSubmit={handleSearch} className={styles.searchForm} aria-busy={loading}>',
+      "<SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted} />",
+      '<details className={styles.dataLimits}>',
+      "<summary>Data limits</summary>",
       "Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape.",
       "{RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}.",
       "{OSM_ADDR_POSTCODE_COVERAGE_COPY}",
@@ -354,7 +359,6 @@ describe("score card copy", () => {
       "{DATA_FRESHNESS_DETAIL_COPY}",
       "{COVERED_LINKWAY_FRESHNESS_COPY}",
       "{LEAF_AREA_INDEX_REFERENCE_COPY}",
-      "{lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}",
     ]);
     expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).toContain(
       "Locked score coverage:"
@@ -385,7 +389,8 @@ describe("score card copy", () => {
     expect(source).toContain("Showing the ${visibleExposureGaps.length} longest exposed gaps;");
     expect(source).not.toContain("Showing the longest ${visibleExposureGaps.length};");
     expect(source).toContain("styles.gapAction");
-    expect(source).toContain("Focus map");
+    expect(source).toContain("Focus on map");
+    expect(source).not.toContain(">Focus map</small>");
     expect(readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8")).toContain(
       "grid-template-columns: 58px minmax(0, 1fr) auto;"
     );

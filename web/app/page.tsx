@@ -1753,7 +1753,7 @@ export function ScoreCard({
                 <strong>{formatDistance(gap.len_m)}</strong>
                 <span>{exposureGapCopy(gap.len_m, index)}</span>
                 {location && <small className={styles.gapCoordinate}>Map coordinate {location}</small>}
-                {focusTarget && onFocusExposureGap && <small className={styles.gapAction}>Focus map</small>}
+                {focusTarget && onFocusExposureGap && <small className={styles.gapAction}>Focus on map</small>}
               </>
             );
             if (focusTarget && onFocusExposureGap) {
@@ -1763,7 +1763,7 @@ export function ScoreCard({
                   type="button"
                   className={`${styles.gapItem} ${activeGap ? styles.gapItemActive : ""}`}
                   aria-pressed={activeGap}
-                  aria-label={`Focus map on ${exposureGapCopy(gap.len_m, index)} at map coordinate ${location}`}
+                  aria-label={`Focus on map for ${exposureGapCopy(gap.len_m, index)} at map coordinate ${location}`}
                   onClick={() => onFocusExposureGap(focusTarget)}
                 >
                   {gapContent}
@@ -2250,44 +2250,7 @@ export default function Home() {
             <p className={styles.dataLine}>
               Shelter-map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}
             </p>
-            <p className={styles.freshnessLine}>
-              Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape.
-            </p>
-            <p className={styles.freshnessLine}>
-              {RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}.
-            </p>
-            <p className={styles.freshnessLine}>
-              {OSM_ADDR_POSTCODE_COVERAGE_COPY}
-            </p>
-            <p className={styles.freshnessLine}>
-              {DATA_FRESHNESS_SUMMARY_COPY}
-            </p>
-            <details className={styles.freshnessDetails}>
-              <summary>Source freshness detail</summary>
-              <p>{DATA_FRESHNESS_DETAIL_COPY}</p>
-            </details>
-            <p className={styles.freshnessLine}>
-              {COVERED_LINKWAY_FRESHNESS_COPY}
-            </p>
-            <p className={styles.freshnessLine}>
-              {LEAF_AREA_INDEX_REFERENCE_COPY}
-            </p>
             {lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}
-            <p className={styles.sourceLine}>
-              Sources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address universe (© OpenStreetMap contributors,{" "}
-              <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">
-                ODbL
-              </a>
-              ).{" "}
-              <a
-                href="https://github.com/hongyime/sgSHIOK2026/blob/main/ATTRIBUTION.md"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                ATTRIBUTION.md
-              </a>
-            </p>
-            <p className={styles.heatLine}>Heat proxy: shelter plus sparse NParks greenery, not measured temperature</p>
             <div className={styles.mapLayerControls} aria-label="Map layers">
               <button
                 type="button"
@@ -2339,6 +2302,47 @@ export default function Home() {
             ))}
           </div>
         )}
+
+        <details className={styles.dataLimits}>
+          <summary>Data limits</summary>
+          <p>
+            Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape.
+          </p>
+          <p>
+            {RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}.
+          </p>
+          <p>
+            {OSM_ADDR_POSTCODE_COVERAGE_COPY}
+          </p>
+          <p>
+            {DATA_FRESHNESS_SUMMARY_COPY}
+          </p>
+          <details className={styles.freshnessDetails}>
+            <summary>Source freshness detail</summary>
+            <p>{DATA_FRESHNESS_DETAIL_COPY}</p>
+          </details>
+          <p>
+            {COVERED_LINKWAY_FRESHNESS_COPY}
+          </p>
+          <p>
+            {LEAF_AREA_INDEX_REFERENCE_COPY}
+          </p>
+          <p>
+            Sources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address universe (© OpenStreetMap contributors,{" "}
+            <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">
+              ODbL
+            </a>
+            ).{" "}
+            <a
+              href="https://github.com/hongyime/sgSHIOK2026/blob/main/ATTRIBUTION.md"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ATTRIBUTION.md
+            </a>
+          </p>
+          <p>Heat proxy: shelter plus sparse NParks greenery, not measured temperature</p>
+        </details>
 
         {showDetailOverlay && (
           <aside className={styles.detailOverlay}>
