@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P674 web commit: `8f2e0c1`; state-only commits may follow it on `main`.
+Latest P675 web commit: `0163e00`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P675 is complete and committed: clicked-transit live preview provenance now says `preview shelter-map evidence only` instead of generic `shelter-map evidence only`, so it cannot be read as a published-bundle claim. Focused live-route/map tests, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P674 is complete and committed: empty-route map aria label now says `the night-lighting map layer` instead of `night lighting evidence`, aligning non-visual map copy with the visible layer controls. Focused route-map tests, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P673 is complete and committed: transit target picker straight-line comparison caveat now says `shelter-map walk evidence updates after selection` instead of generic `walk evidence updates after selection`, matching the preview/published evidence path. Focused picker tests, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P672 is complete and committed: top-level search, empty-map, and footer copy now say `the night-lighting map layer` instead of `night lighting map evidence`, keeping night lighting framed as the separate second-layer map overlay rather than another score input. Focused render/source/map tests, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
