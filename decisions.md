@@ -1767,3 +1767,7 @@ The generated-bundle geometry postal-prefix consistency test reads the large loc
 2026-08-29 - P783 shelter correction entry-point copy:
 
 Shelter correction should be named consistently wherever the user starts it. The exposed-gap action and inactive overflow action now both say `Report missing shelter`, while the active tracing state remains `Done tracing shelter`. This is browser copy/test hygiene only; it does not score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
+
+2026-08-29 - P784 heat presentation analysis protected output roots:
+
+`scripts/analysis/analyze_heat_presentation.py` may overwrite explicit scratch reports when requested, but overwrite cannot be allowed to target protected evidence or public-data payloads. The report writer now refuses `web/public/data/`, `qa/releases/`, `qa/p6_*` through `qa/p10_*`, `qa/p11/`, and `checksums.json` before any write, even with `overwrite=True`. The script's UI audit line references were also refreshed after later score-card copy/layout edits. This is guard/test hygiene only; it does not run the analysis, score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.

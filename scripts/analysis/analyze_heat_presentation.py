@@ -9,6 +9,12 @@ from typing import Any
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_BUNDLE = PROJECT_ROOT / "web" / "public" / "data" / "generated_20260805_prefer_scored_routed"
 DEFAULT_OUTPUT = PROJECT_ROOT / "qa" / "analysis" / "heat_presentation_investigation.json"
+PROTECTED_OUTPUT_ROOTS = (
+    PROJECT_ROOT / "web" / "public" / "data",
+    PROJECT_ROOT / "qa" / "releases",
+)
+PROTECTED_OUTPUT_FILES = (PROJECT_ROOT / "checksums.json",)
+PROTECTED_QA_PREFIXES = ("p6_", "p7_", "p8_", "p9_", "p10_")
 
 
 class _AuditString(str):
@@ -44,42 +50,42 @@ UI_AUDIT_ENTRIES = [
     },
     {
         "file": "web/app/page.tsx",
-        "line": 1280,
+        "line": 1296,
         "string": "Heat proxy evidence: covered ${formatDistance(score.paths.covered_m)}; greenery proxy ${formatDistance(score.paths.shade_m)}.",
         "verdict": "Acceptable: heat evidence is decomposed into covered metres and greenery-proxy metres.",
         "action": "No fix required.",
     },
     {
         "file": "web/app/page.tsx",
-        "line": 1381,
+        "line": 1398,
         "string": 'label: "Shelter exposure",',
         "verdict": "Acceptable: the four-row display leads with the shelter/exposure evidence instead of a separate heat row.",
         "action": "No fix required.",
     },
     {
         "file": "web/app/page.tsx",
-        "line": 1387,
+        "line": 1404,
         "string": "In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence.",
         "verdict": "Acceptable disclosure: it names the rain/heat dependency directly in the presentation row.",
         "action": "No fix required.",
     },
     {
         "file": "web/app/page.tsx",
-        "line": 1388,
+        "line": 1405,
         "string": "Heat also includes the sparse NParks greenery proxy, so SHIOK shows covered-walkway ratio first.",
         "verdict": "Acceptable disclosure: the UI explains why the heat proxy is subordinate to the trace.",
         "action": "No fix required.",
     },
     {
         "file": "web/app/page.tsx",
-        "line": 1585,
+        "line": 1602,
         "string": "<span>Four display rows; weights unchanged</span>",
         "verdict": "Acceptable: presentation grouping is distinguished from the locked five-term score contract.",
         "action": "No fix required.",
     },
     {
         "file": "web/app/page.tsx",
-        "line": 2280,
+        "line": 2415,
         "string": "Heat proxy: shelter plus sparse NParks greenery, not measured temperature",
         "verdict": "Acceptable: first-view copy avoids measured-temperature and measured-shade claims.",
         "action": "No fix required.",
@@ -253,7 +259,28 @@ def resolve_repo_path(path: Path, repo_root: Path = PROJECT_ROOT) -> Path:
     return path if path.is_absolute() else repo_root / path
 
 
+def is_protected_output_path(path: Path) -> bool:
+    resolved = resolve_repo_path(path).resolve(strict=False)
+    if any(resolved == protected.resolve(strict=False) for protected in PROTECTED_OUTPUT_FILES):
+        return True
+    if any(
+        resolved.is_relative_to(protected.resolve(strict=False))
+        for protected in PROTECTED_OUTPUT_ROOTS
+    ):
+        return True
+    try:
+        relative = resolved.relative_to(PROJECT_ROOT.resolve(strict=False))
+    except ValueError:
+        return False
+    parts = relative.parts
+    return len(parts) >= 2 and parts[0] == "qa" and (
+        parts[1] == "p11" or parts[1].startswith(PROTECTED_QA_PREFIXES)
+    )
+
+
 def write_report(path: Path, report: dict[str, Any], *, overwrite: bool = False) -> None:
+    if is_protected_output_path(path):
+        raise ValueError(f"refusing protected analysis output path: {path}")
     if path.exists() and not overwrite:
         raise FileExistsError(f"refusing to overwrite existing analysis output: {path}")
     path.parent.mkdir(parents=True, exist_ok=True)

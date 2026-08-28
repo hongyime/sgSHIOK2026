@@ -41,6 +41,36 @@ def test_heat_presentation_report_can_overwrite_when_explicit(tmp_path: Path) ->
     assert json.loads(output.read_text(encoding="utf-8")) == {"ok": True}
 
 
+def test_heat_presentation_report_refuses_protected_output_roots() -> None:
+    protected_output = (
+        analyze_heat_presentation.PROJECT_ROOT
+        / "qa"
+        / "p10_new_guard_probe"
+        / "heat.json"
+    )
+
+    try:
+        analyze_heat_presentation.write_report(protected_output, {"ok": True})
+    except ValueError as exc:
+        assert "refusing protected analysis output path" in str(exc)
+    else:
+        raise AssertionError("protected heat-presentation report output was accepted")
+
+    assert not protected_output.exists()
+    assert not protected_output.parent.exists()
+
+
+def test_heat_presentation_report_overwrite_cannot_target_protected_file() -> None:
+    protected_output = analyze_heat_presentation.PROJECT_ROOT / "checksums.json"
+
+    try:
+        analyze_heat_presentation.write_report(protected_output, {"ok": True}, overwrite=True)
+    except ValueError as exc:
+        assert "refusing protected analysis output path" in str(exc)
+    else:
+        raise AssertionError("protected heat-presentation overwrite output was accepted")
+
+
 def test_heat_presentation_ui_audit_entries_still_resolve() -> None:
     entries = analyze_heat_presentation.validate_ui_entries(
         analyze_heat_presentation.PROJECT_ROOT
