@@ -3,7 +3,9 @@
 The default path only reads the existing P379 cache/report. Explicit direct
 script runs with `--probe` can locate the two P19 MCST proxy rows through
 bounded OneMap Search; that mode writes a new numbered P379 cache/report and
-never mutates the original P19 measurement files.
+never mutates the original P19 measurement files. The write-capable direct CLI
+path requires explicit cache/report paths so the fixed historical P379 evidence
+is not refreshed accidentally.
 """
 
 from __future__ import annotations
@@ -294,6 +296,21 @@ def cache_status_report(
     }
 
 
+def probe_output_errors(*, cache_path: Path | None, report_path: Path | None) -> list[str]:
+    errors: list[str] = []
+    if cache_path is None:
+        errors.append("P379 MCST probe requires explicit --cache-output")
+    elif cache_path == CACHE_OUTPUT:
+        errors.append("P379 MCST probe refuses historical default --cache-output")
+    if report_path is None:
+        errors.append("P379 MCST probe requires explicit --report-output")
+    elif report_path == REPORT_OUTPUT:
+        errors.append("P379 MCST probe refuses historical default --report-output")
+    elif report_path.exists():
+        errors.append(f"refusing to overwrite existing analysis output: {report_path}")
+    return errors
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--delay-sec", type=float, default=0.25)
@@ -312,13 +329,34 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="Read existing P379 cache/report status only; retained for explicitness because this is the default.",
     )
+    parser.add_argument(
+        "--cache-output",
+        type=Path,
+        default=None,
+        help="Explicit probe cache path; required with --probe.",
+    )
+    parser.add_argument(
+        "--report-output",
+        type=Path,
+        default=None,
+        help="Explicit probe report path; required with --probe.",
+    )
     args = parser.parse_args(argv)
     if not args.probe:
         print(json.dumps(cache_status_report(), indent=2, sort_keys=True))
         return 0
+    errors = probe_output_errors(cache_path=args.cache_output, report_path=args.report_output)
+    if errors:
+        print(json.dumps({"errors": errors, "ok": False}, indent=2, sort_keys=True))
+        return 2
     print(
         json.dumps(
-            build_report(delay_sec=args.delay_sec, refresh_cache=args.refresh_cache),
+            build_report(
+                cache_path=args.cache_output,
+                report_path=args.report_output,
+                delay_sec=args.delay_sec,
+                refresh_cache=args.refresh_cache,
+            ),
             indent=2,
             sort_keys=True,
         )

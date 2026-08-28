@@ -756,7 +756,9 @@ def test_p379_main_defaults_to_cache_status_only(monkeypatch, capsys) -> None:
     assert '"mode": "p379_cache_status_only"' in capsys.readouterr().out
 
 
-def test_p379_main_requires_explicit_probe_for_write_capable_mode(monkeypatch, capsys) -> None:
+def test_p379_main_requires_explicit_probe_for_write_capable_mode(
+    monkeypatch, tmp_path: Path, capsys
+) -> None:
     calls: list[dict[str, object]] = []
 
     def fake_cache_status_report() -> dict[str, object]:
@@ -770,7 +772,114 @@ def test_p379_main_requires_explicit_probe_for_write_capable_mode(monkeypatch, c
     monkeypatch.setattr(p379, "cache_status_report", fake_cache_status_report)
     monkeypatch.setattr(p379, "build_report", fake_build_report)
 
-    assert p379.main(["--probe", "--refresh-cache", "--delay-sec", "0"]) == 0
+    assert (
+        p379.main(
+            [
+                "--probe",
+                "--refresh-cache",
+                "--delay-sec",
+                "0",
+                "--cache-output",
+                str(tmp_path / "qa" / "p379" / "new-cache.json"),
+                "--report-output",
+                str(tmp_path / "qa" / "p379" / "new-report.json"),
+            ]
+        )
+        == 0
+    )
 
-    assert calls == [{"kind": "probe", "delay_sec": 0.0, "refresh_cache": True}]
+    assert calls == [
+        {
+            "kind": "probe",
+            "cache_path": tmp_path / "qa" / "p379" / "new-cache.json",
+            "report_path": tmp_path / "qa" / "p379" / "new-report.json",
+            "delay_sec": 0.0,
+            "refresh_cache": True,
+        }
+    ]
     assert '"mode": "p379_p19_mcst_missing_locations"' in capsys.readouterr().out
+
+
+def test_p379_probe_requires_explicit_numbered_outputs_before_build(
+    monkeypatch, capsys
+) -> None:
+    def fake_build_report(**_: object) -> dict[str, object]:
+        raise AssertionError("probe should not build without explicit output paths")
+
+    monkeypatch.setattr(p379, "build_report", fake_build_report)
+
+    assert p379.main(["--probe", "--delay-sec", "0"]) == 2
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": [
+            "P379 MCST probe requires explicit --cache-output",
+            "P379 MCST probe requires explicit --report-output",
+        ],
+        "ok": False,
+    }
+
+
+def test_p379_probe_refuses_historical_default_outputs_before_build(
+    monkeypatch, capsys
+) -> None:
+    def fake_build_report(**_: object) -> dict[str, object]:
+        raise AssertionError("probe should not build with historical default output paths")
+
+    monkeypatch.setattr(p379, "build_report", fake_build_report)
+
+    assert (
+        p379.main(
+            [
+                "--probe",
+                "--cache-output",
+                str(p379.CACHE_OUTPUT),
+                "--report-output",
+                str(p379.REPORT_OUTPUT),
+            ]
+        )
+        == 2
+    )
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": [
+            "P379 MCST probe refuses historical default --cache-output",
+            "P379 MCST probe refuses historical default --report-output",
+        ],
+        "ok": False,
+    }
+
+
+def test_p379_probe_refuses_existing_report_before_build(
+    monkeypatch, tmp_path: Path, capsys
+) -> None:
+    cache_path = tmp_path / "qa" / "p379" / "new-cache.json"
+    report_path = tmp_path / "qa" / "p379" / "new-report.json"
+    report_path.parent.mkdir(parents=True)
+    report_path.write_text("existing\n", encoding="utf-8")
+
+    def fake_build_report(**_: object) -> dict[str, object]:
+        raise AssertionError("probe should not build when report output exists")
+
+    monkeypatch.setattr(p379, "build_report", fake_build_report)
+
+    assert (
+        p379.main(
+            [
+                "--probe",
+                "--cache-output",
+                str(cache_path),
+                "--report-output",
+                str(report_path),
+            ]
+        )
+        == 2
+    )
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": [f"refusing to overwrite existing analysis output: {report_path}"],
+        "ok": False,
+    }
+    assert report_path.read_text(encoding="utf-8") == "existing\n"
