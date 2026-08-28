@@ -212,10 +212,10 @@ describe("rendered accessibility output", () => {
 
   it("formats the night-lighting layer note for off and on states", () => {
     expect(nightLightingLayerNote(false)).toBe(
-      "Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load lamp-post points. Map evidence only; not part of the locked score."
+      "Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load lamp-post points. Night-lighting map layer only; not part of the locked score."
     );
     expect(nightLightingLayerNote(true)).toBe(
-      "Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. Zoom into a neighbourhood to load lamp-post points. Map evidence only; not part of the locked score."
+      "Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. Zoom into a neighbourhood to load lamp-post points. Night-lighting map layer only; not part of the locked score."
     );
   });
 
@@ -365,7 +365,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("↺ Published shelter-map walk");
     expect(html).not.toContain(">↺ Published walk</button>");
     expect(html).toContain("Shelter-map evidence preview");
-    expect(html).toContain("Map evidence only");
+    expect(html).toContain("Not in published bundle");
     expect(html).not.toContain("Not scored in the current bundle");
     expect(html).toContain("Preview shelter-map evidence selected.");
     expect(html).toContain("Shelter-map preview");

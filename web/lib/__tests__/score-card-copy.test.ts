@@ -534,7 +534,7 @@ describe("score card copy", () => {
     expect(source).not.toContain('"20% locked bus",');
     expect(source).not.toContain("40% locked rain+heat");
     expect(source).toContain("Shelter-map evidence preview");
-    expect(source).toContain("Map evidence only");
+    expect(source).toContain("Not in published bundle");
     expect(source).toContain("No shelter-map walk selected.");
     expect(source).toContain("Preview shelter-map evidence only");
     expect(source).toContain("Preview shelter-map evidence selected.");

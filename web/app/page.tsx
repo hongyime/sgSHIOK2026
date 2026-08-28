@@ -115,7 +115,7 @@ export function nightLightingLayerNote(lampOverlayEnabled: boolean): string {
   const action = lampOverlayEnabled
     ? "Zoom into a neighbourhood to load lamp-post points."
     : "Switch on and zoom into a neighbourhood to load lamp-post points.";
-  return `Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. ${action} Map evidence only; not part of the locked score.`;
+  return `Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. ${action} Night-lighting map layer only; not part of the locked score.`;
 }
 
 export function nightLightingRouteDetailValue(lampOverlayEnabled: boolean): string {
@@ -819,7 +819,7 @@ function resolveOriginLatLng(selection: LoadedSelection | null): { lat: number; 
 
 function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): string[] {
   if (score.paths?.routing_type === "live_onemap_preview") {
-    return ["Shelter-map evidence preview", "Map evidence only"];
+    return ["Shelter-map evidence preview", "Not in published bundle"];
   }
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const label = transitModeLabel(transitMode);

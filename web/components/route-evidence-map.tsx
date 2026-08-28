@@ -997,7 +997,7 @@ function transitPoiSummary(pois: PointFeatureCollection): string {
 
 export function nightLightingSummary(status: LampOverlayStatus, lampCount: number): string | null {
   if (status === "off") return null;
-  const caveat = "Map evidence only; not part of the locked score.";
+  const caveat = "Night-lighting map layer only; not part of the locked score.";
   if (status === "below_zoom") {
     return `Night lighting map layer is on; zoom in to load LTA lamp-post points. ${caveat}`;
   }

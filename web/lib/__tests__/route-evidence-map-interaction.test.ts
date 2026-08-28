@@ -110,7 +110,7 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("nightLightingLayerNote(lampOverlayEnabled)");
     expect(pageSource).toContain("export function nightLightingLayerNote(lampOverlayEnabled: boolean): string");
     expect(pageSource).not.toContain(
-      "Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load lamp-post points. Map evidence only; not part of the locked score."
+      "Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. Switch on and zoom into a neighbourhood to load lamp-post points. Night-lighting map layer only; not part of the locked score."
     );
     expect(pageSource).not.toContain("LTA lamp-post layer: 126,144 points");
   });
@@ -120,28 +120,28 @@ describe("shelter map interactions", () => {
 
     expect(nightLightingSummary("off", 12)).toBeNull();
     expect(nightLightingSummary("below_zoom", 0)).toBe(
-      "Night lighting map layer is on; zoom in to load LTA lamp-post points. Map evidence only; not part of the locked score."
+      "Night lighting map layer is on; zoom in to load LTA lamp-post points. Night-lighting map layer only; not part of the locked score."
     );
     expect(nightLightingSummary("loading", 0)).toBe(
-      "Night lighting map layer is on; LTA lamp-post points are loading for the current map view. Map evidence only; not part of the locked score."
+      "Night lighting map layer is on; LTA lamp-post points are loading for the current map view. Night-lighting map layer only; not part of the locked score."
     );
     expect(nightLightingSummary("empty", 0)).toBe(
-      "Night lighting map layer is on; no lamp-post points are indexed in the current map view. Map evidence only; not part of the locked score."
+      "Night lighting map layer is on; no lamp-post points are indexed in the current map view. Night-lighting map layer only; not part of the locked score."
     );
     expect(nightLightingSummary("unavailable", 0)).toBe(
-      "Night lighting map layer is on; lamp-post tiles are unavailable for the current map view. Map evidence only; not part of the locked score."
+      "Night lighting map layer is on; lamp-post tiles are unavailable for the current map view. Night-lighting map layer only; not part of the locked score."
     );
     expect(nightLightingSummary("partial", 1)).toBe(
-      "Night lighting map layer is on with 1 lamp-post point in view; some lamp-post tiles are unavailable. Map evidence only; not part of the locked score."
+      "Night lighting map layer is on with 1 lamp-post point in view; some lamp-post tiles are unavailable. Night-lighting map layer only; not part of the locked score."
     );
     expect(nightLightingSummary("partial", 14)).toBe(
-      "Night lighting map layer is on with 14 lamp-post points in view; some lamp-post tiles are unavailable. Map evidence only; not part of the locked score."
+      "Night lighting map layer is on with 14 lamp-post points in view; some lamp-post tiles are unavailable. Night-lighting map layer only; not part of the locked score."
     );
     expect(nightLightingSummary("loaded", 1)).toBe(
-      "Night lighting map layer is on with 1 lamp-post point in view. Map evidence only; not part of the locked score."
+      "Night lighting map layer is on with 1 lamp-post point in view. Night-lighting map layer only; not part of the locked score."
     );
     expect(nightLightingSummary("loaded", 14)).toBe(
-      "Night lighting map layer is on with 14 lamp-post points in view. Map evidence only; not part of the locked score."
+      "Night lighting map layer is on with 14 lamp-post points in view. Night-lighting map layer only; not part of the locked score."
     );
     expect(nightLightingSummary("loaded", 14)).not.toContain("overlay");
   });
