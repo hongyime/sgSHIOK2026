@@ -229,7 +229,7 @@ def test_source_config_has_freshness_policy_for_every_source() -> None:
         Path(__file__).resolve().parents[1] / "pipeline" / "config" / "sources.yaml"
     ).read_text(encoding="utf-8")
 
-    assert len(sources) == 21
+    assert len(sources) == 24
     assert "S.H.I.O.K. Shelter Map" in source_text
     assert "S.H.I.O.K. Index" not in source_text
     assert "authenticated GeospatialWholeIsland fallback" in source_text
@@ -240,9 +240,18 @@ def test_source_config_has_freshness_policy_for_every_source() -> None:
     ) in source_text
     assert "Candidate-only postal-universe evidence" in source_text
     assert "Does not approve scoring or address-registry use" in source_text
+    assert "ACRA registered entities; source-derived postal-universe evidence only" in source_text
+    assert "other UEN issuance agencies; source-derived postal-universe evidence only" in source_text
+    assert "Frozen-v1 address universe seed from a June 2020 OneMap-derived scrape" in source_text
     assert "Promote only after attribution" not in source_text
     assert "shade/heat calibration source only" not in source_text
     assert "unauthenticated public download" not in source_text
+    manifest_path = Path(__file__).resolve().parents[1] / "raw" / "manifest.json"
+    if manifest_path.is_file():
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest_sources = set(manifest.get("sources", {}))
+        assert manifest_sources - set(sources) == set()
+        assert set(sources) - manifest_sources == {"overture_addresses_sg_candidate"}
     for key, spec in sources.items():
         policy = freshness_policy_for_source(spec, defaults)
         assert policy.get("expected_cadence"), key

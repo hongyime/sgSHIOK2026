@@ -79,7 +79,9 @@ lines plus the oldest-current summary include days until stale or days past stal
 need to cross-reference `sources.yaml`. Production readiness also exposes the
 nearest current source to stale and stale sources with days past stale as
 structured fields for downstream planning; stale sources are ordered by days
-past stale and the most-overdue stale source is exposed separately. If stale sources appear, report them
+past stale and the most-overdue stale source is exposed separately. The source
+policy covers every source currently recorded in `raw/manifest.json`, including
+the ACRA, other-UEN, and June 2020 OneMap-derived postal-universe inputs. If stale sources appear, report them
 and plan a versioned refresh; do not mutate frozen v1 in place. NParks Leaf Area Index can appear in
 freshness as a tracked reference table, and the published legacy bundle may
 carry it as a non-score reference source hash, but it is not route geometry,

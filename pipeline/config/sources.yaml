@@ -96,6 +96,20 @@ sources:
     verified: "2026-07-26"
     notes: "data.gov.sg GeoJSON — HDB Existing Building; resolved via initiate-download API (201 confirmed)"
 
+  acra_registered_entities:
+    name: "Entities Registered with ACRA"
+    kind: "datagov_polldownload"
+    dataset_id: "d_3f960c10fed6145404ca7b821f263b87"
+    verified: "2026-07-27"
+    notes: "data.gov.sg CSV - ACRA registered entities; source-derived postal-universe evidence only, not a direct scoring input without bounded geocode approval"
+
+  other_uen_registered_entities:
+    name: "Entities Registered with Other UEN Issuance Agencies"
+    kind: "datagov_polldownload"
+    dataset_id: "d_b1d2b840ab9e993570c037b706b39bb8"
+    verified: "2026-07-31"
+    notes: "data.gov.sg CSV - other UEN issuance agencies; source-derived postal-universe evidence only, not a direct scoring input without bounded geocode approval"
+
   sla_dwelling_information:
     name: "SLA Dwelling Information"
     kind: "datagov_polldownload"
@@ -166,6 +180,14 @@ sources:
     max_bytes: "2GB"
     refresh: "manual"
     notes: "Geofabrik extract for T1.1 pedestrian graph conflation"
+
+  postal_universe_onemap_2020:
+    name: "OneMap-derived Singapore postal dump, accessed 10 Jun 2020 by xuancong84"
+    kind: "datamall_static_file"
+    url: "https://raw.githubusercontent.com/xuancong84/singapore-address-heatmap/master/singpostcode.json.gz"
+    verified: "2026-07-27"
+    refresh: "manual"
+    notes: "Frozen-v1 address universe seed from a June 2020 OneMap-derived scrape; preserve byte-identically for provenance and build any replacement as v2 or later"
 
   overture_addresses_sg_candidate:
     name: "Overture Maps Addresses — Singapore candidate"
