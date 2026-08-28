@@ -566,9 +566,9 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Choose planning-area evidence view");
     expect(html).not.toContain("Rank records by");
     expect(html).toContain(
-      "Planning-area list uses locked score only as a sorting index; walk evidence remains the primary view."
+      "Planning-area list uses locked score only as a sorting index; shelter-map walk evidence remains the primary view."
     );
-    expect(html).not.toContain("Planning-area list sorted by locked score; walk evidence remains the primary view.");
+    expect(html).not.toContain("Planning-area list sorted by locked score; shelter-map walk evidence remains the primary view.");
     expect(html).not.toContain("Planning-area order by locked score.");
     expect(html).not.toContain('aria-label="Rank by view"');
     expect(html).not.toContain("<strong>Rank by</strong>");
@@ -666,7 +666,7 @@ describe("rendered accessibility output", () => {
   it("does not call crossing friction an evidence view in planning-area helper copy", () => {
     expect(rankPanelDescription("overall", false)).toBe("Loads planning-area ranks only when opened.");
     expect(rankPanelDescription("overall", true)).toBe(
-      "Planning-area list uses locked score only as a sorting index; walk evidence remains the primary view."
+      "Planning-area list uses locked score only as a sorting index; shelter-map walk evidence remains the primary view."
     );
     expect(rankPanelDescription("rain", true)).toBe(
       "Planning-area evidence view; locked SHIOK score is unchanged."

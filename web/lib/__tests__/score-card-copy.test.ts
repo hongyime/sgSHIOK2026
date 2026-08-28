@@ -615,9 +615,9 @@ describe("score card copy", () => {
     expect(source).not.toContain('aria-label="Rank by view"');
     expect(source).not.toContain("<strong>Rank by</strong>");
     expect(source).toContain(
-      "Planning-area list uses locked score only as a sorting index; walk evidence remains the primary view."
+      "Planning-area list uses locked score only as a sorting index; shelter-map walk evidence remains the primary view."
     );
-    expect(source).not.toContain("Planning-area list sorted by locked score; walk evidence remains the primary view.");
+    expect(source).not.toContain("Planning-area list sorted by locked score; shelter-map walk evidence remains the primary view.");
     expect(source).toContain("Planning-area evidence view; locked SHIOK score is unchanged.");
     expect(source).toContain("Planning-area locked-score factor view; locked SHIOK score is unchanged.");
     expect(source).not.toContain("Planning-area locked-term view; locked SHIOK score is unchanged.");
