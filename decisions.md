@@ -1,3 +1,6 @@
+2026-08-29 - P770 remaining legacy diagnostic retirement:
+The remaining historical `pipeline.diag_*` exploratory scripts are retired because they still opened raw geospatial or HDB inputs directly, with two of them doing so at import time. These modules are not maintained operator entrypoints; current evidence should come from guarded runner tasks, read-only status/report commands, or tracked QA records. This is safety/test/evidence work only; it does not score, export, rescore, ingest, build network, mutate inputs, deploy, touch protected payloads, or change locked weights.
+
 2026-08-29 - P767 legacy rescope retirement:
 `pipeline.rescope` is retired as a direct legacy entrypoint because it performed OSM/HDB raw-data reads at import time from a relative `raw/` path. Operators should use the cached read-only `run.py p125-osm-status` and `run.py universe-status` reports for existing postal-universe evidence, and any new postal-universe build must go through the guarded `run.py postal-universe --confirm-postal-universe` path after owner approval. This is safety/test/evidence work only; it does not read or mutate inputs beyond code inspection, score, export, build network, deploy, public data, protected QA payloads, or locked weights.
 

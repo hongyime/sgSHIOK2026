@@ -1,31 +1,16 @@
-import sys
-import tempfile
-import zipfile
-import geopandas as gpd
-from pathlib import Path
+"""Retired legacy diagnostic entrypoint.
 
-zip_path = (
-    Path(__file__).resolve().parents[1]
-    / "raw"
-    / "942ff2506603f431f0782a3acdc70fec75d4b15c73b54f1a983c804c60d818af"
-    / "traffic_signals.zip"
-)
-if not zip_path.exists():
-    print("Traffic signals zip not found")
-    sys.exit(1)
+The original script extracted and read the raw traffic-signal shapefile at
+import time. Use guarded runner tasks or tracked QA evidence instead.
+"""
 
-with tempfile.TemporaryDirectory() as tmpdir:
-    with zipfile.ZipFile(zip_path, "r") as z:
-        z.extractall(tmpdir)
 
-    shp_files = list(Path(tmpdir).rglob("*.shp"))
-    if not shp_files:
-        print("No shapefile found in the traffic signals zip")
-        sys.exit(1)
+def main() -> int:
+    print(
+        "pipeline.diag_traffic_signals is retired; use guarded runner tasks or tracked QA evidence instead."
+    )
+    return 2
 
-    gdf = gpd.read_file(shp_files[0])
-    print(f"Loaded {shp_files[0].name}")
-    print("CRS:", gdf.crs)
-    print("Fields:", list(gdf.columns))
-    print("\nFirst 5 rows:")
-    print(gdf.head(5).to_string())
+
+if __name__ == "__main__":
+    raise SystemExit(main())

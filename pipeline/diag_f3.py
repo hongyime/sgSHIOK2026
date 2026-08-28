@@ -1,20 +1,16 @@
-import json
-from pathlib import Path
+"""Retired legacy diagnostic entrypoint.
 
-path = (
-    Path(__file__).resolve().parents[1]
-    / "raw"
-    / "7c987511548de3a82da403cabca02702031e02ade8703a9e401417883dfeb702"
-    / "building_points.geojson"
-)
-if path.exists():
-    with open(path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    features = data.get("features", [])
-    print(f"HDB Building Points count: {len(features)}")
+The original script read raw HDB building-point input at import time. Use
+guarded runner tasks or tracked QA evidence instead.
+"""
 
-    # Calculate projection
-    missing = 140000 - len(features)
-    hours = (missing * 2.0) / 3600
-    print(f"Postals missing: {missing}")
-    print(f"Projected hours at 2.0s: {hours:.2f}")
+
+def main() -> int:
+    print(
+        "pipeline.diag_f3 is retired; use guarded runner tasks or tracked QA evidence instead."
+    )
+    return 2
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
