@@ -1069,10 +1069,10 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("Shelter-map walk not connected yet");
-    expect(html).toContain("Transit target found");
-    expect(html).toContain("Transit targets exist, but the published shelter-map bundle has no connected shelter-map walk yet.");
-    expect(html).not.toContain("Transit stop or exit found");
-    expect(html).not.toContain("Transit stops or exits exist, but the published shelter-map bundle has no connected shelter-map walk yet.");
+    expect(html).toContain("Transit stop or exit found");
+    expect(html).toContain("Transit stops or exits exist, but the published shelter-map bundle has no connected shelter-map walk yet.");
+    expect(html).not.toContain("Transit target found");
+    expect(html).not.toContain("Transit targets exist, but the published shelter-map bundle has no connected shelter-map walk yet.");
     expect(html).toContain("<span>No full locked score</span><strong>Published bundle</strong>");
     expect(html).not.toContain("No qualifying MRT/LRT exit or bus stop was found");
   });

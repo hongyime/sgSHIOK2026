@@ -1882,3 +1882,7 @@ Direct-bus fallback records are straight-line fallback evidence, not verified sh
 2026-08-29 - P820 network report runner classification:
 
 `network-qa` and `network-preflight` are callable through `run.py` and should be classified in the operator-facing safe-report surface rather than left unlisted. `network-qa` validates existing conflation QA/debug artifacts and writes no repo files. `network-preflight` reads and hashes existing manifest/raw/processed/QA artifacts, may inspect geometry, and writes no repo files or network artifacts; geometry inspection can still be heavier than simple manifest checks, so operators should use `--skip-geometry-inspection` when they only need the hash/readiness report. This is docs/help/test/evidence work only; it does not run network QA/preflight, score, export, rescore, ingest, build networks, mutate inputs, public data, protected evidence, deploy, or touch locked weights.
+
+2026-08-29 - P821 graph-disconnected transit-stop copy:
+
+The graph-disconnected no-transit state should name concrete user-facing transit stops or exits, not generic "transit targets". This is browser copy/test/evidence work only; it does not score, export, rescore, mutate route geometry, public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
