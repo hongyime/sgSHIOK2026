@@ -1759,3 +1759,7 @@ The map tracing workflow is a shelter-evidence correction path, not generic rout
 2026-08-29 - P781 generated-data web test timeout:
 
 The generated-bundle geometry postal-prefix consistency test reads the large local public-data index and every derived prefix shard. On Prawn-E14 the assertion itself remains valid, but the old 15-second per-test timeout failed intermittently during full-suite runs and direct runs. The timeout for that one disk-heavy test is now 60 seconds; global Vitest timing remains unchanged. This is test-infrastructure hygiene only; it reads but does not mutate public data, and it does not score, export, rescore, ingest, rebuild inputs, deploy, or touch locked weights.
+
+2026-08-29 - P782 Mayflower QA summary protected output roots:
+
+`scripts/mayflower_qa_summary.py` is a historical analysis helper whose reports are useful as scratch QA artifacts, but its explicit output paths must not be able to create new files under protected evidence or public-data payload roots. The CLI now refuses outputs under `web/public/data/`, `qa/releases/`, `qa/p6_*` through `qa/p10_*`, `qa/p11/`, and `checksums.json` before active bundle discovery or input reads. Normal explicit scratch outputs remain allowed and still use non-overwriting writes. This is guard/test hygiene only; it does not run the Mayflower analysis, score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.

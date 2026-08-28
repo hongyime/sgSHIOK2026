@@ -292,6 +292,56 @@ def test_mayflower_summary_cli_refuses_existing_gap_output_before_input_reads(
     assert gap_output.read_text(encoding="utf-8") == "{}\n"
 
 
+def test_mayflower_summary_cli_refuses_protected_outputs_before_input_reads(
+    tmp_path, monkeypatch, capsys
+):
+    def fail_if_loaded():
+        raise AssertionError("active bundle should not be read before output validation")
+
+    protected_json = (
+        mayflower_qa_summary.PROJECT_ROOT
+        / "qa"
+        / "p6_new_guard_probe"
+        / "summary.json"
+    )
+    protected_md = mayflower_qa_summary.PROJECT_ROOT / "checksums.json"
+    protected_gap = (
+        mayflower_qa_summary.PROJECT_ROOT
+        / "web"
+        / "public"
+        / "data"
+        / "p782-should-not-write.geojson"
+    )
+    monkeypatch.setattr(mayflower_qa_summary, "active_bundle_dir", fail_if_loaded)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "mayflower_qa_summary.py",
+            "--output-json",
+            str(protected_json),
+            "--output-md",
+            str(protected_md),
+            "--output-gap-geojson",
+            str(protected_gap),
+        ],
+    )
+
+    assert mayflower_qa_summary.main() == 2
+
+    captured = capsys.readouterr()
+    report = json.loads(captured.err)
+    assert report == {
+        "errors": [
+            f"refusing protected analysis output path: {protected_json}",
+            f"refusing protected analysis output path: {protected_md}",
+            f"refusing protected analysis output path: {protected_gap}",
+        ]
+    }
+    assert not protected_json.exists()
+    assert not protected_json.parent.exists()
+
+
 def test_build_summary_subtracts_approved_review_ready_corrections(tmp_path):
     bundle = tmp_path / "bundle"
     write_json(bundle / "scores" / "index.json", {"ANG_MO_KIO_PART_001": ["560231"]})

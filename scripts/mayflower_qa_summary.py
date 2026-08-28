@@ -30,6 +30,12 @@ DEFAULT_POSTALS = ["560231", "560234", "560225"]
 DEFAULT_APPROVED_CORRECTIONS = PROJECT_ROOT / "data" / "audited_shelter_corrections.geojson"
 DEFAULT_OUTPUT_JSON = PROJECT_ROOT / "qa" / "mayflower_route_qa_summary_20260801.json"
 DEFAULT_OUTPUT_MD = PROJECT_ROOT / "qa" / "mayflower_route_qa_summary_20260801.md"
+PROTECTED_OUTPUT_ROOTS = (
+    PROJECT_ROOT / "web" / "public" / "data",
+    PROJECT_ROOT / "qa" / "releases",
+)
+PROTECTED_OUTPUT_FILES = (PROJECT_ROOT / "checksums.json",)
+PROTECTED_QA_PREFIXES = ("p6_", "p7_", "p8_", "p9_", "p10_")
 
 
 def ensure_output_available(path: Path) -> None:
@@ -50,6 +56,31 @@ def read_json(path: Path) -> Any:
 def active_bundle_dir() -> Path:
     config = read_json(PROJECT_ROOT / "web" / "data-bundle.json")
     return PROJECT_ROOT / "web" / "public" / "data" / str(config["bundle"])
+
+
+def resolve_output_path(path: Path) -> Path:
+    if path.is_absolute():
+        return path.resolve(strict=False)
+    return (PROJECT_ROOT / path).resolve(strict=False)
+
+
+def is_protected_output_path(path: Path) -> bool:
+    resolved = resolve_output_path(path)
+    if any(resolved == protected.resolve(strict=False) for protected in PROTECTED_OUTPUT_FILES):
+        return True
+    if any(
+        resolved.is_relative_to(protected.resolve(strict=False))
+        for protected in PROTECTED_OUTPUT_ROOTS
+    ):
+        return True
+    try:
+        relative = resolved.relative_to(PROJECT_ROOT.resolve(strict=False))
+    except ValueError:
+        return False
+    parts = relative.parts
+    return len(parts) >= 2 and parts[0] == "qa" and (
+        parts[1] == "p11" or parts[1].startswith(PROTECTED_QA_PREFIXES)
+    )
 
 
 def normalize_postal(value: str) -> str:
@@ -593,6 +624,9 @@ def explicit_output_errors(
     if output_gap_geojson is not None:
         outputs.append(output_gap_geojson)
     for output in outputs:
+        if is_protected_output_path(output):
+            errors.append(f"refusing protected analysis output path: {output}")
+            continue
         if output.exists():
             errors.append(f"refusing to overwrite existing analysis output: {output}")
     return errors
