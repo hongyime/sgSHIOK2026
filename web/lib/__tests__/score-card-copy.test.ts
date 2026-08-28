@@ -535,6 +535,8 @@ describe("score card copy", () => {
     expect(tsxSource).toContain("value: nightLightingRouteDetailValue(lampOverlayEnabled),");
     expect(tsxSource).toContain("export function nightLightingRouteDetailValue(lampOverlayEnabled: boolean): string");
     expect(tsxSource).toContain("Night-lighting layer off; switch on night lighting, then zoom in");
+    expect(tsxSource).toContain('{lampOverlayEnabled ? "Night-lighting layer on" : "Night-lighting layer off"}');
+    expect(tsxSource).not.toContain('{lampOverlayEnabled ? "Night lighting on" : "Night lighting off"}');
     expect(tsxSource).not.toContain('value: lampOverlayEnabled ? "Map layer on; zoom in for points" : "Map layer off",');
     expect(tsxSource).not.toContain('value: lampOverlayEnabled ? "Map layer on; zoom in for lamp-post points" : "Map layer off",');
     expect(tsxSource).not.toContain("Available; map layer off");

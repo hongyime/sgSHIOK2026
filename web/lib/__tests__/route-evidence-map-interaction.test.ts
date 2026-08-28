@@ -99,7 +99,8 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("showLampOverlay?: boolean;");
     expect(pageSource).toContain("LTA lamp-post points");
     expect(pageSource).not.toContain("LTA lamp points");
-    expect(pageSource).toContain('{lampOverlayEnabled ? "Night lighting on" : "Night lighting off"}');
+    expect(pageSource).toContain('{lampOverlayEnabled ? "Night-lighting layer on" : "Night-lighting layer off"}');
+    expect(pageSource).not.toContain('{lampOverlayEnabled ? "Night lighting on" : "Night lighting off"}');
     expect(pageSource).not.toContain(">Night lighting</button>");
     expect(pageSource).toContain(
       'title="Night-lighting layer: LTA lamp-post locations; map layer only, not part of the locked score"'

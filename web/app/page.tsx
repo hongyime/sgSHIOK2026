@@ -2349,7 +2349,7 @@ export default function Home() {
                 onClick={() => setLampOverlayEnabled((enabled) => !enabled)}
               >
                 <span className={styles.lampSwatch} aria-hidden="true" />
-                {lampOverlayEnabled ? "Night lighting on" : "Night lighting off"}
+                {lampOverlayEnabled ? "Night-lighting layer on" : "Night-lighting layer off"}
               </button>
             </div>
             <p id="night-lighting-layer-note" className={styles.layerNote}>
