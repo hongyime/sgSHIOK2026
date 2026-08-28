@@ -301,6 +301,21 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Route display sheltered");
   });
 
+  it("uses transit-target fallback copy when a scored walk has no named best node", () => {
+    const html = renderScoreCard({
+      selection: {
+        ...selection,
+        score: {
+          ...scoredRecord,
+          best_node: null,
+        },
+      },
+    });
+
+    expect(html).toContain("No Transit Target Loaded");
+    expect(html).not.toContain("No Transit Found Nearby");
+  });
+
   it("announces same shortest and sheltered display as a walk state", () => {
     expect(routeDisplayAnnouncement("shortest", true)).toBe("shortest walk same as sheltered walk");
     expect(routeDisplayAnnouncement("shortest", false)).toBe("shortest walk");

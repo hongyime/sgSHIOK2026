@@ -1220,12 +1220,12 @@ export function ScoreCard({
       : "Sheltered walk";
   const stationName =
     previewRoute
-      ? toProperCase(score.best_node?.name ?? "Selected transit stop")
+      ? toProperCase(score.best_node?.name ?? "Selected transit target")
       : score.state === "NO_TRANSIT_IN_RANGE"
       ? noTransitTitle(score, transitMode)
       : score.state === "NOT_YET_SCORED"
         ? "No full locked score in published shelter-map bundle"
-      : toProperCase(score.best_node?.name ?? "No transit found nearby");
+      : toProperCase(score.best_node?.name ?? "No transit target loaded");
   const reasons = scoreReasons(score, transitMode);
   const stateNote = scoreStateNote(score, transitMode);
   const previewStatusNote = previewRoute

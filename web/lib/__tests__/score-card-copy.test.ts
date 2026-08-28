@@ -67,6 +67,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("Transit stops or exits exist, but this bundle has no connected walking route evidence yet.");
     expect(source).not.toContain("Transit candidate found");
     expect(source).not.toContain("No transit candidate nearby");
+    expect(source).toContain("No transit target loaded");
+    expect(source).not.toContain("No transit found nearby");
     expect(source).not.toContain("No nearby transit candidate selected");
     expect(source).not.toContain("Outside current transit-candidate limits");
     expect(source).not.toContain("Nearby transit may still exist outside the current threshold");
