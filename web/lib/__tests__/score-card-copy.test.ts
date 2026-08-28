@@ -260,7 +260,8 @@ describe("score card copy", () => {
     expect(source).toContain("function formatGeneratedDate(manifest: Manifest | null): string");
     expect(source).toContain("Locked score ${scoreText}");
     expect(source).toContain("function shelterEvidenceAnnouncement(score: ScoreRecord): string");
-    expect(source).toContain('`Shelter-map walk evidence ${parts.join("; ")}.`');
+    expect(source).toContain('evidenceLabel = "Shelter-map walk evidence"');
+    expect(source).toContain('`${evidenceLabel} ${parts.join("; ")}.`');
     expect(source).not.toContain('"Walk evidence unavailable"');
     expect(source).toContain("${shelterText} Locked score ${scoreText}.");
     expect(source).toContain(
@@ -504,7 +505,7 @@ describe("score card copy", () => {
     expect(source).toContain("buildRouteCompareNote");
     expect(source).toContain("function shelterEvidenceAnnouncementFromValues");
     expect(source).toContain("const sortedGaps = [...gaps].sort((a, b) => b.len_m - a.len_m);");
-    expect(source).toContain("shelterEvidenceText: shelterEvidenceAnnouncementFromValues(selectedCoverage, exposureGaps)");
+    expect(source).toContain("shelterEvidenceText: shelterEvidenceAnnouncementFromValues(");
     expect(source).toContain("longest gap ${formatDistance(longestGap.len_m)}");
     // Copy shape: "Shortest walk has 45% covered-walkway ratio (30pp lower than sheltered walk)"
     expect(source).toContain("${otherLabel} has ${otherPct}% covered-walkway ratio (${magnitude}pp ${direction} than ${viewedLabel})");
@@ -841,6 +842,7 @@ describe("score card copy", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
     expect(source).toContain('aria-label="Exposed gap evidence"');
+    expect(source).toContain('<div className={styles.gapList} aria-label="Exposed gap evidence">');
     expect(source).toContain("All recorded segments for this display stay under covered-walkway or connector evidence.");
     expect(source).toContain("No exposed gaps are recorded for this ${selectedWalkLabel}.");
     expect(source).not.toContain("0 m exposed across 0 gaps");
@@ -862,5 +864,13 @@ describe("score card copy", () => {
     expect(source).toContain('"preview only; published locked score unchanged"');
     expect(source).toContain('<Metric label="Locked score" value="Preview only" />');
     expect(source).not.toContain('"not an authoritative SHIOK score"');
+  });
+
+  it("announces direct-bus fallback evidence without implying a verified shelter-map walk", () => {
+    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+
+    expect(source).toContain('evidenceLabel = "Shelter-map walk evidence"');
+    expect(source).toContain('directBusFallback ? "Straight-line bus estimate evidence" : undefined');
+    expect(source).not.toContain("Direct bus service estimate evidence");
   });
 });

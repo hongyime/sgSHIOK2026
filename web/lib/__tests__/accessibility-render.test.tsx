@@ -788,6 +788,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("142 m");
     expect(html).toContain("181 m exposed across 2 gaps on the sheltered walk.");
     expect(html).not.toContain("181 m exposed across 2 gaps on the selected walk.");
+    expect(html).toContain('aria-label="Exposed gap evidence"');
     expect(html).toContain("All recorded exposed gaps are shown.");
     expect(html).toContain("2 of 2 exposed gaps include map coordinates.");
     expect(html).toContain("Longest open-air stretch");
@@ -1309,6 +1310,8 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Direct line to bus stop; shelter-map walk pending.");
     expect(html).toContain("Straight-line bus estimate");
     expect(html).toContain("Evidence display straight-line bus estimate; Straight-line bus estimate active.");
+    expect(html).toContain("Straight-line bus estimate evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
+    expect(html).not.toContain("Shelter-map walk evidence 62% covered-walkway ratio");
     expect(html).not.toContain("Walk display sheltered walk; Direct bus service estimate active.");
     expect(html).toContain("62% covered-walkway ratio for the straight-line bus estimate.");
     expect(html).toContain("Exposed gaps for straight-line bus estimate");

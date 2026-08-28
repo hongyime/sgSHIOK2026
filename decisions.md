@@ -1854,3 +1854,7 @@ Focused exposed-gap rows should expose the same selected-map state to screen-rea
 2026-08-29 - P813 preview score announcement:
 
 Clicked-transit OneMap preview walks are shelter-map evidence only, not published locked-score states. The visible preview summary already says `Locked score: Preview only`; the screen-reader announcement now says `Locked score preview only; published locked score unchanged` instead of routing through the generic unavailable published-bundle branch. This is browser accessibility/test/evidence work only; it does not score, export, rescore, mutate route geometry, public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
+
+2026-08-29 - P814 score-card evidence announcements:
+
+The score-card evidence region should be named consistently for assistive technology, and direct-bus fallback announcements must not imply a verified shelter-map walk. Non-empty exposed-gap lists now carry the same `Exposed gap evidence` accessible label as the zero-gap evidence state. Direct-bus fallback status text now says `Straight-line bus estimate evidence` while ordinary routed walks keep `Shelter-map walk evidence`. This is browser accessibility/test/evidence work only; it does not score, export, rescore, mutate route geometry, public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.

@@ -220,7 +220,8 @@ export function routeDisplayAnnouncement(mode: RouteDisplayMode, sameRoute: bool
 
 function shelterEvidenceAnnouncementFromValues(
   coveredRatio: number | null | undefined,
-  gaps: ExposureGap[] | null | undefined
+  gaps: ExposureGap[] | null | undefined,
+  evidenceLabel = "Shelter-map walk evidence"
 ): string {
   const parts: string[] = [];
   if (typeof coveredRatio === "number") {
@@ -237,8 +238,8 @@ function shelterEvidenceAnnouncementFromValues(
     );
   }
   return parts.length > 0
-    ? `Shelter-map walk evidence ${parts.join("; ")}.`
-    : "Shelter-map walk evidence unavailable.";
+    ? `${evidenceLabel} ${parts.join("; ")}.`
+    : `${evidenceLabel} unavailable.`;
 }
 
 function shelterEvidenceAnnouncement(score: ScoreRecord): string {
@@ -1382,7 +1383,11 @@ export function ScoreCard({
     routeMode,
     displayContextLabel: directBusFallback ? "Evidence display" : "Walk display",
     routeDisplayLabel: directBusFallback ? "straight-line bus estimate" : routeDisplayAnnouncement(routeMode, sameRoute),
-    shelterEvidenceText: shelterEvidenceAnnouncementFromValues(selectedCoverage, exposureGaps),
+    shelterEvidenceText: shelterEvidenceAnnouncementFromValues(
+      selectedCoverage,
+      exposureGaps,
+      directBusFallback ? "Straight-line bus estimate evidence" : undefined
+    ),
   });
   const gapSummaryText =
     exposureGaps.length === 0
@@ -1781,7 +1786,7 @@ export function ScoreCard({
       )}
 
       {exposureGaps.length > 0 && (
-        <div className={styles.gapList}>
+        <div className={styles.gapList} aria-label="Exposed gap evidence">
           <h3>Exposed gaps {selectedWalkHeadingPhrase}</h3>
           <p className={styles.gapSummary}>
             <span>{gapSummaryText}</span>
