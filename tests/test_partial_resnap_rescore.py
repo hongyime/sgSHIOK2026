@@ -108,3 +108,39 @@ def test_partial_resnap_cli_runs_confirmed_report_with_explicit_output(
     out = capsys.readouterr().out
     summary = json.loads(out)
     assert summary["output"] == str(output)
+
+
+def test_partial_resnap_cli_refuses_existing_output_before_rescore(
+    monkeypatch, tmp_path, capsys
+):
+    from scripts import partial_resnap_rescore
+
+    output = tmp_path / "partial_resnap.json"
+    output.write_text("{}\n", encoding="utf-8")
+
+    def fail_build_report(**_kwargs):
+        raise AssertionError("partial resnap should not rescore before output validation")
+
+    monkeypatch.setattr(partial_resnap_rescore, "build_report", fail_build_report)
+
+    assert (
+        main(
+            [
+                "--confirm-rescore",
+                "--bundle-dir",
+                str(tmp_path / "bundle"),
+                "--postal",
+                "560234",
+                "--output",
+                str(output),
+            ]
+        )
+        == 1
+    )
+
+    assert output.read_text(encoding="utf-8") == "{}\n"
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": [f"refusing to overwrite existing analysis output: {output}"],
+        "ok": False,
+    }

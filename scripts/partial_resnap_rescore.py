@@ -16,6 +16,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from pipeline.scoring import NO_TRANSIT_IN_RANGE
 from pipeline.scoring_integration import score_postals
+from scripts.analysis.report_io import write_new_text_report
 
 DEFAULT_OUTPUT = PROJECT_ROOT / "qa" / "partial_resnap_rescore_sample.json"
 DEFAULT_NETWORK = PROJECT_ROOT / "processed" / "network_island.parquet"
@@ -228,6 +229,8 @@ def main(argv: list[str] | None = None) -> int:
         errors.append("partial resnap rescore requires --confirm-rescore")
     if args.output is None:
         errors.append("partial resnap rescore requires explicit --output")
+    elif args.output.exists():
+        errors.append(f"refusing to overwrite existing analysis output: {args.output}")
     if errors:
         print(
             json.dumps(
@@ -251,8 +254,7 @@ def main(argv: list[str] | None = None) -> int:
         limit=max(1, int(args.limit)),
         only_with_direct_bus=bool(args.only_with_direct_bus),
     )
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")
+    write_new_text_report(args.output, json.dumps(report, indent=2, sort_keys=True) + "\n")
     print(
         json.dumps(
             {
