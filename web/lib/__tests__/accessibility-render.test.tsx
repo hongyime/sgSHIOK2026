@@ -780,6 +780,23 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("1 of 1 exposed gap include map coordinates.");
   });
 
+  it("uses singular grammar when one exposed gap has no map coordinates", () => {
+    const recordWithUnlocatedGap: ScoreRecord = {
+      ...scoredRecord,
+      exposure_gaps: [{ len_m: 64.2, label: "solo-gap" }],
+    };
+    const html = renderScoreCard({
+      selection: {
+        ...selection,
+        score: recordWithUnlocatedGap,
+      },
+      rankingRecords: [recordWithUnlocatedGap],
+    });
+
+    expect(html).toContain("No map coordinates are recorded for this exposed gap.");
+    expect(html).not.toContain("No map coordinates are recorded for these exposed gaps.");
+  });
+
   it("names the shortest walk in exposure copy when that display is active", () => {
     const html = renderScoreCard({
       routeMode: "shortest",

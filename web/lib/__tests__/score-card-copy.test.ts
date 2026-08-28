@@ -348,6 +348,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("${formatDistance(score.paths.sheltered_m)} to ${transitModeLabel(transitMode)}");
     expect(source).toContain('${gapsWithCoordinates === 1 ? "includes" : "include"} map coordinates.');
     expect(source).not.toContain("} include map coordinates.");
+    expect(source).toContain('exposureGaps.length === 1 ? "this exposed gap" : "these exposed gaps"');
     expect(source).toContain("styles.gapAction");
     expect(source).toContain("Focus map");
     expect(readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8")).toContain(
