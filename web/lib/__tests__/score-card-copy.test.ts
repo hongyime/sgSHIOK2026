@@ -123,7 +123,9 @@ describe("score card copy", () => {
     expect(source).not.toMatch(/>\s*↺ Published walk\s*</);
     const pickerSource = readFileSync(join(__dirname, "../../components/transit-stop-picker.tsx"), "utf-8");
     expect(pickerSource).toContain("Nearby transit targets");
+    expect(pickerSource).toContain('aria-label="Transit target picker"');
     expect(pickerSource).toContain('aria-label="Nearby transit targets"');
+    expect(pickerSource).not.toContain('aria-label="Transit stop picker"');
     expect(pickerSource).not.toContain('aria-label="Nearby transit stops"');
   });
 

@@ -308,8 +308,10 @@ describe("TransitStopPicker component", () => {
     // 5 candidate chips + 0 reset (activeStopId is null / matches best)
     expect(chipMatches).toHaveLength(5);
     expect(html).toContain("Nearby transit targets");
+    expect(html).toContain('aria-label="Transit target picker"');
     expect(html).toContain('aria-label="Nearby transit targets"');
     expect(html).not.toContain("Nearby transit</div>");
+    expect(html).not.toContain('aria-label="Transit stop picker"');
     expect(html).not.toContain('aria-label="Nearby transit stops"');
     expect(html).toContain(`data-chip-id="${bestStopId}"`);
     // Best chip has aria-current

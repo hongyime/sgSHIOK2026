@@ -112,7 +112,7 @@ export function TransitStopPicker({
   const comparisonText = buildComparisonText(comparison);
 
   return (
-    <div className={styles.pickerShell} aria-label="Transit stop picker">
+    <div className={styles.pickerShell} aria-label="Transit target picker">
       <div className={styles.pickerHeader}>Nearby transit targets</div>
       <div
         ref={containerRef}
