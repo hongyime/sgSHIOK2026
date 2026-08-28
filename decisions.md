@@ -1628,3 +1628,7 @@ The production deploy wrapper must satisfy both safety boundaries: `run.py publi
 2026-08-28 - P746 postal-universe prep wrapper confirmations:
 
 The postal-universe prep wrapper predates two runner guards: `run.py postal-universe` now requires `--confirm-postal-universe`, and non-dry bounded geocoding requires an explicitly versioned geocode cache. `scripts/prepare-postal-universe.ps1` now passes the postal-universe confirmation and derives `raw\geocode_cache_${Version}.db` for `geocode-universe --cache-db`, keeping the generated cache tied to the same numeric version as the candidate universe. This is wrapper/test hygiene only; it does not build a universe, geocode, call OneMap, mutate raw or processed artifacts, score, export, deploy, mutate protected QA evidence, or touch locked weights.
+
+2026-08-28 - P747 legacy geocode entry point retired:
+
+`pipeline/geocode.py` was a legacy direct CLI that could call OneMap and write the unversioned mutable `raw/geocode_cache.db` outside the guarded `run.py geocode-universe` path. Its importable helper functions remain for history, but direct invocation now exits with a retirement message pointing to the dry-run and confirmed versioned-cache flow. The runner also now forwards `geocode-universe` arguments to `pipeline.geocode_universe`, so the confirmed wrapper path reaches the module with its explicit input, output, and cache arguments. This is guard/test hygiene only; it does not call OneMap, geocode, mutate raw inputs/caches, score, export, deploy, protected QA evidence, or locked weights.

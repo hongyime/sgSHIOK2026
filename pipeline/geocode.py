@@ -4,7 +4,6 @@ import time
 import httpx
 import geopandas as gpd
 from pathlib import Path
-from pyrosm import OSM
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RAW_DIR = PROJECT_ROOT / "raw"
@@ -30,6 +29,8 @@ def init_db():
 
 
 def extract_postcodes():
+    from pyrosm import OSM
+
     print("Extracting pilot universe (HDB + OSM)...")
     pa_path = list(RAW_DIR.rglob("planning_area_boundary.geojson"))[0]
     pa_gdf = gpd.read_file(pa_path).to_crs(epsg=3414)
@@ -159,5 +160,15 @@ def geocode_loop():
         time.sleep(2.0)  # 0.5 req/s ratelimit
 
 
+def main() -> int:
+    print(
+        "pipeline.geocode is retired because it writes raw/geocode_cache.db directly. "
+        "Use `uv run python run.py geocode-universe --dry-run` for planning, or the "
+        "guarded `run.py geocode-universe --confirm-bounded-geocode --db "
+        "raw/geocode_cache_vN.db` path after owner approval."
+    )
+    return 2
+
+
 if __name__ == "__main__":
-    geocode_loop()
+    raise SystemExit(main())

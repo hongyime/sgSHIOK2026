@@ -379,7 +379,7 @@ def run_task(name: str, extra: list[str]) -> int:
                     file=sys.stderr,
                 )
                 return 2
-        return run_module("pipeline.geocode_universe")
+        return run_module("pipeline.geocode_universe", extra_args=extra)
     if name == "export":
         if not require_runner_flag(
             extra=extra,

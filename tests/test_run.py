@@ -1500,6 +1500,54 @@ def test_run_task_refuses_geocode_universe_without_confirm(monkeypatch, capsys):
     )
 
 
+def test_run_task_forwards_geocode_universe_args(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert (
+        run.run_task(
+            "geocode-universe",
+            [
+                "--input",
+                "processed/postal_universe_candidate_full_registered_v2.parquet",
+                "--output",
+                "processed/postal_universe_candidate_full_registered_geocoded_v2.parquet",
+                "--db",
+                "raw/geocode_cache_v2.db",
+                "--confirm-bounded-geocode",
+            ],
+        )
+        == 0
+    )
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "pipeline.geocode_universe",
+                "--input",
+                "processed/postal_universe_candidate_full_registered_v2.parquet",
+                "--output",
+                "processed/postal_universe_candidate_full_registered_geocoded_v2.parquet",
+                "--db",
+                "raw/geocode_cache_v2.db",
+                "--confirm-bounded-geocode",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
 def test_run_task_refuses_postal_universe_without_confirm(monkeypatch, capsys):
     assert_task_refused_without_subprocess(
         monkeypatch,
