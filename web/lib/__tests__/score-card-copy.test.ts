@@ -144,6 +144,10 @@ describe("score card copy", () => {
     expect(source).not.toContain('{ id: "best_transit", label: "Best transit" }');
     expect(source).not.toContain('{ id: "mrt_lrt", label: "MRT/LRT" }');
     expect(source).not.toContain('{ id: "bus", label: "Bus" }');
+    expect(source).toContain('if (mode === "mrt_lrt") return "MRT/LRT exit";');
+    expect(source).toContain('if (mode === "bus") return "bus stop";');
+    expect(source).not.toContain('if (mode === "mrt_lrt") return "MRT/LRT";');
+    expect(source).not.toContain('if (mode === "bus") return "bus";');
   });
 
   it("accepts walk-mode browser smoke arguments while preserving route-mode compatibility", () => {

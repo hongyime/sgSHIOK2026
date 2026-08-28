@@ -540,6 +540,16 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Selected walk distance to transit.");
     expect(html).not.toContain("240 m to transit");
     expect(html).not.toContain("Selected route distance to transit.");
+    const busHtml = renderScoreCard({ transitMode: "bus" });
+    expect(busHtml).toContain("Sheltered walk distance to bus stop.");
+    expect(busHtml).toContain("240 m sheltered walk to bus stop");
+    expect(busHtml).not.toContain("Sheltered walk distance to bus.");
+    expect(busHtml).not.toContain("240 m sheltered walk to bus</span>");
+    const mrtHtml = renderScoreCard({ transitMode: "mrt_lrt" });
+    expect(mrtHtml).toContain("Sheltered walk distance to MRT/LRT exit.");
+    expect(mrtHtml).toContain("240 m sheltered walk to MRT/LRT exit");
+    expect(mrtHtml).not.toContain("Sheltered walk distance to MRT/LRT.");
+    expect(mrtHtml).not.toContain("240 m sheltered walk to MRT/LRT</span>");
     expect(html).toContain("Bus service support");
     expect(html).toContain(
       "A low value can mean weak service evidence, or that the published shelter-map walk could not prove access to an official LTA bus stop."
