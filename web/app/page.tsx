@@ -1441,8 +1441,8 @@ export function ScoreCard({
             id: "bus",
             label: "Bus service support",
             value: formatScore(null),
-            meta: "Locked bus term unavailable",
-            notes: ["Locked bus evidence is not computed for records outside the 1.2 km transit range."],
+            meta: "Bus service not scored",
+            notes: ["Bus service support is not computed for records outside the locked 1.2 km transit range."],
           },
           {
             id: "locked-score",
