@@ -223,6 +223,13 @@ describe("score card copy", () => {
     expect(source).not.toContain("Shelter-first walks to transit");
     expect(source).toContain('placeholder="Search OneMap address or 6-digit postal"');
     expect(source).toContain('aria-label="Search OneMap address or 6-digit postal"');
+    expect(source).toContain("const SAMPLE_POSTAL_RESULT: SearchResult = {");
+    expect(source).toContain('POSTAL: "560234"');
+    expect(source).toContain('SEARCHVAL: "Try S560234"');
+    expect(source).toContain("const loadSamplePostal = async () => {");
+    expect(source).toContain('aria-label="Sample search"');
+    expect(source).toContain("Need a quick look?");
+    expect(source).toContain("Try S560234");
     expect(source).not.toContain('placeholder="Search address or 6-digit postal"');
     expect(source).not.toContain('aria-label="Search address or 6-digit postal"');
     expect(source).toContain("Enter at least 3 characters for OneMap search, or use a 6-digit postal code.");

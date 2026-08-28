@@ -171,6 +171,7 @@
 
 .searchForm input:focus-visible,
 .searchForm button:focus-visible,
+.sampleSearches button:focus-visible,
 .layerToggle:focus-visible,
 .segmented button:focus-visible,
 .resultList button:focus-visible,
@@ -207,6 +208,31 @@
 }
 
 .searchForm button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.sampleSearches {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #5d6d67;
+  font-size: 11px;
+}
+
+.sampleSearches button {
+  min-height: 28px;
+  border: 1px solid rgba(62, 75, 70, 0.22);
+  border-radius: 8px;
+  padding: 4px 9px;
+  color: #17211f;
+  background: rgba(255, 255, 255, 0.9);
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.sampleSearches button:disabled {
   cursor: wait;
   opacity: 0.7;
 }

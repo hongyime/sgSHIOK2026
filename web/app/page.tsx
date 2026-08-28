@@ -117,6 +117,15 @@ const COVERED_LINKWAY_FRESHNESS_COPY =
 const LEAF_AREA_INDEX_REFERENCE_COPY =
   "NParks Leaf Area Index is a freshness-only reference table here; walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature.";
 
+const SAMPLE_POSTAL_RESULT: SearchResult = {
+  BUILDING: "Sample postal",
+  ROAD_NAME: "Mayflower area",
+  POSTAL: "560234",
+  LATITUDE: "",
+  LONGITUDE: "",
+  SEARCHVAL: "Try S560234",
+};
+
 export function nightLightingLayerNote(lampOverlayEnabled: boolean): string {
   const action = lampOverlayEnabled
     ? "Zoom into a neighbourhood to load lamp-post points."
@@ -2184,6 +2193,12 @@ export default function Home() {
     }
   };
 
+  const loadSamplePostal = async () => {
+    setQuery(SAMPLE_POSTAL_RESULT.POSTAL);
+    setSearchAttempted(false);
+    await loadSelection(SAMPLE_POSTAL_RESULT);
+  };
+
   const addFeedbackPoint = (point: FeedbackPoint) => {
     setCopyStatus("");
     setFeedbackPoints((current) => {
@@ -2302,6 +2317,13 @@ export default function Home() {
             ))}
           </div>
         )}
+
+        <div className={styles.sampleSearches} aria-label="Sample search">
+          <span>Need a quick look?</span>
+          <button type="button" onClick={loadSamplePostal} disabled={loading}>
+            Try S560234
+          </button>
+        </div>
 
         <details className={styles.dataLimits}>
           <summary>Data limits</summary>

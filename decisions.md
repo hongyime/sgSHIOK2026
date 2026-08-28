@@ -1,3 +1,6 @@
+2026-08-29 - P775 sample postal entry point:
+The first screen should be immediately evaluable without requiring the user to know a Singapore postal code. A compact sample action loads `S560234`, a known published-bundle postal already used by data tests, through the same selection path as a direct postal search. This is web/test/evidence work only; it does not call OneMap search for the sample, score, export, rescore, ingest, build network, mutate inputs, deploy, touch protected payloads, or change locked weights.
+
 2026-08-29 - P774 first-card product density:
 The first viewport should sell the shelter-map action before it reads like provenance evidence. Keep the title, product sentence, data-as-of line, locked-score coverage line, search, and night-lighting toggle visible, but move address-universe, recent-source sample, OSM postcode, source freshness, attribution, and heat-proxy caveats into a `Data limits` disclosure below search/results. Exposed-gap rows should use action wording, `Focus on map`, because the exposure gaps are the product's strongest inspectable artifact. This is web/test/evidence work only; it does not score, export, rescore, ingest, build network, mutate inputs, deploy, touch protected payloads, or change locked weights.
 
