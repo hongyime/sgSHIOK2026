@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest commit: `8adeecb` (`docs: refresh browser freshness bus window`)
+Latest commit: `8c817bc` (`docs: update agent state after browser freshness`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
