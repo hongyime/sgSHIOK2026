@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest commit: `88e0e81` (`fix: require explicit onemap probe confirmation`)
+Latest commit: `dc6d3ff` (`feat: expose guarded onemap probe task`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,7 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P715 is complete and pushed: `pipeline.probe_onemap` now requires explicit fresh `--output` plus `--confirm-onemap-probe`, refuses the historical `logs/onemap_probe.csv` path, and opens the CSV with exclusive creation.
-- Evidence: `qa/verification/P715-onemap-probe-guard.md`.
-- Checks: `tests/test_probe_onemap.py` passed 4/4; Python collect-only is 502; repo integrity passed; diff-check passed; protected-diff guard passed.
+- P716 is complete and pushed: `run.py` now exposes the guarded OneMap sustained-rate probe as `onemap-probe` with help text naming the explicit `--output` and `--confirm-onemap-probe` requirements.
+- Evidence: `qa/verification/P716-onemap-probe-run-task.md`.
+- Checks: `tests/test_run.py tests/test_probe_onemap.py` passed 21/21; Python collect-only is 503; repo integrity passed; diff-check passed; protected-diff guard passed.
 - No OneMap probe, scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
