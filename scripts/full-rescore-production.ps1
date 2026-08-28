@@ -2,6 +2,7 @@
 param(
     [switch]$ConfirmFullBatch,
     [switch]$Deploy,
+    [switch]$ConfirmProductionDeploy,
     [switch]$SkipActivateBundle,
     [int]$Workers = 4,
     [int]$ChunkSize = 500,
@@ -16,6 +17,9 @@ $RepoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
 
 if (-not $ConfirmFullBatch) {
     throw "Full rescore requires -ConfirmFullBatch after review. This avoids accidental long batch runs."
+}
+if ($Deploy -and -not $ConfirmProductionDeploy) {
+    throw "Production deploy requires -ConfirmProductionDeploy. Full-batch approval is not production publish approval."
 }
 if ($Workers -lt 1 -or $Workers -gt 8) {
     throw "Workers must be between 1 and 8."
@@ -207,7 +211,7 @@ print(json.dumps({"chunk_count": len(chunks), "records": records, "state_counts"
     }
 
     if ($Deploy) {
-        & (Join-Path $PSScriptRoot "deploy-production.ps1") -DataBundle $BundleName
+        & (Join-Path $PSScriptRoot "deploy-production.ps1") -DataBundle $BundleName -ConfirmProduction
         if ($LASTEXITCODE -ne 0) { throw "deploy failed" }
     }
 

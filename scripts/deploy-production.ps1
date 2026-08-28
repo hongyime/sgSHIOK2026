@@ -1,6 +1,7 @@
 [CmdletBinding()]
 param(
     [string]$DataBundle = "",
+    [switch]$ConfirmProduction,
     [switch]$SkipWebTests
 )
 
@@ -20,6 +21,21 @@ if (-not $DataBundle -or $DataBundle.Contains("/") -or $DataBundle.Contains("\")
 $DataDir = Join-Path $WebDir "public\data\$DataBundle"
 if (-not (Test-Path (Join-Path $DataDir "manifest.json"))) {
     throw "Data bundle is missing manifest.json: $DataDir"
+}
+
+function Write-DeployPlan {
+    param([string]$Reason)
+    Write-Output ""
+    Write-Output "plan_only=true"
+    Write-Output "deploy=not_started"
+    Write-Output "reason=$Reason"
+    Write-Output "commands:"
+    Write-Output ".\scripts\deploy-production.bat -DataBundle $DataBundle -ConfirmProduction"
+}
+
+if (-not $ConfirmProduction) {
+    Write-DeployPlan -Reason "confirm_production_not_set"
+    return
 }
 
 Push-Location $RepoRoot

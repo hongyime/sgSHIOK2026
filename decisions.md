@@ -1644,3 +1644,7 @@ The postal-universe prep wrapper must pass the cache path using the module's act
 2026-08-28 - P750 README DataMall discovery copy:
 
 README operator guidance now matches the latest recorded P682/P683 DataMall discovery-only evidence: the 28 Aug 2026 check found Covered Linkway, bridge/underpass, and Traffic Signals URLs still match frozen v1. The stale-payload and new-numbered-input-version policy remains unchanged. This is documentation/test alignment only; it does not probe DataMall, fetch payloads, mutate raw inputs, score, export, deploy, public data, protected QA evidence, or locked weights.
+
+2026-08-28 - P751 deploy wrapper confirmation guard:
+
+Production deployment approval must be explicit at every wrapper boundary. `scripts/deploy-production.ps1` now defaults to a plan-only response unless `-ConfirmProduction` is supplied, `scripts/release-data-bundle.ps1` passes its existing production confirmation through to the deploy wrapper, and `scripts/full-rescore-production.ps1` requires a distinct `-ConfirmProductionDeploy` when `-Deploy` is requested because full-batch approval is not production publish approval. This is release-wrapper guard/test hygiene only; it does not deploy, validate a bundle, activate a bundle, export, score, mutate public data, protected QA evidence, or locked weights.

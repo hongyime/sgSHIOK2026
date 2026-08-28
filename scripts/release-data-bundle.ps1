@@ -90,6 +90,7 @@ try {
     Write-Output ""
     Write-Output "== Direct production deploy =="
     $DeployArgs = @{ DataBundle = $DataBundle }
+    $DeployArgs.ConfirmProduction = $true
     if ($SkipWebTests) { $DeployArgs.SkipWebTests = $true }
     & (Join-Path $PSScriptRoot "deploy-production.ps1") @DeployArgs
     if ($LASTEXITCODE -ne 0) { throw "production deploy failed" }

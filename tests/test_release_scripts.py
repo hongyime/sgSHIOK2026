@@ -7,6 +7,14 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 def test_deploy_production_script_passes_runner_and_module_publish_confirms() -> None:
     source = (PROJECT_ROOT / "scripts" / "deploy-production.ps1").read_text(encoding="utf-8")
 
+    assert "[switch]$ConfirmProduction" in source
+    assert "confirm_production_not_set" in source
+    assert "Write-DeployPlan" in source
+
+    confirm_check = source.index("if (-not $ConfirmProduction)")
+    publish_command = source.index("uv run python run.py publish")
+    assert confirm_check < publish_command
+
     command_line = next(
         line.strip()
         for line in source.splitlines()
@@ -48,3 +56,24 @@ def test_release_data_bundle_script_passes_activation_confirm() -> None:
         if "activate-data-bundle.ps1" in line and "-DataBundle $DataBundle" in line
     )
     assert "-ConfirmActivation" in activation_line
+
+
+def test_release_data_bundle_script_passes_deploy_confirm() -> None:
+    source = (PROJECT_ROOT / "scripts" / "release-data-bundle.ps1").read_text(encoding="utf-8")
+
+    deploy_call = source.index('deploy-production.ps1") @DeployArgs')
+    confirm_arg = source.index("$DeployArgs.ConfirmProduction = $true")
+    assert confirm_arg < deploy_call
+
+
+def test_full_rescore_script_requires_distinct_production_deploy_confirm() -> None:
+    source = (PROJECT_ROOT / "scripts" / "full-rescore-production.ps1").read_text(encoding="utf-8")
+
+    assert "[switch]$ConfirmProductionDeploy" in source
+    assert "Full-batch approval is not production publish approval." in source
+
+    deploy_gate = source.index("if ($Deploy -and -not $ConfirmProductionDeploy)")
+    export_command = source.index("uv run python run.py export")
+    deploy_command = source.index('deploy-production.ps1") -DataBundle $BundleName -ConfirmProduction')
+    assert deploy_gate < export_command
+    assert export_command < deploy_command
