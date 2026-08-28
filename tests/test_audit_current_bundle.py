@@ -195,3 +195,43 @@ def test_audit_cli_runs_confirmed_replay_audit_with_explicit_output(
         "output": str(output),
         "bundle": "generated_example",
     }
+
+
+def test_audit_cli_refuses_existing_explicit_output(monkeypatch, capsys, tmp_path):
+    from scripts import audit_current_bundle
+
+    output = tmp_path / "bundle_audit.json"
+    output.write_text("{}\n", encoding="utf-8")
+
+    def fake_build_report(**_kwargs):
+        return {
+            "bundle": "generated_example",
+            "manifest_record_count": 2,
+            "state_counts": {"SCORED": 2},
+            "not_yet_scored": {"count": 0},
+            "no_transit_in_range": {"count": 0},
+        }
+
+    monkeypatch.setattr(audit_current_bundle, "build_report", fake_build_report)
+
+    assert (
+        main(
+            [
+                "--confirm-replay-audit",
+                "--bundle-dir",
+                str(tmp_path / "bundle"),
+                "--output",
+                str(output),
+                "--replay-limit",
+                "0",
+            ]
+        )
+        == 1
+    )
+
+    assert output.read_text(encoding="utf-8") == "{}\n"
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": [f"refusing to overwrite existing analysis output: {output}"],
+        "ok": False,
+    }

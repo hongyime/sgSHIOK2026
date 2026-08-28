@@ -28,6 +28,7 @@ from pipeline.scoring_integration import (
     select_bus_stop_candidates,
     select_mrt_exit_candidates,
 )
+from scripts.analysis.report_io import write_new_text_report
 
 DEFAULT_OUTPUT = PROJECT_ROOT / "qa" / "current_bundle_state_report.json"
 DEFAULT_UNIVERSE = (
@@ -486,8 +487,11 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(summarize_state_report(report), indent=2, sort_keys=True))
         return 0
 
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")
+    try:
+        write_new_text_report(args.output, json.dumps(report, indent=2, sort_keys=True) + "\n")
+    except FileExistsError as exc:
+        print(json.dumps({"ok": False, "errors": [str(exc)]}, indent=2, sort_keys=True))
+        return 1
     print(
         json.dumps({"ok": True, "output": str(args.output), "bundle": report["bundle"]}, indent=2)
     )
