@@ -1684,3 +1684,7 @@ Full OneMap validation wrappers must not bypass runner-level approval by self-su
 2026-08-28 - P760 export subcommand direct-write confirmation guards:
 
 `pipeline.export export-transit` writes transit POI artifacts, and `pipeline.export refresh-provenance` mutates bundle manifest provenance. Direct execution now requires `--confirm-export` for `export-transit` and `--confirm-refresh-provenance` for `refresh-provenance`; `run.py` forwards those module-owned confirmations instead of stripping them. This is guard/test hygiene only; it does not export, refresh provenance, mutate public data, score, deploy, protected QA evidence, or touch locked weights.
+
+2026-08-28 - P761 Overture direct-probe confirmation guard:
+
+`pipeline.overture_addresses` can query remote Overture Maps address data, write candidate reports/GeoJSON, and archive hashed raw parquet evidence. Direct execution now requires `--confirm-overture-addresses` after the existing no-overwrite preflight and before any remote query or evidence write. `run.py overture-addresses` forwards the same module-owned confirmation instead of stripping it. This is guard/test hygiene only; it does not query Overture, archive raw evidence, mutate public data, protected QA evidence, score, export, deploy, or touch locked weights.

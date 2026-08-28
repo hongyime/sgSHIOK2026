@@ -262,8 +262,7 @@ def run_task(name: str, extra: list[str]) -> int:
             ),
         ):
             return 2
-        forwarded = [arg for arg in extra if arg != OVERTURE_ADDRESSES_CONFIRM_FLAG]
-        return run_module("pipeline.overture_addresses", extra_args=forwarded)
+        return run_module("pipeline.overture_addresses")
     if name == "p19-gap-status":
         return run_module("scripts.analysis.p19_universe_gap_measurement", ["--cache-status-only"])
     if name == "p19-mcst-locations":

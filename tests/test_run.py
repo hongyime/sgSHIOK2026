@@ -1229,7 +1229,7 @@ def test_run_task_refuses_overture_addresses_without_confirm(monkeypatch, capsys
     )
 
 
-def test_run_task_strips_overture_addresses_confirm(monkeypatch):
+def test_run_task_forwards_overture_addresses_confirm(monkeypatch):
     calls = []
 
     class FakeCompletedProcess:
@@ -1257,6 +1257,7 @@ def test_run_task_strips_overture_addresses_confirm(monkeypatch):
                 "pipeline.overture_addresses",
                 "--output",
                 "qa/p742/overture.json",
+                "--confirm-overture-addresses",
             ],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},

@@ -6,6 +6,7 @@ import pyarrow.parquet as pq
 
 import pipeline.overture_addresses as overture_addresses
 from pipeline.overture_addresses import (
+    CONFIRM_OVERTURE_ADDRESSES_FLAG,
     archive_overture_postcode_rows,
     compare_coordinate_deltas,
     compare_postcode_sets,
@@ -172,6 +173,54 @@ def test_overture_cli_refuses_existing_output_before_query(
         "errors": [f"refusing to overwrite existing Overture output: {output}"],
         "ok": False,
     }
+
+
+def test_overture_cli_requires_confirm_before_query(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    def fail_build(*_args, **_kwargs):
+        raise AssertionError("Overture query should not run before confirmation")
+
+    monkeypatch.setattr(overture_addresses, "build_overture_candidate_report", fail_build)
+    output = tmp_path / "overture-report.json"
+
+    assert overture_addresses.main(["--output", str(output)]) == 1
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": [
+            "Overture address probe requires --confirm-overture-addresses after owner approval"
+        ],
+        "ok": False,
+    }
+    assert not output.exists()
+
+
+def test_overture_cli_runs_confirmed_probe(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    output = tmp_path / "overture-report.json"
+
+    monkeypatch.setattr(
+        overture_addresses,
+        "build_overture_candidate_report",
+        lambda **_kwargs: (True, {"ok": True, "source": {"status": "candidate_not_scoring"}}),
+    )
+
+    assert (
+        overture_addresses.main(
+            ["--output", str(output), CONFIRM_OVERTURE_ADDRESSES_FLAG]
+        )
+        == 0
+    )
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {"ok": True, "source": {"status": "candidate_not_scoring"}}
+    assert json.loads(output.read_text(encoding="utf-8")) == report
 
 
 def test_overture_cli_refuses_existing_outlier_geojson_before_query(

@@ -27,6 +27,7 @@ DEFAULT_OVERTURE_PATH = (
     "s3://overturemaps-us-west-2/release/2026-07-22.0/theme=addresses/type=address/*"
 )
 POSTCODE_RE = re.compile(r"^[0-9]{6}$")
+CONFIRM_OVERTURE_ADDRESSES_FLAG = "--confirm-overture-addresses"
 
 
 def wgs84_to_xy_transformer() -> Transformer:
@@ -409,11 +410,30 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--output", type=Path, default=None)
     parser.add_argument("--outlier-geojson", type=Path, default=None)
     parser.add_argument("--outlier-threshold-m", type=float, default=100.0)
+    parser.add_argument(
+        CONFIRM_OVERTURE_ADDRESSES_FLAG,
+        action="store_true",
+        help="Required before querying remote Overture data or writing candidate evidence.",
+    )
     args = parser.parse_args(argv)
 
     errors = output_preflight_errors([args.output, args.outlier_geojson])
     if errors:
         print(json.dumps({"errors": errors, "ok": False}, indent=2, sort_keys=True))
+        return 1
+    if not args.confirm_overture_addresses:
+        print(
+            json.dumps(
+                {
+                    "errors": [
+                        "Overture address probe requires --confirm-overture-addresses after owner approval"
+                    ],
+                    "ok": False,
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
         return 1
 
     ok, report = build_overture_candidate_report(
