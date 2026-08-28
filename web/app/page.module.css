@@ -306,7 +306,9 @@
   font-size: 9px;
   font-weight: 900;
   text-transform: uppercase;
-  white-space: nowrap;
+  line-height: 1.05;
+  white-space: normal;
+  overflow-wrap: anywhere;
   opacity: 0.78;
   text-align: center;
 }

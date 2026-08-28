@@ -8,6 +8,13 @@ function cssFontSizePx(cssSource: string, selector: string): number {
   return Number.parseInt(match[1], 10);
 }
 
+function cssRuleBody(cssSource: string, selector: string): string {
+  const escapedSelector = selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const match = cssSource.match(new RegExp(`${escapedSelector}\\s*\\{([^}]*)\\}`, "m"));
+  if (!match) throw new Error(`Missing CSS rule for ${selector}`);
+  return match[1];
+}
+
 function expectSourceOrder(source: string, snippets: string[]): void {
   let previousIndex = -1;
   for (const snippet of snippets) {
@@ -466,7 +473,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("comfortMode");
     expect(source).toContain("const displayScore = score.total;");
     expect(source).toContain('label: "Locked score"');
-    expect(source).toContain('label: "No full score"');
+    expect(source).toContain('label: "No full locked score"');
+    expect(source).not.toContain('label: "No full score"');
     expect(source).toContain('value: "Published bundle"');
     expect(source).toContain("shelterEvidenceAnnouncement(selection.score)");
   });
@@ -670,7 +678,11 @@ describe("score card copy", () => {
     expect(exposureHeroFontSize).toBe(17);
     expect(lockedScoreFontSize).toBe(13);
     expect(cssSource).toContain(".scoreBadge span");
+    const lockedScoreLabelRule = cssRuleBody(cssSource, ".scoreBadge span");
     expect(cssSource).toContain("font-size: 9px;");
+    expect(lockedScoreLabelRule).toContain("overflow-wrap: anywhere;");
+    expect(lockedScoreLabelRule).toContain("white-space: normal;");
+    expect(lockedScoreLabelRule).not.toContain("white-space: nowrap;");
     expect(cssSource).not.toContain(".scoreBadge strong {\n    font-size: 18px;");
   });
 });
