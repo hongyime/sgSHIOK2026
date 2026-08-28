@@ -23,9 +23,11 @@ Gated pipeline tasks:
   score runs routed scoring even at its default limit; it requires --confirm-score-run after owner approval.
   score-batch runs routed scoring for non-dry limited batches; it requires --confirm-score-batch-run unless --full-batch uses --confirm-full-batch.
   export can re-export --records-dir without scoring; every export requires --confirm-export and live scoring export also requires --confirm-live-score-export.
-  refresh-provenance is fail-closed; direct pipeline.export invocation must name --output explicitly.
+  export-transit writes transit POI artifacts; it requires explicit --output and --confirm-export.
+  refresh-provenance is fail-closed; it requires explicit --output and --confirm-refresh-provenance.
   onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe.
   geocode-universe can call OneMap and write a bounded geocode-fill parquet, summary, and cache; non-dry runs require --confirm-bounded-geocode, fresh numeric-version outputs, and an explicitly versioned geocode cache.
+  publish deploys the static bundle; it requires --confirm-publish after owner approval.
 
 `publish` ALWAYS runs `validate` first — this gate is hard-coded and must never be removed.
 """
@@ -42,6 +44,15 @@ load_dotenv()
 SAFE_CHECK_FLAGS = {"--freshness-only", "--geospatial-discovery-only"}
 INPUT_REFRESH_CONFIRM_FLAG = "--confirm-input-refresh"
 LAMP_OVERLAY_CONFIRM_FLAG = "--confirm-lamp-overlay"
+NETWORK_BUILD_CONFIRM_FLAG = "--confirm-network-build"
+SCORE_RUN_CONFIRM_FLAG = "--confirm-score-run"
+SCORE_BATCH_CONFIRM_FLAG = "--confirm-score-batch-run"
+FULL_BATCH_CONFIRM_FLAG = "--confirm-full-batch"
+EXPORT_CONFIRM_FLAG = "--confirm-export"
+REFRESH_PROVENANCE_CONFIRM_FLAG = "--confirm-refresh-provenance"
+PUBLISH_CONFIRM_FLAG = "--confirm-publish"
+ONEMAP_PROBE_CONFIRM_FLAG = "--confirm-onemap-probe"
+BOUNDED_GEOCODE_CONFIRM_FLAG = "--confirm-bounded-geocode"
 
 STUBS = {
     "check": "refuses bare upstream checks; use --freshness-only or --geospatial-discovery-only for zero-mutation reports",
@@ -61,7 +72,7 @@ STUBS = {
     "p125-osm-status": "read-only status for cached P125 20 Aug 2026 Overpass addr:postcode coverage cross-check and registry policy",
     "universe-status": "read-only consolidated status for cached P19 and P125 postal-universe measurements",
     "readiness": "fast production-readiness report without scoring or deploying; use --gate-summary for concise release-gate output",
-    "refresh-provenance": "fail-closed manifest provenance refresh; direct pipeline.export invocation must name --output explicitly",
+    "refresh-provenance": "fail-closed manifest provenance refresh; requires explicit --output and --confirm-refresh-provenance",
     "score": "apply pipeline/config/weights.yaml (T1.4); requires --confirm-score-run",
     "score-batch": "resumable postal scoring batch runner; non-dry limited runs require explicit --output-dir and --confirm-score-batch-run",
     "bus-arrivals": "collect local LTA bus-arrival snapshots for future reliability scoring; requires explicit --output",
@@ -72,7 +83,7 @@ STUBS = {
     "postal-universe": "build deterministic postal-code universe candidates",
     "geocode-universe": "bounded OneMap geocode fill for source-derived postal gaps; non-dry runs require fresh numeric-version outputs and an explicitly versioned geocode cache",
     "export": "scores/{area}.json + geom/h3/{cell}.json + manifest (T1.5); requires --confirm-export, and live scoring requires --confirm-live-score-export",
-    "export-transit": "refresh transit POIs without rescoring",
+    "export-transit": "refresh transit POIs without rescoring; requires explicit --output and --confirm-export",
     "validate": "golden set + OneMap comparison; blocks publish (T1.7)",
     "publish": "vercel deploy --prod --archive=tgz (only deploy path)",
     "test": "pytest (T0.1)",
@@ -86,19 +97,34 @@ def subprocess_env() -> dict[str, str]:
     return env
 
 
+def wants_help(extra: list[str]) -> bool:
+    return "-h" in extra or "--help" in extra
+
+
+def require_runner_flag(
+    *,
+    extra: list[str],
+    flag: str,
+    message: str,
+) -> bool:
+    if wants_help(extra) or flag in extra:
+        return True
+    print(message, file=sys.stderr)
+    return False
+
+
 def run_task(name: str, extra: list[str]) -> int:
     def run_module(
         module: str,
         module_args: list[str] | None = None,
         extra_args: list[str] | None = None,
     ) -> int:
-        cmd = [sys.executable, "-m", module] + (module_args or []) + (extra_args or extra)
+        forwarded_extra = extra if extra_args is None else extra_args
+        cmd = [sys.executable, "-m", module] + (module_args or []) + forwarded_extra
         return subprocess.run(cmd, check=False, env=subprocess_env()).returncode
 
     if name == "batch-plan":
         return run_module("pipeline.batch_plan")
-    if name == "publish":
-        return run_module("pipeline.publish")
     if name == "test":
         return run_module("pytest")
     if name == "check":
@@ -139,6 +165,15 @@ def run_task(name: str, extra: list[str]) -> int:
         forwarded = [arg for arg in extra if arg != LAMP_OVERLAY_CONFIRM_FLAG]
         return run_module("pipeline.lamp_overlay", extra_args=forwarded)
     if name == "network":
+        if not require_runner_flag(
+            extra=extra,
+            flag=NETWORK_BUILD_CONFIRM_FLAG,
+            message=(
+                "run.py network builds processed network artifacts and QA outputs; pass "
+                "--confirm-network-build only after owner approval."
+            ),
+        ):
+            return 2
         return run_module("pipeline.network")
     if name == "network-debug":
         return run_module("scripts.rebuild_network_debug")
@@ -149,6 +184,15 @@ def run_task(name: str, extra: list[str]) -> int:
     if name == "onemap-validation":
         return run_module("pipeline.onemap_validation")
     if name == "onemap-probe":
+        if not require_runner_flag(
+            extra=extra,
+            flag=ONEMAP_PROBE_CONFIRM_FLAG,
+            message=(
+                "run.py onemap-probe calls the OneMap API; pass --confirm-onemap-probe "
+                "only after approval and with an explicit --output."
+            ),
+        ):
+            return 2
         return run_module("pipeline.probe_onemap")
     if name == "onemap-outlier-replay":
         return run_module("scripts.replay_onemap_outliers")
@@ -167,10 +211,39 @@ def run_task(name: str, extra: list[str]) -> int:
     if name == "readiness":
         return run_module("scripts.production_readiness")
     if name == "refresh-provenance":
-        return run_module("pipeline.export", ["refresh-provenance"])
+        if not require_runner_flag(
+            extra=extra,
+            flag=REFRESH_PROVENANCE_CONFIRM_FLAG,
+            message=(
+                "run.py refresh-provenance mutates bundle provenance metadata; pass "
+                "--confirm-refresh-provenance only after owner approval and with explicit --output."
+            ),
+        ):
+            return 2
+        forwarded = [arg for arg in extra if arg != REFRESH_PROVENANCE_CONFIRM_FLAG]
+        return run_module("pipeline.export", ["refresh-provenance"], forwarded)
     if name == "score":
+        if not require_runner_flag(
+            extra=extra,
+            flag=SCORE_RUN_CONFIRM_FLAG,
+            message=(
+                "run.py score runs routed scoring even at default limits; pass "
+                "--confirm-score-run only after owner approval."
+            ),
+        ):
+            return 2
         return run_module("pipeline.scoring_integration")
     if name == "score-batch":
+        if not wants_help(extra) and "--dry-run" not in extra:
+            required_flag = FULL_BATCH_CONFIRM_FLAG if "--full-batch" in extra else SCORE_BATCH_CONFIRM_FLAG
+            if required_flag not in extra:
+                print(
+                    "run.py score-batch runs routed scoring for non-dry batches; pass "
+                    "--confirm-score-batch-run for limited batches or --confirm-full-batch "
+                    "for full batches only after owner approval.",
+                    file=sys.stderr,
+                )
+                return 2
         return run_module("pipeline.score_batch")
     if name == "bus-arrivals":
         return run_module("pipeline.bus_arrivals")
@@ -183,13 +256,52 @@ def run_task(name: str, extra: list[str]) -> int:
     if name == "postal-universe":
         return run_module("pipeline.postal_universe")
     if name == "geocode-universe":
+        if not wants_help(extra) and "--dry-run" not in extra:
+            if BOUNDED_GEOCODE_CONFIRM_FLAG not in extra:
+                print(
+                    "run.py geocode-universe can call OneMap and write bounded geocode "
+                    "artifacts; pass --confirm-bounded-geocode only after owner approval.",
+                    file=sys.stderr,
+                )
+                return 2
         return run_module("pipeline.geocode_universe")
     if name == "export":
+        if not require_runner_flag(
+            extra=extra,
+            flag=EXPORT_CONFIRM_FLAG,
+            message=(
+                "run.py export writes a bundle directory; pass --confirm-export only "
+                "after owner approval and with explicit --output."
+            ),
+        ):
+            return 2
         return run_module("pipeline.export", ["export"])
     if name == "export-transit":
-        return run_module("pipeline.export", ["export-transit"])
+        if not require_runner_flag(
+            extra=extra,
+            flag=EXPORT_CONFIRM_FLAG,
+            message=(
+                "run.py export-transit writes transit artifacts; pass --confirm-export "
+                "only after owner approval and with explicit --output."
+            ),
+        ):
+            return 2
+        forwarded = [arg for arg in extra if arg != EXPORT_CONFIRM_FLAG]
+        return run_module("pipeline.export", ["export-transit"], forwarded)
     if name == "validate":
         return run_module("pipeline.export", ["validate"])
+    if name == "publish":
+        if not require_runner_flag(
+            extra=extra,
+            flag=PUBLISH_CONFIRM_FLAG,
+            message=(
+                "run.py publish deploys the static bundle; pass --confirm-publish only "
+                "after owner approval."
+            ),
+        ):
+            return 2
+        forwarded = [arg for arg in extra if arg != PUBLISH_CONFIRM_FLAG]
+        return run_module("pipeline.publish", extra_args=forwarded)
     if name == "shell":
         print(f"not implemented: {name} — {STUBS[name]}")
         return 0

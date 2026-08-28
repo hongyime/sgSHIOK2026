@@ -79,6 +79,10 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         in run.__doc__
     )
     assert (
+        "export-transit writes transit POI artifacts; it requires explicit --output and --confirm-export."
+        in run.__doc__
+    )
+    assert (
         "onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe."
         in run.__doc__
     )
@@ -86,6 +90,10 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         "geocode-universe can call OneMap and write a bounded geocode-fill parquet, "
         "summary, and cache; non-dry runs require --confirm-bounded-geocode, "
         "fresh numeric-version outputs, and an explicitly versioned geocode cache."
+        in run.__doc__
+    )
+    assert (
+        "publish deploys the static bundle; it requires --confirm-publish after owner approval."
         in run.__doc__
     )
 
@@ -117,7 +125,7 @@ def test_run_help_headline_does_not_flatten_all_tasks():
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in help_text
     assert "readiness --gate-summary prints the same release gate verdict and warnings without the full nested report." in help_text
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in help_text
-    assert "refresh-provenance is fail-closed; direct pipeline.export invocation must name --output explicitly." in help_text
+    assert "refresh-provenance is fail-closed; it requires explicit --output and --confirm-refresh-provenance." in help_text
     assert "refresh-provenance refresh bundle manifest score provenance without rescoring" not in help_text
     assert (
         "batch-plan dry-runs one-attempt full-batch prerequisites and policy status "
@@ -163,6 +171,10 @@ def test_run_help_headline_does_not_flatten_all_tasks():
         in help_text
     )
     assert (
+        "export-transit writes transit POI artifacts; it requires explicit --output and --confirm-export."
+        in help_text
+    )
+    assert (
         "onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe."
         in help_text
     )
@@ -172,12 +184,16 @@ def test_run_help_headline_does_not_flatten_all_tasks():
         "fresh numeric-version outputs, and an explicitly versioned geocode cache."
         in help_text
     )
+    assert (
+        "publish deploys the static bundle; it requires --confirm-publish after owner approval."
+        in help_text
+    )
 
 
 def test_run_task_descriptions_name_published_shelter_map_bundle():
     assert run.STUBS["refresh-provenance"] == (
-        "fail-closed manifest provenance refresh; direct pipeline.export invocation must "
-        "name --output explicitly"
+        "fail-closed manifest provenance refresh; requires explicit --output and "
+        "--confirm-refresh-provenance"
     )
     assert run.STUBS["lamp-overlay"] == (
         "build compact lamp-post overlay artifact from existing raw source; requires "
@@ -245,6 +261,10 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
         "scores/{area}.json + geom/h3/{cell}.json + manifest (T1.5); requires "
         "--confirm-export, and live scoring requires --confirm-live-score-export"
     )
+    assert run.STUBS["export-transit"] == (
+        "refresh transit POIs without rescoring; requires explicit --output and --confirm-export"
+    )
+    assert run.STUBS["publish"] == "vercel deploy --prod --archive=tgz (only deploy path)"
     assert "compare a targeted score report against the active bundle" not in run.STUBS.values()
 
 
@@ -270,6 +290,22 @@ def test_run_task_sets_pythonhashseed_for_module_subprocess(monkeypatch):
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
         }
     ]
+
+
+def assert_task_refused_without_subprocess(monkeypatch, capsys, task, extra, *messages):
+    calls = []
+
+    def fake_run(*args, **kwargs):
+        calls.append((args, kwargs))
+        raise AssertionError(f"{task} should not run without confirmation")
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task(task, extra) == 2
+    assert calls == []
+    err = capsys.readouterr().err
+    for message in messages:
+        assert message in err
 
 
 def test_run_check_requires_safe_report_flag(monkeypatch, capsys):
@@ -412,27 +448,15 @@ def test_run_ingest_strips_runner_confirm_flag_before_fetch(monkeypatch):
     ]
 
 
-def test_run_network_requires_confirm_network_build_via_module(monkeypatch):
-    calls = []
-
-    class FakeCompletedProcess:
-        returncode = 2
-
-    def fake_run(cmd, check, env):
-        calls.append({"cmd": cmd, "check": check, "env": env})
-        return FakeCompletedProcess()
-
-    monkeypatch.setattr(run.subprocess, "run", fake_run)
-
-    assert run.run_task("network", []) == 2
-
-    assert calls == [
-        {
-            "cmd": [sys.executable, "-m", "pipeline.network"],
-            "check": False,
-            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
-        }
-    ]
+def test_run_network_requires_confirm_network_build_before_module(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "network",
+        [],
+        "run.py network builds processed network artifacts and QA outputs",
+        "--confirm-network-build",
+    )
 
 
 def test_run_network_forwards_confirm_network_build(monkeypatch):
@@ -465,27 +489,15 @@ def test_run_network_forwards_confirm_network_build(monkeypatch):
     ]
 
 
-def test_run_score_requires_confirm_score_run_via_module(monkeypatch):
-    calls = []
-
-    class FakeCompletedProcess:
-        returncode = 1
-
-    def fake_run(cmd, check, env):
-        calls.append({"cmd": cmd, "check": check, "env": env})
-        return FakeCompletedProcess()
-
-    monkeypatch.setattr(run.subprocess, "run", fake_run)
-
-    assert run.run_task("score", []) == 1
-
-    assert calls == [
-        {
-            "cmd": [sys.executable, "-m", "pipeline.scoring_integration"],
-            "check": False,
-            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
-        }
-    ]
+def test_run_score_requires_confirm_score_run_before_module(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "score",
+        [],
+        "run.py score runs routed scoring even at default limits",
+        "--confirm-score-run",
+    )
 
 
 def test_run_score_forwards_confirm_score_run(monkeypatch):
@@ -555,6 +567,47 @@ def test_run_score_batch_forwards_confirm_score_batch_run(monkeypatch):
                 "--output-dir",
                 "qa/p726/scores",
                 "--confirm-score-batch-run",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_score_batch_requires_confirm_before_module(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "score-batch",
+        ["--postal-universe", "processed/subset.parquet", "--output-dir", "qa/p726/scores"],
+        "run.py score-batch runs routed scoring for non-dry batches",
+        "--confirm-score-batch-run",
+    )
+
+
+def test_run_score_batch_allows_dry_run_without_confirm(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("score-batch", ["--dry-run", "--postal-universe", "processed/subset.parquet"]) == 0
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "pipeline.score_batch",
+                "--dry-run",
+                "--postal-universe",
+                "processed/subset.parquet",
             ],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
@@ -731,6 +784,17 @@ def test_run_task_exposes_onemap_probe_as_gated_module(monkeypatch):
     ]
 
 
+def test_run_task_refuses_onemap_probe_without_confirm(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "onemap-probe",
+        ["--output", "logs/onemap_probe_v2.csv"],
+        "run.py onemap-probe calls the OneMap API",
+        "--confirm-onemap-probe",
+    )
+
+
 def test_run_task_exposes_universe_status_as_read_only_module(monkeypatch):
     calls = []
 
@@ -798,6 +862,250 @@ def test_run_task_forwards_readiness_gate_summary_flag(monkeypatch):
     assert calls == [
         {
             "cmd": [sys.executable, "-m", "scripts.production_readiness", "--gate-summary"],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_task_refuses_export_without_confirm(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "export",
+        ["--output", "web/public/data/generated_v2", "--records-dir", "processed/score_batches/demo"],
+        "run.py export writes a bundle directory",
+        "--confirm-export",
+    )
+
+
+def test_run_task_forwards_confirmed_export(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert (
+        run.run_task(
+            "export",
+            [
+                "--output",
+                "web/public/data/generated_v2",
+                "--records-dir",
+                "processed/score_batches/demo",
+                "--confirm-export",
+            ],
+        )
+        == 0
+    )
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "pipeline.export",
+                "export",
+                "--output",
+                "web/public/data/generated_v2",
+                "--records-dir",
+                "processed/score_batches/demo",
+                "--confirm-export",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_task_refuses_export_transit_without_confirm(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "export-transit",
+        ["--output", "web/public/data/transit_v2"],
+        "run.py export-transit writes transit artifacts",
+        "--confirm-export",
+    )
+
+
+def test_run_task_strips_export_confirm_for_export_transit(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert (
+        run.run_task(
+            "export-transit",
+            ["--output", "web/public/data/transit_v2", "--confirm-export"],
+        )
+        == 0
+    )
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "pipeline.export",
+                "export-transit",
+                "--output",
+                "web/public/data/transit_v2",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_task_refuses_refresh_provenance_without_confirm(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "refresh-provenance",
+        ["--output", "web/public/data/generated_v2"],
+        "run.py refresh-provenance mutates bundle provenance metadata",
+        "--confirm-refresh-provenance",
+    )
+
+
+def test_run_task_strips_refresh_provenance_confirm(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert (
+        run.run_task(
+            "refresh-provenance",
+            ["--output", "web/public/data/generated_v2", "--confirm-refresh-provenance"],
+        )
+        == 0
+    )
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "pipeline.export",
+                "refresh-provenance",
+                "--output",
+                "web/public/data/generated_v2",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_task_refuses_geocode_universe_without_confirm(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "geocode-universe",
+        [
+            "--input",
+            "processed/postal_universe_candidate_full_registered.parquet",
+            "--output",
+            "processed/postal_universe_candidate_full_registered_geocoded_v2.parquet",
+        ],
+        "run.py geocode-universe can call OneMap",
+        "--confirm-bounded-geocode",
+    )
+
+
+def test_run_task_allows_geocode_universe_dry_run_without_confirm(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert (
+        run.run_task(
+            "geocode-universe",
+            [
+                "--dry-run",
+                "--input",
+                "processed/postal_universe_candidate_full_registered.parquet",
+                "--output",
+                "processed/postal_universe_candidate_full_registered_geocoded_v2.parquet",
+            ],
+        )
+        == 0
+    )
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "pipeline.geocode_universe",
+                "--dry-run",
+                "--input",
+                "processed/postal_universe_candidate_full_registered.parquet",
+                "--output",
+                "processed/postal_universe_candidate_full_registered_geocoded_v2.parquet",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_task_refuses_publish_without_confirm(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "publish",
+        [],
+        "run.py publish deploys the static bundle",
+        "--confirm-publish",
+    )
+
+
+def test_run_task_strips_publish_confirm(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("publish", ["--confirm-publish"]) == 0
+
+    assert calls == [
+        {
+            "cmd": [sys.executable, "-m", "pipeline.publish"],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
         }

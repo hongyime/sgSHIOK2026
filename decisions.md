@@ -1596,3 +1596,7 @@ Batch planning must not treat a historical completed bounded geocode fill backed
 2026-08-28 - P738 lamp-overlay runner confirmation gate:
 
 `run.py lamp-overlay` is a writer because it builds a compact lamp-post artifact directory from existing raw lamp data. The runner now requires `--confirm-lamp-overlay` before invoking `pipeline.lamp_overlay`, strips that runner-only flag before forwarding, and names the requirement in the task documentation and stub text. This is runner guard/test coverage only; it does not build a lamp overlay, mutate raw inputs, mutate public data, score, export, deploy, protected QA evidence, or locked weights.
+
+2026-08-28 - P739 runner-level writer gates:
+
+The task runner should fail closed before launching dangerous modules, not rely on those modules to reject unsafe defaults after startup. `run.py` now prechecks confirmation flags for network builds, scoring, non-dry score batches, exports, transit exports, provenance refreshes, OneMap probes, non-dry bounded geocode fills, and publishes. Dry-run score batches and dry-run bounded geocode fills remain callable without confirmation. This is runner guard/test coverage only; it does not run scoring, export, rescore, subset scoring, ingest, network build, OneMap probe, public-data writes, deployment, protected QA evidence mutation, or locked weights.
