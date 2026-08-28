@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P633 web commit: `f0ba094`; state-only commits may follow it on `main`.
+Latest P634 web commit: `924a17f`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P634 is complete and committed: the transit target picker now labels MRT/LRT exit candidates as `MRT/LRT exit` instead of the terse `MRT`, matching the settled bus-stop-or-MRT/LRT-exit target model. Focused transit-picker test, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 162 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P633 is complete and committed: planning-area rank live/status copy now uses sentence-case metric phrases such as `locked score sorting index`, `rain covered-walkway evidence`, and `bus service-support evidence` inside status and empty-state sentences, while visible selector labels remain unchanged. Focused accessibility/copy tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests are now 162 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P632 is complete and committed: the missing-score badge now says `No full locked score` instead of `No full score`, keeping missing locked-score availability distinct from available shelter-map walk evidence. `.scoreBadge span` now wraps the longer label with `white-space: normal` and `overflow-wrap: anywhere`. The first focused test run caught an over-broad stylesheet assertion, then corrected focused accessibility/copy tests and full web suite passed; Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed. Web tests remain 161 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P631 is complete and committed: the transit-picker reset chip now says `Reset to auto-picked target` with aria label `Reset to auto-picked transit target`, replacing vague `Reset to best` / `best transit` wording. Adjacent source comments and tests now use active-target language. The first focused test run caught a stale comment assertion, then corrected focused picker test and full web suite passed; Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed. Web tests remain 161 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
