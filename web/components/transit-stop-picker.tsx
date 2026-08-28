@@ -31,7 +31,7 @@ function formatMeters(m: number): string {
 }
 
 function chipKindLabel(kind: TransitCandidate["kind"]): string {
-  return kind === "mrt_exit" ? "MRT" : "Bus";
+  return kind === "mrt_exit" ? "MRT/LRT exit" : "Bus";
 }
 
 /**
