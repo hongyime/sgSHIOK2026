@@ -2,11 +2,16 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
+
+from scripts.analysis.report_io import write_new_text_report
+
 QA_DIR = PROJECT_ROOT / "qa"
 
 
@@ -52,8 +57,7 @@ def build_debug_geojson(report: dict[str, Any]) -> dict[str, Any]:
 def rebuild_debug_geojson(qa_path: Path, output_path: Path) -> dict[str, Any]:
     report = json.loads(qa_path.read_text(encoding="utf-8"))
     payload = build_debug_geojson(report)
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    write_new_text_report(output_path, json.dumps(payload, indent=2, sort_keys=True) + "\n")
     return {
         "ok": True,
         "qa_path": str(qa_path),
@@ -69,6 +73,17 @@ def main() -> int:
     parser.add_argument("--qa", type=Path, default=QA_DIR / "conflation_qa_island.json")
     parser.add_argument("--output", type=Path, default=QA_DIR / "island_debug.geojson")
     args = parser.parse_args()
+
+    if args.output == QA_DIR / "island_debug.geojson":
+        print(
+            json.dumps(
+                {"errors": ["network debug rebuild requires explicit --output"]},
+                indent=2,
+                sort_keys=True,
+            ),
+            file=sys.stderr,
+        )
+        return 2
 
     report = rebuild_debug_geojson(args.qa, args.output)
     print(json.dumps(report, indent=2))

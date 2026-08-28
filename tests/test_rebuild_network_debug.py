@@ -1,6 +1,8 @@
 import json
+import sys
 from pathlib import Path
 
+from scripts import rebuild_network_debug
 from scripts.rebuild_network_debug import build_debug_geojson, rebuild_debug_geojson
 
 
@@ -71,3 +73,37 @@ def test_rebuild_debug_geojson_writes_output(tmp_path: Path) -> None:
         json.loads(output_path.read_text(encoding="utf-8"))["features"][0]["properties"]["class"]
         == "CLIP_EDGE"
     )
+
+
+def test_rebuild_debug_geojson_refuses_existing_output(tmp_path: Path) -> None:
+    qa_path = tmp_path / "conflation_qa_island.json"
+    output_path = tmp_path / "island_debug.geojson"
+    qa_path.write_text(
+        json.dumps({"residual_components_gt_50_final": [], "residual_components_gt_50_osm_only": []}),
+        encoding="utf-8",
+    )
+    output_path.write_text("{}\n", encoding="utf-8")
+
+    try:
+        rebuild_debug_geojson(qa_path, output_path)
+    except FileExistsError as exc:
+        assert "refusing to overwrite existing analysis output" in str(exc)
+    else:
+        raise AssertionError("existing network debug output was overwritten")
+
+    assert output_path.read_text(encoding="utf-8") == "{}\n"
+
+
+def test_rebuild_network_debug_cli_requires_explicit_output_before_input_read(
+    monkeypatch, capsys
+) -> None:
+    def fail_if_read(_qa_path, _output_path):
+        raise AssertionError("network debug rebuild should not read before explicit output validation")
+
+    monkeypatch.setattr(rebuild_network_debug, "rebuild_debug_geojson", fail_if_read)
+    monkeypatch.setattr(sys, "argv", ["rebuild_network_debug.py"])
+
+    assert rebuild_network_debug.main() == 2
+
+    captured = capsys.readouterr()
+    assert "network debug rebuild requires explicit --output" in captured.err
