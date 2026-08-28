@@ -1,6 +1,8 @@
 import json
+import sys
 
 from pipeline.export import encode_polyline
+from scripts import mayflower_qa_summary
 from scripts.mayflower_qa_summary import build_summary, route_gap_features, write_markdown
 
 
@@ -226,6 +228,68 @@ def test_write_markdown_includes_reviewable_candidate_details(tmp_path):
     assert "`feedback-560231-segment-6-hdb-source-overlap-review`" in content
     assert "status `blocked_insufficient_source_overlap_not_scoring`" in content
     assert "HDB overlap `0.105`" in content
+
+
+def test_write_markdown_refuses_existing_output(tmp_path):
+    output = tmp_path / "summary.md"
+    output.write_text("original\n", encoding="utf-8")
+
+    try:
+        write_markdown(output, {"bundle": "bundle", "conclusion": {}})
+    except FileExistsError as exc:
+        assert "refusing to overwrite existing analysis output" in str(exc)
+    else:
+        raise AssertionError("existing Mayflower markdown output was overwritten")
+
+    assert output.read_text(encoding="utf-8") == "original\n"
+
+
+def test_mayflower_summary_cli_requires_explicit_outputs_before_input_reads(
+    monkeypatch, capsys
+):
+    def fail_if_loaded():
+        raise AssertionError("active bundle should not be read before explicit output validation")
+
+    monkeypatch.setattr(mayflower_qa_summary, "active_bundle_dir", fail_if_loaded)
+    monkeypatch.setattr(sys, "argv", ["mayflower_qa_summary.py"])
+
+    assert mayflower_qa_summary.main() == 2
+
+    captured = capsys.readouterr()
+    assert "Mayflower QA summary requires explicit --output-json" in captured.err
+    assert "Mayflower QA summary requires explicit --output-md" in captured.err
+
+
+def test_mayflower_summary_cli_refuses_existing_gap_output_before_input_reads(
+    tmp_path, monkeypatch, capsys
+):
+    def fail_if_loaded():
+        raise AssertionError("active bundle should not be read before output validation")
+
+    output_json = tmp_path / "summary.json"
+    output_md = tmp_path / "summary.md"
+    gap_output = tmp_path / "gaps.geojson"
+    gap_output.write_text("{}\n", encoding="utf-8")
+    monkeypatch.setattr(mayflower_qa_summary, "active_bundle_dir", fail_if_loaded)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "mayflower_qa_summary.py",
+            "--output-json",
+            str(output_json),
+            "--output-md",
+            str(output_md),
+            "--output-gap-geojson",
+            str(gap_output),
+        ],
+    )
+
+    assert mayflower_qa_summary.main() == 2
+
+    captured = capsys.readouterr()
+    assert "refusing to overwrite existing analysis output" in captured.err
+    assert gap_output.read_text(encoding="utf-8") == "{}\n"
 
 
 def test_build_summary_subtracts_approved_review_ready_corrections(tmp_path):

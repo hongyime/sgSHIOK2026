@@ -16,6 +16,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from pipeline.onemap_validation import decode_polyline
+from scripts.analysis.report_io import write_new_text_report
 
 DEFAULT_COMPONENT_AUDIT = (
     PROJECT_ROOT
@@ -27,6 +28,13 @@ DEFAULT_FEEDBACK_AUDIT = (
 )
 DEFAULT_POSTALS = ["560231", "560234", "560225"]
 DEFAULT_APPROVED_CORRECTIONS = PROJECT_ROOT / "data" / "audited_shelter_corrections.geojson"
+DEFAULT_OUTPUT_JSON = PROJECT_ROOT / "qa" / "mayflower_route_qa_summary_20260801.json"
+DEFAULT_OUTPUT_MD = PROJECT_ROOT / "qa" / "mayflower_route_qa_summary_20260801.md"
+
+
+def ensure_output_available(path: Path) -> None:
+    if path.exists():
+        raise FileExistsError(f"refusing to overwrite existing analysis output: {path}")
 
 
 def read_json(path: Path) -> Any:
@@ -451,6 +459,8 @@ def build_summary(
 
 
 def write_markdown(path: Path, summary: dict[str, Any]) -> None:
+    ensure_output_available(path)
+
     def fmt(value: Any) -> str:
         if value is None:
             return "n/a"
@@ -568,8 +578,24 @@ def write_markdown(path: Path, summary: dict[str, Any]) -> None:
             f"- blocked without more source evidence: `{summary['conclusion']['blocked_without_more_source_evidence']}`",
         ]
     )
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    write_new_text_report(path, "\n".join(lines) + "\n")
+
+
+def explicit_output_errors(
+    output_json: Path, output_md: Path, output_gap_geojson: Path | None = None
+) -> list[str]:
+    errors = []
+    if output_json == DEFAULT_OUTPUT_JSON:
+        errors.append("Mayflower QA summary requires explicit --output-json")
+    if output_md == DEFAULT_OUTPUT_MD:
+        errors.append("Mayflower QA summary requires explicit --output-md")
+    outputs = [output_json, output_md]
+    if output_gap_geojson is not None:
+        outputs.append(output_gap_geojson)
+    for output in outputs:
+        if output.exists():
+            errors.append(f"refusing to overwrite existing analysis output: {output}")
+    return errors
 
 
 def main() -> int:
@@ -582,16 +608,21 @@ def main() -> int:
     parser.add_argument(
         "--output-json",
         type=Path,
-        default=PROJECT_ROOT / "qa" / "mayflower_route_qa_summary_20260801.json",
+        default=DEFAULT_OUTPUT_JSON,
     )
     parser.add_argument(
         "--output-md",
         type=Path,
-        default=PROJECT_ROOT / "qa" / "mayflower_route_qa_summary_20260801.md",
+        default=DEFAULT_OUTPUT_MD,
     )
     parser.add_argument("--output-gap-geojson", type=Path, default=None)
     parser.add_argument("--gap-min-exposed-m", type=float, default=50.0)
     args = parser.parse_args()
+
+    errors = explicit_output_errors(args.output_json, args.output_md, args.output_gap_geojson)
+    if errors:
+        print(json.dumps({"errors": errors}, indent=2, sort_keys=True), file=sys.stderr)
+        return 2
 
     bundle_dir = args.bundle_dir or active_bundle_dir()
     summary = build_summary(
@@ -601,8 +632,7 @@ def main() -> int:
         postals=args.postals or DEFAULT_POSTALS,
         approved_corrections_path=args.approved_corrections,
     )
-    args.output_json.parent.mkdir(parents=True, exist_ok=True)
-    args.output_json.write_text(json.dumps(summary, indent=2, sort_keys=True), encoding="utf-8")
+    write_new_text_report(args.output_json, json.dumps(summary, indent=2, sort_keys=True) + "\n")
     write_markdown(args.output_md, summary)
     gap_geojson_path = None
     if args.output_gap_geojson:
@@ -611,10 +641,9 @@ def main() -> int:
             args.postals or DEFAULT_POSTALS,
             min_exposed_m=args.gap_min_exposed_m,
         )
-        args.output_gap_geojson.parent.mkdir(parents=True, exist_ok=True)
-        args.output_gap_geojson.write_text(
-            json.dumps(gap_geojson, indent=2, sort_keys=True),
-            encoding="utf-8",
+        write_new_text_report(
+            args.output_gap_geojson,
+            json.dumps(gap_geojson, indent=2, sort_keys=True) + "\n",
         )
         gap_geojson_path = str(args.output_gap_geojson)
     print(
