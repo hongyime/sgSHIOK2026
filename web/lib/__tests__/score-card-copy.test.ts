@@ -369,11 +369,14 @@ describe("score card copy", () => {
       "{LEAF_AREA_INDEX_REFERENCE_COPY}",
     ]);
     expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).toContain(
+      "Full locked scores:"
+    );
+    expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).not.toContain(
       "Locked score coverage:"
     );
     expect(source).not.toContain("<summary>Data limits</summary>");
     expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).toContain(
-      "full locked score"
+      "missing full scores"
     );
     expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).not.toContain(
       "full locked sorting index"

@@ -1803,3 +1803,7 @@ The inline covered-walkway comparison should state what the alternate walk is hi
 2026-08-29 - P792 data-limits summary:
 
 The first-card data-limits disclosure should reveal the highest-impact limitation before it is opened. Its summary now says `Data limits: frozen v1 address list`, making the June 2020 address-universe caveat visible without expanding the full evidence notes. This is browser copy/test/evidence work only; it does not alter manifests, route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.
+
+2026-08-29 - P793 score coverage line:
+
+The score-availability line should read like product disclosure rather than an audit finding while still deriving every count from the manifest. It now leads with `Full locked scores`, then states the missing-full-score count and state breakdown. This is browser copy/test/evidence work only; it does not alter manifests, route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.

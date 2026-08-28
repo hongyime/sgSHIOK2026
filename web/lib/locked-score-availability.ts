@@ -58,9 +58,9 @@ export function formatLockedScoreAvailabilityLine(manifest: Manifest | null): st
       : `${Math.round(pct * 100)}%`;
   const breakdown = lockedScoreAvailabilityBreakdown(provenance.state_counts, notFull);
   const nonFullText = breakdown
-    ? `do not show a full locked score: ${breakdown}`
-    : "do not show a full locked score";
-  return `Locked score coverage: ${formatWholeNumber(scored)} of ${formatWholeNumber(
-    recordCount
-  )} records have a full locked score; ${formatWholeNumber(notFull)} records (${pctText}) ${nonFullText}.`;
+    ? `missing full scores: ${breakdown}`
+    : "missing full scores";
+  return `Full locked scores: ${formatWholeNumber(scored)} of ${formatWholeNumber(recordCount)} records; ${formatWholeNumber(
+    notFull
+  )} records (${pctText}) ${nonFullText}.`;
 }

@@ -232,7 +232,7 @@ describe("rendered accessibility output", () => {
       selection: null,
       rankingRecords: [],
       lockedScoreAvailabilityLine:
-        "Locked score coverage: 95,157 of 124,443 records have a full locked score; 29,286 records (23.5%, roughly a quarter) do not show a full locked score.",
+        "Full locked scores: 95,157 of 124,443 records; 29,286 records (23.5%, roughly a quarter) missing full scores.",
     });
 
     expect(html).toContain("Find an address or postal code");
@@ -244,7 +244,7 @@ describe("rendered accessibility output", () => {
     );
     expect(html).toContain("The published shelter-map bundle is tied to the frozen June 2020 address universe.");
     expect(html).toContain(
-      "Locked score coverage: 95,157 of 124,443 records have a full locked score; 29,286 records (23.5%, roughly a quarter) do not show a full locked score."
+      "Full locked scores: 95,157 of 124,443 records; 29,286 records (23.5%, roughly a quarter) missing full scores."
     );
     expect(html).not.toContain("Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio, exposed gaps, and night lighting on the walk to transit.");
     expect(html).not.toContain("Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio, exposed gaps, and night lighting near transit.");

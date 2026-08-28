@@ -30,7 +30,7 @@ describe("locked score availability copy", () => {
         })
       )
     ).toBe(
-      "Locked score coverage: 95,157 of 124,443 records have a full locked score; 29,286 records (23.5%, roughly a quarter) do not show a full locked score: 18,983 with partial shelter-map evidence, 9,827 beyond locked transit range, and 476 awaiting scoring."
+      "Full locked scores: 95,157 of 124,443 records; 29,286 records (23.5%, roughly a quarter) missing full scores: 18,983 with partial shelter-map evidence, 9,827 beyond locked transit range, and 476 awaiting scoring."
     );
   });
 
@@ -44,13 +44,13 @@ describe("locked score availability copy", () => {
         })
       )
     ).toBe(
-      "Locked score coverage: 900 of 1,000 records have a full locked score; 100 records (10%) do not show a full locked score: 80 with partial shelter-map evidence, 15 beyond locked transit range, and 5 awaiting scoring."
+      "Full locked scores: 900 of 1,000 records; 100 records (10%) missing full scores: 80 with partial shelter-map evidence, 15 beyond locked transit range, and 5 awaiting scoring."
     );
   });
 
   it("falls back to the generic non-full copy when state counts are incomplete", () => {
     expect(formatLockedScoreAvailabilityLine(manifestWithCounts(1000, 900))).toBe(
-      "Locked score coverage: 900 of 1,000 records have a full locked score; 100 records (10%) do not show a full locked score."
+      "Full locked scores: 900 of 1,000 records; 100 records (10%) missing full scores."
     );
   });
 
