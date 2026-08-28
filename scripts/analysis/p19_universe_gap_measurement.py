@@ -11,6 +11,7 @@ import argparse
 import datetime as dt
 import json
 import re
+import sys
 import time
 from pathlib import Path
 from typing import Any
@@ -648,6 +649,12 @@ def geocode_hdb_rows(
                 and cached_block_road_match(cache[query], row)
                 for query in hdb_query_variants(row)
             ):
+                if index % 25 == 0:
+                    print(
+                        f"p19_geocode_progress rows={index}/{len(rows)} cache_entries={len(cache)}",
+                        file=sys.stderr,
+                        flush=True,
+                    )
                 continue
             for query in hdb_query_variants(row):
                 cached = cache.get(query)
@@ -659,8 +666,18 @@ def geocode_hdb_rows(
                     break
             if index % 25 == 0:
                 write_json(cache_path, cache)
+                print(
+                    f"p19_geocode_progress rows={index}/{len(rows)} cache_entries={len(cache)}",
+                    file=sys.stderr,
+                    flush=True,
+                )
     if changed:
         write_json(cache_path, cache)
+        print(
+            f"p19_geocode_progress rows={len(rows)}/{len(rows)} cache_entries={len(cache)}",
+            file=sys.stderr,
+            flush=True,
+        )
 
     measured: list[dict[str, Any]] = []
     for row in rows:
@@ -794,12 +811,12 @@ def measurement_output_errors(
     if not confirm_measure:
         errors.append("P19 measurement requires --confirm-p19-measure after owner approval")
     required_paths = {
-        "--hdb-cache-output": (hdb_cache_output, HDB_GEOCODE_CACHE),
-        "--overpass-cache-output": (overpass_cache_output, OVERPASS_CACHE),
-        "--summary-output": (summary_output, SUMMARY_OUTPUT),
-        "--detail-output": (detail_output, DETAIL_OUTPUT),
+        "--hdb-cache-output": (hdb_cache_output, HDB_GEOCODE_CACHE, True),
+        "--overpass-cache-output": (overpass_cache_output, OVERPASS_CACHE, True),
+        "--summary-output": (summary_output, SUMMARY_OUTPUT, False),
+        "--detail-output": (detail_output, DETAIL_OUTPUT, False),
     }
-    for flag, (path, historical_default) in required_paths.items():
+    for flag, (path, historical_default, existing_ok) in required_paths.items():
         if path is None:
             errors.append(f"P19 measurement requires explicit {flag}")
             continue
@@ -807,7 +824,7 @@ def measurement_output_errors(
             errors.append(f"P19 measurement refuses historical default {flag}")
         elif not is_numeric_versioned_output(path):
             errors.append(f"P19 measurement requires numeric-version {flag}")
-        elif path.exists():
+        elif path.exists() and not existing_ok:
             errors.append(f"refusing to overwrite existing P19 measurement output: {path}")
     return errors
 

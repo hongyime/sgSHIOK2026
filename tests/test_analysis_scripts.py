@@ -708,8 +708,12 @@ def test_p19_main_measure_refuses_historical_default_outputs(
 def test_p19_main_measure_refuses_existing_outputs(
     monkeypatch, tmp_path: Path, capsys
 ) -> None:
+    hdb_cache_output = tmp_path / "qa" / "p19" / "hdb-cache_v2.json"
+    overpass_cache_output = tmp_path / "qa" / "p19" / "overpass-cache_v2.json"
     summary_output = tmp_path / "qa" / "p19" / "summary_v2.json"
     summary_output.parent.mkdir(parents=True)
+    hdb_cache_output.write_text("existing cache\n", encoding="utf-8")
+    overpass_cache_output.write_text("existing cache\n", encoding="utf-8")
     summary_output.write_text("existing\n", encoding="utf-8")
 
     def fail_read_parquet(*_: object, **__: object) -> object:
@@ -724,9 +728,9 @@ def test_p19_main_measure_refuses_existing_outputs(
             "--measure",
             "--confirm-p19-measure",
             "--hdb-cache-output",
-            str(tmp_path / "qa" / "p19" / "hdb-cache_v2.json"),
+            str(hdb_cache_output),
             "--overpass-cache-output",
-            str(tmp_path / "qa" / "p19" / "overpass-cache_v2.json"),
+            str(overpass_cache_output),
             "--summary-output",
             str(summary_output),
             "--detail-output",
@@ -743,6 +747,8 @@ def test_p19_main_measure_refuses_existing_outputs(
         ],
         "ok": False,
     }
+    assert hdb_cache_output.read_text(encoding="utf-8") == "existing cache\n"
+    assert overpass_cache_output.read_text(encoding="utf-8") == "existing cache\n"
 
 
 def test_p19_main_measure_requires_numeric_versioned_outputs_before_inputs(
@@ -782,6 +788,42 @@ def test_p19_main_measure_requires_numeric_versioned_outputs_before_inputs(
         ],
         "ok": False,
     }
+
+
+def test_p19_geocode_hdb_rows_reports_progress_for_cached_rows(
+    tmp_path: Path, capsys
+) -> None:
+    rows = [
+        {
+            "blk_no": str(100 + index),
+            "street": "TEST RD",
+            "year_completed": 2026,
+            "total_dwelling_units": 10,
+        }
+        for index in range(25)
+    ]
+    cache = {
+        f"{row['blk_no']} {row['street']}": {
+            "status_code": 200,
+            "results": [
+                {
+                    "POSTAL": f"12{index:04d}",
+                    "BLK_NO": row["blk_no"],
+                    "ROAD_NAME": "TEST ROAD",
+                    "SEARCHVAL": "TEST",
+                    "ADDRESS": "TEST",
+                }
+            ],
+        }
+        for index, row in enumerate(rows)
+    }
+    cache_path = tmp_path / "hdb-cache_v2.json"
+    cache_path.write_text(json.dumps(cache), encoding="utf-8")
+
+    measured = p19.geocode_hdb_rows(rows, 0.0, cache_path=cache_path)
+
+    assert len(measured) == 25
+    assert "p19_geocode_progress rows=25/25 cache_entries=25" in capsys.readouterr().err
 
 
 def test_p19_main_measure_confirmed_with_explicit_outputs_reaches_measurement_path(
@@ -844,6 +886,8 @@ def test_p19_main_measure_confirmed_with_explicit_outputs_reaches_measurement_pa
     overpass_cache_output = tmp_path / "qa" / "p19" / "overpass-cache_v2.json"
     summary_output = tmp_path / "qa" / "p19" / "summary_v2.json"
     detail_output = tmp_path / "qa" / "p19" / "detail_v2.json"
+    hdb_cache_output.parent.mkdir(parents=True)
+    hdb_cache_output.write_text("{}", encoding="utf-8")
     monkeypatch.setattr(
         sys,
         "argv",
