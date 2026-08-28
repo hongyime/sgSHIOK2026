@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P625 web commit: `36adbe6`; state-only commits may follow it on `main`.
+Latest P626 web commit: `a0f4581`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P626 is complete and committed: the transit picker's outer accessible name now says `Transit target picker` instead of `Transit stop picker`, matching its visible `Nearby transit targets` header and the MRT/LRT-exit-or-bus-stop model. Focused transit-picker/copy tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 161 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P625 is complete and committed: generic selected-panel transit fallbacks now say `Selected transit target` and `No transit target loaded` instead of stop-only/nearby wording, while specific clicked-stop preview copy remains unchanged where it refers to a selected transit stop. Focused accessibility/copy tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests are now 161 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P624 is complete and committed: the no-candidate `NO_TRANSIT_IN_RANGE` title and reason now say `No qualifying transit target within 1.2 km` instead of stop-only wording, matching the detailed copy that the locked range covers MRT/LRT exits and bus stops. Focused accessibility/copy tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 160 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P623 is complete and committed: the no-full-score locked-score row now says `No full locked score is published for this postal, but the shelter-map walk evidence remains inspectable.` instead of `route evidence remains inspectable`, keeping partial-score copy aligned with the shelter-first/walk-evidence framing. Focused accessibility-render test, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 160 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
