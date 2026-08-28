@@ -2602,7 +2602,7 @@ def test_json_safe_score_record_serializes_private_geometry_payload():
 
 # ---------------------------------------------------------------------------
 # best_transit picker policy: prefer SCORED (routed) over SCORED_PARTIAL
-# (direct-bus fallback). Rationale: docs/decisions.md 2026-08-05,
+# (direct-bus fallback). Rationale: decisions.md 2026-08-05,
 # qa/scored_partial_regression_diagnosis_20260805.json.
 # ---------------------------------------------------------------------------
 

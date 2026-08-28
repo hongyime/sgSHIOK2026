@@ -1776,7 +1776,7 @@ def candidate_sort_key(candidate_score: dict[str, Any]) -> tuple[int, float, flo
     # comfort total. The direct-bus-fallback honesty floor of 55 used to beat
     # routed MRT candidates (~38) here, hiding the honest routed alternative as
     # best_transit for ~34% of the postal universe. Rationale and diagnosis:
-    # docs/decisions.md 2026-08-05, qa/scored_partial_regression_diagnosis_20260805.json.
+    # decisions.md 2026-08-05, qa/scored_partial_regression_diagnosis_20260805.json.
     subscores = candidate_score.get("subscores") or {}
     is_fully_scored = not any(value is None for value in subscores.values())
     return (
@@ -1853,7 +1853,7 @@ def repick_best_transit_from_route_options(record: dict[str, Any]) -> dict[str, 
     ranked purely by ``total`` desc, so a direct-bus-fallback candidate
     (SCORED_PARTIAL, honesty floor 55) could beat a routed MRT (SCORED ~38).
     This helper performs the narrow promotion the owner authorized in
-    docs/decisions.md 2026-08-05: when the current ``best_transit`` is
+    decisions.md 2026-08-05: when the current ``best_transit`` is
     SCORED_PARTIAL (always a bus fallback under the current pipeline) and
     ``route_options.mrt_lrt`` is SCORED, promote the record's ``best_transit``
     to the MRT option.
@@ -1866,7 +1866,7 @@ def repick_best_transit_from_route_options(record: dict[str, Any]) -> dict[str, 
     Under the current pipeline, MRT candidates are always node-set eligible so
     the promotion is safe.
 
-    Rationale: docs/decisions.md 2026-08-05,
+    Rationale: decisions.md 2026-08-05,
     qa/scored_partial_regression_diagnosis_20260805.json.
     """
     state = record.get("state")

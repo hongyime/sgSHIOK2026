@@ -2,6 +2,7 @@ from pathlib import Path
 
 
 CLAUDE = Path(__file__).resolve().parents[1] / "CLAUDE.md"
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def compact(text: str) -> str:
@@ -71,3 +72,14 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "`python run.py test`" not in normalized
     assert "`python run.py publish`" not in normalized
     assert "check | ingest | network | score | export | validate | publish | test" not in normalized
+
+
+def test_scoring_comments_point_to_root_decisions_file() -> None:
+    for relative in [
+        "pipeline/export.py",
+        "pipeline/scoring_integration.py",
+        "tests/test_scoring_integration.py",
+    ]:
+        text = (ROOT / relative).read_text(encoding="utf-8")
+        assert "docs/decisions.md" not in text
+        assert "decisions.md 2026-08-05" in text

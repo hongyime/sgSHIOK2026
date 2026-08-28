@@ -2044,7 +2044,7 @@ def load_score_batch_records(records_dir: Path) -> list[dict[str, Any]]:
             # Apply the state-preferring best_transit picker to legacy chunks that
             # were assembled under the older score-only sort key. See
             # `pipeline/scoring_integration.py:candidate_sort_key` and
-            # docs/decisions.md 2026-08-05 for rationale.
+            # decisions.md 2026-08-05 for rationale.
             repick_best_transit_from_route_options(item)
             records.append(item)
     return sorted(records, key=lambda item: str(item["postal"]))

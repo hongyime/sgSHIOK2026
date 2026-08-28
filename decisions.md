@@ -1580,3 +1580,7 @@ The first-view recent public-source gap copy should not invite users to treat th
 2026-08-28 - P734 full-batch change readiness:
 
 The dry-run batch planner should expose prerequisite evidence by bundled change, not only state that 1200-record subset proof is required somewhere. `run.py batch-plan` now emits `full_batch_change_readiness` for bus remodel, `NO_TRANSIT_IN_RANGE` partial-score fix, network conflation repair, and promoted postal-universe v2. Bus remodel and network repair are measured candidates but still require owner approval; `NO_TRANSIT_IN_RANGE` remains policy-decided but subset-proof-missing; postal-universe v2 remains not approved from the current sample. The planner keeps the full-batch gate closed when any bundled change lacks prerequisite subset evidence. This is dry-run reporting/test coverage only; it does not score, export, mutate inputs, mutate public data, deploy, or touch locked weights.
+
+2026-08-28 - P735 decision path hygiene:
+
+Scoring and export comments should point future maintainers to this repository's root `decisions.md`, not to a nonexistent `docs/decisions.md`. The best-transit picker rationale references in `pipeline/export.py`, `pipeline/scoring_integration.py`, and `tests/test_scoring_integration.py` now use the correct root decision path, and a source-text test guards against that stale pointer returning. This is comment/test/documentation hygiene only; it does not change scoring, exports, inputs, public data, deployment, protected evidence, or locked weights.
