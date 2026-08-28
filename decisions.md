@@ -1807,3 +1807,7 @@ The first-card data-limits disclosure should reveal the highest-impact limitatio
 2026-08-29 - P793 score coverage line:
 
 The score-availability line should read like product disclosure rather than an audit finding while still deriving every count from the manifest. It now leads with `Full locked scores`, then states the missing-full-score count and state breakdown. This is browser copy/test/evidence work only; it does not alter manifests, route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.
+
+2026-08-29 - P794 direct-bus fallback straight-line wording:
+
+Direct-bus fallback displays must name the route-distance evidence as a `Straight-line bus estimate`, because the fallback is not a verified shelter-map walk to transit. The UI still says `direct bus service` where it describes the underlying service evidence and locked bus-score caveat. This is browser copy/test/evidence work only; it does not alter manifests, route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.
