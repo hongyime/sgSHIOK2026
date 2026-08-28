@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `741b221` (`fix: require confirmation for limited score batches`)
+Latest substantive commit: `24335d8` (`fix: require confirmation for live score exports`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,7 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P727 is complete and pushed: limited non-dry `pipeline.score_batch` and `run.py score-batch` now fail closed unless `--confirm-score-batch-run` is supplied.
-- Evidence: `qa/verification/P727-score-batch-confirmation.md`.
-- Checks: `uv run pytest tests/test_score_batch.py tests/test_run.py -q` passed 37/37; `uv run pytest -q --collect-only` collected 520; repo integrity passed; diff-check passed; protected-diff guard passed; direct `uv run python run.py score-batch ...` and `uv run python -m pipeline.score_batch ...` returned exit 1 before loading inputs or creating `qa/p726`.
+- P728 is complete and pushed: live scoring through `pipeline.export export` and `run.py export` now fails closed unless `--confirm-live-score-export` is supplied; pre-scored `--records-dir` re-export remains allowed without a live-scoring confirmation.
+- Evidence: `qa/verification/P728-live-export-confirmation.md`.
+- Checks: `uv run pytest tests/test_export.py tests/test_run.py -q` passed 84/84; `uv run pytest -q --collect-only` collected 524; repo integrity passed; diff-check passed; protected-diff guard passed; direct live export commands returned exit 1 before scoring or creating `qa/p728`; records-dir export still reached the missing chunks check.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
