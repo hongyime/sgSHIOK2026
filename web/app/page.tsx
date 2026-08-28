@@ -123,7 +123,7 @@ const SAMPLE_POSTAL_RESULT: SearchResult = {
   POSTAL: "560234",
   LATITUDE: "",
   LONGITUDE: "",
-  SEARCHVAL: "Try S560234",
+  SEARCHVAL: "Try Mayflower S560234",
 };
 
 export function nightLightingLayerNote(lampOverlayEnabled: boolean): string {
@@ -2394,7 +2394,7 @@ export default function Home() {
         <div className={styles.sampleSearches} aria-label="Sample search">
           <span>Need a quick look?</span>
           <button type="button" onClick={loadSamplePostal} disabled={loading}>
-            Try S560234
+            Try Mayflower S560234
           </button>
         </div>
 
