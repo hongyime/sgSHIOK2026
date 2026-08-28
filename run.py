@@ -18,6 +18,7 @@ Safe reports:
 Gated pipeline tasks:
   ingest | lamp-overlay | network | score | score-batch | export | export-transit | refresh-provenance | validate | publish | onemap-probe
   ingest mutates raw/ and raw/manifest.json; through run.py it requires --confirm-input-refresh, and any refresh must write a new numbered input version rather than repair frozen v1.
+  network writes processed network artifacts and QA outputs; it requires --confirm-network-build after owner approval.
   refresh-provenance is fail-closed; direct pipeline.export invocation must name --output explicitly.
   onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe.
 
@@ -40,7 +41,7 @@ STUBS = {
     "check": "refuses bare upstream checks; use --freshness-only or --geospatial-discovery-only for zero-mutation reports",
     "ingest": "download changed sources to raw/ (T0.3); run.py requires --confirm-input-refresh",
     "lamp-overlay": "build compact lamp-post overlay artifact from existing raw source",
-    "network": "build conflated graph + QA report (T1.1)",
+    "network": "build conflated graph + QA report (T1.1); requires --confirm-network-build",
     "network-debug": "rebuild compact network debug GeoJSON from QA JSON",
     "network-preflight": "verify network build inputs without building graph",
     "network-qa": "validate conflation QA report acceptance gates",

@@ -53,6 +53,11 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         in run.__doc__
     )
     assert (
+        "network writes processed network artifacts and QA outputs; it requires "
+        "--confirm-network-build after owner approval."
+        in run.__doc__
+    )
+    assert (
         "onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe."
         in run.__doc__
     )
@@ -105,6 +110,11 @@ def test_run_help_headline_does_not_flatten_all_tasks():
         in help_text
     )
     assert (
+        "network writes processed network artifacts and QA outputs; it requires "
+        "--confirm-network-build after owner approval."
+        in help_text
+    )
+    assert (
         "onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe."
         in help_text
     )
@@ -117,6 +127,9 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
     )
     assert run.STUBS["ingest"] == (
         "download changed sources to raw/ (T0.3); run.py requires --confirm-input-refresh"
+    )
+    assert run.STUBS["network"] == (
+        "build conflated graph + QA report (T1.1); requires --confirm-network-build"
     )
     assert run.STUBS["score-batch"] == (
         "resumable postal scoring batch runner; non-dry runs require explicit --output-dir"
@@ -318,6 +331,59 @@ def test_run_ingest_strips_runner_confirm_flag_before_fetch(monkeypatch):
                 "ingest",
                 "--source",
                 "lamp_posts",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_network_requires_confirm_network_build_via_module(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 2
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("network", []) == 2
+
+    assert calls == [
+        {
+            "cmd": [sys.executable, "-m", "pipeline.network"],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_network_forwards_confirm_network_build(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("network", ["--area", "island", "--confirm-network-build"]) == 0
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "pipeline.network",
+                "--area",
+                "island",
+                "--confirm-network-build",
             ],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
