@@ -8,7 +8,17 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
+from scripts.analysis.report_io import write_new_text_report
+
 DEFAULT_NETWORK = PROJECT_ROOT / "processed" / "network_island.parquet"
+
+
+def existing_output_errors(paths: list[Path | None]) -> list[str]:
+    return [
+        f"refusing to overwrite existing analysis output: {path}"
+        for path in paths
+        if path is not None and path.exists()
+    ]
 
 
 def main() -> int:
@@ -22,6 +32,11 @@ def main() -> int:
     parser.add_argument("--geojson", type=Path, default=None)
     parser.add_argument("--candidates-geojson", type=Path, default=None)
     args = parser.parse_args()
+
+    errors = existing_output_errors([args.output, args.geojson, args.candidates_geojson])
+    if errors:
+        print(json.dumps({"errors": errors, "ok": False}, indent=2, sort_keys=True))
+        return 2
 
     from pipeline.route_feedback import (
         audit_geojson,
@@ -43,19 +58,16 @@ def main() -> int:
     report["search_m"] = args.search_m
 
     if args.output:
-        args.output.parent.mkdir(parents=True, exist_ok=True)
-        args.output.write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")
+        write_new_text_report(args.output, json.dumps(report, indent=2, sort_keys=True))
     if args.geojson:
-        args.geojson.parent.mkdir(parents=True, exist_ok=True)
-        args.geojson.write_text(
+        write_new_text_report(
+            args.geojson,
             json.dumps(audit_geojson(audited), indent=2, sort_keys=True),
-            encoding="utf-8",
         )
     if args.candidates_geojson:
-        args.candidates_geojson.parent.mkdir(parents=True, exist_ok=True)
-        args.candidates_geojson.write_text(
+        write_new_text_report(
+            args.candidates_geojson,
             json.dumps(component_gap_candidate_geojson(audited), indent=2, sort_keys=True),
-            encoding="utf-8",
         )
 
     print(

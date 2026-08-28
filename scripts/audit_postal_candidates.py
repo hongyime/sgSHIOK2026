@@ -11,11 +11,20 @@ from typing import Any
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
+from scripts.analysis.report_io import write_new_text_report
 from pipeline.scoring_integration import NETWORK_PATH, score_postals
 
 DEFAULT_UNIVERSE = (
     PROJECT_ROOT / "processed" / "postal_universe_candidate_full_registered_geocoded.parquet"
 )
+
+
+def existing_output_errors(paths: list[Path | None]) -> list[str]:
+    return [
+        f"refusing to overwrite existing analysis output: {path}"
+        for path in paths
+        if path is not None and path.exists()
+    ]
 
 
 def compact_candidate_audit(record: dict[str, Any]) -> dict[str, Any]:
@@ -48,6 +57,11 @@ def main() -> int:
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
 
+    errors = existing_output_errors([args.output])
+    if errors:
+        print(json.dumps({"errors": errors, "ok": False}, indent=2, sort_keys=True))
+        return 2
+
     records = score_postals(
         postal_codes=args.postals,
         include_geometry=False,
@@ -63,9 +77,9 @@ def main() -> int:
         "postal_universe": str(args.postal_universe),
         "records": [compact_candidate_audit(record) for record in records],
     }
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(
-        json.dumps(audit, ensure_ascii=False, indent=2, sort_keys=True), encoding="utf-8"
+    write_new_text_report(
+        args.output,
+        json.dumps(audit, ensure_ascii=False, indent=2, sort_keys=True),
     )
     print(
         json.dumps(
