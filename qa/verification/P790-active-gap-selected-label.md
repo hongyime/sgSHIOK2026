@@ -88,6 +88,29 @@ repo_integrity=ok
 exit_code=0
 ```
 
+## Post-Commit Full Web Suite
+
+Command:
+
+```text
+npm --prefix web test
+```
+
+Output:
+
+```text
+npm notice run shiok-web@0.1.0 test
+npm notice run node scripts/test-web.mjs
+
+ RUN  v4.1.10 C:/sgSHIOK2026/web
+
+
+ Test Files  24 passed (24)
+      Tests  166 passed (166)
+   Start at  02:44:06
+   Duration  34.48s (transform 2.35s, setup 0ms, import 4.82s, tests 8.05s, environment 14ms)
+```
+
 ## FINDINGS
 
 1. Focused exposed-gap rows already had active styling and `aria-pressed`, but the visible action label did not change after selection.
