@@ -654,13 +654,31 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
             },
         ],
         "missing_pct": 0.819672,
+        "confirmed_missing_pct": 0.614754,
+        "missing_or_source_quality_warning_pct": 0.819672,
+        "directional_scale_if_sample_rate_applied_to_v1": {
+            "basis": (
+                "directional only; applies sampled recent-completion row rates to the "
+                "frozen-v1 distinct postal count, not a measured full-universe gap"
+            ),
+            "v1_distinct_postals": 124443,
+            "confirmed_missing_rows_estimate": 765,
+            "missing_or_source_quality_warning_rows_estimate": 1020,
+        },
+        "v2_build_decision": {
+            "status": "not_approved_from_current_sample",
+            "reason": (
+                "current cached sample indicates a small gap; building postal-universe v2 "
+                "requires separate owner approval and candidate-source-first scope"
+            ),
+        },
         "source_window": "2021-2026",
         "sources": ["HDB completion geocoded rows", "BCA MCST constitution-date proxy rows"],
         "source_limitations": [
             "HDB rows use completion year but require OneMap geocoding to obtain postals",
             "BCA MCST constitution date is private-strata onboarding proxy evidence, not TOP or completion date",
         ],
-        "verdict": "small sampled current-source gap in frozen v1; candidate-source-first v2 remains required",
+        "verdict": "small sampled current-source gap in frozen v1; v2 remains candidate-source-first if approved",
     }
     assert (
         "candidate-only postal-universe evidence"
