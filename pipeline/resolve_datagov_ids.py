@@ -1,8 +1,12 @@
 """Resolve correct data.gov.sg dataset IDs for S.H.I.O.K. sources."""
 
+import argparse
+import json
 import time
 
 import httpx
+
+CONFIRM_DATAGOV_PROBE_FLAG = "--confirm-datagov-probe"
 
 SEARCH_QUERIES = [
     ("mrt_lrt_exits", "train station exit point"),
@@ -15,7 +19,7 @@ SEARCH_QUERIES = [
 API_BASE = "https://api-open.data.gov.sg/v1/public/api/datasets"
 
 
-def main() -> None:
+def resolve_datagov_ids() -> None:
     client = httpx.Client(timeout=30.0)
 
     for key, query in SEARCH_QUERIES:
@@ -44,5 +48,35 @@ def main() -> None:
     client.close()
 
 
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Resolve data.gov.sg dataset IDs via the live public API."
+    )
+    parser.add_argument(
+        CONFIRM_DATAGOV_PROBE_FLAG,
+        action="store_true",
+        help="Required before calling live data.gov.sg endpoints.",
+    )
+    args = parser.parse_args(argv)
+
+    if not args.confirm_datagov_probe:
+        print(
+            json.dumps(
+                {
+                    "errors": [
+                        "data.gov.sg probe requires --confirm-datagov-probe after owner approval"
+                    ],
+                    "ok": False,
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 1
+
+    resolve_datagov_ids()
+    return 0
+
+
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

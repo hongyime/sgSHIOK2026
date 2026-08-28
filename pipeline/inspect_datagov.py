@@ -1,7 +1,11 @@
 """Search for api-production.data.gov.sg routes in JS files."""
 
+import argparse
+import json
 import re
 import httpx
+
+CONFIRM_DATAGOV_PROBE_FLAG = "--confirm-datagov-probe"
 
 
 def search_api_routes() -> None:
@@ -23,5 +27,35 @@ def search_api_routes() -> None:
             pass
 
 
-if __name__ == "__main__":
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Search live data.gov.sg pages for API route references."
+    )
+    parser.add_argument(
+        CONFIRM_DATAGOV_PROBE_FLAG,
+        action="store_true",
+        help="Required before calling live data.gov.sg endpoints.",
+    )
+    args = parser.parse_args(argv)
+
+    if not args.confirm_datagov_probe:
+        print(
+            json.dumps(
+                {
+                    "errors": [
+                        "data.gov.sg probe requires --confirm-datagov-probe after owner approval"
+                    ],
+                    "ok": False,
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 1
+
     search_api_routes()
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

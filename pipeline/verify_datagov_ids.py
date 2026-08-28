@@ -1,7 +1,11 @@
 """Verify correct data.gov.sg dataset IDs via initiate-download API."""
 
+import argparse
+import json
 import time
 import httpx
+
+CONFIRM_DATAGOV_PROBE_FLAG = "--confirm-datagov-probe"
 
 DATASETS = {
     "mrt_lrt_exits": "d_b39d3a0871985372d7e1637193335da5",
@@ -12,7 +16,7 @@ DATASETS = {
 }
 
 
-def main() -> None:
+def verify_datagov_ids() -> None:
     client = httpx.Client(timeout=30.0)
 
     for key, dataset_id in DATASETS.items():
@@ -39,5 +43,35 @@ def main() -> None:
     client.close()
 
 
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Verify data.gov.sg dataset IDs via the live initiate-download API."
+    )
+    parser.add_argument(
+        CONFIRM_DATAGOV_PROBE_FLAG,
+        action="store_true",
+        help="Required before calling live data.gov.sg endpoints.",
+    )
+    args = parser.parse_args(argv)
+
+    if not args.confirm_datagov_probe:
+        print(
+            json.dumps(
+                {
+                    "errors": [
+                        "data.gov.sg probe requires --confirm-datagov-probe after owner approval"
+                    ],
+                    "ok": False,
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 1
+
+    verify_datagov_ids()
+    return 0
+
+
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

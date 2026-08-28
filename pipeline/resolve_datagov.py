@@ -1,7 +1,11 @@
 """Resolve dataset title and ID by searching data.gov.sg dataset pages."""
 
+import argparse
+import json
 import re
 import httpx
+
+CONFIRM_DATAGOV_PROBE_FLAG = "--confirm-datagov-probe"
 
 
 def resolve_dataset_by_keyword(query: str) -> tuple[str, str] | None:
@@ -33,6 +37,36 @@ def resolve_dataset_by_keyword(query: str) -> tuple[str, str] | None:
     return None
 
 
-if __name__ == "__main__":
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Resolve data.gov.sg dataset IDs by searching live dataset pages."
+    )
+    parser.add_argument(
+        CONFIRM_DATAGOV_PROBE_FLAG,
+        action="store_true",
+        help="Required before calling live data.gov.sg endpoints.",
+    )
+    args = parser.parse_args(argv)
+
+    if not args.confirm_datagov_probe:
+        print(
+            json.dumps(
+                {
+                    "errors": [
+                        "data.gov.sg probe requires --confirm-datagov-probe after owner approval"
+                    ],
+                    "ok": False,
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 1
+
     for q in ["MRT", "Traffic Signal", "Lamp Post", "HDB"]:
         resolve_dataset_by_keyword(q)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
