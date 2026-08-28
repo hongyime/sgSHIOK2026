@@ -585,7 +585,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
   }
   const busFallback = directBusFallbackEvidence(score);
   if (busFallback) {
-    return "Locked score caveat: the bus term remains 0 because nearby bus evidence could not be connected to a verified shelter-map walk.";
+    return "Locked score caveat: the bus term remains 0 because nearby direct bus service evidence could not be connected to a verified shelter-map walk.";
   }
   return null;
 }

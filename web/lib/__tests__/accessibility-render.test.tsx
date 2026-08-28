@@ -1204,7 +1204,10 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("so this sub-score remains 0");
     expect(html).not.toContain("Walking-route access was not verified");
     expect(html).not.toContain("Walking network access was not verified");
-    expect(html).toContain("Locked score caveat: the bus term remains 0");
+    expect(html).toContain(
+      "Locked score caveat: the bus term remains 0 because nearby direct bus service evidence could not be connected to a verified shelter-map walk."
+    );
+    expect(html).not.toContain("nearby bus evidence could not be connected");
     expect(html).toContain("Bus service support");
     expect(html).toContain("20%");
     expect(html).not.toContain("Limited bus-service evidence");
