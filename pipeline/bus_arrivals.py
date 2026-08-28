@@ -78,6 +78,8 @@ def collect_snapshots(
         raise ValueError("samples must be >= 1")
     if interval_sec < 0:
         raise ValueError("interval_sec must be >= 0")
+    if output.exists():
+        raise FileExistsError(f"bus-arrivals output already exists: {output}")
 
     written = 0
     for sample_index in range(samples):
@@ -128,6 +130,20 @@ def main(argv: list[str] | None = None) -> int:
                         "ok": False,
                         "errors": [
                             "bus-arrivals collect requires explicit --output"
+                        ],
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 1
+        if args.output.exists():
+            print(
+                json.dumps(
+                    {
+                        "ok": False,
+                        "errors": [
+                            f"bus-arrivals output already exists: {args.output}"
                         ],
                     },
                     indent=2,
