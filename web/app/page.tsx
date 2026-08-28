@@ -2254,7 +2254,7 @@ export default function Home() {
               {OSM_ADDR_POSTCODE_COVERAGE_COPY}
             </p>
             <p className={styles.freshnessLine}>
-              Data freshness at the 28 Aug 2026 UTC manifest-only check: 10 sources current, 8 stale, 2 manual, and Overture Maps Addresses - Singapore candidate has unknown age. No upstream URLs were probed. The oldest current item is NParks Leaf Area Index, a freshness-only reference table at its 120-day threshold with less than 0.1 days until stale. Stale sources by days past threshold are Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Covered Linkway, Pedestrian Overhead Bridge / Underpass, Traffic Signals, NParks Heritage Trees, and NParks Nature Ways. Stale-source refreshes require a new numbered input version, not an in-place frozen-v1 mutation.
+              Data freshness at the 28 Aug 2026 UTC manifest-only check: 9 sources current, 9 stale, 2 manual, and Overture Maps Addresses - Singapore candidate has unknown age. No upstream URLs were probed. The oldest current item is HDB Existing Building, 68.2 days into its 120-day threshold with 51.8 days until stale. Stale sources include Covered Linkway, Pedestrian Overhead Bridge / Underpass, Traffic Signals, Planning Area Boundaries (MP2019 No Sea), NParks Leaf Area Index, NParks Nature Ways, NParks Tracks, NParks Heritage Trees, and NParks Heritage Road Green Buffers. Stale-source refreshes require a new numbered input version, not an in-place frozen-v1 mutation.
             </p>
             <p className={styles.freshnessLine}>
               {COVERED_LINKWAY_FRESHNESS_COPY}
