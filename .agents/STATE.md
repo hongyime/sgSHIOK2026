@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P694 commit: `1d27c96`.
+Latest P695 commit: `96495b4`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P695 is complete and committed: P10 read-only analysis scripts now resolve default protected QA/public-data inputs from `PROJECT_ROOT` instead of the caller cwd. A cwd-shifted probe with explicit `PYTHONPATH` confirmed `p10_compare_subset_outputs`, `p10_network_payload_cost`, and `p10_manifest_network_block` constants point at `C:\sgSHIOK2026`; focused `tests/test_analysis_scripts.py` passed 11/11, Python collect-only moved to 463 because one path-regression test was added, repo integrity passed, diff-check passed, and protected-diff guard passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P694 is complete and committed: `scripts/analysis/p10_unresolved_network_probe.py` now writes its export probe into a temporary directory instead of protected `qa/p10_network_provenance_20260813/unresolved_network_probe`. The probe still reports `raised=ValueError` and `message=unresolved network digest maps: missingnetworkdigest001` with exit 0. Focused `tests/test_analysis_scripts.py` passed 10/10, Python collect-only moved to 462 because one analysis-script guard test was added, repo integrity passed, diff-check passed, and the protected-diff guard passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P693 is complete and committed: `pipeline/query_db.py` now resolves `raw\geocode_cache.db` from `PROJECT_ROOT` and opens SQLite with `mode=ro`, so the ad hoc cache reader cannot create an empty database in the wrong working directory. Focused `tests/test_query_db.py tests/test_geocode_universe.py` passed 8/8, real read-only module invocation printed three cached geocode rows, a scan found no remaining cwd-relative `raw/geocode_cache.db` SQLite opens, Python collect-only moved to 461 because two query-db tests were added, repo integrity passed, diff-check passed, and the protected-diff guard passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P692 is complete and committed: the visible first-view freshness line now names the exact `28 Aug 2026 08:05 UTC` manifest-only check time instead of only the UTC date, avoiding same-day ambiguity around stale-threshold boundary crossings. Focused source-copy test passed 16/16, full web passed 166/166 across 24 files, Python collect-only remains 459, repo integrity passed, diff-check passed, and the protected-diff guard passed. No scoring, export, rescore, subset run, ingest, network build, upstream probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
