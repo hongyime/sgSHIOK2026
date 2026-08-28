@@ -910,7 +910,8 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("Connected walk beyond 1.2 km");
-    expect(html).toContain("Closest connected transit shelter-map walk is 1.5 km");
+    expect(html).toContain("Closest connected shelter-map walk to transit is 1.5 km");
+    expect(html).not.toContain("Closest connected transit shelter-map walk is 1.5 km");
     expect(html).toContain("Locked transit range is 1.2 km");
     expect(html).toContain(
       "Closest connected shelter-map walk found is about 1.5 km away; locked transit range is 1.2 km."
@@ -1010,8 +1011,10 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("No connected shelter-map walk to bus stop within range");
     expect(html).toContain("No shelter-map walk to bus stop was found within the locked 1.2 km transit range.");
+    expect(html).toContain("No shelter-map walk to bus stop within locked transit range");
     expect(html).not.toContain("No connected bus stop shelter-map walk within range");
     expect(html).not.toContain("No bus stop walk was found within the locked 1.2 km transit range.");
+    expect(html).not.toContain("No bus stop walk within locked transit range");
   });
 
   it("keeps null locked-term rows unavailable instead of inventing numbers", () => {
