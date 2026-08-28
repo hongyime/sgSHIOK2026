@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `5efe6ec` (`fix: preflight historical analysis report outputs`)
+Latest substantive commit: `2ad5a38` (`fix: require confirmation for runner ingest`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,7 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P723 is complete and pushed: historical bus analysis report CLIs now preflight existing output paths before reading bundle data, and the heat-presentation audit coordinates now match the current P18 copy.
-- Evidence: `qa/verification/P723-analysis-report-preflight.md`.
-- Checks: `uv run pytest tests/test_analysis_scripts.py tests/test_heat_presentation_analysis.py -q` passed 23/23; `uv run pytest -q --collect-only` collected 507; `uv run pytest -q` passed 507/507; repo integrity passed; diff-check passed; protected-diff guard passed.
+- P724 is complete and pushed: `run.py ingest` now fails closed unless `--confirm-input-refresh` is supplied, and the runner strips that confirmation flag before invoking `pipeline.fetch`.
+- Evidence: `qa/verification/P724-run-ingest-confirmation.md`.
+- Checks: `uv run pytest tests/test_run.py -q` passed 19/19; `uv run pytest -q --collect-only` collected 509; repo integrity passed; diff-check passed; protected-diff guard passed; direct `uv run python run.py ingest` returned exit 2 before fetch.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
