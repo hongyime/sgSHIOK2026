@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `fc5531b` (`fix: gate postal universe runner task`)
+Latest substantive commit: `965c63a` (`fix: gate report runner tasks`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,8 +18,8 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P741 is complete and pushed: `run.py postal-universe` now requires `--confirm-postal-universe`, and lamp-overlay replacement command examples include `--confirm-lamp-overlay` without forwarding a stray `--`.
-- Evidence: `qa/verification/P741-postal-universe-runner-gate.md`.
-- P736-P740 also remain complete: bounded geocode caches must be versioned, batch-plan blocks unversioned completed fills, lamp-overlay requires confirmation, and high-risk writer/network/deploy tasks fail closed at the runner.
-- Checks: `uv run pytest tests/test_run.py tests/test_readme.py tests/test_batch_plan.py tests/test_production_readiness.py -q` passed 86/86; `uv run pytest -q --collect-only` collected 555; repo integrity passed; diff-check and protected-diff guard passed.
+- P742 is complete and pushed: `run.py` now requires runner-level confirmations before launching `network-debug`, `onemap-validation collect`, `onemap-outlier-replay`, `onemap-outlier-triage`, `overture-addresses`, and `compare-targeted`.
+- Evidence: `qa/verification/P742-report-runner-gates.md`.
+- P736-P741 also remain complete: bounded geocode caches must be versioned, batch-plan blocks unversioned completed fills, lamp-overlay requires confirmation, high-risk writer/network/deploy tasks fail closed at the runner, and postal-universe requires confirmation.
+- Checks: `uv run pytest tests/test_run.py -q` passed 58/58; `uv run pytest -q --collect-only` collected 567; repo integrity passed; diff-check and protected-diff guard passed.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
