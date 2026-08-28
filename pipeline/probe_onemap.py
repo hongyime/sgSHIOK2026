@@ -1,9 +1,12 @@
 """Sustained-rate ladder probe for OneMap search API rate limits (T0.4 Audit Remediation B)."""
 
+import argparse
 import csv
+import json
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+
 import httpx
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -14,8 +17,10 @@ SEARCH_URL = "https://www.onemap.gov.sg/api/common/elastic/search?searchVal=Toa%
 HEADERS = {"User-Agent": "sgSHIOK-Shelter-Map-OneMap-Probe/2.0"}
 
 
-def run_ladder_probe() -> None:
-    LOG_DIR.mkdir(parents=True, exist_ok=True)
+def run_ladder_probe(output_path: Path) -> None:
+    if output_path.exists():
+        raise FileExistsError(f"OneMap probe output already exists: {output_path}")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
 
     ladder_rungs = [
         {"rung": 1, "target_rate_rps": 1, "num_requests": 60},
@@ -32,7 +37,7 @@ def run_ladder_probe() -> None:
     first_429_info = None
     highest_clean_rate_rps = 0
 
-    with open(CSV_PATH, "w", newline="", encoding="utf-8") as csvfile:
+    with open(output_path, "x", newline="", encoding="utf-8") as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(
             ["timestamp", "request_num", "rung", "req_per_sec", "status_code", "elapsed_sec"]
@@ -120,5 +125,32 @@ def run_ladder_probe() -> None:
         print("No 429 status code encountered during ladder probe.")
 
 
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="Run the OneMap sustained-rate ladder probe.")
+    parser.add_argument(
+        "--output",
+        type=Path,
+        help="Fresh CSV output path; the probe refuses the historical default log path.",
+    )
+    parser.add_argument("--confirm-onemap-probe", action="store_true")
+    args = parser.parse_args(argv)
+
+    errors = []
+    if args.output is None:
+        errors.append("OneMap probe requires explicit --output")
+    elif args.output == CSV_PATH:
+        errors.append(f"OneMap probe refuses historical default output: {CSV_PATH}")
+    elif args.output.exists():
+        errors.append(f"OneMap probe output already exists: {args.output}")
+    if not args.confirm_onemap_probe:
+        errors.append("OneMap probe requires --confirm-onemap-probe")
+    if errors:
+        print(json.dumps({"errors": errors, "ok": False}, indent=2, sort_keys=True))
+        return 1
+
+    run_ladder_probe(args.output)
+    return 0
+
+
 if __name__ == "__main__":
-    run_ladder_probe()
+    raise SystemExit(main())
