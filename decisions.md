@@ -1783,3 +1783,7 @@ Protected analysis output-path policy should have one implementation. `scripts/m
 2026-08-29 - P787 night-lighting detail action:
 
 Night lighting is the second product layer after shelter exposure, so the selected-walk details should make the layer actionable where its state is described. When the night-lighting map layer is off, the walk-details strip now shows `Switch on night lighting`, wired to the existing lamp-overlay state. This is browser UI/test work only; it does not add or regenerate lamp data, score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
+
+2026-08-29 - P788 shelter correction promotion target guard:
+
+Approved shelter-correction promotion is intentionally possible only after human review and explicit confirmation, but that confirmation must not make protected evidence or public-data payload targets writable. `scripts/promote_audited_shelter_corrections.py` now refuses protected target paths inside `promote_corrections()` before reading the draft GeoJSON or creating parent directories. This is guard/test hygiene only; it does not promote corrections, score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.

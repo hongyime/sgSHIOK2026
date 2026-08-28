@@ -7,6 +7,8 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, cast
 
+from scripts.analysis.report_io import is_protected_report_path
+
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_TARGET = PROJECT_ROOT / "data" / "audited_shelter_corrections.geojson"
 
@@ -88,6 +90,8 @@ def promote_corrections(
         raise ValueError("--reviewer is required")
     if not evidence_note.strip():
         raise ValueError("--evidence-note is required")
+    if is_protected_report_path(target_path):
+        raise ValueError(f"refusing protected shelter correction target path: {target_path}")
 
     draft = read_geojson(draft_path)
     target = (

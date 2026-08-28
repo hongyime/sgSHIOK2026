@@ -105,6 +105,31 @@ def test_promote_corrections_rejects_blocked_candidates(tmp_path: Path):
         )
 
 
+def test_promote_corrections_refuses_protected_target_before_input_reads():
+    from scripts import promote_audited_shelter_corrections
+
+    draft = promote_audited_shelter_corrections.PROJECT_ROOT / "missing-draft.geojson"
+    target = (
+        promote_audited_shelter_corrections.PROJECT_ROOT
+        / "qa"
+        / "p9_new_guard_probe"
+        / "corrections.geojson"
+    )
+
+    with pytest.raises(ValueError, match="refusing protected shelter correction target path"):
+        promote_corrections(
+            draft_path=draft,
+            target_path=target,
+            audit_ids=["candidate-1"],
+            reviewer="owner",
+            evidence_note="checked",
+            dry_run=False,
+        )
+
+    assert not target.exists()
+    assert not target.parent.exists()
+
+
 def test_promote_cli_requires_confirmation_before_non_dry_run(monkeypatch, tmp_path, capsys):
     from scripts import promote_audited_shelter_corrections
 
