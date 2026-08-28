@@ -238,6 +238,7 @@ export function scoreCardAnnouncement({
   isCustomStopSelected,
   previewRoute,
   routeMode,
+  displayContextLabel = "Walk display",
   routeDisplayLabel,
   shelterEvidenceText,
 }: {
@@ -248,6 +249,7 @@ export function scoreCardAnnouncement({
   isCustomStopSelected?: boolean;
   previewRoute?: boolean;
   routeMode: RouteDisplayMode;
+  displayContextLabel?: string;
   routeDisplayLabel?: string;
   shelterEvidenceText?: string;
 }): string {
@@ -265,7 +267,7 @@ export function scoreCardAnnouncement({
       : "Custom transit target selected."
     : "Published shelter-map walk selected.";
   const shelterText = shelterEvidenceText ?? shelterEvidenceAnnouncement(selection.score);
-  return `${postal} shelter-map panel loaded. ${stationName ?? "Transit target loaded"}. ${shelterText} Locked score ${scoreText}. ${stopText} Walk display ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
+  return `${postal} shelter-map panel loaded. ${stationName ?? "Transit target loaded"}. ${shelterText} Locked score ${scoreText}. ${stopText} ${displayContextLabel} ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
 }
 
 export function rankAnnouncement({
@@ -1346,7 +1348,8 @@ export function ScoreCard({
     isCustomStopSelected,
     previewRoute,
     routeMode,
-    routeDisplayLabel: routeDisplayAnnouncement(routeMode, sameRoute),
+    displayContextLabel: directBusFallback ? "Evidence display" : "Walk display",
+    routeDisplayLabel: directBusFallback ? "direct bus service estimate" : routeDisplayAnnouncement(routeMode, sameRoute),
     shelterEvidenceText: shelterEvidenceAnnouncementFromValues(selectedCoverage, exposureGaps),
   });
   const gapSummaryText =

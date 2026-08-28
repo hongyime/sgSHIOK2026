@@ -72,6 +72,10 @@ describe("score card copy", () => {
     expect(source).toContain("Direct bus service estimate");
     expect(source).not.toContain("Direct bus line estimate");
     expect(source).not.toContain("Direct bus estimate");
+    expect(source).toContain('displayContextLabel: directBusFallback ? "Evidence display" : "Walk display"');
+    expect(source).toContain(
+      'routeDisplayLabel: directBusFallback ? "direct bus service estimate" : routeDisplayAnnouncement(routeMode, sameRoute)'
+    );
     expect(source).toContain("selectedWalkPrepPhrase");
     expect(source).toContain("selectedWalkHeadingPhrase");
     expect(source).not.toContain("Shelter-map walk access was not verified");

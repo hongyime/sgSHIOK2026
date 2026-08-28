@@ -1238,6 +1238,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("No verified shelter-map walk yet");
     expect(html).not.toContain("Nearby bus service found");
     expect(html).toContain("Direct bus service estimate");
+    expect(html).toContain("Evidence display direct bus service estimate; Direct bus service estimate active.");
+    expect(html).not.toContain("Walk display sheltered walk; Direct bus service estimate active.");
     expect(html).toContain("62% covered-walkway ratio for the direct bus service estimate.");
     expect(html).toContain("Exposed gaps for direct bus service estimate");
     expect(html).not.toContain("62% covered-walkway ratio on the direct bus service estimate.");
