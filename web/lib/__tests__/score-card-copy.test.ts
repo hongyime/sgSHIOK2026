@@ -491,8 +491,9 @@ describe("score card copy", () => {
     expect(source).toContain("const sortedGaps = [...gaps].sort((a, b) => b.len_m - a.len_m);");
     expect(source).toContain("shelterEvidenceText: shelterEvidenceAnnouncementFromValues(selectedCoverage, exposureGaps)");
     expect(source).toContain("longest gap ${formatDistance(longestGap.len_m)}");
-    // Copy shape: "Shortest walk has 45% covered-walkway ratio (30pp lower)"
-    expect(source).toContain("${otherLabel} has ${otherPct}% covered-walkway ratio (${magnitude}pp ${direction})");
+    // Copy shape: "Shortest walk has 45% covered-walkway ratio (30pp lower than sheltered walk)"
+    expect(source).toContain("${otherLabel} has ${otherPct}% covered-walkway ratio (${magnitude}pp ${direction} than ${viewedLabel})");
+    expect(source).toContain('const viewedLabel = viewedIsShortest ? "shortest walk" : "sheltered walk";');
     expect(source).toContain('const otherLabel = viewedIsShortest ? "Sheltered walk" : "Shortest walk";');
     expect(source).not.toContain('const otherLabel = viewedIsShortest ? "Sheltered route" : "Shortest";');
     // Skip note when routes match or magnitude is trivial.

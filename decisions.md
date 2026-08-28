@@ -1795,3 +1795,7 @@ Hidden exposed gaps remain part of the route evidence and can still be map-focus
 2026-08-29 - P790 active exposed-gap selected label:
 
 Focused exposed-gap rows should expose their selected map state visibly, not only through styling and `aria-pressed`. A coordinate-backed gap now changes its action label from `Focus on map` to `Selected on map` after it is focused. This is browser copy/state/test work only; it does not alter route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.
+
+2026-08-29 - P791 walk comparison baseline copy:
+
+The inline covered-walkway comparison should state what the alternate walk is higher or lower than. It now names the baseline walk in the percentage-point comparison, for example `14pp lower than sheltered walk`, while keeping the underlying route and score values unchanged. This is browser copy/test/evidence work only; it does not alter route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.

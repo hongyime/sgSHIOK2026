@@ -489,12 +489,13 @@ function buildRouteCompareNote(params: {
   const viewedIsShortest = routeMode === "shortest";
   const viewedPct = viewedIsShortest ? shortestPct : coveredRoutePct;
   const otherPct = viewedIsShortest ? coveredRoutePct : shortestPct;
+  const viewedLabel = viewedIsShortest ? "shortest walk" : "sheltered walk";
   const otherLabel = viewedIsShortest ? "Sheltered walk" : "Shortest walk";
   const delta = otherPct - viewedPct;
   const magnitude = Math.abs(delta);
   if (magnitude < 5) return null;
   const direction = delta > 0 ? "higher" : "lower";
-  return `${otherLabel} has ${otherPct}% covered-walkway ratio (${magnitude}pp ${direction})`;
+  return `${otherLabel} has ${otherPct}% covered-walkway ratio (${magnitude}pp ${direction} than ${viewedLabel})`;
 }
 
 function transitModeLabel(mode: TransitAccessMode): string {
