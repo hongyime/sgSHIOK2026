@@ -1205,7 +1205,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("direct bus candidates found");
     expect(html).not.toContain("Direct line to bus stop; walking route pending.");
     expect(html).toContain(
-      "Direct bus service is shown as fallback evidence; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus term remains 0."
+      "Direct bus service is shown as fallback evidence; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score remains 0."
     );
     expect(html).not.toContain("so this component score remains 0");
     expect(html).not.toContain("Nearby bus service not route-verified");
@@ -1217,8 +1217,10 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Walking-route access was not verified");
     expect(html).not.toContain("Walking network access was not verified");
     expect(html).toContain(
-      "Locked score caveat: the bus term remains 0 because nearby direct bus service evidence could not be connected to a verified shelter-map walk."
+      "Locked score caveat: the locked bus score remains 0 because nearby direct bus service evidence could not be connected to a verified shelter-map walk."
     );
+    expect(html).not.toContain("the bus term remains 0");
+    expect(html).not.toContain("locked bus term remains 0");
     expect(html).not.toContain("nearby bus evidence could not be connected");
     expect(html).toContain("Bus service support");
     expect(html).toContain("20%");
