@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest commit: `5efe6ec` (`fix: preflight historical analysis report outputs`)
+Latest substantive commit: `5efe6ec` (`fix: preflight historical analysis report outputs`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
