@@ -728,7 +728,7 @@ describe("rendered accessibility output", () => {
     );
   });
 
-  it("frames traced correction notes as walk feedback", () => {
+  it("frames traced correction notes as shelter feedback", () => {
     const html = renderScoreCard({
       feedbackEnabled: true,
       feedbackPoints: [
@@ -738,9 +738,9 @@ describe("rendered accessibility output", () => {
       feedbackSegmentLabels: ["exposed"],
     });
 
-    expect(html).toContain('placeholder="Optional walk note"');
-    expect(html).toContain("Copy walk QA JSON");
-    expect(html).toContain("Done tracing");
+    expect(html).toContain('placeholder="Optional shelter note"');
+    expect(html).toContain("Copy correction report");
+    expect(html).toContain("Done tracing shelter");
     expect(html).toContain("2 points / 1 walk segment");
     expect(html).toContain("Walk segment 1");
     expect(formatFeedbackTraceCount(1)).toBe("1 point / 0 walk segments");
@@ -749,7 +749,9 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("2 points / 1 walk segments");
     expect(html).not.toContain("2 points / 1 segments");
     expect(html).not.toContain(">Segment 1</span>");
+    expect(html).not.toContain("Copy walk QA JSON");
     expect(html).not.toContain('placeholder="Optional route note"');
+    expect(html).not.toContain('placeholder="Optional walk note"');
     expect(html).not.toContain("Copy QA JSON");
     expect(html).not.toContain("Suggest better route");
   });

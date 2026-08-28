@@ -1747,3 +1747,7 @@ The score card should keep the three longest exposed gaps immediately scannable,
 2026-08-29 - P778 night-lighting detail priority:
 
 Night lighting is the second product layer after shelter exposure, while the sparse greenery proxy is supporting heat caveat material. The score-card walk-details strip now lists Night lighting before Greenery proxy so the UI hierarchy matches the product hierarchy. This is browser ordering and test coverage only; it does not alter lamp overlay data, shade geometry, route geometry, score values, exports, public data, protected evidence, deployments, or locked weights.
+
+2026-08-29 - P779 shelter-correction workflow copy:
+
+The map tracing workflow is a shelter-evidence correction path, not generic route preference or internal QA. The score card now exposes a `Report missing shelter` action near exposed gaps, renames tracing/copy controls around shelter correction, and records `issue: user_reported_shelter_correction` while keeping a legacy issue field for compatibility. This is browser copy/interaction and test coverage only; it does not score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.

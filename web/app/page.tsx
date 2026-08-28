@@ -967,7 +967,8 @@ function buildFeedbackPayload({
     transit_mode: transitMode,
     walk_mode: routeMode,
     route_mode: routeMode,
-    issue: "user_reported_better_walk",
+    issue: "user_reported_shelter_correction",
+    legacy_issue: "user_reported_better_walk",
     source: "user_drawn_qa_evidence_not_score_override",
     waypoints: points.map((point) => [point.lat, point.lng]),
     segment_labels: segmentLabels.slice(0, Math.max(0, points.length - 1)),
@@ -1521,7 +1522,7 @@ export function ScoreCard({
                 aria-pressed={feedbackEnabled}
                 onClick={() => setFeedbackEnabled(!feedbackEnabled)}
               >
-                {feedbackEnabled ? "Done tracing" : "Suggest better walk"}
+                {feedbackEnabled ? "Done tracing shelter" : "Trace shelter correction"}
               </button>
               <button
                 type="button"
@@ -1529,7 +1530,7 @@ export function ScoreCard({
                 onClick={copyFeedback}
                 disabled={feedbackPoints.length < 2}
               >
-                Copy walk QA JSON
+                Copy correction report
               </button>
             </div>
           </details>
@@ -1725,7 +1726,7 @@ export function ScoreCard({
               <textarea
                 value={feedbackNote}
                 onChange={(event) => setFeedbackNote(event.target.value)}
-                placeholder="Optional walk note"
+                placeholder="Optional shelter note"
                 rows={2}
               />
             </div>
@@ -1754,6 +1755,15 @@ export function ScoreCard({
             <span>{gapListScopeText}</span>
             <span>{gapCoordinateSummaryText}</span>
           </p>
+          {!feedbackEnabled && (
+            <button
+              type="button"
+              className={styles.gapReportButton}
+              onClick={() => setFeedbackEnabled(true)}
+            >
+              Report missing shelter
+            </button>
+          )}
           {visibleExposureGaps.map((gap, index) => {
             const location = formatGapLocation(gap);
             const focusTarget = exposureGapFocusTarget(score, gap, index);

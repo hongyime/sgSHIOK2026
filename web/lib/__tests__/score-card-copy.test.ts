@@ -187,13 +187,14 @@ describe("score card copy", () => {
     expect(smokeSource).not.toContain("invalid route mode");
   });
 
-  it("names walk mode in copied walk QA JSON while keeping route-mode compatibility", () => {
+  it("names shelter correction in copied report while keeping route-mode compatibility", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
-    expect(source).toContain("Copy walk QA JSON");
+    expect(source).toContain("Copy correction report");
     expect(source).toContain("walk_mode: routeMode");
     expect(source).toContain("route_mode: routeMode");
-    expect(source).toContain('issue: "user_reported_better_walk"');
+    expect(source).toContain('issue: "user_reported_shelter_correction"');
+    expect(source).toContain('legacy_issue: "user_reported_better_walk"');
     expect(source).not.toContain('issue: "user_reported_better_walk_route"');
     const smokeSource = readFileSync(join(__dirname, "../../scripts/browser-smoke.mjs"), "utf-8");
     expect(smokeSource).toContain("shelter_map_panel_loaded");
@@ -454,9 +455,14 @@ describe("score card copy", () => {
     expect(smokeSource).toContain('summary.cardText.includes("Sheltered walk")');
     expect(smokeSource).not.toContain('summary.cardText.includes("Sheltered route")');
     expect(source).toContain('aria-label="Walk display"');
-    expect(source).toContain("Suggest better walk");
-    expect(source).toContain("Copy walk QA JSON");
-    expect(source).toContain('placeholder="Optional walk note"');
+    expect(source).toContain("Trace shelter correction");
+    expect(source).toContain("Done tracing shelter");
+    expect(source).toContain("Report missing shelter");
+    expect(source).toContain("Copy correction report");
+    expect(source).toContain('placeholder="Optional shelter note"');
+    expect(source).not.toContain("Suggest better walk");
+    expect(source).not.toContain("Copy walk QA JSON");
+    expect(source).not.toContain('placeholder="Optional walk note"');
     expect(source).toContain("formatFeedbackTraceCount(feedbackPoints.length)");
     expect(source).toContain("walk segment${");
     expect(source).toContain("Walk segment {index + 1}");
