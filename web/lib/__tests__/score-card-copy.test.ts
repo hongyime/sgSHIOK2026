@@ -836,4 +836,13 @@ describe("score card copy", () => {
     expect(lockedScoreLabelRule).not.toContain("white-space: nowrap;");
     expect(cssSource).not.toContain(".scoreBadge strong {\n    font-size: 18px;");
   });
+
+  it("renders zero exposed gaps as evidence instead of hiding the gap section", () => {
+    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+
+    expect(source).toContain('aria-label="Exposed gap evidence"');
+    expect(source).toContain("All recorded segments for this display stay under covered-walkway or connector evidence.");
+    expect(source).toContain("No exposed gaps are recorded for this ${selectedWalkLabel}.");
+    expect(source).not.toContain("0 m exposed across 0 gaps");
+  });
 });

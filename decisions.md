@@ -1842,3 +1842,7 @@ The first-view data-limits freshness copy should track the latest no-write manif
 2026-08-29 - P810 agent docs P19 v2 alignment:
 
 Agent-facing operating context should match the current P19 v2 source-policy surface instead of preserving older P125 coverage numbers. `CLAUDE.md` now names the P19 v2 28 Aug 2026 public-source sample and the same run's Overpass coverage values: 25,919 valid OSM addr:postcode values, 25,899 overlapping frozen v1, and 20 valid OSM-only postcodes. `p125-osm-status` remains listed as a historical safe report command. This is docs/test/evidence work only; it does not score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
+
+2026-08-29 - P811 zero-gap evidence state:
+
+Zero recorded exposed gaps are favorable shelter-map evidence, not absence of evidence. The score card now renders a compact `Exposed gap evidence` block for scored, non-preview, non-direct-bus-fallback walks with no recorded gaps, stating that no exposed gaps are recorded and that all recorded segments stay under covered-walkway or connector evidence. Routes with gaps keep the existing sorted gap list and map-focus actions. This is browser UI/test/evidence work only; it does not score, export, rescore, mutate route geometry, public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.

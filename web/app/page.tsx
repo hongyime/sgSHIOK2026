@@ -1397,6 +1397,7 @@ export function ScoreCard({
       : `No map coordinates are recorded for ${
           exposureGaps.length === 1 ? "this exposed gap" : "these exposed gaps"
         }.`;
+  const zeroGapEvidenceText = `No exposed gaps are recorded for this ${selectedWalkLabel}.`;
   const evidenceRows: EvidenceBreakdownRow[] = score.subscores
     ? [
         {
@@ -1759,6 +1760,16 @@ export function ScoreCard({
           {routeDetailNotes.map((note) => (
             <small key={note}>{note}</small>
           ))}
+        </div>
+      )}
+
+      {score.paths && !directBusFallback && !previewRoute && exposureGaps.length === 0 && (
+        <div className={styles.gapList} aria-label="Exposed gap evidence">
+          <h3>Exposed gaps {selectedWalkHeadingPhrase}</h3>
+          <p className={styles.gapSummary}>
+            <span>{zeroGapEvidenceText}</span>
+            <span>All recorded segments for this display stay under covered-walkway or connector evidence.</span>
+          </p>
         </div>
       )}
 
