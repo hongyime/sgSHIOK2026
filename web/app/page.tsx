@@ -566,7 +566,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     return "Preview only: this clicked transit target has shelter-map evidence, but it is not part of the published shelter-map bundle yet.";
   }
   if (score.state === "SCORED_PARTIAL") {
-    return "Partial locked score: shelter-map evidence may still be present, but the locked formula counts unavailable terms as zero.";
+    return "Partial locked score: shelter-map evidence may still be present, but unavailable score inputs count as zero in the locked formula.";
   }
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const reason = provenanceReason(score, transitMode);

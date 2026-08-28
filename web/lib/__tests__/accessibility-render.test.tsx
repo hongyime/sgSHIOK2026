@@ -1099,8 +1099,9 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("Shelter exposure");
     expect(html).toContain(
-      "Partial locked score: shelter-map evidence may still be present, but the locked formula counts unavailable terms as zero."
+      "Partial locked score: shelter-map evidence may still be present, but unavailable score inputs count as zero in the locked formula."
     );
+    expect(html).not.toContain("the locked formula counts unavailable terms as zero");
     expect(html).not.toContain(
       "Partial locked score: shelter-map evidence may still be present, but one or more locked terms are unavailable; locked weights count missing terms as zero."
     );
