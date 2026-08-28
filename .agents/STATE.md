@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P630 web commit: `089bb0f`; state-only commits may follow it on `main`.
+Latest P631 web commit: `9bb4b2d`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P631 is complete and committed: the transit-picker reset chip now says `Reset to auto-picked target` with aria label `Reset to auto-picked transit target`, replacing vague `Reset to best` / `best transit` wording. Adjacent source comments and tests now use active-target language. The first focused test run caught a stale comment assertion, then corrected focused picker test and full web suite passed; Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed. Web tests remain 161 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P630 is complete and committed: graph-disconnected no-transit UI copy now says `Transit target found` and `Transit targets exist...` instead of stop-or-exit wording, while the exact no-candidate sentence still names `MRT/LRT exit or bus stop`. Focused accessibility/copy tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 161 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P629 is complete and committed: the visible transit-picker comparison note now says `farther than auto-picked target` instead of `auto-picked stop`, matching the MRT/LRT-exit-or-bus-stop candidate model. The direct helper assertion and rendered-output test now pin the target wording and reject the old stop wording. The first focused test run caught the missed helper assertion, then the corrected focused picker test and full web suite passed; Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed. Web tests remain 161 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P628 is complete and committed: the empty route-map accessible label now says `transit targets` instead of `transit stops`, matching the settled MRT/LRT-exit-or-bus-stop picker model while leaving the detailed POI inventory wording intact. Focused map interaction test, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 161 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
