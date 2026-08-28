@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P617 web commit: `b7cd576`; state-only commits may follow it on `main`.
+Latest P618 web commit: `3fb2684`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P618 is complete and committed: the night-lighting map-layer toggle now shows visible stateful text (`Night lighting off` / `Night lighting on`) instead of relying on color plus `aria-pressed` alone. Focused route/copy/accessibility web tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 158 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P617 is complete and committed: coordinate-backed exposed-gap rows now show a visible `Focus map` affordance when they are actionable map-focus buttons, backed by a fixed third grid column and render/source tests. Focused accessibility/copy tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 158 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P616 is complete and committed: exposed-gap coordinate labels now say `Map coordinate <lat>, <lon>` instead of generic `Near <lat>, <lon>`, and the focus button aria-label now uses `at map coordinate`, making the per-gap coordinate evidence explicit. Focused accessibility-render test, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 158 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P615 is complete and committed: the no-selection shelter-map panel now tells users before search that the published bundle is tied to the frozen June 2020 address universe and, when manifest provenance is loaded, shows the manifest-derived locked-score coverage line. Focused accessibility/copy tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 158 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
