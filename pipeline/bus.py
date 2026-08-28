@@ -28,6 +28,7 @@ MANIFEST_PATH = RAW_DIR / "manifest.json"
 USER_AGENT = "sgSHIOK-Shelter-Map-Pipeline/1.0 (S.H.I.O.K. Shelter Map)"
 DATAMALL_PAGE_SIZE = 500
 BUS_SOURCE_KEYS = {"bus_stops", "bus_services", "bus_routes"}
+CONFIRM_INPUT_REFRESH_FLAG = "--confirm-input-refresh"
 
 
 @dataclass(frozen=True)
@@ -350,12 +351,31 @@ class BusConnectivityIndex:
         )
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Ingest DataMall bus API datasets.")
     parser.add_argument("action", choices=["ingest"])
-    args = parser.parse_args()
+    parser.add_argument(
+        CONFIRM_INPUT_REFRESH_FLAG,
+        action="store_true",
+        help="Required before fetching DataMall bus API sources and updating raw/manifest.json.",
+    )
+    args = parser.parse_args(argv)
 
     if args.action == "ingest":
+        if not args.confirm_input_refresh:
+            print(
+                json.dumps(
+                    {
+                        "ok": False,
+                        "errors": [
+                            "bus API ingest requires --confirm-input-refresh after owner approval"
+                        ],
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 1
         from pipeline.fetch import load_sources
 
         counts = ingest_bus_api_sources(load_sources())

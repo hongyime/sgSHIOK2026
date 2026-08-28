@@ -1668,3 +1668,7 @@ Full OneMap validation wrappers must not bypass runner-level approval by self-su
 2026-08-28 - P756 bus-arrivals module confirmation guard:
 
 `pipeline.bus_arrivals collect` must own an explicit collection approval because direct module execution can call DataMall and append local bus-arrival snapshots outside the runner. The module now requires `--confirm-bus-arrivals` before output checks or fetch calls, and `run.py bus-arrivals` forwards the same confirmation instead of stripping it so the runner and module gates agree. This is guard/test hygiene only; it does not collect DataMall bus arrivals, mutate raw inputs, score, export, deploy, public data, protected QA evidence, or locked weights.
+
+2026-08-28 - P757 bus API direct-ingest confirmation guard:
+
+`pipeline.bus ingest` is a legacy direct DataMall bus-source ingest path that can fetch bus stops, services, and routes, write hashed raw payloads, and update `raw/manifest.json` outside `run.py`. Direct ingest now requires `--confirm-input-refresh` and rejects before source config loading if the flag is missing. This is guard/test hygiene only; it does not ingest, call DataMall, mutate raw inputs, protected QA evidence, public data, score, export, deploy, or touch locked weights.
