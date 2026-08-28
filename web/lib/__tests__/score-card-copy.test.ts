@@ -277,9 +277,10 @@ describe("score card copy", () => {
     expect(source).not.toContain("Live OSM addr:postcode coverage:");
     expect(source).not.toContain("OSM remains the address registry");
     expect(source).toContain(
-      "Data freshness at the 28 Aug 2026 11:52 UTC manifest-only check: 11 sources current, 9 stale, 3 manual, and Overture Maps Addresses - Singapore candidate has unknown age. No upstream URLs were probed. Bus Stops, Bus Services, and Bus Routes are current but 1.7 days from stale. The oldest current item is HDB Existing Building, 68.4 days into its 120-day threshold with 51.6 days until stale. The source policy now covers every source in raw/manifest.json, including ACRA, other-UEN, and the June 2020 OneMap-derived postal-universe seed. Stale sources include Covered Linkway, Pedestrian Overhead Bridge / Underpass, Traffic Signals, Planning Area Boundaries (MP2019 No Sea), NParks Leaf Area Index, NParks Nature Ways, NParks Tracks, NParks Heritage Trees, and NParks Heritage Road Green Buffers. Stale-source refreshes require a new numbered input version, not an in-place frozen-v1 mutation."
+      "Data freshness: 28 Aug 2026 11:52 UTC manifest-only check; 11 current, 9 stale, 3 manual, 1 unknown-age candidate. No upstream URLs were probed."
     );
-    expect(source).toContain("The source policy now covers every source in raw/manifest.json");
+    expect(source).toContain("<summary>Source freshness detail</summary>");
+    expect(source).toContain("The source policy covers every source in raw/manifest.json");
     expect(source).toContain("ACRA, other-UEN, and the June 2020 OneMap-derived postal-universe seed");
     expect(source).toContain("Stale-source refreshes require a new numbered input version");
     expect(source).toContain("not an in-place frozen-v1 mutation");
@@ -348,7 +349,9 @@ describe("score card copy", () => {
       "Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape.",
       "{RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}.",
       "{OSM_ADDR_POSTCODE_COVERAGE_COPY}",
-      "Data freshness at the 28 Aug 2026 11:52 UTC manifest-only check",
+      "{DATA_FRESHNESS_SUMMARY_COPY}",
+      "<summary>Source freshness detail</summary>",
+      "{DATA_FRESHNESS_DETAIL_COPY}",
       "{COVERED_LINKWAY_FRESHNESS_COPY}",
       "{LEAF_AREA_INDEX_REFERENCE_COPY}",
       "{lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}",

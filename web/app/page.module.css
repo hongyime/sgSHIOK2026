@@ -70,6 +70,23 @@
   font-size: 10px !important;
 }
 
+.freshnessDetails {
+  margin-top: 4px;
+  color: #5d6d67;
+  font-size: 10px;
+}
+
+.freshnessDetails summary {
+  cursor: pointer;
+  color: #334943;
+  font-weight: 800;
+}
+
+.freshnessDetails p {
+  margin-top: 4px;
+  font-size: 10px !important;
+}
+
 .sourceLine a {
   color: inherit;
   font-weight: 700;

@@ -105,6 +105,12 @@ const RECENT_PUBLIC_SOURCE_SAMPLE_LABEL = "16 Aug 2026 public-source sample";
 const OSM_ADDR_POSTCODE_COVERAGE_COPY =
   "20 Aug 2026 OSM addr:postcode coverage cross-check: 25,879 valid distinct postcodes measured; 25,873 overlap the 124,443 frozen postals, with 6 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry.";
 
+const DATA_FRESHNESS_SUMMARY_COPY =
+  "Data freshness: 28 Aug 2026 11:52 UTC manifest-only check; 11 current, 9 stale, 3 manual, 1 unknown-age candidate. No upstream URLs were probed.";
+
+const DATA_FRESHNESS_DETAIL_COPY =
+  "Bus Stops, Bus Services, and Bus Routes are current but 1.7 days from stale. The oldest current item is HDB Existing Building, 68.4 days into its 120-day threshold with 51.6 days until stale. The source policy covers every source in raw/manifest.json, including ACRA, other-UEN, and the June 2020 OneMap-derived postal-universe seed. Stale sources include Covered Linkway, Pedestrian Overhead Bridge / Underpass, Traffic Signals, Planning Area Boundaries (MP2019 No Sea), NParks Leaf Area Index, NParks Nature Ways, NParks Tracks, NParks Heritage Trees, and NParks Heritage Road Green Buffers. Stale-source refreshes require a new numbered input version, not an in-place frozen-v1 mutation.";
+
 const COVERED_LINKWAY_FRESHNESS_COPY =
   "Covered Linkway follows a quarterly 120-day freshness threshold; frozen v1 uses the Mar 2026 LTA geospatial listing. A 28 Aug 2026 discovery-only DataMall check found Covered Linkway, bridge/underpass, and Traffic Signals URLs still match frozen v1; stale payload ages still require a new numbered input version before any refresh.";
 
@@ -2254,8 +2260,12 @@ export default function Home() {
               {OSM_ADDR_POSTCODE_COVERAGE_COPY}
             </p>
             <p className={styles.freshnessLine}>
-              Data freshness at the 28 Aug 2026 11:52 UTC manifest-only check: 11 sources current, 9 stale, 3 manual, and Overture Maps Addresses - Singapore candidate has unknown age. No upstream URLs were probed. Bus Stops, Bus Services, and Bus Routes are current but 1.7 days from stale. The oldest current item is HDB Existing Building, 68.4 days into its 120-day threshold with 51.6 days until stale. The source policy now covers every source in raw/manifest.json, including ACRA, other-UEN, and the June 2020 OneMap-derived postal-universe seed. Stale sources include Covered Linkway, Pedestrian Overhead Bridge / Underpass, Traffic Signals, Planning Area Boundaries (MP2019 No Sea), NParks Leaf Area Index, NParks Nature Ways, NParks Tracks, NParks Heritage Trees, and NParks Heritage Road Green Buffers. Stale-source refreshes require a new numbered input version, not an in-place frozen-v1 mutation.
+              {DATA_FRESHNESS_SUMMARY_COPY}
             </p>
+            <details className={styles.freshnessDetails}>
+              <summary>Source freshness detail</summary>
+              <p>{DATA_FRESHNESS_DETAIL_COPY}</p>
+            </details>
             <p className={styles.freshnessLine}>
               {COVERED_LINKWAY_FRESHNESS_COPY}
             </p>
