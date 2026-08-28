@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `ef547eb` (`fix: pass geocode cache path with db flag`)
+Latest substantive commit: `88ef6ab` (`fix: require confirmation for bundle activation`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,8 +18,8 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P748 is complete and pushed: `scripts/prepare-postal-universe.ps1` now passes the bounded geocode cache path with the module's actual `--db` flag, and the test rejects the stale `--cache-db` spelling.
-- Evidence: `qa/verification/P748-postal-wrapper-geocode-db-flag.md`.
-- P736-P747 also remain complete: bounded geocode caches must be versioned, batch-plan blocks unversioned completed fills, lamp-overlay/postal-universe/report-writer tasks require confirmation, high-risk writer/network/deploy tasks fail closed at the runner, validate is documented as read-only, the deploy wrapper passes both publish confirmations, agent publish instructions match, postal-universe prep passes required confirmations/cache paths, and the legacy direct geocode entry point is retired.
-- Checks: `uv run pytest tests/test_release_scripts.py tests/test_run.py tests/test_legacy_geocode.py -q` passed 62/62; `uv run pytest -q --collect-only` collected 571; repo integrity passed; diff-check and protected-diff guard passed.
+- P749 is complete and pushed: direct `scripts/activate-data-bundle.ps1` now requires `-ConfirmActivation` before rewriting `web/data-bundle.json` or Vercel allowlists; the approved release wrapper passes that confirmation after `-ConfirmProduction`.
+- Evidence: `qa/verification/P749-activation-wrapper-confirmation.md`.
+- P736-P748 also remain complete: bounded geocode caches must be versioned, batch-plan blocks unversioned completed fills, lamp-overlay/postal-universe/report-writer tasks require confirmation, high-risk writer/network/deploy tasks fail closed at the runner, validate is documented as read-only, deploy/publish wrappers pass required confirmations, agent publish instructions match, postal-universe prep passes required confirmations/cache paths, the legacy direct geocode entry point is retired, and geocode cache paths use `--db`.
+- Checks: `uv run pytest tests/test_release_scripts.py tests/test_run.py tests/test_publish.py -q` passed 67/67; `uv run pytest -q --collect-only` collected 573; repo integrity passed; diff-check and protected-diff guard passed.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
