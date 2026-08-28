@@ -1866,3 +1866,7 @@ The readiness gate must require the expected score-source hashes, not merely any
 2026-08-29 - P816 direct-bus selected state:
 
 Direct-bus fallback is published fallback evidence, not a published routed shelter-map walk. The score-card screen-reader announcement now says `Published direct-bus fallback evidence selected.` for fallback records while normal routed records keep `Published shelter-map walk selected.` This is browser accessibility/test/evidence work only; it does not score, export, rescore, mutate route geometry, public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
+
+2026-08-29 - P817 direct-bus region labels:
+
+Direct-bus fallback source and reason regions must not be announced as shelter-map evidence regions. The score card now labels fallback source evidence as `Direct-bus fallback source evidence` and fallback reasons as `Direct-bus fallback evidence reasons`, while verified shelter-map walks keep the existing shelter labels. This is browser accessibility/test/evidence work only; it does not score, export, rescore, mutate route geometry, public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.

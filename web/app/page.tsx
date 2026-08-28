@@ -1289,6 +1289,8 @@ export function ScoreCard({
     rankMetricLabel,
   });
   const sourceBreakdown = routeSourceBreakdown(selection, routeMode, sameRoute);
+  const sourceEvidenceLabel = directBusFallback ? "Direct-bus fallback source evidence" : "Shelter source evidence";
+  const reasonListLabel = directBusFallback ? "Direct-bus fallback evidence reasons" : "Shelter-map evidence reasons";
   const exposureGaps = score.exposure_gaps ? [...score.exposure_gaps].sort((a, b) => b.len_m - a.len_m) : [];
   const endpointSnapM = score.paths?.endpoint_snap_connector_m ?? 0;
   const extraWalkLabel =
@@ -1580,7 +1582,7 @@ export function ScoreCard({
         />
       )}
       {sourceBreakdown.length > 0 && (
-        <div className={styles.sourceStrip} aria-label="Shelter source evidence">
+        <div className={styles.sourceStrip} aria-label={sourceEvidenceLabel}>
           {sourceBreakdown.map((item) => (
             <span key={item.source} data-source={item.source}>
               {item.label} <strong>{formatDistance(item.lenM)}</strong>
@@ -1611,7 +1613,7 @@ export function ScoreCard({
         </div>
       )}
 
-      <div className={styles.reasonList} aria-label="Shelter-map evidence reasons">
+      <div className={styles.reasonList} aria-label={reasonListLabel}>
         {reasons.map((reason) => (
           <span key={reason}>{reason}</span>
         ))}

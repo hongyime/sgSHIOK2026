@@ -594,7 +594,8 @@ describe("score card copy", () => {
 
     expect(source).toContain("Shelter-map evidence and locked score");
     expect(source).toContain('aria-label="Shelter-map evidence and locked score breakdown"');
-    expect(source).toContain('aria-label="Shelter-map evidence reasons"');
+    expect(source).toContain("aria-label={reasonListLabel}");
+    expect(source).toContain('"Shelter-map evidence reasons"');
     expect(source).toContain("35% locked walk-to-transit");
     expect(source).toContain("20% locked bus support");
     expect(source).toContain("40% locked shelter exposure");
@@ -880,5 +881,14 @@ describe("score card copy", () => {
     expect(source).toContain("selectedStateText?: string;");
     expect(source).toContain("selectedStateText ??");
     expect(source).toContain('directBusFallback ? "Published direct-bus fallback evidence selected." : undefined');
+  });
+
+  it("labels direct-bus fallback evidence regions without implying shelter-map evidence", () => {
+    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+
+    expect(source).toContain('directBusFallback ? "Direct-bus fallback source evidence" : "Shelter source evidence"');
+    expect(source).toContain('directBusFallback ? "Direct-bus fallback evidence reasons" : "Shelter-map evidence reasons"');
+    expect(source).toContain("aria-label={sourceEvidenceLabel}");
+    expect(source).toContain("aria-label={reasonListLabel}");
   });
 });
