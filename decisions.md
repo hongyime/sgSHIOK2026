@@ -1584,3 +1584,7 @@ The dry-run batch planner should expose prerequisite evidence by bundled change,
 2026-08-28 - P735 decision path hygiene:
 
 Scoring and export comments should point future maintainers to this repository's root `decisions.md`, not to a nonexistent `docs/decisions.md`. The best-transit picker rationale references in `pipeline/export.py`, `pipeline/scoring_integration.py`, and `tests/test_scoring_integration.py` now use the correct root decision path, and a source-text test guards against that stale pointer returning. This is comment/test/documentation hygiene only; it does not change scoring, exports, inputs, public data, deployment, protected evidence, or locked weights.
+
+2026-08-28 - P736 bounded geocode cache versioning:
+
+Confirmed non-dry bounded OneMap geocode fills must not mutate the unversioned legacy `raw/geocode_cache.db`. `pipeline.geocode_universe` now requires the mutable cache path to include a numeric version tag such as `_v2` before reading queued rows, opening the cache, or calling OneMap, while dry runs remain allowed. This is safety guard/test coverage only; it does not call OneMap, geocode, mutate raw inputs/caches, score, export, deploy, public data, protected QA evidence, or locked weights.

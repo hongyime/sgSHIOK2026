@@ -88,7 +88,7 @@ def test_geocode_universe_fills_only_source_derived_needs_geocode_rows(tmp_path:
     input_path = tmp_path / "postal_universe_candidate_full_registered.parquet"
     output_path = tmp_path / "postal_universe_candidate_full_registered_geocoded_v2.parquet"
     summary_path = tmp_path / "postal_universe_candidate_full_registered_geocoded_v2_summary.json"
-    db_path = tmp_path / "geocode_cache.db"
+    db_path = tmp_path / "geocode_cache_v2.db"
     write_universe(input_path)
 
     def fake_fetch(postal: str):
@@ -143,7 +143,7 @@ def test_geocode_universe_fills_only_source_derived_needs_geocode_rows(tmp_path:
 def test_geocode_universe_reuses_success_cache_without_http(tmp_path: Path):
     input_path = tmp_path / "postal_universe_candidate_full_registered.parquet"
     output_path = tmp_path / "postal_universe_candidate_full_registered_geocoded_v2.parquet"
-    db_path = tmp_path / "geocode_cache.db"
+    db_path = tmp_path / "geocode_cache_v2.db"
     write_universe(input_path)
 
     conn = init_cache(db_path)
@@ -210,6 +210,27 @@ def test_geocode_universe_rejects_existing_non_dry_output_before_http(tmp_path: 
     assert "refusing to overwrite" in report["errors"][0]
 
 
+def test_geocode_universe_rejects_unversioned_cache_before_http(tmp_path: Path):
+    input_path = tmp_path / "postal_universe_candidate_full_registered.parquet"
+    output_path = tmp_path / "postal_universe_candidate_full_registered_geocoded_v2.parquet"
+    db_path = tmp_path / "geocode_cache.db"
+    write_universe(input_path)
+
+    ok, report = geocode_universe_gaps(
+        input_path=input_path,
+        output_path=output_path,
+        db_path=db_path,
+        delay_sec=0,
+        confirm_bounded_geocode=True,
+        fetcher=lambda postal: (_ for _ in ()).throw(AssertionError(postal)),
+    )
+
+    assert ok is False
+    assert "geocode cache path must include a numeric version tag" in report["errors"][0]
+    assert not db_path.exists()
+    assert not output_path.exists()
+
+
 def test_geocode_universe_help_names_versioned_output_boundary(
     capsys: pytest.CaptureFixture[str],
 ):
@@ -222,4 +243,6 @@ def test_geocode_universe_help_names_versioned_output_boundary(
     out = " ".join(capsys.readouterr().out.split())
     assert "Non-dry runs require fresh numeric-version output artifacts" in out
     assert "never repair frozen v1 in place" in out
+    assert "mutable geocode cache must also be explicitly versioned" in out
     assert "refuse unversioned or existing outputs" in out
+    assert "raw/geocode_cache_v2.db" in out

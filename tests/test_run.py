@@ -44,7 +44,8 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     assert "Gated pipeline tasks:" in run.__doc__
     assert (
         "ingest | lamp-overlay | network | score | score-batch | export | "
-        "export-transit | refresh-provenance | validate | publish | onemap-probe"
+        "export-transit | refresh-provenance | validate | publish | onemap-probe | "
+        "geocode-universe"
         in run.__doc__
     )
     assert (
@@ -74,6 +75,12 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     )
     assert (
         "onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe."
+        in run.__doc__
+    )
+    assert (
+        "geocode-universe can call OneMap and write a bounded geocode-fill parquet, "
+        "summary, and cache; non-dry runs require --confirm-bounded-geocode, "
+        "fresh numeric-version outputs, and an explicitly versioned geocode cache."
         in run.__doc__
     )
 
@@ -116,7 +123,8 @@ def test_run_help_headline_does_not_flatten_all_tasks():
     assert "Gated pipeline tasks:" in help_text
     assert (
         "ingest | lamp-overlay | network | score | score-batch | export | "
-        "export-transit | refresh-provenance | validate | publish | onemap-probe"
+        "export-transit | refresh-provenance | validate | publish | onemap-probe | "
+        "geocode-universe"
         in help_text
     )
     assert (
@@ -146,6 +154,12 @@ def test_run_help_headline_does_not_flatten_all_tasks():
     )
     assert (
         "onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe."
+        in help_text
+    )
+    assert (
+        "geocode-universe can call OneMap and write a bounded geocode-fill parquet, "
+        "summary, and cache; non-dry runs require --confirm-bounded-geocode, "
+        "fresh numeric-version outputs, and an explicitly versioned geocode cache."
         in help_text
     )
 
@@ -211,7 +225,7 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
     )
     assert run.STUBS["geocode-universe"] == (
         "bounded OneMap geocode fill for source-derived postal gaps; non-dry runs "
-        "require fresh numeric-version outputs"
+        "require fresh numeric-version outputs and an explicitly versioned geocode cache"
     )
     assert run.STUBS["export"] == (
         "scores/{area}.json + geom/h3/{cell}.json + manifest (T1.5); requires "

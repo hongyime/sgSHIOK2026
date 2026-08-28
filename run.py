@@ -16,7 +16,7 @@ Safe reports:
   batch-plan dry-runs one-attempt full-batch prerequisites and policy status without scoring; execution still requires owner approval and bounded OneMap controls.
 
 Gated pipeline tasks:
-  ingest | lamp-overlay | network | score | score-batch | export | export-transit | refresh-provenance | validate | publish | onemap-probe
+  ingest | lamp-overlay | network | score | score-batch | export | export-transit | refresh-provenance | validate | publish | onemap-probe | geocode-universe
   ingest mutates raw/ and raw/manifest.json; through run.py it requires --confirm-input-refresh, and any refresh must write a new numbered input version rather than repair frozen v1.
   network writes processed network artifacts and QA outputs; it requires --confirm-network-build after owner approval.
   score runs routed scoring even at its default limit; it requires --confirm-score-run after owner approval.
@@ -24,6 +24,7 @@ Gated pipeline tasks:
   export can re-export --records-dir without scoring; every export requires --confirm-export and live scoring export also requires --confirm-live-score-export.
   refresh-provenance is fail-closed; direct pipeline.export invocation must name --output explicitly.
   onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe.
+  geocode-universe can call OneMap and write a bounded geocode-fill parquet, summary, and cache; non-dry runs require --confirm-bounded-geocode, fresh numeric-version outputs, and an explicitly versioned geocode cache.
 
 `publish` ALWAYS runs `validate` first — this gate is hard-coded and must never be removed.
 """
@@ -67,7 +68,7 @@ STUBS = {
     "compare-targeted": "compare a targeted score report against the published shelter-map bundle",
     "batch-plan": "dry-run one-attempt full postal geocode/scoring batch plan; execution still requires owner approval and bounded OneMap controls",
     "postal-universe": "build deterministic postal-code universe candidates",
-    "geocode-universe": "bounded OneMap geocode fill for source-derived postal gaps; non-dry runs require fresh numeric-version outputs",
+    "geocode-universe": "bounded OneMap geocode fill for source-derived postal gaps; non-dry runs require fresh numeric-version outputs and an explicitly versioned geocode cache",
     "export": "scores/{area}.json + geom/h3/{cell}.json + manifest (T1.5); requires --confirm-export, and live scoring requires --confirm-live-score-export",
     "export-transit": "refresh transit POIs without rescoring",
     "validate": "golden set + OneMap comparison; blocks publish (T1.7)",

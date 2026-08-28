@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import sqlite3
 import time
 from collections.abc import Callable
@@ -76,6 +77,19 @@ def default_output_path(input_path: Path) -> Path:
 
 def default_summary_path(output_path: Path) -> Path:
     return output_path.with_name(f"{output_path.stem}_summary.json")
+
+
+def is_versioned_geocode_cache(path: Path) -> bool:
+    return bool(re.search(r"_v[1-9][0-9]*$", path.stem))
+
+
+def require_versioned_geocode_cache_path(path: Path) -> None:
+    if is_versioned_geocode_cache(path):
+        return
+    raise ValueError(
+        "bounded geocode cache path must include a numeric version tag such as _v2; got: "
+        + str(path)
+    )
 
 
 def input_summary_path(input_path: Path) -> Path:
@@ -300,6 +314,7 @@ def geocode_universe_gaps(
     if not dry_run:
         try:
             require_new_artifact_paths(output_path, summary_path)
+            require_versioned_geocode_cache_path(db_path)
         except (FileExistsError, ValueError) as exc:
             return False, {"ok": False, "errors": [str(exc)]}
     df = pd.read_parquet(input_path).copy()
@@ -412,7 +427,8 @@ def main(argv: list[str] | None = None) -> int:
         description=(
             "Fill source-derived NEEDS_GEOCODE universe rows using bounded OneMap search. "
             "Non-dry runs require fresh numeric-version output artifacts; never repair "
-            "frozen v1 in place."
+            "frozen v1 in place. The mutable geocode cache must also be explicitly "
+            "versioned."
         )
     )
     parser.add_argument("--input", type=Path, required=True)
@@ -426,7 +442,12 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         help="Fresh numeric-version summary JSON path; defaults to <output stem>_summary.json.",
     )
-    parser.add_argument("--db", type=Path, default=GEOCODE_DB_PATH)
+    parser.add_argument(
+        "--db",
+        type=Path,
+        default=GEOCODE_DB_PATH,
+        help="Versioned geocode cache path for non-dry runs, for example raw/geocode_cache_v2.db.",
+    )
     parser.add_argument("--delay-sec", type=float)
     parser.add_argument("--limit", type=int)
     parser.add_argument("--dry-run", action="store_true")
