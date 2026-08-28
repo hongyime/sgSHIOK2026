@@ -66,6 +66,32 @@ def test_release_data_bundle_script_passes_deploy_confirm() -> None:
     assert confirm_arg < deploy_call
 
 
+def test_production_preflight_requires_confirmation_before_checks() -> None:
+    source = (PROJECT_ROOT / "scripts" / "preflight-production.ps1").read_text(encoding="utf-8")
+
+    assert "[switch]$ConfirmProductionPreflight" in source
+    assert "confirm_production_preflight_not_set" in source
+    assert "Write-PreflightPlan" in source
+
+    confirm_check = source.index("if (-not $ConfirmProductionPreflight)")
+    git_status = source.index("git status --short --branch")
+    npm_ci_note = source.index("npm ci if required bins are missing")
+    assert npm_ci_note < confirm_check
+    assert confirm_check < git_status
+
+
+def test_release_data_bundle_script_passes_preflight_confirm() -> None:
+    source = (PROJECT_ROOT / "scripts" / "release-data-bundle.ps1").read_text(encoding="utf-8")
+
+    preflight_line = next(
+        line.strip()
+        for line in source.splitlines()
+        if "preflight-production.ps1" in line and "-DataBundle $DataBundle" in line
+    )
+    assert "-ConfirmProductionPreflight" in preflight_line
+    assert "-SkipNetworkPreflight" in preflight_line
+
+
 def test_full_rescore_script_requires_distinct_production_deploy_confirm() -> None:
     source = (PROJECT_ROOT / "scripts" / "full-rescore-production.ps1").read_text(encoding="utf-8")
 

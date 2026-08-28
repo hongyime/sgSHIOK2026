@@ -1,6 +1,7 @@
 [CmdletBinding()]
 param(
     [string]$DataBundle = "",
+    [switch]$ConfirmProductionPreflight,
     [switch]$SkipWebTests,
     [switch]$SkipNetworkPreflight
 )
@@ -21,6 +22,27 @@ if (-not $DataBundle -or $DataBundle.Contains("/") -or $DataBundle.Contains("\")
 $DataDir = Join-Path $WebDir "public\data\$DataBundle"
 if (-not (Test-Path (Join-Path $DataDir "manifest.json"))) {
     throw "Data bundle is missing manifest.json: $DataDir"
+}
+
+function Write-PreflightPlan {
+    param([string]$Reason)
+    Write-Output "== S.H.I.O.K. production preflight =="
+    Write-Output "repo=$RepoRoot"
+    Write-Output "bundle=$DataBundle"
+    Write-Output "data_dir=$DataDir"
+    Write-Output ""
+    Write-Output "plan_only=true"
+    Write-Output "preflight=not_started"
+    Write-Output "reason=$Reason"
+    Write-Output "commands:"
+    Write-Output ".\scripts\preflight-production.ps1 -DataBundle $DataBundle -ConfirmProductionPreflight"
+    Write-Output ""
+    Write-Output "This will run git status, static bundle validation, optional network QA/preflight, and web tests. Web dependency setup may run npm ci if required bins are missing."
+}
+
+if (-not $ConfirmProductionPreflight) {
+    Write-PreflightPlan -Reason "confirm_production_preflight_not_set"
+    return
 }
 
 Push-Location $RepoRoot

@@ -115,7 +115,7 @@ try {
 
     Write-Output ""
     Write-Output "== Production preflight =="
-    & (Join-Path $PSScriptRoot "preflight-production.ps1") -DataBundle $DataBundle -SkipNetworkPreflight
+    & (Join-Path $PSScriptRoot "preflight-production.ps1") -DataBundle $DataBundle -ConfirmProductionPreflight -SkipNetworkPreflight
     if ($LASTEXITCODE -ne 0) { throw "production preflight failed" }
 
     Write-Output ""

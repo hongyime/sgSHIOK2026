@@ -1692,3 +1692,7 @@ Full OneMap validation wrappers must not bypass runner-level approval by self-su
 2026-08-28 - P762 network-debug direct-writer confirmation guard:
 
 `scripts.rebuild_network_debug` can write compact network debug GeoJSON outside the guarded runner path. Direct execution now requires `--confirm-network-debug` after explicit-output validation and before reading QA input or writing output, and `run.py network-debug` forwards that module-owned confirmation instead of stripping it. This is guard/test hygiene only; it does not rebuild network debug artifacts, mutate QA evidence, processed artifacts, public data, score, export, deploy, or touch locked weights.
+
+2026-08-28 - P763 production preflight wrapper confirmation guard:
+
+`scripts/preflight-production.ps1` is a release-path wrapper that can run static bundle validation, network QA/preflight, web dependency setup, and web tests. Because `ensure-web-deps.ps1` may run `npm ci` when required bins are missing, direct production preflight is not guaranteed zero-write. The wrapper now defaults to a plan-only response unless `-ConfirmProductionPreflight` is supplied, and `scripts/release-data-bundle.ps1` passes that confirmation after `-ConfirmProduction`. This is wrapper/test hygiene only; it does not run preflight, install dependencies, validate a bundle, run web tests, deploy, mutate public data, score, export, protected QA evidence, or locked weights.
