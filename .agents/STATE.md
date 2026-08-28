@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P669 web commit: `d65861b`; state-only commits may follow it on `main`.
+Latest P670 web commit: `7b7293f`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P670 is complete and committed: selected-walk night-lighting detail values now say `Night-lighting layer on/off` instead of generic `Map layer on/off`, making the route detail self-contained when read apart from its label. Focused render/source tests, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P669 is complete and committed: planning-area rank helper copy now says `shelter-map walk evidence remains the primary view` instead of generic `walk evidence remains the primary view`, keeping the locked-score sorting caveat aligned with the shelter-first presentation. Focused render/source tests, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P668 is complete and committed: the remaining broad `Map evidence only` copy was split by meaning. Night lighting now says `Night-lighting map layer only; not part of the locked score`, while clicked-stop shelter-map preview reason chips say `Not in published bundle`. The first focused run caught a second implementation source in `route-evidence-map.tsx`; after aligning it, focused render/source/map tests, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P667 is complete and committed: populated live-region copy now says `Shelter-map walk evidence ...` instead of generic `Walk evidence ...`, and the outside-transit-range shelter row note now starts `Shelter-map walk evidence is shown ...`. Focused render/source tests, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
