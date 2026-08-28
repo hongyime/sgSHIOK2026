@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P656 web commit: `274d3e5`; state-only commits may follow it on `main`.
+Latest P657 web commit: `61e1973`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P657 is complete and committed: direct-bus fallback copy now says the `locked bus score remains 0` instead of `bus term remains 0`, aligning fallback caveats with the visible bus score row. Focused render/source tests, full web suite, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P656 is complete and committed: the planning-area crossing comparison option now says `Crossing-friction score factor` and its helper says `Planning-area locked-score factor view`, replacing remaining `locked term` wording while keeping crossing distinct from evidence views. Focused render/source/rank tests, corrected full web rerun, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed; web tests remain 166 and Python collection remains 457. The first focused run caught a stale helper assertion and the first full web run caught a stale rank-label unit assertion; both were corrected before commit. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P655 is complete and committed: the locked-score row now says crossing friction still contributes 5% to the locked score, replacing `5% locked term` wording while preserving the low-separation caveat. Focused render/source tests, full web suite, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P654 is complete and committed: reason chips for records with shelter-map evidence but missing subscores now say `Locked score inputs unavailable` instead of internal `Locked terms unavailable` wording. Focused render/source tests, full web suite, Python collect-only count, repo integrity, check-ignore, diff-check, and protected-diff checks passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
