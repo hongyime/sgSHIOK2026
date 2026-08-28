@@ -91,10 +91,10 @@ candidate, because the cached manifest has no timestamp for that candidate
 archive.
 LTA geospatial listings such as Covered Linkway use a quarterly cadence with a
 120-day stale threshold, so a current local freshness result does not prove no
-newer upstream release exists. A 21 Aug 2026 metadata-only DataMall discovery
-check found current Covered Linkway and bridge/underpass discovery URLs differ
-from frozen v1, while traffic signals still matched. To rerun that
-discovery-only check without downloading payloads or writing the manifest, run
+newer upstream release exists. A 28 Aug 2026 discovery-only DataMall check
+found Covered Linkway, bridge/underpass, and Traffic Signals URLs still match
+frozen v1. To rerun that discovery-only check without downloading payloads or
+writing the manifest, run
 `uv run python run.py check --geospatial-discovery-only`; changed discovery URLs
 require a new numbered input version, not an in-place repair.
 

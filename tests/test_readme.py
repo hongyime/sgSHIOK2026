@@ -122,9 +122,11 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "LTA geospatial listings such as Covered Linkway use a quarterly cadence" in normalized
     assert "120-day stale threshold" in normalized
     assert "does not prove no newer upstream release exists" in normalized
-    assert "21 Aug 2026 metadata-only DataMall discovery check" in normalized
-    assert "Covered Linkway and bridge/underpass discovery URLs differ from frozen v1" in normalized
-    assert "traffic signals still matched" in normalized
+    assert "28 Aug 2026 discovery-only DataMall check" in normalized
+    assert "Covered Linkway, bridge/underpass, and Traffic Signals URLs still match frozen v1" in normalized
+    assert "21 Aug 2026 metadata-only DataMall discovery check" not in normalized
+    assert "Covered Linkway and bridge/underpass discovery URLs differ from frozen v1" not in normalized
+    assert "traffic signals still matched" not in normalized
     assert "uv run python run.py check --geospatial-discovery-only" in normalized
     assert "discovery-only check" in normalized
     assert "without downloading payloads or writing the manifest" in normalized

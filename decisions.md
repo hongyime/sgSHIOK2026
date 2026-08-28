@@ -1640,3 +1640,7 @@ The postal-universe prep wrapper must pass the cache path using the module's act
 2026-08-28 - P749 direct bundle activation confirmation:
 
 `scripts/activate-data-bundle.ps1` rewrites `web/data-bundle.json` and the Vercel allowlists, so direct invocation must require its own `-ConfirmActivation` gate instead of relying on the higher-level release wrapper's `-ConfirmProduction`. The release wrapper now passes `-ConfirmActivation` after production approval, preserving the approved release flow while making direct activation fail closed. This is release-wrapper guard/test hygiene only; it does not validate a bundle, activate a bundle, deploy, mutate public data, score, export, protected QA evidence, or locked weights.
+
+2026-08-28 - P750 README DataMall discovery copy:
+
+README operator guidance now matches the latest recorded P682/P683 DataMall discovery-only evidence: the 28 Aug 2026 check found Covered Linkway, bridge/underpass, and Traffic Signals URLs still match frozen v1. The stale-payload and new-numbered-input-version policy remains unchanged. This is documentation/test alignment only; it does not probe DataMall, fetch payloads, mutate raw inputs, score, export, deploy, public data, protected QA evidence, or locked weights.
