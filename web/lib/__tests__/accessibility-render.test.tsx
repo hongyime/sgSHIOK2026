@@ -387,6 +387,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Not in published bundle");
     expect(html).not.toContain("Not scored in the current bundle");
     expect(html).toContain("Preview shelter-map evidence selected.");
+    expect(html).toContain("Locked score preview only; published locked score unchanged.");
+    expect(html).not.toContain("Locked score unavailable in the published shelter-map bundle. Preview shelter-map evidence selected.");
     expect(html).toContain("Shelter-map preview");
     expect(html).toContain("OneMap preview walk");
     expect(html).not.toContain("Preview walk");

@@ -275,9 +275,11 @@ export function scoreCardAnnouncement({
   if (!selection.score) {
     return `${postal} is outside the published shelter-map bundle tied to the frozen June 2020 address universe; ${recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.`;
   }
-  const scoreText = displayScore === null || displayScore === undefined
-    ? "unavailable in the published shelter-map bundle"
-    : `${Math.round(displayScore)} out of 100`;
+  const scoreText = previewRoute
+    ? "preview only; published locked score unchanged"
+    : displayScore === null || displayScore === undefined
+      ? "unavailable in the published shelter-map bundle"
+      : `${Math.round(displayScore)} out of 100`;
   const stopText = isCustomStopSelected
     ? previewRoute
       ? "Preview shelter-map evidence selected."

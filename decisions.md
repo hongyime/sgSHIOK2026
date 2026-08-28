@@ -1850,3 +1850,7 @@ Zero recorded exposed gaps are favorable shelter-map evidence, not absence of ev
 2026-08-29 - P812 active exposed-gap ARIA label:
 
 Focused exposed-gap rows should expose the same selected-map state to screen-reader users that sighted users see. The gap button accessible label now changes from `Focus on map for...` to `Selected on map for...` when that gap is focused, while `aria-pressed` remains the machine-readable state. Both visible and hidden gap buttons use the same helper. This is browser accessibility/test/evidence work only; it does not score, export, rescore, mutate route geometry, public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
+
+2026-08-29 - P813 preview score announcement:
+
+Clicked-transit OneMap preview walks are shelter-map evidence only, not published locked-score states. The visible preview summary already says `Locked score: Preview only`; the screen-reader announcement now says `Locked score preview only; published locked score unchanged` instead of routing through the generic unavailable published-bundle branch. This is browser accessibility/test/evidence work only; it does not score, export, rescore, mutate route geometry, public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.

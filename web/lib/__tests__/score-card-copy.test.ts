@@ -854,4 +854,13 @@ describe("score card copy", () => {
     expect(source).toContain("aria-label={exposureGapMapActionLabel(gap, index, location, activeGap)}");
     expect(source).not.toContain("aria-label={`Focus on map for ${exposureGapCopy(gap.len_m, index)}");
   });
+
+  it("announces preview route locked score state as preview-only", () => {
+    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+
+    expect(source).toContain('const scoreText = previewRoute');
+    expect(source).toContain('"preview only; published locked score unchanged"');
+    expect(source).toContain('<Metric label="Locked score" value="Preview only" />');
+    expect(source).not.toContain('"not an authoritative SHIOK score"');
+  });
 });
