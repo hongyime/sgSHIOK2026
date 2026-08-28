@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import pytest
@@ -150,3 +151,45 @@ def test_archive_overture_postcode_rows_writes_hashed_parquet(tmp_path: Path):
     table = pq.read_table(path)
     assert table.column("postcode").to_pylist() == ["018895"]
     assert table.column("representative_lon").to_pylist() == [103.8]
+
+
+def test_overture_cli_refuses_existing_output_before_query(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    def fail_build(*_args, **_kwargs):
+        raise AssertionError("Overture query should not run before output preflight")
+
+    monkeypatch.setattr(overture_addresses, "build_overture_candidate_report", fail_build)
+    output = tmp_path / "overture-report.json"
+    output.write_text("{}\n", encoding="utf-8")
+
+    assert overture_addresses.main(["--output", str(output)]) == 1
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": [f"refusing to overwrite existing Overture output: {output}"],
+        "ok": False,
+    }
+
+
+def test_overture_cli_refuses_existing_outlier_geojson_before_query(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    def fail_build(*_args, **_kwargs):
+        raise AssertionError("Overture query should not run before output preflight")
+
+    monkeypatch.setattr(overture_addresses, "build_overture_candidate_report", fail_build)
+    output = tmp_path / "outliers.geojson"
+    output.write_text("{}\n", encoding="utf-8")
+
+    assert overture_addresses.main(["--outlier-geojson", str(output)]) == 1
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": [f"refusing to overwrite existing Overture output: {output}"],
+        "ok": False,
+    }

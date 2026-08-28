@@ -226,6 +226,21 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def write_new_text(path: Path, text: str) -> None:
+    if path.exists():
+        raise FileExistsError(f"refusing to overwrite existing Overture output: {path}")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+
+
+def output_preflight_errors(paths: list[Path | None]) -> list[str]:
+    return [
+        f"refusing to overwrite existing Overture output: {path}"
+        for path in paths
+        if path is not None and path.exists()
+    ]
+
+
 def archive_overture_postcode_rows(
     rows: list[dict[str, Any]],
     *,
@@ -396,6 +411,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--outlier-threshold-m", type=float, default=100.0)
     args = parser.parse_args(argv)
 
+    errors = output_preflight_errors([args.output, args.outlier_geojson])
+    if errors:
+        print(json.dumps({"errors": errors, "ok": False}, indent=2, sort_keys=True))
+        return 1
+
     ok, report = build_overture_candidate_report(
         current_universe_path=args.current_universe,
         overture_path=args.overture_path,
@@ -407,10 +427,9 @@ def main(argv: list[str] | None = None) -> int:
             report.get("coordinate_comparison", {}),
             min_delta_m=float(args.outlier_threshold_m),
         )
-        args.outlier_geojson.parent.mkdir(parents=True, exist_ok=True)
-        args.outlier_geojson.write_text(
+        write_new_text(
+            args.outlier_geojson,
             json.dumps(geojson, indent=2, sort_keys=True) + "\n",
-            encoding="utf-8",
         )
         report["coordinate_outlier_geojson"] = {
             "path": str(args.outlier_geojson),
@@ -419,8 +438,7 @@ def main(argv: list[str] | None = None) -> int:
         }
     text = json.dumps(report, indent=2, sort_keys=True)
     if args.output is not None:
-        args.output.parent.mkdir(parents=True, exist_ok=True)
-        args.output.write_text(text + "\n", encoding="utf-8")
+        write_new_text(args.output, text + "\n")
     print(text)
     return 0 if ok else 1
 
