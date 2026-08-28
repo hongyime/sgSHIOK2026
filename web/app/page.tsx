@@ -1411,7 +1411,7 @@ export function ScoreCard({
           id: "locked-score",
           label: "Locked SHIOK score",
           value: formatLockedScore(displayScore),
-          meta: scoredMeta(displayScore, "Release sorting index", "Release sorting index unavailable"),
+          meta: scoredMeta(displayScore, "Release sorting index", "Locked score unavailable"),
           notes: [
             "Start with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map bundle.",
             "Crossing friction still contributes 5% to the locked score, but has low separation in this release.",
@@ -1448,7 +1448,7 @@ export function ScoreCard({
             id: "locked-score",
             label: "Locked SHIOK score",
             value: formatLockedScore(displayScore),
-            meta: "Release sorting index unavailable",
+            meta: "Locked score unavailable",
             notes: ["No full locked score is published for this postal, but the shelter-map walk evidence remains inspectable."],
           },
         ]
