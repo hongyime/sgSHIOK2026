@@ -1815,3 +1815,7 @@ Direct-bus fallback displays must name the route-distance evidence as a `Straigh
 2026-08-29 - P795 data-limits summary coverage:
 
 The collapsed data-limits disclosure should expose both user-facing release limitations before expansion: the frozen v1 address list and incomplete locked-score coverage. The detailed body remains the place for source freshness, sampled address-universe gaps, OSM postcode coverage, and attribution. This is browser copy/test/evidence work only; it does not alter manifests, route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.
+
+2026-08-29 - P796 night-lighting layer toggle:
+
+Night lighting is a map layer, not a locked-score factor. The layer toggle now says `Night-lighting layer off` and `Night-lighting layer on` instead of only `Night lighting off/on`, matching the surrounding source note and reducing the chance that users read the control as changing the composite. This is browser copy/test/evidence work only; it does not alter lamp data, manifests, route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.
