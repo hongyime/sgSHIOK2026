@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `301618d` (`fix: require versioned bounded geocode cache`)
+Latest substantive commit: `eeb4b75` (`fix: flag unversioned geocode cache in batch plan`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,8 +18,8 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P736 is complete and pushed: confirmed non-dry bounded OneMap geocode fills now reject unversioned cache paths such as `raw/geocode_cache.db` before opening the cache or calling OneMap.
+- P737 is complete and pushed: batch-plan now reports `completed_fill_cache_versioned` and adds a checkpoint blocker when a completed bounded geocode fill used an unversioned cache path.
 - Evidence: `qa/verification/P736-geocode-cache-versioning.md`.
-- `run.py` now lists `geocode-universe` as a gated pipeline task because it can call OneMap and write a cache, parquet, and summary.
-- Checks: `uv run pytest tests/test_geocode_universe.py tests/test_run.py -q` passed 31/31; `uv run pytest -q --collect-only` collected 533; repo integrity passed; diff-check and protected-diff guard passed.
+- P736 also remains complete: confirmed non-dry bounded OneMap geocode fills reject unversioned cache paths such as `raw/geocode_cache.db` before opening the cache or calling OneMap, and `run.py` lists `geocode-universe` as a gated pipeline task.
+- Checks: `uv run pytest tests/test_batch_plan.py tests/test_geocode_universe.py tests/test_run.py -q` passed 41/41; `uv run pytest -q --collect-only` collected 533; repo integrity passed; diff-check and protected-diff guard passed.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
