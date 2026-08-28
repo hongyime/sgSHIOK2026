@@ -1576,3 +1576,7 @@ Freshness policy should cover every source already recorded in `raw/manifest.jso
 2026-08-28 - P733 sampled universe gap qualifier:
 
 The first-view recent public-source gap copy should not invite users to treat the 16 Aug 2026 sample rate as a measured full-universe gap. The title card now says the 6 confirmed HDB missing rows plus 2 MCST source-quality warnings out of 976 sampled rows are a sample, not a measured full-universe gap. This is browser copy/test coverage only; it does not change the cached P19/P125 measurements, address-universe artifacts, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-28 - P734 full-batch change readiness:
+
+The dry-run batch planner should expose prerequisite evidence by bundled change, not only state that 1200-record subset proof is required somewhere. `run.py batch-plan` now emits `full_batch_change_readiness` for bus remodel, `NO_TRANSIT_IN_RANGE` partial-score fix, network conflation repair, and promoted postal-universe v2. Bus remodel and network repair are measured candidates but still require owner approval; `NO_TRANSIT_IN_RANGE` remains policy-decided but subset-proof-missing; postal-universe v2 remains not approved from the current sample. The planner keeps the full-batch gate closed when any bundled change lacks prerequisite subset evidence. This is dry-run reporting/test coverage only; it does not score, export, mutate inputs, mutate public data, deploy, or touch locked weights.

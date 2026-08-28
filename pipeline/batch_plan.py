@@ -223,6 +223,51 @@ FULL_BATCH_RELEASE_SCOPE = {
         },
     ],
 }
+FULL_BATCH_CHANGE_READINESS = [
+    {
+        "change": "bus remodel",
+        "status": "subset_measured_not_approved_for_full_batch",
+        "full_batch_inclusion_ready": True,
+        "evidence": [
+            "decisions.md P576",
+            "qa/p575_compare/p575_compare_report_fresh_20260826.json",
+            "qa/p575_compare/p575_determinism_diff_fresh_20260826.json",
+        ],
+        "remaining_gate": "owner approval for the one-attempt full batch",
+    },
+    {
+        "change": "NO_TRANSIT_IN_RANGE partial-score fix",
+        "status": "policy_decided_subset_proof_missing",
+        "full_batch_inclusion_ready": False,
+        "evidence": ["decisions.md P17/P46/P546"],
+        "remaining_gate": (
+            "1200-record subset proof of state transitions and locked-weight "
+            "zero-contribution behavior"
+        ),
+    },
+    {
+        "change": "network conflation repair",
+        "status": "subset_measured_not_approved_for_full_batch",
+        "full_batch_inclusion_ready": True,
+        "evidence": [
+            "decisions.md P576",
+            "qa/p575_compare/p575_compare_report_fresh_20260826.json",
+        ],
+        "remaining_gate": "owner approval for the one-attempt full batch",
+    },
+    {
+        "change": "promoted postal universe v2",
+        "status": "not_approved_from_current_sample",
+        "full_batch_inclusion_ready": False,
+        "evidence": [
+            "qa/verification/P719-universe-measurement-status.md",
+            "qa/verification/P720-onemap-enumeration-feasibility.md",
+        ],
+        "remaining_gate": (
+            "candidate-source diff, bounded OneMap validation report, and owner approval"
+        ),
+    },
+]
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -444,6 +489,8 @@ def build_batch_plan(
             "postal universe uses frozen v1 third-party OneMap-derived 2020 source; "
             "v2 requires candidate-source-first approval before full-batch use"
         )
+    if any(not item["full_batch_inclusion_ready"] for item in FULL_BATCH_CHANGE_READINESS):
+        blockers.append("not every bundled full-batch change has prerequisite subset evidence")
     if geocode_fill_complete and needs_geocode:
         warnings.append(
             f"{needs_geocode} source-derived postals remain unresolved after bounded OneMap geocode"
@@ -519,6 +566,7 @@ def build_batch_plan(
             "epsg_internal": "EPSG:3414",
         },
         "full_batch_release_scope": FULL_BATCH_RELEASE_SCOPE,
+        "full_batch_change_readiness": FULL_BATCH_CHANGE_READINESS,
         "checkpoint_gates": {
             "island_network_qa_ok": island_ok,
             "island_network_debug_required_for_plan": False,

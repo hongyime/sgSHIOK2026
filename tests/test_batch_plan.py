@@ -6,6 +6,7 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 
 from pipeline.batch_plan import (
+    FULL_BATCH_CHANGE_READINESS,
     RECENT_PUBLIC_SOURCE_GAP_SAMPLE,
     api_environment_readiness,
     build_batch_plan,
@@ -207,6 +208,25 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
             },
         ],
     }
+    assert report["full_batch_change_readiness"] == FULL_BATCH_CHANGE_READINESS
+    readiness_by_change = {
+        item["change"]: item for item in report["full_batch_change_readiness"]
+    }
+    assert readiness_by_change["bus remodel"]["full_batch_inclusion_ready"] is True
+    assert readiness_by_change["network conflation repair"]["full_batch_inclusion_ready"] is True
+    assert (
+        readiness_by_change["NO_TRANSIT_IN_RANGE partial-score fix"][
+            "full_batch_inclusion_ready"
+        ]
+        is False
+    )
+    assert readiness_by_change["promoted postal universe v2"]["status"] == (
+        "not_approved_from_current_sample"
+    )
+    assert (
+        "not every bundled full-batch change has prerequisite subset evidence"
+        in report["checkpoint_gates"]["blockers"]
+    )
     assert (
         "frozen v1 third-party OneMap-derived 2020 source"
         in report["checkpoint_gates"]["blockers"][2]
