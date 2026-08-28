@@ -17,6 +17,7 @@ Safe reports:
 
 Gated pipeline tasks:
   ingest | lamp-overlay | network | score | score-batch | export | export-transit | refresh-provenance | validate | publish | onemap-probe
+  ingest mutates raw/ and raw/manifest.json; through run.py it requires --confirm-input-refresh, and any refresh must write a new numbered input version rather than repair frozen v1.
   refresh-provenance is fail-closed; direct pipeline.export invocation must name --output explicitly.
   onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe.
 
@@ -33,10 +34,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 SAFE_CHECK_FLAGS = {"--freshness-only", "--geospatial-discovery-only"}
+INPUT_REFRESH_CONFIRM_FLAG = "--confirm-input-refresh"
 
 STUBS = {
     "check": "refuses bare upstream checks; use --freshness-only or --geospatial-discovery-only for zero-mutation reports",
-    "ingest": "download changed sources to raw/ (T0.3)",
+    "ingest": "download changed sources to raw/ (T0.3); run.py requires --confirm-input-refresh",
     "lamp-overlay": "build compact lamp-post overlay artifact from existing raw source",
     "network": "build conflated graph + QA report (T1.1)",
     "network-debug": "rebuild compact network debug GeoJSON from QA JSON",
@@ -78,8 +80,12 @@ def subprocess_env() -> dict[str, str]:
 
 
 def run_task(name: str, extra: list[str]) -> int:
-    def run_module(module: str, module_args: list[str] | None = None) -> int:
-        cmd = [sys.executable, "-m", module] + (module_args or []) + extra
+    def run_module(
+        module: str,
+        module_args: list[str] | None = None,
+        extra_args: list[str] | None = None,
+    ) -> int:
+        cmd = [sys.executable, "-m", module] + (module_args or []) + (extra_args or extra)
         return subprocess.run(cmd, check=False, env=subprocess_env()).returncode
 
     if name == "batch-plan":
@@ -104,7 +110,16 @@ def run_task(name: str, extra: list[str]) -> int:
             return 2
         return run_module("pipeline.fetch", [name])
     if name == "ingest":
-        return run_module("pipeline.fetch", [name])
+        if INPUT_REFRESH_CONFIRM_FLAG not in extra:
+            print(
+                "run.py ingest mutates raw/ and raw/manifest.json; pass "
+                "--confirm-input-refresh only after approval to create a new numbered "
+                "input version. Do not use ingest to repair frozen-v1 hash mismatches.",
+                file=sys.stderr,
+            )
+            return 2
+        forwarded = [arg for arg in extra if arg != INPUT_REFRESH_CONFIRM_FLAG]
+        return run_module("pipeline.fetch", [name], forwarded)
     if name == "lamp-overlay":
         return run_module("pipeline.lamp_overlay")
     if name == "network":

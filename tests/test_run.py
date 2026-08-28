@@ -48,6 +48,11 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         in run.__doc__
     )
     assert (
+        "ingest mutates raw/ and raw/manifest.json; through run.py it requires "
+        "--confirm-input-refresh"
+        in run.__doc__
+    )
+    assert (
         "onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe."
         in run.__doc__
     )
@@ -95,6 +100,11 @@ def test_run_help_headline_does_not_flatten_all_tasks():
         in help_text
     )
     assert (
+        "ingest mutates raw/ and raw/manifest.json; through run.py it requires "
+        "--confirm-input-refresh"
+        in help_text
+    )
+    assert (
         "onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe."
         in help_text
     )
@@ -104,6 +114,9 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
     assert run.STUBS["refresh-provenance"] == (
         "fail-closed manifest provenance refresh; direct pipeline.export invocation must "
         "name --output explicitly"
+    )
+    assert run.STUBS["ingest"] == (
+        "download changed sources to raw/ (T0.3); run.py requires --confirm-input-refresh"
     )
     assert run.STUBS["score-batch"] == (
         "resumable postal scoring batch runner; non-dry runs require explicit --output-dir"
@@ -262,6 +275,54 @@ def test_run_check_rejects_ambiguous_safe_report_flags(monkeypatch, capsys):
 
     assert calls == []
     assert "requires exactly one safe report flag" in capsys.readouterr().err
+
+
+def test_run_ingest_requires_confirm_input_refresh(monkeypatch, capsys):
+    calls = []
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        raise AssertionError("unconfirmed run.py ingest must not reach pipeline.fetch")
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("ingest", []) == 2
+
+    assert calls == []
+    err = capsys.readouterr().err
+    assert "run.py ingest mutates raw/ and raw/manifest.json" in err
+    assert "--confirm-input-refresh" in err
+    assert "Do not use ingest to repair frozen-v1 hash mismatches." in err
+
+
+def test_run_ingest_strips_runner_confirm_flag_before_fetch(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("ingest", ["--confirm-input-refresh", "--source", "lamp_posts"]) == 0
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "pipeline.fetch",
+                "ingest",
+                "--source",
+                "lamp_posts",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
 
 
 def test_run_task_exposes_p19_gap_status_as_read_only_module(monkeypatch):
