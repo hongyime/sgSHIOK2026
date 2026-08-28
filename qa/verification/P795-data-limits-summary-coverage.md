@@ -54,6 +54,22 @@ warning: in the working copy of 'web/lib/__tests__/score-card-copy.test.ts', CRL
 exit_code=0
 ```
 
+## Full Web Test
+
+```text
+PS C:\sgSHIOK2026> npm --prefix web test
+npm notice run shiok-web@0.1.0 test
+npm notice run node scripts/test-web.mjs
+
+ RUN  v4.1.10 C:/sgSHIOK2026/web
+
+
+ Test Files  24 passed (24)
+      Tests  166 passed (166)
+   Start at  03:26:12
+   Duration  48.30s (transform 2.63s, setup 0ms, import 8.33s, tests 10.78s, environment 17ms)
+```
+
 ## FINDINGS
 
 1. The collapsed data-limits summary now exposes both first-card limitations before expansion: frozen v1 addresses and incomplete locked scores.
