@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P680 evidence commit: `e3d8a34`; state-only commits may follow it on `main`.
+Latest P681 web commit: `62865cb`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P681 is complete and committed: visible UI data-freshness line now matches the P680 28 Aug 2026 manifest-only report, including `0.1 days` until NParks Leaf Area Index crosses its 120-day threshold. Focused source-copy test, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P680 is complete and committed: zero-mutation `uv run python run.py check --freshness-only` evidence records 10 current, 8 stale, 2 manual, and 1 unknown-age source on 2026-08-28. `leaf_area_index` is still current but only 0.1 days from the 120-day threshold; stale-source action remains versioned refresh planning, not frozen-v1 mutation. Repo integrity, diff-check, protected-diff check, and evidence check-ignore passed. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P679 is complete and committed: the night-lighting toggle tooltip now begins `Night-lighting layer` instead of generic `Night lighting`, matching the control's actual role as a separate map layer outside the locked score. Focused route-map source test, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P678 is complete and committed: selected-walk night-lighting detail note now says lamp-post points are `a night-lighting map layer outside the locked score` instead of `night-lighting map evidence outside the locked score`, keeping night lighting separate from score evidence. Focused render/source tests, full web suite, Python collect-only count, repo integrity, diff-check, protected-diff check, and evidence check-ignore passed; web tests remain 166 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
