@@ -8,7 +8,7 @@ vi.mock("next/navigation", () => ({
   useRouter: () => ({ replace: vi.fn() }),
 }));
 
-import {
+import Home, {
   ScoreCard,
   SearchFeedback,
   formatFeedbackTraceCount,
@@ -209,6 +209,18 @@ describe("rendered accessibility output", () => {
     expect(noResultsHtml).not.toContain("the frozen score bundle has measured recent-source misses");
     expect(noResultsHtml).not.toContain("Try a 6-digit postal code; the frozen shelter-map bundle");
     expect(noResultsHtml).not.toContain("newer completions may still be outside");
+  });
+
+  it("renders the current public-source sample in data limits", () => {
+    const html = renderToStaticMarkup(<Home />);
+
+    expect(html).toContain("Data limits: frozen v1 addresses; incomplete locked scores");
+    expect(html).toContain("P19 v2 28 Aug 2026 public-source sample");
+    expect(html).toContain(
+      "25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 frozen postals, with 20 valid OSM-only postcodes."
+    );
+    expect(html).not.toContain("16 Aug 2026 public-source sample");
+    expect(html).not.toContain("20 Aug 2026 OSM addr:postcode coverage cross-check");
   });
 
   it("formats the night-lighting layer note for off and on states", () => {
