@@ -232,6 +232,12 @@ def json_file_status(path: Path, *, now: dt.datetime) -> dict[str, Any]:
             combined = payload.get("combined_recent_completion_signal")
             if isinstance(combined, dict):
                 status["combined_recent_completion_signal"] = combined
+            overpass = payload.get("overpass_addr_postcode")
+            if isinstance(overpass, dict):
+                status["overpass_addr_postcode"] = overpass
+            v1_universe = payload.get("v1_universe")
+            if isinstance(v1_universe, dict):
+                status["v1_universe"] = v1_universe
             missing_postals_by_source: dict[str, Any] = {}
             for source_key in ("hdb_2021_2026_geocoded", "mcst_2021_2026"):
                 source_summary = payload.get(source_key)

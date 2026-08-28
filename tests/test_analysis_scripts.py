@@ -34,7 +34,7 @@ def test_universe_status_consolidates_cached_measurements(monkeypatch) -> None:
                 "source_quality_warning_rows": 2,
             },
             "release_policy": {
-                "measurement_label": "16 Aug 2026 public-source sample",
+                "measurement_label": "P19 v2 28 Aug 2026 public-source sample",
                 "status": "sample_classified",
                 "summary": "6 coordinate-backed HDB missing rows confirmed",
             },
@@ -49,6 +49,16 @@ def test_universe_status_consolidates_cached_measurements(monkeypatch) -> None:
                 "summary": {
                     "combined_recent_completion_signal": {
                         "rows_with_postal": 976,
+                    },
+                    "overpass_addr_postcode": {
+                        "unique_postcodes": 25919,
+                        "intersection": 25899,
+                        "missing_from_v1": 20,
+                        "v1_missing_from_overpass": 98544,
+                    },
+                    "v1_universe": {
+                        "rows": 124443,
+                        "unique_postals": 124443,
                     },
                 },
             },
@@ -67,26 +77,6 @@ def test_universe_status_consolidates_cached_measurements(monkeypatch) -> None:
             },
         },
     )
-    monkeypatch.setattr(
-        universe_status.p125,
-        "status_report",
-        lambda: {
-            "measurement": "P125 20 Aug 2026 Overpass addr:postcode coverage cross-check",
-            "will_call_apis": False,
-            "will_write_files": False,
-            "coverage": {
-                "osm_valid_distinct_postcodes": 25879,
-                "osm_valid_in_v1": 25873,
-                "osm_valid_not_in_v1": 6,
-                "v1_distinct_postals": 124443,
-                "osm_coverage_of_v1_pct": 20.791045,
-                "source_role": "geometry evidence and coverage cross-check",
-                "registry_policy": "not the address registry",
-                "verdict": "not sufficient as primary Singapore address registry",
-            },
-        },
-    )
-
     report = universe_status.status_report()
 
     assert report["will_call_apis"] is False
@@ -105,8 +95,15 @@ def test_universe_status_consolidates_cached_measurements(monkeypatch) -> None:
     )
     assert (
         report["measurements"]["osm_addr_postcode_coverage"]["osm_valid_not_in_v1"]
-        == 6
+        == 20
     )
+    assert (
+        report["measurements"]["osm_addr_postcode_coverage"][
+            "osm_valid_distinct_postcodes"
+        ]
+        == 25919
+    )
+    assert report["measurements"]["osm_addr_postcode_coverage"]["osm_valid_in_v1"] == 25899
     assert (
         report["measurements"]["recent_public_source_gap_sample"][
             "sample_rows_with_postal"
@@ -167,9 +164,22 @@ def test_universe_status_consolidates_cached_measurements(monkeypatch) -> None:
         report["measurements"]["osm_addr_postcode_coverage"][
             "osm_valid_not_in_v1_as_share_of_v1_pct"
         ]
-        == 0.004821
+        == 0.016072
+    )
+    assert (
+        report["measurements"]["osm_addr_postcode_coverage"]["osm_coverage_of_v1_pct"]
+        == 20.811938
+    )
+    assert (
+        report["measurements"]["osm_addr_postcode_coverage"]["cache_status_command"]
+        == "uv run python run.py p19-gap-status"
+    )
+    assert (
+        report["measurements"]["osm_addr_postcode_coverage"]["measurement"]
+        == "P19 v2 28 Aug 2026 Overpass addr:postcode coverage cross-check"
     )
     assert "do not approve a v2 promotion" in report["decision_boundary"]
+    assert "P125" in report["decision_boundary"]
 
 
 def test_p10_provenance_coverage_names_leaf_area_index_policy() -> None:
@@ -384,6 +394,14 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
                     "rows_with_postal": 976,
                     "missing_rows": 8,
                 },
+                "overpass_addr_postcode": {
+                    "unique_postcodes": 25919,
+                    "intersection": 25899,
+                    "missing_from_v1": 20,
+                },
+                "v1_universe": {
+                    "unique_postals": 124443,
+                },
                 "hdb_2021_2026_geocoded": {
                     "missing_postals": ["521400", "522400"],
                 },
@@ -476,6 +494,14 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
     assert report["files"]["summary"]["combined_recent_completion_signal"] == {
         "rows_with_postal": 976,
         "missing_rows": 8,
+    }
+    assert report["files"]["summary"]["overpass_addr_postcode"] == {
+        "unique_postcodes": 25919,
+        "intersection": 25899,
+        "missing_from_v1": 20,
+    }
+    assert report["files"]["summary"]["v1_universe"] == {
+        "unique_postals": 124443,
     }
     assert report["files"]["summary"]["missing_postals_by_source"] == {
         "hdb_2021_2026_geocoded": ["521400", "522400"],

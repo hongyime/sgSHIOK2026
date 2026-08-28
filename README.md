@@ -14,35 +14,37 @@ GitHub Actions exists for repository automation and CI, not for heavy pipeline c
 
 The current postal universe is frozen v1: 124,443 records built around a June
 2020 OneMap-derived postal scrape plus later local route and source evidence.
-The 16 Aug 2026 public-source sample found a small sampled current-source gap: 6
+The P19 v2 28 Aug 2026 public-source sample found a small sampled current-source gap: 6
 coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of
 976 sampled 2021-2026 public-source rows with postals. That is 0.61%
 confirmed missing rows, or 0.82% including source-quality warnings. If that
 sample row rate were applied to the 124,443 frozen v1 distinct postals, the
 directional scale would be 765 confirmed missing rows, or 1,020 including
-warnings; that is not a measured full-universe gap. The confirmed HDB gaps are
+warnings; that is not a measured full-universe gap. The sample is current for
+gap sizing until 4 Sep 2026 UTC under the 7-day sample policy. The confirmed HDB gaps are
 SUN PLAZA SPRING and YISHUN BEACON, three postals each; CANAAN and MYRA remain
-unvalidated MCST proxy warnings. The P125 20 Aug 2026 Overpass coverage cross-check found
-25,879 valid distinct OSM `addr:postcode` values: 25,873 overlap the 124,443
-frozen postals and 6 are valid OSM-only postcodes, so OSM remains geometry
+unvalidated MCST proxy warnings. The same P19 v2 run's Overpass coverage cross-check found
+25,919 valid distinct OSM `addr:postcode` values: 25,899 overlap the 124,443
+frozen postals and 20 are valid OSM-only postcodes, so OSM remains geometry
 evidence rather than an address registry. OneMap Search validates and
 geocodes known candidates, but it is a keyword search endpoint, not a national
 postal enumerator. Any v2 universe should therefore be candidate-source-first:
 use current free source datasets to propose rows, then pass bounded candidates
 through OneMap Search under explicit token controls, 72-hour token refresh, and
 the current documented token-authenticated call-limit cap unless SLA approves a
-higher limit case-by-case. To inspect the cached P19 16 Aug 2026 public-source
-sample, evidence split, missing rows, unvalidated MCST proxy probe and cache ages without calling data.gov.sg, OneMap, or
+higher limit case-by-case. To inspect the cached P19 v2 28 Aug 2026 public-source
+sample, evidence split, missing rows, P19 v2 Overpass coverage, unvalidated MCST proxy probe and cache ages without calling data.gov.sg, OneMap, or
 Overpass, run
-`uv run python run.py p19-gap-status`. To reprint the cached P125 OSM
+`uv run python run.py p19-gap-status`. To reprint the older cached P125 OSM
 coverage cross-check, registry policy, and cache ages without calling Overpass
 or writing files, run
 `uv run python run.py p125-osm-status`. To see both postal-universe
 measurements in one no-API/no-write report, run
 `uv run python run.py universe-status`; it sizes the frozen-v1 gap but does not
 approve building or promoting v2. The consolidated report includes the P19
-confirmed-missing and confirmed-plus-warning sample rates and the P125
-OSM-only-postcode share of the frozen v1 universe.
+confirmed-missing and confirmed-plus-warning sample rates and the P19 v2
+OSM-only-postcode share of the frozen v1 universe; P125 remains a historical
+OSM-only status report.
 
 ## Local data artifacts
 

@@ -25,13 +25,13 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         in run.__doc__
     )
     assert "check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads and writes no manifest." not in run.__doc__
-    assert "p19-gap-status reads cached P19 16 Aug 2026 public-source sample status, evidence split, missing rows, MCST proxy probe and cache ages only; it calls no APIs and writes no files." in run.__doc__
+    assert "p19-gap-status reads cached P19 v2 28 Aug 2026 public-source sample status, evidence split, missing rows, P19 v2 Overpass coverage, MCST proxy probe and cache ages only; it calls no APIs and writes no files." in run.__doc__
     assert "p19-gap-status reads cached P19 measurement status" not in run.__doc__
     assert "p19-mcst-locations reads existing P379 status for unvalidated P19 MCST proxy rows only; it calls no APIs and writes no files." in run.__doc__
     assert "p19-mcst-locations reads existing P379 MCST proxy probe status only" not in run.__doc__
-    assert "p125-osm-status reads cached P125 20 Aug 2026 Overpass addr:postcode coverage cross-check and frozen v1 universe only, reporting OSM as geometry evidence rather than the address registry; it calls no APIs and writes no files." in run.__doc__
+    assert "p125-osm-status reads older cached P125 20 Aug 2026 Overpass addr:postcode coverage cross-check and frozen v1 universe only, reporting OSM as geometry evidence rather than the address registry; it calls no APIs and writes no files." in run.__doc__
     assert "p125-osm-status reads cached P125 Overpass output" not in run.__doc__
-    assert "universe-status consolidates the cached P19 and P125 postal-universe measurements without APIs or writes; it is evidence for sizing v1 gaps, not approval to build or promote v2." in run.__doc__
+    assert "universe-status consolidates the cached P19 v2 postal-universe and Overpass measurements without APIs or writes; P125 remains a separate historical safe report. It is evidence for sizing v1 gaps, not approval to build or promote v2." in run.__doc__
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in run.__doc__
     assert "readiness --gate-summary prints the same release gate verdict and warnings without the full nested report." in run.__doc__
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in run.__doc__
@@ -149,13 +149,13 @@ def test_run_help_headline_does_not_flatten_all_tasks():
         in help_text
     )
     assert "check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads and writes no manifest." not in help_text
-    assert "p19-gap-status reads cached P19 16 Aug 2026 public-source sample status, evidence split, missing rows, MCST proxy probe and cache ages only; it calls no APIs and writes no files." in help_text
+    assert "p19-gap-status reads cached P19 v2 28 Aug 2026 public-source sample status, evidence split, missing rows, P19 v2 Overpass coverage, MCST proxy probe and cache ages only; it calls no APIs and writes no files." in help_text
     assert "p19-gap-status reads cached P19 measurement status" not in help_text
     assert "p19-mcst-locations reads existing P379 status for unvalidated P19 MCST proxy rows only; it calls no APIs and writes no files." in help_text
     assert "p19-mcst-locations reads existing P379 MCST proxy probe status only" not in help_text
-    assert "p125-osm-status reads cached P125 20 Aug 2026 Overpass addr:postcode coverage cross-check and frozen v1 universe only, reporting OSM as geometry evidence rather than the address registry; it calls no APIs and writes no files." in help_text
+    assert "p125-osm-status reads older cached P125 20 Aug 2026 Overpass addr:postcode coverage cross-check and frozen v1 universe only, reporting OSM as geometry evidence rather than the address registry; it calls no APIs and writes no files." in help_text
     assert "p125-osm-status reads cached P125 Overpass output" not in help_text
-    assert "universe-status consolidates the cached P19 and P125 postal-universe measurements without APIs or writes; it is evidence for sizing v1 gaps, not approval to build or promote v2." in help_text
+    assert "universe-status consolidates the cached P19 v2 postal-universe and Overpass measurements without APIs or writes; P125 remains a separate historical safe report. It is evidence for sizing v1 gaps, not approval to build or promote v2." in help_text
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in help_text
     assert "readiness --gate-summary prints the same release gate verdict and warnings without the full nested report." in help_text
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in help_text
@@ -288,19 +288,20 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
         "requires explicit --output and --confirm-bus-arrivals"
     )
     assert run.STUBS["p19-gap-status"] == (
-        "read-only status, evidence split, missing rows, MCST proxy probe and cache ages "
-        "for cached P19 16 Aug 2026 public-source sample"
+        "read-only status, evidence split, missing rows, P19 v2 Overpass coverage, "
+        "MCST proxy probe and cache ages for cached P19 v2 28 Aug 2026 public-source sample"
     )
     assert run.STUBS["p19-mcst-locations"] == (
         "read-only status for the cached P379 OneMap location probe of "
         "unvalidated P19 MCST proxy rows"
     )
     assert run.STUBS["p125-osm-status"] == (
-        "read-only status for cached P125 20 Aug 2026 Overpass addr:postcode "
+        "read-only status for older cached P125 20 Aug 2026 Overpass addr:postcode "
         "coverage cross-check and registry policy"
     )
     assert run.STUBS["universe-status"] == (
-        "read-only consolidated status for cached P19 and P125 postal-universe measurements"
+        "read-only consolidated status for cached P19 v2 postal-universe and Overpass "
+        "measurements; P125 is historical"
     )
     assert run.STUBS["overture-addresses"] == (
         "probe Overture Addresses SG as candidate-only postal-universe evidence; "

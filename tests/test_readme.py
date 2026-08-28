@@ -24,7 +24,8 @@ def test_readme_documents_universe_source_policy() -> None:
     assert "## Universe status" in text
     assert "124,443 records built around a June 2020 OneMap-derived postal scrape plus later local route and source evidence" in normalized
     assert "124,443-record source-derived set" not in normalized
-    assert "The 16 Aug 2026 public-source sample found a small sampled current-source gap" in normalized
+    assert "The P19 v2 28 Aug 2026 public-source sample found a small sampled current-source gap" in normalized
+    assert "The 16 Aug 2026 public-source sample found a small sampled current-source gap" not in normalized
     assert "The 16 Aug 2026 public-source check found a small sampled current-source gap" not in normalized
     assert "small current-source gap" not in normalized
     assert (
@@ -40,10 +41,11 @@ def test_readme_documents_universe_source_policy() -> None:
         in normalized
     )
     assert "CANAAN and MYRA remain unvalidated MCST proxy warnings" in normalized
-    assert "P125 20 Aug 2026 Overpass coverage cross-check found 25,879 valid distinct OSM `addr:postcode` values" in normalized
+    assert "The same P19 v2 run's Overpass coverage cross-check found 25,919 valid distinct OSM `addr:postcode` values" in normalized
+    assert "P125 20 Aug 2026 Overpass coverage cross-check found 25,879 valid distinct OSM `addr:postcode` values" not in normalized
     assert "P125 live Overpass measurement" not in normalized
     assert "P125 20 Aug 2026 Overpass measurement found" not in normalized
-    assert "25,873 overlap the 124,443 frozen postals and 6 are valid OSM-only postcodes" in normalized
+    assert "25,899 overlap the 124,443 frozen postals and 20 are valid OSM-only postcodes" in normalized
     assert "OSM remains geometry evidence rather than an address registry" in normalized
     assert "OneMap Search validates and geocodes known candidates" in normalized
     assert "candidate-source-first" in normalized
@@ -51,14 +53,16 @@ def test_readme_documents_universe_source_policy() -> None:
     assert "token-authenticated call-limit cap" in normalized
     assert "higher limit case-by-case" in normalized
     assert "uv run python run.py p19-gap-status" in normalized
-    assert "cached P19 16 Aug 2026 public-source sample" in normalized
-    assert "unvalidated MCST proxy probe and cache ages" in normalized
+    assert "cached P19 v2 28 Aug 2026 public-source sample" in normalized
+    assert "cached P19 16 Aug 2026 public-source sample" not in normalized
+    assert "P19 v2 Overpass coverage, unvalidated MCST proxy probe and cache ages" in normalized
     assert "cached P19 measurement, evidence split" not in normalized
     assert "without calling data.gov.sg, OneMap, or Overpass" in normalized
     assert "uv run python run.py p125-osm-status" in normalized
-    assert "cached P125 OSM coverage cross-check, registry policy, and cache ages" in normalized
+    assert "older cached P125 OSM coverage cross-check, registry policy, and cache ages" in normalized
     assert "cached P125 OSM coverage measurement and cache ages" not in normalized
     assert "without calling Overpass or writing files" in normalized
+    assert "P125 remains a historical OSM-only status report" in normalized
 
 
 def test_readme_documents_local_lamp_overlay_artifact() -> None:

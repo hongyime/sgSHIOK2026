@@ -1830,3 +1830,7 @@ The zero-input sample search should name the real place behind the postal code. 
 2026-08-29 - P798 direct-bus fallback pending-walk metric:
 
 Direct-bus fallback cards must not present `Extra walk: 0 m`, because that reads like a verified shortest-versus-sheltered route comparison. For direct-bus fallback only, the third summary metric now reads `Verified shelter-map walk: Pending`; normal routed records keep the existing `Extra walk` metric. This is browser copy/test/evidence work only; it does not alter route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.
+
+2026-08-29 - P808 P19 v2 operator status surfaces:
+
+Operator-facing source-policy surfaces must use the current P19 v2 28 Aug 2026 public-source sample and its Overpass coverage summary, not the older P125 OSM-only status report, when consolidating postal-universe gap evidence. `p125-osm-status` remains available as a historical no-API/no-write report, but `universe-status`, README source-policy copy, and runner help now identify P19 v2 as the current surface with 25,919 valid OSM postcodes, 25,899 overlapping frozen v1, and 20 valid OSM-only postcodes. The P807 source-policy values came from `qa/p19/universe_gap_measurement_summary_v2.json`; `qa/p19/overpass_addr_postcodes_cache_v2.json` carries raw postcodes and query metadata. This is docs/status/test/evidence work only; it does not score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
