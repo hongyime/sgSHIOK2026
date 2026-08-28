@@ -201,8 +201,7 @@ def run_task(name: str, extra: list[str]) -> int:
             ),
         ):
             return 2
-        forwarded = [arg for arg in extra if arg != NETWORK_DEBUG_CONFIRM_FLAG]
-        return run_module("scripts.rebuild_network_debug", extra_args=forwarded)
+        return run_module("scripts.rebuild_network_debug")
     if name == "network-preflight":
         return run_module("pipeline.network_preflight")
     if name == "network-qa":

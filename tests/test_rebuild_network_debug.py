@@ -107,3 +107,26 @@ def test_rebuild_network_debug_cli_requires_explicit_output_before_input_read(
 
     captured = capsys.readouterr()
     assert "network debug rebuild requires explicit --output" in captured.err
+
+
+def test_rebuild_network_debug_cli_requires_confirm_before_input_read(
+    monkeypatch, tmp_path: Path, capsys
+) -> None:
+    def fail_if_read(_qa_path, _output_path):
+        raise AssertionError("network debug rebuild should not read before confirmation")
+
+    monkeypatch.setattr(rebuild_network_debug, "rebuild_debug_geojson", fail_if_read)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "rebuild_network_debug.py",
+            "--output",
+            str(tmp_path / "island_debug.geojson"),
+        ],
+    )
+
+    assert rebuild_network_debug.main() == 2
+
+    captured = capsys.readouterr()
+    assert "network debug rebuild requires --confirm-network-debug" in captured.err

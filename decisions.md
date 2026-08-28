@@ -1688,3 +1688,7 @@ Full OneMap validation wrappers must not bypass runner-level approval by self-su
 2026-08-28 - P761 Overture direct-probe confirmation guard:
 
 `pipeline.overture_addresses` can query remote Overture Maps address data, write candidate reports/GeoJSON, and archive hashed raw parquet evidence. Direct execution now requires `--confirm-overture-addresses` after the existing no-overwrite preflight and before any remote query or evidence write. `run.py overture-addresses` forwards the same module-owned confirmation instead of stripping it. This is guard/test hygiene only; it does not query Overture, archive raw evidence, mutate public data, protected QA evidence, score, export, deploy, or touch locked weights.
+
+2026-08-28 - P762 network-debug direct-writer confirmation guard:
+
+`scripts.rebuild_network_debug` can write compact network debug GeoJSON outside the guarded runner path. Direct execution now requires `--confirm-network-debug` after explicit-output validation and before reading QA input or writing output, and `run.py network-debug` forwards that module-owned confirmation instead of stripping it. This is guard/test hygiene only; it does not rebuild network debug artifacts, mutate QA evidence, processed artifacts, public data, score, export, deploy, or touch locked weights.

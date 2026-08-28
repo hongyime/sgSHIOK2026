@@ -589,7 +589,7 @@ def test_run_network_debug_requires_confirm_before_module(monkeypatch, capsys):
     )
 
 
-def test_run_network_debug_strips_confirm_before_module(monkeypatch):
+def test_run_network_debug_forwards_confirm_before_module(monkeypatch):
     calls = []
 
     class FakeCompletedProcess:
@@ -617,6 +617,7 @@ def test_run_network_debug_strips_confirm_before_module(monkeypatch):
                 "scripts.rebuild_network_debug",
                 "--output",
                 "qa/p742/island_debug.geojson",
+                "--confirm-network-debug",
             ],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},

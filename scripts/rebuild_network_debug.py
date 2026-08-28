@@ -13,6 +13,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from scripts.analysis.report_io import write_new_text_report
 
 QA_DIR = PROJECT_ROOT / "qa"
+CONFIRM_NETWORK_DEBUG_FLAG = "--confirm-network-debug"
 
 
 def _residual_feature(residual: dict[str, Any], *, source: str, index: int) -> dict[str, Any]:
@@ -72,12 +73,32 @@ def main() -> int:
     )
     parser.add_argument("--qa", type=Path, default=QA_DIR / "conflation_qa_island.json")
     parser.add_argument("--output", type=Path, default=QA_DIR / "island_debug.geojson")
+    parser.add_argument(
+        CONFIRM_NETWORK_DEBUG_FLAG,
+        action="store_true",
+        help="Required before writing compact network debug GeoJSON.",
+    )
     args = parser.parse_args()
 
     if args.output == QA_DIR / "island_debug.geojson":
         print(
             json.dumps(
                 {"errors": ["network debug rebuild requires explicit --output"]},
+                indent=2,
+                sort_keys=True,
+            ),
+            file=sys.stderr,
+        )
+        return 2
+    if not args.confirm_network_debug:
+        print(
+            json.dumps(
+                {
+                    "errors": [
+                        "network debug rebuild requires --confirm-network-debug after owner approval"
+                    ],
+                    "ok": False,
+                },
                 indent=2,
                 sort_keys=True,
             ),
