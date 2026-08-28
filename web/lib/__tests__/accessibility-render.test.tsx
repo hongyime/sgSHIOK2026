@@ -220,6 +220,11 @@ describe("rendered accessibility output", () => {
     expect(html).toContain(
       "25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 frozen postals, with 20 valid OSM-only postcodes."
     );
+    expect(html).toContain(
+      "Data freshness: 28 Aug 2026 22:21 UTC manifest-only check; 11 current, 9 stale, 3 manual, 1 unknown-age candidate. No upstream URLs were probed."
+    );
+    expect(html).toContain("Bus Stops, Bus Services, and Bus Routes are current but 1.2 days from stale");
+    expect(html).not.toContain("Data freshness: 28 Aug 2026 11:52 UTC manifest-only check");
     expect(html).not.toContain("16 Aug 2026 public-source sample");
     expect(html).not.toContain("20 Aug 2026 OSM addr:postcode coverage cross-check");
   });

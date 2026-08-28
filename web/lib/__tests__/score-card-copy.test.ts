@@ -292,7 +292,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("Live OSM addr:postcode coverage:");
     expect(source).not.toContain("OSM remains the address registry");
     expect(source).toContain(
-      "Data freshness: 28 Aug 2026 11:52 UTC manifest-only check; 11 current, 9 stale, 3 manual, 1 unknown-age candidate. No upstream URLs were probed."
+      "Data freshness: 28 Aug 2026 22:21 UTC manifest-only check; 11 current, 9 stale, 3 manual, 1 unknown-age candidate. No upstream URLs were probed."
     );
     expect(source).toContain("<summary>Source freshness detail</summary>");
     expect(source).toContain("The source policy covers every source in raw/manifest.json");
@@ -300,8 +300,9 @@ describe("score card copy", () => {
     expect(source).toContain("Stale-source refreshes require a new numbered input version");
     expect(source).toContain("not an in-place frozen-v1 mutation");
     expect(source).toContain("Stale sources include");
-    expect(source).toContain("Bus Stops, Bus Services, and Bus Routes are current but 1.7 days from stale");
-    expect(source).toContain("HDB Existing Building, 68.4 days into its 120-day threshold");
+    expect(source).toContain("Bus Stops, Bus Services, and Bus Routes are current but 1.2 days from stale");
+    expect(source).toContain("HDB Existing Building, 68.8 days into its 120-day threshold");
+    expect(source).toContain("51.2 days until stale");
     expect(source).toContain("NParks Leaf Area Index");
     expect(source).not.toContain("0.0 days until stale");
     expect(source).not.toContain("0.1 days from its 120-day threshold");
@@ -309,12 +310,14 @@ describe("score card copy", () => {
     expect(source).not.toContain("6.4 days from its 120-day threshold");
     expect(source).not.toContain("Data freshness at the 27 Aug 2026 UTC manifest-only check");
     expect(source).not.toContain("Data freshness at the 28 Aug 2026 08:05 UTC manifest-only check");
+    expect(source).not.toContain("Data freshness: 28 Aug 2026 11:52 UTC manifest-only check");
     expect(source).not.toContain("Data freshness at the 28 Aug 2026 10:27 UTC manifest-only check: 9 sources current");
     expect(source).not.toContain("Data freshness at the 21 Aug 2026 UTC manifest-only check: 12 sources current, 6 stale");
     expect(source).not.toContain("Stale sources are Traffic Signals, Planning Area Boundaries");
     expect(source).not.toContain("Stale sources are traffic signals, planning area boundary");
     expect(source).not.toContain("1 candidate address source with unknown age");
     expect(source).not.toContain("with NParks Leaf Area Index just under its 120-day quarterly threshold");
+    expect(source).not.toContain("Bus Stops, Bus Services, and Bus Routes are current but 1.7 days from stale");
     expect(source).toContain("No upstream URLs were probed.");
     expect(source).not.toContain("oldest current source was NParks Leaf Area Index at 112.6 days old");
     expect(source).not.toContain(
