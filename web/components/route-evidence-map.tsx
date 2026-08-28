@@ -1047,7 +1047,7 @@ function mapTextSummary(
     return [
       `Singapore shelter-map view with ${poiText}.`,
       lampText,
-      "Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio and exposed gaps on the walk to transit, plus night lighting map evidence.",
+      "Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio and exposed gaps on the walk to transit, plus the night-lighting map layer.",
     ].filter(Boolean).join(" ");
   }
 

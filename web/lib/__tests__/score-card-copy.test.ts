@@ -215,7 +215,7 @@ describe("score card copy", () => {
     expect(layoutSource).toContain('card: "summary"');
     expect(layoutSource).not.toContain('title: "S.H.I.O.K. Index"');
     expect(source).toContain(
-      "See covered-walkway ratio and exposed gaps on the walk to transit, plus night lighting map evidence",
+      "See covered-walkway ratio and exposed gaps on the walk to transit, plus the night-lighting map layer",
     );
     expect(source).not.toContain("See covered-walkway ratio, exposed gaps, and night lighting on the walk to transit");
     expect(source).not.toContain("See covered-walkway ratio, exposed gaps, and night lighting near transit");
@@ -394,7 +394,7 @@ describe("score card copy", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
     expect(source).toContain(
-      "Source-derived walk evidence: covered-walkway ratio and exposed gaps, plus night lighting map evidence.",
+      "Source-derived walk evidence: covered-walkway ratio and exposed gaps, plus the night-lighting map layer.",
     );
     expect(source).not.toContain("Source-derived covered-walkway ratio, exposed gaps, and night lighting map evidence.");
     expect(source).not.toContain("Source-derived covered-walkway ratio, exposed gaps, and night-lighting map evidence.");
