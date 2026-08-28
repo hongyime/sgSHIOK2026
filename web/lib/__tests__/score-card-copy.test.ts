@@ -67,7 +67,8 @@ describe("score card copy", () => {
     expect(source).toContain("Nearby direct bus service without verified shelter-map walk");
     expect(source).not.toContain("Nearby bus service without verified shelter-map walk");
     expect(source).toContain("Shelter-map walk access was not verified, so the locked bus term remains 0.");
-    expect(source).toContain("Direct bus line estimate");
+    expect(source).toContain("Direct bus service estimate");
+    expect(source).not.toContain("Direct bus line estimate");
     expect(source).not.toContain("Direct bus estimate");
     expect(source).not.toContain("Shelter-map walk access was not verified, so this component score remains 0.");
     expect(source).not.toContain("current walking graph could not connect a route yet");

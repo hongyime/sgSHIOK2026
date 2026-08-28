@@ -82,7 +82,7 @@ const SOURCE_LABELS: Record<string, string> = {
   inferred_hdb_void_deck: "HDB void-deck inference",
   bridge_underpass: "Bridge/underpass shelter",
   audited_shelter_correction: "Audited shelter",
-  direct_unrouted_bus: "Direct bus line estimate",
+  direct_unrouted_bus: "Direct bus service estimate",
   bus_stop_access_connector: "Bus-stop access walk",
   origin_graph_snap_connector: "Postal access walk",
   destination_graph_snap_connector: "Transit access walk",
@@ -1072,7 +1072,7 @@ function InlineRouteLegend({
     <div className={styles.inlineLegend} aria-label="Map legend">
       <span>
         <i className={directBusFallback || previewRoute ? styles.directBusLine : styles.shiokestLine} />
-        {directBusFallback ? "Direct bus line estimate" : previewRoute ? "Shelter-map preview" : "Sheltered walk"}
+        {directBusFallback ? "Direct bus service estimate" : previewRoute ? "Shelter-map preview" : "Sheltered walk"}
       </span>
       {!directBusFallback && !previewRoute && (
         <>
@@ -1219,7 +1219,7 @@ export function ScoreCard({
     routeMode === "shortest" && !sameRoute ? score.paths?.shortest_m : score.paths?.sheltered_m;
   const selectedCoverage = routeMode === "shortest" && !sameRoute ? shortestCoveredRatio : coveredRatio;
   const selectedRouteLabel = directBusFallback
-    ? "Direct bus line estimate"
+    ? "Direct bus service estimate"
     : previewRoute
       ? "OneMap preview walk"
     : routeMode === "shortest" && !sameRoute
@@ -1311,14 +1311,14 @@ export function ScoreCard({
   const selectedWalkLabel = previewRoute
     ? "OneMap preview walk"
     : directBusFallback
-      ? "direct bus line estimate"
+      ? "direct bus service estimate"
       : routeMode === "shortest" && !sameRoute
         ? "shortest walk"
         : "sheltered walk";
   const selectedWalkSentenceLabel = previewRoute
     ? "OneMap preview walk"
     : directBusFallback
-      ? "Direct bus line estimate"
+      ? "Direct bus service estimate"
       : routeMode === "shortest" && !sameRoute
         ? "Shortest walk"
         : "Sheltered walk";
