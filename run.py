@@ -16,16 +16,22 @@ Safe reports:
   batch-plan dry-runs one-attempt full-batch prerequisites and policy status without scoring; execution still requires owner approval and bounded OneMap controls.
 
 Gated pipeline tasks:
-  ingest | lamp-overlay | network | score | score-batch | export | export-transit | refresh-provenance | validate | publish | onemap-probe | geocode-universe
+  ingest | lamp-overlay | network | network-debug | score | score-batch | export | export-transit | refresh-provenance | validate | publish | onemap-probe | onemap-validation collect | onemap-outlier-replay | onemap-outlier-triage | overture-addresses | compare-targeted | geocode-universe
   ingest mutates raw/ and raw/manifest.json; through run.py it requires --confirm-input-refresh, and any refresh must write a new numbered input version rather than repair frozen v1.
   lamp-overlay writes a compact lamp-post artifact directory from existing raw data; it requires explicit --output and --confirm-lamp-overlay.
   network writes processed network artifacts and QA outputs; it requires --confirm-network-build after owner approval.
+  network-debug writes compact network debug GeoJSON; it requires explicit --output and --confirm-network-debug.
   score runs routed scoring even at its default limit; it requires --confirm-score-run after owner approval.
   score-batch runs routed scoring for non-dry limited batches; it requires --confirm-score-batch-run unless --full-batch uses --confirm-full-batch.
   export can re-export --records-dir without scoring; every export requires --confirm-export and live scoring export also requires --confirm-live-score-export.
   export-transit writes transit POI artifacts; it requires explicit --output and --confirm-export.
   refresh-provenance is fail-closed; it requires explicit --output and --confirm-refresh-provenance.
   onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe.
+  onemap-validation collect calls OneMap; it requires explicit --output and --confirm-onemap-collection.
+  onemap-outlier-replay writes a replay report after local outlier scoring; it requires explicit --output and --confirm-outlier-replay.
+  onemap-outlier-triage writes QA queues; it requires explicit output paths and --confirm-outlier-triage.
+  overture-addresses can read remote Overture data and write candidate evidence; it requires --confirm-overture-addresses.
+  compare-targeted writes targeted score comparison reports; it requires explicit --output and --confirm-compare-targeted.
   postal-universe writes a new postal-universe parquet and summary, and --download-missing can fetch source inputs; it requires --confirm-postal-universe.
   geocode-universe can call OneMap and write a bounded geocode-fill parquet, summary, and cache; non-dry runs require --confirm-bounded-geocode, fresh numeric-version outputs, and an explicitly versioned geocode cache.
   publish deploys the static bundle; it requires --confirm-publish after owner approval.
@@ -58,20 +64,26 @@ BUS_ARRIVALS_CONFIRM_FLAG = "--confirm-bus-arrivals"
 BUS_CONNECTOR_DIAGNOSTICS_CONFIRM_FLAG = "--confirm-bus-connector-diagnostics"
 CANDIDATE_AUDIT_CONFIRM_FLAG = "--confirm-candidate-audit"
 POSTAL_UNIVERSE_CONFIRM_FLAG = "--confirm-postal-universe"
+NETWORK_DEBUG_CONFIRM_FLAG = "--confirm-network-debug"
+ONEMAP_COLLECTION_CONFIRM_FLAG = "--confirm-onemap-collection"
+OUTLIER_REPLAY_CONFIRM_FLAG = "--confirm-outlier-replay"
+OUTLIER_TRIAGE_CONFIRM_FLAG = "--confirm-outlier-triage"
+OVERTURE_ADDRESSES_CONFIRM_FLAG = "--confirm-overture-addresses"
+COMPARE_TARGETED_CONFIRM_FLAG = "--confirm-compare-targeted"
 
 STUBS = {
     "check": "refuses bare upstream checks; use --freshness-only or --geospatial-discovery-only for zero-mutation reports",
     "ingest": "download changed sources to raw/ (T0.3); run.py requires --confirm-input-refresh",
     "lamp-overlay": "build compact lamp-post overlay artifact from existing raw source; requires explicit --output and --confirm-lamp-overlay",
     "network": "build conflated graph + QA report (T1.1); requires --confirm-network-build",
-    "network-debug": "rebuild compact network debug GeoJSON from QA JSON",
+    "network-debug": "rebuild compact network debug GeoJSON from QA JSON; requires --confirm-network-debug",
     "network-preflight": "verify network build inputs without building graph",
     "network-qa": "validate conflation QA report acceptance gates",
-    "onemap-validation": "plan/evaluate OneMap walk-routing launch validation gate",
+    "onemap-validation": "plan/evaluate OneMap validation reports; collect requires --confirm-onemap-collection",
     "onemap-probe": "network-heavy OneMap rate probe; requires explicit --output and --confirm-onemap-probe",
-    "onemap-outlier-replay": "replay OneMap validation outliers through current local scoring",
-    "onemap-outlier-triage": "build QA queues from profiled OneMap outlier replays",
-    "overture-addresses": "probe Overture Addresses SG as candidate-only postal-universe evidence, not scoring or registry approval",
+    "onemap-outlier-replay": "replay OneMap validation outliers through current local scoring; requires --confirm-outlier-replay",
+    "onemap-outlier-triage": "build QA queues from profiled OneMap outlier replays; requires --confirm-outlier-triage",
+    "overture-addresses": "probe Overture Addresses SG as candidate-only postal-universe evidence; requires --confirm-overture-addresses",
     "p19-gap-status": "read-only status, evidence split, missing rows, MCST proxy probe and cache ages for cached P19 16 Aug 2026 public-source sample",
     "p19-mcst-locations": "read-only status for the cached P379 OneMap location probe of unvalidated P19 MCST proxy rows",
     "p125-osm-status": "read-only status for cached P125 20 Aug 2026 Overpass addr:postcode coverage cross-check and registry policy",
@@ -83,7 +95,7 @@ STUBS = {
     "bus-arrivals": "collect local LTA bus-arrival snapshots for future reliability scoring; requires explicit --output and --confirm-bus-arrivals",
     "bus-connector-diagnostics": "diagnose priority OneMap missing-bus connector cases; requires --confirm-bus-connector-diagnostics",
     "candidate-audit": "audit ranked MRT/LRT and bus candidates for selected postals; requires --confirm-candidate-audit",
-    "compare-targeted": "compare a targeted score report against the published shelter-map bundle",
+    "compare-targeted": "compare a targeted score report against the published shelter-map bundle; requires --confirm-compare-targeted",
     "batch-plan": "dry-run one-attempt full postal geocode/scoring batch plan; execution still requires owner approval and bounded OneMap controls",
     "postal-universe": "build deterministic postal-code universe candidates; requires --confirm-postal-universe",
     "geocode-universe": "bounded OneMap geocode fill for source-derived postal gaps; non-dry runs require fresh numeric-version outputs and an explicitly versioned geocode cache",
@@ -181,12 +193,31 @@ def run_task(name: str, extra: list[str]) -> int:
             return 2
         return run_module("pipeline.network")
     if name == "network-debug":
-        return run_module("scripts.rebuild_network_debug")
+        if not require_runner_flag(
+            extra=extra,
+            flag=NETWORK_DEBUG_CONFIRM_FLAG,
+            message=(
+                "run.py network-debug writes compact network debug GeoJSON; pass "
+                "--confirm-network-debug only after approval and with explicit --output."
+            ),
+        ):
+            return 2
+        forwarded = [arg for arg in extra if arg != NETWORK_DEBUG_CONFIRM_FLAG]
+        return run_module("scripts.rebuild_network_debug", extra_args=forwarded)
     if name == "network-preflight":
         return run_module("pipeline.network_preflight")
     if name == "network-qa":
         return run_module("pipeline.network_qa")
     if name == "onemap-validation":
+        if extra and extra[0] == "collect" and not require_runner_flag(
+            extra=extra,
+            flag=ONEMAP_COLLECTION_CONFIRM_FLAG,
+            message=(
+                "run.py onemap-validation collect calls OneMap; pass "
+                "--confirm-onemap-collection only after approval and with explicit --output."
+            ),
+        ):
+            return 2
         return run_module("pipeline.onemap_validation")
     if name == "onemap-probe":
         if not require_runner_flag(
@@ -200,11 +231,40 @@ def run_task(name: str, extra: list[str]) -> int:
             return 2
         return run_module("pipeline.probe_onemap")
     if name == "onemap-outlier-replay":
+        if not require_runner_flag(
+            extra=extra,
+            flag=OUTLIER_REPLAY_CONFIRM_FLAG,
+            message=(
+                "run.py onemap-outlier-replay writes a replay report after local outlier "
+                "scoring; pass --confirm-outlier-replay only after approval and with explicit --output."
+            ),
+        ):
+            return 2
         return run_module("scripts.replay_onemap_outliers")
     if name == "onemap-outlier-triage":
-        return run_module("scripts.triage_onemap_outliers")
+        if not require_runner_flag(
+            extra=extra,
+            flag=OUTLIER_TRIAGE_CONFIRM_FLAG,
+            message=(
+                "run.py onemap-outlier-triage writes QA queues; pass "
+                "--confirm-outlier-triage only after approval and with explicit output paths."
+            ),
+        ):
+            return 2
+        forwarded = [arg for arg in extra if arg != OUTLIER_TRIAGE_CONFIRM_FLAG]
+        return run_module("scripts.triage_onemap_outliers", extra_args=forwarded)
     if name == "overture-addresses":
-        return run_module("pipeline.overture_addresses")
+        if not require_runner_flag(
+            extra=extra,
+            flag=OVERTURE_ADDRESSES_CONFIRM_FLAG,
+            message=(
+                "run.py overture-addresses can read remote Overture data and write "
+                "candidate evidence; pass --confirm-overture-addresses only after approval."
+            ),
+        ):
+            return 2
+        forwarded = [arg for arg in extra if arg != OVERTURE_ADDRESSES_CONFIRM_FLAG]
+        return run_module("pipeline.overture_addresses", extra_args=forwarded)
     if name == "p19-gap-status":
         return run_module("scripts.analysis.p19_universe_gap_measurement", ["--cache-status-only"])
     if name == "p19-mcst-locations":
@@ -285,7 +345,17 @@ def run_task(name: str, extra: list[str]) -> int:
             return 2
         return run_module("scripts.audit_postal_candidates")
     if name == "compare-targeted":
-        return run_module("scripts.compare_targeted_scores")
+        if not require_runner_flag(
+            extra=extra,
+            flag=COMPARE_TARGETED_CONFIRM_FLAG,
+            message=(
+                "run.py compare-targeted writes targeted score comparison reports; pass "
+                "--confirm-compare-targeted only after approval and with explicit --output."
+            ),
+        ):
+            return 2
+        forwarded = [arg for arg in extra if arg != COMPARE_TARGETED_CONFIRM_FLAG]
+        return run_module("scripts.compare_targeted_scores", extra_args=forwarded)
     if name == "postal-universe":
         if not require_runner_flag(
             extra=extra,

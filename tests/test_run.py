@@ -43,9 +43,10 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     assert "batch-plan dry-runs batch prerequisites and policy status without scoring." not in run.__doc__
     assert "Gated pipeline tasks:" in run.__doc__
     assert (
-        "ingest | lamp-overlay | network | score | score-batch | export | "
+        "ingest | lamp-overlay | network | network-debug | score | score-batch | export | "
         "export-transit | refresh-provenance | validate | publish | onemap-probe | "
-        "geocode-universe"
+        "onemap-validation collect | onemap-outlier-replay | onemap-outlier-triage | "
+        "overture-addresses | compare-targeted | geocode-universe"
         in run.__doc__
     )
     assert (
@@ -61,6 +62,10 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     assert (
         "network writes processed network artifacts and QA outputs; it requires "
         "--confirm-network-build after owner approval."
+        in run.__doc__
+    )
+    assert (
+        "network-debug writes compact network debug GeoJSON; it requires explicit --output and --confirm-network-debug."
         in run.__doc__
     )
     assert (
@@ -84,6 +89,26 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     )
     assert (
         "onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe."
+        in run.__doc__
+    )
+    assert (
+        "onemap-validation collect calls OneMap; it requires explicit --output and --confirm-onemap-collection."
+        in run.__doc__
+    )
+    assert (
+        "onemap-outlier-replay writes a replay report after local outlier scoring; it requires explicit --output and --confirm-outlier-replay."
+        in run.__doc__
+    )
+    assert (
+        "onemap-outlier-triage writes QA queues; it requires explicit output paths and --confirm-outlier-triage."
+        in run.__doc__
+    )
+    assert (
+        "overture-addresses can read remote Overture data and write candidate evidence; it requires --confirm-overture-addresses."
+        in run.__doc__
+    )
+    assert (
+        "compare-targeted writes targeted score comparison reports; it requires explicit --output and --confirm-compare-targeted."
         in run.__doc__
     )
     assert (
@@ -140,9 +165,10 @@ def test_run_help_headline_does_not_flatten_all_tasks():
     assert "batch-plan dry-runs batch prerequisites and policy status without scoring." not in help_text
     assert "Gated pipeline tasks:" in help_text
     assert (
-        "ingest | lamp-overlay | network | score | score-batch | export | "
+        "ingest | lamp-overlay | network | network-debug | score | score-batch | export | "
         "export-transit | refresh-provenance | validate | publish | onemap-probe | "
-        "geocode-universe"
+        "onemap-validation collect | onemap-outlier-replay | onemap-outlier-triage | "
+        "overture-addresses | compare-targeted | geocode-universe"
         in help_text
     )
     assert (
@@ -158,6 +184,10 @@ def test_run_help_headline_does_not_flatten_all_tasks():
     assert (
         "network writes processed network artifacts and QA outputs; it requires "
         "--confirm-network-build after owner approval."
+        in help_text
+    )
+    assert (
+        "network-debug writes compact network debug GeoJSON; it requires explicit --output and --confirm-network-debug."
         in help_text
     )
     assert (
@@ -181,6 +211,26 @@ def test_run_help_headline_does_not_flatten_all_tasks():
     )
     assert (
         "onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe."
+        in help_text
+    )
+    assert (
+        "onemap-validation collect calls OneMap; it requires explicit --output and --confirm-onemap-collection."
+        in help_text
+    )
+    assert (
+        "onemap-outlier-replay writes a replay report after local outlier scoring; it requires explicit --output and --confirm-outlier-replay."
+        in help_text
+    )
+    assert (
+        "onemap-outlier-triage writes QA queues; it requires explicit output paths and --confirm-outlier-triage."
+        in help_text
+    )
+    assert (
+        "overture-addresses can read remote Overture data and write candidate evidence; it requires --confirm-overture-addresses."
+        in help_text
+    )
+    assert (
+        "compare-targeted writes targeted score comparison reports; it requires explicit --output and --confirm-compare-targeted."
         in help_text
     )
     assert (
@@ -215,6 +265,9 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
     assert run.STUBS["network"] == (
         "build conflated graph + QA report (T1.1); requires --confirm-network-build"
     )
+    assert run.STUBS["network-debug"] == (
+        "rebuild compact network debug GeoJSON from QA JSON; requires --confirm-network-debug"
+    )
     assert run.STUBS["score"] == (
         "apply pipeline/config/weights.yaml (T1.4); requires --confirm-score-run"
     )
@@ -242,14 +295,25 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
         "read-only consolidated status for cached P19 and P125 postal-universe measurements"
     )
     assert run.STUBS["overture-addresses"] == (
-        "probe Overture Addresses SG as candidate-only postal-universe evidence, "
-        "not scoring or registry approval"
+        "probe Overture Addresses SG as candidate-only postal-universe evidence; "
+        "requires --confirm-overture-addresses"
+    )
+    assert run.STUBS["onemap-validation"] == (
+        "plan/evaluate OneMap validation reports; collect requires --confirm-onemap-collection"
     )
     assert run.STUBS["onemap-probe"] == (
         "network-heavy OneMap rate probe; requires explicit --output and --confirm-onemap-probe"
     )
     assert run.STUBS["compare-targeted"] == (
-        "compare a targeted score report against the published shelter-map bundle"
+        "compare a targeted score report against the published shelter-map bundle; "
+        "requires --confirm-compare-targeted"
+    )
+    assert run.STUBS["onemap-outlier-replay"] == (
+        "replay OneMap validation outliers through current local scoring; "
+        "requires --confirm-outlier-replay"
+    )
+    assert run.STUBS["onemap-outlier-triage"] == (
+        "build QA queues from profiled OneMap outlier replays; requires --confirm-outlier-triage"
     )
     assert run.STUBS["candidate-audit"] == (
         "audit ranked MRT/LRT and bus candidates for selected postals; requires "
@@ -497,6 +561,52 @@ def test_run_network_forwards_confirm_network_build(monkeypatch):
                 "--area",
                 "island",
                 "--confirm-network-build",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_network_debug_requires_confirm_before_module(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "network-debug",
+        ["--output", "qa/p742/island_debug.geojson"],
+        "run.py network-debug writes compact network debug GeoJSON",
+        "--confirm-network-debug",
+    )
+
+
+def test_run_network_debug_strips_confirm_before_module(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert (
+        run.run_task(
+            "network-debug",
+            ["--output", "qa/p742/island_debug.geojson", "--confirm-network-debug"],
+        )
+        == 0
+    )
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "scripts.rebuild_network_debug",
+                "--output",
+                "qa/p742/island_debug.geojson",
             ],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
@@ -954,6 +1064,194 @@ def test_run_task_refuses_onemap_probe_without_confirm(monkeypatch, capsys):
     )
 
 
+def test_run_task_refuses_onemap_validation_collect_without_confirm(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "onemap-validation",
+        ["collect", "--output", "qa/p742/onemap_collect.json"],
+        "run.py onemap-validation collect calls OneMap",
+        "--confirm-onemap-collection",
+    )
+
+
+def test_run_task_allows_onemap_validation_plan_without_confirm(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert run.run_task("onemap-validation", ["plan", "--output", "qa/p742/onemap_plan.json"]) == 0
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "pipeline.onemap_validation",
+                "plan",
+                "--output",
+                "qa/p742/onemap_plan.json",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_task_refuses_onemap_outlier_replay_without_confirm(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "onemap-outlier-replay",
+        ["--output", "qa/p742/outlier_replay.json"],
+        "run.py onemap-outlier-replay writes a replay report",
+        "--confirm-outlier-replay",
+    )
+
+
+def test_run_task_forwards_confirmed_onemap_outlier_replay(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert (
+        run.run_task(
+            "onemap-outlier-replay",
+            ["--output", "qa/p742/outlier_replay.json", "--confirm-outlier-replay"],
+        )
+        == 0
+    )
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "scripts.replay_onemap_outliers",
+                "--output",
+                "qa/p742/outlier_replay.json",
+                "--confirm-outlier-replay",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_task_refuses_onemap_outlier_triage_without_confirm(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "onemap-outlier-triage",
+        ["--output", "qa/p742/triage.json"],
+        "run.py onemap-outlier-triage writes QA queues",
+        "--confirm-outlier-triage",
+    )
+
+
+def test_run_task_strips_onemap_outlier_triage_confirm(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert (
+        run.run_task(
+            "onemap-outlier-triage",
+            [
+                "--output",
+                "qa/p742/triage.json",
+                "--geojson-output",
+                "qa/p742/triage.geojson",
+                "--confirm-outlier-triage",
+            ],
+        )
+        == 0
+    )
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "scripts.triage_onemap_outliers",
+                "--output",
+                "qa/p742/triage.json",
+                "--geojson-output",
+                "qa/p742/triage.geojson",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_task_refuses_overture_addresses_without_confirm(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "overture-addresses",
+        ["--output", "qa/p742/overture.json"],
+        "run.py overture-addresses can read remote Overture data",
+        "--confirm-overture-addresses",
+    )
+
+
+def test_run_task_strips_overture_addresses_confirm(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert (
+        run.run_task(
+            "overture-addresses",
+            ["--output", "qa/p742/overture.json", "--confirm-overture-addresses"],
+        )
+        == 0
+    )
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "pipeline.overture_addresses",
+                "--output",
+                "qa/p742/overture.json",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
 def test_run_task_exposes_universe_status_as_read_only_module(monkeypatch):
     calls = []
 
@@ -1289,6 +1587,52 @@ def test_run_task_allows_geocode_universe_dry_run_without_confirm(monkeypatch):
                 "processed/postal_universe_candidate_full_registered.parquet",
                 "--output",
                 "processed/postal_universe_candidate_full_registered_geocoded_v2.parquet",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_task_refuses_compare_targeted_without_confirm(monkeypatch, capsys):
+    assert_task_refused_without_subprocess(
+        monkeypatch,
+        capsys,
+        "compare-targeted",
+        ["--output", "qa/p742/compare.json"],
+        "run.py compare-targeted writes targeted score comparison reports",
+        "--confirm-compare-targeted",
+    )
+
+
+def test_run_task_strips_compare_targeted_confirm(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert (
+        run.run_task(
+            "compare-targeted",
+            ["--output", "qa/p742/compare.json", "--confirm-compare-targeted"],
+        )
+        == 0
+    )
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "scripts.compare_targeted_scores",
+                "--output",
+                "qa/p742/compare.json",
             ],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
