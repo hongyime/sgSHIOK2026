@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest commit: `bd52d57` (`docs: record universe measurement status`)
+Latest commit: `bf0c64f` (`docs: record onemap enumeration feasibility`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,7 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P719 is complete and pushed: cached universe-measurement status was recorded, showing the 2021-2026 public-source sample found 6 confirmed coordinate-backed HDB missing rows plus 2 MCST source-quality warnings out of 976 rows with postals.
-- Evidence: `qa/verification/P719-universe-measurement-status.md`.
-- Checks: `run.py universe-status` completed read-only; repo integrity passed; diff-check passed; protected-diff guard passed.
+- P720 is complete and pushed: OneMap Search was recorded as validation/geocoding infrastructure, not a proven bulk national address-enumeration API; HDB Property Information is candidate-generation input but not a postal-code registry.
+- Evidence: `qa/verification/P720-onemap-enumeration-feasibility.md`.
+- Checks: repo integrity passed; diff-check passed; protected-diff guard passed.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
