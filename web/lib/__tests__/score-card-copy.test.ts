@@ -424,9 +424,12 @@ describe("score card copy", () => {
     expect(tsxSource).not.toContain("Greenery proxy uses sparse NParks route geometry for heat only");
     expect(tsxSource).toContain("routeDetailItems.push({ label: \"Access link\"");
     expect(tsxSource).not.toContain("routeDetailItems.push({ label: \"Snap connector\"");
-    expect(tsxSource).toContain('value: lampOverlayEnabled ? "Map layer on; zoom in for lamp-post points" : "Available; map layer off",');
+    expect(tsxSource).toContain("value: nightLightingRouteDetailValue(lampOverlayEnabled),");
+    expect(tsxSource).toContain("export function nightLightingRouteDetailValue(lampOverlayEnabled: boolean): string");
+    expect(tsxSource).toContain("Map layer off; switch on night lighting, then zoom in");
     expect(tsxSource).not.toContain('value: lampOverlayEnabled ? "Map layer on; zoom in for points" : "Map layer off",');
     expect(tsxSource).not.toContain('value: lampOverlayEnabled ? "Map layer on; zoom in for lamp-post points" : "Map layer off",');
+    expect(tsxSource).not.toContain("Available; map layer off");
     expect(tsxSource).not.toContain('routeDetailItems.push({ label: "Night lighting", value: lampOverlayEnabled ? "Layer on" : "Layer off" });');
     expect(tsxSource).toContain("lampOverlayEnabled?: boolean;");
     expect(tsxSource).toContain("lampOverlayEnabled={lampOverlayEnabled}");

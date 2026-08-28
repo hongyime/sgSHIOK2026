@@ -15,6 +15,7 @@ import {
   formatDataDate,
   formatGeneratedDate,
   nightLightingLayerNote,
+  nightLightingRouteDetailValue,
   routeDisplayAnnouncement,
   rankEmptyMessage,
   rankPanelDescription,
@@ -215,6 +216,13 @@ describe("rendered accessibility output", () => {
     expect(nightLightingLayerNote(true)).toBe(
       "Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. Zoom into a neighbourhood to load lamp-post points. Map evidence only; not part of the locked score."
     );
+  });
+
+  it("formats selected-walk night-lighting detail values for off and on states", () => {
+    expect(nightLightingRouteDetailValue(false)).toBe(
+      "Map layer off; switch on night lighting, then zoom in"
+    );
+    expect(nightLightingRouteDetailValue(true)).toBe("Map layer on; zoom in for lamp-post points");
   });
 
   it("introduces the shelter-map panel before search", () => {
@@ -557,7 +565,8 @@ describe("rendered accessibility output", () => {
     );
     expect(html).not.toContain("Greenery proxy uses sparse NParks route geometry for heat only");
     expect(html).toContain("Night lighting");
-    expect(html).toContain("Available; map layer off");
+    expect(html).toContain("Map layer off; switch on night lighting, then zoom in");
+    expect(html).not.toContain("Available; map layer off");
     expect(html).not.toContain("Map layer on; zoom in for points");
     expect(html).not.toContain(">Map layer off</strong>");
     expect(html).not.toContain(">Layer off</strong>");
@@ -638,15 +647,18 @@ describe("rendered accessibility output", () => {
   });
 
   it("reflects the night-lighting map layer state in route details", () => {
-    const html = renderScoreCard({ lampOverlayEnabled: true });
+    const offHtml = renderScoreCard({ lampOverlayEnabled: false });
+    const onHtml = renderScoreCard({ lampOverlayEnabled: true });
 
-    expect(html).toContain("Night lighting");
-    expect(html).toContain("Map layer on; zoom in for lamp-post points");
-    expect(html).toContain("LTA lamp-post points");
-    expect(html).not.toContain("LTA lamp points");
-    expect(html).not.toContain("Map layer on; zoom in for points");
-    expect(html).not.toContain("Layer on");
-    expect(html).toContain(
+    expect(offHtml).toContain("Night lighting");
+    expect(offHtml).toContain("Map layer off; switch on night lighting, then zoom in");
+    expect(offHtml).not.toContain("Available; map layer off");
+    expect(onHtml).toContain("Map layer on; zoom in for lamp-post points");
+    expect(onHtml).toContain("LTA lamp-post points");
+    expect(onHtml).not.toContain("LTA lamp points");
+    expect(onHtml).not.toContain("Map layer on; zoom in for points");
+    expect(onHtml).not.toContain("Layer on");
+    expect(onHtml).toContain(
       "Night lighting uses LTA lamp-post points as map evidence outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
     );
   });

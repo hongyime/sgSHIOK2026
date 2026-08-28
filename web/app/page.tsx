@@ -118,6 +118,12 @@ export function nightLightingLayerNote(lampOverlayEnabled: boolean): string {
   return `Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026. ${action} Map evidence only; not part of the locked score.`;
 }
 
+export function nightLightingRouteDetailValue(lampOverlayEnabled: boolean): string {
+  return lampOverlayEnabled
+    ? "Map layer on; zoom in for lamp-post points"
+    : "Map layer off; switch on night lighting, then zoom in";
+}
+
 const RECENT_PUBLIC_SOURCE_MISSING_POSTAL_SOURCE: Record<string, string> = {
   "521400": "HDB 2021-2026 geocoded rows",
   "522400": "HDB 2021-2026 geocoded rows",
@@ -1277,7 +1283,7 @@ export function ScoreCard({
   if (score.paths) {
     routeDetailItems.push({
       label: "Night lighting",
-      value: lampOverlayEnabled ? "Map layer on; zoom in for lamp-post points" : "Available; map layer off",
+      value: nightLightingRouteDetailValue(lampOverlayEnabled),
     });
     routeDetailNotes.push(
       "Night lighting uses LTA lamp-post points as map evidence outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
