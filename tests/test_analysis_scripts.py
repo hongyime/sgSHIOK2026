@@ -10,6 +10,7 @@ from scripts.analysis import p19_universe_gap_measurement as p19
 from scripts.analysis import p19_mcst_missing_locations as p379
 from scripts.analysis import p125_osm_postcode_status as p125
 from scripts.analysis import universe_measurement_status as universe_status
+from scripts.analysis.report_io import write_new_text_report
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -226,6 +227,34 @@ def test_p10_analysis_scripts_resolve_default_inputs_from_project_root(
     )
     assert p10_provenance.SOURCES_CONFIG == PROJECT_ROOT / "pipeline" / "config" / "sources.yaml"
     assert p10_provenance.RAW_MANIFEST == PROJECT_ROOT / "raw" / "manifest.json"
+
+
+def test_analysis_report_writer_refuses_to_overwrite_existing_file(tmp_path: Path) -> None:
+    output = tmp_path / "report.txt"
+    write_new_text_report(output, "first")
+
+    try:
+        write_new_text_report(output, "second")
+    except FileExistsError as exc:
+        assert "refusing to overwrite existing analysis output" in str(exc)
+    else:
+        raise AssertionError("expected FileExistsError")
+
+    assert output.read_text(encoding="utf-8") == "first"
+
+
+def test_historical_bus_reports_use_non_overwriting_writer() -> None:
+    for script_name in [
+        "bus_zero_audit.py",
+        "bus_fallback_blast_radius.py",
+        "p4_bus_saturation_analysis.py",
+    ]:
+        source = (PROJECT_ROOT / "scripts" / "analysis" / script_name).read_text(
+            encoding="utf-8"
+        )
+
+        assert "write_new_text_report(args.output" in source
+        assert "args.output.write_text" not in source
 
 
 def test_p19_cache_status_only_reports_existing_measurement_caches(

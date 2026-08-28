@@ -10,12 +10,17 @@ import argparse
 import json
 import math
 import statistics
+import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any, Iterable
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(PROJECT_ROOT))
+
+from scripts.analysis.report_io import write_new_text_report
+
 BUNDLE_NAME = "generated_20260805_prefer_scored_routed"
 BUNDLE_DIR = PROJECT_ROOT / "web" / "public" / "data" / BUNDLE_NAME
 DEFAULT_OUTPUT = PROJECT_ROOT / "qa" / "verification" / "P4-strand3-bus-saturation-analysis.txt"
@@ -527,8 +532,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     report = analyze(args.bundle_dir)
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(report + "\n", encoding="utf-8")
+    write_new_text_report(args.output, report + "\n")
     print(report)
     print(f"wrote_report: {args.output}")
     return 0
