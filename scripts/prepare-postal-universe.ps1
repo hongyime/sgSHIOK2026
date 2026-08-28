@@ -17,6 +17,7 @@ $UniversePath = "processed\postal_universe_${Mode}_${Version}.parquet"
 $SummaryPath = "processed\postal_universe_${Mode}_${Version}_summary.json"
 $GeocodedPath = "processed\postal_universe_${Mode}_${Version}_geocoded.parquet"
 $GeocodedSummaryPath = "processed\postal_universe_${Mode}_${Version}_geocoded_summary.json"
+$GeocodeCachePath = "raw\geocode_cache_${Version}.db"
 
 function Write-PreparePlan {
     param([string]$Reason)
@@ -31,7 +32,7 @@ function Write-PreparePlan {
     Write-Output "commands:"
     Write-Output ".\scripts\prepare-postal-universe.bat -Mode $Mode -Version $Version -ConfirmBoundedGeocode -DownloadMissing"
     Write-Output ""
-    Write-Output "This refreshes the source-derived postal universe, runs bounded OneMap geocode only for source-derived gaps, then prints the batch plan. It does not score postals, activate a bundle, or deploy."
+    Write-Output "This refreshes the source-derived postal universe, runs bounded OneMap geocode only for source-derived gaps using $GeocodeCachePath, then prints the batch plan. It does not score postals, activate a bundle, or deploy."
 }
 
 if ($PlanOnly) {
@@ -70,7 +71,8 @@ try {
         "run", "python", "run.py", "postal-universe",
         "--mode", $Mode,
         "--output", $UniversePath,
-        "--summary", $SummaryPath
+        "--summary", $SummaryPath,
+        "--confirm-postal-universe"
     )
     if ($DownloadMissing) { $UniverseArgs += "--download-missing" }
     & uv @UniverseArgs
@@ -83,6 +85,7 @@ try {
         "--input", $UniversePath,
         "--output", $GeocodedPath,
         "--summary", $GeocodedSummaryPath,
+        "--cache-db", $GeocodeCachePath,
         "--confirm-bounded-geocode"
     )
     if ($RetryCachedFailures) { $GeocodeArgs += "--retry-cached-failures" }

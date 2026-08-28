@@ -1624,3 +1624,7 @@ The production deploy wrapper must satisfy both safety boundaries: `run.py publi
 2026-08-28 - P745 agent publish instruction alignment:
 
 `CLAUDE.md` still grouped `validate` with gated writer/deploy tasks and showed `run.py publish` without the required runner and module confirmations. The agent guide now mirrors the runner: `validate` is a read-only safe report, `publish` is the gated deploy boundary, and the documented publish invocation carries both `--confirm-publish` and `--confirm-production`. This is agent documentation/test coverage only; it does not deploy, validate a bundle, export, score, mutate public data, mutate protected QA evidence, or touch locked weights.
+
+2026-08-28 - P746 postal-universe prep wrapper confirmations:
+
+The postal-universe prep wrapper predates two runner guards: `run.py postal-universe` now requires `--confirm-postal-universe`, and non-dry bounded geocoding requires an explicitly versioned geocode cache. `scripts/prepare-postal-universe.ps1` now passes the postal-universe confirmation and derives `raw\geocode_cache_${Version}.db` for `geocode-universe --cache-db`, keeping the generated cache tied to the same numeric version as the candidate universe. This is wrapper/test hygiene only; it does not build a universe, geocode, call OneMap, mutate raw or processed artifacts, score, export, deploy, mutate protected QA evidence, or touch locked weights.
