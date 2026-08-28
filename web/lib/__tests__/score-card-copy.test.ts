@@ -271,7 +271,7 @@ describe("score card copy", () => {
     expect(source).toContain(
       "{RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}."
     );
-    expect(source).toContain('const RECENT_PUBLIC_SOURCE_SAMPLE_LABEL = "16 Aug 2026 public-source sample";');
+    expect(source).toContain('const RECENT_PUBLIC_SOURCE_SAMPLE_LABEL = "P19 v2 28 Aug 2026 public-source sample";');
     expect(source).not.toContain("RECENT_PUBLIC_SOURCE_CHECK_LABEL");
     expect(source).not.toContain('const RECENT_PUBLIC_SOURCE_CHECK_LABEL = "16 Aug 2026 public-source check";');
     expect(source).not.toContain("Recent public-source check: {RECENT_PUBLIC_SOURCE_GAP_COPY}.");
@@ -286,7 +286,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("one of the 6 coordinate-backed HDB missing rows from frozen v1 (${source})");
     expect(source).not.toContain("Recent public-sample check:");
     expect(source).toContain(
-      "20 Aug 2026 OSM addr:postcode coverage cross-check: 25,879 valid distinct postcodes measured; 25,873 overlap the 124,443 frozen postals, with 6 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry."
+      "28 Aug 2026 OSM addr:postcode coverage cross-check: 25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 frozen postals, with 20 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry."
     );
     expect(source).not.toContain("20 Aug 2026 OSM addr:postcode check:");
     expect(source).not.toContain("Live OSM addr:postcode coverage:");
