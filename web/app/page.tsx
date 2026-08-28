@@ -2399,7 +2399,7 @@ export default function Home() {
         </div>
 
         <details className={styles.dataLimits}>
-          <summary>Data limits: frozen v1 address list</summary>
+          <summary>Data limits: frozen v1 addresses; incomplete locked scores</summary>
           <p>
             Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape.
           </p>
