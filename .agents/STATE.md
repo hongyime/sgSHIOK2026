@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest commit: `39af2fb` (`fix: preflight onemap validation outputs`)
+Latest commit: `51ba23b` (`fix: preflight overture report outputs`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,7 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P713 is complete and pushed: `pipeline.onemap_validation` now requires an explicit fresh `--output` for `plan`, `plan-targeted`, `evaluate`, and `collect` before sample building, sample reading, cache evaluation, or OneMap collection can start.
-- Evidence: `qa/verification/P713-onemap-validation-output-guard.md`.
-- Checks: `tests/test_onemap_validation.py` passed 27/27; Python collect-only is 496; repo integrity passed; diff-check passed; protected-diff guard passed.
-- No OneMap collection, scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
+- P714 is complete and pushed: `pipeline.overture_addresses` now refuses existing requested `--output` and `--outlier-geojson` paths before the candidate report builder can read the current universe, query Overture, or archive raw rows.
+- Evidence: `qa/verification/P714-overture-output-guard.md`.
+- Checks: `tests/test_overture_addresses.py` passed 8/8; Python collect-only is 498; repo integrity passed; diff-check passed; protected-diff guard passed.
+- No Overture query, raw archive write, scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
