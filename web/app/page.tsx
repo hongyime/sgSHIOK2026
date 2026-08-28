@@ -221,7 +221,7 @@ function shelterEvidenceAnnouncementFromValues(
       }${longestGap ? `; longest gap ${formatDistance(longestGap.len_m)}` : ""}`
     );
   }
-  return parts.length > 0 ? `Walk evidence ${parts.join("; ")}.` : "Walk evidence unavailable.";
+  return parts.length > 0 ? `Walk evidence ${parts.join("; ")}.` : "Shelter-map walk evidence unavailable.";
 }
 
 function shelterEvidenceAnnouncement(score: ScoreRecord): string {
@@ -1380,7 +1380,7 @@ export function ScoreCard({
           value: score.paths ? formatPercent(selectedCoverage) : formatScore(null),
           meta: score.paths
             ? "Covered-walkway ratio"
-            : scoredMeta(score.subscores.rain ?? score.subscores.heat, "40% locked shelter exposure", "Walk evidence unavailable"),
+            : scoredMeta(score.subscores.rain ?? score.subscores.heat, "40% locked shelter exposure", "Shelter-map walk unavailable"),
           notes: [
             "In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence.",
             "Heat also includes the sparse NParks greenery proxy, so SHIOK shows covered-walkway ratio first.",
@@ -1399,7 +1399,7 @@ export function ScoreCard({
           id: "bus",
           label: "Bus service support",
           value: formatScore(score.subscores.bus),
-          meta: scoredMeta(score.subscores.bus, "20% locked bus support", "Bus evidence unavailable"),
+          meta: scoredMeta(score.subscores.bus, "20% locked bus support", "Bus support unavailable"),
           notes: [
             "A low value can mean weak service evidence, or that the published shelter-map walk could not prove access to an official LTA bus stop.",
             busFallback

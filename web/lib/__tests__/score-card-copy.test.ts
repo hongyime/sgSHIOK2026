@@ -245,7 +245,8 @@ describe("score card copy", () => {
     expect(source).toContain("function formatGeneratedDate(manifest: Manifest | null): string");
     expect(source).toContain("Locked score ${scoreText}");
     expect(source).toContain("function shelterEvidenceAnnouncement(score: ScoreRecord): string");
-    expect(source).toContain('return parts.length > 0 ? `Walk evidence ${parts.join("; ")}.` : "Walk evidence unavailable.";');
+    expect(source).toContain('return parts.length > 0 ? `Walk evidence ${parts.join("; ")}.` : "Shelter-map walk evidence unavailable.";');
+    expect(source).not.toContain('"Walk evidence unavailable"');
     expect(source).toContain("${shelterText} Locked score ${scoreText}.");
     expect(source).toContain(
       "Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape."
@@ -634,7 +635,8 @@ describe("score card copy", () => {
     expect(source).toContain("Four display rows; weights unchanged");
     expect(source).toContain('"No full locked score"');
     expect(source).not.toContain('"No locked score"');
-    expect(source).toContain('"Bus evidence unavailable"');
+    expect(source).toContain('"Bus support unavailable"');
+    expect(source).not.toContain('"Bus evidence unavailable"');
     expect(source).toContain('"Bus service not scored"');
     expect(source).toContain("Bus service support is not computed for records outside the locked 1.2 km transit range.");
     expect(source).not.toContain('"Locked bus term unavailable"');
