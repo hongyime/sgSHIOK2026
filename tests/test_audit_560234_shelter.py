@@ -43,3 +43,32 @@ def test_560234_shelter_audit_refuses_existing_explicit_output(
     assert "refusing to overwrite existing audit output" in captured.err
     assert existing_geojson.read_text(encoding="utf-8") == "{}\n"
     assert not notes_output.exists()
+
+
+def test_560234_shelter_audit_requires_confirmation_before_loading(
+    tmp_path, monkeypatch, capsys
+) -> None:
+    def fail_if_loaded(**_kwargs):
+        raise AssertionError("audit should not load data before explicit confirmation")
+
+    geojson_output = tmp_path / "audit.geojson"
+    notes_output = tmp_path / "notes.md"
+    monkeypatch.setattr(audit_560234_shelter, "run_audit", fail_if_loaded)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "audit_560234_shelter.py",
+            "--geojson-output",
+            str(geojson_output),
+            "--notes-output",
+            str(notes_output),
+        ],
+    )
+
+    assert audit_560234_shelter.main() == 2
+
+    captured = capsys.readouterr()
+    assert "--confirm-560234-shelter-audit" in captured.err
+    assert not geojson_output.exists()
+    assert not notes_output.exists()

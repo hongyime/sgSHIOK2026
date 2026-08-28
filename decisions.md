@@ -1751,3 +1751,7 @@ Night lighting is the second product layer after shelter exposure, while the spa
 2026-08-29 - P779 shelter-correction workflow copy:
 
 The map tracing workflow is a shelter-evidence correction path, not generic route preference or internal QA. The score card now exposes a `Report missing shelter` action near exposed gaps, renames tracing/copy controls around shelter correction, and records `issue: user_reported_shelter_correction` while keeping a legacy issue field for compatibility. This is browser copy/interaction and test coverage only; it does not score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
+
+2026-08-29 - P780 560234 shelter audit confirmation gate:
+
+`scripts/audit_560234_shelter.py` is a direct historical diagnostic that reads raw, processed, and public-data bundle inputs and writes GeoJSON/Markdown audit reports. It now requires `--confirm-560234-shelter-audit` after explicit output/no-overwrite preflight and before the audit can load protected inputs. This is safety/test/evidence work only; it does not run the audit, read protected inputs beyond static code inspection, score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.

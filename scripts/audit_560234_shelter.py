@@ -38,6 +38,7 @@ UNIVERSE_PATH = (
 )
 OUT_GEOJSON = PROJECT_ROOT / "qa/560234_shelter_audit.geojson"
 OUT_NOTES = PROJECT_ROOT / "qa/560234_shelter_audit_notes.md"
+CONFIRM_560234_SHELTER_AUDIT_FLAG = "--confirm-560234-shelter-audit"
 
 
 def explicit_output_errors(geojson_output: Path, notes_output: Path) -> list[str]:
@@ -47,6 +48,17 @@ def explicit_output_errors(geojson_output: Path, notes_output: Path) -> list[str
     if notes_output == OUT_NOTES:
         errors.append("560234 shelter audit requires explicit --notes-output")
     return errors
+
+
+def confirmation_errors(confirmed: bool) -> list[str]:
+    if confirmed:
+        return []
+    return [
+        (
+            "560234 shelter audit reads protected raw/processed/public-data inputs and writes "
+            f"new reports; pass {CONFIRM_560234_SHELTER_AUDIT_FLAG} after owner approval"
+        )
+    ]
 
 
 def ensure_output_available(path: Path) -> None:
@@ -413,9 +425,26 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Audit shelter evidence for postal 560234.")
     parser.add_argument("--geojson-output", type=Path, default=OUT_GEOJSON)
     parser.add_argument("--notes-output", type=Path, default=OUT_NOTES)
+    parser.add_argument(
+        CONFIRM_560234_SHELTER_AUDIT_FLAG,
+        action="store_true",
+        help="Confirm this direct audit may read protected local inputs and write new reports.",
+    )
     args = parser.parse_args()
 
     errors = explicit_output_errors(args.geojson_output, args.notes_output)
+    if errors:
+        print(json.dumps({"errors": errors}, indent=2, sort_keys=True), file=sys.stderr)
+        return 2
+
+    try:
+        ensure_output_available(args.geojson_output)
+        ensure_output_available(args.notes_output)
+    except FileExistsError as exc:
+        print(json.dumps({"errors": [str(exc)]}, indent=2, sort_keys=True), file=sys.stderr)
+        return 2
+
+    errors = confirmation_errors(args.confirm_560234_shelter_audit)
     if errors:
         print(json.dumps({"errors": errors}, indent=2, sort_keys=True), file=sys.stderr)
         return 2
