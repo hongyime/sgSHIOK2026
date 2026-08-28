@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P623 web commit: `be87c57`; state-only commits may follow it on `main`.
+Latest P624 web commit: `3630a18`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P624 is complete and committed: the no-candidate `NO_TRANSIT_IN_RANGE` title and reason now say `No qualifying transit target within 1.2 km` instead of stop-only wording, matching the detailed copy that the locked range covers MRT/LRT exits and bus stops. Focused accessibility/copy tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 160 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P623 is complete and committed: the no-full-score locked-score row now says `No full locked score is published for this postal, but the shelter-map walk evidence remains inspectable.` instead of `route evidence remains inspectable`, keeping partial-score copy aligned with the shelter-first/walk-evidence framing. Focused accessibility-render test, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 160 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P622 is complete and committed: the non-visual selected exposed-gap map summary now says `Selected exposed gap marker at map coordinate <lat>, <lon>.` instead of `near <lat>, <lon>.`, matching the exposed-gap list and focus-button coordinate wording. Focused map interaction test, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 160 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P621 is complete and committed: the map's visible and screen-reader night-lighting status now says `Night lighting map layer` instead of `Night lighting overlay`, aligning the map status with the page-level layer toggle and selected-walk Night lighting detail. Focused map interaction test, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 160 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
