@@ -591,8 +591,12 @@ def cached_block_road_match(cached: dict[str, Any], row: dict[str, Any]) -> bool
     )
 
 
-def geocode_hdb_rows(rows: list[dict[str, Any]], delay_sec: float) -> list[dict[str, Any]]:
-    cache_path = HDB_GEOCODE_CACHE
+def geocode_hdb_rows(
+    rows: list[dict[str, Any]],
+    delay_sec: float,
+    *,
+    cache_path: Path = HDB_GEOCODE_CACHE,
+) -> list[dict[str, Any]]:
     cache: dict[str, Any] = load_json(cache_path, {})
     changed = False
     with httpx.Client(timeout=30.0, headers={"User-Agent": USER_AGENT}) as client:
@@ -664,8 +668,7 @@ def geocode_hdb_rows(rows: list[dict[str, Any]], delay_sec: float) -> list[dict[
     return measured
 
 
-def overpass_postcodes() -> dict[str, Any]:
-    cache_path = OVERPASS_CACHE
+def overpass_postcodes(*, cache_path: Path = OVERPASS_CACHE) -> dict[str, Any]:
     cached = load_json(cache_path, None)
     if cached is not None:
         return cached
@@ -738,7 +741,35 @@ def summarise_group(rows: list[dict[str, Any]], postal_field: str, v1_postals: s
     }
 
 
-def main() -> None:
+def measurement_output_errors(
+    *,
+    confirm_measure: bool,
+    hdb_cache_output: Path | None,
+    overpass_cache_output: Path | None,
+    summary_output: Path | None,
+    detail_output: Path | None,
+) -> list[str]:
+    errors: list[str] = []
+    if not confirm_measure:
+        errors.append("P19 measurement requires --confirm-p19-measure after owner approval")
+    required_paths = {
+        "--hdb-cache-output": (hdb_cache_output, HDB_GEOCODE_CACHE),
+        "--overpass-cache-output": (overpass_cache_output, OVERPASS_CACHE),
+        "--summary-output": (summary_output, SUMMARY_OUTPUT),
+        "--detail-output": (detail_output, DETAIL_OUTPUT),
+    }
+    for flag, (path, historical_default) in required_paths.items():
+        if path is None:
+            errors.append(f"P19 measurement requires explicit {flag}")
+            continue
+        if path == historical_default:
+            errors.append(f"P19 measurement refuses historical default {flag}")
+        elif path.exists():
+            errors.append(f"refusing to overwrite existing P19 measurement output: {path}")
+    return errors
+
+
+def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--delay-sec", type=float, default=0.25)
     parser.add_argument(
@@ -751,10 +782,30 @@ def main() -> None:
         action="store_true",
         help="Read existing qa/p19 caches/reports and exit before loading inputs or calling APIs.",
     )
+    parser.add_argument(
+        "--confirm-p19-measure",
+        action="store_true",
+        help="Required with --measure after owner approval for public API calls and output writes.",
+    )
+    parser.add_argument("--hdb-cache-output", type=Path, default=None)
+    parser.add_argument("--overpass-cache-output", type=Path, default=None)
+    parser.add_argument("--summary-output", type=Path, default=None)
+    parser.add_argument("--detail-output", type=Path, default=None)
     args = parser.parse_args()
     if args.cache_status_only or not args.measure:
         print(json.dumps(cache_status_report(), indent=2, sort_keys=True))
-        return
+        return 0
+
+    errors = measurement_output_errors(
+        confirm_measure=args.confirm_p19_measure,
+        hdb_cache_output=args.hdb_cache_output,
+        overpass_cache_output=args.overpass_cache_output,
+        summary_output=args.summary_output,
+        detail_output=args.detail_output,
+    )
+    if errors:
+        print(json.dumps({"errors": errors, "ok": False}, indent=2, sort_keys=True))
+        return 2
 
     v1 = pd.read_parquet(V1_UNIVERSE, columns=["postal_code", "status"])
     v1_postals = set(v1["postal_code"].astype(str))
@@ -763,8 +814,12 @@ def main() -> None:
     mcst_data = fetch_datastore(BCA_MCST_ID)
     hdb_recent = recent_hdb_rows(hdb_data["records"])
     mcst_recent = recent_mcst_rows(mcst_data["records"])
-    hdb_measured = geocode_hdb_rows(hdb_recent, args.delay_sec)
-    overpass = overpass_postcodes()
+    hdb_measured = geocode_hdb_rows(
+        hdb_recent,
+        args.delay_sec,
+        cache_path=args.hdb_cache_output,
+    )
+    overpass = overpass_postcodes(cache_path=args.overpass_cache_output)
 
     for row in hdb_measured:
         row["in_v1"] = row["postal"] in v1_postals if row["postal"] else None
@@ -855,10 +910,11 @@ def main() -> None:
             for row in mcst_recent
         ],
     }
-    write_json(SUMMARY_OUTPUT, summary)
-    write_json(DETAIL_OUTPUT, detail)
+    write_json(args.summary_output, summary)
+    write_json(args.detail_output, detail)
     print(json.dumps(summary, indent=2, sort_keys=True))
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

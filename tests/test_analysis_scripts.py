@@ -546,13 +546,118 @@ def test_p19_main_defaults_to_cache_status_only_before_loading_inputs(
     monkeypatch.setattr(p19.pd, "read_parquet", fail_read_parquet)
     monkeypatch.setattr(sys, "argv", ["p19_universe_gap_measurement.py"])
 
-    assert p19.main() is None
+    assert p19.main() == 0
 
     assert calls == ["status"]
     assert '"mode": "cache_status_only"' in capsys.readouterr().out
 
 
-def test_p19_main_measure_flag_reaches_measurement_path(monkeypatch) -> None:
+def test_p19_main_measure_requires_confirmation_and_explicit_outputs_before_inputs(
+    monkeypatch, capsys
+) -> None:
+    def fail_read_parquet(*_: object, **__: object) -> object:
+        raise AssertionError("postal universe should not load before P19 measurement guards")
+
+    monkeypatch.setattr(p19.pd, "read_parquet", fail_read_parquet)
+    monkeypatch.setattr(sys, "argv", ["p19_universe_gap_measurement.py", "--measure"])
+
+    assert p19.main() == 2
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": [
+            "P19 measurement requires --confirm-p19-measure after owner approval",
+            "P19 measurement requires explicit --hdb-cache-output",
+            "P19 measurement requires explicit --overpass-cache-output",
+            "P19 measurement requires explicit --summary-output",
+            "P19 measurement requires explicit --detail-output",
+        ],
+        "ok": False,
+    }
+
+
+def test_p19_main_measure_refuses_historical_default_outputs(
+    monkeypatch, capsys
+) -> None:
+    def fail_read_parquet(*_: object, **__: object) -> object:
+        raise AssertionError("postal universe should not load before P19 measurement guards")
+
+    monkeypatch.setattr(p19.pd, "read_parquet", fail_read_parquet)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "p19_universe_gap_measurement.py",
+            "--measure",
+            "--confirm-p19-measure",
+            "--hdb-cache-output",
+            str(p19.HDB_GEOCODE_CACHE),
+            "--overpass-cache-output",
+            str(p19.OVERPASS_CACHE),
+            "--summary-output",
+            str(p19.SUMMARY_OUTPUT),
+            "--detail-output",
+            str(p19.DETAIL_OUTPUT),
+        ],
+    )
+
+    assert p19.main() == 2
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": [
+            "P19 measurement refuses historical default --hdb-cache-output",
+            "P19 measurement refuses historical default --overpass-cache-output",
+            "P19 measurement refuses historical default --summary-output",
+            "P19 measurement refuses historical default --detail-output",
+        ],
+        "ok": False,
+    }
+
+
+def test_p19_main_measure_refuses_existing_outputs(
+    monkeypatch, tmp_path: Path, capsys
+) -> None:
+    summary_output = tmp_path / "qa" / "p19" / "summary.json"
+    summary_output.parent.mkdir(parents=True)
+    summary_output.write_text("existing\n", encoding="utf-8")
+
+    def fail_read_parquet(*_: object, **__: object) -> object:
+        raise AssertionError("postal universe should not load before P19 measurement guards")
+
+    monkeypatch.setattr(p19.pd, "read_parquet", fail_read_parquet)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "p19_universe_gap_measurement.py",
+            "--measure",
+            "--confirm-p19-measure",
+            "--hdb-cache-output",
+            str(tmp_path / "qa" / "p19" / "hdb-cache.json"),
+            "--overpass-cache-output",
+            str(tmp_path / "qa" / "p19" / "overpass-cache.json"),
+            "--summary-output",
+            str(summary_output),
+            "--detail-output",
+            str(tmp_path / "qa" / "p19" / "detail.json"),
+        ],
+    )
+
+    assert p19.main() == 2
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": [
+            f"refusing to overwrite existing P19 measurement output: {summary_output}",
+        ],
+        "ok": False,
+    }
+
+
+def test_p19_main_measure_confirmed_with_explicit_outputs_reaches_measurement_path(
+    monkeypatch, tmp_path: Path
+) -> None:
     calls: list[str] = []
 
     class FakeSeries:
@@ -602,20 +707,40 @@ def test_p19_main_measure_flag_reaches_measurement_path(monkeypatch) -> None:
     monkeypatch.setattr(
         p19,
         "geocode_hdb_rows",
-        lambda rows, delay_sec: [{"postal": "123456", "year_completed": 2026}],
+        lambda rows, delay_sec, *, cache_path: [{"postal": "123456", "year_completed": 2026}],
     )
-    monkeypatch.setattr(p19, "overpass_postcodes", lambda: {"postcodes": []})
+    monkeypatch.setattr(p19, "overpass_postcodes", lambda *, cache_path: {"postcodes": []})
     monkeypatch.setattr(p19, "write_json", lambda path, payload: written.append(path))
-    monkeypatch.setattr(sys, "argv", ["p19_universe_gap_measurement.py", "--measure"])
+    hdb_cache_output = tmp_path / "qa" / "p19" / "hdb-cache.json"
+    overpass_cache_output = tmp_path / "qa" / "p19" / "overpass-cache.json"
+    summary_output = tmp_path / "qa" / "p19" / "summary.json"
+    detail_output = tmp_path / "qa" / "p19" / "detail.json"
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "p19_universe_gap_measurement.py",
+            "--measure",
+            "--confirm-p19-measure",
+            "--hdb-cache-output",
+            str(hdb_cache_output),
+            "--overpass-cache-output",
+            str(overpass_cache_output),
+            "--summary-output",
+            str(summary_output),
+            "--detail-output",
+            str(detail_output),
+        ],
+    )
 
-    assert p19.main() is None
+    assert p19.main() == 0
 
     assert calls == [
         "read_parquet",
         f"fetch:{p19.HDB_PROPERTY_INFO_ID}",
         f"fetch:{p19.BCA_MCST_ID}",
     ]
-    assert written == [p19.SUMMARY_OUTPUT, p19.DETAIL_OUTPUT]
+    assert written == [summary_output, detail_output]
 
 
 def test_p125_osm_status_reports_cached_overpass_coverage(tmp_path: Path) -> None:
