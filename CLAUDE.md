@@ -73,9 +73,9 @@ source of truth. If this file conflicts with those tracked artifacts, verify bef
 /tests           pytest: unit tests for scoring, export, readiness, and browser contracts
 run.py           task runner: safe reports (check --freshness-only, check --geospatial-discovery-only,
                  p19-gap-status, p19-mcst-locations, p125-osm-status, readiness,
-                 readiness --gate-summary, batch-plan), gated pipeline tasks
+                 readiness --gate-summary, batch-plan, validate), gated pipeline tasks
                  (ingest, lamp-overlay, network, score, score-batch, export,
-                 export-transit, validate, publish), and local test task
+                 export-transit, publish), and local test task
 ```
 
 `uv run python run.py check --freshness-only` is a zero-mutation source-age
@@ -108,8 +108,9 @@ version, not an in-place repair.
   guards everywhere, workers receive plain arrays and rebuild the igraph graph per process — never pickle
   graph objects); enable long paths once (`git config core.longpaths true` + Windows LongPathsEnabled);
   `.gitattributes` enforces LF.
-- `uv run python run.py publish` runs `validate` first (hard-coded gate), then
-  `vercel deploy --prod --archive=tgz`. It is the only deploy path.
+- `uv run python run.py publish --confirm-publish --deploy --confirm-production`
+  runs `validate` first (hard-coded gate), then `vercel deploy --prod --archive=tgz`.
+  It is the only deploy path.
 
 ## What NOT to build (scope guards)
 

@@ -1620,3 +1620,7 @@ The task runner remains the safety boundary for commands that write diagnostic e
 2026-08-28 - P744 production deploy wrapper confirmations:
 
 The production deploy wrapper must satisfy both safety boundaries: `run.py publish` requires the runner-owned `--confirm-publish`, and `pipeline.publish --deploy` requires the module-owned `--confirm-production`. `scripts/deploy-production.ps1` now passes both flags so an explicitly invoked release wrapper still reaches the publish module, while unconfirmed runner use remains blocked. This is script/test hygiene only; it does not deploy, validate a bundle, export, score, mutate public data, mutate protected QA evidence, or touch locked weights.
+
+2026-08-28 - P745 agent publish instruction alignment:
+
+`CLAUDE.md` still grouped `validate` with gated writer/deploy tasks and showed `run.py publish` without the required runner and module confirmations. The agent guide now mirrors the runner: `validate` is a read-only safe report, `publish` is the gated deploy boundary, and the documented publish invocation carries both `--confirm-publish` and `--confirm-production`. This is agent documentation/test coverage only; it does not deploy, validate a bundle, export, score, mutate public data, mutate protected QA evidence, or touch locked weights.

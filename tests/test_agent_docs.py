@@ -53,8 +53,10 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "Night Safety is a map overlay only" not in normalized
     assert "task runner: safe reports" in normalized
     assert "check --freshness-only, check --geospatial-discovery-only" in normalized
-    assert "p19-gap-status, p19-mcst-locations, p125-osm-status, readiness, readiness --gate-summary, batch-plan" in normalized
+    assert "p19-gap-status, p19-mcst-locations, p125-osm-status, readiness, readiness --gate-summary, batch-plan, validate" in normalized
     assert "score-batch, export, export-transit" in normalized
+    assert "export-transit, publish), and local test task" in normalized
+    assert "export-transit, validate, publish), and local test task" not in normalized
     assert "and local test task" in normalized
     assert "check --freshness-only` is a zero-mutation source-age report" in normalized
     assert "reads `raw/manifest.json` and `pipeline/config/sources.yaml`, probes no upstream APIs" in normalized
@@ -67,7 +69,7 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "changed discovery URLs require a new numbered input version, not an in-place repair" in normalized
     assert "uv run python run.py <task>" in normalized
     assert "uv run python run.py test" in normalized
-    assert "uv run python run.py publish" in normalized
+    assert "uv run python run.py publish --confirm-publish --deploy --confirm-production" in normalized
     assert "`python run.py <task>`" not in normalized
     assert "`python run.py test`" not in normalized
     assert "`python run.py publish`" not in normalized
