@@ -1309,6 +1309,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Straight-line bus estimate; shelter-map walk pending.");
     expect(html).not.toContain("Direct line to bus stop; shelter-map walk pending.");
     expect(html).toContain("Straight-line bus estimate");
+    expect(html).toContain("Published direct-bus fallback evidence selected.");
+    expect(html).not.toContain("Published shelter-map walk selected.");
     expect(html).toContain("Evidence display straight-line bus estimate; Straight-line bus estimate active.");
     expect(html).toContain("Straight-line bus estimate evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
     expect(html).not.toContain("Shelter-map walk evidence 62% covered-walkway ratio");

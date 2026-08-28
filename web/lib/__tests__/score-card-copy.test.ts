@@ -873,4 +873,12 @@ describe("score card copy", () => {
     expect(source).toContain('directBusFallback ? "Straight-line bus estimate evidence" : undefined');
     expect(source).not.toContain("Direct bus service estimate evidence");
   });
+
+  it("announces direct-bus fallback selection without implying a published shelter-map walk", () => {
+    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+
+    expect(source).toContain("selectedStateText?: string;");
+    expect(source).toContain("selectedStateText ??");
+    expect(source).toContain('directBusFallback ? "Published direct-bus fallback evidence selected." : undefined');
+  });
 });

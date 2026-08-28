@@ -259,6 +259,7 @@ export function scoreCardAnnouncement({
   displayContextLabel = "Walk display",
   routeDisplayLabel,
   shelterEvidenceText,
+  selectedStateText,
 }: {
   selection: LoadedSelection | null;
   stationName?: string;
@@ -270,6 +271,7 @@ export function scoreCardAnnouncement({
   displayContextLabel?: string;
   routeDisplayLabel?: string;
   shelterEvidenceText?: string;
+  selectedStateText?: string;
 }): string {
   if (!selection) return "No shelter-map walk selected.";
   const postal = postalTitle(selection);
@@ -281,11 +283,13 @@ export function scoreCardAnnouncement({
     : displayScore === null || displayScore === undefined
       ? "unavailable in the published shelter-map bundle"
       : `${Math.round(displayScore)} out of 100`;
-  const stopText = isCustomStopSelected
-    ? previewRoute
-      ? "Preview shelter-map evidence selected."
-      : "Custom transit target selected."
-    : "Published shelter-map walk selected.";
+  const stopText =
+    selectedStateText ??
+    (isCustomStopSelected
+      ? previewRoute
+        ? "Preview shelter-map evidence selected."
+        : "Custom transit target selected."
+      : "Published shelter-map walk selected.");
   const shelterText = shelterEvidenceText ?? shelterEvidenceAnnouncement(selection.score);
   return `${postal} shelter-map panel loaded. ${stationName ?? "Transit target loaded"}. ${shelterText} Locked score ${scoreText}. ${stopText} ${displayContextLabel} ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
 }
@@ -1388,6 +1392,7 @@ export function ScoreCard({
       exposureGaps,
       directBusFallback ? "Straight-line bus estimate evidence" : undefined
     ),
+    selectedStateText: directBusFallback ? "Published direct-bus fallback evidence selected." : undefined,
   });
   const gapSummaryText =
     exposureGaps.length === 0
