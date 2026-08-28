@@ -1704,3 +1704,7 @@ Full OneMap validation wrappers must not bypass runner-level approval by self-su
 2026-08-28 - P765 legacy data.gov.sg probe confirmation guards:
 
 Legacy helper scripts `pipeline.verify_datagov_ids`, `pipeline.inspect_datagov`, `pipeline.resolve_datagov`, and `pipeline.resolve_datagov_ids` call live data.gov.sg endpoints to inspect or resolve dataset IDs. Direct execution now requires `--confirm-datagov-probe` before any HTTP request, while the underlying helper functions remain importable for approved probes and tests. This is guard/test hygiene only; it does not call data.gov.sg, fetch payloads, mutate raw inputs, score, export, deploy, public data, protected QA evidence, or locked weights.
+
+2026-08-29 - P766 legacy DataMall static parser confirmation guard:
+
+`pipeline.parse_static_datamall` calls the live LTA DataMall static-data page to inspect geospatial ZIP links. Direct execution now requires `--confirm-datamall-static-parse` before the HTTP request, while the underlying parser helper remains importable for approved probes and tests. This is guard/test hygiene only; it does not call DataMall, fetch payloads, mutate raw inputs, score, export, deploy, public data, protected QA evidence, or locked weights.
