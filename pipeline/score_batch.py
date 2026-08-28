@@ -31,6 +31,7 @@ DEFAULT_OUTPUT_DIR = PROCESSED_DIR / "score_batches"
 DEFAULT_ISLAND_NETWORK_PATH = PROCESSED_DIR / "network_island.parquet"
 DEFAULT_ISLAND_QA_PATH = PROJECT_ROOT / "qa" / "conflation_qa_island.json"
 DEFAULT_ISLAND_DEBUG_PATH = PROJECT_ROOT / "qa" / "island_debug.geojson"
+CONFIRM_SCORE_BATCH_RUN_FLAG = "--confirm-score-batch-run"
 ScoreChunker = Callable[[gpd.GeoDataFrame, Any, bool, int | None], list[dict[str, Any]]]
 
 
@@ -535,6 +536,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--no-resume", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument(
+        CONFIRM_SCORE_BATCH_RUN_FLAG,
+        action="store_true",
+        help="Confirm this limited score batch may run after owner approval.",
+    )
+    parser.add_argument(
         "--full-batch",
         action="store_true",
         help="Score all eligible rows from --postal-universe; requires --confirm-full-batch.",
@@ -553,6 +559,21 @@ def main(argv: list[str] | None = None) -> int:
                     "ok": False,
                     "errors": [
                         "score-batch requires explicit --output-dir for non-dry runs"
+                    ],
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 1
+
+    if not args.dry_run and not args.full_batch and not args.confirm_score_batch_run:
+        print(
+            json.dumps(
+                {
+                    "ok": False,
+                    "errors": [
+                        "limited score-batch requires --confirm-score-batch-run after owner approval"
                     ],
                 },
                 indent=2,

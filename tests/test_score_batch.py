@@ -5,6 +5,7 @@ import pandas as pd
 from shapely.geometry import LineString
 
 from pipeline.score_batch import (
+    CONFIRM_SCORE_BATCH_RUN_FLAG,
     build_score_batch,
     chunk_path,
     chunk_slices,
@@ -257,6 +258,74 @@ def test_score_batch_cli_requires_explicit_output_dir_before_loading_inputs(
         "errors": ["score-batch requires explicit --output-dir for non-dry runs"],
         "ok": False,
     }
+
+
+def test_score_batch_cli_requires_confirm_before_limited_scoring(tmp_path: Path, capsys):
+    missing_universe = tmp_path / "missing.parquet"
+    output_dir = tmp_path / "scores"
+
+    assert (
+        score_batch_main(
+            [
+                "--postal-universe",
+                str(missing_universe),
+                "--output-dir",
+                str(output_dir),
+            ]
+        )
+        == 1
+    )
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "errors": [
+            "limited score-batch requires --confirm-score-batch-run after owner approval"
+        ],
+        "ok": False,
+    }
+
+
+def test_score_batch_cli_confirmed_limited_run_reaches_build(monkeypatch, tmp_path: Path, capsys):
+    calls = []
+    universe_path = tmp_path / "postal_universe.parquet"
+    output_dir = tmp_path / "scores"
+
+    def fake_build_score_batch(**kwargs):
+        calls.append(kwargs)
+        return True, {"ok": True, "selected_postals": 0}
+
+    monkeypatch.setattr("pipeline.score_batch.build_score_batch", fake_build_score_batch)
+
+    assert (
+        score_batch_main(
+            [
+                "--postal-universe",
+                str(universe_path),
+                "--output-dir",
+                str(output_dir),
+                CONFIRM_SCORE_BATCH_RUN_FLAG,
+            ]
+        )
+        == 0
+    )
+
+    out = capsys.readouterr().out
+    assert json.loads(out) == {"ok": True, "selected_postals": 0}
+    assert calls == [
+        {
+            "postal_universe_path": universe_path,
+            "output_dir": output_dir,
+            "network_path": Path("C:/sgSHIOK2026/processed/network_island.parquet"),
+            "limit": 5,
+            "chunk_size": 500,
+            "include_geometry": True,
+            "full_batch": False,
+            "confirm_full_batch": False,
+            "dry_run": False,
+            "resume": True,
+        }
+    ]
 
 
 def test_score_batch_cli_allows_dry_run_without_output_dir(tmp_path: Path, capsys):

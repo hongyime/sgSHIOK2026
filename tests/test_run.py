@@ -63,6 +63,11 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         in run.__doc__
     )
     assert (
+        "score-batch runs routed scoring for non-dry limited batches; it requires "
+        "--confirm-score-batch-run unless --full-batch uses --confirm-full-batch."
+        in run.__doc__
+    )
+    assert (
         "onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe."
         in run.__doc__
     )
@@ -125,6 +130,11 @@ def test_run_help_headline_does_not_flatten_all_tasks():
         in help_text
     )
     assert (
+        "score-batch runs routed scoring for non-dry limited batches; it requires "
+        "--confirm-score-batch-run unless --full-batch uses --confirm-full-batch."
+        in help_text
+    )
+    assert (
         "onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe."
         in help_text
     )
@@ -145,7 +155,8 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
         "apply pipeline/config/weights.yaml (T1.4); requires --confirm-score-run"
     )
     assert run.STUBS["score-batch"] == (
-        "resumable postal scoring batch runner; non-dry runs require explicit --output-dir"
+        "resumable postal scoring batch runner; non-dry limited runs require explicit "
+        "--output-dir and --confirm-score-batch-run"
     )
     assert run.STUBS["bus-arrivals"] == (
         "collect local LTA bus-arrival snapshots for future reliability scoring; "
@@ -450,6 +461,50 @@ def test_run_score_forwards_confirm_score_run(monkeypatch):
                 "--postal",
                 "560234",
                 "--confirm-score-run",
+            ],
+            "check": False,
+            "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
+        }
+    ]
+
+
+def test_run_score_batch_forwards_confirm_score_batch_run(monkeypatch):
+    calls = []
+
+    class FakeCompletedProcess:
+        returncode = 0
+
+    def fake_run(cmd, check, env):
+        calls.append({"cmd": cmd, "check": check, "env": env})
+        return FakeCompletedProcess()
+
+    monkeypatch.setattr(run.subprocess, "run", fake_run)
+
+    assert (
+        run.run_task(
+            "score-batch",
+            [
+                "--postal-universe",
+                "processed/subset.parquet",
+                "--output-dir",
+                "qa/p726/scores",
+                "--confirm-score-batch-run",
+            ],
+        )
+        == 0
+    )
+
+    assert calls == [
+        {
+            "cmd": [
+                sys.executable,
+                "-m",
+                "pipeline.score_batch",
+                "--postal-universe",
+                "processed/subset.parquet",
+                "--output-dir",
+                "qa/p726/scores",
+                "--confirm-score-batch-run",
             ],
             "check": False,
             "env": {**run.os.environ, "PYTHONHASHSEED": "0"},
