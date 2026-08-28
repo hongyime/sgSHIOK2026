@@ -396,7 +396,9 @@ describe("score card copy", () => {
     expect(source).toContain('exposureGaps.length === 1 ? "this exposed gap" : "these exposed gaps"');
     expect(source).toContain("Showing the ${visibleExposureGaps.length} longest exposed gaps;");
     expect(source).toContain("const hiddenExposureGaps = exposureGaps.slice(visibleExposureGaps.length);");
+    expect(source).toContain("const hiddenGapsWithCoordinates = hiddenExposureGaps.filter((gap) => formatGapLocation(gap)).length;");
     expect(source).toContain("Show {hiddenExposureGaps.length} shorter exposed gap");
+    expect(source).toContain("with map coordinate");
     expect(source).not.toContain("Showing the longest ${visibleExposureGaps.length};");
     expect(source).toContain("styles.gapAction");
     expect(source).toContain("Focus on map");

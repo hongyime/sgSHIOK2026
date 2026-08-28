@@ -1787,3 +1787,7 @@ Night lighting is the second product layer after shelter exposure, so the select
 2026-08-29 - P788 shelter correction promotion target guard:
 
 Approved shelter-correction promotion is intentionally possible only after human review and explicit confirmation, but that confirmation must not make protected evidence or public-data payload targets writable. `scripts/promote_audited_shelter_corrections.py` now refuses protected target paths inside `promote_corrections()` before reading the draft GeoJSON or creating parent directories. This is guard/test hygiene only; it does not promote corrections, score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
+
+2026-08-29 - P789 hidden exposed-gap coordinate summary:
+
+Hidden exposed gaps remain part of the route evidence and can still be map-focused when coordinates exist, so the collapsed shorter-gap disclosure should say how many hidden gaps carry map coordinates instead of only saying they are included in the total. This is browser copy/test/evidence work only; it does not alter route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.

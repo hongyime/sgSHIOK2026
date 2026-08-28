@@ -1330,6 +1330,7 @@ export function ScoreCard({
   const hiddenExposureGaps = exposureGaps.slice(visibleExposureGaps.length);
   const totalExposureM = exposureGaps.reduce((total, gap) => total + gap.len_m, 0);
   const gapsWithCoordinates = exposureGaps.filter((gap) => formatGapLocation(gap)).length;
+  const hiddenGapsWithCoordinates = hiddenExposureGaps.filter((gap) => formatGapLocation(gap)).length;
   const hiddenGapCount = Math.max(0, exposureGaps.length - visibleExposureGaps.length);
   const selectedWalkLabel = previewRoute
     ? "OneMap preview walk"
@@ -1809,7 +1810,14 @@ export function ScoreCard({
           })}
           {hiddenExposureGaps.length > 0 && (
             <details className={styles.hiddenGapList}>
-              <summary>Show {hiddenExposureGaps.length} shorter exposed gap{hiddenExposureGaps.length === 1 ? "" : "s"}</summary>
+              <summary>
+                Show {hiddenExposureGaps.length} shorter exposed gap{hiddenExposureGaps.length === 1 ? "" : "s"}
+                {hiddenGapsWithCoordinates > 0
+                  ? `; ${hiddenGapsWithCoordinates} with map coordinate${
+                      hiddenGapsWithCoordinates === 1 ? "" : "s"
+                    }`
+                  : ""}
+              </summary>
               {hiddenExposureGaps.map((gap, hiddenIndex) => {
                 const index = visibleExposureGaps.length + hiddenIndex;
                 const location = formatGapLocation(gap);
