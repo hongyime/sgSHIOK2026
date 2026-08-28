@@ -1696,3 +1696,7 @@ Full OneMap validation wrappers must not bypass runner-level approval by self-su
 2026-08-28 - P763 production preflight wrapper confirmation guard:
 
 `scripts/preflight-production.ps1` is a release-path wrapper that can run static bundle validation, network QA/preflight, web dependency setup, and web tests. Because `ensure-web-deps.ps1` may run `npm ci` when required bins are missing, direct production preflight is not guaranteed zero-write. The wrapper now defaults to a plan-only response unless `-ConfirmProductionPreflight` is supplied, and `scripts/release-data-bundle.ps1` passes that confirmation after `-ConfirmProduction`. This is wrapper/test hygiene only; it does not run preflight, install dependencies, validate a bundle, run web tests, deploy, mutate public data, score, export, protected QA evidence, or locked weights.
+
+2026-08-28 - P764 legacy DataMall probe confirmation guard:
+
+`pipeline.probe_datamall` is a legacy direct probe that calls live LTA DataMall API and geospatial listing endpoints. Direct execution now requires `--confirm-datamall-probe` before any HTTP request, while the underlying probe helper remains importable for explicit tests or approved probes. This is guard/test hygiene only; it does not call DataMall, fetch payloads, mutate raw inputs, score, export, deploy, public data, protected QA evidence, or locked weights.

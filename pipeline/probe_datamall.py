@@ -1,10 +1,14 @@
-"""Probe script to test LTA DataMall authentication and geospatial listing mechanics empirically (T0.3 Section D)."""
+"""Probe LTA DataMall authentication and geospatial listing mechanics."""
 
+import argparse
+import json
 import os
 import httpx
 from dotenv import load_dotenv
 
 load_dotenv()
+
+CONFIRM_DATAMALL_PROBE_FLAG = "--confirm-datamall-probe"
 
 
 def probe_datamall() -> None:
@@ -50,5 +54,35 @@ def probe_datamall() -> None:
         print(f"Geospatial listing page error: {e}")
 
 
-if __name__ == "__main__":
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Probe LTA DataMall authentication and geospatial listing mechanics."
+    )
+    parser.add_argument(
+        CONFIRM_DATAMALL_PROBE_FLAG,
+        action="store_true",
+        help="Required before calling live DataMall and geospatial listing endpoints.",
+    )
+    args = parser.parse_args(argv)
+
+    if not args.confirm_datamall_probe:
+        print(
+            json.dumps(
+                {
+                    "errors": [
+                        "DataMall probe requires --confirm-datamall-probe after owner approval"
+                    ],
+                    "ok": False,
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 1
+
     probe_datamall()
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
