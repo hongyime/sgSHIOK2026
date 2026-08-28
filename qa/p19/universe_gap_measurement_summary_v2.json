@@ -1,0 +1,183 @@
+{
+  "combined_recent_completion_signal": {
+    "missing_rows": 8,
+    "missing_unique_postals": 8,
+    "row_miss_rate": 0.008197,
+    "rows_with_postal": 976
+  },
+  "generated_at_utc": "2026-08-28T21:15:15.685030+00:00",
+  "hdb_2021_2026_geocoded": {
+    "missing_postals": [
+      "521400",
+      "522400",
+      "523400",
+      "762936",
+      "763936",
+      "764936"
+    ],
+    "missing_rows": 6,
+    "missing_unique_postals": 6,
+    "row_miss_rate": 0.008075,
+    "rows": 749,
+    "rows_with_postal": 743,
+    "sample_missing_postals": [
+      "521400",
+      "522400",
+      "523400",
+      "762936",
+      "763936",
+      "764936"
+    ],
+    "unique_miss_rate": 0.008075,
+    "unique_postals": 743
+  },
+  "mcst_2021_2026": {
+    "missing_postals": [
+      "378720",
+      "935456"
+    ],
+    "missing_rows": 2,
+    "missing_unique_postals": 2,
+    "row_miss_rate": 0.008584,
+    "rows": 233,
+    "rows_with_postal": 233,
+    "sample_missing_postals": [
+      "378720",
+      "935456"
+    ],
+    "unique_miss_rate": 0.009615,
+    "unique_postals": 208
+  },
+  "method_limits": [
+    "HDB Property Information has completion year but no postal code; this run geocodes each block/street through OneMap search and counts only rows with a six-digit returned postal.",
+    "BCA MCST constitution date is a proxy for private strata completion/onboarding, not a TOP date.",
+    "Overpass counts only OSM objects currently tagged with addr:postcode in Singapore, not an authoritative national address register."
+  ],
+  "overpass_addr_postcode": {
+    "intersection": 25899,
+    "missing_from_v1": 20,
+    "sample_missing_from_v1": [
+      "110200",
+      "110201",
+      "110202",
+      "110203",
+      "110204",
+      "110205",
+      "111200",
+      "111201",
+      "111204",
+      "112200",
+      "112201",
+      "112204",
+      "289916",
+      "289917",
+      "289918",
+      "289919",
+      "289920",
+      "369552",
+      "519454",
+      "840838"
+    ],
+    "sample_v1_missing_from_overpass": [
+      "000104",
+      "000105",
+      "000106",
+      "000207",
+      "000208",
+      "000315",
+      "000316",
+      "000511",
+      "000512",
+      "000617",
+      "000718",
+      "000719",
+      "000820",
+      "000821",
+      "000922",
+      "000923",
+      "001024",
+      "001025",
+      "001026",
+      "001027",
+      "001130",
+      "001232",
+      "001233",
+      "001334",
+      "001438",
+      "001439",
+      "001441",
+      "001542",
+      "001543",
+      "001648",
+      "001750",
+      "001781",
+      "001953",
+      "001954",
+      "001955",
+      "002262",
+      "002367",
+      "002469",
+      "002677",
+      "002880",
+      "018907",
+      "018910",
+      "018925",
+      "018926",
+      "018927",
+      "018928",
+      "018929",
+      "018930",
+      "018937",
+      "018946"
+    ],
+    "unique_postcodes": 25919,
+    "v1_missing_from_overpass": 98544
+  },
+  "sources": {
+    "bca_mcst": {
+      "dataset_id": "d_1f9391a2f1476cdaf4f05a8d3a05c257",
+      "recent_filter": "ACTIVE, six-digit postal, 2021 <= Date of MC Constitution <= 2026",
+      "recent_rows_by_year": {
+        "2021": 34,
+        "2022": 30,
+        "2023": 52,
+        "2024": 65,
+        "2025": 44,
+        "2026": 8
+      },
+      "total_rows": 3806
+    },
+    "hdb_property_info": {
+      "dataset_id": "d_17f5382f26140b1fdae0ba2ef6239d2f",
+      "recent_filter": "residential == Y, total_dwelling_units > 0, 2021 <= year_completed <= 2026",
+      "recent_rows_by_year": {
+        "2021": 109,
+        "2022": 137,
+        "2023": 156,
+        "2024": 142,
+        "2025": 149,
+        "2026": 56
+      },
+      "total_rows": 13357
+    },
+    "overpass": {
+      "areas_base": "2026-08-28T06:53:51Z",
+      "bytes": 10777723,
+      "elapsed_sec": 10.071,
+      "element_count": 32317,
+      "generator": "Overpass API 0.7.62.11 87bfad18",
+      "osm_base": "2026-08-28T21:13:46Z",
+      "url": "https://overpass-api.de/api/interpreter"
+    }
+  },
+  "v1_universe": {
+    "path": "processed/postal_universe_candidate_full_registered_geocoded.parquet",
+    "rows": 124443,
+    "status_counts": {
+      "NEEDS_GEOCODE": 476,
+      "READY_TO_SCORE": 123967
+    },
+    "unique_postals": 124443
+  },
+  "working_root": "C:\\sgSHIOK2026"
+}

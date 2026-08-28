@@ -40,6 +40,7 @@ BCA_MCST_ID = "d_1f9391a2f1476cdaf4f05a8d3a05c257"
 USER_AGENT = "sgSHIOK-P19-universe-gap-measurement/1.0"
 POSTAL_RE = re.compile(r"^\d{6}$")
 CURRENT_SAMPLE_MAX_AGE_DAYS = 7.0
+VERSION_RE = re.compile(r"_v([1-9][0-9]*)$")
 
 ROAD_ABBREVIATIONS = {
     "AVE": "AVENUE",
@@ -152,6 +153,43 @@ def load_json(path: Path, default: Any) -> Any:
         return json.load(f)
 
 
+def measurement_version(path: Path) -> int:
+    match = VERSION_RE.search(path.stem)
+    return int(match.group(1)) if match else 1
+
+
+def versioned_path(base_path: Path, version: int) -> Path:
+    if version <= 1:
+        return base_path
+    return base_path.with_name(f"{base_path.stem}_v{version}{base_path.suffix}")
+
+
+def latest_measurement_paths() -> dict[str, Any]:
+    versions = {1}
+    for path in QA_DIR.glob("universe_gap_measurement_summary_v*.json"):
+        versions.add(measurement_version(path))
+    for version in sorted(versions, reverse=True):
+        summary = versioned_path(SUMMARY_OUTPUT, version)
+        detail = versioned_path(DETAIL_OUTPUT, version)
+        if summary.is_file() and detail.is_file():
+            return {
+                "version": version,
+                "complete": True,
+                "hdb_cache": versioned_path(HDB_GEOCODE_CACHE, version),
+                "overpass_cache": versioned_path(OVERPASS_CACHE, version),
+                "summary": summary,
+                "detail": detail,
+            }
+    return {
+        "version": 1,
+        "complete": False,
+        "hdb_cache": HDB_GEOCODE_CACHE,
+        "overpass_cache": OVERPASS_CACHE,
+        "summary": SUMMARY_OUTPUT,
+        "detail": DETAIL_OUTPUT,
+    }
+
+
 def iso_age_days(value: Any, now: dt.datetime) -> float | None:
     if not isinstance(value, str) or not value:
         return None
@@ -178,15 +216,16 @@ def json_file_status(path: Path, *, now: dt.datetime) -> dict[str, Any]:
         status["read_error"] = str(exc)
         return status
     if isinstance(payload, dict):
-        if path == HDB_GEOCODE_CACHE:
+        name = path.name
+        if name.startswith("hdb_2021_2026_onemap_geocode_cache"):
             status["cached_query_count"] = len(payload)
             status["sample_cached_queries"] = sorted(str(key) for key in payload)[:10]
-        elif path == OVERPASS_CACHE:
+        elif name.startswith("overpass_addr_postcodes_cache"):
             status["top_level_keys"] = sorted(str(key) for key in payload)
             status["cached_postcode_count"] = len(payload.get("postcodes", []))
             status["queried_at_utc"] = payload.get("queried_at_utc")
             status["age_days"] = iso_age_days(payload.get("queried_at_utc"), now)
-        elif path == SUMMARY_OUTPUT:
+        elif name.startswith("universe_gap_measurement_summary"):
             status["top_level_keys"] = sorted(str(key) for key in payload)
             status["generated_at_utc"] = payload.get("generated_at_utc")
             status["age_days"] = iso_age_days(payload.get("generated_at_utc"), now)
@@ -202,7 +241,7 @@ def json_file_status(path: Path, *, now: dt.datetime) -> dict[str, Any]:
                     missing_postals_by_source[source_key] = source_summary["missing_postals"]
             if missing_postals_by_source:
                 status["missing_postals_by_source"] = missing_postals_by_source
-        elif path == DETAIL_OUTPUT:
+        elif name.startswith("universe_gap_measurement_detail"):
             status["top_level_keys"] = sorted(str(key) for key in payload)
             hdb_rows = payload.get("hdb_rows")
             mcst_rows = payload.get("mcst_rows")
@@ -467,14 +506,18 @@ def evidence_split_status(
     }
 
 
-def release_policy_status(evidence_split: dict[str, Any]) -> dict[str, Any]:
+def release_policy_status(
+    evidence_split: dict[str, Any],
+    *,
+    measurement_label: str = "16 Aug 2026 public-source sample",
+) -> dict[str, Any]:
     def row_phrase(count: int, label: str) -> str:
         noun = "row" if count == 1 else "rows"
         return f"{count} {label} {noun}"
 
     if not evidence_split.get("detail_exists"):
         return {
-            "measurement_label": "16 Aug 2026 public-source sample",
+            "measurement_label": measurement_label,
             "status": "missing_detail",
             "confirmed_missing_address_rows": 0,
             "source_quality_warning_rows": 0,
@@ -489,7 +532,7 @@ def release_policy_status(evidence_split: dict[str, Any]) -> dict[str, Any]:
         else f"{row_phrase(warning_rows, 'MCST proxy')} remain source-quality warnings"
     )
     return {
-        "measurement_label": "16 Aug 2026 public-source sample",
+        "measurement_label": measurement_label,
         "status": "sample_classified",
         "confirmed_missing_address_rows": confirmed_rows,
         "source_quality_warning_rows": warning_rows,
@@ -534,15 +577,29 @@ def currentness_status(files: dict[str, dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def measurement_label(files: dict[str, dict[str, Any]], version: int) -> str:
+    generated_at = files.get("summary", {}).get("generated_at_utc")
+    if isinstance(generated_at, str):
+        try:
+            parsed = dt.datetime.fromisoformat(generated_at.replace("Z", "+00:00"))
+        except ValueError:
+            parsed = None
+        if parsed is not None:
+            label_date = parsed.astimezone(dt.UTC).strftime("%d %b %Y")
+            return f"P19 v{version} {label_date} public-source sample"
+    return "16 Aug 2026 public-source sample" if version <= 1 else f"P19 v{version} public-source sample"
+
+
 def cache_status_report(now: dt.datetime | None = None) -> dict[str, Any]:
     if now is None:
         now = dt.datetime.now(dt.UTC)
     elif now.tzinfo is None:
         now = now.replace(tzinfo=dt.UTC)
     now = now.astimezone(dt.UTC)
+    paths = latest_measurement_paths()
     missing_detail = missing_row_summary(
-        DETAIL_OUTPUT,
-        hdb_cache_path=HDB_GEOCODE_CACHE,
+        paths["detail"],
+        hdb_cache_path=paths["hdb_cache"],
     )
     mcst_probe = mcst_proxy_location_probe_status(
         P379_MCST_LOCATION_REPORT,
@@ -550,21 +607,26 @@ def cache_status_report(now: dt.datetime | None = None) -> dict[str, Any]:
     )
     evidence_split = evidence_split_status(missing_detail, mcst_probe)
     files = {
-        "hdb_onemap_geocode_cache": json_file_status(HDB_GEOCODE_CACHE, now=now),
-        "overpass_addr_postcodes_cache": json_file_status(OVERPASS_CACHE, now=now),
-        "summary": json_file_status(SUMMARY_OUTPUT, now=now),
-        "detail": json_file_status(DETAIL_OUTPUT, now=now),
+        "hdb_onemap_geocode_cache": json_file_status(paths["hdb_cache"], now=now),
+        "overpass_addr_postcodes_cache": json_file_status(paths["overpass_cache"], now=now),
+        "summary": json_file_status(paths["summary"], now=now),
+        "detail": json_file_status(paths["detail"], now=now),
     }
     return {
         "mode": "cache_status_only",
         "will_call_apis": False,
         "will_write_files": False,
         "qa_dir": str(QA_DIR.relative_to(PROJECT_ROOT)),
+        "measurement_version": paths["version"],
+        "measurement_complete": paths["complete"],
         "files": files,
         "missing_row_detail": missing_detail,
         "mcst_proxy_location_probe": mcst_probe,
         "evidence_split": evidence_split,
-        "release_policy": release_policy_status(evidence_split),
+        "release_policy": release_policy_status(
+            evidence_split,
+            measurement_label=measurement_label(files, int(paths["version"])),
+        ),
         "currentness": currentness_status(files),
     }
 

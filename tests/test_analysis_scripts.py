@@ -463,6 +463,8 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
     assert report["mode"] == "cache_status_only"
     assert report["will_call_apis"] is False
     assert report["will_write_files"] is False
+    assert report["measurement_version"] == 1
+    assert report["measurement_complete"] is True
     assert report["files"]["hdb_onemap_geocode_cache"]["cached_query_count"] == 2
     assert report["files"]["hdb_onemap_geocode_cache"]["sample_cached_queries"] == [
         "1 TEST ROAD",
@@ -570,7 +572,7 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
         "source_quality_warning_rows": 1,
     }
     assert report["release_policy"] == {
-        "measurement_label": "16 Aug 2026 public-source sample",
+        "measurement_label": "P19 v1 21 Aug 2026 public-source sample",
         "status": "sample_classified",
         "confirmed_missing_address_rows": 1,
         "source_quality_warning_rows": 1,
@@ -579,6 +581,101 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
             "1 MCST proxy row remains a source-quality warning"
         ),
     }
+
+
+def test_p19_cache_status_only_prefers_latest_complete_version(tmp_path: Path, monkeypatch) -> None:
+    qa_dir = tmp_path / "qa" / "p19"
+    qa_dir.mkdir(parents=True)
+    historical_summary = qa_dir / "universe_gap_measurement_summary.json"
+    historical_detail = qa_dir / "universe_gap_measurement_detail.json"
+    v2_hdb_cache = qa_dir / "hdb_2021_2026_onemap_geocode_cache_v2.json"
+    v2_overpass_cache = qa_dir / "overpass_addr_postcodes_cache_v2.json"
+    v2_summary = qa_dir / "universe_gap_measurement_summary_v2.json"
+    v2_detail = qa_dir / "universe_gap_measurement_detail_v2.json"
+    historical_summary.write_text(
+        json.dumps({"generated_at_utc": "2026-08-16T00:00:00+00:00"}),
+        encoding="utf-8",
+    )
+    historical_detail.write_text(
+        json.dumps({"hdb_rows": [], "mcst_rows": []}),
+        encoding="utf-8",
+    )
+    v2_hdb_cache.write_text(
+        json.dumps(
+            {
+                "400A TAMPINES ST 41": {
+                    "results": [
+                        {
+                            "POSTAL": "521400",
+                            "LATITUDE": "1.3585795422464",
+                            "LONGITUDE": "103.949531894985",
+                        }
+                    ]
+                }
+            }
+        ),
+        encoding="utf-8",
+    )
+    v2_overpass_cache.write_text(
+        json.dumps({"queried_at_utc": "2026-08-28T00:00:00+00:00", "postcodes": ["123456"]}),
+        encoding="utf-8",
+    )
+    v2_summary.write_text(
+        json.dumps(
+            {
+                "generated_at_utc": "2026-08-28T00:01:00+00:00",
+                "combined_recent_completion_signal": {
+                    "rows_with_postal": 976,
+                    "missing_rows": 8,
+                },
+                "hdb_2021_2026_geocoded": {
+                    "missing_postals": ["521400"],
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+    v2_detail.write_text(
+        json.dumps(
+            {
+                "hdb_rows": [
+                    {
+                        "blk_no": "400A",
+                        "street": "TAMPINES ST 41",
+                        "year_completed": 2026,
+                        "total_dwelling_units": 110,
+                        "postal": "521400",
+                        "query": "400A TAMPINES ST 41",
+                        "searchval": "SUN PLAZA SPRING",
+                        "in_v1": False,
+                    }
+                ],
+                "mcst_rows": [],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    monkeypatch.setattr(p19, "QA_DIR", qa_dir)
+    monkeypatch.setattr(p19, "HDB_GEOCODE_CACHE", qa_dir / "hdb_2021_2026_onemap_geocode_cache.json")
+    monkeypatch.setattr(p19, "OVERPASS_CACHE", qa_dir / "overpass_addr_postcodes_cache.json")
+    monkeypatch.setattr(p19, "SUMMARY_OUTPUT", historical_summary)
+    monkeypatch.setattr(p19, "DETAIL_OUTPUT", historical_detail)
+    monkeypatch.setattr(p19, "P379_MCST_LOCATION_REPORT", tmp_path / "qa" / "p379" / "missing.json")
+    monkeypatch.setattr(p19, "P379_MCST_LOCATION_CACHE", tmp_path / "qa" / "p379" / "missing-cache.json")
+    monkeypatch.setattr(p19, "PROJECT_ROOT", tmp_path)
+
+    report = p19.cache_status_report(now=p19.dt.datetime(2026, 8, 29, 0, 0, tzinfo=p19.dt.UTC))
+
+    assert report["measurement_version"] == 2
+    assert report["measurement_complete"] is True
+    assert report["files"]["summary"]["path"] == "qa\\p19\\universe_gap_measurement_summary_v2.json"
+    assert report["files"]["summary"]["age_days"] == 0.999
+    assert report["files"]["overpass_addr_postcodes_cache"]["age_days"] == 1.0
+    assert report["currentness"]["status"] == "fresh"
+    assert report["currentness"]["fresh_for_current_gap_sizing"] is True
+    assert report["release_policy"]["measurement_label"] == "P19 v2 28 Aug 2026 public-source sample"
+    assert report["missing_row_detail"]["missing_postals"] == ["521400"]
 
 
 def test_p19_cache_status_only_marks_old_sample_stale(tmp_path: Path, monkeypatch) -> None:

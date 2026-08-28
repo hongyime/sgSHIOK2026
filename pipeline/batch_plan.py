@@ -57,17 +57,17 @@ OSM_ADDR_POSTCODE_COVERAGE = {
     "verdict": "not sufficient as primary Singapore address registry",
 }
 RECENT_PUBLIC_SOURCE_GAP_SAMPLE = {
-    "measurement": "P19 16 Aug 2026 public-source gap sample",
-    "generated_at_utc": "2026-08-16T02:08:55.624822+00:00",
+    "measurement": "P19 v2 28 Aug 2026 public-source gap sample",
+    "generated_at_utc": "2026-08-28T21:15:15.685030+00:00",
     "currentness": {
-        "status": "stale",
-        "fresh_for_current_gap_sizing": False,
+        "status": "fresh",
+        "fresh_for_current_gap_sizing": True,
         "stale_after_days": 7,
-        "stale_after_utc": "2026-08-23T02:08:55.624822+00:00",
+        "stale_after_utc": "2026-09-04T21:15:15.685030+00:00",
         "dynamic_status_command": "uv run python run.py p19-gap-status",
         "reason": (
-            "the cached 16 Aug 2026 sample is historical evidence; current gap sizing "
-            "requires explicit owner approval and new versioned outputs"
+            "the cached v2 sample is fresh current-source evidence; promotion still "
+            "requires explicit owner approval and candidate-source-first scope"
         ),
     },
     "cache_status_command": "uv run python run.py p19-gap-status",
@@ -142,11 +142,11 @@ RECENT_PUBLIC_SOURCE_GAP_SAMPLE = {
         "missing_or_source_quality_warning_rows_estimate": 1020,
     },
     "v2_build_decision": {
-        "status": "not_approved_from_stale_sample",
+        "status": "not_approved_from_current_sample",
         "reason": (
-            "cached sample is stale for current gap sizing and indicates only a small "
-            "historical gap; building postal-universe v2 requires separate owner approval, "
-            "candidate-source-first scope, and new versioned outputs"
+            "fresh cached sample indicates a small gap; building postal-universe v2 "
+            "requires separate owner approval, candidate-source-first scope, and "
+            "new versioned outputs"
         ),
     },
     "source_window": "2021-2026",
@@ -155,10 +155,7 @@ RECENT_PUBLIC_SOURCE_GAP_SAMPLE = {
         "HDB rows use completion year but require OneMap geocoding to obtain postals",
         "BCA MCST constitution date is private-strata onboarding proxy evidence, not TOP or completion date",
     ],
-    "verdict": (
-        "small sampled historical current-source gap in frozen v1; refresh or v2 remains "
-        "candidate-source-first if approved"
-    ),
+    "verdict": "small sampled current-source gap in frozen v1; v2 remains candidate-source-first if approved",
 }
 DATAMALL_GEOSPATIAL_DISCOVERY_POLICY = {
     "measurement": "P262/P264 DataMall geospatial discovery-only probe",
@@ -273,7 +270,7 @@ FULL_BATCH_CHANGE_READINESS = [
     },
     {
         "change": "promoted postal universe v2",
-        "status": "not_approved_from_stale_sample",
+        "status": "not_approved_from_current_sample",
         "full_batch_inclusion_ready": False,
         "evidence": [
             "qa/verification/P719-universe-measurement-status.md",
