@@ -3,7 +3,7 @@
 Date: 2026-08-28
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest commit: `bf0c64f` (`docs: record onemap enumeration feasibility`)
+Latest commit: `1066ed0` (`docs: record leaf area index provenance policy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,7 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P720 is complete and pushed: OneMap Search was recorded as validation/geocoding infrastructure, not a proven bulk national address-enumeration API; HDB Property Information is candidate-generation input but not a postal-code registry.
-- Evidence: `qa/verification/P720-onemap-enumeration-feasibility.md`.
-- Checks: repo integrity passed; diff-check passed; protected-diff guard passed.
+- P721 is complete and pushed: Leaf Area Index policy was verified as closed for future score provenance; `leaf_area_index` is excluded from `SCORE_PROVENANCE_SOURCE_HASH_KEYS`, while heat/shade provenance uses the five spatial NParks geometry proxy keys.
+- Evidence: `qa/verification/P721-leaf-area-index-policy-closed.md`.
+- Checks: focused scoring-provenance test passed; repo integrity passed; diff-check passed; protected-diff guard passed.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, or locked-weight change was performed.
