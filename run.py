@@ -4,7 +4,7 @@
 Usage: uv run python run.py <task> [options]
 
 Safe reports:
-  check --freshness-only | check --geospatial-discovery-only | universe-status | p19-gap-status | p19-mcst-locations | p125-osm-status | readiness | readiness --gate-summary | batch-plan
+  check --freshness-only | check --geospatial-discovery-only | universe-status | p19-gap-status | p19-mcst-locations | p125-osm-status | readiness | readiness --gate-summary | batch-plan | validate
   check --freshness-only reads raw/manifest.json only; it probes no upstream URLs, writes no manifest, groups action summaries with source names, and says stale sources require a versioned refresh.
   check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads, writes no manifest, and treats changed discovery URLs as new-version inputs.
   p19-gap-status reads cached P19 16 Aug 2026 public-source sample status, evidence split, missing rows, MCST proxy probe and cache ages only; it calls no APIs and writes no files.
@@ -14,9 +14,10 @@ Safe reports:
   readiness validates the published shelter-map bundle and release gates without scoring or deploying.
   readiness --gate-summary prints the same release gate verdict and warnings without the full nested report.
   batch-plan dry-runs one-attempt full-batch prerequisites and policy status without scoring; execution still requires owner approval and bounded OneMap controls.
+  validate reads and validates an existing static bundle without writing, scoring, exporting or deploying.
 
 Gated pipeline tasks:
-  ingest | lamp-overlay | network | network-debug | score | score-batch | export | export-transit | refresh-provenance | validate | publish | onemap-probe | onemap-validation collect | onemap-outlier-replay | onemap-outlier-triage | overture-addresses | compare-targeted | geocode-universe
+  ingest | lamp-overlay | network | network-debug | score | score-batch | export | export-transit | refresh-provenance | publish | onemap-probe | onemap-validation collect | onemap-outlier-replay | onemap-outlier-triage | overture-addresses | compare-targeted | geocode-universe
   ingest mutates raw/ and raw/manifest.json; through run.py it requires --confirm-input-refresh, and any refresh must write a new numbered input version rather than repair frozen v1.
   lamp-overlay writes a compact lamp-post artifact directory from existing raw data; it requires explicit --output and --confirm-lamp-overlay.
   network writes processed network artifacts and QA outputs; it requires --confirm-network-build after owner approval.
@@ -101,7 +102,7 @@ STUBS = {
     "geocode-universe": "bounded OneMap geocode fill for source-derived postal gaps; non-dry runs require fresh numeric-version outputs and an explicitly versioned geocode cache",
     "export": "scores/{area}.json + geom/h3/{cell}.json + manifest (T1.5); requires --confirm-export, and live scoring requires --confirm-live-score-export",
     "export-transit": "refresh transit POIs without rescoring; requires explicit --output and --confirm-export",
-    "validate": "golden set + OneMap comparison; blocks publish (T1.7)",
+    "validate": "read-only static bundle validation; blocks publish (T1.7)",
     "publish": "vercel deploy --prod --archive=tgz (only deploy path); requires --confirm-publish",
     "test": "pytest (T0.1)",
     "shell": "not needed on native Windows; use your activated venv",

@@ -118,10 +118,11 @@ reruns, deploy, or repoint the live site without explicit owner approval.
 - `env.example` — copy to `.env` and fill in (see prerequisites).
 - `run.py` — cross-platform task runner for safe reports (`check --freshness-only`,
   `check --geospatial-discovery-only`, `p19-gap-status`, `p19-mcst-locations`,
-  `p125-osm-status`, `readiness`, `readiness --gate-summary`, `batch-plan`)
+  `p125-osm-status`, `readiness`, `readiness --gate-summary`, `batch-plan`,
+  `validate`)
   and gated pipeline tasks (`ingest`, `lamp-overlay`, `network`, `score`,
   `score-batch`, `postal-universe`, `geocode-universe`, `export`,
-  `export-transit`, `validate`, `publish`), plus the
+  `export-transit`, `publish`), plus the
   local `test` task. `publish` always runs `validate` first.
 
 ## Human prerequisites (do these once — agents can't register accounts)

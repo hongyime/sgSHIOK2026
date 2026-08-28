@@ -11,7 +11,7 @@ def test_run_docstring_uses_uv_managed_invocation():
 def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     assert "Safe reports:" in run.__doc__
     assert (
-        "check --freshness-only | check --geospatial-discovery-only | universe-status | p19-gap-status | p19-mcst-locations | p125-osm-status | readiness | readiness --gate-summary | batch-plan"
+        "check --freshness-only | check --geospatial-discovery-only | universe-status | p19-gap-status | p19-mcst-locations | p125-osm-status | readiness | readiness --gate-summary | batch-plan | validate"
         in run.__doc__
     )
     assert (
@@ -40,11 +40,15 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         "without scoring; execution still requires owner approval and bounded OneMap controls."
         in run.__doc__
     )
+    assert (
+        "validate reads and validates an existing static bundle without writing, scoring, exporting or deploying."
+        in run.__doc__
+    )
     assert "batch-plan dry-runs batch prerequisites and policy status without scoring." not in run.__doc__
     assert "Gated pipeline tasks:" in run.__doc__
     assert (
         "ingest | lamp-overlay | network | network-debug | score | score-batch | export | "
-        "export-transit | refresh-provenance | validate | publish | onemap-probe | "
+        "export-transit | refresh-provenance | publish | onemap-probe | "
         "onemap-validation collect | onemap-outlier-replay | onemap-outlier-triage | "
         "overture-addresses | compare-targeted | geocode-universe"
         in run.__doc__
@@ -162,11 +166,15 @@ def test_run_help_headline_does_not_flatten_all_tasks():
         "without scoring; execution still requires owner approval and bounded OneMap controls."
         in help_text
     )
+    assert (
+        "validate reads and validates an existing static bundle without writing, scoring, exporting or deploying."
+        in help_text
+    )
     assert "batch-plan dry-runs batch prerequisites and policy status without scoring." not in help_text
     assert "Gated pipeline tasks:" in help_text
     assert (
         "ingest | lamp-overlay | network | network-debug | score | score-batch | export | "
-        "export-transit | refresh-provenance | validate | publish | onemap-probe | "
+        "export-transit | refresh-provenance | publish | onemap-probe | "
         "onemap-validation collect | onemap-outlier-replay | onemap-outlier-triage | "
         "overture-addresses | compare-targeted | geocode-universe"
         in help_text
@@ -344,6 +352,7 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
     assert run.STUBS["publish"] == (
         "vercel deploy --prod --archive=tgz (only deploy path); requires --confirm-publish"
     )
+    assert run.STUBS["validate"] == "read-only static bundle validation; blocks publish (T1.7)"
     assert "compare a targeted score report against the active bundle" not in run.STUBS.values()
 
 

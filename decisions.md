@@ -1612,3 +1612,7 @@ P739's intent was correct but incomplete: an early `publish` branch still bypass
 2026-08-28 - P742 report and external-probe runner gates:
 
 The task runner remains the safety boundary for commands that write diagnostic evidence, call external services, or replay local scoring analyses. `run.py` now requires confirmations before launching network-debug, OneMap validation collection, OneMap outlier replay, OneMap outlier triage, Overture address probing, and targeted score comparisons. Runner-only confirmation flags are stripped before modules that do not own them, while module-owned confirms remain forwarded. This is runner guard/test coverage only; it does not run scoring, export, rescore, subset scoring, ingest, network build, OneMap collection, Overture probing, public-data writes, protected QA evidence mutation, deployment, or locked weights.
+
+2026-08-28 - P743 validate runner classification:
+
+`run.py validate` is a read-only static-bundle verifier, not a writer or deployment action. It remains callable without a runner confirmation and is now documented with the safe reports rather than the gated pipeline tasks. `publish` remains gated separately and still runs validation before deployment. This is documentation/test alignment only; it does not validate the live bundle, export, score, rescore, mutate public data, mutate protected QA evidence, deploy, or touch locked weights.
