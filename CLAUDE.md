@@ -72,8 +72,8 @@ source of truth. If this file conflicts with those tracked artifacts, verify bef
 /raw             immutable downloaded payloads by hash (gitignored)
 /tests           pytest: unit tests for scoring, export, readiness, and browser contracts
 run.py           task runner: safe reports (check --freshness-only, check --geospatial-discovery-only,
-                 p19-gap-status, p19-mcst-locations, p125-osm-status, readiness,
-                 readiness --gate-summary, batch-plan, validate), gated pipeline tasks
+                 p19-gap-status, p19-mcst-locations, p125-osm-status, network-qa,
+                 network-preflight, readiness, readiness --gate-summary, batch-plan, validate), gated pipeline tasks
                  (ingest, lamp-overlay, network, score, score-batch, export,
                  export-transit, publish), and local test task
 ```
@@ -87,6 +87,11 @@ refresh; do not mutate frozen v1 in place.
 `uv run python run.py check --geospatial-discovery-only` probes DataMall
 discovery metadata only; changed discovery URLs require a new numbered input
 version, not an in-place repair.
+`uv run python run.py network-qa --area island` validates existing
+conflation QA/debug artifacts and writes no repo files. `uv run python run.py
+network-preflight --area island --skip-geometry-inspection` reads and hashes
+existing manifest, raw, processed, and QA artifacts; geometry inspection may
+read source geometry, but it writes no repo files or network artifacts.
 
 ## Working conventions
 

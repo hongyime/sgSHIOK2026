@@ -11,7 +11,7 @@ def test_run_docstring_uses_uv_managed_invocation():
 def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     assert "Safe reports:" in run.__doc__
     assert (
-        "check --freshness-only | check --geospatial-discovery-only | universe-status | p19-gap-status | p19-mcst-locations | p125-osm-status | readiness | readiness --gate-summary | batch-plan | validate"
+        "check --freshness-only | check --geospatial-discovery-only | universe-status | p19-gap-status | p19-mcst-locations | p125-osm-status | network-qa | network-preflight | readiness | readiness --gate-summary | batch-plan | validate"
         in run.__doc__
     )
     assert (
@@ -32,6 +32,8 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
     assert "p125-osm-status reads older cached P125 20 Aug 2026 Overpass addr:postcode coverage cross-check and frozen v1 universe only, reporting OSM as geometry evidence rather than the address registry; it calls no APIs and writes no files." in run.__doc__
     assert "p125-osm-status reads cached P125 Overpass output" not in run.__doc__
     assert "universe-status consolidates the cached P19 v2 postal-universe and Overpass measurements without APIs or writes; P125 remains a separate historical safe report. It is evidence for sizing v1 gaps, not approval to build or promote v2." in run.__doc__
+    assert "network-qa validates existing conflation QA/debug artifacts and writes no repo files." in run.__doc__
+    assert "network-preflight reads/hashes existing manifest, raw, processed and QA artifacts, may inspect geometry, and writes no repo files or network artifacts." in run.__doc__
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in run.__doc__
     assert "readiness --gate-summary prints the same release gate verdict and warnings without the full nested report." in run.__doc__
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in run.__doc__
@@ -156,6 +158,8 @@ def test_run_help_headline_does_not_flatten_all_tasks():
     assert "p125-osm-status reads older cached P125 20 Aug 2026 Overpass addr:postcode coverage cross-check and frozen v1 universe only, reporting OSM as geometry evidence rather than the address registry; it calls no APIs and writes no files." in help_text
     assert "p125-osm-status reads cached P125 Overpass output" not in help_text
     assert "universe-status consolidates the cached P19 v2 postal-universe and Overpass measurements without APIs or writes; P125 remains a separate historical safe report. It is evidence for sizing v1 gaps, not approval to build or promote v2." in help_text
+    assert "network-qa validates existing conflation QA/debug artifacts and writes no repo files." in help_text
+    assert "network-preflight reads/hashes existing manifest, raw, processed and QA artifacts, may inspect geometry, and writes no repo files or network artifacts." in help_text
     assert "readiness validates the published shelter-map bundle and release gates without scoring or deploying." in help_text
     assert "readiness --gate-summary prints the same release gate verdict and warnings without the full nested report." in help_text
     assert "readiness validates the current bundle and release gates without scoring or deploying." not in help_text

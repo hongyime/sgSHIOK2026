@@ -4,13 +4,15 @@
 Usage: uv run python run.py <task> [options]
 
 Safe reports:
-  check --freshness-only | check --geospatial-discovery-only | universe-status | p19-gap-status | p19-mcst-locations | p125-osm-status | readiness | readiness --gate-summary | batch-plan | validate
+  check --freshness-only | check --geospatial-discovery-only | universe-status | p19-gap-status | p19-mcst-locations | p125-osm-status | network-qa | network-preflight | readiness | readiness --gate-summary | batch-plan | validate
   check --freshness-only reads raw/manifest.json only; it probes no upstream URLs, writes no manifest, groups action summaries with source names, and says stale sources require a versioned refresh.
   check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads, writes no manifest, and treats changed discovery URLs as new-version inputs.
   p19-gap-status reads cached P19 v2 28 Aug 2026 public-source sample status, evidence split, missing rows, P19 v2 Overpass coverage, MCST proxy probe and cache ages only; it calls no APIs and writes no files.
   p19-mcst-locations reads existing P379 status for unvalidated P19 MCST proxy rows only; it calls no APIs and writes no files.
   p125-osm-status reads older cached P125 20 Aug 2026 Overpass addr:postcode coverage cross-check and frozen v1 universe only, reporting OSM as geometry evidence rather than the address registry; it calls no APIs and writes no files.
   universe-status consolidates the cached P19 v2 postal-universe and Overpass measurements without APIs or writes; P125 remains a separate historical safe report. It is evidence for sizing v1 gaps, not approval to build or promote v2.
+  network-qa validates existing conflation QA/debug artifacts and writes no repo files.
+  network-preflight reads/hashes existing manifest, raw, processed and QA artifacts, may inspect geometry, and writes no repo files or network artifacts.
   readiness validates the published shelter-map bundle and release gates without scoring or deploying.
   readiness --gate-summary prints the same release gate verdict and warnings without the full nested report.
   batch-plan dry-runs one-attempt full-batch prerequisites and policy status without scoring; execution still requires owner approval and bounded OneMap controls.

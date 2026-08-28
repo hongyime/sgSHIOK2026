@@ -55,7 +55,7 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "Night Safety is a map overlay only" not in normalized
     assert "task runner: safe reports" in normalized
     assert "check --freshness-only, check --geospatial-discovery-only" in normalized
-    assert "p19-gap-status, p19-mcst-locations, p125-osm-status, readiness, readiness --gate-summary, batch-plan, validate" in normalized
+    assert "p19-gap-status, p19-mcst-locations, p125-osm-status, network-qa, network-preflight, readiness, readiness --gate-summary, batch-plan, validate" in normalized
     assert "score-batch, export, export-transit" in normalized
     assert "export-transit, publish), and local test task" in normalized
     assert "export-transit, validate, publish), and local test task" not in normalized
@@ -69,6 +69,9 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "plan a versioned refresh; do not mutate frozen v1 in place" in normalized
     assert "check --geospatial-discovery-only` probes DataMall discovery metadata only" in normalized
     assert "changed discovery URLs require a new numbered input version, not an in-place repair" in normalized
+    assert "network-qa --area island` validates existing conflation QA/debug artifacts" in normalized
+    assert "network-preflight --area island --skip-geometry-inspection` reads and hashes existing manifest, raw, processed, and QA artifacts" in normalized
+    assert "writes no repo files or network artifacts" in normalized
     assert "uv run python run.py <task>" in normalized
     assert "uv run python run.py test" in normalized
     assert "uv run python run.py publish --confirm-publish --deploy --confirm-production" in normalized
