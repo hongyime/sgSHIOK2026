@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P621 web commit: `d9376b8`; state-only commits may follow it on `main`.
+Latest P622 web commit: `3068fc3`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P622 is complete and committed: the non-visual selected exposed-gap map summary now says `Selected exposed gap marker at map coordinate <lat>, <lon>.` instead of `near <lat>, <lon>.`, matching the exposed-gap list and focus-button coordinate wording. Focused map interaction test, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 160 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P621 is complete and committed: the map's visible and screen-reader night-lighting status now says `Night lighting map layer` instead of `Night lighting overlay`, aligning the map status with the page-level layer toggle and selected-walk Night lighting detail. Focused map interaction test, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 160 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P620 is complete and committed: the selected-walk Night lighting detail now says `Map layer off; switch on night lighting, then zoom in` when the layer is off, while the on state remains `Map layer on; zoom in for lamp-post points`. Focused accessibility/copy tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests are now 160 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P619 is complete and committed: the night-lighting layer note is now state-aware, using exported `nightLightingLayerNote(false/true)` so off says `Switch on...` and on says `Zoom...` only. Focused route/copy/accessibility web tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests are now 159 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
