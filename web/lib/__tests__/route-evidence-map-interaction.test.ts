@@ -212,7 +212,8 @@ describe("shelter map interactions", () => {
     expect(liveScoringSource).toContain("from the shelter-map bundle with locked weights.");
     expect(liveScoringSource).toContain("preview shelter-map evidence");
     expect(liveScoringSource).toContain("preview-only shelter-map evidence");
-    expect(liveScoringSource).toContain("Clicked transit POI has shelter-map evidence only");
+    expect(liveScoringSource).toContain("Clicked transit POI has preview shelter-map evidence only");
+    expect(liveScoringSource).not.toContain("Clicked transit POI has shelter-map evidence only");
     expect(liveScoringSource).not.toContain("preview route evidence");
     expect(liveScoringSource).not.toContain("preview-only route evidence");
     expect(liveScoringSource).toContain("published locked scores come from the shelter-map bundle.");
