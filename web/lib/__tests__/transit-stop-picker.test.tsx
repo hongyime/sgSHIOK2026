@@ -134,7 +134,7 @@ describe("deriveNearestTransitCandidates", () => {
       join(__dirname, "../../components/transit-stop-picker.tsx"),
       "utf-8"
     );
-    expect(source).toContain("The shelter-map panel already announces the active stop's selected");
+    expect(source).toContain("The shelter-map panel already announces the active target's selected");
     expect(source).toContain("walk distance in its headline row");
     expect(source).toContain("shelter-map panel updates after selection");
     expect(source).not.toContain("The primary score card already announces");
@@ -330,7 +330,10 @@ describe("TransitStopPicker component", () => {
     expect(chipMatches).toHaveLength(6);
     expect(html).toContain(`data-chip-id="${RESET_CHIP_ID}"`);
     expect(html).toMatch(/data-chip-id="bus:66411"[^>]*aria-current="true"/);
-    expect(html).toContain("Reset to best");
+    expect(html).toContain("Reset to auto-picked target");
+    expect(html).toContain('aria-label="Reset to auto-picked transit target"');
+    expect(html).not.toContain("Reset to best");
+    expect(html).not.toContain('aria-label="Reset to auto-picked best transit"');
   });
 
   it("renders the straight-line comparison note with metre delta when non-best is active", () => {
@@ -360,7 +363,7 @@ describe("TransitStopPicker component", () => {
 
   it("hides the straight-line distance span on the currently-active chip", () => {
     // Rationale: the shelter-map panel already displays the selected walk
-    // distance for the active stop in its headline row, so we drop the chip's
+    // distance for the active target in its headline row, so we drop the chip's
     // straight-line distance to avoid two distance readings side by side.
     // Non-active chips still show their distance so users can compare.
     // Distance stays available via the button title attribute for a11y.

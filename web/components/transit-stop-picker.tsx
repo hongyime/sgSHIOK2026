@@ -13,9 +13,9 @@ export const RESET_CHIP_ID = "__reset__";
 
 export interface TransitStopPickerProps {
   candidates: TransitCandidate[];
-  /** POI id of the currently displayed stop (null means "use auto-picked best"). */
+  /** POI id of the currently displayed transit target (null means "use auto-picked target"). */
   activeStopId: string | null;
-  /** POI id of the auto-picked best transit stop for the current transit mode. */
+  /** POI id of the auto-picked transit target for the current transit mode. */
   bestStopId: string | null;
   onSelect: (stopId: string | null) => void;
   /**
@@ -127,9 +127,9 @@ export function TransitStopPicker({
             data-chip-id={RESET_CHIP_ID}
             className={styles.chipReset}
             onClick={() => onSelect(null)}
-            aria-label="Reset to auto-picked best transit"
+            aria-label="Reset to auto-picked transit target"
           >
-            Reset to best
+            Reset to auto-picked target
           </button>
         )}
         {candidates.map((candidate) => {
@@ -150,7 +150,7 @@ export function TransitStopPicker({
               <span className={styles.chipKind}>{chipKindLabel(candidate.kind)}</span>
               <span className={styles.chipName}>{candidate.name}</span>
               {/*
-                The shelter-map panel already announces the active stop's selected
+                The shelter-map panel already announces the active target's selected
                 walk distance in its headline row, so we hide the chip's straight-line
                 distance while a chip is active to reduce duplication. Non-active
                 chips still surface their distance so users can compare picks.
