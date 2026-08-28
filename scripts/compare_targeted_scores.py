@@ -6,6 +6,7 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
+from scripts.analysis.report_io import write_new_text_report
 from scripts.targeted_bundle_refresh import active_bundle_dir, load_score_index, load_score_records
 
 SCOREABLE_STATES = {"SCORED", "SCORED_PARTIAL"}
@@ -23,10 +24,18 @@ def read_json(path: Path) -> Any:
 
 
 def write_json(path: Path, payload: Any) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True), encoding="utf-8"
+    write_new_text_report(
+        path,
+        json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True),
     )
+
+
+def existing_output_errors(paths: list[Path | None]) -> list[str]:
+    return [
+        f"refusing to overwrite existing analysis output: {path}"
+        for path in paths
+        if path is not None and path.exists()
+    ]
 
 
 def numeric(value: Any) -> float | None:
@@ -329,6 +338,11 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    errors = existing_output_errors([args.output, args.safe_postals_output])
+    if errors:
+        print(json.dumps({"errors": errors, "ok": False}, indent=2, sort_keys=True))
+        return 2
+
     bundle_dir = args.bundle_dir or active_bundle_dir()
     active_records = load_bundle_records(bundle_dir)
     candidate_records = load_candidate_records(args.candidate)
@@ -346,10 +360,9 @@ def main(argv: list[str] | None = None) -> int:
     }
     write_json(args.output, report)
     if args.safe_postals_output is not None:
-        args.safe_postals_output.parent.mkdir(parents=True, exist_ok=True)
-        args.safe_postals_output.write_text(
+        write_new_text_report(
+            args.safe_postals_output,
             "\n".join(report["safe_promotable_postals"]) + "\n",
-            encoding="utf-8",
         )
     print(
         json.dumps(

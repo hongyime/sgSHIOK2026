@@ -1,8 +1,11 @@
+import json
+
 from scripts.compare_targeted_scores import (
     build_parser,
     compare_record,
     compare_records,
     load_candidate_records,
+    main,
     normalize_postal,
 )
 
@@ -275,3 +278,66 @@ def test_compare_targeted_parser_names_published_shelter_map_bundle():
 
     assert "Compare a targeted score report against the published shelter-map bundle." in help_text
     assert "Compare a targeted score report against the active static bundle." not in help_text
+
+
+def test_compare_targeted_cli_refuses_existing_output_before_bundle_load(
+    monkeypatch, tmp_path, capsys
+):
+    from scripts import compare_targeted_scores
+
+    candidate = tmp_path / "candidate.json"
+    output = tmp_path / "compare.json"
+    candidate.write_text('[{"postal":"123456"}]', encoding="utf-8")
+    output.write_text("existing\n", encoding="utf-8")
+
+    def fail_load_bundle_records(bundle_dir):
+        raise AssertionError("bundle should not load before output guard")
+
+    monkeypatch.setattr(compare_targeted_scores, "load_bundle_records", fail_load_bundle_records)
+
+    assert main(["--candidate", str(candidate), "--output", str(output)]) == 2
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": [f"refusing to overwrite existing analysis output: {output}"],
+        "ok": False,
+    }
+    assert output.read_text(encoding="utf-8") == "existing\n"
+
+
+def test_compare_targeted_cli_refuses_existing_safe_postals_output_before_bundle_load(
+    monkeypatch, tmp_path, capsys
+):
+    from scripts import compare_targeted_scores
+
+    candidate = tmp_path / "candidate.json"
+    output = tmp_path / "compare.json"
+    safe_output = tmp_path / "safe-postals.txt"
+    candidate.write_text('[{"postal":"123456"}]', encoding="utf-8")
+    safe_output.write_text("existing\n", encoding="utf-8")
+
+    def fail_load_bundle_records(bundle_dir):
+        raise AssertionError("bundle should not load before output guard")
+
+    monkeypatch.setattr(compare_targeted_scores, "load_bundle_records", fail_load_bundle_records)
+
+    assert (
+        main(
+            [
+                "--candidate",
+                str(candidate),
+                "--output",
+                str(output),
+                "--safe-postals-output",
+                str(safe_output),
+            ]
+        )
+        == 2
+    )
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": [f"refusing to overwrite existing analysis output: {safe_output}"],
+        "ok": False,
+    }
+    assert safe_output.read_text(encoding="utf-8") == "existing\n"
