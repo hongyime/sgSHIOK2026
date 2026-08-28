@@ -465,6 +465,7 @@ def test_batch_plan_treats_completed_geocode_fill_remaining_rows_as_unresolved(
     assert ok, report
     assert report["bounded_geocoding"]["requests"] == 0
     assert report["bounded_geocoding"]["unresolved_after_bounded_geocode"] == 1
+    assert report["bounded_geocoding"]["completed_fill_cache_versioned"] is False
     assert report["bounded_geocoding"]["completed_fill"]["cache_db"] == r"raw\geocode_cache.db"
     assert report["bounded_geocoding"]["completed_fill"]["input"] == (
         r"processed\postal_universe_candidate_full_registered.parquet"
@@ -480,6 +481,10 @@ def test_batch_plan_treats_completed_geocode_fill_remaining_rows_as_unresolved(
     assert report["scoring_batch"]["would_emit_records"] == 3
     assert report["scoring_batch"]["would_emit_not_yet_scored"] == 1
     assert "1 source-derived postals remain unresolved" in report["warnings"][0]
+    assert any(
+        "completed bounded geocode fill used an unversioned cache path" in blocker
+        for blocker in report["checkpoint_gates"]["blockers"]
+    )
     assert report["api_environment"]["ready_for_api_collection"] is True
 
 

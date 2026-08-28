@@ -1588,3 +1588,7 @@ Scoring and export comments should point future maintainers to this repository's
 2026-08-28 - P736 bounded geocode cache versioning:
 
 Confirmed non-dry bounded OneMap geocode fills must not mutate the unversioned legacy `raw/geocode_cache.db`. `pipeline.geocode_universe` now requires the mutable cache path to include a numeric version tag such as `_v2` before reading queued rows, opening the cache, or calling OneMap, while dry runs remain allowed. This is safety guard/test coverage only; it does not call OneMap, geocode, mutate raw inputs/caches, score, export, deploy, public data, protected QA evidence, or locked weights.
+
+2026-08-28 - P737 batch-plan completed geocode cache boundary:
+
+Batch planning must not treat a historical completed bounded geocode fill backed by an unversioned mutable cache path as clean future full-batch evidence. `pipeline.batch_plan` now reports `completed_fill_cache_versioned` and adds a checkpoint blocker when a completed fill names an unversioned cache path, while still reading the historical summary and reporting unresolved rows. This is dry-run planning/test coverage only; it does not call OneMap, geocode, mutate raw inputs/caches, score, export, deploy, public data, protected QA evidence, or locked weights.

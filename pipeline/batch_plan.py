@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
@@ -394,6 +395,16 @@ def display_geocode_fill_report(report: Any) -> Any:
     return normalized
 
 
+def is_versioned_geocode_cache_path(value: Any) -> bool:
+    if not isinstance(value, str):
+        return False
+    try:
+        path = Path(value)
+    except (OSError, ValueError):
+        return False
+    return bool(re.search(r"_v[1-9][0-9]*$", path.stem))
+
+
 def default_universe_paths(
     mode: str,
     processed_dir: Path = PROCESSED_DIR,
@@ -469,6 +480,11 @@ def build_batch_plan(
         + int(geocode_fill.get("cache_successes") or 0)
         + int(geocode_fill.get("cache_failures") or 0)
     )
+    geocode_fill_cache_versioned = (
+        is_versioned_geocode_cache_path(geocode_fill.get("cache_db"))
+        if geocode_fill_complete
+        else None
+    )
     remaining_geocode_requests = 0 if geocode_fill_complete else needs_geocode
     wall_clock_seconds = float(remaining_geocode_requests) * float(onemap_delay_sec)
 
@@ -494,6 +510,11 @@ def build_batch_plan(
     if geocode_fill_complete and needs_geocode:
         warnings.append(
             f"{needs_geocode} source-derived postals remain unresolved after bounded OneMap geocode"
+        )
+    if geocode_fill_cache_versioned is False:
+        blockers.append(
+            "completed bounded geocode fill used an unversioned cache path; "
+            "future bounded geocode fills must use a numeric-version cache artifact"
         )
     api_environment = api_environment_readiness(environment)
     warnings.extend(api_environment["warnings"])
@@ -548,6 +569,7 @@ def build_batch_plan(
             "minimum_wall_clock_seconds": wall_clock_seconds,
             "minimum_wall_clock_human": format_duration(wall_clock_seconds),
             "completed_fill": geocode_fill_display if geocode_fill_complete else None,
+            "completed_fill_cache_versioned": geocode_fill_cache_versioned,
             "unresolved_after_bounded_geocode": needs_geocode if geocode_fill_complete else None,
         },
         "scoring_batch": {
