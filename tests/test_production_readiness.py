@@ -906,6 +906,11 @@ def test_build_readiness_report_summarizes_failed_onemap_gate(tmp_path: Path):
     assert report["release_gate_status"] == "blocked"
     assert report["release_gate_summary"]["active_bundle"] == "generated_test"
     assert report["release_gate_summary"]["checks"]["onemap_validation_same_bundle_fresh"] is False
+    assert report["release_gate_summary"]["blocking_checks"] == [
+        "onemap_validation_same_bundle_fresh",
+        "onemap_validation_waived",
+    ]
+    assert "onemap_validation" in report["release_gate_summary"]["warning_checks"]
     gate = report["features"]["validation_gates"]["onemap_walk_validation"]
     assert gate["state"] == "failed_stale_bundle"
     assert gate["bundle_matches_active"] is False

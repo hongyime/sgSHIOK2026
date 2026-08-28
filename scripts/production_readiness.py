@@ -1218,6 +1218,35 @@ def build_readiness_report(
         "vercel_root_directory": bool(vercel.get("local_config_ok")),
         "infrastructure_readiness": not errors,
     }
+    release_gate_blocking_checks = [
+        key
+        for key, value in release_gate_checks.items()
+        if not value
+        and (
+            key != "onemap_validation_waived"
+            or not release_gate_checks["onemap_validation_same_bundle_fresh"]
+        )
+    ]
+    if onemap_gate_waived:
+        release_gate_blocking_checks = [
+            key
+            for key in release_gate_blocking_checks
+            if key != "onemap_validation_same_bundle_fresh"
+            and key != "onemap_validation_waived"
+        ]
+    release_gate_warning_checks = [
+        key
+        for key, value in {
+            "environment": bool(env_status["warnings"]),
+            "lamp_overlay_artifact": bool(lamp_overlay["warning"]),
+            "source_freshness": bool(source_freshness["warning"]),
+            "bundle_network_freshness": bool(freshness["warning"]),
+            "scoring_fingerprints": bool(score_provenance["warning"]),
+            "onemap_validation": not onemap_gate_passed,
+            "vercel_link": not vercel["linked"],
+        }.items()
+        if value
+    ]
     owner_approvals = [] if production_deploy_approved else ["production_deploy"]
     blocking_checks = {
         key: value
@@ -1258,6 +1287,8 @@ def build_readiness_report(
             "onemap_validation": onemap_status,
             "vercel_root_directory": vercel.get("root_directory"),
             "checks": release_gate_checks,
+            "blocking_checks": release_gate_blocking_checks,
+            "warning_checks": release_gate_warning_checks,
             "unresolved_warnings": warnings,
             "required_owner_approvals": owner_approvals,
             "owner_approvals": {
