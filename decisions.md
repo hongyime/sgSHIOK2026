@@ -1672,3 +1672,7 @@ Full OneMap validation wrappers must not bypass runner-level approval by self-su
 2026-08-28 - P757 bus API direct-ingest confirmation guard:
 
 `pipeline.bus ingest` is a legacy direct DataMall bus-source ingest path that can fetch bus stops, services, and routes, write hashed raw payloads, and update `raw/manifest.json` outside `run.py`. Direct ingest now requires `--confirm-input-refresh` and rejects before source config loading if the flag is missing. This is guard/test hygiene only; it does not ingest, call DataMall, mutate raw inputs, protected QA evidence, public data, score, export, deploy, or touch locked weights.
+
+2026-08-28 - P758 postal-universe direct-build confirmation guard:
+
+`pipeline.postal_universe` can write new processed postal-universe parquet/summary artifacts and, with `--download-missing`, fetch source inputs. Direct execution now requires `--confirm-postal-universe` before `build_universe()` runs, while confirmed invocations still keep the existing versioned-output and no-overwrite checks. This is guard/test hygiene only; it does not build a universe, download inputs, mutate raw or processed artifacts, protected QA evidence, public data, score, export, deploy, or touch locked weights.

@@ -304,11 +304,29 @@ def test_postal_universe_infers_versioned_summary_from_output(tmp_path: Path):
     require_new_artifact_paths(output, summary)
 
 
-def test_postal_universe_cli_rejects_unversioned_defaults_before_loading_sources(
+def test_postal_universe_cli_requires_confirm_before_loading_sources(
     monkeypatch: pytest.MonkeyPatch,
     capsys: pytest.CaptureFixture[str],
 ):
     monkeypatch.setattr(sys, "argv", ["postal_universe.py", "--mode", "official_current"])
+
+    assert postal_universe.main() == 2
+
+    out = capsys.readouterr().out
+    assert '"ok": false' in out
+    assert "requires --confirm-postal-universe" in out
+    assert "[postal-universe] loading" not in out
+
+
+def test_postal_universe_cli_rejects_unversioned_defaults_before_loading_sources(
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+):
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        ["postal_universe.py", "--mode", "official_current", "--confirm-postal-universe"],
+    )
 
     assert postal_universe.main() == 2
 

@@ -47,6 +47,7 @@ OVERTURE_ADDRESSES_RAW_NAME = "overture_addresses_sg_postcode_candidates.parquet
 OVERTURE_ADDRESSES_URL = (
     "s3://overturemaps-us-west-2/release/2026-07-22.0/theme=addresses/type=address/*"
 )
+CONFIRM_POSTAL_UNIVERSE_FLAG = "--confirm-postal-universe"
 OVERTURE_ADDRESSES_POLICY_WARNING = (
     "overture_addresses_sg_candidate is candidate-only postal-universe evidence, "
     "not scoring or address-registry approval; it is Alpha/OpenAddresses-SLA-OneMap-derived "
@@ -1207,6 +1208,14 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--download-missing", action="store_true")
     parser.add_argument(
+        CONFIRM_POSTAL_UNIVERSE_FLAG,
+        action="store_true",
+        help=(
+            "Required before writing postal-universe artifacts or downloading missing "
+            "source inputs."
+        ),
+    )
+    parser.add_argument(
         "--output",
         type=Path,
         help="New versioned parquet path, for example processed/postal_universe_candidate_full_registered_v2.parquet.",
@@ -1231,6 +1240,22 @@ def main(argv: list[str] | None = None) -> int:
         help="Override archived Overture postcode-candidate parquet path.",
     )
     args = parser.parse_args(argv)
+
+    if not args.confirm_postal_universe:
+        print(
+            json.dumps(
+                {
+                    "ok": False,
+                    "error": (
+                        "postal-universe build requires --confirm-postal-universe after "
+                        "owner approval"
+                    ),
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 2
 
     try:
         df, summary = build_universe(
