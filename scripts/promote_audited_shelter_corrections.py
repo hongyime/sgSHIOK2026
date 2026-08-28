@@ -157,7 +157,27 @@ def main() -> int:
     parser.add_argument("--reviewer", default="")
     parser.add_argument("--evidence-note", default="")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--confirm-promotion",
+        action="store_true",
+        help="Required for non-dry-run promotion into the approved correction layer.",
+    )
     args = parser.parse_args()
+
+    if not args.dry_run and not args.confirm_promotion:
+        print(
+            json.dumps(
+                {
+                    "ok": False,
+                    "errors": [
+                        "audited shelter correction promotion requires --confirm-promotion unless --dry-run is used"
+                    ],
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 2
 
     report = promote_corrections(
         draft_path=args.draft,
