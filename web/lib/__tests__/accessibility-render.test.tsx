@@ -194,12 +194,12 @@ describe("rendered accessibility output", () => {
       <SearchFeedback results={[]} loading={false} error={null} searched={true} />
     );
     expect(searchResultsAnnouncement([], false, null, true)).toBe(
-      "No OneMap address result found for this search. Try a 6-digit postal code. The published shelter-map bundle is tied to the frozen June 2020 address universe. P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including source-quality warnings. This is a sample, not a measured full-universe gap."
+      "No OneMap address result found for this search. Try a 6-digit postal code. The published shelter-map bundle is tied to the frozen June 2020 address universe. P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including source-quality warnings. Current for gap sizing until 4 Sep 2026 UTC under the 7-day sample policy. This is a sample, not a measured full-universe gap."
     );
     expect(noResultsHtml).toContain("No OneMap address result found.");
     expect(noResultsHtml).toContain("Try a 6-digit postal code");
     expect(noResultsHtml).toContain(
-      "The published shelter-map bundle is tied to the frozen June 2020 address universe. P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including source-quality warnings. This is a sample, not a measured full-universe gap."
+      "The published shelter-map bundle is tied to the frozen June 2020 address universe. P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including source-quality warnings. Current for gap sizing until 4 Sep 2026 UTC under the 7-day sample policy. This is a sample, not a measured full-universe gap."
     );
     expect(noResultsHtml).toContain("emptyBoxNote");
     expect(noResultsHtml).not.toContain("the recent public-source check found");
@@ -216,6 +216,7 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("Data limits: frozen v1 addresses; incomplete locked scores");
     expect(html).toContain("P19 v2 28 Aug 2026 public-source sample");
+    expect(html).toContain("Current for gap sizing until 4 Sep 2026 UTC under the 7-day sample policy.");
     expect(html).toContain(
       "25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 frozen postals, with 20 valid OSM-only postcodes."
     );
