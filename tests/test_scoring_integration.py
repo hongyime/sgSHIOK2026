@@ -38,6 +38,7 @@ from pipeline.scoring_integration import (
     public_candidate_summary,
     repick_best_transit_from_route_options,
     score_candidate_route,
+    main as score_main,
     scoring_fingerprint_digest,
     scoring_fingerprints,
     scoring_provenance_snapshot,
@@ -111,6 +112,23 @@ WEIGHTS = {
     "heat_comfort": 0.15,
     "crossing_friction": 0.05,
 }
+
+
+def test_score_cli_refuses_existing_output_before_scoring(monkeypatch, tmp_path, capsys):
+    def fail_score(*_args, **_kwargs):
+        raise AssertionError("score_postals should not run before output preflight")
+
+    monkeypatch.setattr("pipeline.scoring_integration.score_postals", fail_score)
+    output = tmp_path / "scores.json"
+    output.write_text("existing\n", encoding="utf-8")
+
+    assert score_main(["--postal", "560234", "--output", str(output)]) == 1
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "error": f"score output already exists: {output}",
+        "ok": False,
+    }
 
 
 def test_default_scoring_network_is_island_graph():

@@ -3164,7 +3164,7 @@ def score_postal_gdf(
     return records
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Score postals on real routed paths.")
     parser.add_argument("--postal", action="append", dest="postals", help="Postal code to score")
     parser.add_argument("--limit", type=int, default=5, help="Number of cache postals to score")
@@ -3182,7 +3182,19 @@ def main() -> int:
         action="store_true",
         help="Required with --full-batch after human checkpoint approval.",
     )
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
+    if args.output and args.output.exists():
+        print(
+            json.dumps(
+                {
+                    "ok": False,
+                    "error": f"score output already exists: {args.output}",
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 1
 
     if args.full_batch:
         if not args.confirm_full_batch:
