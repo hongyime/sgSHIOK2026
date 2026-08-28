@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 import zipfile
@@ -24,6 +25,7 @@ from pipeline.scoring_integration import (  # noqa: E402
     nearest_graph_node,
     select_mrt_exit_candidates,
 )
+from scripts.analysis.report_io import write_new_text_report  # noqa: E402
 
 POSTAL = "560234"
 GEOM_SHARD = PROJECT_ROOT / "web/public/data/generated_20260728_1405/geom/h3/88652636c1fffff.json"
@@ -36,6 +38,20 @@ UNIVERSE_PATH = (
 )
 OUT_GEOJSON = PROJECT_ROOT / "qa/560234_shelter_audit.geojson"
 OUT_NOTES = PROJECT_ROOT / "qa/560234_shelter_audit_notes.md"
+
+
+def explicit_output_errors(geojson_output: Path, notes_output: Path) -> list[str]:
+    errors = []
+    if geojson_output == OUT_GEOJSON:
+        errors.append("560234 shelter audit requires explicit --geojson-output")
+    if notes_output == OUT_NOTES:
+        errors.append("560234 shelter audit requires explicit --notes-output")
+    return errors
+
+
+def ensure_output_available(path: Path) -> None:
+    if path.exists():
+        raise FileExistsError(f"refusing to overwrite existing audit output: {path}")
 
 
 def decode_polyline(encoded: str) -> list[tuple[float, float]]:
@@ -298,8 +314,10 @@ def source_layers(route_3414: LineString) -> list[gpd.GeoDataFrame]:
     return frames
 
 
-def main() -> int:
-    OUT_GEOJSON.parent.mkdir(parents=True, exist_ok=True)
+def run_audit(*, geojson_output: Path, notes_output: Path) -> dict[str, Any]:
+    ensure_output_available(geojson_output)
+    ensure_output_available(notes_output)
+    geojson_output.parent.mkdir(parents=True, exist_ok=True)
     geom = load_route_geom()
     score = load_score()
     to_3414 = Transformer.from_crs("EPSG:4326", "EPSG:3414", always_xy=True)
@@ -340,7 +358,7 @@ def main() -> int:
     frames = route_frames + [network] + source_layers(sheltered_3414)
     combined = pd.concat(frames, ignore_index=True)
     combined = gpd.GeoDataFrame(combined, geometry="geometry", crs="EPSG:4326")
-    combined.to_file(OUT_GEOJSON, driver="GeoJSON")
+    combined.to_file(geojson_output, driver="GeoJSON")
 
     covered_near_20 = next(item for item in corridor_stats if item["threshold_m"] == 20)
     notes = f"""# 560234 Shelter Audit
@@ -383,17 +401,32 @@ Current graph coverage near the shipped Shiokest route:
 
 ## Files
 
-- `qa/560234_shelter_audit.geojson`
+- `{geojson_output}`
 
 Open the GeoJSON in geojson.io or QGIS and inspect the route corridor around Mayflower MRT / Postal 560234. The next manual step is to draw the actual sheltered overpass / HDB cut-through path as an audited correction if it is missing or disconnected.
 """
-    OUT_NOTES.write_text(notes, encoding="utf-8")
-    print(
-        json.dumps(
-            {"geojson": str(OUT_GEOJSON), "notes": str(OUT_NOTES), "features": len(combined)},
-            indent=2,
-        )
-    )
+    write_new_text_report(notes_output, notes)
+    return {"geojson": str(geojson_output), "notes": str(notes_output), "features": len(combined)}
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Audit shelter evidence for postal 560234.")
+    parser.add_argument("--geojson-output", type=Path, default=OUT_GEOJSON)
+    parser.add_argument("--notes-output", type=Path, default=OUT_NOTES)
+    args = parser.parse_args()
+
+    errors = explicit_output_errors(args.geojson_output, args.notes_output)
+    if errors:
+        print(json.dumps({"errors": errors}, indent=2, sort_keys=True), file=sys.stderr)
+        return 2
+
+    try:
+        report = run_audit(geojson_output=args.geojson_output, notes_output=args.notes_output)
+    except FileExistsError as exc:
+        print(json.dumps({"errors": [str(exc)]}, indent=2, sort_keys=True), file=sys.stderr)
+        return 2
+
+    print(json.dumps(report, indent=2))
     return 0
 
 
