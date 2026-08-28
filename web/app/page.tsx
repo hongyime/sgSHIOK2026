@@ -1298,7 +1298,7 @@ export function ScoreCard({
       value: nightLightingRouteDetailValue(lampOverlayEnabled),
     });
     routeDetailNotes.push(
-      "Night lighting uses LTA lamp-post points as night-lighting map evidence outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
+      "Night lighting uses LTA lamp-post points as a night-lighting map layer outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
     );
   }
   if (endpointSnapM > 0) {

@@ -717,7 +717,7 @@ describe("rendered accessibility output", () => {
     expect(onHtml).not.toContain("Map layer on; zoom in for points");
     expect(onHtml).not.toContain("Layer on");
     expect(onHtml).toContain(
-      "Night lighting uses LTA lamp-post points as night-lighting map evidence outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
+      "Night lighting uses LTA lamp-post points as a night-lighting map layer outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
     );
   });
 

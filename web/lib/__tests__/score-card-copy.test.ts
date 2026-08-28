@@ -491,8 +491,9 @@ describe("score card copy", () => {
     expect(tsxSource).toContain("lampOverlayEnabled?: boolean;");
     expect(tsxSource).toContain("lampOverlayEnabled={lampOverlayEnabled}");
     expect(tsxSource).toContain(
-      "Night lighting uses LTA lamp-post points as night-lighting map evidence outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
+      "Night lighting uses LTA lamp-post points as a night-lighting map layer outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
     );
+    expect(tsxSource).not.toContain("night-lighting map evidence outside the locked score");
     expect(tsxSource).toContain(
       "Access link is the short walk from the postal or transit point onto the shelter-map walk."
     );
