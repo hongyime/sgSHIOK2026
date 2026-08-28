@@ -1648,3 +1648,7 @@ README operator guidance now matches the latest recorded P682/P683 DataMall disc
 2026-08-28 - P751 deploy wrapper confirmation guard:
 
 Production deployment approval must be explicit at every wrapper boundary. `scripts/deploy-production.ps1` now defaults to a plan-only response unless `-ConfirmProduction` is supplied, `scripts/release-data-bundle.ps1` passes its existing production confirmation through to the deploy wrapper, and `scripts/full-rescore-production.ps1` requires a distinct `-ConfirmProductionDeploy` when `-Deploy` is requested because full-batch approval is not production publish approval. This is release-wrapper guard/test hygiene only; it does not deploy, validate a bundle, activate a bundle, export, score, mutate public data, protected QA evidence, or locked weights.
+
+2026-08-28 - P752 full-rescore activation confirmation guard:
+
+Full-batch approval is not bundle activation approval. `scripts/full-rescore-production.ps1` now requires `-ConfirmActivation` before rewriting `web/data-bundle.json` unless `-SkipActivateBundle` is supplied, and the guard runs before any partitioning, scoring, export, validation, activation, or deploy work starts. This is release-wrapper guard/test hygiene only; it does not run a full batch, export, validate, activate a bundle, deploy, mutate public data, protected QA evidence, or locked weights.

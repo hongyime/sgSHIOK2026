@@ -77,3 +77,16 @@ def test_full_rescore_script_requires_distinct_production_deploy_confirm() -> No
     deploy_command = source.index('deploy-production.ps1") -DataBundle $BundleName -ConfirmProduction')
     assert deploy_gate < export_command
     assert export_command < deploy_command
+
+
+def test_full_rescore_script_requires_distinct_activation_confirm() -> None:
+    source = (PROJECT_ROOT / "scripts" / "full-rescore-production.ps1").read_text(encoding="utf-8")
+
+    assert "[switch]$ConfirmActivation" in source
+    assert "Full-batch approval is not bundle activation approval." in source
+
+    activation_gate = source.index("if (-not $SkipActivateBundle -and -not $ConfirmActivation)")
+    export_command = source.index("uv run python run.py export")
+    activation_write = source.index("[System.IO.File]::WriteAllText(")
+    assert activation_gate < export_command
+    assert export_command < activation_write

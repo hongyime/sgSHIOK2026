@@ -4,6 +4,7 @@ param(
     [switch]$Deploy,
     [switch]$ConfirmProductionDeploy,
     [switch]$SkipActivateBundle,
+    [switch]$ConfirmActivation,
     [int]$Workers = 4,
     [int]$ChunkSize = 500,
     [string]$Stamp = "",
@@ -20,6 +21,9 @@ if (-not $ConfirmFullBatch) {
 }
 if ($Deploy -and -not $ConfirmProductionDeploy) {
     throw "Production deploy requires -ConfirmProductionDeploy. Full-batch approval is not production publish approval."
+}
+if (-not $SkipActivateBundle -and -not $ConfirmActivation) {
+    throw "Bundle activation requires -ConfirmActivation. Full-batch approval is not bundle activation approval."
 }
 if ($Workers -lt 1 -or $Workers -gt 8) {
     throw "Workers must be between 1 and 8."
