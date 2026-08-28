@@ -1,34 +1,14 @@
-import tempfile
-import zipfile
-import geopandas as gpd
-from pathlib import Path
-
-raw_dir = Path(__file__).resolve().parents[1] / "raw"
+from __future__ import annotations
 
 
-def get_gdf_from_zip(pattern):
-    path = list(raw_dir.rglob(pattern))
-    if not path:
-        return None
-    with tempfile.TemporaryDirectory() as tmpdir:
-        with zipfile.ZipFile(path[0], "r") as z:
-            z.extractall(tmpdir)
-        shp_files = list(Path(tmpdir).rglob("*.shp"))
-        if not shp_files:
-            return None
-        gdf = gpd.read_file(shp_files[0])
-        return gdf
+def main() -> int:
+    print(
+        "pipeline.diag_c2 is retired because it read raw geospatial inputs at "
+        "import time. Use maintained read-only QA/status commands or an approved "
+        "new-version diagnostic with explicit output paths."
+    )
+    return 2
 
 
-pob = get_gdf_from_zip("overhead_bridge_underpass.zip")
-print(f"POB/underpass feature count: {len(pob) if pob is not None else 0}")
-
-geojson = list(raw_dir.rglob("planning_area_boundary.geojson"))
-if geojson:
-    bnd = gpd.read_file(geojson[0])
-    bnd = bnd.to_crs(epsg=3414)
-    for pa in ["Toa Payoh", "Bukit Timah", "Downtown Core"]:
-        pa_geom = bnd[bnd["PLN_AREA_N"].str.upper() == pa.upper()]
-        if not pa_geom.empty:
-            area_km2 = pa_geom.geometry.area.sum() / 1e6
-            print(f"Clip polygon {pa} (CRS: {bnd.crs}) area: {area_km2:.2f} km^2")
+if __name__ == "__main__":
+    raise SystemExit(main())
