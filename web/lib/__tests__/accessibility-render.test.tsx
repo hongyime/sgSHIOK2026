@@ -846,7 +846,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Walk evidence is shown because a connected shelter-map walk exists, but the locked score is suppressed beyond the 1.2 km transit range.");
     expect(html).toContain("Outside locked access range");
     expect(html).toContain("Locked bus term unavailable");
-    expect(html).toContain("No full locked score is published for this postal, but the route evidence remains inspectable.");
+    expect(html).toContain("No full locked score is published for this postal, but the shelter-map walk evidence remains inspectable.");
+    expect(html).not.toContain("No full locked score is published for this postal, but the route evidence remains inspectable.");
     expect(html).toContain("<span>No full score</span><strong>Published bundle</strong>");
     expect(html).not.toContain("Transit beyond locked range");
     expect(html).not.toContain("Shelter-map evidence unavailable");

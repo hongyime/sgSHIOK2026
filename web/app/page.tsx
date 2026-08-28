@@ -1430,7 +1430,7 @@ export function ScoreCard({
             label: "Locked SHIOK score",
             value: formatLockedScore(displayScore),
             meta: "Release sorting index unavailable",
-            notes: ["No full locked score is published for this postal, but the route evidence remains inspectable."],
+            notes: ["No full locked score is published for this postal, but the shelter-map walk evidence remains inspectable."],
           },
         ]
     : [];
