@@ -47,7 +47,7 @@ export function buildComparisonText(
   const pct = Math.round(comparison.fartherPct);
   if (pct <= 0) return null;
   const deltaM = Math.max(0, comparison.activeStraightM - comparison.bestStraightM);
-  return `${pct}% farther than auto-picked stop (+${formatMeters(
+  return `${pct}% farther than auto-picked target (+${formatMeters(
     deltaM
   )} straight-line only; walk evidence updates after selection)`;
 }

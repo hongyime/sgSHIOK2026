@@ -270,7 +270,7 @@ describe("buildComparisonText", () => {
     expect(
       buildComparisonText({ fartherPct: 42, bestStraightM: 100, activeStraightM: 142 })
     ).toBe(
-      "42% farther than auto-picked stop (+42 m straight-line only; walk evidence updates after selection)"
+      "42% farther than auto-picked target (+42 m straight-line only; walk evidence updates after selection)"
     );
   });
   it("returns null when the pick is not farther", () => {
@@ -341,8 +341,9 @@ describe("TransitStopPicker component", () => {
       onSelect: () => {},
     });
     expect(html).toMatch(
-      /\d+% farther than auto-picked stop \(\+\d+ m straight-line only; walk evidence updates after selection\)/
+      /\d+% farther than auto-picked target \(\+\d+ m straight-line only; walk evidence updates after selection\)/
     );
+    expect(html).not.toContain("farther than auto-picked stop");
     expect(html).not.toContain("farther than best");
   });
 
