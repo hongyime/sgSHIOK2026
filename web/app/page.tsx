@@ -1380,7 +1380,7 @@ export function ScoreCard({
           value: score.paths ? formatPercent(selectedCoverage) : formatScore(null),
           meta: score.paths
             ? "Covered-walkway ratio"
-            : scoredMeta(score.subscores.rain ?? score.subscores.heat, "40% locked rain+heat", "Walk evidence unavailable"),
+            : scoredMeta(score.subscores.rain ?? score.subscores.heat, "40% locked shelter exposure", "Walk evidence unavailable"),
           notes: [
             "In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence.",
             "Heat also includes the sparse NParks greenery proxy, so SHIOK shows covered-walkway ratio first.",
