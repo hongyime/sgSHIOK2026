@@ -17,6 +17,7 @@ from pipeline.scoring_integration import NETWORK_PATH, score_postals
 DEFAULT_UNIVERSE = (
     PROJECT_ROOT / "processed" / "postal_universe_candidate_full_registered_geocoded.parquet"
 )
+CONFIRM_CANDIDATE_AUDIT_FLAG = "--confirm-candidate-audit"
 
 
 def existing_output_errors(paths: list[Path | None]) -> list[str]:
@@ -55,11 +56,30 @@ def main() -> int:
     parser.add_argument("--network", type=Path, default=NETWORK_PATH)
     parser.add_argument("--postal-universe", type=Path, default=DEFAULT_UNIVERSE)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument(
+        CONFIRM_CANDIDATE_AUDIT_FLAG,
+        action="store_true",
+        help="Confirm this candidate audit may run scoring after owner approval.",
+    )
     args = parser.parse_args()
 
     errors = existing_output_errors([args.output])
     if errors:
         print(json.dumps({"errors": errors, "ok": False}, indent=2, sort_keys=True))
+        return 2
+    if not args.confirm_candidate_audit:
+        print(
+            json.dumps(
+                {
+                    "errors": [
+                        "candidate audit requires --confirm-candidate-audit after owner approval"
+                    ],
+                    "ok": False,
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
         return 2
 
     records = score_postals(
