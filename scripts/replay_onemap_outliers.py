@@ -12,6 +12,7 @@ from pipeline.scoring_integration import (
     load_scoring_context,
     score_postal_gdf,
 )
+from scripts.analysis.report_io import write_new_text_report
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_REPORT = PROJECT_ROOT / "qa" / "onemap_validation_cached_report_20260802.json"
@@ -28,8 +29,7 @@ def read_json(path: Path) -> Any:
 
 
 def write_json(path: Path, payload: dict[str, Any]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    write_new_text_report(path, json.dumps(payload, indent=2, sort_keys=True) + "\n")
 
 
 def display_path(path: Path) -> str:
@@ -441,6 +441,8 @@ def main(argv: list[str] | None = None) -> int:
         errors.append("OneMap outlier replay requires --confirm-outlier-replay")
     if args.output is None:
         errors.append("OneMap outlier replay requires explicit --output")
+    elif args.output.exists():
+        errors.append(f"refusing to overwrite existing analysis output: {args.output}")
     if errors:
         print(
             json.dumps(

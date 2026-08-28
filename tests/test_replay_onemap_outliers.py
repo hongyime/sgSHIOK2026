@@ -393,6 +393,47 @@ def test_replay_onemap_outliers_cli_requires_confirmation_and_output_before_scor
     }
 
 
+def test_replay_onemap_outliers_cli_refuses_existing_output_before_scoring(
+    monkeypatch, tmp_path, capsys
+):
+    from scripts import replay_onemap_outliers
+
+    output = tmp_path / "onemap_outlier_replay.json"
+    output.write_text("existing\n", encoding="utf-8")
+
+    def fail_replay_outliers(**kwargs):
+        raise AssertionError("replay should not score or write before output guard")
+
+    monkeypatch.setattr(replay_onemap_outliers, "replay_outliers", fail_replay_outliers)
+
+    assert (
+        main(
+            [
+                "--confirm-outlier-replay",
+                "--report",
+                str(tmp_path / "report.json"),
+                "--postal-universe",
+                str(tmp_path / "universe.parquet"),
+                "--network",
+                str(tmp_path / "network.parquet"),
+                "--output",
+                str(output),
+                "--limit",
+                "1",
+            ]
+        )
+        == 1
+    )
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "errors": [f"refusing to overwrite existing analysis output: {output}"],
+        "ok": False,
+    }
+    assert output.read_text(encoding="utf-8") == "existing\n"
+
+
 def test_replay_onemap_outliers_cli_runs_confirmed_replay_with_explicit_output(
     monkeypatch, tmp_path, capsys
 ):
