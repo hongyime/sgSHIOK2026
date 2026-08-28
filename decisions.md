@@ -1819,3 +1819,7 @@ The collapsed data-limits disclosure should expose both user-facing release limi
 2026-08-29 - P796 night-lighting layer toggle:
 
 Night lighting is a map layer, not a locked-score factor. The layer toggle now says `Night-lighting layer off` and `Night-lighting layer on` instead of only `Night lighting off/on`, matching the surrounding source note and reducing the chance that users read the control as changing the composite. This is browser copy/test/evidence work only; it does not alter lamp data, manifests, route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.
+
+2026-08-29 - P797 Mayflower sample search:
+
+The zero-input sample search should name the real place behind the postal code. The sample CTA and search value now say `Try Mayflower S560234`, preserving the existing direct postal-selection path while making the first example more concrete for a housing-location user. This is browser copy/test/evidence work only; it does not alter route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.
