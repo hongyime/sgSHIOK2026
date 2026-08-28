@@ -38,6 +38,7 @@ BCA_MCST_ID = "d_1f9391a2f1476cdaf4f05a8d3a05c257"
 
 USER_AGENT = "sgSHIOK-P19-universe-gap-measurement/1.0"
 POSTAL_RE = re.compile(r"^\d{6}$")
+CURRENT_SAMPLE_MAX_AGE_DAYS = 7.0
 
 ROAD_ABBREVIATIONS = {
     "AVE": "AVENUE",
@@ -498,6 +499,40 @@ def release_policy_status(evidence_split: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def currentness_status(files: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    summary_age = files.get("summary", {}).get("age_days")
+    overpass_age = files.get("overpass_addr_postcodes_cache", {}).get("age_days")
+    ages = [
+        float(age)
+        for age in (summary_age, overpass_age)
+        if isinstance(age, (int, float))
+    ]
+    if not ages:
+        return {
+            "status": "unknown",
+            "max_age_days": None,
+            "fresh_for_current_gap_sizing": False,
+            "threshold_days": CURRENT_SAMPLE_MAX_AGE_DAYS,
+            "summary": "cached P19 sample age is unavailable; do not treat it as current gap sizing evidence",
+        }
+    max_age_days = round(max(ages), 3)
+    fresh = max_age_days <= CURRENT_SAMPLE_MAX_AGE_DAYS
+    return {
+        "status": "fresh" if fresh else "stale",
+        "max_age_days": max_age_days,
+        "fresh_for_current_gap_sizing": fresh,
+        "threshold_days": CURRENT_SAMPLE_MAX_AGE_DAYS,
+        "summary": (
+            f"cached P19 sample age {max_age_days}d is within the "
+            f"{CURRENT_SAMPLE_MAX_AGE_DAYS:g}d current-gap sizing threshold"
+            if fresh
+            else f"cached P19 sample age {max_age_days}d exceeds the "
+            f"{CURRENT_SAMPLE_MAX_AGE_DAYS:g}d current-gap sizing threshold; "
+            "refresh requires explicit owner approval and new versioned outputs"
+        ),
+    }
+
+
 def cache_status_report(now: dt.datetime | None = None) -> dict[str, Any]:
     if now is None:
         now = dt.datetime.now(dt.UTC)
@@ -513,21 +548,23 @@ def cache_status_report(now: dt.datetime | None = None) -> dict[str, Any]:
         cache_path=P379_MCST_LOCATION_CACHE,
     )
     evidence_split = evidence_split_status(missing_detail, mcst_probe)
+    files = {
+        "hdb_onemap_geocode_cache": json_file_status(HDB_GEOCODE_CACHE, now=now),
+        "overpass_addr_postcodes_cache": json_file_status(OVERPASS_CACHE, now=now),
+        "summary": json_file_status(SUMMARY_OUTPUT, now=now),
+        "detail": json_file_status(DETAIL_OUTPUT, now=now),
+    }
     return {
         "mode": "cache_status_only",
         "will_call_apis": False,
         "will_write_files": False,
         "qa_dir": str(QA_DIR.relative_to(PROJECT_ROOT)),
-        "files": {
-            "hdb_onemap_geocode_cache": json_file_status(HDB_GEOCODE_CACHE, now=now),
-            "overpass_addr_postcodes_cache": json_file_status(OVERPASS_CACHE, now=now),
-            "summary": json_file_status(SUMMARY_OUTPUT, now=now),
-            "detail": json_file_status(DETAIL_OUTPUT, now=now),
-        },
+        "files": files,
         "missing_row_detail": missing_detail,
         "mcst_proxy_location_probe": mcst_probe,
         "evidence_split": evidence_split,
         "release_policy": release_policy_status(evidence_split),
+        "currentness": currentness_status(files),
     }
 
 

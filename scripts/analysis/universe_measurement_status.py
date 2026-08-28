@@ -26,12 +26,15 @@ def status_report() -> dict[str, Any]:
     p19_status = p19.cache_status_report()
     p125_status = p125.status_report()
     p19_policy = p19_status.get("release_policy")
+    p19_currentness = p19_status.get("currentness")
     p19_split = p19_status.get("evidence_split")
     p19_files = p19_status.get("files")
     p19_missing_detail = p19_status.get("missing_row_detail")
     p125_coverage = p125_status.get("coverage")
     if not isinstance(p19_policy, dict):
         p19_policy = {}
+    if not isinstance(p19_currentness, dict):
+        p19_currentness = {}
     if not isinstance(p19_split, dict):
         p19_split = {}
     if not isinstance(p19_files, dict):
@@ -69,6 +72,7 @@ def status_report() -> dict[str, Any]:
                 ),
                 "source_quality_warning_rows": p19_split.get("source_quality_warning_rows"),
                 "summary": p19_policy.get("summary"),
+                "currentness": p19_currentness,
                 "cache_status_command": "uv run python run.py p19-gap-status",
                 "will_call_apis": p19_status.get("will_call_apis") is True,
                 "will_write_files": p19_status.get("will_write_files") is True,

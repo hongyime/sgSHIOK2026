@@ -38,6 +38,13 @@ def test_universe_status_consolidates_cached_measurements(monkeypatch) -> None:
                 "status": "sample_classified",
                 "summary": "6 coordinate-backed HDB missing rows confirmed",
             },
+            "currentness": {
+                "status": "stale",
+                "max_age_days": 13.5,
+                "fresh_for_current_gap_sizing": False,
+                "threshold_days": 7.0,
+                "summary": "cached sample is stale",
+            },
             "files": {
                 "summary": {
                     "combined_recent_completion_signal": {
@@ -106,6 +113,13 @@ def test_universe_status_consolidates_cached_measurements(monkeypatch) -> None:
         ]
         == 976
     )
+    assert report["measurements"]["recent_public_source_gap_sample"]["currentness"] == {
+        "status": "stale",
+        "max_age_days": 13.5,
+        "fresh_for_current_gap_sizing": False,
+        "threshold_days": 7.0,
+        "summary": "cached sample is stale",
+    }
     assert (
         report["measurements"]["recent_public_source_gap_sample"][
             "sample_missing_unique_postals"
@@ -466,6 +480,13 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
         "mcst_2021_2026": ["935456"],
     }
     assert report["files"]["summary"]["age_days"] == 1.499
+    assert report["currentness"] == {
+        "status": "fresh",
+        "max_age_days": 1.5,
+        "fresh_for_current_gap_sizing": True,
+        "threshold_days": 7.0,
+        "summary": "cached P19 sample age 1.5d is within the 7d current-gap sizing threshold",
+    }
     assert report["files"]["detail"]["hdb_row_count"] == 2
     assert report["files"]["detail"]["mcst_row_count"] == 1
     assert report["missing_row_detail"] == {
@@ -556,6 +577,45 @@ def test_p19_cache_status_only_reports_existing_measurement_caches(
         "summary": (
             "1 coordinate-backed HDB missing row confirmed as address-universe gap; "
             "1 MCST proxy row remains a source-quality warning"
+        ),
+    }
+
+
+def test_p19_cache_status_only_marks_old_sample_stale(tmp_path: Path, monkeypatch) -> None:
+    qa_dir = tmp_path / "qa" / "p19"
+    qa_dir.mkdir(parents=True)
+    overpass_cache = qa_dir / "overpass_addr_postcodes_cache.json"
+    summary = qa_dir / "universe_gap_measurement_summary.json"
+    detail = qa_dir / "universe_gap_measurement_detail.json"
+    overpass_cache.write_text(
+        json.dumps({"queried_at_utc": "2026-08-16T00:00:00+00:00", "postcodes": []}),
+        encoding="utf-8",
+    )
+    summary.write_text(
+        json.dumps({"generated_at_utc": "2026-08-16T00:00:00+00:00"}),
+        encoding="utf-8",
+    )
+    detail.write_text(json.dumps({"hdb_rows": [], "mcst_rows": []}), encoding="utf-8")
+
+    monkeypatch.setattr(p19, "QA_DIR", qa_dir)
+    monkeypatch.setattr(p19, "HDB_GEOCODE_CACHE", qa_dir / "missing-hdb-cache.json")
+    monkeypatch.setattr(p19, "OVERPASS_CACHE", overpass_cache)
+    monkeypatch.setattr(p19, "SUMMARY_OUTPUT", summary)
+    monkeypatch.setattr(p19, "DETAIL_OUTPUT", detail)
+    monkeypatch.setattr(p19, "P379_MCST_LOCATION_REPORT", tmp_path / "qa" / "p379" / "missing.json")
+    monkeypatch.setattr(p19, "P379_MCST_LOCATION_CACHE", tmp_path / "qa" / "p379" / "missing-cache.json")
+    monkeypatch.setattr(p19, "PROJECT_ROOT", tmp_path)
+
+    report = p19.cache_status_report(now=p19.dt.datetime(2026, 8, 29, 12, 0, tzinfo=p19.dt.UTC))
+
+    assert report["currentness"] == {
+        "status": "stale",
+        "max_age_days": 13.5,
+        "fresh_for_current_gap_sizing": False,
+        "threshold_days": 7.0,
+        "summary": (
+            "cached P19 sample age 13.5d exceeds the 7d current-gap sizing threshold; "
+            "refresh requires explicit owner approval and new versioned outputs"
         ),
     }
 
