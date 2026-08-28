@@ -6,6 +6,7 @@ import pytest
 from shapely.geometry import LineString, MultiLineString
 
 from pipeline.export import (
+    CONFIRM_LIVE_SCORE_EXPORT_FLAG,
     build_transit_poi_collection,
     encode_polyline,
     export_static_artifacts,
@@ -20,6 +21,7 @@ from pipeline.export import (
     slugify_area,
     station_code_rows_from_xls_bytes,
     validate_export_batch_args,
+    validate_live_score_export_args,
     validate_static_artifacts,
     write_json,
 )
@@ -1735,6 +1737,29 @@ def test_validate_export_batch_args_accepts_non_batch_default():
     assert errors == []
 
 
+def test_validate_live_score_export_args_blocks_unconfirmed_live_export():
+    errors = validate_live_score_export_args(
+        records_dir=None,
+        full_batch=False,
+        confirm_live_score_export=False,
+    )
+
+    assert errors == [
+        "live score export requires --confirm-live-score-export after owner approval; "
+        "use --records-dir for pre-scored re-export"
+    ]
+
+
+def test_validate_live_score_export_args_allows_records_dir_without_live_confirmation():
+    errors = validate_live_score_export_args(
+        records_dir=Path("processed/score_batches/run/chunks"),
+        full_batch=False,
+        confirm_live_score_export=False,
+    )
+
+    assert errors == []
+
+
 def test_export_cli_requires_explicit_output_before_loading_records(tmp_path: Path, capsys):
     missing_records_dir = tmp_path / "missing_records"
 
@@ -1746,6 +1771,100 @@ def test_export_cli_requires_explicit_output_before_loading_records(tmp_path: Pa
         "errors": ["export requires explicit --output; choose a new bundle directory"],
         "ok": False,
     }
+
+
+def test_export_cli_requires_live_score_confirmation_before_scoring(
+    tmp_path: Path, monkeypatch, capsys
+):
+    def fail_score_postals(**_kwargs):
+        raise AssertionError("live export must not score before confirmation")
+
+    output_dir = tmp_path / "generated_20260822"
+    monkeypatch.setattr("pipeline.export.score_postals", fail_score_postals)
+
+    assert export_main(["export", "--output", str(output_dir)]) == 1
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "errors": [
+            "live score export requires --confirm-live-score-export after owner approval; "
+            "use --records-dir for pre-scored re-export"
+        ],
+        "ok": False,
+    }
+    assert not output_dir.exists()
+
+
+def test_export_cli_confirmed_live_score_reaches_scoring(tmp_path: Path, monkeypatch, capsys):
+    calls = []
+    output_dir = tmp_path / "generated_20260822"
+
+    def fake_score_postals(**kwargs):
+        calls.append(kwargs)
+        return [{"postal": "560234", "state": "SCORED", "total": 99.0}]
+
+    def fake_export_static_artifacts(
+        records,
+        *,
+        output_dir,
+        records_dir,
+        scoring_input_provenance,
+        network_provenance,
+    ):
+        return {
+            "ok": True,
+            "records": len(records),
+            "output_dir": str(output_dir),
+            "records_dir": records_dir,
+            "scoring_input_digest": scoring_input_provenance["scoring_input_digest"],
+            "network_digest": network_provenance["network_digest"],
+        }
+
+    monkeypatch.setattr("pipeline.export.score_postals", fake_score_postals)
+    monkeypatch.setattr(
+        "pipeline.export.scoring_input_snapshot",
+        lambda _path: {"scoring_input_digest": "input-digest"},
+    )
+    monkeypatch.setattr(
+        "pipeline.export.network_snapshot",
+        lambda _path: {"network_digest": "network-digest"},
+    )
+    monkeypatch.setattr("pipeline.export.export_static_artifacts", fake_export_static_artifacts)
+
+    assert (
+        export_main(
+            [
+                "export",
+                "--output",
+                str(output_dir),
+                CONFIRM_LIVE_SCORE_EXPORT_FLAG,
+                "--postal",
+                "560234",
+            ]
+        )
+        == 0
+    )
+
+    out = capsys.readouterr().out
+    report = json.loads(out)
+    assert report == {
+        "network_digest": "network-digest",
+        "ok": True,
+        "output_dir": str(output_dir),
+        "records": 1,
+        "records_dir": None,
+        "scoring_input_digest": "input-digest",
+    }
+    assert calls == [
+        {
+            "postal_codes": ["560234"],
+            "limit": 5,
+            "include_geometry": True,
+            "network_path": Path("C:/sgSHIOK2026/processed/network_island.parquet"),
+            "postal_universe_path": None,
+        }
+    ]
 
 
 def test_export_cli_refuses_non_empty_output_before_loading_records(

@@ -68,6 +68,11 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         in run.__doc__
     )
     assert (
+        "export can re-export --records-dir without scoring; live scoring export "
+        "requires --confirm-live-score-export."
+        in run.__doc__
+    )
+    assert (
         "onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe."
         in run.__doc__
     )
@@ -135,6 +140,11 @@ def test_run_help_headline_does_not_flatten_all_tasks():
         in help_text
     )
     assert (
+        "export can re-export --records-dir without scoring; live scoring export "
+        "requires --confirm-live-score-export."
+        in help_text
+    )
+    assert (
         "onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe."
         in help_text
     )
@@ -194,6 +204,10 @@ def test_run_task_descriptions_name_published_shelter_map_bundle():
     assert run.STUBS["geocode-universe"] == (
         "bounded OneMap geocode fill for source-derived postal gaps; non-dry runs "
         "require fresh numeric-version outputs"
+    )
+    assert run.STUBS["export"] == (
+        "scores/{area}.json + geom/h3/{cell}.json + manifest (T1.5); live scoring "
+        "requires --confirm-live-score-export"
     )
     assert "compare a targeted score report against the active bundle" not in run.STUBS.values()
 

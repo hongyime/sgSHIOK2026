@@ -21,6 +21,7 @@ Gated pipeline tasks:
   network writes processed network artifacts and QA outputs; it requires --confirm-network-build after owner approval.
   score runs routed scoring even at its default limit; it requires --confirm-score-run after owner approval.
   score-batch runs routed scoring for non-dry limited batches; it requires --confirm-score-batch-run unless --full-batch uses --confirm-full-batch.
+  export can re-export --records-dir without scoring; live scoring export requires --confirm-live-score-export.
   refresh-provenance is fail-closed; direct pipeline.export invocation must name --output explicitly.
   onemap-probe is a network-heavy OneMap rate probe; it requires explicit --output and --confirm-onemap-probe.
 
@@ -67,7 +68,7 @@ STUBS = {
     "batch-plan": "dry-run one-attempt full postal geocode/scoring batch plan; execution still requires owner approval and bounded OneMap controls",
     "postal-universe": "build deterministic postal-code universe candidates",
     "geocode-universe": "bounded OneMap geocode fill for source-derived postal gaps; non-dry runs require fresh numeric-version outputs",
-    "export": "scores/{area}.json + geom/h3/{cell}.json + manifest (T1.5)",
+    "export": "scores/{area}.json + geom/h3/{cell}.json + manifest (T1.5); live scoring requires --confirm-live-score-export",
     "export-transit": "refresh transit POIs without rescoring",
     "validate": "golden set + OneMap comparison; blocks publish (T1.7)",
     "publish": "vercel deploy --prod --archive=tgz (only deploy path)",

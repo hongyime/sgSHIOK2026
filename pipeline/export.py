@@ -43,6 +43,7 @@ from pipeline.scoring_integration import (
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_EXPORT_DIR = PROJECT_ROOT / "web" / "public" / "data" / "generated"
 DEFAULT_VALIDATE_DIR = PROJECT_ROOT / "web" / "public" / "data"
+CONFIRM_LIVE_SCORE_EXPORT_FLAG = "--confirm-live-score-export"
 MAX_DATA_FILES = 5000
 MAX_FILE_BYTES = 5 * 1024 * 1024
 GEOM_PROMOTION_THRESHOLD_BYTES = int(MAX_FILE_BYTES * 0.9)
@@ -2530,6 +2531,20 @@ def validate_export_batch_args(
     return errors
 
 
+def validate_live_score_export_args(
+    *,
+    records_dir: Path | None,
+    full_batch: bool,
+    confirm_live_score_export: bool,
+) -> list[str]:
+    if records_dir is not None or full_batch or confirm_live_score_export:
+        return []
+    return [
+        "live score export requires --confirm-live-score-export after owner approval; "
+        "use --records-dir for pre-scored re-export"
+    ]
+
+
 def validate_write_output_args(
     *,
     action: str,
@@ -2584,6 +2599,11 @@ def main(argv: list[str] | None = None) -> int:
     export_parser.add_argument("--postal-universe", type=Path)
     export_parser.add_argument("--network", type=Path, default=NETWORK_PATH)
     export_parser.add_argument(
+        CONFIRM_LIVE_SCORE_EXPORT_FLAG,
+        action="store_true",
+        help="Confirm this export may score live records after owner approval.",
+    )
+    export_parser.add_argument(
         "--full-batch",
         action="store_true",
         help="Export all eligible rows from --postal-universe; requires --confirm-full-batch.",
@@ -2623,7 +2643,12 @@ def main(argv: list[str] | None = None) -> int:
             confirm_full_batch=bool(args.confirm_full_batch),
             postal_universe_path=args.postal_universe,
         )
-        errors = output_errors + guard_errors
+        live_score_errors = validate_live_score_export_args(
+            records_dir=args.records_dir,
+            full_batch=bool(args.full_batch),
+            confirm_live_score_export=bool(args.confirm_live_score_export),
+        )
+        errors = output_errors + guard_errors + live_score_errors
         if errors:
             print_error_report(errors)
             return 1
