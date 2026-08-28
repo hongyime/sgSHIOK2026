@@ -8,6 +8,15 @@ function cssFontSizePx(cssSource: string, selector: string): number {
   return Number.parseInt(match[1], 10);
 }
 
+function expectSourceOrder(source: string, snippets: string[]): void {
+  let previousIndex = -1;
+  for (const snippet of snippets) {
+    const index = source.indexOf(snippet);
+    expect(index).toBeGreaterThan(previousIndex);
+    previousIndex = index;
+  }
+}
+
 describe("score card copy", () => {
   it("distinguishes far connected shelter-map walks from disconnected walks", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
@@ -265,6 +274,17 @@ describe("score card copy", () => {
     expect(source).toContain('import { formatLockedScoreAvailabilityLine } from "../lib/locked-score-availability";');
     expect(source).toContain("formatLockedScoreAvailabilityLine(manifest)");
     expect(source).toContain("styles.coverageLine");
+    expect(source).toContain("{lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}");
+    expectSourceOrder(source, [
+      "Shelter-map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}",
+      "Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape.",
+      "{RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}.",
+      "{OSM_ADDR_POSTCODE_COVERAGE_COPY}",
+      "Data freshness at the 27 Aug 2026 UTC manifest-only check",
+      "{COVERED_LINKWAY_FRESHNESS_COPY}",
+      "{LEAF_AREA_INDEX_REFERENCE_COPY}",
+      "{lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}",
+    ]);
     expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).toContain(
       "Locked score coverage:"
     );
