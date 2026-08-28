@@ -1,4 +1,5 @@
 import React from "react";
+import { readFileSync } from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it, vi } from "vitest";
 
@@ -28,6 +29,25 @@ const emptyTransitPois: TransitPoiCollection = {
   type: "FeatureCollection",
   features: [],
 };
+
+function cssRuleBody(selector: string): string {
+  const css = readFileSync("app/page.module.css", "utf8");
+  const escapedSelector = selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const match = css.match(new RegExp(`${escapedSelector}\\s*\\{([^}]*)\\}`));
+  if (!match) {
+    throw new Error(`Missing CSS rule for ${selector}`);
+  }
+  return match[1];
+}
+
+function cssPxValue(ruleBody: string, property: string): number {
+  const escapedProperty = property.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const match = ruleBody.match(new RegExp(`${escapedProperty}\\s*:\\s*([0-9.]+)px`));
+  if (!match) {
+    throw new Error(`Missing ${property} px value`);
+  }
+  return Number(match[1]);
+}
 
 const scoredRecord: ScoreRecord = {
   postal: "560231",
@@ -537,6 +557,13 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("onto the shelter-map route");
     expect(html).not.toContain("onto mapped walking-route evidence");
     expect(html).not.toContain("onto the walking graph");
+  });
+
+  it("keeps covered-walkway evidence visually larger than the locked score badge", () => {
+    const exposureLead = cssPxValue(cssRuleBody(".exposureHero strong"), "font-size");
+    const lockedScoreBadge = cssPxValue(cssRuleBody(".scoreBadge strong"), "font-size");
+
+    expect(exposureLead).toBeGreaterThan(lockedScoreBadge);
   });
 
   it("matches planning-area empty copy to the selected comparison view", () => {
