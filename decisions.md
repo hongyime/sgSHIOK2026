@@ -1,3 +1,6 @@
+2026-08-29 - P771 script-level diagnostic retirement:
+Historical standalone diagnostics under `scripts/` that directly opened raw geospatial inputs are retired. `scripts.classify_residuals`, `scripts.diagnostic_battery`, `scripts.diagnostic_coord`, `scripts.diagnostic_gap`, `scripts.diagnostic_snapping`, and `scripts.diagnostic_sportshub` were one-off probes, not maintained operator entrypoints. Current and future diagnostics that read inputs or write evidence should use explicit guarded runner tasks or tracked QA/status reports. This is safety/test/evidence work only; it does not score, export, rescore, ingest, build network, mutate inputs, deploy, touch protected payloads, or change locked weights.
+
 2026-08-29 - P770 remaining legacy diagnostic retirement:
 The remaining historical `pipeline.diag_*` exploratory scripts are retired because they still opened raw geospatial or HDB inputs directly, with two of them doing so at import time. These modules are not maintained operator entrypoints; current evidence should come from guarded runner tasks, read-only status/report commands, or tracked QA records. This is safety/test/evidence work only; it does not score, export, rescore, ingest, build network, mutate inputs, deploy, touch protected payloads, or change locked weights.
 
