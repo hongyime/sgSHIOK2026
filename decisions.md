@@ -1823,3 +1823,7 @@ Night lighting is a map layer, not a locked-score factor. The layer toggle now s
 2026-08-29 - P797 Mayflower sample search:
 
 The zero-input sample search should name the real place behind the postal code. The sample CTA and search value now say `Try Mayflower S560234`, preserving the existing direct postal-selection path while making the first example more concrete for a housing-location user. This is browser copy/test/evidence work only; it does not alter route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.
+
+2026-08-29 - P798 direct-bus fallback pending-walk metric:
+
+Direct-bus fallback cards must not present `Extra walk: 0 m`, because that reads like a verified shortest-versus-sheltered route comparison. For direct-bus fallback only, the third summary metric now reads `Verified shelter-map walk: Pending`; normal routed records keep the existing `Extra walk` metric. This is browser copy/test/evidence work only; it does not alter route geometry, scores, exports, inputs, public data artifacts, deployments, or locked weights.
