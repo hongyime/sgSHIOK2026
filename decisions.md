@@ -1568,3 +1568,11 @@ The browser title-card freshness copy should not keep saying the 21 Aug 2026 sna
 2026-08-28 - P612 current sample does not approve postal-universe v2:
 
 The P609/P610 universe-gap measurement is useful because it sizes the current-source gap, not because it authorizes a new universe. The cached 16 Aug 2026 sample shows 0.614754% confirmed missing address rows, or 0.819672% including source-quality warnings; directionally applied to 124,443 frozen-v1 postals, that is 765 confirmed rows or 1,020 including warnings, and it is explicitly not a measured full-universe gap. Batch-plan and readiness source-policy data now record this as `not_approved_from_current_sample`, while preserving that any later v2 must be candidate-source-first with bounded OneMap Search validation. This is reporting, decision, and test coverage only; it does not build v2, call APIs, mutate inputs, score, export, deploy, mutate public data, mutate protected QA evidence, or touch locked weights.
+
+2026-08-28 - P732 freshness source coverage:
+
+Freshness policy should cover every source already recorded in `raw/manifest.json`, not just score-adjacent sources. `pipeline/config/sources.yaml` now includes ACRA registered entities, other-UEN registered entities, and the June 2020 OneMap-derived postal-universe seed, so the manifest-only freshness check has no manifest-only source keys. Overture remains config-only and unknown-age because it has not been promoted into frozen v1. The browser freshness line now reports 11 current sources, 9 stale sources, 3 manual sources, and 1 unknown-age candidate source. This is config/browser copy/test coverage only; it does not probe upstream APIs, mutate inputs, score, export, deploy, public data, protected QA evidence, or locked weights.
+
+2026-08-28 - P733 sampled universe gap qualifier:
+
+The first-view recent public-source gap copy should not invite users to treat the 16 Aug 2026 sample rate as a measured full-universe gap. The title card now says the 6 confirmed HDB missing rows plus 2 MCST source-quality warnings out of 976 sampled rows are a sample, not a measured full-universe gap. This is browser copy/test coverage only; it does not change the cached P19/P125 measurements, address-universe artifacts, scoring, exports, public data, deployment, or locked weights.
