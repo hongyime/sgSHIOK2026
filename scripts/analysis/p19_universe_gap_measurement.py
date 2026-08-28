@@ -575,6 +575,10 @@ def write_json(path: Path, payload: Any) -> None:
         f.write("\n")
 
 
+def is_numeric_versioned_output(path: Path) -> bool:
+    return bool(re.search(r"_v[1-9][0-9]*$", path.stem))
+
+
 def hdb_query_variants(row: dict[str, Any]) -> list[str]:
     original = f"{row['blk_no']} {row['street']}"
     expanded = f"{row['blk_no']} {normalize_road(row['street'])}"
@@ -801,6 +805,8 @@ def measurement_output_errors(
             continue
         if path == historical_default:
             errors.append(f"P19 measurement refuses historical default {flag}")
+        elif not is_numeric_versioned_output(path):
+            errors.append(f"P19 measurement requires numeric-version {flag}")
         elif path.exists():
             errors.append(f"refusing to overwrite existing P19 measurement output: {path}")
     return errors

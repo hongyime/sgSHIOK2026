@@ -708,10 +708,46 @@ def test_p19_main_measure_refuses_historical_default_outputs(
 def test_p19_main_measure_refuses_existing_outputs(
     monkeypatch, tmp_path: Path, capsys
 ) -> None:
-    summary_output = tmp_path / "qa" / "p19" / "summary.json"
+    summary_output = tmp_path / "qa" / "p19" / "summary_v2.json"
     summary_output.parent.mkdir(parents=True)
     summary_output.write_text("existing\n", encoding="utf-8")
 
+    def fail_read_parquet(*_: object, **__: object) -> object:
+        raise AssertionError("postal universe should not load before P19 measurement guards")
+
+    monkeypatch.setattr(p19.pd, "read_parquet", fail_read_parquet)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "p19_universe_gap_measurement.py",
+            "--measure",
+            "--confirm-p19-measure",
+            "--hdb-cache-output",
+            str(tmp_path / "qa" / "p19" / "hdb-cache_v2.json"),
+            "--overpass-cache-output",
+            str(tmp_path / "qa" / "p19" / "overpass-cache_v2.json"),
+            "--summary-output",
+            str(summary_output),
+            "--detail-output",
+            str(tmp_path / "qa" / "p19" / "detail_v2.json"),
+        ],
+    )
+
+    assert p19.main() == 2
+
+    report = json.loads(capsys.readouterr().out)
+    assert report == {
+        "errors": [
+            f"refusing to overwrite existing P19 measurement output: {summary_output}",
+        ],
+        "ok": False,
+    }
+
+
+def test_p19_main_measure_requires_numeric_versioned_outputs_before_inputs(
+    monkeypatch, tmp_path: Path, capsys
+) -> None:
     def fail_read_parquet(*_: object, **__: object) -> object:
         raise AssertionError("postal universe should not load before P19 measurement guards")
 
@@ -728,7 +764,7 @@ def test_p19_main_measure_refuses_existing_outputs(
             "--overpass-cache-output",
             str(tmp_path / "qa" / "p19" / "overpass-cache.json"),
             "--summary-output",
-            str(summary_output),
+            str(tmp_path / "qa" / "p19" / "summary.json"),
             "--detail-output",
             str(tmp_path / "qa" / "p19" / "detail.json"),
         ],
@@ -739,7 +775,10 @@ def test_p19_main_measure_refuses_existing_outputs(
     report = json.loads(capsys.readouterr().out)
     assert report == {
         "errors": [
-            f"refusing to overwrite existing P19 measurement output: {summary_output}",
+            "P19 measurement requires numeric-version --hdb-cache-output",
+            "P19 measurement requires numeric-version --overpass-cache-output",
+            "P19 measurement requires numeric-version --summary-output",
+            "P19 measurement requires numeric-version --detail-output",
         ],
         "ok": False,
     }
@@ -801,10 +840,10 @@ def test_p19_main_measure_confirmed_with_explicit_outputs_reaches_measurement_pa
     )
     monkeypatch.setattr(p19, "overpass_postcodes", lambda *, cache_path: {"postcodes": []})
     monkeypatch.setattr(p19, "write_json", lambda path, payload: written.append(path))
-    hdb_cache_output = tmp_path / "qa" / "p19" / "hdb-cache.json"
-    overpass_cache_output = tmp_path / "qa" / "p19" / "overpass-cache.json"
-    summary_output = tmp_path / "qa" / "p19" / "summary.json"
-    detail_output = tmp_path / "qa" / "p19" / "detail.json"
+    hdb_cache_output = tmp_path / "qa" / "p19" / "hdb-cache_v2.json"
+    overpass_cache_output = tmp_path / "qa" / "p19" / "overpass-cache_v2.json"
+    summary_output = tmp_path / "qa" / "p19" / "summary_v2.json"
+    detail_output = tmp_path / "qa" / "p19" / "detail_v2.json"
     monkeypatch.setattr(
         sys,
         "argv",
