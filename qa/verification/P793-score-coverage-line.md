@@ -116,6 +116,29 @@ repo_integrity=ok
 exit_code=0
 ```
 
+## Post-Commit Full Web Suite
+
+Command:
+
+```text
+npm --prefix web test
+```
+
+Output:
+
+```text
+npm notice run shiok-web@0.1.0 test
+npm notice run node scripts/test-web.mjs
+
+ RUN  v4.1.10 C:/sgSHIOK2026/web
+
+
+ Test Files  24 passed (24)
+      Tests  166 passed (166)
+   Start at  03:07:40
+   Duration  21.50s (transform 1.43s, setup 0ms, import 2.87s, tests 7.20s, environment 7ms)
+```
+
 ## FINDINGS
 
 1. The old score-availability sentence was correct but audit-shaped: it led with `Locked score coverage` and buried the missing-full-score condition after a semicolon.
