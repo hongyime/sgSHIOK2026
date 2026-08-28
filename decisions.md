@@ -1779,3 +1779,7 @@ Shelter correction should be named consistently wherever the user starts it. The
 2026-08-29 - P786 shared report guard refactor:
 
 Protected analysis output-path policy should have one implementation. `scripts/mayflower_qa_summary.py` and `scripts/analysis/analyze_heat_presentation.py` now call the shared `scripts.analysis.report_io.is_protected_report_path()` helper instead of maintaining local copies of the same root and prefix checks. This is refactor/test hygiene only; it does not change report semantics, run analysis, score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
+
+2026-08-29 - P787 night-lighting detail action:
+
+Night lighting is the second product layer after shelter exposure, so the selected-walk details should make the layer actionable where its state is described. When the night-lighting map layer is off, the walk-details strip now shows `Switch on night lighting`, wired to the existing lamp-overlay state. This is browser UI/test work only; it does not add or regenerate lamp data, score, export, rescore, mutate public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.

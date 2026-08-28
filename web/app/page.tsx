@@ -1160,6 +1160,7 @@ export function ScoreCard({
   focusedExposureGapKey = null,
   onFocusExposureGap,
   lampOverlayEnabled = false,
+  setLampOverlayEnabled,
   lockedScoreAvailabilityLine = null,
 }: {
   selection: LoadedSelection | null;
@@ -1189,6 +1190,7 @@ export function ScoreCard({
   focusedExposureGapKey?: string | null;
   onFocusExposureGap?: (gap: FocusedExposureGap) => void;
   lampOverlayEnabled?: boolean;
+  setLampOverlayEnabled?: (enabled: boolean) => void;
   lockedScoreAvailabilityLine?: string | null;
 }) {
   const [overflowOpen, setOverflowOpen] = useState(false);
@@ -1741,6 +1743,15 @@ export function ScoreCard({
               {item.label} <strong>{item.value}</strong>
             </span>
           ))}
+          {!lampOverlayEnabled && setLampOverlayEnabled && (
+            <button
+              type="button"
+              className={styles.routeDetailAction}
+              onClick={() => setLampOverlayEnabled(true)}
+            >
+              Switch on night lighting
+            </button>
+          )}
           {routeDetailNotes.map((note) => (
             <small key={note}>{note}</small>
           ))}
@@ -2445,6 +2456,7 @@ export default function Home() {
               focusedExposureGapKey={focusedExposureGap?.key ?? null}
               onFocusExposureGap={setFocusedExposureGap}
               lampOverlayEnabled={lampOverlayEnabled}
+              setLampOverlayEnabled={setLampOverlayEnabled}
               lockedScoreAvailabilityLine={lockedScoreAvailabilityLine}
             />
           </aside>

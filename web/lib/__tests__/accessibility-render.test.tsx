@@ -138,6 +138,7 @@ function renderScoreCard(overrides: Partial<React.ComponentProps<typeof ScoreCar
     setRankPanelOpen: noop,
     onFocusExposureGap: noop,
     lampOverlayEnabled: false,
+    setLampOverlayEnabled: noop,
     ...overrides,
   };
   return renderToStaticMarkup(<ScoreCard {...props} />);
@@ -717,8 +718,10 @@ describe("rendered accessibility output", () => {
 
     expect(offHtml).toContain("Night lighting");
     expect(offHtml).toContain("Night-lighting layer off; switch on night lighting, then zoom in");
+    expect(offHtml).toContain("Switch on night lighting");
     expect(offHtml).not.toContain("Available; map layer off");
     expect(onHtml).toContain("Night-lighting layer on; zoom in for lamp-post points");
+    expect(onHtml).not.toContain("Switch on night lighting");
     expect(onHtml).toContain("LTA lamp-post points");
     expect(onHtml).not.toContain("LTA lamp points");
     expect(onHtml).not.toContain("Map layer on; zoom in for points");

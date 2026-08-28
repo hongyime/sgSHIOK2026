@@ -529,7 +529,11 @@ describe("score card copy", () => {
     expect(tsxSource).not.toContain("Available; map layer off");
     expect(tsxSource).not.toContain('routeDetailItems.push({ label: "Night lighting", value: lampOverlayEnabled ? "Layer on" : "Layer off" });');
     expect(tsxSource).toContain("lampOverlayEnabled?: boolean;");
+    expect(tsxSource).toContain("setLampOverlayEnabled?: (enabled: boolean) => void;");
     expect(tsxSource).toContain("lampOverlayEnabled={lampOverlayEnabled}");
+    expect(tsxSource).toContain("setLampOverlayEnabled={setLampOverlayEnabled}");
+    expect(tsxSource).toContain("Switch on night lighting");
+    expect(tsxSource).toContain("onClick={() => setLampOverlayEnabled(true)}");
     expect(tsxSource).toContain(
       "Night lighting uses LTA lamp-post points as a night-lighting map layer outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
     );
