@@ -4,7 +4,7 @@ Date: 2026-08-28
 
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest P637 web commit: `75d2736`; state-only commits may follow it on `main`.
+Latest P638 web commit: `1a6e074`; state-only commits may follow it on `main`.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -13,6 +13,7 @@ Mandatory startup guard:
 - This rule belongs here, not only in `AGENTS.md`, because the sourcerepo sync bot has overwritten `AGENTS.md` seven times.
 
 Status:
+- P638 is complete and committed: no-walk state copy now phrases mode-specific failures as walks to transit targets (`No connected shelter-map walk to bus stop within range`) instead of target-as-adjective wording (`No connected bus stop shelter-map walk within range`). Focused accessibility/copy tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests are now 163 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P637 is complete and committed: transit-mode sentence copy now names mode-specific targets as `bus stop` and `MRT/LRT exit`, avoiding phrases like `Sheltered walk distance to bus.` while keeping default `transit` wording for the auto-picked mode. Focused accessibility/copy tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 162 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P636 is complete and committed: the visible `Transit target` segmented control now labels modes as `Auto-picked`, `MRT/LRT exits`, and `Bus stops` instead of broad `Best transit`, `MRT/LRT`, and `Bus`, aligning the mode selector with the target-picker model. Focused accessibility/copy tests, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 162 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
 - P635 is complete and committed: the transit target picker now labels bus-stop candidates as `Bus stop` instead of the terse `Bus`, matching P634's `MRT/LRT exit` precision and the settled target-picker model. Focused transit-picker test, full web suite, Python collect-only count, repo integrity, check-ignore, and protected-diff checks passed; web tests remain 162 and Python collection remains 457. No scoring, export, rescore, subset run, ingest, network build, upstream API probe, input mutation, public-data writes, protected QA mutation, deployment, or locked-weight changes were performed.
