@@ -2118,3 +2118,7 @@ Exposed-gap copy should use listed and mapped language instead of recorded stora
 2026-08-29 - P894 OneMap no-match copy:
 
 Search empty-state copy should describe the user's outcome as no OneMap match, not no OneMap address result. The recovery action remains the same: try a 6-digit postal code, with the June 2020 address-list caveat still visible. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P895 transit stop-or-exit first-view copy:
+
+The first-view promise should name the destination class users can inspect: a transit stop or exit. `Walk to transit` was too abstract now that the map and picker consistently distinguish MRT/LRT exits and bus stops. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

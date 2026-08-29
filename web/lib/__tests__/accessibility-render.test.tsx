@@ -279,7 +279,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain('aria-label="Shelter-map panel"');
     expect(html).toContain("No shelter-map walk selected.");
     expect(html).toContain(
-      "Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio and exposed gaps on the walk to transit, plus the night-lighting map layer.",
+      "Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio and exposed gaps on the walk to a transit stop or exit, plus the night-lighting map layer.",
     );
     expect(html).toContain("The published shelter-map data is tied to the June 2020 address list.");
     expect(html).not.toContain("The published shelter-map data is tied to the frozen June 2020 address universe.");
@@ -288,6 +288,7 @@ describe("rendered accessibility output", () => {
     );
     expect(html).not.toContain("Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio, exposed gaps, and night lighting on the walk to transit.");
     expect(html).not.toContain("Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio, exposed gaps, and night lighting near transit.");
+    expect(html).not.toContain("Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio and exposed gaps on the walk to transit, plus the night-lighting map layer.");
     expect(html).not.toContain("Search a Singapore postal code to inspect the covered-walkway ratio, exposed gaps, and night lighting near transit.");
     expect(html).not.toContain("No shelter map walk selected.");
     expect(html).not.toContain("No shelter map route selected.");
