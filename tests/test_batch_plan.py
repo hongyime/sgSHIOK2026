@@ -258,8 +258,8 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Pa
         "cache_status_reports_missing_development_clusters": True,
         "cache_status_reports_hdb_cluster_coordinates": True,
         "cache_status_reports_mcst_proxy_location_probe": True,
-        "summary_path": "qa/p19/universe_gap_measurement_summary.json",
-        "detail_path": "qa/p19/universe_gap_measurement_detail.json",
+        "summary_path": "qa/p19/universe_gap_measurement_summary_v2.json",
+        "detail_path": "qa/p19/universe_gap_measurement_detail_v2.json",
         "mcst_proxy_location_probe": {
             "command": "uv run python run.py p19-mcst-locations",
             "command_calls_apis": False,
