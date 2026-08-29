@@ -70,6 +70,59 @@ interface EvidenceBreakdownRow {
 
 type LiveRoutePreviewStatus = "loading" | "unavailable";
 
+interface LiveRoutePreviewPayload {
+  ok?: boolean;
+  route_geometry?: string;
+  total_distance_m?: number;
+  total_time_s?: number;
+}
+
+const LIVE_ROUTE_PREVIEW_CACHE_PREFIX = "shiok:onemap-route-preview:v1:";
+
+function liveRouteCoordinateKey(value: number): string {
+  return value.toFixed(6);
+}
+
+function liveRoutePreviewCacheKey(
+  postal: string,
+  originLatLng: { lat: number; lng: number },
+  stopId: string,
+  stopLat: number,
+  stopLng: number
+): string {
+  return [
+    LIVE_ROUTE_PREVIEW_CACHE_PREFIX,
+    postal,
+    stopId,
+    liveRouteCoordinateKey(originLatLng.lat),
+    liveRouteCoordinateKey(originLatLng.lng),
+    liveRouteCoordinateKey(stopLat),
+    liveRouteCoordinateKey(stopLng),
+  ].join(":");
+}
+
+function readLiveRoutePreviewCache(key: string): LiveRoutePreviewPayload | null {
+  if (typeof sessionStorage === "undefined") return null;
+  try {
+    const raw = sessionStorage.getItem(key);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as LiveRoutePreviewPayload;
+    return typeof parsed.route_geometry === "string" ? parsed : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeLiveRoutePreviewCache(key: string, payload: LiveRoutePreviewPayload): void {
+  if (typeof sessionStorage === "undefined") return;
+  if (!payload.ok || typeof payload.route_geometry !== "string") return;
+  try {
+    sessionStorage.setItem(key, JSON.stringify(payload));
+  } catch {
+    // Browser storage can be unavailable or full; the in-memory cache still applies.
+  }
+}
+
 const TRANSIT_MODE_OPTIONS: Array<{ id: TransitAccessMode; label: string }> = [
   { id: "best_transit", label: "Auto-picked" },
   { id: "mrt_lrt", label: "MRT/LRT exits" },
@@ -2071,60 +2124,77 @@ export default function Home() {
       return;
     }
 
-    let active = true;
     const url = `/api/onemap-route?startLat=${originLatLng.lat}&startLng=${originLatLng.lng}&endLat=${stopLat}&endLng=${stopLng}`;
+    const cacheKey = liveRoutePreviewCacheKey(
+      transitSelection.result.POSTAL,
+      originLatLng,
+      chosenStopId,
+      stopLat,
+      stopLng
+    );
+    const applyLiveRoutePreview = (data: LiveRoutePreviewPayload): boolean => {
+      if (!data.ok || !data.route_geometry) {
+        setLiveRoutePreviewStatuses((current) => ({ ...current, [chosenStopId]: "unavailable" }));
+        return false;
+      }
+      const decoded = decodePolyline(data.route_geometry);
+      if (decoded.length < 2) {
+        setLiveRoutePreviewStatuses((current) => ({ ...current, [chosenStopId]: "unavailable" }));
+        return false;
+      }
+
+      const targetStop = {
+        id: chosenStopId,
+        name: poi?.properties?.name ?? cand?.name ?? chosenStopId,
+        kind: (poi?.properties?.kind ?? cand?.kind ?? "bus_stop") as "bus_stop" | "mrt_exit",
+        coordinates: [stopLng, stopLat] as [number, number],
+        code: poi?.properties?.code ?? cand?.code,
+        station: poi?.properties?.station ?? cand?.station,
+        exit: poi?.properties?.exit ?? cand?.exit,
+        straight_line_m: haversineMeters(originLatLng.lat, originLatLng.lng, stopLat, stopLng),
+      };
+
+      const liveScored = scoreLiveRoute({
+        postal: transitSelection.result.POSTAL,
+        originCoords: originLatLng,
+        targetStop,
+        routeCoordinates: decoded,
+        baseScore: transitSelection.score,
+        baseGeom: transitSelection.geom,
+      });
+
+      const liveSelection: LoadedSelection = {
+        result: transitSelection.result,
+        score: liveScored.score,
+        geom: liveScored.geom,
+      };
+
+      setLiveRouteCache((prev) => ({
+        ...prev,
+        [chosenStopId]: liveSelection,
+      }));
+      setLiveRoutePreviewStatuses((current) => {
+        if (!current[chosenStopId]) return current;
+        const next = { ...current };
+        delete next[chosenStopId];
+        return next;
+      });
+      return true;
+    };
+
+    const cachedPreview = readLiveRoutePreviewCache(cacheKey);
+    if (cachedPreview && applyLiveRoutePreview(cachedPreview)) return;
+
+    let active = true;
     setLiveRoutePreviewStatuses((current) => ({ ...current, [chosenStopId]: "loading" }));
 
     fetch(url)
       .then((res) => res.json())
-      .then((data) => {
+      .then((data: LiveRoutePreviewPayload) => {
         if (!active) return;
-        if (!data.ok || !data.route_geometry) {
-          setLiveRoutePreviewStatuses((current) => ({ ...current, [chosenStopId]: "unavailable" }));
-          return;
+        if (applyLiveRoutePreview(data)) {
+          writeLiveRoutePreviewCache(cacheKey, data);
         }
-        const decoded = decodePolyline(data.route_geometry);
-        if (decoded.length < 2) {
-          setLiveRoutePreviewStatuses((current) => ({ ...current, [chosenStopId]: "unavailable" }));
-          return;
-        }
-
-        const targetStop = {
-          id: chosenStopId,
-          name: poi?.properties?.name ?? cand?.name ?? chosenStopId,
-          kind: (poi?.properties?.kind ?? cand?.kind ?? "bus_stop") as "bus_stop" | "mrt_exit",
-          coordinates: [stopLng, stopLat] as [number, number],
-          code: poi?.properties?.code ?? cand?.code,
-          station: poi?.properties?.station ?? cand?.station,
-          exit: poi?.properties?.exit ?? cand?.exit,
-          straight_line_m: haversineMeters(originLatLng.lat, originLatLng.lng, stopLat, stopLng),
-        };
-
-        const liveScored = scoreLiveRoute({
-          postal: transitSelection.result.POSTAL,
-          originCoords: originLatLng,
-          targetStop,
-          routeCoordinates: decoded,
-          baseScore: transitSelection.score,
-          baseGeom: transitSelection.geom,
-        });
-
-        const liveSelection: LoadedSelection = {
-          result: transitSelection.result,
-          score: liveScored.score,
-          geom: liveScored.geom,
-        };
-
-        setLiveRouteCache((prev) => ({
-          ...prev,
-          [chosenStopId]: liveSelection,
-        }));
-        setLiveRoutePreviewStatuses((current) => {
-          if (!current[chosenStopId]) return current;
-          const next = { ...current };
-          delete next[chosenStopId];
-          return next;
-        });
       })
       .catch((err) => {
         console.warn("OneMap live route fetch failed; keeping direct fallback:", err);

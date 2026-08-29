@@ -268,6 +268,12 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("Fetching OneMap walking preview");
     expect(pageSource).toContain("until that walk preview returns");
     expect(pageSource).not.toContain("until that route returns");
+    expect(pageSource).toContain('const LIVE_ROUTE_PREVIEW_CACHE_PREFIX = "shiok:onemap-route-preview:v1:";');
+    expect(pageSource).toContain("function liveRoutePreviewCacheKey(");
+    expect(pageSource).toContain("readLiveRoutePreviewCache(cacheKey)");
+    expect(pageSource).toContain("if (cachedPreview && applyLiveRoutePreview(cachedPreview)) return;");
+    expect(pageSource).toContain("writeLiveRoutePreviewCache(cacheKey, data)");
+    expect(pageSource).toContain("if (!payload.ok || typeof payload.route_geometry !== \"string\") return;");
     expect(pageSource).toContain("OneMap walking preview could not load");
     expect(pageSource).not.toContain("OneMap walking preview is unavailable");
     expect(pageSource).toContain("showing straight-line distance only");
