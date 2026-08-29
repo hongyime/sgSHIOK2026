@@ -39,7 +39,7 @@ describe("OneMap API security helpers", () => {
       const response = await searchGet(request as never);
 
       expect(response.status).toBe(200);
-      expect(response.headers.get("cache-control")).toBe("public, max-age=300");
+      expect(response.headers.get("cache-control")).toBe("public, max-age=3600");
       expect(response.headers.get("cdn-cache-control")).toBe("public, s-maxage=86400, stale-while-revalidate=604800");
       expect(response.headers.get("vercel-cdn-cache-control")).toBe(
         "public, s-maxage=86400, stale-while-revalidate=604800"

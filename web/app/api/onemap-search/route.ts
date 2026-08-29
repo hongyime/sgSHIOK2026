@@ -11,7 +11,7 @@ import {
 const ipThrottleMap = new Map<string, ThrottleRecord>();
 const MAX_REQ_PER_MINUTE = 30;
 const SEARCH_CACHE_HEADERS = {
-  "Cache-Control": "public, max-age=300",
+  "Cache-Control": "public, max-age=3600",
   "CDN-Cache-Control": "public, s-maxage=86400, stale-while-revalidate=604800",
   "Vercel-CDN-Cache-Control": "public, s-maxage=86400, stale-while-revalidate=604800",
 };
