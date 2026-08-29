@@ -291,7 +291,7 @@ export function scoreCardAnnouncement({
         : "Custom MRT/LRT exit or bus stop selected."
       : "Published shelter-map walk selected.");
   const shelterText = shelterEvidenceText ?? shelterEvidenceAnnouncement(selection.score);
-  return `${postal} shelter-map panel loaded. ${stationName ?? "Transit stop or exit loaded"}. ${shelterText} Locked score ${scoreText}. ${stopText} ${displayContextLabel} ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
+  return `${postal} shelter-map panel loaded. ${stationName ?? "MRT/LRT exit or bus stop loaded"}. ${shelterText} Locked score ${scoreText}. ${stopText} ${displayContextLabel} ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
 }
 
 export function rankAnnouncement({

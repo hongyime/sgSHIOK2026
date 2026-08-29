@@ -1914,3 +1914,7 @@ The selected custom-transit badge and live-region status should name the concret
 2026-08-29 - P828 clicked preview destination copy:
 
 The preview-only caveat should use the same concrete destination language as the selected custom-transit badge. It now says the clicked MRT/LRT exit or bus stop has shelter-map evidence, instead of the generic clicked stop-or-exit wording. This is browser copy/accessibility/test/evidence work only; it does not alter transit selection, preview routing, route geometry, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P829 destination-loaded announcement:
+
+The score-card screen-reader fallback for a missing station name should say `MRT/LRT exit or bus stop loaded`, matching the concrete destination language used for selected and clicked transit destinations. The visible no-transit state keeps `No transit stop or exit loaded` because that state describes an unavailable destination, not a chosen one. This is browser accessibility copy/test/evidence work only; it does not alter transit selection, preview routing, route geometry, scoring, exports, inputs, public data, deployment, or locked weights.

@@ -104,7 +104,9 @@ describe("score card copy", () => {
     expect(source).not.toContain("Transit candidate found");
     expect(source).not.toContain("No transit candidate nearby");
     expect(source).toContain("No transit stop or exit loaded");
+    expect(source).toContain("MRT/LRT exit or bus stop loaded");
     expect(source).not.toContain("No transit target loaded");
+    expect(source).not.toContain("Transit stop or exit loaded");
     expect(source).not.toContain("No transit found nearby");
     expect(source).not.toContain("No nearby transit candidate selected");
     expect(source).not.toContain("Outside current transit-candidate limits");
