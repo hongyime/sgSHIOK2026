@@ -640,7 +640,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Choose planning-area evidence view");
     expect(html).not.toContain("Rank records by");
     expect(html).toContain(
-      "Nearby-address list orders by locked score; shelter-map walk evidence remains the primary view."
+      "Nearby addresses are ordered by locked score; shelter-map walk evidence remains the primary view."
     );
     expect(html).not.toContain(
       "Planning-area list uses locked score only as a sorting index; shelter-map walk evidence remains the primary view."
@@ -750,7 +750,7 @@ describe("rendered accessibility output", () => {
   it("does not call crossing friction an evidence view in planning-area helper copy", () => {
     expect(rankPanelDescription("overall", false)).toBe("Loads nearby-address comparison only when opened.");
     expect(rankPanelDescription("overall", true)).toBe(
-      "Nearby-address list orders by locked score; shelter-map walk evidence remains the primary view."
+      "Nearby addresses are ordered by locked score; shelter-map walk evidence remains the primary view."
     );
     expect(rankPanelDescription("overall", true)).not.toBe(
       "Planning-area list uses locked score only as a sorting index; shelter-map walk evidence remains the primary view."

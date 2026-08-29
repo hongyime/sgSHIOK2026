@@ -822,7 +822,7 @@ describe("score card copy", () => {
     expect(source).not.toContain('aria-label="Rank by view"');
     expect(source).not.toContain("<strong>Rank by</strong>");
     expect(source).toContain(
-      "Nearby-address list orders by locked score; shelter-map walk evidence remains the primary view."
+      "Nearby addresses are ordered by locked score; shelter-map walk evidence remains the primary view."
     );
     expect(source).not.toContain(
       "Planning-area list uses locked score only as a sorting index; shelter-map walk evidence remains the primary view."
