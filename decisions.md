@@ -2082,3 +2082,7 @@ The full-score availability line should name its denominator as the June 2020 ad
 2026-08-29 - P885 address-list missing-score count:
 
 The full-score availability line should also name the missing-score count as address-list records, not generic records. The count is `29,286 address-list records`, derived from the same June 2020 address-list denominator as the `95,157 of 124,443` complete-score count. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P886 missing-score copy regression pin:
+
+The browser copy tests should pin the missing-score count's address-list denominator, not only the complete-score denominator. A source-level assertion now checks the formatter still contains `address-list records (${pctText})`, so future copy edits cannot silently fall back to generic `records` for the missing-score count. This is test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

@@ -434,6 +434,9 @@ describe("score card copy", () => {
     expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).toContain(
       "June 2020 address-list records"
     );
+    expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).toContain(
+      "address-list records (${pctText})"
+    );
     expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).not.toContain(
       "of ${formatWholeNumber(recordCount)} records"
     );
