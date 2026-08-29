@@ -1986,3 +1986,7 @@ Browser night-lighting copy should name the visible map layer instead of the int
 2026-08-29 - P846 shelter-source listing copy:
 
 Browser source-freshness detail should describe dated LTA source checks without exposing DataMall discovery URL mechanics. Covered Linkway copy now says a 28 Aug 2026 source-listing check found the covered-linkway, bridge/underpass, and traffic-signal listings still matched frozen v1, while preserving the quarterly threshold and new-numbered-input-version refresh rule. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P847 browser source-age check wording:
+
+Browser source-age copy should express the limitation as a product fact, not as manifest/probe mechanics. The summary now says the 28 Aug 2026 source-age snapshot was not a live source refresh, and the detail calls it a source-age check rather than a manifest-only check. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
