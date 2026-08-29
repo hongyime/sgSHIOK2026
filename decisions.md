@@ -1890,3 +1890,7 @@ The graph-disconnected no-transit state should name concrete user-facing transit
 2026-08-29 - P822 retryable night-lighting manifest load:
 
 The night-lighting map layer should cache a valid `lamp_posts_v1` manifest, but a transient failed manifest fetch should remain retryable on later layer updates instead of pinning the overlay unavailable until page reload. This is browser resilience/test/evidence work only; it does not modify lamp tiles, public data, inputs, scoring, exports, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P823 night-lighting pre-load claim:
+
+The persistent title-card night-lighting note should not hardcode the exact lamp-post count or source date before the browser has loaded the runtime overlay artifact. The note now says LTA lamp-post locations load from the published night-lighting artifact, while exact count/date evidence stays in README/readiness surfaces that validate the artifact. This is browser copy/test/evidence work only; it does not modify lamp tiles, public data, inputs, scoring, exports, deployment, protected evidence, or locked weights.
