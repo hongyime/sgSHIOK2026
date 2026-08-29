@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `dc96acd` (`perf: set service worker deployment headers`)
+Latest substantive commit: `abfbf46` (`perf: bound service worker cache freshness`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P998 is complete and pushed: service-worker cache-first behavior is now bounded for stable non-hashed URLs. `/` is reused for up to one day, `/robots.txt` and `/sitemap.xml` for up to one week, while `/_next/static/`, `/data/`, and `/icon.svg` remain cache-first because they are hashed, versioned, or static artifacts. Focused deployment test passed 1 file / 27 tests; repo integrity passed. Evidence: `qa/verification/P998-service-worker-freshness.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P997 is complete and pushed: `/sw.js` now has explicit deployment headers with bounded `Cache-Control: public, max-age=3600, stale-while-revalidate=86400`, `X-Robots-Tag: noindex, nofollow, noarchive`, and `Service-Worker-Allowed: /`. It deliberately does not use immutable one-year caching because the filename is stable and service-worker updates must propagate. Focused deployment test passed 1 file / 26 tests; repo integrity passed. Evidence: `qa/verification/P997-service-worker-headers.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P996 is complete and pushed: added a production-only service-worker registration and tracked `web/public/sw.js` to cache repeat visits for `/`, `/icon.svg`, `/robots.txt`, `/sitemap.xml`, `/_next/static/`, and `/data/` while excluding `/api/`. Navigations normalize to the cached `/` app shell so query-link revisits can avoid app-shell network traffic after first load. Removed the obsolete `.gitignore` rule for `web/public/sw.js` and tested that it remains tracked deployment source. Focused deployment test passed 1 file / 25 tests; repo integrity passed. Evidence: `qa/verification/P996-service-worker-request-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P995 is complete and pushed: live Vercel header checks show `/data/` has the immutable quota-control headers, but `/` and `/robots.txt` still serve `Cache-Control: public, max-age=0, must-revalidate` and live `robots.txt` lacks the current `/_next/`, query-variant disallows, sitemap, and 300-second crawl delay. Evidence: `qa/verification/P995-vercel-edge-request-triage.md`. Recommendation remains owner action: manually deploy current `main` for committed code-side reductions, or use Vercel dashboard pause/firewall/protection for immediate hard throttling.
