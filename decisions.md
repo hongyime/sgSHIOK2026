@@ -2062,3 +2062,7 @@ The top map-layer control should read as a user action and map-evidence layer, n
 2026-08-29 - P880 sorting-only score badge:
 
 The numeric 0-to-100 composite remains visible but should not read as the primary product object. The header badge now says `Sorting-only score` when a full locked score exists, matching the breakdown row and keeping covered-walkway ratio and exposed gaps as the main evidence. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P881 sorting-only score announcement:
+
+The screen-reader live status should match the visual score hierarchy. Scored records now announce `Sorting-only score ...` after shelter-map walk evidence, while clicked-stop previews still say `Locked score preview only; published locked score unchanged` to explain that preview walks do not alter published locked scores. This is browser accessibility copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

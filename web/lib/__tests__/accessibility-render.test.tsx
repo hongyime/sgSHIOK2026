@@ -309,10 +309,11 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Postal 560231 shelter-map panel loaded.");
     expect(html).toContain("Shelter-map walk evidence 48% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
     expect(html).not.toContain("Shelter-map walk evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
-    expect(html).toContain("Locked score 72 out of 100.");
+    expect(html).toContain("Sorting-only score 72 out of 100.");
     expect(html.indexOf("Shelter-map walk evidence 48% covered-walkway ratio")).toBeLessThan(
-      html.indexOf("Locked score 72 out of 100.")
+      html.indexOf("Sorting-only score 72 out of 100.")
     );
+    expect(html).not.toContain("Locked score 72 out of 100.");
     expect(html).toContain("<span>Sorting-only score</span><strong>72/100</strong>");
     expect(html).not.toContain("<span>Locked score</span><strong>72/100</strong>");
     expect(html).toContain("<strong>72/100</strong><small>Sorting-only score</small>");

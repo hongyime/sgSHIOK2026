@@ -294,7 +294,10 @@ export function scoreCardAnnouncement({
         : "Custom MRT/LRT exit or bus stop selected."
       : "Published shelter-map walk selected.");
   const shelterText = shelterEvidenceText ?? shelterEvidenceAnnouncement(selection.score);
-  return `${postal} shelter-map panel loaded. ${stationName ?? "MRT/LRT exit or bus stop loaded"}. ${shelterText} Locked score ${scoreText}. ${stopText} ${displayContextLabel} ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
+  const scoreLabel = previewRoute || displayScore === null || displayScore === undefined
+    ? "Locked score"
+    : "Sorting-only score";
+  return `${postal} shelter-map panel loaded. ${stationName ?? "MRT/LRT exit or bus stop loaded"}. ${shelterText} ${scoreLabel} ${scoreText}. ${stopText} ${displayContextLabel} ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
 }
 
 export function rankAnnouncement({

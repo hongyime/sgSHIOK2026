@@ -277,12 +277,13 @@ describe("score card copy", () => {
       "Route evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}"
     );
     expect(source).toContain("function formatGeneratedDate(manifest: Manifest | null): string");
-    expect(source).toContain("Locked score ${scoreText}");
+    expect(source).toContain('const scoreLabel = previewRoute || displayScore === null || displayScore === undefined');
+    expect(source).toContain("${scoreLabel} ${scoreText}");
     expect(source).toContain("function shelterEvidenceAnnouncement(score: ScoreRecord): string");
     expect(source).toContain('evidenceLabel = "Shelter-map walk evidence"');
     expect(source).toContain('`${evidenceLabel} ${parts.join("; ")}.`');
     expect(source).not.toContain('"Walk evidence unavailable"');
-    expect(source).toContain("${shelterText} Locked score ${scoreText}.");
+    expect(source).toContain("${shelterText} ${scoreLabel} ${scoreText}.");
     expect(source).toContain(
       "Address list: June 2020 OneMap-derived postal scrape; newer developments may be missing."
     );
