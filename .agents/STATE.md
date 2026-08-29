@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `ed21267` (`docs: name published shelter-map data in preview badge`)
+Latest substantive commit: `ac8b082` (`docs: clarify unavailable date fallback`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P905 is complete and pushed: title-card source/evidence date fallbacks now say `Date unavailable` instead of bare `Unavailable`; score and metric unavailable labels are unchanged. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P904 is complete and pushed: live OneMap preview reason badges now say `Not in published shelter-map data` instead of generic `Not in published data`, with source/rendered tests and evidence. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P903 is complete and pushed: visible planning-area loading text now says it is loading a comparison rather than ranks for evidence and locked-score row views. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P902 is complete and pushed: screen-reader shelter-map panel live status now says `ready` instead of implementation-facing `loaded`; browser-smoke `_loaded` telemetry keys were intentionally left unchanged. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
