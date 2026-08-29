@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `0c47922` (`docs: clarify nearby-address metric helper copy`)
+Latest substantive commit: `7ad2498` (`docs: clarify nearby-address status sentences`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P933 is complete and pushed: nearby-address metric comparison announcements now use direct sentences such as `Loading nearby addresses for covered-walkway evidence` and `No comparable nearby addresses for bus service support`; an initial source-string assertion failed, then the corrected focused web run passed 2 files / 63 tests.
 - P932 is complete and pushed: metric-specific nearby-address comparison helpers now use active `Compares nearby addresses...` sentences for evidence and locked-score rows.
 - P931 is complete and pushed: closed nearby-address comparison helper now says `Nearby-address comparison loads only when opened` instead of leading with `Loads nearby-address comparison`.
 - P930 is complete and pushed: nearby-address comparison helper now says `Nearby addresses are ordered by locked score` instead of the more internal `Nearby-address list orders by locked score`; the first Vitest filter used repo-root paths and failed before running tests, then the corrected focused web run passed 2 files / 63 tests.
