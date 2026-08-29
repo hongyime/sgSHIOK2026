@@ -877,7 +877,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
       : [`No shelter-map walk to ${label} within 1.2 km locked range`, "Nearby transit may still exist beyond the locked 1.2 km transit range"];
   }
   if (score.state === "NOT_YET_SCORED") {
-    return ["No full locked score in published shelter-map data", "Partial shelter-map evidence may be available"];
+    return ["No full locked score in published shelter-map data", "Some shelter-map evidence may still be available"];
   }
   if (score.paths?.routing_type === "direct_bus_fallback_unrouted") {
     return ["Nearby direct bus service found", "Straight-line bus estimate; no published shelter-map walk.", "No verified shelter-map walk"];

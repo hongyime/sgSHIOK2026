@@ -139,7 +139,7 @@ describe("score card copy", () => {
     const smokeSource = readFileSync(join(__dirname, "../../scripts/browser-smoke.mjs"), "utf-8");
 
     expect(smokeSource).toContain('summary.cardText.includes("No full locked score in published shelter-map data")');
-    expect(smokeSource).toContain('summary.cardText.includes("Partial shelter-map evidence may be available")');
+    expect(smokeSource).toContain('summary.cardText.includes("Some shelter-map evidence may still be available")');
     expect(smokeSource).not.toContain('summary.cardText.includes("No full locked score in this bundle")');
     expect(smokeSource).not.toContain('summary.cardText.includes("No full score in this bundle")');
     expect(smokeSource).not.toContain("needs usable location evidence");
@@ -149,7 +149,7 @@ describe("score card copy", () => {
     );
     expect(source).toContain("unavailable in the published shelter-map data");
     expect(source).toContain("No full locked score in published shelter-map data");
-    expect(source).toContain("Partial shelter-map evidence may be available");
+    expect(source).toContain("Some shelter-map evidence may still be available");
     expect(source).not.toContain("Awaiting locked score");
     expect(source).not.toContain("unavailable in this bundle");
     expect(source).not.toContain("No full locked score in this bundle");

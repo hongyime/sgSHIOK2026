@@ -575,7 +575,7 @@ function collectChecks(summary, mapState, cdp, postal, inputMode, expectedState,
   const hasNotYetScored =
     summary.cardText.includes("Not scored") ||
     summary.cardText.includes("No full locked score in published shelter-map data") ||
-    summary.cardText.includes("Partial shelter-map evidence may be available");
+    summary.cardText.includes("Some shelter-map evidence may still be available");
   const routeSourceFeatures =
     Number(mapState?.debug?.sourceFeatureCounts?.shiokest || 0) +
     Number(mapState?.debug?.sourceFeatureCounts?.shortest || 0);

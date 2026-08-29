@@ -1292,7 +1292,7 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("No full locked score in published shelter-map data");
-    expect(html).toContain("Partial shelter-map evidence may be available");
+    expect(html).toContain("Some shelter-map evidence may still be available");
     expect(html).toContain("<span>No full locked score</span><strong>Walk evidence</strong>");
     expect(html).not.toContain("Location Evidence Missing");
     expect(html).toContain("Locked score unavailable in the published shelter-map data.");

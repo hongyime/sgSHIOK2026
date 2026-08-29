@@ -2226,3 +2226,7 @@ Generic missing-path reason chips should say `No published shelter-map walk` ins
 2026-08-29 - P921 shelter announcement missing-walk copy:
 
 The screen-reader shelter evidence fallback should name the published-data absence instead of saying `Shelter-map walk evidence unavailable.` The default no-evidence announcement now says `No published shelter-map walk evidence.`, while custom evidence labels still use the generic unavailable fallback. This is browser accessibility copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P922 not-yet-scored evidence reason copy:
+
+The `NOT_YET_SCORED` reason chip should avoid implying a queued partial-evidence state. The UI now says `Some shelter-map evidence may still be available`, which keeps the published-data boundary clear without promising that every record lacking a full locked score has inspectable walk evidence. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
