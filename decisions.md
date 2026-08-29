@@ -2218,3 +2218,7 @@ The locked-score availability disclosure should not label `NOT_YET_SCORED` recor
 2026-08-29 - P919 unavailable access-row copy:
 
 The access display row already says `Walk to stop or exit`, so its unavailable-state meta should not fall back to the older abstract `Walk-to-transit score unavailable` label. The unavailable meta now says `Stop/exit walk score unavailable`, while complete scored rows keep the locked scoring term `35% locked walk-to-transit`. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P920 missing walk reason copy:
+
+Generic missing-path reason chips should say `No published shelter-map walk` instead of `Shelter-map evidence unavailable`. The former tells the user what is absent from the frozen published data; the latter is broader and less actionable. Detailed row meta remains `Shelter-map walk unavailable` where it describes the unavailable measurement. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

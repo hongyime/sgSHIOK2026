@@ -1244,7 +1244,8 @@ describe("rendered accessibility output", () => {
       "Partial locked score: one or more component scores are unavailable; locked weights count missing terms as zero."
     );
     expect(html).not.toContain("one or more sub-scores are unavailable");
-    expect(html).toContain("Shelter-map evidence unavailable");
+    expect(html).toContain("No published shelter-map walk");
+    expect(html).not.toContain("Shelter-map evidence unavailable");
     expect(html).toContain("Shelter-map walk evidence unavailable.");
     expect(html).toContain("Locked score unavailable");
     expect(html).toContain("<span>No full locked score</span><strong>Walk evidence</strong>");

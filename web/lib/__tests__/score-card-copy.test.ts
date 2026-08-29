@@ -717,7 +717,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("Preview shelter map evidence selected.");
     expect(source).not.toContain("this clicked transit stop has shelter map evidence");
     expect(source).not.toContain("Not scored in the current bundle");
-    expect(source).toContain("Shelter-map evidence unavailable");
+    expect(source).toContain("No published shelter-map walk");
+    expect(source).not.toContain("Shelter-map evidence unavailable");
     expect(source).toContain("Shelter-map evidence available");
     expect(source).toContain("Locked score unavailable");
     expect(source).toContain("Unavailable locked-score rows");
