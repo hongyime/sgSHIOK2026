@@ -47,6 +47,5 @@ export default function robots(): MetadataRoute.Robots {
         crawlDelay: 3600,
       },
     ],
-    sitemap: "https://sgshiok.vercel.app/sitemap.xml",
   };
 }

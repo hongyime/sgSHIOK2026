@@ -193,7 +193,7 @@ describe("deployment packaging", () => {
       expect(robots).toContain(disallowedPath);
     }
     expect(robots).toContain("crawlDelay: 3600");
-    expect(robots).toContain('sitemap: "https://sgshiok.vercel.app/sitemap.xml"');
+    expect(robots).not.toContain("sitemap:");
     expect(robots).not.toContain("OAI-SearchBot");
     expect(robots).not.toContain("Claude-SearchBot");
     expect(robots).not.toContain("Googlebot");
@@ -209,9 +209,11 @@ describe("deployment packaging", () => {
     expect(layout).toContain('canonical: "https://sgshiok.vercel.app/"');
   });
 
-  it("publishes a single-page sitemap for polite crawlers", () => {
+  it("keeps a direct sitemap route without advertising it from robots", () => {
+    const robots = readFileSync(join(__dirname, "../../app/robots.ts"), "utf-8");
     const sitemap = readFileSync(join(__dirname, "../../app/sitemap.ts"), "utf-8");
 
+    expect(robots).not.toContain("sitemap:");
     expect(sitemap).toContain('const SITE_URL = "https://sgshiok.vercel.app/";');
     expect(sitemap).toContain("export default function sitemap()");
     expect(sitemap).toContain("url: SITE_URL");
