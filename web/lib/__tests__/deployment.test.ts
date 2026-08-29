@@ -59,6 +59,19 @@ describe("deployment packaging", () => {
     expect(script).toContain("writeTransitH3Shards(targetRoot, transitPois, { overwrite: false })");
   });
 
+  it("restores missing deployment data from the Vercel build cache before downloading live data", () => {
+    const script = readFileSync(join(__dirname, "../../scripts/ensure-data-bundle.mjs"), "utf-8");
+
+    expect(script).toContain('join(process.cwd(), ".next", "cache", "shiok-data")');
+    expect(script).toContain("function restoreCachedBundle(bundle, targetRoot)");
+    expect(script).toContain('if (!existsSync(join(cachedRoot, "manifest.json"))) return false;');
+    expect(script).toContain("copyBundle(cachedRoot, targetRoot);");
+    expect(script).toContain("restored data bundle from build cache");
+    expect(script).toContain("const cachedTarget = join(buildCacheRoot(), bundle);");
+    expect(script).toContain("await downloadRemoteBundle(bundle, cachedTarget);");
+    expect(script).toContain("copyBundle(cachedTarget, target);");
+  });
+
   it("keeps routed browser smoke QA available for launch checks", () => {
     const packageJson = JSON.parse(readFileSync(join(__dirname, "../../package.json"), "utf-8"));
     const script = readFileSync(join(__dirname, "../../scripts/browser-smoke.mjs"), "utf-8");

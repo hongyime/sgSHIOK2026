@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { basename, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { gunzipSync, gzipSync } from "node:zlib";
@@ -195,6 +195,23 @@ function ensureDerivedLookupShards(targetRoot) {
   writeTransitH3Shards(targetRoot, transitPois, { overwrite: false });
 }
 
+function buildCacheRoot() {
+  return process.env.SHIOK_DATA_BUILD_CACHE || join(process.cwd(), ".next", "cache", "shiok-data");
+}
+
+function copyBundle(sourceRoot, targetRoot) {
+  mkdirSync(dirname(targetRoot), { recursive: true });
+  cpSync(sourceRoot, targetRoot, { recursive: true });
+}
+
+function restoreCachedBundle(bundle, targetRoot) {
+  const cachedRoot = join(buildCacheRoot(), bundle);
+  if (!existsSync(join(cachedRoot, "manifest.json"))) return false;
+  copyBundle(cachedRoot, targetRoot);
+  console.log(`restored data bundle from build cache ${targetRoot}`);
+  return true;
+}
+
 async function main() {
   const bundle = normalizeBundle(process.argv[2] || process.env.SHIOK_DATA_BUNDLE || configuredBundle());
   const target = join(process.cwd(), "public", "data", bundle);
@@ -203,8 +220,12 @@ async function main() {
   if (existsSync(manifestPath)) {
     console.log(`using local data bundle ${target}`);
     ensureDerivedLookupShards(target);
+  } else if (restoreCachedBundle(bundle, target)) {
+    ensureDerivedLookupShards(target);
   } else {
-    await downloadRemoteBundle(bundle, target);
+    const cachedTarget = join(buildCacheRoot(), bundle);
+    await downloadRemoteBundle(bundle, cachedTarget);
+    copyBundle(cachedTarget, target);
     ensureDerivedLookupShards(target);
     console.log(`downloaded data bundle ${target}`);
   }
