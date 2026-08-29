@@ -3,7 +3,7 @@
 Date: 2026-08-30
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `ed79e4d` (`docs: record vercel edge request live triage`)
+Latest substantive commit: `a094122` (`docs: record current universe status snapshot`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P1013 is complete and pushed: `uv run python run.py universe-status` was run in read-only/no-API/no-write mode and recorded in `qa/verification/P1013-universe-status-currentness.md`. Cached P19 v2 remains fresh for current gap sizing under the 7-day policy, with 6 confirmed coordinate-backed HDB missing rows out of 976 sampled rows with postals (0.614754%) and 8 rows including MCST source-quality warnings (0.819672%). Directional scale is 765 confirmed missing rows or 1,020 including warnings if applied to 124,443 frozen-v1 distinct postals; this is not a measured full-universe gap or v2 promotion approval. OSM still covers only 20.811938% of v1 and remains geometry evidence/cross-check, not the address registry.
 - P1012 is complete and pushed: read-only Vercel connector checks still list the active production deployment on `0405ec9`, while `main` is now later. Runtime logs exposed through the connector do not explain the Hobby Edge Request dashboard hitting 100%: the 24-hour grouped sample only showed three cached `/` requests. Practical quota answer remains operational first: deploy current `main` for committed request reductions, or use Vercel pause/protection/firewall for an immediate hard stop. Evidence: `qa/verification/P1012-vercel-edge-live-triage.md`.
 - P1011 is complete and pushed: `robots.ts` now blocks additional non-user AI/SEO crawlers (`Google-Extended`, `Applebot-Extended`, `PerplexityBot`, `Bytespider`, `Amazonbot`, `FacebookBot`, `meta-externalagent`, `SemrushBot`, and `AhrefsBot`) alongside the earlier `GPTBot`, `ClaudeBot`, and `CCBot` block. Focused deployment test passed 1 file / 27 tests; repo integrity passed. Evidence: `qa/verification/P1011-non-user-crawler-robots.md`. This is a polite-crawler reduction only and is not live until the owner performs an explicit Vercel deployment.
 - P1010 is complete and pushed: `CLAUDE.md` now carries the same Vercel Hobby Edge Request boundary as README. Future agents should first check whether production is serving current `main`; automatic Git deployments are intentionally disabled in `web/vercel.json`, so committed cache/crawler reductions need owner manual deployment before affecting live traffic. Pausing or protecting the Vercel project changes public availability and is an owner decision, not an agent-default repository change. Focused agent-doc tests passed 3 tests; repo integrity passed. Evidence: `qa/verification/P1010-agent-vercel-quota-boundary.md`.
