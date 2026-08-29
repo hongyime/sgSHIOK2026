@@ -478,7 +478,10 @@ describe("score card copy", () => {
     );
     expect(source).toContain("nightLightingLayerNote(lampOverlayEnabled)");
     expect(source).toContain("export function nightLightingLayerNote(lampOverlayEnabled: boolean): string");
-    expect(source).toContain("LTA lamp-post locations load from the published lamp-post layer.");
+    expect(source).toContain("LTA lamp-post locations can be shown on the map.");
+    expect(source).toContain("LTA lamp-post locations are shown on the map.");
+    expect(source).toContain("Map layer only; not part of the locked score.");
+    expect(source).not.toContain("LTA lamp-post locations load from the published lamp-post layer.");
     expect(source).not.toContain("LTA lamp-post locations load from the published night-lighting artifact.");
     expect(source).toContain("Switch on and zoom into a neighbourhood to load lamp-post points.");
     expect(source).toContain("Zoom into a neighbourhood to load lamp-post points.");
@@ -605,7 +608,8 @@ describe("score card copy", () => {
     expect(tsxSource).toContain("value: nightLightingRouteDetailValue(lampOverlayEnabled),");
     expect(tsxSource).toContain("export function nightLightingRouteDetailValue(lampOverlayEnabled: boolean): string");
     expect(tsxSource).toContain("Night-lighting layer off; switch on night lighting, then zoom in");
-    expect(tsxSource).toContain('{lampOverlayEnabled ? "Night-lighting layer on" : "Night-lighting layer off"}');
+    expect(tsxSource).toContain('{lampOverlayEnabled ? "Night-lighting layer shown" : "Show night-lighting layer"}');
+    expect(tsxSource).not.toContain('{lampOverlayEnabled ? "Night-lighting layer on" : "Night-lighting layer off"}');
     expect(tsxSource).not.toContain('{lampOverlayEnabled ? "Night lighting on" : "Night lighting off"}');
     expect(tsxSource).not.toContain('value: lampOverlayEnabled ? "Map layer on; zoom in for points" : "Map layer off",');
     expect(tsxSource).not.toContain('value: lampOverlayEnabled ? "Map layer on; zoom in for lamp-post points" : "Map layer off",');

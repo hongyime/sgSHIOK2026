@@ -100,8 +100,9 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("showLampOverlay?: boolean;");
     expect(pageSource).toContain("LTA lamp-post points");
     expect(pageSource).not.toContain("LTA lamp points");
-    expect(pageSource).toContain('{lampOverlayEnabled ? "Night-lighting layer on" : "Night-lighting layer off"}');
+    expect(pageSource).toContain('{lampOverlayEnabled ? "Night-lighting layer shown" : "Show night-lighting layer"}');
     expect(pageSource).not.toContain('{lampOverlayEnabled ? "Night lighting on" : "Night lighting off"}');
+    expect(pageSource).not.toContain('{lampOverlayEnabled ? "Night-lighting layer on" : "Night-lighting layer off"}');
     expect(pageSource).not.toContain(">Night lighting</button>");
     expect(pageSource).toContain(
       'title="Night-lighting layer: LTA lamp-post locations; map layer only, not part of the locked score"'
@@ -118,7 +119,10 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("night-lighting-layer-note");
     expect(pageSource).toContain("nightLightingLayerNote(lampOverlayEnabled)");
     expect(pageSource).toContain("export function nightLightingLayerNote(lampOverlayEnabled: boolean): string");
-    expect(pageSource).toContain("LTA lamp-post locations load from the published lamp-post layer.");
+    expect(pageSource).toContain("LTA lamp-post locations can be shown on the map.");
+    expect(pageSource).toContain("LTA lamp-post locations are shown on the map.");
+    expect(pageSource).toContain("Map layer only; not part of the locked score.");
+    expect(pageSource).not.toContain("LTA lamp-post locations load from the published lamp-post layer.");
     expect(pageSource).not.toContain("LTA lamp-post locations load from the published night-lighting artifact.");
     expect(pageSource).not.toContain("Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026.");
     expect(pageSource).not.toContain("LTA lamp-post layer: 126,144 points");

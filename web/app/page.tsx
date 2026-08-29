@@ -130,7 +130,10 @@ export function nightLightingLayerNote(lampOverlayEnabled: boolean): string {
   const action = lampOverlayEnabled
     ? "Zoom into a neighbourhood to load lamp-post points."
     : "Switch on and zoom into a neighbourhood to load lamp-post points.";
-  return `Night lighting layer: LTA lamp-post locations load from the published lamp-post layer. ${action} Night-lighting map layer only; not part of the locked score.`;
+  const state = lampOverlayEnabled
+    ? "LTA lamp-post locations are shown on the map."
+    : "LTA lamp-post locations can be shown on the map.";
+  return `Night lighting layer: ${state} ${action} Map layer only; not part of the locked score.`;
 }
 
 export function nightLightingRouteDetailValue(lampOverlayEnabled: boolean): string {
@@ -2405,7 +2408,7 @@ export default function Home() {
                 onClick={() => setLampOverlayEnabled((enabled) => !enabled)}
               >
                 <span className={styles.lampSwatch} aria-hidden="true" />
-                {lampOverlayEnabled ? "Night-lighting layer on" : "Night-lighting layer off"}
+                {lampOverlayEnabled ? "Night-lighting layer shown" : "Show night-lighting layer"}
               </button>
             </div>
             <p id="night-lighting-layer-note" className={styles.layerNote}>

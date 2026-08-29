@@ -2054,3 +2054,7 @@ The planning-area panel should describe itself as comparison rather than ranks. 
 2026-08-29 - P878 mobile exposed-gap action layout:
 
 Exposed-gap rows should remain legible on narrow screens because those gaps are the product's strongest inspectable artifact. Mobile CSS now keeps the gap distance and description in two columns and lets the map action wrap below the description instead of forcing a third column beside coordinate text. This is responsive CSS/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P879 night-lighting layer control copy:
+
+The top map-layer control should read as a user action and map-evidence layer, not as a source or implementation status. The off state now says `Show night-lighting layer`, the active state says `Night-lighting layer shown`, and the note describes LTA lamp-post locations as map evidence outside the locked score. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
