@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `4733612` (`fix: satisfy exposure gap aria typecheck`)
+Latest substantive commit: `b3966cd` (`docs: align section 10 reference copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P874 is complete and pushed: the Section 10 presentation reference and copy-pinning test now say `published shelter-map data` instead of the stale `published shelter-map bundle`.
 - P873 is complete and pushed: full web tests now pass after exposure-gap map button aria labels use a non-null coordinate derived from the validated focus target.
 - P872 is complete and pushed: no-transit fallback labels now name the 1.2 km cutoff instead of saying only `within range` or `within locked transit range`.
 - P871 is complete and pushed: short no-transit reason/meta labels now say `Beyond 1.2 km locked range` instead of `Outside locked transit range`.
