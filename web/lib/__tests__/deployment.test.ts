@@ -78,18 +78,18 @@ describe("deployment packaging", () => {
     expect(sitemap).not.toContain("/api/");
   });
 
-  it("caches robots.txt so crawlers do not revalidate it on every visit", () => {
+  it("caches robots.txt for one week so crawlers do not revalidate it on every visit", () => {
     const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
 
     expect(config).toContain('source: "/robots.txt"');
-    expect(config).toContain('value: "public, max-age=86400, stale-while-revalidate=604800"');
+    expect(config).toContain('value: "public, max-age=604800, stale-while-revalidate=2592000"');
   });
 
-  it("caches sitemap.xml so crawlers do not revalidate it on every visit", () => {
+  it("caches sitemap.xml for one week so crawlers do not revalidate it on every visit", () => {
     const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
 
     expect(config).toContain('source: "/sitemap.xml"');
-    expect(config).toContain('value: "public, max-age=86400, stale-while-revalidate=604800"');
+    expect(config).toContain('value: "public, max-age=604800, stale-while-revalidate=2592000"');
   });
 
   it("caches the app icon so browsers do not revalidate it on every visit", () => {
