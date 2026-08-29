@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `7e467bb` (`test: guard submit-only OneMap search`)
+Latest substantive commit: `c8b50a1` (`perf: keep crawlers off Next assets`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P973 is complete and pushed: `robots.ts` now disallows `/_next/` in addition to `/api/`, `/data/`, and query variants, keeping polite crawlers away from Next.js build assets while normal browsers remain unaffected. Focused deployment test passed 1 file / 21 tests; repo integrity passed. Evidence: `qa/verification/P973-robots-next-assets.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P972 is complete and pushed: added a source-level web test that OneMap search remains submit-driven (`<form onSubmit={handleSearch}>`) and typing only updates local query state, guarding against accidental typeahead backend traffic that would increase Vercel Edge Requests. Focused web test passed 1 file / 22 tests; repo integrity passed. Evidence: `qa/verification/P972-search-submit-contract.md`.
 - P971 is complete and pushed: the direct-bus locked-score state now says `Locked score note` instead of `Locked score caveat`, keeping the same explanation that the straight-line bus estimate is not a verified shelter-map walk. Focused web tests passed 2 files / 63 tests; repo integrity passed. Evidence: `qa/verification/P971-locked-score-note-copy.md`.
 - P970 is complete and pushed: the direct-bus score caveat now says the straight-line bus estimate is not a verified shelter-map walk, instead of saying nearby direct bus service evidence is not connected. Focused web tests passed 2 files / 63 tests; repo integrity passed. Evidence: `qa/verification/P970-straight-line-bus-score-caveat.md`.
