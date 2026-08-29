@@ -1555,7 +1555,7 @@ export function ScoreCard({
             value: formatPercent(selectedCoverage),
             meta: "Covered-walkway ratio",
             notes: [
-              "Shelter-map walk evidence is shown because a connected shelter-map walk exists, but the locked score is suppressed beyond the 1.2 km transit range.",
+              "Shelter-map walk evidence is shown because a connected shelter-map walk exists, but the locked score is not published beyond the 1.2 km transit range.",
               heatEvidenceDetail,
             ].filter((note): note is string => Boolean(note)),
           },
