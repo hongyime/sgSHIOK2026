@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `78e7ea5` (`copy: clarify night-lighting layer toggle`)
+Latest substantive commit: `4e89ff1` (`docs: demote locked score badge copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P880 is complete and pushed: the score header badge now labels complete records as `Sorting-only score`, matching the breakdown row and keeping the 0-to-100 composite secondary to covered-walkway ratio and exposed gaps.
 - P879 is complete and pushed: the top night-lighting map-layer toggle now reads as an action (`Show night-lighting layer`) and active state (`Night-lighting layer shown`), with a note describing LTA lamp-post locations as map evidence outside the locked score.
 - P878 is complete and pushed: mobile exposed-gap rows now use a two-column layout and let the map action wrap below the description, preserving readability for the primary inspectable artifact.
 - P877 is complete and pushed: the planning-area panel now says `Show comparison`, `Loads planning-area comparison only when opened`, and comparison-oriented live status instead of rank-first wording.
