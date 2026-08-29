@@ -79,7 +79,7 @@ describe("lamp overlay data access", () => {
     ).toEqual(["cell-a"]);
   });
 
-  it("loads manifest and tile JSON through cache-busted no-store fetches", async () => {
+  it("loads manifest and tile JSON through stable cacheable fetches", async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       const url = bareUrl(input);
       if (url.endsWith("/manifest.json")) return jsonResponse(true, MANIFEST);
@@ -110,12 +110,12 @@ describe("lamp overlay data access", () => {
       },
     ]);
     expect(fetchMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/lamp_posts_v1\/manifest\.json\?v=/),
-      { cache: "no-store" }
+      "/data/lamp_posts_v1/manifest.json",
+      { cache: "force-cache" }
     );
     expect(fetchMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/lamp_posts_v1\/tiles\/cell-a\.json\?v=/),
-      { cache: "no-store" }
+      "/data/lamp_posts_v1/tiles/cell-a.json",
+      { cache: "force-cache" }
     );
   });
 

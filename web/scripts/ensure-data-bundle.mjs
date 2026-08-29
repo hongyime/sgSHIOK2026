@@ -23,7 +23,8 @@ function writeJson(path, payload) {
   writeFileSync(path, JSON.stringify(payload, null, 2), "utf8");
 }
 
-function writeGzJson(path, payload) {
+function writeGzJson(path, payload, { overwrite = true } = {}) {
+  if (!overwrite && existsSync(path)) return;
   mkdirSync(dirname(path), { recursive: true });
   writeFileSync(path, gzipSync(JSON.stringify(payload)));
 }
@@ -46,6 +47,7 @@ function readJsonMaybeGz(path) {
 
 function ensureGzipCompanion(path) {
   if (!existsSync(path)) return;
+  if (existsSync(`${path}.gz`)) return;
   writeFileSync(`${path}.gz`, gzipSync(readFileSync(path)));
 }
 
@@ -59,9 +61,9 @@ export function buildPostalPrefixShardMappings(postalIndex) {
   return prefixes;
 }
 
-function writePostalPrefixShards(targetRoot, postalIndex) {
+function writePostalPrefixShards(targetRoot, postalIndex, options = {}) {
   for (const [prefix, mapping] of buildPostalPrefixShardMappings(postalIndex)) {
-    writeGzJson(join(targetRoot, "geom", "postal-prefix", `${prefix}.json.gz`), mapping);
+    writeGzJson(join(targetRoot, "geom", "postal-prefix", `${prefix}.json.gz`), mapping, options);
   }
 }
 
@@ -90,9 +92,9 @@ export function buildTransitH3ShardCollections(transitPois, cellForLatLng = latL
   );
 }
 
-function writeTransitH3Shards(targetRoot, transitPois) {
+function writeTransitH3Shards(targetRoot, transitPois, options = {}) {
   for (const [cell, collection] of buildTransitH3ShardCollections(transitPois)) {
-    writeGzJson(join(targetRoot, "transit", "h3", `${cell}.json.gz`), collection);
+    writeGzJson(join(targetRoot, "transit", "h3", `${cell}.json.gz`), collection, options);
   }
 }
 
@@ -187,10 +189,10 @@ function ensureDerivedLookupShards(targetRoot) {
   ensureGzipCompanion(join(targetRoot, "geom", "postal-index.json"));
 
   const geomPostalIndex = readJsonMaybeGz(join(targetRoot, "geom", "postal-index.json"));
-  writePostalPrefixShards(targetRoot, geomPostalIndex);
+  writePostalPrefixShards(targetRoot, geomPostalIndex, { overwrite: false });
 
   const transitPois = readJsonMaybeGz(join(targetRoot, "transit", "pois.json"));
-  writeTransitH3Shards(targetRoot, transitPois);
+  writeTransitH3Shards(targetRoot, transitPois, { overwrite: false });
 }
 
 async function main() {

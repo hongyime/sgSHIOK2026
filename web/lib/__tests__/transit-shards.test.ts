@@ -59,12 +59,12 @@ describe("fetchTransitPoisForGeom", () => {
 
     expect(pois.features).toHaveLength(2);
     expect(fetchMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/transit\/h3\/route-cell\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/transit/h3/route-cell.json",
+      { cache: "force-cache" }
     );
     expect(fetchMock).not.toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/transit\/pois\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/transit/pois.json",
+      { cache: "force-cache" }
     );
   });
 
@@ -89,8 +89,8 @@ describe("fetchTransitPoisForGeom", () => {
 
     expect(pois.features).toEqual([station]);
     expect(fetchMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/transit\/pois\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/transit/pois.json",
+      { cache: "force-cache" }
     );
   });
 });

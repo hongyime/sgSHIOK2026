@@ -3,8 +3,7 @@ export const LAMP_OVERLAY_BASE = normalizeLampOverlayBase(
   process.env.NEXT_PUBLIC_LAMP_OVERLAY_BASE
 );
 
-const LAMP_OVERLAY_FETCH_VERSION = `lamp_posts_v1-${Date.now().toString(36)}`;
-const LAMP_OVERLAY_FETCH_OPTIONS: RequestInit = { cache: "no-store" };
+const LAMP_OVERLAY_FETCH_OPTIONS: RequestInit = { cache: "force-cache" };
 
 export interface LampBounds {
   west: number;
@@ -69,9 +68,7 @@ export function normalizeLampOverlayBase(value?: string): string {
 
 function lampOverlayUrl(path: string, base = LAMP_OVERLAY_BASE): string {
   const normalizedBase = normalizeLampOverlayBase(base);
-  const url = `${normalizedBase}${path}`;
-  const separator = url.includes("?") ? "&" : "?";
-  return `${url}${separator}v=${encodeURIComponent(LAMP_OVERLAY_FETCH_VERSION)}`;
+  return `${normalizedBase}${path}`;
 }
 
 function validBbox(value: unknown): value is [number, number, number, number] {

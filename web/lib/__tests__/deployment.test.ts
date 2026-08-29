@@ -22,12 +22,29 @@ describe("deployment packaging", () => {
     expect(config.ignoreCommand).toBe("node scripts/ignore-build.mjs");
   });
 
+  it("marks versioned data artifacts cacheable to reduce repeated edge requests", () => {
+    const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
+
+    expect(config).toContain('source: "/data/:path*"');
+    expect(config).toContain('key: "Cache-Control"');
+    expect(config).toContain('value: "public, max-age=31536000, immutable"');
+  });
+
   it("materializes derived lookup shards during web builds", () => {
     const script = readFileSync(join(__dirname, "../../scripts/ensure-data-bundle.mjs"), "utf-8");
 
     expect(script).toContain("ensureDerivedLookupShards");
     expect(script).toContain("writePostalPrefixShards");
     expect(script).toContain("writeTransitH3Shards");
+  });
+
+  it("does not rewrite existing local data artifacts during web builds", () => {
+    const script = readFileSync(join(__dirname, "../../scripts/ensure-data-bundle.mjs"), "utf-8");
+
+    expect(script).toContain("if (!overwrite && existsSync(path)) return;");
+    expect(script).toContain('if (existsSync(`${path}.gz`)) return;');
+    expect(script).toContain("writePostalPrefixShards(targetRoot, geomPostalIndex, { overwrite: false })");
+    expect(script).toContain("writeTransitH3Shards(targetRoot, transitPois, { overwrite: false })");
   });
 
   it("keeps routed browser smoke QA available for launch checks", () => {

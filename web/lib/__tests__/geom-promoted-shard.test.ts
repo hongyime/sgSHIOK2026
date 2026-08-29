@@ -49,20 +49,20 @@ describe("fetchGeomForPostal", () => {
 
     await expect(fetchGeomForPostal("123456", 1.3, 103.8)).resolves.toEqual(childRecord);
     expect(fetchMock).not.toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/geom\/postal-index\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/geom/postal-index.json",
+      { cache: "force-cache" }
     );
     expect(fetchMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/geom\/h3\/parent-cell\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/geom/h3/parent-cell.json",
+      { cache: "force-cache" }
     );
     expect(fetchMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/geom\/index\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/geom/index.json",
+      { cache: "force-cache" }
     );
     expect(fetchMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/geom\/h3\/child-cell\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/geom/h3/child-cell.json",
+      { cache: "force-cache" }
     );
   });
 
@@ -89,16 +89,16 @@ describe("fetchGeomForPostal", () => {
 
     await expect(fetchGeomForPostal("560234")).resolves.toEqual(childRecord);
     expect(fetchMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/geom\/postal-prefix\/560\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/geom/postal-prefix/560.json",
+      { cache: "force-cache" }
     );
     expect(fetchMock).not.toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/geom\/postal-index\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/geom/postal-index.json",
+      { cache: "force-cache" }
     );
     expect(fetchMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/geom\/h3\/postal-child\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/geom/h3/postal-child.json",
+      { cache: "force-cache" }
     );
   });
 
@@ -131,20 +131,20 @@ describe("fetchGeomForPostal", () => {
 
     await expect(fetchGeomForPostal("560234")).resolves.toEqual(childRecord);
     expect(fetchMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/geom\/postal-prefix\/560\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/geom/postal-prefix/560.json",
+      { cache: "force-cache" }
     );
     expect(fetchMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/geom\/h3\/stale-child\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/geom/h3/stale-child.json",
+      { cache: "force-cache" }
     );
     expect(fetchMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/geom\/postal-index\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/geom/postal-index.json",
+      { cache: "force-cache" }
     );
     expect(fetchMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/geom\/h3\/postal-child\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/geom/h3/postal-child.json",
+      { cache: "force-cache" }
     );
   });
 });

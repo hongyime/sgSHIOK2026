@@ -19,7 +19,6 @@ export function normalizeDataBase(value?: string): string {
 }
 
 export const DATA_BASE = normalizeDataBase(process.env.NEXT_PUBLIC_DATA_BASE);
-const DATA_FETCH_VERSION = `${dataBundle.bundle}-${Date.now().toString(36)}`;
 
 import type { ScoreRecord, PostalGeom, Manifest, TransitPoiCollection } from "./types";
 import type { RankableScoreRecord } from "./subscore-ranking";
@@ -29,12 +28,10 @@ import { decodePolyline } from "./polyline";
 type GeomIndex = Record<string, string[]>;
 type GeomPostalIndex = Record<string, string>;
 type ScorePrefixIndex = Record<string, string[]>;
-const DATA_FETCH_OPTIONS: RequestInit = { cache: "no-store" };
+const DATA_FETCH_OPTIONS: RequestInit = { cache: "force-cache" };
 
 function dataUrl(path: string): string {
-  const url = `${DATA_BASE}${path}`;
-  const separator = url.includes("?") ? "&" : "?";
-  return `${url}${separator}v=${encodeURIComponent(DATA_FETCH_VERSION)}`;
+  return `${DATA_BASE}${path}`;
 }
 
 async function decodeJsonResponse<T>(res: Response, path: string): Promise<T> {

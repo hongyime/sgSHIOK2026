@@ -43,6 +43,10 @@ const nextConfig = {
             key: "Access-Control-Allow-Headers",
             value: "Content-Type",
           },
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
         ],
       },
     ];

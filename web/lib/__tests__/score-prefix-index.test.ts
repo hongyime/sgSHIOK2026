@@ -43,12 +43,12 @@ describe("fetchScoreForPostal", () => {
 
     await expect(fetchScoreForPostal("560234")).resolves.toEqual(scoreRecord);
     expect(fetchMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/scores\/prefix-index\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/scores/prefix-index.json",
+      { cache: "force-cache" }
     );
     expect(fetchMock).not.toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/scores\/index\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/scores/index.json",
+      { cache: "force-cache" }
     );
   });
 
@@ -82,20 +82,20 @@ describe("fetchScoreForPostal", () => {
 
     await expect(fetchScoreForPostal("560234")).resolves.toEqual(scoreRecord);
     expect(fetchMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/scores\/prefix-index\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/scores/prefix-index.json",
+      { cache: "force-cache" }
     );
     expect(fetchMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/scores\/STALE_AREA\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/scores/STALE_AREA.json",
+      { cache: "force-cache" }
     );
     expect(fetchMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/scores\/index\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/scores/index.json",
+      { cache: "force-cache" }
     );
     expect(fetchMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^\/data\/generated\/scores\/ANG_MO_KIO\.json\?v=/),
-      { cache: "no-store" }
+      "/data/generated/scores/ANG_MO_KIO.json",
+      { cache: "force-cache" }
     );
   });
 });
