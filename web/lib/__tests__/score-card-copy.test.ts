@@ -145,7 +145,7 @@ describe("score card copy", () => {
     expect(smokeSource).not.toContain("needs usable location evidence");
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
     expect(source).toContain(
-      "This postal is in the June 2020 address list, but the published shelter-map data has no full locked score for it yet."
+      "This postal is in the June 2020 address list, but the published shelter-map data does not include a full locked score for it."
     );
     expect(source).toContain("unavailable in the published shelter-map data");
     expect(source).toContain("No full locked score in published shelter-map data");
@@ -155,6 +155,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("No full locked score in this bundle");
     expect(source).not.toContain("this shelter-map bundle has no published full locked score for it yet");
     expect(source).not.toContain("the current published bundle has not scored it yet");
+    expect(source).not.toContain("the published shelter-map data has no full locked score for it yet");
   });
 
   it("keeps browser smoke aligned with walk-display controls", () => {

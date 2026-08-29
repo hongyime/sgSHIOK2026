@@ -1298,10 +1298,11 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("No full score in this bundle");
     expect(html).not.toContain("Awaiting locked score");
     expect(html).toContain(
-      "This postal is in the June 2020 address list, but the published shelter-map data has no full locked score for it yet."
+      "This postal is in the June 2020 address list, but the published shelter-map data does not include a full locked score for it."
     );
     expect(html).not.toContain("this shelter-map bundle has no published full locked score");
     expect(html).not.toContain("the current published data has not scored it yet");
+    expect(html).not.toContain("the published shelter-map data has no full locked score for it yet");
     expect(html).not.toContain("Locked score not scored.");
     expect(html).not.toContain("source universe");
     expect(html).not.toContain("current offline bundle");

@@ -2202,3 +2202,7 @@ When a connected shelter-map walk exists beyond the locked 1.2 km scoring range,
 2026-08-29 - P915 bus-support caveat copy:
 
 Bus-support caveats should describe what the published shelter-map walk shows, not a proof process. The UI and Section 10 reference now say the walk does not show access to an official LTA bus stop, and the direct-bus fallback caveat says nearby direct bus service evidence is not connected to a verified shelter-map walk. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P916 not-yet-scored published-data copy:
+
+The `NOT_YET_SCORED` note should not imply that scoring is queued or pending. The UI now says the June 2020 address-list postal is present, but the published shelter-map data does not include a full locked score for it. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

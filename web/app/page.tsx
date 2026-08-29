@@ -624,7 +624,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     return `No published shelter-map walk to ${transitModeLabel(transitMode)} qualifies within the locked 1.2 km transit range.`;
   }
   if (score.state === "NOT_YET_SCORED") {
-    return "This postal is in the June 2020 address list, but the published shelter-map data has no full locked score for it yet.";
+    return "This postal is in the June 2020 address list, but the published shelter-map data does not include a full locked score for it.";
   }
   const busFallback = directBusFallbackEvidence(score);
   if (busFallback) {
