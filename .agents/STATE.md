@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `64e5a75` (`docs: name selected walk in no-gap copy`)
+Latest substantive commit: `86f04a6` (`docs: clarify heat estimate shelter note`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P883 is complete and pushed: the shelter-exposure row and Section 10 reference now say rain shelter and the heat estimate share mostly the same covered-walkway evidence, replacing the overstated `heat comfort` phrasing.
 - P882 is complete and pushed: the no-exposed-gap state now says all recorded segments for the selected sheltered or shortest walk stay under covered-walkway or connector evidence, replacing the internal phrase `this display`.
 - P881 is complete and pushed: the screen-reader live status now announces complete numeric records as `Sorting-only score ...` after shelter-map walk evidence, while preview and unavailable states keep locked-score availability wording.
 - P880 is complete and pushed: the score header badge now labels complete records as `Sorting-only score`, matching the breakdown row and keeping the 0-to-100 composite secondary to covered-walkway ratio and exposed gaps.
