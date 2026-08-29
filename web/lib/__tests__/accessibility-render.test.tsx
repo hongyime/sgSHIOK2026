@@ -767,13 +767,13 @@ describe("rendered accessibility output", () => {
       "Compares nearby addresses for this evidence row; locked SHIOK score is unchanged."
     );
     expect(rankPanelDescription("bus", true)).toBe(
-      "Compares nearby addresses for this locked-score row; locked SHIOK score is unchanged."
+      "Compares nearby addresses for this supporting score row; locked SHIOK score is unchanged."
     );
     expect(rankPanelDescription("heat", true)).toBe(
-      "Compares nearby addresses for this locked-score row; locked SHIOK score is unchanged."
+      "Compares nearby addresses for this supporting score row; locked SHIOK score is unchanged."
     );
     expect(rankPanelDescription("crossing", true)).toBe(
-      "Compares nearby addresses for this locked-score row; locked SHIOK score is unchanged."
+      "Compares nearby addresses for this supporting score row; locked SHIOK score is unchanged."
     );
     expect(rankPanelDescription("crossing", true)).not.toBe(
       "Planning-area locked-score factor view; locked SHIOK score is unchanged."
