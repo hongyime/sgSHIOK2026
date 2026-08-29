@@ -2078,3 +2078,7 @@ The shelter-exposure row and Section 10 reference should not describe the curren
 2026-08-29 - P884 address-list score availability denominator:
 
 The full-score availability line should name its denominator as the June 2020 address-list records, not generic records. This keeps the roughly-quarter missing-score disclosure tied to the frozen address list instead of implying coverage of every current Singapore address. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P885 address-list missing-score count:
+
+The full-score availability line should also name the missing-score count as address-list records, not generic records. The count is `29,286 address-list records`, derived from the same June 2020 address-list denominator as the `95,157 of 124,443` complete-score count. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
