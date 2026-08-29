@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `734e0ec` (`perf: cache live route previews per session`)
+Latest substantive commit: `4d763c4` (`docs: record Vercel quota emergency options`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P953 is complete and pushed: documented immediate Vercel Edge-request quota options without mutating the Vercel project. Read-only connector checks show production still points at `0405ec9`, so P945-P952 request reductions are committed but not live. The practical immediate owner-level control is pausing the project, which blocks the active production deployment; deployment protection/firewall controls may reduce unwanted traffic but change public access behavior or require plan support. Repo integrity passed. Evidence: `qa/verification/P953-vercel-quota-emergency-options.md`.
 - P952 is complete and pushed: successful live OneMap walking preview responses are now cached in browser `sessionStorage` by postal, selected stop id, origin coordinates, and stop coordinates. The cache stores only the upstream preview payload and does not cache failed/malformed previews, reducing repeat `/api/onemap-route` calls on same-session reloads or shared-link revisits. Focused route-evidence interaction test passed 1 file / 11 tests; full web tests passed 25 files / 186 tests; repo integrity passed. Evidence: `qa/verification/P952-vercel-route-preview-session-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P951 is complete and pushed: `/robots.txt` now receives `Cache-Control: public, max-age=86400, stale-while-revalidate=604800`, keeping crawler controls intact while avoiding needless browser/crawler revalidation of the same policy file on every visit. Focused deployment test passed 1 file / 15 tests. First full web-suite run hit the existing generated-data prefix-shard timeout; the targeted data rerun passed 4 files / 14 tests and the second full web-suite run passed 25 files / 186 tests. Repo integrity passed. Evidence: `qa/verification/P951-vercel-robots-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P950 is complete and pushed: the web data loader now tries `.json.gz` only for artifact classes compressed in the active bundle (`manifest.json`, `scores/index.json`, `geom/index.json`, `geom/postal-index.json`, `geom/postal-prefix/*.json`, and `transit/h3/*.json`). It fetches uncompressed score shards, `scores/prefix-index.json`, `geom/h3/*.json`, and `transit/pois.json` directly, avoiding failed gzip probes that still counted as Vercel Edge/CDN requests. Focused web tests passed 2 files / 5 tests; full web tests passed 25 files / 185 tests; repo integrity passed. Evidence: `qa/verification/P950-vercel-gzip-probe-reduction.md`. This is not live until the owner performs an explicit Vercel deployment because automatic Git deployments remain disabled.
