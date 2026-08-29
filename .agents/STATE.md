@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `abd7ee0` (`perf: avoid navigation for share URL updates`)
+Latest substantive commit: `a6943dc` (`perf: extend app shell browser cache`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P985 is complete and pushed: `/` now sends `Cache-Control: public, max-age=86400, stale-while-revalidate=604800`, extending the app-shell browser cache from one hour to one day to reduce repeat Edge requests from returning browsers. This intentionally trades manual-deploy freshness for quota relief; users may need a hard refresh to see a just-deployed shell immediately. Focused deployment test passed 1 file / 21 tests; repo integrity passed. Evidence: `qa/verification/P985-app-shell-day-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P984 is complete and pushed: postal and stop share-link URL updates now use `window.history.replaceState()` instead of Next.js `router.replace()`, preserving `?postal=` and `?stop=` without triggering same-page App Router navigation traffic. Focused web tests passed 2 files / 12 tests; repo integrity passed. Evidence: `qa/verification/P984-url-query-no-navigation.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P983 is complete and pushed: successful OneMap search proxy responses now use `Cache-Control: public, max-age=3600` while keeping the existing one-day CDN cache, reducing repeat same-address `/api/onemap-search` requests from returning users. Errors, throttles, and invalid requests remain uncached. Focused onemap-api-security test passed 1 file / 5 tests; repo integrity passed. Evidence: `qa/verification/P983-onemap-search-browser-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P982 is complete and pushed: geometry H3 shards are now cached in memory after lookup, including missing-shard results, so repeated route-geometry lookups for the same shard no longer spend repeated static `/data/.../geom/h3/*.json` requests during a single app session. Focused web tests passed 2 files / 9 tests; repo integrity passed. Evidence: `qa/verification/P982-geometry-shard-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
