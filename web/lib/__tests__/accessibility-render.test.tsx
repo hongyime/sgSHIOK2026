@@ -433,7 +433,7 @@ describe("rendered accessibility output", () => {
       "OneMap walking preview is unavailable for this selected MRT/LRT exit or bus stop; showing straight-line distance only."
     );
     expect(html).toContain(
-      "Preview only: this clicked MRT/LRT exit or bus stop has shelter-map evidence, but it is not part of the published shelter-map data yet."
+      "Preview only: this clicked MRT/LRT exit or bus stop has shelter-map evidence, but it is outside the published shelter-map data."
     );
     expect(html).not.toContain("this selected transit target");
     expect(html).not.toContain("this clicked transit target");
@@ -443,6 +443,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("this clicked stop or exit");
     expect(html).not.toContain("this clicked stop has shelter map evidence");
     expect(html).not.toContain("not part of the published score bundle yet");
+    expect(html).not.toContain("not part of the published shelter-map data yet");
     expect(html).not.toContain("not an authoritative SHIOK score");
     expect(html).not.toContain("Preview route");
     expect(html).not.toContain("↺ Scored route");

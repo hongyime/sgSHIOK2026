@@ -2206,3 +2206,7 @@ Bus-support caveats should describe what the published shelter-map walk shows, n
 2026-08-29 - P916 not-yet-scored published-data copy:
 
 The `NOT_YET_SCORED` note should not imply that scoring is queued or pending. The UI now says the June 2020 address-list postal is present, but the published shelter-map data does not include a full locked score for it. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P917 live-preview published-data copy:
+
+Live OneMap preview copy should say the clicked stop or exit is outside the published shelter-map data, not `not part of ... yet`. A preview route is a live lookup outside the frozen data, not a promise that the address will later be included. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
