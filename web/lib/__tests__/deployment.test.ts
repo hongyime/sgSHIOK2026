@@ -65,6 +65,7 @@ describe("deployment packaging", () => {
 
     expect(layout).not.toContain('import { ServiceWorkerRegistration }');
     expect(layout).not.toContain("<ServiceWorkerRegistration />");
+    expect(layout).not.toContain("../components/service-worker-registration");
     expect(page).toContain('import { requestServiceWorkerCache } from "../lib/service-worker-cache";');
     expect(helper).toContain("let serviceWorkerRegistrationRequested = false;");
     expect(helper).toContain("export function requestServiceWorkerCache()");
