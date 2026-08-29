@@ -242,7 +242,9 @@ function shelterEvidenceAnnouncementFromValues(
   }
   return parts.length > 0
     ? `${evidenceLabel} ${parts.join("; ")}.`
-    : `${evidenceLabel} unavailable.`;
+    : evidenceLabel === "Shelter-map walk evidence"
+      ? "No published shelter-map walk evidence."
+      : `${evidenceLabel} unavailable.`;
 }
 
 function shelterEvidenceAnnouncement(score: ScoreRecord): string {

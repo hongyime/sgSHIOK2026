@@ -1246,7 +1246,8 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("one or more sub-scores are unavailable");
     expect(html).toContain("No published shelter-map walk");
     expect(html).not.toContain("Shelter-map evidence unavailable");
-    expect(html).toContain("Shelter-map walk evidence unavailable.");
+    expect(html).toContain("No published shelter-map walk evidence.");
+    expect(html).not.toContain("Shelter-map walk evidence unavailable.");
     expect(html).toContain("Locked score unavailable");
     expect(html).toContain("<span>No full locked score</span><strong>Walk evidence</strong>");
     expect(html).toContain("<strong>Unavailable</strong><small>Shelter-map walk unavailable</small>");

@@ -302,6 +302,8 @@ describe("score card copy", () => {
     expect(source).toContain("function shelterEvidenceAnnouncement(score: ScoreRecord): string");
     expect(source).toContain('evidenceLabel = "Shelter-map walk evidence"');
     expect(source).toContain('`${evidenceLabel} ${parts.join("; ")}.`');
+    expect(source).toContain('"No published shelter-map walk evidence."');
+    expect(source).not.toContain('"Shelter-map walk evidence unavailable."');
     expect(source).not.toContain('"Walk evidence unavailable"');
     expect(source).toContain("${shelterText} ${scoreLabel} ${scoreText}.");
     expect(source).toContain(

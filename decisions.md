@@ -2222,3 +2222,7 @@ The access display row already says `Walk to stop or exit`, so its unavailable-s
 2026-08-29 - P920 missing walk reason copy:
 
 Generic missing-path reason chips should say `No published shelter-map walk` instead of `Shelter-map evidence unavailable`. The former tells the user what is absent from the frozen published data; the latter is broader and less actionable. Detailed row meta remains `Shelter-map walk unavailable` where it describes the unavailable measurement. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P921 shelter announcement missing-walk copy:
+
+The screen-reader shelter evidence fallback should name the published-data absence instead of saying `Shelter-map walk evidence unavailable.` The default no-evidence announcement now says `No published shelter-map walk evidence.`, while custom evidence labels still use the generic unavailable fallback. This is browser accessibility copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
