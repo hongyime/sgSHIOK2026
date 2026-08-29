@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `34c7978` (`perf: persist OneMap search cache for repeat visits`)
+Latest substantive commit: `d4ec3c3` (`perf: persist route preview cache for repeat visits`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P1000 is complete and pushed: successful live OneMap route-preview responses now persist in bounded browser storage for one day using `shiok:onemap-route-preview:v2:{postal}:{stop}:{coords}` entries with `{ cached_at, payload }`, preferring `localStorage` and falling back to `sessionStorage` or memory-only. Failed, unavailable, and geometry-less previews remain uncached and retryable. Focused route interaction test passed 1 file / 11 tests; repo integrity passed. Evidence: `qa/verification/P1000-route-preview-persistent-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P999 is complete and pushed: successful OneMap search responses now persist in bounded browser storage for one day using `shiok:onemap-search:v2:{normalized query}` entries with `{ cached_at, payload }`, preferring `localStorage` and falling back to `sessionStorage` or memory-only when browser storage is unavailable. This reduces repeat `/api/onemap-search` requests across visits while keeping failed searches uncached and retryable. Focused OneMap search test passed 1 file / 6 tests; repo integrity passed. Evidence: `qa/verification/P999-onemap-search-persistent-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P998 is complete and pushed: service-worker cache-first behavior is now bounded for stable non-hashed URLs. `/` is reused for up to one day, `/robots.txt` and `/sitemap.xml` for up to one week, while `/_next/static/`, `/data/`, and `/icon.svg` remain cache-first because they are hashed, versioned, or static artifacts. Focused deployment test passed 1 file / 27 tests; repo integrity passed. Evidence: `qa/verification/P998-service-worker-freshness.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P997 is complete and pushed: `/sw.js` now has explicit deployment headers with bounded `Cache-Control: public, max-age=3600, stale-while-revalidate=86400`, `X-Robots-Tag: noindex, nofollow, noarchive`, and `Service-Worker-Allowed: /`. It deliberately does not use immutable one-year caching because the filename is stable and service-worker updates must propagate. Focused deployment test passed 1 file / 26 tests; repo integrity passed. Evidence: `qa/verification/P997-service-worker-headers.md`. This is not live until the owner performs an explicit Vercel deployment.
