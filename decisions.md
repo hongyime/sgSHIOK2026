@@ -2210,3 +2210,7 @@ The `NOT_YET_SCORED` note should not imply that scoring is queued or pending. Th
 2026-08-29 - P917 live-preview published-data copy:
 
 Live OneMap preview copy should say the clicked stop or exit is outside the published shelter-map data, not `not part of ... yet`. A preview route is a live lookup outside the frozen data, not a promise that the address will later be included. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P918 locked-score availability bucket copy:
+
+The locked-score availability disclosure should not label `NOT_YET_SCORED` records as `awaiting scoring`, because that implies a queued pipeline state. The formatter now labels that bucket as records `without published locked scores`, and README uses the same static published-data boundary. This is browser/docs copy and test work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
