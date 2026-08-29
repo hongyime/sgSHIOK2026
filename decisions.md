@@ -1,3 +1,6 @@
+2026-08-30 - P1019 broader SEO/data crawler robots block:
+The non-user crawler robots blocklist should cover common SEO/data crawlers beyond Semrush and Ahrefs while still avoiding ordinary search discovery agents such as Googlebot and Bingbot. The blocklist now adds MJ12bot, DotBot, BLEXBot, PetalBot, Barkrowler, DataForSeoBot, MauiBot, and serpstatbot. This is a polite-crawler request-reduction measure only; it does not hard-block traffic at Vercel, deploy, mutate Vercel settings, score, export, rescore, ingest, build network, mutate public data, protected evidence, inputs, or locked weights.
+
 2026-08-30 - P1018 section 10 reference current copy:
 The Section 10 presentation reference should match the browser language that has shipped since P18-P1017. The implemented-state reference now says `Walk to stop or exit` rather than `Walk to transit`, and describes heat support as `sparse nearby greenery` rather than exposing `NParks greenery proxy` in the user-facing copy examples. This is documentation/test/evidence work only; it does not alter rendered browser code, scoring, exports, inputs, public data, deployment, protected payloads, or locked weights.
 

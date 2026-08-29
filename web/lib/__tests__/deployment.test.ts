@@ -127,6 +127,14 @@ describe("deployment packaging", () => {
       "meta-externalagent",
       "SemrushBot",
       "AhrefsBot",
+      "MJ12bot",
+      "DotBot",
+      "BLEXBot",
+      "PetalBot",
+      "Barkrowler",
+      "DataForSeoBot",
+      "MauiBot",
+      "serpstatbot",
     ]) {
       expect(robots).toContain(`"${crawler}"`);
     }
@@ -138,6 +146,8 @@ describe("deployment packaging", () => {
     expect(robots).toContain('sitemap: "https://sgshiok.vercel.app/sitemap.xml"');
     expect(robots).not.toContain("OAI-SearchBot");
     expect(robots).not.toContain("Claude-SearchBot");
+    expect(robots).not.toContain("Googlebot");
+    expect(robots).not.toContain("Bingbot");
   });
 
   it("discourages duplicate crawling of shared-link query variants", () => {

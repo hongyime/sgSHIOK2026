@@ -13,6 +13,14 @@ const NON_USER_CRAWLER_BLOCKLIST = [
   "meta-externalagent",
   "SemrushBot",
   "AhrefsBot",
+  "MJ12bot",
+  "DotBot",
+  "BLEXBot",
+  "PetalBot",
+  "Barkrowler",
+  "DataForSeoBot",
+  "MauiBot",
+  "serpstatbot",
 ];
 
 export default function robots(): MetadataRoute.Robots {
