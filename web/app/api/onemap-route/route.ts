@@ -10,6 +10,9 @@ import {
 // Simple in-memory rate limiting map: IP -> { count, windowStart }
 const ipThrottleMap = new Map<string, ThrottleRecord>();
 const MAX_REQ_PER_MINUTE = 60;
+const ROUTE_CACHE_HEADERS = {
+  "Cache-Control": "public, max-age=604800, stale-while-revalidate=2592000",
+};
 
 const SINGAPORE_BOUNDS = {
   minLat: 1.15,
@@ -113,13 +116,16 @@ export async function GET(request: NextRequest) {
     const totalDistanceM = data.route_summary?.total_distance ?? 0;
     const totalTimeS = data.route_summary?.total_time ?? 0;
 
-    return NextResponse.json({
-      ok: true,
-      route_geometry: data.route_geometry,
-      total_distance_m: totalDistanceM,
-      total_time_s: totalTimeS,
-      status_message: data.status_message ?? "Found route",
-    });
+    return NextResponse.json(
+      {
+        ok: true,
+        route_geometry: data.route_geometry,
+        total_distance_m: totalDistanceM,
+        total_time_s: totalTimeS,
+        status_message: data.status_message ?? "Found route",
+      },
+      { headers: ROUTE_CACHE_HEADERS }
+    );
   } catch (err) {
     console.error("Error proxying OneMap route:", err);
     return NextResponse.json({ ok: false, error: "Failed to query OneMap route API" }, { status: 500 });

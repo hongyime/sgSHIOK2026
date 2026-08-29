@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { GET as routeGet } from "../../app/api/onemap-route/route";
 import { GET as searchGet } from "../../app/api/onemap-search/route";
 import {
   checkThrottle,
@@ -8,6 +9,85 @@ import {
 } from "../../app/api/onemap";
 
 describe("OneMap API security helpers", () => {
+  it("marks successful OneMap search proxy responses cacheable", async () => {
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = (async () =>
+      new Response(
+        JSON.stringify({
+          found: 1,
+          results: [
+            {
+              POSTAL: "560231",
+              BUILDING: "Example",
+              ROAD_NAME: "",
+              LATITUDE: "1.37",
+              LONGITUDE: "103.84",
+              SEARCHVAL: "EXAMPLE",
+            },
+          ],
+        }),
+        {
+          status: 200,
+          headers: { "content-type": "application/json" },
+        }
+      )) as typeof fetch;
+
+    try {
+      const request = new Request("https://example.test/api/onemap-search?searchVal=560231", {
+        headers: { "x-real-ip": "203.0.113.211" },
+      });
+      const response = await searchGet(request as never);
+
+      expect(response.status).toBe(200);
+      expect(response.headers.get("cache-control")).toBe("public, max-age=86400, stale-while-revalidate=604800");
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
+  });
+
+  it("marks successful OneMap route proxy responses cacheable", async () => {
+    const originalFetch = globalThis.fetch;
+    const originalEmail = process.env.ONEMAP_EMAIL;
+    const originalPassword = process.env.ONEMAP_PASSWORD;
+    delete process.env.ONEMAP_EMAIL;
+    delete process.env.ONEMAP_PASSWORD;
+    globalThis.fetch = (async () =>
+      new Response(
+        JSON.stringify({
+          route_geometry: "u|qxAcm}xR??",
+          route_summary: { total_distance: 42, total_time: 60 },
+          status_message: "Found route",
+        }),
+        {
+          status: 200,
+          headers: { "content-type": "application/json" },
+        }
+      )) as typeof fetch;
+
+    try {
+      const request = new Request(
+        "https://example.test/api/onemap-route?startLat=1.37&startLng=103.84&endLat=1.371&endLng=103.841",
+        { headers: { "x-real-ip": "203.0.113.212" } }
+      );
+      const response = await routeGet(request as never);
+
+      expect(response.status).toBe(200);
+      expect(response.headers.get("cache-control")).toBe("public, max-age=604800, stale-while-revalidate=2592000");
+    } finally {
+      if (originalEmail === undefined) {
+        delete process.env.ONEMAP_EMAIL;
+      } else {
+        process.env.ONEMAP_EMAIL = originalEmail;
+      }
+      if (originalPassword === undefined) {
+        delete process.env.ONEMAP_PASSWORD;
+      } else {
+        process.env.ONEMAP_PASSWORD = originalPassword;
+      }
+      globalThis.fetch = originalFetch;
+    }
+  });
+
   it("rate limits spoofed forwarded prefixes at the actual search route", async () => {
     const originalFetch = globalThis.fetch;
     globalThis.fetch = (async () =>

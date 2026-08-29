@@ -10,6 +10,9 @@ import {
 // Simple in-memory rate limiting map: IP -> { count, windowStart }
 const ipThrottleMap = new Map<string, ThrottleRecord>();
 const MAX_REQ_PER_MINUTE = 30;
+const SEARCH_CACHE_HEADERS = {
+  "Cache-Control": "public, max-age=86400, stale-while-revalidate=604800",
+};
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -60,10 +63,13 @@ export async function GET(request: NextRequest) {
     const data = await response.json();
     const results = (data.results || []).slice(0, 5);
 
-    return NextResponse.json({
-      found: data.found || 0,
-      results,
-    });
+    return NextResponse.json(
+      {
+        found: data.found || 0,
+        results,
+      },
+      { headers: SEARCH_CACHE_HEADERS }
+    );
   } catch (err) {
     console.error("Error proxying OneMap search:", err);
     return NextResponse.json({ error: "Failed to query OneMap search API" }, { status: 500 });
