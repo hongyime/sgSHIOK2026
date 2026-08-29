@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `0e44821` (`chore: disable automatic Vercel git deployments`)
+Latest substantive commit: `642ac3f` (`docs: record Vercel quota follow-up`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P948 is complete and pushed: Vercel runtime logs over 24h showed only 2 `/api/onemap-search` requests and 1 `/` request, while static-source runtime logs exposed only `/`; this does not reconcile the dashboard Edge/CDN total and keeps the build/deployment path as the stronger immediate quota explanation. Live production is currently `0405ec9`, so P942/P943/P944 mitigations are live; P945/P946/P947 are committed on main but not live because deployment quota was hit before those commits. Evidence: `qa/verification/P948-vercel-quota-followup.md`.
 - P947 is complete and pushed: `web/vercel.json` now sets `git.deploymentEnabled=false`, matching the standing rule that publishing is an owner decision and preventing Git pushes from automatically spending Vercel deployment quota. Evidence recorded that the Hobby team was deployment-rate-limited for 24 hours and that `0e44821` had no Vercel status immediately after push. Focused deployment test passed 1 file / 14 tests; full web tests passed 24 files / 182 tests; repo integrity passed. Evidence: `qa/verification/P947-disable-vercel-auto-deploy.md`.
 - P946 is complete and pushed: `web/scripts/ensure-data-bundle.mjs` now restores missing deployment data from `.next/cache/shiok-data/<bundle>` before downloading from the live site, then copies the cached bundle into `public/data` for the build. This addresses Vercel builds repeatedly downloading the live data bundle; observed build log for `0405ec9` spent about 8m25s downloading from `https://sgshiok.vercel.app/data/generated_20260805_prefer_scored_routed/`. Focused tests passed 2 files / 15 tests; full web tests passed 24 files / 181 tests; repo integrity passed. Evidence: `qa/verification/P946-vercel-build-data-cache.md`.
 - P945 is complete and pushed: initial mount no longer prefetches the island-wide `transit/pois.json`; it now fetches only the manifest, and loads the island-wide transit POI file only as a selected-postal fallback when route-local transit shards return no features. Focused web test passed 1 file / 11 tests; full web tests passed 24 files / 180 tests; repo integrity passed. Evidence: `qa/verification/P945-lazy-transit-poi-load.md`.
