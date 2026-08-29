@@ -154,8 +154,8 @@ describe("rendered accessibility output", () => {
 
     expect(formatDataDate(manifest)).toBe("2 Aug 2026");
     expect(formatGeneratedDate(manifest)).toBe("5 Aug 2026");
-    expect(formatDataDate(null)).toBe("Unavailable");
-    expect(formatGeneratedDate(null)).toBe("Unavailable");
+    expect(formatDataDate(null)).toBe("Date unavailable");
+    expect(formatGeneratedDate(null)).toBe("Date unavailable");
   });
 
   it("renders visible map attribution instead of relying on source-only checks", () => {

@@ -396,7 +396,7 @@ function normalizePostal(value: string): string | null {
 }
 
 export function formatDataDate(manifest: Manifest | null): string {
-  if (!manifest?.data_as_of) return "Unavailable";
+  if (!manifest?.data_as_of) return "Date unavailable";
   return new Date(manifest.data_as_of).toLocaleDateString("en-SG", {
     day: "numeric",
     month: "short",
@@ -405,7 +405,7 @@ export function formatDataDate(manifest: Manifest | null): string {
 }
 
 export function formatGeneratedDate(manifest: Manifest | null): string {
-  if (!manifest?.generated_at) return "Unavailable";
+  if (!manifest?.generated_at) return "Date unavailable";
   return new Date(manifest.generated_at).toLocaleDateString("en-SG", {
     day: "numeric",
     month: "short",

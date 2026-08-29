@@ -2158,3 +2158,7 @@ Planning-area loading text should say it is loading a comparison, not ranks, for
 2026-08-29 - P904 preview badge published shelter-map data:
 
 Live OneMap preview route badges should say `Not in published shelter-map data` instead of generic `Not in published data`. The preview can show shelter-map evidence, but it is not part of the frozen published shelter-map dataset or locked score. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P905 date fallback copy:
+
+Date fallback copy should say `Date unavailable` instead of bare `Unavailable` in the title-card source/evidence date line. Numeric score and row-value fallbacks remain unchanged. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
