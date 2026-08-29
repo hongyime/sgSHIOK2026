@@ -47,6 +47,19 @@ describe("deployment packaging", () => {
     expect(robots).toContain('allow: "/"');
     expect(robots).toContain('disallow: ["/api/", "/data/"]');
     expect(robots).toContain("crawlDelay: 10");
+    expect(robots).toContain('sitemap: "https://sgshiok.vercel.app/sitemap.xml"');
+  });
+
+  it("publishes a single-page sitemap for polite crawlers", () => {
+    const sitemap = readFileSync(join(__dirname, "../../app/sitemap.ts"), "utf-8");
+
+    expect(sitemap).toContain('const SITE_URL = "https://sgshiok.vercel.app/";');
+    expect(sitemap).toContain("export default function sitemap()");
+    expect(sitemap).toContain("url: SITE_URL");
+    expect(sitemap).toContain('changeFrequency: "weekly"');
+    expect(sitemap).toContain("priority: 1");
+    expect(sitemap).not.toContain("/data/");
+    expect(sitemap).not.toContain("/api/");
   });
 
   it("caches robots.txt so crawlers do not revalidate it on every visit", () => {

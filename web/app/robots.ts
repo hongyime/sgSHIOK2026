@@ -8,5 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       disallow: ["/api/", "/data/"],
       crawlDelay: 10,
     },
+    sitemap: "https://sgshiok.vercel.app/sitemap.xml",
   };
 }
