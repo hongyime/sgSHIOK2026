@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `02ab5f9` (`docs: clarify nearby address aria labels`)
+Latest substantive commit: `7199a1a` (`docs: align night lighting layer copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P936 is complete and pushed: route-detail night-lighting copy now uses `show the layer` consistently with the main map-layer control; an initial source assertion still expected the old `Switch on` sentence, then the corrected focused web run passed 2 files / 63 tests.
 - P935 is complete and pushed: assistive nearby-address labels now use natural `Nearby address comparison` / `Choose nearby address comparison view` copy instead of hyphenated `Nearby-address` wording.
 - P934 is complete and pushed: overall nearby-address comparison loading/status copy now says addresses are ordered by locked score instead of using the internal `locked score order` phrase.
 - P933 is complete and pushed: nearby-address metric comparison announcements now use direct sentences such as `Loading nearby addresses for covered-walkway evidence` and `No comparable nearby addresses for bus service support`; an initial source-string assertion failed, then the corrected focused web run passed 2 files / 63 tests.
