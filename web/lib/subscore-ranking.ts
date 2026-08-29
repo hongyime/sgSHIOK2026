@@ -3,7 +3,7 @@ import type { Subscores } from "./types";
 export type RankMetric = "overall" | keyof Subscores;
 
 export const RANK_METRIC_OPTIONS: Array<{ id: RankMetric; label: string }> = [
-  { id: "overall", label: "Locked score order" },
+  { id: "overall", label: "Overall locked score" },
   { id: "rain", label: "Covered-walkway evidence" },
   { id: "access", label: "Walk-distance evidence" },
   { id: "bus", label: "Bus service support" },

@@ -709,7 +709,7 @@ describe("rendered accessibility output", () => {
   });
 
   it("matches planning-area empty copy to the selected comparison view", () => {
-    expect(rankEmptyMessage("overall", "Locked score order")).toBe(
+    expect(rankEmptyMessage("overall", "Overall locked score")).toBe(
       "No nearby addresses with full locked scores in this planning area."
     );
     expect(rankEmptyMessage("rain", "Covered-walkway evidence")).toBe(
@@ -732,6 +732,7 @@ describe("rendered accessibility output", () => {
       rankAnnouncement({
         loading: true,
         rankedCount: 0,
+        rankMetric: "rain",
         rankMetricLabel: "Covered-walkway evidence",
       })
     ).toBe("Loading nearby addresses for covered-walkway evidence.");
@@ -739,6 +740,7 @@ describe("rendered accessibility output", () => {
       rankAnnouncement({
         loading: false,
         rankedCount: 0,
+        rankMetric: "bus",
         rankMetricLabel: "Bus service support",
       })
     ).toBe("No comparable nearby addresses for bus service support.");
@@ -746,7 +748,8 @@ describe("rendered accessibility output", () => {
       rankAnnouncement({
         loading: false,
         rankedCount: 5,
-        rankMetricLabel: "Locked score order",
+        rankMetric: "overall",
+        rankMetricLabel: "Overall locked score",
       })
     ).toBe("5 nearby addresses ordered by locked score.");
   });

@@ -764,7 +764,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("Bundle score incomplete");
     expect(source).toContain('label: "Locked SHIOK score"');
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
-      '{ id: "overall", label: "Locked score order" }'
+      '{ id: "overall", label: "Overall locked score" }'
     );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
       '{ id: "rain", label: "Covered-walkway evidence" }'
@@ -788,6 +788,9 @@ describe("score card copy", () => {
       '{ id: "overall", label: "Locked SHIOK score" }'
     );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
+      '{ id: "overall", label: "Locked score order" }'
+    );
+    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
       '{ id: "rain", label: "Rain-shelter evidence" }'
     );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
@@ -802,7 +805,7 @@ describe("score card copy", () => {
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
       "score factor"
     );
-    expect(source).toContain('?? "Locked score order"');
+    expect(source).toContain('?? "Overall locked score"');
     expect(source).toContain('"Sorting-only score"');
     expect(source).not.toContain('"Release sorting index"');
     expect(source).toContain("Start with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.");
@@ -838,7 +841,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("Planning-area locked-score factor view; locked SHIOK score is unchanged.");
     expect(source).not.toContain("Planning-area locked-term view; locked SHIOK score is unchanged.");
     expect(source).not.toContain("Planning-area component evidence view; locked SHIOK score is unchanged.");
-    expect(source).toContain("const rankLoadingText = rankMetricLabel.endsWith(\"order\")");
+    expect(source).toContain('const rankLoadingText = rankMetric === "overall"');
+    expect(source).not.toContain("const rankLoadingText = rankMetricLabel.endsWith(\"order\")");
     expect(source).toContain("{rankLoadingText}");
     expect(source).not.toContain("Loading planning-area {rankSentenceLabel} ranks.");
     expect(source).not.toContain("Loading planning-area ${rankSentenceLabel} ranks.");

@@ -358,14 +358,16 @@ export function scoreCardAnnouncement({
 export function rankAnnouncement({
   loading,
   rankedCount,
+  rankMetric,
   rankMetricLabel,
 }: {
   loading: boolean;
   rankedCount: number;
+  rankMetric: RankMetric;
   rankMetricLabel: string;
 }): string {
   const sentenceLabel = rankSentenceMetricLabel(rankMetricLabel);
-  if (rankMetricLabel.endsWith("order")) {
+  if (rankMetric === "overall") {
     if (loading) return "Loading nearby addresses ordered by locked score.";
     if (rankedCount === 0) return "No nearby addresses with full locked scores.";
     return `${rankedCount} nearby address${rankedCount === 1 ? "" : "es"} ordered by locked score.`;
@@ -1349,14 +1351,15 @@ export function ScoreCard({
     [rankingRecords, rankMetric]
   );
   const rankMetricLabel =
-    RANK_METRIC_OPTIONS.find((option) => option.id === rankMetric)?.label ?? "Locked score order";
+    RANK_METRIC_OPTIONS.find((option) => option.id === rankMetric)?.label ?? "Overall locked score";
   const rankSentenceLabel = rankSentenceMetricLabel(rankMetricLabel);
-  const rankLoadingText = rankMetricLabel.endsWith("order")
+  const rankLoadingText = rankMetric === "overall"
     ? "Loading nearby addresses ordered by locked score."
     : `Loading nearby addresses for ${rankSentenceLabel}.`;
   const rankStatus = rankAnnouncement({
     loading: rankingLoading,
     rankedCount: rankedRecords.length,
+    rankMetric,
     rankMetricLabel,
   });
   const sourceBreakdown = routeSourceBreakdown(selection, routeMode, sameRoute);
