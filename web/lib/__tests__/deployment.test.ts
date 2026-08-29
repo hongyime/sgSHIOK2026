@@ -36,6 +36,14 @@ describe("deployment packaging", () => {
     expect(config).toContain('value: "public, max-age=31536000, immutable"');
   });
 
+  it("marks Next static chunks cacheable to reduce repeat edge requests", () => {
+    const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
+
+    expect(config).toContain('source: "/_next/static/:path*"');
+    expect(config).toContain('value: "public, max-age=31536000, immutable"');
+    expect(config).toContain('value: "noindex, nofollow, noarchive"');
+  });
+
   it("caches the app shell to reduce repeat edge requests", () => {
     const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
 

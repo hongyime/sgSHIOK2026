@@ -73,6 +73,20 @@ const nextConfig = {
         ],
       },
       {
+        source: "/_next/static/:path*",
+        headers: [
+          ...securityHeaders,
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, nofollow, noarchive",
+          },
+        ],
+      },
+      {
         source: "/robots.txt",
         headers: [
           ...securityHeaders,
