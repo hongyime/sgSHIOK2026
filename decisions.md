@@ -1958,3 +1958,7 @@ Browser and README P19 copy should not embed an expiring `current until 4 Sep 20
 2026-08-29 - P839 P19 base policy currentness:
 
 The base `RECENT_PUBLIC_SOURCE_GAP_SAMPLE` literal must not itself claim that the P19 v2 sample is fresh, because that truth expires with time. The literal now records `runtime_status_required` and defaults `fresh_for_current_gap_sizing` to false; report callers use `recent_public_source_gap_sample_policy()` to overlay the live read-only P19 cache status when currentness is needed. This is source-policy reporting/test/evidence work only; it does not call APIs, mutate P19 payload files, score, export, public data, deployment, or locked weights.
+
+2026-08-29 - P840 browser source-freshness snapshot copy:
+
+Browser source-freshness detail should not describe dated days-to-stale values as live freshness. The copy now says that Bus Stops, Bus Services, Bus Routes, and HDB Existing Building had those statuses at the 28 Aug 2026 manifest-only check, and directs operators to the zero-mutation source-age check for live days-to-stale numbers before release work. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
