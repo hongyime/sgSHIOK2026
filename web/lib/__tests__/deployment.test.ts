@@ -40,7 +40,7 @@ describe("deployment packaging", () => {
     const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
 
     expect(config).toContain('source: "/"');
-    expect(config).toContain('value: "public, max-age=3600, stale-while-revalidate=21600"');
+    expect(config).toContain('value: "public, max-age=86400, stale-while-revalidate=604800"');
   });
 
   it("keeps crawler controls away from data and API payloads", () => {
