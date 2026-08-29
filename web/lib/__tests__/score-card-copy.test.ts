@@ -485,6 +485,9 @@ describe("score card copy", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
     expect(source).toContain(
+      "Walk evidence: covered-walkway ratio and exposed gaps, plus the night-lighting map layer.",
+    );
+    expect(source).not.toContain(
       "Source-derived walk evidence: covered-walkway ratio and exposed gaps, plus the night-lighting map layer.",
     );
     expect(source).not.toContain("Source-derived covered-walkway ratio, exposed gaps, and night lighting map evidence.");

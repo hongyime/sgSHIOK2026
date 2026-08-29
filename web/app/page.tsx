@@ -2519,7 +2519,7 @@ export default function Home() {
           </aside>
         )}
 
-        <footer className={styles.pageFooter}>Source-derived walk evidence: covered-walkway ratio and exposed gaps, plus the night-lighting map layer.</footer>
+        <footer className={styles.pageFooter}>Walk evidence: covered-walkway ratio and exposed gaps, plus the night-lighting map layer.</footer>
       </section>
     </main>
   );

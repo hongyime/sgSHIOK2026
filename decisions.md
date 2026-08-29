@@ -2002,3 +2002,7 @@ Browser-visible empty states, preview caveats, and unavailable-score messages sh
 2026-08-29 - P850 data-limits June 2020 summary:
 
 The collapsed Data limits summary should expose the user-relevant address age rather than internal v1 versioning. It now says `Data limits: June 2020 addresses; roughly 1 in 4 lack full locked scores`, while the expanded disclosure still states that the address universe is frozen v1 from a June 2020 OneMap-derived postal scrape. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P851 footer walk-evidence wording:
+
+The browser footer should close with the product object, not provenance framing. It now says `Walk evidence: covered-walkway ratio and exposed gaps, plus the night-lighting map layer`, removing the `Source-derived` prefix while preserving the same evidence claim. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
