@@ -165,8 +165,8 @@ describe("deployment packaging", () => {
     expect(sitemap).toContain('const SITE_URL = "https://sgshiok.vercel.app/";');
     expect(sitemap).toContain("export default function sitemap()");
     expect(sitemap).toContain("url: SITE_URL");
-    expect(sitemap).toContain('changeFrequency: "weekly"');
-    expect(sitemap).toContain("priority: 1");
+    expect(sitemap).toContain('changeFrequency: "monthly"');
+    expect(sitemap).toContain("priority: 0.3");
     expect(sitemap).not.toContain("/data/");
     expect(sitemap).not.toContain("/api/");
   });
