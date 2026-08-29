@@ -2434,7 +2434,7 @@ export default function Home() {
             aria-label="Search OneMap address or 6-digit postal"
           />
           <button id="postal-search-button" type="submit" disabled={loading} aria-busy={loading}>
-            {loading ? "Loading" : "Search"}
+            {loading ? "Searching" : "Search"}
           </button>
         </form>
 

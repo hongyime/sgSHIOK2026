@@ -2142,3 +2142,7 @@ When a scored walk lacks a named best node, the browser should say the transit s
 2026-08-29 - P900 stop/exit access source label:
 
 Shelter-source evidence should label destination connector segments as `Stop/exit access walk` instead of `Transit access walk`. The underlying source-layer key is unchanged; only the browser-facing source label moves to the same stop-or-exit vocabulary as the first-view, access row, and route notes. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P901 search button busy copy:
+
+The first-view search submit button should say `Searching` while a OneMap/address-list lookup is running, not generic `Loading`. This makes the busy state describe the user's action and keeps loading terminology out of the primary search control. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

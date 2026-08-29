@@ -258,6 +258,8 @@ describe("score card copy", () => {
     expect(source).toContain('aria-label="Sample search"');
     expect(source).toContain("Need a quick look?");
     expect(source).toContain("Try Mayflower S560234");
+    expect(source).toContain('{loading ? "Searching" : "Search"}');
+    expect(source).not.toContain('{loading ? "Loading" : "Search"}');
     expect(source).not.toContain("Try S560234");
     expect(source).not.toContain('placeholder="Search address or 6-digit postal"');
     expect(source).not.toContain('aria-label="Search address or 6-digit postal"');
