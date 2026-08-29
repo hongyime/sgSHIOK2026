@@ -1846,13 +1846,14 @@ export function ScoreCard({
               </>
             );
             if (focusTarget && onFocusExposureGap) {
+              const actionLocation = location ?? `${focusTarget.lat.toFixed(5)}, ${focusTarget.lon.toFixed(5)}`;
               return (
                 <button
                   key={focusTarget.key}
                   type="button"
                   className={`${styles.gapItem} ${activeGap ? styles.gapItemActive : ""}`}
                   aria-pressed={activeGap}
-                  aria-label={exposureGapMapActionLabel(gap, index, location, activeGap)}
+                  aria-label={exposureGapMapActionLabel(gap, index, actionLocation, activeGap)}
                   onClick={() => onFocusExposureGap(focusTarget)}
                 >
                   {gapContent}
@@ -1891,13 +1892,14 @@ export function ScoreCard({
                   </>
                 );
                 if (focusTarget && onFocusExposureGap) {
+                  const actionLocation = location ?? `${focusTarget.lat.toFixed(5)}, ${focusTarget.lon.toFixed(5)}`;
                   return (
                     <button
                       key={focusTarget.key}
                       type="button"
                       className={`${styles.gapItem} ${activeGap ? styles.gapItemActive : ""}`}
                       aria-pressed={activeGap}
-                      aria-label={exposureGapMapActionLabel(gap, index, location, activeGap)}
+                      aria-label={exposureGapMapActionLabel(gap, index, actionLocation, activeGap)}
                       onClick={() => onFocusExposureGap(focusTarget)}
                     >
                       {gapContent}

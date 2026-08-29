@@ -942,7 +942,9 @@ describe("score card copy", () => {
 
     expect(source).toContain("function exposureGapMapActionLabel");
     expect(source).toContain('const action = active ? "Selected on map for" : "Focus on map for";');
-    expect(source).toContain("aria-label={exposureGapMapActionLabel(gap, index, location, activeGap)}");
+    expect(source).toContain("const actionLocation = location ?? `${focusTarget.lat.toFixed(5)}, ${focusTarget.lon.toFixed(5)}`;");
+    expect(source).toContain("aria-label={exposureGapMapActionLabel(gap, index, actionLocation, activeGap)}");
+    expect(source).not.toContain("aria-label={exposureGapMapActionLabel(gap, index, location, activeGap)}");
     expect(source).not.toContain("aria-label={`Focus on map for ${exposureGapCopy(gap.len_m, index)}");
   });
 
