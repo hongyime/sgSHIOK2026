@@ -321,7 +321,8 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Custom stop selected.");
     expect(html).toContain("Walk display shortest walk");
     expect(html).toContain('aria-busy="true"');
-    expect(html).toContain("Loading planning-area locked score sorting index ranks.");
+    expect(html).toContain("Loading planning-area locked score order.");
+    expect(html).not.toContain("Loading planning-area locked score sorting index ranks.");
     expect(html).not.toContain("Loading planning-area Locked SHIOK score ranks.");
     expect(html).not.toContain("Loading planning-area Locked score sorting index ranks.");
     expect(html).toContain('aria-label="Shelter-map panel"');
@@ -619,6 +620,9 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Choose planning-area evidence view");
     expect(html).not.toContain("Rank records by");
     expect(html).toContain(
+      "Planning-area list orders by locked score; shelter-map walk evidence remains the primary view."
+    );
+    expect(html).not.toContain(
       "Planning-area list uses locked score only as a sorting index; shelter-map walk evidence remains the primary view."
     );
     expect(html).not.toContain("Planning-area list sorted by locked score; shelter-map walk evidence remains the primary view.");
@@ -679,7 +683,7 @@ describe("rendered accessibility output", () => {
   });
 
   it("matches planning-area empty copy to the selected comparison view", () => {
-    expect(rankEmptyMessage("overall", "Locked score sorting index")).toBe(
+    expect(rankEmptyMessage("overall", "Locked score order")).toBe(
       "No comparable full locked scores in this planning area."
     );
     expect(rankEmptyMessage("rain", "Covered-walkway evidence")).toBe(
@@ -715,14 +719,17 @@ describe("rendered accessibility output", () => {
       rankAnnouncement({
         loading: false,
         rankedCount: 5,
-        rankMetricLabel: "Locked score sorting index",
+        rankMetricLabel: "Locked score order",
       })
-    ).toBe("5 planning-area locked score sorting index ranks available.");
+    ).toBe("5 planning-area records in locked score order.");
   });
 
   it("does not call crossing friction an evidence view in planning-area helper copy", () => {
     expect(rankPanelDescription("overall", false)).toBe("Loads planning-area ranks only when opened.");
     expect(rankPanelDescription("overall", true)).toBe(
+      "Planning-area list orders by locked score; shelter-map walk evidence remains the primary view."
+    );
+    expect(rankPanelDescription("overall", true)).not.toBe(
       "Planning-area list uses locked score only as a sorting index; shelter-map walk evidence remains the primary view."
     );
     expect(rankPanelDescription("rain", true)).toBe(

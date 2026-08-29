@@ -304,6 +304,11 @@ export function rankAnnouncement({
   rankMetricLabel: string;
 }): string {
   const sentenceLabel = rankSentenceMetricLabel(rankMetricLabel);
+  if (rankMetricLabel.endsWith("order")) {
+    if (loading) return `Loading planning-area ${sentenceLabel}.`;
+    if (rankedCount === 0) return `No planning-area records in ${sentenceLabel}.`;
+    return `${rankedCount} planning-area record${rankedCount === 1 ? "" : "s"} in ${sentenceLabel}.`;
+  }
   if (loading) return `Loading planning-area ${sentenceLabel} ranks.`;
   if (rankedCount === 0) return `No planning-area ${sentenceLabel} ranks available.`;
   return `${rankedCount} planning-area ${sentenceLabel} rank${
@@ -325,7 +330,7 @@ export function rankEmptyMessage(rankMetric: RankMetric, rankMetricLabel: string
 export function rankPanelDescription(rankMetric: RankMetric, rankPanelOpen: boolean): string {
   if (!rankPanelOpen) return "Loads planning-area ranks only when opened.";
   if (rankMetric === "overall") {
-    return "Planning-area list uses locked score only as a sorting index; shelter-map walk evidence remains the primary view.";
+    return "Planning-area list orders by locked score; shelter-map walk evidence remains the primary view.";
   }
   if (rankMetric === "bus" || rankMetric === "heat" || rankMetric === "crossing") {
     return "Planning-area locked-score factor view; locked SHIOK score is unchanged.";
@@ -1283,7 +1288,7 @@ export function ScoreCard({
     [rankingRecords, rankMetric]
   );
   const rankMetricLabel =
-    RANK_METRIC_OPTIONS.find((option) => option.id === rankMetric)?.label ?? "Locked score sorting index";
+    RANK_METRIC_OPTIONS.find((option) => option.id === rankMetric)?.label ?? "Locked score order";
   const rankSentenceLabel = rankSentenceMetricLabel(rankMetricLabel);
   const rankStatus = rankAnnouncement({
     loading: rankingLoading,

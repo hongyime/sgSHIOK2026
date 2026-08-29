@@ -706,7 +706,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("Bundle score incomplete");
     expect(source).toContain('label: "Locked SHIOK score"');
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
-      '{ id: "overall", label: "Locked score sorting index" }'
+      '{ id: "overall", label: "Locked score order" }'
     );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
       '{ id: "rain", label: "Covered-walkway evidence" }'
@@ -741,7 +741,7 @@ describe("score card copy", () => {
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
       '{ id: "heat", label: "Heat proxy evidence" }'
     );
-    expect(source).toContain('?? "Locked score sorting index"');
+    expect(source).toContain('?? "Locked score order"');
     expect(source).toContain('"Sorting-only score"');
     expect(source).not.toContain('"Release sorting index"');
     expect(source).toContain("Start with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.");
@@ -761,6 +761,9 @@ describe("score card copy", () => {
     expect(source).not.toContain('aria-label="Rank by view"');
     expect(source).not.toContain("<strong>Rank by</strong>");
     expect(source).toContain(
+      "Planning-area list orders by locked score; shelter-map walk evidence remains the primary view."
+    );
+    expect(source).not.toContain(
       "Planning-area list uses locked score only as a sorting index; shelter-map walk evidence remains the primary view."
     );
     expect(source).not.toContain("Planning-area list sorted by locked score; shelter-map walk evidence remains the primary view.");
@@ -769,6 +772,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("Planning-area locked-term view; locked SHIOK score is unchanged.");
     expect(source).not.toContain("Planning-area component evidence view; locked SHIOK score is unchanged.");
     expect(source).toContain("Loading planning-area {rankSentenceLabel} ranks.");
+    expect(source).toContain("Loading planning-area ${sentenceLabel}.");
     expect(source).not.toContain("Loading planning-area ranks...");
     expect(source).toContain("No comparable full locked scores in this planning area.");
     expect(source).toContain("No comparable planning-area records for ${rankSentenceMetricLabel(rankMetricLabel)}.");
@@ -776,6 +780,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("No comparable scored records in this planning area.");
     expect(source).not.toContain("Authoritative composite order.");
     expect(source).not.toContain("Planning-area order by locked score.");
+    expect(source).not.toContain("locked score sorting index ranks");
     expect(source).not.toContain("Planning-area sub-score view; locked SHIOK score is unchanged.");
     expect(source).not.toContain("Planning-area component-score view; locked SHIOK score is unchanged.");
     expect(source).toContain("Four display rows; weights unchanged");
