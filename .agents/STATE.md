@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `be3c255` (`perf: cache app icon response`)
+Latest substantive commit: `6cbce5d` (`perf: cache app shell briefly`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P958 is complete and pushed: `/` now receives `Cache-Control: public, max-age=300, stale-while-revalidate=3600`, giving repeat visitors a short browser cache for the static client app shell without making deployments stale for long. Focused deployment test passed 1 file / 19 tests; repo integrity passed. Evidence: `qa/verification/P958-vercel-app-shell-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P957 is complete and pushed: `/icon.svg` now receives `Cache-Control: public, max-age=31536000, immutable`, reducing repeat browser/crawler validation of the app icon. Focused deployment test passed 1 file / 18 tests; repo integrity passed. Evidence: `qa/verification/P957-vercel-icon-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P956 is complete and pushed: `/sitemap.xml` now receives `Cache-Control: public, max-age=86400, stale-while-revalidate=604800`, matching `/robots.txt`, so polite crawlers do not have to revalidate the single-page sitemap on every visit. Focused deployment test passed 1 file / 17 tests; repo integrity passed. Evidence: `qa/verification/P956-vercel-sitemap-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P955 is complete and pushed: added `web/app/sitemap.ts` with exactly one URL (`https://sgshiok.vercel.app/`) and pointed `robots.ts` at `/sitemap.xml`. The sitemap contains no `/data/` or `/api/` URLs, complementing the existing robots disallows and giving polite crawlers an explicit app-shell-only crawl surface. Focused deployment test passed 1 file / 16 tests; full web tests passed 25 files / 187 tests; repo integrity passed. Evidence: `qa/verification/P955-vercel-single-page-sitemap.md`. This is not live until the owner performs an explicit Vercel deployment.
