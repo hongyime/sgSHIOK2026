@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import {
   fetchGeomForPostal,
@@ -22,12 +23,11 @@ import type {
   TransitAccessMode,
   TransitPoiCollection,
 } from "../lib/types";
-import {
-  RouteEvidenceMap,
-  type FocusedExposureGap,
-  type FeedbackPoint,
-  type RouteDisplayMode,
-  type RouteMapItem,
+import type {
+  FocusedExposureGap,
+  FeedbackPoint,
+  RouteDisplayMode,
+  RouteMapItem,
 } from "../components/route-evidence-map";
 import {
   deriveNearestTransitCandidates,
@@ -52,6 +52,11 @@ import {
   type RankMetric,
 } from "../lib/subscore-ranking";
 import styles from "./page.module.css";
+
+const RouteEvidenceMap = dynamic(
+  () => import("../components/route-evidence-map").then((module) => module.RouteEvidenceMap),
+  { ssr: false }
+);
 
 export interface LoadedSelection {
   result: SearchResult;
