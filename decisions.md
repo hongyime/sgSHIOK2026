@@ -1962,3 +1962,7 @@ The base `RECENT_PUBLIC_SOURCE_GAP_SAMPLE` literal must not itself claim that th
 2026-08-29 - P840 browser source-freshness snapshot copy:
 
 Browser source-freshness detail should not describe dated days-to-stale values as live freshness. The copy now says that Bus Stops, Bus Services, Bus Routes, and HDB Existing Building had those statuses at the 28 Aug 2026 manifest-only check, and directs operators to the zero-mutation source-age check for live days-to-stale numbers before release work. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P841 browser freshness user copy:
+
+Browser data-limit copy should not expose internal release-operator phrasing. After P840 removed live-sounding days-to-stale values, the browser now says freshness may have changed since the 28 Aug 2026 snapshot and that source refreshes use new versioned inputs instead of changing the frozen v1 bundle in place. README remains the operator surface for the exact zero-mutation status command. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.

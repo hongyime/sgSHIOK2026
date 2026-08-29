@@ -315,14 +315,15 @@ describe("score card copy", () => {
     expect(source).toContain(
       "Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Traffic Signals"
     );
-    expect(source).toContain("Stale-source refreshes require a new numbered input version");
-    expect(source).toContain("not an in-place frozen-v1 mutation");
+    expect(source).toContain("source refreshes use new versioned inputs instead of changing the frozen v1 bundle in place");
+    expect(source).not.toContain("Stale-source refreshes require a new numbered input version");
     expect(source).not.toContain("Stale sources include");
     expect(source).toContain(
       "At the 28 Aug 2026 manifest-only check, Bus Stops, Bus Services, and Bus Routes were the nearest current sources to their stale threshold"
     );
     expect(source).toContain("HDB Existing Building was the oldest current item");
-    expect(source).toContain("Use the zero-mutation source-age check before release work for live days-to-stale numbers.");
+    expect(source).toContain("Freshness may have changed since that snapshot");
+    expect(source).not.toContain("zero-mutation source-age check before release work");
     expect(source).not.toContain("Bus Stops, Bus Services, and Bus Routes are current but 1.2 days from stale");
     expect(source).not.toContain("51.2 days until stale");
     expect(source).toContain("NParks Leaf Area Index");

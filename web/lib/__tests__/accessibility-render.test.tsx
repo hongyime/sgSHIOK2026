@@ -227,7 +227,9 @@ describe("rendered accessibility output", () => {
     expect(html).toContain(
       "At the 28 Aug 2026 manifest-only check, Bus Stops, Bus Services, and Bus Routes were the nearest current sources to their stale threshold"
     );
-    expect(html).toContain("Use the zero-mutation source-age check before release work for live days-to-stale numbers.");
+    expect(html).toContain("Freshness may have changed since that snapshot");
+    expect(html).toContain("source refreshes use new versioned inputs instead of changing the frozen v1 bundle in place");
+    expect(html).not.toContain("zero-mutation source-age check before release work");
     expect(html).not.toContain("Bus Stops, Bus Services, and Bus Routes are current but 1.2 days from stale");
     expect(html).not.toContain("Data freshness: 28 Aug 2026 11:52 UTC manifest-only check");
     expect(html).not.toContain("16 Aug 2026 public-source sample");
