@@ -595,7 +595,8 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain('aria-label="Score reasons"');
     expect(html).toContain("Shelter exposure");
     expect(html).not.toContain("40% locked rain+heat");
-    expect(html).toContain("Walk to transit");
+    expect(html).toContain("Walk to stop or exit");
+    expect(html).not.toContain("Walk to transit");
     expect(html).toContain("Sheltered walk distance to transit.");
     expect(html).toContain("240 m sheltered walk to transit");
     expect(html).not.toContain("Selected walk distance to transit.");
