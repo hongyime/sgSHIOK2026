@@ -3,7 +3,7 @@
 Date: 2026-08-30
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `d0e9799` (`docs: state move-here promise on first screen`)
+Latest substantive commit: `45ca624` (`docs: align metadata with move-here promise`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P1017 is complete and pushed: browser metadata/share descriptions now start with `If you moved here...`, matching the first-screen residential decision promise while retaining covered-walkway ratio, exposed gaps, the night-lighting map layer, and secondary locked score. The heat-presentation UI audit had eight stale exact-line/string entries after later copy work; those were refreshed to current source and now validate with 9 entries, 0 line mismatches, and 0 expected-line mismatches. Focused web/source tests passed; repo integrity passed. Evidence: `qa/verification/P1017-move-here-metadata.md`.
 - P1016 is complete and pushed: the title card, empty shelter-map panel, and non-visual map summary now state the residential decision use case directly with `If you moved here...` while keeping covered-walkway ratio, exposed gaps, stop/exit walks, and the night-lighting map layer as the visible evidence. First focused test run caught the map summary still using older search-oriented copy; after aligning it, focused web tests passed 3 files / 74 tests and repo integrity passed. Evidence: `qa/verification/P1016-move-here-first-screen.md`.
 - P1015 is complete and pushed: README and CLAUDE now name the full owner-level Vercel hard controls for a Hobby Edge Request incident: deploy current main for committed source reductions, or use project pause/protection, firewall deny rules, or temporary attack mode as owner decisions because they change public availability or visitor friction. Focused docs tests passed 7 tests; repo integrity passed. Evidence: `qa/verification/P1015-vercel-hard-controls-runbook.md`.
 - P1014 is complete and pushed: transit stop/exit UI now labels the default route as `Published walk` and reset/comparison copy as `published stop or exit`, replacing user-facing `Auto-picked` wording. This clarifies that users are comparing the published shelter-map walk against selected stop/exit previews. Focused web tests passed 3 files / 96 tests; repo integrity passed. Evidence: `qa/verification/P1014-published-walk-copy.md`.
