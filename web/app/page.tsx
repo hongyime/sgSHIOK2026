@@ -2320,7 +2320,7 @@ export default function Home() {
       setResults(data.results);
     } catch (err) {
       if (err instanceof OneMapSearchError && err.status === 429) {
-        setError("OneMap search is busy. Please try again in a moment.");
+        setError("OneMap search is busy. Try again in a moment, or enter a 6-digit postal code.");
         return;
       }
       setError(err instanceof Error ? err.message : "Failed to search OneMap address.");

@@ -268,7 +268,8 @@ describe("score card copy", () => {
     expect(source).toContain("This OneMap match has no 6-digit postal code. Choose another match or enter the postal code directly.");
     expect(source).not.toContain("Selected OneMap result has no usable postal code.");
     expect(source).not.toContain("Selected result has no usable postal code.");
-    expect(source).toContain("OneMap search is busy. Please try again in a moment.");
+    expect(source).toContain("OneMap search is busy. Try again in a moment, or enter a 6-digit postal code.");
+    expect(source).not.toContain("OneMap search is busy. Please try again in a moment.");
     expect(source).not.toContain("Search is busy. Please try again in a moment.");
     expect(source).toContain("Failed to search OneMap address.");
     expect(source).not.toContain("Failed to search postal location.");

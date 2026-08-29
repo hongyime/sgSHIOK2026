@@ -2166,3 +2166,7 @@ Date fallback copy should say `Date unavailable` instead of bare `Unavailable` i
 2026-08-29 - P906 OneMap missing-postal error copy:
 
 When a selected OneMap match has no 6-digit postal code, the error should give the user a recovery path instead of saying the result has no usable postal code. The copy now asks the user to choose another match or enter the postal code directly. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P907 OneMap busy error copy:
+
+When OneMap rate-limits address search, the error should preserve a direct fallback path: try again in a moment, or enter a 6-digit postal code. This keeps the primary postal-code workflow available even when address search is busy. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
