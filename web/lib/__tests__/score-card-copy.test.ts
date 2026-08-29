@@ -360,8 +360,9 @@ describe("score card copy", () => {
     expect(source).not.toContain("Live OSM addr:postcode coverage:");
     expect(source).not.toContain("OSM remains the address registry");
     expect(source).toContain(
-      "Source-age snapshot: 29 Aug 2026 09:38 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh."
+      "Source-age snapshot: 29 Aug 2026 17:23 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh."
     );
+    expect(source).not.toContain("Source-age snapshot: 29 Aug 2026 09:38 UTC source-age check");
     expect(source).not.toContain("Source-age snapshot: 28 Aug 2026 22:21 UTC manifest-only check");
     expect(source).not.toContain("Source-age snapshot: 28 Aug 2026 22:21 UTC source-age check");
     expect(source).not.toContain("No upstream URLs were probed.");

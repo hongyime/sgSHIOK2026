@@ -1,3 +1,6 @@
+2026-08-30 - P1023 browser source-age snapshot refresh:
+The browser data-limits disclosure should name the latest zero-mutation `run.py check --freshness-only` measurement when the status counts remain materially unchanged. The 29 Aug 2026 17:23 UTC manifest-only source-age check reports 11 current, 9 stale, 3 manual, and 1 unknown-age candidate source; Bus Stops, Bus Services, and Bus Routes remain nearest to stale, and HDB Existing Building remains the oldest current source. This is browser copy/test/evidence work only; it reads existing raw manifest and source policy, probes no upstream APIs, writes no manifest, and does not alter inputs, scoring, exports, public data, deployment, protected evidence, or locked weights.
+
 2026-08-30 - P1019 broader SEO/data crawler robots block:
 The non-user crawler robots blocklist should cover common SEO/data crawlers beyond Semrush and Ahrefs while still avoiding ordinary search discovery agents such as Googlebot and Bingbot. The blocklist now adds MJ12bot, DotBot, BLEXBot, PetalBot, Barkrowler, DataForSeoBot, MauiBot, and serpstatbot. This is a polite-crawler request-reduction measure only; it does not hard-block traffic at Vercel, deploy, mutate Vercel settings, score, export, rescore, ingest, build network, mutate public data, protected evidence, inputs, or locked weights.
 
