@@ -2250,3 +2250,7 @@ Live OneMap preview failures should say the preview could not load, not that the
 2026-08-29 - P927 locked-row evidence inspectability copy:
 
 When locked-score rows are unavailable but a shelter-map walk exists, the reason chip should say the evidence is inspectable rather than merely available. The UI now uses `Shelter-map evidence inspectable`, which points users to the action they can take in the shelter-first panel. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P928 nearby-address comparison status copy:
+
+Planning-area comparison status copy should use the same nearby-address framing as the visible panel title. The UI now says nearby addresses in loading, count, and empty states, while preserving `in this planning area` where the boundary explains why no comparable address appears. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

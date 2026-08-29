@@ -328,7 +328,8 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Custom stop selected.");
     expect(html).toContain("Walk display shortest walk");
     expect(html).toContain('aria-busy="true"');
-    expect(html).toContain("Loading planning-area locked score order.");
+    expect(html).toContain("Loading nearby-address locked score order.");
+    expect(html).not.toContain("Loading planning-area locked score order.");
     expect(html).not.toContain("Loading planning-area locked score order ranks.");
     expect(html).not.toContain("Loading planning-area locked score sorting index ranks.");
     expect(html).not.toContain("Loading planning-area Locked SHIOK score ranks.");
@@ -703,17 +704,18 @@ describe("rendered accessibility output", () => {
 
   it("matches planning-area empty copy to the selected comparison view", () => {
     expect(rankEmptyMessage("overall", "Locked score order")).toBe(
-      "No comparable full locked scores in this planning area."
+      "No nearby addresses with full locked scores in this planning area."
     );
     expect(rankEmptyMessage("rain", "Covered-walkway evidence")).toBe(
-      "No comparable planning-area addresses for covered-walkway evidence."
+      "No comparable nearby addresses for covered-walkway evidence."
     );
 
     const evidenceHtml = renderScoreCard({
       rankMetric: "rain",
       rankingRecords: [],
     });
-    expect(evidenceHtml).toContain("No comparable planning-area addresses for covered-walkway evidence.");
+    expect(evidenceHtml).toContain("No comparable nearby addresses for covered-walkway evidence.");
+    expect(evidenceHtml).not.toContain("No comparable planning-area addresses for covered-walkway evidence.");
     expect(evidenceHtml).not.toContain("No comparable planning-area records for Rain-shelter evidence.");
     expect(evidenceHtml).not.toContain("No comparable planning-area records for rain covered-walkway evidence.");
     expect(evidenceHtml).not.toContain("No comparable full locked scores in this planning area.");
@@ -726,21 +728,21 @@ describe("rendered accessibility output", () => {
         rankedCount: 0,
         rankMetricLabel: "Covered-walkway evidence",
       })
-    ).toBe("Loading planning-area covered-walkway evidence comparison.");
+    ).toBe("Loading nearby-address covered-walkway evidence comparison.");
     expect(
       rankAnnouncement({
         loading: false,
         rankedCount: 0,
         rankMetricLabel: "Bus service support",
       })
-    ).toBe("No planning-area bus service support comparison available.");
+    ).toBe("No nearby-address bus service support comparison available.");
     expect(
       rankAnnouncement({
         loading: false,
         rankedCount: 5,
         rankMetricLabel: "Locked score order",
       })
-    ).toBe("5 planning-area addresses in locked score order.");
+    ).toBe("5 nearby addresses in locked score order.");
   });
 
   it("does not call crossing friction an evidence view in planning-area helper copy", () => {

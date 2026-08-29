@@ -313,13 +313,13 @@ export function rankAnnouncement({
 }): string {
   const sentenceLabel = rankSentenceMetricLabel(rankMetricLabel);
   if (rankMetricLabel.endsWith("order")) {
-    if (loading) return `Loading planning-area ${sentenceLabel}.`;
-    if (rankedCount === 0) return `No planning-area addresses in ${sentenceLabel}.`;
-    return `${rankedCount} planning-area address${rankedCount === 1 ? "" : "es"} in ${sentenceLabel}.`;
+    if (loading) return `Loading nearby-address ${sentenceLabel}.`;
+    if (rankedCount === 0) return `No nearby addresses in ${sentenceLabel}.`;
+    return `${rankedCount} nearby address${rankedCount === 1 ? "" : "es"} in ${sentenceLabel}.`;
   }
-  if (loading) return `Loading planning-area ${sentenceLabel} comparison.`;
-  if (rankedCount === 0) return `No planning-area ${sentenceLabel} comparison available.`;
-  return `${rankedCount} planning-area ${sentenceLabel} comparison address${
+  if (loading) return `Loading nearby-address ${sentenceLabel} comparison.`;
+  if (rankedCount === 0) return `No nearby-address ${sentenceLabel} comparison available.`;
+  return `${rankedCount} nearby-address ${sentenceLabel} comparison address${
     rankedCount === 1 ? "" : "es"
   } available.`;
 }
@@ -331,8 +331,8 @@ function rankSentenceMetricLabel(rankMetricLabel: string): string {
 }
 
 export function rankEmptyMessage(rankMetric: RankMetric, rankMetricLabel: string): string {
-  if (rankMetric === "overall") return "No comparable full locked scores in this planning area.";
-  return `No comparable planning-area addresses for ${rankSentenceMetricLabel(rankMetricLabel)}.`;
+  if (rankMetric === "overall") return "No nearby addresses with full locked scores in this planning area.";
+  return `No comparable nearby addresses for ${rankSentenceMetricLabel(rankMetricLabel)}.`;
 }
 
 export function rankPanelDescription(rankMetric: RankMetric, rankPanelOpen: boolean): string {
@@ -1299,8 +1299,8 @@ export function ScoreCard({
     RANK_METRIC_OPTIONS.find((option) => option.id === rankMetric)?.label ?? "Locked score order";
   const rankSentenceLabel = rankSentenceMetricLabel(rankMetricLabel);
   const rankLoadingText = rankMetricLabel.endsWith("order")
-    ? `Loading planning-area ${rankSentenceLabel}.`
-    : `Loading planning-area ${rankSentenceLabel} comparison.`;
+    ? `Loading nearby-address ${rankSentenceLabel}.`
+    : `Loading nearby-address ${rankSentenceLabel} comparison.`;
   const rankStatus = rankAnnouncement({
     loading: rankingLoading,
     rankedCount: rankedRecords.length,
