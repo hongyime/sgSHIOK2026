@@ -77,6 +77,12 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "uv run python run.py <task>" in normalized
     assert "uv run python run.py test" in normalized
     assert "uv run python run.py publish --confirm-publish --deploy --confirm-production" in normalized
+    assert "If Vercel Hobby Edge Requests hit quota" in normalized
+    assert "first check whether production is serving current `main`" in normalized
+    assert "automatic Git deployments are intentionally disabled in `web/vercel.json`" in normalized
+    assert "committed cache and crawler reductions need owner manual deployment before affecting live traffic" in normalized
+    assert "pausing or protecting the Vercel project change public availability" in normalized
+    assert "owner decisions, not agent-default repository changes" in normalized
     assert "`python run.py <task>`" not in normalized
     assert "`python run.py test`" not in normalized
     assert "`python run.py publish`" not in normalized

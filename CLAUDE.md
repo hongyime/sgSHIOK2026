@@ -38,6 +38,12 @@ source of truth. If this file conflicts with those tracked artifacts, verify bef
    serverless functions: `/api/onemap-search` for OneMap search/geocoding and
    `/api/onemap-route` for clicked-stop walk-preview evidence. Everything else is static
    files. Do not add another network-backed route without owner approval.
+   If Vercel Hobby Edge Requests hit quota, first check whether production is
+   serving current `main`; automatic Git deployments are intentionally disabled
+   in `web/vercel.json`, so committed cache and crawler reductions need owner
+   manual deployment before affecting live traffic. Immediate hard stops such
+   as pausing or protecting the Vercel project change public availability and
+   are owner decisions, not agent-default repository changes.
 5. **No date-stamped dataset URLs in code.** Discover latest via listing/API, download,
    SHA-256 hash; the hash is the change trigger and goes in `manifest.json`.
 6. **All metric geometry ops in EPSG:3414 (SVY21).** WGS84 only at the serving edge.
