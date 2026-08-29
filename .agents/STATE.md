@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `e86ccbb` (`docs: clarify no-transit bus support copy`)
+Latest substantive commit: `d09f177` (`docs: clarify OneMap preview failure copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P926 is complete and pushed: live OneMap walking-preview failures now say the preview could not load instead of saying it is unavailable.
 - P925 is complete and pushed: no-transit fallback bus rows now say `Bus support not computed` instead of `Bus service not scored`.
 - P924 is complete and pushed: direct-bus fallback cards now show `Verified shelter-map walk` as `No published walk` instead of `Pending`.
 - P923 is complete and pushed: the partial locked-score note now says `some shelter-map evidence may still be inspectable` instead of describing evidence as merely present.
