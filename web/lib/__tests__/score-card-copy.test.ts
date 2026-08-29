@@ -909,7 +909,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("Shelter-map walk access was not verified");
     expect(source).toContain("Nearby direct bus service without verified shelter-map walk");
     expect(source).not.toContain("Nearby bus service without verified shelter-map walk");
-    expect(source).toContain("nearby direct bus service evidence is not connected");
+    expect(source).toContain("the straight-line bus estimate is not a verified shelter-map walk");
+    expect(source).not.toContain("nearby direct bus service evidence is not connected");
     expect(source).not.toContain("nearby direct bus service evidence could not be connected");
     expect(source).not.toContain("nearby bus evidence could not be connected");
     expect(source).toContain("Nearby direct bus service found");
