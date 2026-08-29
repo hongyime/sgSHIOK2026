@@ -296,22 +296,7 @@ async function fetchGeomByLatLng(
   return null;
 }
 
-// ---------------------------------------------------------------------------
-// Geometry
-// The client resolves which H3 res-8 shard to fetch using the postal's lat/lng
-// (supplied from the OneMap search result).  geom/h3/{cell}.json holds an
-// array of PostalGeom for all postals in that cell.
-// ---------------------------------------------------------------------------
-export async function fetchGeomForPostal(
-  postal: string,
-  lat?: number,
-  lng?: number
-): Promise<PostalGeom | null> {
-  if (typeof lat === "number" && typeof lng === "number") {
-    const latLngMatch = await fetchGeomByLatLng(postal, lat, lng);
-    if (latLngMatch) return latLngMatch;
-  }
-
+async function fetchGeomByPostalIndex(postal: string): Promise<PostalGeom | null> {
   const prefixIndex = await getGeomPostalPrefixIndex(postal.slice(0, 3));
   const prefixShard = prefixIndex?.[postal];
   if (prefixShard) {
@@ -326,6 +311,28 @@ export async function fetchGeomForPostal(
     const records = await fetchGeomShard(indexedShard);
     const match = records?.find((r) => r.postal === postal);
     if (match) return match;
+  }
+
+  return null;
+}
+
+// ---------------------------------------------------------------------------
+// Geometry
+// The client resolves which H3 res-8 shard to fetch using the postal's lat/lng
+// (supplied from the OneMap search result).  geom/h3/{cell}.json holds an
+// array of PostalGeom for all postals in that cell.
+// ---------------------------------------------------------------------------
+export async function fetchGeomForPostal(
+  postal: string,
+  lat?: number,
+  lng?: number
+): Promise<PostalGeom | null> {
+  const indexedMatch = await fetchGeomByPostalIndex(postal);
+  if (indexedMatch) return indexedMatch;
+
+  if (typeof lat === "number" && typeof lng === "number") {
+    const latLngMatch = await fetchGeomByLatLng(postal, lat, lng);
+    if (latLngMatch) return latLngMatch;
   }
 
   return null;

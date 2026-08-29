@@ -48,7 +48,15 @@ describe("fetchGeomForPostal", () => {
     const { fetchGeomForPostal } = await import("../data");
 
     await expect(fetchGeomForPostal("123456", 1.3, 103.8)).resolves.toEqual(childRecord);
-    expect(fetchMock).not.toHaveBeenCalledWith(
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/data/generated/geom/postal-prefix/123.json.gz",
+      { cache: "force-cache" }
+    );
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/data/generated/geom/postal-prefix/123.json",
+      { cache: "force-cache" }
+    );
+    expect(fetchMock).toHaveBeenCalledWith(
       "/data/generated/geom/postal-index.json",
       { cache: "force-cache" }
     );
@@ -62,6 +70,45 @@ describe("fetchGeomForPostal", () => {
     );
     expect(fetchMock).toHaveBeenCalledWith(
       "/data/generated/geom/h3/child-cell.json",
+      { cache: "force-cache" }
+    );
+  });
+
+  it("prefers the postal prefix shard index over coordinate-derived H3 lookup", async () => {
+    vi.stubEnv("NEXT_PUBLIC_DATA_BASE", "/data/generated/");
+    const childRecord = {
+      postal: "560234",
+      shortest: "encoded-shortest",
+      sheltered: "encoded-sheltered",
+      exposure_gaps: [],
+    };
+
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = bareUrl(input);
+      if (url.endsWith("/geom/postal-prefix/560.json")) {
+        return jsonResponse(true, { "560234": "postal-child" });
+      }
+      if (url.endsWith("/geom/h3/postal-child.json")) return jsonResponse(true, [childRecord]);
+      if (url.endsWith("/geom/h3/parent-cell.json")) {
+        return jsonResponse(true, [{ ...childRecord, postal: "560999" }]);
+      }
+      return jsonResponse(false);
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const { fetchGeomForPostal } = await import("../data");
+
+    await expect(fetchGeomForPostal("560234", 1.3, 103.8)).resolves.toEqual(childRecord);
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/data/generated/geom/postal-prefix/560.json",
+      { cache: "force-cache" }
+    );
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/data/generated/geom/h3/postal-child.json",
+      { cache: "force-cache" }
+    );
+    expect(fetchMock).not.toHaveBeenCalledWith(
+      "/data/generated/geom/h3/parent-cell.json",
       { cache: "force-cache" }
     );
   });
