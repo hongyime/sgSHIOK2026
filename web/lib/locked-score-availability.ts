@@ -38,7 +38,7 @@ function lockedScoreAvailabilityBreakdown(stateCounts: unknown, notFull: number)
   }
   return `${formatWholeNumber(partial)} with partial shelter-map evidence, ${formatWholeNumber(
     noTransit
-  )} beyond locked transit range, and ${formatWholeNumber(notYet)} awaiting scoring`;
+  )} beyond the 1.2 km locked transit range, and ${formatWholeNumber(notYet)} awaiting scoring`;
 }
 
 export function formatLockedScoreAvailabilityLine(manifest: Manifest | null): string | null {

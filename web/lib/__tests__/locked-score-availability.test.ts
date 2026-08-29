@@ -30,7 +30,7 @@ describe("locked score availability copy", () => {
         })
       )
     ).toBe(
-      "Full locked scores: 95,157 of 124,443 records; 29,286 records (23.5%, roughly a quarter) missing full scores: 18,983 with partial shelter-map evidence, 9,827 beyond locked transit range, and 476 awaiting scoring."
+      "Full locked scores: 95,157 of 124,443 records; 29,286 records (23.5%, roughly a quarter) missing full scores: 18,983 with partial shelter-map evidence, 9,827 beyond the 1.2 km locked transit range, and 476 awaiting scoring."
     );
   });
 
@@ -44,7 +44,7 @@ describe("locked score availability copy", () => {
         })
       )
     ).toBe(
-      "Full locked scores: 900 of 1,000 records; 100 records (10%) missing full scores: 80 with partial shelter-map evidence, 15 beyond locked transit range, and 5 awaiting scoring."
+      "Full locked scores: 900 of 1,000 records; 100 records (10%) missing full scores: 80 with partial shelter-map evidence, 15 beyond the 1.2 km locked transit range, and 5 awaiting scoring."
     );
   });
 

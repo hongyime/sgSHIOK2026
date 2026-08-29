@@ -34,7 +34,7 @@ describe("generated data bundle", () => {
       Object.values(manifest.provenance.state_counts).reduce((total, count) => total + count, 0)
     ).toBe(manifest.provenance.record_count);
     expect(formatLockedScoreAvailabilityLine(manifest)).toBe(
-      "Full locked scores: 95,157 of 124,443 records; 29,286 records (23.5%, roughly a quarter) missing full scores: 18,983 with partial shelter-map evidence, 9,827 beyond locked transit range, and 476 awaiting scoring."
+      "Full locked scores: 95,157 of 124,443 records; 29,286 records (23.5%, roughly a quarter) missing full scores: 18,983 with partial shelter-map evidence, 9,827 beyond the 1.2 km locked transit range, and 476 awaiting scoring."
     );
     expect(Object.keys(scoreIndex).length).toBeGreaterThan(50);
     expect(Object.keys(geomPostalIndex).length).toBe(
