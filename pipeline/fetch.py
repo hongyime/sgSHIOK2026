@@ -410,7 +410,10 @@ def run_freshness_report(
         "unknown_age": [],
     }
 
-    print(f"Source freshness from raw/manifest.json at {checked_at.isoformat()}...")
+    print(
+        "Source freshness from raw/manifest.json and pipeline/config/sources.yaml "
+        f"at {checked_at.isoformat()}..."
+    )
     print("Manifest-only check: no upstream URLs were probed.")
     report_sources = freshness_report_sources(
         sources,
@@ -1383,10 +1386,10 @@ def main(argv: list[str] | None = None) -> int:
         "--freshness-only",
         action="store_true",
         help=(
-            "For check: read raw/manifest.json and report source freshness "
-            "without probing upstream URLs or writing the manifest; grouped "
-            "action summaries include source names and stale sources require "
-            "a versioned refresh."
+            "For check: read raw/manifest.json with pipeline/config/sources.yaml "
+            "and report source freshness without probing upstream URLs or writing "
+            "the manifest; grouped action summaries include source names and stale "
+            "sources require a versioned refresh."
         ),
     )
     parser.add_argument(

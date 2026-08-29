@@ -29,7 +29,10 @@ def test_fetch_check_help_names_freshness_summary_contract(
     out = " ".join(capsys.readouterr().out.split())
     assert "Fetch/check upstream S.H.I.O.K. Shelter Map sources." in out
     assert "Fetch/check upstream SHIOK datasets." not in out
-    assert "read raw/manifest.json and report source freshness" in out
+    assert (
+        "read raw/manifest.json with pipeline/config/sources.yaml and report source freshness"
+        in out
+    )
     assert "without probing upstream URLs or writing the manifest" in out
     assert "grouped action summaries include source names" in out
     assert "stale sources require a versioned refresh" in out
@@ -415,7 +418,10 @@ def test_run_freshness_report_does_not_probe_upstream(
     )
 
     out = capsys.readouterr().out
-    assert "Source freshness from raw/manifest.json at 2026-08-16T00:00:00+00:00..." in out
+    assert (
+        "Source freshness from raw/manifest.json and pipeline/config/sources.yaml "
+        "at 2026-08-16T00:00:00+00:00..."
+    ) in out
     assert "Manifest-only check: no upstream URLs were probed." in out
     assert (
         "[fresh] Fresh: freshness current — fetched_at age 1.0d within 30d threshold "
