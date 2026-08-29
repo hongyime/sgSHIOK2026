@@ -2106,3 +2106,7 @@ Postal-specific MCST caveats should describe the suspect value as the listed pos
 2026-08-29 - P891 exposed-gap map-location copy:
 
 When an exposed gap cannot be focused on the map, the UI should say no map location is available rather than no map coordinates are recorded. The stored coordinates remain the underlying evidence, but the browser copy now speaks in terms of the user's action: whether the exposed gap can be located on the map. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P892 partial-score row copy:
+
+Partial locked-score copy should refer to unavailable locked-score rows instead of missing score factors. The scoring behavior is unchanged: missing terms still count as zero in the locked rule, but the browser wording now points to the displayed rows a user can see. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

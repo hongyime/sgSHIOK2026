@@ -699,14 +699,16 @@ describe("score card copy", () => {
     expect(source).toContain("Shelter-map evidence unavailable");
     expect(source).toContain("Shelter-map evidence available");
     expect(source).toContain("Locked score unavailable");
-    expect(source).toContain("Missing score factors");
+    expect(source).toContain("Unavailable locked-score rows");
+    expect(source).not.toContain("Missing score factors");
     expect(source).not.toContain("Missing locked-score factors");
     expect(source).not.toContain("Locked score inputs unavailable");
     expect(source).not.toContain("Locked terms unavailable");
     expect(source).not.toContain("Locked score incomplete");
     expect(source).toContain(
-      "Partial locked score: shelter-map evidence may still be present, but missing score factors count as zero in the locked scoring rule."
+      "Partial locked score: shelter-map evidence may still be present, but unavailable locked-score rows count as zero in the locked scoring rule."
     );
+    expect(source).not.toContain("missing score factors count as zero in the locked scoring rule");
     expect(source).not.toContain("unavailable score inputs count as zero");
     expect(source).not.toContain("the locked formula counts unavailable terms as zero");
     expect(source).not.toContain("missing score factors count as zero in the locked formula");

@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `ca852cb` (`docs: clarify exposed-gap map location copy`)
+Latest substantive commit: pending P892 (`docs: name unavailable locked-score rows`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P892 is in progress: partial locked-score copy is being changed from missing score-factor wording to unavailable locked-score row wording.
 - P891 is complete and pushed: exposed-gap fallback copy now says no map location is available, replacing recorded-coordinate storage language.
 - P890 is complete and pushed: postal-specific MCST address-quality caveats now say listed postal instead of recorded postal.
 - P889 is complete and pushed: the opened planning-area comparison helper now describes nearby-address comparison for evidence and locked-score rows instead of planning-area detail views.
