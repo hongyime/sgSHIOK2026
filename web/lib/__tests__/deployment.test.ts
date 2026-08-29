@@ -70,9 +70,19 @@ describe("deployment packaging", () => {
     const serviceWorker = readFileSync(join(__dirname, "../../public/sw.js"), "utf-8");
 
     expect(serviceWorker).toContain('const CACHE_NAME = "sgshiok-static-v1"');
-    expect(serviceWorker).toContain(
-      'new Set(["/", "/icon.svg", "/robots.txt", "/sitemap.xml", "/site.webmanifest", "/manifest.json"])',
-    );
+    for (const path of [
+      '"/"',
+      '"/icon.svg"',
+      '"/favicon.ico"',
+      '"/apple-touch-icon.png"',
+      '"/apple-touch-icon-precomposed.png"',
+      '"/robots.txt"',
+      '"/sitemap.xml"',
+      '"/site.webmanifest"',
+      '"/manifest.json"',
+    ]) {
+      expect(serviceWorker).toContain(path);
+    }
     expect(serviceWorker).toContain('const CACHEABLE_PREFIXES = ["/_next/static/", "/data/"]');
     expect(serviceWorker).toContain('if (url.pathname.startsWith("/api/")) return false;');
     expect(serviceWorker).toContain('const cacheKey = request.mode === "navigate" ? "/" : request;');
@@ -88,7 +98,10 @@ describe("deployment packaging", () => {
     expect(serviceWorker).toContain('["/sitemap.xml", 604_800_000]');
     expect(serviceWorker).toContain('["/site.webmanifest", 604_800_000]');
     expect(serviceWorker).toContain('["/manifest.json", 604_800_000]');
-    expect(serviceWorker).toContain('if (url.pathname === "/icon.svg") return Infinity;');
+    expect(serviceWorker).toContain('url.pathname === "/icon.svg"');
+    expect(serviceWorker).toContain('url.pathname === "/favicon.ico"');
+    expect(serviceWorker).toContain('url.pathname === "/apple-touch-icon.png"');
+    expect(serviceWorker).toContain('url.pathname === "/apple-touch-icon-precomposed.png"');
     expect(serviceWorker).toContain('Date.parse(response.headers.get("date") || "")');
     expect(serviceWorker).toContain("cached && isFreshEnough(cached, cacheMaxAgeMs(cacheKey))");
   });

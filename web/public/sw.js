@@ -1,5 +1,15 @@
 const CACHE_NAME = "sgshiok-static-v1";
-const CACHEABLE_EXACT_PATHS = new Set(["/", "/icon.svg", "/robots.txt", "/sitemap.xml", "/site.webmanifest", "/manifest.json"]);
+const CACHEABLE_EXACT_PATHS = new Set([
+  "/",
+  "/icon.svg",
+  "/favicon.ico",
+  "/apple-touch-icon.png",
+  "/apple-touch-icon-precomposed.png",
+  "/robots.txt",
+  "/sitemap.xml",
+  "/site.webmanifest",
+  "/manifest.json",
+]);
 const CACHEABLE_PREFIXES = ["/_next/static/", "/data/"];
 const CACHE_MAX_AGE_MS = new Map([
   ["/", 604_800_000],
@@ -22,7 +32,14 @@ function isCacheableRequest(request) {
 function cacheMaxAgeMs(request) {
   const url = new URL(request.url, self.location.origin);
   if (CACHEABLE_PREFIXES.some((prefix) => url.pathname.startsWith(prefix))) return Infinity;
-  if (url.pathname === "/icon.svg") return Infinity;
+  if (
+    url.pathname === "/icon.svg" ||
+    url.pathname === "/favicon.ico" ||
+    url.pathname === "/apple-touch-icon.png" ||
+    url.pathname === "/apple-touch-icon-precomposed.png"
+  ) {
+    return Infinity;
+  }
   return CACHE_MAX_AGE_MS.get(url.pathname) ?? 0;
 }
 
