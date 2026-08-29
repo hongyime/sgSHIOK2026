@@ -3,7 +3,7 @@
 Date: 2026-08-30
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `0ba3dc8` (`perf: slow polite crawlers to hourly`)
+Latest substantive commit: `4067550` (`perf: stop advertising sitemap in robots`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P1040 is complete and pushed: `robots.txt` no longer advertises `/sitemap.xml`, while the direct sitemap route remains available. For this single-page app, the sitemap contained only `/`, so advertising it could add one polite-crawler request without discovering additional URLs. Focused deployment test passed 1 file / 30 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1040-remove-robots-sitemap-advertisement.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1039 is complete and pushed: general polite-crawler `crawlDelay` is now 3600 seconds instead of 300 seconds for the one-page app surface, while `/` remains allowed and Googlebot/Bingbot remain out of the explicit blocklist. Focused deployment test passed 1 file / 30 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1039-hourly-crawler-delay.md`. `Crawl-delay` is advisory and this is not live until the owner performs an explicit Vercel deployment.
 - P1038 is complete and pushed: removed the unused `ServiceWorkerRegistration` component left behind after direct intent registration, and pinned the root layout against re-importing it. Focused web tests passed 3 files / 82 tests; direct `next build` from `web/` passed without invoking `ensure-data-bundle.mjs`; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1038-remove-service-worker-dead-component.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1037 is complete and pushed: the root layout no longer imports `maplibre-gl/dist/maplibre-gl.css`; minimal MapLibre globals needed by the app now live with `route-evidence-map.module.css`, keeping map styling out of the first-load root layout after the route map was lazy-loaded. Focused web tests passed 3 files / 82 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. A local Next build was not run because `web/scripts/ensure-data-bundle.mjs` can create missing derived artifacts under protected `web/public/data`. Evidence: `qa/verification/P1037-local-maplibre-styles.md`. This is not live until the owner performs an explicit Vercel deployment.
