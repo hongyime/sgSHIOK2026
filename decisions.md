@@ -2146,3 +2146,7 @@ Shelter-source evidence should label destination connector segments as `Stop/exi
 2026-08-29 - P901 search button busy copy:
 
 The first-view search submit button should say `Searching` while a OneMap/address-list lookup is running, not generic `Loading`. This makes the busy state describe the user's action and keeps loading terminology out of the primary search control. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P902 shelter-map panel ready announcement:
+
+Screen-reader live status should say the shelter-map panel is ready instead of loaded. The word loaded describes implementation timing, while ready describes the user-facing state after the selected address, walk evidence, score row, and route mode are available. Browser-smoke telemetry keys remain unchanged. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

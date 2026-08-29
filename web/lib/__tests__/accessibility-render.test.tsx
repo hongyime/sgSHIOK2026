@@ -308,7 +308,8 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain('role="status"');
-    expect(html).toContain("Postal 560231 shelter-map panel loaded.");
+    expect(html).toContain("Postal 560231 shelter-map panel ready.");
+    expect(html).not.toContain("Postal 560231 shelter-map panel loaded.");
     expect(html).toContain("Shelter-map walk evidence 48% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
     expect(html).not.toContain("Shelter-map walk evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
     expect(html).toContain("Sorting-only score 72 out of 100.");

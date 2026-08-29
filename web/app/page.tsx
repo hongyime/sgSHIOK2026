@@ -297,7 +297,7 @@ export function scoreCardAnnouncement({
   const scoreLabel = previewRoute || displayScore === null || displayScore === undefined
     ? "Locked score"
     : "Sorting-only score";
-  return `${postal} shelter-map panel loaded. ${stationName ?? "MRT/LRT exit or bus stop not named"}. ${shelterText} ${scoreLabel} ${scoreText}. ${stopText} ${displayContextLabel} ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
+  return `${postal} shelter-map panel ready. ${stationName ?? "MRT/LRT exit or bus stop not named"}. ${shelterText} ${scoreLabel} ${scoreText}. ${stopText} ${displayContextLabel} ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
 }
 
 export function rankAnnouncement({
