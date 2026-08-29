@@ -1994,3 +1994,7 @@ Browser source-age copy should express the limitation as a product fact, not as 
 2026-08-29 - P848 first-card data date wording:
 
 The first-card data date should name published data rather than bundle-generation mechanics. The line now says `Shelter-map evidence as of ...; published data built ...`, preserving both manifest-derived dates while keeping implementation terminology out of the primary UI. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P849 published shelter-map data copy:
+
+Browser-visible empty states, preview caveats, and unavailable-score messages should call the release surface published shelter-map data rather than a published shelter-map bundle. Internal code and tests may still use bundle for packaged data artifacts, but product copy now frames the limitation as data coverage. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.

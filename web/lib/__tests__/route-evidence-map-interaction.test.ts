@@ -245,7 +245,7 @@ describe("shelter map interactions", () => {
     expect(pageSource).not.toContain("Preview only: this clicked transit target has shelter-map evidence");
     expect(pageSource).not.toContain("Preview only: this clicked transit stop has shelter-map evidence");
     expect(pageSource).not.toContain("Preview only: this clicked stop or exit has shelter-map evidence");
-    expect(pageSource).toContain("not part of the published shelter-map bundle yet");
+    expect(pageSource).toContain("not part of the published shelter-map data yet");
     expect(pageSource).not.toContain("not part of the published score bundle yet");
     expect(pageSource).not.toContain("Preview route evidence only");
     expect(pageSource).not.toContain("↺ Scored route");

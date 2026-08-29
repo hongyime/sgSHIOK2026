@@ -38,8 +38,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("No qualifying transit target within 1.2 km");
     expect(source).not.toContain("No qualifying transit stop within 1.2 km");
     expect(source).not.toContain("No transit stop within scoring range");
-    expect(source).toContain("Transit stops or exits exist, but the published shelter-map bundle has no connected shelter-map walk yet.");
-    expect(source).not.toContain("Transit targets exist, but the published shelter-map bundle has no connected shelter-map walk yet.");
+    expect(source).toContain("Transit stops or exits exist, but the published shelter-map data has no connected shelter-map walk yet.");
+    expect(source).not.toContain("Transit targets exist, but the published shelter-map data has no connected shelter-map walk yet.");
     expect(source).toContain("No qualifying MRT/LRT exit or bus stop was found within the locked 1.2 km transit range for this postal.");
     expect(source).not.toContain("Transit beyond scoring range");
     expect(source).not.toContain("Transit beyond locked range");
@@ -125,17 +125,17 @@ describe("score card copy", () => {
   it("keeps browser smoke aligned with awaiting bundle-score copy", () => {
     const smokeSource = readFileSync(join(__dirname, "../../scripts/browser-smoke.mjs"), "utf-8");
 
-    expect(smokeSource).toContain('summary.cardText.includes("No full locked score in published shelter-map bundle")');
+    expect(smokeSource).toContain('summary.cardText.includes("No full locked score in published shelter-map data")');
     expect(smokeSource).toContain('summary.cardText.includes("Partial shelter-map evidence may be available")');
     expect(smokeSource).not.toContain('summary.cardText.includes("No full locked score in this bundle")');
     expect(smokeSource).not.toContain('summary.cardText.includes("No full score in this bundle")');
     expect(smokeSource).not.toContain("needs usable location evidence");
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
     expect(source).toContain(
-      "This postal is in the frozen v1 address universe, but the published shelter-map bundle has no full locked score for it yet."
+      "This postal is in the frozen v1 address universe, but the published shelter-map data has no full locked score for it yet."
     );
-    expect(source).toContain("unavailable in the published shelter-map bundle");
-    expect(source).toContain("No full locked score in published shelter-map bundle");
+    expect(source).toContain("unavailable in the published shelter-map data");
+    expect(source).toContain("No full locked score in published shelter-map data");
     expect(source).toContain("Partial shelter-map evidence may be available");
     expect(source).not.toContain("Awaiting locked score");
     expect(source).not.toContain("unavailable in this bundle");
@@ -624,7 +624,7 @@ describe("score card copy", () => {
     expect(source).toContain('label: "Locked score"');
     expect(source).toContain('label: "No full locked score"');
     expect(source).not.toContain('label: "No full score"');
-    expect(source).toContain('value: "Published bundle"');
+    expect(source).toContain('value: "Published data"');
     expect(source).toContain("shelterEvidenceAnnouncement(selection.score)");
   });
 
@@ -644,7 +644,7 @@ describe("score card copy", () => {
     expect(source).not.toContain('"20% locked bus",');
     expect(source).not.toContain("40% locked rain+heat");
     expect(source).toContain("Shelter-map evidence preview");
-    expect(source).toContain("Not in published bundle");
+    expect(source).toContain("Not in published data");
     expect(source).toContain("No shelter-map walk selected.");
     expect(source).toContain("Preview shelter-map evidence");
     expect(source).not.toContain("Preview shelter-map evidence only");
@@ -724,8 +724,8 @@ describe("score card copy", () => {
       '{ id: "heat", label: "Heat proxy evidence" }'
     );
     expect(source).toContain('?? "Locked score sorting index"');
-    expect(source).toContain("Start with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map bundle.");
-    expect(source).not.toContain("Start with the shelter trace and exposed gaps; use the locked score only to sort the published shelter-map bundle.");
+    expect(source).toContain("Start with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.");
+    expect(source).not.toContain("Start with the shelter trace and exposed gaps; use the locked score only to sort the published shelter-map data.");
     expect(source).not.toContain("Start with the shelter trace and exposed gaps; use the locked score only to sort the current bundle.");
     expect(source).not.toContain("Use this locked score to sort the current bundle");
     expect(source).not.toContain('label: "Overall SHIOK"');

@@ -170,7 +170,7 @@ function recentPublicSourceGapCopyForPostal(postal?: string): string {
 }
 
 function noSearchResultBundleCaveat(): string {
-  return `The published shelter-map bundle is tied to the frozen June 2020 address universe. ${RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: ${RECENT_PUBLIC_SOURCE_GAP_COPY}.`;
+  return `The published shelter-map data is tied to the frozen June 2020 address universe. ${RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: ${RECENT_PUBLIC_SOURCE_GAP_COPY}.`;
 }
 
 interface DirectBusFallbackEvidence {
@@ -276,12 +276,12 @@ export function scoreCardAnnouncement({
   if (!selection) return "No shelter-map walk selected.";
   const postal = postalTitle(selection);
   if (!selection.score) {
-    return `${postal} is outside the published shelter-map bundle tied to the frozen June 2020 address universe; ${recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.`;
+    return `${postal} is outside the published shelter-map data tied to the frozen June 2020 address universe; ${recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.`;
   }
   const scoreText = previewRoute
     ? "preview only; published locked score unchanged"
     : displayScore === null || displayScore === undefined
-      ? "unavailable in the published shelter-map bundle"
+      ? "unavailable in the published shelter-map data"
       : `${Math.round(displayScore)} out of 100`;
   const stopText =
     selectedStateText ??
@@ -441,7 +441,7 @@ function formatScoreWithMax(value: number | null | undefined, fallback = "No ful
 function lockedScoreBadgeCopy(value: number | null | undefined): { label: string; value: string } {
   return typeof value === "number"
     ? { label: "Locked score", value: formatScoreWithMax(value) }
-    : { label: "No full locked score", value: "Published bundle" };
+    : { label: "No full locked score", value: "Published data" };
 }
 
 function formatDistance(value: number | undefined): string {
@@ -593,7 +593,7 @@ function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): str
 
 function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): string | null {
   if (score.paths?.routing_type === "live_onemap_preview") {
-    return "Preview only: this clicked MRT/LRT exit or bus stop has shelter-map evidence, but it is not part of the published shelter-map bundle yet.";
+    return "Preview only: this clicked MRT/LRT exit or bus stop has shelter-map evidence, but it is not part of the published shelter-map data yet.";
   }
   if (score.state === "SCORED_PARTIAL") {
     return "Partial locked score: shelter-map evidence may still be present, but unavailable score inputs count as zero in the locked formula.";
@@ -601,7 +601,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const reason = provenanceReason(score, transitMode);
     if (reason === "transit_candidates_graph_disconnected") {
-      return "Transit stops or exits exist, but the published shelter-map bundle has no connected shelter-map walk yet.";
+      return "Transit stops or exits exist, but the published shelter-map data has no connected shelter-map walk yet.";
     }
     if (reason === "no_transit_candidates_selected") {
       return "No qualifying MRT/LRT exit or bus stop was found within the locked 1.2 km transit range for this postal.";
@@ -613,7 +613,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     return `No shelter-map walk to ${transitModeLabel(transitMode)} was found within the locked 1.2 km transit range.`;
   }
   if (score.state === "NOT_YET_SCORED") {
-    return "This postal is in the frozen v1 address universe, but the published shelter-map bundle has no full locked score for it yet.";
+    return "This postal is in the frozen v1 address universe, but the published shelter-map data has no full locked score for it yet.";
   }
   const busFallback = directBusFallbackEvidence(score);
   if (busFallback) {
@@ -847,7 +847,7 @@ function resolveOriginLatLng(selection: LoadedSelection | null): { lat: number; 
 
 function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): string[] {
   if (score.paths?.routing_type === "live_onemap_preview") {
-    return ["Shelter-map evidence preview", "Not in published bundle"];
+    return ["Shelter-map evidence preview", "Not in published data"];
   }
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const label = transitModeLabel(transitMode);
@@ -864,7 +864,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
       : [`No shelter-map walk to ${label} within locked transit range`, "Nearby transit may still exist beyond the locked 1.2 km transit range"];
   }
   if (score.state === "NOT_YET_SCORED") {
-    return ["No full locked score in published shelter-map bundle", "Partial shelter-map evidence may be available"];
+    return ["No full locked score in published shelter-map data", "Partial shelter-map evidence may be available"];
   }
   if (score.paths?.routing_type === "direct_bus_fallback_unrouted") {
     return ["Nearby direct bus service found", "Straight-line bus estimate; shelter-map walk pending.", "No verified shelter-map walk yet"];
@@ -1217,7 +1217,7 @@ export function ScoreCard({
         <div className={styles.emptyState}>
           <strong>Find an address or postal code</strong>
           <span>Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio and exposed gaps on the walk to transit, plus the night-lighting map layer.</span>
-          <span>The published shelter-map bundle is tied to the frozen June 2020 address universe.</span>
+          <span>The published shelter-map data is tied to the frozen June 2020 address universe.</span>
           {lockedScoreAvailabilityLine && <span>{lockedScoreAvailabilityLine}</span>}
         </div>
       </section>
@@ -1233,8 +1233,8 @@ export function ScoreCard({
         </p>
         <h2>{postalTitle(selection)}</h2>
         <div className={styles.emptyState}>
-          <strong>Outside published shelter-map bundle</strong>
-          <span>No shelter-map walk is published for this postal; the published shelter-map bundle is tied to the frozen June 2020 address universe, and {recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.</span>
+          <strong>Outside published shelter-map data</strong>
+          <span>No shelter-map walk is published for this postal; the published shelter-map data is tied to the frozen June 2020 address universe, and {recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.</span>
         </div>
       </section>
     );
@@ -1266,7 +1266,7 @@ export function ScoreCard({
       : score.state === "NO_TRANSIT_IN_RANGE"
       ? noTransitTitle(score, transitMode)
       : score.state === "NOT_YET_SCORED"
-        ? "No full locked score in published shelter-map bundle"
+        ? "No full locked score in published shelter-map data"
       : toProperCase(score.best_node?.name ?? "No transit stop or exit loaded");
   const reasons = scoreReasons(score, transitMode);
   const stateNote = scoreStateNote(score, transitMode);
@@ -1467,7 +1467,7 @@ export function ScoreCard({
           value: formatLockedScore(displayScore),
           meta: scoredMeta(displayScore, "Release sorting index", "Locked score unavailable"),
           notes: [
-            "Start with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map bundle.",
+            "Start with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.",
             "Crossing friction still contributes 5% to the locked score, but has low separation in this release.",
           ],
         },
