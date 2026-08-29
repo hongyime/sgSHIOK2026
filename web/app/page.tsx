@@ -1314,7 +1314,7 @@ export function ScoreCard({
   const extraWalkLabel =
     extraWalkM === null ? "Unavailable" : sameRoute || extraWalkM === 0 ? "0 m" : `+${Math.round(extraWalkM)} m`;
   const comparisonMetricLabel = directBusFallback ? "Verified shelter-map walk" : "Extra walk";
-  const comparisonMetricValue = directBusFallback ? "Pending" : extraWalkLabel;
+  const comparisonMetricValue = directBusFallback ? "No published walk" : extraWalkLabel;
   const compareNote = buildRouteCompareNote({
     routeMode,
     sameRoute,

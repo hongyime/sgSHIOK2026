@@ -2234,3 +2234,7 @@ The `NOT_YET_SCORED` reason chip should avoid implying a queued partial-evidence
 2026-08-29 - P923 partial-score inspectable evidence copy:
 
 The partial locked-score note should describe what the user can do with remaining evidence, not whether the evidence is merely present in data. The UI now says `some shelter-map evidence may still be inspectable`, while preserving the locked-rule caveat that unavailable locked-score rows count as zero. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P924 direct-bus comparison value copy:
+
+The direct-bus fallback comparison metric should not show `Pending` for the verified shelter-map walk. The fallback is not waiting for a route; it is published evidence that no verified shelter-map walk is available for that bus access case. The UI now shows `No published walk` for that metric. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
