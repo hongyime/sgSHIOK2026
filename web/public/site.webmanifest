@@ -1,0 +1,18 @@
+{
+  "name": "S.H.I.O.K. Shelter Map",
+  "short_name": "S.H.I.O.K.",
+  "description": "Shelter-first walks to Singapore transit stops and exits.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

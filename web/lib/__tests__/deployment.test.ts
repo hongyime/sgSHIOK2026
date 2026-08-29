@@ -70,7 +70,9 @@ describe("deployment packaging", () => {
     const serviceWorker = readFileSync(join(__dirname, "../../public/sw.js"), "utf-8");
 
     expect(serviceWorker).toContain('const CACHE_NAME = "sgshiok-static-v1"');
-    expect(serviceWorker).toContain('new Set(["/", "/icon.svg", "/robots.txt", "/sitemap.xml"])');
+    expect(serviceWorker).toContain(
+      'new Set(["/", "/icon.svg", "/robots.txt", "/sitemap.xml", "/site.webmanifest", "/manifest.json"])',
+    );
     expect(serviceWorker).toContain('const CACHEABLE_PREFIXES = ["/_next/static/", "/data/"]');
     expect(serviceWorker).toContain('if (url.pathname.startsWith("/api/")) return false;');
     expect(serviceWorker).toContain('const cacheKey = request.mode === "navigate" ? "/" : request;');
@@ -84,6 +86,8 @@ describe("deployment packaging", () => {
     expect(serviceWorker).toContain('["/", 604_800_000]');
     expect(serviceWorker).toContain('["/robots.txt", 604_800_000]');
     expect(serviceWorker).toContain('["/sitemap.xml", 604_800_000]');
+    expect(serviceWorker).toContain('["/site.webmanifest", 604_800_000]');
+    expect(serviceWorker).toContain('["/manifest.json", 604_800_000]');
     expect(serviceWorker).toContain('if (url.pathname === "/icon.svg") return Infinity;');
     expect(serviceWorker).toContain('Date.parse(response.headers.get("date") || "")');
     expect(serviceWorker).toContain("cached && isFreshEnough(cached, cacheMaxAgeMs(cacheKey))");
@@ -214,6 +218,28 @@ describe("deployment packaging", () => {
     expect(config).toContain('source: "/apple-touch-icon-precomposed.png"');
     expect(config).toContain('destination: "/icon.svg"');
     expect(config).toContain('value: "public, max-age=31536000, immutable"');
+  });
+
+  it("serves conventional manifest probes without linking them from the app shell", () => {
+    const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
+    const layout = readFileSync(join(__dirname, "../../app/layout.tsx"), "utf-8");
+    const manifest = JSON.parse(readFileSync(join(__dirname, "../../public/site.webmanifest"), "utf-8"));
+
+    expect(config).toContain('source: "/site.webmanifest"');
+    expect(config).toContain('source: "/manifest.json"');
+    expect(config).toContain('destination: "/site.webmanifest"');
+    expect(config).toContain('value: "public, max-age=604800, stale-while-revalidate=2592000"');
+    expect(config).toContain('value: "noindex, nofollow, noarchive"');
+    expect(layout).not.toContain("manifest:");
+    expect(layout).not.toContain('rel="manifest"');
+    expect(manifest.name).toBe("S.H.I.O.K. Shelter Map");
+    expect(manifest.start_url).toBe("/");
+    expect(manifest.icons[0]).toEqual({
+      src: "/icon.svg",
+      sizes: "any",
+      type: "image/svg+xml",
+      purpose: "any",
+    });
   });
 
   it("materializes derived lookup shards during web builds", () => {
