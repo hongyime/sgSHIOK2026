@@ -82,7 +82,7 @@ const SOURCE_LABELS: Record<string, string> = {
   inferred_hdb_void_deck: "HDB void-deck inference",
   bridge_underpass: "Bridge/underpass shelter",
   audited_shelter_correction: "Audited shelter",
-  direct_unrouted_bus: "Direct bus service estimate",
+  direct_unrouted_bus: "Straight-line bus estimate",
   bus_stop_access_connector: "Bus-stop access walk",
   origin_graph_snap_connector: "Postal access walk",
   destination_graph_snap_connector: "Stop/exit access walk",

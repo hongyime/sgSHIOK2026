@@ -1419,6 +1419,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain('aria-label="Straight-line bus estimate evidence reasons"');
     expect(html).not.toContain('aria-label="Direct-bus fallback source evidence"');
     expect(html).not.toContain('aria-label="Direct-bus fallback evidence reasons"');
+    expect(html).not.toContain("Direct bus service estimate");
     expect(html).not.toContain('aria-label="Shelter source evidence"');
     expect(html).not.toContain('aria-label="Shelter-map evidence reasons"');
     expect(html).toContain("Evidence display straight-line bus estimate; Straight-line bus estimate active.");

@@ -1054,6 +1054,8 @@ describe("score card copy", () => {
     expect(source).toContain('evidenceLabel = "Shelter-map walk evidence"');
     expect(source).toContain('directBusFallback ? "Straight-line bus estimate evidence" : undefined');
     expect(source).not.toContain("Direct bus service estimate evidence");
+    expect(source).toContain('direct_unrouted_bus: "Straight-line bus estimate"');
+    expect(source).not.toContain('direct_unrouted_bus: "Direct bus service estimate"');
   });
 
   it("announces direct-bus fallback selection without implying a published shelter-map walk", () => {
