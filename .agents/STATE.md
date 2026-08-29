@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `59e888f` (`docs: keep transit fallback copy sentence case`)
+Latest substantive commit: `92d8d75` (`docs: rename locked score rank order`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P862 is complete and pushed: planning-area overall comparison now uses `Locked score order` and announces records in locked-score order instead of `locked score sorting index ranks`.
 - P861 is complete and pushed: scored-walk fallback station copy now renders as sentence-case `No transit stop or exit loaded` while named stops still use proper-case formatting.
 - P860 is complete and pushed: partial-score caveats now say missing score factors count as zero in the locked scoring rule, and the locked score row uses `Sorting-only score` instead of `Release sorting index`.
 - P859 is complete and pushed: no-full-locked-score badges now show `Walk evidence` instead of `Published data`, pointing users to the useful card content still available.
