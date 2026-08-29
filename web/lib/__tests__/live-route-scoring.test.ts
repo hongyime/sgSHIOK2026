@@ -106,7 +106,7 @@ describe("live route preview segmentation", () => {
       source: "live_onemap_preview",
       authoritative_score: false,
       reason:
-        "Clicked transit POI has preview shelter-map evidence only; published locked scores come from the shelter-map bundle.",
+        "Clicked transit POI has preview shelter-map evidence only; published locked scores come from the published shelter-map data.",
     });
     expect(result.geom.route_segments?.sheltered?.length).toBeGreaterThan(0);
     expect(result.geom.shortest).toBeTruthy();

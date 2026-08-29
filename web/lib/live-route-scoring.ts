@@ -5,7 +5,7 @@
  * tests sub-segments against local shelter evidence (LTA linkways, HDB void decks,
  * overhead bridges), and produces multi-color RouteSegments. It deliberately
  * does not produce authoritative SHIOK scores; published locked scores come
- * from the shelter-map bundle with locked weights.
+ * from the published shelter-map data with locked weights.
  */
 
 import { haversineMeters, type TransitCandidate } from "./nearest-transit";
@@ -310,7 +310,7 @@ export function scoreLiveRoute(options: LiveRouteOptions): {
       source: "live_onemap_preview",
       authoritative_score: false,
       reason:
-        "Clicked transit POI has preview shelter-map evidence only; published locked scores come from the shelter-map bundle.",
+        "Clicked transit POI has preview shelter-map evidence only; published locked scores come from the published shelter-map data.",
     },
   };
 

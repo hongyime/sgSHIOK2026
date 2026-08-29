@@ -222,14 +222,16 @@ describe("shelter map interactions", () => {
     expect(liveScoringSource).toContain('routing_type: "live_onemap_preview"');
     expect(liveScoringSource).toContain("authoritative_score: false");
     expect(liveScoringSource).toContain("published locked scores come");
-    expect(liveScoringSource).toContain("from the shelter-map bundle with locked weights.");
+    expect(liveScoringSource).toContain("from the published shelter-map data with locked weights.");
+    expect(liveScoringSource).not.toContain("from the shelter-map bundle with locked weights.");
     expect(liveScoringSource).toContain("preview shelter-map evidence");
     expect(liveScoringSource).toContain("preview-only shelter-map evidence");
     expect(liveScoringSource).toContain("Clicked transit POI has preview shelter-map evidence only");
     expect(liveScoringSource).not.toContain("Clicked transit POI has shelter-map evidence only");
     expect(liveScoringSource).not.toContain("preview route evidence");
     expect(liveScoringSource).not.toContain("preview-only route evidence");
-    expect(liveScoringSource).toContain("published locked scores come from the shelter-map bundle.");
+    expect(liveScoringSource).toContain("published locked scores come from the published shelter-map data.");
+    expect(liveScoringSource).not.toContain("published locked scores come from the shelter-map bundle.");
     expect(liveScoringSource).not.toContain("Clicked transit POI has route evidence only");
     expect(liveScoringSource).not.toContain("authoritative SHIOK scores come from the published score bundle.");
     expect(liveScoringSource).not.toContain("the published score bundle with locked weights and full provenance.");
