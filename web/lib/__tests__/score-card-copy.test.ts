@@ -149,17 +149,19 @@ describe("score card copy", () => {
     expect(smokeSource).not.toContain('[aria-label="Route display"] button');
   });
 
-  it("names selected transit stops and exits explicitly in the selected-target badge", () => {
+  it("names selected MRT/LRT exits and bus stops explicitly in the custom-stop badge", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
-    expect(source).toContain("Viewing selected stop or exit");
-    expect(source).toContain("Custom stop or exit selected.");
+    expect(source).toContain("Viewing selected MRT/LRT exit or bus stop");
+    expect(source).toContain("Custom MRT/LRT exit or bus stop selected.");
+    expect(source).toContain("selected MRT/LRT exit or bus stop is shown by straight-line distance");
+    expect(source).toContain("unavailable for this selected MRT/LRT exit or bus stop");
     expect(source).toContain("Published shelter-map walk selected.");
     expect(source).toContain("↺ Published shelter-map walk");
+    expect(source).not.toContain("Viewing selected stop or exit");
+    expect(source).not.toContain("Custom stop or exit selected.");
     expect(source).not.toContain("Viewing selected transit target");
     expect(source).not.toContain("Custom transit target selected.");
-    expect(source).not.toContain("Viewing selected transit stop");
-    expect(source).not.toContain("Custom transit stop selected.");
     expect(source).not.toContain("Viewing selected transit stop");
     expect(source).not.toContain("Custom transit stop selected.");
     expect(source).not.toContain("Published walk selected.");

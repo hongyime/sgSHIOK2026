@@ -293,7 +293,7 @@ describe("rendered accessibility output", () => {
       html.indexOf("Locked score 72 out of 100.")
     );
     expect(html).toContain("<span>Locked score</span><strong>72/100</strong>");
-    expect(html).toContain("Custom stop or exit selected.");
+    expect(html).toContain("Custom MRT/LRT exit or bus stop selected.");
     expect(html).not.toContain("Custom transit target selected.");
     expect(html).not.toContain("Custom transit stop selected.");
     expect(html).not.toContain("Custom stop selected.");
@@ -396,7 +396,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Preview walk");
     expect(html).toContain("<span>Locked score</span><strong>Preview only</strong>");
     expect(html).toContain(
-      "OneMap walking preview is unavailable for this selected stop or exit; showing straight-line distance only."
+      "OneMap walking preview is unavailable for this selected MRT/LRT exit or bus stop; showing straight-line distance only."
     );
     expect(html).toContain(
       "Preview only: this clicked stop or exit has shelter-map evidence, but it is not part of the published shelter-map bundle yet."
@@ -404,7 +404,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("this selected transit target");
     expect(html).not.toContain("this clicked transit target");
     expect(html).not.toContain("this selected transit stop");
-    expect(html).not.toContain("this selected transit stop");
+    expect(html).not.toContain("this selected stop or exit");
     expect(html).not.toContain("this clicked transit stop");
     expect(html).not.toContain("this clicked stop has shelter map evidence");
     expect(html).not.toContain("not part of the published score bundle yet");

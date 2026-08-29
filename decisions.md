@@ -1906,3 +1906,7 @@ The implemented Section 10 presentation reference should use the same stop-or-ex
 2026-08-29 - P826 browser-smoke transit selector:
 
 The browser smoke launch script must query the same transit mode selector that the app renders. After P824 renamed the segmented control to `Transit stop or exit type`, the smoke script still queried `[aria-label="Transit target"] button`, so launch checks using `--transit-mode` could fail before testing the actual product state. The smoke script now uses `[aria-label="Transit stop or exit type"] button`, with deployment-test coverage guarding against the stale selector. This is launch QA script/test work only; it does not alter browser rendering, route geometry, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P827 selected stop-or-exit copy:
+
+The selected custom-transit badge and live-region status should name the concrete destination as an MRT/LRT exit or bus stop. This keeps the copy inclusive of rail exits and bus stops without reverting to the internal `transit target` term. This is browser copy/accessibility/test/evidence work only; it does not alter transit selection, preview routing, route geometry, scoring, exports, inputs, public data, deployment, or locked weights.

@@ -288,7 +288,7 @@ export function scoreCardAnnouncement({
     (isCustomStopSelected
       ? previewRoute
         ? "Preview shelter-map evidence selected."
-        : "Custom stop or exit selected."
+        : "Custom MRT/LRT exit or bus stop selected."
       : "Published shelter-map walk selected.");
   const shelterText = shelterEvidenceText ?? shelterEvidenceAnnouncement(selection.score);
   return `${postal} shelter-map panel loaded. ${stationName ?? "Transit stop or exit loaded"}. ${shelterText} Locked score ${scoreText}. ${stopText} ${displayContextLabel} ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
@@ -951,10 +951,10 @@ function isPreviewRoute(score: ScoreRecord): boolean {
 
 function liveRoutePreviewStatusNote(status: LiveRoutePreviewStatus | null | undefined): string | null {
   if (status === "loading") {
-    return "Fetching OneMap walking preview; the selected stop or exit is shown by straight-line distance until that walk preview returns.";
+    return "Fetching OneMap walking preview; the selected MRT/LRT exit or bus stop is shown by straight-line distance until that walk preview returns.";
   }
   if (status === "unavailable") {
-    return "OneMap walking preview is unavailable for this selected stop or exit; showing straight-line distance only.";
+    return "OneMap walking preview is unavailable for this selected MRT/LRT exit or bus stop; showing straight-line distance only.";
   }
   return null;
 }
@@ -1262,7 +1262,7 @@ export function ScoreCard({
       : "Sheltered walk";
   const stationName =
     previewRoute
-      ? toProperCase(score.best_node?.name ?? "Selected stop or exit")
+      ? toProperCase(score.best_node?.name ?? "Selected MRT/LRT exit or bus stop")
       : score.state === "NO_TRANSIT_IN_RANGE"
       ? noTransitTitle(score, transitMode)
       : score.state === "NOT_YET_SCORED"
@@ -1519,7 +1519,7 @@ export function ScoreCard({
           <p>{stationName}</p>
           {isCustomStopSelected && (
             <div className={styles.customStopBar}>
-              <span>{previewRoute ? "Preview shelter-map evidence" : "Viewing selected stop or exit"}</span>
+              <span>{previewRoute ? "Preview shelter-map evidence" : "Viewing selected MRT/LRT exit or bus stop"}</span>
               {onResetChosenStop && (
                 <button
                   type="button"
