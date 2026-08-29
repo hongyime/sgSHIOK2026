@@ -515,7 +515,8 @@ describe("score card copy", () => {
     expect(source).toContain("Map layer only; not part of the locked score.");
     expect(source).not.toContain("LTA lamp-post locations load from the published lamp-post layer.");
     expect(source).not.toContain("LTA lamp-post locations load from the published night-lighting artifact.");
-    expect(source).toContain("Switch on and zoom into a neighbourhood to load lamp-post points.");
+    expect(source).toContain("Show the layer and zoom into a neighbourhood to load lamp-post points.");
+    expect(source).not.toContain("Switch on and zoom into a neighbourhood to load lamp-post points.");
     expect(source).toContain("Zoom into a neighbourhood to load lamp-post points.");
     expect(source).not.toContain("Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026.");
     expect(source).not.toContain("LTA lamp-post layer: 126,144 points");
@@ -639,7 +640,7 @@ describe("score card copy", () => {
     expect(tsxSource).not.toContain("routeDetailItems.push({ label: \"Snap connector\"");
     expect(tsxSource).toContain("value: nightLightingRouteDetailValue(lampOverlayEnabled),");
     expect(tsxSource).toContain("export function nightLightingRouteDetailValue(lampOverlayEnabled: boolean): string");
-    expect(tsxSource).toContain("Night-lighting layer off; switch on night lighting, then zoom in");
+    expect(tsxSource).toContain("Night-lighting layer hidden; show the layer, then zoom in");
     expect(tsxSource).toContain('{lampOverlayEnabled ? "Night-lighting layer shown" : "Show night-lighting layer"}');
     expect(tsxSource).not.toContain('{lampOverlayEnabled ? "Night-lighting layer on" : "Night-lighting layer off"}');
     expect(tsxSource).not.toContain('{lampOverlayEnabled ? "Night lighting on" : "Night lighting off"}');
@@ -651,7 +652,7 @@ describe("score card copy", () => {
     expect(tsxSource).toContain("setLampOverlayEnabled?: (enabled: boolean) => void;");
     expect(tsxSource).toContain("lampOverlayEnabled={lampOverlayEnabled}");
     expect(tsxSource).toContain("setLampOverlayEnabled={setLampOverlayEnabled}");
-    expect(tsxSource).toContain("Switch on night lighting");
+    expect(tsxSource).toContain("Show night-lighting layer");
     expect(tsxSource).toContain("onClick={() => setLampOverlayEnabled(true)}");
     expect(tsxSource).toContain(
       "Night lighting uses LTA lamp-post points as a night-lighting map layer outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."

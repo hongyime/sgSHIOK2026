@@ -129,7 +129,7 @@ const SAMPLE_POSTAL_RESULT: SearchResult = {
 export function nightLightingLayerNote(lampOverlayEnabled: boolean): string {
   const action = lampOverlayEnabled
     ? "Zoom into a neighbourhood to load lamp-post points."
-    : "Switch on and zoom into a neighbourhood to load lamp-post points.";
+    : "Show the layer and zoom into a neighbourhood to load lamp-post points.";
   const state = lampOverlayEnabled
     ? "LTA lamp-post locations are shown on the map."
     : "LTA lamp-post locations can be shown on the map.";
@@ -139,7 +139,7 @@ export function nightLightingLayerNote(lampOverlayEnabled: boolean): string {
 export function nightLightingRouteDetailValue(lampOverlayEnabled: boolean): string {
   return lampOverlayEnabled
     ? "Night-lighting layer on; zoom in for lamp-post points"
-    : "Night-lighting layer off; switch on night lighting, then zoom in";
+    : "Night-lighting layer hidden; show the layer, then zoom in";
 }
 
 const RECENT_PUBLIC_SOURCE_MISSING_POSTAL_SOURCE: Record<string, string> = {
@@ -1804,7 +1804,7 @@ export function ScoreCard({
               className={styles.routeDetailAction}
               onClick={() => setLampOverlayEnabled(true)}
             >
-              Switch on night lighting
+              Show night-lighting layer
             </button>
           )}
           {routeDetailNotes.map((note) => (

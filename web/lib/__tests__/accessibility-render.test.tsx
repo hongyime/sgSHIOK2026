@@ -253,7 +253,7 @@ describe("rendered accessibility output", () => {
 
   it("formats the night-lighting layer note for off and on states", () => {
     expect(nightLightingLayerNote(false)).toBe(
-      "Night lighting layer: LTA lamp-post locations can be shown on the map. Switch on and zoom into a neighbourhood to load lamp-post points. Map layer only; not part of the locked score."
+      "Night lighting layer: LTA lamp-post locations can be shown on the map. Show the layer and zoom into a neighbourhood to load lamp-post points. Map layer only; not part of the locked score."
     );
     expect(nightLightingLayerNote(true)).toBe(
       "Night lighting layer: LTA lamp-post locations are shown on the map. Zoom into a neighbourhood to load lamp-post points. Map layer only; not part of the locked score."
@@ -262,7 +262,7 @@ describe("rendered accessibility output", () => {
 
   it("formats selected-walk night-lighting detail values for off and on states", () => {
     expect(nightLightingRouteDetailValue(false)).toBe(
-      "Night-lighting layer off; switch on night lighting, then zoom in"
+      "Night-lighting layer hidden; show the layer, then zoom in"
     );
     expect(nightLightingRouteDetailValue(true)).toBe("Night-lighting layer on; zoom in for lamp-post points");
   });
@@ -681,7 +681,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("greenery proxy");
     expect(html).not.toContain("Greenery proxy uses sparse NParks route geometry for heat only");
     expect(html).toContain("Night lighting");
-    expect(html).toContain("Night-lighting layer off; switch on night lighting, then zoom in");
+    expect(html).toContain("Night-lighting layer hidden; show the layer, then zoom in");
     expect(html).not.toContain("Available; map layer off");
     expect(html).not.toContain("Map layer on; zoom in for points");
     expect(html).not.toContain(">Map layer off</strong>");
@@ -809,11 +809,11 @@ describe("rendered accessibility output", () => {
     const onHtml = renderScoreCard({ lampOverlayEnabled: true });
 
     expect(offHtml).toContain("Night lighting");
-    expect(offHtml).toContain("Night-lighting layer off; switch on night lighting, then zoom in");
-    expect(offHtml).toContain("Switch on night lighting");
+    expect(offHtml).toContain("Night-lighting layer hidden; show the layer, then zoom in");
+    expect(offHtml).toContain("Show night-lighting layer");
     expect(offHtml).not.toContain("Available; map layer off");
     expect(onHtml).toContain("Night-lighting layer on; zoom in for lamp-post points");
-    expect(onHtml).not.toContain("Switch on night lighting");
+    expect(onHtml).not.toContain("Show night-lighting layer");
     expect(onHtml).toContain("LTA lamp-post points");
     expect(onHtml).not.toContain("LTA lamp points");
     expect(onHtml).not.toContain("Map layer on; zoom in for points");
