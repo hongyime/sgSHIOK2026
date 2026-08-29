@@ -93,7 +93,7 @@ describe("deployment packaging", () => {
     const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
 
     expect(config).toContain('source: "/sw.js"');
-    expect(config).toContain('value: "public, max-age=3600, stale-while-revalidate=86400"');
+    expect(config).toContain('value: "public, max-age=86400, stale-while-revalidate=604800"');
     expect(config).toContain('key: "Service-Worker-Allowed"');
     expect(config).toContain('value: "/"');
   });
