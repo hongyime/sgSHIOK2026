@@ -21,14 +21,15 @@ const securityHeaders = [
 
 const nextConfig = {
   reactStrictMode: true,
-  async redirects() {
-    return [
-      {
-        source: "/favicon.ico",
-        destination: "/icon.svg",
-        permanent: true,
-      },
-    ];
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: "/favicon.ico",
+          destination: "/icon.svg",
+        },
+      ],
+    };
   },
   async headers() {
     return [
@@ -93,6 +94,16 @@ const nextConfig = {
       },
       {
         source: "/icon.svg",
+        headers: [
+          ...securityHeaders,
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/favicon.ico",
         headers: [
           ...securityHeaders,
           {

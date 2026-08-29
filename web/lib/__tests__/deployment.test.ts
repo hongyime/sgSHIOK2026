@@ -99,15 +99,19 @@ describe("deployment packaging", () => {
     expect(config).toContain('value: "public, max-age=31536000, immutable"');
   });
 
-  it("routes default favicon probes to the cacheable SVG icon", () => {
+  it("rewrites default favicon probes to the cacheable SVG icon", () => {
     const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
     const layout = readFileSync(join(__dirname, "../../app/layout.tsx"), "utf-8");
 
     expect(layout).toContain("icons");
     expect(layout).toContain('icon: "/icon.svg"');
+    expect(config).toContain("async rewrites()");
+    expect(config).toContain("beforeFiles");
     expect(config).toContain('source: "/favicon.ico"');
     expect(config).toContain('destination: "/icon.svg"');
-    expect(config).toContain("permanent: true");
+    expect(config).toContain('value: "public, max-age=31536000, immutable"');
+    expect(config).not.toContain("async redirects()");
+    expect(config).not.toContain("permanent: true");
   });
 
   it("materializes derived lookup shards during web builds", () => {
