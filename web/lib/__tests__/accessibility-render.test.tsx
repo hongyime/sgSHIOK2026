@@ -430,6 +430,9 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Preview walk");
     expect(html).toContain("<span>Locked score</span><strong>Preview only</strong>");
     expect(html).toContain(
+      "OneMap walking preview could not load for this selected MRT/LRT exit or bus stop; showing straight-line distance only."
+    );
+    expect(html).not.toContain(
       "OneMap walking preview is unavailable for this selected MRT/LRT exit or bus stop; showing straight-line distance only."
     );
     expect(html).toContain(

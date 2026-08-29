@@ -2242,3 +2242,7 @@ The direct-bus fallback comparison metric should not show `Pending` for the veri
 2026-08-29 - P925 no-transit bus-support meta copy:
 
 When an address is outside the locked 1.2 km transit range, the bus-support row should say the bus support is not computed rather than `not scored`. The UI now uses `Bus support not computed`, with the adjacent note preserving the locked-range reason. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P926 OneMap preview load-failure copy:
+
+Live OneMap preview failures should say the preview could not load, not that the walking preview is unavailable. The former describes a failed live lookup while the selected stop or exit remains visible by straight-line distance; the latter can be confused with published shelter-map data absence. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

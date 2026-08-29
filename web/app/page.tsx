@@ -967,7 +967,7 @@ function liveRoutePreviewStatusNote(status: LiveRoutePreviewStatus | null | unde
     return "Fetching OneMap walking preview; the selected MRT/LRT exit or bus stop is shown by straight-line distance until that walk preview returns.";
   }
   if (status === "unavailable") {
-    return "OneMap walking preview is unavailable for this selected MRT/LRT exit or bus stop; showing straight-line distance only.";
+    return "OneMap walking preview could not load for this selected MRT/LRT exit or bus stop; showing straight-line distance only.";
   }
   return null;
 }
