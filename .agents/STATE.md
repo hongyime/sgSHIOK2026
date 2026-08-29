@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `0405ec9` (`fix: keep crawlers off data and API payloads`)
+Latest substantive commit: `9b8ba5c` (`perf: defer transit POI fallback load`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P945 is complete and pushed: initial mount no longer prefetches the island-wide `transit/pois.json`; it now fetches only the manifest, and loads the island-wide transit POI file only as a selected-postal fallback when route-local transit shards return no features. Focused web test passed 1 file / 11 tests; full web tests passed 24 files / 180 tests; repo integrity passed. Evidence: `qa/verification/P945-lazy-transit-poi-load.md`.
 - P944 is complete and pushed: added `web/app/robots.ts` to allow `/` while disallowing `/api/` and `/data/`, and added `X-Robots-Tag: noindex, nofollow, noarchive` to `/api/:path*` and `/data/:path*`. Focused deployment test passed 1 file / 12 tests; full web tests passed 24 files / 180 tests; repo integrity passed. Evidence: `qa/verification/P944-vercel-crawler-controls.md`.
 - P943 is complete and pushed: successful OneMap search proxy responses now send `Cache-Control: public, max-age=86400, stale-while-revalidate=604800`, and successful OneMap walking-route preview responses send `Cache-Control: public, max-age=604800, stale-while-revalidate=2592000`. Errors, throttles, invalid coordinates, and out-of-bounds responses remain uncached. Focused web tests passed 2 files / 9 tests; full web tests passed 24 files / 179 tests; repo integrity passed. Evidence: `qa/verification/P943-vercel-onemap-api-cache.md`.
 - P942 is complete and pushed: versioned static data and lamp-overlay fetches now use stable URLs with `force-cache`, `/data/:path*` sends `Cache-Control: public, max-age=31536000, immutable`, and `web/scripts/ensure-data-bundle.mjs` now skips existing gzip/derived artifacts instead of rewriting protected payloads on future builds. Full web tests passed 24 files / 177 tests; repo integrity passed. Important incident: before inspecting the build helper, `npm --prefix web run build` rewrote 1,085 existing gzip/derived files under `web/public/data/generated_20260805_prefer_scored_routed` totaling 1,521,178 bytes. No revert, deletion, or further protected-payload mutation was performed; the helper was fixed to prevent recurrence.
