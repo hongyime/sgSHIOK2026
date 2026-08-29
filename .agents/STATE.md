@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `8920f2e` (`docs: use listed exposed-gap copy`)
+Latest substantive commit: `f233033` (`docs: clarify OneMap no-match copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P894 is complete and pushed: the search no-results state now says no OneMap match instead of no OneMap address result, with tests/evidence. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P893 is complete and pushed: exposed-gap copy now uses listed and mapped language instead of recorded storage language.
 - P892 is complete and pushed: partial locked-score copy now says unavailable locked-score rows instead of missing score factors.
 - P891 is complete and pushed: exposed-gap fallback copy now says no map location is available, replacing recorded-coordinate storage language.
