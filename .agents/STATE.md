@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `8e97e9f` (`docs: clarify straight-line estimate status`)
+Latest substantive commit: `8515873` (`docs: clarify beyond-range score copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P968 is complete and pushed: beyond-range shelter-map evidence now says the locked score is `not published` beyond the 1.2 km transit range instead of `suppressed`, avoiding the implication that a hidden score exists. Focused web tests passed 2 files / 63 tests; repo integrity passed. Evidence: `qa/verification/P968-beyond-range-score-copy.md`.
 - P967 is complete and pushed: straight-line bus estimate status now says `Estimate display` instead of `Evidence display`, while routed walks still say `Walk display`. Focused web tests passed 2 files / 63 tests; repo integrity passed. Evidence: `qa/verification/P967-estimate-display-label.md`.
 - P966 is complete and pushed: the bus-support caveat now says `Straight-line bus estimate is shown separately` instead of calling it `fallback evidence`, while still stating that no verified shelter-map walk to an official LTA bus stop is published and the locked bus score remains 0. Focused web tests passed 2 files / 63 tests; repo integrity passed. Evidence: `qa/verification/P966-straight-line-bus-caveat.md`.
 - P965 is complete and pushed: nearby-address comparison helper copy for bus, heat, and crossing now says `supporting score row` instead of `locked-score row`, keeping the comparison panel aligned with the shelter-first four-row presentation while leaving scoring logic unchanged. Focused web tests passed 2 files / 63 tests; repo integrity passed. Evidence: `qa/verification/P965-supporting-score-row-copy.md`.
