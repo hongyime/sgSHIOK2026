@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `538913d` (`docs: clarify inspectable shelter evidence copy`)
+Latest substantive commit: `b7c938f` (`docs: align nearby-address comparison status copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,11 +18,11 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P928 is complete and pushed: planning-area comparison status and empty states now use nearby-address framing while preserving the planning-area boundary where it explains no comparable full locked scores.
 - P927 is complete and pushed: locked-row-unavailable reason chips now say `Shelter-map evidence inspectable` instead of `Shelter-map evidence available`; a stale P926 source assertion was also corrected.
 - P926 is complete and pushed: live OneMap walking-preview failures now say the preview could not load instead of saying it is unavailable.
-- P925 is complete and pushed: no-transit fallback bus rows now say `Bus support not computed` instead of `Bus service not scored`.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, dependency install, or locked-weight change was performed.
 
 Next useful free-tier work:
-- Continue pruning user-facing copy that implies future scoring or internal pipeline state.
+- Continue aligning visible comparison/status copy with the shelter-first and nearby-address framing.
 - Prefer small browser copy/test/evidence commits, pushed to main immediately.
