@@ -730,14 +730,14 @@ describe("rendered accessibility output", () => {
         rankedCount: 0,
         rankMetricLabel: "Covered-walkway evidence",
       })
-    ).toBe("Loading nearby-address covered-walkway evidence comparison.");
+    ).toBe("Loading nearby addresses for covered-walkway evidence.");
     expect(
       rankAnnouncement({
         loading: false,
         rankedCount: 0,
         rankMetricLabel: "Bus service support",
       })
-    ).toBe("No nearby-address bus service support comparison available.");
+    ).toBe("No comparable nearby addresses for bus service support.");
     expect(
       rankAnnouncement({
         loading: false,

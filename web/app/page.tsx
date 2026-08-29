@@ -317,11 +317,11 @@ export function rankAnnouncement({
     if (rankedCount === 0) return `No nearby addresses in ${sentenceLabel}.`;
     return `${rankedCount} nearby address${rankedCount === 1 ? "" : "es"} in ${sentenceLabel}.`;
   }
-  if (loading) return `Loading nearby-address ${sentenceLabel} comparison.`;
-  if (rankedCount === 0) return `No nearby-address ${sentenceLabel} comparison available.`;
-  return `${rankedCount} nearby-address ${sentenceLabel} comparison address${
+  if (loading) return `Loading nearby addresses for ${sentenceLabel}.`;
+  if (rankedCount === 0) return `No comparable nearby addresses for ${sentenceLabel}.`;
+  return `${rankedCount} nearby address${
     rankedCount === 1 ? "" : "es"
-  } available.`;
+  } available for ${sentenceLabel}.`;
 }
 
 function rankSentenceMetricLabel(rankMetricLabel: string): string {
