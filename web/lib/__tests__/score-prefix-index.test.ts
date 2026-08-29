@@ -98,4 +98,54 @@ describe("fetchScoreForPostal", () => {
       { cache: "force-cache" }
     );
   });
+
+  it("reuses cached score shards when loading nearby-address rankings", async () => {
+    vi.stubEnv("NEXT_PUBLIC_DATA_BASE", "/data/generated/");
+    const primaryRecord = {
+      postal: "560234",
+      state: "SCORED",
+      total: 72,
+      subscores: { rain: 80 },
+    };
+    const siblingRecord = {
+      postal: "560235",
+      state: "SCORED",
+      total: 70,
+      subscores: { rain: 78 },
+    };
+
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = bareUrl(input);
+      if (url.endsWith("/scores/prefix-index.json")) {
+        return jsonResponse(true, { "560": ["ANG_MO_KIO_PART_001"] });
+      }
+      if (url.endsWith("/scores/ANG_MO_KIO_PART_001.json")) {
+        return jsonResponse(true, [primaryRecord]);
+      }
+      if (url.endsWith("/scores/index.json")) {
+        return jsonResponse(true, {
+          ANG_MO_KIO_PART_001: ["560234"],
+          ANG_MO_KIO_PART_002: ["560235"],
+        });
+      }
+      if (url.endsWith("/scores/ANG_MO_KIO_PART_002.json")) {
+        return jsonResponse(true, [siblingRecord]);
+      }
+      return jsonResponse(false);
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const { fetchRankRecordsForPostalArea, fetchScoreForPostal } = await import("../data");
+
+    await expect(fetchScoreForPostal("560234")).resolves.toEqual(primaryRecord);
+    await expect(fetchRankRecordsForPostalArea("560234")).resolves.toEqual([
+      { postal: "560234", total: 72, subscores: { rain: 80 } },
+      { postal: "560235", total: 70, subscores: { rain: 78 } },
+    ]);
+
+    const partOneFetches = fetchMock.mock.calls.filter(([input]) =>
+      bareUrl(input).endsWith("/scores/ANG_MO_KIO_PART_001.json")
+    );
+    expect(partOneFetches).toHaveLength(1);
+  });
 });

@@ -195,7 +195,7 @@ function rankableScoreRecord(record: ScoreRecord): RankableScoreRecord {
 }
 
 async function fetchAreaRankRecords(areaSlug: string): Promise<RankableScoreRecord[]> {
-  const records = await fetchJson<ScoreRecord[]>(`scores/${areaSlug}.json`);
+  const records = await fetchAreaRecords(areaSlug);
   return records.map(rankableScoreRecord);
 }
 
