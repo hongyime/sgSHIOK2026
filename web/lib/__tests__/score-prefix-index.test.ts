@@ -148,4 +148,43 @@ describe("fetchScoreForPostal", () => {
     );
     expect(partOneFetches).toHaveLength(1);
   });
+
+  it("deduplicates concurrent score index and shard fetches", async () => {
+    vi.stubEnv("NEXT_PUBLIC_DATA_BASE", "/data/generated/");
+    const scoreRecord = {
+      postal: "560234",
+      state: "SCORED",
+      total: 72,
+    };
+
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = bareUrl(input);
+      await new Promise((resolve) => setTimeout(resolve, 10));
+      if (url.endsWith("/scores/prefix-index.json")) {
+        return jsonResponse(true, { "560": ["ANG_MO_KIO_PART_001"] });
+      }
+      if (url.endsWith("/scores/ANG_MO_KIO_PART_001.json")) {
+        return jsonResponse(true, [scoreRecord]);
+      }
+      return jsonResponse(false);
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const { fetchScoreForPostal } = await import("../data");
+
+    await expect(Promise.all([
+      fetchScoreForPostal("560234"),
+      fetchScoreForPostal("560234"),
+      fetchScoreForPostal("560234"),
+    ])).resolves.toEqual([scoreRecord, scoreRecord, scoreRecord]);
+
+    const prefixFetches = fetchMock.mock.calls.filter(([input]) =>
+      bareUrl(input).endsWith("/scores/prefix-index.json")
+    );
+    const shardFetches = fetchMock.mock.calls.filter(([input]) =>
+      bareUrl(input).endsWith("/scores/ANG_MO_KIO_PART_001.json")
+    );
+    expect(prefixFetches).toHaveLength(1);
+    expect(shardFetches).toHaveLength(1);
+  });
 });

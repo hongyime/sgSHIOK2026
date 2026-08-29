@@ -29,6 +29,7 @@ type GeomIndex = Record<string, string[]>;
 type GeomPostalIndex = Record<string, string>;
 type ScorePrefixIndex = Record<string, string[]>;
 const DATA_FETCH_OPTIONS: RequestInit = { cache: "force-cache" };
+const _jsonInFlight = new Map<string, Promise<unknown>>();
 
 function dataUrl(path: string): string {
   return `${DATA_BASE}${path}`;
@@ -62,15 +63,26 @@ async function decodeJsonResponse<T>(res: Response, path: string): Promise<T> {
 }
 
 async function fetchJson<T>(path: string): Promise<T> {
-  if (hasCompressedArtifact(path)) {
-    const gzPath = `${path}.gz`;
-    const gzRes = await fetch(dataUrl(gzPath), DATA_FETCH_OPTIONS);
-    if (gzRes.ok) return decodeJsonResponse<T>(gzRes, gzPath);
-  }
+  const pending = _jsonInFlight.get(path);
+  if (pending) return pending as Promise<T>;
 
-  const res = await fetch(dataUrl(path), DATA_FETCH_OPTIONS);
-  if (!res.ok) throw new Error(`${path} fetch failed: ${res.status}`);
-  return decodeJsonResponse<T>(res, path);
+  const request = (async () => {
+    if (hasCompressedArtifact(path)) {
+      const gzPath = `${path}.gz`;
+      const gzRes = await fetch(dataUrl(gzPath), DATA_FETCH_OPTIONS);
+      if (gzRes.ok) return decodeJsonResponse<T>(gzRes, gzPath);
+    }
+
+    const res = await fetch(dataUrl(path), DATA_FETCH_OPTIONS);
+    if (!res.ok) throw new Error(`${path} fetch failed: ${res.status}`);
+    return decodeJsonResponse<T>(res, path);
+  })();
+  _jsonInFlight.set(path, request);
+  try {
+    return await request;
+  } finally {
+    _jsonInFlight.delete(path);
+  }
 }
 
 // ---------------------------------------------------------------------------
