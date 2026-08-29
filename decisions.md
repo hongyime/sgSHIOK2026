@@ -2042,3 +2042,7 @@ When no full locked score is available, the browser badge should show Walk evide
 2026-08-29 - P875 address-limit copy:
 
 The expanded Data limits address line should lead with the user-facing limitation rather than the internal frozen-v1 label. It now says the address list comes from a June 2020 OneMap-derived postal scrape and that newer developments may be missing. The frozen-v1/versioned-refresh policy remains elsewhere in the disclosure and operational docs. This is browser copy/test/evidence work only; it does not alter manifests, inputs, public data, exports, scoring, deployment, or locked weights.
+
+2026-08-29 - P876 data-limit audit-term copy:
+
+The browser Data limits detail should not require users to understand audit terms such as full-universe gap, frozen postals, frozen v1, promote v2, or numbered input versions. The copy now describes the same evidence as a sampled missing-address signal, June 2020 address-list overlap, published data freshness, and dated input versions. Operator-facing versioning remains in README, source policy, and evidence files. This is browser copy/test/evidence work only; it does not alter manifests, inputs, public data, exports, scoring, deployment, or locked weights.

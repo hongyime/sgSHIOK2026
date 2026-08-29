@@ -194,12 +194,12 @@ describe("rendered accessibility output", () => {
       <SearchFeedback results={[]} loading={false} error={null} searched={true} />
     );
     expect(searchResultsAnnouncement([], false, null, true)).toBe(
-      "No OneMap address result found for this search. Try a 6-digit postal code. The published shelter-map data is tied to the June 2020 address list. P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a measured full-universe gap or approval to promote v2."
+      "No OneMap address result found for this search. Try a 6-digit postal code. The published shelter-map data is tied to the June 2020 address list. P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list."
     );
     expect(noResultsHtml).toContain("No OneMap address result found.");
     expect(noResultsHtml).toContain("Try a 6-digit postal code");
     expect(noResultsHtml).toContain(
-      "The published shelter-map data is tied to the June 2020 address list. P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a measured full-universe gap or approval to promote v2."
+      "The published shelter-map data is tied to the June 2020 address list. P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list."
     );
     expect(noResultsHtml).toContain("emptyBoxNote");
     expect(noResultsHtml).not.toContain("the recent public-source check found");
@@ -218,10 +218,10 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Data limits: frozen v1 addresses; roughly 1 in 4 lack full locked scores");
     expect(html).not.toContain("Data limits: frozen v1 addresses; incomplete locked scores");
     expect(html).toContain("P19 v2 28 Aug 2026 public-source sample");
-    expect(html).toContain("This is sampled evidence, not a measured full-universe gap or approval to promote v2.");
+    expect(html).toContain("This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list.");
     expect(html).not.toContain("Current for gap sizing until 4 Sep 2026 UTC");
     expect(html).toContain(
-      "25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 frozen postals, with 20 valid OSM-only postcodes."
+      "25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 June 2020 address-list postcodes, with 20 valid OSM-only postcodes."
     );
     expect(html).toContain(
       "Source-age snapshot: 28 Aug 2026 22:21 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh."
@@ -233,7 +233,8 @@ describe("rendered accessibility output", () => {
       "At the 28 Aug 2026 source-age check, Bus Stops, Bus Services, and Bus Routes were the nearest current sources to their stale threshold"
     );
     expect(html).toContain("Freshness may have changed since that snapshot");
-    expect(html).toContain("source refreshes use new versioned inputs instead of changing the frozen v1 data in place");
+    expect(html).toContain("source refreshes use new dated input versions instead of changing published data in place");
+    expect(html).not.toContain("source refreshes use new versioned inputs instead of changing the frozen v1 data in place");
     expect(html).not.toContain("source refreshes use new versioned inputs instead of changing the frozen v1 bundle in place");
     expect(html).toContain(
       "The source inventory covers address, transport, shelter, greenery, boundary, and lighting references, including the June 2020 OneMap-derived address seed"

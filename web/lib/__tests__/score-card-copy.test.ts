@@ -296,11 +296,13 @@ describe("score card copy", () => {
     expect(source).not.toContain('const RECENT_PUBLIC_SOURCE_CHECK_LABEL = "16 Aug 2026 public-source check";');
     expect(source).not.toContain("Recent public-source check: {RECENT_PUBLIC_SOURCE_GAP_COPY}.");
     expect(source).toContain(
-      "6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a measured full-universe gap or approval to promote v2"
+      "6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list"
     );
     expect(source).not.toContain("unvalidated MCST proxy rows");
     expect(source).not.toContain("source-quality warnings");
-    expect(source).toContain("This is sampled evidence, not a measured full-universe gap or approval to promote v2");
+    expect(source).toContain("This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list");
+    expect(source).not.toContain("measured full-universe gap");
+    expect(source).not.toContain("approval to promote v2");
     expect(source).not.toContain("Current for gap sizing until 4 Sep 2026 UTC");
     expect(source).not.toContain("out of 976 (0.82%) 2021-2026 public-source rows with postals");
     expect(source).toContain(
@@ -313,8 +315,9 @@ describe("score card copy", () => {
     expect(source).not.toContain("one of the 6 coordinate-backed HDB missing rows from frozen v1 (${source})");
     expect(source).not.toContain("Recent public-sample check:");
     expect(source).toContain(
-      "28 Aug 2026 OSM addr:postcode coverage cross-check: 25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 frozen postals, with 20 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry."
+      "28 Aug 2026 OSM addr:postcode coverage cross-check: 25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 June 2020 address-list postcodes, with 20 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry."
     );
+    expect(source).not.toContain("124,443 frozen postals");
     expect(source).not.toContain("20 Aug 2026 OSM addr:postcode check:");
     expect(source).not.toContain("Live OSM addr:postcode coverage:");
     expect(source).not.toContain("OSM remains the address registry");
@@ -335,7 +338,8 @@ describe("score card copy", () => {
     expect(source).toContain(
       "Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Traffic Signals"
     );
-    expect(source).toContain("source refreshes use new versioned inputs instead of changing the frozen v1 data in place");
+    expect(source).toContain("source refreshes use new dated input versions instead of changing published data in place");
+    expect(source).not.toContain("source refreshes use new versioned inputs instead of changing the frozen v1 data in place");
     expect(source).not.toContain("source refreshes use new versioned inputs instead of changing the frozen v1 bundle in place");
     expect(source).not.toContain("Stale-source refreshes require a new numbered input version");
     expect(source).not.toContain("Stale sources include");
@@ -383,11 +387,11 @@ describe("score card copy", () => {
     );
     expect(source).not.toContain("6 supporting sources are stale.");
     expect(source).toContain(
-      "Covered Linkway follows a quarterly 120-day freshness threshold; frozen v1 uses the Mar 2026 LTA geospatial listing. A 28 Aug 2026 source-listing check found the covered-linkway, bridge/underpass, and traffic-signal listings still matched frozen v1; stale source data still requires a new numbered input version before any refresh."
+      "Covered Linkway follows a quarterly 120-day freshness threshold; published data uses the Mar 2026 LTA geospatial listing. A 28 Aug 2026 source-listing check found the covered-linkway, bridge/underpass, and traffic-signal listings still matched the published data; stale source data still requires a new dated input version before any refresh."
     );
     expect(source).not.toContain("stale payload ages");
     expect(source).not.toContain("check found current Covered Linkway");
-    expect(source).toContain("traffic-signal listings still matched frozen v1");
+    expect(source).not.toContain("traffic-signal listings still matched frozen v1");
     expect(source).not.toContain("Traffic Signals URLs still match frozen v1");
     expect(source).not.toContain("discovery-only DataMall check");
     expect(source).not.toContain("traffic signals still matched");
