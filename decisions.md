@@ -1982,3 +1982,7 @@ Browser data-limit copy should not expose repository filenames or administrative
 2026-08-29 - P845 night-lighting layer copy:
 
 Browser night-lighting copy should name the visible map layer instead of the internal artifact concept. The title-card note now says LTA lamp-post locations load from the published lamp-post layer while preserving the caveat that night lighting is a map layer only and not part of the locked score. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P846 shelter-source listing copy:
+
+Browser source-freshness detail should describe dated LTA source checks without exposing DataMall discovery URL mechanics. Covered Linkway copy now says a 28 Aug 2026 source-listing check found the covered-linkway, bridge/underpass, and traffic-signal listings still matched frozen v1, while preserving the quarterly threshold and new-numbered-input-version refresh rule. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
