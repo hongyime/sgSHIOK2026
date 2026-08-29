@@ -102,6 +102,12 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "validates the shelter-map bundle" in normalized
     assert "validates the score bundle" not in normalized
     assert "Do not rebuild, overwrite, or mutate existing public data directories" in normalized
+    assert "If Vercel Hobby Edge Requests hit quota" in normalized
+    assert "production is serving current `main`" in normalized
+    assert "automatic Git deployments are intentionally disabled in `web/vercel.json`" in normalized
+    assert "committed cache and crawler reductions do not affect live traffic until the owner manually deploys" in normalized
+    assert "pause or protect the Vercel project from the Vercel dashboard/API" in normalized
+    assert "changes public availability and is an owner decision" in normalized
     assert "uv run python run.py lamp-overlay --output web/public/data/lamp_posts_v2 --confirm-lamp-overlay" in normalized
     assert "replacement night lighting overlay" in normalized
     assert "replacement night-lighting overlay" not in normalized

@@ -1,3 +1,6 @@
+2026-08-30 - P1009 Vercel quota runbook:
+README local-data guidance should include the operational quota answer from P1006-P1008: when Vercel Hobby Edge Requests hit quota, first check whether production is serving current `main`, because automatic Git deployments are intentionally disabled in `web/vercel.json` and committed request reductions do not affect live traffic until the owner manually deploys. Immediate hard stops such as pausing or protecting the Vercel project are owner availability decisions, not agent-default repository changes. This is documentation/test/evidence work only; it does not deploy, mutate Vercel settings, score, export, rescore, ingest, build network, mutate public data, protected evidence, inputs, or locked weights.
+
 2026-08-29 - P994 README locked-score coverage wording:
 README local-data guidance should match the browser's product-honesty framing: the secondary composite is a coverage/limitation disclosure, not the headline evidence. The active bundle description now says `locked-score coverage for 95,157 of 124,443 records` while preserving the exact 29,286 missing-full-score count, 23.5%/roughly-quarter share, and partial/beyond-range/not-published breakdown. This is documentation/test/evidence work only; it does not alter manifests, score values, inputs, public data, scoring, export, deploy, or locked weights.
 
