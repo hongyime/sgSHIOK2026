@@ -81,7 +81,7 @@ describe("deployment packaging", () => {
   it("bounds service-worker freshness for stable non-hashed URLs", () => {
     const serviceWorker = readFileSync(join(__dirname, "../../public/sw.js"), "utf-8");
 
-    expect(serviceWorker).toContain('["/", 86_400_000]');
+    expect(serviceWorker).toContain('["/", 604_800_000]');
     expect(serviceWorker).toContain('["/robots.txt", 604_800_000]');
     expect(serviceWorker).toContain('["/sitemap.xml", 604_800_000]');
     expect(serviceWorker).toContain('if (url.pathname === "/icon.svg") return Infinity;');
@@ -98,11 +98,11 @@ describe("deployment packaging", () => {
     expect(config).toContain('value: "/"');
   });
 
-  it("caches the app shell to reduce repeat edge requests", () => {
+  it("caches the app shell for one week to reduce repeat edge requests", () => {
     const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
 
     expect(config).toContain('source: "/"');
-    expect(config).toContain('value: "public, max-age=86400, stale-while-revalidate=604800"');
+    expect(config).toContain('value: "public, max-age=604800, stale-while-revalidate=2592000"');
   });
 
   it("keeps crawler controls away from data and API payloads", () => {

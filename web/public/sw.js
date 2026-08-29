@@ -2,7 +2,7 @@ const CACHE_NAME = "sgshiok-static-v1";
 const CACHEABLE_EXACT_PATHS = new Set(["/", "/icon.svg", "/robots.txt", "/sitemap.xml"]);
 const CACHEABLE_PREFIXES = ["/_next/static/", "/data/"];
 const CACHE_MAX_AGE_MS = new Map([
-  ["/", 86_400_000],
+  ["/", 604_800_000],
   ["/robots.txt", 604_800_000],
   ["/sitemap.xml", 604_800_000],
 ]);
