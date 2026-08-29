@@ -2034,3 +2034,7 @@ Postal-specific missing-address caveats should label the parenthesized source as
 2026-08-29 - P858 missing score-factor copy:
 
 Browser locked-score caveats should say missing score factors instead of locked score inputs. The scoring rule is unchanged: missing factors still count as zero in the locked formula, but the displayed wording now describes the limitation in terms a home-search user can understand. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P859 no-score badge value:
+
+When no full locked score is available, the browser badge should show Walk evidence as the value instead of Published data. That keeps the absent score secondary while pointing the user to the useful inspected artifact still available in the card. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.

@@ -1073,7 +1073,8 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Locked bus evidence is not computed for records outside the 1.2 km transit range.");
     expect(html).toContain("No full locked score is published for this postal, but the shelter-map walk evidence remains inspectable.");
     expect(html).not.toContain("No full locked score is published for this postal, but the route evidence remains inspectable.");
-    expect(html).toContain("<span>No full locked score</span><strong>Published data</strong>");
+    expect(html).toContain("<span>No full locked score</span><strong>Walk evidence</strong>");
+    expect(html).not.toContain("<span>No full locked score</span><strong>Published data</strong>");
     expect(html).not.toContain("<span>No full score</span><strong>Published data</strong>");
     expect(html).not.toContain("Transit beyond locked range");
     expect(html).not.toContain("Shelter-map evidence unavailable");
@@ -1105,7 +1106,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Transit stops or exits exist, but the published shelter-map data has no connected shelter-map walk yet.");
     expect(html).not.toContain("Transit target found");
     expect(html).not.toContain("Transit targets exist, but the published shelter-map data has no connected shelter-map walk yet.");
-    expect(html).toContain("<span>No full locked score</span><strong>Published data</strong>");
+    expect(html).toContain("<span>No full locked score</span><strong>Walk evidence</strong>");
     expect(html).not.toContain("No qualifying MRT/LRT exit or bus stop was found");
   });
 
@@ -1135,7 +1136,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("No qualifying transit stop within 1.2 km");
     expect(html).toContain("Outside locked transit range");
     expect(html).toContain("No qualifying MRT/LRT exit or bus stop was found within the locked 1.2 km transit range for this postal.");
-    expect(html).toContain("<span>No full locked score</span><strong>Published data</strong>");
+    expect(html).toContain("<span>No full locked score</span><strong>Walk evidence</strong>");
     expect(html).not.toContain("Shelter-map walk not connected yet");
   });
 
@@ -1203,7 +1204,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Shelter-map evidence unavailable");
     expect(html).toContain("Shelter-map walk evidence unavailable.");
     expect(html).toContain("Locked score unavailable");
-    expect(html).toContain("<span>No full locked score</span><strong>Published data</strong>");
+    expect(html).toContain("<span>No full locked score</span><strong>Walk evidence</strong>");
     expect(html).toContain("<strong>Unavailable</strong><small>Shelter-map walk unavailable</small>");
     expect(html).toContain("<strong>Unavailable</strong><small>Walk-to-transit score unavailable</small>");
     expect(html).toContain("<strong>No full locked score</strong><small>Locked score unavailable</small>");
@@ -1246,7 +1247,7 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("No full locked score in published shelter-map data");
     expect(html).toContain("Partial shelter-map evidence may be available");
-    expect(html).toContain("<span>No full locked score</span><strong>Published data</strong>");
+    expect(html).toContain("<span>No full locked score</span><strong>Walk evidence</strong>");
     expect(html).not.toContain("Location Evidence Missing");
     expect(html).toContain("Locked score unavailable in the published shelter-map data.");
     expect(html).not.toContain("Locked score no full locked score in this bundle.");

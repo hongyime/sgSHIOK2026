@@ -638,7 +638,8 @@ describe("score card copy", () => {
     expect(source).toContain('label: "Locked score"');
     expect(source).toContain('label: "No full locked score"');
     expect(source).not.toContain('label: "No full score"');
-    expect(source).toContain('value: "Published data"');
+    expect(source).toContain('value: "Walk evidence"');
+    expect(source).not.toContain('value: "Published data"');
     expect(source).toContain("shelterEvidenceAnnouncement(selection.score)");
   });
 
