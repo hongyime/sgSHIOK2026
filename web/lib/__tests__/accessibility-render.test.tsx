@@ -313,6 +313,8 @@ describe("rendered accessibility output", () => {
       html.indexOf("Locked score 72 out of 100.")
     );
     expect(html).toContain("<span>Locked score</span><strong>72/100</strong>");
+    expect(html).toContain("<strong>72/100</strong><small>Sorting-only score</small>");
+    expect(html).not.toContain("<strong>72/100</strong><small>Release sorting index</small>");
     expect(html).toContain("Custom MRT/LRT exit or bus stop selected.");
     expect(html).not.toContain("Custom transit target selected.");
     expect(html).not.toContain("Custom transit stop selected.");
@@ -1187,10 +1189,11 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("Shelter exposure");
     expect(html).toContain(
-      "Partial locked score: shelter-map evidence may still be present, but missing score factors count as zero in the locked formula."
+      "Partial locked score: shelter-map evidence may still be present, but missing score factors count as zero in the locked scoring rule."
     );
     expect(html).not.toContain("unavailable score inputs count as zero");
     expect(html).not.toContain("the locked formula counts unavailable terms as zero");
+    expect(html).not.toContain("missing score factors count as zero in the locked formula");
     expect(html).not.toContain(
       "Partial locked score: shelter-map evidence may still be present, but one or more locked terms are unavailable; locked weights count missing terms as zero."
     );

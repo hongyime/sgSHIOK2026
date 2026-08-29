@@ -596,7 +596,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     return "Preview only: this clicked MRT/LRT exit or bus stop has shelter-map evidence, but it is not part of the published shelter-map data yet.";
   }
   if (score.state === "SCORED_PARTIAL") {
-    return "Partial locked score: shelter-map evidence may still be present, but missing score factors count as zero in the locked formula.";
+    return "Partial locked score: shelter-map evidence may still be present, but missing score factors count as zero in the locked scoring rule.";
   }
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const reason = provenanceReason(score, transitMode);
@@ -1465,7 +1465,7 @@ export function ScoreCard({
           id: "locked-score",
           label: "Locked SHIOK score",
           value: formatLockedScore(displayScore),
-          meta: scoredMeta(displayScore, "Release sorting index", "Locked score unavailable"),
+          meta: scoredMeta(displayScore, "Sorting-only score", "Locked score unavailable"),
           notes: [
             "Start with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.",
             "Crossing friction still contributes 5% to the locked score, but has low separation in this release.",

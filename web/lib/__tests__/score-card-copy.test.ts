@@ -682,10 +682,11 @@ describe("score card copy", () => {
     expect(source).not.toContain("Locked terms unavailable");
     expect(source).not.toContain("Locked score incomplete");
     expect(source).toContain(
-      "Partial locked score: shelter-map evidence may still be present, but missing score factors count as zero in the locked formula."
+      "Partial locked score: shelter-map evidence may still be present, but missing score factors count as zero in the locked scoring rule."
     );
     expect(source).not.toContain("unavailable score inputs count as zero");
     expect(source).not.toContain("the locked formula counts unavailable terms as zero");
+    expect(source).not.toContain("missing score factors count as zero in the locked formula");
     expect(source).not.toContain(
       "Partial locked score: shelter-map evidence may still be present, but one or more locked terms are unavailable; locked weights count missing terms as zero."
     );
@@ -741,6 +742,8 @@ describe("score card copy", () => {
       '{ id: "heat", label: "Heat proxy evidence" }'
     );
     expect(source).toContain('?? "Locked score sorting index"');
+    expect(source).toContain('"Sorting-only score"');
+    expect(source).not.toContain('"Release sorting index"');
     expect(source).toContain("Start with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.");
     expect(source).not.toContain("Start with the shelter trace and exposed gaps; use the locked score only to sort the published shelter-map data.");
     expect(source).not.toContain("Start with the shelter trace and exposed gaps; use the locked score only to sort the current bundle.");
