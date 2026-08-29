@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `5a4f051` (`docs: name straight-line bus estimate in route details`)
+Latest substantive commit: `03d3a0f` (`fix: cache versioned web data artifacts`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,8 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P942 is complete and pushed: versioned static data and lamp-overlay fetches now use stable URLs with `force-cache`, `/data/:path*` sends `Cache-Control: public, max-age=31536000, immutable`, and `web/scripts/ensure-data-bundle.mjs` now skips existing gzip/derived artifacts instead of rewriting protected payloads on future builds. Full web tests passed 24 files / 177 tests; repo integrity passed. Important incident: before inspecting the build helper, `npm --prefix web run build` rewrote 1,085 existing gzip/derived files under `web/public/data/generated_20260805_prefer_scored_routed` totaling 1,521,178 bytes. No revert, deletion, or further protected-payload mutation was performed; the helper was fixed to prevent recurrence.
+- P941 is complete and pushed: the `direct_unrouted_bus` source label now reads `Straight-line bus estimate` across route detail surfaces, keeping fallback internals out of user-visible copy. Focused web tests passed 2 files / 63 tests.
 - P940 is complete and pushed: route-detail ARIA labels and selection announcements now use straight-line bus estimate copy instead of exposing the direct-bus fallback implementation phrase; focused web tests passed 2 files / 63 tests.
 - P939 is complete and pushed: `pipeline.fetch` freshness-only help and the report header now name both `raw/manifest.json` and `pipeline/config/sources.yaml`, matching the real read scope; focused `tests/test_fetch.py` passed 28 tests.
 - P938 is complete and pushed: zero-mutation `run.py check --freshness-only` measured the 29 Aug 2026 09:38 UTC source-age snapshot; browser data-limit copy and tests now use that date with unchanged 11 current / 9 stale / 3 manual / 1 unknown-age counts.
