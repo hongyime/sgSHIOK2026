@@ -44,7 +44,7 @@ export default function robots(): MetadataRoute.Robots {
           "/manifest.json",
           "/*?*",
         ],
-        crawlDelay: 300,
+        crawlDelay: 3600,
       },
     ],
     sitemap: "https://sgshiok.vercel.app/sitemap.xml",

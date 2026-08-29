@@ -192,7 +192,7 @@ describe("deployment packaging", () => {
     ]) {
       expect(robots).toContain(disallowedPath);
     }
-    expect(robots).toContain("crawlDelay: 300");
+    expect(robots).toContain("crawlDelay: 3600");
     expect(robots).toContain('sitemap: "https://sgshiok.vercel.app/sitemap.xml"');
     expect(robots).not.toContain("OAI-SearchBot");
     expect(robots).not.toContain("Claude-SearchBot");
