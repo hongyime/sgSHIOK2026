@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `4d763c4` (`docs: record Vercel quota emergency options`)
+Latest substantive commit: `131922d` (`perf: add crawler delay to robots policy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P954 is complete and pushed: `web/app/robots.ts` now emits `crawlDelay: 10` while keeping `/` allowed and `/api/` plus `/data/` disallowed. This is a polite-crawler throttle, not hard access control; it only helps crawlers that honor `Crawl-delay`. Focused deployment test passed 1 file / 15 tests; repo integrity passed. Evidence: `qa/verification/P954-vercel-robots-crawl-delay.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P953 is complete and pushed: documented immediate Vercel Edge-request quota options without mutating the Vercel project. Read-only connector checks show production still points at `0405ec9`, so P945-P952 request reductions are committed but not live. The practical immediate owner-level control is pausing the project, which blocks the active production deployment; deployment protection/firewall controls may reduce unwanted traffic but change public access behavior or require plan support. Repo integrity passed. Evidence: `qa/verification/P953-vercel-quota-emergency-options.md`.
 - P952 is complete and pushed: successful live OneMap walking preview responses are now cached in browser `sessionStorage` by postal, selected stop id, origin coordinates, and stop coordinates. The cache stores only the upstream preview payload and does not cache failed/malformed previews, reducing repeat `/api/onemap-route` calls on same-session reloads or shared-link revisits. Focused route-evidence interaction test passed 1 file / 11 tests; full web tests passed 25 files / 186 tests; repo integrity passed. Evidence: `qa/verification/P952-vercel-route-preview-session-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P951 is complete and pushed: `/robots.txt` now receives `Cache-Control: public, max-age=86400, stale-while-revalidate=604800`, keeping crawler controls intact while avoiding needless browser/crawler revalidation of the same policy file on every visit. Focused deployment test passed 1 file / 15 tests. First full web-suite run hit the existing generated-data prefix-shard timeout; the targeted data rerun passed 4 files / 14 tests and the second full web-suite run passed 25 files / 186 tests. Repo integrity passed. Evidence: `qa/verification/P951-vercel-robots-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
