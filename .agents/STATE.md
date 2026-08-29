@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `c9cdfff` (`perf: cache Next static chunks`)
+Latest substantive commit: `4be58b7` (`docs: record Vercel quota status`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P991 is complete and pushed: read-only Vercel connector check recorded that the project reports `live: false` while the latest production deployment is `READY`, and a narrow six-hour grouped static runtime-log sample only showed `/` with count 5. Evidence: `qa/verification/P991-vercel-quota-status.md`. Practical recommendation: deploy current `main` if the owner wants the accumulated code-side Edge Request reductions live; if quota remains exhausted after that, the next controls are owner-level project pause, firewall/protection, or intentionally disallowing all crawling.
 - P990 is complete and pushed: `/_next/static/:path*` now sends `Cache-Control: public, max-age=31536000, immutable` plus `X-Robots-Tag: noindex, nofollow, noarchive`, making repeat hashed Next chunk requests cacheable and discouraging indexing of build assets. Focused deployment test passed 1 file / 22 tests; repo integrity passed. Evidence: `qa/verification/P990-next-static-cache.md`. Subagent restart was attempted but blocked by the harness agent thread limit. This is not live until the owner performs an explicit Vercel deployment.
 - P989 is complete and pushed: legacy `/favicon.ico` probes now use an internal rewrite to `/icon.svg` instead of a client-visible redirect, and `/favicon.ico` has the same immutable one-year cache header as `/icon.svg`. This reduces legacy icon probes from redirect-plus-icon to one cacheable request. Focused deployment test passed 1 file / 21 tests; repo integrity passed. Evidence: `qa/verification/P989-favicon-rewrite.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P988 is complete and pushed: successful `/api/onemap-search` responses now use a one-day browser cache instead of one hour, matching route-preview browser caching while leaving error, throttle, missing-parameter, and upstream-failure responses uncached. Focused onemap-api-security test passed 1 file / 5 tests; repo integrity passed. Evidence: `qa/verification/P988-onemap-search-day-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
