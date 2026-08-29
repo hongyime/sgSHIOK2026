@@ -593,7 +593,7 @@ function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): str
 
 function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): string | null {
   if (score.paths?.routing_type === "live_onemap_preview") {
-    return "Preview only: this clicked stop or exit has shelter-map evidence, but it is not part of the published shelter-map bundle yet.";
+    return "Preview only: this clicked MRT/LRT exit or bus stop has shelter-map evidence, but it is not part of the published shelter-map bundle yet.";
   }
   if (score.state === "SCORED_PARTIAL") {
     return "Partial locked score: shelter-map evidence may still be present, but unavailable score inputs count as zero in the locked formula.";

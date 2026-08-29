@@ -1910,3 +1910,7 @@ The browser smoke launch script must query the same transit mode selector that t
 2026-08-29 - P827 selected stop-or-exit copy:
 
 The selected custom-transit badge and live-region status should name the concrete destination as an MRT/LRT exit or bus stop. This keeps the copy inclusive of rail exits and bus stops without reverting to the internal `transit target` term. This is browser copy/accessibility/test/evidence work only; it does not alter transit selection, preview routing, route geometry, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P828 clicked preview destination copy:
+
+The preview-only caveat should use the same concrete destination language as the selected custom-transit badge. It now says the clicked MRT/LRT exit or bus stop has shelter-map evidence, instead of the generic clicked stop-or-exit wording. This is browser copy/accessibility/test/evidence work only; it does not alter transit selection, preview routing, route geometry, scoring, exports, inputs, public data, deployment, or locked weights.
