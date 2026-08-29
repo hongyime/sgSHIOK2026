@@ -1,5 +1,4 @@
 import React from "react";
-import "maplibre-gl/dist/maplibre-gl.css";
 
 const metadataTitle = "S.H.I.O.K. Shelter Map";
 const metadataDescription =

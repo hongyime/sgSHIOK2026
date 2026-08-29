@@ -44,6 +44,20 @@ describe("deployment packaging", () => {
     expect(config).toContain('value: "noindex, nofollow, noarchive"');
   });
 
+  it("keeps MapLibre styles out of the first-load root layout", () => {
+    const layout = readFileSync(join(__dirname, "../../app/layout.tsx"), "utf-8");
+    const routeMapStyles = readFileSync(
+      join(__dirname, "../../components/route-evidence-map.module.css"),
+      "utf-8",
+    );
+
+    expect(layout).not.toContain('import "maplibre-gl/dist/maplibre-gl.css"');
+    expect(routeMapStyles).toContain(":global(.maplibregl-map)");
+    expect(routeMapStyles).toContain(":global(.maplibregl-canvas)");
+    expect(routeMapStyles).toContain(":global(.maplibregl-ctrl-top-right)");
+    expect(routeMapStyles).toContain(":global(.maplibregl-popup-content)");
+  });
+
   it("registers the optional service worker directly after app intent", () => {
     const layout = readFileSync(join(__dirname, "../../app/layout.tsx"), "utf-8");
     const page = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
