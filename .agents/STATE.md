@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `cee8545` (`docs: clarify straight-line bus score caveat`)
+Latest substantive commit: `09e25b3` (`docs: soften locked score caveat copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P971 is complete and pushed: the direct-bus locked-score state now says `Locked score note` instead of `Locked score caveat`, keeping the same explanation that the straight-line bus estimate is not a verified shelter-map walk. Focused web tests passed 2 files / 63 tests; repo integrity passed. Evidence: `qa/verification/P971-locked-score-note-copy.md`.
 - P970 is complete and pushed: the direct-bus score caveat now says the straight-line bus estimate is not a verified shelter-map walk, instead of saying nearby direct bus service evidence is not connected. Focused web tests passed 2 files / 63 tests; repo integrity passed. Evidence: `qa/verification/P970-straight-line-bus-score-caveat.md`.
 - P969 is complete and pushed: the access display-row meta now says `35% locked stop/exit walk` instead of `35% locked walk-to-transit`, matching the visible `Walk to stop or exit` row label. Focused web tests passed 2 files / 63 tests; repo integrity passed. Evidence: `qa/verification/P969-stop-exit-walk-meta-copy.md`.
 - P968 is complete and pushed: beyond-range shelter-map evidence now says the locked score is `not published` beyond the 1.2 km transit range instead of `suppressed`, avoiding the implication that a hidden score exists. Focused web tests passed 2 files / 63 tests; repo integrity passed. Evidence: `qa/verification/P968-beyond-range-score-copy.md`.
