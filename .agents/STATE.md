@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `4617733` (`docs: clarify hdb missing address copy`)
+Latest substantive commit: `0a8192e` (`docs: label greenery detail as nearby greenery`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P855 is complete and pushed: route details now label the walk-adjacent greenery signal as nearby greenery rather than greenery proxy, while keeping the heat-proxy limitation visible.
 - P854 is complete and pushed: postal-specific HDB gap caveats now say confirmed new HDB rows are missing from the June 2020 address list rather than missing from frozen v1.
 - P853 is complete and pushed: browser recent-source caveats now describe unconfirmed MCST rows as unverified address candidates and address-quality warnings instead of MCST proxy rows and source-quality evidence.
 - P852 is complete and pushed: expanded Data limits copy now says frozen v1 data, June 2020 OneMap-derived address seed, and stale source data instead of frozen v1 bundle, postal-universe seed, and stale payload ages.
