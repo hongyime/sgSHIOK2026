@@ -2238,3 +2238,7 @@ The partial locked-score note should describe what the user can do with remainin
 2026-08-29 - P924 direct-bus comparison value copy:
 
 The direct-bus fallback comparison metric should not show `Pending` for the verified shelter-map walk. The fallback is not waiting for a route; it is published evidence that no verified shelter-map walk is available for that bus access case. The UI now shows `No published walk` for that metric. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P925 no-transit bus-support meta copy:
+
+When an address is outside the locked 1.2 km transit range, the bus-support row should say the bus support is not computed rather than `not scored`. The UI now uses `Bus support not computed`, with the adjacent note preserving the locked-range reason. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

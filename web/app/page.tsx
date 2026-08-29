@@ -1514,7 +1514,7 @@ export function ScoreCard({
             id: "bus",
             label: "Bus service support",
             value: formatScore(null),
-            meta: "Bus service not scored",
+            meta: "Bus support not computed",
             notes: ["Bus service support is not computed for addresses outside the locked 1.2 km transit range."],
           },
           {
