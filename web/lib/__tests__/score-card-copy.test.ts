@@ -432,7 +432,10 @@ describe("score card copy", () => {
       "{LEAF_AREA_INDEX_REFERENCE_COPY}",
     ]);
     expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).toContain(
-      "Full locked scores:"
+      "June 2020 address-list records"
+    );
+    expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).not.toContain(
+      "of ${formatWholeNumber(recordCount)} records"
     );
     expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).not.toContain(
       "Locked score coverage:"

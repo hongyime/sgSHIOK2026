@@ -60,7 +60,7 @@ export function formatLockedScoreAvailabilityLine(manifest: Manifest | null): st
   const nonFullText = breakdown
     ? `missing full scores: ${breakdown}`
     : "missing full scores";
-  return `Full locked scores: ${formatWholeNumber(scored)} of ${formatWholeNumber(recordCount)} records; ${formatWholeNumber(
+  return `Full locked scores: ${formatWholeNumber(scored)} of ${formatWholeNumber(recordCount)} June 2020 address-list records; ${formatWholeNumber(
     notFull
   )} records (${pctText}) ${nonFullText}.`;
 }
