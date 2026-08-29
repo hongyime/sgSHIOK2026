@@ -2246,3 +2246,7 @@ When an address is outside the locked 1.2 km transit range, the bus-support row 
 2026-08-29 - P926 OneMap preview load-failure copy:
 
 Live OneMap preview failures should say the preview could not load, not that the walking preview is unavailable. The former describes a failed live lookup while the selected stop or exit remains visible by straight-line distance; the latter can be confused with published shelter-map data absence. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P927 locked-row evidence inspectability copy:
+
+When locked-score rows are unavailable but a shelter-map walk exists, the reason chip should say the evidence is inspectable rather than merely available. The UI now uses `Shelter-map evidence inspectable`, which points users to the action they can take in the shelter-first panel. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

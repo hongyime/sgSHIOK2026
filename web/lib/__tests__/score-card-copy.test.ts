@@ -172,7 +172,8 @@ describe("score card copy", () => {
     expect(source).toContain("Viewing selected MRT/LRT exit or bus stop");
     expect(source).toContain("Custom MRT/LRT exit or bus stop selected.");
     expect(source).toContain("selected MRT/LRT exit or bus stop is shown by straight-line distance");
-    expect(source).toContain("unavailable for this selected MRT/LRT exit or bus stop");
+    expect(source).toContain("could not load for this selected MRT/LRT exit or bus stop");
+    expect(source).not.toContain("unavailable for this selected MRT/LRT exit or bus stop");
     expect(source).toContain("Published shelter-map walk selected.");
     expect(source).toContain("↺ Published shelter-map walk");
     expect(source).not.toContain("Viewing selected stop or exit");
@@ -722,7 +723,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("Not scored in the current bundle");
     expect(source).toContain("No published shelter-map walk");
     expect(source).not.toContain("Shelter-map evidence unavailable");
-    expect(source).toContain("Shelter-map evidence available");
+    expect(source).toContain("Shelter-map evidence inspectable");
+    expect(source).not.toContain("Shelter-map evidence available");
     expect(source).toContain("Locked score unavailable");
     expect(source).toContain("Unavailable locked-score rows");
     expect(source).not.toContain("Missing score factors");
