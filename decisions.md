@@ -2162,3 +2162,7 @@ Live OneMap preview route badges should say `Not in published shelter-map data` 
 2026-08-29 - P905 date fallback copy:
 
 Date fallback copy should say `Date unavailable` instead of bare `Unavailable` in the title-card source/evidence date line. Numeric score and row-value fallbacks remain unchanged. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P906 OneMap missing-postal error copy:
+
+When a selected OneMap match has no 6-digit postal code, the error should give the user a recovery path instead of saying the result has no usable postal code. The copy now asks the user to choose another match or enter the postal code directly. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

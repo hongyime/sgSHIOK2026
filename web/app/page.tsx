@@ -2181,7 +2181,7 @@ export default function Home() {
   const loadSelection = async (result: SearchResult) => {
     const postal = normalizePostal(result.POSTAL);
     if (!postal) {
-      setError("Selected OneMap result has no usable postal code.");
+      setError("This OneMap match has no 6-digit postal code. Choose another match or enter the postal code directly.");
       return;
     }
     setLoading(true);
