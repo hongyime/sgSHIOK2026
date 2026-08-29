@@ -52,7 +52,7 @@ describe("deployment packaging", () => {
     expect(config).toContain('key: "X-Robots-Tag"');
     expect(config).toContain('value: "noindex, nofollow, noarchive"');
     expect(robots).toContain('allow: "/"');
-    expect(robots).toContain('disallow: ["/api/", "/data/", "/*?*"]');
+    expect(robots).toContain('disallow: ["/api/", "/data/", "/_next/", "/*?*"]');
     expect(robots).toContain("crawlDelay: 10");
     expect(robots).toContain('sitemap: "https://sgshiok.vercel.app/sitemap.xml"');
   });
