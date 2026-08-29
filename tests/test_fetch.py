@@ -247,8 +247,8 @@ def test_source_config_has_freshness_policy_for_every_source() -> None:
     assert len(sources) == 24
     assert "S.H.I.O.K. Shelter Map" in source_text
     assert "S.H.I.O.K. Index" not in source_text
-    assert "authenticated GeospatialWholeIsland fallback" in source_text
-    assert "Refresh only as a new numbered input version." in source_text
+    assert "28 Aug 2026 discovery-only check used authenticated GeospatialWholeIsland fallback" in source_text
+    assert "still matched frozen v1; refresh only as a new numbered input version." in source_text
     assert (
         "tracked freshness reference only, not route-level geometry, shade-proxy geometry, "
         "score provenance, or rain shelter geometry"
@@ -602,6 +602,75 @@ def test_run_geospatial_discovery_report_sanitizes_and_reports_drift(
         "Geospatial discovery action: report and plan a new numbered input version; "
         "do not repair frozen v1 in place."
     ) in out
+
+
+def test_run_geospatial_discovery_report_reports_all_matched(
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    monkeypatch.setattr(
+        fetch,
+        "load_manifest",
+        lambda: {
+            "sources": {
+                "covered_linkway": {
+                    "url_as_discovered": "https://dmgeospatial.s3.ap-southeast-1.amazonaws.com/CoveredLinkWay.zip"
+                },
+                "overhead_bridge_underpass": {
+                    "url_as_discovered": (
+                        "https://dmgeospatial.s3.ap-southeast-1.amazonaws.com/"
+                        "PedestrainOverheadbridge_UnderPass.zip"
+                    )
+                },
+                "traffic_signals": {
+                    "url_as_discovered": "https://dmgeospatial.s3.ap-southeast-1.amazonaws.com/TrafficLight.zip"
+                },
+            }
+        },
+    )
+    discovered = {
+        "CoveredLinkWay": "https://dmgeospatial.s3.ap-southeast-1.amazonaws.com/CoveredLinkWay.zip",
+        "PedestrainOverheadbridge_UnderPass": (
+            "https://dmgeospatial.s3.ap-southeast-1.amazonaws.com/"
+            "PedestrainOverheadbridge_UnderPass.zip?X-Amz-Signature=secret"
+        ),
+        "TrafficLight": "https://dmgeospatial.s3.ap-southeast-1.amazonaws.com/TrafficLight.zip",
+    }
+    monkeypatch.setattr(
+        fetch,
+        "resolve_datamall_geospatial_url",
+        lambda keyword: discovered[keyword],
+    )
+    sources = {
+        "covered_linkway": {
+            "name": "Covered Linkway",
+            "kind": "datamall_geospatial_listing",
+            "search_keyword": "CoveredLinkWay",
+        },
+        "overhead_bridge_underpass": {
+            "name": "Pedestrian Overhead Bridge / Underpass",
+            "kind": "datamall_geospatial_listing",
+            "search_keyword": "PedestrainOverheadbridge_UnderPass",
+        },
+        "traffic_signals": {
+            "name": "Traffic Signals",
+            "kind": "datamall_geospatial_listing",
+            "search_keyword": "TrafficLight",
+        },
+    }
+
+    assert fetch.run_geospatial_discovery_report(sources) == 0
+
+    out = capsys.readouterr().out
+    assert "[covered_linkway] Covered Linkway: keyword=CoveredLinkWay match=true" in out
+    assert (
+        "[overhead_bridge_underpass] Pedestrian Overhead Bridge / Underpass: "
+        "keyword=PedestrainOverheadbridge_UnderPass match=true"
+    ) in out
+    assert "[traffic_signals] Traffic Signals: keyword=TrafficLight match=true" in out
+    assert "X-Amz-Signature" not in out
+    assert "DataMall geospatial discovery: matched 3, changed 0, errors 0" in out
+    assert "Geospatial discovery action:" not in out
 
 
 def test_static_raw_filename_prefers_configured_filename() -> None:

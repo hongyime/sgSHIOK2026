@@ -30,14 +30,14 @@ sources:
     kind: "datamall_geospatial_listing"
     search_keyword: "CoveredLinkWay"
     verified: "2026-07-26"
-    notes: "Zipped SHP from LTA DataMall geospatial listing; frozen v1 records a static Mar2026 URL, while current discovery may require authenticated GeospatialWholeIsland fallback. Refresh only as a new numbered input version."
+    notes: "Zipped SHP from LTA DataMall geospatial listing; frozen v1 records a static Mar2026 URL. The 28 Aug 2026 discovery-only check used authenticated GeospatialWholeIsland fallback and still matched frozen v1; refresh only as a new numbered input version."
 
   overhead_bridge_underpass:
     name: "Pedestrian Overhead Bridge / Underpass"
     kind: "datamall_geospatial_listing"
     search_keyword: "PedestrainOverheadbridge_UnderPass"
     verified: "2026-07-26"
-    notes: "Zipped SHP from LTA DataMall geospatial listing; frozen v1 records a static Mar2026 URL, while current discovery may require authenticated GeospatialWholeIsland fallback. Refresh only as a new numbered input version."
+    notes: "Zipped SHP from LTA DataMall geospatial listing; frozen v1 records a static Mar2026 URL. The 28 Aug 2026 discovery-only check used authenticated GeospatialWholeIsland fallback and still matched frozen v1; refresh only as a new numbered input version."
 
   bus_stops:
     name: "Bus Stops"

@@ -68,7 +68,9 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "If stale sources appear, report them" in normalized
     assert "plan a versioned refresh; do not mutate frozen v1 in place" in normalized
     assert "check --geospatial-discovery-only` probes DataMall discovery metadata only" in normalized
-    assert "changed discovery URLs require a new numbered input version, not an in-place repair" in normalized
+    assert "The 28 Aug 2026 check found Covered Linkway, bridge/underpass, and Traffic Signals still matched frozen v1" in normalized
+    assert "after authenticated fallback" in normalized
+    assert "stale payload ages or changed discovery URLs require a new numbered input version, not an in-place repair" in normalized
     assert "network-qa --area island` validates existing conflation QA/debug artifacts" in normalized
     assert "network-preflight --area island --skip-geometry-inspection` reads and hashes existing manifest, raw, processed, and QA artifacts" in normalized
     assert "writes no repo files or network artifacts" in normalized

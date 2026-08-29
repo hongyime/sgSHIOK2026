@@ -85,8 +85,10 @@ no upstream APIs, and its grouped action summaries include source names such as
 `sources.yaml`. If stale sources appear, report them and plan a versioned
 refresh; do not mutate frozen v1 in place.
 `uv run python run.py check --geospatial-discovery-only` probes DataMall
-discovery metadata only; changed discovery URLs require a new numbered input
-version, not an in-place repair.
+discovery metadata only. The 28 Aug 2026 check found Covered Linkway,
+bridge/underpass, and Traffic Signals still matched frozen v1 after authenticated
+fallback; stale payload ages or changed discovery URLs require a new numbered
+input version, not an in-place repair.
 `uv run python run.py network-qa --area island` validates existing
 conflation QA/debug artifacts and writes no repo files. `uv run python run.py
 network-preflight --area island --skip-geometry-inspection` reads and hashes
