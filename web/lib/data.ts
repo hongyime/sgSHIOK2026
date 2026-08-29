@@ -134,6 +134,7 @@ let _scorePrefixIndex: ScorePrefixIndex | null | undefined;
 let _geomIndex: GeomIndex | null = null;
 let _geomPostalIndex: GeomPostalIndex | null = null;
 const _geomPostalPrefixIndexes = new Map<string, GeomPostalIndex | null>();
+const _geomShards = new Map<string, PostalGeom[] | null>();
 let _transitPois: TransitPoiCollection | null = null;
 const _transitPoiShards = new Map<string, TransitPoiCollection | null>();
 const _scoreAreaRecords = new Map<string, ScoreRecord[]>();
@@ -257,9 +258,13 @@ async function getGeomPostalPrefixIndex(prefix: string): Promise<GeomPostalIndex
 }
 
 async function fetchGeomShard(shardId: string): Promise<PostalGeom[] | null> {
+  if (_geomShards.has(shardId)) return _geomShards.get(shardId)!;
   try {
-    return await fetchJson<PostalGeom[]>(`geom/h3/${shardId}.json`);
+    const records = await fetchJson<PostalGeom[]>(`geom/h3/${shardId}.json`);
+    _geomShards.set(shardId, records);
+    return records;
   } catch {
+    _geomShards.set(shardId, null);
     return null;
   }
 }

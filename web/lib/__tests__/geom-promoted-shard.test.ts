@@ -102,6 +102,71 @@ describe("fetchGeomForPostal", () => {
     );
   });
 
+  it("reuses cached geometry shards for repeated postal-only lookups", async () => {
+    vi.stubEnv("NEXT_PUBLIC_DATA_BASE", "/data/generated/");
+    const childRecord = {
+      postal: "560234",
+      shortest: "encoded-shortest",
+      sheltered: "encoded-sheltered",
+      exposure_gaps: [],
+    };
+
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = bareUrl(input);
+      if (url.endsWith("/geom/postal-prefix/560.json")) {
+        return jsonResponse(true, { "560234": "postal-child" });
+      }
+      if (url.endsWith("/geom/h3/postal-child.json")) return jsonResponse(true, [childRecord]);
+      return jsonResponse(false);
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const { fetchGeomForPostal } = await import("../data");
+
+    await expect(fetchGeomForPostal("560234")).resolves.toEqual(childRecord);
+    await expect(fetchGeomForPostal("560234")).resolves.toEqual(childRecord);
+
+    const shardFetches = fetchMock.mock.calls.filter(([input]) =>
+      bareUrl(input).endsWith("/geom/h3/postal-child.json")
+    );
+    expect(shardFetches).toHaveLength(1);
+  });
+
+  it("reuses cached missing geometry shards during promoted-child fallback", async () => {
+    vi.stubEnv("NEXT_PUBLIC_DATA_BASE", "/data/generated/");
+    const childRecord = {
+      postal: "123456",
+      shortest: "encoded-shortest",
+      sheltered: "encoded-sheltered",
+      exposure_gaps: [],
+    };
+
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = bareUrl(input);
+      if (url.endsWith("/geom/h3/parent-cell.json")) return jsonResponse(false);
+      if (url.endsWith("/geom/index.json")) {
+        return jsonResponse(true, { "parent-cell": ["child-cell"] });
+      }
+      if (url.endsWith("/geom/h3/child-cell.json")) return jsonResponse(true, [childRecord]);
+      return jsonResponse(false);
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const { fetchGeomForPostal } = await import("../data");
+
+    await expect(fetchGeomForPostal("123456", 1.3, 103.8)).resolves.toEqual(childRecord);
+    await expect(fetchGeomForPostal("123456", 1.3, 103.8)).resolves.toEqual(childRecord);
+
+    const parentFetches = fetchMock.mock.calls.filter(([input]) =>
+      bareUrl(input).endsWith("/geom/h3/parent-cell.json")
+    );
+    const childFetches = fetchMock.mock.calls.filter(([input]) =>
+      bareUrl(input).endsWith("/geom/h3/child-cell.json")
+    );
+    expect(parentFetches).toHaveLength(1);
+    expect(childFetches).toHaveLength(1);
+  });
+
   it("falls back to the full postal index when the postal prefix shard is stale", async () => {
     vi.stubEnv("NEXT_PUBLIC_DATA_BASE", "/data/generated/");
     const childRecord = {
