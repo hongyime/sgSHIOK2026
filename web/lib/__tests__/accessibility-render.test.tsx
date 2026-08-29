@@ -898,7 +898,8 @@ describe("rendered accessibility output", () => {
       rankingRecords: [recordWithUnlocatedGap],
     });
 
-    expect(html).toContain("No map coordinates are recorded for this exposed gap.");
+    expect(html).toContain("No map location is available for this exposed gap.");
+    expect(html).not.toContain("No map coordinates are recorded for this exposed gap.");
     expect(html).not.toContain("No map coordinates are recorded for these exposed gaps.");
   });
 

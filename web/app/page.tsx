@@ -1438,7 +1438,7 @@ export function ScoreCard({
       ? `${gapsWithCoordinates} of ${exposureGaps.length} exposed gap${
           exposureGaps.length === 1 ? "" : "s"
         } ${gapsWithCoordinates === 1 ? "includes" : "include"} map coordinates.`
-      : `No map coordinates are recorded for ${
+      : `No map location is available for ${
           exposureGaps.length === 1 ? "this exposed gap" : "these exposed gaps"
         }.`;
   const zeroGapEvidenceText = `No exposed gaps are recorded for this ${selectedWalkLabel}.`;

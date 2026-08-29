@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `9140525` (`docs: clarify MCST listed postal copy`)
+Latest substantive commit: pending P891 (`docs: clarify exposed-gap map location copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P891 is in progress: exposed-gap fallback copy is being changed from recorded-coordinate language to map-location availability language.
 - P890 is complete and pushed: postal-specific MCST address-quality caveats now say listed postal instead of recorded postal.
 - P889 is complete and pushed: the opened planning-area comparison helper now describes nearby-address comparison for evidence and locked-score rows instead of planning-area detail views.
 - P888 is complete and pushed: the no-transit bus-support caveat now says bus service support is not computed for addresses outside the locked 1.2 km transit range.
