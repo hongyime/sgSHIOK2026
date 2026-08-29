@@ -2455,7 +2455,7 @@ export default function Home() {
         )}
 
         <div className={styles.sampleSearches} aria-label="Sample search">
-          <span>Need a quick look?</span>
+          <span>Try a known address?</span>
           <button type="button" onClick={loadSamplePostal} disabled={loading}>
             Try Mayflower S560234
           </button>

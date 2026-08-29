@@ -256,7 +256,8 @@ describe("score card copy", () => {
     expect(source).toContain('SEARCHVAL: "Try Mayflower S560234"');
     expect(source).toContain("const loadSamplePostal = async () => {");
     expect(source).toContain('aria-label="Sample search"');
-    expect(source).toContain("Need a quick look?");
+    expect(source).toContain("Try a known address?");
+    expect(source).not.toContain("Need a quick look?");
     expect(source).toContain("Try Mayflower S560234");
     expect(source).toContain('{loading ? "Searching" : "Search"}');
     expect(source).not.toContain('{loading ? "Loading" : "Search"}');

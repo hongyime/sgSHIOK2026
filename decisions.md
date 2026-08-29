@@ -2174,3 +2174,7 @@ When OneMap rate-limits address search, the error should preserve a direct fallb
 2026-08-29 - P908 OneMap failed-search recovery copy:
 
 Generic OneMap address-search failure copy should give a recovery path instead of only saying the request failed. The fallback now tells users to try a 6-digit postal code or search again. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P909 sample-search prompt copy:
+
+The sample-search prompt should say `Try a known address?` instead of generic `Need a quick look?`. The Mayflower example is a known address/postal path that helps users see shelter-map evidence immediately, so the prompt should name that role. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
