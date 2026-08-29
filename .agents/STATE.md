@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `44cf8e2` (`docs: make source inventory copy user-facing`)
+Latest substantive commit: `8f13e93` (`docs: name night lighting as lamp-post layer`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P845 is complete and pushed: browser night-lighting copy now says LTA lamp-post locations load from the published lamp-post layer instead of a published night-lighting artifact.
 - P844 is complete and pushed: browser source-freshness detail now describes the source inventory by user-facing evidence categories instead of exposing `raw/manifest.json`, `ACRA`, and `other-UEN` in product UI copy.
 - P767 is complete and pushed: retired `pipeline.rescope`, which previously performed OSM/HDB raw-data reads at import time from a relative `raw/` path.
 - P768 is complete and pushed: shortened the first-view data-freshness disclosure and moved full stale-source detail into an expandable block.
