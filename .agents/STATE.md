@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `b3966cd` (`docs: align section 10 reference copy`)
+Latest substantive commit: `274d0c6` (`docs: clarify address limit copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P875 is complete and pushed: the expanded Data limits address sentence now leads with the June 2020 OneMap-derived postal scrape and says newer developments may be missing, instead of leading with the internal `frozen v1` label.
 - P874 is complete and pushed: the Section 10 presentation reference and copy-pinning test now say `published shelter-map data` instead of the stale `published shelter-map bundle`.
 - P873 is complete and pushed: full web tests now pass after exposure-gap map button aria labels use a non-null coordinate derived from the validated focus target.
 - P872 is complete and pushed: no-transit fallback labels now name the 1.2 km cutoff instead of saying only `within range` or `within locked transit range`.
