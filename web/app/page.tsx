@@ -78,7 +78,8 @@ interface LiveRoutePreviewPayload {
   total_time_s?: number;
 }
 
-const LIVE_ROUTE_PREVIEW_CACHE_PREFIX = "shiok:onemap-route-preview:v1:";
+const LIVE_ROUTE_PREVIEW_CACHE_PREFIX = "shiok:onemap-route-preview:v2:";
+const LIVE_ROUTE_PREVIEW_CACHE_TTL_MS = 86_400_000;
 
 function liveRouteCoordinateKey(value: number): string {
   return value.toFixed(6);
@@ -111,23 +112,47 @@ function replaceUrlQuery(pathname: string, params: URLSearchParams): void {
   window.history.replaceState(null, "", query ? `${pathname}?${query}` : pathname);
 }
 
-function readLiveRoutePreviewCache(key: string): LiveRoutePreviewPayload | null {
-  if (typeof sessionStorage === "undefined") return null;
+function liveRoutePreviewStorage(): Storage | null {
+  if (typeof window === "undefined") return null;
   try {
-    const raw = sessionStorage.getItem(key);
+    if (window.localStorage) return window.localStorage;
+  } catch {
+    // Some privacy modes expose Storage but reject access.
+  }
+  try {
+    if (window.sessionStorage) return window.sessionStorage;
+  } catch {
+    // The in-memory in-flight cache still applies.
+  }
+  return null;
+}
+
+function parseLiveRoutePreviewPayload(value: unknown): LiveRoutePreviewPayload | null {
+  const parsed = value as LiveRoutePreviewPayload;
+  return typeof parsed.route_geometry === "string" ? parsed : null;
+}
+
+function readLiveRoutePreviewCache(key: string, nowMs: number = Date.now()): LiveRoutePreviewPayload | null {
+  const storage = liveRoutePreviewStorage();
+  if (!storage) return null;
+  try {
+    const raw = storage.getItem(key);
     if (!raw) return null;
-    const parsed = JSON.parse(raw) as LiveRoutePreviewPayload;
-    return typeof parsed.route_geometry === "string" ? parsed : null;
+    const parsed = JSON.parse(raw) as { cached_at?: unknown; payload?: unknown };
+    const cachedAt = Number(parsed.cached_at);
+    if (!Number.isFinite(cachedAt) || nowMs - cachedAt > LIVE_ROUTE_PREVIEW_CACHE_TTL_MS) return null;
+    return parseLiveRoutePreviewPayload(parsed.payload);
   } catch {
     return null;
   }
 }
 
-function writeLiveRoutePreviewCache(key: string, payload: LiveRoutePreviewPayload): void {
-  if (typeof sessionStorage === "undefined") return;
+function writeLiveRoutePreviewCache(key: string, payload: LiveRoutePreviewPayload, nowMs: number = Date.now()): void {
+  const storage = liveRoutePreviewStorage();
+  if (!storage) return;
   if (!payload.ok || typeof payload.route_geometry !== "string") return;
   try {
-    sessionStorage.setItem(key, JSON.stringify(payload));
+    storage.setItem(key, JSON.stringify({ cached_at: nowMs, payload }));
   } catch {
     // Browser storage can be unavailable or full; the in-memory cache still applies.
   }

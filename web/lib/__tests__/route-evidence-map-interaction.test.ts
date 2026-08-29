@@ -270,12 +270,18 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("Fetching OneMap walking preview");
     expect(pageSource).toContain("until that walk preview returns");
     expect(pageSource).not.toContain("until that route returns");
-    expect(pageSource).toContain('const LIVE_ROUTE_PREVIEW_CACHE_PREFIX = "shiok:onemap-route-preview:v1:";');
+    expect(pageSource).toContain('const LIVE_ROUTE_PREVIEW_CACHE_PREFIX = "shiok:onemap-route-preview:v2:";');
+    expect(pageSource).toContain("const LIVE_ROUTE_PREVIEW_CACHE_TTL_MS = 86_400_000;");
     expect(pageSource).toContain("function liveRoutePreviewCacheKey(");
+    expect(pageSource).toContain("function liveRoutePreviewStorage(): Storage | null");
+    expect(pageSource).toContain("if (window.localStorage) return window.localStorage;");
+    expect(pageSource).toContain("if (window.sessionStorage) return window.sessionStorage;");
+    expect(pageSource).toContain("function parseLiveRoutePreviewPayload(value: unknown): LiveRoutePreviewPayload | null");
     expect(pageSource).toContain("function liveRouteCoordinateParam(value: number): string");
     expect(pageSource).toContain("return liveRouteCoordinateKey(value);");
     expect(pageSource).toContain("`/api/onemap-route?startLat=${liveRouteCoordinateParam(originLatLng.lat)}&startLng=${liveRouteCoordinateParam(originLatLng.lng)}&endLat=${liveRouteCoordinateParam(stopLat)}&endLng=${liveRouteCoordinateParam(stopLng)}`");
     expect(pageSource).toContain("readLiveRoutePreviewCache(cacheKey)");
+    expect(pageSource).toContain("nowMs - cachedAt > LIVE_ROUTE_PREVIEW_CACHE_TTL_MS");
     expect(pageSource).toContain("if (cachedPreview && applyLiveRoutePreview(cachedPreview)) return;");
     expect(pageSource).toContain("const liveRoutePreviewInFlightRef = useRef<Map<string, Promise<LiveRoutePreviewPayload>>>(new Map());");
     expect(pageSource).toContain("let request = liveRoutePreviewInFlightRef.current.get(cacheKey);");
@@ -283,6 +289,7 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("liveRoutePreviewInFlightRef.current.delete(cacheKey);");
     expect(pageSource).toContain("writeLiveRoutePreviewCache(cacheKey, data)");
     expect(pageSource).toContain("if (!payload.ok || typeof payload.route_geometry !== \"string\") return;");
+    expect(pageSource).toContain("storage.setItem(key, JSON.stringify({ cached_at: nowMs, payload }));");
     expect(pageSource).toContain("OneMap walking preview could not load");
     expect(pageSource).not.toContain("OneMap walking preview is unavailable");
     expect(pageSource).toContain("showing straight-line distance only");
