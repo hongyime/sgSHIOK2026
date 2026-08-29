@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: pending P893 (`docs: use listed exposed-gap copy`)
+Latest substantive commit: `8920f2e` (`docs: use listed exposed-gap copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,7 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P893 is in progress: exposed-gap copy is being changed from recorded storage language to listed and mapped user-facing language.
+- P893 is complete and pushed: exposed-gap copy now uses listed and mapped language instead of recorded storage language.
 - P892 is complete and pushed: partial locked-score copy now says unavailable locked-score rows instead of missing score factors.
 - P891 is complete and pushed: exposed-gap fallback copy now says no map location is available, replacing recorded-coordinate storage language.
 - P890 is complete and pushed: postal-specific MCST address-quality caveats now say listed postal instead of recorded postal.
