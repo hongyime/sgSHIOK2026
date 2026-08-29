@@ -1934,3 +1934,7 @@ The browser's `Source freshness detail` disclosure should use the same stale-sou
 2026-08-29 - P833 CLI stale-source summary order:
 
 The `run.py check --freshness-only` grouped stale-source summary should use the same days-past-stale severity order as production readiness and browser freshness detail. Individual source lines still print in configured source order, but the action-oriented `Stale sources:` summary now starts with the most overdue source. This is CLI reporting/test/evidence work only; it does not alter source inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-29 - P834 DataMall discovery policy alignment:
+
+The structured `datamall_geospatial_discovery` policy used by batch-plan and production readiness should follow the latest tracked discovery-only evidence, not the superseded 21 Aug 2026 drift result. P682/P683/P750 recorded a 28 Aug 2026 safe discovery-only check where Covered Linkway, Pedestrian Overhead Bridge / Underpass, and Traffic Signals all matched frozen v1; stale payload ages still require a new numbered input version before refresh. This is source-policy reporting/test/evidence work only; it does not call DataMall, fetch payloads, mutate raw or processed inputs, score, export, public data, deployment, or locked weights.

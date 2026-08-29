@@ -761,14 +761,14 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Pa
         "verdict": "not sufficient as primary Singapore address registry",
     }
     assert report["features"]["source_policy"]["datamall_geospatial_discovery"] == {
-        "measurement": "P262/P264 DataMall geospatial discovery-only probe",
-        "checked_at_local_date": "2026-08-21",
+        "measurement": "P682/P683/P750 DataMall geospatial discovery-only probe",
+        "checked_at_local_date": "2026-08-28",
         "command": "uv run python run.py check --geospatial-discovery-only",
         "payload_downloads": False,
         "manifest_writes": False,
-        "changed_sources": ["covered_linkway", "overhead_bridge_underpass"],
-        "matched_sources": ["traffic_signals"],
-        "verdict": "changed discovery URLs require a new numbered input version, not an in-place repair",
+        "changed_sources": [],
+        "matched_sources": ["covered_linkway", "overhead_bridge_underpass", "traffic_signals"],
+        "verdict": "discovery URLs still match frozen v1; stale payload ages still require a new numbered input version before any refresh",
     }
     assert report["features"]["source_policy"]["non_score_reference_sources"] == {
         "leaf_area_index": {
