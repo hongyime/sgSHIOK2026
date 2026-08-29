@@ -1,6 +1,11 @@
 const CACHE_NAME = "sgshiok-static-v1";
 const CACHEABLE_EXACT_PATHS = new Set(["/", "/icon.svg", "/robots.txt", "/sitemap.xml"]);
 const CACHEABLE_PREFIXES = ["/_next/static/", "/data/"];
+const CACHE_MAX_AGE_MS = new Map([
+  ["/", 86_400_000],
+  ["/robots.txt", 604_800_000],
+  ["/sitemap.xml", 604_800_000],
+]);
 
 function isCacheableRequest(request) {
   if (request.method !== "GET") return false;
@@ -10,6 +15,20 @@ function isCacheableRequest(request) {
   if (url.pathname.startsWith("/api/")) return false;
 
   return CACHEABLE_EXACT_PATHS.has(url.pathname) || CACHEABLE_PREFIXES.some((prefix) => url.pathname.startsWith(prefix));
+}
+
+function cacheMaxAgeMs(request) {
+  const url = new URL(request.url, self.location.origin);
+  if (CACHEABLE_PREFIXES.some((prefix) => url.pathname.startsWith(prefix))) return Infinity;
+  if (url.pathname === "/icon.svg") return Infinity;
+  return CACHE_MAX_AGE_MS.get(url.pathname) ?? 0;
+}
+
+function isFreshEnough(response, maxAgeMs) {
+  if (maxAgeMs === Infinity) return true;
+  const cachedAt = Date.parse(response.headers.get("date") || "");
+  if (!Number.isFinite(cachedAt)) return false;
+  return Date.now() - cachedAt < maxAgeMs;
 }
 
 async function fetchAndCache(request) {
@@ -41,7 +60,7 @@ self.addEventListener("fetch", (event) => {
 
   event.respondWith(
     caches.match(cacheKey).then((cached) => {
-      if (cached) return cached;
+      if (cached && isFreshEnough(cached, cacheMaxAgeMs(cacheKey))) return cached;
       return fetchAndCache(cacheKey);
     }),
   );

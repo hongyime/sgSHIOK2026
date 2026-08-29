@@ -76,6 +76,17 @@ describe("deployment packaging", () => {
     expect(serviceWorker).toContain("await cache.put(request, response.clone())");
   });
 
+  it("bounds service-worker freshness for stable non-hashed URLs", () => {
+    const serviceWorker = readFileSync(join(__dirname, "../../public/sw.js"), "utf-8");
+
+    expect(serviceWorker).toContain('["/", 86_400_000]');
+    expect(serviceWorker).toContain('["/robots.txt", 604_800_000]');
+    expect(serviceWorker).toContain('["/sitemap.xml", 604_800_000]');
+    expect(serviceWorker).toContain('if (url.pathname === "/icon.svg") return Infinity;');
+    expect(serviceWorker).toContain('Date.parse(response.headers.get("date") || "")');
+    expect(serviceWorker).toContain("cached && isFreshEnough(cached, cacheMaxAgeMs(cacheKey))");
+  });
+
   it("sets bounded deployment headers for the service worker script", () => {
     const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
 
