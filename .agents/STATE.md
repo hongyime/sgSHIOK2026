@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `d152906` (`perf: avoid repeat service worker registration`)
+Latest substantive commit: `23efe37` (`perf: cap route preview browser cache`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P1002 is complete and pushed: persisted route-preview cache entries are now capped at 30. The cache prunes expired, malformed, and oldest entries before writing, retries once after pruning if storage is full, and deliberately leaves room for the new entry by pruning to `LIVE_ROUTE_PREVIEW_CACHE_MAX_ENTRIES - 1` before storage. Focused route interaction test first timed out in an unrelated dynamic import, then a stale source-string assertion failed after the boundary correction, and the final rerun passed 1 file / 11 tests; repo integrity passed. Evidence: `qa/verification/P1002-route-preview-cache-cap.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1001 is complete and pushed: service-worker registration now checks `navigator.serviceWorker.getRegistration("/")` first and only calls `register("/sw.js")` when no root-scope registration exists, avoiding unnecessary repeat registration/update checks on later page loads. Focused deployment test passed 1 file / 27 tests after correcting one brittle source-string assertion; repo integrity passed. Evidence: `qa/verification/P1001-service-worker-registration-dedupe.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1000 is complete and pushed: successful live OneMap route-preview responses now persist in bounded browser storage for one day using `shiok:onemap-route-preview:v2:{postal}:{stop}:{coords}` entries with `{ cached_at, payload }`, preferring `localStorage` and falling back to `sessionStorage` or memory-only. Failed, unavailable, and geometry-less previews remain uncached and retryable. Focused route interaction test passed 1 file / 11 tests; repo integrity passed. Evidence: `qa/verification/P1000-route-preview-persistent-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P999 is complete and pushed: successful OneMap search responses now persist in bounded browser storage for one day using `shiok:onemap-search:v2:{normalized query}` entries with `{ cached_at, payload }`, preferring `localStorage` and falling back to `sessionStorage` or memory-only when browser storage is unavailable. This reduces repeat `/api/onemap-search` requests across visits while keeping failed searches uncached and retryable. Focused OneMap search test passed 1 file / 6 tests; repo integrity passed. Evidence: `qa/verification/P999-onemap-search-persistent-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
