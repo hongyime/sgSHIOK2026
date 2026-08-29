@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `b2e14f7` (`docs: clarify partial evidence reason copy`)
+Latest substantive commit: `eb6d420` (`docs: clarify partial score evidence note`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,7 +18,8 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
-- P922 is complete and pushed: the `NOT_YET_SCORED` reason chip now says `Some shelter-map evidence may still be available` instead of `Partial shelter-map evidence may be available`, avoiding a queued/partial-state implication while keeping the published-data boundary clear.
+- P923 is complete and pushed: the partial locked-score note now says `some shelter-map evidence may still be inspectable` instead of describing evidence as merely present.
+- P922 is complete and pushed: the `NOT_YET_SCORED` reason chip now says `Some shelter-map evidence may still be available` instead of `Partial shelter-map evidence may be available`.
 - P913-P921 browser copy phases are complete and pushed.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, dependency install, or locked-weight change was performed.
 
