@@ -3,7 +3,7 @@
 Date: 2026-08-30
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `8f7e896` (`docs: name vercel quota hard controls`)
+Latest substantive commit: `d0e9799` (`docs: state move-here promise on first screen`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P1016 is complete and pushed: the title card, empty shelter-map panel, and non-visual map summary now state the residential decision use case directly with `If you moved here...` while keeping covered-walkway ratio, exposed gaps, stop/exit walks, and the night-lighting map layer as the visible evidence. First focused test run caught the map summary still using older search-oriented copy; after aligning it, focused web tests passed 3 files / 74 tests and repo integrity passed. Evidence: `qa/verification/P1016-move-here-first-screen.md`.
 - P1015 is complete and pushed: README and CLAUDE now name the full owner-level Vercel hard controls for a Hobby Edge Request incident: deploy current main for committed source reductions, or use project pause/protection, firewall deny rules, or temporary attack mode as owner decisions because they change public availability or visitor friction. Focused docs tests passed 7 tests; repo integrity passed. Evidence: `qa/verification/P1015-vercel-hard-controls-runbook.md`.
 - P1014 is complete and pushed: transit stop/exit UI now labels the default route as `Published walk` and reset/comparison copy as `published stop or exit`, replacing user-facing `Auto-picked` wording. This clarifies that users are comparing the published shelter-map walk against selected stop/exit previews. Focused web tests passed 3 files / 96 tests; repo integrity passed. Evidence: `qa/verification/P1014-published-walk-copy.md`.
 - P1013 is complete and pushed: `uv run python run.py universe-status` was run in read-only/no-API/no-write mode and recorded in `qa/verification/P1013-universe-status-currentness.md`. Cached P19 v2 remains fresh for current gap sizing under the 7-day policy, with 6 confirmed coordinate-backed HDB missing rows out of 976 sampled rows with postals (0.614754%) and 8 rows including MCST source-quality warnings (0.819672%). Directional scale is 765 confirmed missing rows or 1,020 including warnings if applied to 124,443 frozen-v1 distinct postals; this is not a measured full-universe gap or v2 promotion approval. OSM still covers only 20.811938% of v1 and remains geometry evidence/cross-check, not the address registry.
