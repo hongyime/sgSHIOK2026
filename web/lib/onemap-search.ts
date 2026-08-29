@@ -26,7 +26,7 @@ type Fetcher = typeof fetch;
 type StorageLike = Pick<Storage, "getItem" | "setItem">;
 
 const CACHE_PREFIX = "shiok:onemap-search:v2:";
-const STORAGE_TTL_MS = 86_400_000;
+const STORAGE_TTL_MS = 604_800_000;
 const STORAGE_MAX_ENTRIES = 50;
 const MIN_FREE_TEXT_LENGTH = 3;
 

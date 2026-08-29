@@ -272,7 +272,7 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("until that walk preview returns");
     expect(pageSource).not.toContain("until that route returns");
     expect(pageSource).toContain('const LIVE_ROUTE_PREVIEW_CACHE_PREFIX = "shiok:onemap-route-preview:v2:";');
-    expect(pageSource).toContain("const LIVE_ROUTE_PREVIEW_CACHE_TTL_MS = 86_400_000;");
+    expect(pageSource).toContain("const LIVE_ROUTE_PREVIEW_CACHE_TTL_MS = 604_800_000;");
     expect(pageSource).toContain("const LIVE_ROUTE_PREVIEW_CACHE_MAX_ENTRIES = 30;");
     expect(pageSource).toContain("function liveRoutePreviewCacheKey(");
     expect(pageSource).toContain("function liveRoutePreviewStorage(): Storage | null");

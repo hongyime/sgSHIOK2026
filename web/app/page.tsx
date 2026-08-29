@@ -79,7 +79,7 @@ interface LiveRoutePreviewPayload {
 }
 
 const LIVE_ROUTE_PREVIEW_CACHE_PREFIX = "shiok:onemap-route-preview:v2:";
-const LIVE_ROUTE_PREVIEW_CACHE_TTL_MS = 86_400_000;
+const LIVE_ROUTE_PREVIEW_CACHE_TTL_MS = 604_800_000;
 const LIVE_ROUTE_PREVIEW_CACHE_MAX_ENTRIES = 30;
 
 function liveRouteCoordinateKey(value: number): string {

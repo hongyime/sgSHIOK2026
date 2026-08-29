@@ -92,7 +92,7 @@ describe("OneMap search client", () => {
     expect(calls).toBe(1);
   });
 
-  it("reuses successful searches across client instances for one day", async () => {
+  it("reuses successful searches across client instances for one week", async () => {
     let calls = 0;
     const storage = storageFixture();
     const fetcher = async () => {
@@ -114,7 +114,7 @@ describe("OneMap search client", () => {
     expect(calls).toBe(1);
   });
 
-  it("refreshes stale persisted searches after one day", async () => {
+  it("refreshes stale persisted searches after one week", async () => {
     let calls = 0;
     const stalePayload = {
       cached_at: 1_000,
@@ -125,7 +125,7 @@ describe("OneMap search client", () => {
     });
     const client = createOneMapSearchClient({
       storage,
-      nowMs: () => 1_000 + 86_400_001,
+      nowMs: () => 1_000 + 604_800_001,
       fetcher: async () => {
         calls += 1;
         return response({
@@ -158,7 +158,7 @@ describe("OneMap search client", () => {
     const storage = storageFixture(initial);
     const client = createOneMapSearchClient({
       storage,
-      nowMs: () => 1_000 + 86_400_001,
+      nowMs: () => 1_000 + 604_800_001,
       fetcher: async () =>
         response({
           found: 1,
