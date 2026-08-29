@@ -3,8 +3,17 @@
  * Defaults to the pinned published static shelter-map bundle in web/data-bundle.json.
  */
 import dataBundle from "../data-bundle.json";
+import type { ScoreRecord, PostalGeom, Manifest, TransitPoiCollection } from "./types";
+import type { RankableScoreRecord } from "./subscore-ranking";
+import { gridDisk, latLngToCell } from "h3-js";
+import { decodePolyline } from "./polyline";
 
 export const DEFAULT_DATA_BASE = `/data/${dataBundle.bundle}/`;
+export const PINNED_DATA_MANIFEST: Manifest = {
+  generated_at: dataBundle.generated_at,
+  data_as_of: dataBundle.data_as_of,
+  provenance: dataBundle.provenance,
+};
 
 export function normalizeDataBase(value?: string): string {
   const raw = value?.trim();
@@ -19,11 +28,6 @@ export function normalizeDataBase(value?: string): string {
 }
 
 export const DATA_BASE = normalizeDataBase(process.env.NEXT_PUBLIC_DATA_BASE);
-
-import type { ScoreRecord, PostalGeom, Manifest, TransitPoiCollection } from "./types";
-import type { RankableScoreRecord } from "./subscore-ranking";
-import { gridDisk, latLngToCell } from "h3-js";
-import { decodePolyline } from "./polyline";
 
 type GeomIndex = Record<string, string[]>;
 type GeomPostalIndex = Record<string, string>;

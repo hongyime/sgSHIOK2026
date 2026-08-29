@@ -2,6 +2,7 @@ import { DEFAULT_DATA_BASE, normalizeDataBase } from "../data";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { readFileSync } from "fs";
 import { join } from "path";
+import dataBundle from "../../data-bundle.json";
 
 describe("normalizeDataBase", () => {
   afterEach(() => {
@@ -21,6 +22,20 @@ describe("normalizeDataBase", () => {
       "Defaults to the pinned published static shelter-map bundle in web/data-bundle.json."
     );
     expect(source).not.toContain("Defaults to the latest validated static shelter-map bundle.");
+  });
+
+  it("keeps pinned first-load metadata aligned with the active manifest", () => {
+    const manifest = JSON.parse(
+      readFileSync(
+        join(__dirname, "../../public/data", dataBundle.bundle, "manifest.json"),
+        "utf-8"
+      )
+    );
+
+    expect(dataBundle.generated_at).toBe(manifest.generated_at);
+    expect(dataBundle.data_as_of).toBe(manifest.data_as_of);
+    expect(dataBundle.provenance.record_count).toBe(manifest.provenance.record_count);
+    expect(dataBundle.provenance.state_counts).toEqual(manifest.provenance.state_counts);
   });
 
   it("normalizes relative and absolute paths", () => {

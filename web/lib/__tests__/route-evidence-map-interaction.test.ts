@@ -80,11 +80,13 @@ describe("shelter map interactions", () => {
     expect(source).not.toContain('return "shortest and covered routes";');
   });
 
-  it("pre-fetches only manifest on mount and wires interactive click-to-route in page.tsx", () => {
+  it("uses pinned metadata on mount and wires interactive click-to-route in page.tsx", () => {
     const pageSource = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
-    // Cold-load manifest prefetch
-    expect(pageSource).toContain("void fetchManifest().then");
+    // Cold-load metadata uses tracked bundle config instead of a static data request.
+    expect(pageSource).toContain("PINNED_DATA_MANIFEST");
+    expect(pageSource).toContain("useState<Manifest | null>(PINNED_DATA_MANIFEST)");
+    expect(pageSource).not.toContain("void fetchManifest().then");
     expect(pageSource).not.toContain("void fetchTransitPois().then");
     expect(pageSource).toContain("nearbyTransitPois = await fetchTransitPois();");
     expect(pageSource).toContain("setBaseTransitPois(nearbyTransitPois);");

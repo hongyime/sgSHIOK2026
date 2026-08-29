@@ -9,6 +9,7 @@ import {
   fetchScoreForPostal,
   fetchTransitPois,
   fetchTransitPoisForGeom,
+  PINNED_DATA_MANIFEST,
 } from "../lib/data";
 import type {
   Manifest,
@@ -2017,7 +2018,7 @@ export default function Home() {
   const [feedbackSegmentLabels, setFeedbackSegmentLabels] = useState<FeedbackSegmentLabel[]>([]);
   const [feedbackNote, setFeedbackNote] = useState("");
   const [copyStatus, setCopyStatus] = useState("");
-  const [manifest, setManifest] = useState<Manifest | null>(null);
+  const [manifest, setManifest] = useState<Manifest | null>(PINNED_DATA_MANIFEST);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [searchAttempted, setSearchAttempted] = useState(false);
@@ -2256,17 +2257,6 @@ export default function Home() {
     }
     pendingUrlStopIdRef.current = null;
   }, [candidates]);
-
-  // Pre-fetch manifest on initial mount so metadata/date is immediately visible.
-  useEffect(() => {
-    let active = true;
-    void fetchManifest().then((loaded) => {
-      if (active) setManifest(loaded);
-    });
-    return () => {
-      active = false;
-    };
-  }, []);
 
   const loadSelection = async (result: SearchResult) => {
     const postal = normalizePostal(result.POSTAL);
