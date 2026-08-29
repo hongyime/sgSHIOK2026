@@ -1966,3 +1966,7 @@ Browser source-freshness detail should not describe dated days-to-stale values a
 2026-08-29 - P841 browser freshness user copy:
 
 Browser data-limit copy should not expose internal release-operator phrasing. After P840 removed live-sounding days-to-stale values, the browser now says freshness may have changed since the 28 Aug 2026 snapshot and that source refreshes use new versioned inputs instead of changing the frozen v1 bundle in place. README remains the operator surface for the exact zero-mutation status command. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P842 browser source-age summary:
+
+The browser's dated freshness summary should lead with `Source-age snapshot`, not `Data freshness`, because the values are from the 28 Aug 2026 manifest-only check and are not live upstream status. The copy now says `11 sources were current` at that snapshot and keeps the no-upstream-probe caveat. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.

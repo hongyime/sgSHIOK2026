@@ -106,7 +106,7 @@ const OSM_ADDR_POSTCODE_COVERAGE_COPY =
   "28 Aug 2026 OSM addr:postcode coverage cross-check: 25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 frozen postals, with 20 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry.";
 
 const DATA_FRESHNESS_SUMMARY_COPY =
-  "Data freshness: 28 Aug 2026 22:21 UTC manifest-only check; 11 current, 9 stale, 3 manual, 1 unknown-age candidate. No upstream URLs were probed.";
+  "Source-age snapshot: 28 Aug 2026 22:21 UTC manifest-only check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. No upstream URLs were probed.";
 
 const DATA_FRESHNESS_DETAIL_COPY =
   "At the 28 Aug 2026 manifest-only check, Bus Stops, Bus Services, and Bus Routes were the nearest current sources to their stale threshold, and HDB Existing Building was the oldest current item. Freshness may have changed since that snapshot; source refreshes use new versioned inputs instead of changing the frozen v1 bundle in place. The source policy covers every source in raw/manifest.json, including ACRA, other-UEN, and the June 2020 OneMap-derived postal-universe seed. Stale sources are ordered by days past their freshness threshold: Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Traffic Signals, Pedestrian Overhead Bridge / Underpass, Covered Linkway, NParks Heritage Trees, NParks Nature Ways, and NParks Leaf Area Index.";

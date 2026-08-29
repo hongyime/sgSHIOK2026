@@ -306,8 +306,9 @@ describe("score card copy", () => {
     expect(source).not.toContain("Live OSM addr:postcode coverage:");
     expect(source).not.toContain("OSM remains the address registry");
     expect(source).toContain(
-      "Data freshness: 28 Aug 2026 22:21 UTC manifest-only check; 11 current, 9 stale, 3 manual, 1 unknown-age candidate. No upstream URLs were probed."
+      "Source-age snapshot: 28 Aug 2026 22:21 UTC manifest-only check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. No upstream URLs were probed."
     );
+    expect(source).not.toContain("Data freshness: 28 Aug 2026 22:21 UTC");
     expect(source).toContain("<summary>Source freshness detail</summary>");
     expect(source).toContain("The source policy covers every source in raw/manifest.json");
     expect(source).toContain("ACRA, other-UEN, and the June 2020 OneMap-derived postal-universe seed");
