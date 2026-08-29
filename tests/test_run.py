@@ -15,10 +15,11 @@ def test_run_docstring_separates_safe_reports_from_gated_pipeline_tasks():
         in run.__doc__
     )
     assert (
-        "check --freshness-only reads raw/manifest.json only; it probes no upstream URLs, writes no manifest, groups action summaries with source names, and says stale sources require a versioned refresh."
+        "check --freshness-only reads raw/manifest.json and pipeline/config/sources.yaml; it probes no upstream URLs, writes no manifest, groups action summaries with source names, and says stale sources require a versioned refresh."
         in run.__doc__
     )
     assert "check --freshness-only reads raw/manifest.json only; it probes no upstream URLs and writes no manifest." not in run.__doc__
+    assert "check --freshness-only reads raw/manifest.json only; it probes no upstream URLs, writes no manifest, groups action summaries with source names" not in run.__doc__
     assert "and groups action summaries with source names." not in run.__doc__
     assert (
         "check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads, writes no manifest, and treats changed discovery URLs as new-version inputs."
@@ -141,10 +142,11 @@ def test_run_help_headline_does_not_flatten_all_tasks():
     assert "{batch-plan,bus-arrivals" not in help_text
     assert "Safe reports:" in help_text
     assert (
-        "check --freshness-only reads raw/manifest.json only; it probes no upstream URLs, writes no manifest, groups action summaries with source names, and says stale sources require a versioned refresh."
+        "check --freshness-only reads raw/manifest.json and pipeline/config/sources.yaml; it probes no upstream URLs, writes no manifest, groups action summaries with source names, and says stale sources require a versioned refresh."
         in help_text
     )
     assert "check --freshness-only reads raw/manifest.json only; it probes no upstream URLs and writes no manifest." not in help_text
+    assert "check --freshness-only reads raw/manifest.json only; it probes no upstream URLs, writes no manifest, groups action summaries with source names" not in help_text
     assert "and groups action summaries with source names." not in help_text
     assert (
         "check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads, writes no manifest, and treats changed discovery URLs as new-version inputs."
