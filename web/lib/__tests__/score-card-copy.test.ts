@@ -669,7 +669,8 @@ describe("score card copy", () => {
     expect(tsxSource).not.toContain("onto the shelter-map route");
     expect(tsxSource).not.toContain("onto mapped walking-route evidence");
     expect(tsxSource).not.toContain("onto the walking graph");
-    expect(tsxSource).toContain('aria-label={directBusFallback ? "Direct-bus fallback details" : "Walk details"}');
+    expect(tsxSource).toContain('aria-label={directBusFallback ? "Straight-line bus estimate details" : "Walk details"}');
+    expect(tsxSource).not.toContain("Direct-bus fallback details");
     expect(tsxSource).not.toContain('aria-label="Route details"');
   });
 
@@ -1060,14 +1061,17 @@ describe("score card copy", () => {
 
     expect(source).toContain("selectedStateText?: string;");
     expect(source).toContain("selectedStateText ??");
-    expect(source).toContain('directBusFallback ? "Published direct-bus fallback evidence selected." : undefined');
+    expect(source).toContain('directBusFallback ? "Straight-line bus estimate selected." : undefined');
+    expect(source).not.toContain("Published direct-bus fallback evidence selected.");
   });
 
   it("labels direct-bus fallback evidence regions without implying shelter-map evidence", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
-    expect(source).toContain('directBusFallback ? "Direct-bus fallback source evidence" : "Shelter source evidence"');
-    expect(source).toContain('directBusFallback ? "Direct-bus fallback evidence reasons" : "Shelter-map evidence reasons"');
+    expect(source).toContain('directBusFallback ? "Straight-line bus estimate source evidence" : "Shelter source evidence"');
+    expect(source).toContain('directBusFallback ? "Straight-line bus estimate evidence reasons" : "Shelter-map evidence reasons"');
+    expect(source).not.toContain("Direct-bus fallback source evidence");
+    expect(source).not.toContain("Direct-bus fallback evidence reasons");
     expect(source).toContain("aria-label={sourceEvidenceLabel}");
     expect(source).toContain("aria-label={reasonListLabel}");
   });

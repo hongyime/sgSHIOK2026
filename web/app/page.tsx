@@ -1307,8 +1307,8 @@ export function ScoreCard({
     rankMetricLabel,
   });
   const sourceBreakdown = routeSourceBreakdown(selection, routeMode, sameRoute);
-  const sourceEvidenceLabel = directBusFallback ? "Direct-bus fallback source evidence" : "Shelter source evidence";
-  const reasonListLabel = directBusFallback ? "Direct-bus fallback evidence reasons" : "Shelter-map evidence reasons";
+  const sourceEvidenceLabel = directBusFallback ? "Straight-line bus estimate source evidence" : "Shelter source evidence";
+  const reasonListLabel = directBusFallback ? "Straight-line bus estimate evidence reasons" : "Shelter-map evidence reasons";
   const exposureGaps = score.exposure_gaps ? [...score.exposure_gaps].sort((a, b) => b.len_m - a.len_m) : [];
   const endpointSnapM = score.paths?.endpoint_snap_connector_m ?? 0;
   const extraWalkLabel =
@@ -1421,7 +1421,7 @@ export function ScoreCard({
       exposureGaps,
       directBusFallback ? "Straight-line bus estimate evidence" : undefined
     ),
-    selectedStateText: directBusFallback ? "Published direct-bus fallback evidence selected." : undefined,
+    selectedStateText: directBusFallback ? "Straight-line bus estimate selected." : undefined,
   });
   const gapSummaryText =
     exposureGaps.length === 0
@@ -1791,7 +1791,7 @@ export function ScoreCard({
       {score.paths && routeDetailItems.length > 0 && (
         <div
           className={styles.routeDetails}
-          aria-label={directBusFallback ? "Direct-bus fallback details" : "Walk details"}
+          aria-label={directBusFallback ? "Straight-line bus estimate details" : "Walk details"}
         >
           {routeDetailItems.map((item) => (
             <span key={item.label}>

@@ -1412,10 +1412,13 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Straight-line bus estimate; shelter-map walk pending.");
     expect(html).not.toContain("Direct line to bus stop; shelter-map walk pending.");
     expect(html).toContain("Straight-line bus estimate");
-    expect(html).toContain("Published direct-bus fallback evidence selected.");
+    expect(html).toContain("Straight-line bus estimate selected.");
+    expect(html).not.toContain("Published direct-bus fallback evidence selected.");
     expect(html).not.toContain("Published shelter-map walk selected.");
-    expect(html).toContain('aria-label="Direct-bus fallback source evidence"');
-    expect(html).toContain('aria-label="Direct-bus fallback evidence reasons"');
+    expect(html).toContain('aria-label="Straight-line bus estimate source evidence"');
+    expect(html).toContain('aria-label="Straight-line bus estimate evidence reasons"');
+    expect(html).not.toContain('aria-label="Direct-bus fallback source evidence"');
+    expect(html).not.toContain('aria-label="Direct-bus fallback evidence reasons"');
     expect(html).not.toContain('aria-label="Shelter source evidence"');
     expect(html).not.toContain('aria-label="Shelter-map evidence reasons"');
     expect(html).toContain("Evidence display straight-line bus estimate; Straight-line bus estimate active.");
@@ -1423,7 +1426,8 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Shelter-map walk evidence 62% covered-walkway ratio");
     expect(html).toContain("Where the estimate is exposed");
     expect(html).not.toContain("Where the walk is exposed");
-    expect(html).toContain('aria-label="Direct-bus fallback details"');
+    expect(html).toContain('aria-label="Straight-line bus estimate details"');
+    expect(html).not.toContain('aria-label="Direct-bus fallback details"');
     expect(html).not.toContain('aria-label="Walk details"');
     expect(html).toContain("onto the straight-line bus estimate");
     expect(html).not.toContain("onto the shelter-map walk");
