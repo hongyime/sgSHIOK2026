@@ -194,9 +194,9 @@ describe("rendered accessibility output", () => {
       <SearchFeedback results={[]} loading={false} error={null} searched={true} />
     );
     expect(searchResultsAnnouncement([], false, null, true)).toBe(
-      "No OneMap address result found for this search. Try a 6-digit postal code. The published shelter-map data is tied to the June 2020 address list. P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list."
+      "No OneMap match for this search. Try a 6-digit postal code. The published shelter-map data is tied to the June 2020 address list. P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list."
     );
-    expect(noResultsHtml).toContain("No OneMap address result found.");
+    expect(noResultsHtml).toContain("No OneMap match found.");
     expect(noResultsHtml).toContain("Try a 6-digit postal code");
     expect(noResultsHtml).toContain(
       "The published shelter-map data is tied to the June 2020 address list. P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list."
@@ -207,6 +207,7 @@ describe("rendered accessibility output", () => {
     expect(noResultsHtml).not.toContain("the frozen shelter-map bundle&#x27;s recent public-source check found");
     expect(noResultsHtml).not.toContain("the frozen shelter-map bundle has measured recent-source misses");
     expect(noResultsHtml).not.toContain("the frozen score bundle has measured recent-source misses");
+    expect(noResultsHtml).not.toContain("No OneMap address result found.");
     expect(noResultsHtml).not.toContain("Try a 6-digit postal code; the frozen shelter-map bundle");
     expect(noResultsHtml).not.toContain("newer completions may still be outside");
   });

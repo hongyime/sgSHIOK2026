@@ -2114,3 +2114,7 @@ Partial locked-score copy should refer to unavailable locked-score rows instead 
 2026-08-29 - P893 exposed-gap listed/mapped copy:
 
 Exposed-gap copy should use listed and mapped language instead of recorded storage language. Zero-gap states now say no exposed gaps are listed, and the coverage confirmation says all mapped segments stay under covered-walkway or connector evidence. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P894 OneMap no-match copy:
+
+Search empty-state copy should describe the user's outcome as no OneMap match, not no OneMap address result. The recovery action remains the same: try a 6-digit postal code, with the June 2020 address-list caveat still visible. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
