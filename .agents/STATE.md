@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `a7c4e2d` (`docs: label destination connector as stop or exit`)
+Latest substantive commit: `45e69ff` (`docs: use searching state on address search button`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P901 is complete and pushed: first-view search submit busy label now says Searching instead of Loading, with tests/evidence. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P900 is complete and pushed: destination connector source-evidence label now says Stop/exit access walk instead of Transit access walk, with tests/evidence. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P899 is complete and pushed: scored-walk transit fallback loaded wording now says the transit stop or exit is not named, with tests/evidence. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P898 is complete and pushed: access low/high reason copy now says walk to stop or exit instead of walk to transit, with tests/evidence. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
