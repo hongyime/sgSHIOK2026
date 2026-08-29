@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `aecf3fa` (`perf: extend OneMap search browser cache to one day`)
+Latest substantive commit: `6ec4a41` (`perf: rewrite favicon probes without redirect`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P989 is complete and pushed: legacy `/favicon.ico` probes now use an internal rewrite to `/icon.svg` instead of a client-visible redirect, and `/favicon.ico` has the same immutable one-year cache header as `/icon.svg`. This reduces legacy icon probes from redirect-plus-icon to one cacheable request. Focused deployment test passed 1 file / 21 tests; repo integrity passed. Evidence: `qa/verification/P989-favicon-rewrite.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P988 is complete and pushed: successful `/api/onemap-search` responses now use a one-day browser cache instead of one hour, matching route-preview browser caching while leaving error, throttle, missing-parameter, and upstream-failure responses uncached. Focused onemap-api-security test passed 1 file / 5 tests; repo integrity passed. Evidence: `qa/verification/P988-onemap-search-day-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P987 is complete and pushed: `robots.ts` now requests `crawlDelay: 300` instead of 60 for polite crawlers while keeping `/` allowed and `/api/`, `/data/`, `/_next/`, and query variants disallowed. This can reduce crawler-driven Edge requests but is not hard access control. Focused deployment test passed 1 file / 21 tests; repo integrity passed. Evidence: `qa/verification/P987-crawler-delay-300.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P986 is complete and pushed: first-load bundle dates and locked-score coverage now come from tracked `web/data-bundle.json`, so the page no longer fetches static `manifest.json.gz` on mount just to render metadata. A test verifies the pinned metadata matches the active bundle manifest. Focused web tests passed 4 files / 21 tests; repo integrity passed. Evidence: `qa/verification/P986-pinned-first-load-metadata.md`. This is not live until the owner performs an explicit Vercel deployment.
