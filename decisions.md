@@ -2170,3 +2170,7 @@ When a selected OneMap match has no 6-digit postal code, the error should give t
 2026-08-29 - P907 OneMap busy error copy:
 
 When OneMap rate-limits address search, the error should preserve a direct fallback path: try again in a moment, or enter a 6-digit postal code. This keeps the primary postal-code workflow available even when address search is busy. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P908 OneMap failed-search recovery copy:
+
+Generic OneMap address-search failure copy should give a recovery path instead of only saying the request failed. The fallback now tells users to try a 6-digit postal code or search again. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

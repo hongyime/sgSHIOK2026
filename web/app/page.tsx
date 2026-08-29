@@ -2323,7 +2323,7 @@ export default function Home() {
         setError("OneMap search is busy. Try again in a moment, or enter a 6-digit postal code.");
         return;
       }
-      setError(err instanceof Error ? err.message : "Failed to search OneMap address.");
+      setError(err instanceof Error ? err.message : "OneMap address search failed. Try a 6-digit postal code or search again.");
     } finally {
       setLoading(false);
     }

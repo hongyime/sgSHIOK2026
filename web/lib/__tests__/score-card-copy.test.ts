@@ -271,7 +271,8 @@ describe("score card copy", () => {
     expect(source).toContain("OneMap search is busy. Try again in a moment, or enter a 6-digit postal code.");
     expect(source).not.toContain("OneMap search is busy. Please try again in a moment.");
     expect(source).not.toContain("Search is busy. Please try again in a moment.");
-    expect(source).toContain("Failed to search OneMap address.");
+    expect(source).toContain("OneMap address search failed. Try a 6-digit postal code or search again.");
+    expect(source).not.toContain("Failed to search OneMap address.");
     expect(source).not.toContain("Failed to search postal location.");
     expect(source).toContain("Failed to load shelter-map data.");
     expect(source).not.toContain("Failed to load score data.");
