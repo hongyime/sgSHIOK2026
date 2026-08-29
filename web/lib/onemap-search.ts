@@ -27,6 +27,7 @@ type StorageLike = Pick<Storage, "getItem" | "setItem">;
 
 const CACHE_PREFIX = "shiok:onemap-search:v2:";
 const STORAGE_TTL_MS = 86_400_000;
+const STORAGE_MAX_ENTRIES = 50;
 const MIN_FREE_TEXT_LENGTH = 3;
 
 export function normalizeOneMapSearchQuery(query: string): string {
@@ -63,6 +64,39 @@ function readStoredCache(
   }
 }
 
+function pruneStoredCache(
+  storage: StorageLike | null,
+  nowMs: number = Date.now(),
+  maxEntries: number = STORAGE_MAX_ENTRIES,
+): void {
+  if (!storage || !("length" in storage) || !("key" in storage) || !("removeItem" in storage)) return;
+  const fullStorage = storage as Storage;
+  const entries: Array<{ key: string; cachedAt: number }> = [];
+
+  for (let index = 0; index < fullStorage.length; index += 1) {
+    const key = fullStorage.key(index);
+    if (!key?.startsWith(CACHE_PREFIX)) continue;
+    try {
+      const parsed = JSON.parse(fullStorage.getItem(key) || "{}") as { cached_at?: unknown };
+      const cachedAt = Number(parsed.cached_at);
+      if (!Number.isFinite(cachedAt) || nowMs - cachedAt > STORAGE_TTL_MS) {
+        fullStorage.removeItem(key);
+        index -= 1;
+        continue;
+      }
+      entries.push({ key, cachedAt });
+    } catch {
+      fullStorage.removeItem(key);
+      index -= 1;
+    }
+  }
+
+  entries
+    .sort((a, b) => b.cachedAt - a.cachedAt)
+    .slice(maxEntries)
+    .forEach((entry) => fullStorage.removeItem(entry.key));
+}
+
 function writeStoredCache(
   storage: StorageLike | null,
   key: string,
@@ -71,9 +105,15 @@ function writeStoredCache(
 ): void {
   if (!storage) return;
   try {
+    pruneStoredCache(storage, nowMs, STORAGE_MAX_ENTRIES - 1);
     storage.setItem(`${CACHE_PREFIX}${key}`, JSON.stringify({ cached_at: nowMs, payload }));
   } catch {
-    // Browser storage can be unavailable or full; in-memory cache still applies.
+    try {
+      pruneStoredCache(storage, nowMs, STORAGE_MAX_ENTRIES - 1);
+      storage.setItem(`${CACHE_PREFIX}${key}`, JSON.stringify({ cached_at: nowMs, payload }));
+    } catch {
+      // Browser storage can be unavailable or full; in-memory cache still applies.
+    }
   }
 }
 

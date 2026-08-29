@@ -18,6 +18,13 @@ function storageFixture(initial?: Record<string, string>) {
     setItem: (key: string, value: string) => {
       values.set(key, value);
     },
+    removeItem: (key: string) => {
+      values.delete(key);
+    },
+    key: (index: number) => Array.from(values.keys())[index] ?? null,
+    get length() {
+      return values.size;
+    },
     values,
   };
 }
@@ -132,5 +139,40 @@ describe("OneMap search client", () => {
 
     expect(payload.results[0]?.POSTAL).toBe("560234");
     expect(calls).toBe(1);
+  });
+
+  it("caps persisted searches and prunes stale entries before writing", async () => {
+    const initial: Record<string, string> = {
+      unrelated: "keep",
+      "shiok:onemap-search:v2:STALE": JSON.stringify({
+        cached_at: 1_000,
+        payload: { found: 1, results: [{ POSTAL: "000000" }] },
+      }),
+    };
+    for (let index = 0; index < 50; index += 1) {
+      initial[`shiok:onemap-search:v2:QUERY ${index}`] = JSON.stringify({
+        cached_at: 10_000 + index,
+        payload: { found: 1, results: [{ POSTAL: `${100000 + index}` }] },
+      });
+    }
+    const storage = storageFixture(initial);
+    const client = createOneMapSearchClient({
+      storage,
+      nowMs: () => 1_000 + 86_400_001,
+      fetcher: async () =>
+        response({
+          found: 1,
+          results: [{ POSTAL: "560234", BUILDING: "Mayflower", ROAD_NAME: "", LATITUDE: "1.37", LONGITUDE: "103.84", SEARCHVAL: "MAYFLOWER MRT" }],
+        }),
+    });
+
+    await client.search("Mayflower MRT");
+
+    const cacheKeys = Array.from(storage.values.keys()).filter((key) => key.startsWith("shiok:onemap-search:v2:"));
+    expect(cacheKeys).toHaveLength(50);
+    expect(storage.values.has("shiok:onemap-search:v2:STALE")).toBe(false);
+    expect(storage.values.has("shiok:onemap-search:v2:QUERY 0")).toBe(false);
+    expect(storage.values.has("shiok:onemap-search:v2:MAYFLOWER MRT")).toBe(true);
+    expect(storage.values.has("unrelated")).toBe(true);
   });
 });
