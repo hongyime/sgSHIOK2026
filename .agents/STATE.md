@@ -1,9 +1,9 @@
 # Current State
 
-Date: 2026-08-29
+Date: 2026-08-30
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `f1555a5` (`docs: add agent vercel quota boundary`)
+Latest substantive commit: `f1debb0` (`perf: broaden non-user crawler robots block`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P1011 is complete and pushed: `robots.ts` now blocks additional non-user AI/SEO crawlers (`Google-Extended`, `Applebot-Extended`, `PerplexityBot`, `Bytespider`, `Amazonbot`, `FacebookBot`, `meta-externalagent`, `SemrushBot`, and `AhrefsBot`) alongside the earlier `GPTBot`, `ClaudeBot`, and `CCBot` block. Focused deployment test passed 1 file / 27 tests; repo integrity passed. Evidence: `qa/verification/P1011-non-user-crawler-robots.md`. This is a polite-crawler reduction only and is not live until the owner performs an explicit Vercel deployment.
 - P1010 is complete and pushed: `CLAUDE.md` now carries the same Vercel Hobby Edge Request boundary as README. Future agents should first check whether production is serving current `main`; automatic Git deployments are intentionally disabled in `web/vercel.json`, so committed cache/crawler reductions need owner manual deployment before affecting live traffic. Pausing or protecting the Vercel project changes public availability and is an owner decision, not an agent-default repository change. Focused agent-doc tests passed 3 tests; repo integrity passed. Evidence: `qa/verification/P1010-agent-vercel-quota-boundary.md`.
 - P1009 is complete and pushed: README local-data guidance now includes the Vercel Hobby Edge Request runbook from P1006-P1008. Operators should first check whether production is serving current `main`; automatic Git deployments are intentionally disabled in `web/vercel.json`, so committed cache/crawler reductions require owner manual deployment before affecting live traffic. Immediate hard stops are Vercel project pause/protection decisions because they change public availability. Focused README tests passed 4 tests; repo integrity passed. Evidence: `qa/verification/P1009-vercel-quota-runbook.md`.
 - P1008 is complete and pushed: Vercel documentation confirms the hard free-tier controls are project-level actions, not local code changes. Pausing the project blocks the active Production Deployment; deployment protection/firewall/BotID can gate or deny traffic but may change public access behavior or require plan support. Code-side route blocking can save upstream work but cannot prevent the initial Edge Request from reaching Vercel. Evidence: `qa/verification/P1008-vercel-free-tier-controls.md`.
