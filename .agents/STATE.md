@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `162ebd5` (`docs: clarify locked transit range copy`)
+Latest substantive commit: `0a094d5` (`docs: describe far walks as published evidence`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P914 is complete and pushed: far connected-walk copy now says the closest published connected shelter-map walk is about the displayed distance away, replacing passive `found is about` wording. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P913 is complete and pushed: no-transit range copy now says no MRT/LRT exit or bus stop qualifies within the locked 1.2 km range, and mode-specific notes say no published shelter-map walk qualifies within that boundary. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P912 is complete and pushed: direct-bus fallback copy now says the straight-line estimate has no published shelter-map walk, replacing `pending` / `yet` wording that implied a queued route. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P911 is complete and pushed: graph-disconnected transit copy now says no connected shelter-map walk is published/found, instead of using `not connected yet` language that implied pending repair. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
