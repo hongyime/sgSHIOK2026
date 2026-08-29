@@ -226,13 +226,14 @@ describe("rendered accessibility output", () => {
       "25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 June 2020 address-list postcodes, with 20 valid OSM-only postcodes."
     );
     expect(html).toContain(
-      "Source-age snapshot: 28 Aug 2026 22:21 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh."
+      "Source-age snapshot: 29 Aug 2026 09:38 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh."
     );
     expect(html).not.toContain("Source-age snapshot: 28 Aug 2026 22:21 UTC manifest-only check");
+    expect(html).not.toContain("Source-age snapshot: 28 Aug 2026 22:21 UTC source-age check");
     expect(html).not.toContain("No upstream URLs were probed.");
     expect(html).not.toContain("Data freshness: 28 Aug 2026 22:21 UTC");
     expect(html).toContain(
-      "At the 28 Aug 2026 source-age check, Bus Stops, Bus Services, and Bus Routes were the nearest current sources to their stale threshold"
+      "At the 29 Aug 2026 source-age check, Bus Stops, Bus Services, and Bus Routes were the nearest current sources to their stale threshold"
     );
     expect(html).toContain("Freshness may have changed since that snapshot");
     expect(html).toContain("source refreshes use new dated input versions instead of changing published data in place");

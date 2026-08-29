@@ -348,9 +348,10 @@ describe("score card copy", () => {
     expect(source).not.toContain("Live OSM addr:postcode coverage:");
     expect(source).not.toContain("OSM remains the address registry");
     expect(source).toContain(
-      "Source-age snapshot: 28 Aug 2026 22:21 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh."
+      "Source-age snapshot: 29 Aug 2026 09:38 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh."
     );
     expect(source).not.toContain("Source-age snapshot: 28 Aug 2026 22:21 UTC manifest-only check");
+    expect(source).not.toContain("Source-age snapshot: 28 Aug 2026 22:21 UTC source-age check");
     expect(source).not.toContain("No upstream URLs were probed.");
     expect(source).not.toContain("Data freshness: 28 Aug 2026 22:21 UTC");
     expect(source).toContain("<summary>Source freshness detail</summary>");
@@ -370,7 +371,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("Stale-source refreshes require a new numbered input version");
     expect(source).not.toContain("Stale sources include");
     expect(source).toContain(
-      "At the 28 Aug 2026 source-age check, Bus Stops, Bus Services, and Bus Routes were the nearest current sources to their stale threshold"
+      "At the 29 Aug 2026 source-age check, Bus Stops, Bus Services, and Bus Routes were the nearest current sources to their stale threshold"
     );
     expect(source).toContain("HDB Existing Building was the oldest current item");
     expect(source).toContain("Freshness may have changed since that snapshot");

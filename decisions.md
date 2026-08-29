@@ -2258,3 +2258,7 @@ Planning-area comparison status copy should use the same nearby-address framing 
 2026-08-29 - P929 nearby-address comparison accessibility labels:
 
 The comparison panel's accessible labels should match the visible `Compare nearby addresses` title. The UI now uses `Nearby-address comparison` and `Choose nearby-address comparison view` for screen-reader surfaces, while keeping the planning-area boundary in explanatory copy where it matters. This is browser accessibility copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P938 browser freshness snapshot date:
+
+The browser source-age snapshot should track the latest zero-mutation `run.py check --freshness-only` measurement when the timestamp changes but the classification remains operator-relevant. The 29 Aug 2026 09:38 UTC source-age check still reports 11 current, 9 stale, 3 manual, and 1 unknown-age candidate source; Bus Stops, Bus Services, and Bus Routes remain nearest to stale, and HDB Existing Building remains the oldest current source. This is browser copy/test/evidence work only; it reads existing raw manifest and source policy, probes no upstream APIs, writes no manifest, and does not alter inputs, scoring, exports, public data, deployment, protected evidence, or locked weights.
