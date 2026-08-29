@@ -2308,6 +2308,7 @@ export default function Home() {
 
   const mapRoutes = useMemo(() => buildRouteItems(activeSelection), [activeSelection]);
   const mapRouteMode = routesAreSame(activeSelection) ? "shiokest" : routeMode;
+  const shouldRenderRouteMap = mapRoutes.length > 0;
   const showDetailOverlay = Boolean(primary);
 
   // Apply pending URL stop once candidates for this postal are known.
@@ -2525,18 +2526,20 @@ export default function Home() {
 
   return (
     <main className={styles.appShell}>
-      <RouteEvidenceMap
-        routes={mapRoutes}
-        mode={mapRouteMode}
-        transitPois={mapTransitPois}
-        feedbackEnabled={feedbackEnabled}
-        feedbackPoints={feedbackPoints}
-        onFeedbackPoint={addFeedbackPoint}
-        onSelectTransitStop={handleStopSelect}
-        chosenStopId={chosenStopId ?? bestCandidateId}
-        showLampOverlay={lampOverlayEnabled}
-        focusedExposureGap={focusedExposureGap}
-      />
+      {shouldRenderRouteMap && (
+        <RouteEvidenceMap
+          routes={mapRoutes}
+          mode={mapRouteMode}
+          transitPois={mapTransitPois}
+          feedbackEnabled={feedbackEnabled}
+          feedbackPoints={feedbackPoints}
+          onFeedbackPoint={addFeedbackPoint}
+          onSelectTransitStop={handleStopSelect}
+          chosenStopId={chosenStopId ?? bestCandidateId}
+          showLampOverlay={lampOverlayEnabled}
+          focusedExposureGap={focusedExposureGap}
+        />
+      )}
 
       <section className={styles.searchOverlay} aria-label="Address search" aria-busy={loading}>
         <div className={styles.brandRow}>

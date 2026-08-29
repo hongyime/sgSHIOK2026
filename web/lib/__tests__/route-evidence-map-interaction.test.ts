@@ -89,6 +89,8 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("useState<Manifest | null>(PINNED_DATA_MANIFEST)");
     expect(pageSource).not.toContain("void fetchManifest().then");
     expect(pageSource).not.toContain("void fetchTransitPois().then");
+    expect(pageSource).toContain("const shouldRenderRouteMap = mapRoutes.length > 0;");
+    expect(pageSource).toContain("{shouldRenderRouteMap && (");
     expect(pageSource).toContain("nearbyTransitPois = await fetchTransitPois();");
     expect(pageSource).toContain("setBaseTransitPois(nearbyTransitPois);");
 
