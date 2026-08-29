@@ -2138,3 +2138,7 @@ Access reason copy should use the same user-facing destination vocabulary as the
 2026-08-29 - P899 unnamed transit fallback copy:
 
 When a scored walk lacks a named best node, the browser should say the transit stop or exit is not named rather than not loaded. The route evidence can still exist; the missing part is display metadata, not necessarily the walk. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P900 stop/exit access source label:
+
+Shelter-source evidence should label destination connector segments as `Stop/exit access walk` instead of `Transit access walk`. The underlying source-layer key is unchanged; only the browser-facing source label moves to the same stop-or-exit vocabulary as the first-view, access row, and route notes. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

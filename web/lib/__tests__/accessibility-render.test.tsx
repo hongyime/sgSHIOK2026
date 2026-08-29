@@ -782,10 +782,11 @@ describe("rendered accessibility output", () => {
     const html = renderScoreCard({ selection: connectorSelection });
 
     expect(html).toContain("Postal access walk");
-    expect(html).toContain("Transit access walk");
+    expect(html).toContain("Stop/exit access walk");
     expect(html).toContain("Bus-stop access walk");
     expect(html).not.toContain("Postal connector");
     expect(html).not.toContain("Transit connector");
+    expect(html).not.toContain("Transit access walk");
     expect(html).not.toContain("Bus stop connector");
   });
 

@@ -85,7 +85,7 @@ const SOURCE_LABELS: Record<string, string> = {
   direct_unrouted_bus: "Direct bus service estimate",
   bus_stop_access_connector: "Bus-stop access walk",
   origin_graph_snap_connector: "Postal access walk",
-  destination_graph_snap_connector: "Transit access walk",
+  destination_graph_snap_connector: "Stop/exit access walk",
   covered_unknown: "Mapped shelter",
   exposed: "Exposed",
 };
