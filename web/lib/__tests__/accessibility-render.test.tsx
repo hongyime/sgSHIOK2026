@@ -233,10 +233,12 @@ describe("rendered accessibility output", () => {
       "At the 28 Aug 2026 source-age check, Bus Stops, Bus Services, and Bus Routes were the nearest current sources to their stale threshold"
     );
     expect(html).toContain("Freshness may have changed since that snapshot");
-    expect(html).toContain("source refreshes use new versioned inputs instead of changing the frozen v1 bundle in place");
+    expect(html).toContain("source refreshes use new versioned inputs instead of changing the frozen v1 data in place");
+    expect(html).not.toContain("source refreshes use new versioned inputs instead of changing the frozen v1 bundle in place");
     expect(html).toContain(
-      "The source inventory covers address, transport, shelter, greenery, boundary, and lighting references, including the June 2020 OneMap-derived postal-universe seed"
+      "The source inventory covers address, transport, shelter, greenery, boundary, and lighting references, including the June 2020 OneMap-derived address seed"
     );
+    expect(html).not.toContain("postal-universe seed");
     expect(html).not.toContain("raw/manifest.json");
     expect(html).not.toContain("ACRA, other-UEN");
     expect(html).not.toContain("zero-mutation source-age check before release work");

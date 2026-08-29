@@ -2006,3 +2006,7 @@ The collapsed Data limits summary should expose the user-relevant address age ra
 2026-08-29 - P851 footer walk-evidence wording:
 
 The browser footer should close with the product object, not provenance framing. It now says `Walk evidence: covered-walkway ratio and exposed gaps, plus the night-lighting map layer`, removing the `Source-derived` prefix while preserving the same evidence claim. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P852 expanded data-limits terminology:
+
+Expanded browser data-limit copy should keep the versioning and stale-source caveats without leaking implementation terms. The source-age detail now says source refreshes do not change frozen v1 data in place, names the June 2020 OneMap-derived address seed instead of a postal-universe seed, and says stale source data requires a new numbered input version instead of stale payload ages. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.

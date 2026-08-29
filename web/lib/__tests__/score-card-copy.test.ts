@@ -316,15 +316,17 @@ describe("score card copy", () => {
     expect(source).not.toContain("Data freshness: 28 Aug 2026 22:21 UTC");
     expect(source).toContain("<summary>Source freshness detail</summary>");
     expect(source).toContain(
-      "The source inventory covers address, transport, shelter, greenery, boundary, and lighting references, including the June 2020 OneMap-derived postal-universe seed"
+      "The source inventory covers address, transport, shelter, greenery, boundary, and lighting references, including the June 2020 OneMap-derived address seed"
     );
+    expect(source).not.toContain("postal-universe seed");
     expect(source).not.toContain("The source policy covers every source in raw/manifest.json");
     expect(source).not.toContain("ACRA, other-UEN");
     expect(source).toContain("Stale sources are ordered by days past their freshness threshold");
     expect(source).toContain(
       "Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Traffic Signals"
     );
-    expect(source).toContain("source refreshes use new versioned inputs instead of changing the frozen v1 bundle in place");
+    expect(source).toContain("source refreshes use new versioned inputs instead of changing the frozen v1 data in place");
+    expect(source).not.toContain("source refreshes use new versioned inputs instead of changing the frozen v1 bundle in place");
     expect(source).not.toContain("Stale-source refreshes require a new numbered input version");
     expect(source).not.toContain("Stale sources include");
     expect(source).toContain(
@@ -371,8 +373,9 @@ describe("score card copy", () => {
     );
     expect(source).not.toContain("6 supporting sources are stale.");
     expect(source).toContain(
-      "Covered Linkway follows a quarterly 120-day freshness threshold; frozen v1 uses the Mar 2026 LTA geospatial listing. A 28 Aug 2026 source-listing check found the covered-linkway, bridge/underpass, and traffic-signal listings still matched frozen v1; stale payload ages still require a new numbered input version before any refresh."
+      "Covered Linkway follows a quarterly 120-day freshness threshold; frozen v1 uses the Mar 2026 LTA geospatial listing. A 28 Aug 2026 source-listing check found the covered-linkway, bridge/underpass, and traffic-signal listings still matched frozen v1; stale source data still requires a new numbered input version before any refresh."
     );
+    expect(source).not.toContain("stale payload ages");
     expect(source).not.toContain("check found current Covered Linkway");
     expect(source).toContain("traffic-signal listings still matched frozen v1");
     expect(source).not.toContain("Traffic Signals URLs still match frozen v1");
