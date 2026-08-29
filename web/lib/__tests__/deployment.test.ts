@@ -54,6 +54,8 @@ describe("deployment packaging", () => {
     expect(layout).toContain('import { ServiceWorkerRegistration }');
     expect(layout).toContain("<ServiceWorkerRegistration />");
     expect(registration).toContain('process.env.NODE_ENV !== "production"');
+    expect(registration).toContain(".getRegistration(\"/\")");
+    expect(registration).toContain("if (registration) return registration;");
     expect(registration).toContain('navigator.serviceWorker.register("/sw.js")');
     expect(registration).toContain('window.addEventListener("load", register, { once: true })');
   });
