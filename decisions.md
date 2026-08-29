@@ -2110,3 +2110,7 @@ When an exposed gap cannot be focused on the map, the UI should say no map locat
 2026-08-29 - P892 partial-score row copy:
 
 Partial locked-score copy should refer to unavailable locked-score rows instead of missing score factors. The scoring behavior is unchanged: missing terms still count as zero in the locked rule, but the browser wording now points to the displayed rows a user can see. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P893 exposed-gap listed/mapped copy:
+
+Exposed-gap copy should use listed and mapped language instead of recorded storage language. Zero-gap states now say no exposed gaps are listed, and the coverage confirmation says all mapped segments stay under covered-walkway or connector evidence. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

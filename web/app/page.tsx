@@ -1391,7 +1391,7 @@ export function ScoreCard({
     : `on ${selectedWalkLabel}`;
   const longestGapText = longestGap
     ? `${formatDistance(longestGap.len_m)} is the longest exposed gap.`
-    : `No exposed gaps are recorded for this ${selectedWalkLabel}.`;
+    : `No exposed gaps are listed for this ${selectedWalkLabel}.`;
   const exposureHeroText =
     exposureGaps.length === 0
       ? longestGapText
@@ -1432,7 +1432,7 @@ export function ScoreCard({
       ? `Showing the ${visibleExposureGaps.length} longest exposed gaps; ${hiddenGapCount} shorter exposed gap${
           hiddenGapCount === 1 ? "" : "s"
         } included in the total.`
-      : "All recorded exposed gaps are shown.";
+      : "All listed exposed gaps are shown.";
   const gapCoordinateSummaryText =
     gapsWithCoordinates > 0
       ? `${gapsWithCoordinates} of ${exposureGaps.length} exposed gap${
@@ -1441,8 +1441,8 @@ export function ScoreCard({
       : `No map location is available for ${
           exposureGaps.length === 1 ? "this exposed gap" : "these exposed gaps"
         }.`;
-  const zeroGapEvidenceText = `No exposed gaps are recorded for this ${selectedWalkLabel}.`;
-  const zeroGapCoverageText = `All recorded segments for this ${selectedWalkLabel} stay under covered-walkway or connector evidence.`;
+  const zeroGapEvidenceText = `No exposed gaps are listed for this ${selectedWalkLabel}.`;
+  const zeroGapCoverageText = `All mapped segments for this ${selectedWalkLabel} stay under covered-walkway or connector evidence.`;
   const evidenceRows: EvidenceBreakdownRow[] = score.subscores
     ? [
         {

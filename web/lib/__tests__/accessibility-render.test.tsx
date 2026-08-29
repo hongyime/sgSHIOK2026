@@ -840,7 +840,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("181 m exposed across 2 gaps on the sheltered walk.");
     expect(html).not.toContain("181 m exposed across 2 gaps on the selected walk.");
     expect(html).toContain('aria-label="Exposed gap evidence"');
-    expect(html).toContain("All recorded exposed gaps are shown.");
+    expect(html).toContain("All listed exposed gaps are shown.");
     expect(html).toContain("2 of 2 exposed gaps include map coordinates.");
     expect(html).toContain("Longest open-air stretch");
     expect(html).toContain("Map coordinate 1.37123, 103.84235");
@@ -960,14 +960,16 @@ describe("rendered accessibility output", () => {
       rankingRecords: [recordWithoutGaps],
     });
 
-    expect(html).toContain("No exposed gaps are recorded for this shortest walk.");
+    expect(html).toContain("No exposed gaps are listed for this shortest walk.");
     expect(html).toContain('aria-label="Exposed gap evidence"');
-    expect(html).toContain("All recorded segments for this shortest walk stay under covered-walkway or connector evidence.");
+    expect(html).toContain("All mapped segments for this shortest walk stay under covered-walkway or connector evidence.");
     expect(html).not.toContain("All recorded segments for this display stay under covered-walkway or connector evidence.");
+    expect(html).not.toContain("All recorded segments for this shortest walk stay under covered-walkway or connector evidence.");
     expect(html).toContain("Covered-walkway evidence");
     expect(html).toContain("Shelter-map walk evidence 48% covered-walkway ratio.");
     expect(html).not.toContain("0 m exposed across 0 gaps");
     expect(html).not.toContain("No exposed gaps are recorded for this selected walk.");
+    expect(html).not.toContain("No exposed gaps are recorded for this shortest walk.");
   });
 
   it("labels transit stop-or-exit availability before a user switches modes", () => {
