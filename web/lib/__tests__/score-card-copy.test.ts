@@ -265,6 +265,8 @@ describe("score card copy", () => {
     expect(source).not.toContain('placeholder="Search address or 6-digit postal"');
     expect(source).not.toContain('aria-label="Search address or 6-digit postal"');
     expect(source).toContain("Enter at least 3 characters for OneMap search, or use a 6-digit postal code.");
+    expect(source).toContain("Try another address spelling or a 6-digit postal code.");
+    expect(source).not.toContain("No OneMap match found. Try a 6-digit postal code.");
     expect(source).not.toContain("Enter at least 3 characters or a 6-digit postal code.");
     expect(source).toContain("This OneMap match has no 6-digit postal code. Choose another match or enter the postal code directly.");
     expect(source).not.toContain("Selected OneMap result has no usable postal code.");

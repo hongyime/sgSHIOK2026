@@ -209,7 +209,7 @@ export function searchResultsAnnouncement(
 ): string {
   if (loading || error) return "";
   if (searched && results.length === 0) {
-    return `No OneMap match for this search. Try a 6-digit postal code. ${noSearchResultBundleCaveat()}`;
+    return `No OneMap match for this search. Try another address spelling or a 6-digit postal code. ${noSearchResultBundleCaveat()}`;
   }
   if (results.length === 0) return "";
   return `${results.length} search result${results.length === 1 ? "" : "s"} available.`;
@@ -376,7 +376,7 @@ export function SearchFeedback({
       </p>
       {showNoResults && (
         <div className={styles.emptyBox} role="status">
-          <p>No OneMap match found. Try a 6-digit postal code.</p>
+          <p>No OneMap match found. Try another address spelling or a 6-digit postal code.</p>
           <p className={styles.emptyBoxNote}>{noSearchResultBundleCaveat()}</p>
         </div>
       )}
