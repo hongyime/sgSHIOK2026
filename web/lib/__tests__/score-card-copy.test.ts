@@ -35,7 +35,7 @@ describe("score card copy", () => {
     expect(source).toContain('return "transit stop or exit";');
     expect(source).not.toContain('return "transit";');
     expect(source).not.toContain("No connected shelter-map walk to ${transitModeLabel(transitMode)} within range");
-    expect(source).toContain("No shelter-map walk to ${transitModeLabel(transitMode)} was found within the locked 1.2 km transit range.");
+    expect(source).toContain("No published shelter-map walk to ${transitModeLabel(transitMode)} qualifies within the locked 1.2 km transit range.");
     expect(source).toContain("Transit stop or exit found");
     expect(source).not.toContain("Transit target found");
     expect(source).toContain("No qualifying transit stop or exit within 1.2 km");
@@ -45,7 +45,7 @@ describe("score card copy", () => {
     expect(source).toContain("Transit stops or exits exist, but no connected shelter-map walk is published for this postal.");
     expect(source).not.toContain("Transit stops or exits exist, but the published shelter-map data has no connected shelter-map walk yet.");
     expect(source).not.toContain("Transit targets exist, but the published shelter-map data has no connected shelter-map walk yet.");
-    expect(source).toContain("No qualifying MRT/LRT exit or bus stop was found within the locked 1.2 km transit range for this postal.");
+    expect(source).toContain("No MRT/LRT exit or bus stop qualifies within the locked 1.2 km transit range for this postal.");
     expect(source).not.toContain("Transit beyond scoring range");
     expect(source).not.toContain("Transit beyond locked range");
     expect(source).not.toContain("within the 1.2 km scoring range for this postal");
@@ -61,6 +61,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("No ${label} walk within 1.2 km locked range");
     expect(source).not.toContain("No connected ${transitModeLabel(transitMode)} shelter-map walk within range");
     expect(source).not.toContain("No ${transitModeLabel(transitMode)} walk was found within the locked 1.2 km transit range.");
+    expect(source).not.toContain("No shelter-map walk to ${transitModeLabel(transitMode)} was found within the locked 1.2 km transit range.");
     expect(source).toContain("Locked transit range is 1.2 km");
     expect(source).toContain("Beyond 1.2 km locked range");
     expect(source).not.toContain("Outside locked transit range");

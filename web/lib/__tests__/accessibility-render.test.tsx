@@ -1173,7 +1173,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("No qualifying transit stop within 1.2 km");
     expect(html).toContain("Beyond 1.2 km locked range");
     expect(html).not.toContain("Outside locked transit range");
-    expect(html).toContain("No qualifying MRT/LRT exit or bus stop was found within the locked 1.2 km transit range for this postal.");
+    expect(html).toContain("No MRT/LRT exit or bus stop qualifies within the locked 1.2 km transit range for this postal.");
     expect(html).toContain("<span>No full locked score</span><strong>Walk evidence</strong>");
     expect(html).not.toContain("No connected shelter-map walk");
   });
@@ -1199,7 +1199,7 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("No connected shelter-map walk to bus stop within 1.2 km");
     expect(html).not.toContain("No connected shelter-map walk to bus stop within range");
-    expect(html).toContain("No shelter-map walk to bus stop was found within the locked 1.2 km transit range.");
+    expect(html).toContain("No published shelter-map walk to bus stop qualifies within the locked 1.2 km transit range.");
     expect(html).toContain("No shelter-map walk to bus stop within 1.2 km locked range");
     expect(html).not.toContain("No shelter-map walk to bus stop within locked transit range");
     expect(html).not.toContain("No connected bus stop shelter-map walk within range");

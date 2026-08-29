@@ -2190,3 +2190,7 @@ Graph-disconnected transit copy should describe the current published-data limit
 2026-08-29 - P912 direct-bus fallback published-walk copy:
 
 Direct-bus fallback copy should say there is no published shelter-map walk instead of saying the walk is pending. The fallback evidence is a straight-line bus-service estimate, not a queued shelter-map route. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P913 locked transit range copy:
+
+No-transit range copy should describe the locked 1.2 km boundary in active, published-evidence terms. The UI now says no MRT/LRT exit or bus stop qualifies within the locked range, and mode-specific notes say no published shelter-map walk qualifies within that boundary. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

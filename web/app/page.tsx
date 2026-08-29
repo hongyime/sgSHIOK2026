@@ -615,13 +615,13 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
       return "Transit stops or exits exist, but no connected shelter-map walk is published for this postal.";
     }
     if (reason === "no_transit_candidates_selected") {
-      return "No qualifying MRT/LRT exit or bus stop was found within the locked 1.2 km transit range for this postal.";
+      return "No MRT/LRT exit or bus stop qualifies within the locked 1.2 km transit range for this postal.";
     }
     const nearestM = nearestRoutedTransitM(score, transitMode);
     if (nearestM !== null) {
       return `Closest connected shelter-map walk found is about ${formatDistance(nearestM)} away; locked transit range is 1.2 km.`;
     }
-    return `No shelter-map walk to ${transitModeLabel(transitMode)} was found within the locked 1.2 km transit range.`;
+    return `No published shelter-map walk to ${transitModeLabel(transitMode)} qualifies within the locked 1.2 km transit range.`;
   }
   if (score.state === "NOT_YET_SCORED") {
     return "This postal is in the June 2020 address list, but the published shelter-map data has no full locked score for it yet.";
