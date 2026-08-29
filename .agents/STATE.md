@@ -3,7 +3,7 @@
 Date: 2026-08-30
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `1994223` (`perf: remove service worker root client island`)
+Latest substantive commit: `2da6453` (`perf: keep maplibre styles off empty page path`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P1037 is complete and pushed: the root layout no longer imports `maplibre-gl/dist/maplibre-gl.css`; minimal MapLibre globals needed by the app now live with `route-evidence-map.module.css`, keeping map styling out of the first-load root layout after the route map was lazy-loaded. Focused web tests passed 3 files / 82 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. A local Next build was not run because `web/scripts/ensure-data-bundle.mjs` can create missing derived artifacts under protected `web/public/data`. Evidence: `qa/verification/P1037-local-maplibre-styles.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1036 is complete and pushed: the root layout no longer imports or renders the service-worker registration client component. `requestServiceWorkerCache()` now performs guarded production service-worker registration directly after app intent, so empty first-page visits avoid both `/sw.js` and the root-layout service-worker client island. Focused web tests passed 3 files / 81 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1036-direct-intent-service-worker.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1035 is complete and pushed: production service-worker registration is now intent-gated behind `shiok:enable-service-worker-cache`, dispatched when a user submits a search or loads a selection. Empty first-page browser visits no longer fetch `/sw.js` solely because the page loaded; engaged users still get the optional static/request cache. Focused web tests passed 3 files / 81 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1035-intent-gated-service-worker.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1034 is complete and pushed: `page.tsx` now imports the route-map component with `next/dynamic` and `ssr: false`, keeping the route-map module out of the initial empty-page client path until a route exists. Focused web tests passed 2 files / 52 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1034-lazy-route-map-component.md`. This is not live until the owner performs an explicit Vercel deployment.
