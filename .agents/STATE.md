@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `f043f14` (`docs: make first-card data date user-facing`)
+Latest substantive commit: `d7bc965` (`docs: call published shelter release data`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P849 is complete and pushed: browser-visible empty states, preview caveats, unavailable-score messages, and the muted locked-score badge now say published shelter-map data / published data instead of published shelter-map bundle / published bundle.
 - P848 is complete and pushed: first-card data date copy now says `published data built` instead of `bundle generated`, preserving both manifest-derived dates without primary-UI implementation wording.
 - P847 is complete and pushed: browser source-age copy now says the 28 Aug snapshot was a source-age check and not a live source refresh, instead of exposing manifest-only/upstream-URL probe mechanics.
 - P846 is complete and pushed: browser Covered Linkway freshness copy now describes the 28 Aug check as a source-listing check instead of DataMall discovery URL mechanics.
