@@ -2154,3 +2154,7 @@ Screen-reader live status should say the shelter-map panel is ready instead of l
 2026-08-29 - P903 planning-area loading comparison copy:
 
 Planning-area loading text should say it is loading a comparison, not ranks, for evidence and locked-score row views. The list may be ordered internally, but the user-facing panel is a nearby-address comparison surface. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P904 preview badge published shelter-map data:
+
+Live OneMap preview route badges should say `Not in published shelter-map data` instead of generic `Not in published data`. The preview can show shelter-map evidence, but it is not part of the frozen published shelter-map dataset or locked score. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

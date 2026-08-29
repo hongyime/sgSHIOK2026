@@ -418,7 +418,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("↺ Published shelter-map walk");
     expect(html).not.toContain(">↺ Published walk</button>");
     expect(html).toContain("Shelter-map evidence preview");
-    expect(html).toContain("Not in published data");
+    expect(html).toContain("Not in published shelter-map data");
+    expect(html).not.toContain("Not in published data");
     expect(html).not.toContain("Not scored in the current bundle");
     expect(html).toContain("Preview shelter-map evidence selected.");
     expect(html).toContain("Locked score preview only; published locked score unchanged.");

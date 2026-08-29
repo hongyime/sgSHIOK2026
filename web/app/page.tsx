@@ -858,7 +858,7 @@ function resolveOriginLatLng(selection: LoadedSelection | null): { lat: number; 
 
 function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): string[] {
   if (score.paths?.routing_type === "live_onemap_preview") {
-    return ["Shelter-map evidence preview", "Not in published data"];
+    return ["Shelter-map evidence preview", "Not in published shelter-map data"];
   }
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const label = transitModeLabel(transitMode);
