@@ -301,6 +301,10 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("params.delete(\"stop\")");
     expect(pageSource).toContain("onResetChosenStop={() => handleStopSelect(null)}");
     expect(pageSource).toContain("const resolved = nextStopId && nextStopId !== bestCandidateId ? nextStopId : null");
+    expect(pageSource).toContain('import { usePathname } from "next/navigation";');
+    expect(pageSource).not.toContain("useRouter");
+    expect(pageSource).toContain("window.history.replaceState(null, \"\", query ? `${pathname}?${query}` : pathname);");
+    expect(pageSource).not.toContain("router.replace");
   });
 
   it("keeps precomputed candidate geometry authoritative instead of demoting it to preview", () => {

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import {
   fetchGeomForPostal,
   fetchManifest,
@@ -103,6 +103,11 @@ function liveRoutePreviewCacheKey(
     liveRouteCoordinateKey(stopLat),
     liveRouteCoordinateKey(stopLng),
   ].join(":");
+}
+
+function replaceUrlQuery(pathname: string, params: URLSearchParams): void {
+  const query = params.toString();
+  window.history.replaceState(null, "", query ? `${pathname}?${query}` : pathname);
 }
 
 function readLiveRoutePreviewCache(key: string): LiveRoutePreviewPayload | null {
@@ -2028,7 +2033,6 @@ export default function Home() {
   // Pending stop id from ?stop= URL param — applied once the postal's candidates load.
   const pendingUrlStopIdRef = useRef<string | null>(null);
 
-  const router = useRouter();
   const pathname = usePathname();
 
   // Reset live route cache on postal change
@@ -2321,10 +2325,9 @@ export default function Home() {
       } else {
         params.delete("stop");
       }
-      const query = params.toString();
-      router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+      replaceUrlQuery(pathname, params);
     },
-    [pathname, primary?.result?.POSTAL, router]
+    [pathname, primary?.result?.POSTAL]
   );
 
   const handleRouteModeChange = useCallback((mode: RouteDisplayMode) => {
@@ -2368,8 +2371,7 @@ export default function Home() {
       params.delete("postal");
       params.delete("stop");
     }
-    const query = params.toString();
-    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+    replaceUrlQuery(pathname, params);
     // We intentionally depend only on the postal here; other URL state comes
     // from explicit handlers to avoid overwriting the ?stop= param mid-flight.
     // eslint-disable-next-line react-hooks/exhaustive-deps
