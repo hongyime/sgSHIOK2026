@@ -834,6 +834,8 @@ describe("score card copy", () => {
     expect(source).toContain('label: "Shelter exposure"');
     expect(source).toContain('label: "Walk to stop or exit"');
     expect(source).not.toContain('label: "Walk to transit"');
+    expect(source).toContain('access: { low: "Longer walk to stop or exit", high: "Short walk to stop or exit" }');
+    expect(source).not.toContain('access: { low: "Longer walk to transit", high: "Short walk to transit" }');
     expect(source).toContain('label: "Bus service support"');
     expect(source).toContain(
       "A low value can mean weak service evidence, or that the published shelter-map walk could not prove access to an official LTA bus stop."

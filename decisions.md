@@ -2130,3 +2130,7 @@ The four-row presentation should use the same destination vocabulary as the firs
 2026-08-29 - P897 best-transit stop-or-exit label:
 
 The default all-transit view should render the access destination as `transit stop or exit`, not abstract `transit`. Bus-only and MRT/LRT-only modes keep their specific labels, while the all-transit route notes and measured reasons now match the first-view and row-label vocabulary. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P898 access reason stop-or-exit copy:
+
+Access reason copy should use the same user-facing destination vocabulary as the access row. The low/high descriptors now say `Longer walk to stop or exit` and `Short walk to stop or exit`, keeping reason chips aligned with the four-row presentation. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
