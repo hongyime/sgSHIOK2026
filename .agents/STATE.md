@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `b52738d` (`docs: describe sample search as a known address`)
+Latest substantive commit: `2af979d` (`docs: add address spelling recovery to no-results copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P910 is complete and pushed: OneMap no-results copy now suggests another address spelling or a 6-digit postal code, in both screen-reader and visible empty-state text. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P909 is complete and pushed: the sample-search prompt now says `Try a known address?` instead of generic `Need a quick look?`, keeping the Mayflower shortcut framed as a known address/postal example. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P908 is complete and pushed: generic OneMap address-search failure fallback now tells users to try a 6-digit postal code or search again, rather than only reporting the failed search. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P907 is complete and pushed: OneMap 429/busy search errors now mention the direct 6-digit postal-code fallback instead of only telling users to wait. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
