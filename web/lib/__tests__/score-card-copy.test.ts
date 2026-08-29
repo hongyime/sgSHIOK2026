@@ -802,7 +802,10 @@ describe("score card copy", () => {
     expect(proposalSource).toContain("Exposed gaps on the displayed walk");
     expect(proposalSource).not.toContain("{covered_ratio}% of the selected walk is covered.");
     expect(proposalSource).not.toContain("Exposed gaps show where the selected walk leaves shelter.");
-    expect(proposalSource).toContain("Sheltered walk distance from this postal code to the chosen MRT/LRT or bus access point.");
+    expect(proposalSource).toContain("{sheltered_m} to {stop_or_exit}");
+    expect(proposalSource).toContain("Sheltered walk distance from this postal code to the chosen MRT/LRT exit or bus stop.");
+    expect(proposalSource).not.toContain("{sheltered_m} to {transit_target}");
+    expect(proposalSource).not.toContain("chosen MRT/LRT or bus access point");
     expect(proposalSource).not.toContain("Selected walk distance from this postal code");
     expect(proposalSource).toContain(
       "the published shelter-map walk\ncould not prove access to an official LTA bus stop"
@@ -813,7 +816,7 @@ describe("score card copy", () => {
     expect(proposalSource).toContain("deciding whether the walk actually works");
     expect(proposalSource).toContain("[shelter-map walk]");
     expect(proposalSource).toContain("the shelter-map\nwalk evidence and its exposed gaps");
-    expect(proposalSource).toContain("walk distance and transit target rather than above walk exposure");
+    expect(proposalSource).toContain("walk distance and the chosen stop or exit rather than above walk exposure");
     expect(proposalSource).toContain(
       "strongest evidence in this locked release is the covered-walkway ratio and exposed gaps on the shelter-map walk"
     );
@@ -827,6 +830,7 @@ describe("score card copy", () => {
     expect(proposalSource).not.toContain("[route map]");
     expect(proposalSource).not.toContain("routed shelter trace");
     expect(proposalSource).not.toContain("route distance and transit target");
+    expect(proposalSource).not.toContain("walk distance and transit target");
     expect(proposalSource).not.toContain("above route exposure");
 
     expect(weightsYaml).toContain("transit_access: 0.35");

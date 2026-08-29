@@ -15,7 +15,7 @@ stop presenting the prior five locked-term rows as five independent measurements
 | Position | Current screen copy | Problem |
 | --- | --- | --- |
 | 1 | Composite SHIOK score | Leads with a blended index before showing the evidence behind the walk. |
-| 2 | Access | Useful, but should sit beside walk distance and transit target rather than above walk exposure. |
+| 2 | Access | Useful, but should sit beside walk distance and the chosen stop or exit rather than above walk exposure. |
 | 3 | Bus connectivity | Carries 20% of locked weight but still partly reflects routing/conflation success. |
 | 4 | Rain shelter | Uses covered-walkway shelter evidence. |
 | 5 | Heat: shelter plus sparse NParks greenery proxy | Mostly the same covered-walkway shelter evidence as rain shelter, plus sparse greenery proxy. |
@@ -26,7 +26,7 @@ stop presenting the prior five locked-term rows as five independent measurements
 | Position | Display row | On-screen copy | Detail copy |
 | --- | --- | --- | --- |
 | 1 | Shelter exposure | `{covered_ratio}% covered-walkway ratio on the displayed walk` | `Exposed gaps show where the displayed walk leaves shelter.` |
-| 2 | Walk to transit | `{sheltered_m} to {transit_target}` | `Sheltered walk distance from this postal code to the chosen MRT/LRT or bus access point.` |
+| 2 | Walk to transit | `{sheltered_m} to {stop_or_exit}` | `Sheltered walk distance from this postal code to the chosen MRT/LRT exit or bus stop.` |
 | 3 | Bus service support | `Bus support: {bus_label}` | `Shown with routing caveats where exact bus-stop walking evidence is unresolved.` |
 | 4 | Locked score | `SHIOK score: {total}` | `Release sorting score using the locked weights; not five independent evidence sources.` |
 
