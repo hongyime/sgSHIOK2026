@@ -1298,7 +1298,7 @@ export function ScoreCard({
   const rankSentenceLabel = rankSentenceMetricLabel(rankMetricLabel);
   const rankLoadingText = rankMetricLabel.endsWith("order")
     ? `Loading planning-area ${rankSentenceLabel}.`
-    : `Loading planning-area ${rankSentenceLabel} ranks.`;
+    : `Loading planning-area ${rankSentenceLabel} comparison.`;
   const rankStatus = rankAnnouncement({
     loading: rankingLoading,
     rankedCount: rankedRecords.length,

@@ -811,8 +811,10 @@ describe("score card copy", () => {
     expect(source).toContain("const rankLoadingText = rankMetricLabel.endsWith(\"order\")");
     expect(source).toContain("{rankLoadingText}");
     expect(source).not.toContain("Loading planning-area {rankSentenceLabel} ranks.");
+    expect(source).not.toContain("Loading planning-area ${rankSentenceLabel} ranks.");
     expect(source).not.toContain("Loading planning-area locked score order ranks.");
     expect(source).not.toContain("Loading planning-area ${sentenceLabel} ranks.");
+    expect(source).toContain("Loading planning-area ${rankSentenceLabel} comparison.");
     expect(source).toContain("Loading planning-area ${sentenceLabel}.");
     expect(source).toContain("Loading planning-area ${sentenceLabel} comparison.");
     expect(source).not.toContain("Loading planning-area ranks...");
