@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `b7c938f` (`docs: align nearby-address comparison status copy`)
+Latest substantive commit: `87f9d85` (`docs: align nearby-address comparison labels`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,9 +18,9 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P929 is complete and pushed: comparison panel ARIA/select labels now use nearby-address naming to match the visible `Compare nearby addresses` title.
 - P928 is complete and pushed: planning-area comparison status and empty states now use nearby-address framing while preserving the planning-area boundary where it explains no comparable full locked scores.
 - P927 is complete and pushed: locked-row-unavailable reason chips now say `Shelter-map evidence inspectable` instead of `Shelter-map evidence available`; a stale P926 source assertion was also corrected.
-- P926 is complete and pushed: live OneMap walking-preview failures now say the preview could not load instead of saying it is unavailable.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, dependency install, or locked-weight change was performed.
 
 Next useful free-tier work:
