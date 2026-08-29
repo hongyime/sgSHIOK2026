@@ -683,7 +683,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("ComfortModeControl");
     expect(source).not.toContain("comfortMode");
     expect(source).toContain("const displayScore = score.total;");
-    expect(source).toContain('label: "Sorting-only score"');
+    expect(source).toContain('label: "Locked score for sorting"');
+    expect(source).not.toContain('label: "Sorting-only score"');
     expect(source).not.toContain('label: "Locked score", value: formatScoreWithMax(value)');
     expect(source).toContain('label: "No full locked score"');
     expect(source).not.toContain('label: "No full score"');
@@ -806,7 +807,8 @@ describe("score card copy", () => {
       "score factor"
     );
     expect(source).toContain('?? "Overall locked score"');
-    expect(source).toContain('"Sorting-only score"');
+    expect(source).toContain('"Locked score for sorting"');
+    expect(source).not.toContain('"Sorting-only score"');
     expect(source).not.toContain('"Release sorting index"');
     expect(source).toContain("Start with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.");
     expect(source).not.toContain("Start with the shelter trace and exposed gaps; use the locked score only to sort the published shelter-map data.");

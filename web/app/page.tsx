@@ -351,7 +351,7 @@ export function scoreCardAnnouncement({
   const shelterText = shelterEvidenceText ?? shelterEvidenceAnnouncement(selection.score);
   const scoreLabel = previewRoute || displayScore === null || displayScore === undefined
     ? "Locked score"
-    : "Sorting-only score";
+    : "Locked score for sorting";
   return `${postal} shelter-map panel ready. ${stationName ?? "MRT/LRT exit or bus stop not named"}. ${shelterText} ${scoreLabel} ${scoreText}. ${stopText} ${displayContextLabel} ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
 }
 
@@ -508,7 +508,7 @@ function formatScoreWithMax(value: number | null | undefined, fallback = "No ful
 
 function lockedScoreBadgeCopy(value: number | null | undefined): { label: string; value: string } {
   return typeof value === "number"
-    ? { label: "Sorting-only score", value: formatScoreWithMax(value) }
+    ? { label: "Locked score for sorting", value: formatScoreWithMax(value) }
     : { label: "No full locked score", value: "Walk evidence" };
 }
 
@@ -1540,7 +1540,7 @@ export function ScoreCard({
           id: "locked-score",
           label: "Locked SHIOK score",
           value: formatLockedScore(displayScore),
-          meta: scoredMeta(displayScore, "Sorting-only score", "Locked score unavailable"),
+          meta: scoredMeta(displayScore, "Locked score for sorting", "Locked score unavailable"),
           notes: [
             "Start with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.",
             "Crossing friction still contributes 5% to the locked score, but has low separation in this release.",
