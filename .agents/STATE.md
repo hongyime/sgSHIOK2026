@@ -3,7 +3,7 @@
 Date: 2026-08-30
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `5c45155` (`perf: cache app shell for one week`)
+Latest substantive commit: `4a39413` (`perf: lower sitemap crawl frequency hint`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P1021 is complete and pushed: `web/app/sitemap.ts` now hints monthly crawling at priority `0.3` instead of weekly at priority `1`, matching the single-page mostly-static public surface and reducing polite crawler pressure. Focused deployment test passed 1 file / 27 tests; repo integrity passed. Evidence: `qa/verification/P1021-monthly-sitemap-crawl-hint.md`. This is advisory only and is not live until owner deployment.
 - P1020 is complete and pushed: the app shell now uses a one-week browser cache in `web/next.config.js`, and the service worker treats cached `/` navigations as fresh for one week. This is a repeat-visit Edge Request reduction only; it cannot prevent Vercel from counting first requests and is not live until the owner performs an explicit Vercel deployment. Focused deployment test passed 1 file / 27 tests; repo integrity passed. Evidence: `qa/verification/P1020-weekly-app-shell-cache.md`.
 - P1019 is complete and pushed: `robots.ts` now adds MJ12bot, DotBot, BLEXBot, PetalBot, Barkrowler, DataForSeoBot, MauiBot, and serpstatbot to the non-user crawler disallow list while tests pin that Googlebot and Bingbot are not blocked. This is a polite-crawler Edge Request reduction only and is not live until owner deployment. Focused deployment test passed 1 file / 27 tests; repo integrity passed. Evidence: `qa/verification/P1019-seo-data-crawler-robots.md`.
 - P1018 is complete and pushed: the Section 10 implemented-state reference now matches current browser language, using `Walk to stop or exit` instead of `Walk to transit` and `sparse nearby greenery` instead of exposing `NParks greenery proxy` in user-facing copy examples. Focused source-string web test passed 1 file / 22 tests; repo integrity passed. Evidence: `qa/verification/P1018-section10-reference-current-copy.md`.
