@@ -3,7 +3,7 @@
 Date: 2026-08-30
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `69e8e94` (`perf: disallow asset probe paths in robots`)
+Latest substantive commit: `74d6b83` (`perf: defer route map until a route exists`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P1033 is complete and pushed: the page now mounts `RouteEvidenceMap` only after a route exists (`mapRoutes.length > 0`), so empty first-page visits keep the search and shelter-map panel visible without dynamically importing MapLibre or initializing the OneMap raster basemap. Focused web tests passed 2 files / 52 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1033-defer-empty-route-map.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1032 is complete and pushed: general robots rules now disallow non-content asset probe paths (`/favicon.ico`, Apple touch icon probes, `/site.webmanifest`, and `/manifest.json`) while keeping `/` allowed and preserving the full non-user crawler blocklist. Focused deployment test passed 1 file / 29 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1032-robots-asset-probe-disallow.md`. This is a polite-crawler reduction only and is not live until the owner performs an explicit Vercel deployment.
 - P1031 is complete and pushed: the service worker now caches `/favicon.ico`, `/apple-touch-icon.png`, and `/apple-touch-icon-precomposed.png` as exact static paths, treating them as indefinitely fresh after their first successful rewritten `/icon.svg` response. The first focused deployment test failed on a stale one-line source assertion; after correcting the assertion, the focused deployment test passed 1 file / 29 tests. Repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1031-service-worker-icon-probe-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1030 is complete and pushed: added a minimal static `web/public/site.webmanifest`, rewrote `/manifest.json` to it, gave both manifest probe paths one-week cache headers and `X-Robots-Tag: noindex, nofollow, noarchive`, and added both paths to the service worker bounded static cache list. The app shell still does not link a manifest, so this handles probes without adding a normal page-load request. Focused deployment test passed 1 file / 29 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1030-webmanifest-probe-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
