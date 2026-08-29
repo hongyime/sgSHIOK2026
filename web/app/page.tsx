@@ -130,7 +130,7 @@ export function nightLightingLayerNote(lampOverlayEnabled: boolean): string {
   const action = lampOverlayEnabled
     ? "Zoom into a neighbourhood to load lamp-post points."
     : "Switch on and zoom into a neighbourhood to load lamp-post points.";
-  return `Night lighting layer: LTA lamp-post locations load from the published night-lighting artifact. ${action} Night-lighting map layer only; not part of the locked score.`;
+  return `Night lighting layer: LTA lamp-post locations load from the published lamp-post layer. ${action} Night-lighting map layer only; not part of the locked score.`;
 }
 
 export function nightLightingRouteDetailValue(lampOverlayEnabled: boolean): string {

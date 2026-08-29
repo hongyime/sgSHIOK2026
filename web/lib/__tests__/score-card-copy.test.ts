@@ -453,7 +453,8 @@ describe("score card copy", () => {
     );
     expect(source).toContain("nightLightingLayerNote(lampOverlayEnabled)");
     expect(source).toContain("export function nightLightingLayerNote(lampOverlayEnabled: boolean): string");
-    expect(source).toContain("LTA lamp-post locations load from the published night-lighting artifact.");
+    expect(source).toContain("LTA lamp-post locations load from the published lamp-post layer.");
+    expect(source).not.toContain("LTA lamp-post locations load from the published night-lighting artifact.");
     expect(source).toContain("Switch on and zoom into a neighbourhood to load lamp-post points.");
     expect(source).toContain("Zoom into a neighbourhood to load lamp-post points.");
     expect(source).not.toContain("Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026.");

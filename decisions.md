@@ -1978,3 +1978,7 @@ The collapsed browser Data limits summary should name the scale of missing full 
 2026-08-29 - P844 browser source-inventory copy:
 
 Browser data-limit copy should not expose repository filenames or administrative source keys when a user is trying to understand product evidence limits. The source-freshness detail now describes the source inventory by user-facing evidence categories while preserving the June 2020 OneMap-derived postal-universe seed and stale-source ordering. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P845 night-lighting layer copy:
+
+Browser night-lighting copy should name the visible map layer instead of the internal artifact concept. The title-card note now says LTA lamp-post locations load from the published lamp-post layer while preserving the caveat that night lighting is a map layer only and not part of the locked score. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
