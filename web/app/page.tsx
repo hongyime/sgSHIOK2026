@@ -309,9 +309,9 @@ export function rankAnnouncement({
     if (rankedCount === 0) return `No planning-area records in ${sentenceLabel}.`;
     return `${rankedCount} planning-area record${rankedCount === 1 ? "" : "s"} in ${sentenceLabel}.`;
   }
-  if (loading) return `Loading planning-area ${sentenceLabel} ranks.`;
-  if (rankedCount === 0) return `No planning-area ${sentenceLabel} ranks available.`;
-  return `${rankedCount} planning-area ${sentenceLabel} rank${
+  if (loading) return `Loading planning-area ${sentenceLabel} comparison.`;
+  if (rankedCount === 0) return `No planning-area ${sentenceLabel} comparison available.`;
+  return `${rankedCount} planning-area ${sentenceLabel} comparison record${
     rankedCount === 1 ? "" : "s"
   } available.`;
 }
@@ -328,7 +328,7 @@ export function rankEmptyMessage(rankMetric: RankMetric, rankMetricLabel: string
 }
 
 export function rankPanelDescription(rankMetric: RankMetric, rankPanelOpen: boolean): string {
-  if (!rankPanelOpen) return "Loads planning-area ranks only when opened.";
+  if (!rankPanelOpen) return "Loads planning-area comparison only when opened.";
   if (rankMetric === "overall") {
     return "Planning-area list orders by locked score; shelter-map walk evidence remains the primary view.";
   }
@@ -1692,7 +1692,7 @@ export function ScoreCard({
                 className={styles.rankToggle}
                 onClick={() => setRankPanelOpen(true)}
               >
-                Show ranks
+                Show comparison
               </button>
             )}
           </div>

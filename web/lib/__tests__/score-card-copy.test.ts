@@ -765,9 +765,10 @@ describe("score card copy", () => {
     expect(source).not.toContain("Use this locked composite");
     expect(source).toContain('aria-label="Planning-area comparison"');
     expect(source).toContain("Compare planning-area records");
-    expect(source).toContain("Show ranks");
+    expect(source).toContain("Show comparison");
     expect(source).not.toContain("Compare nearby records");
     expect(source).not.toContain(">Show</button>");
+    expect(source).not.toContain("Show ranks");
     expect(source).toContain("Choose planning-area comparison view");
     expect(source).not.toContain("Choose planning-area evidence view");
     expect(source).not.toContain("Rank records by");
@@ -789,7 +790,9 @@ describe("score card copy", () => {
     expect(source).toContain("{rankLoadingText}");
     expect(source).not.toContain("Loading planning-area {rankSentenceLabel} ranks.");
     expect(source).not.toContain("Loading planning-area locked score order ranks.");
+    expect(source).not.toContain("Loading planning-area ${sentenceLabel} ranks.");
     expect(source).toContain("Loading planning-area ${sentenceLabel}.");
+    expect(source).toContain("Loading planning-area ${sentenceLabel} comparison.");
     expect(source).not.toContain("Loading planning-area ranks...");
     expect(source).toContain("No comparable full locked scores in this planning area.");
     expect(source).toContain("No comparable planning-area records for ${rankSentenceMetricLabel(rankMetricLabel)}.");

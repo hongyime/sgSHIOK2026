@@ -297,7 +297,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Search any Singapore address to see its walk-to-transit comfort score.");
   });
 
-  it("renders live status for shelter-map panel load, walk mode, stop selection, and ranks", () => {
+  it("renders live status for shelter-map panel load, walk mode, stop selection, and planning-area comparison", () => {
     const html = renderScoreCard({
       routeMode: "shortest",
       isCustomStopSelected: true,
@@ -615,9 +615,10 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Locked SHIOK score");
     expect(html).toContain('aria-label="Planning-area comparison"');
     expect(html).toContain("Compare planning-area records");
-    expect(closedRankHtml).toContain("Show ranks");
+    expect(closedRankHtml).toContain("Show comparison");
     expect(html).not.toContain("Compare nearby records");
     expect(closedRankHtml).not.toContain(">Show</button>");
+    expect(closedRankHtml).not.toContain("Show ranks");
     expect(html).toContain("Choose planning-area comparison view");
     expect(html).not.toContain("Choose planning-area evidence view");
     expect(html).not.toContain("Rank records by");
@@ -710,14 +711,14 @@ describe("rendered accessibility output", () => {
         rankedCount: 0,
         rankMetricLabel: "Covered-walkway evidence",
       })
-    ).toBe("Loading planning-area covered-walkway evidence ranks.");
+    ).toBe("Loading planning-area covered-walkway evidence comparison.");
     expect(
       rankAnnouncement({
         loading: false,
         rankedCount: 0,
         rankMetricLabel: "Bus service support",
       })
-    ).toBe("No planning-area bus service support ranks available.");
+    ).toBe("No planning-area bus service support comparison available.");
     expect(
       rankAnnouncement({
         loading: false,
@@ -728,7 +729,7 @@ describe("rendered accessibility output", () => {
   });
 
   it("does not call crossing friction an evidence view in planning-area helper copy", () => {
-    expect(rankPanelDescription("overall", false)).toBe("Loads planning-area ranks only when opened.");
+    expect(rankPanelDescription("overall", false)).toBe("Loads planning-area comparison only when opened.");
     expect(rankPanelDescription("overall", true)).toBe(
       "Planning-area list orders by locked score; shelter-map walk evidence remains the primary view."
     );

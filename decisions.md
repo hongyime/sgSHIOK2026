@@ -2046,3 +2046,7 @@ The expanded Data limits address line should lead with the user-facing limitatio
 2026-08-29 - P876 data-limit audit-term copy:
 
 The browser Data limits detail should not require users to understand audit terms such as full-universe gap, frozen postals, frozen v1, promote v2, or numbered input versions. The copy now describes the same evidence as a sampled missing-address signal, June 2020 address-list overlap, published data freshness, and dated input versions. Operator-facing versioning remains in README, source policy, and evidence files. This is browser copy/test/evidence work only; it does not alter manifests, inputs, public data, exports, scoring, deployment, or locked weights.
+
+2026-08-29 - P877 planning-area comparison wording:
+
+The planning-area panel should describe itself as comparison rather than ranks. Numeric ordering still appears inside the opened list, but the button, lazy-load helper, and live status now say planning-area comparison so the control matches the product task: compare nearby records without making ranking the headline. This is browser copy/test/evidence work only; it does not alter ranking logic, scoring, exports, inputs, public data, deployment, or locked weights.
