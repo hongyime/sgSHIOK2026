@@ -403,7 +403,7 @@ describe("score card copy", () => {
       '<form onSubmit={handleSearch} className={styles.searchForm} aria-busy={loading}>',
       "<SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted} />",
       '<details className={styles.dataLimits}>',
-      "<summary>Data limits: frozen v1 addresses; roughly 1 in 4 lack full locked scores</summary>",
+      "<summary>Data limits: June 2020 addresses; roughly 1 in 4 lack full locked scores</summary>",
       "Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape.",
       "{RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}.",
       "{OSM_ADDR_POSTCODE_COVERAGE_COPY}",
@@ -419,6 +419,7 @@ describe("score card copy", () => {
     expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).not.toContain(
       "Locked score coverage:"
     );
+    expect(source).not.toContain("<summary>Data limits: frozen v1 addresses; roughly 1 in 4 lack full locked scores</summary>");
     expect(source).not.toContain("<summary>Data limits: frozen v1 addresses; incomplete locked scores</summary>");
     expect(source).not.toContain("<summary>Data limits: frozen v1 address list</summary>");
     expect(source).not.toContain("<summary>Data limits</summary>");

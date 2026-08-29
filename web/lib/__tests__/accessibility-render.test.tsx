@@ -214,7 +214,8 @@ describe("rendered accessibility output", () => {
   it("renders the current public-source sample in data limits", () => {
     const html = renderToStaticMarkup(<Home />);
 
-    expect(html).toContain("Data limits: frozen v1 addresses; roughly 1 in 4 lack full locked scores");
+    expect(html).toContain("Data limits: June 2020 addresses; roughly 1 in 4 lack full locked scores");
+    expect(html).not.toContain("Data limits: frozen v1 addresses; roughly 1 in 4 lack full locked scores");
     expect(html).not.toContain("Data limits: frozen v1 addresses; incomplete locked scores");
     expect(html).toContain("P19 v2 28 Aug 2026 public-source sample");
     expect(html).toContain("This is sampled evidence, not a measured full-universe gap or approval to promote v2.");

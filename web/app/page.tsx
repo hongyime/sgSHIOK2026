@@ -2443,7 +2443,7 @@ export default function Home() {
         </div>
 
         <details className={styles.dataLimits}>
-          <summary>Data limits: frozen v1 addresses; roughly 1 in 4 lack full locked scores</summary>
+          <summary>Data limits: June 2020 addresses; roughly 1 in 4 lack full locked scores</summary>
           <p>
             Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape.
           </p>
