@@ -2194,3 +2194,7 @@ Direct-bus fallback copy should say there is no published shelter-map walk inste
 2026-08-29 - P913 locked transit range copy:
 
 No-transit range copy should describe the locked 1.2 km boundary in active, published-evidence terms. The UI now says no MRT/LRT exit or bus stop qualifies within the locked range, and mode-specific notes say no published shelter-map walk qualifies within that boundary. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P914 far shelter-map walk copy:
+
+When a connected shelter-map walk exists beyond the locked 1.2 km scoring range, the note should say the closest published connected walk is about that far away. This avoids passive `found` wording while keeping the boundary explicit. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

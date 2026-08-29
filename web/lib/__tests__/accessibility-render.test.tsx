@@ -1093,7 +1093,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Closest connected transit shelter-map walk is 1.5 km");
     expect(html).toContain("Locked transit range is 1.2 km");
     expect(html).toContain(
-      "Closest connected shelter-map walk found is about 1.5 km away; locked transit range is 1.2 km."
+      "Closest published connected shelter-map walk is about 1.5 km away; locked transit range is 1.2 km."
     );
     expect(html).toContain("Covered-walkway ratio");
     expect(html).toContain("48%");

@@ -619,7 +619,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     }
     const nearestM = nearestRoutedTransitM(score, transitMode);
     if (nearestM !== null) {
-      return `Closest connected shelter-map walk found is about ${formatDistance(nearestM)} away; locked transit range is 1.2 km.`;
+      return `Closest published connected shelter-map walk is about ${formatDistance(nearestM)} away; locked transit range is 1.2 km.`;
     }
     return `No published shelter-map walk to ${transitModeLabel(transitMode)} qualifies within the locked 1.2 km transit range.`;
   }
