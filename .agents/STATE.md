@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `8a3f861` (`perf: reuse score shards for rankings`)
+Latest substantive commit: `d08aee8` (`perf: dedupe static json requests`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P979 is complete and pushed: `fetchJson()` now keeps a path-level in-flight request map for immutable static bundle JSON files, so concurrent callers for the same manifest, index, score shard, geometry shard, or transit shard share the pending fetch before the existing resolved-data caches take over. Focused web tests passed 2 files / 8 tests; repo integrity passed. Evidence: `qa/verification/P979-static-json-inflight-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P978 is complete and pushed: nearby-address ranking now reuses the cached score-shard loader already used by postal lookup, avoiding a repeat `/data/.../scores/*.json` fetch for the primary shard when a user opens comparison after loading a postal. Focused score-prefix index test passed 1 file / 3 tests; repo integrity passed. Evidence: `qa/verification/P978-rank-score-shard-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P977 is complete and pushed: `fetchManifest()` now memoizes the resolved manifest and shares one in-flight promise while the first manifest request is pending, avoiding duplicate `manifest.json.gz` requests when mount-time loading overlaps with an early postal search. Focused data-fetch policy test passed 1 file / 4 tests; repo integrity passed. Evidence: `qa/verification/P977-manifest-fetch-dedupe.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P976 is complete and pushed: `robots.ts` now requests a 60-second crawl delay instead of 10 seconds while still allowing `/` and disallowing `/api/`, `/data/`, `/_next/`, and query variants. This is a polite-crawler throttle for the Vercel Edge-request quota and is not hard access control. Focused deployment test passed 1 file / 21 tests; repo integrity passed. Evidence: `qa/verification/P976-vercel-crawl-delay-60.md`. This is not live until the owner performs an explicit Vercel deployment.
