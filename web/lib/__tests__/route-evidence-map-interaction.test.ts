@@ -154,6 +154,14 @@ describe("shelter map interactions", () => {
     expect(nightLightingSummary("loaded", 14)).not.toContain("overlay");
   });
 
+  it("keeps failed lamp manifest loads retryable", () => {
+    const source = readFileSync(join(__dirname, "../../components/route-evidence-map.tsx"), "utf-8");
+
+    expect(source).toContain("manifest = await fetchLampOverlayManifest();");
+    expect(source).toContain("if (manifest) {\n            lampManifestRef.current = manifest;\n          }");
+    expect(source).not.toContain("lampManifestRef.current = manifest;\n        }\n        if (!active");
+  });
+
   it("centers the map when an exposed gap is focused from the shelter-map panel", () => {
     const source = readFileSync(join(__dirname, "../../components/route-evidence-map.tsx"), "utf-8");
 

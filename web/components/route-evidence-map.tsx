@@ -1298,7 +1298,9 @@ export function RouteEvidenceMap({
         let manifest = lampManifestRef.current;
         if (manifest === undefined) {
           manifest = await fetchLampOverlayManifest();
-          lampManifestRef.current = manifest;
+          if (manifest) {
+            lampManifestRef.current = manifest;
+          }
         }
         if (!active || requestId !== lampRequestIdRef.current) return;
         if (!manifest) {

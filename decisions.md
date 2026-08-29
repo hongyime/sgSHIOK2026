@@ -1886,3 +1886,7 @@ Direct-bus fallback records are straight-line fallback evidence, not verified sh
 2026-08-29 - P821 graph-disconnected transit-stop copy:
 
 The graph-disconnected no-transit state should name concrete user-facing transit stops or exits, not generic "transit targets". This is browser copy/test/evidence work only; it does not score, export, rescore, mutate route geometry, public data, protected evidence, raw or processed inputs, deploy, or touch locked weights.
+
+2026-08-29 - P822 retryable night-lighting manifest load:
+
+The night-lighting map layer should cache a valid `lamp_posts_v1` manifest, but a transient failed manifest fetch should remain retryable on later layer updates instead of pinning the overlay unavailable until page reload. This is browser resilience/test/evidence work only; it does not modify lamp tiles, public data, inputs, scoring, exports, deployment, protected evidence, or locked weights.
