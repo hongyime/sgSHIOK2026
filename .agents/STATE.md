@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `1b1fccd` (`docs: rename planning factor view copy`)
+Latest substantive commit: `1b5241f` (`test: align planning rank label expectations`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P868 is complete and pushed: `web/lib/__tests__/subscore-ranking.test.ts` now asserts the current planning-area labels instead of stale `score factor` labels.
 - P867 is complete and pushed: planning-area bus/heat/crossing helper copy now says `Planning-area locked-score detail view; locked SHIOK score is unchanged.` instead of `locked-score factor view`.
 - P866 is complete and pushed: partial-score reason chips now say `Missing score factors`, matching the longer locked scoring-rule caveat.
 - P865 is complete and pushed: planning-area select labels now use `Bus service support`, `Heat estimate`, and `Crossing friction`, while helper copy still marks those as locked-score factor views.
