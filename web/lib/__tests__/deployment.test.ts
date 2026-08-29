@@ -113,10 +113,15 @@ describe("deployment packaging", () => {
     expect(config).toContain('source: "/api/:path*"');
     expect(config).toContain('key: "X-Robots-Tag"');
     expect(config).toContain('value: "noindex, nofollow, noarchive"');
+    expect(robots).toContain('const TRAINING_CRAWLER_BLOCKLIST = ["GPTBot", "ClaudeBot", "CCBot"]');
+    expect(robots).toContain("userAgent: TRAINING_CRAWLER_BLOCKLIST");
+    expect(robots).toContain('disallow: "/"');
     expect(robots).toContain('allow: "/"');
     expect(robots).toContain('disallow: ["/api/", "/data/", "/_next/", "/*?*"]');
     expect(robots).toContain("crawlDelay: 300");
     expect(robots).toContain('sitemap: "https://sgshiok.vercel.app/sitemap.xml"');
+    expect(robots).not.toContain("OAI-SearchBot");
+    expect(robots).not.toContain("Claude-SearchBot");
   });
 
   it("discourages duplicate crawling of shared-link query variants", () => {
