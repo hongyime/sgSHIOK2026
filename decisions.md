@@ -1970,3 +1970,7 @@ Browser data-limit copy should not expose internal release-operator phrasing. Af
 2026-08-29 - P842 browser source-age summary:
 
 The browser's dated freshness summary should lead with `Source-age snapshot`, not `Data freshness`, because the values are from the 28 Aug 2026 manifest-only check and are not live upstream status. The copy now says `11 sources were current` at that snapshot and keeps the no-upstream-probe caveat. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P843 data-limits score coverage summary:
+
+The collapsed browser Data limits summary should name the scale of missing full locked scores, not only say `incomplete locked scores`. It now says roughly 1 in 4 records lack full locked scores, while the separate manifest-derived coverage line still provides exact counts after the manifest loads. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
