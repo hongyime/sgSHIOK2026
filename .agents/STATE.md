@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `88b0f11` (`docs: clarify locked score sorting copy`)
+Latest substantive commit: `a72c55a` (`docs: clarify partial score inputs copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P963 is complete and pushed: partial locked-score copy now says incomplete locked-score inputs are treated as zero in this release instead of saying unavailable locked-score rows count as zero, avoiding confusion with the four display rows. Focused web tests passed 2 files / 63 tests; repo integrity passed. Evidence: `qa/verification/P963-partial-score-copy.md`.
 - P962 is complete and pushed: visible score badge and accessibility announcement copy now say `Locked score for sorting` instead of `Sorting-only score`, preserving the product rule that the locked composite is visible but secondary to shelter-map evidence. Focused web tests passed 2 files / 63 tests; repo integrity passed. Evidence: `qa/verification/P962-sorting-score-copy.md`.
 - P961 is complete and pushed: the nearby-address comparison overall option now reads `Overall locked score` instead of `Locked score order`, and the overall-ranking loading/status branch now keys off `rankMetric === "overall"` rather than a label suffix. Focused web tests passed 3 files / 67 tests; repo integrity passed. Evidence: `qa/verification/P961-overall-rank-label.md`.
 - P960 is complete and pushed: neither `web/app/favicon.ico` nor `web/public/favicon.ico` exists, so clients probing `/favicon.ico` could waste requests. `layout.tsx` now explicitly declares `/icon.svg` as the site icon and `next.config.js` permanently redirects `/favicon.ico` to the cacheable `/icon.svg`. Focused deployment test passed 1 file / 21 tests; repo integrity passed. Evidence: `qa/verification/P960-vercel-favicon-probe.md`. This is not live until the owner performs an explicit Vercel deployment.
