@@ -49,6 +49,31 @@ describe("data fetch compression policy", () => {
     expect(requestedUrls(fetchMock).some((url) => url.endsWith(".json.gz"))).toBe(false);
   });
 
+  it("deduplicates concurrent manifest fetches", async () => {
+    vi.stubEnv("NEXT_PUBLIC_DATA_BASE", "/data/generated/");
+    let calls = 0;
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      calls += 1;
+      expect(String(input)).toBe("/data/generated/manifest.json.gz");
+      await new Promise((resolve) => setTimeout(resolve, 10));
+      return jsonResponse(true, { generated_at: "2026-08-29T00:00:00Z" });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const { fetchManifest } = await import("../data");
+    const [first, second, third] = await Promise.all([
+      fetchManifest(),
+      fetchManifest(),
+      fetchManifest(),
+    ]);
+    const fourth = await fetchManifest();
+
+    expect(first).toBe(second);
+    expect(second).toBe(third);
+    expect(third).toBe(fourth);
+    expect(calls).toBe(1);
+  });
+
   it("does not spend failed gzip probes on uncompressed geometry route shards", async () => {
     vi.stubEnv("NEXT_PUBLIC_DATA_BASE", "/data/generated/");
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {

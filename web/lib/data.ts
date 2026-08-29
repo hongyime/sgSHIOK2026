@@ -77,7 +77,18 @@ async function fetchJson<T>(path: string): Promise<T> {
 // Manifest
 // ---------------------------------------------------------------------------
 export async function fetchManifest(): Promise<Manifest> {
-  return fetchJson<Manifest>("manifest.json");
+  if (_manifest) return _manifest;
+  if (!_manifestPromise) {
+    _manifestPromise = fetchJson<Manifest>("manifest.json")
+      .then((manifest) => {
+        _manifest = manifest;
+        return manifest;
+      })
+      .finally(() => {
+        _manifestPromise = null;
+      });
+  }
+  return _manifestPromise;
 }
 
 export async function fetchTransitPois(): Promise<TransitPoiCollection> {
@@ -105,6 +116,8 @@ export async function fetchTransitPois(): Promise<TransitPoiCollection> {
 
 /** Area-index maps area-slug → [postal, …] so we can look up which file to fetch. */
 let _areaIndex: Record<string, string[]> | null = null;
+let _manifest: Manifest | null = null;
+let _manifestPromise: Promise<Manifest> | null = null;
 let _scorePrefixIndex: ScorePrefixIndex | null | undefined;
 let _geomIndex: GeomIndex | null = null;
 let _geomPostalIndex: GeomPostalIndex | null = null;
