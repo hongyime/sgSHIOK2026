@@ -33,7 +33,17 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/data/", "/_next/", "/*?*"],
+        disallow: [
+          "/api/",
+          "/data/",
+          "/_next/",
+          "/favicon.ico",
+          "/apple-touch-icon.png",
+          "/apple-touch-icon-precomposed.png",
+          "/site.webmanifest",
+          "/manifest.json",
+          "/*?*",
+        ],
         crawlDelay: 300,
       },
     ],

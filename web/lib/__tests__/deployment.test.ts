@@ -158,7 +158,19 @@ describe("deployment packaging", () => {
     expect(robots).toContain("userAgent: NON_USER_CRAWLER_BLOCKLIST");
     expect(robots).toContain('disallow: "/"');
     expect(robots).toContain('allow: "/"');
-    expect(robots).toContain('disallow: ["/api/", "/data/", "/_next/", "/*?*"]');
+    for (const disallowedPath of [
+      '"/api/"',
+      '"/data/"',
+      '"/_next/"',
+      '"/favicon.ico"',
+      '"/apple-touch-icon.png"',
+      '"/apple-touch-icon-precomposed.png"',
+      '"/site.webmanifest"',
+      '"/manifest.json"',
+      '"/*?*"',
+    ]) {
+      expect(robots).toContain(disallowedPath);
+    }
     expect(robots).toContain("crawlDelay: 300");
     expect(robots).toContain('sitemap: "https://sgshiok.vercel.app/sitemap.xml"');
     expect(robots).not.toContain("OAI-SearchBot");
