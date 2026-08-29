@@ -1453,7 +1453,7 @@ export function ScoreCard({
             ? "Covered-walkway ratio"
             : scoredMeta(score.subscores.rain ?? score.subscores.heat, "40% locked shelter exposure", "Shelter-map walk unavailable"),
           notes: [
-            "In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence.",
+            "In this locked release, rain shelter and the heat estimate share mostly the same covered-walkway evidence.",
             "Heat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.",
             heatMatchesRain,
             heatEvidenceDetail,

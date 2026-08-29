@@ -33,7 +33,7 @@ stop presenting the prior five locked-term rows as five independent measurements
 Rain and heat should move from separate rows into explanatory copy:
 
 ```text
-In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence.
+In this locked release, rain shelter and the heat estimate share mostly the same covered-walkway evidence.
 Heat also includes a sparse NParks greenery proxy, so SHIOK shows covered-walkway ratio first
 instead of asking you to compare two near-duplicate rows.
 ```

@@ -2070,3 +2070,7 @@ The screen-reader live status should match the visual score hierarchy. Scored re
 2026-08-29 - P882 zero exposed-gap walk wording:
 
 The no-exposed-gap state should describe the selected walk, not the UI display. It now says all recorded segments for the selected sheltered or shortest walk stay under covered-walkway or connector evidence. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P883 heat-estimate shelter note:
+
+The shelter-exposure row and Section 10 reference should not describe the current heat term as heat comfort. They now say rain shelter and the heat estimate share mostly the same covered-walkway evidence, keeping the limitation aligned with the UI's `not measured temperature` caveat. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
