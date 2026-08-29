@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `d08aee8` (`perf: dedupe static json requests`)
+Latest substantive commit: `35187fb` (`perf: cache lamp overlay requests`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P980 is complete and pushed: the lamp overlay loader now caches successful static lamp manifest and tile JSON payloads by URL and deduplicates in-flight requests for the same URL, while failed artifact fetches remain retryable. Focused lamp-overlay test passed 1 file / 6 tests; repo integrity passed. Evidence: `qa/verification/P980-lamp-overlay-request-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P979 is complete and pushed: `fetchJson()` now keeps a path-level in-flight request map for immutable static bundle JSON files, so concurrent callers for the same manifest, index, score shard, geometry shard, or transit shard share the pending fetch before the existing resolved-data caches take over. Focused web tests passed 2 files / 8 tests; repo integrity passed. Evidence: `qa/verification/P979-static-json-inflight-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P978 is complete and pushed: nearby-address ranking now reuses the cached score-shard loader already used by postal lookup, avoiding a repeat `/data/.../scores/*.json` fetch for the primary shard when a user opens comparison after loading a postal. Focused score-prefix index test passed 1 file / 3 tests; repo integrity passed. Evidence: `qa/verification/P978-rank-score-shard-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P977 is complete and pushed: `fetchManifest()` now memoizes the resolved manifest and shares one in-flight promise while the first manifest request is pending, avoiding duplicate `manifest.json.gz` requests when mount-time loading overlaps with an early postal search. Focused data-fetch policy test passed 1 file / 4 tests; repo integrity passed. Evidence: `qa/verification/P977-manifest-fetch-dedupe.md`. This is not live until the owner performs an explicit Vercel deployment.
