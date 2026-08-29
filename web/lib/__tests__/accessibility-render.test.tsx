@@ -1370,8 +1370,9 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("direct bus candidates found");
     expect(html).not.toContain("Direct line to bus stop; walking route pending.");
     expect(html).toContain(
-      "Direct bus service is shown as fallback evidence; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score remains 0."
+      "Straight-line bus estimate is shown separately; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score remains 0."
     );
+    expect(html).not.toContain("Direct bus service is shown as fallback evidence");
     expect(html).not.toContain("so this component score remains 0");
     expect(html).not.toContain("Nearby bus service not route-verified");
     expect(html).not.toContain("Nearby bus service not walk-verified");

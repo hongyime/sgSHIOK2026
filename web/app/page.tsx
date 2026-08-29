@@ -1532,7 +1532,7 @@ export function ScoreCard({
           notes: [
             "A low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop.",
             busFallback
-              ? `${busFallbackSummary(busFallback)} Direct bus service is shown as fallback evidence; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score remains 0.`
+              ? `${busFallbackSummary(busFallback)} Straight-line bus estimate is shown separately; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score remains 0.`
               : null,
           ].filter((note): note is string => Boolean(note)),
         },

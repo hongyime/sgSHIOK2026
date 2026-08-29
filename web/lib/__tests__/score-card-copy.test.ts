@@ -78,8 +78,9 @@ describe("score card copy", () => {
     expect(source).toContain("Nearby direct bus service without verified shelter-map walk");
     expect(source).not.toContain("Nearby bus service without verified shelter-map walk");
     expect(source).toContain(
-      "Direct bus service is shown as fallback evidence; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score remains 0."
+      "Straight-line bus estimate is shown separately; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score remains 0."
     );
+    expect(source).not.toContain("Direct bus service is shown as fallback evidence");
     expect(source).not.toContain("the bus term remains 0");
     expect(source).not.toContain("locked bus term remains 0");
     expect(source).toContain("Straight-line bus estimate");
@@ -900,8 +901,9 @@ describe("score card copy", () => {
     );
     expect(source).not.toContain("the published shelter-map walk could not prove access to an official LTA bus stop");
     expect(source).toContain(
-      "Direct bus service is shown as fallback evidence; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score remains 0."
+      "Straight-line bus estimate is shown separately; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score remains 0."
     );
+    expect(source).not.toContain("Direct bus service is shown as fallback evidence");
     expect(source).not.toContain("Shelter-map walk access was not verified");
     expect(source).toContain("Nearby direct bus service without verified shelter-map walk");
     expect(source).not.toContain("Nearby bus service without verified shelter-map walk");
