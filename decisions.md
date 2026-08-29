@@ -1,3 +1,6 @@
+2026-08-30 - P1016 move-here first-screen promise:
+The first-screen product promise should directly answer the residential decision question in the standing goal: `if I moved here, what is the walk to transit actually like?` The title card and empty shelter-map panel now start with `If you moved here...` while keeping covered-walkway ratio, exposed gaps, transit stop/exit walks, and the night-lighting map layer as the visible evidence. This is browser copy/test/evidence work only; it does not alter search behavior, map behavior, scoring, exports, inputs, public data, deployment, protected payloads, or locked weights.
+
 2026-08-30 - P1015 Vercel quota hard-control runbook:
 The Vercel Hobby Edge Request runbook should name the full owner-level hard controls, not only project pause/protection. Vercel documents project pause, deployment protection, firewall deny rules, and temporary attack mode as operational controls; applying them changes public availability or visitor friction, so agents should document and recommend them during a live quota incident but not mutate the Vercel project by default. This is documentation/test/evidence work only; it does not deploy, mutate Vercel settings, score, export, rescore, ingest, build network, mutate public data, protected evidence, inputs, or locked weights.
 
