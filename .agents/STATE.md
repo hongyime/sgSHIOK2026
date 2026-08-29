@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `3a0b707` (`docs: align README locked score coverage wording`)
+Latest substantive commit: `a7b54df` (`perf: cache repeat visits with service worker`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P996 is complete and pushed: added a production-only service-worker registration and tracked `web/public/sw.js` to cache repeat visits for `/`, `/icon.svg`, `/robots.txt`, `/sitemap.xml`, `/_next/static/`, and `/data/` while excluding `/api/`. Navigations normalize to the cached `/` app shell so query-link revisits can avoid app-shell network traffic after first load. Removed the obsolete `.gitignore` rule for `web/public/sw.js` and tested that it remains tracked deployment source. Focused deployment test passed 1 file / 25 tests; repo integrity passed. Evidence: `qa/verification/P996-service-worker-request-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P995 is complete and pushed: live Vercel header checks show `/data/` has the immutable quota-control headers, but `/` and `/robots.txt` still serve `Cache-Control: public, max-age=0, must-revalidate` and live `robots.txt` lacks the current `/_next/`, query-variant disallows, sitemap, and 300-second crawl delay. Evidence: `qa/verification/P995-vercel-edge-request-triage.md`. Recommendation remains owner action: manually deploy current `main` for committed code-side reductions, or use Vercel dashboard pause/firewall/protection for immediate hard throttling.
 - P994 is complete and pushed: README local-data guidance now matches the browser framing by saying `locked-score coverage for 95,157 of 124,443 records` instead of leading with `95,157 full locked scores`; it also guards against stale `awaiting scoring` wording. Focused README test passed 4 tests; repo integrity passed. Evidence: `qa/verification/P994-readme-coverage-wording.md`.
 - P993 is complete and pushed: the first-view locked-score availability line now starts `Locked-score coverage` instead of `Full locked scores`, keeping exact counts while making the secondary score read as coverage/limitation rather than the product headline. Focused web tests passed 5 files / 55 tests plus the generated-data read-only suite 4 files / 16 tests; repo integrity passed. Evidence: `qa/verification/P993-locked-score-coverage-copy.md`.
