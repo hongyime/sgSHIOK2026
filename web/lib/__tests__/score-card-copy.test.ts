@@ -844,6 +844,8 @@ describe("score card copy", () => {
     expect(source).toContain("Four display rows; weights unchanged");
     expect(source).toContain('"No full locked score"');
     expect(source).not.toContain('"No locked score"');
+    expect(source).toContain('"Stop/exit walk score unavailable"');
+    expect(source).not.toContain('"Walk-to-transit score unavailable"');
     expect(source).toContain('"Bus support unavailable"');
     expect(source).not.toContain('"Bus evidence unavailable"');
     expect(source).toContain('"Bus service not scored"');

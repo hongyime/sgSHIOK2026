@@ -2214,3 +2214,7 @@ Live OneMap preview copy should say the clicked stop or exit is outside the publ
 2026-08-29 - P918 locked-score availability bucket copy:
 
 The locked-score availability disclosure should not label `NOT_YET_SCORED` records as `awaiting scoring`, because that implies a queued pipeline state. The formatter now labels that bucket as records `without published locked scores`, and README uses the same static published-data boundary. This is browser/docs copy and test work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P919 unavailable access-row copy:
+
+The access display row already says `Walk to stop or exit`, so its unavailable-state meta should not fall back to the older abstract `Walk-to-transit score unavailable` label. The unavailable meta now says `Stop/exit walk score unavailable`, while complete scored rows keep the locked scoring term `35% locked walk-to-transit`. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
