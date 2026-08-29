@@ -1090,7 +1090,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Outside locked transit range");
     expect(html).not.toContain("Outside locked access range");
     expect(html).toContain("Bus service not scored");
-    expect(html).toContain("Bus service support is not computed for records outside the locked 1.2 km transit range.");
+    expect(html).toContain("Bus service support is not computed for addresses outside the locked 1.2 km transit range.");
     expect(html).not.toContain("Locked bus term unavailable");
     expect(html).not.toContain("Locked bus evidence is not computed for records outside the 1.2 km transit range.");
     expect(html).toContain("No full locked score is published for this postal, but the shelter-map walk evidence remains inspectable.");

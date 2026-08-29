@@ -2090,3 +2090,7 @@ The browser copy tests should pin the missing-score count's address-list denomin
 2026-08-29 - P887 planning-area address comparison copy:
 
 The browser planning-area comparison panel should speak in home-search terms rather than internal record terms. The panel now says `Compare nearby addresses`, and its empty/status copy says planning-area addresses instead of planning-area records. The ranking logic and locked score are unchanged. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P888 no-transit bus caveat address copy:
+
+The no-transit bus-support caveat should describe addresses outside the locked 1.2 km transit range, not records outside it. The locked cutoff and zero-factor scoring rule remain visible, but the wording now matches the home-search object a user understands. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

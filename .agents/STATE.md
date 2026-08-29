@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `bdd3da8` (`docs: compare nearby addresses`)
+Latest substantive commit: pending P888 (`docs: name addresses in bus caveat`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P888 is in progress: the no-transit bus-support caveat is being changed from records outside the locked range to addresses outside the locked range.
 - P887 is complete and pushed: the planning-area comparison panel now says `Compare nearby addresses`, with empty/status copy using address-facing language instead of record-centric language.
 - P886 is complete and pushed: the browser copy-pinning test now checks the missing-score count keeps the `address-list records` denominator.
 - P885 is complete and pushed: the full-score availability line now says `29,286 address-list records` missing full scores, tying the missing-score count to the same June 2020 address-list denominator as the complete-score count.

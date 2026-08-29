@@ -821,7 +821,7 @@ describe("score card copy", () => {
     expect(source).toContain('"Bus support unavailable"');
     expect(source).not.toContain('"Bus evidence unavailable"');
     expect(source).toContain('"Bus service not scored"');
-    expect(source).toContain("Bus service support is not computed for records outside the locked 1.2 km transit range.");
+    expect(source).toContain("Bus service support is not computed for addresses outside the locked 1.2 km transit range.");
     expect(source).not.toContain('"Locked bus term unavailable"');
     expect(source).not.toContain("Locked bus evidence is not computed for records outside the 1.2 km transit range.");
     expect(source).not.toContain('"No bus score"');

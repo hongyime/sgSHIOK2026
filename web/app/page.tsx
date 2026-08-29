@@ -1513,7 +1513,7 @@ export function ScoreCard({
             label: "Bus service support",
             value: formatScore(null),
             meta: "Bus service not scored",
-            notes: ["Bus service support is not computed for records outside the locked 1.2 km transit range."],
+            notes: ["Bus service support is not computed for addresses outside the locked 1.2 km transit range."],
           },
           {
             id: "locked-score",
