@@ -2014,3 +2014,7 @@ Expanded browser data-limit copy should keep the versioning and stale-source cav
 2026-08-29 - P853 MCST address-warning copy:
 
 Browser recent-source caveats should describe unconfirmed MCST rows as address candidates and address-quality warnings rather than proxy rows and source-quality evidence. This keeps the P19 sample limitation visible while using wording that a home-search user can understand. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P854 HDB missing-address caveat copy:
+
+Postal-specific recent-source caveats should say the six confirmed HDB rows are missing from the June 2020 address list rather than missing from frozen v1. Versioning remains in the Data limits disclosure, while search-result copy uses the user's actual question: whether the address is in the published shelter-map data. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.

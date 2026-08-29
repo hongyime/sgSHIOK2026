@@ -300,8 +300,9 @@ describe("score card copy", () => {
     expect(source).not.toContain("Current for gap sizing until 4 Sep 2026 UTC");
     expect(source).not.toContain("out of 976 (0.82%) 2021-2026 public-source rows with postals");
     expect(source).toContain(
-      "one of the 6 coordinate-backed HDB missing rows from frozen v1 in the ${RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}"
+      "one of the 6 coordinate-backed HDB rows missing from the June 2020 address list in the ${RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}"
     );
+    expect(source).not.toContain("HDB missing rows from frozen v1");
     expect(source).not.toContain("one of the 6 coordinate-backed HDB missing rows from frozen v1 (${source})");
     expect(source).not.toContain("Recent public-sample check:");
     expect(source).toContain(
