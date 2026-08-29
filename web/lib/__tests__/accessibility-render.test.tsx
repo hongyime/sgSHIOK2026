@@ -1244,10 +1244,13 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("Shelter exposure");
     expect(html).toContain(
-      "Partial locked score: some shelter-map evidence may still be inspectable, but unavailable locked-score rows count as zero in the locked scoring rule."
+      "Partial locked score: some shelter-map evidence may still be inspectable, but incomplete locked-score inputs are treated as zero in this release."
     );
     expect(html).not.toContain(
       "Partial locked score: shelter-map evidence may still be present, but unavailable locked-score rows count as zero in the locked scoring rule."
+    );
+    expect(html).not.toContain(
+      "Partial locked score: some shelter-map evidence may still be inspectable, but unavailable locked-score rows count as zero in the locked scoring rule."
     );
     expect(html).not.toContain("missing score factors count as zero in the locked scoring rule");
     expect(html).not.toContain("unavailable score inputs count as zero");
