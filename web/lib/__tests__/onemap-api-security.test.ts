@@ -96,6 +96,45 @@ describe("OneMap API security helpers", () => {
     }
   });
 
+  it("briefly caches deterministic OneMap search client errors", async () => {
+    const request = new Request("https://example.test/api/onemap-search", {
+      headers: { "x-real-ip": "203.0.113.221" },
+    });
+    const response = await searchGet(request as never);
+
+    expect(response.status).toBe(400);
+    expect(response.headers.get("cache-control")).toBe("public, max-age=300");
+    expect(response.headers.get("cdn-cache-control")).toBe("public, s-maxage=300");
+    expect(response.headers.get("vercel-cdn-cache-control")).toBe("public, s-maxage=300");
+  });
+
+  it("briefly caches deterministic OneMap route client errors", async () => {
+    const missing = await routeGet(
+      new Request("https://example.test/api/onemap-route?startLat=1.37", {
+        headers: { "x-real-ip": "203.0.113.222" },
+      }) as never
+    );
+    const invalid = await routeGet(
+      new Request(
+        "https://example.test/api/onemap-route?startLat=nope&startLng=103.84&endLat=1.371&endLng=103.841",
+        { headers: { "x-real-ip": "203.0.113.223" } }
+      ) as never
+    );
+    const outOfBounds = await routeGet(
+      new Request(
+        "https://example.test/api/onemap-route?startLat=48.858&startLng=2.294&endLat=1.371&endLng=103.841",
+        { headers: { "x-real-ip": "203.0.113.224" } }
+      ) as never
+    );
+
+    for (const response of [missing, invalid, outOfBounds]) {
+      expect(response.status).toBe(400);
+      expect(response.headers.get("cache-control")).toBe("public, max-age=300");
+      expect(response.headers.get("cdn-cache-control")).toBe("public, s-maxage=300");
+      expect(response.headers.get("vercel-cdn-cache-control")).toBe("public, s-maxage=300");
+    }
+  });
+
   it("rate limits spoofed forwarded prefixes at the actual search route", async () => {
     const originalFetch = globalThis.fetch;
     globalThis.fetch = (async () =>

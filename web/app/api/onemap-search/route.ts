@@ -15,13 +15,21 @@ const SEARCH_CACHE_HEADERS = {
   "CDN-Cache-Control": "public, s-maxage=604800, stale-while-revalidate=2592000",
   "Vercel-CDN-Cache-Control": "public, s-maxage=604800, stale-while-revalidate=2592000",
 };
+const CLIENT_ERROR_CACHE_HEADERS = {
+  "Cache-Control": "public, max-age=300",
+  "CDN-Cache-Control": "public, s-maxage=300",
+  "Vercel-CDN-Cache-Control": "public, s-maxage=300",
+};
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const searchVal = searchParams.get("searchVal");
 
   if (!searchVal) {
-    return NextResponse.json({ error: "Missing searchVal query parameter" }, { status: 400 });
+    return NextResponse.json(
+      { error: "Missing searchVal query parameter" },
+      { status: 400, headers: CLIENT_ERROR_CACHE_HEADERS }
+    );
   }
 
   const throttle = checkThrottle(ipThrottleMap, parseClientIp(request.headers), MAX_REQ_PER_MINUTE);

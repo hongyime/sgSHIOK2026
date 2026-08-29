@@ -15,6 +15,11 @@ const ROUTE_CACHE_HEADERS = {
   "CDN-Cache-Control": "public, s-maxage=604800, stale-while-revalidate=2592000",
   "Vercel-CDN-Cache-Control": "public, s-maxage=604800, stale-while-revalidate=2592000",
 };
+const CLIENT_ERROR_CACHE_HEADERS = {
+  "Cache-Control": "public, max-age=300",
+  "CDN-Cache-Control": "public, s-maxage=300",
+  "Vercel-CDN-Cache-Control": "public, s-maxage=300",
+};
 
 const SINGAPORE_BOUNDS = {
   minLat: 1.15,
@@ -33,7 +38,7 @@ export async function GET(request: NextRequest) {
   if (!startLatStr || !startLngStr || !endLatStr || !endLngStr) {
     return NextResponse.json(
       { ok: false, error: "Missing required coordinate parameters (startLat, startLng, endLat, endLng)" },
-      { status: 400 }
+      { status: 400, headers: CLIENT_ERROR_CACHE_HEADERS }
     );
   }
 
@@ -50,7 +55,7 @@ export async function GET(request: NextRequest) {
   ) {
     return NextResponse.json(
       { ok: false, error: "Coordinates must be valid numbers" },
-      { status: 400 }
+      { status: 400, headers: CLIENT_ERROR_CACHE_HEADERS }
     );
   }
 
@@ -67,7 +72,7 @@ export async function GET(request: NextRequest) {
   ) {
     return NextResponse.json(
       { ok: false, error: "Coordinates outside Singapore bounding box" },
-      { status: 400 }
+      { status: 400, headers: CLIENT_ERROR_CACHE_HEADERS }
     );
   }
 
