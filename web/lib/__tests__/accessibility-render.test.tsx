@@ -231,6 +231,11 @@ describe("rendered accessibility output", () => {
     );
     expect(html).toContain("Freshness may have changed since that snapshot");
     expect(html).toContain("source refreshes use new versioned inputs instead of changing the frozen v1 bundle in place");
+    expect(html).toContain(
+      "The source inventory covers address, transport, shelter, greenery, boundary, and lighting references, including the June 2020 OneMap-derived postal-universe seed"
+    );
+    expect(html).not.toContain("raw/manifest.json");
+    expect(html).not.toContain("ACRA, other-UEN");
     expect(html).not.toContain("zero-mutation source-age check before release work");
     expect(html).not.toContain("Bus Stops, Bus Services, and Bus Routes are current but 1.2 days from stale");
     expect(html).not.toContain("Data freshness: 28 Aug 2026 11:52 UTC manifest-only check");

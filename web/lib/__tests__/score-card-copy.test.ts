@@ -310,8 +310,11 @@ describe("score card copy", () => {
     );
     expect(source).not.toContain("Data freshness: 28 Aug 2026 22:21 UTC");
     expect(source).toContain("<summary>Source freshness detail</summary>");
-    expect(source).toContain("The source policy covers every source in raw/manifest.json");
-    expect(source).toContain("ACRA, other-UEN, and the June 2020 OneMap-derived postal-universe seed");
+    expect(source).toContain(
+      "The source inventory covers address, transport, shelter, greenery, boundary, and lighting references, including the June 2020 OneMap-derived postal-universe seed"
+    );
+    expect(source).not.toContain("The source policy covers every source in raw/manifest.json");
+    expect(source).not.toContain("ACRA, other-UEN");
     expect(source).toContain("Stale sources are ordered by days past their freshness threshold");
     expect(source).toContain(
       "Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Traffic Signals"

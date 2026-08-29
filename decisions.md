@@ -1974,3 +1974,7 @@ The browser's dated freshness summary should lead with `Source-age snapshot`, no
 2026-08-29 - P843 data-limits score coverage summary:
 
 The collapsed browser Data limits summary should name the scale of missing full locked scores, not only say `incomplete locked scores`. It now says roughly 1 in 4 records lack full locked scores, while the separate manifest-derived coverage line still provides exact counts after the manifest loads. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P844 browser source-inventory copy:
+
+Browser data-limit copy should not expose repository filenames or administrative source keys when a user is trying to understand product evidence limits. The source-freshness detail now describes the source inventory by user-facing evidence categories while preserving the June 2020 OneMap-derived postal-universe seed and stale-source ordering. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
