@@ -1926,3 +1926,7 @@ Any source key present in `raw/manifest.json` but missing from `pipeline/config/
 2026-08-29 - P831 readiness stale-source warning order:
 
 Production-readiness warning text should order stale source names by the same days-past-stale severity used by the structured `stale_sources` field and `most_overdue_stale_source`. The warning now starts with the most overdue stale source instead of source-key order, so the human-facing gate summary agrees with the machine-readable release-planning fields. This is readiness reporting/test/evidence work only; it does not alter source inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-29 - P832 browser stale-source detail order:
+
+The browser's `Source freshness detail` disclosure should use the same stale-source severity order as production readiness. The copy now states that stale sources are ordered by days past threshold and starts with Planning Area Boundaries, NParks Tracks, and NParks Heritage Road Green Buffers before the less-overdue transport and greenery references. This is browser copy/test/evidence work only; it does not alter source inputs, scoring, exports, public data, deployment, or locked weights.

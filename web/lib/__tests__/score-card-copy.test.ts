@@ -310,9 +310,13 @@ describe("score card copy", () => {
     expect(source).toContain("<summary>Source freshness detail</summary>");
     expect(source).toContain("The source policy covers every source in raw/manifest.json");
     expect(source).toContain("ACRA, other-UEN, and the June 2020 OneMap-derived postal-universe seed");
+    expect(source).toContain("Stale sources are ordered by days past their freshness threshold");
+    expect(source).toContain(
+      "Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Traffic Signals"
+    );
     expect(source).toContain("Stale-source refreshes require a new numbered input version");
     expect(source).toContain("not an in-place frozen-v1 mutation");
-    expect(source).toContain("Stale sources include");
+    expect(source).not.toContain("Stale sources include");
     expect(source).toContain("Bus Stops, Bus Services, and Bus Routes are current but 1.2 days from stale");
     expect(source).toContain("HDB Existing Building, 68.8 days into its 120-day threshold");
     expect(source).toContain("51.2 days until stale");
@@ -328,6 +332,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("Data freshness at the 21 Aug 2026 UTC manifest-only check: 12 sources current, 6 stale");
     expect(source).not.toContain("Stale sources are Traffic Signals, Planning Area Boundaries");
     expect(source).not.toContain("Stale sources are traffic signals, planning area boundary");
+    expect(source).not.toContain("Stale sources include Covered Linkway");
     expect(source).not.toContain("1 candidate address source with unknown age");
     expect(source).not.toContain("with NParks Leaf Area Index just under its 120-day quarterly threshold");
     expect(source).not.toContain("Bus Stops, Bus Services, and Bus Routes are current but 1.7 days from stale");
