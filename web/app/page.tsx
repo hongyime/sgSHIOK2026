@@ -99,7 +99,7 @@ const REASON_COPY: Record<keyof Subscores, { low: string; high: string }> = {
 };
 
 const RECENT_PUBLIC_SOURCE_GAP_COPY =
-  "6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including source-quality warnings. This is sampled evidence, not a measured full-universe gap or approval to promote v2";
+  "6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a measured full-universe gap or approval to promote v2";
 const RECENT_PUBLIC_SOURCE_SAMPLE_LABEL = "P19 v2 28 Aug 2026 public-source sample";
 
 const OSM_ADDR_POSTCODE_COVERAGE_COPY =
@@ -152,9 +152,9 @@ const RECENT_PUBLIC_SOURCE_MISSING_POSTAL_SOURCE: Record<string, string> = {
 
 const RECENT_PUBLIC_SOURCE_UNVALIDATED_PROXY_COPY: Record<string, string> = {
   "378720":
-    "this postal appears only in an unvalidated MCST proxy row; OneMap Search for CANAAN returned candidate postal 387720, so recorded 378720 is source-quality evidence rather than a confirmed missing address",
+    "this postal appears only in an unverified MCST address candidate; OneMap Search for CANAAN returned candidate postal 387720, so recorded 378720 is an address-quality warning rather than a confirmed missing address",
   "935456":
-    "this postal appears only in an unvalidated MCST proxy row; OneMap Search did not locate MYRA at the recorded postal, so it is source-quality evidence rather than a confirmed missing address",
+    "this postal appears only in an unverified MCST address candidate; OneMap Search did not locate MYRA at the recorded postal, so it is an address-quality warning rather than a confirmed missing address",
 };
 
 function recentPublicSourceGapCopyForPostal(postal?: string): string {

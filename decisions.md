@@ -2010,3 +2010,7 @@ The browser footer should close with the product object, not provenance framing.
 2026-08-29 - P852 expanded data-limits terminology:
 
 Expanded browser data-limit copy should keep the versioning and stale-source caveats without leaking implementation terms. The source-age detail now says source refreshes do not change frozen v1 data in place, names the June 2020 OneMap-derived address seed instead of a postal-universe seed, and says stale source data requires a new numbered input version instead of stale payload ages. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P853 MCST address-warning copy:
+
+Browser recent-source caveats should describe unconfirmed MCST rows as address candidates and address-quality warnings rather than proxy rows and source-quality evidence. This keeps the P19 sample limitation visible while using wording that a home-search user can understand. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
