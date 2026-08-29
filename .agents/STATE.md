@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `a3a5335` (`style: improve mobile exposed gap layout`)
+Latest substantive commit: `78e7ea5` (`copy: clarify night-lighting layer toggle`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P879 is complete and pushed: the top night-lighting map-layer toggle now reads as an action (`Show night-lighting layer`) and active state (`Night-lighting layer shown`), with a note describing LTA lamp-post locations as map evidence outside the locked score.
 - P878 is complete and pushed: mobile exposed-gap rows now use a two-column layout and let the map action wrap below the description, preserving readability for the primary inspectable artifact.
 - P877 is complete and pushed: the planning-area panel now says `Show comparison`, `Loads planning-area comparison only when opened`, and comparison-oriented live status instead of rank-first wording.
 - P876 is complete and pushed: expanded Data limits detail now uses missing-address, June 2020 address-list, published-data, and dated-input-version language instead of internal audit terms like full-universe gap, frozen postals, frozen v1, promote v2, and numbered input version.
