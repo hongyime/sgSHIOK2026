@@ -207,6 +207,15 @@ describe("deployment packaging", () => {
     expect(config).not.toContain("permanent: true");
   });
 
+  it("rewrites common Apple touch icon probes to the cacheable SVG icon", () => {
+    const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
+
+    expect(config).toContain('source: "/apple-touch-icon.png"');
+    expect(config).toContain('source: "/apple-touch-icon-precomposed.png"');
+    expect(config).toContain('destination: "/icon.svg"');
+    expect(config).toContain('value: "public, max-age=31536000, immutable"');
+  });
+
   it("materializes derived lookup shards during web builds", () => {
     const script = readFileSync(join(__dirname, "../../scripts/ensure-data-bundle.mjs"), "utf-8");
 

@@ -28,6 +28,14 @@ const nextConfig = {
           source: "/favicon.ico",
           destination: "/icon.svg",
         },
+        {
+          source: "/apple-touch-icon.png",
+          destination: "/icon.svg",
+        },
+        {
+          source: "/apple-touch-icon-precomposed.png",
+          destination: "/icon.svg",
+        },
       ],
     };
   },
@@ -136,6 +144,26 @@ const nextConfig = {
       },
       {
         source: "/favicon.ico",
+        headers: [
+          ...securityHeaders,
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/apple-touch-icon.png",
+        headers: [
+          ...securityHeaders,
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/apple-touch-icon-precomposed.png",
         headers: [
           ...securityHeaders,
           {
