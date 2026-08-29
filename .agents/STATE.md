@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `492f121` (`docs: clean expanded data limits terminology`)
+Latest substantive commit: `c60c143` (`docs: make mcst address warning user-facing`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P853 is complete and pushed: browser recent-source caveats now describe unconfirmed MCST rows as unverified address candidates and address-quality warnings instead of MCST proxy rows and source-quality evidence.
 - P852 is complete and pushed: expanded Data limits copy now says frozen v1 data, June 2020 OneMap-derived address seed, and stale source data instead of frozen v1 bundle, postal-universe seed, and stale payload ages.
 - P851 is complete and pushed: browser footer now says `Walk evidence` instead of `Source-derived walk evidence`, keeping the product object ahead of provenance framing.
 - P850 is complete and pushed: collapsed Data limits summary now leads with June 2020 addresses instead of frozen v1 addresses, while the expanded disclosure keeps the frozen-v1 versioning caveat.
