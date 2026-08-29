@@ -288,10 +288,10 @@ export function scoreCardAnnouncement({
     (isCustomStopSelected
       ? previewRoute
         ? "Preview shelter-map evidence selected."
-        : "Custom transit target selected."
+        : "Custom stop or exit selected."
       : "Published shelter-map walk selected.");
   const shelterText = shelterEvidenceText ?? shelterEvidenceAnnouncement(selection.score);
-  return `${postal} shelter-map panel loaded. ${stationName ?? "Transit target loaded"}. ${shelterText} Locked score ${scoreText}. ${stopText} ${displayContextLabel} ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
+  return `${postal} shelter-map panel loaded. ${stationName ?? "Transit stop or exit loaded"}. ${shelterText} Locked score ${scoreText}. ${stopText} ${displayContextLabel} ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
 }
 
 export function rankAnnouncement({
@@ -585,7 +585,7 @@ function nearestRoutedTransitM(score: ScoreRecord, transitMode: TransitAccessMod
 function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): string {
   const reason = provenanceReason(score, transitMode);
   if (reason === "transit_candidates_graph_disconnected") return "Shelter-map walk not connected yet";
-  if (reason === "no_transit_candidates_selected") return "No qualifying transit target within 1.2 km";
+  if (reason === "no_transit_candidates_selected") return "No qualifying transit stop or exit within 1.2 km";
   return nearestRoutedTransitM(score, transitMode) !== null
     ? "Connected walk beyond 1.2 km"
     : `No connected shelter-map walk to ${transitModeLabel(transitMode)} within range`;
@@ -593,7 +593,7 @@ function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): str
 
 function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): string | null {
   if (score.paths?.routing_type === "live_onemap_preview") {
-    return "Preview only: this clicked transit target has shelter-map evidence, but it is not part of the published shelter-map bundle yet.";
+    return "Preview only: this clicked stop or exit has shelter-map evidence, but it is not part of the published shelter-map bundle yet.";
   }
   if (score.state === "SCORED_PARTIAL") {
     return "Partial locked score: shelter-map evidence may still be present, but unavailable score inputs count as zero in the locked formula.";
@@ -856,7 +856,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
       return ["Transit stop or exit found", "Shelter-map walk not connected yet"];
     }
     if (reason === "no_transit_candidates_selected") {
-      return ["No qualifying transit target within 1.2 km", "Outside locked transit range"];
+      return ["No qualifying transit stop or exit within 1.2 km", "Outside locked transit range"];
     }
     const nearestM = nearestRoutedTransitM(score, transitMode);
     return nearestM !== null
@@ -951,10 +951,10 @@ function isPreviewRoute(score: ScoreRecord): boolean {
 
 function liveRoutePreviewStatusNote(status: LiveRoutePreviewStatus | null | undefined): string | null {
   if (status === "loading") {
-    return "Fetching OneMap walking preview; the selected transit target is shown by straight-line distance until that walk preview returns.";
+    return "Fetching OneMap walking preview; the selected stop or exit is shown by straight-line distance until that walk preview returns.";
   }
   if (status === "unavailable") {
-    return "OneMap walking preview is unavailable for this selected transit target; showing straight-line distance only.";
+    return "OneMap walking preview is unavailable for this selected stop or exit; showing straight-line distance only.";
   }
   return null;
 }
@@ -1068,7 +1068,7 @@ function TransitModeControl({
     return "no published walk";
   };
   return (
-    <div className={`${styles.segmented} ${styles.transitSegmented}`} aria-label="Transit target type">
+    <div className={`${styles.segmented} ${styles.transitSegmented}`} aria-label="Transit stop or exit type">
       {TRANSIT_MODE_OPTIONS.map((option) => {
         const routeOption = option.id === "best_transit" ? score : score.route_options?.[option.id];
         const available = Boolean(routeOption?.paths);
@@ -1262,12 +1262,12 @@ export function ScoreCard({
       : "Sheltered walk";
   const stationName =
     previewRoute
-      ? toProperCase(score.best_node?.name ?? "Selected transit target")
+      ? toProperCase(score.best_node?.name ?? "Selected stop or exit")
       : score.state === "NO_TRANSIT_IN_RANGE"
       ? noTransitTitle(score, transitMode)
       : score.state === "NOT_YET_SCORED"
         ? "No full locked score in published shelter-map bundle"
-      : toProperCase(score.best_node?.name ?? "No transit target loaded");
+      : toProperCase(score.best_node?.name ?? "No transit stop or exit loaded");
   const reasons = scoreReasons(score, transitMode);
   const stateNote = scoreStateNote(score, transitMode);
   const previewStatusNote = previewRoute
@@ -1519,7 +1519,7 @@ export function ScoreCard({
           <p>{stationName}</p>
           {isCustomStopSelected && (
             <div className={styles.customStopBar}>
-              <span>{previewRoute ? "Preview shelter-map evidence" : "Viewing selected transit target"}</span>
+              <span>{previewRoute ? "Preview shelter-map evidence" : "Viewing selected stop or exit"}</span>
               {onResetChosenStop && (
                 <button
                   type="button"

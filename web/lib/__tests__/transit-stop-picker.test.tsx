@@ -270,7 +270,7 @@ describe("buildComparisonText", () => {
     expect(
       buildComparisonText({ fartherPct: 42, bestStraightM: 100, activeStraightM: 142 })
     ).toBe(
-      "42% farther than auto-picked target (+42 m straight-line only; shelter-map walk evidence updates after selection)"
+      "42% farther than auto-picked stop or exit (+42 m straight-line only; shelter-map walk evidence updates after selection)"
     );
   });
   it("returns null when the pick is not farther", () => {
@@ -307,16 +307,19 @@ describe("TransitStopPicker component", () => {
     const chipMatches = html.match(/data-chip-id="[^"]+"/g) ?? [];
     // 5 candidate chips + 0 reset (activeStopId is null / matches best)
     expect(chipMatches).toHaveLength(5);
-    expect(html).toContain("Nearby transit targets");
+    expect(html).toContain("Nearby transit stops and exits");
     expect(html).toContain("MRT/LRT exit");
     expect(html).toContain("Bus stop");
-    expect(html).toContain('aria-label="Transit target picker"');
-    expect(html).toContain('aria-label="Nearby transit targets"');
+    expect(html).toContain('aria-label="Transit stop and exit picker"');
+    expect(html).toContain('aria-label="Nearby transit stops and exits"');
     expect(html).not.toContain("Nearby transit</div>");
+    expect(html).not.toContain("Nearby transit targets");
     expect(html).not.toContain(">MRT</span>");
     expect(html).not.toContain(">Bus</span>");
     expect(html).not.toContain('aria-label="Transit stop picker"');
     expect(html).not.toContain('aria-label="Nearby transit stops"');
+    expect(html).not.toContain('aria-label="Transit target picker"');
+    expect(html).not.toContain('aria-label="Nearby transit targets"');
     expect(html).toContain(`data-chip-id="${bestStopId}"`);
     // Best chip has aria-current
     expect(html).toMatch(new RegExp(`data-chip-id="${bestStopId}"[^>]*aria-current="true"`));
@@ -334,10 +337,12 @@ describe("TransitStopPicker component", () => {
     expect(chipMatches).toHaveLength(6);
     expect(html).toContain(`data-chip-id="${RESET_CHIP_ID}"`);
     expect(html).toMatch(/data-chip-id="bus:66411"[^>]*aria-current="true"/);
-    expect(html).toContain("Reset to auto-picked target");
-    expect(html).toContain('aria-label="Reset to auto-picked transit target"');
+    expect(html).toContain("Reset to auto-picked stop or exit");
+    expect(html).toContain('aria-label="Reset to auto-picked transit stop or exit"');
     expect(html).not.toContain("Reset to best");
     expect(html).not.toContain('aria-label="Reset to auto-picked best transit"');
+    expect(html).not.toContain("Reset to auto-picked target");
+    expect(html).not.toContain('aria-label="Reset to auto-picked transit target"');
   });
 
   it("renders the straight-line comparison note with metre delta when non-best is active", () => {
@@ -348,9 +353,9 @@ describe("TransitStopPicker component", () => {
       onSelect: () => {},
     });
     expect(html).toMatch(
-      /\d+% farther than auto-picked target \(\+\d+ m straight-line only; shelter-map walk evidence updates after selection\)/
+      /\d+% farther than auto-picked stop or exit \(\+\d+ m straight-line only; shelter-map walk evidence updates after selection\)/
     );
-    expect(html).not.toContain("farther than auto-picked stop");
+    expect(html).not.toContain("farther than auto-picked target");
     expect(html).not.toContain("farther than best");
   });
 

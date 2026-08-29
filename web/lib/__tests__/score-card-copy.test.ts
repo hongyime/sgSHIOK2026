@@ -34,7 +34,8 @@ describe("score card copy", () => {
     expect(source).toContain("No shelter-map walk to ${transitModeLabel(transitMode)} was found within the locked 1.2 km transit range.");
     expect(source).toContain("Transit stop or exit found");
     expect(source).not.toContain("Transit target found");
-    expect(source).toContain("No qualifying transit target within 1.2 km");
+    expect(source).toContain("No qualifying transit stop or exit within 1.2 km");
+    expect(source).not.toContain("No qualifying transit target within 1.2 km");
     expect(source).not.toContain("No qualifying transit stop within 1.2 km");
     expect(source).not.toContain("No transit stop within scoring range");
     expect(source).toContain("Transit stops or exits exist, but the published shelter-map bundle has no connected shelter-map walk yet.");
@@ -102,7 +103,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("Transit stops or exits exist, but this bundle has no connected walking route evidence yet.");
     expect(source).not.toContain("Transit candidate found");
     expect(source).not.toContain("No transit candidate nearby");
-    expect(source).toContain("No transit target loaded");
+    expect(source).toContain("No transit stop or exit loaded");
+    expect(source).not.toContain("No transit target loaded");
     expect(source).not.toContain("No transit found nearby");
     expect(source).not.toContain("No nearby transit candidate selected");
     expect(source).not.toContain("Outside current transit-candidate limits");
@@ -147,25 +149,31 @@ describe("score card copy", () => {
     expect(smokeSource).not.toContain('[aria-label="Route display"] button');
   });
 
-  it("names selected transit targets explicitly in the selected-target badge", () => {
+  it("names selected transit stops and exits explicitly in the selected-target badge", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
-    expect(source).toContain("Viewing selected transit target");
-    expect(source).toContain("Custom transit target selected.");
+    expect(source).toContain("Viewing selected stop or exit");
+    expect(source).toContain("Custom stop or exit selected.");
     expect(source).toContain("Published shelter-map walk selected.");
     expect(source).toContain("↺ Published shelter-map walk");
+    expect(source).not.toContain("Viewing selected transit target");
+    expect(source).not.toContain("Custom transit target selected.");
     expect(source).not.toContain("Viewing selected transit stop");
     expect(source).not.toContain("Custom transit stop selected.");
-    expect(source).not.toContain("Viewing selected stop");
-    expect(source).not.toContain("Custom stop selected.");
+    expect(source).not.toContain("Viewing selected transit stop");
+    expect(source).not.toContain("Custom transit stop selected.");
     expect(source).not.toContain("Published walk selected.");
     expect(source).not.toMatch(/>\s*↺ Published walk\s*</);
-    expect(source).toContain('aria-label="Transit target type"');
+    expect(source).toContain('aria-label="Transit stop or exit type"');
+    expect(source).not.toContain('aria-label="Transit target type"');
     expect(source).not.toContain('aria-label="Transit target"');
     const pickerSource = readFileSync(join(__dirname, "../../components/transit-stop-picker.tsx"), "utf-8");
-    expect(pickerSource).toContain("Nearby transit targets");
-    expect(pickerSource).toContain('aria-label="Transit target picker"');
-    expect(pickerSource).toContain('aria-label="Nearby transit targets"');
+    expect(pickerSource).toContain("Nearby transit stops and exits");
+    expect(pickerSource).toContain('aria-label="Transit stop and exit picker"');
+    expect(pickerSource).toContain('aria-label="Nearby transit stops and exits"');
+    expect(pickerSource).not.toContain("Nearby transit targets");
+    expect(pickerSource).not.toContain('aria-label="Transit target picker"');
+    expect(pickerSource).not.toContain('aria-label="Nearby transit targets"');
     expect(pickerSource).not.toContain('aria-label="Transit stop picker"');
     expect(pickerSource).not.toContain('aria-label="Nearby transit stops"');
     expect(source).toContain('{ id: "best_transit", label: "Auto-picked" }');
@@ -613,8 +621,10 @@ describe("score card copy", () => {
     expect(source).toContain("Preview shelter-map evidence");
     expect(source).not.toContain("Preview shelter-map evidence only");
     expect(source).toContain("Preview shelter-map evidence selected.");
-    expect(source).toContain("this clicked transit target has shelter-map evidence");
+    expect(source).toContain("this clicked stop or exit has shelter-map evidence");
+    expect(source).not.toContain("this clicked transit target has shelter-map evidence");
     expect(source).not.toContain("this clicked transit stop has shelter-map evidence");
+    expect(source).not.toContain("this clicked stop has shelter-map evidence");
     expect(source).not.toContain("No shelter map walk selected.");
     expect(source).not.toContain("Preview shelter map evidence only");
     expect(source).not.toContain("Preview shelter map evidence selected.");

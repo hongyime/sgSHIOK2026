@@ -1894,3 +1894,7 @@ The night-lighting map layer should cache a valid `lamp_posts_v1` manifest, but 
 2026-08-29 - P823 night-lighting pre-load claim:
 
 The persistent title-card night-lighting note should not hardcode the exact lamp-post count or source date before the browser has loaded the runtime overlay artifact. The note now says LTA lamp-post locations load from the published night-lighting artifact, while exact count/date evidence stays in README/readiness surfaces that validate the artifact. This is browser copy/test/evidence work only; it does not modify lamp tiles, public data, inputs, scoring, exports, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P824 transit picker stop-or-exit wording:
+
+The nearby transit picker is a user-facing selector over bus stops and MRT/LRT exits, not an internal "target" object. Its visible heading, group labels, reset action, straight-line comparison note, map summary, preview status, and selected-stop live status now say "transit stops and exits", "stop or exit", or "auto-picked stop or exit" while internal prop names remain unchanged. This is browser copy and accessibility-label work only; it does not alter candidate derivation, selected transit IDs, route geometry, scoring, exports, inputs, public data, deployment, or locked weights.

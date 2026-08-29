@@ -45,7 +45,8 @@ describe("shelter map interactions", () => {
     expect(source).toContain('return "shortest and sheltered walks";');
     expect(source).toContain("sheltered-walk segments");
     expect(source).toContain("shortest-walk segments");
-    expect(source).toContain("Singapore shelter-map view for covered-walkway ratio, exposed gaps, transit targets, and the night-lighting map layer");
+    expect(source).toContain("Singapore shelter-map view for covered-walkway ratio, exposed gaps, transit stops and exits, and the night-lighting map layer");
+    expect(source).not.toContain("Singapore shelter-map view for covered-walkway ratio, exposed gaps, transit targets, and the night-lighting map layer");
     expect(source).not.toContain("Singapore shelter-map view for covered-walkway ratio, exposed gaps, transit stops, and night lighting evidence");
     expect(source).not.toContain("Singapore shelter-map view for covered-walkway ratio, exposed gaps, transit targets, and night lighting evidence");
     expect(source).toContain("Singapore shelter-map view with ${poiText}.");
@@ -239,7 +240,8 @@ describe("shelter map interactions", () => {
     expect(pageSource).not.toContain("Preview shelter-map evidence only");
     expect(pageSource).toContain("↺ Published shelter-map walk");
     expect(pageSource).not.toContain(">↺ Published walk</button>");
-    expect(pageSource).toContain("Preview only: this clicked transit target has shelter-map evidence");
+    expect(pageSource).toContain("Preview only: this clicked stop or exit has shelter-map evidence");
+    expect(pageSource).not.toContain("Preview only: this clicked transit target has shelter-map evidence");
     expect(pageSource).not.toContain("Preview only: this clicked transit stop has shelter-map evidence");
     expect(pageSource).toContain("not part of the published shelter-map bundle yet");
     expect(pageSource).not.toContain("not part of the published score bundle yet");

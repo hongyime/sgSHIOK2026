@@ -293,7 +293,8 @@ describe("rendered accessibility output", () => {
       html.indexOf("Locked score 72 out of 100.")
     );
     expect(html).toContain("<span>Locked score</span><strong>72/100</strong>");
-    expect(html).toContain("Custom transit target selected.");
+    expect(html).toContain("Custom stop or exit selected.");
+    expect(html).not.toContain("Custom transit target selected.");
     expect(html).not.toContain("Custom transit stop selected.");
     expect(html).not.toContain("Custom stop selected.");
     expect(html).toContain("Walk display shortest walk");
@@ -323,7 +324,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Route display sheltered");
   });
 
-  it("uses transit-target fallback copy when a scored walk has no named best node", () => {
+  it("uses transit stop-or-exit fallback copy when a scored walk has no named best node", () => {
     const html = renderScoreCard({
       selection: {
         ...selection,
@@ -334,7 +335,8 @@ describe("rendered accessibility output", () => {
       },
     });
 
-    expect(html).toContain("No Transit Target Loaded");
+    expect(html).toContain("No Transit Stop Or Exit Loaded");
+    expect(html).not.toContain("No Transit Target Loaded");
     expect(html).not.toContain("No Transit Found Nearby");
   });
 
@@ -394,12 +396,14 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Preview walk");
     expect(html).toContain("<span>Locked score</span><strong>Preview only</strong>");
     expect(html).toContain(
-      "OneMap walking preview is unavailable for this selected transit target; showing straight-line distance only."
+      "OneMap walking preview is unavailable for this selected stop or exit; showing straight-line distance only."
     );
     expect(html).toContain(
-      "Preview only: this clicked transit target has shelter-map evidence, but it is not part of the published shelter-map bundle yet."
+      "Preview only: this clicked stop or exit has shelter-map evidence, but it is not part of the published shelter-map bundle yet."
     );
-    expect(html).not.toContain("this selected stop");
+    expect(html).not.toContain("this selected transit target");
+    expect(html).not.toContain("this clicked transit target");
+    expect(html).not.toContain("this selected transit stop");
     expect(html).not.toContain("this selected transit stop");
     expect(html).not.toContain("this clicked transit stop");
     expect(html).not.toContain("this clicked stop has shelter map evidence");
@@ -917,7 +921,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("No exposed gaps are recorded for this selected walk.");
   });
 
-  it("labels transit target availability before a user switches modes", () => {
+  it("labels transit stop-or-exit availability before a user switches modes", () => {
     const recordWithRouteOptions: ScoreRecord = {
       ...scoredRecord,
       route_options: {
@@ -947,10 +951,11 @@ describe("rendered accessibility output", () => {
       rankingRecords: [recordWithRouteOptions],
     });
 
-    expect(html).toContain('aria-label="Transit target type"');
+    expect(html).toContain('aria-label="Transit stop or exit type"');
     expect(html).toContain("<span>Auto-picked</span><small>displayed walk</small>");
     expect(html).toContain("<span>MRT/LRT exits</span><small>no published walk</small>");
     expect(html).toContain("<span>Bus stops</span><small>published walk</small>");
+    expect(html).not.toContain('aria-label="Transit target type"');
     expect(html).not.toContain('aria-label="Transit target"');
     expect(html).not.toContain("<span>Best transit</span><small>selected walk</small>");
     expect(html).not.toContain("<span>Best transit</span><small>displayed walk</small>");
@@ -1098,7 +1103,8 @@ describe("rendered accessibility output", () => {
       rankingRecords: [noCandidateRecord],
     });
 
-    expect(html).toContain("No qualifying transit target within 1.2 km");
+    expect(html).toContain("No qualifying transit stop or exit within 1.2 km");
+    expect(html).not.toContain("No qualifying transit target within 1.2 km");
     expect(html).not.toContain("No qualifying transit stop within 1.2 km");
     expect(html).toContain("Outside locked transit range");
     expect(html).toContain("No qualifying MRT/LRT exit or bus stop was found within the locked 1.2 km transit range for this postal.");
@@ -1106,7 +1112,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Shelter-map walk not connected yet");
   });
 
-  it("phrases mode-specific no-walk states as walks to transit targets", () => {
+  it("phrases mode-specific no-walk states as walks to transit stops or exits", () => {
     const noBusWalkRecord: ScoreRecord = {
       ...scoredRecord,
       state: "NO_TRANSIT_IN_RANGE",

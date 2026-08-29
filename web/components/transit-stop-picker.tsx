@@ -13,9 +13,9 @@ export const RESET_CHIP_ID = "__reset__";
 
 export interface TransitStopPickerProps {
   candidates: TransitCandidate[];
-  /** POI id of the currently displayed transit target (null means "use auto-picked target"). */
+  /** POI id of the currently displayed transit stop or exit (null means "use auto-picked stop or exit"). */
   activeStopId: string | null;
-  /** POI id of the auto-picked transit target for the current transit mode. */
+  /** POI id of the auto-picked transit stop or exit for the current transit mode. */
   bestStopId: string | null;
   onSelect: (stopId: string | null) => void;
   /**
@@ -47,7 +47,7 @@ export function buildComparisonText(
   const pct = Math.round(comparison.fartherPct);
   if (pct <= 0) return null;
   const deltaM = Math.max(0, comparison.activeStraightM - comparison.bestStraightM);
-  return `${pct}% farther than auto-picked target (+${formatMeters(
+  return `${pct}% farther than auto-picked stop or exit (+${formatMeters(
     deltaM
   )} straight-line only; shelter-map walk evidence updates after selection)`;
 }
@@ -112,13 +112,13 @@ export function TransitStopPicker({
   const comparisonText = buildComparisonText(comparison);
 
   return (
-    <div className={styles.pickerShell} aria-label="Transit target picker">
-      <div className={styles.pickerHeader}>Nearby transit targets</div>
+    <div className={styles.pickerShell} aria-label="Transit stop and exit picker">
+      <div className={styles.pickerHeader}>Nearby transit stops and exits</div>
       <div
         ref={containerRef}
         className={styles.chipRow}
         role="group"
-        aria-label="Nearby transit targets"
+        aria-label="Nearby transit stops and exits"
         onKeyDown={handleKeyDown}
       >
         {showReset && (
@@ -127,9 +127,9 @@ export function TransitStopPicker({
             data-chip-id={RESET_CHIP_ID}
             className={styles.chipReset}
             onClick={() => onSelect(null)}
-            aria-label="Reset to auto-picked transit target"
+            aria-label="Reset to auto-picked transit stop or exit"
           >
-            Reset to auto-picked target
+            Reset to auto-picked stop or exit
           </button>
         )}
         {candidates.map((candidate) => {

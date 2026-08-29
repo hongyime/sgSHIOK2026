@@ -974,7 +974,7 @@ function routeModeLabel(mode: RouteDisplayMode): string {
 
 function mapAriaLabel(routes: RouteMapItem[], mode: RouteDisplayMode): string {
   if (routes.length === 0) {
-    return "Singapore shelter-map view for covered-walkway ratio, exposed gaps, transit targets, and the night-lighting map layer";
+    return "Singapore shelter-map view for covered-walkway ratio, exposed gaps, transit stops and exits, and the night-lighting map layer";
   }
   const labels = routes.map((route) => route.label).join(", ");
   return `Shelter-map view for ${labels}, showing ${routeModeLabel(mode)}`;
