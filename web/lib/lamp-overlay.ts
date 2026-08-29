@@ -4,6 +4,8 @@ export const LAMP_OVERLAY_BASE = normalizeLampOverlayBase(
 );
 
 const LAMP_OVERLAY_FETCH_OPTIONS: RequestInit = { cache: "force-cache" };
+const _lampJsonCache = new Map<string, unknown>();
+const _lampJsonInFlight = new Map<string, Promise<unknown>>();
 
 export interface LampBounds {
   west: number;
@@ -71,6 +73,28 @@ function lampOverlayUrl(path: string, base = LAMP_OVERLAY_BASE): string {
   return `${normalizedBase}${path}`;
 }
 
+async function fetchLampJson<T>(path: string, base = LAMP_OVERLAY_BASE): Promise<T | null> {
+  const url = lampOverlayUrl(path, base);
+  if (_lampJsonCache.has(url)) return _lampJsonCache.get(url) as T;
+
+  const pending = _lampJsonInFlight.get(url);
+  if (pending) return pending as Promise<T | null>;
+
+  const request = (async () => {
+    const res = await fetch(url, LAMP_OVERLAY_FETCH_OPTIONS);
+    if (!res.ok) return null;
+    const payload = (await res.json()) as T;
+    _lampJsonCache.set(url, payload);
+    return payload;
+  })();
+  _lampJsonInFlight.set(url, request);
+  try {
+    return await request;
+  } finally {
+    _lampJsonInFlight.delete(url);
+  }
+}
+
 function validBbox(value: unknown): value is [number, number, number, number] {
   return (
     Array.isArray(value) &&
@@ -98,9 +122,9 @@ export async function fetchLampOverlayManifest(
   base = LAMP_OVERLAY_BASE
 ): Promise<LampOverlayManifest | null> {
   try {
-    const res = await fetch(lampOverlayUrl("manifest.json", base), LAMP_OVERLAY_FETCH_OPTIONS);
-    if (!res.ok) return null;
-    return normalizeManifest((await res.json()) as LampOverlayManifest);
+    const payload = await fetchLampJson<LampOverlayManifest>("manifest.json", base);
+    if (!payload) return null;
+    return normalizeManifest(payload);
   } catch {
     return null;
   }
@@ -133,9 +157,8 @@ async function fetchLampTile(
   base = LAMP_OVERLAY_BASE
 ): Promise<LampTilePayload | null> {
   try {
-    const res = await fetch(lampOverlayUrl(tile.path, base), LAMP_OVERLAY_FETCH_OPTIONS);
-    if (!res.ok) return null;
-    const payload = (await res.json()) as LampTilePayload;
+    const payload = await fetchLampJson<LampTilePayload>(tile.path, base);
+    if (!payload) return null;
     if (payload.cell !== tile.cell || !Array.isArray(payload.points)) return null;
     return {
       cell: payload.cell,

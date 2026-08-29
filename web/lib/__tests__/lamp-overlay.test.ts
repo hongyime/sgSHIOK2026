@@ -119,6 +119,52 @@ describe("lamp overlay data access", () => {
     );
   });
 
+  it("deduplicates concurrent lamp manifest and tile fetches", async () => {
+    let calls = 0;
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      calls += 1;
+      const url = bareUrl(input);
+      await new Promise((resolve) => setTimeout(resolve, 10));
+      if (url.endsWith("/manifest.json")) return jsonResponse(true, MANIFEST);
+      if (url.endsWith("/tiles/cell-a.json")) {
+        return jsonResponse(true, {
+          cell: "cell-a",
+          points: [[103.8, 1.3]],
+        });
+      }
+      return jsonResponse(false);
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const [firstManifest, secondManifest] = await Promise.all([
+      fetchLampOverlayManifest("/data/lamp_posts_dedupe/"),
+      fetchLampOverlayManifest("/data/lamp_posts_dedupe/"),
+    ]);
+    const [firstTiles, secondTiles] = await Promise.all([
+      fetchLampTiles([TILE_A], "/data/lamp_posts_dedupe/"),
+      fetchLampTiles([TILE_A], "/data/lamp_posts_dedupe/"),
+    ]);
+
+    expect(firstManifest?.tiles).toHaveLength(2);
+    expect(secondManifest?.tiles).toHaveLength(2);
+    expect(firstTiles).toEqual([{ cell: "cell-a", points: [[103.8, 1.3]] }]);
+    expect(secondTiles).toEqual([{ cell: "cell-a", points: [[103.8, 1.3]] }]);
+    expect(calls).toBe(2);
+  });
+
+  it("keeps failed lamp artifact fetches retryable", async () => {
+    let calls = 0;
+    const fetchMock = vi.fn(async () => {
+      calls += 1;
+      return calls === 1 ? jsonResponse(false) : jsonResponse(true, MANIFEST);
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    await expect(fetchLampOverlayManifest("/data/lamp_posts_retry/")).resolves.toBeNull();
+    await expect(fetchLampOverlayManifest("/data/lamp_posts_retry/")).resolves.toEqual(MANIFEST);
+    expect(calls).toBe(2);
+  });
+
   it("converts compact tile payloads into map point features", () => {
     expect(
       lampTilesToFeatureCollection([
