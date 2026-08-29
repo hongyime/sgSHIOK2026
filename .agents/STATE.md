@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `2272bb5` (`docs: align rank loading copy`)
+Latest substantive commit: `34a3250` (`docs: call heat proxy a heat estimate`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P864 is complete and pushed: browser-visible heat copy now says `Heat estimate` / `heat-estimate evidence` while keeping the `not measured temperature` limitation.
 - P863 is complete and pushed: planning-area loading text now uses order-aware copy, avoiding `locked score order ranks` while keeping evidence/factor views as ranks.
 - P862 is complete and pushed: planning-area overall comparison now uses `Locked score order` and announces records in locked-score order instead of `locked score sorting index ranks`.
 - P861 is complete and pushed: scored-walk fallback station copy now renders as sentence-case `No transit stop or exit loaded` while named stops still use proper-case formatting.
