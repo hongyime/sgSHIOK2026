@@ -49,7 +49,7 @@ signal with routing caveats, not as a pure frequency score.
 Locked score caveat copy:
 
 ```text
-The locked score is fixed for this release. Use it to sort the published shelter-map bundle, then
+The locked score is fixed for this release. Use it to sort the published shelter-map data, then
 inspect the shelter map and exposed gaps before deciding whether the walk actually works
 for you.
 ```

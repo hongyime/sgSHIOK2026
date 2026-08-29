@@ -862,7 +862,7 @@ describe("score card copy", () => {
     expect(proposalSource).toContain(
       "In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence."
     );
-    expect(proposalSource).toContain("Use it to sort the published shelter-map bundle");
+    expect(proposalSource).toContain("Use it to sort the published shelter-map data");
     expect(proposalSource).not.toContain("stop presenting the current five component-score rows");
     expect(proposalSource).not.toContain("Rain shelter and heat comfort currently share mostly");
     expect(proposalSource).not.toContain("sort the current bundle");
