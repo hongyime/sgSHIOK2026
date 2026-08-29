@@ -251,10 +251,10 @@ describe("rendered accessibility output", () => {
 
   it("formats the night-lighting layer note for off and on states", () => {
     expect(nightLightingLayerNote(false)).toBe(
-      "Night lighting layer: LTA lamp-post locations load from the published lamp-post layer. Switch on and zoom into a neighbourhood to load lamp-post points. Night-lighting map layer only; not part of the locked score."
+      "Night lighting layer: LTA lamp-post locations can be shown on the map. Switch on and zoom into a neighbourhood to load lamp-post points. Map layer only; not part of the locked score."
     );
     expect(nightLightingLayerNote(true)).toBe(
-      "Night lighting layer: LTA lamp-post locations load from the published lamp-post layer. Zoom into a neighbourhood to load lamp-post points. Night-lighting map layer only; not part of the locked score."
+      "Night lighting layer: LTA lamp-post locations are shown on the map. Zoom into a neighbourhood to load lamp-post points. Map layer only; not part of the locked score."
     );
   });
 
@@ -313,7 +313,8 @@ describe("rendered accessibility output", () => {
     expect(html.indexOf("Shelter-map walk evidence 48% covered-walkway ratio")).toBeLessThan(
       html.indexOf("Locked score 72 out of 100.")
     );
-    expect(html).toContain("<span>Locked score</span><strong>72/100</strong>");
+    expect(html).toContain("<span>Sorting-only score</span><strong>72/100</strong>");
+    expect(html).not.toContain("<span>Locked score</span><strong>72/100</strong>");
     expect(html).toContain("<strong>72/100</strong><small>Sorting-only score</small>");
     expect(html).not.toContain("<strong>72/100</strong><small>Release sorting index</small>");
     expect(html).toContain("Custom MRT/LRT exit or bus stop selected.");

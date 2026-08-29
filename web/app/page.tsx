@@ -448,7 +448,7 @@ function formatScoreWithMax(value: number | null | undefined, fallback = "No ful
 
 function lockedScoreBadgeCopy(value: number | null | undefined): { label: string; value: string } {
   return typeof value === "number"
-    ? { label: "Locked score", value: formatScoreWithMax(value) }
+    ? { label: "Sorting-only score", value: formatScoreWithMax(value) }
     : { label: "No full locked score", value: "Walk evidence" };
 }
 

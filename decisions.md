@@ -2058,3 +2058,7 @@ Exposed-gap rows should remain legible on narrow screens because those gaps are 
 2026-08-29 - P879 night-lighting layer control copy:
 
 The top map-layer control should read as a user action and map-evidence layer, not as a source or implementation status. The off state now says `Show night-lighting layer`, the active state says `Night-lighting layer shown`, and the note describes LTA lamp-post locations as map evidence outside the locked score. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P880 sorting-only score badge:
+
+The numeric 0-to-100 composite remains visible but should not read as the primary product object. The header badge now says `Sorting-only score` when a full locked score exists, matching the breakdown row and keeping covered-walkway ratio and exposed gaps as the main evidence. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

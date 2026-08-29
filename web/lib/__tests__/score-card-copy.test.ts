@@ -648,7 +648,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("ComfortModeControl");
     expect(source).not.toContain("comfortMode");
     expect(source).toContain("const displayScore = score.total;");
-    expect(source).toContain('label: "Locked score"');
+    expect(source).toContain('label: "Sorting-only score"');
+    expect(source).not.toContain('label: "Locked score", value: formatScoreWithMax(value)');
     expect(source).toContain('label: "No full locked score"');
     expect(source).not.toContain('label: "No full score"');
     expect(source).toContain('value: "Walk evidence"');
