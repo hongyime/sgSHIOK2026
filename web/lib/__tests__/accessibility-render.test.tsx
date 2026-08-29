@@ -565,7 +565,7 @@ describe("rendered accessibility output", () => {
     });
     const breakdownHtml = html.slice(
       html.indexOf('aria-label="Shelter-map evidence and locked score breakdown"'),
-      html.indexOf('aria-label="Planning-area comparison"')
+      html.indexOf('aria-label="Nearby-address comparison"')
     );
 
     expect(html).toContain("Where the walk is exposed");
@@ -628,13 +628,15 @@ describe("rendered accessibility output", () => {
     );
     expect(html).not.toContain("trusted walk to a DataMall bus stop");
     expect(html).toContain("Locked SHIOK score");
-    expect(html).toContain('aria-label="Planning-area comparison"');
+    expect(html).toContain('aria-label="Nearby-address comparison"');
+    expect(html).not.toContain('aria-label="Planning-area comparison"');
     expect(html).toContain("Compare nearby addresses");
     expect(closedRankHtml).toContain("Show comparison");
     expect(html).not.toContain("Compare nearby records");
     expect(closedRankHtml).not.toContain(">Show</button>");
     expect(closedRankHtml).not.toContain("Show ranks");
-    expect(html).toContain("Choose planning-area comparison view");
+    expect(html).toContain("Choose nearby-address comparison view");
+    expect(html).not.toContain("Choose planning-area comparison view");
     expect(html).not.toContain("Choose planning-area evidence view");
     expect(html).not.toContain("Rank records by");
     expect(html).toContain(
@@ -746,7 +748,7 @@ describe("rendered accessibility output", () => {
   });
 
   it("does not call crossing friction an evidence view in planning-area helper copy", () => {
-    expect(rankPanelDescription("overall", false)).toBe("Loads planning-area comparison only when opened.");
+    expect(rankPanelDescription("overall", false)).toBe("Loads nearby-address comparison only when opened.");
     expect(rankPanelDescription("overall", true)).toBe(
       "Nearby-address list orders by locked score; shelter-map walk evidence remains the primary view."
     );

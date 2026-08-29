@@ -2254,3 +2254,7 @@ When locked-score rows are unavailable but a shelter-map walk exists, the reason
 2026-08-29 - P928 nearby-address comparison status copy:
 
 Planning-area comparison status copy should use the same nearby-address framing as the visible panel title. The UI now says nearby addresses in loading, count, and empty states, while preserving `in this planning area` where the boundary explains why no comparable address appears. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P929 nearby-address comparison accessibility labels:
+
+The comparison panel's accessible labels should match the visible `Compare nearby addresses` title. The UI now uses `Nearby-address comparison` and `Choose nearby-address comparison view` for screen-reader surfaces, while keeping the planning-area boundary in explanatory copy where it matters. This is browser accessibility copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

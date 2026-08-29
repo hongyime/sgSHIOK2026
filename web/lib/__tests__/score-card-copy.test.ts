@@ -808,13 +808,15 @@ describe("score card copy", () => {
     expect(source).not.toContain("Use this locked score to sort the current bundle");
     expect(source).not.toContain('label: "Overall SHIOK"');
     expect(source).not.toContain("Use this locked composite");
-    expect(source).toContain('aria-label="Planning-area comparison"');
+    expect(source).toContain('aria-label="Nearby-address comparison"');
+    expect(source).not.toContain('aria-label="Planning-area comparison"');
     expect(source).toContain("Compare nearby addresses");
     expect(source).toContain("Show comparison");
     expect(source).not.toContain("Compare nearby records");
     expect(source).not.toContain(">Show</button>");
     expect(source).not.toContain("Show ranks");
-    expect(source).toContain("Choose planning-area comparison view");
+    expect(source).toContain("Choose nearby-address comparison view");
+    expect(source).not.toContain("Choose planning-area comparison view");
     expect(source).not.toContain("Choose planning-area evidence view");
     expect(source).not.toContain("Rank records by");
     expect(source).not.toContain('aria-label="Rank by view"');
