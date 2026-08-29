@@ -170,7 +170,7 @@ function recentPublicSourceGapCopyForPostal(postal?: string): string {
 }
 
 function noSearchResultBundleCaveat(): string {
-  return `The published shelter-map data is tied to the frozen June 2020 address universe. ${RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: ${RECENT_PUBLIC_SOURCE_GAP_COPY}.`;
+  return `The published shelter-map data is tied to the June 2020 address list. ${RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: ${RECENT_PUBLIC_SOURCE_GAP_COPY}.`;
 }
 
 interface DirectBusFallbackEvidence {
@@ -276,7 +276,7 @@ export function scoreCardAnnouncement({
   if (!selection) return "No shelter-map walk selected.";
   const postal = postalTitle(selection);
   if (!selection.score) {
-    return `${postal} is outside the published shelter-map data tied to the frozen June 2020 address universe; ${recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.`;
+    return `${postal} is outside the published shelter-map data tied to the June 2020 address list; ${recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.`;
   }
   const scoreText = previewRoute
     ? "preview only; published locked score unchanged"
@@ -613,7 +613,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     return `No shelter-map walk to ${transitModeLabel(transitMode)} was found within the locked 1.2 km transit range.`;
   }
   if (score.state === "NOT_YET_SCORED") {
-    return "This postal is in the frozen v1 address universe, but the published shelter-map data has no full locked score for it yet.";
+    return "This postal is in the June 2020 address list, but the published shelter-map data has no full locked score for it yet.";
   }
   const busFallback = directBusFallbackEvidence(score);
   if (busFallback) {
@@ -1217,7 +1217,7 @@ export function ScoreCard({
         <div className={styles.emptyState}>
           <strong>Find an address or postal code</strong>
           <span>Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio and exposed gaps on the walk to transit, plus the night-lighting map layer.</span>
-          <span>The published shelter-map data is tied to the frozen June 2020 address universe.</span>
+          <span>The published shelter-map data is tied to the June 2020 address list.</span>
           {lockedScoreAvailabilityLine && <span>{lockedScoreAvailabilityLine}</span>}
         </div>
       </section>
@@ -1234,7 +1234,7 @@ export function ScoreCard({
         <h2>{postalTitle(selection)}</h2>
         <div className={styles.emptyState}>
           <strong>Outside published shelter-map data</strong>
-          <span>No shelter-map walk is published for this postal; the published shelter-map data is tied to the frozen June 2020 address universe, and {recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.</span>
+          <span>No shelter-map walk is published for this postal; the published shelter-map data is tied to the June 2020 address list, and {recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.</span>
         </div>
       </section>
     );
@@ -2445,7 +2445,7 @@ export default function Home() {
         <details className={styles.dataLimits}>
           <summary>Data limits: June 2020 addresses; roughly 1 in 4 lack full locked scores</summary>
           <p>
-            Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape.
+            Address list: frozen v1 from a June 2020 OneMap-derived postal scrape.
           </p>
           <p>
             {RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}.
@@ -2467,7 +2467,7 @@ export default function Home() {
             {LEAF_AREA_INDEX_REFERENCE_COPY}
           </p>
           <p>
-            Sources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address universe (© OpenStreetMap contributors,{" "}
+            Sources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address registry (© OpenStreetMap contributors,{" "}
             <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">
               ODbL
             </a>

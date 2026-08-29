@@ -194,12 +194,12 @@ describe("rendered accessibility output", () => {
       <SearchFeedback results={[]} loading={false} error={null} searched={true} />
     );
     expect(searchResultsAnnouncement([], false, null, true)).toBe(
-      "No OneMap address result found for this search. Try a 6-digit postal code. The published shelter-map data is tied to the frozen June 2020 address universe. P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a measured full-universe gap or approval to promote v2."
+      "No OneMap address result found for this search. Try a 6-digit postal code. The published shelter-map data is tied to the June 2020 address list. P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a measured full-universe gap or approval to promote v2."
     );
     expect(noResultsHtml).toContain("No OneMap address result found.");
     expect(noResultsHtml).toContain("Try a 6-digit postal code");
     expect(noResultsHtml).toContain(
-      "The published shelter-map data is tied to the frozen June 2020 address universe. P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a measured full-universe gap or approval to promote v2."
+      "The published shelter-map data is tied to the June 2020 address list. P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a measured full-universe gap or approval to promote v2."
     );
     expect(noResultsHtml).toContain("emptyBoxNote");
     expect(noResultsHtml).not.toContain("the recent public-source check found");
@@ -279,7 +279,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain(
       "Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio and exposed gaps on the walk to transit, plus the night-lighting map layer.",
     );
-    expect(html).toContain("The published shelter-map data is tied to the frozen June 2020 address universe.");
+    expect(html).toContain("The published shelter-map data is tied to the June 2020 address list.");
+    expect(html).not.toContain("The published shelter-map data is tied to the frozen June 2020 address universe.");
     expect(html).toContain(
       "Full locked scores: 95,157 of 124,443 records; 29,286 records (23.5%, roughly a quarter) missing full scores."
     );
@@ -450,7 +451,7 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain(
-      "Postal 560231 is outside the published shelter-map data tied to the frozen June 2020 address universe; the P19 v2 28 Aug 2026 public-source sample found 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings."
+      "Postal 560231 is outside the published shelter-map data tied to the June 2020 address list; the P19 v2 28 Aug 2026 public-source sample found 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings."
     );
     expect(html).toContain("Outside published shelter-map data");
     expect(html).not.toContain("Outside shelter-map bundle");
@@ -459,7 +460,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Postal 560231 is not in the current score bundle.");
     expect(html).not.toContain("Outside current bundle");
     expect(html).toContain(
-      "No shelter-map walk is published for this postal; the published shelter-map data is tied to the frozen June 2020 address universe, and the P19 v2 28 Aug 2026 public-source sample found 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings."
+      "No shelter-map walk is published for this postal; the published shelter-map data is tied to the June 2020 address list, and the P19 v2 28 Aug 2026 public-source sample found 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings."
     );
     expect(html).not.toContain("No shelter-map walk is published for this postal; this shelter-map bundle is tied");
     expect(html).not.toContain(
@@ -502,19 +503,19 @@ describe("rendered accessibility output", () => {
     });
 
     expect(hdbHtml).toContain(
-      "Postal 521400 is outside the published shelter-map data tied to the frozen June 2020 address universe; this postal is one of the 6 coordinate-backed HDB rows missing from the June 2020 address list in the P19 v2 28 Aug 2026 public-source sample (HDB 2021-2026 geocoded rows)."
+      "Postal 521400 is outside the published shelter-map data tied to the June 2020 address list; this postal is one of the 6 coordinate-backed HDB rows missing from the June 2020 address list in the P19 v2 28 Aug 2026 public-source sample (HDB 2021-2026 geocoded rows)."
     );
     expect(hdbHtml).toContain(
-      "No shelter-map walk is published for this postal; the published shelter-map data is tied to the frozen June 2020 address universe, and this postal is one of the 6 coordinate-backed HDB rows missing from the June 2020 address list in the P19 v2 28 Aug 2026 public-source sample (HDB 2021-2026 geocoded rows)."
+      "No shelter-map walk is published for this postal; the published shelter-map data is tied to the June 2020 address list, and this postal is one of the 6 coordinate-backed HDB rows missing from the June 2020 address list in the P19 v2 28 Aug 2026 public-source sample (HDB 2021-2026 geocoded rows)."
     );
     expect(hdbHtml).not.toContain("HDB missing rows from frozen v1");
     expect(hdbHtml).not.toContain("recent public-source check found");
     expect(hdbHtml).not.toContain("cached recent public-source misses");
     expect(mcstHtml).toContain(
-      "Postal 935456 is outside the published shelter-map data tied to the frozen June 2020 address universe; this postal appears only in an unverified MCST address candidate; OneMap Search did not locate MYRA at the recorded postal, so it is an address-quality warning rather than a confirmed missing address."
+      "Postal 935456 is outside the published shelter-map data tied to the June 2020 address list; this postal appears only in an unverified MCST address candidate; OneMap Search did not locate MYRA at the recorded postal, so it is an address-quality warning rather than a confirmed missing address."
     );
     expect(mcstHtml).toContain(
-      "No shelter-map walk is published for this postal; the published shelter-map data is tied to the frozen June 2020 address universe, and this postal appears only in an unverified MCST address candidate; OneMap Search did not locate MYRA at the recorded postal, so it is an address-quality warning rather than a confirmed missing address."
+      "No shelter-map walk is published for this postal; the published shelter-map data is tied to the June 2020 address list, and this postal appears only in an unverified MCST address candidate; OneMap Search did not locate MYRA at the recorded postal, so it is an address-quality warning rather than a confirmed missing address."
     );
     expect(mcstHtml).not.toContain("unvalidated MCST proxy row");
     expect(mcstHtml).not.toContain("source-quality evidence");
@@ -1252,7 +1253,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("No full score in this bundle");
     expect(html).not.toContain("Awaiting locked score");
     expect(html).toContain(
-      "This postal is in the frozen v1 address universe, but the published shelter-map data has no full locked score for it yet."
+      "This postal is in the June 2020 address list, but the published shelter-map data has no full locked score for it yet."
     );
     expect(html).not.toContain("this shelter-map bundle has no published full locked score");
     expect(html).not.toContain("the current published data has not scored it yet");

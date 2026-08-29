@@ -132,7 +132,7 @@ describe("score card copy", () => {
     expect(smokeSource).not.toContain("needs usable location evidence");
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
     expect(source).toContain(
-      "This postal is in the frozen v1 address universe, but the published shelter-map data has no full locked score for it yet."
+      "This postal is in the June 2020 address list, but the published shelter-map data has no full locked score for it yet."
     );
     expect(source).toContain("unavailable in the published shelter-map data");
     expect(source).toContain("No full locked score in published shelter-map data");
@@ -280,7 +280,7 @@ describe("score card copy", () => {
     expect(source).not.toContain('"Walk evidence unavailable"');
     expect(source).toContain("${shelterText} Locked score ${scoreText}.");
     expect(source).toContain(
-      "Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape."
+      "Address list: frozen v1 from a June 2020 OneMap-derived postal scrape."
     );
     expect(source).not.toContain("measured recent-source misses exist.");
     expect(source).not.toContain("newer completions may be missing.");
@@ -410,7 +410,7 @@ describe("score card copy", () => {
       "<SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted} />",
       '<details className={styles.dataLimits}>',
       "<summary>Data limits: June 2020 addresses; roughly 1 in 4 lack full locked scores</summary>",
-      "Address universe: frozen v1 from a June 2020 OneMap-derived postal scrape.",
+      "Address list: frozen v1 from a June 2020 OneMap-derived postal scrape.",
       "{RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}.",
       "{OSM_ADDR_POSTCODE_COVERAGE_COPY}",
       "{DATA_FRESHNESS_SUMMARY_COPY}",
@@ -436,7 +436,7 @@ describe("score card copy", () => {
       "full locked sorting index"
     );
     expect(source).toContain(
-      "Sources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address universe"
+      "Sources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address registry"
     );
     expect(source).toContain("© OpenStreetMap contributors");
     expect(source).not.toContain("Sources: LTA/data.gov.sg, OneMap/SLA, © OpenStreetMap contributors");
