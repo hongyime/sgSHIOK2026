@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `f233033` (`docs: clarify OneMap no-match copy`)
+Latest substantive commit: `e9a4ec7` (`docs: name transit stop or exit in first view`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P895 is complete and pushed: first-view shelter-map copy now says the walk is to a transit stop or exit instead of abstract transit, with tests/evidence. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P894 is complete and pushed: the search no-results state now says no OneMap match instead of no OneMap address result, with tests/evidence. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P893 is complete and pushed: exposed-gap copy now uses listed and mapped language instead of recorded storage language.
 - P892 is complete and pushed: partial locked-score copy now says unavailable locked-score rows instead of missing score factors.
