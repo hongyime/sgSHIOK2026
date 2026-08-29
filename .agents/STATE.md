@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `274d0c6` (`docs: clarify address limit copy`)
+Latest substantive commit: `f3426d4` (`docs: translate data limit audit terms`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P876 is complete and pushed: expanded Data limits detail now uses missing-address, June 2020 address-list, published-data, and dated-input-version language instead of internal audit terms like full-universe gap, frozen postals, frozen v1, promote v2, and numbered input version.
 - P875 is complete and pushed: the expanded Data limits address sentence now leads with the June 2020 OneMap-derived postal scrape and says newer developments may be missing, instead of leading with the internal `frozen v1` label.
 - P874 is complete and pushed: the Section 10 presentation reference and copy-pinning test now say `published shelter-map data` instead of the stale `published shelter-map bundle`.
 - P873 is complete and pushed: full web tests now pass after exposure-gap map button aria labels use a non-null coordinate derived from the validated focus target.
