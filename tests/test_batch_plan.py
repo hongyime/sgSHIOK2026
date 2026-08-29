@@ -284,14 +284,12 @@ def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(
         "measurement": "P19 v2 28 Aug 2026 public-source gap sample",
         "generated_at_utc": "2026-08-28T21:15:15.685030+00:00",
         "currentness": {
-            "status": "fresh",
-            "fresh_for_current_gap_sizing": True,
-            "stale_after_days": 7,
-            "stale_after_utc": "2026-09-04T21:15:15.685030+00:00",
+            "status": "runtime_status_required",
+            "fresh_for_current_gap_sizing": False,
             "dynamic_status_command": "uv run python run.py p19-gap-status",
             "reason": (
-                "the cached v2 sample is fresh current-source evidence; promotion still "
-                "requires explicit owner approval and candidate-source-first scope"
+                "currentness is time-sensitive; call p19-gap-status before using this "
+                "sample for current gap sizing"
             ),
         },
         "cache_status_command": "uv run python run.py p19-gap-status",

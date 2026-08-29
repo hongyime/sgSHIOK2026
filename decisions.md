@@ -1954,3 +1954,7 @@ The P19 v2 measurement facts remain a durable recorded policy object, but `fresh
 2026-08-29 - P838 browser P19 currentness copy:
 
 Browser and README P19 copy should not embed an expiring `current until 4 Sep 2026` claim. The product-facing data-limits text now says the P19 v2 result is sampled evidence, not a measured full-universe gap or approval to promote v2; README directs operators to `uv run python run.py p19-gap-status` for live currentness under the 7-day sample policy. This is browser/README copy/test/evidence work only; it does not call APIs, mutate P19 payload files, score, export, public data, deployment, or locked weights.
+
+2026-08-29 - P839 P19 base policy currentness:
+
+The base `RECENT_PUBLIC_SOURCE_GAP_SAMPLE` literal must not itself claim that the P19 v2 sample is fresh, because that truth expires with time. The literal now records `runtime_status_required` and defaults `fresh_for_current_gap_sizing` to false; report callers use `recent_public_source_gap_sample_policy()` to overlay the live read-only P19 cache status when currentness is needed. This is source-policy reporting/test/evidence work only; it does not call APIs, mutate P19 payload files, score, export, public data, deployment, or locked weights.
