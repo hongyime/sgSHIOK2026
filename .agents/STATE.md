@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `27097a5` (`docs: align comparison helper copy`)
+Latest substantive commit: pending P890 (`docs: clarify MCST listed postal copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P890 is in progress: postal-specific MCST address-quality caveats are being changed from recorded-postal language to listed-postal language.
 - P889 is complete and pushed: the opened planning-area comparison helper now describes nearby-address comparison for evidence and locked-score rows instead of planning-area detail views.
 - P888 is complete and pushed: the no-transit bus-support caveat now says bus service support is not computed for addresses outside the locked 1.2 km transit range.
 - P887 is complete and pushed: the planning-area comparison panel now says `Compare nearby addresses`, with empty/status copy using address-facing language instead of record-centric language.

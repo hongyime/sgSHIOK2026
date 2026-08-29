@@ -155,9 +155,9 @@ const RECENT_PUBLIC_SOURCE_MISSING_POSTAL_SOURCE: Record<string, string> = {
 
 const RECENT_PUBLIC_SOURCE_UNVALIDATED_PROXY_COPY: Record<string, string> = {
   "378720":
-    "this postal appears only in an unverified MCST address candidate; OneMap Search for CANAAN returned candidate postal 387720, so recorded 378720 is an address-quality warning rather than a confirmed missing address",
+    "this postal appears only in an unverified MCST address candidate; OneMap Search for CANAAN returned candidate postal 387720, so listed 378720 is an address-quality warning rather than a confirmed missing address",
   "935456":
-    "this postal appears only in an unverified MCST address candidate; OneMap Search did not locate MYRA at the recorded postal, so it is an address-quality warning rather than a confirmed missing address",
+    "this postal appears only in an unverified MCST address candidate; OneMap Search did not locate MYRA at the listed postal, so it is an address-quality warning rather than a confirmed missing address",
 };
 
 function recentPublicSourceGapCopyForPostal(postal?: string): string {

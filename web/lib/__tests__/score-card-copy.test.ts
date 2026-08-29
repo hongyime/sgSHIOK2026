@@ -300,6 +300,7 @@ describe("score card copy", () => {
       "6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list"
     );
     expect(source).not.toContain("unvalidated MCST proxy rows");
+    expect(source).not.toContain("recorded postal");
     expect(source).not.toContain("source-quality warnings");
     expect(source).toContain("This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list");
     expect(source).not.toContain("measured full-universe gap");

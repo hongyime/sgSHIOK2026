@@ -521,10 +521,10 @@ describe("rendered accessibility output", () => {
     expect(hdbHtml).not.toContain("recent public-source check found");
     expect(hdbHtml).not.toContain("cached recent public-source misses");
     expect(mcstHtml).toContain(
-      "Postal 935456 is outside the published shelter-map data tied to the June 2020 address list; this postal appears only in an unverified MCST address candidate; OneMap Search did not locate MYRA at the recorded postal, so it is an address-quality warning rather than a confirmed missing address."
+      "Postal 935456 is outside the published shelter-map data tied to the June 2020 address list; this postal appears only in an unverified MCST address candidate; OneMap Search did not locate MYRA at the listed postal, so it is an address-quality warning rather than a confirmed missing address."
     );
     expect(mcstHtml).toContain(
-      "No shelter-map walk is published for this postal; the published shelter-map data is tied to the June 2020 address list, and this postal appears only in an unverified MCST address candidate; OneMap Search did not locate MYRA at the recorded postal, so it is an address-quality warning rather than a confirmed missing address."
+      "No shelter-map walk is published for this postal; the published shelter-map data is tied to the June 2020 address list, and this postal appears only in an unverified MCST address candidate; OneMap Search did not locate MYRA at the listed postal, so it is an address-quality warning rather than a confirmed missing address."
     );
     expect(mcstHtml).not.toContain("unvalidated MCST proxy row");
     expect(mcstHtml).not.toContain("source-quality evidence");

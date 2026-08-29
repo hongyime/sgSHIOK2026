@@ -2098,3 +2098,7 @@ The no-transit bus-support caveat should describe addresses outside the locked 1
 2026-08-29 - P889 comparison-helper address copy:
 
 The opened planning-area comparison helper should match the address-facing heading. It now describes nearby-address comparison for the selected evidence or locked-score row, rather than a planning-area detail view. This is browser copy/test/evidence work only; it does not alter ranking logic, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P890 MCST listed-postal caveat:
+
+Postal-specific MCST caveats should describe the suspect value as the listed postal, not the recorded postal. `Listed postal` reads as source-listing language and keeps the warning understandable: OneMap did not confirm that listed address candidate as a missing address. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
