@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `e3a5099` (`docs: describe bus caveats as evidence state`)
+Latest substantive commit: `128181f` (`docs: remove pending tone from unscored copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P916 is complete and pushed: the `NOT_YET_SCORED` note now says the published shelter-map data does not include a full locked score for the postal, replacing `yet` wording that implied queued scoring. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P915 is complete and pushed: bus-support caveats now describe the published evidence state instead of a proof/connect failure, saying the walk does not show official LTA bus-stop access and direct-bus service evidence is not connected to a verified shelter-map walk. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P914 is complete and pushed: far connected-walk copy now says the closest published connected shelter-map walk is about the displayed distance away, replacing passive `found is about` wording. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P913 is complete and pushed: no-transit range copy now says no MRT/LRT exit or bus stop qualifies within the locked 1.2 km range, and mode-specific notes say no published shelter-map walk qualifies within that boundary. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
