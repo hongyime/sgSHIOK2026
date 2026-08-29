@@ -1,6 +1,5 @@
 import React from "react";
 import "maplibre-gl/dist/maplibre-gl.css";
-import { ServiceWorkerRegistration } from "../components/service-worker-registration";
 
 const metadataTitle = "S.H.I.O.K. Shelter Map";
 const metadataDescription =
@@ -50,7 +49,6 @@ export default function RootLayout({
           flexDirection: "column",
         }}
       >
-        <ServiceWorkerRegistration />
         {children}
       </body>
     </html>
