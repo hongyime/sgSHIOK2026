@@ -1137,9 +1137,10 @@ describe("rendered accessibility output", () => {
       rankingRecords: [disconnectedRecord],
     });
 
-    expect(html).toContain("Shelter-map walk not connected yet");
+    expect(html).toContain("No connected shelter-map walk");
     expect(html).toContain("Transit stop or exit found");
-    expect(html).toContain("Transit stops or exits exist, but the published shelter-map data has no connected shelter-map walk yet.");
+    expect(html).toContain("Transit stops or exits exist, but no connected shelter-map walk is published for this postal.");
+    expect(html).not.toContain("Shelter-map walk not connected yet");
     expect(html).not.toContain("Transit target found");
     expect(html).not.toContain("Transit targets exist, but the published shelter-map data has no connected shelter-map walk yet.");
     expect(html).toContain("<span>No full locked score</span><strong>Walk evidence</strong>");
@@ -1174,7 +1175,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Outside locked transit range");
     expect(html).toContain("No qualifying MRT/LRT exit or bus stop was found within the locked 1.2 km transit range for this postal.");
     expect(html).toContain("<span>No full locked score</span><strong>Walk evidence</strong>");
-    expect(html).not.toContain("Shelter-map walk not connected yet");
+    expect(html).not.toContain("No connected shelter-map walk");
   });
 
   it("phrases mode-specific no-walk states as walks to transit stops or exits", () => {

@@ -595,7 +595,7 @@ function nearestRoutedTransitM(score: ScoreRecord, transitMode: TransitAccessMod
 
 function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): string {
   const reason = provenanceReason(score, transitMode);
-  if (reason === "transit_candidates_graph_disconnected") return "Shelter-map walk not connected yet";
+  if (reason === "transit_candidates_graph_disconnected") return "No connected shelter-map walk";
   if (reason === "no_transit_candidates_selected") return "No qualifying transit stop or exit within 1.2 km";
   return nearestRoutedTransitM(score, transitMode) !== null
     ? "Connected walk beyond 1.2 km"
@@ -612,7 +612,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const reason = provenanceReason(score, transitMode);
     if (reason === "transit_candidates_graph_disconnected") {
-      return "Transit stops or exits exist, but the published shelter-map data has no connected shelter-map walk yet.";
+      return "Transit stops or exits exist, but no connected shelter-map walk is published for this postal.";
     }
     if (reason === "no_transit_candidates_selected") {
       return "No qualifying MRT/LRT exit or bus stop was found within the locked 1.2 km transit range for this postal.";
@@ -864,7 +864,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
     const label = transitModeLabel(transitMode);
     const reason = provenanceReason(score, transitMode);
     if (reason === "transit_candidates_graph_disconnected") {
-      return ["Transit stop or exit found", "Shelter-map walk not connected yet"];
+      return ["Transit stop or exit found", "No connected shelter-map walk"];
     }
     if (reason === "no_transit_candidates_selected") {
       return ["No qualifying transit stop or exit within 1.2 km", "Beyond 1.2 km locked range"];
