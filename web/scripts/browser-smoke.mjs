@@ -400,20 +400,20 @@ async function selectTransitMode(cdp, transitMode, timeoutMs) {
   if (transitMode === "best_transit") return;
   await waitForExpression(
     cdp,
-    `Array.from(document.querySelectorAll('[aria-label="Transit target"] button')).some((button) => button.textContent?.trim() === '${label}')`,
+    `Array.from(document.querySelectorAll('[aria-label="Transit stop or exit type"] button')).some((button) => button.textContent?.trim() === '${label}')`,
     timeoutMs
   );
   await cdp.send("Runtime.evaluate", {
     awaitPromise: true,
     expression: `(() => {
-      const button = Array.from(document.querySelectorAll('[aria-label="Transit target"] button'))
+      const button = Array.from(document.querySelectorAll('[aria-label="Transit stop or exit type"] button'))
         .find((item) => item.textContent?.trim() === '${label}');
       button.click();
     })()`,
   });
   await waitForExpression(
     cdp,
-    `Array.from(document.querySelectorAll('[aria-label="Transit target"] button')).some((button) => button.textContent?.trim() === '${label}' && button.getAttribute('aria-pressed') === 'true')`,
+    `Array.from(document.querySelectorAll('[aria-label="Transit stop or exit type"] button')).some((button) => button.textContent?.trim() === '${label}' && button.getAttribute('aria-pressed') === 'true')`,
     timeoutMs
   );
   await new Promise((resolvePromise) => setTimeout(resolvePromise, 700));
@@ -527,7 +527,7 @@ async function collectPageSummary(cdp) {
       const summary = document.querySelector('#route-map-summary');
       const details = document.querySelector('details');
       const overlay = document.querySelector('[class*=detailOverlay]');
-      const activeTransitButton = Array.from(document.querySelectorAll('[aria-label="Transit target"] button'))
+      const activeTransitButton = Array.from(document.querySelectorAll('[aria-label="Transit stop or exit type"] button'))
         .find((button) => button.getAttribute('aria-pressed') === 'true');
       const activeRouteButton = Array.from(document.querySelectorAll('[aria-label="Walk display"] button'))
         .find((button) => button.getAttribute('aria-pressed') === 'true');

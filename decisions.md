@@ -1902,3 +1902,7 @@ The nearby transit picker is a user-facing selector over bus stops and MRT/LRT e
 2026-08-29 - P825 section 10 stop-or-exit reference:
 
 The implemented Section 10 presentation reference should use the same stop-or-exit vocabulary as the shipped transit picker. It now writes the walk-to-transit row as `{sheltered_m} to {stop_or_exit}` and describes the destination as a chosen MRT/LRT exit or bus stop, avoiding the internal `{transit_target}` placeholder. This is tracked documentation and test work only; it does not alter browser rendering, route geometry, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P826 browser-smoke transit selector:
+
+The browser smoke launch script must query the same transit mode selector that the app renders. After P824 renamed the segmented control to `Transit stop or exit type`, the smoke script still queried `[aria-label="Transit target"] button`, so launch checks using `--transit-mode` could fail before testing the actual product state. The smoke script now uses `[aria-label="Transit stop or exit type"] button`, with deployment-test coverage guarding against the stale selector. This is launch QA script/test work only; it does not alter browser rendering, route geometry, scoring, exports, inputs, public data, deployment, or locked weights.

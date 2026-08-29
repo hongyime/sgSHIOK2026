@@ -72,6 +72,8 @@ describe("deployment packaging", () => {
     expect(script).toContain("walk_mode_present");
     expect(script).toContain("map_has_text_equivalent");
     expect(script).toContain("short_mobile_card_bottom_visible");
+    expect(script).toContain('[aria-label="Transit stop or exit type"] button');
+    expect(script).not.toContain('[aria-label="Transit target"] button');
     expect(script).toContain('section[aria-label="Shelter-map panel"]');
     expect(script).not.toContain('section[aria-label="Shelter map panel"]');
     expect(script).not.toContain('section[aria-label="Route evidence panel"]');
