@@ -2094,3 +2094,7 @@ The browser planning-area comparison panel should speak in home-search terms rat
 2026-08-29 - P888 no-transit bus caveat address copy:
 
 The no-transit bus-support caveat should describe addresses outside the locked 1.2 km transit range, not records outside it. The locked cutoff and zero-factor scoring rule remain visible, but the wording now matches the home-search object a user understands. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P889 comparison-helper address copy:
+
+The opened planning-area comparison helper should match the address-facing heading. It now describes nearby-address comparison for the selected evidence or locked-score row, rather than a planning-area detail view. This is browser copy/test/evidence work only; it does not alter ranking logic, scoring, exports, inputs, public data, deployment, or locked weights.
