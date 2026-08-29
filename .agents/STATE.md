@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `13e17b8` (`docs: give OneMap missing postal error a recovery path`)
+Latest substantive commit: `1af53df` (`docs: mention postal fallback when OneMap is busy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P907 is complete and pushed: OneMap 429/busy search errors now mention the direct 6-digit postal-code fallback instead of only telling users to wait. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P906 is complete and pushed: selected OneMap matches without a 6-digit postal code now tell the user to choose another match or enter the postal code directly, instead of saying the result has no usable postal code. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P905 is complete and pushed: title-card source/evidence date fallbacks now say `Date unavailable` instead of bare `Unavailable`; score and metric unavailable labels are unchanged. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P904 is complete and pushed: live OneMap preview reason badges now say `Not in published shelter-map data` instead of generic `Not in published data`, with source/rendered tests and evidence. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
