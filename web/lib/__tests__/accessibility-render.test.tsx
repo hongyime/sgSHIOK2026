@@ -738,12 +738,15 @@ describe("rendered accessibility output", () => {
       "Planning-area evidence view; locked SHIOK score is unchanged."
     );
     expect(rankPanelDescription("bus", true)).toBe(
-      "Planning-area locked-score factor view; locked SHIOK score is unchanged."
+      "Planning-area locked-score detail view; locked SHIOK score is unchanged."
     );
     expect(rankPanelDescription("heat", true)).toBe(
-      "Planning-area locked-score factor view; locked SHIOK score is unchanged."
+      "Planning-area locked-score detail view; locked SHIOK score is unchanged."
     );
     expect(rankPanelDescription("crossing", true)).toBe(
+      "Planning-area locked-score detail view; locked SHIOK score is unchanged."
+    );
+    expect(rankPanelDescription("crossing", true)).not.toBe(
       "Planning-area locked-score factor view; locked SHIOK score is unchanged."
     );
     expect(rankPanelDescription("crossing", true)).not.toBe(

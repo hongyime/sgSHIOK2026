@@ -773,7 +773,8 @@ describe("score card copy", () => {
     );
     expect(source).not.toContain("Planning-area list sorted by locked score; shelter-map walk evidence remains the primary view.");
     expect(source).toContain("Planning-area evidence view; locked SHIOK score is unchanged.");
-    expect(source).toContain("Planning-area locked-score factor view; locked SHIOK score is unchanged.");
+    expect(source).toContain("Planning-area locked-score detail view; locked SHIOK score is unchanged.");
+    expect(source).not.toContain("Planning-area locked-score factor view; locked SHIOK score is unchanged.");
     expect(source).not.toContain("Planning-area locked-term view; locked SHIOK score is unchanged.");
     expect(source).not.toContain("Planning-area component evidence view; locked SHIOK score is unchanged.");
     expect(source).toContain("const rankLoadingText = rankMetricLabel.endsWith(\"order\")");

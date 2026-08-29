@@ -333,7 +333,7 @@ export function rankPanelDescription(rankMetric: RankMetric, rankPanelOpen: bool
     return "Planning-area list orders by locked score; shelter-map walk evidence remains the primary view.";
   }
   if (rankMetric === "bus" || rankMetric === "heat" || rankMetric === "crossing") {
-    return "Planning-area locked-score factor view; locked SHIOK score is unchanged.";
+    return "Planning-area locked-score detail view; locked SHIOK score is unchanged.";
   }
   return "Planning-area evidence view; locked SHIOK score is unchanged.";
 }
