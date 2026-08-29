@@ -272,6 +272,10 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("function liveRoutePreviewCacheKey(");
     expect(pageSource).toContain("readLiveRoutePreviewCache(cacheKey)");
     expect(pageSource).toContain("if (cachedPreview && applyLiveRoutePreview(cachedPreview)) return;");
+    expect(pageSource).toContain("const liveRoutePreviewInFlightRef = useRef<Map<string, Promise<LiveRoutePreviewPayload>>>(new Map());");
+    expect(pageSource).toContain("let request = liveRoutePreviewInFlightRef.current.get(cacheKey);");
+    expect(pageSource).toContain("liveRoutePreviewInFlightRef.current.set(cacheKey, request);");
+    expect(pageSource).toContain("liveRoutePreviewInFlightRef.current.delete(cacheKey);");
     expect(pageSource).toContain("writeLiveRoutePreviewCache(cacheKey, data)");
     expect(pageSource).toContain("if (!payload.ok || typeof payload.route_geometry !== \"string\") return;");
     expect(pageSource).toContain("OneMap walking preview could not load");

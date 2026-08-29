@@ -2015,6 +2015,7 @@ export default function Home() {
   const [chosenStopId, setChosenStopId] = useState<string | null>(null);
   const [focusedExposureGap, setFocusedExposureGap] = useState<FocusedExposureGap | null>(null);
   const [liveRouteCache, setLiveRouteCache] = useState<Record<string, LoadedSelection>>({});
+  const liveRoutePreviewInFlightRef = useRef<Map<string, Promise<LiveRoutePreviewPayload>>>(new Map());
   const [liveRoutePreviewStatuses, setLiveRoutePreviewStatuses] = useState<Record<string, LiveRoutePreviewStatus>>({});
   const [rankMetric, setRankMetric] = useState<RankMetric>("overall");
   const [rankingRecords, setRankingRecords] = useState<RankableScoreRecord[]>([]);
@@ -2191,8 +2192,17 @@ export default function Home() {
     let active = true;
     setLiveRoutePreviewStatuses((current) => ({ ...current, [chosenStopId]: "loading" }));
 
-    fetch(url)
-      .then((res) => res.json())
+    let request = liveRoutePreviewInFlightRef.current.get(cacheKey);
+    if (!request) {
+      request = fetch(url)
+        .then((res) => res.json())
+        .finally(() => {
+          liveRoutePreviewInFlightRef.current.delete(cacheKey);
+        });
+      liveRoutePreviewInFlightRef.current.set(cacheKey, request);
+    }
+
+    request
       .then((data: LiveRoutePreviewPayload) => {
         if (!active) return;
         if (applyLiveRoutePreview(data)) {
