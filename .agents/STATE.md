@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `38fb3ba` (`perf: block training crawlers in robots policy`)
+Latest substantive commit: `2da9d45` (`perf: prefer postal geometry index before coordinate fallback`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P1005 is complete and pushed: `fetchGeomForPostal()` now resolves geometry through the postal-prefix/full-postal indexes before trying coordinate-derived H3 fallback. This makes the current bundle's `geom/postal-prefix/{prefix}.json.gz` path the normal selected-postal route and avoids extra coordinate-miss shard/index requests when OneMap search coordinates drift. Older or incomplete bundles still fall back to coordinate/promoted-child lookup. Focused data-fetch and promoted-shard tests passed 2 files / 10 tests; repo integrity passed. Evidence: `qa/verification/P1005-geometry-postal-index-first.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1004 is complete and pushed: `robots.ts` now blocks `GPTBot`, `ClaudeBot`, and `CCBot` from crawling the site while leaving the general public root rule, sitemap, query disallow, and crawl delay intact. Focused deployment test passed 1 file / 27 tests; repo integrity passed. Evidence: `qa/verification/P1004-training-crawler-robots.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1003 is complete and pushed: persisted OneMap search cache entries are now capped at 50. The cache prunes expired, malformed, and oldest search entries before writing, retries once after pruning if storage is full, and leaves unrelated browser storage keys untouched. Focused OneMap search test passed 1 file / 7 tests; repo integrity passed. Evidence: `qa/verification/P1003-onemap-search-cache-cap.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1002 is complete and pushed: persisted route-preview cache entries are now capped at 30. The cache prunes expired, malformed, and oldest entries before writing, retries once after pruning if storage is full, and deliberately leaves room for the new entry by pruning to `LIVE_ROUTE_PREVIEW_CACHE_MAX_ENTRIES - 1` before storage. Focused route interaction test first timed out in an unrelated dynamic import, then a stale source-string assertion failed after the boundary correction, and the final rerun passed 1 file / 11 tests; repo integrity passed. Evidence: `qa/verification/P1002-route-preview-cache-cap.md`. This is not live until the owner performs an explicit Vercel deployment.
