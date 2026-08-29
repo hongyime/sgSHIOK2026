@@ -54,7 +54,7 @@ Fresh clones do not contain the large or gitignored local payloads under `raw/`,
 `processed/`, `web/public/data/`, or historical QA scratch directories. The live
 shelter-map bundle remains configured as
 `web/public/data/generated_20260805_prefer_scored_routed/`. That bundle has
-95,157 full locked scores out of 124,443 records; 29,286 records, 23.5% or roughly a quarter, do
+locked-score coverage for 95,157 of 124,443 records; 29,286 records, 23.5% or roughly a quarter, do
 not show a full locked score because they have partial shelter-map evidence, are
 beyond locked transit range, or lack published locked scores. The night lighting map
 layer is a separate local artifact at `web/public/data/lamp_posts_v1/`: 700 H3-r8

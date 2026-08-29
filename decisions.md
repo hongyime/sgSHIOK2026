@@ -1,3 +1,6 @@
+2026-08-29 - P994 README locked-score coverage wording:
+README local-data guidance should match the browser's product-honesty framing: the secondary composite is a coverage/limitation disclosure, not the headline evidence. The active bundle description now says `locked-score coverage for 95,157 of 124,443 records` while preserving the exact 29,286 missing-full-score count, 23.5%/roughly-quarter share, and partial/beyond-range/not-published breakdown. This is documentation/test/evidence work only; it does not alter manifests, score values, inputs, public data, scoring, export, deploy, or locked weights.
+
 2026-08-29 - P775 sample postal entry point:
 The first screen should be immediately evaluable without requiring the user to know a Singapore postal code. A compact sample action loads `S560234`, a known published-bundle postal already used by data tests, through the same selection path as a direct postal search. This is web/test/evidence work only; it does not call OneMap search for the sample, score, export, rescore, ingest, build network, mutate inputs, deploy, touch protected payloads, or change locked weights.
 
