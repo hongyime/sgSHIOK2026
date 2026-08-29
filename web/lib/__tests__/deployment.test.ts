@@ -44,6 +44,38 @@ describe("deployment packaging", () => {
     expect(config).toContain('value: "noindex, nofollow, noarchive"');
   });
 
+  it("registers an optional service worker for repeat-visit request reduction", () => {
+    const layout = readFileSync(join(__dirname, "../../app/layout.tsx"), "utf-8");
+    const registration = readFileSync(
+      join(__dirname, "../../components/service-worker-registration.tsx"),
+      "utf-8",
+    );
+
+    expect(layout).toContain('import { ServiceWorkerRegistration }');
+    expect(layout).toContain("<ServiceWorkerRegistration />");
+    expect(registration).toContain('process.env.NODE_ENV !== "production"');
+    expect(registration).toContain('navigator.serviceWorker.register("/sw.js")');
+    expect(registration).toContain('window.addEventListener("load", register, { once: true })');
+  });
+
+  it("keeps the service worker as tracked deployment source", () => {
+    const rootIgnore = readFileSync(join(__dirname, "../../../.gitignore"), "utf-8");
+
+    expect(rootIgnore).not.toContain("web/public/sw.js");
+  });
+
+  it("keeps service-worker caching scoped to static public assets", () => {
+    const serviceWorker = readFileSync(join(__dirname, "../../public/sw.js"), "utf-8");
+
+    expect(serviceWorker).toContain('const CACHE_NAME = "sgshiok-static-v1"');
+    expect(serviceWorker).toContain('new Set(["/", "/icon.svg", "/robots.txt", "/sitemap.xml"])');
+    expect(serviceWorker).toContain('const CACHEABLE_PREFIXES = ["/_next/static/", "/data/"]');
+    expect(serviceWorker).toContain('if (url.pathname.startsWith("/api/")) return false;');
+    expect(serviceWorker).toContain('const cacheKey = request.mode === "navigate" ? "/" : request;');
+    expect(serviceWorker).toContain("caches.match(cacheKey)");
+    expect(serviceWorker).toContain("await cache.put(request, response.clone())");
+  });
+
   it("caches the app shell to reduce repeat edge requests", () => {
     const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
 
