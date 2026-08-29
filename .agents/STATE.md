@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `1d4c38c` (`docs: quantify score coverage in data limits`)
+Latest substantive commit: `44cf8e2` (`docs: make source inventory copy user-facing`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P844 is complete and pushed: browser source-freshness detail now describes the source inventory by user-facing evidence categories instead of exposing `raw/manifest.json`, `ACRA`, and `other-UEN` in product UI copy.
 - P767 is complete and pushed: retired `pipeline.rescope`, which previously performed OSM/HDB raw-data reads at import time from a relative `raw/` path.
 - P768 is complete and pushed: shortened the first-view data-freshness disclosure and moved full stale-source detail into an expandable block.
 - P769 is complete and pushed: retired `pipeline.diag_c2`, `pipeline.diag_d1`, and `pipeline.diag_linkway_length`, which previously read raw geospatial inputs at import time.
