@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `eb6d420` (`docs: clarify partial score evidence note`)
+Latest substantive commit: `bee0e32` (`docs: remove pending direct bus comparison copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P924 is complete and pushed: direct-bus fallback cards now show `Verified shelter-map walk` as `No published walk` instead of `Pending`.
 - P923 is complete and pushed: the partial locked-score note now says `some shelter-map evidence may still be inspectable` instead of describing evidence as merely present.
 - P922 is complete and pushed: the `NOT_YET_SCORED` reason chip now says `Some shelter-map evidence may still be available` instead of `Partial shelter-map evidence may be available`.
 - P913-P921 browser copy phases are complete and pushed.
