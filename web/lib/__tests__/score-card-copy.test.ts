@@ -442,7 +442,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("Sources: LTA/data.gov.sg, OneMap/SLA, © OpenStreetMap contributors");
     expect(source).toContain("https://opendatacommons.org/licenses/odbl/1-0/");
     expect(source).toContain("ATTRIBUTION.md");
-    expect(source).toContain("Heat proxy: shelter plus sparse NParks greenery, not measured temperature");
+    expect(source).toContain("Heat proxy: shelter plus sparse nearby greenery, not measured temperature");
     expect(source).toContain("Night lighting");
     expect(source).toContain("Exposed gaps {selectedWalkHeadingPhrase}");
     expect(source).not.toContain("Exposed gaps on this walk");
@@ -568,7 +568,7 @@ describe("score card copy", () => {
     expect(source).not.toContain('aria-label="Route comparison"');
   });
 
-  it("keeps greenery proxy and access link in a subtle walk-details strip, not a duplicate metric row", () => {
+  it("keeps nearby greenery and access link in a subtle walk-details strip, not a duplicate metric row", () => {
     const cssSource = readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8");
     const tsxSource = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
@@ -578,13 +578,14 @@ describe("score card copy", () => {
     expect(cssSource).not.toContain(".routeSecondary {");
     expect(cssSource).not.toContain(".routeTertiary {");
 
-    expect(tsxSource).toContain("routeDetailItems.push({ label: \"Greenery proxy\"");
+    expect(tsxSource).toContain("routeDetailItems.push({ label: \"Nearby greenery\"");
+    expect(tsxSource).not.toContain("routeDetailItems.push({ label: \"Greenery proxy\"");
     expect(tsxSource).not.toContain("routeDetailItems.push({ label: \"Shade proxy\"");
     expect(tsxSource.indexOf('label: "Night lighting"')).toBeLessThan(
-      tsxSource.indexOf('routeDetailItems.push({ label: "Greenery proxy"')
+      tsxSource.indexOf('routeDetailItems.push({ label: "Nearby greenery"')
     );
     expect(tsxSource).toContain(
-      "Greenery proxy uses sparse NParks walk-adjacent greenery geometry for heat only; it is not measured temperature or Leaf Area Index."
+      "Nearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index."
     );
     expect(tsxSource).not.toContain("Greenery proxy uses sparse NParks route geometry for heat only");
     expect(tsxSource).toContain("routeDetailItems.push({ label: \"Access link\"");
@@ -808,9 +809,10 @@ describe("score card copy", () => {
     expect(source).not.toContain(
       "Rain shelter and heat comfort currently share mostly the same covered-walkway evidence."
     );
-    expect(source).toContain("Heat also includes the sparse NParks greenery proxy, so SHIOK shows covered-walkway ratio first.");
+    expect(source).toContain("Heat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.");
     expect(source).not.toContain("Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first.");
     expect(source).toContain("Heat proxy evidence: covered ${formatDistance(score.paths.covered_m)}");
+    expect(source).not.toContain("greenery proxy ${formatDistance(score.paths.shade_m)}");
     expect(source).toContain('heat: { low: "Low heat-proxy evidence", high: "Stronger heat-proxy evidence" }');
     expect(source).not.toContain("Better heat-proxy score");
     expect(source).toContain(

@@ -634,15 +634,17 @@ describe("rendered accessibility output", () => {
     );
     expect(html).not.toContain("Rain shelter and heat comfort currently share mostly the same covered-walkway evidence.");
     expect(html).toContain(
-      "Heat also includes the sparse NParks greenery proxy, so SHIOK shows covered-walkway ratio first."
+      "Heat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first."
     );
     expect(html).not.toContain("SHIOK shows the shelter trace first.");
     expect(html).toContain("Same displayed value as rain shelter for this postal.");
-    expect(html).toContain("Heat proxy evidence: covered 149 m; greenery proxy 23 m.");
+    expect(html).toContain("Heat proxy evidence: covered 149 m; nearby greenery 23 m.");
     expect(html).not.toContain("Better heat-proxy score");
     expect(html).toContain(
-      "Greenery proxy uses sparse NParks walk-adjacent greenery geometry for heat only; it is not measured temperature or Leaf Area Index."
+      "Nearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index."
     );
+    expect(html).not.toContain(">Greenery proxy</strong>");
+    expect(html).not.toContain("greenery proxy");
     expect(html).not.toContain("Greenery proxy uses sparse NParks route geometry for heat only");
     expect(html).toContain("Night lighting");
     expect(html).toContain("Night-lighting layer off; switch on night lighting, then zoom in");

@@ -2018,3 +2018,7 @@ Browser recent-source caveats should describe unconfirmed MCST rows as address c
 2026-08-29 - P854 HDB missing-address caveat copy:
 
 Postal-specific recent-source caveats should say the six confirmed HDB rows are missing from the June 2020 address list rather than missing from frozen v1. Versioning remains in the Data limits disclosure, while search-result copy uses the user's actual question: whether the address is in the published shelter-map data. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P855 nearby-greenery route detail copy:
+
+Browser route details should label the inspectable heat supporting signal as nearby greenery rather than greenery proxy. The heat limitation still says heat proxy and not measured temperature, but the row label now names what the user sees near the walk instead of the modelling role. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.

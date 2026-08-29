@@ -1312,7 +1312,7 @@ export function ScoreCard({
     score.paths &&
     typeof score.paths.covered_m === "number" &&
     typeof score.paths.shade_m === "number"
-      ? `Heat proxy evidence: covered ${formatDistance(score.paths.covered_m)}; greenery proxy ${formatDistance(score.paths.shade_m)}.`
+      ? `Heat proxy evidence: covered ${formatDistance(score.paths.covered_m)}; nearby greenery ${formatDistance(score.paths.shade_m)}.`
       : null;
   const heatMatchesRain =
     score.subscores &&
@@ -1331,9 +1331,9 @@ export function ScoreCard({
     );
   }
   if (shadeProxyPct !== null) {
-    routeDetailItems.push({ label: "Greenery proxy", value: `${shadeProxyPct}%` });
+    routeDetailItems.push({ label: "Nearby greenery", value: `${shadeProxyPct}%` });
     routeDetailNotes.push(
-      "Greenery proxy uses sparse NParks walk-adjacent greenery geometry for heat only; it is not measured temperature or Leaf Area Index."
+      "Nearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index."
     );
   }
   if (endpointSnapM > 0) {
@@ -1437,7 +1437,7 @@ export function ScoreCard({
             : scoredMeta(score.subscores.rain ?? score.subscores.heat, "40% locked shelter exposure", "Shelter-map walk unavailable"),
           notes: [
             "In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence.",
-            "Heat also includes the sparse NParks greenery proxy, so SHIOK shows covered-walkway ratio first.",
+            "Heat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.",
             heatMatchesRain,
             heatEvidenceDetail,
           ].filter((note): note is string => Boolean(note)),
@@ -2480,7 +2480,7 @@ export default function Home() {
               ATTRIBUTION.md
             </a>
           </p>
-          <p>Heat proxy: shelter plus sparse NParks greenery, not measured temperature</p>
+          <p>Heat proxy: shelter plus sparse nearby greenery, not measured temperature</p>
         </details>
 
         {showDetailOverlay && (
