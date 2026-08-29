@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `d4ec3c3` (`perf: persist route preview cache for repeat visits`)
+Latest substantive commit: `d152906` (`perf: avoid repeat service worker registration`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P1001 is complete and pushed: service-worker registration now checks `navigator.serviceWorker.getRegistration("/")` first and only calls `register("/sw.js")` when no root-scope registration exists, avoiding unnecessary repeat registration/update checks on later page loads. Focused deployment test passed 1 file / 27 tests after correcting one brittle source-string assertion; repo integrity passed. Evidence: `qa/verification/P1001-service-worker-registration-dedupe.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1000 is complete and pushed: successful live OneMap route-preview responses now persist in bounded browser storage for one day using `shiok:onemap-route-preview:v2:{postal}:{stop}:{coords}` entries with `{ cached_at, payload }`, preferring `localStorage` and falling back to `sessionStorage` or memory-only. Failed, unavailable, and geometry-less previews remain uncached and retryable. Focused route interaction test passed 1 file / 11 tests; repo integrity passed. Evidence: `qa/verification/P1000-route-preview-persistent-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P999 is complete and pushed: successful OneMap search responses now persist in bounded browser storage for one day using `shiok:onemap-search:v2:{normalized query}` entries with `{ cached_at, payload }`, preferring `localStorage` and falling back to `sessionStorage` or memory-only when browser storage is unavailable. This reduces repeat `/api/onemap-search` requests across visits while keeping failed searches uncached and retryable. Focused OneMap search test passed 1 file / 6 tests; repo integrity passed. Evidence: `qa/verification/P999-onemap-search-persistent-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P998 is complete and pushed: service-worker cache-first behavior is now bounded for stable non-hashed URLs. `/` is reused for up to one day, `/robots.txt` and `/sitemap.xml` for up to one week, while `/_next/static/`, `/data/`, and `/icon.svg` remain cache-first because they are hashed, versioned, or static artifacts. Focused deployment test passed 1 file / 27 tests; repo integrity passed. Evidence: `qa/verification/P998-service-worker-freshness.md`. This is not live until the owner performs an explicit Vercel deployment.
