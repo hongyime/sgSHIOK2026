@@ -20,10 +20,12 @@ coordinate-backed HDB missing rows plus 2 unvalidated MCST proxy rows out of
 confirmed missing rows, or 0.82% including source-quality warnings. If that
 sample row rate were applied to the 124,443 frozen v1 distinct postals, the
 directional scale would be 765 confirmed missing rows, or 1,020 including
-warnings; that is not a measured full-universe gap. The sample is current for
-gap sizing until 4 Sep 2026 UTC under the 7-day sample policy. The confirmed HDB gaps are
-SUN PLAZA SPRING and YISHUN BEACON, three postals each; CANAAN and MYRA remain
-unvalidated MCST proxy warnings. The same P19 v2 run's Overpass coverage cross-check found
+warnings; that is sampled evidence, not a measured full-universe gap or
+approval to promote v2. Use `uv run python run.py p19-gap-status` to check
+whether the cached sample is still current under the 7-day sample policy before
+using it for current gap sizing. The confirmed HDB gaps are SUN PLAZA SPRING
+and YISHUN BEACON, three postals each; CANAAN and MYRA remain unvalidated MCST
+proxy warnings. The same P19 v2 run's Overpass coverage cross-check found
 25,919 valid distinct OSM `addr:postcode` values: 25,899 overlap the 124,443
 frozen postals and 20 are valid OSM-only postcodes, so OSM remains geometry
 evidence rather than an address registry. OneMap Search validates and

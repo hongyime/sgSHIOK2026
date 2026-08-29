@@ -289,9 +289,10 @@ describe("score card copy", () => {
     expect(source).not.toContain('const RECENT_PUBLIC_SOURCE_CHECK_LABEL = "16 Aug 2026 public-source check";');
     expect(source).not.toContain("Recent public-source check: {RECENT_PUBLIC_SOURCE_GAP_COPY}.");
     expect(source).toContain(
-      "6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including source-quality warnings. Current for gap sizing until 4 Sep 2026 UTC under the 7-day sample policy. This is a sample, not a measured full-universe gap"
+      "6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unvalidated MCST proxy rows (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including source-quality warnings. This is sampled evidence, not a measured full-universe gap or approval to promote v2"
     );
-    expect(source).toContain("This is a sample, not a measured full-universe gap");
+    expect(source).toContain("This is sampled evidence, not a measured full-universe gap or approval to promote v2");
+    expect(source).not.toContain("Current for gap sizing until 4 Sep 2026 UTC");
     expect(source).not.toContain("out of 976 (0.82%) 2021-2026 public-source rows with postals");
     expect(source).toContain(
       "one of the 6 coordinate-backed HDB missing rows from frozen v1 in the ${RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}"
