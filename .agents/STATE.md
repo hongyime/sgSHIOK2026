@@ -3,7 +3,7 @@
 Date: 2026-08-30
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `0ca784e` (`perf: keep onemap browser caches for one week`)
+Latest substantive commit: `5f7a2ab` (`perf: cache service worker script for one day`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P1027 is complete and pushed: `/sw.js` now uses `Cache-Control: public, max-age=86400, stale-while-revalidate=604800` instead of hourly caching, reducing repeat service-worker script revalidation from returning browsers while keeping update propagation bounded to one day. Focused deployment test passed 1 file / 27 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1027-service-worker-day-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1026 is complete and pushed: successful OneMap search and live walking-preview browser caches now persist for one week instead of one day, matching the existing successful API/CDN cache horizon and reducing repeat `/api/onemap-search` and `/api/onemap-route` requests across browser restarts. Focused web tests passed 2 files / 18 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1026-weekly-onemap-browser-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1025 is complete and pushed: `tests/test_run.py` now matches the current `run.py` safe freshness contract by asserting that `check --freshness-only` reads both `raw/manifest.json` and `pipeline/config/sources.yaml`, and guarding against stale `raw/manifest.json only` wording. Before the fix, `uv run pytest tests/test_run.py -q` failed 2 tests; after the fix it passed 59 tests. Repo integrity passed. Evidence: `qa/verification/P1025-run-freshness-help-test.md`.
 - P1024 is complete and pushed: README now tells operators to run `uv run python run.py universe-status` first when sizing the frozen-v1 address-universe gap, because it consolidates the current cached P19 v2 recent-source sample and P19 v2 Overpass coverage while keeping P125 historical. Focused README tests passed 4 tests; repo integrity passed. Evidence: `qa/verification/P1024-universe-status-first.md`.
