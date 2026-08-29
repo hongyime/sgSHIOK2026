@@ -322,31 +322,6 @@ def source_freshness_readiness(
         if status_key in by_status:
             by_status[status_key].append(freshness)
 
-    notable = {
-        status_key: [str(item["source_key"]) for item in statuses]
-        for status_key, statuses in by_status.items()
-    }
-    warning_parts = [
-        f"{status_key} sources: "
-        + ", ".join(
-            f"{item['source_key']} ({item['name']})" for item in by_status[status_key]
-        )
-        for status_key, keys in notable.items()
-        if status_key != "current" and keys
-    ]
-    if by_status["stale"]:
-        warning_parts.append(STALE_FRESHNESS_ACTION)
-    summary = (
-        f"manifest-only source freshness checked at {checked_at.isoformat()}: "
-        f"current {counts.get('current', 0)}, "
-        f"stale {counts.get('stale', 0)}, "
-        f"manual {counts.get('manual', 0)}, "
-        f"unknown_policy {counts.get('unknown_policy', 0)}, "
-        f"unknown_age {counts.get('unknown_age', 0)}"
-    )
-    warning = f"source freshness warning: {'; '.join(warning_parts)}" if warning_parts else None
-    oldest_current = oldest_current_freshness_summary(by_status["current"])
-    nearest_current = nearest_current_source_to_stale(by_status["current"])
     stale_sources = sorted(
         [
             {
@@ -363,6 +338,39 @@ def source_freshness_readiness(
         key=lambda item: float(item["days_past_stale"]),
         reverse=True,
     )
+    notable = {
+        status_key: [str(item["source_key"]) for item in statuses]
+        for status_key, statuses in by_status.items()
+    }
+    warning_parts: list[str] = []
+    if stale_sources:
+        warning_parts.append(
+            "stale sources: "
+            + ", ".join(
+                f"{item['source_key']} ({item['name']})" for item in stale_sources
+            )
+        )
+    for status_key in ("unknown_policy", "unknown_age"):
+        if by_status[status_key]:
+            warning_parts.append(
+                f"{status_key} sources: "
+                + ", ".join(
+                    f"{item['source_key']} ({item['name']})" for item in by_status[status_key]
+                )
+            )
+    if stale_sources:
+        warning_parts.append(STALE_FRESHNESS_ACTION)
+    summary = (
+        f"manifest-only source freshness checked at {checked_at.isoformat()}: "
+        f"current {counts.get('current', 0)}, "
+        f"stale {counts.get('stale', 0)}, "
+        f"manual {counts.get('manual', 0)}, "
+        f"unknown_policy {counts.get('unknown_policy', 0)}, "
+        f"unknown_age {counts.get('unknown_age', 0)}"
+    )
+    warning = f"source freshness warning: {'; '.join(warning_parts)}" if warning_parts else None
+    oldest_current = oldest_current_freshness_summary(by_status["current"])
+    nearest_current = nearest_current_source_to_stale(by_status["current"])
     most_overdue_stale_source = stale_sources[0] if stale_sources else None
     return {
         "ok": True,

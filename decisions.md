@@ -1922,3 +1922,7 @@ The score-card screen-reader fallback for a missing station name should say `MRT
 2026-08-29 - P830 freshness manifest policy gaps:
 
 Any source key present in `raw/manifest.json` but missing from `pipeline/config/sources.yaml` should be treated as a freshness policy gap, reported as `unknown_policy` by both `run.py check --freshness-only` and production readiness. The current manifest has no such gap, but future hand-copied or legacy manifest entries must be visible instead of silently omitted. Selected-source freshness checks continue to report only the requested configured source. This is source-policy reporting/test/evidence work only; it does not alter source inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-29 - P831 readiness stale-source warning order:
+
+Production-readiness warning text should order stale source names by the same days-past-stale severity used by the structured `stale_sources` field and `most_overdue_stale_source`. The warning now starts with the most overdue stale source instead of source-key order, so the human-facing gate summary agrees with the machine-readable release-planning fields. This is readiness reporting/test/evidence work only; it does not alter source inputs, scoring, exports, public data, deployment, or locked weights.

@@ -343,11 +343,11 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
                 "  fresh:",
                 "    name: Fresh",
                 "    kind: datagov_polldownload",
-                "  stale:",
-                "    name: Stale",
+                "  alpha_less_stale:",
+                "    name: Alpha Less Stale",
                 "    kind: datagov_polldownload",
-                "  stale_less:",
-                "    name: Less Stale",
+                "  zeta_more_stale:",
+                "    name: Zeta More Stale",
                 "    kind: datagov_polldownload",
                 "  manual:",
                 "    name: Manual",
@@ -366,8 +366,8 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
         {
             "sources": {
                     "fresh": {"fetched_at": "2026-08-15T00:00:00+00:00"},
-                    "stale": {"last_modified": "Tue, 07 Jul 2026 02:06:48 GMT"},
-                    "stale_less": {"last_modified": "Wed, 15 Jul 2026 00:00:00 GMT"},
+                    "alpha_less_stale": {"last_modified": "Wed, 15 Jul 2026 00:00:00 GMT"},
+                    "zeta_more_stale": {"last_modified": "Tue, 07 Jul 2026 02:06:48 GMT"},
                     "manual": {"last_modified": "Mon, 01 Jan 2024 00:00:00 GMT"},
                     "unknown_age": {},
                     "manifest_only": {"name": "Copied Manifest Only"},
@@ -394,7 +394,7 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
     }
     assert status["by_status"]["unknown_policy"] == ["manifest_only"]
     assert status["unconfigured_manifest_sources"] == ["manifest_only"]
-    assert status["by_status"]["stale"] == ["stale", "stale_less"]
+    assert status["by_status"]["stale"] == ["alpha_less_stale", "zeta_more_stale"]
     assert status["by_status"]["unknown_age"] == ["unknown_age"]
     assert status["oldest_current_source"] == (
         "Oldest current source: fresh (Fresh, 1.0d of 30d threshold, 29.0d until stale)"
@@ -411,8 +411,8 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
     }
     assert status["stale_sources"] == [
         {
-            "source_key": "stale",
-            "name": "Stale",
+            "source_key": "zeta_more_stale",
+            "name": "Zeta More Stale",
             "age_basis": "last_modified",
             "age_days": 39.911944,
             "stale_after_days": 30,
@@ -420,8 +420,8 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
             "expected_cadence": "monthly",
         },
         {
-            "source_key": "stale_less",
-            "name": "Less Stale",
+            "source_key": "alpha_less_stale",
+            "name": "Alpha Less Stale",
             "age_basis": "last_modified",
             "age_days": 32.0,
             "stale_after_days": 30,
@@ -434,7 +434,8 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
         "manifest-only source freshness checked at 2026-08-16T00:00:00+00:00: current 1"
     )
     assert status["warning"] == (
-        "source freshness warning: stale sources: stale (Stale), stale_less (Less Stale); "
+        "source freshness warning: stale sources: zeta_more_stale (Zeta More Stale), "
+        "alpha_less_stale (Alpha Less Stale); "
         "unknown_policy sources: manifest_only (Copied Manifest Only); "
         "unknown_age sources: unknown_age (Unknown Age); "
         "Stale freshness action: report and plan a versioned refresh; "
