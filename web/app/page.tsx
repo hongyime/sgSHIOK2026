@@ -1267,7 +1267,9 @@ export function ScoreCard({
       ? noTransitTitle(score, transitMode)
       : score.state === "NOT_YET_SCORED"
         ? "No full locked score in published shelter-map data"
-      : toProperCase(score.best_node?.name ?? "No transit stop or exit loaded");
+      : score.best_node?.name
+        ? toProperCase(score.best_node.name)
+        : "No transit stop or exit loaded";
   const reasons = scoreReasons(score, transitMode);
   const stateNote = scoreStateNote(score, transitMode);
   const previewStatusNote = previewRoute

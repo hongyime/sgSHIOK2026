@@ -357,7 +357,8 @@ describe("rendered accessibility output", () => {
       },
     });
 
-    expect(html).toContain("No Transit Stop Or Exit Loaded");
+    expect(html).toContain("No transit stop or exit loaded");
+    expect(html).not.toContain("No Transit Stop Or Exit Loaded");
     expect(html).not.toContain("No Transit Target Loaded");
     expect(html).not.toContain("No Transit Found Nearby");
   });
