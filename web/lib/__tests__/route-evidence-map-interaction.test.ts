@@ -270,6 +270,9 @@ describe("shelter map interactions", () => {
     expect(pageSource).not.toContain("until that route returns");
     expect(pageSource).toContain('const LIVE_ROUTE_PREVIEW_CACHE_PREFIX = "shiok:onemap-route-preview:v1:";');
     expect(pageSource).toContain("function liveRoutePreviewCacheKey(");
+    expect(pageSource).toContain("function liveRouteCoordinateParam(value: number): string");
+    expect(pageSource).toContain("return liveRouteCoordinateKey(value);");
+    expect(pageSource).toContain("`/api/onemap-route?startLat=${liveRouteCoordinateParam(originLatLng.lat)}&startLng=${liveRouteCoordinateParam(originLatLng.lng)}&endLat=${liveRouteCoordinateParam(stopLat)}&endLng=${liveRouteCoordinateParam(stopLng)}`");
     expect(pageSource).toContain("readLiveRoutePreviewCache(cacheKey)");
     expect(pageSource).toContain("if (cachedPreview && applyLiveRoutePreview(cachedPreview)) return;");
     expect(pageSource).toContain("const liveRoutePreviewInFlightRef = useRef<Map<string, Promise<LiveRoutePreviewPayload>>>(new Map());");

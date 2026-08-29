@@ -83,6 +83,10 @@ function liveRouteCoordinateKey(value: number): string {
   return value.toFixed(6);
 }
 
+function liveRouteCoordinateParam(value: number): string {
+  return liveRouteCoordinateKey(value);
+}
+
 function liveRoutePreviewCacheKey(
   postal: string,
   originLatLng: { lat: number; lng: number },
@@ -2128,7 +2132,7 @@ export default function Home() {
       return;
     }
 
-    const url = `/api/onemap-route?startLat=${originLatLng.lat}&startLng=${originLatLng.lng}&endLat=${stopLat}&endLng=${stopLng}`;
+    const url = `/api/onemap-route?startLat=${liveRouteCoordinateParam(originLatLng.lat)}&startLng=${liveRouteCoordinateParam(originLatLng.lng)}&endLat=${liveRouteCoordinateParam(stopLat)}&endLng=${liveRouteCoordinateParam(stopLng)}`;
     const cacheKey = liveRoutePreviewCacheKey(
       transitSelection.result.POSTAL,
       originLatLng,
