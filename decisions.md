@@ -1,3 +1,6 @@
+2026-08-30 - P1018 section 10 reference current copy:
+The Section 10 presentation reference should match the browser language that has shipped since P18-P1017. The implemented-state reference now says `Walk to stop or exit` rather than `Walk to transit`, and describes heat support as `sparse nearby greenery` rather than exposing `NParks greenery proxy` in the user-facing copy examples. This is documentation/test/evidence work only; it does not alter rendered browser code, scoring, exports, inputs, public data, deployment, protected payloads, or locked weights.
+
 2026-08-30 - P1017 move-here metadata promise:
 Browser metadata and share previews should carry the same residential decision promise as the first screen. The metadata description now starts `If you moved here...` while retaining covered-walkway ratio, exposed gaps, the night-lighting map layer, and the secondary locked SHIOK score. The heat-presentation UI audit entries were also refreshed to current source strings and exact line numbers after later copy work, preserving the strict audit instead of weakening it. This is browser metadata/scripts/test/evidence work only; it does not alter rendered data, search, map behavior, scoring, exports, inputs, public data, deployment, protected payloads, or locked weights.
 

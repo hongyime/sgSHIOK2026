@@ -998,12 +998,17 @@ describe("score card copy", () => {
     );
     expect(proposalSource).not.toContain("could not prove access to an official LTA bus stop");
     expect(proposalSource).not.toContain("trusted walk to a DataMall bus stop");
-    expect(proposalSource).toContain("Heat: shelter plus sparse NParks greenery proxy");
+    expect(proposalSource).toContain("Heat: shelter plus sparse nearby greenery");
+    expect(proposalSource).not.toContain("Heat: shelter plus sparse NParks greenery proxy");
     expect(proposalSource).not.toContain("Heat: shelter + NParks shade proxy");
+    expect(proposalSource).toContain("Heat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first");
+    expect(proposalSource).not.toContain("Heat also includes a sparse NParks greenery proxy");
     expect(proposalSource).toContain("deciding whether the walk actually works");
     expect(proposalSource).toContain("[shelter-map walk]");
     expect(proposalSource).toContain("the shelter-map\nwalk evidence and its exposed gaps");
     expect(proposalSource).toContain("walk distance and the chosen stop or exit rather than above walk exposure");
+    expect(proposalSource).toContain("Walk to stop or exit");
+    expect(proposalSource).not.toContain("Walk to transit");
     expect(proposalSource).toContain(
       "strongest evidence in this locked release is the covered-walkway ratio and exposed gaps on the shelter-map walk"
     );
