@@ -34,6 +34,21 @@ function dataUrl(path: string): string {
   return `${DATA_BASE}${path}`;
 }
 
+function hasCompressedArtifact(path: string): boolean {
+  if (
+    path === "manifest.json" ||
+    path === "scores/index.json" ||
+    path === "geom/index.json" ||
+    path === "geom/postal-index.json"
+  ) {
+    return true;
+  }
+  return (
+    /^geom\/postal-prefix\/[^/]+\.json$/.test(path) ||
+    /^transit\/h3\/[^/]+\.json$/.test(path)
+  );
+}
+
 async function decodeJsonResponse<T>(res: Response, path: string): Promise<T> {
   const contentEncoding = res.headers?.get("content-encoding") ?? "";
   if (path.endsWith(".gz") && !contentEncoding.toLowerCase().includes("gzip")) {
@@ -47,9 +62,11 @@ async function decodeJsonResponse<T>(res: Response, path: string): Promise<T> {
 }
 
 async function fetchJson<T>(path: string): Promise<T> {
-  const gzPath = `${path}.gz`;
-  const gzRes = await fetch(dataUrl(gzPath), DATA_FETCH_OPTIONS);
-  if (gzRes.ok) return decodeJsonResponse<T>(gzRes, gzPath);
+  if (hasCompressedArtifact(path)) {
+    const gzPath = `${path}.gz`;
+    const gzRes = await fetch(dataUrl(gzPath), DATA_FETCH_OPTIONS);
+    if (gzRes.ok) return decodeJsonResponse<T>(gzRes, gzPath);
+  }
 
   const res = await fetch(dataUrl(path), DATA_FETCH_OPTIONS);
   if (!res.ok) throw new Error(`${path} fetch failed: ${res.status}`);

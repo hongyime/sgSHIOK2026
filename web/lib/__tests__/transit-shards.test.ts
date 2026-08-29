@@ -10,6 +10,7 @@ function jsonResponse(ok: boolean, payload?: unknown): Response {
     ok,
     status: ok ? 200 : 404,
     json: async () => payload,
+    headers: { get: () => "gzip" },
   } as Response;
 }
 
@@ -39,10 +40,10 @@ describe("fetchTransitPoisForGeom", () => {
 
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       const url = bareUrl(input);
-      if (url.endsWith("/transit/h3/route-cell.json")) {
+      if (url.endsWith("/transit/h3/route-cell.json.gz")) {
         return jsonResponse(true, { type: "FeatureCollection", features: [busStop] });
       }
-      if (url.endsWith("/transit/h3/neighbor-cell.json")) {
+      if (url.endsWith("/transit/h3/neighbor-cell.json.gz")) {
         return jsonResponse(true, { type: "FeatureCollection", features: [busStop, mrtExit] });
       }
       return jsonResponse(false);
@@ -59,7 +60,7 @@ describe("fetchTransitPoisForGeom", () => {
 
     expect(pois.features).toHaveLength(2);
     expect(fetchMock).toHaveBeenCalledWith(
-      "/data/generated/transit/h3/route-cell.json",
+      "/data/generated/transit/h3/route-cell.json.gz",
       { cache: "force-cache" }
     );
     expect(fetchMock).not.toHaveBeenCalledWith(
