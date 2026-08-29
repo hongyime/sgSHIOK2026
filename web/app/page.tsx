@@ -2457,7 +2457,7 @@ export default function Home() {
         <details className={styles.dataLimits}>
           <summary>Data limits: June 2020 addresses; roughly 1 in 4 lack full locked scores</summary>
           <p>
-            Address list: frozen v1 from a June 2020 OneMap-derived postal scrape.
+            Address list: June 2020 OneMap-derived postal scrape; newer developments may be missing.
           </p>
           <p>
             {RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}.

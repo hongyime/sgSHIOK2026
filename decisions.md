@@ -2038,3 +2038,7 @@ Browser locked-score caveats should say missing score factors instead of locked 
 2026-08-29 - P859 no-score badge value:
 
 When no full locked score is available, the browser badge should show Walk evidence as the value instead of Published data. That keeps the absent score secondary while pointing the user to the useful inspected artifact still available in the card. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P875 address-limit copy:
+
+The expanded Data limits address line should lead with the user-facing limitation rather than the internal frozen-v1 label. It now says the address list comes from a June 2020 OneMap-derived postal scrape and that newer developments may be missing. The frozen-v1/versioned-refresh policy remains elsewhere in the disclosure and operational docs. This is browser copy/test/evidence work only; it does not alter manifests, inputs, public data, exports, scoring, deployment, or locked weights.

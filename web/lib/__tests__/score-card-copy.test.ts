@@ -284,7 +284,7 @@ describe("score card copy", () => {
     expect(source).not.toContain('"Walk evidence unavailable"');
     expect(source).toContain("${shelterText} Locked score ${scoreText}.");
     expect(source).toContain(
-      "Address list: frozen v1 from a June 2020 OneMap-derived postal scrape."
+      "Address list: June 2020 OneMap-derived postal scrape; newer developments may be missing."
     );
     expect(source).not.toContain("measured recent-source misses exist.");
     expect(source).not.toContain("newer completions may be missing.");
@@ -417,7 +417,7 @@ describe("score card copy", () => {
       "<SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted} />",
       '<details className={styles.dataLimits}>',
       "<summary>Data limits: June 2020 addresses; roughly 1 in 4 lack full locked scores</summary>",
-      "Address list: frozen v1 from a June 2020 OneMap-derived postal scrape.",
+      "Address list: June 2020 OneMap-derived postal scrape; newer developments may be missing.",
       "{RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}.",
       "{OSM_ADDR_POSTCODE_COVERAGE_COPY}",
       "{DATA_FRESHNESS_SUMMARY_COPY}",
