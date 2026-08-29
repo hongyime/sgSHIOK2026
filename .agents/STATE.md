@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `86f04a6` (`docs: clarify heat estimate shelter note`)
+Latest substantive commit: `330cc19` (`docs: name address-list score denominator`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P884 is complete and pushed: the full-score availability line now says `95,157 of 124,443 June 2020 address-list records`, tying the missing-score denominator to the frozen address list instead of generic records.
 - P883 is complete and pushed: the shelter-exposure row and Section 10 reference now say rain shelter and the heat estimate share mostly the same covered-walkway evidence, replacing the overstated `heat comfort` phrasing.
 - P882 is complete and pushed: the no-exposed-gap state now says all recorded segments for the selected sheltered or shortest walk stay under covered-walkway or connector evidence, replacing the internal phrase `this display`.
 - P881 is complete and pushed: the screen-reader live status now announces complete numeric records as `Sorting-only score ...` after shelter-map walk evidence, while preview and unavailable states keep locked-score availability wording.
