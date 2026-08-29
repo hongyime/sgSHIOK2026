@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `1179165` (`docs: point no-score badge to walk evidence`)
+Latest substantive commit: `26eba6e` (`docs: clarify locked scoring rule copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P860 is complete and pushed: partial-score caveats now say missing score factors count as zero in the locked scoring rule, and the locked score row uses `Sorting-only score` instead of `Release sorting index`.
 - P859 is complete and pushed: no-full-locked-score badges now show `Walk evidence` instead of `Published data`, pointing users to the useful card content still available.
 - P858 is complete and pushed: partial-score and no-subscore browser copy now says missing score factors instead of locked score inputs or unavailable score inputs.
 - P857 is complete and pushed: postal-specific missing-address caveats now label parenthesized evidence as public-source or address-candidate samples instead of geocoded rows or proxy rows.
