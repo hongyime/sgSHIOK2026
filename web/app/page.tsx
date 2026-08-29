@@ -609,7 +609,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     return "Preview only: this clicked MRT/LRT exit or bus stop has shelter-map evidence, but it is outside the published shelter-map data.";
   }
   if (score.state === "SCORED_PARTIAL") {
-    return "Partial locked score: shelter-map evidence may still be present, but unavailable locked-score rows count as zero in the locked scoring rule.";
+    return "Partial locked score: some shelter-map evidence may still be inspectable, but unavailable locked-score rows count as zero in the locked scoring rule.";
   }
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const reason = provenanceReason(score, transitMode);
