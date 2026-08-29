@@ -2126,3 +2126,7 @@ The first-view promise should name the destination class users can inspect: a tr
 2026-08-29 - P896 walk-to-stop-or-exit row label:
 
 The four-row presentation should use the same destination vocabulary as the first-view promise. The access row now says `Walk to stop or exit` while retaining `35% locked walk-to-transit` as the scoring-term meta, so the product label is user-facing and the locked rule remains explicit. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P897 best-transit stop-or-exit label:
+
+The default all-transit view should render the access destination as `transit stop or exit`, not abstract `transit`. Bus-only and MRT/LRT-only modes keep their specific labels, while the all-transit route notes and measured reasons now match the first-view and row-label vocabulary. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

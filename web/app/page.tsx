@@ -519,7 +519,7 @@ function buildRouteCompareNote(params: {
 function transitModeLabel(mode: TransitAccessMode): string {
   if (mode === "mrt_lrt") return "MRT/LRT exit";
   if (mode === "bus") return "bus stop";
-  return "transit";
+  return "transit stop or exit";
 }
 
 function exposureGapCopy(lenM: number, index: number): string {

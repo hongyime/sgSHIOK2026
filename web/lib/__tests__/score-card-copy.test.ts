@@ -31,6 +31,8 @@ describe("score card copy", () => {
     expect(source).toContain("Connected walk beyond 1.2 km");
     expect(source).toContain("Shelter-map walk not connected yet");
     expect(source).toContain("No connected shelter-map walk to ${transitModeLabel(transitMode)} within 1.2 km");
+    expect(source).toContain('return "transit stop or exit";');
+    expect(source).not.toContain('return "transit";');
     expect(source).not.toContain("No connected shelter-map walk to ${transitModeLabel(transitMode)} within range");
     expect(source).toContain("No shelter-map walk to ${transitModeLabel(transitMode)} was found within the locked 1.2 km transit range.");
     expect(source).toContain("Transit stop or exit found");

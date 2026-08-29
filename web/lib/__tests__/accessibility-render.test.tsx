@@ -597,8 +597,9 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("40% locked rain+heat");
     expect(html).toContain("Walk to stop or exit");
     expect(html).not.toContain("Walk to transit");
-    expect(html).toContain("Sheltered walk distance to transit.");
-    expect(html).toContain("240 m sheltered walk to transit");
+    expect(html).toContain("Sheltered walk distance to transit stop or exit.");
+    expect(html).toContain("240 m sheltered walk to transit stop or exit");
+    expect(html).not.toContain("Sheltered walk distance to transit.");
     expect(html).not.toContain("Selected walk distance to transit.");
     expect(html).not.toContain("240 m to transit");
     expect(html).not.toContain("Selected route distance to transit.");
@@ -937,7 +938,8 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("48% covered-walkway ratio on the shortest walk.");
     expect(html).toContain("181 m exposed across 2 gaps on the shortest walk.");
-    expect(html).toContain("Shortest walk distance to transit.");
+    expect(html).toContain("Shortest walk distance to transit stop or exit.");
+    expect(html).not.toContain("Shortest walk distance to transit.");
     expect(html).not.toContain("Sheltered walk distance to transit.");
     expect(html).toContain(
       "Shelter-map walk evidence 48% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m."
@@ -1081,7 +1083,8 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("Connected walk beyond 1.2 km");
-    expect(html).toContain("Closest connected shelter-map walk to transit is 1.5 km");
+    expect(html).toContain("Closest connected shelter-map walk to transit stop or exit is 1.5 km");
+    expect(html).not.toContain("Closest connected shelter-map walk to transit is 1.5 km");
     expect(html).not.toContain("Closest connected transit shelter-map walk is 1.5 km");
     expect(html).toContain("Locked transit range is 1.2 km");
     expect(html).toContain(
