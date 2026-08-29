@@ -4,6 +4,7 @@ from pathlib import Path
 
 import pyarrow as pa
 import pyarrow.parquet as pq
+import pytest
 
 from pipeline.batch_plan import (
     FULL_BATCH_CHANGE_READINESS,
@@ -12,6 +13,7 @@ from pipeline.batch_plan import (
     build_batch_plan,
     default_universe_paths,
     format_duration,
+    recent_public_source_gap_sample_policy,
 )
 
 
@@ -113,7 +115,49 @@ def test_api_environment_readiness_reports_missing_keys_without_values():
     assert "owner@example.test" not in json.dumps(present)
 
 
-def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(tmp_path: Path):
+def test_recent_public_source_gap_sample_policy_uses_dynamic_currentness() -> None:
+    policy = recent_public_source_gap_sample_policy(
+        {
+            "files": {
+                "summary": {
+                    "path": "qa\\p19\\universe_gap_measurement_summary_v2.json",
+                    "generated_at_utc": "2026-08-28T21:15:15.685030+00:00",
+                },
+                "detail": {
+                    "path": "qa\\p19\\universe_gap_measurement_detail_v2.json",
+                },
+            },
+            "currentness": {
+                "status": "stale",
+                "max_age_days": 8.25,
+                "fresh_for_current_gap_sizing": False,
+                "threshold_days": 7.0,
+                "summary": (
+                    "cached P19 sample age 8.25d exceeds the 7d current-gap sizing "
+                    "threshold; refresh requires explicit owner approval and new versioned outputs"
+                ),
+            },
+        }
+    )
+
+    assert policy["summary_path"] == "qa/p19/universe_gap_measurement_summary_v2.json"
+    assert policy["detail_path"] == "qa/p19/universe_gap_measurement_detail_v2.json"
+    assert policy["currentness"]["status"] == "stale"
+    assert policy["currentness"]["fresh_for_current_gap_sizing"] is False
+    assert policy["currentness"]["max_age_days"] == 8.25
+    assert policy["currentness"]["dynamic_status_command"] == "uv run python run.py p19-gap-status"
+    assert "not fresh current-source evidence" in policy["currentness"]["reason"]
+    assert policy["evidence_split"] == RECENT_PUBLIC_SOURCE_GAP_SAMPLE["evidence_split"]
+
+
+def test_batch_plan_reports_bounded_geocoding_and_keeps_gate_closed(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+):
+    monkeypatch.setattr(
+        "pipeline.batch_plan.recent_public_source_gap_sample_policy",
+        lambda: RECENT_PUBLIC_SOURCE_GAP_SAMPLE,
+    )
     summary_path = tmp_path / "summary.json"
     universe_path = tmp_path / "universe.parquet"
     params_path = tmp_path / "params.yaml"

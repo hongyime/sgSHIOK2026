@@ -482,7 +482,17 @@ def test_lamp_overlay_artifact_status_blocks_missing_deploy_artifact(tmp_path: P
     assert "night-lighting" not in status["warning"]
 
 
-def test_build_readiness_report_accepts_minimal_valid_current_state(tmp_path: Path):
+def test_build_readiness_report_accepts_minimal_valid_current_state(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+):
+    from pipeline.batch_plan import RECENT_PUBLIC_SOURCE_GAP_SAMPLE
+
+    monkeypatch.setattr(
+        "scripts.production_readiness.recent_public_source_gap_sample_policy",
+        lambda: RECENT_PUBLIC_SOURCE_GAP_SAMPLE,
+    )
+
     web_dir = tmp_path / "web"
     write_lamp_overlay_artifact(web_dir)
     bundle_dir = web_dir / "public" / "data" / "generated_test"

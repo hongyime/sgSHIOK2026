@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import os
 import re
@@ -308,6 +309,63 @@ def load_onemap_delay(params_path: Path = PARAMS_PATH) -> tuple[float, list[str]
     return DEFAULT_ONEMAP_DELAY_SEC, warnings
 
 
+def recent_public_source_gap_sample_policy(
+    cache_status: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    policy = copy.deepcopy(RECENT_PUBLIC_SOURCE_GAP_SAMPLE)
+    if cache_status is None:
+        try:
+            from scripts.analysis import p19_universe_gap_measurement as p19
+
+            cache_status = p19.cache_status_report()
+        except Exception as exc:  # pragma: no cover - defensive report path
+            currentness = dict(policy["currentness"])
+            currentness.update(
+                {
+                    "status": "unknown",
+                    "fresh_for_current_gap_sizing": False,
+                    "dynamic_status_command": "uv run python run.py p19-gap-status",
+                    "summary": (
+                        "cached P19 sample status could not be read; do not treat it "
+                        "as current gap sizing evidence"
+                    ),
+                    "error": str(exc),
+                }
+            )
+            policy["currentness"] = currentness
+            return policy
+
+    files = cache_status.get("files") if isinstance(cache_status, Mapping) else None
+    if isinstance(files, Mapping):
+        summary = files.get("summary")
+        detail = files.get("detail")
+        if isinstance(summary, Mapping) and isinstance(summary.get("path"), str):
+            policy["summary_path"] = summary["path"].replace("\\", "/")
+        if isinstance(detail, Mapping) and isinstance(detail.get("path"), str):
+            policy["detail_path"] = detail["path"].replace("\\", "/")
+        generated_at = summary.get("generated_at_utc") if isinstance(summary, Mapping) else None
+        if isinstance(generated_at, str) and generated_at:
+            policy["generated_at_utc"] = generated_at
+
+    currentness = cache_status.get("currentness") if isinstance(cache_status, Mapping) else None
+    if isinstance(currentness, Mapping):
+        dynamic_currentness = dict(currentness)
+        dynamic_currentness["dynamic_status_command"] = "uv run python run.py p19-gap-status"
+        if dynamic_currentness.get("fresh_for_current_gap_sizing") is True:
+            dynamic_currentness["reason"] = (
+                "the cached v2 sample is fresh current-source evidence; promotion still "
+                "requires explicit owner approval and candidate-source-first scope"
+            )
+        else:
+            dynamic_currentness["reason"] = (
+                "the cached v2 sample is not fresh current-source evidence; refresh requires "
+                "explicit owner approval and new versioned outputs before promotion"
+            )
+        policy["currentness"] = dynamic_currentness
+
+    return policy
+
+
 def api_environment_readiness(environment: Mapping[str, str] | None = None) -> dict[str, Any]:
     env = os.environ if environment is None else environment
     lta_present = bool(env.get("LTA_DATAMALL_ACCOUNT_KEY"))
@@ -533,6 +591,8 @@ def build_batch_plan(
 
     full_batch_allowed_now = False
 
+    recent_gap_sample = recent_public_source_gap_sample_policy()
+
     report: dict[str, Any] = {
         "ok": not errors,
         "mode": mode,
@@ -557,7 +617,7 @@ def build_batch_plan(
         "source_policy": {
             "frozen_v1": FROZEN_V1_POLICY,
             "v2": POSTAL_UNIVERSE_V2_POLICY,
-            "recent_public_source_gap_sample": RECENT_PUBLIC_SOURCE_GAP_SAMPLE,
+            "recent_public_source_gap_sample": recent_gap_sample,
             "osm_addr_postcode_registry": OSM_ADDR_POSTCODE_COVERAGE,
             "datamall_geospatial_discovery": DATAMALL_GEOSPATIAL_DISCOVERY_POLICY,
             "non_score_reference_sources": NON_SCORE_REFERENCE_SOURCE_POLICY,

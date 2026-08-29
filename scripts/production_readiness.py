@@ -24,9 +24,9 @@ from pipeline.batch_plan import (
     OSM_ADDR_POSTCODE_COVERAGE,
     PARAMS_PATH,
     POSTAL_UNIVERSE_V2_POLICY,
-    RECENT_PUBLIC_SOURCE_GAP_SAMPLE,
     SOURCE_FRESHNESS_POLICY,
     build_batch_plan,
+    recent_public_source_gap_sample_policy,
 )
 from pipeline.export import validate_static_artifacts
 from pipeline.fetch import (
@@ -1196,6 +1196,7 @@ def readiness_features(
         active_bundle=active_bundle,
         bundle_dir=bundle_dir,
     )
+    recent_gap_sample = recent_public_source_gap_sample_policy()
     return {
         "incorporated": {
             "nparks_spatial_shade_proxy_heat_only": True,
@@ -1248,13 +1249,11 @@ def readiness_features(
         "validation_gates": {
             "onemap_walk_validation": onemap_status,
         },
-        "recent_public_source_gap_evidence_split": RECENT_PUBLIC_SOURCE_GAP_SAMPLE[
-            "evidence_split"
-        ],
+        "recent_public_source_gap_evidence_split": recent_gap_sample["evidence_split"],
         "source_policy": {
             "frozen_v1": FROZEN_V1_POLICY,
             "v2": POSTAL_UNIVERSE_V2_POLICY,
-            "recent_public_source_gap_sample": RECENT_PUBLIC_SOURCE_GAP_SAMPLE,
+            "recent_public_source_gap_sample": recent_gap_sample,
             "osm_addr_postcode_registry": OSM_ADDR_POSTCODE_COVERAGE,
             "datamall_geospatial_discovery": DATAMALL_GEOSPATIAL_DISCOVERY_POLICY,
             "non_score_reference_sources": NON_SCORE_REFERENCE_SOURCE_POLICY,

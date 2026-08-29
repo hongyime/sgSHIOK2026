@@ -1946,3 +1946,7 @@ Agent-facing docs and source notes should not preserve only the generic or super
 2026-08-29 - P836 P19 v2 policy paths:
 
 The structured P19 recent-public-source gap policy should name the versioned v2 evidence files that produced its current measurement. `RECENT_PUBLIC_SOURCE_GAP_SAMPLE` already reported the P19 v2 28 Aug 2026 sample, but still pointed `summary_path` and `detail_path` at the older unversioned P19 files. Batch-plan and production-readiness policy now point to `qa/p19/universe_gap_measurement_summary_v2.json` and `qa/p19/universe_gap_measurement_detail_v2.json`, matching `p19-gap-status` and P803/P808 evidence. This is source-policy metadata/test/evidence work only; it does not read or mutate P19 payload files, call APIs, score, export, public data, deployment, or locked weights.
+
+2026-08-29 - P837 P19 dynamic currentness:
+
+The P19 v2 measurement facts remain a durable recorded policy object, but `fresh_for_current_gap_sizing` is time-sensitive and must be derived from the read-only P19 cache status at report time. Batch-plan and production readiness now overlay the P19 currentness block from the same `p19-gap-status` machinery that operators use, so the reports stop treating the 28 Aug sample as fresh after its 7-day window expires. This is source-policy reporting/test/evidence work only; it does not call APIs, mutate P19 payload files, score, export, public data, deployment, or locked weights.
