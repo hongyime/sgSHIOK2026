@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `c9c62ce` (`test: pin missing-score address-list copy`)
+Latest substantive commit: pending P887 (`docs: compare nearby addresses`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P887 is in progress: the planning-area comparison panel is being changed from record-centric copy to address-facing copy.
 - P886 is complete and pushed: the browser copy-pinning test now checks the missing-score count keeps the `address-list records` denominator.
 - P885 is complete and pushed: the full-score availability line now says `29,286 address-list records` missing full scores, tying the missing-score count to the same June 2020 address-list denominator as the complete-score count.
 - P884 is complete and pushed: the full-score availability line now says `95,157 of 124,443 June 2020 address-list records`, tying the missing-score denominator to the frozen address list instead of generic records.

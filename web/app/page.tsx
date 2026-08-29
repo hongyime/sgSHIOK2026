@@ -312,13 +312,13 @@ export function rankAnnouncement({
   const sentenceLabel = rankSentenceMetricLabel(rankMetricLabel);
   if (rankMetricLabel.endsWith("order")) {
     if (loading) return `Loading planning-area ${sentenceLabel}.`;
-    if (rankedCount === 0) return `No planning-area records in ${sentenceLabel}.`;
-    return `${rankedCount} planning-area record${rankedCount === 1 ? "" : "s"} in ${sentenceLabel}.`;
+    if (rankedCount === 0) return `No planning-area addresses in ${sentenceLabel}.`;
+    return `${rankedCount} planning-area address${rankedCount === 1 ? "" : "es"} in ${sentenceLabel}.`;
   }
   if (loading) return `Loading planning-area ${sentenceLabel} comparison.`;
   if (rankedCount === 0) return `No planning-area ${sentenceLabel} comparison available.`;
-  return `${rankedCount} planning-area ${sentenceLabel} comparison record${
-    rankedCount === 1 ? "" : "s"
+  return `${rankedCount} planning-area ${sentenceLabel} comparison address${
+    rankedCount === 1 ? "" : "es"
   } available.`;
 }
 
@@ -330,13 +330,13 @@ function rankSentenceMetricLabel(rankMetricLabel: string): string {
 
 export function rankEmptyMessage(rankMetric: RankMetric, rankMetricLabel: string): string {
   if (rankMetric === "overall") return "No comparable full locked scores in this planning area.";
-  return `No comparable planning-area records for ${rankSentenceMetricLabel(rankMetricLabel)}.`;
+  return `No comparable planning-area addresses for ${rankSentenceMetricLabel(rankMetricLabel)}.`;
 }
 
 export function rankPanelDescription(rankMetric: RankMetric, rankPanelOpen: boolean): string {
   if (!rankPanelOpen) return "Loads planning-area comparison only when opened.";
   if (rankMetric === "overall") {
-    return "Planning-area list orders by locked score; shelter-map walk evidence remains the primary view.";
+    return "Nearby-address list orders by locked score; shelter-map walk evidence remains the primary view.";
   }
   if (rankMetric === "bus" || rankMetric === "heat" || rankMetric === "crossing") {
     return "Planning-area locked-score detail view; locked SHIOK score is unchanged.";
@@ -1676,7 +1676,7 @@ export function ScoreCard({
         <div className={styles.rankPanel} aria-label="Planning-area comparison" aria-busy={rankingLoading}>
           <div className={styles.rankHeader}>
             <div>
-              <strong>Compare planning-area records</strong>
+              <strong>Compare nearby addresses</strong>
               <span>{rankPanelDescription(rankMetric, rankPanelOpen)}</span>
             </div>
             {rankPanelOpen ? (

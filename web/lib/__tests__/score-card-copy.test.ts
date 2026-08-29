@@ -776,7 +776,7 @@ describe("score card copy", () => {
     expect(source).not.toContain('label: "Overall SHIOK"');
     expect(source).not.toContain("Use this locked composite");
     expect(source).toContain('aria-label="Planning-area comparison"');
-    expect(source).toContain("Compare planning-area records");
+    expect(source).toContain("Compare nearby addresses");
     expect(source).toContain("Show comparison");
     expect(source).not.toContain("Compare nearby records");
     expect(source).not.toContain(">Show</button>");
@@ -787,7 +787,7 @@ describe("score card copy", () => {
     expect(source).not.toContain('aria-label="Rank by view"');
     expect(source).not.toContain("<strong>Rank by</strong>");
     expect(source).toContain(
-      "Planning-area list orders by locked score; shelter-map walk evidence remains the primary view."
+      "Nearby-address list orders by locked score; shelter-map walk evidence remains the primary view."
     );
     expect(source).not.toContain(
       "Planning-area list uses locked score only as a sorting index; shelter-map walk evidence remains the primary view."
@@ -807,7 +807,7 @@ describe("score card copy", () => {
     expect(source).toContain("Loading planning-area ${sentenceLabel} comparison.");
     expect(source).not.toContain("Loading planning-area ranks...");
     expect(source).toContain("No comparable full locked scores in this planning area.");
-    expect(source).toContain("No comparable planning-area records for ${rankSentenceMetricLabel(rankMetricLabel)}.");
+    expect(source).toContain("No comparable planning-area addresses for ${rankSentenceMetricLabel(rankMetricLabel)}.");
     expect(source).toContain('rankEmptyMessage(rankMetric, rankMetricLabel)');
     expect(source).not.toContain("No comparable scored records in this planning area.");
     expect(source).not.toContain("Authoritative composite order.");
