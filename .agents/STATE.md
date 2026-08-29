@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `2988884` (`docs: say shelter-map panel ready in announcement`)
+Latest substantive commit: `68a6317` (`docs: describe planning-area loading as comparison`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P903 is complete and pushed: visible planning-area loading text now says it is loading a comparison rather than ranks for evidence and locked-score row views. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P902 is complete and pushed: screen-reader shelter-map panel live status now says `ready` instead of implementation-facing `loaded`; browser-smoke `_loaded` telemetry keys were intentionally left unchanged. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P901 is complete and pushed: first-view search submit busy label now says Searching instead of Loading, with tests/evidence. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P900 is complete and pushed: destination connector source-evidence label now says Stop/exit access walk instead of Transit access walk, with tests/evidence. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
