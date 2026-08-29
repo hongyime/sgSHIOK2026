@@ -336,7 +336,7 @@ export function rankEmptyMessage(rankMetric: RankMetric, rankMetricLabel: string
 }
 
 export function rankPanelDescription(rankMetric: RankMetric, rankPanelOpen: boolean): string {
-  if (!rankPanelOpen) return "Loads nearby-address comparison only when opened.";
+  if (!rankPanelOpen) return "Nearby-address comparison loads only when opened.";
   if (rankMetric === "overall") {
     return "Nearby addresses are ordered by locked score; shelter-map walk evidence remains the primary view.";
   }

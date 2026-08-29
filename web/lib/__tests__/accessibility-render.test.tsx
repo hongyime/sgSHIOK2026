@@ -748,7 +748,7 @@ describe("rendered accessibility output", () => {
   });
 
   it("does not call crossing friction an evidence view in planning-area helper copy", () => {
-    expect(rankPanelDescription("overall", false)).toBe("Loads nearby-address comparison only when opened.");
+    expect(rankPanelDescription("overall", false)).toBe("Nearby-address comparison loads only when opened.");
     expect(rankPanelDescription("overall", true)).toBe(
       "Nearby addresses are ordered by locked score; shelter-map walk evidence remains the primary view."
     );
