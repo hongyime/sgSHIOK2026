@@ -1,3 +1,6 @@
+2026-08-30 - P1024 universe-status first for gap sizing:
+Operators should run `uv run python run.py universe-status` first when sizing the frozen-v1 address-universe gap, because it consolidates the current cached P19 v2 recent-source sample and P19 v2 Overpass coverage while explicitly keeping P125 as historical OSM-only evidence. `p19-gap-status` and `p125-osm-status` remain narrower debugging/status commands, not the default entry point. This is README/test/evidence work only; it calls no APIs, writes no inputs, does not score, export, rescore, ingest, build network, deploy, mutate public data, protected evidence, or locked weights.
+
 2026-08-30 - P1023 browser source-age snapshot refresh:
 The browser data-limits disclosure should name the latest zero-mutation `run.py check --freshness-only` measurement when the status counts remain materially unchanged. The 29 Aug 2026 17:23 UTC manifest-only source-age check reports 11 current, 9 stale, 3 manual, and 1 unknown-age candidate source; Bus Stops, Bus Services, and Bus Routes remain nearest to stale, and HDB Existing Building remains the oldest current source. This is browser copy/test/evidence work only; it reads existing raw manifest and source policy, probes no upstream APIs, writes no manifest, and does not alter inputs, scoring, exports, public data, deployment, protected evidence, or locked weights.
 

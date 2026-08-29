@@ -21,9 +21,10 @@ confirmed missing rows, or 0.82% including source-quality warnings. If that
 sample row rate were applied to the 124,443 frozen v1 distinct postals, the
 directional scale would be 765 confirmed missing rows, or 1,020 including
 warnings; that is sampled evidence, not a measured full-universe gap or
-approval to promote v2. Use `uv run python run.py p19-gap-status` to check
-whether the cached sample is still current under the 7-day sample policy before
-using it for current gap sizing. The confirmed HDB gaps are SUN PLAZA SPRING
+approval to promote v2. Use `uv run python run.py universe-status` first when
+sizing the frozen-v1 gap; it checks whether the cached P19 v2 sample is still
+current under the 7-day sample policy and includes the current P19 v2 Overpass
+coverage result. The confirmed HDB gaps are SUN PLAZA SPRING
 and YISHUN BEACON, three postals each; CANAAN and MYRA remain unvalidated MCST
 proxy warnings. The same P19 v2 run's Overpass coverage cross-check found
 25,919 valid distinct OSM `addr:postcode` values: 25,899 overlap the 124,443
@@ -34,7 +35,7 @@ postal enumerator. Any v2 universe should therefore be candidate-source-first:
 use current free source datasets to propose rows, then pass bounded candidates
 through OneMap Search under explicit token controls, 72-hour token refresh, and
 the current documented token-authenticated call-limit cap unless SLA approves a
-higher limit case-by-case. To inspect the cached P19 v2 28 Aug 2026 public-source
+higher limit case-by-case. For narrower debugging, inspect the cached P19 v2 28 Aug 2026 public-source
 sample, evidence split, missing rows, P19 v2 Overpass coverage, unvalidated MCST proxy probe and cache ages without calling data.gov.sg, OneMap, or
 Overpass, run
 `uv run python run.py p19-gap-status`. To reprint the older cached P125 OSM

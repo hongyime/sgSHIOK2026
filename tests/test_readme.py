@@ -52,6 +52,10 @@ def test_readme_documents_universe_source_policy() -> None:
     assert "72-hour token refresh" in normalized
     assert "token-authenticated call-limit cap" in normalized
     assert "higher limit case-by-case" in normalized
+    assert "Use `uv run python run.py universe-status` first when sizing the frozen-v1 gap" in normalized
+    assert "checks whether the cached P19 v2 sample is still current under the 7-day sample policy" in normalized
+    assert "includes the current P19 v2 Overpass coverage result" in normalized
+    assert "For narrower debugging, inspect the cached P19 v2 28 Aug 2026 public-source sample" in normalized
     assert "uv run python run.py p19-gap-status" in normalized
     assert "cached P19 v2 28 Aug 2026 public-source sample" in normalized
     assert "cached P19 16 Aug 2026 public-source sample" not in normalized
