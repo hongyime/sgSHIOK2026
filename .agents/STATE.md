@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `6bbd2cc` (`docs: clarify freshness report source scope`)
+Latest substantive commit: `5a4f051` (`docs: name straight-line bus estimate in route details`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P940 is complete and pushed: route-detail ARIA labels and selection announcements now use straight-line bus estimate copy instead of exposing the direct-bus fallback implementation phrase; focused web tests passed 2 files / 63 tests.
 - P939 is complete and pushed: `pipeline.fetch` freshness-only help and the report header now name both `raw/manifest.json` and `pipeline/config/sources.yaml`, matching the real read scope; focused `tests/test_fetch.py` passed 28 tests.
 - P938 is complete and pushed: zero-mutation `run.py check --freshness-only` measured the 29 Aug 2026 09:38 UTC source-age snapshot; browser data-limit copy and tests now use that date with unchanged 11 current / 9 stale / 3 manual / 1 unknown-age counts.
 - P937 is complete and pushed: `run.py` freshness-only help now names both `raw/manifest.json` and `pipeline/config/sources.yaml`, matching the implementation and `CLAUDE.md`; focused `tests/test_agent_docs.py` passed 3 tests.
