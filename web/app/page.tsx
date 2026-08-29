@@ -336,7 +336,7 @@ export function rankEmptyMessage(rankMetric: RankMetric, rankMetricLabel: string
 }
 
 export function rankPanelDescription(rankMetric: RankMetric, rankPanelOpen: boolean): string {
-  if (!rankPanelOpen) return "Nearby-address comparison loads only when opened.";
+  if (!rankPanelOpen) return "Nearby address comparison loads only when opened.";
   if (rankMetric === "overall") {
     return "Nearby addresses are ordered by locked score; shelter-map walk evidence remains the primary view.";
   }
@@ -1675,7 +1675,7 @@ export function ScoreCard({
       )}
 
       {score.subscores && (
-        <div className={styles.rankPanel} aria-label="Nearby-address comparison" aria-busy={rankingLoading}>
+        <div className={styles.rankPanel} aria-label="Nearby address comparison" aria-busy={rankingLoading}>
           <div className={styles.rankHeader}>
             <div>
               <strong>Compare nearby addresses</strong>
@@ -1683,7 +1683,7 @@ export function ScoreCard({
             </div>
             {rankPanelOpen ? (
               <label>
-                <span className={styles.srOnly}>Choose nearby-address comparison view</span>
+                <span className={styles.srOnly}>Choose nearby address comparison view</span>
                 <select
                   value={rankMetric}
                   onChange={(event) => setRankMetric(event.target.value as RankMetric)}
