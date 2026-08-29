@@ -716,13 +716,13 @@ describe("score card copy", () => {
       '{ id: "access", label: "Walk-distance evidence" }'
     );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
-      '{ id: "bus", label: "Bus service-support score factor" }'
+      '{ id: "bus", label: "Bus service support" }'
     );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
-      '{ id: "heat", label: "Heat estimate score factor" }'
+      '{ id: "heat", label: "Heat estimate" }'
     );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
-      '{ id: "crossing", label: "Crossing-friction score factor" }'
+      '{ id: "crossing", label: "Crossing friction" }'
     );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
       '{ id: "crossing", label: "Crossing-friction locked term" }'
@@ -741,6 +741,9 @@ describe("score card copy", () => {
     );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
       '{ id: "heat", label: "Heat proxy evidence" }'
+    );
+    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
+      "score factor"
     );
     expect(source).toContain('?? "Locked score order"');
     expect(source).toContain('"Sorting-only score"');

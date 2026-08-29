@@ -714,9 +714,9 @@ describe("rendered accessibility output", () => {
       rankAnnouncement({
         loading: false,
         rankedCount: 0,
-        rankMetricLabel: "Bus service-support score factor",
+        rankMetricLabel: "Bus service support",
       })
-    ).toBe("No planning-area bus service-support score factor ranks available.");
+    ).toBe("No planning-area bus service support ranks available.");
     expect(
       rankAnnouncement({
         loading: false,
