@@ -155,7 +155,7 @@ const SOURCE_LABELS: Record<string, string> = {
 
 const REASON_COPY: Record<keyof Subscores, { low: string; high: string }> = {
   access: { low: "Longer walk to stop or exit", high: "Short walk to stop or exit" },
-  rain: { low: "Mostly exposed to rain", high: "Good rain shelter coverage" },
+  rain: { low: "Mostly exposed walk", high: "Good covered-walkway coverage" },
   heat: { low: "Low heat-estimate evidence", high: "Stronger heat-estimate evidence" },
   bus: { low: "Limited bus-service evidence", high: "Stronger bus-service evidence" },
   crossing: { low: "More crossing friction", high: "Easy crossing profile" },
@@ -1401,7 +1401,7 @@ export function ScoreCard({
   const heatMatchesRain =
     score.subscores &&
     formatScore(score.subscores.heat) === formatScore(score.subscores.rain)
-      ? "Same displayed value as rain shelter for this postal."
+      ? "Same displayed value as shelter exposure for this postal."
       : null;
   const routeDetailItems: Array<{ label: string; value: string }> = [];
   const routeDetailNotes: string[] = [];
@@ -1521,7 +1521,7 @@ export function ScoreCard({
             ? "Covered-walkway ratio"
             : scoredMeta(score.subscores.rain ?? score.subscores.heat, "40% locked shelter exposure", "Shelter-map walk unavailable"),
           notes: [
-            "In this locked release, rain shelter and the heat estimate share mostly the same covered-walkway evidence.",
+            "In this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence.",
             "Heat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.",
             heatMatchesRain,
             heatEvidenceDetail,

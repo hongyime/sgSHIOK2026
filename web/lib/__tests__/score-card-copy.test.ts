@@ -928,12 +928,21 @@ describe("score card copy", () => {
     expect(source).not.toContain("Limited bus connectivity");
     expect(source).not.toContain("Strong bus connectivity");
     expect(source).toContain(
-      "In this locked release, rain shelter and the heat estimate share mostly the same covered-walkway evidence."
+      "In this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence."
     );
     expect(source).not.toContain(
       "Rain shelter and heat comfort currently share mostly the same covered-walkway evidence."
     );
+    expect(source).not.toContain(
+      "In this locked release, rain shelter and the heat estimate share mostly the same covered-walkway evidence."
+    );
     expect(source).not.toContain("rain shelter and heat comfort share mostly the same covered-walkway evidence.");
+    expect(source).not.toContain("Mostly exposed to rain");
+    expect(source).not.toContain("Good rain shelter coverage");
+    expect(source).toContain("Mostly exposed walk");
+    expect(source).toContain("Good covered-walkway coverage");
+    expect(source).not.toContain("Same displayed value as rain shelter for this postal.");
+    expect(source).toContain("Same displayed value as shelter exposure for this postal.");
     expect(source).toContain("Heat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.");
     expect(source).not.toContain("Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first.");
     expect(source).toContain("Heat estimate evidence: covered ${formatDistance(score.paths.covered_m)}");
@@ -958,6 +967,9 @@ describe("score card copy", () => {
     expect(proposalSource).toContain("stop presenting the prior five locked-term rows");
     expect(proposalSource).not.toContain("stop presenting the prior five component-score rows");
     expect(proposalSource).toContain(
+      "In this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence."
+    );
+    expect(proposalSource).not.toContain(
       "In this locked release, rain shelter and the heat estimate share mostly the same covered-walkway evidence."
     );
     expect(proposalSource).toContain("Use it to sort the published shelter-map data");
