@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `86393d8` (`docs: describe disconnected walks without pending language`)
+Latest substantive commit: `38fd14e` (`docs: describe direct-bus fallback as unpublished walk`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P912 is complete and pushed: direct-bus fallback copy now says the straight-line estimate has no published shelter-map walk, replacing `pending` / `yet` wording that implied a queued route. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P911 is complete and pushed: graph-disconnected transit copy now says no connected shelter-map walk is published/found, instead of using `not connected yet` language that implied pending repair. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P910 is complete and pushed: OneMap no-results copy now suggests another address spelling or a 6-digit postal code, in both screen-reader and visible empty-state text. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P909 is complete and pushed: the sample-search prompt now says `Try a known address?` instead of generic `Need a quick look?`, keeping the Mayflower shortcut framed as a known address/postal example. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
