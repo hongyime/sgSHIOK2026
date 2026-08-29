@@ -1990,3 +1990,7 @@ Browser source-freshness detail should describe dated LTA source checks without 
 2026-08-29 - P847 browser source-age check wording:
 
 Browser source-age copy should express the limitation as a product fact, not as manifest/probe mechanics. The summary now says the 28 Aug 2026 source-age snapshot was not a live source refresh, and the detail calls it a source-age check rather than a manifest-only check. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P848 first-card data date wording:
+
+The first-card data date should name published data rather than bundle-generation mechanics. The line now says `Shelter-map evidence as of ...; published data built ...`, preserving both manifest-derived dates while keeping implementation terminology out of the primary UI. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.

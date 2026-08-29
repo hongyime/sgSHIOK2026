@@ -264,6 +264,9 @@ describe("score card copy", () => {
     expect(source).not.toContain("Failed to load score data.");
     expect(source).not.toContain("Singapore walk-to-transit comfort");
     expect(source).toContain(
+      "Shelter-map evidence as of {formatDataDate(manifest)}; published data built {formatGeneratedDate(manifest)}"
+    );
+    expect(source).not.toContain(
       "Shelter-map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}"
     );
     expect(source).not.toContain(
@@ -395,7 +398,7 @@ describe("score card copy", () => {
     expect(source).toContain("{lockedScoreAvailabilityLine && <span>{lockedScoreAvailabilityLine}</span>}");
     expect(source).toContain("{lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}");
     expectSourceOrder(source, [
-      "Shelter-map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}",
+      "Shelter-map evidence as of {formatDataDate(manifest)}; published data built {formatGeneratedDate(manifest)}",
       "{lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}",
       '<form onSubmit={handleSearch} className={styles.searchForm} aria-busy={loading}>',
       "<SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted} />",

@@ -2380,7 +2380,7 @@ export default function Home() {
             <h1>S.H.I.O.K. Shelter Map</h1>
             <p>See covered-walkway ratio and exposed gaps on the walk to transit, plus the night-lighting map layer</p>
             <p className={styles.dataLine}>
-              Shelter-map evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}
+              Shelter-map evidence as of {formatDataDate(manifest)}; published data built {formatGeneratedDate(manifest)}
             </p>
             {lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}
             <div className={styles.mapLayerControls} aria-label="Map layers">
