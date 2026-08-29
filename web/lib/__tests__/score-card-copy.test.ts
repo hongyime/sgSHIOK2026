@@ -445,7 +445,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("Sources: LTA/data.gov.sg, OneMap/SLA, © OpenStreetMap contributors");
     expect(source).toContain("https://opendatacommons.org/licenses/odbl/1-0/");
     expect(source).toContain("ATTRIBUTION.md");
-    expect(source).toContain("Heat proxy: shelter plus sparse nearby greenery, not measured temperature");
+    expect(source).toContain("Heat estimate: shelter plus sparse nearby greenery, not measured temperature");
     expect(source).toContain("Night lighting");
     expect(source).toContain("Exposed gaps {selectedWalkHeadingPhrase}");
     expect(source).not.toContain("Exposed gaps on this walk");
@@ -479,6 +479,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("Heat: shelter + NParks shade proxy");
     expect(source).not.toContain("Heat: shelter plus NParks shade proxy");
     expect(source).not.toContain("Heat proxy: shelter + sparse NParks greenery");
+    expect(source).not.toContain("Heat proxy: shelter plus sparse nearby greenery, not measured temperature");
     expect(layoutSource).toContain(
       "Explore covered-walkway ratio, exposed gaps, the night-lighting map layer, and the secondary locked SHIOK score on Singapore walks to transit."
     );
@@ -718,7 +719,7 @@ describe("score card copy", () => {
       '{ id: "bus", label: "Bus service-support score factor" }'
     );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
-      '{ id: "heat", label: "Heat proxy score factor" }'
+      '{ id: "heat", label: "Heat estimate score factor" }'
     );
     expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
       '{ id: "crossing", label: "Crossing-friction score factor" }'
@@ -828,9 +829,10 @@ describe("score card copy", () => {
     );
     expect(source).toContain("Heat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.");
     expect(source).not.toContain("Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first.");
-    expect(source).toContain("Heat proxy evidence: covered ${formatDistance(score.paths.covered_m)}");
+    expect(source).toContain("Heat estimate evidence: covered ${formatDistance(score.paths.covered_m)}");
     expect(source).not.toContain("greenery proxy ${formatDistance(score.paths.shade_m)}");
-    expect(source).toContain('heat: { low: "Low heat-proxy evidence", high: "Stronger heat-proxy evidence" }');
+    expect(source).toContain('heat: { low: "Low heat-estimate evidence", high: "Stronger heat-estimate evidence" }');
+    expect(source).not.toContain('heat: { low: "Low heat-proxy evidence", high: "Stronger heat-proxy evidence" }');
     expect(source).not.toContain("Better heat-proxy score");
     expect(source).toContain(
       "Crossing friction still contributes 5% to the locked score, but has low separation in this release."

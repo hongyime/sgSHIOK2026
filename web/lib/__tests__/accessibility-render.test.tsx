@@ -648,7 +648,8 @@ describe("rendered accessibility output", () => {
     );
     expect(html).not.toContain("SHIOK shows the shelter trace first.");
     expect(html).toContain("Same displayed value as rain shelter for this postal.");
-    expect(html).toContain("Heat proxy evidence: covered 149 m; nearby greenery 23 m.");
+    expect(html).toContain("Heat estimate evidence: covered 149 m; nearby greenery 23 m.");
+    expect(html).not.toContain("Heat proxy evidence: covered 149 m; nearby greenery 23 m.");
     expect(html).not.toContain("Better heat-proxy score");
     expect(html).toContain(
       "Nearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index."

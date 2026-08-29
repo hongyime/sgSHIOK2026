@@ -93,7 +93,7 @@ const SOURCE_LABELS: Record<string, string> = {
 const REASON_COPY: Record<keyof Subscores, { low: string; high: string }> = {
   access: { low: "Longer walk to transit", high: "Short walk to transit" },
   rain: { low: "Mostly exposed to rain", high: "Good rain shelter coverage" },
-  heat: { low: "Low heat-proxy evidence", high: "Stronger heat-proxy evidence" },
+  heat: { low: "Low heat-estimate evidence", high: "Stronger heat-estimate evidence" },
   bus: { low: "Limited bus-service evidence", high: "Stronger bus-service evidence" },
   crossing: { low: "More crossing friction", high: "Easy crossing profile" },
 };
@@ -1322,7 +1322,7 @@ export function ScoreCard({
     score.paths &&
     typeof score.paths.covered_m === "number" &&
     typeof score.paths.shade_m === "number"
-      ? `Heat proxy evidence: covered ${formatDistance(score.paths.covered_m)}; nearby greenery ${formatDistance(score.paths.shade_m)}.`
+      ? `Heat estimate evidence: covered ${formatDistance(score.paths.covered_m)}; nearby greenery ${formatDistance(score.paths.shade_m)}.`
       : null;
   const heatMatchesRain =
     score.subscores &&
@@ -2490,7 +2490,7 @@ export default function Home() {
               ATTRIBUTION.md
             </a>
           </p>
-          <p>Heat proxy: shelter plus sparse nearby greenery, not measured temperature</p>
+          <p>Heat estimate: shelter plus sparse nearby greenery, not measured temperature</p>
         </details>
 
         {showDetailOverlay && (
