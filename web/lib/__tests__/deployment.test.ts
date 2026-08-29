@@ -22,6 +22,12 @@ describe("deployment packaging", () => {
     expect(config.ignoreCommand).toBe("node scripts/ignore-build.mjs");
   });
 
+  it("keeps Git pushes from automatically deploying production", () => {
+    const config = JSON.parse(readFileSync(join(__dirname, "../../vercel.json"), "utf-8"));
+
+    expect(config.git).toEqual({ deploymentEnabled: false });
+  });
+
   it("marks versioned data artifacts cacheable to reduce repeated edge requests", () => {
     const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
 
