@@ -1930,3 +1930,7 @@ Production-readiness warning text should order stale source names by the same da
 2026-08-29 - P832 browser stale-source detail order:
 
 The browser's `Source freshness detail` disclosure should use the same stale-source severity order as production readiness. The copy now states that stale sources are ordered by days past threshold and starts with Planning Area Boundaries, NParks Tracks, and NParks Heritage Road Green Buffers before the less-overdue transport and greenery references. This is browser copy/test/evidence work only; it does not alter source inputs, scoring, exports, public data, deployment, or locked weights.
+
+2026-08-29 - P833 CLI stale-source summary order:
+
+The `run.py check --freshness-only` grouped stale-source summary should use the same days-past-stale severity order as production readiness and browser freshness detail. Individual source lines still print in configured source order, but the action-oriented `Stale sources:` summary now starts with the most overdue source. This is CLI reporting/test/evidence work only; it does not alter source inputs, scoring, exports, public data, deployment, or locked weights.

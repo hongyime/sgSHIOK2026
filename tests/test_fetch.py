@@ -365,9 +365,10 @@ def test_run_freshness_report_does_not_probe_upstream(
         fetch,
         "load_manifest",
         lambda: {
-            "sources": {
-                "fresh": {"fetched_at": "2026-08-15T00:00:00+00:00"},
-                "stale": {"last_modified": "Tue, 07 Jul 2026 02:06:48 GMT"},
+                "sources": {
+                    "fresh": {"fetched_at": "2026-08-15T00:00:00+00:00"},
+                "alpha_less_stale": {"last_modified": "Wed, 15 Jul 2026 00:00:00 GMT"},
+                "zeta_more_stale": {"last_modified": "Tue, 07 Jul 2026 02:06:48 GMT"},
                 "manual": {"last_modified": "Mon, 01 Jan 2024 00:00:00 GMT"},
                 "unknown_age": {},
                 "manifest_only": {"name": "Copied Manifest Only"},
@@ -381,7 +382,16 @@ def test_run_freshness_report_does_not_probe_upstream(
     )
     sources = {
         "fresh": {"name": "Fresh", "kind": "datagov_polldownload", "dataset_id": "fresh"},
-        "stale": {"name": "Stale", "kind": "datagov_polldownload", "dataset_id": "stale"},
+        "alpha_less_stale": {
+            "name": "Alpha Less Stale",
+            "kind": "datagov_polldownload",
+            "dataset_id": "alpha-less-stale",
+        },
+        "zeta_more_stale": {
+            "name": "Zeta More Stale",
+            "kind": "datagov_polldownload",
+            "dataset_id": "zeta-more-stale",
+        },
         "manual": {"name": "Manual", "kind": "osm_pbf", "refresh": "manual"},
         "unknown_age": {
             "name": "Unknown Age",
@@ -412,18 +422,26 @@ def test_run_freshness_report_does_not_probe_upstream(
         "with 29.0d until stale (monthly)"
     ) in out
     assert (
-        "[stale] Stale: STALE — last_modified age 39.9d exceeds 30d threshold "
+        "[zeta_more_stale] Zeta More Stale: STALE — last_modified age 39.9d exceeds 30d threshold "
         "by 9.9d (monthly)"
+    ) in out
+    assert (
+        "[alpha_less_stale] Alpha Less Stale: STALE — last_modified age 32.0d exceeds 30d threshold "
+        "by 2.0d (monthly)"
     ) in out
     assert "[manual] Manual: freshness manual" in out
     assert "[unknown_age] Unknown Age: freshness unknown_age (monthly)" in out
     assert "[manifest_only] Copied Manifest Only: freshness unknown_policy (cadence unspecified)" in out
-    assert "Freshness: current 1, stale 1, manual 1, unknown_policy 1, unknown_age 1" in out
+    assert "Freshness: current 1, stale 2, manual 1, unknown_policy 1, unknown_age 1" in out
     assert (
         "Oldest current source: fresh (Fresh, 1.0d of 30d threshold, 29.0d until stale)"
         in out
     )
-    assert "Stale sources: stale (Stale)" in out
+    assert (
+        "Stale sources: zeta_more_stale (Zeta More Stale), "
+        "alpha_less_stale (Alpha Less Stale)"
+    ) in out
+    assert "Stale sources: alpha_less_stale (Alpha Less Stale), zeta_more_stale" not in out
     assert "Manual sources: manual (Manual)" in out
     assert "Unknown-policy sources: manifest_only (Copied Manifest Only)" in out
     assert "Unknown-age sources: unknown_age (Unknown Age)" in out

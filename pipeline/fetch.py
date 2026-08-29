@@ -323,6 +323,14 @@ def freshness_key_summary(label: str, statuses: list[dict[str, Any]]) -> str | N
     return f"{label}: {', '.join(source_labels)}"
 
 
+def sorted_stale_freshness_statuses(statuses: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return sorted(
+        statuses,
+        key=lambda status: float(status.get("days_past_stale") or 0.0),
+        reverse=True,
+    )
+
+
 def oldest_current_freshness_summary(statuses: list[dict[str, Any]]) -> str | None:
     oldest = nearest_current_source_to_stale(statuses)
     if oldest is None:
@@ -435,13 +443,17 @@ def run_freshness_report(
     oldest_current = oldest_current_freshness_summary(freshness_by_status["current"])
     if oldest_current:
         print(oldest_current)
-    for label, status_key in (
-        ("Stale sources", "stale"),
-        ("Manual sources", "manual"),
-        ("Unknown-policy sources", "unknown_policy"),
-        ("Unknown-age sources", "unknown_age"),
+    for label, status_key, statuses in (
+        (
+            "Stale sources",
+            "stale",
+            sorted_stale_freshness_statuses(freshness_by_status["stale"]),
+        ),
+        ("Manual sources", "manual", freshness_by_status["manual"]),
+        ("Unknown-policy sources", "unknown_policy", freshness_by_status["unknown_policy"]),
+        ("Unknown-age sources", "unknown_age", freshness_by_status["unknown_age"]),
     ):
-        summary = freshness_key_summary(label, freshness_by_status[status_key])
+        summary = freshness_key_summary(label, statuses)
         if summary:
             print(summary)
     if freshness_by_status["stale"]:
