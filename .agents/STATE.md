@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `d9602ae` (`docs: align unavailable access row copy`)
+Latest substantive commit: `0fc9940` (`docs: name missing published walk state`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P920 is complete and pushed: generic missing-path reason chips now say `No published shelter-map walk` instead of broader `Shelter-map evidence unavailable`, while detailed row meta remains `Shelter-map walk unavailable`. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P919 is complete and pushed: the unavailable access row now says `Stop/exit walk score unavailable`, matching the displayed `Walk to stop or exit` row while leaving the scored locked-term meta `35% locked walk-to-transit` unchanged. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P918 is complete and pushed: the locked-score availability breakdown now labels the `NOT_YET_SCORED` bucket as records without published locked scores instead of `awaiting scoring`, with README aligned to the same static published-data boundary. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P917 is complete and pushed: live OneMap preview copy now says the clicked MRT/LRT exit or bus stop is outside the published shelter-map data, replacing `not part of ... yet` wording that implied future inclusion. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
