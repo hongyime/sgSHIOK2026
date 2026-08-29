@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `fb38a5c` (`docs: use address list in browser caveats`)
+Latest substantive commit: `aadf048` (`docs: clarify recent source sample labels`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P857 is complete and pushed: postal-specific missing-address caveats now label parenthesized evidence as public-source or address-candidate samples instead of geocoded rows or proxy rows.
 - P856 is complete and pushed: browser caveats now say June 2020 address list instead of address universe, and OSM attribution says geometry evidence rather than address registry.
 - P855 is complete and pushed: route details now label the walk-adjacent greenery signal as nearby greenery rather than greenery proxy, while keeping the heat-proxy limitation visible.
 - P854 is complete and pushed: postal-specific HDB gap caveats now say confirmed new HDB rows are missing from the June 2020 address list rather than missing from frozen v1.
