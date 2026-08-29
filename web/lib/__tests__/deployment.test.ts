@@ -36,11 +36,11 @@ describe("deployment packaging", () => {
     expect(config).toContain('value: "public, max-age=31536000, immutable"');
   });
 
-  it("caches the app shell briefly to reduce repeat edge requests", () => {
+  it("caches the app shell to reduce repeat edge requests", () => {
     const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
 
     expect(config).toContain('source: "/"');
-    expect(config).toContain('value: "public, max-age=300, stale-while-revalidate=3600"');
+    expect(config).toContain('value: "public, max-age=3600, stale-while-revalidate=21600"');
   });
 
   it("keeps crawler controls away from data and API payloads", () => {
