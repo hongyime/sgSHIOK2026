@@ -341,9 +341,9 @@ export function rankPanelDescription(rankMetric: RankMetric, rankPanelOpen: bool
     return "Nearby addresses are ordered by locked score; shelter-map walk evidence remains the primary view.";
   }
   if (rankMetric === "bus" || rankMetric === "heat" || rankMetric === "crossing") {
-    return "Nearby-address comparison for this locked-score row; locked SHIOK score is unchanged.";
+    return "Compares nearby addresses for this locked-score row; locked SHIOK score is unchanged.";
   }
-  return "Nearby-address comparison for this evidence row; locked SHIOK score is unchanged.";
+  return "Compares nearby addresses for this evidence row; locked SHIOK score is unchanged.";
 }
 
 export function shouldFetchRankRecords({

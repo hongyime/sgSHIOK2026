@@ -828,8 +828,8 @@ describe("score card copy", () => {
       "Planning-area list uses locked score only as a sorting index; shelter-map walk evidence remains the primary view."
     );
     expect(source).not.toContain("Planning-area list sorted by locked score; shelter-map walk evidence remains the primary view.");
-    expect(source).toContain("Nearby-address comparison for this evidence row; locked SHIOK score is unchanged.");
-    expect(source).toContain("Nearby-address comparison for this locked-score row; locked SHIOK score is unchanged.");
+    expect(source).toContain("Compares nearby addresses for this evidence row; locked SHIOK score is unchanged.");
+    expect(source).toContain("Compares nearby addresses for this locked-score row; locked SHIOK score is unchanged.");
     expect(source).not.toContain("Planning-area locked-score factor view; locked SHIOK score is unchanged.");
     expect(source).not.toContain("Planning-area locked-term view; locked SHIOK score is unchanged.");
     expect(source).not.toContain("Planning-area component evidence view; locked SHIOK score is unchanged.");

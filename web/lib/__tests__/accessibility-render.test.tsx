@@ -756,16 +756,16 @@ describe("rendered accessibility output", () => {
       "Planning-area list uses locked score only as a sorting index; shelter-map walk evidence remains the primary view."
     );
     expect(rankPanelDescription("rain", true)).toBe(
-      "Nearby-address comparison for this evidence row; locked SHIOK score is unchanged."
+      "Compares nearby addresses for this evidence row; locked SHIOK score is unchanged."
     );
     expect(rankPanelDescription("bus", true)).toBe(
-      "Nearby-address comparison for this locked-score row; locked SHIOK score is unchanged."
+      "Compares nearby addresses for this locked-score row; locked SHIOK score is unchanged."
     );
     expect(rankPanelDescription("heat", true)).toBe(
-      "Nearby-address comparison for this locked-score row; locked SHIOK score is unchanged."
+      "Compares nearby addresses for this locked-score row; locked SHIOK score is unchanged."
     );
     expect(rankPanelDescription("crossing", true)).toBe(
-      "Nearby-address comparison for this locked-score row; locked SHIOK score is unchanged."
+      "Compares nearby addresses for this locked-score row; locked SHIOK score is unchanged."
     );
     expect(rankPanelDescription("crossing", true)).not.toBe(
       "Planning-area locked-score factor view; locked SHIOK score is unchanged."
