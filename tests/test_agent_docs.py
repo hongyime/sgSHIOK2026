@@ -92,3 +92,12 @@ def test_scoring_comments_point_to_root_decisions_file() -> None:
         text = (ROOT / relative).read_text(encoding="utf-8")
         assert "docs/decisions.md" not in text
         assert "decisions.md 2026-08-05" in text
+
+
+def test_runpy_freshness_help_names_sources_config() -> None:
+    text = (ROOT / "run.py").read_text(encoding="utf-8")
+    assert (
+        "check --freshness-only reads raw/manifest.json and pipeline/config/sources.yaml"
+        in text
+    )
+    assert "check --freshness-only reads raw/manifest.json only" not in text

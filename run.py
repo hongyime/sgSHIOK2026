@@ -5,7 +5,7 @@ Usage: uv run python run.py <task> [options]
 
 Safe reports:
   check --freshness-only | check --geospatial-discovery-only | universe-status | p19-gap-status | p19-mcst-locations | p125-osm-status | network-qa | network-preflight | readiness | readiness --gate-summary | batch-plan | validate
-  check --freshness-only reads raw/manifest.json only; it probes no upstream URLs, writes no manifest, groups action summaries with source names, and says stale sources require a versioned refresh.
+  check --freshness-only reads raw/manifest.json and pipeline/config/sources.yaml; it probes no upstream URLs, writes no manifest, groups action summaries with source names, and says stale sources require a versioned refresh.
   check --geospatial-discovery-only probes DataMall discovery metadata only; it downloads no payloads, writes no manifest, and treats changed discovery URLs as new-version inputs.
   p19-gap-status reads cached P19 v2 28 Aug 2026 public-source sample status, evidence split, missing rows, P19 v2 Overpass coverage, MCST proxy probe and cache ages only; it calls no APIs and writes no files.
   p19-mcst-locations reads existing P379 status for unvalidated P19 MCST proxy rows only; it calls no APIs and writes no files.
