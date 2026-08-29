@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `a45c2ee` (`docs: clarify locked transit range disclosure`)
+Latest substantive commit: `1147839` (`docs: clarify no-transit range labels`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P871 is complete and pushed: short no-transit reason/meta labels now say `Beyond 1.2 km locked range` instead of `Outside locked transit range`.
 - P870 is complete and pushed: the locked-score availability disclosure now says `beyond the 1.2 km locked transit range` instead of `beyond locked transit range`.
 - P869 is complete and pushed: clicked-transit preview warnings now say published locked scores come from `published shelter-map data` instead of the `shelter-map bundle`.
 - P868 is complete and pushed: `web/lib/__tests__/subscore-ranking.test.ts` now asserts the current planning-area labels instead of stale `score factor` labels.
