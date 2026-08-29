@@ -273,7 +273,7 @@ describe("rendered accessibility output", () => {
       selection: null,
       rankingRecords: [],
       lockedScoreAvailabilityLine:
-        "Full locked scores: 95,157 of 124,443 June 2020 address-list records; 29,286 address-list records (23.5%, roughly a quarter) missing full scores.",
+        "Locked-score coverage: 95,157 of 124,443 June 2020 address-list records have full locked scores; 29,286 address-list records (23.5%, roughly a quarter) missing full scores.",
     });
 
     expect(html).toContain("Find an address or postal code");
@@ -286,8 +286,9 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("The published shelter-map data is tied to the June 2020 address list.");
     expect(html).not.toContain("The published shelter-map data is tied to the frozen June 2020 address universe.");
     expect(html).toContain(
-      "Full locked scores: 95,157 of 124,443 June 2020 address-list records; 29,286 address-list records (23.5%, roughly a quarter) missing full scores."
+      "Locked-score coverage: 95,157 of 124,443 June 2020 address-list records have full locked scores; 29,286 address-list records (23.5%, roughly a quarter) missing full scores."
     );
+    expect(html).not.toContain("Full locked scores: 95,157 of 124,443");
     expect(html).not.toContain("Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio, exposed gaps, and night lighting on the walk to transit.");
     expect(html).not.toContain("Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio, exposed gaps, and night lighting near transit.");
     expect(html).not.toContain("Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio and exposed gaps on the walk to transit, plus the night-lighting map layer.");
