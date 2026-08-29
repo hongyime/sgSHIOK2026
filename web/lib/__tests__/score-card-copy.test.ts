@@ -946,6 +946,7 @@ describe("score card copy", () => {
 
   it("keeps exposed-gap button labels aligned with active map selection state", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const cssSource = readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8");
 
     expect(source).toContain("function exposureGapMapActionLabel");
     expect(source).toContain('const action = active ? "Selected on map for" : "Focus on map for";');
@@ -953,6 +954,11 @@ describe("score card copy", () => {
     expect(source).toContain("aria-label={exposureGapMapActionLabel(gap, index, actionLocation, activeGap)}");
     expect(source).not.toContain("aria-label={exposureGapMapActionLabel(gap, index, location, activeGap)}");
     expect(source).not.toContain("aria-label={`Focus on map for ${exposureGapCopy(gap.len_m, index)}");
+    expect(cssSource).toContain("@media (max-width: 560px)");
+    expect(cssSource).toContain(".gapItem {\n    grid-template-columns: 58px minmax(0, 1fr);");
+    expect(cssSource).toContain(".gapAction {\n    grid-column: 2;\n    grid-row: auto;");
+    expect(cssSource).toContain("justify-self: start;");
+    expect(cssSource).toContain("white-space: normal;");
   });
 
   it("announces preview route locked score state as preview-only", () => {

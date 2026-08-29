@@ -2050,3 +2050,7 @@ The browser Data limits detail should not require users to understand audit term
 2026-08-29 - P877 planning-area comparison wording:
 
 The planning-area panel should describe itself as comparison rather than ranks. Numeric ordering still appears inside the opened list, but the button, lazy-load helper, and live status now say planning-area comparison so the control matches the product task: compare nearby records without making ranking the headline. This is browser copy/test/evidence work only; it does not alter ranking logic, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P878 mobile exposed-gap action layout:
+
+Exposed-gap rows should remain legible on narrow screens because those gaps are the product's strongest inspectable artifact. Mobile CSS now keeps the gap distance and description in two columns and lets the map action wrap below the description instead of forcing a third column beside coordinate text. This is responsive CSS/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

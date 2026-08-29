@@ -1298,6 +1298,17 @@ button.gapItem:hover,
   .summaryGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  .gapItem {
+    grid-template-columns: 58px minmax(0, 1fr);
+  }
+
+  .gapAction {
+    grid-column: 2;
+    grid-row: auto;
+    justify-self: start;
+    white-space: normal;
+  }
 }
 
 .customStopBar {
