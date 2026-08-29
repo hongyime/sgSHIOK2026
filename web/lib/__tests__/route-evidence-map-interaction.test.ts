@@ -272,11 +272,16 @@ describe("shelter map interactions", () => {
     expect(pageSource).not.toContain("until that route returns");
     expect(pageSource).toContain('const LIVE_ROUTE_PREVIEW_CACHE_PREFIX = "shiok:onemap-route-preview:v2:";');
     expect(pageSource).toContain("const LIVE_ROUTE_PREVIEW_CACHE_TTL_MS = 86_400_000;");
+    expect(pageSource).toContain("const LIVE_ROUTE_PREVIEW_CACHE_MAX_ENTRIES = 30;");
     expect(pageSource).toContain("function liveRoutePreviewCacheKey(");
     expect(pageSource).toContain("function liveRoutePreviewStorage(): Storage | null");
     expect(pageSource).toContain("if (window.localStorage) return window.localStorage;");
     expect(pageSource).toContain("if (window.sessionStorage) return window.sessionStorage;");
     expect(pageSource).toContain("function parseLiveRoutePreviewPayload(value: unknown): LiveRoutePreviewPayload | null");
+    expect(pageSource).toContain("function pruneLiveRoutePreviewCache(");
+    expect(pageSource).toContain("key?.startsWith(LIVE_ROUTE_PREVIEW_CACHE_PREFIX)");
+    expect(pageSource).toContain(".slice(maxEntries)");
+    expect(pageSource).toContain("LIVE_ROUTE_PREVIEW_CACHE_MAX_ENTRIES - 1");
     expect(pageSource).toContain("function liveRouteCoordinateParam(value: number): string");
     expect(pageSource).toContain("return liveRouteCoordinateKey(value);");
     expect(pageSource).toContain("`/api/onemap-route?startLat=${liveRouteCoordinateParam(originLatLng.lat)}&startLng=${liveRouteCoordinateParam(originLatLng.lng)}&endLat=${liveRouteCoordinateParam(stopLat)}&endLng=${liveRouteCoordinateParam(stopLng)}`");
@@ -289,6 +294,7 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("liveRoutePreviewInFlightRef.current.delete(cacheKey);");
     expect(pageSource).toContain("writeLiveRoutePreviewCache(cacheKey, data)");
     expect(pageSource).toContain("if (!payload.ok || typeof payload.route_geometry !== \"string\") return;");
+    expect(pageSource).toContain("pruneLiveRoutePreviewCache(storage, nowMs, LIVE_ROUTE_PREVIEW_CACHE_MAX_ENTRIES - 1);");
     expect(pageSource).toContain("storage.setItem(key, JSON.stringify({ cached_at: nowMs, payload }));");
     expect(pageSource).toContain("OneMap walking preview could not load");
     expect(pageSource).not.toContain("OneMap walking preview is unavailable");

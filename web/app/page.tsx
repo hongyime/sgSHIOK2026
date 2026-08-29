@@ -80,6 +80,7 @@ interface LiveRoutePreviewPayload {
 
 const LIVE_ROUTE_PREVIEW_CACHE_PREFIX = "shiok:onemap-route-preview:v2:";
 const LIVE_ROUTE_PREVIEW_CACHE_TTL_MS = 86_400_000;
+const LIVE_ROUTE_PREVIEW_CACHE_MAX_ENTRIES = 30;
 
 function liveRouteCoordinateKey(value: number): string {
   return value.toFixed(6);
@@ -132,6 +133,37 @@ function parseLiveRoutePreviewPayload(value: unknown): LiveRoutePreviewPayload |
   return typeof parsed.route_geometry === "string" ? parsed : null;
 }
 
+function pruneLiveRoutePreviewCache(
+  storage: Storage,
+  nowMs: number = Date.now(),
+  maxEntries: number = LIVE_ROUTE_PREVIEW_CACHE_MAX_ENTRIES,
+): void {
+  const entries: Array<{ key: string; cachedAt: number }> = [];
+
+  for (let index = 0; index < storage.length; index += 1) {
+    const key = storage.key(index);
+    if (!key?.startsWith(LIVE_ROUTE_PREVIEW_CACHE_PREFIX)) continue;
+    try {
+      const parsed = JSON.parse(storage.getItem(key) || "{}") as { cached_at?: unknown };
+      const cachedAt = Number(parsed.cached_at);
+      if (!Number.isFinite(cachedAt) || nowMs - cachedAt > LIVE_ROUTE_PREVIEW_CACHE_TTL_MS) {
+        storage.removeItem(key);
+        index -= 1;
+        continue;
+      }
+      entries.push({ key, cachedAt });
+    } catch {
+      storage.removeItem(key);
+      index -= 1;
+    }
+  }
+
+  entries
+    .sort((a, b) => b.cachedAt - a.cachedAt)
+    .slice(maxEntries)
+    .forEach((entry) => storage.removeItem(entry.key));
+}
+
 function readLiveRoutePreviewCache(key: string, nowMs: number = Date.now()): LiveRoutePreviewPayload | null {
   const storage = liveRoutePreviewStorage();
   if (!storage) return null;
@@ -152,9 +184,15 @@ function writeLiveRoutePreviewCache(key: string, payload: LiveRoutePreviewPayloa
   if (!storage) return;
   if (!payload.ok || typeof payload.route_geometry !== "string") return;
   try {
+    pruneLiveRoutePreviewCache(storage, nowMs, LIVE_ROUTE_PREVIEW_CACHE_MAX_ENTRIES - 1);
     storage.setItem(key, JSON.stringify({ cached_at: nowMs, payload }));
   } catch {
-    // Browser storage can be unavailable or full; the in-memory cache still applies.
+    try {
+      pruneLiveRoutePreviewCache(storage, nowMs, LIVE_ROUTE_PREVIEW_CACHE_MAX_ENTRIES - 1);
+      storage.setItem(key, JSON.stringify({ cached_at: nowMs, payload }));
+    } catch {
+      // Browser storage can be unavailable or full; the in-memory cache still applies.
+    }
   }
 }
 
