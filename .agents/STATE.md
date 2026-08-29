@@ -3,7 +3,7 @@
 Date: 2026-08-30
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `4b02840` (`perf: rewrite apple icon probes to cached icon`)
+Latest substantive commit: `b649e17` (`perf: serve cacheable webmanifest probe paths`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P1030 is complete and pushed: added a minimal static `web/public/site.webmanifest`, rewrote `/manifest.json` to it, gave both manifest probe paths one-week cache headers and `X-Robots-Tag: noindex, nofollow, noarchive`, and added both paths to the service worker bounded static cache list. The app shell still does not link a manifest, so this handles probes without adding a normal page-load request. Focused deployment test passed 1 file / 29 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1030-webmanifest-probe-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1029 is complete and pushed: conventional `/apple-touch-icon.png` and `/apple-touch-icon-precomposed.png` probes now rewrite to the existing immutable-cacheable `/icon.svg`, with one-year immutable cache headers on both probe paths. Focused deployment test passed 1 file / 28 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1029-apple-icon-probe-rewrite.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1028 is complete and pushed: successful `/api/onemap-search` and `/api/onemap-route` responses now use one-week browser caching, and successful search CDN caching now matches the route preview one-week CDN / one-month stale window. Errors, throttles, invalid input, and missing-route responses remain uncached. Focused OneMap API test passed 1 file / 5 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1028-weekly-onemap-api-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1027 is complete and pushed: `/sw.js` now uses `Cache-Control: public, max-age=86400, stale-while-revalidate=604800` instead of hourly caching, reducing repeat service-worker script revalidation from returning browsers while keeping update propagation bounded to one day. Focused deployment test passed 1 file / 27 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1027-service-worker-day-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
