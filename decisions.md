@@ -2186,3 +2186,7 @@ No-results copy should offer both recovery paths: another address spelling or a 
 2026-08-29 - P911 disconnected-walk copy:
 
 Graph-disconnected transit copy should describe the current published-data limitation, not imply that the walk is merely pending. The short reason now says `No connected shelter-map walk`, and the longer note says transit stops or exits exist but no connected shelter-map walk is published for the postal. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P912 direct-bus fallback published-walk copy:
+
+Direct-bus fallback copy should say there is no published shelter-map walk instead of saying the walk is pending. The fallback evidence is a straight-line bus-service estimate, not a queued shelter-map route. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

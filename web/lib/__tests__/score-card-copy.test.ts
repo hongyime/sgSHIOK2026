@@ -72,7 +72,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("Outside current scoring range");
     expect(source).toContain('if (option.id === "best_transit") return available ? "displayed walk" : "no published walk";');
     expect(source).not.toContain('if (option.id === "best_transit") return available ? "displayed walk" : "unavailable";');
-    expect(source).toContain("No verified shelter-map walk yet");
+    expect(source).toContain("No verified shelter-map walk");
     expect(source).toContain("Nearby direct bus service without verified shelter-map walk");
     expect(source).not.toContain("Nearby bus service without verified shelter-map walk");
     expect(source).toContain(
@@ -98,7 +98,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("Walking-route shelter not verified yet");
     expect(source).not.toContain("Walking-route access was not verified");
     expect(source).not.toContain("Direct line to bus stop; walking route pending.");
-    expect(source).toContain("Straight-line bus estimate; shelter-map walk pending.");
+    expect(source).toContain("Straight-line bus estimate; no published shelter-map walk.");
+    expect(source).not.toContain("Straight-line bus estimate; shelter-map walk pending.");
     expect(source).not.toContain("Direct line to bus stop; shelter-map walk pending.");
     expect(source).toContain('const comparisonMetricLabel = directBusFallback ? "Verified shelter-map walk" : "Extra walk";');
     expect(source).toContain('const comparisonMetricValue = directBusFallback ? "Pending" : extraWalkLabel;');
@@ -866,7 +867,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("nearby bus evidence could not be connected");
     expect(source).toContain("Nearby direct bus service found");
     expect(source).not.toContain("Nearby bus service found");
-    expect(source).toContain("No verified shelter-map walk yet");
+    expect(source).toContain("No verified shelter-map walk");
     expect(source).not.toContain("Nearby bus stop with service data");
     expect(source).not.toContain("Shelter-map walk not verified yet");
     expect(source).not.toContain("Nearby bus service not walk-verified");

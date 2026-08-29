@@ -1385,9 +1385,10 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain("Nearby direct bus service found");
-    expect(html).toContain("No verified shelter-map walk yet");
+    expect(html).toContain("No verified shelter-map walk");
     expect(html).not.toContain("Nearby bus service found");
-    expect(html).toContain("Straight-line bus estimate; shelter-map walk pending.");
+    expect(html).toContain("Straight-line bus estimate; no published shelter-map walk.");
+    expect(html).not.toContain("Straight-line bus estimate; shelter-map walk pending.");
     expect(html).not.toContain("Direct line to bus stop; shelter-map walk pending.");
     expect(html).toContain("Straight-line bus estimate");
     expect(html).toContain("Published direct-bus fallback evidence selected.");

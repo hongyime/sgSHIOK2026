@@ -878,7 +878,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
     return ["No full locked score in published shelter-map data", "Partial shelter-map evidence may be available"];
   }
   if (score.paths?.routing_type === "direct_bus_fallback_unrouted") {
-    return ["Nearby direct bus service found", "Straight-line bus estimate; shelter-map walk pending.", "No verified shelter-map walk yet"];
+    return ["Nearby direct bus service found", "Straight-line bus estimate; no published shelter-map walk.", "No verified shelter-map walk"];
   }
   if (!score.paths || !score.best_node) return ["Shelter-map evidence unavailable", "Locked score unavailable"];
   if (!score.subscores) return ["Unavailable locked-score rows", "Shelter-map evidence available"];
@@ -1019,7 +1019,7 @@ function RouteModeControl({
   directBusFallback: boolean;
 }) {
   if (directBusFallback) {
-    return <div className={styles.sameRouteNote}>Straight-line bus estimate; shelter-map walk pending.</div>;
+    return <div className={styles.sameRouteNote}>Straight-line bus estimate; no published shelter-map walk.</div>;
   }
 
   if (sameRoute) {
