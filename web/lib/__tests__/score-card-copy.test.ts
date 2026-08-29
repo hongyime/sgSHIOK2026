@@ -302,6 +302,9 @@ describe("score card copy", () => {
     expect(source).toContain(
       "one of the 6 coordinate-backed HDB rows missing from the June 2020 address list in the ${RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}"
     );
+    expect(source).toContain('"521400": "2021-2026 HDB public-source sample"');
+    expect(source).not.toContain("HDB 2021-2026 geocoded rows");
+    expect(source).not.toContain("MCST 2021-2026 proxy rows");
     expect(source).not.toContain("HDB missing rows from frozen v1");
     expect(source).not.toContain("one of the 6 coordinate-backed HDB missing rows from frozen v1 (${source})");
     expect(source).not.toContain("Recent public-sample check:");

@@ -2026,3 +2026,7 @@ Browser route details should label the inspectable heat supporting signal as nea
 2026-08-29 - P856 address-list UI terminology:
 
 Browser data-limit and unavailable-address copy should say June 2020 address list instead of address universe, except where frozen v1 is kept as the version label inside the Data limits body. OpenStreetMap attribution now says it is not the address registry. This preserves the audit fact while using language a home-search user can understand. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P857 recent-source sample labels:
+
+Postal-specific missing-address caveats should label the parenthesized source as a public-source sample rather than geocoded rows or proxy rows. The underlying P19 caveat remains unchanged, but the browser label now explains what kind of evidence the user is seeing. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.

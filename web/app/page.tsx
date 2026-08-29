@@ -140,14 +140,14 @@ export function nightLightingRouteDetailValue(lampOverlayEnabled: boolean): stri
 }
 
 const RECENT_PUBLIC_SOURCE_MISSING_POSTAL_SOURCE: Record<string, string> = {
-  "521400": "HDB 2021-2026 geocoded rows",
-  "522400": "HDB 2021-2026 geocoded rows",
-  "523400": "HDB 2021-2026 geocoded rows",
-  "762936": "HDB 2021-2026 geocoded rows",
-  "763936": "HDB 2021-2026 geocoded rows",
-  "764936": "HDB 2021-2026 geocoded rows",
-  "378720": "MCST 2021-2026 proxy rows",
-  "935456": "MCST 2021-2026 proxy rows",
+  "521400": "2021-2026 HDB public-source sample",
+  "522400": "2021-2026 HDB public-source sample",
+  "523400": "2021-2026 HDB public-source sample",
+  "762936": "2021-2026 HDB public-source sample",
+  "763936": "2021-2026 HDB public-source sample",
+  "764936": "2021-2026 HDB public-source sample",
+  "378720": "2021-2026 MCST address-candidate sample",
+  "935456": "2021-2026 MCST address-candidate sample",
 };
 
 const RECENT_PUBLIC_SOURCE_UNVALIDATED_PROXY_COPY: Record<string, string> = {
