@@ -356,10 +356,31 @@ def nearest_current_source_to_stale(statuses: list[dict[str, Any]]) -> dict[str,
     }
 
 
+def freshness_report_sources(
+    sources: dict[str, Any],
+    manifest_sources: dict[str, Any],
+    *,
+    include_unconfigured_manifest_sources: bool = True,
+) -> dict[str, Any]:
+    """Return configured sources plus manifest-only sources that lack policy."""
+    report_sources = dict(sources)
+    if include_unconfigured_manifest_sources:
+        for key, manifest_entry in sorted(manifest_sources.items()):
+            if key in report_sources:
+                continue
+            name = key
+            if isinstance(manifest_entry, dict):
+                name = str(manifest_entry.get("name") or manifest_entry.get("source_name") or key)
+            report_sources[key] = {"name": name}
+    return report_sources
+
+
 def run_freshness_report(
     sources: dict[str, Any],
     freshness_defaults: dict[str, Any] | None = None,
     now: datetime | None = None,
+    *,
+    include_unconfigured_manifest_sources: bool = True,
 ) -> int:
     """Report manifest-only source freshness without probing upstream URLs."""
     checked_at = now or datetime.now(UTC)
@@ -383,7 +404,12 @@ def run_freshness_report(
 
     print(f"Source freshness from raw/manifest.json at {checked_at.isoformat()}...")
     print("Manifest-only check: no upstream URLs were probed.")
-    for key, spec in sources.items():
+    report_sources = freshness_report_sources(
+        sources,
+        existing_sources,
+        include_unconfigured_manifest_sources=include_unconfigured_manifest_sources,
+    )
+    for key, spec in report_sources.items():
         current_entry: dict[str, Any] = existing_sources.get(key, {})
         freshness = source_freshness_status(
             key,
@@ -1406,7 +1432,10 @@ def main(argv: list[str] | None = None) -> int:
         return 2
 
     if args.action == "check" and args.freshness_only:
-        return run_freshness_report(sources)
+        return run_freshness_report(
+            sources,
+            include_unconfigured_manifest_sources=not bool(args.source),
+        )
     if args.action == "check" and args.geospatial_discovery_only:
         return run_geospatial_discovery_report(sources)
     if args.action == "check":

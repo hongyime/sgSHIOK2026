@@ -1918,3 +1918,7 @@ The preview-only caveat should use the same concrete destination language as the
 2026-08-29 - P829 destination-loaded announcement:
 
 The score-card screen-reader fallback for a missing station name should say `MRT/LRT exit or bus stop loaded`, matching the concrete destination language used for selected and clicked transit destinations. The visible no-transit state keeps `No transit stop or exit loaded` because that state describes an unavailable destination, not a chosen one. This is browser accessibility copy/test/evidence work only; it does not alter transit selection, preview routing, route geometry, scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P830 freshness manifest policy gaps:
+
+Any source key present in `raw/manifest.json` but missing from `pipeline/config/sources.yaml` should be treated as a freshness policy gap, reported as `unknown_policy` by both `run.py check --freshness-only` and production readiness. The current manifest has no such gap, but future hand-copied or legacy manifest entries must be visible instead of silently omitted. Selected-source freshness checks continue to report only the requested configured source. This is source-policy reporting/test/evidence work only; it does not alter source inputs, scoring, exports, public data, deployment, or locked weights.

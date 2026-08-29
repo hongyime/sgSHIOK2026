@@ -8,6 +8,7 @@ import pytest
 import pipeline.fetch as fetch
 from pipeline.fetch import (
     datagov_raw_filename,
+    freshness_report_sources,
     freshness_policy_for_source,
     load_source_config,
     select_sources,
@@ -369,6 +370,7 @@ def test_run_freshness_report_does_not_probe_upstream(
                 "stale": {"last_modified": "Tue, 07 Jul 2026 02:06:48 GMT"},
                 "manual": {"last_modified": "Mon, 01 Jan 2024 00:00:00 GMT"},
                 "unknown_age": {},
+                "manifest_only": {"name": "Copied Manifest Only"},
             }
         },
     )
@@ -415,13 +417,15 @@ def test_run_freshness_report_does_not_probe_upstream(
     ) in out
     assert "[manual] Manual: freshness manual" in out
     assert "[unknown_age] Unknown Age: freshness unknown_age (monthly)" in out
-    assert "Freshness: current 1, stale 1, manual 1, unknown_policy 0, unknown_age 1" in out
+    assert "[manifest_only] Copied Manifest Only: freshness unknown_policy (cadence unspecified)" in out
+    assert "Freshness: current 1, stale 1, manual 1, unknown_policy 1, unknown_age 1" in out
     assert (
         "Oldest current source: fresh (Fresh, 1.0d of 30d threshold, 29.0d until stale)"
         in out
     )
     assert "Stale sources: stale (Stale)" in out
     assert "Manual sources: manual (Manual)" in out
+    assert "Unknown-policy sources: manifest_only (Copied Manifest Only)" in out
     assert "Unknown-age sources: unknown_age (Unknown Age)" in out
     assert (
         "Stale freshness action: report and plan a versioned refresh; "
@@ -456,6 +460,57 @@ def test_run_freshness_report_omits_stale_action_when_no_stale_sources(
     out = capsys.readouterr().out
     assert "Freshness: current 1, stale 0, manual 0, unknown_policy 0, unknown_age 0" in out
     assert "Stale freshness action:" not in out
+
+
+def test_run_freshness_report_can_limit_to_selected_configured_sources(
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    monkeypatch.setattr(
+        fetch,
+        "load_manifest",
+        lambda: {
+            "sources": {
+                "fresh": {"fetched_at": "2026-08-15T00:00:00+00:00"},
+                "manifest_only": {"name": "Copied Manifest Only"},
+            }
+        },
+    )
+
+    assert (
+        fetch.run_freshness_report(
+            {"fresh": {"name": "Fresh", "kind": "datagov_polldownload"}},
+            freshness_defaults={
+                "datagov_polldownload": {
+                    "expected_cadence": "monthly",
+                    "stale_after_days": 30,
+                }
+            },
+            now=datetime(2026, 8, 16, tzinfo=UTC),
+            include_unconfigured_manifest_sources=False,
+        )
+        == 0
+    )
+
+    out = capsys.readouterr().out
+    assert "[fresh] Fresh: freshness current" in out
+    assert "manifest_only" not in out
+
+
+def test_freshness_report_sources_adds_manifest_only_policy_gaps() -> None:
+    report_sources = freshness_report_sources(
+        {"configured": {"name": "Configured", "kind": "datagov_polldownload"}},
+        {
+            "configured": {"name": "Configured manifest"},
+            "manifest_only": {"source_name": "Copied Manifest Only"},
+        },
+    )
+
+    assert report_sources["configured"] == {
+        "name": "Configured",
+        "kind": "datagov_polldownload",
+    }
+    assert report_sources["manifest_only"] == {"name": "Copied Manifest Only"}
 
 
 def test_run_geospatial_discovery_report_sanitizes_and_reports_drift(

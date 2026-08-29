@@ -370,6 +370,7 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
                     "stale_less": {"last_modified": "Wed, 15 Jul 2026 00:00:00 GMT"},
                     "manual": {"last_modified": "Mon, 01 Jan 2024 00:00:00 GMT"},
                     "unknown_age": {},
+                    "manifest_only": {"name": "Copied Manifest Only"},
             }
         },
     )
@@ -388,9 +389,11 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
         "current": 1,
         "stale": 2,
         "manual": 1,
-        "unknown_policy": 0,
+        "unknown_policy": 1,
         "unknown_age": 1,
     }
+    assert status["by_status"]["unknown_policy"] == ["manifest_only"]
+    assert status["unconfigured_manifest_sources"] == ["manifest_only"]
     assert status["by_status"]["stale"] == ["stale", "stale_less"]
     assert status["by_status"]["unknown_age"] == ["unknown_age"]
     assert status["oldest_current_source"] == (
@@ -432,6 +435,7 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
     )
     assert status["warning"] == (
         "source freshness warning: stale sources: stale (Stale), stale_less (Less Stale); "
+        "unknown_policy sources: manifest_only (Copied Manifest Only); "
         "unknown_age sources: unknown_age (Unknown Age); "
         "Stale freshness action: report and plan a versioned refresh; "
         "do not mutate frozen v1 in place."

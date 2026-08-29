@@ -75,8 +75,9 @@ release decision points the site elsewhere.
 For a zero-mutation source-age check, run
 `uv run python run.py check --freshness-only`; it reads `raw/manifest.json` and
 `pipeline/config/sources.yaml` only, does not probe upstream APIs, and reports
-current, stale, manual, and unknown-age sources; grouped action summaries include
-source names such as `traffic_signals (Traffic Signals)`, and current/stale
+current, stale, manual, unknown-policy, and unknown-age sources; grouped action summaries include
+source names such as `traffic_signals (Traffic Signals)`, and manifest-only sources missing
+from `sources.yaml` are reported as unknown-policy instead of being omitted. Current/stale
 lines plus the oldest-current summary include days until stale or days past stale so operators do not
 need to cross-reference `sources.yaml`. Production readiness also exposes the
 nearest current source to stale and stale sources with days past stale as

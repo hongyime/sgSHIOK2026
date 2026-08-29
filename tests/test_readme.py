@@ -109,9 +109,10 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "uv run python run.py check --freshness-only" in normalized
     assert "zero-mutation source-age check" in normalized
     assert "does not probe upstream APIs" in normalized
-    assert "reports current, stale, manual, and unknown-age sources" in normalized
+    assert "reports current, stale, manual, unknown-policy, and unknown-age sources" in normalized
     assert "grouped action summaries include source names" in normalized
     assert "traffic_signals (Traffic Signals)" in normalized
+    assert "manifest-only sources missing from `sources.yaml` are reported as unknown-policy" in normalized
     assert "so operators do not need to cross-reference `sources.yaml`" in normalized
     assert "source policy covers every source currently recorded in `raw/manifest.json`" in normalized
     assert "ACRA, other-UEN, and June 2020 OneMap-derived postal-universe inputs" in normalized
