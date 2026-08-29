@@ -86,7 +86,8 @@ describe("score card copy", () => {
     expect(source).toContain("Straight-line bus estimate");
     expect(source).not.toContain("Direct bus line estimate");
     expect(source).not.toContain("Direct bus estimate");
-    expect(source).toContain('displayContextLabel: directBusFallback ? "Evidence display" : "Walk display"');
+    expect(source).toContain('displayContextLabel: directBusFallback ? "Estimate display" : "Walk display"');
+    expect(source).not.toContain('displayContextLabel: directBusFallback ? "Evidence display" : "Walk display"');
     expect(source).toContain(
       'routeDisplayLabel: directBusFallback ? "straight-line bus estimate" : routeDisplayAnnouncement(routeMode, sameRoute)'
     );

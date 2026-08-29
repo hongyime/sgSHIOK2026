@@ -1470,7 +1470,7 @@ export function ScoreCard({
     isCustomStopSelected,
     previewRoute,
     routeMode,
-    displayContextLabel: directBusFallback ? "Evidence display" : "Walk display",
+    displayContextLabel: directBusFallback ? "Estimate display" : "Walk display",
     routeDisplayLabel: directBusFallback ? "straight-line bus estimate" : routeDisplayAnnouncement(routeMode, sameRoute),
     shelterEvidenceText: shelterEvidenceAnnouncementFromValues(
       selectedCoverage,
