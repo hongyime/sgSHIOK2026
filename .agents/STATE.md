@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `9342dfa` (`fix: align shelter exposure copy`)
+Latest substantive commit: `2abefe1` (`fix: frame locked score counts as coverage`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P993 is complete and pushed: the first-view locked-score availability line now starts `Locked-score coverage` instead of `Full locked scores`, keeping exact counts while making the secondary score read as coverage/limitation rather than the product headline. Focused web tests passed 5 files / 55 tests plus the generated-data read-only suite 4 files / 16 tests; repo integrity passed. Evidence: `qa/verification/P993-locked-score-coverage-copy.md`.
 - P992 is complete and pushed: user-facing rain/shelter copy in the four-row score panel now says `Shelter exposure`, `Mostly exposed walk`, `Good covered-walkway coverage`, and `Same displayed value as shelter exposure` instead of reviving the older `rain shelter` framing. The section 10 reference was updated to match. Focused web tests passed 2 files / 63 tests; repo integrity passed. Evidence: `qa/verification/P992-shelter-exposure-copy.md`.
 - P991 is complete and pushed: read-only Vercel connector check recorded that the project reports `live: false` while the latest production deployment is `READY`, and a narrow six-hour grouped static runtime-log sample only showed `/` with count 5. Evidence: `qa/verification/P991-vercel-quota-status.md`. Practical recommendation: deploy current `main` if the owner wants the accumulated code-side Edge Request reductions live; if quota remains exhausted after that, the next controls are owner-level project pause, firewall/protection, or intentionally disallowing all crawling.
 - P990 is complete and pushed: `/_next/static/:path*` now sends `Cache-Control: public, max-age=31536000, immutable` plus `X-Robots-Tag: noindex, nofollow, noarchive`, making repeat hashed Next chunk requests cacheable and discouraging indexing of build assets. Focused deployment test passed 1 file / 22 tests; repo integrity passed. Evidence: `qa/verification/P990-next-static-cache.md`. Subagent restart was attempted but blocked by the harness agent thread limit. This is not live until the owner performs an explicit Vercel deployment.
