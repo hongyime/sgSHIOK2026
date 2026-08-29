@@ -28,6 +28,15 @@ const nextConfig = {
         headers: securityHeaders,
       },
       {
+        source: "/",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=300, stale-while-revalidate=3600",
+          },
+        ],
+      },
+      {
         source: "/data/:path*",
         headers: [
           ...securityHeaders,

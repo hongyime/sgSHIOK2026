@@ -36,6 +36,13 @@ describe("deployment packaging", () => {
     expect(config).toContain('value: "public, max-age=31536000, immutable"');
   });
 
+  it("caches the app shell briefly to reduce repeat edge requests", () => {
+    const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
+
+    expect(config).toContain('source: "/"');
+    expect(config).toContain('value: "public, max-age=300, stale-while-revalidate=3600"');
+  });
+
   it("keeps crawler controls away from data and API payloads", () => {
     const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
     const robots = readFileSync(join(__dirname, "../../app/robots.ts"), "utf-8");
