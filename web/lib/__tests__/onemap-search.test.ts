@@ -11,6 +11,17 @@ function response(payload: unknown, status = 200): Response {
   });
 }
 
+function storageFixture(initial?: Record<string, string>) {
+  const values = new Map<string, string>(Object.entries(initial ?? {}));
+  return {
+    getItem: (key: string) => values.get(key) ?? null,
+    setItem: (key: string, value: string) => {
+      values.set(key, value);
+    },
+    values,
+  };
+}
+
 describe("OneMap search client", () => {
   it("normalizes free-text queries for cache keys", () => {
     expect(normalizeOneMapSearchQuery("  mayflower   mrt ")).toBe("MAYFLOWER MRT");
@@ -71,6 +82,55 @@ describe("OneMap search client", () => {
 
     await Promise.all([client.search("bishan mrt"), client.search("BISHAN   MRT")]);
 
+    expect(calls).toBe(1);
+  });
+
+  it("reuses successful searches across client instances for one day", async () => {
+    let calls = 0;
+    const storage = storageFixture();
+    const fetcher = async () => {
+      calls += 1;
+      return response({
+        found: 1,
+        results: [{ POSTAL: "560234", BUILDING: "Mayflower", ROAD_NAME: "", LATITUDE: "1.37", LONGITUDE: "103.84", SEARCHVAL: "MAYFLOWER MRT" }],
+      });
+    };
+
+    const firstClient = createOneMapSearchClient({ storage, fetcher, nowMs: () => 1_000 });
+    const secondClient = createOneMapSearchClient({ storage, fetcher, nowMs: () => 1_000 + 60_000 });
+
+    const first = await firstClient.search("Mayflower MRT");
+    const second = await secondClient.search("mayflower mrt");
+
+    expect(first.results[0]?.POSTAL).toBe("560234");
+    expect(second.results[0]?.POSTAL).toBe("560234");
+    expect(calls).toBe(1);
+  });
+
+  it("refreshes stale persisted searches after one day", async () => {
+    let calls = 0;
+    const stalePayload = {
+      cached_at: 1_000,
+      payload: { found: 1, results: [{ POSTAL: "000000" }] },
+    };
+    const storage = storageFixture({
+      "shiok:onemap-search:v2:MAYFLOWER MRT": JSON.stringify(stalePayload),
+    });
+    const client = createOneMapSearchClient({
+      storage,
+      nowMs: () => 1_000 + 86_400_001,
+      fetcher: async () => {
+        calls += 1;
+        return response({
+          found: 1,
+          results: [{ POSTAL: "560234", BUILDING: "Mayflower", ROAD_NAME: "", LATITUDE: "1.37", LONGITUDE: "103.84", SEARCHVAL: "MAYFLOWER MRT" }],
+        });
+      },
+    });
+
+    const payload = await client.search("Mayflower MRT");
+
+    expect(payload.results[0]?.POSTAL).toBe("560234");
     expect(calls).toBe(1);
   });
 });

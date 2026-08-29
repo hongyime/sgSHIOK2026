@@ -25,7 +25,8 @@ export class OneMapSearchError extends Error {
 type Fetcher = typeof fetch;
 type StorageLike = Pick<Storage, "getItem" | "setItem">;
 
-const CACHE_PREFIX = "shiok:onemap-search:v1:";
+const CACHE_PREFIX = "shiok:onemap-search:v2:";
+const STORAGE_TTL_MS = 86_400_000;
 const MIN_FREE_TEXT_LENGTH = 3;
 
 export function normalizeOneMapSearchQuery(query: string): string {
@@ -36,43 +37,71 @@ export function shouldQueryOneMap(query: string): boolean {
   return normalizeOneMapSearchQuery(query).length >= MIN_FREE_TEXT_LENGTH;
 }
 
-function readSessionCache(storage: StorageLike | null, key: string): OneMapSearchPayload | null {
+function parsePayload(value: unknown): OneMapSearchPayload {
+  const payload = value as Partial<OneMapSearchPayload>;
+  return {
+    found: Number(payload.found || 0),
+    results: Array.isArray(payload.results) ? payload.results : [],
+  };
+}
+
+function readStoredCache(
+  storage: StorageLike | null,
+  key: string,
+  nowMs: number = Date.now(),
+): OneMapSearchPayload | null {
   if (!storage) return null;
   try {
     const raw = storage.getItem(`${CACHE_PREFIX}${key}`);
     if (!raw) return null;
-    const parsed = JSON.parse(raw) as OneMapSearchPayload;
-    return {
-      found: Number(parsed.found || 0),
-      results: Array.isArray(parsed.results) ? parsed.results : [],
-    };
+    const parsed = JSON.parse(raw) as { cached_at?: unknown; payload?: unknown };
+    const cachedAt = Number(parsed.cached_at);
+    if (!Number.isFinite(cachedAt) || nowMs - cachedAt > STORAGE_TTL_MS) return null;
+    return parsePayload(parsed.payload);
   } catch {
     return null;
   }
 }
 
-function writeSessionCache(storage: StorageLike | null, key: string, payload: OneMapSearchPayload): void {
+function writeStoredCache(
+  storage: StorageLike | null,
+  key: string,
+  payload: OneMapSearchPayload,
+  nowMs: number = Date.now(),
+): void {
   if (!storage) return;
   try {
-    storage.setItem(`${CACHE_PREFIX}${key}`, JSON.stringify(payload));
+    storage.setItem(`${CACHE_PREFIX}${key}`, JSON.stringify({ cached_at: nowMs, payload }));
   } catch {
     // Browser storage can be unavailable or full; in-memory cache still applies.
   }
 }
 
+function defaultStorage(): StorageLike | null {
+  if (typeof window === "undefined") return null;
+  try {
+    if (window.localStorage) return window.localStorage;
+  } catch {
+    // Some privacy modes expose Storage but reject access.
+  }
+  try {
+    if (window.sessionStorage) return window.sessionStorage;
+  } catch {
+    // Search still works with memory-only caching.
+  }
+  return null;
+}
+
 export function createOneMapSearchClient(options?: {
   fetcher?: Fetcher;
   storage?: StorageLike | null;
+  nowMs?: () => number;
 }) {
   const fetcher = options?.fetcher ?? fetch;
+  const nowMs = options?.nowMs ?? Date.now;
   const memoryCache = new Map<string, OneMapSearchPayload>();
   const inFlight = new Map<string, Promise<OneMapSearchPayload>>();
-  const storage =
-    options && "storage" in options
-      ? options.storage ?? null
-      : typeof sessionStorage === "undefined"
-        ? null
-        : sessionStorage;
+  const storage = options && "storage" in options ? options.storage ?? null : defaultStorage();
 
   async function search(query: string): Promise<OneMapSearchPayload> {
     const key = normalizeOneMapSearchQuery(query);
@@ -80,7 +109,7 @@ export function createOneMapSearchClient(options?: {
       return { found: 0, results: [] };
     }
 
-    const cached = memoryCache.get(key) ?? readSessionCache(storage, key);
+    const cached = memoryCache.get(key) ?? readStoredCache(storage, key, nowMs());
     if (cached) {
       memoryCache.set(key, cached);
       return cached;
@@ -100,7 +129,7 @@ export function createOneMapSearchClient(options?: {
         results: Array.isArray(data.results) ? data.results : [],
       };
       memoryCache.set(key, payload);
-      writeSessionCache(storage, key, payload);
+      writeStoredCache(storage, key, payload, nowMs());
       return payload;
     })();
 
