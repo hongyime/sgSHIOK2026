@@ -81,12 +81,13 @@ def test_heat_presentation_ui_audit_entries_still_resolve() -> None:
     assert [entry for entry in entries if not entry["expected_line_match"]] == []
     strings = {str(entry["string"]) for entry in entries}
     assert (
-        "Explore covered-walkway ratio, exposed gaps, the night-lighting map layer, and the secondary locked SHIOK score on Singapore walks to transit."
+        "If you moved here, inspect covered-walkway ratio, exposed gaps, the night-lighting map layer, and the secondary locked SHIOK score on walks to transit."
         in strings
     )
+    assert all("Explore covered-walkway ratio, exposed gaps" not in string for string in strings)
     assert all("night lighting evidence" not in string for string in strings)
     assert all("covered-walkway exposure gaps" not in string for string in strings)
-    assert 'heat: { low: "Low heat-proxy evidence", high: "Stronger heat-proxy evidence" },' in strings
-    assert "In this locked release, rain shelter and heat comfort share mostly the same covered-walkway evidence." in strings
+    assert 'heat: { low: "Low heat-estimate evidence", high: "Stronger heat-estimate evidence" },' in strings
+    assert "In this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence." in strings
     assert all("Better heat-proxy score" not in string for string in strings)
     assert all("currently share mostly" not in string for string in strings)

@@ -1,3 +1,6 @@
+2026-08-30 - P1017 move-here metadata promise:
+Browser metadata and share previews should carry the same residential decision promise as the first screen. The metadata description now starts `If you moved here...` while retaining covered-walkway ratio, exposed gaps, the night-lighting map layer, and the secondary locked SHIOK score. The heat-presentation UI audit entries were also refreshed to current source strings and exact line numbers after later copy work, preserving the strict audit instead of weakening it. This is browser metadata/scripts/test/evidence work only; it does not alter rendered data, search, map behavior, scoring, exports, inputs, public data, deployment, protected payloads, or locked weights.
+
 2026-08-30 - P1016 move-here first-screen promise:
 The first-screen product promise should directly answer the residential decision question in the standing goal: `if I moved here, what is the walk to transit actually like?` The title card and empty shelter-map panel now start with `If you moved here...` while keeping covered-walkway ratio, exposed gaps, transit stop/exit walks, and the night-lighting map layer as the visible evidence. This is browser copy/test/evidence work only; it does not alter search behavior, map behavior, scoring, exports, inputs, public data, deployment, protected payloads, or locked weights.
 

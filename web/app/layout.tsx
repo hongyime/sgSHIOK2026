@@ -4,7 +4,7 @@ import { ServiceWorkerRegistration } from "../components/service-worker-registra
 
 const metadataTitle = "S.H.I.O.K. Shelter Map";
 const metadataDescription =
-  "Explore covered-walkway ratio, exposed gaps, the night-lighting map layer, and the secondary locked SHIOK score on Singapore walks to transit.";
+  "If you moved here, inspect covered-walkway ratio, exposed gaps, the night-lighting map layer, and the secondary locked SHIOK score on walks to transit.";
 
 export const metadata = {
   title: metadataTitle,
