@@ -2134,3 +2134,7 @@ The default all-transit view should render the access destination as `transit st
 2026-08-29 - P898 access reason stop-or-exit copy:
 
 Access reason copy should use the same user-facing destination vocabulary as the access row. The low/high descriptors now say `Longer walk to stop or exit` and `Short walk to stop or exit`, keeping reason chips aligned with the four-row presentation. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P899 unnamed transit fallback copy:
+
+When a scored walk lacks a named best node, the browser should say the transit stop or exit is not named rather than not loaded. The route evidence can still exist; the missing part is display metadata, not necessarily the walk. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

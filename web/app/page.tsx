@@ -297,7 +297,7 @@ export function scoreCardAnnouncement({
   const scoreLabel = previewRoute || displayScore === null || displayScore === undefined
     ? "Locked score"
     : "Sorting-only score";
-  return `${postal} shelter-map panel loaded. ${stationName ?? "MRT/LRT exit or bus stop loaded"}. ${shelterText} ${scoreLabel} ${scoreText}. ${stopText} ${displayContextLabel} ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
+  return `${postal} shelter-map panel loaded. ${stationName ?? "MRT/LRT exit or bus stop not named"}. ${shelterText} ${scoreLabel} ${scoreText}. ${stopText} ${displayContextLabel} ${routeDisplayLabel ?? routeMode}; ${selectedRouteLabel ?? "walk"} active.`;
 }
 
 export function rankAnnouncement({
@@ -1280,7 +1280,7 @@ export function ScoreCard({
         ? "No full locked score in published shelter-map data"
       : score.best_node?.name
         ? toProperCase(score.best_node.name)
-        : "No transit stop or exit loaded";
+        : "Transit stop or exit not named";
   const reasons = scoreReasons(score, transitMode);
   const stateNote = scoreStateNote(score, transitMode);
   const previewStatusNote = previewRoute

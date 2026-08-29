@@ -109,8 +109,10 @@ describe("score card copy", () => {
     expect(source).not.toContain("Transit stops or exits exist, but this bundle has no connected walking route evidence yet.");
     expect(source).not.toContain("Transit candidate found");
     expect(source).not.toContain("No transit candidate nearby");
-    expect(source).toContain("No transit stop or exit loaded");
-    expect(source).toContain("MRT/LRT exit or bus stop loaded");
+    expect(source).toContain("Transit stop or exit not named");
+    expect(source).toContain("MRT/LRT exit or bus stop not named");
+    expect(source).not.toContain("No transit stop or exit loaded");
+    expect(source).not.toContain("MRT/LRT exit or bus stop loaded");
     expect(source).not.toContain("No transit target loaded");
     expect(source).not.toContain("Transit stop or exit loaded");
     expect(source).not.toContain("No transit found nearby");
