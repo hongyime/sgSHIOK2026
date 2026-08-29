@@ -69,6 +69,13 @@ describe("deployment packaging", () => {
     expect(config).toContain('value: "public, max-age=86400, stale-while-revalidate=604800"');
   });
 
+  it("caches sitemap.xml so crawlers do not revalidate it on every visit", () => {
+    const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
+
+    expect(config).toContain('source: "/sitemap.xml"');
+    expect(config).toContain('value: "public, max-age=86400, stale-while-revalidate=604800"');
+  });
+
   it("materializes derived lookup shards during web builds", () => {
     const script = readFileSync(join(__dirname, "../../scripts/ensure-data-bundle.mjs"), "utf-8");
 
