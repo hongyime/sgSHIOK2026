@@ -81,7 +81,8 @@ def test_claude_doc_uses_shelter_map_product_frame() -> None:
     assert "first check whether production is serving current `main`" in normalized
     assert "automatic Git deployments are intentionally disabled in `web/vercel.json`" in normalized
     assert "committed cache and crawler reductions need owner manual deployment before affecting live traffic" in normalized
-    assert "pausing or protecting the Vercel project change public availability" in normalized
+    assert "pausing or protecting the Vercel project, firewall deny rules, or temporary attack mode" in normalized
+    assert "change public availability or visitor friction" in normalized
     assert "owner decisions, not agent-default repository changes" in normalized
     assert "`python run.py <task>`" not in normalized
     assert "`python run.py test`" not in normalized

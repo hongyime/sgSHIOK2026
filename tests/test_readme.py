@@ -107,7 +107,9 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "automatic Git deployments are intentionally disabled in `web/vercel.json`" in normalized
     assert "committed cache and crawler reductions do not affect live traffic until the owner manually deploys" in normalized
     assert "pause or protect the Vercel project from the Vercel dashboard/API" in normalized
-    assert "changes public availability and is an owner decision" in normalized
+    assert "firewall deny rules or temporary attack mode are also owner-level controls" in normalized
+    assert "change public availability or visitor friction" in normalized
+    assert "owner decisions, not agent-default repository changes" in normalized
     assert "uv run python run.py lamp-overlay --output web/public/data/lamp_posts_v2 --confirm-lamp-overlay" in normalized
     assert "replacement night lighting overlay" in normalized
     assert "replacement night-lighting overlay" not in normalized

@@ -73,8 +73,10 @@ If Vercel Hobby Edge Requests hit quota, first check whether production is
 serving current `main`; automatic Git deployments are intentionally disabled in
 `web/vercel.json`, so committed cache and crawler reductions do not affect live
 traffic until the owner manually deploys. For an immediate hard stop, pause or
-protect the Vercel project from the Vercel dashboard/API; that changes public
-availability and is an owner decision, not an agent-default repository change.
+protect the Vercel project from the Vercel dashboard/API; firewall deny rules
+or temporary attack mode are also owner-level controls. All of those change
+public availability or visitor friction and are owner decisions, not
+agent-default repository changes.
 If a replacement night lighting overlay is approved, run
 `uv run python run.py lamp-overlay --output web/public/data/lamp_posts_v2 --confirm-lamp-overlay`
 or another new numeric version path; the builder refuses non-empty output

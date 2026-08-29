@@ -1,3 +1,6 @@
+2026-08-30 - P1015 Vercel quota hard-control runbook:
+The Vercel Hobby Edge Request runbook should name the full owner-level hard controls, not only project pause/protection. Vercel documents project pause, deployment protection, firewall deny rules, and temporary attack mode as operational controls; applying them changes public availability or visitor friction, so agents should document and recommend them during a live quota incident but not mutate the Vercel project by default. This is documentation/test/evidence work only; it does not deploy, mutate Vercel settings, score, export, rescore, ingest, build network, mutate public data, protected evidence, inputs, or locked weights.
+
 2026-08-30 - P1014 published-walk transit copy:
 The transit stop/exit selector should name the default route as the `Published walk`, not an `Auto-picked` target. Users are comparing the published shelter-map walk against selected stop/exit previews; `auto-picked` describes implementation, while `published` describes the artifact boundary that matters for interpretation. Reset and straight-line comparison copy now say `published stop or exit`. This is browser copy/test/evidence work only; it does not alter candidate derivation, selected transit IDs, route geometry, scoring, exports, public data, inputs, deployment, or locked weights.
 
