@@ -628,7 +628,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
   }
   const busFallback = directBusFallbackEvidence(score);
   if (busFallback) {
-    return "Locked score caveat: the locked bus score remains 0 because nearby direct bus service evidence could not be connected to a verified shelter-map walk.";
+    return "Locked score caveat: the locked bus score remains 0 because nearby direct bus service evidence is not connected to a verified shelter-map walk.";
   }
   return null;
 }
@@ -1472,7 +1472,7 @@ export function ScoreCard({
           value: formatScore(score.subscores.bus),
           meta: scoredMeta(score.subscores.bus, "20% locked bus support", "Bus support unavailable"),
           notes: [
-            "A low value can mean weak service evidence, or that the published shelter-map walk could not prove access to an official LTA bus stop.",
+            "A low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop.",
             busFallback
               ? `${busFallbackSummary(busFallback)} Direct bus service is shown as fallback evidence; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score remains 0.`
               : null,

@@ -42,7 +42,7 @@ Bus caveat copy:
 
 ```text
 A low value can mean weak service evidence, or that the published shelter-map walk
-could not prove access to an official LTA bus stop. Treat it as a service-support
+does not show access to an official LTA bus stop. Treat it as a service-support
 signal with routing caveats, not as a pure frequency score.
 ```
 

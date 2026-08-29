@@ -619,7 +619,7 @@ describe("rendered accessibility output", () => {
     expect(mrtHtml).not.toContain("240 m sheltered walk to MRT/LRT</span>");
     expect(html).toContain("Bus service support");
     expect(html).toContain(
-      "A low value can mean weak service evidence, or that the published shelter-map walk could not prove access to an official LTA bus stop."
+      "A low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop."
     );
     expect(html).not.toContain("trusted walk to a DataMall bus stop");
     expect(html).toContain("Locked SHIOK score");
@@ -1355,11 +1355,12 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Walking-route access was not verified");
     expect(html).not.toContain("Walking network access was not verified");
     expect(html).toContain(
-      "Locked score caveat: the locked bus score remains 0 because nearby direct bus service evidence could not be connected to a verified shelter-map walk."
+      "Locked score caveat: the locked bus score remains 0 because nearby direct bus service evidence is not connected to a verified shelter-map walk."
     );
     expect(html).not.toContain("the bus term remains 0");
     expect(html).not.toContain("locked bus term remains 0");
     expect(html).not.toContain("nearby bus evidence could not be connected");
+    expect(html).not.toContain("nearby direct bus service evidence could not be connected");
     expect(html).toContain("Bus service support");
     expect(html).toContain("20%");
     expect(html).not.toContain("Limited bus-service evidence");

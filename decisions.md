@@ -2198,3 +2198,7 @@ No-transit range copy should describe the locked 1.2 km boundary in active, publ
 2026-08-29 - P914 far shelter-map walk copy:
 
 When a connected shelter-map walk exists beyond the locked 1.2 km scoring range, the note should say the closest published connected walk is about that far away. This avoids passive `found` wording while keeping the boundary explicit. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P915 bus-support caveat copy:
+
+Bus-support caveats should describe what the published shelter-map walk shows, not a proof process. The UI and Section 10 reference now say the walk does not show access to an official LTA bus stop, and the direct-bus fallback caveat says nearby direct bus service evidence is not connected to a verified shelter-map walk. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.

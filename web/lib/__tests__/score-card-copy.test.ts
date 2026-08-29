@@ -857,15 +857,17 @@ describe("score card copy", () => {
     expect(source).not.toContain('access: { low: "Longer walk to transit", high: "Short walk to transit" }');
     expect(source).toContain('label: "Bus service support"');
     expect(source).toContain(
-      "A low value can mean weak service evidence, or that the published shelter-map walk could not prove access to an official LTA bus stop."
+      "A low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop."
     );
+    expect(source).not.toContain("the published shelter-map walk could not prove access to an official LTA bus stop");
     expect(source).toContain(
       "Direct bus service is shown as fallback evidence; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score remains 0."
     );
     expect(source).not.toContain("Shelter-map walk access was not verified");
     expect(source).toContain("Nearby direct bus service without verified shelter-map walk");
     expect(source).not.toContain("Nearby bus service without verified shelter-map walk");
-    expect(source).toContain("nearby direct bus service evidence could not be connected");
+    expect(source).toContain("nearby direct bus service evidence is not connected");
+    expect(source).not.toContain("nearby direct bus service evidence could not be connected");
     expect(source).not.toContain("nearby bus evidence could not be connected");
     expect(source).toContain("Nearby direct bus service found");
     expect(source).not.toContain("Nearby bus service found");
@@ -925,8 +927,9 @@ describe("score card copy", () => {
     expect(proposalSource).not.toContain("chosen MRT/LRT or bus access point");
     expect(proposalSource).not.toContain("Selected walk distance from this postal code");
     expect(proposalSource).toContain(
-      "the published shelter-map walk\ncould not prove access to an official LTA bus stop"
+      "the published shelter-map walk\ndoes not show access to an official LTA bus stop"
     );
+    expect(proposalSource).not.toContain("could not prove access to an official LTA bus stop");
     expect(proposalSource).not.toContain("trusted walk to a DataMall bus stop");
     expect(proposalSource).toContain("Heat: shelter plus sparse NParks greenery proxy");
     expect(proposalSource).not.toContain("Heat: shelter + NParks shade proxy");
