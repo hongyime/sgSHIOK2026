@@ -46,6 +46,7 @@ describe("deployment packaging", () => {
     expect(config).toContain('value: "noindex, nofollow, noarchive"');
     expect(robots).toContain('allow: "/"');
     expect(robots).toContain('disallow: ["/api/", "/data/"]');
+    expect(robots).toContain("crawlDelay: 10");
   });
 
   it("caches robots.txt so crawlers do not revalidate it on every visit", () => {
