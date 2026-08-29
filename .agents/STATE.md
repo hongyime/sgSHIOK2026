@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `dfaf61c` (`docs: align access reason copy with stop or exit`)
+Latest substantive commit: `8b61249` (`docs: clarify unnamed transit fallback copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P899 is complete and pushed: scored-walk transit fallback loaded wording now says the transit stop or exit is not named, with tests/evidence. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P898 is complete and pushed: access low/high reason copy now says walk to stop or exit instead of walk to transit, with tests/evidence. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P897 is complete and pushed: the default best-transit label now renders as transit stop or exit instead of abstract transit, while keeping bus-only and MRT/LRT-only labels specific. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
 - P896 is complete and pushed: the access display row label now says Walk to stop or exit while preserving the locked walk-to-transit scoring meta. No scoring, export, rescore, subset run, ingest, network build, input mutation, public-data write, deployment, or locked-weight change was performed.
