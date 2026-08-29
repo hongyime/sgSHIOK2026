@@ -30,6 +30,18 @@ describe("deployment packaging", () => {
     expect(config).toContain('value: "public, max-age=31536000, immutable"');
   });
 
+  it("keeps crawler controls away from data and API payloads", () => {
+    const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
+    const robots = readFileSync(join(__dirname, "../../app/robots.ts"), "utf-8");
+
+    expect(config).toContain('source: "/data/:path*"');
+    expect(config).toContain('source: "/api/:path*"');
+    expect(config).toContain('key: "X-Robots-Tag"');
+    expect(config).toContain('value: "noindex, nofollow, noarchive"');
+    expect(robots).toContain('allow: "/"');
+    expect(robots).toContain('disallow: ["/api/", "/data/"]');
+  });
+
   it("materializes derived lookup shards during web builds", () => {
     const script = readFileSync(join(__dirname, "../../scripts/ensure-data-bundle.mjs"), "utf-8");
 
