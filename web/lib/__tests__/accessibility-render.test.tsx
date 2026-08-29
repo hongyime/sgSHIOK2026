@@ -328,7 +328,8 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Custom stop selected.");
     expect(html).toContain("Walk display shortest walk");
     expect(html).toContain('aria-busy="true"');
-    expect(html).toContain("Loading nearby-address locked score order.");
+    expect(html).toContain("Loading nearby addresses ordered by locked score.");
+    expect(html).not.toContain("Loading nearby-address locked score order.");
     expect(html).not.toContain("Loading planning-area locked score order.");
     expect(html).not.toContain("Loading planning-area locked score order ranks.");
     expect(html).not.toContain("Loading planning-area locked score sorting index ranks.");
@@ -744,7 +745,7 @@ describe("rendered accessibility output", () => {
         rankedCount: 5,
         rankMetricLabel: "Locked score order",
       })
-    ).toBe("5 nearby addresses in locked score order.");
+    ).toBe("5 nearby addresses ordered by locked score.");
   });
 
   it("does not call crossing friction an evidence view in planning-area helper copy", () => {

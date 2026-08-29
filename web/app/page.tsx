@@ -313,9 +313,9 @@ export function rankAnnouncement({
 }): string {
   const sentenceLabel = rankSentenceMetricLabel(rankMetricLabel);
   if (rankMetricLabel.endsWith("order")) {
-    if (loading) return `Loading nearby-address ${sentenceLabel}.`;
-    if (rankedCount === 0) return `No nearby addresses in ${sentenceLabel}.`;
-    return `${rankedCount} nearby address${rankedCount === 1 ? "" : "es"} in ${sentenceLabel}.`;
+    if (loading) return "Loading nearby addresses ordered by locked score.";
+    if (rankedCount === 0) return "No nearby addresses with full locked scores.";
+    return `${rankedCount} nearby address${rankedCount === 1 ? "" : "es"} ordered by locked score.`;
   }
   if (loading) return `Loading nearby addresses for ${sentenceLabel}.`;
   if (rankedCount === 0) return `No comparable nearby addresses for ${sentenceLabel}.`;
@@ -1299,8 +1299,8 @@ export function ScoreCard({
     RANK_METRIC_OPTIONS.find((option) => option.id === rankMetric)?.label ?? "Locked score order";
   const rankSentenceLabel = rankSentenceMetricLabel(rankMetricLabel);
   const rankLoadingText = rankMetricLabel.endsWith("order")
-    ? `Loading nearby-address ${rankSentenceLabel}.`
-    : `Loading nearby-address ${rankSentenceLabel} comparison.`;
+    ? "Loading nearby addresses ordered by locked score."
+    : `Loading nearby addresses for ${rankSentenceLabel}.`;
   const rankStatus = rankAnnouncement({
     loading: rankingLoading,
     rankedCount: rankedRecords.length,

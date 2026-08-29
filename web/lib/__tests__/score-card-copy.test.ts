@@ -840,8 +840,12 @@ describe("score card copy", () => {
     expect(source).not.toContain("Loading planning-area locked score order.");
     expect(source).not.toContain("Loading planning-area locked score order ranks.");
     expect(source).not.toContain("Loading planning-area ${sentenceLabel} ranks.");
-    expect(source).toContain("Loading nearby-address ${sentenceLabel}.");
+    expect(source).toContain("Loading nearby addresses ordered by locked score.");
+    expect(source).not.toContain("Loading nearby-address ${sentenceLabel}.");
+    expect(source).not.toContain("Loading nearby-address ${rankSentenceLabel}.");
+    expect(source).not.toContain("Loading nearby-address ${rankSentenceLabel} comparison.");
     expect(source).toContain("Loading nearby addresses for ${sentenceLabel}.");
+    expect(source).toContain("Loading nearby addresses for ${rankSentenceLabel}.");
     expect(source).toContain("available for ${sentenceLabel}.");
     expect(source).not.toContain("Loading planning-area ranks...");
     expect(source).toContain("No nearby addresses with full locked scores in this planning area.");
