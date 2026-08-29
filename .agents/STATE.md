@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `9d18265` (`perf: route favicon probes to cached icon`)
+Latest substantive commit: `4d02886` (`docs: clarify overall rank label`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P961 is complete and pushed: the nearby-address comparison overall option now reads `Overall locked score` instead of `Locked score order`, and the overall-ranking loading/status branch now keys off `rankMetric === "overall"` rather than a label suffix. Focused web tests passed 3 files / 67 tests; repo integrity passed. Evidence: `qa/verification/P961-overall-rank-label.md`.
 - P960 is complete and pushed: neither `web/app/favicon.ico` nor `web/public/favicon.ico` exists, so clients probing `/favicon.ico` could waste requests. `layout.tsx` now explicitly declares `/icon.svg` as the site icon and `next.config.js` permanently redirects `/favicon.ico` to the cacheable `/icon.svg`. Focused deployment test passed 1 file / 21 tests; repo integrity passed. Evidence: `qa/verification/P960-vercel-favicon-probe.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P959 is complete and pushed: `robots.ts` now disallows `/*?*` and `layout.tsx` declares `https://sgshiok.vercel.app/` as canonical, discouraging polite crawlers from enumerating duplicate shared-link query variants such as `?postal=` and `?stop=` while keeping those links functional for users. Focused deployment test passed 1 file / 20 tests; repo integrity passed. Evidence: `qa/verification/P959-vercel-query-crawler-control.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P958 is complete and pushed: `/` now receives `Cache-Control: public, max-age=300, stale-while-revalidate=3600`, giving repeat visitors a short browser cache for the static client app shell without making deployments stale for long. Focused deployment test passed 1 file / 19 tests; repo integrity passed. Evidence: `qa/verification/P958-vercel-app-shell-cache.md`. This is not live until the owner performs an explicit Vercel deployment.
