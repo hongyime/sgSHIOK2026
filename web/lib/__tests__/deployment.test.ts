@@ -44,20 +44,32 @@ describe("deployment packaging", () => {
     expect(config).toContain('value: "noindex, nofollow, noarchive"');
   });
 
-  it("registers an optional service worker for repeat-visit request reduction", () => {
+  it("registers the optional service worker only after app intent", () => {
     const layout = readFileSync(join(__dirname, "../../app/layout.tsx"), "utf-8");
     const registration = readFileSync(
       join(__dirname, "../../components/service-worker-registration.tsx"),
       "utf-8",
     );
+    const page = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const helper = readFileSync(join(__dirname, "../service-worker-cache.ts"), "utf-8");
 
     expect(layout).toContain('import { ServiceWorkerRegistration }');
     expect(layout).toContain("<ServiceWorkerRegistration />");
+    expect(registration).toContain('import { ENABLE_SERVICE_WORKER_CACHE_EVENT } from "../lib/service-worker-cache";');
     expect(registration).toContain('process.env.NODE_ENV !== "production"');
+    expect(registration).toContain("let registered = false;");
+    expect(registration).toContain("if (registered) return;");
     expect(registration).toContain(".getRegistration(\"/\")");
     expect(registration).toContain("if (registration) return registration;");
     expect(registration).toContain('navigator.serviceWorker.register("/sw.js")');
-    expect(registration).toContain('window.addEventListener("load", register, { once: true })');
+    expect(registration).toContain("window.addEventListener(ENABLE_SERVICE_WORKER_CACHE_EVENT, register)");
+    expect(registration).not.toContain('window.addEventListener("load", register');
+    expect(page).toContain('import { requestServiceWorkerCache } from "../lib/service-worker-cache";');
+    expect(helper).toContain('export const ENABLE_SERVICE_WORKER_CACHE_EVENT = "shiok:enable-service-worker-cache";');
+    expect(helper).toContain("export function requestServiceWorkerCache()");
+    expect(helper).toContain("if (typeof window === \"undefined\") return;");
+    expect(helper).toContain("window.dispatchEvent(new Event(ENABLE_SERVICE_WORKER_CACHE_EVENT));");
+    expect(page).toContain("requestServiceWorkerCache();");
   });
 
   it("keeps the service worker as tracked deployment source", () => {

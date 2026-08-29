@@ -51,6 +51,7 @@ import {
   type RankableScoreRecord,
   type RankMetric,
 } from "../lib/subscore-ranking";
+import { requestServiceWorkerCache } from "../lib/service-worker-cache";
 import styles from "./page.module.css";
 
 const RouteEvidenceMap = dynamic(
@@ -2333,6 +2334,7 @@ export default function Home() {
       setError("This OneMap match has no 6-digit postal code. Choose another match or enter the postal code directly.");
       return;
     }
+    requestServiceWorkerCache();
     setLoading(true);
     setError(null);
     setRouteTransitPois({ type: "FeatureCollection", features: [] });
@@ -2439,6 +2441,7 @@ export default function Home() {
   const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!query.trim()) return;
+    requestServiceWorkerCache();
 
     const directPostal = normalizePostal(query);
     if (directPostal) {

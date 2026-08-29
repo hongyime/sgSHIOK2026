@@ -1,13 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
+import { ENABLE_SERVICE_WORKER_CACHE_EVENT } from "../lib/service-worker-cache";
 
 export function ServiceWorkerRegistration() {
   useEffect(() => {
     if (process.env.NODE_ENV !== "production") return;
     if (!("serviceWorker" in navigator)) return;
+    let registered = false;
 
     const register = () => {
+      if (registered) return;
+      registered = true;
       navigator.serviceWorker
         .getRegistration("/")
         .then((registration) => {
@@ -19,13 +23,8 @@ export function ServiceWorkerRegistration() {
         });
     };
 
-    if (document.readyState === "complete") {
-      register();
-      return;
-    }
-
-    window.addEventListener("load", register, { once: true });
-    return () => window.removeEventListener("load", register);
+    window.addEventListener(ENABLE_SERVICE_WORKER_CACHE_EVENT, register);
+    return () => window.removeEventListener(ENABLE_SERVICE_WORKER_CACHE_EVENT, register);
   }, []);
 
   return null;
