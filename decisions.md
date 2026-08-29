@@ -2030,3 +2030,7 @@ Browser data-limit and unavailable-address copy should say June 2020 address lis
 2026-08-29 - P857 recent-source sample labels:
 
 Postal-specific missing-address caveats should label the parenthesized source as a public-source sample rather than geocoded rows or proxy rows. The underlying P19 caveat remains unchanged, but the browser label now explains what kind of evidence the user is seeing. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.
+
+2026-08-29 - P858 missing score-factor copy:
+
+Browser locked-score caveats should say missing score factors instead of locked score inputs. The scoring rule is unchanged: missing factors still count as zero in the locked formula, but the displayed wording now describes the limitation in terms a home-search user can understand. This is browser copy/test/evidence work only; it does not call APIs, mutate inputs, score, export, public data, deployment, protected evidence, or locked weights.

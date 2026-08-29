@@ -596,7 +596,7 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
     return "Preview only: this clicked MRT/LRT exit or bus stop has shelter-map evidence, but it is not part of the published shelter-map data yet.";
   }
   if (score.state === "SCORED_PARTIAL") {
-    return "Partial locked score: shelter-map evidence may still be present, but unavailable score inputs count as zero in the locked formula.";
+    return "Partial locked score: shelter-map evidence may still be present, but missing score factors count as zero in the locked formula.";
   }
   if (score.state === "NO_TRANSIT_IN_RANGE") {
     const reason = provenanceReason(score, transitMode);
@@ -870,7 +870,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
     return ["Nearby direct bus service found", "Straight-line bus estimate; shelter-map walk pending.", "No verified shelter-map walk yet"];
   }
   if (!score.paths || !score.best_node) return ["Shelter-map evidence unavailable", "Locked score unavailable"];
-  if (!score.subscores) return ["Locked score inputs unavailable", "Shelter-map evidence available"];
+  if (!score.subscores) return ["Missing locked-score factors", "Shelter-map evidence available"];
 
   const measuredReasons: string[] = [];
   const busFallback = directBusFallbackEvidence(score);
