@@ -960,7 +960,8 @@ describe("rendered accessibility output", () => {
 
     expect(html).toContain("No exposed gaps are recorded for this shortest walk.");
     expect(html).toContain('aria-label="Exposed gap evidence"');
-    expect(html).toContain("All recorded segments for this display stay under covered-walkway or connector evidence.");
+    expect(html).toContain("All recorded segments for this shortest walk stay under covered-walkway or connector evidence.");
+    expect(html).not.toContain("All recorded segments for this display stay under covered-walkway or connector evidence.");
     expect(html).toContain("Covered-walkway evidence");
     expect(html).toContain("Shelter-map walk evidence 48% covered-walkway ratio.");
     expect(html).not.toContain("0 m exposed across 0 gaps");

@@ -945,7 +945,9 @@ describe("score card copy", () => {
 
     expect(source).toContain('aria-label="Exposed gap evidence"');
     expect(source).toContain('<div className={styles.gapList} aria-label="Exposed gap evidence">');
-    expect(source).toContain("All recorded segments for this display stay under covered-walkway or connector evidence.");
+    expect(source).toContain("const zeroGapCoverageText = `All recorded segments for this ${selectedWalkLabel} stay under covered-walkway or connector evidence.`;");
+    expect(source).toContain("{zeroGapCoverageText}");
+    expect(source).not.toContain("All recorded segments for this display stay under covered-walkway or connector evidence.");
     expect(source).toContain("No exposed gaps are recorded for this ${selectedWalkLabel}.");
     expect(source).not.toContain("0 m exposed across 0 gaps");
   });

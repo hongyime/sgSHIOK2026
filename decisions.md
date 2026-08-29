@@ -2066,3 +2066,7 @@ The numeric 0-to-100 composite remains visible but should not read as the primar
 2026-08-29 - P881 sorting-only score announcement:
 
 The screen-reader live status should match the visual score hierarchy. Scored records now announce `Sorting-only score ...` after shelter-map walk evidence, while clicked-stop previews still say `Locked score preview only; published locked score unchanged` to explain that preview walks do not alter published locked scores. This is browser accessibility copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
+
+2026-08-29 - P882 zero exposed-gap walk wording:
+
+The no-exposed-gap state should describe the selected walk, not the UI display. It now says all recorded segments for the selected sheltered or shortest walk stay under covered-walkway or connector evidence. This is browser copy/test/evidence work only; it does not alter scoring, exports, inputs, public data, deployment, or locked weights.
