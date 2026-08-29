@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `04aba6f` (`perf: extend app shell browser cache`)
+Latest substantive commit: `616161e` (`docs: clarify supporting score row copy`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P965 is complete and pushed: nearby-address comparison helper copy for bus, heat, and crossing now says `supporting score row` instead of `locked-score row`, keeping the comparison panel aligned with the shelter-first four-row presentation while leaving scoring logic unchanged. Focused web tests passed 2 files / 63 tests; repo integrity passed. Evidence: `qa/verification/P965-supporting-score-row-copy.md`.
 - P964 is complete and pushed: `/` now receives `Cache-Control: public, max-age=3600, stale-while-revalidate=21600` instead of the prior 5-minute browser cache, reducing repeat app-shell requests from returning visitors once the owner deploys current main. Focused deployment test passed 1 file / 21 tests; repo integrity passed. Evidence: `qa/verification/P964-vercel-app-shell-cache-hour.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P963 is complete and pushed: partial locked-score copy now says incomplete locked-score inputs are treated as zero in this release instead of saying unavailable locked-score rows count as zero, avoiding confusion with the four display rows. Focused web tests passed 2 files / 63 tests; repo integrity passed. Evidence: `qa/verification/P963-partial-score-copy.md`.
 - P962 is complete and pushed: visible score badge and accessibility announcement copy now say `Locked score for sorting` instead of `Sorting-only score`, preserving the product rule that the locked composite is visible but secondary to shelter-map evidence. Focused web tests passed 2 files / 63 tests; repo integrity passed. Evidence: `qa/verification/P962-sorting-score-copy.md`.
