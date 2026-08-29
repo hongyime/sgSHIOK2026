@@ -15,6 +15,9 @@ export const metadata = {
     url: "https://sgshiok.vercel.app/",
     siteName: "S.H.I.O.K. Shelter Map",
   },
+  alternates: {
+    canonical: "https://sgshiok.vercel.app/",
+  },
   twitter: {
     card: "summary",
     title: metadataTitle,

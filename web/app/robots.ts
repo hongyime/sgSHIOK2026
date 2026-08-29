@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/api/", "/data/"],
+      disallow: ["/api/", "/data/", "/*?*"],
       crawlDelay: 10,
     },
     sitemap: "https://sgshiok.vercel.app/sitemap.xml",

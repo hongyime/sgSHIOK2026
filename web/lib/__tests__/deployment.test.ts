@@ -52,9 +52,18 @@ describe("deployment packaging", () => {
     expect(config).toContain('key: "X-Robots-Tag"');
     expect(config).toContain('value: "noindex, nofollow, noarchive"');
     expect(robots).toContain('allow: "/"');
-    expect(robots).toContain('disallow: ["/api/", "/data/"]');
+    expect(robots).toContain('disallow: ["/api/", "/data/", "/*?*"]');
     expect(robots).toContain("crawlDelay: 10");
     expect(robots).toContain('sitemap: "https://sgshiok.vercel.app/sitemap.xml"');
+  });
+
+  it("discourages duplicate crawling of shared-link query variants", () => {
+    const layout = readFileSync(join(__dirname, "../../app/layout.tsx"), "utf-8");
+    const robots = readFileSync(join(__dirname, "../../app/robots.ts"), "utf-8");
+
+    expect(robots).toContain('"/*?*"');
+    expect(layout).toContain("alternates");
+    expect(layout).toContain('canonical: "https://sgshiok.vercel.app/"');
   });
 
   it("publishes a single-page sitemap for polite crawlers", () => {
