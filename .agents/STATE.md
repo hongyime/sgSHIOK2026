@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `e83baea` (`docs: record vercel free tier controls`)
+Latest substantive commit: `ffe71e6` (`docs: add vercel quota runbook`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P1009 is complete and pushed: README local-data guidance now includes the Vercel Hobby Edge Request runbook from P1006-P1008. Operators should first check whether production is serving current `main`; automatic Git deployments are intentionally disabled in `web/vercel.json`, so committed cache/crawler reductions require owner manual deployment before affecting live traffic. Immediate hard stops are Vercel project pause/protection decisions because they change public availability. Focused README tests passed 4 tests; repo integrity passed. Evidence: `qa/verification/P1009-vercel-quota-runbook.md`.
 - P1008 is complete and pushed: Vercel documentation confirms the hard free-tier controls are project-level actions, not local code changes. Pausing the project blocks the active Production Deployment; deployment protection/firewall/BotID can gate or deny traffic but may change public access behavior or require plan support. Code-side route blocking can save upstream work but cannot prevent the initial Edge Request from reaching Vercel. Evidence: `qa/verification/P1008-vercel-free-tier-controls.md`.
 - P1007 is complete and pushed: direct six-digit postal searches already bypass `/api/onemap-search` and load from the static bundle through `loadSelection()`. Read-only Vercel project metadata reports `live: false` while a READY production deployment remains present, reinforcing P1006's conclusion that the next quota-relief decision is operational: deploy current `main`, pause/protect the project, or obtain a dashboard/path-level traffic breakdown before adding more speculative request micro-optimizations. Evidence: `qa/verification/P1007-vercel-quota-practical-next-step.md`.
 - P1006 is complete and pushed: read-only Vercel checks show production still serves commit `0405ec9` while `origin/main` is at `fa893cb` before this evidence commit, so the later request-reduction commits are not live. Live `/` and `/robots.txt` still send `Cache-Control: public, must-revalidate, max-age=0`, and live `robots.txt` lacks the committed sitemap, `/_next/` and query disallows, 300-second crawl delay, and training-crawler blocklist. Runtime logs exposed through the connector do not explain the 100% dashboard reading: 24-hour grouped logs showed only `/` count 1 and no serverless/edge request paths. Evidence: `qa/verification/P1006-vercel-live-deployment-gap.md`.
