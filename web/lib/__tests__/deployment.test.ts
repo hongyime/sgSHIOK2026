@@ -76,6 +76,15 @@ describe("deployment packaging", () => {
     expect(serviceWorker).toContain("await cache.put(request, response.clone())");
   });
 
+  it("sets bounded deployment headers for the service worker script", () => {
+    const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
+
+    expect(config).toContain('source: "/sw.js"');
+    expect(config).toContain('value: "public, max-age=3600, stale-while-revalidate=86400"');
+    expect(config).toContain('key: "Service-Worker-Allowed"');
+    expect(config).toContain('value: "/"');
+  });
+
   it("caches the app shell to reduce repeat edge requests", () => {
     const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
 
