@@ -322,6 +322,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("Walk display shortest walk");
     expect(html).toContain('aria-busy="true"');
     expect(html).toContain("Loading planning-area locked score order.");
+    expect(html).not.toContain("Loading planning-area locked score order ranks.");
     expect(html).not.toContain("Loading planning-area locked score sorting index ranks.");
     expect(html).not.toContain("Loading planning-area Locked SHIOK score ranks.");
     expect(html).not.toContain("Loading planning-area Locked score sorting index ranks.");

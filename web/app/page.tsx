@@ -1290,6 +1290,9 @@ export function ScoreCard({
   const rankMetricLabel =
     RANK_METRIC_OPTIONS.find((option) => option.id === rankMetric)?.label ?? "Locked score order";
   const rankSentenceLabel = rankSentenceMetricLabel(rankMetricLabel);
+  const rankLoadingText = rankMetricLabel.endsWith("order")
+    ? `Loading planning-area ${rankSentenceLabel}.`
+    : `Loading planning-area ${rankSentenceLabel} ranks.`;
   const rankStatus = rankAnnouncement({
     loading: rankingLoading,
     rankedCount: rankedRecords.length,
@@ -1697,7 +1700,7 @@ export function ScoreCard({
             <div className={styles.rankList} role="status" aria-live="polite">
               <span className={styles.srOnly}>{rankStatus}</span>
               {rankingLoading && (
-                <span className={styles.rankEmpty}>Loading planning-area {rankSentenceLabel} ranks.</span>
+                <span className={styles.rankEmpty}>{rankLoadingText}</span>
               )}
               {!rankingLoading && rankedRecords.length === 0 && (
                 <span className={styles.rankEmpty}>{rankEmptyMessage(rankMetric, rankMetricLabel)}</span>
