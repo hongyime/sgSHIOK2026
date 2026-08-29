@@ -55,7 +55,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("No connected ${transitModeLabel(transitMode)} shelter-map walk within range");
     expect(source).not.toContain("No ${transitModeLabel(transitMode)} walk was found within the locked 1.2 km transit range.");
     expect(source).toContain("Locked transit range is 1.2 km");
-    expect(source).toContain("Outside locked transit range");
+    expect(source).toContain("Beyond 1.2 km locked range");
+    expect(source).not.toContain("Outside locked transit range");
     expect(source).not.toContain("Outside current 1.2 km scoring range");
     expect(source).toContain("Nearby transit may still exist beyond the locked 1.2 km transit range");
     expect(source).not.toContain("current scoring range is 1.2 km");

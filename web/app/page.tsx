@@ -861,7 +861,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
       return ["Transit stop or exit found", "Shelter-map walk not connected yet"];
     }
     if (reason === "no_transit_candidates_selected") {
-      return ["No qualifying transit stop or exit within 1.2 km", "Outside locked transit range"];
+      return ["No qualifying transit stop or exit within 1.2 km", "Beyond 1.2 km locked range"];
     }
     const nearestM = nearestRoutedTransitM(score, transitMode);
     return nearestM !== null
@@ -1498,7 +1498,7 @@ export function ScoreCard({
             id: "access",
             label: "Walk to transit",
             value: formatDistance(selectedDistance),
-            meta: "Outside locked transit range",
+            meta: "Beyond 1.2 km locked range",
             notes: [`${selectedWalkSentenceLabel} distance to ${transitModeLabel(transitMode)}.`],
           },
           {
