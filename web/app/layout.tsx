@@ -8,6 +8,9 @@ const metadataDescription =
 export const metadata = {
   title: metadataTitle,
   description: metadataDescription,
+  icons: {
+    icon: "/icon.svg",
+  },
   openGraph: {
     title: metadataTitle,
     description: metadataDescription,

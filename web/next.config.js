@@ -21,6 +21,15 @@ const securityHeaders = [
 
 const nextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: "/favicon.ico",
+        destination: "/icon.svg",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
