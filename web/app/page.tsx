@@ -875,7 +875,7 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
     return ["Nearby direct bus service found", "Straight-line bus estimate; shelter-map walk pending.", "No verified shelter-map walk yet"];
   }
   if (!score.paths || !score.best_node) return ["Shelter-map evidence unavailable", "Locked score unavailable"];
-  if (!score.subscores) return ["Missing locked-score factors", "Shelter-map evidence available"];
+  if (!score.subscores) return ["Missing score factors", "Shelter-map evidence available"];
 
   const measuredReasons: string[] = [];
   const busFallback = directBusFallbackEvidence(score);

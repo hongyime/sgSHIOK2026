@@ -678,7 +678,8 @@ describe("score card copy", () => {
     expect(source).toContain("Shelter-map evidence unavailable");
     expect(source).toContain("Shelter-map evidence available");
     expect(source).toContain("Locked score unavailable");
-    expect(source).toContain("Missing locked-score factors");
+    expect(source).toContain("Missing score factors");
+    expect(source).not.toContain("Missing locked-score factors");
     expect(source).not.toContain("Locked score inputs unavailable");
     expect(source).not.toContain("Locked terms unavailable");
     expect(source).not.toContain("Locked score incomplete");
