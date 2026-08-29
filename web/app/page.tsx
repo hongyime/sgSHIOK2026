@@ -2166,12 +2166,9 @@ export default function Home() {
     pendingUrlStopIdRef.current = null;
   }, [candidates]);
 
-  // Pre-fetch transit POIs and manifest on initial mount so metadata/date is immediately visible.
+  // Pre-fetch manifest on initial mount so metadata/date is immediately visible.
   useEffect(() => {
     let active = true;
-    void fetchTransitPois().then((pois) => {
-      if (active) setBaseTransitPois(pois);
-    });
     void fetchManifest().then((loaded) => {
       if (active) setManifest(loaded);
     });
@@ -2197,7 +2194,11 @@ export default function Home() {
         fetchScoreForPostal(postal),
         fetchGeomForPostal(postal, Number.isFinite(lat) ? lat : undefined, Number.isFinite(lng) ? lng : undefined),
       ]);
-      const nearbyTransitPois = await fetchTransitPoisForGeom(geom);
+      let nearbyTransitPois = await fetchTransitPoisForGeom(geom);
+      if (nearbyTransitPois.features.length === 0) {
+        nearbyTransitPois = await fetchTransitPois();
+        setBaseTransitPois(nearbyTransitPois);
+      }
       setManifest(loadedManifest);
       setPrimary({ result: { ...result, POSTAL: postal }, score, geom });
       setRouteTransitPois(nearbyTransitPois);

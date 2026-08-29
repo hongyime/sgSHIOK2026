@@ -80,11 +80,14 @@ describe("shelter map interactions", () => {
     expect(source).not.toContain('return "shortest and covered routes";');
   });
 
-  it("pre-fetches manifest on mount and wires interactive click-to-route in page.tsx", () => {
+  it("pre-fetches only manifest on mount and wires interactive click-to-route in page.tsx", () => {
     const pageSource = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
     // Cold-load manifest prefetch
     expect(pageSource).toContain("void fetchManifest().then");
+    expect(pageSource).not.toContain("void fetchTransitPois().then");
+    expect(pageSource).toContain("nearbyTransitPois = await fetchTransitPois();");
+    expect(pageSource).toContain("setBaseTransitPois(nearbyTransitPois);");
 
     // Dynamic stop routing
     expect(pageSource).toContain("selectionForChosenStop");
