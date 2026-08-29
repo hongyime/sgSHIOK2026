@@ -198,7 +198,8 @@ describe("score card copy", () => {
     expect(pickerSource).not.toContain('aria-label="Nearby transit targets"');
     expect(pickerSource).not.toContain('aria-label="Transit stop picker"');
     expect(pickerSource).not.toContain('aria-label="Nearby transit stops"');
-    expect(source).toContain('{ id: "best_transit", label: "Auto-picked" }');
+    expect(source).toContain('{ id: "best_transit", label: "Published walk" }');
+    expect(source).not.toContain('{ id: "best_transit", label: "Auto-picked" }');
     expect(source).toContain('{ id: "mrt_lrt", label: "MRT/LRT exits" }');
     expect(source).toContain('{ id: "bus", label: "Bus stops" }');
     expect(source).not.toContain('{ id: "best_transit", label: "Best transit" }');

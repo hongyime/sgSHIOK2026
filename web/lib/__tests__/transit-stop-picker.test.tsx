@@ -270,7 +270,7 @@ describe("buildComparisonText", () => {
     expect(
       buildComparisonText({ fartherPct: 42, bestStraightM: 100, activeStraightM: 142 })
     ).toBe(
-      "42% farther than auto-picked stop or exit (+42 m straight-line only; shelter-map walk evidence updates after selection)"
+      "42% farther than published stop or exit (+42 m straight-line only; shelter-map walk evidence updates after selection)"
     );
   });
   it("returns null when the pick is not farther", () => {
@@ -337,8 +337,9 @@ describe("TransitStopPicker component", () => {
     expect(chipMatches).toHaveLength(6);
     expect(html).toContain(`data-chip-id="${RESET_CHIP_ID}"`);
     expect(html).toMatch(/data-chip-id="bus:66411"[^>]*aria-current="true"/);
-    expect(html).toContain("Reset to auto-picked stop or exit");
-    expect(html).toContain('aria-label="Reset to auto-picked transit stop or exit"');
+    expect(html).toContain("Reset to published stop or exit");
+    expect(html).toContain('aria-label="Reset to published transit stop or exit"');
+    expect(html).not.toContain("Reset to auto-picked stop or exit");
     expect(html).not.toContain("Reset to best");
     expect(html).not.toContain('aria-label="Reset to auto-picked best transit"');
     expect(html).not.toContain("Reset to auto-picked target");
@@ -353,9 +354,10 @@ describe("TransitStopPicker component", () => {
       onSelect: () => {},
     });
     expect(html).toMatch(
-      /\d+% farther than auto-picked stop or exit \(\+\d+ m straight-line only; shelter-map walk evidence updates after selection\)/
+      /\d+% farther than published stop or exit \(\+\d+ m straight-line only; shelter-map walk evidence updates after selection\)/
     );
     expect(html).not.toContain("farther than auto-picked target");
+    expect(html).not.toContain("farther than auto-picked stop or exit");
     expect(html).not.toContain("farther than best");
   });
 
@@ -393,7 +395,7 @@ describe("TransitStopPicker component", () => {
     expect(distanceMatches.length).toBeGreaterThan(0);
   });
 
-  it("keeps the straight-line distance span on every chip when the auto-picked best is active", () => {
+  it("keeps the straight-line distance span on every chip when the published pick is active", () => {
     // activeStopId === null falls back to bestStopId, so the best chip is
     // "active" for render. In that case we still hide distance on the best.
     const html = renderPicker({

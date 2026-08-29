@@ -1034,7 +1034,7 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain('aria-label="Transit stop or exit type"');
-    expect(html).toContain("<span>Auto-picked</span><small>displayed walk</small>");
+    expect(html).toContain("<span>Published walk</span><small>displayed walk</small>");
     expect(html).toContain("<span>MRT/LRT exits</span><small>no published walk</small>");
     expect(html).toContain("<span>Bus stops</span><small>published walk</small>");
     expect(html).not.toContain('aria-label="Transit target type"');
@@ -1067,8 +1067,9 @@ describe("rendered accessibility output", () => {
       },
       rankingRecords: [recordWithRouteOptions],
     });
-    expect(noDisplayedWalkHtml).toContain("<span>Auto-picked</span><small>no published walk</small>");
-    expect(noDisplayedWalkHtml).not.toContain("<span>Auto-picked</span><small>unavailable</small>");
+    expect(noDisplayedWalkHtml).toContain("<span>Published walk</span><small>no published walk</small>");
+    expect(noDisplayedWalkHtml).not.toContain("<span>Published walk</span><small>unavailable</small>");
+    expect(noDisplayedWalkHtml).not.toContain("<span>Auto-picked</span>");
   });
 
   it("explains no-transit records when a connected walk exists only beyond the locked range", () => {

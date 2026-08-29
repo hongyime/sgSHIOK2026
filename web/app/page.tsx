@@ -197,7 +197,7 @@ function writeLiveRoutePreviewCache(key: string, payload: LiveRoutePreviewPayloa
 }
 
 const TRANSIT_MODE_OPTIONS: Array<{ id: TransitAccessMode; label: string }> = [
-  { id: "best_transit", label: "Auto-picked" },
+  { id: "best_transit", label: "Published walk" },
   { id: "mrt_lrt", label: "MRT/LRT exits" },
   { id: "bus", label: "Bus stops" },
 ];

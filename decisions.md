@@ -1,3 +1,6 @@
+2026-08-30 - P1014 published-walk transit copy:
+The transit stop/exit selector should name the default route as the `Published walk`, not an `Auto-picked` target. Users are comparing the published shelter-map walk against selected stop/exit previews; `auto-picked` describes implementation, while `published` describes the artifact boundary that matters for interpretation. Reset and straight-line comparison copy now say `published stop or exit`. This is browser copy/test/evidence work only; it does not alter candidate derivation, selected transit IDs, route geometry, scoring, exports, public data, inputs, deployment, or locked weights.
+
 2026-08-30 - P1010 agent-facing Vercel quota boundary:
 Agent startup guidance should carry the same Vercel Hobby Edge Request boundary as README: committed cache/crawler reductions do not affect production until owner manual deployment because automatic Git deployments are intentionally disabled, and hard stops such as pausing or protecting the project are owner availability decisions. This prevents future agents from spending repo-only work on a live quota incident or mutating Vercel settings by default. This is documentation/test/evidence work only; it does not deploy, mutate Vercel settings, score, export, rescore, ingest, build network, mutate public data, protected evidence, inputs, or locked weights.
 
