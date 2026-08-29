@@ -3,7 +3,7 @@
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `6876c6f` (`docs: name no-walk transit cutoff`)
+Latest substantive commit: `4733612` (`fix: satisfy exposure gap aria typecheck`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P873 is complete and pushed: full web tests now pass after exposure-gap map button aria labels use a non-null coordinate derived from the validated focus target.
 - P872 is complete and pushed: no-transit fallback labels now name the 1.2 km cutoff instead of saying only `within range` or `within locked transit range`.
 - P871 is complete and pushed: short no-transit reason/meta labels now say `Beyond 1.2 km locked range` instead of `Outside locked transit range`.
 - P870 is complete and pushed: the locked-score availability disclosure now says `beyond the 1.2 km locked transit range` instead of `beyond locked transit range`.
