@@ -113,8 +113,24 @@ describe("deployment packaging", () => {
     expect(config).toContain('source: "/api/:path*"');
     expect(config).toContain('key: "X-Robots-Tag"');
     expect(config).toContain('value: "noindex, nofollow, noarchive"');
-    expect(robots).toContain('const TRAINING_CRAWLER_BLOCKLIST = ["GPTBot", "ClaudeBot", "CCBot"]');
-    expect(robots).toContain("userAgent: TRAINING_CRAWLER_BLOCKLIST");
+    expect(robots).toContain("const NON_USER_CRAWLER_BLOCKLIST = [");
+    for (const crawler of [
+      "GPTBot",
+      "ClaudeBot",
+      "CCBot",
+      "Google-Extended",
+      "Applebot-Extended",
+      "PerplexityBot",
+      "Bytespider",
+      "Amazonbot",
+      "FacebookBot",
+      "meta-externalagent",
+      "SemrushBot",
+      "AhrefsBot",
+    ]) {
+      expect(robots).toContain(`"${crawler}"`);
+    }
+    expect(robots).toContain("userAgent: NON_USER_CRAWLER_BLOCKLIST");
     expect(robots).toContain('disallow: "/"');
     expect(robots).toContain('allow: "/"');
     expect(robots).toContain('disallow: ["/api/", "/data/", "/_next/", "/*?*"]');
