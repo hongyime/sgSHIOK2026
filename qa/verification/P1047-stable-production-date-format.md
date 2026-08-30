@@ -116,3 +116,20 @@ personal_default_postal_removed=true
 locked_score_coverage_copy_removed=true
 night_lighting_long_copy_removed=true
 ```
+
+Live favicon check:
+
+```text
+https://sgshiok.vercel.app/favicon.ico
+X-Matched-Path=/icon.svg
+X-Nextjs-Rewritten-Path=/icon.svg
+Content-Type=image/svg+xml
+Content-Length=747
+Cache-Control=public, max-age=31536000, immutable
+
+https://sgshiok.vercel.app/icon.svg
+X-Matched-Path=/icon.svg
+Content-Type=image/svg+xml
+Content-Length=747
+Cache-Control=public, max-age=31536000, immutable
+```
