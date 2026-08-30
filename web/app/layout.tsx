@@ -2,7 +2,7 @@ import React from "react";
 
 const metadataTitle = "S.H.I.O.K. Shelter Map";
 const metadataDescription =
-  "If you moved here, inspect covered-walkway ratio, exposed gaps, the night-lighting map layer, and the secondary locked SHIOK score on walks to transit.";
+  "Check covered-walkway shelter and exposed gaps on Singapore walks to transit.";
 
 export const metadata = {
   title: metadataTitle,

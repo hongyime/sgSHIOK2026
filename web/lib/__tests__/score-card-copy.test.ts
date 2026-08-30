@@ -253,6 +253,7 @@ describe("score card copy", () => {
     expect(layoutSource).toContain('card: "summary"');
     expect(layoutSource).not.toContain('title: "S.H.I.O.K. Index"');
     expect(source).toContain("Check how sheltered the walk to transit feels before you pick a place.");
+    expect(source).toContain("showDetailOverlay ? styles.searchOverlayWithResult :");
     expect(source).toContain("See how much of the walk to transit is covered, and where it is exposed.");
     expect(source).not.toContain(
       "If you moved here, see covered-walkway ratio and exposed gaps on the walk to a transit stop or exit, plus the night-lighting map layer",
@@ -526,12 +527,12 @@ describe("score card copy", () => {
     expect(readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8")).toContain(
       "grid-template-columns: 58px minmax(0, 1fr) auto;"
     );
-    expect(source).toContain("nightLightingLayerNote(lampOverlayEnabled)");
-    expect(source).toContain("export function nightLightingLayerNote(lampOverlayEnabled: boolean): string");
-    expect(source).toContain("Night-lighting layer is hidden.");
-    expect(source).toContain("Open the map, then show this layer if night lighting matters.");
-    expect(source).toContain("Night-lighting layer is shown.");
-    expect(source).toContain("Zoom in to see lamp-post points.");
+    expect(source).not.toContain("nightLightingLayerNote(lampOverlayEnabled)");
+    expect(source).not.toContain("export function nightLightingLayerNote(lampOverlayEnabled: boolean): string");
+    expect(source).not.toContain("Night-lighting layer is hidden.");
+    expect(source).not.toContain("Open the map, then show this layer if night lighting matters.");
+    expect(source).not.toContain("Night-lighting layer is shown.");
+    expect(source).not.toContain("Zoom in to see lamp-post points.");
     expect(source).not.toContain("LTA lamp-post locations can be shown on the map.");
     expect(source).not.toContain("LTA lamp-post locations are shown on the map.");
     expect(source).not.toContain("LTA lamp-post locations load from the published lamp-post layer.");
@@ -546,6 +547,9 @@ describe("score card copy", () => {
     expect(source).not.toContain("Heat proxy: shelter + sparse NParks greenery");
     expect(source).not.toContain("Heat proxy: shelter plus sparse nearby greenery, not measured temperature");
     expect(layoutSource).toContain(
+      "Check covered-walkway shelter and exposed gaps on Singapore walks to transit."
+    );
+    expect(layoutSource).not.toContain(
       "If you moved here, inspect covered-walkway ratio, exposed gaps, the night-lighting map layer, and the secondary locked SHIOK score on walks to transit."
     );
     expect(layoutSource).not.toContain("Explore covered-walkway ratio, exposed gaps");
@@ -557,10 +561,13 @@ describe("score card copy", () => {
     expect(layoutSource).not.toContain("Singapore walk-to-transit comfort score");
   });
 
-  it("keeps the footer aligned with covered-walkway and night-lighting evidence framing", () => {
+  it("keeps the footer focused on route shelter evidence", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
     expect(source).toContain(
+      "Walk evidence: covered-walkway ratio and exposed gaps on the route.",
+    );
+    expect(source).not.toContain(
       "Walk evidence: covered-walkway ratio and exposed gaps, plus the night-lighting map layer.",
     );
     expect(source).not.toContain(
@@ -651,18 +658,16 @@ describe("score card copy", () => {
     expect(tsxSource).toContain("routeDetailItems.push({ label: \"Nearby greenery\"");
     expect(tsxSource).not.toContain("routeDetailItems.push({ label: \"Greenery proxy\"");
     expect(tsxSource).not.toContain("routeDetailItems.push({ label: \"Shade proxy\"");
-    expect(tsxSource.indexOf('label: "Night lighting"')).toBeLessThan(
-      tsxSource.indexOf('routeDetailItems.push({ label: "Nearby greenery"')
-    );
+    expect(tsxSource).not.toContain('label: "Night lighting"');
     expect(tsxSource).toContain(
       "Nearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index."
     );
     expect(tsxSource).not.toContain("Greenery proxy uses sparse NParks route geometry for heat only");
     expect(tsxSource).toContain("routeDetailItems.push({ label: \"Access link\"");
     expect(tsxSource).not.toContain("routeDetailItems.push({ label: \"Snap connector\"");
-    expect(tsxSource).toContain("value: nightLightingRouteDetailValue(lampOverlayEnabled),");
-    expect(tsxSource).toContain("export function nightLightingRouteDetailValue(lampOverlayEnabled: boolean): string");
-    expect(tsxSource).toContain("Night-lighting layer hidden; show the layer, then zoom in");
+    expect(tsxSource).not.toContain("value: nightLightingRouteDetailValue(lampOverlayEnabled),");
+    expect(tsxSource).not.toContain("export function nightLightingRouteDetailValue(lampOverlayEnabled: boolean): string");
+    expect(tsxSource).not.toContain("Night-lighting layer hidden; show the layer, then zoom in");
     expect(tsxSource).toContain('{lampOverlayEnabled ? "Night lighting shown" : "Night lighting"}');
     expect(tsxSource).not.toContain('{lampOverlayEnabled ? "Night-lighting layer shown" : "Show night-lighting layer"}');
     expect(tsxSource).not.toContain('{lampOverlayEnabled ? "Night-lighting layer on" : "Night-lighting layer off"}');
@@ -672,12 +677,11 @@ describe("score card copy", () => {
     expect(tsxSource).not.toContain("Available; map layer off");
     expect(tsxSource).not.toContain('routeDetailItems.push({ label: "Night lighting", value: lampOverlayEnabled ? "Layer on" : "Layer off" });');
     expect(tsxSource).toContain("lampOverlayEnabled?: boolean;");
-    expect(tsxSource).toContain("setLampOverlayEnabled?: (enabled: boolean) => void;");
+    expect(tsxSource).not.toContain("setLampOverlayEnabled?: (enabled: boolean) => void;");
     expect(tsxSource).toContain("lampOverlayEnabled={lampOverlayEnabled}");
-    expect(tsxSource).toContain("setLampOverlayEnabled={setLampOverlayEnabled}");
-    expect(tsxSource).toContain("Show night-lighting layer");
-    expect(tsxSource).toContain("onClick={() => setLampOverlayEnabled(true)}");
-    expect(tsxSource).toContain(
+    expect(tsxSource).not.toContain("setLampOverlayEnabled={setLampOverlayEnabled}");
+    expect(tsxSource).not.toContain("Show night-lighting layer");
+    expect(tsxSource).not.toContain(
       "Night lighting uses LTA lamp-post points as a night-lighting map layer outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
     );
     expect(tsxSource).not.toContain("night-lighting map evidence outside the locked score");

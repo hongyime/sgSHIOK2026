@@ -14,8 +14,6 @@ import Home, {
   formatFeedbackTraceCount,
   formatDataDate,
   formatGeneratedDate,
-  nightLightingLayerNote,
-  nightLightingRouteDetailValue,
   routeDisplayAnnouncement,
   rankAnnouncement,
   rankEmptyMessage,
@@ -138,7 +136,6 @@ function renderScoreCard(overrides: Partial<React.ComponentProps<typeof ScoreCar
     setRankPanelOpen: noop,
     onFocusExposureGap: noop,
     lampOverlayEnabled: false,
-    setLampOverlayEnabled: noop,
     ...overrides,
   };
   return renderToStaticMarkup(<ScoreCard {...props} />);
@@ -253,22 +250,6 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Data freshness: 28 Aug 2026 11:52 UTC manifest-only check");
     expect(html).not.toContain("16 Aug 2026 public-source sample");
     expect(html).not.toContain("20 Aug 2026 OSM addr:postcode coverage cross-check");
-  });
-
-  it("formats the night-lighting layer note for off and on states", () => {
-    expect(nightLightingLayerNote(false)).toBe(
-      "Night-lighting layer is hidden. Open the map, then show this layer if night lighting matters."
-    );
-    expect(nightLightingLayerNote(true)).toBe(
-      "Night-lighting layer is shown. Zoom in to see lamp-post points."
-    );
-  });
-
-  it("formats selected-walk night-lighting detail values for off and on states", () => {
-    expect(nightLightingRouteDetailValue(false)).toBe(
-      "Night-lighting layer hidden; show the layer, then zoom in"
-    );
-    expect(nightLightingRouteDetailValue(true)).toBe("Night-lighting layer on; zoom in for lamp-post points");
   });
 
   it("introduces the shelter-map panel before search", () => {
@@ -695,8 +676,8 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain(">Greenery proxy</strong>");
     expect(html).not.toContain("greenery proxy");
     expect(html).not.toContain("Greenery proxy uses sparse NParks route geometry for heat only");
-    expect(html).toContain("Night lighting");
-    expect(html).toContain("Night-lighting layer hidden; show the layer, then zoom in");
+    expect(html).not.toContain("Night lighting");
+    expect(html).not.toContain("Night-lighting layer hidden; show the layer, then zoom in");
     expect(html).not.toContain("Available; map layer off");
     expect(html).not.toContain("Map layer on; zoom in for points");
     expect(html).not.toContain(">Map layer off</strong>");
@@ -822,21 +803,21 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Bus stop connector");
   });
 
-  it("reflects the night-lighting map layer state in route details", () => {
+  it("keeps night-lighting prose out of route details", () => {
     const offHtml = renderScoreCard({ lampOverlayEnabled: false });
     const onHtml = renderScoreCard({ lampOverlayEnabled: true });
 
-    expect(offHtml).toContain("Night lighting");
-    expect(offHtml).toContain("Night-lighting layer hidden; show the layer, then zoom in");
-    expect(offHtml).toContain("Show night-lighting layer");
+    expect(offHtml).not.toContain("Night lighting");
+    expect(offHtml).not.toContain("Night-lighting layer hidden; show the layer, then zoom in");
+    expect(offHtml).not.toContain("Show night-lighting layer");
     expect(offHtml).not.toContain("Available; map layer off");
-    expect(onHtml).toContain("Night-lighting layer on; zoom in for lamp-post points");
+    expect(onHtml).not.toContain("Night-lighting layer on; zoom in for lamp-post points");
     expect(onHtml).not.toContain("Show night-lighting layer");
     expect(onHtml).toContain("LTA lamp-post points");
     expect(onHtml).not.toContain("LTA lamp points");
     expect(onHtml).not.toContain("Map layer on; zoom in for points");
     expect(onHtml).not.toContain("Layer on");
-    expect(onHtml).toContain(
+    expect(onHtml).not.toContain(
       "Night lighting uses LTA lamp-post points as a night-lighting map layer outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
     );
   });

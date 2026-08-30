@@ -54,6 +54,10 @@ function hasCompressedArtifact(path: string): boolean {
   );
 }
 
+function compressedOnlyArtifact(path: string): boolean {
+  return /^transit\/h3\/[^/]+\.json$/.test(path);
+}
+
 async function decodeJsonResponse<T>(res: Response, path: string): Promise<T> {
   const contentEncoding = res.headers?.get("content-encoding") ?? "";
   if (path.endsWith(".gz") && !contentEncoding.toLowerCase().includes("gzip")) {
@@ -75,6 +79,9 @@ async function fetchJson<T>(path: string): Promise<T> {
       const gzPath = `${path}.gz`;
       const gzRes = await fetch(dataUrl(gzPath), DATA_FETCH_OPTIONS);
       if (gzRes.ok) return decodeJsonResponse<T>(gzRes, gzPath);
+      if (compressedOnlyArtifact(path)) {
+        throw new Error(`${gzPath} fetch failed: ${gzRes.status}`);
+      }
     }
 
     const res = await fetch(dataUrl(path), DATA_FETCH_OPTIONS);

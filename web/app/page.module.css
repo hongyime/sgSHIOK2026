@@ -64,8 +64,7 @@
 
 .sourceLine,
 .freshnessLine,
-.heatLine,
-.layerNote {
+.heatLine {
   font-size: 10px !important;
 }
 
@@ -1020,22 +1019,6 @@
   font-size: 11px;
 }
 
-.routeDetailAction {
-  border: 1px solid rgba(32, 53, 47, 0.2);
-  border-radius: 6px;
-  padding: 3px 7px;
-  color: #1d5e56;
-  background: #eef8f6;
-  font-size: 10px;
-  font-weight: 900;
-  cursor: pointer;
-}
-
-.routeDetailAction:focus-visible {
-  outline: 2px solid #008f86;
-  outline-offset: 2px;
-}
-
 .routeDetails small {
   flex-basis: 100%;
   color: #6b7a74;
@@ -1276,17 +1259,45 @@ button.gapItem:hover,
     gap: 6px;
   }
 
+  .searchOverlayWithResult {
+    gap: 5px;
+  }
+
   .brandRow {
     padding: 9px 10px;
+  }
+
+  .searchOverlayWithResult .brandRow {
+    padding: 7px 9px;
+  }
+
+  .searchOverlayWithResult .brandRow > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
   }
 
   .brandRow h1 {
     font-size: 16px;
   }
 
+  .searchOverlayWithResult .brandRow h1 {
+    font-size: 15px;
+  }
+
   .brandRow p {
     margin-top: 2px;
     font-size: 10px;
+  }
+
+  .searchOverlayWithResult .brandRow p,
+  .searchOverlayWithResult .dataLimits {
+    display: none;
+  }
+
+  .searchOverlayWithResult .mapLayerControls {
+    margin-top: 0;
   }
 
   .mapPlaceholder {
@@ -1303,22 +1314,75 @@ button.gapItem:hover,
   }
 
   .searchForm input {
-    padding: 8px 10px;
+    padding: 7px 9px;
     font-size: 14px;
   }
 
   .searchForm button {
-    min-height: 42px;
+    min-height: 40px;
     padding: 0 10px;
     font-size: 13px;
   }
 
   .detailOverlay {
-    max-height: min(46dvh, 360px);
+    max-height: min(34dvh, 292px);
+  }
+
+  .scoreCard {
+    padding: 10px;
+  }
+
+  .scoreHeader {
+    gap: 8px;
+  }
+
+  .scoreCard h2 {
+    font-size: 17px;
+  }
+
+  .scoreHeader p {
+    font-size: 11px;
+  }
+
+  .segmented {
+    margin-top: 8px;
+  }
+
+  .segmented button {
+    padding: 6px 5px;
+    font-size: 11px;
+  }
+
+  .transitSegmented small {
+    font-size: 8px;
+  }
+
+  .exposureHero {
+    margin-top: 8px;
+    padding: 8px;
+  }
+
+  .exposureHero strong {
+    font-size: 16px;
+  }
+
+  .exposureHero p {
+    font-size: 10px;
   }
 
   .scoreBadge {
+    width: 84px;
     min-width: 66px;
+    min-height: 42px;
+    padding: 5px 6px;
+  }
+
+  .scoreBadge span {
+    font-size: 8px;
+  }
+
+  .scoreBadge strong {
+    font-size: 12px;
   }
 
   .summaryGrid {

@@ -974,7 +974,7 @@ function routeModeLabel(mode: RouteDisplayMode): string {
 
 function mapAriaLabel(routes: RouteMapItem[], mode: RouteDisplayMode): string {
   if (routes.length === 0) {
-    return "Singapore shelter-map view for covered-walkway ratio, exposed gaps, transit stops and exits, and the night-lighting map layer";
+    return "Singapore shelter route map";
   }
   const labels = routes.map((route) => route.label).join(", ");
   return `Shelter-map view for ${labels}, showing ${routeModeLabel(mode)}`;
@@ -997,27 +997,26 @@ function transitPoiSummary(pois: PointFeatureCollection): string {
 
 export function nightLightingSummary(status: LampOverlayStatus, lampCount: number): string | null {
   if (status === "off") return null;
-  const caveat = "Night-lighting map layer only; not part of the locked score.";
   if (status === "below_zoom") {
-    return `Night lighting map layer is on; zoom in to load LTA lamp-post points. ${caveat}`;
+    return "Zoom in to show lamp-post points.";
   }
   if (status === "loading") {
-    return `Night lighting map layer is on; LTA lamp-post points are loading for the current map view. ${caveat}`;
+    return "Loading lamp-post points for this map view.";
   }
   if (status === "unavailable") {
-    return `Night lighting map layer is on; lamp-post tiles are unavailable for the current map view. ${caveat}`;
+    return "Lamp-post points are unavailable for this map view.";
   }
   if (status === "partial") {
-    return `Night lighting map layer is on with ${lampCount} lamp-post point${
+    return `${lampCount} lamp-post point${
       lampCount === 1 ? "" : "s"
-    } in view; some lamp-post tiles are unavailable. ${caveat}`;
+    } in view; some tiles are unavailable.`;
   }
   if (status === "empty" || lampCount === 0) {
-    return `Night lighting map layer is on; no lamp-post points are indexed in the current map view. ${caveat}`;
+    return "No lamp-post points are indexed in this map view.";
   }
-  return `Night lighting map layer is on with ${lampCount} lamp-post point${
+  return `${lampCount} lamp-post point${
     lampCount === 1 ? "" : "s"
-  } in view. ${caveat}`;
+  } in view.`;
 }
 
 export function selectedExposureGapSummary(focusedExposureGap: FocusedExposureGap | null): string | null {
@@ -1047,7 +1046,6 @@ function mapTextSummary(
     return [
       `Singapore shelter-map view with ${poiText}.`,
       lampText,
-      "If you moved here, inspect covered-walkway ratio and exposed gaps on the walk to a transit stop or exit, plus the night-lighting map layer.",
     ].filter(Boolean).join(" ");
   }
 
@@ -1087,6 +1085,21 @@ function boundsFor(points: [number, number][]): [[number, number], [number, numb
     [Math.min(...lngs), Math.min(...lats)],
     [Math.max(...lngs), Math.max(...lats)],
   ];
+}
+
+function fitRouteBounds(
+  map: maplibregl.Map,
+  bounds: [[number, number], [number, number]]
+) {
+  map.resize();
+  const isCompact = map.getContainer().clientWidth < 700;
+  map.fitBounds(bounds, {
+    padding: isCompact
+      ? { top: 300, right: 24, bottom: 90, left: 24 }
+      : { top: 150, right: 80, bottom: 90, left: 390 },
+    duration: prefersReducedMotion() ? 0 : 350,
+    maxZoom: 16.6,
+  });
 }
 
 export function RouteEvidenceMap({
@@ -1370,17 +1383,50 @@ export function RouteEvidenceMap({
     if (!map || !loaded || !routeData.bounds) return;
     if (lastFitKeyRef.current === routeFitKey) return;
     lastFitKeyRef.current = routeFitKey;
-    if (routeData.bounds) {
-      const isCompact = map.getContainer().clientWidth < 700;
-      map.fitBounds(routeData.bounds, {
-        padding: isCompact
-          ? { top: 300, right: 24, bottom: 90, left: 24 }
-          : { top: 150, right: 80, bottom: 90, left: 390 },
-        duration: prefersReducedMotion() ? 0 : 350,
-        maxZoom: 16.6,
+    const refit = () => {
+      if (mapRef.current && routeData.bounds) {
+        fitRouteBounds(mapRef.current, routeData.bounds);
+      }
+    };
+    refit();
+    let secondFrame = 0;
+    const firstFrame = window.requestAnimationFrame(() => {
+      secondFrame = window.requestAnimationFrame(() => {
+        refit();
       });
-    }
+    });
+    const settledTimer = window.setTimeout(refit, 900);
+    map.once("idle", refit);
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      window.cancelAnimationFrame(secondFrame);
+      window.clearTimeout(settledTimer);
+      map.off("idle", refit);
+    };
   }, [loaded, routeData.bounds, routeFitKey]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    const container = containerRef.current;
+    if (!map || !loaded || !container || typeof ResizeObserver === "undefined") return;
+
+    let frame = 0;
+    const observer = new ResizeObserver(() => {
+      window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(() => {
+        if (!mapRef.current) return;
+        mapRef.current.resize();
+        if (routeData.bounds) {
+          fitRouteBounds(mapRef.current, routeData.bounds);
+        }
+      });
+    });
+    observer.observe(container);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
+  }, [loaded, routeData.bounds]);
 
   useEffect(() => {
     const map = mapRef.current;

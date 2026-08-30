@@ -4,10 +4,15 @@ import { join } from "path";
 describe("shelter map interactions", () => {
   it("does not refit map bounds when feedback points change", () => {
     const source = readFileSync(join(__dirname, "../../components/route-evidence-map.tsx"), "utf-8");
-    const fitEffect = source.match(/map\.fitBounds[\s\S]+?\}, \[loaded, routeData\.bounds, routeFitKey\]\);/)?.[0];
+    const fitEffectStart = source.indexOf("lastFitKeyRef.current = routeFitKey;");
+    const fitEffectEnd = source.indexOf("}, [loaded, routeData.bounds, routeFitKey]);", fitEffectStart);
+    const fitEffect = source.slice(fitEffectStart, fitEffectEnd);
 
-    expect(fitEffect).toBeTruthy();
+    expect(fitEffectStart).toBeGreaterThan(-1);
+    expect(fitEffectEnd).toBeGreaterThan(fitEffectStart);
     expect(fitEffect).not.toContain("feedback");
+    expect(source).toContain("function fitRouteBounds(");
+    expect(source).toContain("map.resize();");
     expect(source).toContain('setSourceData(map, "feedback-route", feedbackData.route)');
     expect(source).toContain('setSourceData(map, "feedback-points", feedbackData.points)');
   });
@@ -45,7 +50,7 @@ describe("shelter map interactions", () => {
     expect(source).toContain('return "shortest and sheltered walks";');
     expect(source).toContain("sheltered-walk segments");
     expect(source).toContain("shortest-walk segments");
-    expect(source).toContain("Singapore shelter-map view for covered-walkway ratio, exposed gaps, transit stops and exits, and the night-lighting map layer");
+    expect(source).toContain('return "Singapore shelter route map";');
     expect(source).not.toContain("Singapore shelter-map view for covered-walkway ratio, exposed gaps, transit targets, and the night-lighting map layer");
     expect(source).not.toContain("Singapore shelter-map view for covered-walkway ratio, exposed gaps, transit stops, and night lighting evidence");
     expect(source).not.toContain("Singapore shelter-map view for covered-walkway ratio, exposed gaps, transit targets, and night lighting evidence");
@@ -59,7 +64,7 @@ describe("shelter map interactions", () => {
     expect(source).toContain("Shelter-map view for ${routeLabels}.");
     expect(source).not.toContain("Shelter map for ${labels}, showing ${routeModeLabel(mode)}");
     expect(source).not.toContain("Shelter map for ${routeLabels}.");
-    expect(source).toContain(
+    expect(source).not.toContain(
       "If you moved here, inspect covered-walkway ratio and exposed gaps on the walk to a transit stop or exit, plus the night-lighting map layer.",
     );
     expect(source).not.toContain("Search a OneMap address or 6-digit postal code to inspect covered-walkway ratio and exposed gaps on the walk to a transit stop or exit, plus the night-lighting map layer.");
@@ -92,13 +97,23 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain('import dynamic from "next/dynamic";');
     expect(pageSource).toContain("const RouteEvidenceMap = dynamic(");
     expect(pageSource).toContain('import("../components/route-evidence-map").then((module) => module.RouteEvidenceMap)');
+    expect(pageSource).toContain("function preloadRouteMap()");
+    expect(pageSource).toContain('void import("../components/route-evidence-map");');
+    expect(pageSource).toContain('void import("maplibre-gl");');
     expect(pageSource).toContain("const [showMap, setShowMap] = useState(false);");
+    expect(pageSource).toContain("const loadSelectionRequestIdRef = useRef(0);");
     expect(pageSource).toContain("const mapAvailable = mapRoutes.length > 0;");
     expect(pageSource).toContain("const shouldRenderRouteMap = mapAvailable && showMap;");
+    expect(pageSource).toContain("showDetailOverlay ? styles.searchOverlayWithResult :");
     expect(pageSource).toContain("Map hidden for faster loading");
     expect(pageSource).toContain("Open it when you want the route trace, exposed-gap locations, or night-lighting layer.");
     expect(pageSource).toContain("setShowMap(true);");
+    expect(pageSource).not.toContain("setShowMap(false);");
     expect(pageSource).toContain("{shouldRenderRouteMap && (");
+    expect(pageSource).toContain("onFocus={preloadRouteMap}");
+    expect(pageSource.indexOf("setPrimary({ result: { ...result, POSTAL: postal }, score, geom });")).toBeLessThan(
+      pageSource.indexOf("void fetchTransitPoisForGeom(geom)")
+    );
     expect(pageSource).toContain("nearbyTransitPois = await fetchTransitPois();");
     expect(pageSource).toContain("setBaseTransitPois(nearbyTransitPois);");
 
@@ -136,17 +151,28 @@ describe("shelter map interactions", () => {
     expect(pageSource).not.toContain(
       'title="Night lighting: LTA lamp-post locations; map evidence only, not part of the locked score"'
     );
-    expect(pageSource).toContain("night-lighting-layer-note");
-    expect(pageSource).toContain("nightLightingLayerNote(lampOverlayEnabled)");
-    expect(pageSource).toContain("export function nightLightingLayerNote(lampOverlayEnabled: boolean): string");
-    expect(pageSource).toContain("Night-lighting layer is hidden.");
-    expect(pageSource).toContain("Open the map, then show this layer if night lighting matters.");
-    expect(pageSource).toContain("Night-lighting layer is shown.");
-    expect(pageSource).toContain("Zoom in to see lamp-post points.");
+    expect(pageSource).not.toContain("night-lighting-layer-note");
+    expect(pageSource).not.toContain("nightLightingLayerNote(lampOverlayEnabled)");
+    expect(pageSource).not.toContain("export function nightLightingLayerNote(lampOverlayEnabled: boolean): string");
+    expect(pageSource).not.toContain("Night-lighting layer is hidden.");
+    expect(pageSource).not.toContain("Open the map, then show this layer if night lighting matters.");
+    expect(pageSource).not.toContain("Night-lighting layer is shown.");
+    expect(pageSource).not.toContain("Zoom in to see lamp-post points.");
     expect(pageSource).not.toContain("LTA lamp-post locations load from the published lamp-post layer.");
     expect(pageSource).not.toContain("LTA lamp-post locations load from the published night-lighting artifact.");
     expect(pageSource).not.toContain("Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026.");
     expect(pageSource).not.toContain("LTA lamp-post layer: 126,144 points");
+  });
+
+  it("waits for a ready route map before visual smoke screenshots", () => {
+    const smokeSource = readFileSync(join(__dirname, "../../scripts/browser-smoke.mjs"), "utf-8");
+
+    expect(smokeSource).toContain("async function waitForRouteMapReady");
+    expect(smokeSource).toContain("window.__shiokRouteMap");
+    expect(smokeSource).toContain("window.__shiokRouteDebug?.routeCount > 0");
+    expect(smokeSource).toContain("window.__shiokRouteMap.getZoom?.() >= 15");
+    expect(smokeSource).toContain('if (args.expectedState === "scored")');
+    expect(smokeSource).toContain("await waitForRouteMapReady(cdp, args.timeoutMs);");
   });
 
   it("summarizes the night-lighting overlay for non-visual map users", async () => {
@@ -154,28 +180,28 @@ describe("shelter map interactions", () => {
 
     expect(nightLightingSummary("off", 12)).toBeNull();
     expect(nightLightingSummary("below_zoom", 0)).toBe(
-      "Night lighting map layer is on; zoom in to load LTA lamp-post points. Night-lighting map layer only; not part of the locked score."
+      "Zoom in to show lamp-post points."
     );
     expect(nightLightingSummary("loading", 0)).toBe(
-      "Night lighting map layer is on; LTA lamp-post points are loading for the current map view. Night-lighting map layer only; not part of the locked score."
+      "Loading lamp-post points for this map view."
     );
     expect(nightLightingSummary("empty", 0)).toBe(
-      "Night lighting map layer is on; no lamp-post points are indexed in the current map view. Night-lighting map layer only; not part of the locked score."
+      "No lamp-post points are indexed in this map view."
     );
     expect(nightLightingSummary("unavailable", 0)).toBe(
-      "Night lighting map layer is on; lamp-post tiles are unavailable for the current map view. Night-lighting map layer only; not part of the locked score."
+      "Lamp-post points are unavailable for this map view."
     );
     expect(nightLightingSummary("partial", 1)).toBe(
-      "Night lighting map layer is on with 1 lamp-post point in view; some lamp-post tiles are unavailable. Night-lighting map layer only; not part of the locked score."
+      "1 lamp-post point in view; some tiles are unavailable."
     );
     expect(nightLightingSummary("partial", 14)).toBe(
-      "Night lighting map layer is on with 14 lamp-post points in view; some lamp-post tiles are unavailable. Night-lighting map layer only; not part of the locked score."
+      "14 lamp-post points in view; some tiles are unavailable."
     );
     expect(nightLightingSummary("loaded", 1)).toBe(
-      "Night lighting map layer is on with 1 lamp-post point in view. Night-lighting map layer only; not part of the locked score."
+      "1 lamp-post point in view."
     );
     expect(nightLightingSummary("loaded", 14)).toBe(
-      "Night lighting map layer is on with 14 lamp-post points in view. Night-lighting map layer only; not part of the locked score."
+      "14 lamp-post points in view."
     );
     expect(nightLightingSummary("loaded", 14)).not.toContain("overlay");
   });

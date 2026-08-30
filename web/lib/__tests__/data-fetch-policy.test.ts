@@ -127,4 +127,21 @@ describe("data fetch compression policy", () => {
     expect(pois.features).toHaveLength(1);
     expect(requestedUrls(fetchMock)).toEqual(["/data/generated/transit/h3/route-cell.json.gz"]);
   });
+
+  it("does not retry missing transit route shards as uncompressed json", async () => {
+    vi.stubEnv("NEXT_PUBLIC_DATA_BASE", "/data/generated/");
+    const fetchMock = vi.fn(async () => jsonResponse(false));
+    vi.stubGlobal("fetch", fetchMock);
+
+    const { fetchTransitPoisForGeom } = await import("../data");
+    const pois = await fetchTransitPoisForGeom({
+      postal: "018956",
+      shortest: "??",
+      sheltered: "??",
+      exposure_gaps: [],
+    });
+
+    expect(pois.features).toHaveLength(0);
+    expect(requestedUrls(fetchMock)).toEqual(["/data/generated/transit/h3/route-cell.json.gz"]);
+  });
 });

@@ -58,6 +58,11 @@ const RouteEvidenceMap = dynamic(
   { ssr: false }
 );
 
+function preloadRouteMap() {
+  void import("../components/route-evidence-map");
+  void import("maplibre-gl");
+}
+
 export interface LoadedSelection {
   result: SearchResult;
   score: ScoreRecord | null;
@@ -247,22 +252,6 @@ const COVERED_LINKWAY_FRESHNESS_COPY =
 
 const LEAF_AREA_INDEX_REFERENCE_COPY =
   "NParks Leaf Area Index is a freshness-only reference table here; walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature.";
-
-export function nightLightingLayerNote(lampOverlayEnabled: boolean): string {
-  const action = lampOverlayEnabled
-    ? "Zoom in to see lamp-post points."
-    : "Open the map, then show this layer if night lighting matters.";
-  const state = lampOverlayEnabled
-    ? "Night-lighting layer is shown."
-    : "Night-lighting layer is hidden.";
-  return `${state} ${action}`;
-}
-
-export function nightLightingRouteDetailValue(lampOverlayEnabled: boolean): string {
-  return lampOverlayEnabled
-    ? "Night-lighting layer on; zoom in for lamp-post points"
-    : "Night-lighting layer hidden; show the layer, then zoom in";
-}
 
 const RECENT_PUBLIC_SOURCE_MISSING_POSTAL_SOURCE: Record<string, string> = {
   "521400": "2021-2026 HDB public-source sample",
@@ -1310,7 +1299,6 @@ export function ScoreCard({
   focusedExposureGapKey = null,
   onFocusExposureGap,
   lampOverlayEnabled = false,
-  setLampOverlayEnabled,
 }: {
   selection: LoadedSelection | null;
   routeMode: RouteDisplayMode;
@@ -1339,7 +1327,6 @@ export function ScoreCard({
   focusedExposureGapKey?: string | null;
   onFocusExposureGap?: (gap: FocusedExposureGap) => void;
   lampOverlayEnabled?: boolean;
-  setLampOverlayEnabled?: (enabled: boolean) => void;
 }) {
   const [overflowOpen, setOverflowOpen] = useState(false);
 
@@ -1460,15 +1447,6 @@ export function ScoreCard({
       : null;
   const routeDetailItems: Array<{ label: string; value: string }> = [];
   const routeDetailNotes: string[] = [];
-  if (score.paths) {
-    routeDetailItems.push({
-      label: "Night lighting",
-      value: nightLightingRouteDetailValue(lampOverlayEnabled),
-    });
-    routeDetailNotes.push(
-      "Night lighting uses LTA lamp-post points as a night-lighting map layer outside the locked score; the map loads lamp-post points only after you zoom into a neighbourhood."
-    );
-  }
   if (shadeProxyPct !== null) {
     routeDetailItems.push({ label: "Nearby greenery", value: `${shadeProxyPct}%` });
     routeDetailNotes.push(
@@ -1919,15 +1897,6 @@ export function ScoreCard({
               {item.label} <strong>{item.value}</strong>
             </span>
           ))}
-          {!lampOverlayEnabled && setLampOverlayEnabled && (
-            <button
-              type="button"
-              className={styles.routeDetailAction}
-              onClick={() => setLampOverlayEnabled(true)}
-            >
-              Show night-lighting layer
-            </button>
-          )}
           {routeDetailNotes.map((note) => (
             <small key={note}>{note}</small>
           ))}
@@ -2087,6 +2056,7 @@ export default function Home() {
   const [rankingRecords, setRankingRecords] = useState<RankableScoreRecord[]>([]);
   const [rankingLoading, setRankingLoading] = useState(false);
   const [rankPanelOpen, setRankPanelOpen] = useState(false);
+  const loadSelectionRequestIdRef = useRef(0);
   // Pending stop id from ?stop= URL param — applied once the postal's candidates load.
   const pendingUrlStopIdRef = useRef<string | null>(null);
 
@@ -2097,7 +2067,6 @@ export default function Home() {
     setLiveRouteCache({});
     setLiveRoutePreviewStatuses({});
     setFocusedExposureGap(null);
-    setShowMap(false);
     setRankPanelOpen(false);
     setRankingRecords([]);
     setRankingLoading(false);
@@ -2323,6 +2292,9 @@ export default function Home() {
       setError("This OneMap match has no 6-digit postal code. Choose another match or enter the postal code directly.");
       return;
     }
+    const requestId = loadSelectionRequestIdRef.current + 1;
+    loadSelectionRequestIdRef.current = requestId;
+    preloadRouteMap();
     requestServiceWorkerCache();
     setLoading(true);
     setError(null);
@@ -2335,26 +2307,39 @@ export default function Home() {
         fetchScoreForPostal(postal),
         fetchGeomForPostal(postal, Number.isFinite(lat) ? lat : undefined, Number.isFinite(lng) ? lng : undefined),
       ]);
-      let nearbyTransitPois = await fetchTransitPoisForGeom(geom);
-      if (nearbyTransitPois.features.length === 0) {
-        nearbyTransitPois = await fetchTransitPois();
-        setBaseTransitPois(nearbyTransitPois);
-      }
+      if (requestId !== loadSelectionRequestIdRef.current) return;
       setManifest(loadedManifest);
       setPrimary({ result: { ...result, POSTAL: postal }, score, geom });
-      setRouteTransitPois(nearbyTransitPois);
       setTransitMode("best_transit");
       setRouteMode("shiokest");
+      setShowMap(true);
       setFeedbackEnabled(false);
       setFeedbackPoints([]);
       setFeedbackSegmentLabels([]);
       setFeedbackNote("");
       setCopyStatus("");
       setChosenStopId(null);
+      void fetchTransitPoisForGeom(geom)
+        .then(async (nearbyTransitPois) => {
+          if (requestId !== loadSelectionRequestIdRef.current) return;
+          if (nearbyTransitPois.features.length === 0) {
+            nearbyTransitPois = await fetchTransitPois();
+            if (requestId !== loadSelectionRequestIdRef.current) return;
+            setBaseTransitPois(nearbyTransitPois);
+          }
+          setRouteTransitPois(nearbyTransitPois);
+        })
+        .catch(() => {
+          if (requestId === loadSelectionRequestIdRef.current) {
+            setRouteTransitPois({ type: "FeatureCollection", features: [] });
+          }
+        });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to load shelter-map data.");
     } finally {
-      setLoading(false);
+      if (requestId === loadSelectionRequestIdRef.current) {
+        setLoading(false);
+      }
     }
   };
 
@@ -2435,6 +2420,7 @@ export default function Home() {
   const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!query.trim()) return;
+    preloadRouteMap();
     requestServiceWorkerCache();
 
     const directPostal = normalizePostal(query);
@@ -2546,7 +2532,11 @@ export default function Home() {
         </section>
       )}
 
-      <section className={styles.searchOverlay} aria-label="Address search" aria-busy={loading}>
+      <section
+        className={`${styles.searchOverlay} ${showDetailOverlay ? styles.searchOverlayWithResult : ""}`}
+        aria-label="Address search"
+        aria-busy={loading}
+      >
         <div className={styles.brandRow}>
           <div>
             <h1>S.H.I.O.K. Shelter Map</h1>
@@ -2556,9 +2546,9 @@ export default function Home() {
                 type="button"
                 className={`${styles.layerToggle} ${lampOverlayEnabled ? styles.layerToggleActive : ""}`}
                 aria-pressed={lampOverlayEnabled}
-                aria-describedby="night-lighting-layer-note"
                 title="Show lamp-post locations on the map"
                 onClick={() => {
+                  preloadRouteMap();
                   setShowMap(true);
                   setLampOverlayEnabled((enabled) => !enabled);
                 }}
@@ -2567,9 +2557,6 @@ export default function Home() {
                 {lampOverlayEnabled ? "Night lighting shown" : "Night lighting"}
               </button>
             </div>
-            <p id="night-lighting-layer-note" className={styles.layerNote}>
-              {nightLightingLayerNote(lampOverlayEnabled)}
-            </p>
           </div>
         </div>
 
@@ -2583,6 +2570,7 @@ export default function Home() {
               setQuery(e.target.value);
               setSearchAttempted(false);
             }}
+            onFocus={preloadRouteMap}
             aria-label="Search OneMap address or 6-digit postal"
           />
           <button id="postal-search-button" type="submit" disabled={loading} aria-busy={loading}>
@@ -2680,12 +2668,11 @@ export default function Home() {
               focusedExposureGapKey={focusedExposureGap?.key ?? null}
               onFocusExposureGap={handleFocusExposureGap}
               lampOverlayEnabled={lampOverlayEnabled}
-              setLampOverlayEnabled={setLampOverlayEnabled}
             />
           </aside>
         )}
 
-        <footer className={styles.pageFooter}>Walk evidence: covered-walkway ratio and exposed gaps, plus the night-lighting map layer.</footer>
+        <footer className={styles.pageFooter}>Walk evidence: covered-walkway ratio and exposed gaps on the route.</footer>
       </section>
     </main>
   );

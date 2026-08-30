@@ -394,6 +394,18 @@ async function searchPostal(cdp, postal, timeoutMs, inputMode) {
   await new Promise((resolvePromise) => setTimeout(resolvePromise, 1500));
 }
 
+async function waitForRouteMapReady(cdp, timeoutMs) {
+  await waitForExpression(
+    cdp,
+    `Boolean(window.__shiokRouteMap && window.__shiokRouteDebug?.routeCount > 0 && (
+      window.__shiokRouteDebug?.sourceFeatureCounts?.shiokest > 0 ||
+      window.__shiokRouteDebug?.sourceFeatureCounts?.shortest > 0
+    ) && window.__shiokRouteMap.getZoom?.() >= 15)`,
+    timeoutMs
+  );
+  await new Promise((resolvePromise) => setTimeout(resolvePromise, 700));
+}
+
 async function selectTransitMode(cdp, transitMode, timeoutMs) {
   const label = TRANSIT_MODE_LABELS[transitMode];
   if (!label) throw new Error(`invalid transit mode: ${transitMode}`);
@@ -669,6 +681,9 @@ async function runPostalCase(cdp, args, postal, outputDir, shotBase) {
   await searchPostal(cdp, postal, args.timeoutMs, args.inputMode);
   await selectTransitMode(cdp, args.transitMode, args.timeoutMs);
   await selectRouteMode(cdp, args.routeMode, args.timeoutMs);
+  if (args.expectedState === "scored") {
+    await waitForRouteMapReady(cdp, args.timeoutMs);
+  }
 
   const summary = await collectPageSummary(cdp);
   const mapState = await collectMapState(cdp);
