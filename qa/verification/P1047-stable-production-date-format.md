@@ -73,3 +73,46 @@ repo_integrity_exit=0
 ## DISAGREEMENTS
 
 1. I do not consider a production smoke pass valid when `no_uncaught_page_errors` is false, even if the map visibly renders.
+
+## Production Redeploy 2026-08-30
+
+Deployment command:
+
+```text
+.\scripts\deploy-production.bat -ConfirmProduction -SkipWebTests
+```
+
+Deployment result:
+
+```text
+id=dpl_AtmhNoWvuSb7Y75BWeWNsY9JT5J2
+deployment_url=https://sgshiok-jnwauvh1g-theprawnvercel.vercel.app
+production_aliases=https://sgshiok.hong-yi.me, https://sgshiok.vercel.app, https://sgshiok-theprawnvercel.vercel.app
+status=Ready
+uploaded=404.6MB
+```
+
+Live browser smoke:
+
+```text
+npm --prefix web run qa:browser -- --url https://sgshiok.vercel.app/ --postal 018956 --input-mode keyboard --screenshots --debug-port 9244 --timeout-ms 90000 --out ../qa/debug-runs/p1047-production-map/summary.json
+ok=true
+no_uncaught_page_errors=true
+route_network_ok=true
+route_source_features_present=true
+route_rendered_features_present=true
+map_label=Shelter-map view for Postal 018956, showing sheltered walk
+map_summary=Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.
+overlayClientHeight=227
+screenshots=C:\sgSHIOK2026\qa\debug-runs\p1047-production-map\screenshots\summary_desktop.png, C:\sgSHIOK2026\qa\debug-runs\p1047-production-map\screenshots\summary_mobile.png, C:\sgSHIOK2026\qa\debug-runs\p1047-production-map\screenshots\summary_mobile_short.png
+```
+
+Visual inspection:
+
+```text
+desktop_map_visible=true
+mobile_short_map_visible=true
+personal_default_postal_removed=true
+locked_score_coverage_copy_removed=true
+night_lighting_long_copy_removed=true
+```
