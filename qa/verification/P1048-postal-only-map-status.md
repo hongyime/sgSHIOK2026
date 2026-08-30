@@ -72,6 +72,41 @@ Local Next dev rendered a red development-only issue badge because the app CSP b
 React will never use eval() in production mode
 ```
 
+## Production Deploy 2026-08-30
+
+The feature commit and state update were pushed before deployment:
+
+```text
+feature_commit=f96be28 fix: restrict search to postal codes and expose map status
+state_commit=2a99893 docs: update agent state after postal map status fix
+```
+
+The first deploy wrapper attempt stalled in `run.py publish` before launching Vercel. It was stopped, then a fresh compressed stage was created directly with `pipeline.publish.prepare_vercel_source` and deployed with Vercel CLI:
+
+```text
+stage=C:\sgSHIOK2026\tmp\vercel_source_generated_20260805_prefer_scored_routed_20260830_132032
+deploy_id=dpl_wVnDeskyK666GwYUKWzY2aserkJR
+deployment_url=https://sgshiok-i0g8r1azg-theprawnvercel.vercel.app
+status=Ready
+aliases=https://sgshiok.hong-yi.me, https://sgshiok.vercel.app, https://sgshiok-theprawnvercel.vercel.app
+uploaded=404.6MB
+```
+
+Live production smoke:
+
+```text
+npm --prefix web run qa:browser -- --url https://sgshiok.vercel.app/ --postal 018956 --input-mode keyboard --screenshots --debug-port 9251 --timeout-ms 180000 --out ../qa/debug-runs/p1048-production-postal-map-status-retry/summary.json
+ok=true
+no_uncaught_page_errors=true
+route_network_ok=true
+route_source_features_present=true
+route_rendered_features_present=true
+map_label=Shelter-map view for Postal 018956, showing sheltered walk
+map_summary=Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.
+map_status_visible=Map ready
+screenshots=C:\sgSHIOK2026\qa\debug-runs\p1048-production-postal-map-status-retry\screenshots\summary_desktop.png, C:\sgSHIOK2026\qa\debug-runs\p1048-production-postal-map-status-retry\screenshots\summary_mobile.png, C:\sgSHIOK2026\qa\debug-runs\p1048-production-postal-map-status-retry\screenshots\summary_mobile_short.png
+```
+
 ## FINDINGS
 
 1. The visible search UI still exposed address search even after the app had become postal-code-first.
