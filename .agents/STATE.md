@@ -3,7 +3,7 @@
 Date: 2026-08-30
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `80fd6f6` (`fix: pin staged vercel production deploy target`)
+Latest substantive commit: `84333df` (`feat: simplify first screen and lazy-load route map`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P1043 is complete and pushed: normal-user UI cleanup reduces always-visible audit/source text, moves data details behind `About the data`, shortens night-lighting copy, and gates the heavy `RouteEvidenceMap` behind `showMap` until `Show map`, night-lighting toggle, or exposed-gap focus. Focused web tests passed 3 files / 74 tests; full web tests passed 25 files / 215 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1043-normal-user-ui-cleanup.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1042 is complete and pushed: production deploys are now pinned to the supported staged path and explicit Vercel target. `pipeline.publish.deploy_command()` passes `--scope theprawnvercel --project sgshiok --archive=tgz`, with `VERCEL_SCOPE` and `VERCEL_PROJECT` as deliberate overrides. `scripts/deploy-production.ps1` plan output names the staged deploy path and target. Tests pin that staging excludes root payloads and historical data bundles. Focused tests passed: `uv run pytest tests/test_publish.py -q` 5 tests, `npm --prefix web test -- deployment.test.ts` 30 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1042-smooth-vercel-deploys.md`.
 - Vercel production deploy is complete: `dpl_5pHmCzht4N8AnKJE9zcGX32njU8c` / `https://sgshiok-80x5btiio-theprawnvercel.vercel.app` is READY and aliased to `https://sgshiok.vercel.app`, `https://sgshiok.hong-yi.me`, and `https://sgshiok-theprawnvercel.vercel.app`. It was deployed from a clean temporary staging root containing only `web/` plus the active `generated_20260805_prefer_scored_routed` bundle. Do not deploy from the repo root directly with Vercel CLI: archive mode ignored the project shape enough to upload `raw/`, `processed/`, and `qa/`, causing ENOSPC. Do not deploy from `web/` directly either: the Vercel project Root Directory is `web`, so Vercel looks for `web/` inside the archive.
 - Vercel CLI created `web/.vercel/project.json` and `web/.env.local`; they are local-only and ignored. Do not print or commit `web/.env.local`.
