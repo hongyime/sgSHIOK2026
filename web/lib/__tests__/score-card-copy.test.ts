@@ -315,6 +315,7 @@ describe("score card copy", () => {
       "Route evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}"
     );
     expect(source).toContain("function formatGeneratedDate(manifest: Manifest | null): string");
+    expect(source).toContain('timeZone: "Asia/Singapore"');
     expect(source).toContain('return "Date unavailable";');
     expect(source).toContain('const scoreLabel = previewRoute || displayScore === null || displayScore === undefined');
     expect(source).toContain("${scoreLabel} ${scoreText}");

@@ -516,6 +516,7 @@ export function formatDataDate(manifest: Manifest | null): string {
     day: "numeric",
     month: "short",
     year: "numeric",
+    timeZone: "Asia/Singapore",
   });
 }
 
@@ -525,6 +526,7 @@ export function formatGeneratedDate(manifest: Manifest | null): string {
     day: "numeric",
     month: "short",
     year: "numeric",
+    timeZone: "Asia/Singapore",
   });
 }
 
