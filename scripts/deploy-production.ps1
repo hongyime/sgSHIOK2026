@@ -25,10 +25,21 @@ if (-not (Test-Path (Join-Path $DataDir "manifest.json"))) {
 
 function Write-DeployPlan {
     param([string]$Reason)
+    $VercelScope = $env:VERCEL_SCOPE
+    if (-not $VercelScope) {
+        $VercelScope = "theprawnvercel"
+    }
+    $VercelProject = $env:VERCEL_PROJECT
+    if (-not $VercelProject) {
+        $VercelProject = "sgshiok"
+    }
     Write-Output ""
     Write-Output "plan_only=true"
     Write-Output "deploy=not_started"
     Write-Output "reason=$Reason"
+    Write-Output "deploy_path=staged_web_plus_selected_bundle"
+    Write-Output "vercel_scope=$VercelScope"
+    Write-Output "vercel_project=$VercelProject"
     Write-Output "commands:"
     Write-Output ".\scripts\deploy-production.bat -DataBundle $DataBundle -ConfirmProduction"
 }

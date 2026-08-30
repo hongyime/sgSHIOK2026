@@ -65,6 +65,20 @@ def test_deploy_command_is_production_archive_no_wait():
     assert "--archive=tgz" in command
     assert "--yes" in command
     assert "--no-wait" in command
+    assert "--scope" in command
+    assert "theprawnvercel" in command
+    assert "--project" in command
+    assert "sgshiok" in command
+
+
+def test_deploy_command_allows_vercel_target_overrides(monkeypatch):
+    monkeypatch.setenv("VERCEL_SCOPE", "custom-team")
+    monkeypatch.setenv("VERCEL_PROJECT", "custom-project")
+
+    command = deploy_command(Path("source"))
+
+    assert command[command.index("--scope") + 1] == "custom-team"
+    assert command[command.index("--project") + 1] == "custom-project"
 
 
 def test_prepare_vercel_source_copies_only_selected_bundle(tmp_path: Path, monkeypatch):
@@ -84,6 +98,9 @@ def test_prepare_vercel_source_copies_only_selected_bundle(tmp_path: Path, monke
     assert (stage / "web" / "app" / "page.tsx").is_file()
     assert (stage / "web" / "public" / "data" / "selected_bundle" / "manifest.json").is_file()
     assert not (stage / "web" / "public" / "data" / "old_bundle").exists()
+    assert not (stage / "raw").exists()
+    assert not (stage / "processed").exists()
+    assert not (stage / "qa").exists()
     assert "!web/public/data/selected_bundle/**" in (stage / ".vercelignore").read_text(
         encoding="utf-8"
     )

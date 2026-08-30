@@ -70,6 +70,12 @@ that the local lamp overlay artifact is present and internally consistent. Do
 not rebuild, overwrite, or mutate existing public data directories to repair a
 missing artifact; copy or create only a new versioned artifact after owner
 approval.
+Deploy production with `.\scripts\deploy-production.bat -ConfirmProduction`, not
+raw `vercel deploy`. The script validates the selected bundle, stages only
+`web/` plus that bundle, then deploys with `--archive=tgz --scope
+theprawnvercel --project sgshiok` so Vercel does not upload `raw/`,
+`processed/`, `qa/`, or historical public-data bundles. Set `VERCEL_SCOPE` or
+`VERCEL_PROJECT` only when intentionally targeting a different Vercel project.
 If Vercel Hobby Edge Requests hit quota, first check whether production is
 serving current `main`; automatic Git deployments are intentionally disabled in
 `web/vercel.json`, so committed cache and crawler reductions do not affect live

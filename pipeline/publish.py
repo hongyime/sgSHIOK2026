@@ -13,6 +13,8 @@ from pipeline.export import DEFAULT_VALIDATE_DIR, validate_static_artifacts
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 WEB_DIR = PROJECT_ROOT / "web"
+DEFAULT_VERCEL_SCOPE = "theprawnvercel"
+DEFAULT_VERCEL_PROJECT = "sgshiok"
 
 
 def command_name(name: str) -> str:
@@ -70,6 +72,10 @@ def deploy_command(source_dir: Path) -> list[str]:
         "--archive=tgz",
         "--yes",
         "--no-wait",
+        "--scope",
+        os.environ.get("VERCEL_SCOPE", DEFAULT_VERCEL_SCOPE),
+        "--project",
+        os.environ.get("VERCEL_PROJECT", DEFAULT_VERCEL_PROJECT),
     ]
 
 
