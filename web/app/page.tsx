@@ -37,12 +37,7 @@ import {
 } from "../lib/nearest-transit";
 import { decodePolyline, encodePolyline } from "../lib/polyline";
 import { scoreLiveRoute } from "../lib/live-route-scoring";
-import {
-  OneMapSearchError,
-  searchOneMapLocations,
-  shouldQueryOneMap,
-  type SearchResult,
-} from "../lib/onemap-search";
+import type { SearchResult } from "../lib/onemap-search";
 import { routesAreSame } from "../lib/route-display";
 import {
   RANK_METRIC_OPTIONS,
@@ -80,6 +75,7 @@ interface EvidenceBreakdownRow {
 }
 
 type LiveRoutePreviewStatus = "loading" | "unavailable";
+type MapLoadStatus = "idle" | "hidden" | "mounting" | "initializing" | "ready" | "error";
 
 interface LiveRoutePreviewPayload {
   ok?: boolean;
@@ -320,7 +316,7 @@ export function searchResultsAnnouncement(
 ): string {
   if (loading || error) return "";
   if (searched && results.length === 0) {
-    return `No OneMap match for this search. Try another address spelling or a 6-digit postal code. ${noSearchResultBundleCaveat()}`;
+    return `No published shelter-map record found for this postal code. ${noSearchResultBundleCaveat()}`;
   }
   if (results.length === 0) return "";
   return `${results.length} search result${results.length === 1 ? "" : "s"} available.`;
@@ -491,7 +487,7 @@ export function SearchFeedback({
       </p>
       {showNoResults && (
         <div className={styles.emptyBox} role="status">
-          <p>No OneMap match found. Try another address spelling or a 6-digit postal code.</p>
+          <p>No published shelter-map record found for this postal code.</p>
           <p className={styles.emptyBoxNote}>{noSearchResultBundleCaveat()}</p>
         </div>
       )}
@@ -506,8 +502,21 @@ export function SearchFeedback({
 
 function normalizePostal(value: string): string | null {
   const trimmed = value.trim();
-  if (!/^\d{1,6}$/.test(trimmed)) return null;
-  return trimmed.padStart(6, "0");
+  if (!/^\d{6}$/.test(trimmed)) return null;
+  return trimmed;
+}
+
+function postalInputValue(value: string): string {
+  return value.replace(/\D/g, "").slice(0, 6);
+}
+
+function mapStatusLabel(status: MapLoadStatus, error: string | null): string {
+  if (status === "ready") return "Map ready";
+  if (status === "initializing") return "Map loading";
+  if (status === "mounting") return "Map starting";
+  if (status === "error") return `Map failed${error ? `: ${error}` : ""}`;
+  if (status === "hidden") return "Map hidden";
+  return "Map waiting";
 }
 
 export function formatDataDate(manifest: Manifest | null): string {
@@ -2041,6 +2050,8 @@ export default function Home() {
   const [feedbackEnabled, setFeedbackEnabled] = useState(false);
   const [lampOverlayEnabled, setLampOverlayEnabled] = useState(false);
   const [showMap, setShowMap] = useState(false);
+  const [mapLoadStatus, setMapLoadStatus] = useState<MapLoadStatus>("idle");
+  const [mapLoadError, setMapLoadError] = useState<string | null>(null);
   const [feedbackPoints, setFeedbackPoints] = useState<FeedbackPoint[]>([]);
   const [feedbackSegmentLabels, setFeedbackSegmentLabels] = useState<FeedbackSegmentLabel[]>([]);
   const [feedbackNote, setFeedbackNote] = useState("");
@@ -2276,6 +2287,22 @@ export default function Home() {
   const mapAvailable = mapRoutes.length > 0;
   const shouldRenderRouteMap = mapAvailable && showMap;
   const showDetailOverlay = Boolean(primary);
+  const visibleMapStatus = mapStatusLabel(mapLoadStatus, mapLoadError);
+
+  useEffect(() => {
+    if (!mapAvailable) {
+      setMapLoadStatus("idle");
+      setMapLoadError(null);
+      return;
+    }
+    if (!showMap) {
+      setMapLoadStatus("hidden");
+      setMapLoadError(null);
+      return;
+    }
+    setMapLoadStatus((current) => (current === "ready" ? current : "mounting"));
+    setMapLoadError(null);
+  }, [mapAvailable, showMap]);
 
   // Apply pending URL stop once candidates for this postal are known.
   useEffect(() => {
@@ -2439,30 +2466,9 @@ export default function Home() {
       return;
     }
 
-    if (!shouldQueryOneMap(query)) {
-      setResults([]);
-      setSearchAttempted(false);
-      setError("Enter at least 3 characters for OneMap search, or use a 6-digit postal code.");
-      return;
-    }
-
-    setLoading(true);
-    setError(null);
     setResults([]);
     setSearchAttempted(true);
-
-    try {
-      const data = await searchOneMapLocations(query);
-      setResults(data.results);
-    } catch (err) {
-      if (err instanceof OneMapSearchError && err.status === 429) {
-        setError("OneMap search is busy. Try again in a moment, or enter a 6-digit postal code.");
-        return;
-      }
-      setError(err instanceof Error ? err.message : "OneMap address search failed. Try a 6-digit postal code or search again.");
-    } finally {
-      setLoading(false);
-    }
+    setError("Enter a 6-digit Singapore postal code.");
   };
 
   const addFeedbackPoint = (point: FeedbackPoint) => {
@@ -2488,6 +2494,11 @@ export default function Home() {
     setFeedbackNote("");
     setCopyStatus("");
   };
+
+  const handleMapStatusChange = useCallback((status: MapLoadStatus, message?: string) => {
+    setMapLoadStatus(status);
+    setMapLoadError(message ?? null);
+  }, []);
 
   const copyFeedback = async () => {
     const payload = buildFeedbackPayload({
@@ -2520,6 +2531,7 @@ export default function Home() {
           chosenStopId={chosenStopId ?? bestCandidateId}
           showLampOverlay={lampOverlayEnabled}
           focusedExposureGap={focusedExposureGap}
+          onStatusChange={handleMapStatusChange}
         />
       )}
       {!shouldRenderRouteMap && mapAvailable && (
@@ -2536,7 +2548,7 @@ export default function Home() {
 
       <section
         className={`${styles.searchOverlay} ${showDetailOverlay ? styles.searchOverlayWithResult : ""}`}
-        aria-label="Address search"
+        aria-label="Postal-code search"
         aria-busy={loading}
       >
         <div className={styles.brandRow}>
@@ -2566,19 +2578,35 @@ export default function Home() {
           <input
             id="postal-search-input"
             type="text"
-            placeholder="Search OneMap address or 6-digit postal"
+            inputMode="numeric"
+            autoComplete="postal-code"
+            maxLength={6}
+            pattern="[0-9]{6}"
+            placeholder="Enter 6-digit postal"
             value={query}
             onChange={(e) => {
-              setQuery(e.target.value);
+              setQuery(postalInputValue(e.target.value));
               setSearchAttempted(false);
             }}
             onFocus={preloadRouteMap}
-            aria-label="Search OneMap address or 6-digit postal"
+            aria-label="Enter 6-digit Singapore postal code"
           />
           <button id="postal-search-button" type="submit" disabled={loading} aria-busy={loading}>
             {loading ? "Searching" : "Search"}
           </button>
         </form>
+
+        {(mapAvailable || mapLoadStatus === "error") && (
+          <p
+            className={`${styles.mapLoadStatus} ${
+              mapLoadStatus === "error" ? styles.mapLoadStatusError : ""
+            }`}
+            role="status"
+            aria-live="polite"
+          >
+            {visibleMapStatus}
+          </p>
+        )}
 
         <SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted} />
 

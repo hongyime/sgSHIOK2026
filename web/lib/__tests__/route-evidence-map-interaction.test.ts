@@ -104,6 +104,13 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("const loadSelectionRequestIdRef = useRef(0);");
     expect(pageSource).toContain("const mapAvailable = mapRoutes.length > 0;");
     expect(pageSource).toContain("const shouldRenderRouteMap = mapAvailable && showMap;");
+    expect(pageSource).toContain('const [mapLoadStatus, setMapLoadStatus] = useState<MapLoadStatus>("idle");');
+    expect(pageSource).toContain("function mapStatusLabel(status: MapLoadStatus, error: string | null): string");
+    expect(pageSource).toContain("const visibleMapStatus = mapStatusLabel(mapLoadStatus, mapLoadError);");
+    expect(pageSource).toContain("const handleMapStatusChange = useCallback((status: MapLoadStatus, message?: string) => {");
+    expect(pageSource).toContain("onStatusChange={handleMapStatusChange}");
+    expect(pageSource).toContain("styles.mapLoadStatus");
+    expect(pageSource).toContain("Map loading");
     expect(pageSource).toContain("showDetailOverlay ? styles.searchOverlayWithResult :");
     expect(pageSource).toContain("Map hidden for faster loading");
     expect(pageSource).toContain("Open it when you want the route trace, exposed-gap locations, or night-lighting layer.");
@@ -162,6 +169,14 @@ describe("shelter map interactions", () => {
     expect(pageSource).not.toContain("LTA lamp-post locations load from the published night-lighting artifact.");
     expect(pageSource).not.toContain("Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026.");
     expect(pageSource).not.toContain("LTA lamp-post layer: 126,144 points");
+
+    const mapSource = readFileSync(join(__dirname, "../../components/route-evidence-map.tsx"), "utf-8");
+    expect(mapSource).toContain('export type RouteMapLoadStatus = "mounting" | "initializing" | "ready" | "error";');
+    expect(mapSource).toContain("onStatusChange?: (status: RouteMapLoadStatus, message?: string) => void;");
+    expect(mapSource).toContain('onStatusChange?.("mounting");');
+    expect(mapSource).toContain('onStatusChange?.("initializing");');
+    expect(mapSource).toContain('onStatusChange?.("ready");');
+    expect(mapSource).toContain('onStatusChange?.("error", message);');
   });
 
   it("waits for a ready route map before visual smoke screenshots", () => {

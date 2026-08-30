@@ -39,6 +39,8 @@ export interface FocusedExposureGap {
   lon: number;
 }
 
+export type RouteMapLoadStatus = "mounting" | "initializing" | "ready" | "error";
+
 const SINGAPORE_BOUNDS: [[number, number], [number, number]] = [
   [103.55, 1.13],
   [104.13, 1.49],
@@ -1113,6 +1115,7 @@ export function RouteEvidenceMap({
   chosenStopId = null,
   showLampOverlay = false,
   focusedExposureGap = null,
+  onStatusChange,
 }: {
   routes: RouteMapItem[];
   mode: RouteDisplayMode;
@@ -1126,6 +1129,7 @@ export function RouteEvidenceMap({
   chosenStopId?: string | null;
   showLampOverlay?: boolean;
   focusedExposureGap?: FocusedExposureGap | null;
+  onStatusChange?: (status: RouteMapLoadStatus, message?: string) => void;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
@@ -1202,8 +1206,10 @@ export function RouteEvidenceMap({
     let active = true;
 
     async function initMap() {
+      onStatusChange?.("mounting");
       const maplibre = await import("maplibre-gl");
       if (!active || !containerRef.current || mapRef.current) return;
+      onStatusChange?.("initializing");
       await ensureLocalGlyphProtocol(maplibre);
       if (!active || !containerRef.current || mapRef.current) return;
 
@@ -1228,10 +1234,19 @@ export function RouteEvidenceMap({
         ensureRouteLayers(mapRef.current);
         bindPoiInteractions(mapRef.current, maplibre.Popup);
         setLoaded(true);
+        onStatusChange?.("ready");
+      });
+      mapRef.current.on("error", (event) => {
+        const message = event.error?.message || "Map tile or style request failed.";
+        onStatusChange?.("error", message);
       });
     }
 
-    void initMap();
+    void initMap().catch((err) => {
+      if (!active) return;
+      const message = err instanceof Error ? err.message : "Map failed to initialize.";
+      onStatusChange?.("error", message);
+    });
 
     return () => {
       active = false;
@@ -1247,7 +1262,7 @@ export function RouteEvidenceMap({
       }
       setLoaded(false);
     };
-  }, []);
+  }, [onStatusChange]);
 
   useEffect(() => {
     const map = mapRef.current;
