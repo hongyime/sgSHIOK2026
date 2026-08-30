@@ -3,7 +3,7 @@
 Date: 2026-08-30
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `452aec5` (`fix: restore map visibility and declutter result UI`)
+Latest substantive commit: `5b1ba56` (`fix: compress staged Vercel data artifacts`)
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- P1046 is complete and pushed: production deploy staging now writes gzip-only temporary copies for large score/geom/transit JSON artifact classes under `tmp/`, while leaving protected `web/public/data` untouched. The staged source measured 430,315,171 bytes in 104.091 seconds, down from 5,637,244,615 bytes. Focused publish tests passed 5 tests; focused web data/deployment tests passed 2 files / 35 tests; full web tests passed 25 files / 215 tests; repo integrity passed. Evidence: `qa/verification/P1046-compressed-vercel-staging.md`. This fixes the oversized Vercel upload path discovered during the P1045 deploy attempt.
 - P1045 is complete and pushed: postal selection now opens the route map automatically, preloads the map on search intent, publishes score/geometry before transit POI shard fallback work, avoids wasted uncompressed retries for compressed-only transit H3 shards, refits the route map after layout/style settle and resize, tightens the loaded mobile overlay, and removes the remaining long visible copy the owner flagged. Focused web tests passed 6 files / 110 tests; full web tests passed 25 files / 215 tests; browser smoke with keyboard input passed and produced desktop/mobile screenshots under `qa/debug-runs/p1045-map-final-compact/`; repo integrity passed. Evidence: `qa/verification/P1045-map-load-and-declutter.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1044 is complete and pushed: follow-up UI declutter removes the personal/default Mayflower sample CTA, removes locked-score coverage rendering from `page.tsx`, deletes dead sample CTA CSS, and shortens the night-lighting hover title to `Show lamp-post locations on the map`. Focused web tests passed 3 files / 74 tests; full web tests passed 25 files / 215 tests. Evidence appended to `qa/verification/P1043-normal-user-ui-cleanup.md`. This is not live until the owner performs an explicit Vercel deployment.
 - P1043 is complete and pushed: normal-user UI cleanup reduces always-visible audit/source text, moves data details behind `About the data`, shortens night-lighting copy, and gates the heavy `RouteEvidenceMap` behind `showMap` until `Show map`, night-lighting toggle, or exposed-gap focus. Focused web tests passed 3 files / 74 tests; full web tests passed 25 files / 215 tests; repo integrity passed; `pipeline/config/weights.yaml` remained untouched. Evidence: `qa/verification/P1043-normal-user-ui-cleanup.md`. This is not live until the owner performs an explicit Vercel deployment.
