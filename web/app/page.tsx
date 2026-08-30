@@ -260,12 +260,12 @@ const SAMPLE_POSTAL_RESULT: SearchResult = {
 
 export function nightLightingLayerNote(lampOverlayEnabled: boolean): string {
   const action = lampOverlayEnabled
-    ? "Zoom into a neighbourhood to load lamp-post points."
-    : "Show the layer and zoom into a neighbourhood to load lamp-post points.";
+    ? "Zoom in to see lamp-post points."
+    : "Open the map, then show this layer if night lighting matters.";
   const state = lampOverlayEnabled
-    ? "LTA lamp-post locations are shown on the map."
-    : "LTA lamp-post locations can be shown on the map.";
-  return `Night lighting layer: ${state} ${action} Map layer only; not part of the locked score.`;
+    ? "Night-lighting layer is shown."
+    : "Night-lighting layer is hidden.";
+  return `${state} ${action}`;
 }
 
 export function nightLightingRouteDetailValue(lampOverlayEnabled: boolean): string {
@@ -1363,9 +1363,7 @@ export function ScoreCard({
         </p>
         <div className={styles.emptyState}>
           <strong>Find an address or postal code</strong>
-          <span>If you moved here, inspect covered-walkway ratio and exposed gaps on the walk to a transit stop or exit, plus the night-lighting map layer.</span>
-          <span>The published shelter-map data is tied to the June 2020 address list.</span>
-          {lockedScoreAvailabilityLine && <span>{lockedScoreAvailabilityLine}</span>}
+          <span>See how much of the walk to transit is covered, and where it is exposed.</span>
         </div>
       </section>
     );
@@ -1381,7 +1379,7 @@ export function ScoreCard({
         <h2>{postalTitle(selection)}</h2>
         <div className={styles.emptyState}>
           <strong>Outside published shelter-map data</strong>
-          <span>No shelter-map walk is published for this postal; the published shelter-map data is tied to the June 2020 address list, and {recentPublicSourceGapCopyForPostal(selection.result.POSTAL)}.</span>
+          <span>No shelter-map walk is published for this postal yet.</span>
         </div>
       </section>
     );
@@ -2083,6 +2081,7 @@ export default function Home() {
   const [routeMode, setRouteMode] = useState<RouteDisplayMode>("shiokest");
   const [feedbackEnabled, setFeedbackEnabled] = useState(false);
   const [lampOverlayEnabled, setLampOverlayEnabled] = useState(false);
+  const [showMap, setShowMap] = useState(false);
   const [feedbackPoints, setFeedbackPoints] = useState<FeedbackPoint[]>([]);
   const [feedbackSegmentLabels, setFeedbackSegmentLabels] = useState<FeedbackSegmentLabel[]>([]);
   const [feedbackNote, setFeedbackNote] = useState("");
@@ -2110,6 +2109,7 @@ export default function Home() {
     setLiveRouteCache({});
     setLiveRoutePreviewStatuses({});
     setFocusedExposureGap(null);
+    setShowMap(false);
     setRankPanelOpen(false);
     setRankingRecords([]);
     setRankingLoading(false);
@@ -2314,7 +2314,8 @@ export default function Home() {
 
   const mapRoutes = useMemo(() => buildRouteItems(activeSelection), [activeSelection]);
   const mapRouteMode = routesAreSame(activeSelection) ? "shiokest" : routeMode;
-  const shouldRenderRouteMap = mapRoutes.length > 0;
+  const mapAvailable = mapRoutes.length > 0;
+  const shouldRenderRouteMap = mapAvailable && showMap;
   const showDetailOverlay = Boolean(primary);
 
   // Apply pending URL stop once candidates for this postal are known.
@@ -2415,6 +2416,11 @@ export default function Home() {
     },
     [bestCandidateId, syncStopUrl]
   );
+
+  const handleFocusExposureGap = useCallback((gap: FocusedExposureGap) => {
+    setShowMap(true);
+    setFocusedExposureGap(gap);
+  }, []);
 
   // Mirror the loaded postal into ?postal= so shared links resolve. This runs
   // whenever the selected postal changes; the ?stop= param is only written by
@@ -2548,16 +2554,23 @@ export default function Home() {
           focusedExposureGap={focusedExposureGap}
         />
       )}
+      {!shouldRenderRouteMap && mapAvailable && (
+        <section className={styles.mapPlaceholder} aria-label="Map preview">
+          <div>
+            <strong>Map hidden for faster loading</strong>
+            <span>Open it when you want the route trace, exposed-gap locations, or night-lighting layer.</span>
+          </div>
+          <button type="button" onClick={() => setShowMap(true)}>
+            Show map
+          </button>
+        </section>
+      )}
 
       <section className={styles.searchOverlay} aria-label="Address search" aria-busy={loading}>
         <div className={styles.brandRow}>
           <div>
             <h1>S.H.I.O.K. Shelter Map</h1>
-            <p>If you moved here, see covered-walkway ratio and exposed gaps on the walk to a transit stop or exit, plus the night-lighting map layer</p>
-            <p className={styles.dataLine}>
-              Shelter-map evidence as of {formatDataDate(manifest)}; published data built {formatGeneratedDate(manifest)}
-            </p>
-            {lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}
+            <p>Check how sheltered the walk to transit feels before you pick a place.</p>
             <div className={styles.mapLayerControls} aria-label="Map layers">
               <button
                 type="button"
@@ -2565,10 +2578,13 @@ export default function Home() {
                 aria-pressed={lampOverlayEnabled}
                 aria-describedby="night-lighting-layer-note"
                 title="Night-lighting layer: LTA lamp-post locations; map layer only, not part of the locked score"
-                onClick={() => setLampOverlayEnabled((enabled) => !enabled)}
+                onClick={() => {
+                  setShowMap(true);
+                  setLampOverlayEnabled((enabled) => !enabled);
+                }}
               >
                 <span className={styles.lampSwatch} aria-hidden="true" />
-                {lampOverlayEnabled ? "Night-lighting layer shown" : "Show night-lighting layer"}
+                {lampOverlayEnabled ? "Night lighting shown" : "Night lighting"}
               </button>
             </div>
             <p id="night-lighting-layer-note" className={styles.layerNote}>
@@ -2618,7 +2634,11 @@ export default function Home() {
         </div>
 
         <details className={styles.dataLimits}>
-          <summary>Data limits: June 2020 addresses; roughly 1 in 4 lack full locked scores</summary>
+          <summary>About the data</summary>
+          <p>
+            Shelter-map evidence as of {formatDataDate(manifest)}. Some newer addresses and some locked scores are not in this release.
+          </p>
+          {lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}
           <p>
             Address list: June 2020 OneMap-derived postal scrape; newer developments may be missing.
           </p>
@@ -2686,7 +2706,7 @@ export default function Home() {
               rankPanelOpen={rankPanelOpen}
               setRankPanelOpen={setRankPanelOpen}
               focusedExposureGapKey={focusedExposureGap?.key ?? null}
-              onFocusExposureGap={setFocusedExposureGap}
+              onFocusExposureGap={handleFocusExposureGap}
               lampOverlayEnabled={lampOverlayEnabled}
               setLampOverlayEnabled={setLampOverlayEnabled}
               lockedScoreAvailabilityLine={lockedScoreAvailabilityLine}

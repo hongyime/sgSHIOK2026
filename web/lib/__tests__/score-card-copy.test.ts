@@ -252,10 +252,12 @@ describe("score card copy", () => {
     expect(layoutSource).toContain('url: "https://sgshiok.vercel.app/"');
     expect(layoutSource).toContain('card: "summary"');
     expect(layoutSource).not.toContain('title: "S.H.I.O.K. Index"');
-    expect(source).toContain(
+    expect(source).toContain("Check how sheltered the walk to transit feels before you pick a place.");
+    expect(source).toContain("See how much of the walk to transit is covered, and where it is exposed.");
+    expect(source).not.toContain(
       "If you moved here, see covered-walkway ratio and exposed gaps on the walk to a transit stop or exit, plus the night-lighting map layer",
     );
-    expect(source).toContain(
+    expect(source).not.toContain(
       "If you moved here, inspect covered-walkway ratio and exposed gaps on the walk to a transit stop or exit, plus the night-lighting map layer.",
     );
     expect(source).not.toContain("See covered-walkway ratio and exposed gaps on the walk to a transit stop or exit, plus the night-lighting map layer");
@@ -301,6 +303,9 @@ describe("score card copy", () => {
     expect(source).not.toContain("Failed to load score data.");
     expect(source).not.toContain("Singapore walk-to-transit comfort");
     expect(source).toContain(
+      "Shelter-map evidence as of {formatDataDate(manifest)}. Some newer addresses and some locked scores are not in this release."
+    );
+    expect(source).not.toContain(
       "Shelter-map evidence as of {formatDataDate(manifest)}; published data built {formatGeneratedDate(manifest)}"
     );
     expect(source).not.toContain(
@@ -452,15 +457,15 @@ describe("score card copy", () => {
     expect(source).toContain("styles.coverageLine");
     expect(source).toContain("lockedScoreAvailabilityLine?: string | null;");
     expect(source).toContain("lockedScoreAvailabilityLine={lockedScoreAvailabilityLine}");
-    expect(source).toContain("{lockedScoreAvailabilityLine && <span>{lockedScoreAvailabilityLine}</span>}");
+    expect(source).not.toContain("{lockedScoreAvailabilityLine && <span>{lockedScoreAvailabilityLine}</span>}");
     expect(source).toContain("{lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}");
     expectSourceOrder(source, [
-      "Shelter-map evidence as of {formatDataDate(manifest)}; published data built {formatGeneratedDate(manifest)}",
-      "{lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}",
       '<form onSubmit={handleSearch} className={styles.searchForm} aria-busy={loading}>',
       "<SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted} />",
       '<details className={styles.dataLimits}>',
-      "<summary>Data limits: June 2020 addresses; roughly 1 in 4 lack full locked scores</summary>",
+      "<summary>About the data</summary>",
+      "Shelter-map evidence as of {formatDataDate(manifest)}. Some newer addresses and some locked scores are not in this release.",
+      "{lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}",
       "Address list: June 2020 OneMap-derived postal scrape; newer developments may be missing.",
       "{RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}.",
       "{OSM_ADDR_POSTCODE_COVERAGE_COPY}",
@@ -486,6 +491,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("<summary>Data limits: frozen v1 addresses; incomplete locked scores</summary>");
     expect(source).not.toContain("<summary>Data limits: frozen v1 address list</summary>");
     expect(source).not.toContain("<summary>Data limits</summary>");
+    expect(source).not.toContain("Shelter-map evidence as of {formatDataDate(manifest)}; published data built {formatGeneratedDate(manifest)}");
     expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).toContain(
       "missing full scores"
     );
@@ -524,14 +530,17 @@ describe("score card copy", () => {
     );
     expect(source).toContain("nightLightingLayerNote(lampOverlayEnabled)");
     expect(source).toContain("export function nightLightingLayerNote(lampOverlayEnabled: boolean): string");
-    expect(source).toContain("LTA lamp-post locations can be shown on the map.");
-    expect(source).toContain("LTA lamp-post locations are shown on the map.");
-    expect(source).toContain("Map layer only; not part of the locked score.");
+    expect(source).toContain("Night-lighting layer is hidden.");
+    expect(source).toContain("Open the map, then show this layer if night lighting matters.");
+    expect(source).toContain("Night-lighting layer is shown.");
+    expect(source).toContain("Zoom in to see lamp-post points.");
+    expect(source).not.toContain("LTA lamp-post locations can be shown on the map.");
+    expect(source).not.toContain("LTA lamp-post locations are shown on the map.");
     expect(source).not.toContain("LTA lamp-post locations load from the published lamp-post layer.");
     expect(source).not.toContain("LTA lamp-post locations load from the published night-lighting artifact.");
-    expect(source).toContain("Show the layer and zoom into a neighbourhood to load lamp-post points.");
+    expect(source).not.toContain("Show the layer and zoom into a neighbourhood to load lamp-post points.");
     expect(source).not.toContain("Switch on and zoom into a neighbourhood to load lamp-post points.");
-    expect(source).toContain("Zoom into a neighbourhood to load lamp-post points.");
+    expect(source).not.toContain("Zoom into a neighbourhood to load lamp-post points.");
     expect(source).not.toContain("Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026.");
     expect(source).not.toContain("LTA lamp-post layer: 126,144 points");
     expect(source).not.toContain("Heat: shelter + NParks shade proxy");
@@ -656,7 +665,8 @@ describe("score card copy", () => {
     expect(tsxSource).toContain("value: nightLightingRouteDetailValue(lampOverlayEnabled),");
     expect(tsxSource).toContain("export function nightLightingRouteDetailValue(lampOverlayEnabled: boolean): string");
     expect(tsxSource).toContain("Night-lighting layer hidden; show the layer, then zoom in");
-    expect(tsxSource).toContain('{lampOverlayEnabled ? "Night-lighting layer shown" : "Show night-lighting layer"}');
+    expect(tsxSource).toContain('{lampOverlayEnabled ? "Night lighting shown" : "Night lighting"}');
+    expect(tsxSource).not.toContain('{lampOverlayEnabled ? "Night-lighting layer shown" : "Show night-lighting layer"}');
     expect(tsxSource).not.toContain('{lampOverlayEnabled ? "Night-lighting layer on" : "Night-lighting layer off"}');
     expect(tsxSource).not.toContain('{lampOverlayEnabled ? "Night lighting on" : "Night lighting off"}');
     expect(tsxSource).not.toContain('value: lampOverlayEnabled ? "Map layer on; zoom in for points" : "Map layer off",');

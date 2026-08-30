@@ -92,7 +92,12 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain('import dynamic from "next/dynamic";');
     expect(pageSource).toContain("const RouteEvidenceMap = dynamic(");
     expect(pageSource).toContain('import("../components/route-evidence-map").then((module) => module.RouteEvidenceMap)');
-    expect(pageSource).toContain("const shouldRenderRouteMap = mapRoutes.length > 0;");
+    expect(pageSource).toContain("const [showMap, setShowMap] = useState(false);");
+    expect(pageSource).toContain("const mapAvailable = mapRoutes.length > 0;");
+    expect(pageSource).toContain("const shouldRenderRouteMap = mapAvailable && showMap;");
+    expect(pageSource).toContain("Map hidden for faster loading");
+    expect(pageSource).toContain("Open it when you want the route trace, exposed-gap locations, or night-lighting layer.");
+    expect(pageSource).toContain("setShowMap(true);");
     expect(pageSource).toContain("{shouldRenderRouteMap && (");
     expect(pageSource).toContain("nearbyTransitPois = await fetchTransitPois();");
     expect(pageSource).toContain("setBaseTransitPois(nearbyTransitPois);");
@@ -103,7 +108,8 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("onResetChosenStop");
     expect(pageSource).toContain("resetCustomStopBtn");
     expect(pageSource).toContain("focusedExposureGap");
-    expect(pageSource).toContain("onFocusExposureGap={setFocusedExposureGap}");
+    expect(pageSource).toContain("onFocusExposureGap={handleFocusExposureGap}");
+    expect(pageSource).not.toContain("onFocusExposureGap={setFocusedExposureGap}");
     expect(pageSource).toContain("onClick={() => onFocusExposureGap(focusTarget)}");
     expect(pageSource).toContain("const handleRouteModeChange = useCallback((mode: RouteDisplayMode) => {");
     expect(pageSource).toContain("setRouteMode={handleRouteModeChange}");
@@ -112,7 +118,8 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("showLampOverlay?: boolean;");
     expect(pageSource).toContain("LTA lamp-post points");
     expect(pageSource).not.toContain("LTA lamp points");
-    expect(pageSource).toContain('{lampOverlayEnabled ? "Night-lighting layer shown" : "Show night-lighting layer"}');
+    expect(pageSource).toContain('{lampOverlayEnabled ? "Night lighting shown" : "Night lighting"}');
+    expect(pageSource).not.toContain('{lampOverlayEnabled ? "Night-lighting layer shown" : "Show night-lighting layer"}');
     expect(pageSource).not.toContain('{lampOverlayEnabled ? "Night lighting on" : "Night lighting off"}');
     expect(pageSource).not.toContain('{lampOverlayEnabled ? "Night-lighting layer on" : "Night-lighting layer off"}');
     expect(pageSource).not.toContain(">Night lighting</button>");
@@ -131,9 +138,10 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("night-lighting-layer-note");
     expect(pageSource).toContain("nightLightingLayerNote(lampOverlayEnabled)");
     expect(pageSource).toContain("export function nightLightingLayerNote(lampOverlayEnabled: boolean): string");
-    expect(pageSource).toContain("LTA lamp-post locations can be shown on the map.");
-    expect(pageSource).toContain("LTA lamp-post locations are shown on the map.");
-    expect(pageSource).toContain("Map layer only; not part of the locked score.");
+    expect(pageSource).toContain("Night-lighting layer is hidden.");
+    expect(pageSource).toContain("Open the map, then show this layer if night lighting matters.");
+    expect(pageSource).toContain("Night-lighting layer is shown.");
+    expect(pageSource).toContain("Zoom in to see lamp-post points.");
     expect(pageSource).not.toContain("LTA lamp-post locations load from the published lamp-post layer.");
     expect(pageSource).not.toContain("LTA lamp-post locations load from the published night-lighting artifact.");
     expect(pageSource).not.toContain("Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026.");

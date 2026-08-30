@@ -25,7 +25,6 @@
 .brandRow,
 .scoreCard,
 .resultList,
-.dataLimits,
 .errorBox {
   border: 1px solid rgba(62, 75, 70, 0.18);
   border-radius: 8px;
@@ -96,7 +95,7 @@
 }
 
 .dataLimits {
-  padding: 8px 10px;
+  padding: 4px 2px 0;
   color: #5d6d67;
   font-size: 10px;
 }
@@ -104,7 +103,7 @@
 .dataLimits summary {
   cursor: pointer;
   color: #334943;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 900;
 }
 
@@ -138,6 +137,56 @@
   background: #f6faf8;
   font: inherit;
   font-size: 11px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.mapPlaceholder {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.26) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.26) 1px, transparent 1px),
+    radial-gradient(circle at 70% 30%, rgba(0, 143, 134, 0.18), transparent 34%),
+    #dfe8e4;
+  background-size: 42px 42px, 42px 42px, auto, auto;
+}
+
+.mapPlaceholder > div {
+  display: grid;
+  gap: 4px;
+  max-width: min(360px, calc(100vw - 36px));
+  margin-left: min(420px, 30vw);
+  color: #31453f;
+  text-align: center;
+}
+
+.mapPlaceholder strong {
+  color: #17211f;
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.mapPlaceholder span {
+  color: #5d6d67;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.mapPlaceholder button {
+  margin-top: 14px;
+  border: 1px solid #17211f;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #fff;
+  background: #17211f;
+  font: inherit;
+  font-size: 13px;
   font-weight: 900;
   cursor: pointer;
 }
@@ -1197,12 +1246,7 @@ button.gapItem:hover,
 }
 
 .pageFooter {
-  margin-top: 8px;
-  padding: 6px 12px 4px;
-  color: #6a7873;
-  font-size: 10px;
-  font-weight: 800;
-  text-align: right;
+  display: none;
 }
 
 .emptyState {
@@ -1270,6 +1314,15 @@ button.gapItem:hover,
   .brandRow p {
     margin-top: 2px;
     font-size: 10px;
+  }
+
+  .mapPlaceholder {
+    align-items: end;
+    padding: 16px 12px 84px;
+  }
+
+  .mapPlaceholder > div {
+    margin-left: 0;
   }
 
   .dataLine {
