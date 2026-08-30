@@ -44,7 +44,6 @@ import {
   type SearchResult,
 } from "../lib/onemap-search";
 import { routesAreSame } from "../lib/route-display";
-import { formatLockedScoreAvailabilityLine } from "../lib/locked-score-availability";
 import {
   RANK_METRIC_OPTIONS,
   rankScoreRecords,
@@ -248,15 +247,6 @@ const COVERED_LINKWAY_FRESHNESS_COPY =
 
 const LEAF_AREA_INDEX_REFERENCE_COPY =
   "NParks Leaf Area Index is a freshness-only reference table here; walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature.";
-
-const SAMPLE_POSTAL_RESULT: SearchResult = {
-  BUILDING: "Sample postal",
-  ROAD_NAME: "Mayflower area",
-  POSTAL: "560234",
-  LATITUDE: "",
-  LONGITUDE: "",
-  SEARCHVAL: "Try Mayflower S560234",
-};
 
 export function nightLightingLayerNote(lampOverlayEnabled: boolean): string {
   const action = lampOverlayEnabled
@@ -1321,7 +1311,6 @@ export function ScoreCard({
   onFocusExposureGap,
   lampOverlayEnabled = false,
   setLampOverlayEnabled,
-  lockedScoreAvailabilityLine = null,
 }: {
   selection: LoadedSelection | null;
   routeMode: RouteDisplayMode;
@@ -1351,7 +1340,6 @@ export function ScoreCard({
   onFocusExposureGap?: (gap: FocusedExposureGap) => void;
   lampOverlayEnabled?: boolean;
   setLampOverlayEnabled?: (enabled: boolean) => void;
-  lockedScoreAvailabilityLine?: string | null;
 }) {
   const [overflowOpen, setOverflowOpen] = useState(false);
 
@@ -2489,12 +2477,6 @@ export default function Home() {
     }
   };
 
-  const loadSamplePostal = async () => {
-    setQuery(SAMPLE_POSTAL_RESULT.POSTAL);
-    setSearchAttempted(false);
-    await loadSelection(SAMPLE_POSTAL_RESULT);
-  };
-
   const addFeedbackPoint = (point: FeedbackPoint) => {
     setCopyStatus("");
     setFeedbackPoints((current) => {
@@ -2518,8 +2500,6 @@ export default function Home() {
     setFeedbackNote("");
     setCopyStatus("");
   };
-
-  const lockedScoreAvailabilityLine = formatLockedScoreAvailabilityLine(manifest);
 
   const copyFeedback = async () => {
     const payload = buildFeedbackPayload({
@@ -2577,7 +2557,7 @@ export default function Home() {
                 className={`${styles.layerToggle} ${lampOverlayEnabled ? styles.layerToggleActive : ""}`}
                 aria-pressed={lampOverlayEnabled}
                 aria-describedby="night-lighting-layer-note"
-                title="Night-lighting layer: LTA lamp-post locations; map layer only, not part of the locked score"
+                title="Show lamp-post locations on the map"
                 onClick={() => {
                   setShowMap(true);
                   setLampOverlayEnabled((enabled) => !enabled);
@@ -2626,19 +2606,11 @@ export default function Home() {
           </div>
         )}
 
-        <div className={styles.sampleSearches} aria-label="Sample search">
-          <span>Try a known address?</span>
-          <button type="button" onClick={loadSamplePostal} disabled={loading}>
-            Try Mayflower S560234
-          </button>
-        </div>
-
         <details className={styles.dataLimits}>
           <summary>About the data</summary>
           <p>
             Shelter-map evidence as of {formatDataDate(manifest)}. Some newer addresses and some locked scores are not in this release.
           </p>
-          {lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}
           <p>
             Address list: June 2020 OneMap-derived postal scrape; newer developments may be missing.
           </p>
@@ -2709,7 +2681,6 @@ export default function Home() {
               onFocusExposureGap={handleFocusExposureGap}
               lampOverlayEnabled={lampOverlayEnabled}
               setLampOverlayEnabled={setLampOverlayEnabled}
-              lockedScoreAvailabilityLine={lockedScoreAvailabilityLine}
             />
           </aside>
         )}

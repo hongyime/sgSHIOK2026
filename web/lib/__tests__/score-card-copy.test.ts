@@ -269,14 +269,13 @@ describe("score card copy", () => {
     expect(source).not.toContain("Shelter-first walks to transit");
     expect(source).toContain('placeholder="Search OneMap address or 6-digit postal"');
     expect(source).toContain('aria-label="Search OneMap address or 6-digit postal"');
-    expect(source).toContain("const SAMPLE_POSTAL_RESULT: SearchResult = {");
-    expect(source).toContain('POSTAL: "560234"');
-    expect(source).toContain('SEARCHVAL: "Try Mayflower S560234"');
-    expect(source).toContain("const loadSamplePostal = async () => {");
-    expect(source).toContain('aria-label="Sample search"');
-    expect(source).toContain("Try a known address?");
+    expect(source).not.toContain("const SAMPLE_POSTAL_RESULT: SearchResult = {");
+    expect(source).not.toContain('SEARCHVAL: "Try Mayflower S560234"');
+    expect(source).not.toContain("const loadSamplePostal = async () => {");
+    expect(source).not.toContain('aria-label="Sample search"');
+    expect(source).not.toContain("Try a known address?");
     expect(source).not.toContain("Need a quick look?");
-    expect(source).toContain("Try Mayflower S560234");
+    expect(source).not.toContain("Try Mayflower S560234");
     expect(source).toContain('{loading ? "Searching" : "Search"}');
     expect(source).not.toContain('{loading ? "Loading" : "Search"}');
     expect(source).toContain("<form onSubmit={handleSearch}");
@@ -452,20 +451,19 @@ describe("score card copy", () => {
     );
     expect(source).not.toContain("Leaf Area Index is route heat evidence");
     expect(source).not.toContain("route heat evidence uses shelter");
-    expect(source).toContain('import { formatLockedScoreAvailabilityLine } from "../lib/locked-score-availability";');
-    expect(source).toContain("formatLockedScoreAvailabilityLine(manifest)");
-    expect(source).toContain("styles.coverageLine");
-    expect(source).toContain("lockedScoreAvailabilityLine?: string | null;");
-    expect(source).toContain("lockedScoreAvailabilityLine={lockedScoreAvailabilityLine}");
+    expect(source).not.toContain('import { formatLockedScoreAvailabilityLine } from "../lib/locked-score-availability";');
+    expect(source).not.toContain("formatLockedScoreAvailabilityLine(manifest)");
+    expect(source).not.toContain("styles.coverageLine");
+    expect(source).not.toContain("lockedScoreAvailabilityLine?: string | null;");
+    expect(source).not.toContain("lockedScoreAvailabilityLine={lockedScoreAvailabilityLine}");
     expect(source).not.toContain("{lockedScoreAvailabilityLine && <span>{lockedScoreAvailabilityLine}</span>}");
-    expect(source).toContain("{lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}");
+    expect(source).not.toContain("{lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}");
     expectSourceOrder(source, [
       '<form onSubmit={handleSearch} className={styles.searchForm} aria-busy={loading}>',
       "<SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted} />",
       '<details className={styles.dataLimits}>',
       "<summary>About the data</summary>",
       "Shelter-map evidence as of {formatDataDate(manifest)}. Some newer addresses and some locked scores are not in this release.",
-      "{lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}",
       "Address list: June 2020 OneMap-derived postal scrape; newer developments may be missing.",
       "{RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}.",
       "{OSM_ADDR_POSTCODE_COVERAGE_COPY}",

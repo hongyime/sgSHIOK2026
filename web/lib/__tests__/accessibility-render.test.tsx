@@ -275,8 +275,6 @@ describe("rendered accessibility output", () => {
     const html = renderScoreCard({
       selection: null,
       rankingRecords: [],
-      lockedScoreAvailabilityLine:
-        "Locked-score coverage: 95,157 of 124,443 June 2020 address-list records have full locked scores; 29,286 address-list records (23.5%, roughly a quarter) missing full scores.",
     });
 
     expect(html).toContain("Find an address or postal code");
