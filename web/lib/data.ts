@@ -43,12 +43,16 @@ function hasCompressedArtifact(path: string): boolean {
   if (
     path === "manifest.json" ||
     path === "scores/index.json" ||
+    path === "scores/prefix-index.json" ||
     path === "geom/index.json" ||
-    path === "geom/postal-index.json"
+    path === "geom/postal-index.json" ||
+    path === "transit/pois.json"
   ) {
     return true;
   }
   return (
+    /^scores\/[^/]+\.json$/.test(path) ||
+    /^geom\/h3\/[^/]+\.json$/.test(path) ||
     /^geom\/postal-prefix\/[^/]+\.json$/.test(path) ||
     /^transit\/h3\/[^/]+\.json$/.test(path)
   );

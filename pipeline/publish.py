@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 import argparse
+import gzip
 import json
 import os
 import shutil
 import subprocess
+from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
@@ -87,6 +89,50 @@ def copy_path(src: Path, dst: Path) -> None:
         shutil.copy2(src, dst)
 
 
+def deploy_compressed_json_only(relative_path: Path) -> bool:
+    parts = relative_path.parts
+    if len(parts) < 2 or relative_path.suffix != ".json":
+        return False
+    return (
+        parts[0] == "scores"
+        or parts[:2] == ("geom", "h3")
+        or parts[:2] == ("geom", "postal-prefix")
+        or parts == ("geom", "index.json")
+        or parts == ("geom", "postal-index.json")
+        or parts[:2] == ("transit", "h3")
+        or parts == ("transit", "pois.json")
+    )
+
+
+def gzip_copy(src: Path, dst: Path) -> None:
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    with open(src, "rb") as f_in, gzip.open(dst, "wb", compresslevel=1) as f_out:
+        shutil.copyfileobj(f_in, f_out)
+    shutil.copystat(src, dst)
+
+
+def copy_deploy_data_bundle(data_dir: Path, dst: Path) -> None:
+    gzip_jobs: list[tuple[Path, Path]] = []
+    copy_jobs: list[tuple[Path, Path]] = []
+    for src in data_dir.rglob("*"):
+        if not src.is_file():
+            continue
+        relative = src.relative_to(data_dir)
+        if deploy_compressed_json_only(relative):
+            gzip_jobs.append((src, dst / relative.with_name(f"{relative.name}.gz")))
+            continue
+        if src.suffix == ".gz" and src.with_suffix("").is_file():
+            uncompressed_relative = src.with_suffix("").relative_to(data_dir)
+            if deploy_compressed_json_only(uncompressed_relative):
+                continue
+        copy_jobs.append((src, dst / relative))
+
+    max_workers = min(8, os.cpu_count() or 1)
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        list(executor.map(lambda pair: gzip_copy(*pair), gzip_jobs))
+        list(executor.map(lambda pair: copy_path(*pair), copy_jobs))
+
+
 def staged_vercelignore(bundle: str, *, root: bool) -> str:
     data_prefix = "web/public/data" if root else "public/data"
     base_ignores = [
@@ -156,7 +202,7 @@ def prepare_vercel_source(web_dir: Path, data_dir: Path) -> Path:
                 continue
             copy_path(child, public_dst / child.name)
 
-    copy_path(data_dir, public_dst / "data" / bundle)
+    copy_deploy_data_bundle(data_dir, public_dst / "data" / bundle)
     (stage_root / ".vercelignore").write_text(
         staged_vercelignore(bundle, root=True), encoding="utf-8"
     )

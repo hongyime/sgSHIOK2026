@@ -25,12 +25,18 @@ describe("data fetch compression policy", () => {
     vi.resetModules();
   });
 
-  it("does not spend failed gzip probes on uncompressed score artifacts", async () => {
+  it("prefers compressed score artifacts but falls back for older bundles", async () => {
     vi.stubEnv("NEXT_PUBLIC_DATA_BASE", "/data/generated/");
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input);
+      if (url.endsWith("/scores/prefix-index.json.gz")) {
+        return jsonResponse(false);
+      }
       if (url.endsWith("/scores/prefix-index.json")) {
         return jsonResponse(true, { "560": ["ANG_MO_KIO"] });
+      }
+      if (url.endsWith("/scores/ANG_MO_KIO.json.gz")) {
+        return jsonResponse(false);
       }
       if (url.endsWith("/scores/ANG_MO_KIO.json")) {
         return jsonResponse(true, [{ postal: "560234", total: 87 }]);
@@ -43,10 +49,11 @@ describe("data fetch compression policy", () => {
     await expect(fetchScoreForPostal("560234")).resolves.toEqual({ postal: "560234", total: 87 });
 
     expect(requestedUrls(fetchMock)).toEqual([
+      "/data/generated/scores/prefix-index.json.gz",
       "/data/generated/scores/prefix-index.json",
+      "/data/generated/scores/ANG_MO_KIO.json.gz",
       "/data/generated/scores/ANG_MO_KIO.json",
     ]);
-    expect(requestedUrls(fetchMock).some((url) => url.endsWith(".json.gz"))).toBe(false);
   });
 
   it("deduplicates concurrent manifest fetches", async () => {
@@ -74,14 +81,14 @@ describe("data fetch compression policy", () => {
     expect(calls).toBe(1);
   });
 
-  it("does not spend failed gzip probes on uncompressed geometry shards resolved by postal prefix", async () => {
+  it("prefers compressed geometry shards resolved by postal prefix", async () => {
     vi.stubEnv("NEXT_PUBLIC_DATA_BASE", "/data/generated/");
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input);
       if (url.endsWith("/geom/postal-prefix/560.json.gz")) {
         return jsonResponse(true, { "560234": "postal-child" });
       }
-      if (url.endsWith("/geom/h3/postal-child.json")) {
+      if (url.endsWith("/geom/h3/postal-child.json.gz")) {
         return jsonResponse(true, [{ postal: "560234", shortest: "abc", sheltered: "def" }]);
       }
       return jsonResponse(false);
@@ -97,9 +104,8 @@ describe("data fetch compression policy", () => {
 
     expect(requestedUrls(fetchMock)).toEqual([
       "/data/generated/geom/postal-prefix/560.json.gz",
-      "/data/generated/geom/h3/postal-child.json",
+      "/data/generated/geom/h3/postal-child.json.gz",
     ]);
-    expect(requestedUrls(fetchMock)).not.toContain("/data/generated/geom/h3/postal-child.json.gz");
   });
 
   it("still loads compressed transit route shards where the bundle provides them", async () => {
