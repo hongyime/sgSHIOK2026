@@ -9,14 +9,8 @@ This file defines how AI coding agents (Cursor, Antigravity, Claude Code, GitHub
 ## Cross-Session State (Read This First)
 
 Before doing anything else, read `.agents/STATE.md` if it exists. It is the
-local handover from whoever worked here last, possibly from a different tool or
+handover from whoever worked here last, possibly from a different tool or
 machine.
-
-Repository override for sgSHIOK2026: durable project decisions live in
-`decisions.md`, not in `.agents/JOURNAL.md`. This repository's `.gitignore`
-ignores dot-directories unless they are explicitly allowlisted, so `.agents/`
-must be treated as optional local handoff state unless a future commit
-explicitly tracks it. Do not put durable product decisions only in `.agents/`.
 
 This workspace is worked on by multiple agents: Gemini CLI, Antigravity, Mistral
 CLI, Kiro, Codex, Pi, Hermes, opencode, Claude Code, Cursor, and others. Sessions
@@ -33,9 +27,9 @@ The state directory is:
   handoffs/     detailed handoff documents
 ```
 
-If `.agents/` is tracked in a repository, never write secrets or personal details
-there. In this repository, prefer visible tracked files such as `decisions.md`
-for durable shared state.
+`.agents/` is committed deliberately so state reaches the other machines. Never
+write secrets or personal details there. These files are permanent and
+world-readable in public repositories.
 
 Treat `.agents/` as shared project state, not personal scratch space. In team
 repos, write only what another teammate or agent needs to resume the work:
@@ -47,19 +41,15 @@ Your obligations:
 
 1. On start, read `.agents/STATE.md` if it exists.
 2. As you work, update `.agents/STATE.md` after each meaningful step.
-3. For durable decisions in this repository, append dated rationale to `decisions.md`.
-4. Before a long or risky stretch, write a handoff in `.agents/handoffs/` only if
-   that directory exists or is intentionally tracked; otherwise use a visible
-   tracked handoff path approved by the owner.
+3. For durable decisions, append one dated line to `.agents/JOURNAL.md`.
+4. Before a long or risky stretch, write a handoff in `.agents/handoffs/`.
 
-Keep `STATE.md` short and current when `.agents/` is intentionally tracked. In
-this repository, put durable decisions in `decisions.md`. Put detailed resume
-notes in timestamped files under `.agents/handoffs/` only when that path is
-tracked or explicitly approved, so multiple people do not overwrite one another.
+Keep `STATE.md` short and current. Put durable decisions in `JOURNAL.md`. Put
+detailed resume notes in timestamped files under `.agents/handoffs/` so multiple
+people do not overwrite one another.
 
 Memory tools such as cognee or cavemem are optional local aids. Trust
-`decisions.md`, `.agents/STATE.md` if present, and `git log` over an empty
-memory-tool result.
+`.agents/STATE.md` and `git log` over an empty memory-tool result.
 
 ## Agent Types and Roles
 
@@ -123,8 +113,8 @@ from target repos, and `.claude/` remains local-only because it can contain
 session databases and credentials.
 
 If a harness has local skills installed, it may use them, but shared repo
-instructions must live in `AGENTS.md`. For sgSHIOK2026, durable shared decisions
-must live in `decisions.md`; `.agents/` is local unless explicitly tracked.
+instructions must live in `AGENTS.md` and shared handoff state must live under
+`.agents/`.
 
 ### MCP Configuration
 
