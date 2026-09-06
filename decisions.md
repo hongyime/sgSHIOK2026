@@ -1,3 +1,6 @@
+2026-09-06 - Mockup accepted and delegated delivery protocol:
+Owner accepted the gesture-first map layout at 0de3d5f and requested a less-expensive implementing agent with independent reviewer follow-up. IMPLEMENTATION-BRIEF.md defines Round 1: actual walk data, map reliability and the approved responsive UI, with behavioural/browser evidence and main-branch commits. ARCHITECTURE-DECISIONS.md ADR-09/10 record the design and review boundaries. The prototype canvas is not production architecture. Comparison, durable feedback, data processing and deployment remain separate work/gates. Reviewer approval depends on diffs and observed outcomes, not an agent's completion claim.
+
 2026-09-06 - Gesture-first map prototype:
 Owner requested removal of visible zoom and reset buttons. The prototype now supports pointer drag, cursor-anchored wheel zoom, two-finger pinch and keyboard navigation instead. A focusable map with screen-reader instructions preserves keyboard access; Home resets the view. This removes toolbar clutter without assuming every user has a touchscreen or scroll wheel. Production is unchanged.
 

@@ -1,6 +1,6 @@
 # SHIOK Product and Technical Design
 Date: 2026-09-06
-Status: accepted direction; implementation pending.
+Status: accepted direction and gesture-first mockup; production implementation pending.
 Decision record: ARCHITECTURE-DECISIONS.md
 Acceptance catalogue: qa/SHIOK-acceptance-tests.md
 Execution plan: PRODUCT-PLAN.md
@@ -25,7 +25,7 @@ shelter suggestions are supported, with distinct handling.
 ## Core journey and proposed copy
 Search -> understand a walk -> inspect, compare or report.
 Title: SHIOK
-Supporting copy: See how sheltered your walk to transit is.
+No supporting tagline in the primary map UI (owner feedback accepted).
 Search: Enter 6-digit postal code
 Summary: Walk to {destination}
 Metrics: {distance} m walk; {coverage}% covered; {exposed} m uncovered;
@@ -37,13 +37,17 @@ Never turn missing evidence into zero, or turn a recorded structure into a
 claim about current condition, wheelchair access, temperature or safety.
 
 ## Layout specification
-Desktop: map and adjacent results panel; panel width must not obscure the
-selected route. Transit choices and gap details expand within the results area.
+Desktop: full-viewport map with a centered search bar and approximately 270px
+floating left panel. Fit routes outside overlays. Transit choices only appear
+when meaningful real alternatives exist; gap details expand within the results area.
 Mobile: compact search and map, with a collapsible bottom sheet. Compact state
 shows destination and key metrics; expanded state holds secondary details.
 Refit with the actual unobscured map bounds after sheet, viewport and route
 changes. Do not reset a user's intentional pan on every data/render update.
 Keep map attribution visible. Distinguish selected route from basemap lines.
+No visible zoom/reset toolbar or successful-load badge. Preserve MapLibre gestures,
+keyboard navigation, accessible loading announcements and actionable failure states.
+Prototype approved at 0de3d5f; use its layout, not its illustrative canvas/data.
 Keep the score and technical limitations in secondary details.
 Night lighting is an optional layer, never a safety rating.
 

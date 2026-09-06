@@ -61,6 +61,20 @@ deployment, provider signup, paid services or mutations of protected payloads.
 Stop on hash mismatch, unsafe operations or unresolved required approvals.
 Report a concrete blocker instead of spending iterations on cosmetic substitutions.
 
+## ADR-09: Approved map-first presentation
+Owner approved prototype 0de3d5f: full-screen map, centered search, small floating
+desktop panel and mobile bottom sheet; no tagline, empty transit section or visible
+zoom/reset toolbar. Retain mandatory attribution, gestures and keyboard access.
+Success is quiet; partial failures remain actionable. Production reuses MapLibre,
+not the prototype canvas, and all displayed metrics come from actual selected data.
+
+## ADR-10: Bounded delegated implementation and independent review
+Delegate one vertical slice at a time, beginning with IMPLEMENTATION-BRIEF.md.
+The implementing agent owns scoped edits/tests/evidence and pushes main; the reviewer
+independently checks diffs and outcomes before authorizing the next slice.
+Owner approval of a mockup does not approve deployment, infrastructure or compute.
+No fake comparison/report controls in production while those workflows are pending.
+
 ## Delivery cost classes
 Documentation, prototypes and frontend changes: zero pipeline cost, not zero effort.
 Feedback: zero pipeline cost; free durable infrastructure feasibility unresolved.

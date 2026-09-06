@@ -7,12 +7,9 @@ All items below are pending unless explicitly marked complete with evidence.
 
 ## Milestones in order
 1. Complete: commit agreed design, ADR and acceptance catalogue.
-2. In progress: clickable preview at qa/prototypes/shelter-walk.html, with desktop
-   and mobile screenshots and an automated interaction check alongside it. Uses
-   illustrative data, not navigation. Owner layout review pending. Still extend to
-   representative missing-evidence/failure screens before completing this milestone.
-   Produce reviewable mobile/desktop UI mockups with actual copy and representative
-   loaded, empty, missing-evidence and failure states. Obtain owner design review.
+2. Owner approved: gesture-first prototype at 0de3d5f, in qa/prototypes/.
+   Illustrative only. Empty/missing/failure states must be implemented and verified
+   against real application behaviour in Round 1, not represented as already tested.
 3. Establish cold/warm map baseline. Fix visible-route readiness, viewport fitting,
    stale requests and partial failures; add behaviour and visual regression checks.
 4. Implement the approved core walk journey as one vertical slice with existing data.
@@ -39,5 +36,7 @@ Use absolute write paths under the internal working root. Preserve all protected
 data, existing verification lines, and locked weights.
 
 ## Immediate next action
-Review mockups, not another rescore or series of isolated copy edits.
-The owner has authorized creating mockups; approval of final UI is still pending.
+Delegate Round 1 using IMPLEMENTATION-BRIEF.md: real-data map reliability and the
+approved core walk UI, with independent review afterward. No further layout approval
+is needed within that contract. Comparison, feedback and data refresh remain later
+rounds. Owner copies the implementation handback to the reviewer for diff/test review.

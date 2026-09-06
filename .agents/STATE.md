@@ -3,12 +3,14 @@
 Date: 2026-09-06
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Current task: clickable product revamp prototype; production implementation pending.
+Current task: mockup approved; Round 1 delegated implementation pending.
 Start here: ARCHITECTURE.md, ARCHITECTURE-DECISIONS.md, PRODUCT-PLAN.md.
 Test contract: qa/SHIOK-acceptance-tests.md (planned, not executed).
 Preview: qa/prototypes/shelter-walk.html (open directly in a browser).
 Checks: qa/prototypes/check-preview.mjs; desktop/mobile screenshots alongside it.
-Next: owner layout review, then implement core walk/map reliability using real data.
+Next: implementing agent follows IMPLEMENTATION-BRIEF.md; reviewer checks its handback.
+Scope: real-data core walk UI and map reliability, not comparison/report infrastructure.
+Mockup approved at 0de3d5f. Reuse production MapLibre, never the illustrative canvas.
 Prototype uses explicitly illustrative geometry/metrics; dialogs do not submit reports.
 Latest owner feedback: map dominates; centered search; smaller floating panel;
 no tagline or successful-load badge; no empty transit-options section.
