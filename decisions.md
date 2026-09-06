@@ -1,3 +1,6 @@
+2026-09-06 - Gesture-first map prototype:
+Owner requested removal of visible zoom and reset buttons. The prototype now supports pointer drag, cursor-anchored wheel zoom, two-finger pinch and keyboard navigation instead. A focusable map with screen-reader instructions preserves keyboard access; Home resets the view. This removes toolbar clutter without assuming every user has a touchscreen or scroll wheel. Production is unchanged.
+
 2026-09-06 - Map-first prototype layout feedback:
 Owner requested a centered search bar, substantially smaller left panel, no tagline or routine successful-map-load label, and the map as the primary visual surface. The prototype now uses a full-screen map with a 270px floating desktop panel and compact mobile sheet. Removed the empty nearby-transit-options section; actual alternative destinations remain in the agreed product scope. OneMap logo and attribution remain visibly unobtrusive because https://www.onemap.gov.sg/docs/maps/ explicitly requires both. Changes apply to the prototype only; no production deployment or artifact changes.
 

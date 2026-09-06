@@ -18,12 +18,31 @@ let ws;try {
  results[name]=await evaluate(`({overflow:document.documentElement.scrollWidth>innerWidth,status:document.querySelector('#mapstatus').textContent,loadedTiles:[...cache.values()].filter(i=>i.complete&&i.naturalWidth).length})`);
  writeFileSync(resolve(out,'shelter-'+name+'.png'),Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
  }
+ const beforeZoom=await evaluate('zoom');
+ await send('Input.dispatchMouseEvent',{type:'mouseWheel',x:200,y:250,deltaX:0,deltaY:-100});
+ await new Promise(r=>setTimeout(r,200));
+ results.wheelZoom=(await evaluate('zoom'))>beforeZoom;
+ const beforePan=await evaluate('panX');
+ await send('Input.dispatchMouseEvent',{type:'mousePressed',x:200,y:250,button:'left',clickCount:1});
+ await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:230,y:270,buttons:1});
+ await send('Input.dispatchMouseEvent',{type:'mouseReleased',x:230,y:270,button:'left',clickCount:1});
+ results.dragPan=(await evaluate('panX'))!==beforePan;
+ await send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:2});
+ const beforePinch=await evaluate('zoom');
+ await send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:140,y:240,id:1},{x:240,y:240,id:2}]});
+ await send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:100,y:240,id:1},{x:280,y:240,id:2}]});
+ await send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+ results.pinchZoom=(await evaluate('zoom'))>beforePinch;
+ await evaluate(`document.querySelector('#map').focus()`);
+ await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Home',code:'Home'});
+ results.keyboardReset=await evaluate('zoom===17&&panX===0&&panY===0');
+ results.visibleZoomButtonsRemoved=await evaluate(`!document.querySelector('#plus,#minus,#fit')`);
  results.dialog=await evaluate(`document.querySelector('#report').click();document.querySelector('#feedback').open`);
  await evaluate(`document.querySelector('#feedback').close();document.querySelector('#expand').click()`);
  results.sheet=await evaluate(`document.querySelector('#panel').classList.contains('expanded')`);
  await evaluate(`document.querySelector('[data-gap="1"]').click()`);
  results.gap=await evaluate(`document.querySelector('[data-gap="1"]').getAttribute('aria-pressed')==='true'`);
  writeFileSync(resolve(out,'preview-check.json'),JSON.stringify(results,null,2));console.log(JSON.stringify(results,null,2));
- if(results.desktop.overflow||results.mobile.overflow||!results.dialog||!results.sheet||!results.gap)process.exitCode=1;
+ if(results.desktop.overflow||results.mobile.overflow||!results.dialog||!results.sheet||!results.gap||!results.wheelZoom||!results.dragPan||!results.pinchZoom||!results.keyboardReset||!results.visibleZoomButtonsRemoved)process.exitCode=1;
  void send('Browser.close').catch(()=>{});
 }finally{ws?.close();chrome.kill();setTimeout(()=>process.exit(process.exitCode||0),1000).unref()}

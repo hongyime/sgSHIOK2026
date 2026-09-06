@@ -9,6 +9,11 @@
     "status": "Illustrative walk · basemap loaded",
     "loadedTiles": 44
   },
+  "wheelZoom": true,
+  "dragPan": true,
+  "pinchZoom": true,
+  "keyboardReset": true,
+  "visibleZoomButtonsRemoved": true,
   "dialog": true,
   "sheet": true,
   "gap": true

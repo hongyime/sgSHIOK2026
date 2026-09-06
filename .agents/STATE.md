@@ -12,6 +12,8 @@ Next: owner layout review, then implement core walk/map reliability using real d
 Prototype uses explicitly illustrative geometry/metrics; dialogs do not submit reports.
 Latest owner feedback: map dominates; centered search; smaller floating panel;
 no tagline or successful-load badge; no empty transit-options section.
+Map controls: no visible zoom/reset buttons; drag, wheel, pinch and keyboard
+navigation supported in the prototype. Home resets the focused map view.
 Retain unobtrusive mandatory OneMap logo/attribution per official map guidance.
 Owner agreed: postal-to-transit first; bounded transit choices; no weather; private
 owner-moderated reports; $0 maintained service. Feedback infrastructure unresolved.
