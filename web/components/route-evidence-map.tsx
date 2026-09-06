@@ -1091,14 +1091,21 @@ function boundsFor(points: [number, number][]): [[number, number], [number, numb
 
 function fitRouteBounds(
   map: maplibregl.Map,
-  bounds: [[number, number], [number, number]]
+  bounds: [[number, number], [number, number]],
+  fitPadding?: { top?: number; right?: number; bottom?: number; left?: number }
 ) {
   map.resize();
   const isCompact = map.getContainer().clientWidth < 700;
+  const defaultPadding = isCompact
+    ? { top: 160, right: 16, bottom: 270, left: 16 }
+    : { top: 110, right: 60, bottom: 80, left: 300 };
   map.fitBounds(bounds, {
-    padding: isCompact
-      ? { top: 300, right: 24, bottom: 90, left: 24 }
-      : { top: 150, right: 80, bottom: 90, left: 390 },
+    padding: {
+      top: fitPadding?.top ?? defaultPadding.top,
+      right: fitPadding?.right ?? defaultPadding.right,
+      bottom: fitPadding?.bottom ?? defaultPadding.bottom,
+      left: fitPadding?.left ?? defaultPadding.left,
+    },
     duration: prefersReducedMotion() ? 0 : 350,
     maxZoom: 16.6,
   });
@@ -1116,6 +1123,7 @@ export function RouteEvidenceMap({
   showLampOverlay = false,
   focusedExposureGap = null,
   onStatusChange,
+  fitPadding,
 }: {
   routes: RouteMapItem[];
   mode: RouteDisplayMode;
@@ -1130,6 +1138,7 @@ export function RouteEvidenceMap({
   showLampOverlay?: boolean;
   focusedExposureGap?: FocusedExposureGap | null;
   onStatusChange?: (status: RouteMapLoadStatus, message?: string) => void;
+  fitPadding?: { top?: number; right?: number; bottom?: number; left?: number };
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
@@ -1137,6 +1146,9 @@ export function RouteEvidenceMap({
   const lampManifestRef = useRef<LampOverlayManifest | null | undefined>(undefined);
   const lampTileCacheRef = useRef<Map<string, LampTilePayload | null>>(new Map());
   const lampRequestIdRef = useRef(0);
+  const onStatusChangeRef = useRef(onStatusChange);
+  const routesRef = useRef(routes);
+  const routeVisibleRef = useRef(false);
   const [loaded, setLoaded] = useState(false);
   const [lampData, setLampData] = useState<PointFeatureCollection>(emptyPointCollection);
   const [lampOverlayStatus, setLampOverlayStatus] = useState<LampOverlayStatus>("off");
@@ -1225,7 +1237,6 @@ export function RouteEvidenceMap({
         // narrow screens instead of collapsing behind MapLibre's compact toggle.
         attributionControl: false,
       });
-      mapRef.current.addControl(new maplibre.NavigationControl({ showCompass: false }), "top-right");
       if (typeof window !== "undefined") {
         (window as unknown as { __shiokRouteMap?: maplibregl.Map }).__shiokRouteMap = mapRef.current;
       }
@@ -1234,11 +1245,16 @@ export function RouteEvidenceMap({
         ensureRouteLayers(mapRef.current);
         bindPoiInteractions(mapRef.current, maplibre.Popup);
         setLoaded(true);
-        onStatusChange?.("ready");
+        // Defer "ready" when routes are pending; verified after they render.
+        if (routesRef.current.length === 0) {
+          onStatusChange?.("ready");
+        }
       });
       mapRef.current.on("error", (event) => {
+        // Don't erase a confirmed ready-with-route state on later tile errors.
+        if (routeVisibleRef.current) return;
         const message = event.error?.message || "Map tile or style request failed.";
-        onStatusChange?.("error", message);
+        onStatusChangeRef.current?.("error", message);
       });
     }
 
@@ -1295,6 +1311,37 @@ export function RouteEvidenceMap({
         },
         lampStatus: lampOverlayStatus,
       });
+    }
+    // Verify selected route layers are visible in the current viewport.
+    // Only signal "ready" after geometry is confirmed, not just style-load.
+    const hasRouteData = routeData.shiokest.features.length > 0 || routeData.shortest.features.length > 0;
+    if (hasRouteData) {
+      const verifyRouteVisible = () => {
+        const currentMap = mapRef.current;
+        if (!currentMap) return;
+        const layers = (["shiokest-route-line", "shortest-route-line"] as const).filter(
+          (id) => currentMap.getLayer(id)
+        );
+        if (layers.length === 0) {
+          // Layers not added yet; wait for next render frame.
+          currentMap.once("render", verifyRouteVisible);
+          return;
+        }
+        const visible = currentMap.queryRenderedFeatures(undefined, { layers: layers as string[] });
+        if (visible.length > 0) {
+          routeVisibleRef.current = true;
+          onStatusChangeRef.current?.("ready");
+        } else {
+          currentMap.once("render", verifyRouteVisible);
+        }
+      };
+      // Route visible ref reset when key changes.
+      routeVisibleRef.current = false;
+      map.once("render", verifyRouteVisible);
+    } else if (!hasRouteData && loaded) {
+      // Routes cleared; map without route is immediately ready.
+      routeVisibleRef.current = false;
+      onStatusChangeRef.current?.("ready");
     }
   }, [loaded, routeData, activeGapData, transitPoiData, feedbackData, lampData, lampOverlayStatus, mode, routes.length]);
 
@@ -1400,7 +1447,7 @@ export function RouteEvidenceMap({
     lastFitKeyRef.current = routeFitKey;
     const refit = () => {
       if (mapRef.current && routeData.bounds) {
-        fitRouteBounds(mapRef.current, routeData.bounds);
+        fitRouteBounds(mapRef.current, routeData.bounds, fitPadding);
       }
     };
     refit();
@@ -1432,7 +1479,7 @@ export function RouteEvidenceMap({
         if (!mapRef.current) return;
         mapRef.current.resize();
         if (routeData.bounds) {
-          fitRouteBounds(mapRef.current, routeData.bounds);
+          fitRouteBounds(mapRef.current, routeData.bounds, fitPadding);
         }
       });
     });
@@ -1458,6 +1505,14 @@ export function RouteEvidenceMap({
   useEffect(() => {
     onSelectTransitStopRef.current = onSelectTransitStop;
   }, [onSelectTransitStop]);
+
+  useEffect(() => {
+    onStatusChangeRef.current = onStatusChange;
+  }, [onStatusChange]);
+
+  useEffect(() => {
+    routesRef.current = routes;
+  }, [routes]);
 
   useEffect(() => {
     const map = mapRef.current;

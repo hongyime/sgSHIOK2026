@@ -2364,7 +2364,9 @@ export default function Home() {
           }
         });
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to load shelter-map data.");
+      if (requestId === loadSelectionRequestIdRef.current) {
+        setError(err instanceof Error ? err.message : "Failed to load shelter-map data.");
+      }
     } finally {
       if (requestId === loadSelectionRequestIdRef.current) {
         setLoading(false);
@@ -2532,6 +2534,7 @@ export default function Home() {
           showLampOverlay={lampOverlayEnabled}
           focusedExposureGap={focusedExposureGap}
           onStatusChange={handleMapStatusChange}
+          fitPadding={showDetailOverlay ? { top: 110, right: 60, bottom: 80, left: 300 } : undefined}
         />
       )}
       {!shouldRenderRouteMap && mapAvailable && (
