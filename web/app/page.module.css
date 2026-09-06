@@ -8,18 +8,54 @@
 
 .searchOverlay {
   position: absolute;
-  z-index: 2;
-}
-
-.searchOverlay {
-  top: 18px;
-  left: 18px;
-  width: min(360px, calc(100vw - 36px));
-  max-height: calc(100dvh - 36px);
+  z-index: 3;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(440px, calc(100vw - 140px));
+  max-height: calc(100dvh - 28px);
   display: grid;
   gap: 8px;
   min-height: 0;
   padding-right: 2px;
+}
+
+.searchOverlayWithResult {
+  left: 16px;
+  top: 16px;
+  transform: none;
+  width: 270px;
+  max-height: calc(100dvh - 32px);
+}
+
+.identityRow {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.identityBrand {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 6px;
+  padding: 5px 11px;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #17211f;
+  letter-spacing: -0.01em;
+  box-shadow: 0 1px 6px rgba(20, 33, 29, 0.14);
+  pointer-events: auto;
+}
+
+.identityBrand span {
+  color: #008f86;
+}
+
+.sheetToggle {
+  display: none;
 }
 
 .brandRow,
@@ -34,7 +70,12 @@
 }
 
 .brandRow {
+  display: none;
   padding: 12px;
+}
+
+.searchOverlayWithResult .brandRow {
+  display: block;
 }
 
 .brandRow h1,
@@ -158,7 +199,7 @@
   display: grid;
   gap: 4px;
   max-width: min(360px, calc(100vw - 36px));
-  margin-left: min(420px, 30vw);
+  margin-left: 0;
   color: #31453f;
   text-align: center;
 }
@@ -359,7 +400,7 @@
 .detailOverlay {
   width: 100%;
   min-height: 0;
-  max-height: calc(100dvh - 154px);
+  max-height: calc(100dvh - 180px);
   overflow-y: auto;
   overscroll-behavior: contain;
   padding-right: 2px;
@@ -1237,17 +1278,62 @@ button.gapItem:hover,
   padding: 18px;
 }
 
-@media (max-width: 940px) {
-  .appShell {
-    overflow: hidden;
-  }
-
+@media (max-width: 700px) {
   .searchOverlay {
     top: 10px;
     left: 10px;
     right: 10px;
     width: auto;
+    transform: none;
     max-height: calc(100dvh - 20px);
+    gap: 6px;
+  }
+
+  .searchOverlayWithResult {
+    top: auto;
+    left: 8px;
+    right: 8px;
+    bottom: 20px;
+    width: auto;
+    max-height: 252px;
+    transform: none;
+  }
+
+  .searchOverlayWithResult.sheetExpanded {
+    max-height: 66dvh;
+  }
+
+  .searchOverlayWithResult .brandRow {
+    display: none;
+  }
+
+  .detailOverlay {
+    max-height: min(50dvh, 400px);
+  }
+
+  .identityRow {
+    top: 10px;
+    left: 10px;
+  }
+
+  .identityBrand {
+    font-size: 17px;
+    padding: 4px 9px;
+  }
+
+  .sheetToggle {
+    display: block;
+    width: 100%;
+    border: 1px solid #cbd7d1;
+    border-radius: 8px;
+    padding: 7px 10px;
+    color: #243a34;
+    background: #f6faf8;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 900;
+    text-align: center;
+    cursor: pointer;
   }
 
   .brandRow {
@@ -1258,11 +1344,6 @@ button.gapItem:hover,
     font-size: 18px;
   }
 
-  .detailOverlay {
-    width: auto;
-    max-height: min(50dvh, calc(100dvh - 148px));
-  }
-
   .scoreCard {
     padding: 12px;
   }
@@ -1270,39 +1351,20 @@ button.gapItem:hover,
   .summaryGrid {
     grid-template-columns: repeat(3, 1fr);
   }
-
 }
 
 @media (max-width: 560px) {
-  .searchOverlay {
-    gap: 6px;
-  }
-
   .searchOverlayWithResult {
-    gap: 5px;
+    bottom: 16px;
+    max-height: 236px;
   }
 
   .brandRow {
     padding: 9px 10px;
   }
 
-  .searchOverlayWithResult .brandRow {
-    padding: 7px 9px;
-  }
-
-  .searchOverlayWithResult .brandRow > div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-  }
-
   .brandRow h1 {
     font-size: 16px;
-  }
-
-  .searchOverlayWithResult .brandRow h1 {
-    font-size: 15px;
   }
 
   .brandRow p {
@@ -1310,22 +1372,9 @@ button.gapItem:hover,
     font-size: 10px;
   }
 
-  .searchOverlayWithResult .brandRow p,
-  .searchOverlayWithResult .dataLimits {
-    display: none;
-  }
-
-  .searchOverlayWithResult .mapLayerControls {
-    margin-top: 0;
-  }
-
   .mapPlaceholder {
     align-items: end;
     padding: 16px 12px 84px;
-  }
-
-  .mapPlaceholder > div {
-    margin-left: 0;
   }
 
   .dataLine {
@@ -1341,10 +1390,6 @@ button.gapItem:hover,
     min-height: 40px;
     padding: 0 10px;
     font-size: 13px;
-  }
-
-  .detailOverlay {
-    max-height: min(34dvh, 292px);
   }
 
   .scoreCard {
@@ -1417,6 +1462,13 @@ button.gapItem:hover,
     grid-row: auto;
     justify-self: start;
     white-space: normal;
+  }
+}
+
+@media (max-width: 320px) {
+  .identityBrand {
+    font-size: 15px;
+    padding: 3px 7px;
   }
 }
 

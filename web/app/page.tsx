@@ -2070,6 +2070,8 @@ export default function Home() {
   const [rankingLoading, setRankingLoading] = useState(false);
   const [rankPanelOpen, setRankPanelOpen] = useState(false);
   const loadSelectionRequestIdRef = useRef(0);
+  const panelRef = useRef<HTMLElement | null>(null);
+  const [sheetExpanded, setSheetExpanded] = useState(false);
   // Pending stop id from ?stop= URL param — applied once the postal's candidates load.
   const pendingUrlStopIdRef = useRef<string | null>(null);
 
@@ -2549,15 +2551,31 @@ export default function Home() {
         </section>
       )}
 
+      {/* SHIOK identity — always visible top-left, separate from the sliding panel */}
+      <div className={styles.identityRow} aria-hidden="true">
+        <span className={styles.identityBrand}>SHIOK<span aria-hidden="true">.</span></span>
+      </div>
+
       <section
-        className={`${styles.searchOverlay} ${showDetailOverlay ? styles.searchOverlayWithResult : ""}`}
+        className={`${styles.searchOverlay} ${showDetailOverlay ? styles.searchOverlayWithResult : ""} ${showDetailOverlay && sheetExpanded ? styles.sheetExpanded : ""}`}
         aria-label="Postal-code search"
         aria-busy={loading}
       >
+        {showDetailOverlay && (
+          <button
+            type="button"
+            className={styles.sheetToggle}
+            aria-expanded={sheetExpanded}
+            aria-label={sheetExpanded ? "Collapse walk details" : "Expand walk details"}
+            onClick={() => setSheetExpanded((v) => !v)}
+          >
+            {sheetExpanded ? "▾ Collapse" : "▸ Walk details"}
+          </button>
+        )}
         <div className={styles.brandRow}>
           <div>
             <h1>S.H.I.O.K. Shelter Map</h1>
-            <p>Check how sheltered the walk to transit feels before you pick a place.</p>
+            <p className={styles.srOnly}>Check how sheltered the walk to transit feels before you pick a place.</p>
             <div className={styles.mapLayerControls} aria-label="Map layers">
               <button
                 type="button"
@@ -2672,7 +2690,7 @@ export default function Home() {
         </details>
 
         {showDetailOverlay && (
-          <aside className={styles.detailOverlay}>
+          <aside ref={panelRef} className={styles.detailOverlay}>
             <ScoreCard
               selection={activeSelection}
               routeMode={mapRouteMode}
