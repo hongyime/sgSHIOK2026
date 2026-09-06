@@ -2,12 +2,12 @@
   "desktop": {
     "overflow": false,
     "status": "Illustrative walk · basemap loaded",
-    "loadedTiles": 30
+    "loadedTiles": 40
   },
   "mobile": {
     "overflow": false,
     "status": "Illustrative walk · basemap loaded",
-    "loadedTiles": 30
+    "loadedTiles": 44
   },
   "dialog": true,
   "sheet": true,

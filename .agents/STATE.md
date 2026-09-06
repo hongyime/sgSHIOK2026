@@ -10,6 +10,9 @@ Preview: qa/prototypes/shelter-walk.html (open directly in a browser).
 Checks: qa/prototypes/check-preview.mjs; desktop/mobile screenshots alongside it.
 Next: owner layout review, then implement core walk/map reliability using real data.
 Prototype uses explicitly illustrative geometry/metrics; dialogs do not submit reports.
+Latest owner feedback: map dominates; centered search; smaller floating panel;
+no tagline or successful-load badge; no empty transit-options section.
+Retain unobtrusive mandatory OneMap logo/attribution per official map guidance.
 Owner agreed: postal-to-transit first; bounded transit choices; no weather; private
 owner-moderated reports; $0 maintained service. Feedback infrastructure unresolved.
 Future goals/loops must preserve explicit compute, infrastructure and deploy gates.
