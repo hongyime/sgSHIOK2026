@@ -26,4 +26,4 @@ let ws;try {
  writeFileSync(resolve(out,'preview-check.json'),JSON.stringify(results,null,2));console.log(JSON.stringify(results,null,2));
  if(results.desktop.overflow||results.mobile.overflow||!results.dialog||!results.sheet||!results.gap)process.exitCode=1;
  void send('Browser.close').catch(()=>{});
-}finally{ws?.close();chrome.kill()}
+}finally{ws?.close();chrome.kill();setTimeout(()=>process.exit(process.exitCode||0),1000).unref()}
