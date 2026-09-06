@@ -3,7 +3,13 @@
 Date: 2026-09-06
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Latest substantive commit: `f96be28` (`fix: restrict search to postal codes and expose map status`)
+Current task: approved product revamp design; implementation pending.
+Start here: ARCHITECTURE.md, ARCHITECTURE-DECISIONS.md, PRODUCT-PLAN.md.
+Test contract: qa/SHIOK-acceptance-tests.md (planned, not executed).
+Next: produce mobile/desktop mockups for owner review, then core walk/map reliability.
+Owner agreed: postal-to-transit first; bounded transit choices; no weather; private
+owner-moderated reports; $0 maintained service. Feedback infrastructure unresolved.
+Future goals/loops must preserve explicit compute, infrastructure and deploy gates.
 
 Mandatory startup guard:
 - First assert the working directory is exactly `C:\sgSHIOK2026`; abort otherwise.

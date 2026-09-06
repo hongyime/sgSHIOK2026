@@ -1,0 +1,69 @@
+# Architecture Decision Record: Shelter Service
+Date: 2026-09-06
+Status: accepted product direction; provider and numerical budgets unresolved.
+Supersedes the assumption that the app is primarily a score inspection tool.
+Does not supersede locked weights, protected data or release approvals.
+
+## Context
+The existing UI combines evidence inspection, ranking and route exploration.
+Users need understandable walk trade-offs, home comparison and shelter feedback.
+A shared map/data foundation can support all three without placing every feature
+on one screen. The owner approved postal-to-transit first, no weather, a small
+useful transit list, private reports pending owner moderation, and a $0 budget.
+
+## ADR-01: One foundation, three task entry points
+Decision: share route evidence across inspection, comparison and reporting.
+Alternative rejected: separate applications or one screen containing every tool.
+Consequence: common selection semantics, contextual actions and progressive detail.
+
+## ADR-02: Evidence before composite
+Decision: lead with destination, distance, shelter and exposure; retain the
+existing score in secondary details without changing any weights.
+Alternative rejected: a new score or a weather-dependent umbrella recommendation.
+Consequence: coverage is not a guarantee of dryness, safety or accessibility.
+
+## ADR-03: Bounded transit choices
+Decision: show a small useful eligible list with distance/shelter trade-offs.
+Avoid duplicate nearest/most-sheltered choices when they identify the same stop.
+Alternative rejected: immediately computing every origin/destination combination.
+Consequence: document candidate coverage and selection limits before computation.
+Exact candidate limit and ordering are pending fixture-backed implementation design.
+
+## ADR-04: Local home shortlist
+Decision: up to three postals, local persistence and explicit share links.
+Alternative rejected: accounts or server-side home histories.
+Consequence: no cross-device synchronization except user-shared URLs.
+
+## ADR-05: Private moderated feedback
+Decision: separate map errors from requests for new shelter. Owner reviews
+reports before publication; no direct agency submission or automatic data edits.
+Alternative rejected: immediately public crowd edits.
+Consequence: durable submission storage, abuse protection, moderation, retention
+and deletion are unresolved infrastructure requirements, not frontend-only work.
+Choose only a bounded free solution; no provider is selected or authorized.
+
+## ADR-06: Versioned maintenance
+Decision: scheduled checks and periodic validated releases; distinct source,
+check and release dates. Government cadence is a constraint, not a freshness claim.
+Alternative rejected: silently overwriting frozen inputs or automatic heavy runs.
+Consequence: inventory gaps and pilot changes before approving local processing.
+
+## ADR-07: Incremental architecture
+Decision: extract feature boundaries around existing readers and map code.
+Alternative rejected: wholesale framework rewrite.
+Consequence: ship vertical slices and test visible outcomes, not source wording.
+
+## ADR-08: Autonomous execution boundaries
+Decision: a future goal/loop may work through approved reversible implementation
+tasks, commit coherent changes and push main; it must honor all explicit gates.
+Never interpret this record as authority for scoring, exports, input rebuilds,
+deployment, provider signup, paid services or mutations of protected payloads.
+Stop on hash mismatch, unsafe operations or unresolved required approvals.
+Report a concrete blocker instead of spending iterations on cosmetic substitutions.
+
+## Delivery cost classes
+Documentation, prototypes and frontend changes: zero pipeline cost, not zero effort.
+Feedback: zero pipeline cost; free durable infrastructure feasibility unresolved.
+New artifact generation/export: gated, pilot-derived cost; no fixed estimate accepted.
+Routing/rescore/refresh: gated local compute, measured separately from fixed startup.
+Arbitrary origin/destination: future scope requiring its own design and budget.
