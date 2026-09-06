@@ -116,3 +116,36 @@ screenshots=C:\sgSHIOK2026\qa\debug-runs\p1048-production-postal-map-status-retr
 ## DISAGREEMENTS
 
 1. I do not think address search belongs in the default UI while Vercel Edge requests are constrained; postal-only search is cheaper, clearer, and avoids accidental personal-address disclosure.
+
+## Follow-up 2026-09-06: Sync Repair and Live Map Check
+
+The resumed session found sync commit b7c0588 had removed the repository protections again. NOTICE, AGENTS.md and .vercelignore were restored from 06698be; .gitignore regained !.vercelignore, .env.*, venv/, dist/, build/ and coverage/. Upstream workflow updates were preserved.
+
+```text
+python scripts/check_repo_integrity.py
+repo_integrity=ok
+uv run pytest tests/test_repo_integrity.py -q -p no:cacheprovider
+.......                                                                  [100%]
+7 passed in 6.44s
+git diff --cached --exit-code 06698be -- NOTICE AGENTS.md .vercelignore
+exit_code=0
+git diff --cached --check
+exit_code=0
+```
+
+Live check used the existing browser smoke harness against https://sgshiok.vercel.app/ with postal 018956 and keyboard input. Selected fields from the generated summary:
+
+```json
+{"generated_at":"2026-09-06T02:06:15.648Z","ok":true,"checks":{"no_uncaught_page_errors":true,"route_network_ok":true,"route_source_features_present":true,"route_rendered_features_present":true}}
+```
+
+Screenshots inspected: qa/debug-runs/sync-repair-live-map/screenshots/summary_desktop.png and summary_mobile_short.png. Both show Map ready and a visible basemap. Desktop peripheral tiles remain blurry. The final rendered_feature_counts snapshot contains zero route features despite the aggregate route_rendered_features_present check passing, so the harness pass is not proof of continuously visible route overlays across every viewport. These are residual map verification limitations, not resolved by the repository repair.
+
+### FINDINGS
+
+1. Sync b7c0588 reintroduced six integrity failures after the previous successful deployment; the repository protections are restored without reverting unrelated upstream workflow changes.
+2. The deployed postal-only search and visible map status survived the interruption. The live map is not blank in either inspected viewport, but desktop peripheral tile quality and route visibility still need targeted follow-up.
+
+### DISAGREEMENTS
+
+1. A passing smoke summary alone does not establish that all map tiles and route overlays are consistently visible; the screenshots and final feature-count snapshot constrain that claim.

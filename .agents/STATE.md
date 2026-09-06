@@ -1,6 +1,6 @@
 # Current State
 
-Date: 2026-08-30
+Date: 2026-09-06
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
 Latest substantive commit: `f96be28` (`fix: restrict search to postal codes and expose map status`)
@@ -18,6 +18,7 @@ Protected invariants:
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
 Status:
+- Restored sync damage from b7c0588: NOTICE, AGENTS.md and .vercelignore match 06698be exactly; six deleted ignore rules restored. Integrity check passes and all 7 integrity tests pass. Live browser smoke for 018956 passes without uncaught errors; desktop/mobile screenshots show Map ready and visible basemap, but desktop peripheral tiles remain blurry. No application deployment is needed for this repository-only repair. Evidence appended to qa/verification/P1048-postal-only-map-status.md.
 - P1048 is complete, pushed, deployed, and smoke-tested: search input is postal-code only, strips non-digits while typing, requires exactly six digits on submit, and no longer calls OneMap address search from the form path. The page now shows a compact visible map status (`Map starting`, `Map loading`, `Map ready`, or `Map failed: ...`) so a user can report map state without DevTools. Deployment `dpl_wVnDeskyK666GwYUKWzY2aserkJR` is Ready on `https://sgshiok.vercel.app`; live production smoke passed with `ok=true`, `no_uncaught_page_errors=true`, and route map source/render checks true. Focused web tests passed 3 files / 73 tests; full web tests passed 25 files / 215 tests; repo integrity passed; local browser smoke passed after retry and screenshots show `Map ready` on desktop/mobile. Evidence: `qa/verification/P1048-postal-only-map-status.md`.
 - P1047 is complete, pushed, deployed, and smoke-tested: production date rendering now fixes the timezone to `Asia/Singapore` for data and generated dates, addressing the React hydration mismatch caught by the first live smoke after deployment. Deployment `dpl_AtmhNoWvuSb7Y75BWeWNsY9JT5J2` is Ready on `https://sgshiok.vercel.app`; live browser smoke passed with `ok=true`, `no_uncaught_page_errors=true`, and route map source/render checks true. Focused copy/render tests passed 2 files / 61 tests; full web tests passed 25 files / 215 tests; repo integrity passed. Evidence: `qa/verification/P1047-stable-production-date-format.md`.
 - P1046 is complete and pushed: production deploy staging now writes gzip-only temporary copies for large score/geom/transit JSON artifact classes under `tmp/`, while leaving protected `web/public/data` untouched. The staged source measured 430,315,171 bytes in 104.091 seconds, down from 5,637,244,615 bytes. Focused publish tests passed 5 tests; focused web data/deployment tests passed 2 files / 35 tests; full web tests passed 25 files / 215 tests; repo integrity passed. Evidence: `qa/verification/P1046-compressed-vercel-staging.md`. This fixes the oversized Vercel upload path discovered during the P1045 deploy attempt.
