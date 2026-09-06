@@ -3,10 +3,13 @@
 Date: 2026-09-06
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Current task: approved product revamp design; implementation pending.
+Current task: clickable product revamp prototype; production implementation pending.
 Start here: ARCHITECTURE.md, ARCHITECTURE-DECISIONS.md, PRODUCT-PLAN.md.
 Test contract: qa/SHIOK-acceptance-tests.md (planned, not executed).
-Next: produce mobile/desktop mockups for owner review, then core walk/map reliability.
+Preview: qa/prototypes/shelter-walk.html (open directly in a browser).
+Checks: qa/prototypes/check-preview.mjs; desktop/mobile screenshots alongside it.
+Next: owner layout review, then implement core walk/map reliability using real data.
+Prototype uses explicitly illustrative geometry/metrics; dialogs do not submit reports.
 Owner agreed: postal-to-transit first; bounded transit choices; no weather; private
 owner-moderated reports; $0 maintained service. Feedback infrastructure unresolved.
 Future goals/loops must preserve explicit compute, infrastructure and deploy gates.

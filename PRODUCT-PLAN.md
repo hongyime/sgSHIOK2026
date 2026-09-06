@@ -7,7 +7,11 @@ All items below are pending unless explicitly marked complete with evidence.
 
 ## Milestones in order
 1. Complete: commit agreed design, ADR and acceptance catalogue.
-2. Produce reviewable mobile/desktop UI mockups with actual copy and representative
+2. In progress: clickable preview at qa/prototypes/shelter-walk.html, with desktop
+   and mobile screenshots and an automated interaction check alongside it. Uses
+   illustrative data, not navigation. Owner layout review pending. Still extend to
+   representative missing-evidence/failure screens before completing this milestone.
+   Produce reviewable mobile/desktop UI mockups with actual copy and representative
    loaded, empty, missing-evidence and failure states. Obtain owner design review.
 3. Establish cold/warm map baseline. Fix visible-route readiness, viewport fitting,
    stale requests and partial failures; add behaviour and visual regression checks.

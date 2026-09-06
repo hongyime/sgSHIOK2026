@@ -1,0 +1,15 @@
+{
+  "desktop": {
+    "overflow": false,
+    "status": "Illustrative walk · basemap loaded",
+    "loadedTiles": 30
+  },
+  "mobile": {
+    "overflow": false,
+    "status": "Illustrative walk · basemap loaded",
+    "loadedTiles": 30
+  },
+  "dialog": true,
+  "sheet": true,
+  "gap": true
+}
