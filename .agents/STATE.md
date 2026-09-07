@@ -6,9 +6,9 @@ Machine: `Prawn-E14`
 Current task: Round 1 repair requested; implementation and acceptance checks in progress.
 Evidence: qa/verification/REVAMP-R1-core-walk.md
 Test contract: qa/SHIOK-acceptance-tests.md (Round 1 items mapped in evidence file).
-Preview: http://localhost:4317/ (local Next dev server; use localhost for dev-origin checks).
-Checks: full web suite 223 passing; four rendered route segments at each required viewport; gestures, sheet, gap focus and stale A-failure/B-success pass. Finish failure recovery and cold/warm profiling before handback.
-Next: fix measured overlays, selection/render lifecycle, actionable partial errors and execute loaded-route browser acceptance. Prior completion/PASS claims are under correction.
+Preview: http://localhost:4318/ (local Next production server, direct frontend build only).
+Checks: full web suite 228 passing; four rendered route segments at each required viewport; gestures, sheet, gap focus and stale A-failure/B-success pass. Finish failure recovery and cold/warm profiling before handback.
+Next: finish the supplemental browser run and constrained cold/warm measurements, append final outcomes, then independent review. Prior unsupported completion/PASS claims have been withdrawn in evidence.
 Scope: real-data core walk UI and map reliability, not comparison/report infrastructure.
 Mockup approved at 0de3d5f. Reuse production MapLibre, never the illustrative canvas.
 Prototype uses explicitly illustrative geometry/metrics; dialogs do not submit reports.
@@ -164,3 +164,5 @@ Status:
 Next useful free-tier work:
 - Continue aligning visible comparison/status copy with the shelter-first and nearby-address framing.
 - Prefer small browser copy/test/evidence commits, pushed to main immediately.
+
+Repair follow-up: candidate mapping correction and shared clicked-stop restoration under verification; first preview harness clicked a precomputed stop and timed out. No final completion claim.

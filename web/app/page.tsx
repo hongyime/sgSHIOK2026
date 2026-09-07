@@ -817,7 +817,7 @@ function selectionForTransitMode(
   };
 }
 
-function selectionForChosenStop(
+export function selectionForChosenStop(
   baseSelection: LoadedSelection | null,
   chosenStopId: string | null,
   candidates: TransitCandidate[],
@@ -853,11 +853,7 @@ function selectionForChosenStop(
     const stopExit = poiFeature?.properties?.exit ?? matchedCandidate?.exit;
     const shortestM = candScore?.paths?.shortest_m ?? matchedCandidate?.straight_line_m ?? 0;
     const shelteredM = candScore?.paths?.sheltered_m ?? shortestM;
-    const coveredRatio =
-      candScore?.paths?.covered_ratio ??
-      (candScore?.paths?.sheltered_m && candScore?.paths?.shortest_m
-        ? candScore.paths.sheltered_m / candScore.paths.shortest_m
-        : 0);
+    const coveredRatio = candScore?.paths?.covered_ratio ?? undefined;
 
     const adaptedScore: ScoreRecord | null = baseSelection.score
       ? {
@@ -870,14 +866,15 @@ function selectionForChosenStop(
             station: stopStation,
             straight_line_m: matchedCandidate?.straight_line_m ?? shortestM,
           },
+          exposure_gaps: candGeomOption.exposure_gaps ?? null,
           paths: {
-            ...baseSelection.score.paths,
+            // Candidate evidence must not inherit another destination's metrics.
             shortest_m: shortestM,
             sheltered_m: shelteredM,
             detour_pct: candScore?.paths?.detour_pct ?? 0,
             routing_type: candScore?.routing_type ?? "precomputed_candidate",
-            covered_ratio: coveredRatio !== null ? coveredRatio : 0,
-            covered_m: Math.round(shelteredM * (coveredRatio !== null ? coveredRatio : 0)),
+            covered_ratio: coveredRatio,
+            covered_m: coveredRatio === undefined ? undefined : Math.round(shelteredM * coveredRatio),
           },
         }
       : null;
@@ -2363,14 +2360,15 @@ export default function Home() {
 
   // Apply pending URL stop once candidates for this postal are known.
   useEffect(() => {
-    if (candidates.length === 0) return;
+    if (!primary?.geom || routeTransitPois.features.length === 0) return;
     const pending = pendingUrlStopIdRef.current;
     if (!pending) return;
-    if (candidates.some((candidate) => candidate.id === pending)) {
+    if (candidates.some((candidate) => candidate.id === pending) ||
+        mapTransitPois.features.some((feature) => feature.properties.id === pending)) {
       setChosenStopId(pending);
     }
     pendingUrlStopIdRef.current = null;
-  }, [candidates]);
+  }, [candidates, primary?.geom, routeTransitPois, mapTransitPois]);
 
   const loadSelection = async (result: SearchResult) => {
     const postal = normalizePostal(result.POSTAL);

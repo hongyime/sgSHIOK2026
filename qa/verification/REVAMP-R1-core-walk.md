@@ -289,3 +289,8 @@ not a clean performance comparison against the base commit.
   finish loading and brackets each screenshot with equal camera/selection/counts.
 
 Final production-mode local browser acceptance and profiling results follow below.
+
+### Supplemental candidate correction (2026-09-07)
+- The first supplemental preview check timed out: it clicked a precomputed candidate, so no preview failure was requested. This is not a preview-recovery PASS. Inspection exposed inherited original-route gaps and shortest coverage on alternate candidates. The adapter now uses candidate geometry gaps and candidate coverage only, retaining missing coverage and the locked score. Shared stop restoration now validates loaded local POIs as well as the five nearest candidates, matching clickable stops. Executed regression and a rebuilt browser run follow.
+
+- Supplemental `preview-verified` passed shared-stop restoration, generic map error recovery, preview failure preservation, stale preview failure after B success, and delayed geometry rendering. Its mixed letters/long-digit paste assertion expected six digits even though native maxlength truncates the raw paste first; that assertion failed. Separate executed pure-digit overflow and mixed-input checks replace that incorrect expectation in the input follow-up. The failed run remains preserved.
