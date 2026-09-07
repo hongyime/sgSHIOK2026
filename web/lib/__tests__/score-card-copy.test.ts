@@ -15,15 +15,6 @@ function cssRuleBody(cssSource: string, selector: string): string {
   return match[1];
 }
 
-function expectSourceOrder(source: string, snippets: string[]): void {
-  let previousIndex = -1;
-  for (const snippet of snippets) {
-    const index = source.indexOf(snippet);
-    expect(index).toBeGreaterThan(previousIndex);
-    previousIndex = index;
-  }
-}
-
 describe("score card copy", () => {
   it("distinguishes far connected shelter-map walks from disconnected walks", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
@@ -253,7 +244,6 @@ describe("score card copy", () => {
     expect(layoutSource).toContain('card: "summary"');
     expect(layoutSource).not.toContain('title: "S.H.I.O.K. Index"');
     expect(source).toContain("Check how sheltered the walk to transit feels before you pick a place.");
-    expect(source).toContain("showDetailOverlay ? styles.searchOverlayWithResult :");
     expect(source).toContain("See how much of the walk to transit is covered, and where it is exposed.");
     expect(source).not.toContain(
       "If you moved here, see covered-walkway ratio and exposed gaps on the walk to a transit stop or exit, plus the night-lighting map layer",
@@ -467,21 +457,6 @@ describe("score card copy", () => {
     expect(source).not.toContain("lockedScoreAvailabilityLine={lockedScoreAvailabilityLine}");
     expect(source).not.toContain("{lockedScoreAvailabilityLine && <span>{lockedScoreAvailabilityLine}</span>}");
     expect(source).not.toContain("{lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}");
-    expectSourceOrder(source, [
-      '<form onSubmit={handleSearch} className={styles.searchForm} aria-busy={loading}>',
-      "<SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted} />",
-      '<details className={styles.dataLimits}>',
-      "<summary>About the data</summary>",
-      "Shelter-map evidence as of {formatDataDate(manifest)}. Some newer addresses and some locked scores are not in this release.",
-      "Address list: June 2020 OneMap-derived postal scrape; newer developments may be missing.",
-      "{RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}.",
-      "{OSM_ADDR_POSTCODE_COVERAGE_COPY}",
-      "{DATA_FRESHNESS_SUMMARY_COPY}",
-      "<summary>Source freshness detail</summary>",
-      "{DATA_FRESHNESS_DETAIL_COPY}",
-      "{COVERED_LINKWAY_FRESHNESS_COPY}",
-      "{LEAF_AREA_INDEX_REFERENCE_COPY}",
-    ]);
     expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).toContain(
       "June 2020 address-list records"
     );

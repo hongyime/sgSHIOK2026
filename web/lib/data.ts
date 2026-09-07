@@ -74,6 +74,10 @@ async function decodeJsonResponse<T>(res: Response, path: string): Promise<T> {
   return res.json() as Promise<T>;
 }
 
+class ArtifactFetchError extends Error {
+  constructor(path: string, public status: number) { super(`${path} fetch failed: ${status}`); }
+}
+
 async function fetchJson<T>(path: string): Promise<T> {
   const pending = _jsonInFlight.get(path);
   if (pending) return pending as Promise<T>;
@@ -83,13 +87,14 @@ async function fetchJson<T>(path: string): Promise<T> {
       const gzPath = `${path}.gz`;
       const gzRes = await fetch(dataUrl(gzPath), DATA_FETCH_OPTIONS);
       if (gzRes.ok) return decodeJsonResponse<T>(gzRes, gzPath);
+      if (gzRes.status !== 404) throw new ArtifactFetchError(gzPath, gzRes.status);
       if (compressedOnlyArtifact(path)) {
         throw new Error(`${gzPath} fetch failed: ${gzRes.status}`);
       }
     }
 
     const res = await fetch(dataUrl(path), DATA_FETCH_OPTIONS);
-    if (!res.ok) throw new Error(`${path} fetch failed: ${res.status}`);
+    if (!res.ok) throw new ArtifactFetchError(path, res.status);
     return decodeJsonResponse<T>(res, path);
   })();
   _jsonInFlight.set(path, request);
@@ -245,7 +250,8 @@ async function getGeomIndex(): Promise<GeomIndex | null> {
   try {
     _geomIndex = await fetchJson<GeomIndex>("geom/index.json");
     return _geomIndex;
-  } catch {
+  } catch (error) {
+    if (!(error instanceof ArtifactFetchError) || error.status !== 404) throw error;
     return null;
   }
 }
@@ -255,7 +261,8 @@ async function getGeomPostalIndex(): Promise<GeomPostalIndex | null> {
   try {
     _geomPostalIndex = await fetchJson<GeomPostalIndex>("geom/postal-index.json");
     return _geomPostalIndex;
-  } catch {
+  } catch (error) {
+    if (!(error instanceof ArtifactFetchError) || error.status !== 404) throw error;
     return null;
   }
 }
@@ -266,8 +273,8 @@ async function getGeomPostalPrefixIndex(prefix: string): Promise<GeomPostalIndex
     const payload = await fetchJson<GeomPostalIndex>(`geom/postal-prefix/${prefix}.json`);
     _geomPostalPrefixIndexes.set(prefix, payload);
     return payload;
-  } catch {
-    _geomPostalPrefixIndexes.set(prefix, null);
+  } catch (error) {
+    if (!(error instanceof ArtifactFetchError) || error.status !== 404) throw error;
     return null;
   }
 }
@@ -278,7 +285,8 @@ async function fetchGeomShard(shardId: string): Promise<PostalGeom[] | null> {
     const records = await fetchJson<PostalGeom[]>(`geom/h3/${shardId}.json`);
     _geomShards.set(shardId, records);
     return records;
-  } catch {
+  } catch (error) {
+    if (!(error instanceof ArtifactFetchError) || error.status !== 404) throw error;
     _geomShards.set(shardId, null);
     return null;
   }

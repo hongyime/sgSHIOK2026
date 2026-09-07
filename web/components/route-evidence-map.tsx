@@ -18,6 +18,7 @@ import { cleanTransitPoiProperties, transitPoiPopupHtml } from "../lib/transit-p
 import type { LineStringFeatureCollection, LineStringFeature, LngLat } from "../lib/route-geojson";
 import type { PostalGeom, TransitPoiCollection } from "../lib/types";
 import styles from "./route-evidence-map.module.css";
+import { overlayPadding, usableMapBox, watchSelectedRoute, type MapPadding } from "../lib/map-viewport";
 
 export type RouteDisplayMode = "shiokest" | "shortest" | "both";
 
@@ -39,7 +40,7 @@ export interface FocusedExposureGap {
   lon: number;
 }
 
-export type RouteMapLoadStatus = "mounting" | "initializing" | "ready" | "error";
+export type RouteMapLoadStatus = "mounting" | "initializing" | "ready" | "partial" | "error";
 
 const SINGAPORE_BOUNDS: [[number, number], [number, number]] = [
   [103.55, 1.13],
@@ -1089,26 +1090,9 @@ function boundsFor(points: [number, number][]): [[number, number], [number, numb
   ];
 }
 
-function fitRouteBounds(
-  map: maplibregl.Map,
-  bounds: [[number, number], [number, number]],
-  fitPadding?: { top?: number; right?: number; bottom?: number; left?: number }
-) {
+function fitRouteBounds(map: maplibregl.Map, bounds: [[number, number], [number, number]], padding: MapPadding) {
   map.resize();
-  const isCompact = map.getContainer().clientWidth < 700;
-  const defaultPadding = isCompact
-    ? { top: 160, right: 16, bottom: 270, left: 16 }
-    : { top: 110, right: 60, bottom: 80, left: 300 };
-  map.fitBounds(bounds, {
-    padding: {
-      top: fitPadding?.top ?? defaultPadding.top,
-      right: fitPadding?.right ?? defaultPadding.right,
-      bottom: fitPadding?.bottom ?? defaultPadding.bottom,
-      left: fitPadding?.left ?? defaultPadding.left,
-    },
-    duration: prefersReducedMotion() ? 0 : 350,
-    maxZoom: 16.6,
-  });
+  map.fitBounds(bounds, { padding, duration: prefersReducedMotion() ? 0 : 350, maxZoom: 16.6 });
 }
 
 export function RouteEvidenceMap({
@@ -1123,7 +1107,7 @@ export function RouteEvidenceMap({
   showLampOverlay = false,
   focusedExposureGap = null,
   onStatusChange,
-  fitPadding,
+  retryKey = 0,
 }: {
   routes: RouteMapItem[];
   mode: RouteDisplayMode;
@@ -1138,31 +1122,34 @@ export function RouteEvidenceMap({
   showLampOverlay?: boolean;
   focusedExposureGap?: FocusedExposureGap | null;
   onStatusChange?: (status: RouteMapLoadStatus, message?: string) => void;
-  fitPadding?: { top?: number; right?: number; bottom?: number; left?: number };
+  retryKey?: number;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
-  const lastFitKeyRef = useRef<string>("");
+  const [viewport, setViewport] = useState({ width: 0, height: 0, padding: overlayPadding(0, 0, []) });
+  const cancelProbeRef = useRef<(() => void) | null>(null);
+  const mapProblemRef = useRef<{ status: "partial" | "error"; message: string } | null>(null);
   const lampManifestRef = useRef<LampOverlayManifest | null | undefined>(undefined);
   const lampTileCacheRef = useRef<Map<string, LampTilePayload | null>>(new Map());
   const lampRequestIdRef = useRef(0);
   const onStatusChangeRef = useRef(onStatusChange);
-  const routesRef = useRef(routes);
+
   const routeVisibleRef = useRef(false);
   const [loaded, setLoaded] = useState(false);
   const [lampData, setLampData] = useState<PointFeatureCollection>(emptyPointCollection);
   const [lampOverlayStatus, setLampOverlayStatus] = useState<LampOverlayStatus>("off");
-  const routeData = useMemo(() => routeCollections(routes, mode), [routes, mode]);
+  const routeRevisionRef = useRef(0);
+  const routeKey = useMemo(() => `${++routeRevisionRef.current}:${mode}:${routes.map(route => route.id).join('|')}`, [routes, mode]);
+  const routeData = useMemo(() => {
+    const data = routeCollections(routes, mode);
+    for (const collection of [data.shortest, data.shiokest]) {
+      for (const feature of collection.features) feature.properties.render_key = routeKey;
+    }
+    return data;
+  }, [routeKey]);
   const activeGapData = useMemo(
     () => activeExposureGapCollection(focusedExposureGap),
     [focusedExposureGap?.key, focusedExposureGap?.lat, focusedExposureGap?.lon]
-  );
-  const routeFitKey = useMemo(
-    () =>
-      `${mode}:${routes
-        .map((route) => `${route.id}:${route.geom.postal}:${route.geom.shortest}:${route.geom.sheltered}`)
-        .join("|")}`,
-    [routes, mode]
   );
   const transitPoiData = useMemo(() => transitPoiCollection(transitPois), [transitPois]);
   const feedbackData = useMemo(() => feedbackCollections(feedbackPoints), [feedbackPoints]);
@@ -1181,6 +1168,8 @@ export function RouteEvidenceMap({
     const debugWindow = window as unknown as {
       __shiokRouteMap?: maplibregl.Map | null;
       __shiokRouteDebug?: {
+        routeKey: string;
+        padding: MapPadding;
         mode: RouteDisplayMode;
         routeCount: number;
         sourceFeatureCounts: Record<string, number>;
@@ -1190,6 +1179,8 @@ export function RouteEvidenceMap({
     };
     debugWindow.__shiokRouteMap = mapRef.current;
     debugWindow.__shiokRouteDebug = {
+      routeKey,
+      padding: viewport.padding,
       mode,
       routeCount: routes.length,
       sourceFeatureCounts: {
@@ -1204,6 +1195,9 @@ export function RouteEvidenceMap({
       summary: accessibleSummary,
     };
   }, [
+    loaded,
+    viewport,
+    routeKey,
     accessibleSummary,
     activeGapData.features.length,
     lampData.features.length,
@@ -1218,10 +1212,13 @@ export function RouteEvidenceMap({
     let active = true;
 
     async function initMap() {
-      onStatusChange?.("mounting");
+      onStatusChangeRef.current?.("mounting");
       const maplibre = await import("maplibre-gl");
       if (!active || !containerRef.current || mapRef.current) return;
-      onStatusChange?.("initializing");
+      // MapLibre 6's relative worker URL is lost when Next bundles the main module.
+      // These exact installed distribution files are served with their shared module.
+      maplibre.setWorkerUrl("/maplibre/6.1.0/maplibre-gl-worker.mjs");
+      onStatusChangeRef.current?.("initializing");
       await ensureLocalGlyphProtocol(maplibre);
       if (!active || !containerRef.current || mapRef.current) return;
 
@@ -1245,27 +1242,27 @@ export function RouteEvidenceMap({
         ensureRouteLayers(mapRef.current);
         bindPoiInteractions(mapRef.current, maplibre.Popup);
         setLoaded(true);
-        // Defer "ready" when routes are pending; verified after they render.
-        if (routesRef.current.length === 0) {
-          onStatusChange?.("ready");
-        }
+
       });
       mapRef.current.on("error", (event) => {
-        // Don't erase a confirmed ready-with-route state on later tile errors.
-        if (routeVisibleRef.current) return;
-        const message = event.error?.message || "Map tile or style request failed.";
-        onStatusChangeRef.current?.("error", message);
+        if (!active) return;
+        const tileFailure = (event as { sourceId?: string }).sourceId === "onemap";
+        const status = tileFailure ? "partial" : "error";
+        const message = tileFailure ? "Some basemap tiles could not load. Walk evidence is still available." : "The map could not render. Walk evidence is still available.";
+        mapProblemRef.current = { status, message };
+        onStatusChangeRef.current?.(status, message);
       });
     }
 
     void initMap().catch((err) => {
       if (!active) return;
       const message = err instanceof Error ? err.message : "Map failed to initialize.";
-      onStatusChange?.("error", message);
+      onStatusChangeRef.current?.("error", message);
     });
 
     return () => {
       active = false;
+      cancelProbeRef.current?.();
       mapRef.current?.remove();
       mapRef.current = null;
       if (typeof window !== "undefined") {
@@ -1278,7 +1275,7 @@ export function RouteEvidenceMap({
       }
       setLoaded(false);
     };
-  }, [onStatusChange]);
+  }, []);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -1312,38 +1309,7 @@ export function RouteEvidenceMap({
         lampStatus: lampOverlayStatus,
       });
     }
-    // Verify selected route layers are visible in the current viewport.
-    // Only signal "ready" after geometry is confirmed, not just style-load.
-    const hasRouteData = routeData.shiokest.features.length > 0 || routeData.shortest.features.length > 0;
-    if (hasRouteData) {
-      const verifyRouteVisible = () => {
-        const currentMap = mapRef.current;
-        if (!currentMap) return;
-        const layers = (["shiokest-route-line", "shortest-route-line"] as const).filter(
-          (id) => currentMap.getLayer(id)
-        );
-        if (layers.length === 0) {
-          // Layers not added yet; wait for next render frame.
-          currentMap.once("render", verifyRouteVisible);
-          return;
-        }
-        const visible = currentMap.queryRenderedFeatures(undefined, { layers: layers as string[] });
-        if (visible.length > 0) {
-          routeVisibleRef.current = true;
-          onStatusChangeRef.current?.("ready");
-        } else {
-          currentMap.once("render", verifyRouteVisible);
-        }
-      };
-      // Route visible ref reset when key changes.
-      routeVisibleRef.current = false;
-      map.once("render", verifyRouteVisible);
-    } else if (!hasRouteData && loaded) {
-      // Routes cleared; map without route is immediately ready.
-      routeVisibleRef.current = false;
-      onStatusChangeRef.current?.("ready");
-    }
-  }, [loaded, routeData, activeGapData, transitPoiData, feedbackData, lampData, lampOverlayStatus, mode, routes.length]);
+  }, [loaded, routeData, activeGapData, transitPoiData, feedbackData, lampData]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -1441,65 +1407,81 @@ export function RouteEvidenceMap({
   }, [loaded, showLampOverlay]);
 
   useEffect(() => {
-    const map = mapRef.current;
-    if (!map || !loaded || !routeData.bounds) return;
-    if (lastFitKeyRef.current === routeFitKey) return;
-    lastFitKeyRef.current = routeFitKey;
-    const refit = () => {
-      if (mapRef.current && routeData.bounds) {
-        fitRouteBounds(mapRef.current, routeData.bounds, fitPadding);
-      }
-    };
-    refit();
-    let secondFrame = 0;
-    const firstFrame = window.requestAnimationFrame(() => {
-      secondFrame = window.requestAnimationFrame(() => {
-        refit();
-      });
-    });
-    const settledTimer = window.setTimeout(refit, 900);
-    map.once("idle", refit);
-    return () => {
-      window.cancelAnimationFrame(firstFrame);
-      window.cancelAnimationFrame(secondFrame);
-      window.clearTimeout(settledTimer);
-      map.off("idle", refit);
-    };
-  }, [loaded, routeData.bounds, routeFitKey]);
-
-  useEffect(() => {
-    const map = mapRef.current;
     const container = containerRef.current;
-    if (!map || !loaded || !container || typeof ResizeObserver === "undefined") return;
-
+    if (!loaded || !container) return;
+    const parent = container.closest("main")!;
     let frame = 0;
-    const observer = new ResizeObserver(() => {
-      window.cancelAnimationFrame(frame);
-      frame = window.requestAnimationFrame(() => {
-        if (!mapRef.current) return;
-        mapRef.current.resize();
-        if (routeData.bounds) {
-          fitRouteBounds(mapRef.current, routeData.bounds, fitPadding);
-        }
+    const measure = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const mapRect = container.getBoundingClientRect();
+        const overlays = [...parent.querySelectorAll<HTMLElement>("[data-map-overlay]")].map(element => {
+          const r = element.getBoundingClientRect();
+          return { left: r.left - mapRect.left, top: r.top - mapRect.top, right: r.right - mapRect.left,
+            bottom: r.bottom - mapRect.top, edge: element.dataset.mapOverlay as "top" | "bottom" | "panel" };
+        }).filter(r => r.right > r.left && r.bottom > r.top);
+        const next = { width: mapRect.width, height: mapRect.height, padding: overlayPadding(mapRect.width, mapRect.height, overlays) };
+        setViewport(current => JSON.stringify(current) === JSON.stringify(next) ? current : next);
       });
-    });
-    observer.observe(container);
-    return () => {
-      window.cancelAnimationFrame(frame);
-      observer.disconnect();
     };
-  }, [loaded, routeData.bounds]);
+    const observer = new ResizeObserver(measure);
+    const observe = () => { observer.disconnect(); observer.observe(container); parent.querySelectorAll("[data-map-overlay]").forEach(e => observer.observe(e)); measure(); };
+    const mutation = new MutationObserver(observe);
+    mutation.observe(parent, { childList: true, subtree: true });
+    observe();
+    return () => { cancelAnimationFrame(frame); observer.disconnect(); mutation.disconnect(); };
+  }, [loaded]);
 
   useEffect(() => {
     const map = mapRef.current;
-    if (!map || !loaded || !focusedExposureGap) return;
-    if (!Number.isFinite(focusedExposureGap.lat) || !Number.isFinite(focusedExposureGap.lon)) return;
-    map.easeTo({
-      center: [focusedExposureGap.lon, focusedExposureGap.lat],
-      zoom: Math.max(map.getZoom(), 16.4),
-      duration: prefersReducedMotion() ? 0 : 350,
+    if (!map || !loaded || !viewport.width) return;
+    cancelProbeRef.current?.();
+    routeVisibleRef.current = false;
+    if (!routeData.bounds) {
+      onStatusChangeRef.current?.("error", "No route geometry is published for this walk.");
+      return;
+    }
+    onStatusChangeRef.current?.(mapProblemRef.current?.status ?? "initializing", mapProblemRef.current?.message);
+    // One fit for a selection or measured layout change, never from render/idle/tile events.
+    if (focusedExposureGap) {
+      map.easeTo({ center: [focusedExposureGap.lon, focusedExposureGap.lat], padding: viewport.padding,
+        zoom: Math.max(map.getZoom(), 16.4), duration: prefersReducedMotion() ? 0 : 350 });
+    } else {
+      fitRouteBounds(map, routeData.bounds, viewport.padding);
+    }
+    const cancel = watchSelectedRoute(map, {
+      key: routeKey, layers: ["shiokest-route-line", "shortest-route-line"],
+      box: usableMapBox(viewport.width, viewport.height, viewport.padding),
+      ready: () => {
+        routeVisibleRef.current = true;
+        onStatusChangeRef.current?.(mapProblemRef.current?.status ?? "ready", mapProblemRef.current?.message);
+      },
+      timeout: () => onStatusChangeRef.current?.("error", "The selected walk is not visible. Retry the map."),
     });
-  }, [focusedExposureGap?.key, focusedExposureGap?.lat, focusedExposureGap?.lon, loaded]);
+    cancelProbeRef.current = cancel;
+    const onGesture = (event: { originalEvent?: unknown }) => {
+      if (event.originalEvent) cancel(); // Intentional pan-away is never a fetch failure.
+    };
+    map.on("movestart", onGesture);
+    return () => { cancel(); map.off("movestart", onGesture); };
+  }, [loaded, routeKey, viewport, focusedExposureGap]);
+
+  useEffect(() => {
+    if (!loaded || !retryKey) return;
+    const map = mapRef.current;
+    if (!map) return;
+    mapProblemRef.current = null;
+    onStatusChangeRef.current?.("initializing");
+    const source = map.getSource("onemap") as maplibregl.RasterTileSource | undefined;
+    source?.setTiles(["https://www.onemap.gov.sg/maps/tiles/Grey_HD/{z}/{x}/{y}.png"]);
+    const settled = () => {
+      if (!map.isSourceLoaded("onemap")) return;
+      map.off("sourcedata", settled);
+      if (routeVisibleRef.current && !mapProblemRef.current) onStatusChangeRef.current?.("ready");
+    };
+    map.on("sourcedata", settled);
+    return () => { map.off("sourcedata", settled); };
+  }, [loaded, retryKey]);
 
   const onSelectTransitStopRef = useRef(onSelectTransitStop);
   useEffect(() => {
@@ -1510,9 +1492,6 @@ export function RouteEvidenceMap({
     onStatusChangeRef.current = onStatusChange;
   }, [onStatusChange]);
 
-  useEffect(() => {
-    routesRef.current = routes;
-  }, [routes]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -1588,6 +1567,7 @@ export function RouteEvidenceMap({
         className={styles.mapCanvas}
       />
       <div
+        data-map-overlay="bottom"
         className={styles.oneMapAttribution}
         dangerouslySetInnerHTML={{ __html: ONE_MAP_ATTRIBUTION }}
       />

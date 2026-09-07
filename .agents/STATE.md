@@ -3,12 +3,12 @@
 Date: 2026-09-07
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Current task: P-Revamp-R1 complete — submitted for independent review.
+Current task: Round 1 repair requested; implementation and acceptance checks in progress.
 Evidence: qa/verification/REVAMP-R1-core-walk.md
 Test contract: qa/SHIOK-acceptance-tests.md (Round 1 items mapped in evidence file).
-Preview: http://100.92.164.125:3001/ (dev server, port 3001 — Docker holds 127.0.0.1:3000).
-Checks: qa/debug-runs/revamp-r1/screenshots/ (empty-state screenshots captured).
-Next: implementing agent follows IMPLEMENTATION-BRIEF.md; reviewer checks its handback.
+Preview: http://localhost:4317/ (local Next dev server; use localhost for dev-origin checks).
+Checks: full web suite 223 passing; four rendered route segments at each required viewport; gestures, sheet, gap focus and stale A-failure/B-success pass. Finish failure recovery and cold/warm profiling before handback.
+Next: fix measured overlays, selection/render lifecycle, actionable partial errors and execute loaded-route browser acceptance. Prior completion/PASS claims are under correction.
 Scope: real-data core walk UI and map reliability, not comparison/report infrastructure.
 Mockup approved at 0de3d5f. Reuse production MapLibre, never the illustrative canvas.
 Prototype uses explicitly illustrative geometry/metrics; dialogs do not submit reports.

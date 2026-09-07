@@ -2,20 +2,6 @@ import { readFileSync } from "fs";
 import { join } from "path";
 
 describe("shelter map interactions", () => {
-  it("does not refit map bounds when feedback points change", () => {
-    const source = readFileSync(join(__dirname, "../../components/route-evidence-map.tsx"), "utf-8");
-    const fitEffectStart = source.indexOf("lastFitKeyRef.current = routeFitKey;");
-    const fitEffectEnd = source.indexOf("}, [loaded, routeData.bounds, routeFitKey]);", fitEffectStart);
-    const fitEffect = source.slice(fitEffectStart, fitEffectEnd);
-
-    expect(fitEffectStart).toBeGreaterThan(-1);
-    expect(fitEffectEnd).toBeGreaterThan(fitEffectStart);
-    expect(fitEffect).not.toContain("feedback");
-    expect(source).toContain("function fitRouteBounds(");
-    expect(source).toContain("map.resize();");
-    expect(source).toContain('setSourceData(map, "feedback-route", feedbackData.route)');
-    expect(source).toContain('setSourceData(map, "feedback-points", feedbackData.points)');
-  });
 
   it("keeps shelter-map evidence and transit POIs visible on the subdued basemap", () => {
     const source = readFileSync(join(__dirname, "../../components/route-evidence-map.tsx"), "utf-8");
@@ -86,98 +72,6 @@ describe("shelter map interactions", () => {
     expect(source).not.toContain('return "shortest and covered routes";');
   });
 
-  it("uses pinned metadata on mount and wires interactive click-to-route in page.tsx", () => {
-    const pageSource = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
-
-    // Cold-load metadata uses tracked bundle config instead of a static data request.
-    expect(pageSource).toContain("PINNED_DATA_MANIFEST");
-    expect(pageSource).toContain("useState<Manifest | null>(PINNED_DATA_MANIFEST)");
-    expect(pageSource).not.toContain("void fetchManifest().then");
-    expect(pageSource).not.toContain("void fetchTransitPois().then");
-    expect(pageSource).toContain('import dynamic from "next/dynamic";');
-    expect(pageSource).toContain("const RouteEvidenceMap = dynamic(");
-    expect(pageSource).toContain('import("../components/route-evidence-map").then((module) => module.RouteEvidenceMap)');
-    expect(pageSource).toContain("function preloadRouteMap()");
-    expect(pageSource).toContain('void import("../components/route-evidence-map");');
-    expect(pageSource).toContain('void import("maplibre-gl");');
-    expect(pageSource).toContain("const [showMap, setShowMap] = useState(false);");
-    expect(pageSource).toContain("const loadSelectionRequestIdRef = useRef(0);");
-    expect(pageSource).toContain("const mapAvailable = mapRoutes.length > 0;");
-    expect(pageSource).toContain("const shouldRenderRouteMap = mapAvailable && showMap;");
-    expect(pageSource).toContain('const [mapLoadStatus, setMapLoadStatus] = useState<MapLoadStatus>("idle");');
-    expect(pageSource).toContain("function mapStatusLabel(status: MapLoadStatus, error: string | null): string");
-    expect(pageSource).toContain("const visibleMapStatus = mapStatusLabel(mapLoadStatus, mapLoadError);");
-    expect(pageSource).toContain("const handleMapStatusChange = useCallback((status: MapLoadStatus, message?: string) => {");
-    expect(pageSource).toContain("onStatusChange={handleMapStatusChange}");
-    expect(pageSource).toContain("styles.mapLoadStatus");
-    expect(pageSource).toContain("Map loading");
-    expect(pageSource).toContain("showDetailOverlay ? styles.searchOverlayWithResult :");
-    expect(pageSource).toContain("Map hidden for faster loading");
-    expect(pageSource).toContain("Open it when you want the route trace, exposed-gap locations, or night-lighting layer.");
-    expect(pageSource).toContain("setShowMap(true);");
-    expect(pageSource).not.toContain("setShowMap(false);");
-    expect(pageSource).toContain("{shouldRenderRouteMap && (");
-    expect(pageSource).toContain("onFocus={preloadRouteMap}");
-    expect(pageSource.indexOf("setPrimary({ result: { ...result, POSTAL: postal }, score, geom });")).toBeLessThan(
-      pageSource.indexOf("void fetchTransitPoisForGeom(geom)")
-    );
-    expect(pageSource).toContain("nearbyTransitPois = await fetchTransitPois();");
-    expect(pageSource).toContain("setBaseTransitPois(nearbyTransitPois);");
-
-    // Dynamic stop routing
-    expect(pageSource).toContain("selectionForChosenStop");
-    expect(pageSource).toContain("isCustomStopSelected");
-    expect(pageSource).toContain("onResetChosenStop");
-    expect(pageSource).toContain("resetCustomStopBtn");
-    expect(pageSource).toContain("focusedExposureGap");
-    expect(pageSource).toContain("onFocusExposureGap={handleFocusExposureGap}");
-    expect(pageSource).not.toContain("onFocusExposureGap={setFocusedExposureGap}");
-    expect(pageSource).toContain("onClick={() => onFocusExposureGap(focusTarget)}");
-    expect(pageSource).toContain("const handleRouteModeChange = useCallback((mode: RouteDisplayMode) => {");
-    expect(pageSource).toContain("setRouteMode={handleRouteModeChange}");
-    expect(pageSource).toContain("lampOverlayEnabled");
-    expect(pageSource).toContain("showLampOverlay={lampOverlayEnabled}");
-    expect(pageSource).toContain("showLampOverlay?: boolean;");
-    expect(pageSource).toContain("LTA lamp-post points");
-    expect(pageSource).not.toContain("LTA lamp points");
-    expect(pageSource).toContain('{lampOverlayEnabled ? "Night lighting shown" : "Night lighting"}');
-    expect(pageSource).not.toContain('{lampOverlayEnabled ? "Night-lighting layer shown" : "Show night-lighting layer"}');
-    expect(pageSource).not.toContain('{lampOverlayEnabled ? "Night lighting on" : "Night lighting off"}');
-    expect(pageSource).not.toContain('{lampOverlayEnabled ? "Night-lighting layer on" : "Night-lighting layer off"}');
-    expect(pageSource).not.toContain(">Night lighting</button>");
-    expect(pageSource).toContain('title="Show lamp-post locations on the map"');
-    expect(pageSource).not.toContain(
-      'title="Night-lighting layer: LTA lamp-post locations; map layer only, not part of the locked score"'
-    );
-    expect(pageSource).not.toContain(
-      'title="Night lighting: LTA lamp-post locations; night-lighting map layer only, not part of the locked score"'
-    );
-    expect(pageSource).not.toContain(
-      'title="LTA lamp post locations; map evidence only, not part of the locked score"'
-    );
-    expect(pageSource).not.toContain(
-      'title="Night lighting: LTA lamp-post locations; map evidence only, not part of the locked score"'
-    );
-    expect(pageSource).not.toContain("night-lighting-layer-note");
-    expect(pageSource).not.toContain("nightLightingLayerNote(lampOverlayEnabled)");
-    expect(pageSource).not.toContain("export function nightLightingLayerNote(lampOverlayEnabled: boolean): string");
-    expect(pageSource).not.toContain("Night-lighting layer is hidden.");
-    expect(pageSource).not.toContain("Open the map, then show this layer if night lighting matters.");
-    expect(pageSource).not.toContain("Night-lighting layer is shown.");
-    expect(pageSource).not.toContain("Zoom in to see lamp-post points.");
-    expect(pageSource).not.toContain("LTA lamp-post locations load from the published lamp-post layer.");
-    expect(pageSource).not.toContain("LTA lamp-post locations load from the published night-lighting artifact.");
-    expect(pageSource).not.toContain("Night lighting layer: 126,144 LTA lamp-post points, source last modified 7 Jul 2026.");
-    expect(pageSource).not.toContain("LTA lamp-post layer: 126,144 points");
-
-    const mapSource = readFileSync(join(__dirname, "../../components/route-evidence-map.tsx"), "utf-8");
-    expect(mapSource).toContain('export type RouteMapLoadStatus = "mounting" | "initializing" | "ready" | "error";');
-    expect(mapSource).toContain("onStatusChange?: (status: RouteMapLoadStatus, message?: string) => void;");
-    expect(mapSource).toContain('onStatusChange?.("mounting");');
-    expect(mapSource).toContain('onStatusChange?.("initializing");');
-    expect(mapSource).toContain('onStatusChange?.("ready");');
-    expect(mapSource).toContain('onStatusChange?.("error", message);');
-  });
 
   it("waits for a ready route map before visual smoke screenshots", () => {
     const smokeSource = readFileSync(join(__dirname, "../../scripts/browser-smoke.mjs"), "utf-8");

@@ -47,6 +47,7 @@ import {
 } from "../lib/subscore-ranking";
 import { requestServiceWorkerCache } from "../lib/service-worker-cache";
 import styles from "./page.module.css";
+import { WalkSummary } from "../components/walk-summary";
 
 const RouteEvidenceMap = dynamic(
   () => import("../components/route-evidence-map").then((module) => module.RouteEvidenceMap),
@@ -75,7 +76,7 @@ interface EvidenceBreakdownRow {
 }
 
 type LiveRoutePreviewStatus = "loading" | "unavailable";
-type MapLoadStatus = "idle" | "hidden" | "mounting" | "initializing" | "ready" | "error";
+type MapLoadStatus = "idle" | "hidden" | "mounting" | "initializing" | "ready" | "partial" | "error";
 
 interface LiveRoutePreviewPayload {
   ok?: boolean;
@@ -514,6 +515,7 @@ function mapStatusLabel(status: MapLoadStatus, error: string | null): string {
   if (status === "ready") return "Map ready";
   if (status === "initializing") return "Map loading";
   if (status === "mounting") return "Map starting";
+  if (status === "partial") return error || "Some basemap tiles are unavailable.";
   if (status === "error") return `Map failed${error ? `: ${error}` : ""}`;
   if (status === "hidden") return "Map hidden";
   return "Map waiting";
@@ -1409,10 +1411,7 @@ export function ScoreCard({
   const busFallback = directBusFallbackEvidence(score);
   const displayScore = score.total;
   const scoreBadgeCopy = lockedScoreBadgeCopy(displayScore);
-  const rankedRecords = useMemo(
-    () => rankScoreRecords(rankingRecords, rankMetric, 5),
-    [rankingRecords, rankMetric]
-  );
+  const rankedRecords = rankScoreRecords(rankingRecords, rankMetric, 5);
   const rankMetricLabel =
     RANK_METRIC_OPTIONS.find((option) => option.id === rankMetric)?.label ?? "Overall locked score";
   const rankSentenceLabel = rankSentenceMetricLabel(rankMetricLabel);
@@ -2039,6 +2038,54 @@ function Metric({ label, value }: { label: string; value: string }) {
   );
 }
 
+export function DataDetails({ manifest }: { manifest: Manifest | null }) {
+  return (
+        <details className={styles.dataLimits}>
+          <summary>About the data</summary>
+          <p>
+            Shelter-map evidence as of {formatDataDate(manifest)}. Some newer addresses and some locked scores are not in this release.
+          </p>
+          <p>
+            Address list: June 2020 OneMap-derived postal scrape; newer developments may be missing.
+          </p>
+          <p>
+            {RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}.
+          </p>
+          <p>
+            {OSM_ADDR_POSTCODE_COVERAGE_COPY}
+          </p>
+          <p>
+            {DATA_FRESHNESS_SUMMARY_COPY}
+          </p>
+          <details className={styles.freshnessDetails}>
+            <summary>Source freshness detail</summary>
+            <p>{DATA_FRESHNESS_DETAIL_COPY}</p>
+          </details>
+          <p>
+            {COVERED_LINKWAY_FRESHNESS_COPY}
+          </p>
+          <p>
+            {LEAF_AREA_INDEX_REFERENCE_COPY}
+          </p>
+          <p>
+            Sources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address registry (© OpenStreetMap contributors,{" "}
+            <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">
+              ODbL
+            </a>
+            ).{" "}
+            <a
+              href="https://github.com/hongyime/sgSHIOK2026/blob/main/ATTRIBUTION.md"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ATTRIBUTION.md
+            </a>
+          </p>
+          <p>Heat estimate: shelter plus sparse nearby greenery, not measured temperature</p>
+        </details>
+  );
+}
+
 export default function Home() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
@@ -2072,6 +2119,11 @@ export default function Home() {
   const loadSelectionRequestIdRef = useRef(0);
   const panelRef = useRef<HTMLElement | null>(null);
   const [sheetExpanded, setSheetExpanded] = useState(false);
+  const [mapRetryKey, setMapRetryKey] = useState(0);
+  const [mapInstanceKey, setMapInstanceKey] = useState(0);
+  const [previewRetryKey, setPreviewRetryKey] = useState(0);
+  const [geometryError, setGeometryError] = useState(false);
+  const pendingSelectionRef = useRef<SearchResult | null>(null);
   // Pending stop id from ?stop= URL param — applied once the postal's candidates load.
   const pendingUrlStopIdRef = useRef<string | null>(null);
 
@@ -2269,18 +2321,21 @@ export default function Home() {
     return () => {
       active = false;
     };
-  }, [chosenStopId, transitSelection, originLatLng, candidates, mapTransitPois, liveRouteCache]);
+  }, [chosenStopId, transitSelection, originLatLng, candidates, mapTransitPois, liveRouteCache, previewRetryKey]);
 
   const activeSelection = useMemo(
-    () =>
-      selectionForChosenStop(
+    () => {
+      // A pending/failed preview is not a walking route. Keep the published result.
+      if (chosenStopId && !transitSelection?.geom?.candidates?.[chosenStopId] && !liveRouteCache[chosenStopId]) return transitSelection;
+      return selectionForChosenStop(
         transitSelection,
         chosenStopId,
         candidates,
         mapTransitPois,
         originLatLng,
         liveRouteCache
-      ),
+      );
+    },
     [transitSelection, chosenStopId, candidates, mapTransitPois, originLatLng, liveRouteCache]
   );
 
@@ -2329,21 +2384,30 @@ export default function Home() {
     requestServiceWorkerCache();
     setLoading(true);
     setError(null);
-    setRouteTransitPois({ type: "FeatureCollection", features: [] });
+    pendingSelectionRef.current = result;
+    setGeometryError(false);
     try {
       const lat = Number.parseFloat(result.LATITUDE);
       const lng = Number.parseFloat(result.LONGITUDE);
-      const [loadedManifest, score, geom] = await Promise.all([
-        manifest ? Promise.resolve(manifest) : fetchManifest(),
-        fetchScoreForPostal(postal),
-        fetchGeomForPostal(postal, Number.isFinite(lat) ? lat : undefined, Number.isFinite(lng) ? lng : undefined),
+      // Text and geometry are independent. A geometry failure must not hide valid record evidence.
+      const geometry = fetchGeomForPostal(postal, Number.isFinite(lat) ? lat : undefined, Number.isFinite(lng) ? lng : undefined)
+        .then(geom => ({ geom, failed: false }), () => ({ geom: null, failed: true }));
+      const [loadedManifest, score] = await Promise.all([
+        manifest ? Promise.resolve(manifest) : fetchManifest(), fetchScoreForPostal(postal),
       ]);
+      if (requestId !== loadSelectionRequestIdRef.current) return;
+      setPrimary({ result: { ...result, POSTAL: postal }, score, geom: null });
+      setRouteTransitPois({ type: "FeatureCollection", features: [] });
+      const { geom, failed } = await geometry;
+      if (requestId !== loadSelectionRequestIdRef.current) return;
+      setGeometryError(failed);
       if (requestId !== loadSelectionRequestIdRef.current) return;
       setManifest(loadedManifest);
       setPrimary({ result: { ...result, POSTAL: postal }, score, geom });
       setTransitMode("best_transit");
       setRouteMode("shiokest");
       setShowMap(true);
+      setSheetExpanded(false);
       setFeedbackEnabled(false);
       setFeedbackPoints([]);
       setFeedbackSegmentLabels([]);
@@ -2373,6 +2437,29 @@ export default function Home() {
       if (requestId === loadSelectionRequestIdRef.current) {
         setLoading(false);
       }
+    }
+  };
+
+  useEffect(() => {
+    const postal = normalizePostal(new URLSearchParams(window.location.search).get("postal") || "");
+    if (postal) {
+      setQuery(postal);
+      void loadSelection({ POSTAL: postal, BUILDING: `Postal ${postal}`, ROAD_NAME: "", LATITUDE: "", LONGITUDE: "", SEARCHVAL: `S${postal}` });
+    }
+    return () => { loadSelectionRequestIdRef.current += 1; };
+  }, []);
+
+  const retryGeometry = async () => {
+    if (!primary) return;
+    const requestId = loadSelectionRequestIdRef.current;
+    setGeometryError(false);
+    try {
+      const geom = await fetchGeomForPostal(primary.result.POSTAL);
+      if (requestId !== loadSelectionRequestIdRef.current) return;
+      setPrimary(current => current ? { ...current, geom } : current);
+      setShowMap(true);
+    } catch {
+      if (requestId === loadSelectionRequestIdRef.current) setGeometryError(true);
     }
   };
 
@@ -2426,6 +2513,7 @@ export default function Home() {
   const handleFocusExposureGap = useCallback((gap: FocusedExposureGap) => {
     setShowMap(true);
     setFocusedExposureGap(gap);
+    setSheetExpanded(false);
   }, []);
 
   // Mirror the loaded postal into ?postal= so shared links resolve. This runs
@@ -2440,6 +2528,7 @@ export default function Home() {
     const params = new URLSearchParams(window.location.search);
     if (postal) {
       params.set("postal", postal);
+      if (!pendingUrlStopIdRef.current) params.delete("stop");
     } else {
       params.delete("postal");
       params.delete("stop");
@@ -2452,7 +2541,7 @@ export default function Home() {
 
   const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!query.trim()) return;
+    if (!query.trim()) { setError("Enter a 6-digit Singapore postal code."); return; }
     preloadRouteMap();
     requestServiceWorkerCache();
 
@@ -2522,9 +2611,10 @@ export default function Home() {
   };
 
   return (
-    <main className={styles.appShell}>
+    <main className={styles.appShell} data-map-status={mapLoadStatus}>
       {shouldRenderRouteMap && (
         <RouteEvidenceMap
+          key={mapInstanceKey}
           routes={mapRoutes}
           mode={mapRouteMode}
           transitPois={mapTransitPois}
@@ -2536,7 +2626,7 @@ export default function Home() {
           showLampOverlay={lampOverlayEnabled}
           focusedExposureGap={focusedExposureGap}
           onStatusChange={handleMapStatusChange}
-          fitPadding={showDetailOverlay ? { top: 110, right: 60, bottom: 80, left: 300 } : undefined}
+          retryKey={mapRetryKey}
         />
       )}
       {!shouldRenderRouteMap && mapAvailable && (
@@ -2552,29 +2642,83 @@ export default function Home() {
       )}
 
       {/* SHIOK identity — always visible top-left, separate from the sliding panel */}
-      <div className={styles.identityRow} aria-hidden="true">
-        <span className={styles.identityBrand}>SHIOK<span aria-hidden="true">.</span></span>
+      <div className={styles.identityRow} data-map-overlay="top">
+        <h1 className={styles.identityBrand} aria-label="S.H.I.O.K. Shelter Map">SHIOK<span aria-hidden="true">.</span></h1>
       </div>
 
       <section
-        className={`${styles.searchOverlay} ${showDetailOverlay ? styles.searchOverlayWithResult : ""} ${showDetailOverlay && sheetExpanded ? styles.sheetExpanded : ""}`}
+        className={styles.searchOverlay}
+        data-map-overlay="top"
         aria-label="Postal-code search"
         aria-busy={loading}
       >
-        {showDetailOverlay && (
-          <button
-            type="button"
-            className={styles.sheetToggle}
-            aria-expanded={sheetExpanded}
-            aria-label={sheetExpanded ? "Collapse walk details" : "Expand walk details"}
-            onClick={() => setSheetExpanded((v) => !v)}
-          >
-            {sheetExpanded ? "▾ Collapse" : "▸ Walk details"}
+        <form onSubmit={handleSearch} className={styles.searchForm} aria-busy={loading}>
+          <input
+            id="postal-search-input"
+            type="text"
+            inputMode="numeric"
+            autoComplete="postal-code"
+            maxLength={6}
+            pattern="[0-9]{6}"
+            placeholder="Enter 6-digit postal"
+            value={query}
+            onChange={(e) => {
+              setQuery(postalInputValue(e.target.value));
+              setSearchAttempted(false);
+            }}
+            onFocus={preloadRouteMap}
+            aria-label="Enter 6-digit Singapore postal code"
+          />
+          <button id="postal-search-button" type="submit" aria-busy={loading}>
+            {loading ? "Searching" : "Search"}
           </button>
+        </form>
+
+        {!showDetailOverlay && <DataDetails manifest={manifest} />}
+        <p className={styles.srOnly} role="status" aria-live="polite">{visibleMapStatus}</p>
+        {(mapLoadStatus === "partial" || mapLoadStatus === "error") && <div className={styles.errorBox} role="status">
+          {visibleMapStatus} <button type="button" onClick={() => {
+            if (mapLoadStatus === "partial") setMapRetryKey(key => key + 1);
+            else setMapInstanceKey(key => key + 1);
+          }}>Retry map</button>
+        </div>}
+        {geometryError && <div className={styles.errorBox} role="status">Walk geometry could not load. Your record is still available. <button type="button" onClick={retryGeometry}>Retry geometry</button></div>}
+        {chosenStopId && !transitSelection?.geom?.candidates?.[chosenStopId] && !liveRouteCache[chosenStopId] && <div className={styles.errorBox} role="status">
+          {liveRoutePreviewStatuses[chosenStopId] === "unavailable" ? "Walking preview unavailable. Published walk shown." : "Loading walking preview. Published walk shown."}
+          {liveRoutePreviewStatuses[chosenStopId] === "unavailable" && <button type="button" onClick={() => setPreviewRetryKey(key => key + 1)}>Retry preview</button>}
+          <button type="button" onClick={() => handleStopSelect(null)}>Keep published walk</button>
+        </div>}
+        {primary?.score?.paths && !primary.geom && !loading && !geometryError && <div className={styles.errorBox} role="status">No route geometry is published for this walk. Record evidence is still available.</div>}
+        <SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted} />
+        {error && pendingSelectionRef.current && <button type="button" onClick={() => loadSelection(pendingSelectionRef.current!)}>Retry selection</button>}
+
+        {results.length > 0 && (
+          <div className={styles.resultList} aria-label="Search results">
+            {results.map((item, idx) => (
+              <button key={`${item.POSTAL}-${idx}`} type="button" onClick={() => loadSelection(item)}>
+                <span>
+                  <strong>{resultTitle(item)}</strong>
+                  <small>{resultSubtitle(item)}</small>
+                </span>
+                <em>S{normalizePostal(item.POSTAL) ?? item.POSTAL}</em>
+              </button>
+            ))}
+          </div>
         )}
-        <div className={styles.brandRow}>
+
+      </section>
+
+        {showDetailOverlay && (
+          <aside ref={panelRef} data-map-overlay="panel" className={`${styles.resultPanel} ${sheetExpanded ? styles.sheetExpanded : ""}`}>
+            <button type="button" className={styles.sheetToggle} aria-expanded={sheetExpanded}
+              aria-controls="walk-details" onClick={() => setSheetExpanded(value => !value)}>
+              {sheetExpanded ? "Collapse walk details" : "Walk details"}
+            </button>
+            <WalkSummary postal={primary!.result.POSTAL} score={activeSelection?.score ?? null} shortest={mapRouteMode === "shortest" && !routesAreSame(activeSelection)} />
+            <div id="walk-details" className={styles.secondaryDetails}>
+        <div className={styles.secondaryControls}>
           <div>
-            <h1>S.H.I.O.K. Shelter Map</h1>
+
             <p className={styles.srOnly}>Check how sheltered the walk to transit feels before you pick a place.</p>
             <div className={styles.mapLayerControls} aria-label="Map layers">
               <button
@@ -2595,102 +2739,6 @@ export default function Home() {
           </div>
         </div>
 
-        <form onSubmit={handleSearch} className={styles.searchForm} aria-busy={loading}>
-          <input
-            id="postal-search-input"
-            type="text"
-            inputMode="numeric"
-            autoComplete="postal-code"
-            maxLength={6}
-            pattern="[0-9]{6}"
-            placeholder="Enter 6-digit postal"
-            value={query}
-            onChange={(e) => {
-              setQuery(postalInputValue(e.target.value));
-              setSearchAttempted(false);
-            }}
-            onFocus={preloadRouteMap}
-            aria-label="Enter 6-digit Singapore postal code"
-          />
-          <button id="postal-search-button" type="submit" disabled={loading} aria-busy={loading}>
-            {loading ? "Searching" : "Search"}
-          </button>
-        </form>
-
-        {(mapAvailable || mapLoadStatus === "error") && (
-          <p
-            className={`${styles.mapLoadStatus} ${
-              mapLoadStatus === "error" ? styles.mapLoadStatusError : ""
-            }`}
-            role="status"
-            aria-live="polite"
-          >
-            {visibleMapStatus}
-          </p>
-        )}
-
-        <SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted} />
-
-        {results.length > 0 && (
-          <div className={styles.resultList} aria-label="Search results">
-            {results.map((item, idx) => (
-              <button key={`${item.POSTAL}-${idx}`} type="button" onClick={() => loadSelection(item)}>
-                <span>
-                  <strong>{resultTitle(item)}</strong>
-                  <small>{resultSubtitle(item)}</small>
-                </span>
-                <em>S{normalizePostal(item.POSTAL) ?? item.POSTAL}</em>
-              </button>
-            ))}
-          </div>
-        )}
-
-        <details className={styles.dataLimits}>
-          <summary>About the data</summary>
-          <p>
-            Shelter-map evidence as of {formatDataDate(manifest)}. Some newer addresses and some locked scores are not in this release.
-          </p>
-          <p>
-            Address list: June 2020 OneMap-derived postal scrape; newer developments may be missing.
-          </p>
-          <p>
-            {RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}.
-          </p>
-          <p>
-            {OSM_ADDR_POSTCODE_COVERAGE_COPY}
-          </p>
-          <p>
-            {DATA_FRESHNESS_SUMMARY_COPY}
-          </p>
-          <details className={styles.freshnessDetails}>
-            <summary>Source freshness detail</summary>
-            <p>{DATA_FRESHNESS_DETAIL_COPY}</p>
-          </details>
-          <p>
-            {COVERED_LINKWAY_FRESHNESS_COPY}
-          </p>
-          <p>
-            {LEAF_AREA_INDEX_REFERENCE_COPY}
-          </p>
-          <p>
-            Sources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address registry (© OpenStreetMap contributors,{" "}
-            <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">
-              ODbL
-            </a>
-            ).{" "}
-            <a
-              href="https://github.com/hongyime/sgSHIOK2026/blob/main/ATTRIBUTION.md"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              ATTRIBUTION.md
-            </a>
-          </p>
-          <p>Heat estimate: shelter plus sparse nearby greenery, not measured temperature</p>
-        </details>
-
-        {showDetailOverlay && (
-          <aside ref={panelRef} className={styles.detailOverlay}>
             <ScoreCard
               selection={activeSelection}
               routeMode={mapRouteMode}
@@ -2707,7 +2755,7 @@ export default function Home() {
               setFeedbackNote={setFeedbackNote}
               copyFeedback={copyFeedback}
               copyStatus={copyStatus}
-              isCustomStopSelected={Boolean(chosenStopId && chosenStopId !== bestCandidateId)}
+              isCustomStopSelected={activeSelection !== transitSelection && Boolean(chosenStopId && chosenStopId !== bestCandidateId)}
               liveRoutePreviewStatus={chosenStopId ? liveRoutePreviewStatuses[chosenStopId] ?? null : null}
               onResetChosenStop={() => handleStopSelect(null)}
               rankMetric={rankMetric}
@@ -2720,11 +2768,12 @@ export default function Home() {
               onFocusExposureGap={handleFocusExposureGap}
               lampOverlayEnabled={lampOverlayEnabled}
             />
+            <DataDetails manifest={manifest} />
+            </div>
           </aside>
         )}
 
         <footer className={styles.pageFooter}>Walk evidence: covered-walkway ratio and exposed gaps on the route.</footer>
-      </section>
     </main>
   );
 }

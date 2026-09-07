@@ -1,152 +1,32 @@
-import { readFileSync } from "fs";
-import { join } from "path";
+import React from 'react';
+import { describe, it, expect } from 'vitest';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { walkMetrics, WalkSummary } from '../../components/walk-summary';
+import type { ScoreRecord } from '../types';
 
-describe("revamp Round 1 — map reliability (M01-M08, M10-M15)", () => {
-  it("M05: does not call onStatusChange ready from map load event when routes present", () => {
-    const source = readFileSync(
-      join(__dirname, "../../components/route-evidence-map.tsx"),
-      "utf-8"
-    );
-    // The load event must NOT unconditionally call ready
-    expect(source).toContain("routesRef.current.length === 0");
-    expect(source).not.toContain("setLoaded(true);\n        onStatusChange?.");
-    // Route visibility verifier must exist
-    expect(source).toContain("verifyRouteVisible");
-    expect(source).toContain('queryRenderedFeatures(undefined, { layers');
-    expect(source).toContain('"shiokest-route-line"');
-    expect(source).toContain('"shortest-route-line"');
-    expect(source).toContain('onStatusChangeRef.current?.("ready")');
-    expect(source).toContain('map.once("render", verifyRouteVisible)');
+const record = { postal: '018956', paths: { shortest_m: 80.7, sheltered_m: 80.7, covered_ratio: 0.5539 }, exposure_gaps: [{len_m:20.1},{len_m:16.3}] } as ScoreRecord;
+describe('Round 1 executed summary behaviour', () => {
+  it('W01/W13: preserves published precision until display rounding', () => {
+    const before = JSON.stringify(record);
+    expect(walkMetrics(record).distance).toBe(80.7);
+    expect(walkMetrics(record).coverage).toBe(55);
+    expect(walkMetrics(record).uncovered).toBeCloseTo(36.4);
+    expect(walkMetrics(record).longest).toBe(20.1);
+    expect(JSON.stringify(record)).toBe(before);
   });
-
-  it("M04: basemap tile errors after route is visible do not erase route or text", () => {
-    const source = readFileSync(
-      join(__dirname, "../../components/route-evidence-map.tsx"),
-      "utf-8"
-    );
-    expect(source).toContain("routeVisibleRef.current = true;");
-    expect(source).toContain("if (routeVisibleRef.current) return;");
+  it('W02: absent evidence remains unavailable rather than zero', () => {
+    expect(walkMetrics(null)).toEqual({distance:null,coverage:null,uncovered:null,longest:null});
+    expect(walkMetrics({...record,exposure_gaps:null}).longest).toBeNull();
+    expect(walkMetrics({...record,exposure_gaps:[]}).longest).toBe(0);
   });
-
-  it("M10: does not snap map back after user panning — fitBounds guarded by routeFitKey", () => {
-    const source = readFileSync(
-      join(__dirname, "../../components/route-evidence-map.tsx"),
-      "utf-8"
-    );
-    expect(source).toContain("lastFitKeyRef.current = routeFitKey;");
-    expect(source).toContain("if (lastFitKeyRef.current === routeFitKey) return;");
-    // Refit only fires on route change, not on user-triggered renders
-    const fitEffectStart = source.indexOf("lastFitKeyRef.current = routeFitKey;");
-    const fitEffectEnd = source.indexOf("}, [loaded, routeData.bounds, routeFitKey]);");
-    const fitEffect = source.slice(fitEffectStart, fitEffectEnd);
-    expect(fitEffect).not.toContain("feedback");
-    expect(fitEffect).not.toContain("transitMode");
-    expect(fitEffect).not.toContain("chosenStopId");
+  it('W10: never attaches sheltered gaps to a different shortest walk', () => {
+    expect(walkMetrics(record,true).uncovered).toBeNull();
+    expect(walkMetrics(record,true).longest).toBeNull();
   });
-
-  it("M13: route-evidence map exposes feature counts for screenshot+count parity checks", () => {
-    const source = readFileSync(
-      join(__dirname, "../../components/route-evidence-map.tsx"),
-      "utf-8"
-    );
-    expect(source).toContain("__shiokRouteDebug");
-    expect(source).toContain("sourceFeatureCounts");
-    expect(source).toContain("shiokest: routeData.shiokest.features.length");
-    expect(source).toContain("shortest: routeData.shortest.features.length");
-  });
-
-  it("M11: stale request does not replace B's selection when A resolves late", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
-    // catch block guards with requestId
-    const catchIdx = source.indexOf(
-      "if (requestId === loadSelectionRequestIdRef.current) {\n        setError"
-    );
-    expect(catchIdx).toBeGreaterThan(-1);
-    // try block also guards
-    expect(source).toContain("if (requestId !== loadSelectionRequestIdRef.current) return;");
-  });
-
-  it("M15: fitRouteBounds uses measured padding not hardcoded 300/390px guesses", () => {
-    const source = readFileSync(
-      join(__dirname, "../../components/route-evidence-map.tsx"),
-      "utf-8"
-    );
-    // Accepts optional fitPadding override
-    expect(source).toContain("fitPadding?: { top?: number; right?: number; bottom?: number; left?: number }");
-    // Default padding changed from 390px left to reflect ~270px panel
-    expect(source).not.toContain("left: 390");
-    expect(source).not.toContain("top: 300");
-  });
-});
-
-describe("revamp Round 1 — approved layout (O10)", () => {
-  it("O10: weights.yaml untouched (PRD v4.2 §7 LOCKED keys unchanged)", () => {
-    const source = readFileSync(
-      join(__dirname, "../../../pipeline/config/weights.yaml"),
-      "utf-8"
-    );
-    // Verify PRD v4.2 §7 locked weights are present with exact values
-    expect(source).toContain("transit_access: 0.35");
-    expect(source).toContain("bus_connectivity: 0.20");
-    expect(source).toContain("rain_shelter: 0.25");
-    expect(source).toContain("heat_comfort: 0.15");
-    expect(source).toContain("crossing_friction: 0.05");
-    expect(source).toContain("LOCKED");
-  });
-
-  it("layout: navigation zoom/reset control removed", () => {
-    const source = readFileSync(
-      join(__dirname, "../../components/route-evidence-map.tsx"),
-      "utf-8"
-    );
-    expect(source).not.toContain("NavigationControl");
-  });
-
-  it("layout: tagline hidden from primary UI but present in source for screen readers", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
-    expect(source).toContain("Check how sheltered the walk to transit feels before you pick a place.");
-    expect(source).toContain("styles.srOnly");
-    // Tagline is inside a srOnly-classed element
-    const taglineIdx = source.indexOf("Check how sheltered the walk to transit feels before you pick a place.");
-    const srOnlyBeforeTagline = source.lastIndexOf("styles.srOnly", taglineIdx);
-    expect(srOnlyBeforeTagline).toBeGreaterThan(taglineIdx - 200);
-  });
-
-  it("layout: identity row visible separately from the result panel", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
-    expect(source).toContain("styles.identityRow");
-    expect(source).toContain("styles.identityBrand");
-    const cssSource = readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8");
-    expect(cssSource).toContain(".identityRow");
-    expect(cssSource).toContain(".identityBrand");
-  });
-
-  it("S01-S03: search form structure and postal-only validation preserved", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
-    expect(source).toContain('<form onSubmit={handleSearch} className={styles.searchForm} aria-busy={loading}>');
-    expect(source).toContain('inputMode="numeric"');
-    expect(source).toContain('maxLength={6}');
-    expect(source).toContain('pattern="[0-9]{6}"');
-    expect(source).toContain("Enter a 6-digit Singapore postal code.");
-  });
-
-  it("W11: map shows immediately when postal loaded without a 'Show map' gate", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
-    // setShowMap(true) is called in loadSelection
-    const loadIdx = source.indexOf("const loadSelection = async");
-    const showMapIdx = source.indexOf("setShowMap(true);", loadIdx);
-    expect(showMapIdx).toBeGreaterThan(loadIdx);
-    // setShowMap(false) is never called
-    expect(source).not.toContain("setShowMap(false);");
-  });
-
-  it("mobile sheet: expand/collapse toggle wired for compact bottom sheet", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
-    expect(source).toContain("const [sheetExpanded, setSheetExpanded] = useState(false);");
-    expect(source).toContain("styles.sheetToggle");
-    expect(source).toContain("styles.sheetExpanded");
-    const cssSource = readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8");
-    expect(cssSource).toContain(".sheetToggle");
-    expect(cssSource).toContain(".sheetExpanded");
+  it('renders all four metrics and explicit missing values', () => {
+    const html=renderToStaticMarkup(React.createElement(WalkSummary,{postal:record.postal,score:record}));
+    for(const label of ['Walk distance','Covered','Uncovered','Longest gap']) expect(html).toContain(label);
+    expect(html).toContain('81 m');
+    expect(renderToStaticMarkup(React.createElement(WalkSummary,{postal:record.postal,score:null}))).toContain('Unavailable');
   });
 });

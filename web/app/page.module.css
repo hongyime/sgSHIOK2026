@@ -1,6 +1,7 @@
 .appShell {
   position: relative;
-  min-height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
   overflow: hidden;
   background: #dfe8e4;
   color: #17211f;
@@ -37,6 +38,7 @@
 }
 
 .identityBrand {
+  margin: 0;
   display: inline-block;
   background: rgba(255, 255, 255, 0.96);
   border-radius: 6px;
@@ -1280,7 +1282,7 @@ button.gapItem:hover,
 
 @media (max-width: 700px) {
   .searchOverlay {
-    top: 10px;
+    top: 54px;
     left: 10px;
     right: 10px;
     width: auto;
@@ -1501,4 +1503,64 @@ button.gapItem:hover,
 .resetCustomStopBtn:hover {
   background: #925400;
   color: #ffffff;
+}
+
+.resultPanel {
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 3;
+  top: 92px;
+  left: 16px;
+  width: 270px;
+  max-height: calc(100dvh - 132px);
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  border: 1px solid #cddad4;
+  border-radius: 8px;
+  background: rgba(255,255,255,.97);
+  box-shadow: 0 4px 18px #19382a18;
+}
+.resultPanel .sheetToggle {
+  display: block;
+  flex: none;
+  align-self: flex-end;
+  width: auto;
+  border: 1px solid #cbd7d1;
+  border-radius: 6px;
+  padding: 5px 8px;
+  background: white;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+.sheetToggle:focus-visible { outline: 3px solid #147ca3; outline-offset: 2px; }
+.walkSummary { flex: none; }
+.walkSummary h2 { margin: 4px 0; font-size: 19px; }
+.walkDestination { margin: 8px 0; padding: 8px 0; border-block: 1px solid #e0e7e3; font-size: 12px; }
+.walkDestination strong { display: block; margin-top: 3px; font-size: 15px; }
+.walkMetrics { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px 8px; margin: 12px 0 4px; }
+.walkMetrics strong { display: block; font-size: 21px; overflow-wrap: anywhere; }
+.walkMetrics span { display: block; margin-top: 3px; font-size: 11px; color: #5d7069; }
+.secondaryDetails { display: none; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.sheetExpanded .secondaryDetails { display: block; margin-top: 10px; }
+.secondaryDetails .scoreCard { padding: 8px 0; border: 0; box-shadow: none; background: transparent; backdrop-filter: none; }
+.secondaryDetails .scoreHeader { display: block; }
+.secondaryDetails .scoreHeaderRight { margin-top: 8px; }
+.secondaryDetails .brandRow { display: block; }
+.secondaryDetails .dataLimits { padding: 12px 0; }
+.secondaryControls { padding-bottom: 8px; }
+@media (max-width:700px) {
+  .resultPanel { top: auto; bottom: 38px; left: 8px; right: 8px; width: auto; max-height: calc(100dvh - 170px); padding: 10px; }
+  .resultPanel.sheetExpanded { max-height: min(62dvh,calc(100dvh - 230px)); }
+  .walkSummary h2 { font-size: 17px; margin: 2px 0; }
+  .walkDestination { margin: 5px 0; padding: 5px 0; }
+  .walkDestination strong { font-size: 14px; }
+  .walkMetrics { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 5px; margin: 7px 0 0; }
+  .walkMetrics strong { font-size: 17px; }
+  .walkMetrics span { font-size: 10px; }
+}
+@media (max-width:340px) {
+  .walkMetrics strong { font-size: 15px; }
+  .walkMetrics span { font-size: 9px; }
 }

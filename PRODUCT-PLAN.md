@@ -36,11 +36,16 @@ Use absolute write paths under the internal working root. Preserve all protected
 data, existing verification lines, and locked weights.
 
 ## Round 1 status
-Milestones 3 and 4 complete (pushed to main as of 2026-09-07):
-  3. 0c6ba4c — map reliability: readiness, nav control, stale-request race, fitPadding
-  4. f9e6e20 — approved core walk layout: identity row, floating panel, bottom sheet,
-     srOnly tagline; f9e6e20 + 0ec2510 — 152-line behaviour test coverage
+Milestones 3 and 4: CHANGES REQUESTED; repair verification in progress (2026-09-07).
+Earlier commits 0c6ba4c, f9e6e20 and 0ec2510 did not establish completion.
+The initial tests primarily inspected source text and the screenshots lacked routes.
+Repairs separate search/identity/results, measure overlays, scope readiness to the
+rendered selection, expose retryable partial errors, and fix MapLibre 6 worker serving.
+The current full web suite passes 223 tests. Loaded route captures show four selected
+segments at 1440x950, 390x844, 390x667 and 320x667; remaining checks below are required.
 Evidence: qa/verification/REVAMP-R1-core-walk.md
-Remaining gaps (explicit): M01/M02 route-visible screenshot (cold CDP pass); M12 network profiling.
-Next: independent reviewer inspects diffs and evidence, then issues Round 2 bounded prompt.
+Remaining: finish failure recovery and cold/warm measurements; inspect final
+captures and publish the corrected catalogue mapping. Stale A-failure/B-success
+is now reproduced with synthetic network interception: B retains text, URL and route.
+Next: finish Round 1 repair and return it for independent review before adding features.
 Milestones 5-11 remain pending.

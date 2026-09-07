@@ -223,3 +223,69 @@ None. All changes are within the approved Round 1 contract. No scope was added o
 | M13 feature count parity | Same as M01/M02 | Same fix — confirm `window.__shiokRouteDebug.sourceFeatureCounts.shiokest > 0` |
 | M12 network profiling | Requires constrained-network setup | Out of scope for automated pass; schedule separately |
 | 320 px layout | Script timed out before narrow-viewport screenshot | Visual check in browser DevTools at 320 px |
+
+## 2026-09-07 review correction — repair in progress
+
+The preceding lines are preserved as historical evidence, not current acceptance.
+The review requested changes. Round 1 was not complete: a blank-map screenshot is
+a failed M01/M02/M13 check. M12 cold/warm profiling is required by the brief, not
+outside scope. Source-text assertions do not establish browser or integration PASS.
+The prior S01-S03, S05-S08, W09-W12, M03-M07, M10-M11 and M14-M15 classifications
+are withdrawn pending executed behaviour checks. Other previously cited tests must
+be identified by actual executed names before being counted as coverage.
+
+Repair base: d1cd97f50ffdb48e3c421d8d142ead75f0b5bcbe. Root C:\sgSHIOK2026;
+host Prawn-E14. `git pull --ff-only`: already up to date. Initial
+`python scripts/check_repo_integrity.py`: repo_integrity=ok.
+
+Baseline findings: search is inside the result panel; mobile receives desktop
+padding; readiness reschedules render callbacks without selection identity or
+cleanup; all map errors after first visibility are suppressed. The page writes
+shared postal URLs but lacks initial postal restoration. The initial localhost
+browser attempts exposed missing hydration waits; the 127.0.0.1 attempt also hit
+Next.js dev-origin rejection. These attempts are failures, not acceptance.
+The hydrated baseline screenshots retain the old panel layout, with zero selected
+route features at 1440x950, 390x844, 390x667 and 320x667. The map lifecycle was
+already under repair during that capture, so these are layout baseline evidence,
+not a clean performance comparison against the base commit.
+
+### Repair implementation and executed checks
+
+- Root cause of the blank route: MapLibre 6's default worker URL resolved beside
+  Next's bundled application module and received an HTML 404. Raster tiles could
+  still load. The versioned same-origin worker/shared module now match the installed
+  6.1.0 distribution byte-for-byte (including license). No CSP or dependency change.
+- Search and identity are separate from the 270px result panel and mobile sheet.
+  Four primary metrics use published values; missing gaps remain unavailable.
+  Existing score, limitations, lighting and feedback controls are secondary.
+- Viewport padding uses observed DOM bounds. A selection/layout owns one bounded
+  render probe, with a current-generation feature tag, usable viewport query and
+  cleanup. Rendering/idle/optional data events do not schedule repeated fits.
+- Raster failures show a partial state and tile retry; other map errors remain
+  visible. Geometry server/network errors propagate without poisoning the cache.
+  Useful text is published independently of geometry. Actual 404 misses retain
+  the existing cache semantics.
+- Pending/failed clicked-stop previews keep the published result, with an explicit
+  message and retry/return controls. No straight-line preview is presented as a walk.
+- `node web/scripts/test-web.mjs --reporter=json --outputFile=.../repair-final/unit-tests.json`:
+  226 tests passed in 30 files. Includes executed viewport/listener tests, geometry
+  retry, worker identity, summary null semantics, and real live/partial/missing-route
+  records. Source-only revamp tests were replaced; obsolete interaction source
+  assertions were removed in favor of the executed browser harness.
+- Installed `tsc --noEmit --incremental false`: passed. Direct installed `next build`
+  from web/: passed twice, bypassing `ensure-data-bundle.mjs`; only local frontend
+  build output was generated. Initial path-inspection commands accidentally included
+  a redundant web/ prefix from that directory and failed; corrected reads succeeded.
+- Development browser checks passed all four loaded viewports (4 selected segments
+  each), sheet scrolling/collapse, gap focus, drag without delayed snap-back, wheel,
+  pinch, keyboard pan and reduced motion. Synthetic A=018956 score failure held until
+  B=238801 succeeded: B retained its metrics, URL and 8 selected rendered segments.
+  Geometry and basemap failure/recovery also passed. A harness cleanup race produced
+  Invalid InterceptionId / Fetch-disabled errors; the harness now drains handlers
+  before disabling interception. These are recorded failures, not app PASS evidence.
+- Early constrained captures had changing source counts across the screenshot
+  interval. Those M13 captures failed parity and are superseded only by later
+  explicitly identified evidence. Final profiling waits for the selected source to
+  finish loading and brackets each screenshot with equal camera/selection/counts.
+
+Final production-mode local browser acceptance and profiling results follow below.
