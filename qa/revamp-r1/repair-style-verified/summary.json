@@ -1,0 +1,198 @@
+{
+  "phase": "style-verified",
+  "startedAt": "2026-09-07T13:02:46.044Z",
+  "url": "http://localhost:4318/",
+  "captures": [
+    {
+      "name": "candidate-rendered",
+      "time": 120612.60000002384,
+      "width": 1440,
+      "height": 950,
+      "counts": {
+        "shiokest-route-line": 3,
+        "shortest-route-line": 0
+      },
+      "debug": {
+        "routeKey": "2:shiokest:primary",
+        "padding": {
+          "top": 68,
+          "right": 12,
+          "bottom": 40,
+          "left": 298
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 3,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Shelter-map view for Postal 018956. Showing 3 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops."
+      },
+      "url": "http://localhost:4318/?postal=018956&stop=mrt%3A21678",
+      "camera": {
+        "center": {
+          "lng": 103.85874778994014,
+          "lat": 1.2827390726633894
+        },
+        "zoom": 16.6,
+        "padding": {
+          "top": 68,
+          "bottom": 40,
+          "left": 298,
+          "right": 12
+        },
+        "moving": false,
+        "loaded": true,
+        "sourceCount": 6,
+        "sample": [
+          {
+            "properties": {
+              "kind": "sheltered",
+              "is_covered": 0,
+              "len_m": 16.3,
+              "segment_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR",
+              "confidence": "inferred_endpoint_snap",
+              "source_summary": "exposed:1",
+              "route_id": "primary",
+              "route_label": "Postal 018956",
+              "color": "#008f86",
+              "render_key": "2:shiokest:primary"
+            },
+            "projected": [
+              {
+                "x": 1044.1583484689813,
+                "y": 503.01832781875345
+              },
+              {
+                "x": 1028.622253658897,
+                "y": 488.90321728622706
+              }
+            ]
+          }
+        ]
+      },
+      "identity": {
+        "x": 16,
+        "y": 14,
+        "width": 89.828125,
+        "height": 32,
+        "bottom": 46,
+        "right": 105.828125
+      },
+      "search": {
+        "x": 499,
+        "y": 14,
+        "width": 360,
+        "height": 42,
+        "bottom": 56,
+        "right": 859
+      },
+      "panel": {
+        "x": 16,
+        "y": 92,
+        "width": 270,
+        "height": 264,
+        "bottom": 356,
+        "right": 286
+      },
+      "metrics": [
+        {
+          "text": "110 m\nWalk distance",
+          "bottom": 281
+        },
+        {
+          "text": "0%\nCovered",
+          "bottom": 281
+        },
+        {
+          "text": "110 m\nUncovered",
+          "bottom": 339
+        },
+        {
+          "text": "50 m\nLongest gap",
+          "bottom": 339
+        }
+      ],
+      "attribution": {
+        "x": 1164,
+        "y": 922,
+        "width": 268,
+        "height": 24,
+        "bottom": 946,
+        "right": 1432
+      },
+      "status": "ready",
+      "overflow": false,
+      "text": "Bayfront MRT Station Exit D\nMRT/LRT exit\nStation\nBayfront MRT Station\nExit\nExit D\nSystem\nMRT\nCodes\nCE1, DT16\nLines\nCircle Line Extension, Downtown Line\nBayfront MRT Station Exit D\nMRT/LRT exit\nStation\nBayfront MRT Station\nExit\nExit D\nSystem\nMRT\nCodes\nCE1, DT16\nLines\nCircle Line Extension, Downtown Line\n \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 3 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nSearch\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBAYFRONT MRT STATION Exit D\n\n110 m\nWalk distance\n0%\nCovered\n110 m\nUncovered\n50 m\nLongest gap",
+      "screenshotEnd": {
+        "time": 124570.20000004768,
+        "width": 1440,
+        "height": 950,
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.85874778994014,
+          "lat": 1.2827390726633894
+        },
+        "zoom": 16.6,
+        "count": 3
+      },
+      "sameCaptureState": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "W10 starts with rendered focused gap",
+      "ok": true
+    },
+    {
+      "name": "M05 rendered old route cannot make new selection ready",
+      "ok": true,
+      "detail": {
+        "status": "initializing",
+        "key": "2:shiokest:primary",
+        "old": 4,
+        "current": 0
+      }
+    },
+    {
+      "name": "M05 current worker result settles ready",
+      "ok": true
+    },
+    {
+      "name": "W10 destination change clears old focused gap",
+      "ok": true
+    },
+    {
+      "name": "W13 selected candidate distance is published 110 m",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "resourceErrors": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz"
+    }
+  ],
+  "serviceWorker": "bypassed for deterministic network failure and HTTP cache measurement"
+}

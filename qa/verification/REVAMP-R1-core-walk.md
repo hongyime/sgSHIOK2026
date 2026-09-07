@@ -294,3 +294,128 @@ Final production-mode local browser acceptance and profiling results follow belo
 - The first supplemental preview check timed out: it clicked a precomputed candidate, so no preview failure was requested. This is not a preview-recovery PASS. Inspection exposed inherited original-route gaps and shortest coverage on alternate candidates. The adapter now uses candidate geometry gaps and candidate coverage only, retaining missing coverage and the locked score. Shared stop restoration now validates loaded local POIs as well as the five nearest candidates, matching clickable stops. Executed regression and a rebuilt browser run follow.
 
 - Supplemental `preview-verified` passed shared-stop restoration, generic map error recovery, preview failure preservation, stale preview failure after B success, and delayed geometry rendering. Its mixed letters/long-digit paste assertion expected six digits even though native maxlength truncates the raw paste first; that assertion failed. Separate executed pure-digit overflow and mixed-input checks replace that incorrect expectation in the input follow-up. The failed run remains preserved.
+
+- The same supplemental run reached the keyboard search button but its CDP Enter event omitted text/keypress activation, leaving the empty page and timing out. The input follow-up sends a complete Enter event. No keyboard-submit PASS is claimed from that failed attempt.
+
+### Corrected executed catalogue mapping (2026-09-07)
+The following replaces historical source-only PASS classifications. Browser evidence
+is split into explicit runs: `repair-acceptance-final` (18 successful checks before a
+harness serialization error), `repair-preview-verified` (supplemental recovery and
+shared-stop checks, with its input/Enter failures preserved), and the separate
+`repair-input-verified-2` follow-up. Their individual results must be read together;
+none of the failed runs is labelled an overall PASS. Code baseline is 04fae3e;
+candidate correction is 7788e35. Unit report: repair-final/unit-tests-candidate.json.
+
+| IDs | Executed evidence and outcome |
+| --- | --- |
+| S01, S08 | input follow-up: keyboard reaches Search, complete Enter activates a loaded 018956 route, leading zero retained; accessibility-render: `renders search result announcements and assertive error alerts`. PASS for these operations. |
+| S02 | input follow-up: nine-digit paste bounded to six, mixed `abc12` becomes `12`, zero address-search API requests. PASS. |
+| S03 | input follow-up: empty/short input produces accessible/native validation. PASS. |
+| S04 | browser 000000 unavailable state and real-record tests: no fabricated walk/score. PASS. |
+| S05, M11 | acceptance: hold synthetic A=018956 score request, let B=238801 succeed, release A as 503; B keeps 510 m/40%/309 m/307 m, URL, and 8 current rendered segments. map-viewport test also invokes a cancelled A callback and rejects A features during B. PASS for reproduced race. |
+| S06 | preview follow-up: valid shared postal and actual clicked Exit E restored, including its honest injected preview failure. PASS. |
+| S07 | acceptance unknown stop and input follow-up malformed postal/stop: safe fallback. PASS. |
+| W01, W13 | walk-real-records: `displayed live walk metrics match the published record`; candidate tests use own gaps, retain locked total, and do not mutate fixtures. PASS. |
+| W02 | walk-real-records: real 018990 SCORED_PARTIAL retains available/missing values; missing candidate coverage stays unavailable. PASS. |
+| W03 | walk-real-records: real 079908 missing-route has no drawn connection; accessibility-render `explains no-transit records when candidates exist but are disconnected`. PASS. |
+| W04 | accessibility-render: `explains no-transit records when a connected walk exists only beyond the locked range`. PASS (executed synthetic render fixture, not a new real postal claim). |
+| W09 | acceptance gap focus: highlighted layer rendered, sheet collapses, route count 4 in the same capture. PASS. |
+| W10, W12 | preview follow-up: explicit failure keeps 81 m published walk; held preview fails after B succeeds with no stale error or active-gap feature on B. Destination/route focus clearing remains implemented. PASS for these triggers. |
+| W11 | inspected loaded summaries and secondary details: no weather/dryness/safety/accessibility guarantee. Existing qualifications remain in details. Manual PASS for inspected screens. |
+| M01, M02, M03, M13, M15 | acceptance: selected layer count 4 at 1440x950, 390x844, 390x667, 320x667; screenshot bracket holds same selection/camera/count. Four metrics visible, no horizontal overflow or identity/search/attribution overlap. Sheet scrolls/collapses and refits; gap focus also count 4. PASS for these viewports/actions; timing runs recorded separately. |
+| M04, M07 | acceptance: synthetic tile failure shows partial state with 4 selected segments and valid text; Retry map recovers. Preview follow-up: synthetic non-tile renderer error remains visible and map retry recovers. PASS. |
+| M05 | map-viewport executed test `rejects old rendered features and cleans up after current success`: ten renders retain one listener, old callback cannot settle B, current success removes listener/timer. Empty rendering times out once. PASS at helper/integration level; not claimed as a standalone injected browser style-load case. |
+| M06, M07 | geometry-recovery test: 503 rejects without poisoning cache, retry succeeds/caches. Browser geometry failure retains text and retries; held geometry publishes text independently, then renders when released. PASS. Zero-route captures here are intentional failure/delay evidence, never loaded-route acceptance. |
+| M08 | data-fetch-policy `deduplicates concurrent manifest fetches`; score-prefix-index `deduplicates concurrent score index and shard fetches`. PASS. |
+| M10 | acceptance actual drag, wheel and pinch; drag center unchanged after delayed wait (no snap-back). PASS. |
+| M14 | acceptance keyboard map pan, reduced-motion sheet fit; input follow-up keyboard search. PASS for these operations; no assistive-technology user session claimed. |
+| M12 | Required constrained cold/warm measurements are being collected below. Reviewed numerical budget remains unagreed; no invented performance PASS or production/phone equivalence. |
+| O10 | integrity check passes; git diff from d1cd97f through implementation commits has no protected paths; original verification prefix preserved. PASS. |
+
+W05-W08, M09, comparison/reporting/refresh/release and user-session catalogue entries
+remain planned or outside this repair; no completion is inferred from their older tests.
+
+- `performance-verified` exceeded the 90-second harness text wait on the loaded host; its final diagnostic already showed the correct text with the route still initializing. No measurement was completed. The bounded timing follow-up allows 180 seconds per text/route wait; these are test timeouts, not performance budgets. Earlier worker-debugging attempts also failed (`Network.emulateNetworkConditions` unsupported on workers); the final profile applies network/CPU emulation on the page and records attached-worker traffic without that unsupported command.
+
+- The worker-attached `performance-recorded` run stalled without a completed measurement; an additional diagnostic connection also failed. It was terminated, not classified PASS. Final profiling removes worker debugger attachment and uses 1x CPU with the same 80 ms / 10 Mbps network constraint. Request/transfer counts are explicitly CDP page-target observations through visible-route time; worker-internal transfers may be excluded. This limitation must accompany the numbers. No application timing budget is inferred.
+
+- During final page-target profiling, Win32_OperatingSystem reported TotalVisibleMemorySize=16,545,324 KiB and FreePhysicalMemory=263,172 KiB (about 257 MiB free of 15.8 GiB). Timings are host-memory-pressure observations, not representative phone benchmarks or a production regression comparison. The first cold text observation was 52,528 ms; the complete measurement table follows only when route captures finish.
+
+### Completed cold/warm observations — 7788e35 local production build
+
+Command: `node C:/sgSHIOK2026/web/scripts/revamp-browser.mjs performance-page-profile`.
+Chrome headless SwiftShader; 80 ms latency, 1,250,000 B/s down, 625,000 B/s up,
+1x CPU; HTTP cache cleared for each cold run, warm reload in the same browser;
+service worker bypassed for deterministic HTTP-cache/network checks. Profile starts
+at navigation to `?postal=018956`, ends when the current selected route is rendered
+and its source loaded. Local existing data only; optional real OneMap raster tiles.
+Counts are page-target CDP requests including cached requests, and encoded bytes
+from completed responses through route visibility; worker-internal transfers may
+be excluded. These are observations under the recorded severe host memory pressure.
+No budget or clean before/after performance comparison is claimed.
+
+| Viewport | Cache | Text ms | Visible-route ms | Observed requests | Completed encoded bytes | Selected features / parity |
+| --- | --- | ---: | ---: | ---: | ---: | --- |
+| 1440x950 | cold | 52528 | 142018 | 247 | 1928324 | 4 / matched |
+| 1440x950 | warm | 65742 | 109389 | 255 | 0 | 4 / matched |
+| 390x844 | cold | 14285 | 44485 | 132 | 1528374 | 4 / matched |
+| 390x844 | warm | 47563 | 47578 | 131 | 0 | 4 / matched |
+
+All four profiling screenshots were visually inspected: selected walks are visible,
+with metrics and attribution unobstructed. Desktop peripheral tiles remain blurred
+at the route-visible cutoff. Counts are rendered features (which may include tile
+fragments), not a claim about unique physical segments. All four required ordinary
+acceptance screenshots were also inspected at their recorded viewport/time; they
+have 4 selected features each. Intentional empty/geometry-failure/delay captures
+have 0 and are not loaded-map acceptance. M12 measurements are complete; the
+catalogue requirement to set a reviewed budget remains open for independent review.
+
+- Final visual audit correction: the earlier `tiles-recovered.png` proved retained route visibility after retry but was captured before raster tiles returned. Its M07 label is not proof of completed basemap recovery. The tile follow-up waits for successful completed raster responses and the loaded raster source before capturing restoration.
+- `style-verified`: all 5 browser checks passed. With an existing style and workers paused, switching to published Exit D left old rendered features but did not mark the new route ready. Resuming workers produced 3 current selected features; the screenshot/count bracket matched and was visually inspected. A rendered focused gap existed before switching and cleared afterward. Candidate summary: 110 m, 0%, 110 m uncovered, 50 m longest gap. This completes the browser-level M05 and explicit W10 coverage previously limited above.
+
+### Final Round 1 repair handback (2026-09-07)
+- `tiles-verified-2`: 3 checks passed, no uncaught errors. Recovery capture waited
+  for successful raster requests and source completion; 42 raster responses had
+  completed by the final screenshot. The restored basemap and 4 selected features
+  were visually inspected with matching screenshot/count state. M07 recovery is
+  established by this follow-up, not the earlier premature capture.
+- Full suite: 228 passed / 0 failed / 30 files.
+  Command: `node C:/sgSHIOK2026/web/scripts/test-web.mjs --reporter=json --outputFile=C:/sgSHIOK2026/qa/revamp-r1/repair-final/unit-tests-candidate.json`.
+- Focused executed regressions: 15 passed / 0 failed / 5 files.
+  Command: `node C:/sgSHIOK2026/web/scripts/test-web.mjs map-viewport.test.ts geometry-recovery.test.ts revamp-layout.test.ts walk-real-records.test.ts map-worker.test.ts --reporter=json --outputFile=C:/sgSHIOK2026/qa/revamp-r1/repair-final/focused-tests.json`.
+- `node C:/sgSHIOK2026/web/node_modules/typescript/bin/tsc --project C:/sgSHIOK2026/web/tsconfig.json --noEmit --incremental false`: passed.
+- `node C:/sgSHIOK2026/web/node_modules/next/dist/bin/next build`, cwd web: passed.
+  Direct frontend build only, bypassing the data helper; generated next-env change
+  restored byte-for-byte. No dependency installation or protected artifact build.
+- `python scripts/check_repo_integrity.py`: repo_integrity=ok. Protected diff from
+  d1cd97f is empty, including public data, weights, raw/processed, workflows,
+  checksums, NOTICE, AGENTS.md and .vercelignore. Original evidence prefix preserved.
+- Code fixes committed/pushed: 04fae3e and 7788e35. First push attempt for 7788e35
+  failed to connect to GitHub; retry succeeded. Final evidence commit follows.
+- Machine-readable handback and scoped file list: qa/revamp-r1/repair-final/summary.json.
+  Local production preview: http://localhost:4318/. Before layout screenshots:
+  repair-baseline-hydrated/loaded-1440x950.png and loaded-390x667.png. After:
+  repair-acceptance-final/loaded-1440x950.png and loaded-390x667.png; the same
+  directory includes 390x844 and 320x667. Paths are under qa/revamp-r1/.
+
+### FINDINGS
+The repair meets the executed Round 1 functional checks: fixed top search/identity,
+four-metric compact sheet, measured padding, current-render readiness, bounded
+listeners, stale-failure protection and visible recoverable failures. The missing
+MapLibre worker resource was a separate root cause of the blank selected route.
+Candidate evidence mapping and shared clicked-stop restoration were corrected after
+browser inspection exposed mismatches. All required loaded viewport screenshots and
+four timing screenshots were inspected. No source-only assertion establishes these
+browser outcomes. Remaining limits are explicit: M12 numerical budgets need review;
+page-target transfer counts exclude possible worker-internal traffic; severe host
+memory pressure makes timing unsuitable for a phone or production performance claim.
+No clean pre-repair performance comparison or independent user-session approval is
+claimed. Desktop peripheral basemap tiles can still be blurred at the route cutoff.
+
+### DISAGREEMENTS
+None with the changes-requested review. Earlier completion and unsupported PASS
+claims were incorrect and have been corrected by append-only evidence. This is a
+repair handback for independent review, not review approval. No new feature work,
+comparison/reporting infrastructure, data refresh or deployment was added.
+Production was not deployed. Pipeline runs: 0. Pipeline cost: $0. No approval blocker
+for the completed repairs; further features and deployment remain outside this round.

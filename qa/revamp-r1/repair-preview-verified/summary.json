@@ -1,0 +1,566 @@
+{
+  "phase": "preview-verified",
+  "url": "http://localhost:4318/",
+  "captures": [
+    {
+      "name": "empty-desktop",
+      "time": 27343.299999952316,
+      "width": 1440,
+      "height": 950,
+      "counts": {
+        "shiokest-route-line": 0,
+        "shortest-route-line": 0
+      },
+      "url": "http://localhost:4318/",
+      "camera": null,
+      "identity": {
+        "x": 16,
+        "y": 14,
+        "width": 89.828125,
+        "height": 32,
+        "bottom": 46,
+        "right": 105.828125
+      },
+      "search": {
+        "x": 499,
+        "y": 14,
+        "width": 360,
+        "height": 42,
+        "bottom": 56,
+        "right": 859
+      },
+      "panel": null,
+      "metrics": [],
+      "attribution": null,
+      "status": "idle",
+      "overflow": false,
+      "text": "SHIOK.\nSearch\nAbout the data\n\nMap waiting",
+      "screenshotEnd": {
+        "time": 34222.699999928474,
+        "width": 1440,
+        "height": 950,
+        "count": 0
+      },
+      "sameCaptureState": true
+    },
+    {
+      "name": "loaded-390x667",
+      "time": 73922,
+      "width": 390,
+      "height": 667,
+      "counts": {
+        "shiokest-route-line": 4,
+        "shortest-route-line": 0
+      },
+      "debug": {
+        "routeKey": "1:shiokest:primary",
+        "padding": {
+          "top": 106,
+          "right": 12,
+          "bottom": 221,
+          "left": 12
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops."
+      },
+      "url": "http://localhost:4318/?postal=018956",
+      "camera": {
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2824930944615005
+        },
+        "zoom": 16.6,
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "moving": false,
+        "loaded": true,
+        "sourceCount": 8,
+        "sample": [
+          {
+            "properties": {
+              "kind": "sheltered",
+              "is_covered": 0,
+              "len_m": 16.3,
+              "segment_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR",
+              "confidence": "inferred_endpoint_snap",
+              "source_summary": "exposed:1",
+              "route_id": "primary",
+              "route_label": "Postal 018956",
+              "color": "#008f86",
+              "render_key": "1:shiokest:primary"
+            },
+            "projected": [
+              {
+                "x": 195.0140921284353,
+                "y": 312.7590425139603
+              },
+              {
+                "x": 179.4779973218347,
+                "y": 298.64393198603335
+              }
+            ]
+          }
+        ]
+      },
+      "identity": {
+        "x": 10,
+        "y": 10,
+        "width": 77,
+        "height": 26.6875,
+        "bottom": 36.6875,
+        "right": 87
+      },
+      "search": {
+        "x": 10,
+        "y": 54,
+        "width": 297,
+        "height": 40,
+        "bottom": 94,
+        "right": 307
+      },
+      "panel": {
+        "x": 8,
+        "y": 458,
+        "width": 374,
+        "height": 171,
+        "bottom": 629,
+        "right": 382
+      },
+      "metrics": [
+        {
+          "text": "81 m\nWalk distance",
+          "bottom": 618
+        },
+        {
+          "text": "55%\nCovered",
+          "bottom": 618
+        },
+        {
+          "text": "37 m\nUncovered",
+          "bottom": 618
+        },
+        {
+          "text": "20 m\nLongest gap",
+          "bottom": 618
+        }
+      ],
+      "attribution": {
+        "x": 114,
+        "y": 639,
+        "width": 268,
+        "height": 24,
+        "bottom": 663,
+        "right": 382
+      },
+      "status": "ready",
+      "overflow": false,
+      "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nSearch\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap",
+      "screenshotEnd": {
+        "time": 74104.29999995232,
+        "width": 390,
+        "height": 667,
+        "key": "1:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2824930944615005
+        },
+        "zoom": 16.6,
+        "count": 4
+      },
+      "sameCaptureState": true
+    },
+    {
+      "name": "preview-failed",
+      "time": 96612.60000002384,
+      "width": 1440,
+      "height": 950,
+      "counts": {
+        "shiokest-route-line": 4,
+        "shortest-route-line": 0
+      },
+      "debug": {
+        "routeKey": "1:shiokest:primary",
+        "padding": {
+          "top": 137.546875,
+          "right": 12,
+          "bottom": 40,
+          "left": 298
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops."
+      },
+      "url": "http://localhost:4318/?postal=018956&stop=mrt%3A21677",
+      "camera": {
+        "center": {
+          "lng": 103.85901778994014,
+          "lat": 1.2832451509623866
+        },
+        "zoom": 16.6,
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "moving": false,
+        "loaded": false,
+        "sourceCount": 8,
+        "sample": [
+          {
+            "properties": {
+              "kind": "sheltered",
+              "is_covered": 0,
+              "len_m": 16.3,
+              "segment_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR",
+              "confidence": "inferred_endpoint_snap",
+              "source_summary": "exposed:1",
+              "route_id": "primary",
+              "route_label": "Postal 018956",
+              "color": "#008f86",
+              "render_key": "1:shiokest:primary"
+            },
+            "projected": [
+              {
+                "x": 863.0140921288206,
+                "y": 560.5324800136633
+              },
+              {
+                "x": 847.4779973187362,
+                "y": 546.4173694811369
+              }
+            ]
+          }
+        ]
+      },
+      "identity": {
+        "x": 16,
+        "y": 14,
+        "width": 89.828125,
+        "height": 32,
+        "bottom": 46,
+        "right": 105.828125
+      },
+      "search": {
+        "x": 499,
+        "y": 14,
+        "width": 360,
+        "height": 42,
+        "bottom": 56,
+        "right": 859
+      },
+      "panel": {
+        "x": 16,
+        "y": 92,
+        "width": 270,
+        "height": 264,
+        "bottom": 356,
+        "right": 286
+      },
+      "metrics": [
+        {
+          "text": "81 m\nWalk distance",
+          "bottom": 281
+        },
+        {
+          "text": "55%\nCovered",
+          "bottom": 281
+        },
+        {
+          "text": "37 m\nUncovered",
+          "bottom": 339
+        },
+        {
+          "text": "20 m\nLongest gap",
+          "bottom": 339
+        }
+      ],
+      "attribution": {
+        "x": 1164,
+        "y": 922,
+        "width": 268,
+        "height": 24,
+        "bottom": 946,
+        "right": 1432
+      },
+      "status": "ready",
+      "overflow": false,
+      "text": "Bayfront MRT Station Exit E\nMRT/LRT exit\nStation\nBayfront MRT Station\nExit\nExit E\nSystem\nMRT\nCodes\nCE1, DT16\nLines\nCircle Line Extension, Downtown Line\nBayfront MRT Station Exit E\nMRT/LRT exit\nStation\nBayfront MRT Station\nExit\nExit E\nSystem\nMRT\nCodes\nCE1, DT16\nLines\nCircle Line Extension, Downtown Line\n \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nSearch\n\nMap ready\n\nWalking preview unavailable. Published walk shown.Retry previewKeep published walk\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap",
+      "screenshotEnd": {
+        "time": 99589.60000002384,
+        "width": 1440,
+        "height": 950,
+        "key": "1:shiokest:primary",
+        "center": {
+          "lng": 103.85901778994014,
+          "lat": 1.2832451509623866
+        },
+        "zoom": 16.6,
+        "count": 4
+      },
+      "sameCaptureState": true
+    },
+    {
+      "name": "geometry-delayed",
+      "time": 4330.899999976158,
+      "width": 1440,
+      "height": 950,
+      "counts": {
+        "shiokest-route-line": 0,
+        "shortest-route-line": 0
+      },
+      "url": "http://localhost:4318/?postal=018956",
+      "camera": null,
+      "identity": {
+        "x": 16,
+        "y": 14,
+        "width": 89.828125,
+        "height": 32,
+        "bottom": 46,
+        "right": 105.828125
+      },
+      "search": {
+        "x": 499,
+        "y": 14,
+        "width": 338,
+        "height": 42,
+        "bottom": 56,
+        "right": 837
+      },
+      "panel": {
+        "x": 16,
+        "y": 92,
+        "width": 270,
+        "height": 264,
+        "bottom": 356,
+        "right": 286
+      },
+      "metrics": [
+        {
+          "text": "81 m\nWalk distance",
+          "bottom": 281
+        },
+        {
+          "text": "55%\nCovered",
+          "bottom": 281
+        },
+        {
+          "text": "37 m\nUncovered",
+          "bottom": 339
+        },
+        {
+          "text": "20 m\nLongest gap",
+          "bottom": 339
+        }
+      ],
+      "attribution": null,
+      "status": "idle",
+      "overflow": false,
+      "text": "SHIOK.\nSearching\n\nMap waiting\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap",
+      "screenshotEnd": {
+        "time": 4525,
+        "width": 1440,
+        "height": 950,
+        "count": 0
+      },
+      "sameCaptureState": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "M01/M02/M13/M15 390x667",
+      "ok": true,
+      "detail": {
+        "shiokest-route-line": 4,
+        "shortest-route-line": 0
+      }
+    },
+    {
+      "name": "M04 non-tile errors are not suppressed",
+      "ok": true
+    },
+    {
+      "name": "W12 failed stop preview preserves published evidence",
+      "ok": true
+    },
+    {
+      "name": "S06 valid shared stop restored",
+      "ok": true
+    },
+    {
+      "name": "W12 preview request held",
+      "ok": true
+    },
+    {
+      "name": "W10/W12 stale preview failure after B success",
+      "ok": true,
+      "detail": {
+        "chosenStop": "mrt:21677"
+      }
+    },
+    {
+      "name": "M06 delayed geometry publishes text independently",
+      "ok": true
+    },
+    {
+      "name": "M06 delayed geometry eventually renders",
+      "ok": true
+    },
+    {
+      "name": "S04 unavailable postal",
+      "ok": true
+    },
+    {
+      "name": "S07 malformed URL safe",
+      "ok": true
+    },
+    {
+      "name": "S02 paste bounded to six digits",
+      "ok": false
+    },
+    {
+      "name": "S02 numeric input",
+      "ok": true
+    },
+    {
+      "name": "S03 accessible validation",
+      "ok": true
+    },
+    {
+      "name": "S08 keyboard reaches search button",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "resourceErrors": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "url": "http://localhost:4318/api/onemap-route?startLat=1.282640&startLng=103.860030&endLat=1.281105&endLng=103.858441"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "url": "http://localhost:4318/api/onemap-route?startLat=1.282640&startLng=103.860030&endLat=1.281105&endLng=103.858441"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/scores/MUSEUM.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/geom/h3/896520d9533ffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/scores/NEWTON_PART_002.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/scores/ORCHARD.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/transit/h3/886520d951fffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "url": "http://localhost:4318/api/onemap-route?startLat=1.282640&startLng=103.860030&endLat=1.281105&endLng=103.858441"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/scores/BISHAN_PART_001.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/scores/UNKNOWN.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/transit/pois.json.gz"
+    }
+  ],
+  "serviceWorker": "bypassed for deterministic network failure and HTTP cache measurement",
+  "lastState": {
+    "text": "SHIOK.\nSearch\nAbout the data\n\nMap waiting",
+    "input": "018956",
+    "url": "http://localhost:4318/",
+    "features": []
+  },
+  "failure": "Timed out: window.__shiokRouteMap && ['ready','partial'].includes(document.querySelector('main')?.dataset.mapStatus) && !window.__shiokRouteMap.isMoving() && window.__shiokRouteMap.getLayer('shiokest-route-line') && window.__shiokRouteMap.isSourceLoaded('shiokest-route') && window.__shiokRouteMap.queryRenderedFeatures({layers:['shiokest-route-line']}).some(f=>f.properties.render_key===window.__shiokRouteDebug.routeKey)"
+}

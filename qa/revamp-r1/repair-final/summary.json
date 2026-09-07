@@ -1,0 +1,514 @@
+{
+  "status": "Round 1 repair implemented and checked; independent review pending",
+  "workingRoot": "C:/sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "baseCommit": "d1cd97f50ffdb48e3c421d8d142ead75f0b5bcbe",
+  "implementationCommits": [
+    "04fae3e",
+    "7788e35"
+  ],
+  "testedCodeCommit": "7788e35e414a0f5c4b61ac220722ca2836765ec0",
+  "preview": "http://localhost:4318/",
+  "tests": {
+    "full": {
+      "passed": 228,
+      "failed": 0,
+      "files": 30
+    },
+    "focused": {
+      "passed": 15,
+      "failed": 0,
+      "files": 5
+    },
+    "typescript": "passed --noEmit --incremental false",
+    "frontendBuild": "passed direct installed Next build; protected data helper bypassed",
+    "integrity": "repo_integrity=ok"
+  },
+  "browserRuns": [
+    {
+      "path": "qa/revamp-r1/repair-acceptance-final/summary.json",
+      "checks": [
+        {
+          "name": "M01/M02/M13/M15 1440x950",
+          "ok": true,
+          "detail": {
+            "shiokest-route-line": 4,
+            "shortest-route-line": 0
+          }
+        },
+        {
+          "name": "M01/M02/M13/M15 390x844",
+          "ok": true,
+          "detail": {
+            "shiokest-route-line": 4,
+            "shortest-route-line": 0
+          }
+        },
+        {
+          "name": "M01/M02/M13/M15 390x667",
+          "ok": true,
+          "detail": {
+            "shiokest-route-line": 4,
+            "shortest-route-line": 0
+          }
+        },
+        {
+          "name": "M01/M02/M13/M15 320x667",
+          "ok": true,
+          "detail": {
+            "shiokest-route-line": 4,
+            "shortest-route-line": 0
+          }
+        },
+        {
+          "name": "M03 expanded sheet scrolls",
+          "ok": true
+        },
+        {
+          "name": "W09 gap focus visible and sheet collapses",
+          "ok": true
+        },
+        {
+          "name": "M10 drag without delayed snap-back",
+          "ok": true
+        },
+        {
+          "name": "M10 wheel zoom",
+          "ok": true
+        },
+        {
+          "name": "M14 keyboard map pan",
+          "ok": true
+        },
+        {
+          "name": "M10 pinch zoom",
+          "ok": true
+        },
+        {
+          "name": "M14 reduced-motion layout fit",
+          "ok": true
+        },
+        {
+          "name": "S06/S07 shared postal and unknown stop",
+          "ok": true
+        },
+        {
+          "name": "S05 race A held",
+          "ok": true
+        },
+        {
+          "name": "S05/M11 stale A failure cannot overwrite B",
+          "ok": true
+        },
+        {
+          "name": "M06 geometry error keeps record",
+          "ok": true
+        },
+        {
+          "name": "M07 geometry recovery without reload",
+          "ok": true
+        },
+        {
+          "name": "M04 useful partial map",
+          "ok": true
+        },
+        {
+          "name": "M07 tile retry recovers",
+          "ok": true
+        }
+      ],
+      "runFailure": "Object reference chain is too long",
+      "uncaughtErrors": []
+    },
+    {
+      "path": "qa/revamp-r1/repair-preview-verified/summary.json",
+      "checks": [
+        {
+          "name": "M01/M02/M13/M15 390x667",
+          "ok": true,
+          "detail": {
+            "shiokest-route-line": 4,
+            "shortest-route-line": 0
+          }
+        },
+        {
+          "name": "M04 non-tile errors are not suppressed",
+          "ok": true
+        },
+        {
+          "name": "W12 failed stop preview preserves published evidence",
+          "ok": true
+        },
+        {
+          "name": "S06 valid shared stop restored",
+          "ok": true
+        },
+        {
+          "name": "W12 preview request held",
+          "ok": true
+        },
+        {
+          "name": "W10/W12 stale preview failure after B success",
+          "ok": true,
+          "detail": {
+            "chosenStop": "mrt:21677"
+          }
+        },
+        {
+          "name": "M06 delayed geometry publishes text independently",
+          "ok": true
+        },
+        {
+          "name": "M06 delayed geometry eventually renders",
+          "ok": true
+        },
+        {
+          "name": "S04 unavailable postal",
+          "ok": true
+        },
+        {
+          "name": "S07 malformed URL safe",
+          "ok": true
+        },
+        {
+          "name": "S02 paste bounded to six digits",
+          "ok": false
+        },
+        {
+          "name": "S02 numeric input",
+          "ok": true
+        },
+        {
+          "name": "S03 accessible validation",
+          "ok": true
+        },
+        {
+          "name": "S08 keyboard reaches search button",
+          "ok": true
+        }
+      ],
+      "runFailure": "Timed out: window.__shiokRouteMap && ['ready','partial'].includes(document.querySelector('main')?.dataset.mapStatus) && !window.__shiokRouteMap.isMoving() && window.__shiokRouteMap.getLayer('shiokest-route-line') && window.__shiokRouteMap.isSourceLoaded('shiokest-route') && window.__shiokRouteMap.queryRenderedFeatures({layers:['shiokest-route-line']}).some(f=>f.properties.render_key===window.__shiokRouteDebug.routeKey)",
+      "uncaughtErrors": []
+    },
+    {
+      "path": "qa/revamp-r1/repair-input-verified-2/summary.json",
+      "checks": [
+        {
+          "name": "S04 unavailable postal",
+          "ok": true
+        },
+        {
+          "name": "S07 malformed URL safe",
+          "ok": true
+        },
+        {
+          "name": "S02 paste bounded to six digits",
+          "ok": true
+        },
+        {
+          "name": "S02 numeric input",
+          "ok": true
+        },
+        {
+          "name": "S03 accessible validation",
+          "ok": true
+        },
+        {
+          "name": "S08 keyboard reaches search button",
+          "ok": true
+        },
+        {
+          "name": "S02 no address API search",
+          "ok": true
+        },
+        {
+          "name": "S01/S08 keyboard search retains leading zero",
+          "ok": true
+        }
+      ],
+      "runFailure": null,
+      "uncaughtErrors": []
+    },
+    {
+      "path": "qa/revamp-r1/repair-performance-page-profile/summary.json",
+      "checks": [
+        {
+          "name": "M12/M13 measurement capture cold 1440",
+          "ok": true
+        },
+        {
+          "name": "M12/M13 measurement capture warm 1440",
+          "ok": true
+        },
+        {
+          "name": "M12/M13 measurement capture cold 390",
+          "ok": true
+        },
+        {
+          "name": "M12/M13 measurement capture warm 390",
+          "ok": true
+        }
+      ],
+      "runFailure": null,
+      "uncaughtErrors": []
+    },
+    {
+      "path": "qa/revamp-r1/repair-style-verified/summary.json",
+      "checks": [
+        {
+          "name": "W10 starts with rendered focused gap",
+          "ok": true
+        },
+        {
+          "name": "M05 rendered old route cannot make new selection ready",
+          "ok": true,
+          "detail": {
+            "status": "initializing",
+            "key": "2:shiokest:primary",
+            "old": 4,
+            "current": 0
+          }
+        },
+        {
+          "name": "M05 current worker result settles ready",
+          "ok": true
+        },
+        {
+          "name": "W10 destination change clears old focused gap",
+          "ok": true
+        },
+        {
+          "name": "W13 selected candidate distance is published 110 m",
+          "ok": true
+        }
+      ],
+      "runFailure": null,
+      "uncaughtErrors": []
+    },
+    {
+      "path": "qa/revamp-r1/repair-tiles-verified-2/summary.json",
+      "checks": [
+        {
+          "name": "M04 tile failure preserves selected route",
+          "ok": true
+        },
+        {
+          "name": "M07 retry completes successful raster responses",
+          "ok": true,
+          "detail": {
+            "completedTiles": 1
+          }
+        },
+        {
+          "name": "M07/M13 restored raster capture matches selected route",
+          "ok": true,
+          "detail": {
+            "completedTiles": 42
+          }
+        }
+      ],
+      "runFailure": null,
+      "uncaughtErrors": []
+    }
+  ],
+  "requiredViewports": [
+    {
+      "viewport": [
+        1440,
+        950
+      ],
+      "selectedRenderedFeatures": 4,
+      "sameCaptureState": true,
+      "screenshot": "qa/revamp-r1/repair-acceptance-final/loaded-1440x950.png"
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "selectedRenderedFeatures": 4,
+      "sameCaptureState": true,
+      "screenshot": "qa/revamp-r1/repair-acceptance-final/loaded-390x844.png"
+    },
+    {
+      "viewport": [
+        390,
+        667
+      ],
+      "selectedRenderedFeatures": 4,
+      "sameCaptureState": true,
+      "screenshot": "qa/revamp-r1/repair-acceptance-final/loaded-390x667.png"
+    },
+    {
+      "viewport": [
+        320,
+        667
+      ],
+      "selectedRenderedFeatures": 4,
+      "sameCaptureState": true,
+      "screenshot": "qa/revamp-r1/repair-acceptance-final/loaded-320x667.png"
+    }
+  ],
+  "beforeScreenshots": [
+    "qa/revamp-r1/repair-baseline-hydrated/loaded-1440x950.png",
+    "qa/revamp-r1/repair-baseline-hydrated/loaded-390x667.png"
+  ],
+  "beforeLimitation": "Layout baseline was captured while map lifecycle repairs were in progress; selected route count was zero. Not a clean performance baseline or passing acceptance.",
+  "performance": {
+    "profile": {
+      "server": "Local Next production server; existing immutable local data; direct next build bypasses data helper",
+      "browser": "Chrome headless SwiftShader",
+      "latencyMs": 80,
+      "downloadBytesPerSecond": 1250000,
+      "uploadBytesPerSecond": 625000,
+      "cpuSlowdown": 1,
+      "start": "navigation to shared postal URL",
+      "end": "current selected route rendered in usable viewport",
+      "serviceWorker": "bypassed",
+      "requestScope": "CDP page-target observed requests (including cache); completed response encoded bytes through route visibility; worker-internal transfers may be excluded",
+      "budgets": "No numerical budget adopted"
+    },
+    "measurements": [
+      {
+        "w": 1440,
+        "h": 950,
+        "cache": "cold",
+        "textMs": 52528,
+        "routeMs": 142018,
+        "requests": 247,
+        "transferBytes": 1928324,
+        "requestClasses": {
+          "app": 17,
+          "data": 14,
+          "worker": 1,
+          "tiles": 215
+        }
+      },
+      {
+        "w": 1440,
+        "h": 950,
+        "cache": "warm",
+        "textMs": 65742,
+        "routeMs": 109389,
+        "requests": 255,
+        "transferBytes": 0,
+        "requestClasses": {
+          "app": 16,
+          "data": 14,
+          "worker": 1,
+          "tiles": 224
+        }
+      },
+      {
+        "w": 390,
+        "h": 844,
+        "cache": "cold",
+        "textMs": 14285,
+        "routeMs": 44485,
+        "requests": 132,
+        "transferBytes": 1528374,
+        "requestClasses": {
+          "app": 17,
+          "data": 14,
+          "worker": 1,
+          "tiles": 100
+        }
+      },
+      {
+        "w": 390,
+        "h": 844,
+        "cache": "warm",
+        "textMs": 47563,
+        "routeMs": 47578,
+        "requests": 131,
+        "transferBytes": 0,
+        "requestClasses": {
+          "app": 16,
+          "data": 14,
+          "worker": 1,
+          "tiles": 100
+        }
+      }
+    ],
+    "hostFreePhysicalMemoryKiB": 263172,
+    "hostTotalVisibleMemoryKiB": 16545324,
+    "allFourScreenshotsInspected": true
+  },
+  "catalogueMapping": "qa/verification/REVAMP-R1-core-walk.md: Corrected executed catalogue mapping, with later M05/W10/M07 corrections and completed M12 table",
+  "remaining": [
+    "Independent review approval",
+    "M12 numerical budget agreement; timing observations completed but host memory pressure prevents representative device claims",
+    "CDP page-target counts may exclude worker-internal transfer; not complete browser-wide byte totals"
+  ],
+  "protectedFilesChanged": [],
+  "originalVerificationPrefixPreserved": true,
+  "pipelineRuns": 0,
+  "pipelineCost": 0,
+  "deployed": false,
+  "failuresPreserved": [
+    "Old source-only PASS/completion claims withdrawn; blank route screenshots failed acceptance",
+    "Earlier hydration/dev-origin/worker404 and interception teardown failures recorded in verification",
+    "Acceptance run stopped after 18 checks on a harness Map serialization error; later supplemental coverage completed",
+    "Preview run had an over-specific mixed-paste assertion and incomplete CDP Enter activation; 8-check input follow-up passed",
+    "Worker-attached performance attempts timed out/stalled; final documented page-target profile completed four loaded captures",
+    "Chrome startup failures before app access; bounded startup retry succeeded",
+    "Initial tile recovery screenshot preceded raster arrival; final follow-up completed 42 raster responses and inspected restored capture",
+    "First push of 7788e35 failed to connect to GitHub; subsequent push succeeded"
+  ],
+  "changedFiles": [
+    ".agents/STATE.md",
+    "PRODUCT-PLAN.md",
+    "decisions.md",
+    "qa/revamp-r1/repair-acceptance-final/empty-desktop.png",
+    "qa/revamp-r1/repair-acceptance-final/gap-focused.png",
+    "qa/revamp-r1/repair-acceptance-final/geometry-failed.png",
+    "qa/revamp-r1/repair-acceptance-final/loaded-1440x950.png",
+    "qa/revamp-r1/repair-acceptance-final/loaded-320x667.png",
+    "qa/revamp-r1/repair-acceptance-final/loaded-390x667.png",
+    "qa/revamp-r1/repair-acceptance-final/loaded-390x844.png",
+    "qa/revamp-r1/repair-acceptance-final/sheet-expanded.png",
+    "qa/revamp-r1/repair-acceptance-final/stale-A-failure-B-success.png",
+    "qa/revamp-r1/repair-acceptance-final/summary.json",
+    "qa/revamp-r1/repair-acceptance-final/tiles-partial.png",
+    "qa/revamp-r1/repair-acceptance-final/tiles-recovered.png",
+    "qa/revamp-r1/repair-baseline-hydrated/loaded-1440x950.png",
+    "qa/revamp-r1/repair-baseline-hydrated/loaded-390x667.png",
+    "qa/revamp-r1/repair-final/focused-tests.json",
+    "qa/revamp-r1/repair-final/summary.json",
+    "qa/revamp-r1/repair-final/unit-tests-candidate.json",
+    "qa/revamp-r1/repair-input-verified-2/summary.json",
+    "qa/revamp-r1/repair-performance-page-profile/cold-1440x950.png",
+    "qa/revamp-r1/repair-performance-page-profile/cold-390x844.png",
+    "qa/revamp-r1/repair-performance-page-profile/summary.json",
+    "qa/revamp-r1/repair-performance-page-profile/warm-1440x950.png",
+    "qa/revamp-r1/repair-performance-page-profile/warm-390x844.png",
+    "qa/revamp-r1/repair-preview-verified/empty-desktop.png",
+    "qa/revamp-r1/repair-preview-verified/geometry-delayed.png",
+    "qa/revamp-r1/repair-preview-verified/loaded-390x667.png",
+    "qa/revamp-r1/repair-preview-verified/preview-failed.png",
+    "qa/revamp-r1/repair-preview-verified/summary.json",
+    "qa/revamp-r1/repair-style-verified/candidate-rendered.png",
+    "qa/revamp-r1/repair-style-verified/summary.json",
+    "qa/revamp-r1/repair-tiles-verified-2/summary.json",
+    "qa/revamp-r1/repair-tiles-verified-2/tiles-failed.png",
+    "qa/revamp-r1/repair-tiles-verified-2/tiles-restored.png",
+    "qa/verification/REVAMP-R1-core-walk.md",
+    "web/app/page.module.css",
+    "web/app/page.tsx",
+    "web/components/route-evidence-map.tsx",
+    "web/components/walk-summary.tsx",
+    "web/lib/__tests__/geometry-recovery.test.ts",
+    "web/lib/__tests__/map-viewport.test.ts",
+    "web/lib/__tests__/map-worker.test.ts",
+    "web/lib/__tests__/revamp-layout.test.ts",
+    "web/lib/__tests__/route-evidence-map-interaction.test.ts",
+    "web/lib/__tests__/score-card-copy.test.ts",
+    "web/lib/__tests__/walk-real-records.test.ts",
+    "web/lib/data.ts",
+    "web/lib/map-viewport.ts",
+    "web/public/maplibre/6.1.0/LICENSE.txt",
+    "web/public/maplibre/6.1.0/maplibre-gl-shared.mjs",
+    "web/public/maplibre/6.1.0/maplibre-gl-worker.mjs",
+    "web/scripts/revamp-browser.mjs"
+  ]
+}

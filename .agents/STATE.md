@@ -3,12 +3,21 @@
 Date: 2026-09-07
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Current task: Round 1 repair requested; implementation and acceptance checks in progress.
-Evidence: qa/verification/REVAMP-R1-core-walk.md
-Test contract: qa/SHIOK-acceptance-tests.md (Round 1 items mapped in evidence file).
-Preview: http://localhost:4318/ (local Next production server, direct frontend build only).
-Checks: full web suite 228 passing; four rendered route segments at each required viewport; gestures, sheet, gap focus and stale A-failure/B-success pass. Finish failure recovery and cold/warm profiling before handback.
-Next: finish the supplemental browser run and constrained cold/warm measurements, append final outcomes, then independent review. Prior unsupported completion/PASS claims have been withdrawn in evidence.
+Current task: Round 1 repairs implemented and checked; handback for independent review.
+Evidence: qa/verification/REVAMP-R1-core-walk.md (append-only corrections and catalogue mapping).
+Machine-readable handback: qa/revamp-r1/repair-final/summary.json.
+Code fixes pushed: 04fae3e and 7788e35; evidence is included with this handback.
+Preview: http://localhost:4318/ (local Next production server; frontend-only build).
+Checks: full suite 228 passed / 30 files; focused regression run passed; TypeScript,
+direct frontend build and repo integrity passed. All four required viewports show
+4 current selected route features with matching, inspected screenshots. Sheet,
+gestures, gap focus/clear, A-failure/B-success, previews, delayed geometry, and
+actual raster recovery passed. Paused-worker browser check rejects old features.
+Cold/warm desktop/mobile measurements and inspected captures are recorded.
+Remaining: independent review; M12 budget agreement. Timings reflect severe host
+memory pressure; request/byte counts are page-target observations and may exclude
+worker-internal transfers. No representative phone/production benchmark claimed.
+Next: review Round 1 only. Do not add comparison/reporting/refresh features or deploy.
 Scope: real-data core walk UI and map reliability, not comparison/report infrastructure.
 Mockup approved at 0de3d5f. Reuse production MapLibre, never the illustrative canvas.
 Prototype uses explicitly illustrative geometry/metrics; dialogs do not submit reports.
@@ -33,7 +42,7 @@ Protected invariants:
 - Do not run scoring, export, rescore, subset runs, ingest, network builds, input rebuilds, public-data writes, dependency installs, or deployments without explicit owner approval.
 - Evidence under `qa/verification/` is append-only unless creating a new tracked phase file.
 
-Status:
+Historical status (not the current task):
 - Restored sync damage from b7c0588: NOTICE, AGENTS.md and .vercelignore match 06698be exactly; six deleted ignore rules restored. Integrity check passes and all 7 integrity tests pass. Live browser smoke for 018956 passes without uncaught errors; desktop/mobile screenshots show Map ready and visible basemap, but desktop peripheral tiles remain blurry. No application deployment is needed for this repository-only repair. Evidence appended to qa/verification/P1048-postal-only-map-status.md.
 - P1048 is complete, pushed, deployed, and smoke-tested: search input is postal-code only, strips non-digits while typing, requires exactly six digits on submit, and no longer calls OneMap address search from the form path. The page now shows a compact visible map status (`Map starting`, `Map loading`, `Map ready`, or `Map failed: ...`) so a user can report map state without DevTools. Deployment `dpl_wVnDeskyK666GwYUKWzY2aserkJR` is Ready on `https://sgshiok.vercel.app`; live production smoke passed with `ok=true`, `no_uncaught_page_errors=true`, and route map source/render checks true. Focused web tests passed 3 files / 73 tests; full web tests passed 25 files / 215 tests; repo integrity passed; local browser smoke passed after retry and screenshots show `Map ready` on desktop/mobile. Evidence: `qa/verification/P1048-postal-only-map-status.md`.
 - P1047 is complete, pushed, deployed, and smoke-tested: production date rendering now fixes the timezone to `Asia/Singapore` for data and generated dates, addressing the React hydration mismatch caught by the first live smoke after deployment. Deployment `dpl_AtmhNoWvuSb7Y75BWeWNsY9JT5J2` is Ready on `https://sgshiok.vercel.app`; live browser smoke passed with `ok=true`, `no_uncaught_page_errors=true`, and route map source/render checks true. Focused copy/render tests passed 2 files / 61 tests; full web tests passed 25 files / 215 tests; repo integrity passed. Evidence: `qa/verification/P1047-stable-production-date-format.md`.
@@ -161,8 +170,7 @@ Status:
 - P927 is complete and pushed: locked-row-unavailable reason chips now say `Shelter-map evidence inspectable` instead of `Shelter-map evidence available`; a stale P926 source assertion was also corrected.
 - No scoring, export, rescore, subset run, ingest, network build, input mutation, protected payload write, deployment, dependency install, or locked-weight change was performed.
 
-Next useful free-tier work:
-- Continue aligning visible comparison/status copy with the shelter-first and nearby-address framing.
-- Prefer small browser copy/test/evidence commits, pushed to main immediately.
-
-Repair follow-up: candidate mapping correction and shared clicked-stop restoration under verification; first preview harness clicked a precomputed stop and timed out. No final completion claim.
+Next action:
+- Independent Round 1 repair review using the appended evidence and machine summary.
+- Preserve all compute/data/deployment gates; stop before new features.
+- Earlier source-only PASS and completion claims are withdrawn in the evidence.

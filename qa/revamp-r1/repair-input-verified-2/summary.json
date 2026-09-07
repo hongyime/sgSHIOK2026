@@ -1,0 +1,76 @@
+{
+  "phase": "input-verified-2",
+  "startedAt": "2026-09-07T12:38:28.353Z",
+  "url": "http://localhost:4318/",
+  "captures": [],
+  "checks": [
+    {
+      "name": "S04 unavailable postal",
+      "ok": true
+    },
+    {
+      "name": "S07 malformed URL safe",
+      "ok": true
+    },
+    {
+      "name": "S02 paste bounded to six digits",
+      "ok": true
+    },
+    {
+      "name": "S02 numeric input",
+      "ok": true
+    },
+    {
+      "name": "S03 accessible validation",
+      "ok": true
+    },
+    {
+      "name": "S08 keyboard reaches search button",
+      "ok": true
+    },
+    {
+      "name": "S02 no address API search",
+      "ok": true
+    },
+    {
+      "name": "S01/S08 keyboard search retains leading zero",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "resourceErrors": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/scores/BISHAN_PART_001.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/scores/UNKNOWN.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/transit/pois.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:4318/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz"
+    }
+  ],
+  "serviceWorker": "bypassed for deterministic network failure and HTTP cache measurement"
+}

@@ -36,16 +36,31 @@ Use absolute write paths under the internal working root. Preserve all protected
 data, existing verification lines, and locked weights.
 
 ## Round 1 status
-Milestones 3 and 4: CHANGES REQUESTED; repair verification in progress (2026-09-07).
+Repairs implemented and checked (2026-09-07); independent review pending.
 Earlier commits 0c6ba4c, f9e6e20 and 0ec2510 did not establish completion.
-The initial tests primarily inspected source text and the screenshots lacked routes.
-Repairs separate search/identity/results, measure overlays, scope readiness to the
-rendered selection, expose retryable partial errors, and fix MapLibre 6 worker serving.
-The current full web suite passes 223 tests. Loaded route captures show four selected
-segments at 1440x950, 390x844, 390x667 and 320x667; remaining checks below are required.
-Evidence: qa/verification/REVAMP-R1-core-walk.md
-Remaining: finish failure recovery and cold/warm measurements; inspect final
-captures and publish the corrected catalogue mapping. Stale A-failure/B-success
-is now reproduced with synthetic network interception: B retains text, URL and route.
-Next: finish Round 1 repair and return it for independent review before adding features.
-Milestones 5-11 remain pending.
+Their source-only PASS classifications and blank-map acceptance claims are
+withdrawn by append-only corrections in qa/verification/REVAMP-R1-core-walk.md.
+
+Milestone 3: measured overlays, current-render readiness, listener cleanup, stale
+failures, partial errors/retry and MapLibre worker serving repaired. Four cold/warm
+observations recorded with matching inspected route captures. M12 budget agreement
+remains open; severe host memory pressure and page-target byte-count scope limit
+performance interpretation. No production or representative phone benchmark claim.
+
+Milestone 4: fixed centered top search and separate identity, 270px desktop panel,
+compact four-metric mobile sheet and scrollable secondary details implemented.
+Actual selected-route captures show 4 features at 1440x950, 390x844, 390x667 and
+320x667 without overlap/overflow. Sheet/gesture/gap checks, paused-worker readiness,
+stale A-failure/B-success, preview races, shared stops and real tile/geometry recovery
+are executed. Alternate-stop summaries use their own evidence. Existing locked
+scores, data and working secondary capabilities are preserved.
+
+Validation: full web suite 228 passed in 30 files; focused regressions, TypeScript,
+direct frontend-only build and repo integrity passed. Machine-readable report and
+scoped file list: qa/revamp-r1/repair-final/summary.json. Local preview: localhost:4318.
+Implementation commits 04fae3e and 7788e35 pushed to main; evidence is included with this handback.
+No pipeline run, dependency install, protected-data change or deployment.
+
+Remaining: independent Round 1 review and reviewed numerical timing budgets.
+No independent user-session or release approval is claimed. Finish this review
+before starting more features. Milestones 5-11 remain pending.
