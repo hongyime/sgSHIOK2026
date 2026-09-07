@@ -3,9 +3,9 @@
 Date: 2026-09-07
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Current task: bounded loading-time diagnosis handback for review (base 7851cde; see git log for evidence commit). One cold/warm 390x844 pair completed, then sustained memory/paging/CPU pressure triggered the stop gate. No product change, extra browser pair or deployment. Round 1 repairs remain accepted.
+Current task: sync-bot restoration and scoped prevention complete, awaiting independent review. Repair base 93d1fa2 preserves the heartbeat and both dependency updates after reviewed 4d52b80. NOTICE/AGENTS/.vercelignore match the reviewed blobs; six project ignore rules restored outside the replaceable sync block. Integrity passes; 29 focused tests and 5 executed writer-guard cases pass. This repository's no-config-sync topic is enabled and read back; all 18 listed workflows remain active. No subsequent real sync run is claimed. No map-performance implementation.
 Evidence: qa/verification/REVAMP-R1-core-walk.md (append-only corrections and catalogue mapping).
-Machine-readable handbacks: qa/revamp-r1/repair-portability/summary.json (current); qa/revamp-r1/repair-final/summary.json (prior functional/browser checks).
+Machine-readable handbacks: qa/sync-repair/20260907/summary.json and writer-proof.json (current); qa/revamp-r1/repair-portability/summary.json and qa/revamp-r1/repair-final/summary.json (prior functional checks).
 Code fixes pushed: 04fae3e and 7788e35; evidence is included with this handback.
 Preview: http://localhost:4318/ (local Next production server; frontend-only build).
 Portability checks: isolated full suite 228 passed / 30 files; focused 15 passed / 3 files; zero failures/skips. Test copy has no web/public/data; Node filesystem guard denies original and copied data paths. Existing dependencies linked; no install. TypeScript and repo integrity passed. Reduced fixture indexes do not audit the complete production bundle.
@@ -18,14 +18,16 @@ Cold/warm desktop/mobile measurements and inspected captures are recorded.
 Diagnosis evidence: qa/revamp-r1/loading-diagnosis/analysis.json and findings.json.
 Navigation-to-text: cold 3752.5 ms / warm 700.4 ms; current-route observation:
 10317.5 / 3291.0 ms. Both inspected PNGs show 4 current features with matching
-capture brackets. Three same-key route submissions per sample; 27 total source
-writes. Host CPU 100%, available 707-1377 MiB, sustained page reads.
-Remaining: review of diagnosis and proposed M12 budgets; native parse/decompression
+capture brackets. Three same-key route submissions per sample; 27 source
+writes per run, 54 across the pair. Host CPU 100%, available 707-1377 MiB, sustained page reads. Diagnosis at 4d52b80 is accepted as bounded evidence, not performance acceptance; route-source separation remains an unproven candidate.
+Remaining: performance acceptance and review of proposed M12 budgets; native parse/decompression
 and server CPU attribution, complete worker transfers and usable V8 trace. No
 representative phone/production benchmark. No additional measurements under pressure.
-Next: owner-arranged headroom and review of the smallest proposed frontend change:
-isolate route source updates from optional layer changes, then one controlled
-comparison with corrected telemetry. No fix implemented; no comparison/reporting.
+Next: stop for independent sync-repair review. Keep no-config-sync on this repository;
+future shared configuration refreshes require deliberate review/adoption. The guard
+depends on the upstream writer continuing to honor that topic. Any later performance
+work needs owner-arranged headroom and review of route-source separation and corrected
+telemetry; latency benefit is unproven. No implementation or comparison/reporting.
 Scope: real-data core walk UI and map reliability, not comparison/report infrastructure.
 Mockup approved at 0de3d5f. Reuse production MapLibre, never the illustrative canvas.
 Prototype uses explicitly illustrative geometry/metrics; dialogs do not submit reports.

@@ -1,0 +1,81 @@
+{
+  "sourceRepository": "hongyime/sourcerepo",
+  "sourceCommit": "bc7594f3b888f5253f5c0d28518394a2ca2ea15e",
+  "sourcePath": ".github/scripts/sync-selected-paths.sh",
+  "sourceBlob": "84ffc061340110dc5e483cb8832d6d3c5c8b190e",
+  "upstreamEdited": false,
+  "sourceBranchLines": [
+    315,
+    323
+  ],
+  "exactBranchExecuted": "  if [[ \",$REPO_TOPICS,\" == *\",no-config-sync,\"* ]]; then\n    echo \"Skipping all config sync for $REPO_NAME (topic: no-config-sync)\"\n    cd \"$WORKDIR\" || exit 1\n    rm -rf \"$TARGET_DIR\"\n    if [ \"$UNARCHIVED_HERE\" = \"true\" ]; then\n      rearchive_repo \"$FULL_NAME\" || REARCHIVE_FAILED_REPOS+=(\"$REPO_NAME\")\n    fi\n    continue\n  fi",
+  "cases": [
+    {
+      "topics": [
+        "python",
+        "singapore",
+        "data",
+        "web"
+      ],
+      "skip": false,
+      "wouldReachConfigWrites": true,
+      "exitCode": 0,
+      "stdout": "would-reach-config-writes\n"
+    },
+    {
+      "topics": [
+        "python",
+        "singapore",
+        "data",
+        "web",
+        "no-config-sync"
+      ],
+      "skip": true,
+      "wouldReachConfigWrites": false,
+      "exitCode": 0,
+      "stdout": "Skipping all config sync for sgSHIOK2026 (topic: no-config-sync)\ncleanup-suppressed\n"
+    },
+    {
+      "topics": [
+        "no-config-sync"
+      ],
+      "skip": true,
+      "wouldReachConfigWrites": false,
+      "exitCode": 0,
+      "stdout": "Skipping all config sync for sgSHIOK2026 (topic: no-config-sync)\ncleanup-suppressed\n"
+    },
+    {
+      "topics": [
+        "keep-lfs"
+      ],
+      "skip": false,
+      "wouldReachConfigWrites": true,
+      "exitCode": 0,
+      "stdout": "would-reach-config-writes\n"
+    },
+    {
+      "topics": [
+        "prefix-no-config-sync-suffix"
+      ],
+      "skip": false,
+      "wouldReachConfigWrites": true,
+      "exitCode": 0,
+      "stdout": "would-reach-config-writes\n"
+    }
+  ],
+  "laterWriterOperations": {
+    "forceCopy": 339,
+    "deleteDots": 360,
+    "replaceGitignoreBlock": 378,
+    "directPush": 384
+  },
+  "proofScope": "Exact pinned opt-out branch executed with filesystem/archive commands stubbed; sentinel shows whether control reaches later writer operations. No full external sync run or real cleanup was executed.",
+  "workflow": {
+    "path": ".github/workflows/sync-repo-settings.yml",
+    "blob": "d8da00d65ad6f9ad14a2b9f0652ad45aa6ef208d",
+    "job": "force-sync-general-config",
+    "invocationLine": 282
+  },
+  "mechanism": "GitHub topic no-config-sync on hongyime/sgSHIOK2026 skips this target's general-config writer. It does not disable target Actions, Dependabot, or the separate settings/secrets jobs.",
+  "limit": "Proof applies to this inspected writer and topic state. Future upstream changes or removal of the topic can invalidate it; no future scheduled run is claimed."
+}

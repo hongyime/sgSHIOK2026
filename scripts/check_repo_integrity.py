@@ -15,7 +15,16 @@ VERCELIGNORE_REQUIRED_TEXT = (
     "!web/public/data/generated_20260805_prefer_scored_routed/",
     "!web/public/data/generated_20260805_prefer_scored_routed/**",
 )
-GITIGNORE_REQUIRED_LINES = ("!.vercelignore",)
+GITIGNORE_REQUIRED_LINES = (
+    "!.vercelignore",
+    ".env.*",
+    "venv/",
+    "dist/",
+    "build/",
+    "coverage/",
+)
+SYNC_BLOCK_START = "# AI / editor dot directories (managed via sourcerepo)"
+SYNC_BLOCK_END = "# End AI / editor dot directories (managed via sourcerepo)"
 
 
 def git_blob_sha1(path: Path) -> str:
@@ -63,10 +72,22 @@ def check_repo_integrity(root: Path) -> list[str]:
     if not gitignore.is_file():
         errors.append(".gitignore is missing")
     else:
-        lines = set(gitignore.read_text(encoding="utf-8").splitlines())
+        all_lines = gitignore.read_text(encoding="utf-8").splitlines()
+        lines = set(all_lines)
+        owned_lines: set[str] = set()
+        inside_sync_block = False
+        for line in all_lines:
+            if line == SYNC_BLOCK_START:
+                inside_sync_block = True
+            elif line == SYNC_BLOCK_END:
+                inside_sync_block = False
+            elif not inside_sync_block:
+                owned_lines.add(line)
         for required in GITIGNORE_REQUIRED_LINES:
             if required not in lines:
                 errors.append(f".gitignore missing required line: {required}")
+            elif required not in owned_lines:
+                errors.append(f".gitignore project rule is inside replaceable sync block: {required}")
 
     return errors
 

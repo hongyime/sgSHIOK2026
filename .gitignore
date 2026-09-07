@@ -91,3 +91,11 @@ skills/
 skills-lock.json
 docs/
 # End AI / editor dot directories (managed via sourcerepo)
+
+# Repository-owned protections, outside the replaceable sourcerepo block.
+!.vercelignore
+.env.*
+venv/
+dist/
+build/
+coverage/

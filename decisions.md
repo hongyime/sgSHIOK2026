@@ -2348,3 +2348,31 @@ remain unresolved; the V8 export did not establish a successful trace flush.
 Correct telemetry and obtain owner-arranged host headroom before another controlled
 comparison. Proposed M12 thresholds are review candidates, not accepted budgets.
 Functional Round 1 acceptance remains intact; performance and release remain open.
+
+### 2026-09-07: Restore sync damage and use the actual writer's target opt-out
+The reviewed baseline is 4d52b80; current main was inspected through 93d1fa2.
+Restore NOTICE, AGENTS.md and .vercelignore to their reviewed identities, and
+append the six removed project ignore rules outside sourcerepo's replaceable
+block. Preserve every existing remote ignore line, the heartbeat, and the Bandit
+and TruffleHog dependency updates. Do not revert the complete bot commit.
+
+The damaging writer is sourcerepo's force-sync-general-config job, invoking
+.github/scripts/sync-selected-paths.sh. Run 34135559993 directly created 79d513d.
+Its existing no-config-sync repository-topic guard precedes copying, dot-file
+deletion, ignore-block replacement and pushing. Five executions of that exact
+pinned guard with inert filesystem/archive stubs demonstrate the control.
+Added only no-config-sync to hongyime/sgSHIOK2026's existing topics and verified
+readback; all 18 listed workflows remain active. No upstream repository edit,
+permission change, security weakening or Actions disable was required.
+
+Restoration is verified separately from prevention: the opt-out is enabled for
+the inspected writer, but no subsequent real sync run was dispatched or claimed.
+Retain the topic; future upstream changes could invalidate this contract. Shared
+configuration refreshes for this target now require deliberate review/adoption;
+separate settings/secrets jobs and unrelated automation remain. The strengthened
+integrity checker detects damage; it is not the prevention mechanism.
+Evidence and command results: qa/verification/REVAMP-R1-core-walk.md and
+qa/sync-repair/20260907/{summary,writer-proof}.json. Stop for independent review.
+The accepted 4d52b80 diagnosis remains bounded evidence: 27 source writes EACH
+run, 54 across the cold/warm pair. Route-source separation is the next scoped
+frontend candidate; latency benefit remains unproven and it is not implemented.

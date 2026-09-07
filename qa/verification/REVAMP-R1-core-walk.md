@@ -698,3 +698,111 @@ existing toolchain, then review the narrow source-write proposal and telemetry
 correction before another comparison. No product fix, new feature, comparison/
 reporting work, installation, protected-data mutation or deployment. Production
 was not deployed. Pipeline runs 0; pipeline cost $0. Stop for independent review.
+
+### 2026-09-07: Sync-bot repair and demonstrated target opt-out
+
+Root asserted before work: C:\sgSHIOK2026. Hostname: Prawn-E14. No commands used
+an X: working directory; all task writes stayed under the asserted C: root.
+Read .agents/STATE.md, AGENTS.md and IMPLEMENTATION-BRIEF.md. This section appends
+to the prior evidence; previous PASS classifications are not broadened.
+
+Reviewed baseline: 4d52b80115463bcf4ab01e05bfb48a5ae3323545.
+Fetched origin and fast-forwarded the clean tracked tree to repair base
+93d1fa2a3deb2a1682b5ebd24b75f0c666c9c0e9. All intervening commits and files:
+
+- 121009d3779a4fabd9f87b838d9cdd1d86f10ccd: last_sync.txt; heartbeat preserved.
+- 79d513df4251d4a863e6cf618a8f86b6fa86dfc7: .gitignore, AGENTS.md, NOTICE,
+  and deletion of .vercelignore; narrowly repaired.
+- 492a95931a5697d43cd4c6646bfd0eb554f571db: .github/workflows/bandit.yml;
+  actions/setup-python 6 to 7 preserved.
+- 93d1fa2a3deb2a1682b5ebd24b75f0c666c9c0e9: .github/workflows/trufflehog.yml;
+  TruffleHog 3.97.1 to 3.97.4 preserved.
+
+Inspected path history and diffs: no subsequent legitimate edits to the three
+restoration targets. Restored their content from 4d52b80, verified both normalized
+file contents and Git blob identities (not only existence):
+
+- NOTICE: 5ccfd88ea706cb129bc602346d8db34fc8005781.
+- AGENTS.md: 9bb49bb2a481f6fd3833c02c07c88bcc4bdaaa60.
+- .vercelignore: 9a612b2f425be1df2a0e6667f53c7eba2259bb60.
+
+Hand-merged .gitignore by retaining all repair-base lines as an exact prefix and
+appending !.vercelignore, .env.*, venv/, dist/, build/ and coverage/ outside the
+replaceable sourcerepo block. No whole-commit revert or workflow edit. Integrity
+now checks all six rules and rejects rules found only inside the managed block.
+
+FINDINGS: the effective writer lives in hongyime/sourcerepo, workflow
+.github/workflows/sync-repo-settings.yml, job force-sync-general-config (line 224),
+invoking .github/scripts/sync-selected-paths.sh at workflow line 282. The script
+force-copies NOTICE/AGENTS, deletes non-exempt dot items (.vercelignore is not
+exempt), replaces the managed ignore block, then commits and pushes main.
+The actual damaging run https://github.com/hongyime/sourcerepo/actions/runs/34135559993,
+job 101785846927, used source commit f65901e5d5c8166cee1729e433bfb4c38c0c6ecb.
+Its logs identify sgSHIOK2026, original topics python,singapore,data,web, both
+copies, deletion of .vercelignore, ignore replacement, and creation/push of
+79d513d. This is observed writer attribution, not an inference from author name.
+
+Read-only inspection of source main bc7594f3b888f5253f5c0d28518394a2ca2ea15e
+found the same script blob 84ffc061340110dc5e483cb8832d6d3c5c8b190e and workflow
+blob d8da00d65ad6f9ad14a2b9f0652ad45aa6ef208d as the damaging run. The existing
+no-config-sync topic guard at script lines 315-323 runs before force-copy line339,
+dot cleanup line360, ignore replacement line378 and direct push line384.
+The source's topic policy reserves no-config-sync; inspection found no competing
+topic-removal operation in the settings/reconciliation path.
+
+Executed the exact pinned guard with installed Git Bash, inert cd/rm/rearchive_repo
+stubs and a sentinel after the guard. Five cases passed: original topics reaches
+the later writer; original topics plus no-config-sync skips; no-config-sync alone
+skips; keep-lfs alone and a substring lookalike do not skip. No full sync script,
+real cleanup, archive action, clone or test push was executed. Source hash,
+extracted branch, outcomes and operation ordering are in writer-proof.json.
+
+Applied the repository-owned control with:
+`gh repo edit hongyime/sgSHIOK2026 --add-topic no-config-sync` (exit 0).
+`gh api repos/hongyime/sgSHIOK2026/topics` read back
+python,singapore,data,web,no-config-sync, preserving the four existing topics.
+`gh api repos/hongyime/sgSHIOK2026/actions/workflows` read back all 18 listed
+workflows active, including Bandit, TruffleHog, CodeQL and Repository Integrity.
+No owner action outside this repository was required; no permissions changed.
+
+RESTORED: the three reviewed files and six removed ignore rules.
+RECURRENCE PREVENTION: enabled and behaviorally demonstrated for the inspected
+writer through this target's existing no-config-sync topic mechanism. No future
+scheduled sync run was dispatched or observed, so that operational result is not
+claimed. The topic must remain and upstream must continue to honor it. The scoped
+tradeoff is deliberate review/adoption of future shared configuration refreshes;
+existing target Actions and separate upstream settings/secrets jobs remain.
+AGENTS text and scheduled integrity checks are detection/documentation, not the
+control that stops the external writer.
+
+Command evidence (all from the asserted root, using installed tools):
+
+- `python scripts/check_repo_integrity.py` after pull: expected FAIL, with changed
+  NOTICE, three missing AGENTS overrides, missing .vercelignore and its allowlist.
+  After restoration and checker changes: `repo_integrity=ok`.
+- `python -m pytest tests/test_repo_integrity.py --basetemp=C:/sgSHIOK2026/tmp/sync-repair-tests-20260907-1 -p no:cacheprovider -q`:
+  28 passed in 23.93s before adding combined-damage reproduction.
+- `python -m pytest tests/test_repo_integrity.py --basetemp=C:/sgSHIOK2026/tmp/sync-repair-tests-20260907-2 -p no:cacheprovider -q`:
+  final 29 passed in 11.06s, zero failures/skips. Both temporary roots were new;
+  existing payloads were not renamed, moved or deleted. Includes 10 actual Git
+  ignore-behavior cases, 12 missing/managed-only rule cases, and combined sync
+  damage in a fresh fixture where .vercelignore never exists.
+- `python C:/sgSHIOK2026/qa/sync-repair/20260907/prove_writer_optout.py`:
+  writer_optout_cases=5 passed; filesystem_operations=stubbed.
+- `git diff --check`: passed. Identity checks matched all three reviewed blobs;
+  normalized .gitignore repair-base prefix remained intact. The diff for
+  last_sync.txt, bandit.yml and trufflehog.yml against 93d1fa2 was empty.
+
+Machine evidence: qa/sync-repair/20260907/summary.json and writer-proof.json;
+bounded proof driver: qa/sync-repair/20260907/prove_writer_optout.py.
+No full application/browser/pipeline run was needed or performed. No protected
+data/evidence mutation, weights change, dependency installation, deployment,
+upstream repository edit, permissions change or untracked-file deletion.
+Pipeline runs 0; pipeline cost $0. No map-performance implementation.
+
+Review-context correction: 4d52b80 is accepted as bounded diagnosis evidence,
+not performance acceptance. There were 27 source writes EACH run, 54 across the
+cold/warm pair. Route-source separation remains the next scoped frontend
+candidate with unproven latency benefit. Representative performance remains open.
+DISAGREEMENTS: none with this repair contract or the accepted bounded diagnosis.
+Stop for independent review before any performance implementation or new feature.

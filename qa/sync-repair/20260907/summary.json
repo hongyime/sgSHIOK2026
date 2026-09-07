@@ -1,0 +1,231 @@
+{
+  "recordedAt": "2026-09-07T15:41:41.431073+00:00",
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "reviewedBaseline": "4d52b80115463bcf4ab01e05bfb48a5ae3323545",
+  "repairBase": "93d1fa2a3deb2a1682b5ebd24b75f0c666c9c0e9",
+  "interveningCommits": [
+    {
+      "sha": "121009d3779a4fabd9f87b838d9cdd1d86f10ccd",
+      "files": [
+        "last_sync.txt"
+      ],
+      "decision": "Preserved heartbeat"
+    },
+    {
+      "sha": "79d513df4251d4a863e6cf618a8f86b6fa86dfc7",
+      "files": [
+        ".gitignore",
+        "AGENTS.md",
+        "NOTICE",
+        ".vercelignore (deleted)"
+      ],
+      "decision": "Restore three files and hand-merge project ignore protections; no whole-commit revert"
+    },
+    {
+      "sha": "492a95931a5697d43cd4c6646bfd0eb554f571db",
+      "files": [
+        ".github/workflows/bandit.yml"
+      ],
+      "decision": "Preserved setup-python 7 update"
+    },
+    {
+      "sha": "93d1fa2a3deb2a1682b5ebd24b75f0c666c9c0e9",
+      "files": [
+        ".github/workflows/trufflehog.yml"
+      ],
+      "decision": "Preserved TruffleHog 3.97.4 update"
+    }
+  ],
+  "restoration": {
+    "status": "restored",
+    "identities": {
+      "NOTICE": {
+        "expectedGitBlob": "5ccfd88ea706cb129bc602346d8db34fc8005781",
+        "actualGitBlob": "5ccfd88ea706cb129bc602346d8db34fc8005781",
+        "exactContentAfterLineEndingNormalization": true
+      },
+      "AGENTS.md": {
+        "expectedGitBlob": "9bb49bb2a481f6fd3833c02c07c88bcc4bdaaa60",
+        "actualGitBlob": "9bb49bb2a481f6fd3833c02c07c88bcc4bdaaa60",
+        "exactContentAfterLineEndingNormalization": true
+      },
+      ".vercelignore": {
+        "expectedGitBlob": "9a612b2f425be1df2a0e6667f53c7eba2259bb60",
+        "actualGitBlob": "9a612b2f425be1df2a0e6667f53c7eba2259bb60",
+        "exactContentAfterLineEndingNormalization": true
+      }
+    },
+    "gitignore": "All remote base lines preserved as prefix. Six removed project rules appended outside the replaceable sync block.",
+    "preservedInterveningPaths": [
+      "last_sync.txt",
+      ".github/workflows/bandit.yml",
+      ".github/workflows/trufflehog.yml"
+    ]
+  },
+  "writer": {
+    "repository": "hongyime/sourcerepo",
+    "workflow": ".github/workflows/sync-repo-settings.yml",
+    "job": "force-sync-general-config",
+    "script": ".github/scripts/sync-selected-paths.sh",
+    "runId": 34135559993,
+    "jobId": 101785846927,
+    "runSourceCommit": "f65901e5d5c8166cee1729e433bfb4c38c0c6ecb",
+    "currentInspectedSourceCommit": "bc7594f3b888f5253f5c0d28518394a2ca2ea15e",
+    "scriptBlob": "84ffc061340110dc5e483cb8832d6d3c5c8b190e",
+    "workflowBlob": "d8da00d65ad6f9ad14a2b9f0652ad45aa6ef208d",
+    "runAndCurrentSourceBlobsMatch": true,
+    "logEvidence": [
+      "2026-09-07T15:01:49.3041910Z Processing sgSHIOK2026...",
+      "2026-09-07T15:01:52.6282916Z Topics: python,singapore,data,web",
+      "2026-09-07T15:01:55.8242641Z Deleted dot item: .vercelignore",
+      "2026-09-07T15:01:55.8332155Z Updated .gitignore with dot directory exclusions",
+      "2026-09-07T15:01:55.8490533Z [main 79d513d] chore(config): sync from sourcerepo [skip ci]",
+      "2026-09-07T15:01:57.0472459Z Pushed changes to sgSHIOK2026"
+    ]
+  },
+  "prevention": {
+    "status": "Enabled and demonstrated for the inspected writer; not merely restored",
+    "control": "Repository topic no-config-sync",
+    "command": "gh repo edit hongyime/sgSHIOK2026 --add-topic no-config-sync",
+    "topicsBefore": [
+      "python",
+      "singapore",
+      "data",
+      "web"
+    ],
+    "topicsReadback": [
+      "python",
+      "singapore",
+      "data",
+      "web",
+      "no-config-sync"
+    ],
+    "proof": "qa/sync-repair/20260907/writer-proof.json",
+    "activeWorkflowReadback": [
+      {
+        "name": "Auto-merge Bot PRs",
+        "path": ".github/workflows/auto-merge-bots.yml",
+        "state": "active"
+      },
+      {
+        "name": "Bandit",
+        "path": ".github/workflows/bandit.yml",
+        "state": "active"
+      },
+      {
+        "name": "Build Check",
+        "path": ".github/workflows/ci.yml",
+        "state": "active"
+      },
+      {
+        "name": "CodeQL Analysis",
+        "path": ".github/workflows/codeql.yml",
+        "state": "active"
+      },
+      {
+        "name": "Dependabot Auto-Merge",
+        "path": ".github/workflows/dependabot-auto-merge.yml",
+        "state": "active"
+      },
+      {
+        "name": "Dependency Review",
+        "path": ".github/workflows/dependency-review.yml",
+        "state": "active"
+      },
+      {
+        "name": "Greet New Contributors",
+        "path": ".github/workflows/greetings.yml",
+        "state": "active"
+      },
+      {
+        "name": "Heartbeat",
+        "path": ".github/workflows/heartbeat.yml",
+        "state": "active"
+      },
+      {
+        "name": "Pull Request Labeler",
+        "path": ".github/workflows/labeler.yml",
+        "state": "active"
+      },
+      {
+        "name": "LFS Guard",
+        "path": ".github/workflows/lfs-guard.yml",
+        "state": "active"
+      },
+      {
+        "name": "Repository Integrity",
+        "path": ".github/workflows/repo-integrity.yml",
+        "state": "active"
+      },
+      {
+        "name": "OSSF Scorecard",
+        "path": ".github/workflows/scorecard.yml",
+        "state": "active"
+      },
+      {
+        "name": "Semgrep",
+        "path": ".github/workflows/semgrep.yml",
+        "state": "active"
+      },
+      {
+        "name": "Summarize new issues",
+        "path": ".github/workflows/summary.yml",
+        "state": "active"
+      },
+      {
+        "name": "TruffleHog Secret Scan",
+        "path": ".github/workflows/trufflehog.yml",
+        "state": "active"
+      },
+      {
+        "name": "Dependabot Updates",
+        "path": "dynamic/dependabot/dependabot-updates",
+        "state": "active"
+      },
+      {
+        "name": "Dependency Graph",
+        "path": "dynamic/dependabot/update-graph",
+        "state": "active"
+      },
+      {
+        "name": "CodeQL",
+        "path": "dynamic/github-code-scanning/codeql",
+        "state": "active"
+      }
+    ],
+    "scope": "Only this repository general-config copying/cleanup is skipped; existing Actions, Dependabot and separate upstream settings/secrets jobs remain. No permissions or other repository edits.",
+    "tradeoff": "Future shared configuration refreshes for this repository require deliberate review/adoption.",
+    "limit": "No subsequent real sync run dispatched or claimed. The opt-out depends on the topic remaining and the inspected writer continuing to honor it.",
+    "ownerActionRequiredNow": null
+  },
+  "checks": {
+    "focusedRegression": "29 passed in 11.06s; zero failures/skips. Initial 28 cases passed in 23.93s before adding the combined-damage regression.",
+    "focusedRegressionCommand": "python -m pytest tests/test_repo_integrity.py --basetemp=C:/sgSHIOK2026/tmp/sync-repair-tests-20260907-2 -p no:cacheprovider -q",
+    "writerOptoutCases": 5,
+    "writerFilesystemOperations": "Stubbed; no complete sync run or deletion executed",
+    "restoredIdentityMatches": 3,
+    "integrity": "repo_integrity=ok",
+    "gitignoreBehaviorCases": 10,
+    "removedOrManagedBlockRuleCases": 12,
+    "fullAppOrPipelineRun": false
+  },
+  "reviewContext": {
+    "diagnosisCommit": "4d52b80",
+    "acceptance": "Bounded diagnostic evidence only; no performance acceptance",
+    "sourceWritesPerRun": 27,
+    "sourceWritesAcrossPair": 54,
+    "nextFrontendCandidate": "Route-source separation; latency benefit unproven; not implemented"
+  },
+  "protections": {
+    "pipelineRuns": 0,
+    "pipelineCost": 0,
+    "installs": 0,
+    "deployments": 0,
+    "protectedDataChanges": 0,
+    "upstreamRepositoryEdits": 0,
+    "permissionChanges": 0,
+    "workflowDisables": 0,
+    "untrackedFileDeletions": 0
+  }
+}
