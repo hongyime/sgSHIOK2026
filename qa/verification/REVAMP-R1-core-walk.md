@@ -806,3 +806,35 @@ cold/warm pair. Route-source separation remains the next scoped frontend
 candidate with unproven latency benefit. Representative performance remains open.
 DISAGREEMENTS: none with this repair contract or the accepted bounded diagnosis.
 Stop for independent review before any performance implementation or new feature.
+
+### Independent sync repair review, 2026-09-08
+Reviewed e56ad58; live remote main matched that commit. Independent checks:
+```text
+NOTICE match=True blob=5ccfd88ea706cb129bc602346d8db34fc8005781
+AGENTS.md match=True blob=9bb49bb2a481f6fd3833c02c07c88bcc4bdaaa60
+.vercelignore match=True blob=9a612b2f425be1df2a0e6667f53c7eba2259bb60
+repo_integrity=ok
+```
+Live topic readback contained no-config-sync. Read the pinned upstream script via
+GitHub API and confirmed blob 84ffc061340110dc5e483cb8832d6d3c5c8b190e.
+The topic skip precedes config writes. The five-case execution remains the repair
+agent's recorded proof; reviewer did not rerun the writer or alter remote settings.
+
+FINDINGS
+1. Restoration matches the reviewed baseline, while the scoped diff preserves
+   intervening heartbeat/security updates. No blocking repair defect found.
+2. Upstream topic lookup suppresses API errors and substitutes an empty topic
+   list. That path continues syncing despite the configured opt-out. The control
+   is conditional; upstream fail-closed behavior is recommended separately.
+3. Next authorized implementation is route-source separation with behavioral
+   regressions. Performance/release acceptance remains open, not implied.
+
+DISAGREEMENTS
+1. The prevention limitation also includes topic lookup failure, not only topic
+   removal or future upstream changes. No claim of a subsequent live sync test.
+Review changed documentation only; no product fix, deployment or pipeline run.
+Independent focused rerun:
+```text
+python -m pytest tests/test_repo_integrity.py --basetemp=C:/sgSHIOK2026/tmp/sync-review-20260908 -p no:cacheprovider -q
+29 passed in 23.09s
+```

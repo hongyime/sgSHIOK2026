@@ -206,3 +206,42 @@ delegated task is diagnosis, not new features or speculative optimization.
   diagnostic/documentation work and push to main. Stop for independent review.
 - Hand back root/host, pushed SHAs, measured bottlenecks, proposed next fix and any
   concrete owner action. No comparison/reporting scope expansion.
+
+## Route-source separation (review authorization 2026-09-08)
+
+The bounded diagnosis at 4d52b80 and restoration at e56ad58 are accepted within
+their stated limits. This section supersedes the diagnosis-only stop for this
+one implementation. It does not authorize deployment or pipeline work.
+
+- Split the combined source-update effect in route-evidence-map.tsx by data
+  ownership. Route collections must not be resubmitted merely because lamps,
+  feedback, transit POIs or the active-gap highlight changed. Keep initial source
+  installation and legitimate route changes functional.
+- Do not deduplicate solely by render_key: same-key payload changes must still
+  propagate. No JSON serialization in the render hot path just to skip writes.
+- Preserve clearing to empty data, selection-specific readiness, cancellation,
+  retries, route fitting, style/source recreation, overlay toggles and attribution.
+  Do not change the UI, routing data, score values, source schema or dependencies.
+- Add behavioral regressions using portable fixtures and source spies: initial
+  publication; optional-layer-only changes producing zero route writes; active-gap
+  changes affecting only the highlight; route replacement and clearing; same-key
+  changed geometry; source recreation/recovery republishing current data. Retain
+  stale-selection/callback and alternate-stop evidence tests. Source-string tests
+  alone are insufficient. Prefer existing component/test patterns.
+- Repair diagnostic trace completion handling and detached-worker bookkeeping in
+  new diagnostic files, preserving original captures. Capture payload identity or
+  equality off the measured hot path; distinguish repeated keys from equal data.
+  Do not require complete CPU attribution to prove source-write behavior.
+- Run focused tests, the isolated web suite, installed TypeScript and integrity.
+  No installation. Audit any direct frontend build to avoid data-preparation hooks.
+- Controlled browser comparison is separately gated by host headroom. Preserve
+  cache definitions, selected postal, build identity and viewport between baseline
+  and treatment. Use a fresh output directory for each capture and inspect loaded
+  screenshots with current-route counts. Do not use pressure-limited 4d52b80 times
+  as a clean performance baseline or assert a speedup from reduced writes alone.
+- If host pressure persists, finish code/tests and hand back "browser/performance
+  validation pending" with the smallest owner action; do not repeatedly benchmark
+  or kill unrelated processes. M12 numerical budgets remain proposals.
+- Append evidence and findings, update STATE and PRODUCT-PLAN, commit coherent
+  changes and push to main, then stop for independent review. All standing path,
+  protected-file, no-pipeline and no-deployment rules remain in force.

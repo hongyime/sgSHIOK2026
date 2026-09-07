@@ -2376,3 +2376,15 @@ qa/sync-repair/20260907/{summary,writer-proof}.json. Stop for independent review
 The accepted 4d52b80 diagnosis remains bounded evidence: 27 source writes EACH
 run, 54 across the cold/warm pair. Route-source separation is the next scoped
 frontend candidate; latency benefit remains unproven and it is not implemented.
+
+### 2026-09-08: Accept sync restoration; proceed with source separation
+Independent review confirms the three restored blob identities, live remote SHA,
+no-config-sync topic readback and integrity result. The pinned upstream writer
+honors the topic before config writes. Residual risk: its topics API command uses
+an empty-list fallback on failure, so a failed lookup bypasses the opt-out. This
+is conditional prevention, not a fail-closed guarantee. An upstream fail-closed
+lookup is a separate recommended change, not authorized or implemented here.
+Do not reopen a broad verification phase: proceed with the narrowly specified
+route-source separation and behavioral tests in IMPLEMENTATION-BRIEF.md. Reduced
+source writes do not establish a latency saving; browser comparison remains gated
+by host headroom, and deployment and pipeline work remain unauthorized.

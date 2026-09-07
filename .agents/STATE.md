@@ -1,9 +1,9 @@
 # Current State
 
-Date: 2026-09-07
+Date: 2026-09-08
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Current task: sync-bot restoration and scoped prevention complete, awaiting independent review. Repair base 93d1fa2 preserves the heartbeat and both dependency updates after reviewed 4d52b80. NOTICE/AGENTS/.vercelignore match the reviewed blobs; six project ignore rules restored outside the replaceable sync block. Integrity passes; 29 focused tests and 5 executed writer-guard cases pass. This repository's no-config-sync topic is enabled and read back; all 18 listed workflows remain active. No subsequent real sync run is claimed. No map-performance implementation.
+Current task: independent review accepts restoration at e56ad58 and the inspected topic opt-out, with a fail-open API-error limitation recorded in decisions.md. Next agent implements only the Route-source separation section of IMPLEMENTATION-BRIEF.md. Browser timing remains headroom-gated; no deployment or pipeline work.
 Evidence: qa/verification/REVAMP-R1-core-walk.md (append-only corrections and catalogue mapping).
 Machine-readable handbacks: qa/sync-repair/20260907/summary.json and writer-proof.json (current); qa/revamp-r1/repair-portability/summary.json and qa/revamp-r1/repair-final/summary.json (prior functional checks).
 Code fixes pushed: 04fae3e and 7788e35; evidence is included with this handback.
