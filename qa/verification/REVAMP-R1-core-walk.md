@@ -486,3 +486,15 @@ Stop after push. The next priority after review is credible loading-time diagnos
 not comparison/reporting. No new features, pipeline processing, protected-data
 mutation, dependency installation or deployment. Production was not deployed;
 pipeline runs 0 and pipeline cost $0. No approval blocker for this bounded repair.
+
+
+### Portability handback audit correction (2026-09-07)
+The preceding sentence that the full web suite retains the stale A-failure /
+B-success regression is too broad. map-viewport.test.ts executes stale rendered
+feature/callback cancellation and timeout cleanup, not the exact rejected-A /
+successful-B network request race. That exact race remains the earlier browser
+evidence mapped in qa/revamp-r1/repair-final/summary.json; it was not rerun here.
+The portability report now contains this explicit correction without removing
+its original coverage entry. The isolated 15/15 focused and 228/228 full test
+results are unchanged. Portability implementation 903f354677de64eca02b695dada130a8cc39c5b2
+is pushed to main; representative performance remains unresolved. Stop for review.

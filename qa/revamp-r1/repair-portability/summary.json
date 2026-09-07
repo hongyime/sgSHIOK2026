@@ -154,5 +154,13 @@
     "web/scripts/deny-production-data.cjs",
     "web/scripts/extract-walk-test-fixtures.py",
     "web/scripts/test-without-production-data.mjs"
-  ]
+  ],
+  "corrections": [
+    {
+      "date": "2026-09-07",
+      "supersedes": "coverage entry: Full web suite includes existing stale A-failure/B-success regression",
+      "actual": "The full web suite executes stale rendered-feature/callback cancellation and timeout cleanup in map-viewport.test.ts. The exact failed-A/successful-B request race is prior browser evidence in repair-final/summary.json; it was not rerun in this portability task."
+    }
+  ],
+  "implementationCommit": "903f354677de64eca02b695dada130a8cc39c5b2"
 }

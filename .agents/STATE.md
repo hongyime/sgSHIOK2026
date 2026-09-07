@@ -3,7 +3,7 @@
 Date: 2026-09-07
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Current task: final Round 1 test-portability repair validated; handback for independent review. See git log for the portability commit/push identity. Three test files use a tracked 9,477-byte fixture from 11 source artifacts whose hashes remain unchanged.
+Current task: final Round 1 test-portability repair validated and pushed as 903f354; handback for independent review. Three test files use a tracked 9,477-byte fixture from 11 source artifacts whose hashes remain unchanged.
 Evidence: qa/verification/REVAMP-R1-core-walk.md (append-only corrections and catalogue mapping).
 Machine-readable handbacks: qa/revamp-r1/repair-portability/summary.json (current); qa/revamp-r1/repair-final/summary.json (prior functional/browser checks).
 Code fixes pushed: 04fae3e and 7788e35; evidence is included with this handback.
