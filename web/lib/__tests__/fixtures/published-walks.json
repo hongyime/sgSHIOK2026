@@ -1,0 +1,354 @@
+{
+  "manifest.json": {
+    "generated_at": "2026-08-05T14:00:15.974693+00:00",
+    "data_as_of": "2026-08-01T21:49:20.977890+00:00",
+    "provenance": {
+      "record_count": 124443,
+      "state_counts": {
+        "NOT_YET_SCORED": 476,
+        "NO_TRANSIT_IN_RANGE": 9827,
+        "SCORED": 95157,
+        "SCORED_PARTIAL": 18983
+      }
+    }
+  },
+  "scores/index.json": {
+    "ANG_MO_KIO_PART_001": [
+      "560234"
+    ],
+    "DOWNTOWN_CORE_PART_001": [
+      "018956",
+      "018990",
+      "079908"
+    ]
+  },
+  "scores/ANG_MO_KIO_PART_001.json": [
+    {
+      "postal": "560234",
+      "state": "SCORED",
+      "total": 70.2,
+      "subscores": {
+        "access": 74.6,
+        "bus": 100.0,
+        "crossing": 20.0,
+        "heat": 71.4,
+        "rain": 49.8
+      },
+      "best_node": {
+        "exit": "Exit 5",
+        "name": "MAYFLOWER MRT STATION Exit 5",
+        "routed_m": 569.6,
+        "snap_distance_m": 11.9,
+        "station": "MAYFLOWER MRT STATION",
+        "straight_line_m": 398.6,
+        "type": "mrt_lrt_exit"
+      },
+      "paths": {
+        "bus_stop_access_connector_m": 0.0,
+        "covered_m": 323.0,
+        "covered_ratio": 0.498,
+        "destination_snap_connector_m": 11.9,
+        "detour_pct": 14.0,
+        "endpoint_snap_connector_m": 24.5,
+        "heat_comfort_m": 463.5,
+        "heat_comfort_ratio": 0.714,
+        "mrt_lrt_exit_access_connector_m": 0.0,
+        "origin_snap_connector_m": 12.6,
+        "routing_type": "sheltered",
+        "shade_m": 280.9,
+        "shade_ratio": 0.433,
+        "sheltered_m": 649.2,
+        "shortest_covered_ratio": 0.322,
+        "shortest_m": 569.6,
+        "shortest_shade_ratio": 0.493
+      },
+      "exposure_gaps": [
+        {
+          "label": "exposed gap near 1.36715, 103.83670",
+          "len_m": 12.6,
+          "location": {
+            "lat": 1.367153,
+            "lon": 103.836705
+          }
+        },
+        {
+          "label": "exposed gap near 1.36764, 103.83726",
+          "len_m": 8.9,
+          "location": {
+            "lat": 1.367636,
+            "lon": 103.837256
+          }
+        },
+        {
+          "label": "exposed gap near 1.36970, 103.83691",
+          "len_m": 304.7,
+          "location": {
+            "lat": 1.369697,
+            "lon": 103.836906
+          }
+        }
+      ],
+      "data_as_of": "2026-08-01T21:49:20.977890+00:00",
+      "provenance": {}
+    }
+  ],
+  "scores/DOWNTOWN_CORE_PART_001.json": [
+    {
+      "postal": "018956",
+      "state": "SCORED",
+      "total": 82.0,
+      "subscores": {
+        "access": 100.0,
+        "bus": 100.0,
+        "crossing": 100.0,
+        "heat": 55.1,
+        "rain": 55.1
+      },
+      "best_node": {
+        "exit": "03509",
+        "name": "Bayfront Stn Exit B/MBS",
+        "routed_m": 81.2,
+        "snap_distance_m": 11.0,
+        "station": "Bayfront Stn Exit B/MBS",
+        "straight_line_m": 56.3,
+        "type": "bus_stop"
+      },
+      "paths": {
+        "bus_stop_access_connector_m": 0.0,
+        "covered_m": 44.7,
+        "covered_ratio": 0.551,
+        "destination_snap_connector_m": 11.0,
+        "detour_pct": 0.0,
+        "endpoint_snap_connector_m": 27.4,
+        "heat_comfort_m": 44.7,
+        "heat_comfort_ratio": 0.551,
+        "mrt_lrt_exit_access_connector_m": 0.0,
+        "origin_snap_connector_m": 16.3,
+        "routing_type": "sheltered",
+        "shade_m": 0.0,
+        "shade_ratio": 0.0,
+        "sheltered_m": 81.2,
+        "shortest_covered_ratio": 0.551,
+        "shortest_m": 81.2,
+        "shortest_shade_ratio": 0.0
+      },
+      "exposure_gaps": [
+        {
+          "label": "exposed gap near 1.28269, 103.85998",
+          "len_m": 16.3,
+          "location": {
+            "lat": 1.282693,
+            "lon": 103.859975
+          }
+        },
+        {
+          "label": "exposed gap near 1.28314, 103.86011",
+          "len_m": 20.2,
+          "location": {
+            "lat": 1.283142,
+            "lon": 103.860115
+          }
+        }
+      ],
+      "data_as_of": "2026-08-01T21:49:20.977890+00:00",
+      "provenance": {},
+      "candidates": [
+        {
+          "direct_distance_m": 63.1,
+          "geometry_ref": "018956_mrt:21678",
+          "node_id": "mrt:21678",
+          "node_name": "BAYFRONT MRT STATION Exit D",
+          "node_type": "mrt_lrt_exit",
+          "paths": {
+            "covered_ratio": 0.0,
+            "detour_pct": 0.0,
+            "shade_ratio": 0.0,
+            "sheltered_m": 110.0,
+            "shortest_m": 110.0
+          },
+          "route_trust": "graph_routed_mrt_lrt_exit_with_access_connector",
+          "routing_type": "sheltered_with_mrt_lrt_exit_access_connector",
+          "state": "SCORED"
+        }
+      ]
+    },
+    {
+      "postal": "018990",
+      "state": "SCORED_PARTIAL",
+      "total": 55.0,
+      "subscores": {
+        "access": 100.0,
+        "bus": 100.0,
+        "crossing": null,
+        "heat": null,
+        "rain": null
+      },
+      "best_node": {
+        "exit": "03539",
+        "name": "Marina Bay Stn",
+        "routed_m": null,
+        "snap_distance_m": 43.6,
+        "station": "Marina Bay Stn",
+        "straight_line_m": 222.5,
+        "type": "bus_stop"
+      },
+      "paths": {
+        "detour_pct": 0.0,
+        "routing_type": "direct_bus_fallback_unrouted",
+        "sheltered_m": 222.5,
+        "shortest_m": 222.5
+      },
+      "exposure_gaps": [],
+      "data_as_of": "2026-08-01T21:49:20.977890+00:00",
+      "provenance": {}
+    },
+    {
+      "postal": "079908",
+      "state": "NO_TRANSIT_IN_RANGE",
+      "total": null,
+      "subscores": null,
+      "best_node": null,
+      "paths": null,
+      "exposure_gaps": null,
+      "data_as_of": "2026-08-01T21:49:20.977890+00:00",
+      "provenance": {
+        "reason": "all_numeric_transit_candidates_rejected_by_bus_route_trust_gate"
+      }
+    }
+  ],
+  "scores/prefix-index.json": {
+    "018": [
+      "DOWNTOWN_CORE_PART_001"
+    ],
+    "079": [
+      "DOWNTOWN_CORE_PART_001"
+    ],
+    "560": [
+      "ANG_MO_KIO_PART_001"
+    ]
+  },
+  "geom/postal-index.json": {
+    "018956": "886520db39fffff",
+    "560234": "89652636c07ffff"
+  },
+  "geom/postal-prefix/018.json": {
+    "018956": "886520db39fffff"
+  },
+  "geom/postal-prefix/079.json": {},
+  "geom/postal-prefix/560.json": {
+    "560234": "89652636c07ffff"
+  },
+  "geom/h3/886520db39fffff.json": [
+    {
+      "postal": "018956",
+      "shortest": "ooyFed|xRST??m@_@UKO???@R",
+      "sheltered": "ooyFed|xRST??m@_@UKO???@R",
+      "shortest_parts": [
+        "ooyFed|xRST",
+        "cpyFoc|xRm@_@UKO?",
+        "wryF{d|xR@R"
+      ],
+      "sheltered_parts": [
+        "ooyFed|xRST",
+        "cpyFoc|xRm@_@UKO?",
+        "wryF{d|xR@R"
+      ],
+      "exposure_gaps": [
+        {
+          "geom": "ooyFed|xRST",
+          "label": "exposed gap near 1.28269, 103.85998",
+          "len_m": 16.3
+        },
+        {
+          "geom": "wryF{d|xR@R",
+          "label": "exposed gap near 1.28314, 103.86011",
+          "len_m": 11.0,
+          "part_index": 0
+        },
+        {
+          "geom": "gryF{d|xRO?",
+          "label": "exposed gap near 1.28314, 103.86011",
+          "len_m": 9.1,
+          "part_index": 1
+        }
+      ],
+      "candidates": {
+        "mrt:21678": {
+          "shortest": "inyFka|xRkAPPuAx@bAe@yAST",
+          "sheltered": "inyFka|xRkAPPuAx@bAe@yAST",
+          "shortest_parts": [
+            "inyFka|xRkAP",
+            "cpyFoc|xRx@bA",
+            "ooyFed|xRST"
+          ],
+          "sheltered_parts": [
+            "inyFka|xRkAP",
+            "cpyFoc|xRx@bA",
+            "ooyFed|xRST"
+          ],
+          "exposure_gaps": [
+            {
+              "geom": "inyFka|xRkAP",
+              "label": "exposed gap",
+              "len_m": 43.3,
+              "part_index": 0
+            },
+            {
+              "geom": "cpyFoc|xRx@bA",
+              "label": "exposed gap",
+              "len_m": 50.3,
+              "part_index": 1
+            },
+            {
+              "geom": "ooyFed|xRST",
+              "label": "exposed gap",
+              "len_m": 16.3,
+              "part_index": 2
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "geom/h3/89652636c07ffff.json": [
+    {
+      "postal": "560234",
+      "shortest": "y_jGarwxRFU}URBSxU?RHcA`Be@Qe@GMCSGWGQGMIWMWQUS[JCBDDMNi@e@UUU[MUMSEGKFQJsAr@y@XMD]Hw@JQ@",
+      "sheltered": "y_jGarwxRFU}URBSxU?RHT}@BMqAYg@DKCEGMCSCGGBWSMc@BuBxBE\\CBDDMNi@e@UUU[MUMSEGKFQJsAr@y@XMD]Hw@JQ@",
+      "shortest_parts": [
+        "y_jGarwxRFU",
+        "ovjGcrwxRBS",
+        "q_jGwrwxRRHcA`Be@Qe@GMCSGWGQGMIWMWQUS[JCBDDMNi@e@UUU[MUMSEGKFQJsAr@y@XMD]Hw@JQ@"
+      ],
+      "sheltered_parts": [
+        "y_jGarwxRFU",
+        "ovjGcrwxRBS",
+        "q_jGwrwxRRHT}@BMqAYg@DKCEGMCSCGGBWSMc@BuBxBE\\CBDDMNi@e@UUU[MUMSEGKFQJsAr@y@XMD]Hw@JQ@"
+      ],
+      "exposure_gaps": [
+        {
+          "geom": "y_jGarwxRFU",
+          "label": "exposed gap near 1.36715, 103.83670",
+          "len_m": 12.6
+        },
+        {
+          "geom": "objGyuwxRMC",
+          "label": "exposed gap near 1.36764, 103.83726",
+          "len_m": 8.9
+        },
+        {
+          "geom": "ovjGcrwxRBS",
+          "label": "exposed gap near 1.36970, 103.83691",
+          "len_m": 11.9,
+          "part_index": 0
+        },
+        {
+          "geom": "gijGirwxRMNi@e@UUU[MUMSEGKFQJsAr@y@XMD]Hw@JQ@",
+          "label": "exposed gap near 1.36970, 103.83691",
+          "len_m": 291.9,
+          "part_index": 1
+        }
+      ]
+    }
+  ]
+}

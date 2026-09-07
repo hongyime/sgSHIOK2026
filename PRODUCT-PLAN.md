@@ -55,12 +55,26 @@ stale A-failure/B-success, preview races, shared stops and real tile/geometry re
 are executed. Alternate-stop summaries use their own evidence. Existing locked
 scores, data and working secondary capabilities are preserved.
 
-Validation: full web suite 228 passed in 30 files; focused regressions, TypeScript,
+Prior functional validation: full web suite 228 passed in 30 files; focused regressions, TypeScript,
 direct frontend-only build and repo integrity passed. Machine-readable report and
 scoped file list: qa/revamp-r1/repair-final/summary.json. Local preview: localhost:4318.
 Implementation commits 04fae3e and 7788e35 pushed to main; evidence is included with this handback.
 No pipeline run, dependency install, protected-data change or deployment.
 
-Remaining: independent Round 1 review and reviewed numerical timing budgets.
-No independent user-session or release approval is claimed. Finish this review
-before starting more features. Milestones 5-11 remain pending.
+Final test-portability repair (2026-09-07): three test files now use a tracked
+9,477-byte reduced fixture: four real score rows, two route geometries and one
+alternate candidate, with original values and source hashes recorded. The isolated
+baseline failed six tests plus walk-suite collection; after repair, focused tests
+passed 15/15 and the full suite passed 228/228 across 30 files, with no skips.
+The tracked-source test copy omits web/public/data and a Node filesystem guard
+blocks both its data path and the original payload path. Existing dependencies
+are linked; no install or payload mutation. TypeScript and integrity passed.
+These are sampled regression checks, not a complete production index audit.
+Evidence: qa/revamp-r1/repair-portability/summary.json and append-only corrections
+in qa/verification/REVAMP-R1-core-walk.md. No new browser run or feature work.
+
+Remaining: independent Round 1 review, representative performance validation and
+reviewed numerical timing budgets. Earlier cold/warm observations do not resolve
+representative performance. Stop for review after this portability repair; the
+next priority is a credible loading-time diagnosis, before comparison/reporting.
+No independent user-session or release approval is claimed. Milestones 5-11 remain pending.

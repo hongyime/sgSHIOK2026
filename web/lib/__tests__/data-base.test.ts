@@ -3,6 +3,8 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { readFileSync } from "fs";
 import { join } from "path";
 import dataBundle from "../../data-bundle.json";
+import { readPublishedFixture } from "./fixtures/published-data";
+import fixtureProvenance from "./fixtures/published-walks.provenance.json";
 
 describe("normalizeDataBase", () => {
   afterEach(() => {
@@ -24,14 +26,10 @@ describe("normalizeDataBase", () => {
     expect(source).not.toContain("Defaults to the latest validated static shelter-map bundle.");
   });
 
-  it("keeps pinned first-load metadata aligned with the active manifest", () => {
-    const manifest = JSON.parse(
-      readFileSync(
-        join(__dirname, "../../public/data", dataBundle.bundle, "manifest.json"),
-        "utf-8"
-      )
-    );
+  it("keeps pinned first-load metadata aligned with the recorded manifest fixture", () => {
+    const manifest = readPublishedFixture<typeof dataBundle>("manifest.json");
 
+    expect(dataBundle.bundle).toBe(fixtureProvenance.bundle);
     expect(dataBundle.generated_at).toBe(manifest.generated_at);
     expect(dataBundle.data_as_of).toBe(manifest.data_as_of);
     expect(dataBundle.provenance.record_count).toBe(manifest.provenance.record_count);

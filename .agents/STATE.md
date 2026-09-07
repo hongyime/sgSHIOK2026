@@ -3,12 +3,13 @@
 Date: 2026-09-07
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Current task: Round 1 repairs implemented and checked; handback for independent review.
+Current task: final Round 1 test-portability repair validated; handback for independent review. See git log for the portability commit/push identity. Three test files use a tracked 9,477-byte fixture from 11 source artifacts whose hashes remain unchanged.
 Evidence: qa/verification/REVAMP-R1-core-walk.md (append-only corrections and catalogue mapping).
-Machine-readable handback: qa/revamp-r1/repair-final/summary.json.
+Machine-readable handbacks: qa/revamp-r1/repair-portability/summary.json (current); qa/revamp-r1/repair-final/summary.json (prior functional/browser checks).
 Code fixes pushed: 04fae3e and 7788e35; evidence is included with this handback.
 Preview: http://localhost:4318/ (local Next production server; frontend-only build).
-Checks: full suite 228 passed / 30 files; focused regression run passed; TypeScript,
+Portability checks: isolated full suite 228 passed / 30 files; focused 15 passed / 3 files; zero failures/skips. Test copy has no web/public/data; Node filesystem guard denies original and copied data paths. Existing dependencies linked; no install. TypeScript and repo integrity passed. Reduced fixture indexes do not audit the complete production bundle.
+Prior functional checks: full suite 228 passed / 30 files; focused regression run passed; TypeScript,
 direct frontend build and repo integrity passed. All four required viewports show
 4 current selected route features with matching, inspected screenshots. Sheet,
 gestures, gap focus/clear, A-failure/B-success, previews, delayed geometry, and
@@ -17,7 +18,7 @@ Cold/warm desktop/mobile measurements and inspected captures are recorded.
 Remaining: independent review; M12 budget agreement. Timings reflect severe host
 memory pressure; request/byte counts are page-target observations and may exclude
 worker-internal transfers. No representative phone/production benchmark claimed.
-Next: review Round 1 only. Do not add comparison/reporting/refresh features or deploy.
+Next: stop for independent review after portability commit/push. Credible loading-time diagnosis is the next priority; representative performance validation remains explicitly unresolved. No comparison/reporting or deployment.
 Scope: real-data core walk UI and map reliability, not comparison/report infrastructure.
 Mockup approved at 0de3d5f. Reuse production MapLibre, never the illustrative canvas.
 Prototype uses explicitly illustrative geometry/metrics; dialogs do not submit reports.

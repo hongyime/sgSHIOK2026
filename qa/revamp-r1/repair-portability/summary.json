@@ -1,0 +1,158 @@
+{
+  "date": "2026-09-07",
+  "baseCommit": "26ebb5873920cb6d44ef477c0ee550c3e6013b3b",
+  "scope": "Final Round 1 test-portability repair; no product or browser changes",
+  "fixtures": {
+    "data": "web/lib/__tests__/fixtures/published-walks.json",
+    "provenance": "web/lib/__tests__/fixtures/published-walks.provenance.json",
+    "bytes": 9477,
+    "sha256": "e29cc74ce7ec9f69b360e596a2ecd6b07e4cba453bb46b2cc091c9ff61036c86",
+    "sourceArtifacts": 11,
+    "sourceHashesUnchanged": true,
+    "sourceCheckoutCommit": "26ebb5873920cb6d44ef477c0ee550c3e6013b3b",
+    "postals": [
+      "018956",
+      "018990",
+      "079908",
+      "560234"
+    ],
+    "geometryPostals": [
+      "018956",
+      "560234"
+    ],
+    "candidate": "018956/mrt:21678"
+  },
+  "tests": {
+    "before": {
+      "report": "qa/revamp-r1/repair-portability/before.json",
+      "files": 3,
+      "tests": 10,
+      "passed": 4,
+      "failed": 6,
+      "skipped": 0,
+      "todo": 0,
+      "success": false,
+      "isolation": {
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-ta1Hz0",
+        "copiedFiles": 147,
+        "productionDataDirectoryAbsent": true,
+        "guardProbePassed": true,
+        "forbiddenPaths": [
+          "C:\\sgSHIOK2026\\web\\public\\data",
+          "C:\\sgSHIOK2026\\tmp\\test-without-data-ta1Hz0\\web\\public\\data"
+        ],
+        "dependencies": "Existing node_modules linked; no installation",
+        "testArgs": [
+          "walk-real-records.test.ts",
+          "data.test.ts",
+          "data-base.test.ts",
+          "--reporter=json",
+          "--outputFile=C:/sgSHIOK2026/qa/revamp-r1/repair-portability/before.json"
+        ],
+        "exitCode": 1
+      }
+    },
+    "focused": {
+      "report": "qa/revamp-r1/repair-portability/focused.json",
+      "files": 3,
+      "tests": 15,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "todo": 0,
+      "success": true,
+      "isolation": {
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-50RwiB",
+        "copiedFiles": 151,
+        "productionDataDirectoryAbsent": true,
+        "guardProbePassed": true,
+        "forbiddenPaths": [
+          "C:\\sgSHIOK2026\\web\\public\\data",
+          "C:\\sgSHIOK2026\\tmp\\test-without-data-50RwiB\\web\\public\\data"
+        ],
+        "dependencies": "Existing node_modules linked; no installation",
+        "testArgs": [
+          "walk-real-records.test.ts",
+          "data.test.ts",
+          "data-base.test.ts",
+          "--reporter=json",
+          "--outputFile=C:/sgSHIOK2026/qa/revamp-r1/repair-portability/focused.json"
+        ],
+        "exitCode": 0
+      }
+    },
+    "full": {
+      "report": "qa/revamp-r1/repair-portability/full.json",
+      "files": 30,
+      "tests": 228,
+      "passed": 228,
+      "failed": 0,
+      "skipped": 0,
+      "todo": 0,
+      "success": true,
+      "isolation": {
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-z6YJes",
+        "copiedFiles": 151,
+        "productionDataDirectoryAbsent": true,
+        "guardProbePassed": true,
+        "forbiddenPaths": [
+          "C:\\sgSHIOK2026\\web\\public\\data",
+          "C:\\sgSHIOK2026\\tmp\\test-without-data-z6YJes\\web\\public\\data"
+        ],
+        "dependencies": "Existing node_modules linked; no installation",
+        "testArgs": [
+          "--reporter=json",
+          "--outputFile=C:/sgSHIOK2026/qa/revamp-r1/repair-portability/full.json"
+        ],
+        "exitCode": 0
+      }
+    }
+  },
+  "baselineNote": "Six assertion/test failures plus walk-real-records module-load failure (zero tests collected there); no skips. All three files failed.",
+  "otherChecks": {
+    "typescript": "node web/node_modules/typescript/bin/tsc --project web/tsconfig.json --noEmit --incremental false (exit 0)",
+    "integrity": "python scripts/check_repo_integrity.py (repo_integrity=ok)",
+    "provenance": "Read-only SHA-256 recheck of all 11 source artifacts, fixture and bundle pointer passed",
+    "evidenceHistory": "Verification and decisions base content preserved as prefix (newline normalized); additions only",
+    "protectedTrackedDiff": "No protected payload, weights, workflow, checksum, raw or processed path in staged diff"
+  },
+  "isolationLimit": "Tracked source copy with data directory absent and inherited Node filesystem guard, not an OS sandbox. Only existing node_modules is linked; the real payload is never renamed, moved or deleted.",
+  "coverage": [
+    "W01/W13 live metrics and candidate evidence",
+    "W02 real partial record and explicitly synthetic missing candidate coverage",
+    "W03 real absent geometry",
+    "Full web suite includes existing stale A-failure/B-success regression"
+  ],
+  "limitations": [
+    "Reduced fixture/index tests do not audit the complete production bundle.",
+    "Representative performance validation and M12 reviewed numerical budgets remain unresolved.",
+    "No browser checks or timing measurements rerun in this portability repair.",
+    "Independent review pending; next priority after review is credible loading-time diagnosis, before comparison/reporting."
+  ],
+  "protections": {
+    "pipelineRuns": 0,
+    "pipelineCost": 0,
+    "deployments": 0,
+    "dependencyInstalls": 0,
+    "protectedDataMutations": 0
+  },
+  "changedFiles": [
+    ".agents/STATE.md",
+    "PRODUCT-PLAN.md",
+    "decisions.md",
+    "qa/revamp-r1/repair-portability/before.json",
+    "qa/revamp-r1/repair-portability/focused.json",
+    "qa/revamp-r1/repair-portability/full.json",
+    "qa/revamp-r1/repair-portability/summary.json",
+    "qa/verification/REVAMP-R1-core-walk.md",
+    "web/lib/__tests__/data-base.test.ts",
+    "web/lib/__tests__/data.test.ts",
+    "web/lib/__tests__/fixtures/published-data.ts",
+    "web/lib/__tests__/fixtures/published-walks.json",
+    "web/lib/__tests__/fixtures/published-walks.provenance.json",
+    "web/lib/__tests__/walk-real-records.test.ts",
+    "web/scripts/deny-production-data.cjs",
+    "web/scripts/extract-walk-test-fixtures.py",
+    "web/scripts/test-without-production-data.mjs"
+  ]
+}

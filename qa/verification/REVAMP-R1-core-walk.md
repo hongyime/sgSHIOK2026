@@ -419,3 +419,70 @@ repair handback for independent review, not review approval. No new feature work
 comparison/reporting infrastructure, data refresh or deployment was added.
 Production was not deployed. Pipeline runs: 0. Pipeline cost: $0. No approval blocker
 for the completed repairs; further features and deployment remain outside this round.
+
+
+### Final test-portability correction (2026-09-07)
+
+FINDINGS: The previous 228-test PASS was a local result with ignored production
+payloads present; it did not establish fresh-checkout test portability. In addition
+to walk-real-records.test.ts, data.test.ts and data-base.test.ts accessed the
+production bundle. All three now import a tracked reduced fixture. No tests are
+skipped when production data is absent. Prior evidence lines remain unchanged.
+
+Fixture provenance: web/lib/__tests__/fixtures/published-walks.provenance.json
+records the bundle generated_20260805_prefer_scored_routed, source checkout
+26ebb5873920cb6d44ef477c0ee550c3e6013b3b, all 11 source paths, byte lengths,
+raw/decoded SHA-256 identities, bundle-pointer identity, fixture hash and every
+field reduction. published-walks.json is 9,477 bytes. Four original score rows
+(018956, 018990, 079908, 560234), two geometries (018956, 560234), and the
+018956 mrt:21678 candidate preserve the values needed by the assertions. Encoded
+geometry, multipart arrays, gaps, score totals and relevant route metrics are
+retained verbatim. Other rows/candidates/route options/segments are omitted.
+Manifest global metadata counts are preserved but are not sample cardinalities.
+Index/prefix entries are projected to the sample, including the real absence of
+079908 geometry. The existing null-coverage clone remains explicitly synthetic.
+The manual standard-library extractor is web/scripts/extract-walk-test-fixtures.py;
+normal tests never invoke it or download data. Read-only post-test hash checks
+confirmed all 11 source identities and the fixture/bundle-pointer identities.
+
+Isolation method: web/scripts/test-without-production-data.mjs copies tracked
+working-tree source into a unique ignored tmp/test-without-data-* directory,
+excluding web/public/data. It links only the already installed node_modules and
+uses the ordinary test-web.mjs runner. NODE_OPTIONS loads deny-production-data.cjs
+in Node/Vitest workers, denying filesystem operations against both original and
+snapshot production-data paths. A probe verifies both denials; the snapshot data
+directory is absent. This is Node filesystem isolation, not an OS sandbox.
+No real payload was renamed, moved, deleted or written. No dependency install.
+
+Commands from C:\sgSHIOK2026:
+- Before and after focused: node web/scripts/test-without-production-data.mjs
+  walk-real-records.test.ts data.test.ts data-base.test.ts --reporter=json
+  --outputFile=C:/sgSHIOK2026/qa/revamp-r1/repair-portability/<before|focused>.json
+- Full: node web/scripts/test-without-production-data.mjs --reporter=json
+  --outputFile=C:/sgSHIOK2026/qa/revamp-r1/repair-portability/full.json
+- node web/node_modules/typescript/bin/tsc --project web/tsconfig.json --noEmit --incremental false
+- python scripts/check_repo_integrity.py
+
+Executed results: baseline exit 1, 4 passed/6 failed, all 3 files failed; the walk
+suite additionally failed during module loading and collected zero tests. Focused
+after repair: exit 0, 15/15 tests in 3 files. Full isolated suite: exit 0, 228/228
+in 30 files. Zero skipped/todo tests. TypeScript exit 0; repo_integrity=ok.
+Reports and isolation receipts: qa/revamp-r1/repair-portability/summary.json and
+before.json, focused.json, full.json in the same directory. W01/W02/W03/W13 real
+record assertions remain executed; the full suite retains the stale A-failure /
+B-success regression. No new source-text assertions substitute for behavior.
+
+Coverage correction: data.test.ts now explicitly validates the sampled schema,
+metadata and index consistency, not complete production shard/index cardinality.
+The previous full-bundle audit wording cannot describe these fixture checks.
+The earlier statement that M12 measurements were complete means only the recorded
+host observations exist: representative performance validation is UNRESOLVED,
+as are reviewed numerical budgets. No new browser or performance result is
+claimed here. Prior screenshot/count evidence remains historical and unchanged.
+
+DISAGREEMENTS: None with the portability finding. This repair is ready for
+independent review, not approved or declared functionally closed by this agent.
+Stop after push. The next priority after review is credible loading-time diagnosis,
+not comparison/reporting. No new features, pipeline processing, protected-data
+mutation, dependency installation or deployment. Production was not deployed;
+pipeline runs 0 and pipeline cost $0. No approval blocker for this bounded repair.

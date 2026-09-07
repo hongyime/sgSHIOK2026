@@ -1,22 +1,9 @@
 import type { Manifest, PostalGeom, ScoreRecord, ScoreState } from "../types";
-import dataBundle from "../../data-bundle.json";
-import { existsSync, readFileSync } from "fs";
-import { gunzipSync } from "zlib";
-import { join } from "path";
+import { readPublishedFixture as readJson } from "./fixtures/published-data";
 import { formatLockedScoreAvailabilityLine } from "../locked-score-availability";
 
-const DATA_DIR = join(__dirname, "../../public/data", dataBundle.bundle);
-
-function readJson<T>(rel: string): T {
-  const plain = join(DATA_DIR, rel);
-  if (existsSync(plain)) {
-    return JSON.parse(readFileSync(plain, "utf-8")) as T;
-  }
-  return JSON.parse(gunzipSync(readFileSync(`${plain}.gz`)).toString("utf-8")) as T;
-}
-
-describe("generated data bundle", () => {
-  it("has the expected manifest and indexes", () => {
+describe("pinned published data fixtures (reduced sample, not a full bundle audit)", () => {
+  it("preserves global manifest metadata and the explicitly sampled indexes", () => {
     const manifest = readJson<Manifest>("manifest.json");
     const scoreIndex = readJson<Record<string, string[]>>("scores/index.json");
     const geomPostalIndex = readJson<Record<string, string>>("geom/postal-index.json");
@@ -36,11 +23,8 @@ describe("generated data bundle", () => {
     expect(formatLockedScoreAvailabilityLine(manifest)).toBe(
       "Locked-score coverage: 95,157 of 124,443 June 2020 address-list records have full locked scores; 29,286 address-list records (23.5%, roughly a quarter) missing full scores: 18,983 with partial shelter-map evidence, 9,827 beyond the 1.2 km locked transit range, and 476 without published locked scores."
     );
-    expect(Object.keys(scoreIndex).length).toBeGreaterThan(50);
-    expect(Object.keys(geomPostalIndex).length).toBe(
-      manifest.provenance.state_counts.SCORED +
-        manifest.provenance.state_counts.SCORED_PARTIAL
-    );
+    expect(Object.values(scoreIndex).flat().sort()).toEqual(["018956", "018990", "079908", "560234"]);
+    expect(Object.keys(geomPostalIndex).sort()).toEqual(["018956", "560234"]);
   }, 60000);
 
   it("score shards conform to the public score record shape", () => {

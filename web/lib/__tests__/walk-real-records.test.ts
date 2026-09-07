@@ -1,16 +1,9 @@
 import { describe, it, expect } from 'vitest';
-import { readFileSync, existsSync } from 'node:fs';
-import { gunzipSync } from 'node:zlib';
 import { selectionForChosenStop } from '../../app/page';
 import { walkMetrics } from '../../components/walk-summary';
 import { postalGeomToRouteGeoJson } from '../route-geojson';
 import type { ScoreRecord, PostalGeom } from '../types';
-import bundle from '../../data-bundle.json';
-
-function read<T>(path: string): T {
-  const file=`public/data/${bundle.bundle}/${path}`;
-  return JSON.parse(existsSync(file)?readFileSync(file,'utf8'):gunzipSync(readFileSync(file+'.gz')).toString('utf8'));
-}
+import { readPublishedFixture as read } from './fixtures/published-data';
 const records=read<ScoreRecord[]>('scores/DOWNTOWN_CORE_PART_001.json');
 describe('Round 1 real immutable record regression', () => {
   it('W01/W13: displayed live walk metrics match the published record', () => {

@@ -2312,3 +2312,15 @@ The browser source-age snapshot should track the latest zero-mutation `run.py ch
 
 ## 2026-09-07 — Round 1 candidate evidence correction
 Alternate published-stop summaries use their own geometry gaps and coverage, never inherited original-route values. Valid shared clicked-stop IDs are checked against the loaded local POIs, including exits outside the nearest five. This preserves existing stop selection and score formulas while repairing evidence mismatches found during Round 1 browser verification.
+
+
+## 2026-09-07 — Round 1 test portability
+Normal web tests use a small tracked projection of the pinned published bundle,
+with source paths, SHA-256 identities and field reductions in fixture provenance.
+They must not require ignored production payloads or skip when those are absent.
+The isolated runner copies tracked source, links existing dependencies and denies
+Node filesystem access to original and copied production-data paths without moving
+the real payload. Reduced index checks describe sample coverage, not a complete
+production audit. Functional closure remains subject to independent review;
+representative performance validation remains unresolved. After review, prioritize
+credible loading-time diagnosis before comparison/reporting or more features.
