@@ -35,8 +35,12 @@ No new heavy run to satisfy a loop; stop at approval gates with a concrete propo
 Use absolute write paths under the internal working root. Preserve all protected
 data, existing verification lines, and locked weights.
 
-## Immediate next action
-Delegate Round 1 using IMPLEMENTATION-BRIEF.md: real-data map reliability and the
-approved core walk UI, with independent review afterward. No further layout approval
-is needed within that contract. Comparison, feedback and data refresh remain later
-rounds. Owner copies the implementation handback to the reviewer for diff/test review.
+## Round 1 status
+Milestones 3 and 4 complete (pushed to main as of 2026-09-07):
+  3. 0c6ba4c — map reliability: readiness, nav control, stale-request race, fitPadding
+  4. f9e6e20 — approved core walk layout: identity row, floating panel, bottom sheet,
+     srOnly tagline; f9e6e20 + 0ec2510 — 152-line behaviour test coverage
+Evidence: qa/verification/REVAMP-R1-core-walk.md
+Remaining gaps (explicit): M01/M02 route-visible screenshot (cold CDP pass); M12 network profiling.
+Next: independent reviewer inspects diffs and evidence, then issues Round 2 bounded prompt.
+Milestones 5-11 remain pending.

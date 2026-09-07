@@ -1,13 +1,13 @@
 # Current State
 
-Date: 2026-09-06
+Date: 2026-09-07
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Current task: mockup approved; Round 1 delegated implementation pending.
-Start here: ARCHITECTURE.md, ARCHITECTURE-DECISIONS.md, PRODUCT-PLAN.md.
-Test contract: qa/SHIOK-acceptance-tests.md (planned, not executed).
-Preview: qa/prototypes/shelter-walk.html (open directly in a browser).
-Checks: qa/prototypes/check-preview.mjs; desktop/mobile screenshots alongside it.
+Current task: P-Revamp-R1 complete — submitted for independent review.
+Evidence: qa/verification/REVAMP-R1-core-walk.md
+Test contract: qa/SHIOK-acceptance-tests.md (Round 1 items mapped in evidence file).
+Preview: http://100.92.164.125:3001/ (dev server, port 3001 — Docker holds 127.0.0.1:3000).
+Checks: qa/debug-runs/revamp-r1/screenshots/ (empty-state screenshots captured).
 Next: implementing agent follows IMPLEMENTATION-BRIEF.md; reviewer checks its handback.
 Scope: real-data core walk UI and map reliability, not comparison/report infrastructure.
 Mockup approved at 0de3d5f. Reuse production MapLibre, never the illustrative canvas.
