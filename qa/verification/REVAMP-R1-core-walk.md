@@ -530,3 +530,171 @@ DISAGREEMENTS
 1. None with the corrected portability handback. Acceptance is deliberately
    narrower than completion of the performance and release milestones.
 No pipeline, installation, browser rerun, protected-data mutation or deployment.
+
+### Bounded loading-time diagnosis handback (2026-09-07)
+
+Contract/base: 7851cde. Working root asserted as C:\sgSHIOK2026; host Prawn-E14.
+Round 1 functional/portability acceptance stands. Diagnosis began about 22:32 SGT;
+the only browser pair ran about 22:40-22:41. No product fix or UI change was made.
+Existing verification and decision lines remain intact; this section is appended.
+
+Environment and identity: loading-diagnosis/environment.json records Windows
+11 10.0.26220, i5-10210U (4 cores/8 logical), Node 26.5.0, Chrome 152.0.7977.76,
+Next 16.3.0 and MapLibre 6.1.0. Tracked tree was clean before handoff updates and
+main was already current after git pull --ff-only. Repo integrity passed.
+Repo-owned server PID 77304 runs installed Next start on localhost:4318; build ID
+7Re5XgsG_DPfrlZcrVRbn was written at 20:27:47 SGT. Runtime source paths have no
+differences from the earlier recorded tested-code commit 7788e35 to HEAD; later
+web changes are tests/fixtures/scripts. The build is not stamped with HEAD and was
+not rebuilt, so source equivalence is an evidence-based inference, not a fresh
+reproducible-build attestation. Package build and next.config.js were inspected;
+the package build's data-preparation helper was not invoked. No build was run.
+
+Method: one cold/warm shared-URL selection of the existing test postal 018956 at
+390x844, device scale 1, headless Chrome/SwiftShader, no network/CPU throttling.
+Cold means a fresh browser/profile and empty HTTP cache, with no app memory;
+it does not mean a cold server or OS disk cache. Warm re-navigates the same URL in
+the same browser/profile with HTTP/V8 caches retained and app module state reset.
+Service worker was bypassed in both. Local production app/data and real remote
+OneMap raster tiles were used. No production application or load test was used.
+
+Diagnostic-only injection records native fetch headers, body/decode/parse spans,
+worker construction/first message, map load/source events, source writes, long
+tasks, sampled JS heap and the current selected render key. It calls the original
+operations unchanged; instrumentation/sampling overhead is not calibrated.
+Page polling is 100 ms and callbacks can be delayed by host scheduling. Timings
+below are observed milestones, not exact first-frame timestamps or exclusive CPU.
+
+Measured timeline, milliseconds from navigation Performance timeOrigin:
+
+| Observation | Cold | Warm |
+| --- | ---: | ---: |
+| First HTML response byte | 971.1 | 52.6 |
+| Request-to-first-byte interval | 911.9 | 24.1 |
+| First data fetch | 2628.5 | 285.9 |
+| Geometry decoded/available | 3131.7 | 442.3 |
+| Score decoded/available | 3588.8 | 561.2 |
+| Current four-metric text observed | 3752.5 | 700.4 |
+| Worker construction starts | 4296.5 | 666.1 |
+| Map published | 4300.9 | 668.1 |
+| Map load event | 6622.4 | 1939.4 |
+| First basemap-source loaded observation | 6781.6 | 1990.5 |
+| First selected-route source submission | 6797.6 | 1992.3 |
+| First worker reply | 7905.9 | 1067.9 |
+| CURRENT selected-route visible observation | 10317.5 | 3291.0 |
+
+Outer Node/CDP observations were 11123/4499 ms, including polling and inspector
+scheduling. They are not interchangeable with the in-page 10317.5/3291.0 ms.
+There is one sample per profile; each profile's median equals that sample. Cold
+and warm are not pooled. No p95, phone SLA or representative performance claim.
+
+Nonoverlapping observed intervals (cold/warm): navigation to first data fetch
+2628.5/285.9 ms; first data fetch to score ready 960.3/275.3; score ready to first
+route submission 3208.8/1431.1; submission to current visibility 3519.9/1298.7.
+Those sum to the observed route timeline. Worker startup, scripts, basemap and
+data work overlap these intervals and must not be added as separate CPU costs.
+
+The score response contains 274882 HTTP-encoded and 5236013 decoded body bytes.
+Native body/decode/parse takes 452.8/117.1 ms; only 95.5/87.2 ms remains after
+ResourceTiming responseEnd. That residual includes scheduling and is not pure
+parse time. Geometry body/decode/parse takes 12.1/5.5 ms. Explicit gzip-stream
+timing is present for the 184-byte postal prefix and transit shards; decompression
+and native Response.json parsing were not independently attributed.
+Three local score/geometry gzip siblings return 404 before plain JSON succeeds;
+score-prefix plus score-shard probes cost 192.7/114.9 ms on the score path.
+The fourth 404 is an absent optional transit shard. No payload was generated.
+
+Cold observed completed encoded bytes through current-route visibility: app
+508859, data 299936, raster 726067 (sum 1534862). Cold requests observed starting
+by that point: app 17, data 14, raster 100, worker module 1. Four data 404s and the
+worker have incomplete completion accounting. Warm captured completions are cache
+hits with zero encoded bytes; this is NOT zero whole-app traffic. Warm requests
+by the earlier route milestone: app 16, data 14, raster 72 (67 complete), worker 1.
+Worker auto-attachment yielded no completed worker Network records and empty
+resource timing arrays; startup/module imports remain unaccounted. These totals
+remain page-observed completions, not whole-app transfer. Full class breakdowns
+and initiators are retained in capture.json and analysis.json.
+
+Page long tasks: 12 in each capture, total 2513/1251 ms, maximum 617/391 ms.
+These do not measure worker CPU, GPU use, server execution or total process RAM.
+Page JS heap samples are preserved; warm navigation can retain prior process heap.
+No server-internal spans were captured: loopback TTFB includes server work and
+host/network scheduling, so pure server execution remains unresolved.
+
+M13 capture inspection: cold-390x844.png and warm-390x844.png each have four
+current-key features before and after the screenshot at the same camera and
+viewport. Both PNGs are 390x844 and have identical pixel/file content for the same
+settled walk. Inspection shows the turquoise walk, labeled basemap, four metrics
+and visible attribution. Basemap first-loaded time can precede later refit tile
+requests; the screenshot brackets separately record a loaded basemap at capture.
+These are loaded-route captures, not blank-map evidence. No desktop capture was
+attempted after the stop gate. Paths are under qa/revamp-r1/loading-diagnosis/.
+
+Stop gate: all 15 valid CPU counter samples were 100%. Available memory was
+707-1377 MiB (median 945.5), pages input/sec 1440.7-17791.7 (median 5318.5), page
+reads/sec 429.8-1534.8. Page output was zero. These are sustained demand/paging
+indicators, not proof that hardware alone explains latency. Initial earlier CIM
+readings were even lower (588 MiB); the full capture range supersedes the narrower
+last-few-samples commentary. No additional cold/warm pair or viewport repetition.
+No unrelated process was killed and no system setting changed. Only the browser
+and counter sampler owned by this diagnostic were stopped after collection.
+
+FINDINGS, ranked (code locations and experiments in findings.json):
+1. The largest observed intervals are map initialization/source processing after
+   score readiness: another 6728.7/2729.8 ms. Both samples perform 27 source writes,
+   including three writes of four selected-route features under the same key.
+   route-evidence-map.tsx:1285 updates all nine sources in one effect, whose
+   dependencies include optional layer data; the lamp path at :1325 also creates
+   empty collections while disabled. Redundant worker work is a plausible cause,
+   but payload reference equality and the latency saving are not yet measured.
+2. Route publication is gated on the map load callback at :1240. The map-published
+   to load interval is 2321.5/1271.3 ms; basemap/style, worker and scheduling work
+   overlap. Separately delayed-raster instrumentation could discriminate this.
+3. Browser/server startup, scripts and data are material, especially cold, but
+   native CPU attribution is insufficient to justify server or bundling changes.
+4. The large score body and local gzip misses are measurable. They do not justify
+   repartitioning or rewriting data; no data work is proposed or authorized.
+
+Smallest proposed product fix: isolate route-derived source writes from optional
+lamp/feedback/POI changes, updating routes only for changed route data or a new
+map/source instance. Preserve render keys, cancellation/retry, fitting, worker
+CSP, attribution and evidence. This is zero-pipeline frontend work with targeted
+regression checks, not an implemented optimization or promised latency reduction.
+Before a comparison, fix diagnostic trace completion/worker accounting and obtain
+owner-arranged headroom. Do not implement wider initialization changes speculatively.
+
+M12 proposals for review only: on a controlled, unthrottled local profile with
+owner-arranged >=2 GiB available memory, idle CPU <20% and page input <100/sec over
+30 seconds, propose navigation-to-text <=1500 ms cold / 750 ms warm and current
+route <=4000/2000 ms. Propose cold observed page app+data <=1 MiB, data <=350 KiB,
+and raster <=1 MiB through the route milestone. These are provisional regression
+guardrails, not agreed budgets or demonstrated outcomes. Whole-app/warm transfer
+budgets require complete worker/failed-response accounting first. Physical phone,
+network conditions, real-device budgets and release acceptance remain unresolved.
+
+Commands/checks: node --check on capture.mjs and browser-probe.js passed. Executed
+node C:/sgSHIOK2026/qa/revamp-r1/loading-diagnosis/capture.mjs once; one pair,
+no 120-second timeout and no uncaught page errors. Executed analyze.py to derive
+analysis.json and validate both PNG dimensions/capture brackets and all 11 source
+hashes against fixture provenance. python scripts/check_repo_integrity.py passed.
+No web suite or build was rerun; product code is unchanged from accepted Round 1.
+
+Failures/limits retained: V8 timeline export contains zero events. The collector
+waited a fixed second after Tracing.end, not the completion event; successful flush
+was not established. A warm telemetry query for the terminated cold-worker session
+failed with Session with given id not found. The initial analysis assertion treated
+that diagnostic error as an application failure; classification was corrected
+while preserving it. An exploratory CSV summary failed on the initial blank PDH
+rate row; final analyzer excludes that unavailable row and reports sample counts.
+Guessed config/guide paths were absent and the actual next.config.js was then read.
+A compound environment-recording command was rejected before execution by tool
+policy; environment.json was safely written with apply_patch instead. No approval
+blocker remains for this evidence handback. Detailed CPU/worker attribution is an
+explicit diagnostic gap, not a PASS or reason to violate the repetition gate.
+
+DISAGREEMENTS: none with the accepted repair or bounded diagnosis contract.
+Smallest owner action: arrange a quieter session or suitable machine using the
+existing toolchain, then review the narrow source-write proposal and telemetry
+correction before another comparison. No product fix, new feature, comparison/
+reporting work, installation, protected-data mutation or deployment. Production
+was not deployed. Pipeline runs 0; pipeline cost $0. Stop for independent review.

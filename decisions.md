@@ -2334,3 +2334,17 @@ latency observations unsuitable for setting representative performance budgets,
 but does not prove that host pressure alone caused the delay. Performance budgets
 and release approval remain separate gates. IMPLEMENTATION-BRIEF.md specifies the
 diagnostic scope and stopping conditions; no pipeline or deployment is authorized.
+
+### 2026-09-07: Loading diagnosis stops at the host-pressure gate
+One cold/warm 390x844 pair measured current-route observations of 10317.5/3291.0 ms
+and retained inspected, matching four-feature captures. Sustained CPU saturation
+and paging prevent representative performance conclusions, so no additional pair
+or desktop repetition was run. Hardware-only causation is not established.
+The combined map source effect submits the same route key three times per load;
+separating route source writes from optional layer updates is the smallest proposed
+zero-pipeline frontend change, with benefit still to be tested after review.
+Native parse/decompression, server execution and complete worker transfer costs
+remain unresolved; the V8 export did not establish a successful trace flush.
+Correct telemetry and obtain owner-arranged host headroom before another controlled
+comparison. Proposed M12 thresholds are review candidates, not accepted budgets.
+Functional Round 1 acceptance remains intact; performance and release remain open.

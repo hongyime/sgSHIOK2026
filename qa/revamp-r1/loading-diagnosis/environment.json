@@ -1,0 +1,48 @@
+{
+  "root": "C:/sgSHIOK2026",
+  "host": "Prawn-E14",
+  "baseCommit": "7851cde",
+  "trackedDirtyAtStart": false,
+  "runtime": { "node": "26.5.0", "python": "3.12.10", "next": "16.3.0", "maplibre": "6.1.0", "chrome": "152.0.7977.76" },
+  "os": { "name": "Windows 11 Pro Insider Preview", "version": "10.0.26220" },
+  "cpu": { "name": "Intel Core i5-10210U @ 1.60GHz", "cores": 4, "logicalProcessors": 8, "initialLoadPercent": 100 },
+  "initialMemory": {
+    "totalVisibleKiB": 16545324,
+    "freePhysicalKiB": 832252,
+    "totalVirtualKiB": 43808300,
+    "freeVirtualKiB": 7036616,
+    "laterAvailableMiB": 588,
+    "pagesInputPerSec": 11984,
+    "pageReadsPerSec": 3041,
+    "pagesOutputPerSec": 0,
+    "percentCommittedBytesInUse": 79,
+    "note": "Sequential CIM samples before capture, not simultaneous. Continuous capture samples are in host-pressure.csv."
+  },
+  "server": {
+    "pid": 77304,
+    "startedLocal": "2026-09-07T20:28:08+08:00",
+    "command": "C:/sgSHIOK2026/web/node_modules/next/dist/bin/next start --hostname localhost --port 4318",
+    "url": "http://localhost:4318/",
+    "buildId": "7Re5XgsG_DPfrlZcrVRbn",
+    "buildTimeLocal": "2026-09-07T20:27:47+08:00",
+    "priorRecordedTestedCodeCommit": "7788e35e414a0f5c4b61ac220722ca2836765ec0",
+    "runtimeChangedPathsSinceRecordedBuild": [],
+    "identityLimit": "Existing production build from prior accepted capture. Runtime source diff from the recorded tested code commit to HEAD is empty; later web changes are tests/fixtures/scripts. This build is not stamped with HEAD and was not rebuilt; equivalence rests on prior evidence and source comparison, not fresh reproducible-build attestation."
+  },
+  "buildAudit": "Inspected web/package.json and next.config.js. Package build first invokes the protected-data helper; it was not run. Reused existing repo-owned production server and build. No build performed.",
+  "commands": [
+    "git pull --ff-only",
+    "python scripts/check_repo_integrity.py",
+    "CIM Win32_OperatingSystem, Win32_Processor, Win32_PerfFormattedData_PerfOS_Memory",
+    "CIM Win32_Process filtered ProcessId=77304",
+    "netstat -ano (port 4318)",
+    "node --check C:/sgSHIOK2026/qa/revamp-r1/loading-diagnosis/capture.mjs",
+    "node --check C:/sgSHIOK2026/qa/revamp-r1/loading-diagnosis/browser-probe.js",
+    "node C:/sgSHIOK2026/qa/revamp-r1/loading-diagnosis/capture.mjs"
+  ],
+  "commandIssues": [
+    "Initial guessed next.config.ts and next.config.mjs paths absent; actual next.config.js read successfully.",
+    "Optional guessed installed guide path absent; no framework code edited.",
+    "A compound environment-recording command was rejected by tool policy before execution; this record was written with apply_patch instead."
+  ]
+}

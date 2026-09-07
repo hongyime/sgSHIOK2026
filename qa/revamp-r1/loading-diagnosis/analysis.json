@@ -1,0 +1,579 @@
+{
+  "status": "Bounded diagnosis complete; performance/release acceptance unresolved; independent review required",
+  "baseCommit": "7851cde",
+  "samples": [
+    {
+      "cache": "cold",
+      "viewport": [
+        390,
+        844
+      ],
+      "timedOut": false,
+      "captureErrors": [],
+      "uncaughtPageErrors": [],
+      "navigationToObservationWallMs": 11123,
+      "milestonesFromNavigationMs": {
+        "selected-text-visible": 3752.5,
+        "worker-constructor-start": 4296.5,
+        "worker-first-message": 7905.9,
+        "map-published": 4300.9,
+        "map-load": 6622.4,
+        "basemap-source-loaded": 6781.6,
+        "current-selected-route-visible": 10317.5
+      },
+      "navigation": {
+        "requestToFirstResponseByteMs": 911.9,
+        "firstResponseByteAtMs": 971.1,
+        "responseEndAtMs": 983.7,
+        "loadEventEndAtMs": 2471.6
+      },
+      "nonoverlappingObservedIntervalsMs": {
+        "navigationToFirstDataFetch": 2628.5,
+        "firstDataFetchToScoreReady": 960.3,
+        "scoreReadyToFirstRouteSubmission": 3208.8,
+        "firstRouteSubmissionToCurrentVisible": 3519.9
+      },
+      "overlappingDiagnosticIntervalsMs": {
+        "mapPublishedToLoad": 2321.5,
+        "workerConstructedToFirstMessage": 3609.4,
+        "geometryReadyToFirstRouteSubmission": 3665.9,
+        "basemapLoadedToCurrentRoute": 3535.9
+      },
+      "routeSubmissions": [
+        {
+          "name": "source-setData",
+          "at": 6797.600000023842,
+          "source": "shiokest-route",
+          "features": 4,
+          "key": "1:shiokest:primary"
+        },
+        {
+          "name": "source-setData",
+          "at": 6868.899999976158,
+          "source": "shiokest-route",
+          "features": 4,
+          "key": "1:shiokest:primary"
+        },
+        {
+          "name": "source-setData",
+          "at": 6965.300000071526,
+          "source": "shiokest-route",
+          "features": 4,
+          "key": "1:shiokest:primary"
+        }
+      ],
+      "decodedResources": [
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+          "bodyDecodeParseMs": 16,
+          "readyAtMs": 2983.6,
+          "responseEndMs": 2975.2,
+          "postResponseEndResidualMs": 8.4,
+          "encodedBodyBytes": 184,
+          "decodedBodyBytes": 184
+        },
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+          "bodyDecodeParseMs": 24.9,
+          "readyAtMs": 3033.7,
+          "responseEndMs": 3026.1,
+          "postResponseEndResidualMs": 7.6,
+          "encodedBodyBytes": 4210,
+          "decodedBodyBytes": 39674
+        },
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+          "bodyDecodeParseMs": 12.1,
+          "readyAtMs": 3131.7,
+          "responseEndMs": 3125.3,
+          "postResponseEndResidualMs": 6.4,
+          "encodedBodyBytes": 5291,
+          "decodedBodyBytes": 145327
+        },
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+          "bodyDecodeParseMs": 452.8,
+          "readyAtMs": 3588.8,
+          "responseEndMs": 3493.3,
+          "postResponseEndResidualMs": 95.5,
+          "encodedBodyBytes": 274882,
+          "decodedBodyBytes": 5236013
+        },
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+          "bodyDecodeParseMs": 33.7,
+          "readyAtMs": 3778,
+          "responseEndMs": 3671,
+          "postResponseEndResidualMs": 107,
+          "encodedBodyBytes": 600,
+          "decodedBodyBytes": 600
+        },
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+          "bodyDecodeParseMs": 32.7,
+          "readyAtMs": 3778.2,
+          "responseEndMs": 3673.6,
+          "postResponseEndResidualMs": 104.6,
+          "encodedBodyBytes": 701,
+          "decodedBodyBytes": 701
+        },
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+          "bodyDecodeParseMs": 31.8,
+          "readyAtMs": 3778.2,
+          "responseEndMs": 3674.1,
+          "postResponseEndResidualMs": 104.1,
+          "encodedBodyBytes": 590,
+          "decodedBodyBytes": 590
+        },
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+          "bodyDecodeParseMs": 30.4,
+          "readyAtMs": 3778.2,
+          "responseEndMs": 3685.2,
+          "postResponseEndResidualMs": 93.0,
+          "encodedBodyBytes": 1010,
+          "decodedBodyBytes": 1010
+        },
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+          "bodyDecodeParseMs": 28.9,
+          "readyAtMs": 3778.3,
+          "responseEndMs": 3689.6,
+          "postResponseEndResidualMs": 88.7,
+          "encodedBodyBytes": 1073,
+          "decodedBodyBytes": 1073
+        },
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+          "bodyDecodeParseMs": 26.5,
+          "readyAtMs": 3778.3,
+          "responseEndMs": 3724.5,
+          "postResponseEndResidualMs": 53.8,
+          "encodedBodyBytes": 1672,
+          "decodedBodyBytes": 1672
+        }
+      ],
+      "requestClassesThroughCurrentRoute": {
+        "app": {
+          "observedRequestsStarted": 17,
+          "completedByRoute": 17,
+          "observedCompletedEncodedBytes": 508859,
+          "http404": 0,
+          "incompleteOrUnobservedCompletion": 0,
+          "targetTypes": [
+            "page"
+          ]
+        },
+        "data": {
+          "observedRequestsStarted": 14,
+          "completedByRoute": 10,
+          "observedCompletedEncodedBytes": 299936,
+          "http404": 4,
+          "incompleteOrUnobservedCompletion": 4,
+          "targetTypes": [
+            "page"
+          ]
+        },
+        "worker": {
+          "observedRequestsStarted": 1,
+          "completedByRoute": 0,
+          "observedCompletedEncodedBytes": 0,
+          "http404": 0,
+          "incompleteOrUnobservedCompletion": 1,
+          "targetTypes": [
+            "page"
+          ]
+        },
+        "basemap": {
+          "observedRequestsStarted": 100,
+          "completedByRoute": 100,
+          "observedCompletedEncodedBytes": 726067,
+          "http404": 0,
+          "incompleteOrUnobservedCompletion": 0,
+          "targetTypes": [
+            "page"
+          ]
+        }
+      },
+      "pageLongTasks": {
+        "count": 12,
+        "sumMs": 2513,
+        "maximumMs": 617
+      },
+      "pageHeapSamples": [
+        {
+          "at": 1120.2000000476837,
+          "usedJSHeapSize": 802458,
+          "totalJSHeapSize": 1311246
+        },
+        {
+          "at": 2215.3000000715256,
+          "usedJSHeapSize": 3984834,
+          "totalJSHeapSize": 6768254
+        },
+        {
+          "at": 3216.7000000476837,
+          "usedJSHeapSize": 40774364,
+          "totalJSHeapSize": 44296960
+        },
+        {
+          "at": 4343.700000047684,
+          "usedJSHeapSize": 53697355,
+          "totalJSHeapSize": 61165227
+        },
+        {
+          "at": 5419.300000071526,
+          "usedJSHeapSize": 47350205,
+          "totalJSHeapSize": 60118785
+        },
+        {
+          "at": 6544.300000071526,
+          "usedJSHeapSize": 48649838,
+          "totalJSHeapSize": 63390122
+        },
+        {
+          "at": 7584.300000071526,
+          "usedJSHeapSize": 48819967,
+          "totalJSHeapSize": 66151395
+        },
+        {
+          "at": 8619.600000023842,
+          "usedJSHeapSize": 50902165,
+          "totalJSHeapSize": 66545713
+        },
+        {
+          "at": 10023.5,
+          "usedJSHeapSize": 51968256,
+          "totalJSHeapSize": 67596596
+        }
+      ],
+      "screenshot": {
+        "path": "cold-390x844.png",
+        "sha256": "a0ca0512889bd20e9a1b634bd0f16808a53c4da622bcbf4b01de96dd845d0413",
+        "dimensions": [
+          390,
+          844
+        ],
+        "currentFeaturesBeforeAndAfter": 4,
+        "sameCaptureState": true,
+        "visuallyInspected": true,
+        "inspection": "Visible turquoise selected walk, labeled basemap, four metrics and attribution. Both captures have identical PNG bytes for the same settled viewport/selection; each has its own matching capture bracket."
+      }
+    },
+    {
+      "cache": "warm",
+      "viewport": [
+        390,
+        844
+      ],
+      "timedOut": false,
+      "captureErrors": [
+        "Worker resource timing: Session with given id not found."
+      ],
+      "uncaughtPageErrors": [],
+      "navigationToObservationWallMs": 4499,
+      "milestonesFromNavigationMs": {
+        "selected-text-visible": 700.4,
+        "worker-constructor-start": 666.1,
+        "worker-first-message": 1067.9,
+        "map-published": 668.1,
+        "map-load": 1939.4,
+        "basemap-source-loaded": 1990.5,
+        "current-selected-route-visible": 3291
+      },
+      "navigation": {
+        "requestToFirstResponseByteMs": 24.1,
+        "firstResponseByteAtMs": 52.6,
+        "responseEndAtMs": 55.3,
+        "loadEventEndAtMs": 254.2
+      },
+      "nonoverlappingObservedIntervalsMs": {
+        "navigationToFirstDataFetch": 285.9,
+        "firstDataFetchToScoreReady": 275.3,
+        "scoreReadyToFirstRouteSubmission": 1431.1,
+        "firstRouteSubmissionToCurrentVisible": 1298.7
+      },
+      "overlappingDiagnosticIntervalsMs": {
+        "mapPublishedToLoad": 1271.3,
+        "workerConstructedToFirstMessage": 401.8,
+        "geometryReadyToFirstRouteSubmission": 1550.0,
+        "basemapLoadedToCurrentRoute": 1300.5
+      },
+      "routeSubmissions": [
+        {
+          "name": "source-setData",
+          "at": 1992.3000000715256,
+          "source": "shiokest-route",
+          "features": 4,
+          "key": "1:shiokest:primary"
+        },
+        {
+          "name": "source-setData",
+          "at": 2091.8000000715256,
+          "source": "shiokest-route",
+          "features": 4,
+          "key": "1:shiokest:primary"
+        },
+        {
+          "name": "source-setData",
+          "at": 2225.100000023842,
+          "source": "shiokest-route",
+          "features": 4,
+          "key": "1:shiokest:primary"
+        }
+      ],
+      "decodedResources": [
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+          "bodyDecodeParseMs": 10.5,
+          "readyAtMs": 373,
+          "responseEndMs": 308.5,
+          "postResponseEndResidualMs": 64.5,
+          "encodedBodyBytes": 184,
+          "decodedBodyBytes": 184
+        },
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+          "bodyDecodeParseMs": 3.4,
+          "readyAtMs": 395.6,
+          "responseEndMs": 393.6,
+          "postResponseEndResidualMs": 2.0,
+          "encodedBodyBytes": 4210,
+          "decodedBodyBytes": 39674
+        },
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+          "bodyDecodeParseMs": 5.5,
+          "readyAtMs": 442.3,
+          "responseEndMs": 437.7,
+          "postResponseEndResidualMs": 4.6,
+          "encodedBodyBytes": 5291,
+          "decodedBodyBytes": 145327
+        },
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+          "bodyDecodeParseMs": 117.1,
+          "readyAtMs": 561.2,
+          "responseEndMs": 474,
+          "postResponseEndResidualMs": 87.2,
+          "encodedBodyBytes": 274882,
+          "decodedBodyBytes": 5236013
+        },
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+          "bodyDecodeParseMs": 98,
+          "readyAtMs": 700.8,
+          "responseEndMs": 578.6,
+          "postResponseEndResidualMs": 122.2,
+          "encodedBodyBytes": 600,
+          "decodedBodyBytes": 600
+        },
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+          "bodyDecodeParseMs": 100.6,
+          "readyAtMs": 704.4,
+          "responseEndMs": 578.9,
+          "postResponseEndResidualMs": 125.5,
+          "encodedBodyBytes": 590,
+          "decodedBodyBytes": 590
+        },
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+          "bodyDecodeParseMs": 99.7,
+          "readyAtMs": 704.4,
+          "responseEndMs": 579.2,
+          "postResponseEndResidualMs": 125.2,
+          "encodedBodyBytes": 701,
+          "decodedBodyBytes": 701
+        },
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+          "bodyDecodeParseMs": 98.9,
+          "readyAtMs": 704.4,
+          "responseEndMs": 580.8,
+          "postResponseEndResidualMs": 123.6,
+          "encodedBodyBytes": 1010,
+          "decodedBodyBytes": 1010
+        },
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+          "bodyDecodeParseMs": 98,
+          "readyAtMs": 704.5,
+          "responseEndMs": 582.6,
+          "postResponseEndResidualMs": 121.9,
+          "encodedBodyBytes": 1073,
+          "decodedBodyBytes": 1073
+        },
+        {
+          "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+          "bodyDecodeParseMs": 97.1,
+          "readyAtMs": 704.5,
+          "responseEndMs": 582.9,
+          "postResponseEndResidualMs": 121.6,
+          "encodedBodyBytes": 1672,
+          "decodedBodyBytes": 1672
+        }
+      ],
+      "requestClassesThroughCurrentRoute": {
+        "app": {
+          "observedRequestsStarted": 16,
+          "completedByRoute": 16,
+          "observedCompletedEncodedBytes": 0,
+          "http404": 0,
+          "incompleteOrUnobservedCompletion": 0,
+          "targetTypes": [
+            "page"
+          ]
+        },
+        "data": {
+          "observedRequestsStarted": 14,
+          "completedByRoute": 10,
+          "observedCompletedEncodedBytes": 0,
+          "http404": 4,
+          "incompleteOrUnobservedCompletion": 4,
+          "targetTypes": [
+            "page"
+          ]
+        },
+        "worker": {
+          "observedRequestsStarted": 1,
+          "completedByRoute": 0,
+          "observedCompletedEncodedBytes": 0,
+          "http404": 0,
+          "incompleteOrUnobservedCompletion": 1,
+          "targetTypes": [
+            "page"
+          ]
+        },
+        "basemap": {
+          "observedRequestsStarted": 72,
+          "completedByRoute": 67,
+          "observedCompletedEncodedBytes": 0,
+          "http404": 0,
+          "incompleteOrUnobservedCompletion": 5,
+          "targetTypes": [
+            "page"
+          ]
+        }
+      },
+      "pageLongTasks": {
+        "count": 12,
+        "sumMs": 1251,
+        "maximumMs": 391
+      },
+      "pageHeapSamples": [
+        {
+          "at": 257,
+          "usedJSHeapSize": 89728189,
+          "totalJSHeapSize": 102235493
+        },
+        {
+          "at": 1319.1000000238419,
+          "usedJSHeapSize": 54274940,
+          "totalJSHeapSize": 72169784
+        },
+        {
+          "at": 2531.100000023842,
+          "usedJSHeapSize": 50481473,
+          "totalJSHeapSize": 90050385
+        },
+        {
+          "at": 3634,
+          "usedJSHeapSize": 66433968,
+          "totalJSHeapSize": 94039416
+        }
+      ],
+      "screenshot": {
+        "path": "warm-390x844.png",
+        "sha256": "a0ca0512889bd20e9a1b634bd0f16808a53c4da622bcbf4b01de96dd845d0413",
+        "dimensions": [
+          390,
+          844
+        ],
+        "currentFeaturesBeforeAndAfter": 4,
+        "sameCaptureState": true,
+        "visuallyInspected": true,
+        "inspection": "Visible turquoise selected walk, labeled basemap, four metrics and attribution. Both captures have identical PNG bytes for the same settled viewport/selection; each has its own matching capture bracket."
+      }
+    }
+  ],
+  "perProfileMedians": {
+    "cold": {
+      "n": 1,
+      "textMs": 3752.5,
+      "routeMs": 10317.5
+    },
+    "warm": {
+      "n": 1,
+      "textMs": 700.4,
+      "routeMs": 3291
+    }
+  },
+  "medianLimit": "One observation per cache profile; median equals that observation. Do not pool cold and warm or claim p95/phone SLA.",
+  "hostPressure": {
+    "availableMiB": {
+      "samples": 16,
+      "min": 707.0,
+      "median": 945.5,
+      "max": 1377.0
+    },
+    "pagesInputPerSecond": {
+      "samples": 15,
+      "min": 1440.72,
+      "median": 5318.5,
+      "max": 17791.66
+    },
+    "pagesOutputPerSecond": {
+      "samples": 15,
+      "min": 0.0,
+      "median": 0.0,
+      "max": 0.0
+    },
+    "pageReadsPerSecond": {
+      "samples": 15,
+      "min": 429.8,
+      "median": 884.57,
+      "max": 1534.76
+    },
+    "cpuPercent": {
+      "samples": 15,
+      "min": 100.0,
+      "median": 100.0,
+      "max": 100.0
+    }
+  },
+  "gate": {
+    "stopRepetitions": true,
+    "reason": "Sustained paging and 100% CPU across all 15 valid CPU samples; available memory 707-1377 MiB. No additional pair or desktop run.",
+    "ownerAction": "Owner arranges a quieter session or another suitable machine with installed toolchain; agent did not kill unrelated processes or change settings. Repeat one pair only after review, with complete trace/worker accounting."
+  },
+  "instrumentationLimits": [
+    "Native Response.json timing combines pending body read, streaming decompression, native JSON parse and scheduling. Explicit JSON.parse wrapper does not observe native Response.json internals; pure parse/decompression CPU times are unresolved.",
+    "Worker constructor-to-first-message includes module fetch, compilation, scheduling and early work; not pure worker startup CPU time.",
+    "Auto-attachment did not yield completed worker Network requests; worker resource arrays are empty. Main module request was observed without completion. Warm telemetry also queried the terminated cold worker session and recorded Session with given id not found. Byte totals are observed page-target completions only, not whole-app transfer.",
+    "V8 trace export contains zero events. The harness waited a fixed second after Tracing.end rather than awaiting tracingComplete, so successful trace flushing was not established. Native CPU attribution is unavailable; no repeat under the pressure gate.",
+    "Loopback request-to-first-byte includes server work and host/network scheduling. No server-internal spans or Server-Timing were captured; pure server execution time is unresolved.",
+    "100ms page polling and Node/CDP scheduling mean milestone observations are upper bounds on first visibility. Inspector instrumentation overhead is uncalibrated; source wrapper returns original native results.",
+    "Warm navigation resets app module caches but can retain browser V8/HTTP caches, process heap and OS caches. Cold means browser-cold, not cold disk/server OS cache.",
+    "Real OneMap raster HTTP traffic was used from the local app. No production application navigation or production load test was performed."
+  ],
+  "protections": {
+    "protectedSourceHashesMatched": 11,
+    "protectedMutations": 0,
+    "pipelineRuns": 0,
+    "pipelineCost": 0,
+    "installs": 0,
+    "builds": 0,
+    "deployments": 0,
+    "productCodeChanges": 0
+  },
+  "validation": [
+    "Both diagnostic JavaScript files passed node --check",
+    "Both PNGs are 390x844 and visually inspected; four current-key features match across each screenshot bracket",
+    "No captured uncaught page errors or timeouts; obsolete worker telemetry query failed and is retained",
+    "Initial analysis assertion treated that telemetry error as an application error; corrected categorization preserves the raw failure",
+    "11 protected source hashes match fixture provenance after capture",
+    "No browser repetitions after pressure gate"
+  ]
+}

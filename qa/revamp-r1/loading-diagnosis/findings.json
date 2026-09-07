@@ -1,0 +1,70 @@
+{
+  "decision": "Review the bounded diagnosis and smallest frontend proposal; no optimization implemented",
+  "rankedFindings": [
+    {
+      "rank": 1,
+      "observed": "After the score is decoded, current-route visibility takes another 6728.7 ms cold and 2729.8 ms warm. Within that period, first route-source submission to current visibility is 3519.9/1298.7 ms. Each sample submits all nine sources three times: 27 setData calls, including three writes of the same selected-route key with four features.",
+      "code": ["web/components/route-evidence-map.tsx:1285", "web/components/route-evidence-map.tsx:1325", "web/components/route-evidence-map.tsx:1142"],
+      "hypothesis": "The combined source-update effect resubmits unchanged route data when optional layer data changes. Extra worker processing may prolong readiness under host pressure. Payload equality and the counterfactual latency saving were not measured.",
+      "smallestExperiment": "After review and on a quieter host, record route-data object identity and worker source jobs, then compare one cold/warm pair with route source writes isolated from optional layer updates. Keep all other conditions constant.",
+      "proposedFix": "Split the source-update effect so route-derived sources update only when their route data or map/source instance changes; optional lamp, feedback and POI updates write their own sources. Preserve render keys, cancellation, retries, fitting and all evidence.",
+      "price": "Zero-pipeline frontend work plus targeted regression checks; no data change, dependency or deployment. Benefit unproven until the comparison."
+    },
+    {
+      "rank": 2,
+      "observed": "Route source publication is gated by the map load callback. Map publication to load is 2321.5 ms cold / 1271.3 ms warm. First basemap-loaded observation is 6781.6/1990.5 ms, current selected route 10317.5/3291.0 ms. These periods overlap worker work and are not additive CPU costs.",
+      "code": ["web/components/route-evidence-map.tsx:1240", "web/components/route-evidence-map.tsx:1280"],
+      "hypothesis": "Basemap/style initialization delays route source publication. Tile transport, image decode, GPU/software rendering and host scheduling are not separately identified.",
+      "smallestExperiment": "Only if still material after the first fix is reviewed: controlled raster-delay versus normal raster timing while observing style readiness and route publication. Do not infer the basemap is the sole cause.",
+      "price": "Zero-pipeline diagnostic/frontend work if subsequently approved; no implementation now."
+    },
+    {
+      "rank": 3,
+      "observed": "Navigation to first data fetch is 2628.5 ms cold / 285.9 ms warm. Loopback request to first HTML byte is 911.9/24.1 ms. Cold script responses extend from approximately 1002.5 to 3905.9 ms, including a 964039-byte decoded MapLibre-containing chunk; warm script resources are browser cache hits.",
+      "code": ["web/app/page.tsx:2391", "web/components/route-evidence-map.tsx:1217", "web/.next/static/chunks/318x15h178iv-.js"],
+      "hypothesis": "Browser/server cache state, paging, script evaluation and initialization contribute. Without a flushed V8 trace or server spans, pure server execution and script compile/evaluation costs remain unresolved.",
+      "smallestExperiment": "Repair diagnostic trace flushing, discard detached worker sessions and verify early worker request coverage; repeat one pair on a quieter host. Add bounded server spans only if loopback TTFB remains high.",
+      "price": "Zero-pipeline diagnostics. No speculative server or bundling change proposed."
+    },
+    {
+      "rank": 4,
+      "observed": "First data fetch to score-ready is 960.3/275.3 ms. The score body is 274882 encoded bytes and 5236013 decoded bytes. Its native body/decode/parse interval is 452.8/117.1 ms, with 95.5/87.2 ms remaining after ResourceTiming responseEnd. Geometry body/decode/parse is 12.1/5.5 ms. Local score prefix and score shard gzip probes return 404 before plain JSON succeeds, adding 192.7/114.9 ms on the score path.",
+      "code": ["web/lib/data.ts:65", "web/lib/data.ts:81", "web/lib/data.ts:178"],
+      "hypothesis": "Native parse/allocation may contribute to the score residual, but residual time includes scheduling; it is not a pure parse measurement. Local missing gzip siblings do not prove a production packaging problem.",
+      "smallestExperiment": "Obtain native parse/decompression and server timing attribution before considering payload changes; verify the intended served artifact layout separately.",
+      "price": "Zero-pipeline diagnostic work. Any artifact repartitioning, generation or data rewrite is separately gated and not proposed for this repair."
+    }
+  ],
+  "hostConfounder": "All 15 valid CPU samples show 100%; available memory ranges 707-1377 MiB and page input 1441-17792 pages/sec. Paging includes demand reads and does not establish that hardware alone is responsible. One pair cannot estimate variance or causality; additional samples stopped under the contract.",
+  "measurementCorrections": [
+    "Prefer browser timeline route observations of 10317.5/3291.0 ms over outer harness wall observations of 11123/4499 ms; the latter also include CDP scheduling and polling.",
+    "Native body-read/decompression/parse remain a composite measurement. No pure parsing or decompression CPU claim.",
+    "Trace export has zero events and worker transfer capture is incomplete. Those are diagnostic gaps, not successful coverage.",
+    "Warm observed completed encoded bytes are zero for captured cache hits; this is not zero whole-app traffic. Four 404 responses and worker transfers have incomplete completion accounting.",
+    "First basemap-loaded milestone can precede later refit tile requests; the screenshot bracket separately confirms basemapLoaded and four current-route features at capture."
+  ],
+  "M12BudgetProposal": {
+    "status": "Proposed for review; not agreed, validated or satisfied by these pressure-limited samples",
+    "controlledLocalConditions": "Same installed production build, postal 018956 and 390x844 viewport; no artificial throttling; new browser context/cache for cold, same context with re-navigation for warm, app module state reset, service worker bypassed. Start only after owner-arranged headroom: at least 2 GiB available, idle CPU below 20% and page input below 100/sec over 30 seconds. These are proposed screening conditions, not a hardware diagnosis.",
+    "latency": {
+      "start": "Navigation Performance timeOrigin for the shared postal URL",
+      "textEnd": "First visible four-metric summary for the current postal; page observation bounded by sampling interval",
+      "routeEnd": "Current render_key features in the unobscured viewport, source loaded, camera settled; confirm matching inspected screenshot/count bracket",
+      "coldTextMs": 1500,
+      "warmTextMs": 750,
+      "coldRouteMs": 4000,
+      "warmRouteMs": 2000,
+      "aggregation": "Report every sample and median separately by profile; no p95 claim from up to three pairs"
+    },
+    "transfer": {
+      "window": "Navigation start through current selected-route visibility, unique observed completed requests, HTTP encoded bytes",
+      "coldPageAppAndDataBytes": 1048576,
+      "coldPageDataBytes": 358400,
+      "coldRasterBytes": 1048576,
+      "scope": "Provisional regression guardrails for explicitly observed request classes. Worker modules, imports and failed-response overhead must be fully captured before adopting a whole-app or warm-transfer budget."
+    },
+    "realDeviceAcceptance": "Still open. Select a physical phone and document actual available memory, browser, GPU and network; use worker-inclusive transfer accounting and reviewed latency budgets. The controlled local targets are design proposals, not a representative phone SLA or release approval."
+  },
+  "nextDecision": "Approve or reject the narrow route-source update separation and one controlled comparison after the telemetry gaps/headroom are addressed. No product fix was implemented in this diagnosis.",
+  "ownerAction": "Arrange a quieter session or a suitable machine with the existing toolchain before the next measurement. The agent did not close unrelated applications, alter system settings, install anything or repeat the pressure-limited benchmark."
+}

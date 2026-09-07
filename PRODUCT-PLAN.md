@@ -36,7 +36,8 @@ Use absolute write paths under the internal working root. Preserve all protected
 data, existing verification lines, and locked weights.
 
 ## Round 1 status
-Repairs implemented and checked (2026-09-07); independent review pending.
+Functional and portability repairs accepted by independent review (2026-09-07),
+through 53651e9; diagnosis/performance/release decisions remain separate.
 Earlier commits 0c6ba4c, f9e6e20 and 0ec2510 did not establish completion.
 Their source-only PASS classifications and blank-map acceptance claims are
 withdrawn by append-only corrections in qa/verification/REVAMP-R1-core-walk.md.
@@ -73,7 +74,7 @@ These are sampled regression checks, not a complete production index audit.
 Evidence: qa/revamp-r1/repair-portability/summary.json and append-only corrections
 in qa/verification/REVAMP-R1-core-walk.md. No new browser run or feature work.
 
-Remaining: independent Round 1 review, representative performance validation and
+Remaining: representative performance validation and
 reviewed numerical timing budgets. Earlier cold/warm observations do not resolve
 representative performance. Stop for review after this portability repair; the
 next priority is a credible loading-time diagnosis, before comparison/reporting.
@@ -88,3 +89,28 @@ Performance and M12 budgets remain open; this is not production release approval
 Next: the bounded diagnosis in IMPLEMENTATION-BRIEF.md, before product fixes,
 comparison/reporting, or deployment. Earlier memory-constrained timings do not
 establish representative latency or identify its cause.
+
+### Loading-time diagnosis handback, 2026-09-07
+One cold/warm pair at 390x844 completed on the existing local production build;
+the runtime source matches the prior tested code, but the build is not stamped
+with current HEAD. Current selected-route observations were 10317.5/3291.0 ms;
+text was visible at 3752.5/700.4 ms. Both inspected captures show four current-key
+features with matching screenshot/count state. No blank-map acceptance claimed.
+
+Sustained host pressure triggered the required stop gate: CPU 100% in all 15 valid
+samples, 707-1377 MiB available and 1441-17792 pages input/sec. No repetitions or
+desktop expansion. This does not prove that hardware is the sole cause.
+
+The largest measured intervals occur after score readiness: map initialization
+and selected-source processing. Each sample submits nine sources three times,
+including three writes of the same route key. Proposed smallest frontend change:
+separate route-source writes from optional lamp/feedback/POI updates. Its latency
+benefit is a hypothesis to test after review, with zero pipeline cost; no fix is
+implemented. Evidence, code locations, alternatives and proposed M12 budgets are
+in qa/revamp-r1/loading-diagnosis/analysis.json and findings.json.
+
+Native body read/decompression/parse remain combined. Server-internal execution
+and worker transfer attribution remain unresolved; V8 trace export contained zero
+events. Correct telemetry and obtain owner-arranged host headroom before another
+controlled pair. Whole-app transfer, representative phone performance, reviewed
+M12 budgets and release approval remain open. Stop for independent review.

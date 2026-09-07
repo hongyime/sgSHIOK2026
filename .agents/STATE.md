@@ -3,7 +3,7 @@
 Date: 2026-09-07
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Current task: Round 1 functional and portability repairs accepted by independent review at 53651e9. Performance/release acceptance remains open. Next agent follows the Loading-time diagnosis section of IMPLEMENTATION-BRIEF.md; diagnosis only, no product changes or deployment.
+Current task: bounded loading-time diagnosis handback for review (base 7851cde; see git log for evidence commit). One cold/warm 390x844 pair completed, then sustained memory/paging/CPU pressure triggered the stop gate. No product change, extra browser pair or deployment. Round 1 repairs remain accepted.
 Evidence: qa/verification/REVAMP-R1-core-walk.md (append-only corrections and catalogue mapping).
 Machine-readable handbacks: qa/revamp-r1/repair-portability/summary.json (current); qa/revamp-r1/repair-final/summary.json (prior functional/browser checks).
 Code fixes pushed: 04fae3e and 7788e35; evidence is included with this handback.
@@ -15,10 +15,17 @@ direct frontend build and repo integrity passed. All four required viewports sho
 gestures, gap focus/clear, A-failure/B-success, previews, delayed geometry, and
 actual raster recovery passed. Paused-worker browser check rejects old features.
 Cold/warm desktop/mobile measurements and inspected captures are recorded.
-Remaining: independent review; M12 budget agreement. Timings reflect severe host
-memory pressure; request/byte counts are page-target observations and may exclude
-worker-internal transfers. No representative phone/production benchmark claimed.
-Next: bounded loading-time diagnosis before comparison/reporting. Report measured bottlenecks and proposed fixes for review; do not treat earlier memory-constrained timings as representative performance.
+Diagnosis evidence: qa/revamp-r1/loading-diagnosis/analysis.json and findings.json.
+Navigation-to-text: cold 3752.5 ms / warm 700.4 ms; current-route observation:
+10317.5 / 3291.0 ms. Both inspected PNGs show 4 current features with matching
+capture brackets. Three same-key route submissions per sample; 27 total source
+writes. Host CPU 100%, available 707-1377 MiB, sustained page reads.
+Remaining: review of diagnosis and proposed M12 budgets; native parse/decompression
+and server CPU attribution, complete worker transfers and usable V8 trace. No
+representative phone/production benchmark. No additional measurements under pressure.
+Next: owner-arranged headroom and review of the smallest proposed frontend change:
+isolate route source updates from optional layer changes, then one controlled
+comparison with corrected telemetry. No fix implemented; no comparison/reporting.
 Scope: real-data core walk UI and map reliability, not comparison/report infrastructure.
 Mockup approved at 0de3d5f. Reuse production MapLibre, never the illustrative canvas.
 Prototype uses explicitly illustrative geometry/metrics; dialogs do not submit reports.
