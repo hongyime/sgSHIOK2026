@@ -498,3 +498,35 @@ The portability report now contains this explicit correction without removing
 its original coverage entry. The isolated 15/15 focused and 228/228 full test
 results are unchanged. Portability implementation 903f354677de64eca02b695dada130a8cc39c5b2
 is pushed to main; representative performance remains unresolved. Stop for review.
+
+### Independent portability review, 2026-09-07
+Reviewed commits: 903f354 and 53651e9. No blocking portability defect found.
+Read the tracked fixture, extraction/provenance, isolation runner and filesystem
+guard, test changes and committed test reports. The guard is a test aid, not an
+OS security sandbox; reduced indexes are not full production audits.
+
+Independent checks:
+```text
+fixture_identity=ok source_hashes_matched=11
+repo_integrity=ok
+```
+The reviewer ran `node web/scripts/test-without-production-data.mjs
+walk-real-records.test.ts data.test.ts data-base.test.ts`. Its isolation receipt
+at tmp/test-without-data-hGii1r/isolation.json records copiedFiles=151,
+productionDataDirectoryAbsent=true, guardProbePassed=true and exitCode=0.
+The original console result was lost during context compaction; the completed
+receipt was read afterwards. No claim is made to a new full-suite or browser run.
+The 228/228 full-suite result is the implementation agent's committed report.
+
+FINDINGS
+1. Portable fixtures resolve the production-data dependency review finding;
+   all 11 recorded source hashes and the fixture hash independently match.
+2. Functional and portability repairs are accepted. Representative performance,
+   M12 budgets and release approval remain unresolved and distinct.
+3. Existing slow timings under memory pressure justify diagnosis, not a claim
+   that either the application or the host alone explains the latency.
+
+DISAGREEMENTS
+1. None with the corrected portability handback. Acceptance is deliberately
+   narrower than completion of the performance and release milestones.
+No pipeline, installation, browser rerun, protected-data mutation or deployment.

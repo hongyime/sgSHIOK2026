@@ -78,3 +78,13 @@ reviewed numerical timing budgets. Earlier cold/warm observations do not resolve
 representative performance. Stop for review after this portability repair; the
 next priority is a credible loading-time diagnosis, before comparison/reporting.
 No independent user-session or release approval is claimed. Milestones 5-11 remain pending.
+
+### Independent review decision, 2026-09-07
+Round 1 functional and portability repairs through 53651e9 are accepted. The
+reviewer checked fixture identity and all 11 source hashes, reran the isolated
+focused selection successfully, and obtained repo_integrity=ok. The full 228-test
+result remains the implementation agent's committed run, not a new reviewer run.
+Performance and M12 budgets remain open; this is not production release approval.
+Next: the bounded diagnosis in IMPLEMENTATION-BRIEF.md, before product fixes,
+comparison/reporting, or deployment. Earlier memory-constrained timings do not
+establish representative latency or identify its cause.

@@ -151,3 +151,58 @@ is not review approval. Do not widen scope into reports, data processing or depl
 to compensate for a blocked map test. Stop after this slice for independent review.
 UI and implementation choices within this contract do not require more owner questions.
 If blocked, provide the smallest concrete decision/action needed; never loop on it.
+
+## Loading-time diagnosis (review decision 2026-09-07)
+
+Round 1 functional repairs and test portability are accepted through 53651e9.
+This does not approve performance, M12 numerical budgets, or deployment. The next
+delegated task is diagnosis, not new features or speculative optimization.
+
+### Scope and safety
+- Assert C:\sgSHIOK2026 as working directory before work; use absolute write paths.
+- Read STATE, PRODUCT-PLAN, this brief and the repair-portability and repair-final
+  summaries. Preserve every existing compute, protected-file and evidence rule.
+- No scoring, export, ingestion, dependency install, deployment, production load
+  test, data rewrite, feature implementation or change to approved UI.
+- Use installed tools and existing local data. Write new diagnostic artifacts under
+  qa/revamp-r1/loading-diagnosis/. Append verification evidence, never replace it.
+- Limit diagnosis to 45 minutes. A measured blocker is a valid result. Do not kill
+  unrelated processes or change system settings to manufacture a clean benchmark.
+
+### Measure before explaining
+1. Record root, host, commit, tracked dirty state, browser/runtime versions, CPU,
+   available memory and paging indicators. Identify the tested repo-owned server
+   and whether its build actually represents HEAD. Audit build scripts before any
+   frontend-only build: no helper may prepare or change production data.
+2. Start with one cold and one warm selected-walk capture at 390x844. Define cold
+   and warm explicitly: browser context, HTTP cache, service worker and app memory.
+   Keep postal, route, throttling and build constant. Reuse a non-personal test
+   location from existing evidence; do not promote a private address in UI copy.
+3. Record a timeline separating navigation/server response, scripts, score fetch,
+   geometry fetch, decompression/parse, worker startup, source processing, basemap
+   readiness and CURRENT selected-route render. Track request initiators, bytes,
+   long tasks and memory where available. State which worker requests the capture
+   includes; page-target transfer totals must not be called whole-app totals.
+4. Use the existing selection-specific render key and screenshot/count capture.
+   A loaded basemap or stale feature is not a loaded selected walk. Preserve actual
+   loaded screenshots with matching route counts, not only timing logs.
+5. Gate after the pair. If either times out at 120 seconds or memory/paging shows
+   sustained host pressure, stop repetitions and provide the trace and smallest
+   owner action needed. Do not infer that hardware is the only cause. Otherwise
+   allow up to three cold/warm pairs per viewport, adding 1440x950. Report samples
+   individually and medians; this sample size cannot establish a p95 or phone SLA.
+
+### Deliverable and next decision
+- Rank measured bottlenecks, separating observed time from causal hypotheses.
+  Name code locations and evidence for each; propose the smallest discriminating
+  experiment where the cause is uncertain. Do not implement product fixes yet.
+- Propose M12 latency and transfer budgets, with start/end events and test conditions.
+  Distinguish controlled local regression targets from real-device acceptance.
+  Do not claim a throttled desktop browser is a representative phone benchmark.
+- Price each proposed fix as zero-pipeline frontend work or explicitly gated data
+  work. Preserve cancellation/retry, worker CSP, attribution and route evidence.
+- Record findings, disagreements, commands, environment and limitations in the
+  append-only verification log; update STATE and PRODUCT-PLAN. Commit coherent
+  diagnostic/documentation work and push to main. Stop for independent review.
+- Hand back root/host, pushed SHAs, measured bottlenecks, proposed next fix and any
+  concrete owner action. No comparison/reporting scope expansion.

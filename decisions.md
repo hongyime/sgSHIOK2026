@@ -2324,3 +2324,13 @@ the real payload. Reduced index checks describe sample coverage, not a complete
 production audit. Functional closure remains subject to independent review;
 representative performance validation remains unresolved. After review, prioritize
 credible loading-time diagnosis before comparison/reporting or more features.
+
+### 2026-09-07: Accept Round 1 repairs; separate performance acceptance
+Independent review accepts functional and test-portability repairs through 53651e9.
+The tracked sample is appropriate for portable regressions, not a complete-bundle
+audit. The next spend is a bounded loading-time diagnosis with phase-level traces,
+not new features or unmeasured optimization. Severe memory pressure makes earlier
+latency observations unsuitable for setting representative performance budgets,
+but does not prove that host pressure alone caused the delay. Performance budgets
+and release approval remain separate gates. IMPLEMENTATION-BRIEF.md specifies the
+diagnostic scope and stopping conditions; no pipeline or deployment is authorized.

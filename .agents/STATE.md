@@ -3,7 +3,7 @@
 Date: 2026-09-07
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Current task: final Round 1 test-portability repair validated and pushed as 903f354; handback for independent review. Three test files use a tracked 9,477-byte fixture from 11 source artifacts whose hashes remain unchanged.
+Current task: Round 1 functional and portability repairs accepted by independent review at 53651e9. Performance/release acceptance remains open. Next agent follows the Loading-time diagnosis section of IMPLEMENTATION-BRIEF.md; diagnosis only, no product changes or deployment.
 Evidence: qa/verification/REVAMP-R1-core-walk.md (append-only corrections and catalogue mapping).
 Machine-readable handbacks: qa/revamp-r1/repair-portability/summary.json (current); qa/revamp-r1/repair-final/summary.json (prior functional/browser checks).
 Code fixes pushed: 04fae3e and 7788e35; evidence is included with this handback.
@@ -18,7 +18,7 @@ Cold/warm desktop/mobile measurements and inspected captures are recorded.
 Remaining: independent review; M12 budget agreement. Timings reflect severe host
 memory pressure; request/byte counts are page-target observations and may exclude
 worker-internal transfers. No representative phone/production benchmark claimed.
-Next: stop for independent review after portability commit/push. Credible loading-time diagnosis is the next priority; representative performance validation remains explicitly unresolved. No comparison/reporting or deployment.
+Next: bounded loading-time diagnosis before comparison/reporting. Report measured bottlenecks and proposed fixes for review; do not treat earlier memory-constrained timings as representative performance.
 Scope: real-data core walk UI and map reliability, not comparison/report infrastructure.
 Mockup approved at 0de3d5f. Reuse production MapLibre, never the illustrative canvas.
 Prototype uses explicitly illustrative geometry/metrics; dialogs do not submit reports.
