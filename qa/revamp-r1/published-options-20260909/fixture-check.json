@@ -1,0 +1,9 @@
+{
+  "command": "node C:/sgSHIOK2026/web/scripts/test-without-production-data.mjs lib/__tests__/published-options-fixture.test.ts --reporter=dot",
+  "scope": "Fixture-only shape/identity assertions, not executed normalizer or ranking behavior",
+  "chunk_id": "e11dc1",
+  "wall_time_seconds": 9.4959655,
+  "exit_code": 0,
+  "original_token_count": 187,
+  "output": "\n RUN  v4.1.10 C:/sgSHIOK2026/tmp/test-without-data-Teryav/web\n\n················\n\n Test Files  1 passed (1)\n      Tests  16 passed (16)\n   Start at  03:00:22\n   Duration  1.97s (transform 508ms, setup 0ms, import 658ms, tests 110ms, environment 0ms)\n\n{\n  \"snapshot\": \"C:\\\\sgSHIOK2026\\\\tmp\\\\test-without-data-Teryav\",\n  \"copiedFiles\": 161,\n  \"productionDataDirectoryAbsent\": true,\n  \"guardProbePassed\": true,\n  \"forbiddenPaths\": [\n    \"C:\\\\sgSHIOK2026\\\\web\\\\public\\\\data\",\n    \"C:\\\\sgSHIOK2026\\\\tmp\\\\test-without-data-Teryav\\\\web\\\\public\\\\data\"\n  ],\n  \"dependencies\": \"Existing node_modules linked; no installation\",\n  \"testArgs\": [\n    \"lib/__tests__/published-options-fixture.test.ts\",\n    \"--reporter=dot\"\n  ],\n  \"exitCode\": 0\n}\n"
+}

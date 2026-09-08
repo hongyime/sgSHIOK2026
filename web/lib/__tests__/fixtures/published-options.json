@@ -1,0 +1,1043 @@
+{
+  "manifest.json": {
+    "generated_at": "2026-08-05T14:00:15.974693+00:00",
+    "data_as_of": "2026-08-01T21:49:20.977890+00:00",
+    "provenance": {
+      "record_count": 124443,
+      "state_counts": {
+        "NOT_YET_SCORED": 476,
+        "NO_TRANSIT_IN_RANGE": 9827,
+        "SCORED": 95157,
+        "SCORED_PARTIAL": 18983
+      }
+    }
+  },
+  "scores/DOWNTOWN_CORE_PART_001.json": [
+    {
+      "best_node": {
+        "exit": "03509",
+        "name": "Bayfront Stn Exit B/MBS",
+        "routed_m": 81.2,
+        "snap_distance_m": 11,
+        "station": "Bayfront Stn Exit B/MBS",
+        "straight_line_m": 56.3,
+        "type": "bus_stop"
+      },
+      "candidates": [
+        {
+          "direct_distance_m": 52.5,
+          "geometry_ref": "018956_mrt:21624",
+          "node_id": "mrt:21624",
+          "node_name": "BAYFRONT MRT STATION Exit C",
+          "node_type": "mrt_lrt_exit",
+          "paths": {
+            "covered_ratio": 0,
+            "detour_pct": 0,
+            "shade_ratio": 0,
+            "sheltered_m": 109.2,
+            "shortest_m": 109.2
+          },
+          "route_trust": "graph_routed_mrt_lrt_exit_with_access_connector",
+          "routing_type": "sheltered_with_mrt_lrt_exit_access_connector",
+          "state": "SCORED"
+        },
+        {
+          "direct_distance_m": 56.3,
+          "geometry_ref": "018956_bus:03509",
+          "node_id": "bus:03509",
+          "node_name": "Bayfront Stn Exit B/MBS",
+          "node_type": "bus_stop",
+          "paths": {
+            "covered_ratio": 0.551,
+            "detour_pct": 0,
+            "shade_ratio": 0,
+            "sheltered_m": 81.2,
+            "shortest_m": 81.2
+          },
+          "route_trust": "graph_routed_bus_stop",
+          "routing_type": "sheltered",
+          "state": "SCORED"
+        },
+        {
+          "direct_distance_m": 63.1,
+          "geometry_ref": "018956_mrt:21678",
+          "node_id": "mrt:21678",
+          "node_name": "BAYFRONT MRT STATION Exit D",
+          "node_type": "mrt_lrt_exit",
+          "paths": {
+            "covered_ratio": 0,
+            "detour_pct": 0,
+            "shade_ratio": 0,
+            "sheltered_m": 110,
+            "shortest_m": 110
+          },
+          "route_trust": "graph_routed_mrt_lrt_exit_with_access_connector",
+          "routing_type": "sheltered_with_mrt_lrt_exit_access_connector",
+          "state": "SCORED"
+        },
+        {
+          "direct_distance_m": 140.4,
+          "geometry_ref": "018956_bus:03511",
+          "node_id": "bus:03511",
+          "node_name": "Aft Bayfront Stn Exit E",
+          "node_type": "bus_stop",
+          "paths": {
+            "covered_ratio": 0,
+            "detour_pct": 0,
+            "shade_ratio": 0,
+            "sheltered_m": 180.2,
+            "shortest_m": 180.2
+          },
+          "route_trust": "graph_routed_bus_stop",
+          "routing_type": "sheltered",
+          "state": "SCORED"
+        },
+        {
+          "direct_distance_m": 202.7,
+          "geometry_ref": "018956_bus:03519",
+          "node_id": "bus:03519",
+          "node_name": "Bayfront Stn Exit A",
+          "node_type": "bus_stop",
+          "paths": {
+            "covered_ratio": 0,
+            "detour_pct": 0,
+            "shade_ratio": 0,
+            "sheltered_m": 229.2,
+            "shortest_m": 229.2
+          },
+          "route_trust": "graph_routed_bus_stop",
+          "routing_type": "sheltered",
+          "state": "SCORED"
+        }
+      ],
+      "data_as_of": "2026-08-01T21:49:20.977890+00:00",
+      "exposure_gaps": [
+        {
+          "label": "exposed gap near 1.28269, 103.85998",
+          "len_m": 16.3,
+          "location": {
+            "lat": 1.282693,
+            "lon": 103.859975
+          }
+        },
+        {
+          "label": "exposed gap near 1.28314, 103.86011",
+          "len_m": 20.2,
+          "location": {
+            "lat": 1.283142,
+            "lon": 103.860115
+          }
+        }
+      ],
+      "paths": {
+        "bus_stop_access_connector_m": 0,
+        "covered_m": 44.7,
+        "covered_ratio": 0.551,
+        "destination_snap_connector_m": 11,
+        "detour_pct": 0,
+        "endpoint_snap_connector_m": 27.4,
+        "heat_comfort_m": 44.7,
+        "heat_comfort_ratio": 0.551,
+        "mrt_lrt_exit_access_connector_m": 0,
+        "origin_snap_connector_m": 16.3,
+        "routing_type": "sheltered",
+        "shade_m": 0,
+        "shade_ratio": 0,
+        "sheltered_m": 81.2,
+        "shortest_covered_ratio": 0.551,
+        "shortest_m": 81.2,
+        "shortest_shade_ratio": 0
+      },
+      "postal": "018956",
+      "provenance": {
+        "bus_connectivity": {
+          "expected_wait_min": 0.257,
+          "nearest_routed_m": 53.9,
+          "routed_stop_count": 3,
+          "service_count": 22,
+          "straight_line_stop_count": 4
+        },
+        "candidate_selection": {
+          "node_set_eligible_count": 7,
+          "reason": "excluded_graph_routed_bus_candidates_beyond_routed_cap_from_default_choice",
+          "selected_total_rank": 1,
+          "skipped_ineligible_count": 1
+        },
+        "manifest": "raw/manifest.json",
+        "mrt_lrt_exit_access_connector": {
+          "candidate_count": 2,
+          "detour_ratio": 2,
+          "examples": [
+            {
+              "connector_m": 42.5,
+              "direct_m": 52.5,
+              "exit": "Exit C",
+              "name": "BAYFRONT MRT STATION Exit C",
+              "reason": "implausible_graph_route_to_mrt_lrt_exit_within_direct_range",
+              "routed_m": 109.2,
+              "station": "BAYFRONT MRT STATION"
+            },
+            {
+              "connector_m": 43.3,
+              "direct_m": 63.1,
+              "exit": "Exit D",
+              "name": "BAYFRONT MRT STATION Exit D",
+              "reason": "implausible_graph_route_to_mrt_lrt_exit_within_direct_range",
+              "routed_m": 110,
+              "station": "BAYFRONT MRT STATION"
+            }
+          ],
+          "geometry": "graph_route_plus_exposed_endpoint_connector_to_mrt_lrt_exit",
+          "max_candidates": 24,
+          "max_direct_ratio": 2.5,
+          "max_extra_m": 120,
+          "max_walk_m": 1200,
+          "min_extra_m": 100,
+          "reason": "implausible_mrt_lrt_exit_graph_snap_replaced_by_nearby_graph_route_plus_exposed_connector",
+          "search_m": 50,
+          "source_layer": "mrt_lrt_exit_access_connector"
+        },
+        "origin_snap_distance_m": 16.3,
+        "postal_universe": "processed\\score_batches\\full_rescore_20260804_205430\\partitions\\part04_of04.parquet",
+        "routing": {
+          "detour_budget": 1.25,
+          "network": "processed\\network_island.parquet",
+          "shelter_lambda": 2
+        },
+        "routing_diagnostics": {
+          "candidate_destination_nodes": 8,
+          "candidate_scores": 8,
+          "nearest_routed_m": 53.9,
+          "route_results": 7,
+          "routes_within_access_range": 7
+        },
+        "scoring_fingerprints": {
+          "pipeline\\config\\params.yaml": "a05e9e9aac805de4a12217214ee574f6dc8813054d2fa8993a73e7d649bb1ce1",
+          "pipeline\\config\\weights.yaml": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+          "pipeline\\routing.py": "8fb450690bf9d024b9c43dd02476a7d4e73805cd3b59b6ecbc2022dcc1a69e7c",
+          "pipeline\\scoring.py": "255b4a225a625848e150673b01bccfbc679eea668a254667a9b01c2179bf610c",
+          "pipeline\\scoring_integration.py": "a7b4a8cbaefb4731e6711ffb8595e3241de654032e887691eef7bc91f5b975ae"
+        },
+        "source_hashes": {
+          "bus_routes": "a52a1503aa2d68a0a9e59703ea96a9c0e6cff1720e10d0479384c6f97a88f829",
+          "bus_services": "2d2b12b89ed2b2314be7d1ac2738afbdcd2af10a07a7cb6db1fb890d56348e2f",
+          "bus_stops": "0362ab970c661de6b322a3372c9ab980faf49805921891a7a1da260687a16a4a",
+          "covered_linkway": "d943fe2a992ad50c449c40484e0c642da480598b17f6008907c7b253d87b19ee",
+          "leaf_area_index": "26281dbacf4d8707df48d40b83060c65bf81c3f1a39ff81aebaefb8fd628c899",
+          "mrt_lrt_exits": "a7eaa90f30991dc0ac4aa970d704123ce3ec9e60c82b42c32a32e74be7dc0327",
+          "nparks_heritage_road_green_buffers": "87238ae673f898a30b1fcbf5b5527625b4c49c7aa1769567adb92b93b9b685b5",
+          "nparks_heritage_trees": "7f9a1b6413735824704993994b5491c30dcb9d1b746e80a5c17a6f59629d835f",
+          "nparks_nature_ways": "9b4e0e1e9d868cc9bff468e1b3028214707f2a41661bc8f279c61e88094f2d11",
+          "nparks_park_connector_loop": "83c1838bea9ee355d2ba52c2060eb185612dd0e2e3fdb113aff9cdd6e5c27efd",
+          "nparks_tracks": "2df9d9170d716ceefc2e82aa8889a21a27a3a086996bf330a6ab6b21cb1f0627",
+          "osm_extract": "0cd4f995c2ab6b38b2985ba9417861e93dc1f58c8ffae06c3deecc37f259128d",
+          "overhead_bridge_underpass": "bfa4a0a08a32c72a1ca35aad30e89f940a59ef6fdc137ddf8135a50760d7d444",
+          "traffic_signals": "942ff2506603f431f0782a3acdc70fec75d4b15c73b54f1a983c804c60d818af"
+        },
+        "subscore_status": {
+          "access": "real_routed_shortest_distance",
+          "bus": "real",
+          "crossing": "real_traffic_signals_with_grade_separated_exemption",
+          "heat": "provisional_covered_plus_nparks_shade_proxy_heat_only",
+          "rain": "real_routed_covered_length_ratio"
+        },
+        "transit_node_set": {
+          "bus_stop_candidate_radius_m": 300,
+          "bus_stop_candidate_selection_radius_m": 305,
+          "bus_stop_candidate_tolerance_m": 5,
+          "bus_stop_candidates_direct": 4,
+          "mrt_lrt_exit_candidates": 5
+        }
+      },
+      "route_options": {
+        "best_transit": {
+          "best_node": {
+            "exit": "03509",
+            "name": "Bayfront Stn Exit B/MBS",
+            "routed_m": 81.2,
+            "snap_distance_m": 11,
+            "station": "Bayfront Stn Exit B/MBS",
+            "straight_line_m": 56.3,
+            "type": "bus_stop"
+          },
+          "exposure_gaps": [
+            {
+              "label": "exposed gap near 1.28269, 103.85998",
+              "len_m": 16.3,
+              "location": {
+                "lat": 1.282693,
+                "lon": 103.859975
+              }
+            },
+            {
+              "label": "exposed gap near 1.28314, 103.86011",
+              "len_m": 20.2,
+              "location": {
+                "lat": 1.283142,
+                "lon": 103.860115
+              }
+            }
+          ],
+          "paths": {
+            "bus_stop_access_connector_m": 0,
+            "covered_m": 44.7,
+            "covered_ratio": 0.551,
+            "destination_snap_connector_m": 11,
+            "detour_pct": 0,
+            "endpoint_snap_connector_m": 27.4,
+            "heat_comfort_m": 44.7,
+            "heat_comfort_ratio": 0.551,
+            "mrt_lrt_exit_access_connector_m": 0,
+            "origin_snap_connector_m": 16.3,
+            "routing_type": "sheltered",
+            "shade_m": 0,
+            "shade_ratio": 0,
+            "sheltered_m": 81.2,
+            "shortest_covered_ratio": 0.551,
+            "shortest_m": 81.2,
+            "shortest_shade_ratio": 0
+          },
+          "state": "SCORED",
+          "subscores": {
+            "access": 100,
+            "bus": 100,
+            "crossing": 100,
+            "heat": 55.1,
+            "rain": 55.1
+          },
+          "total": 82
+        },
+        "bus": {
+          "best_node": {
+            "exit": "03509",
+            "name": "Bayfront Stn Exit B/MBS",
+            "routed_m": 81.2,
+            "snap_distance_m": 11,
+            "station": "Bayfront Stn Exit B/MBS",
+            "straight_line_m": 56.3,
+            "type": "bus_stop"
+          },
+          "exposure_gaps": [
+            {
+              "label": "exposed gap near 1.28269, 103.85998",
+              "len_m": 16.3,
+              "location": {
+                "lat": 1.282693,
+                "lon": 103.859975
+              }
+            },
+            {
+              "label": "exposed gap near 1.28314, 103.86011",
+              "len_m": 20.2,
+              "location": {
+                "lat": 1.283142,
+                "lon": 103.860115
+              }
+            }
+          ],
+          "paths": {
+            "bus_stop_access_connector_m": 0,
+            "covered_m": 44.7,
+            "covered_ratio": 0.551,
+            "destination_snap_connector_m": 11,
+            "detour_pct": 0,
+            "endpoint_snap_connector_m": 27.4,
+            "heat_comfort_m": 44.7,
+            "heat_comfort_ratio": 0.551,
+            "mrt_lrt_exit_access_connector_m": 0,
+            "origin_snap_connector_m": 16.3,
+            "routing_type": "sheltered",
+            "shade_m": 0,
+            "shade_ratio": 0,
+            "sheltered_m": 81.2,
+            "shortest_covered_ratio": 0.551,
+            "shortest_m": 81.2,
+            "shortest_shade_ratio": 0
+          },
+          "state": "SCORED",
+          "subscores": {
+            "access": 100,
+            "bus": 100,
+            "crossing": 100,
+            "heat": 55.1,
+            "rain": 55.1
+          },
+          "total": 82
+        },
+        "mrt_lrt": {
+          "best_node": {
+            "exit": "Exit E",
+            "name": "BAYFRONT MRT STATION Exit E",
+            "routed_m": 293.6,
+            "snap_distance_m": 5.4,
+            "station": "BAYFRONT MRT STATION",
+            "straight_line_m": 245,
+            "type": "mrt_lrt_exit"
+          },
+          "exposure_gaps": [
+            {
+              "label": "exposed gap near 1.28248, 103.85958",
+              "len_m": 135.8,
+              "location": {
+                "lat": 1.28248,
+                "lon": 103.859582
+              }
+            },
+            {
+              "label": "exposed gap near 1.28143, 103.85861",
+              "len_m": 98.2,
+              "location": {
+                "lat": 1.281428,
+                "lon": 103.858607
+              }
+            }
+          ],
+          "paths": {
+            "bus_stop_access_connector_m": 0,
+            "covered_m": 74.5,
+            "covered_ratio": 0.241,
+            "destination_snap_connector_m": 5.4,
+            "detour_pct": 5.1,
+            "endpoint_snap_connector_m": 21.7,
+            "heat_comfort_m": 74.5,
+            "heat_comfort_ratio": 0.241,
+            "mrt_lrt_exit_access_connector_m": 0,
+            "origin_snap_connector_m": 16.3,
+            "routing_type": "sheltered",
+            "shade_m": 0,
+            "shade_ratio": 0,
+            "sheltered_m": 308.4,
+            "shortest_covered_ratio": 0,
+            "shortest_m": 293.6,
+            "shortest_shade_ratio": 0
+          },
+          "state": "SCORED",
+          "subscores": {
+            "access": 100,
+            "bus": 100,
+            "crossing": 40,
+            "heat": 24.1,
+            "rain": 24.1
+          },
+          "total": 66.7
+        }
+      },
+      "state": "SCORED",
+      "subscores": {
+        "access": 100,
+        "bus": 100,
+        "crossing": 100,
+        "heat": 55.1,
+        "rain": 55.1
+      },
+      "total": 82
+    },
+    {
+      "best_node": {
+        "exit": "03539",
+        "name": "Marina Bay Stn",
+        "routed_m": null,
+        "snap_distance_m": 43.6,
+        "station": "Marina Bay Stn",
+        "straight_line_m": 222.5,
+        "type": "bus_stop"
+      },
+      "candidates": [
+        {
+          "direct_distance_m": 222.5,
+          "geometry_ref": "018990_bus:03539",
+          "node_id": "bus:03539",
+          "node_name": "Marina Bay Stn",
+          "node_type": "bus_stop",
+          "paths": {
+            "covered_ratio": null,
+            "detour_pct": 0,
+            "shade_ratio": null,
+            "sheltered_m": 222.5,
+            "shortest_m": 222.5
+          },
+          "route_trust": "direct_bus_fallback_unrouted",
+          "routing_type": "direct_bus_fallback_unrouted",
+          "state": "SCORED_PARTIAL"
+        }
+      ],
+      "data_as_of": "2026-08-01T21:49:20.977890+00:00",
+      "exposure_gaps": [],
+      "paths": {
+        "detour_pct": 0,
+        "routing_type": "direct_bus_fallback_unrouted",
+        "sheltered_m": 222.5,
+        "shortest_m": 222.5
+      },
+      "postal": "018990",
+      "provenance": {
+        "bus_connectivity": {
+          "expected_wait_min": null,
+          "nearest_routed_m": null,
+          "routed_stop_count": 0,
+          "service_count": 0,
+          "straight_line_stop_count": 1
+        },
+        "direct_bus_fallback": {
+          "best_expected_wait_min": 0.719,
+          "candidate_count": 1,
+          "coordinate_tolerance_m": 5,
+          "geometry": "straight_line_origin_to_bus_stop_not_pedestrian_route",
+          "nearest_direct_m": 222.5,
+          "radius_m": 300,
+          "reason": "no_graph_routed_transit_candidate_but_datamall_bus_stop_within_direct_radius",
+          "selection_radius_m": 305,
+          "untrusted_subscores": [
+            "rain",
+            "heat",
+            "crossing"
+          ]
+        },
+        "manifest": "raw/manifest.json",
+        "origin_resnap": {
+          "max_distance_m": 50,
+          "reason": "no_transit_reachable_component_within_resnap_cap"
+        },
+        "origin_snap_distance_m": 45.4,
+        "postal_universe": "processed\\score_batches\\full_rescore_20260804_205430\\partitions\\part01_of04.parquet",
+        "routing": {
+          "detour_budget": 1.25,
+          "network": "processed\\network_island.parquet",
+          "shelter_lambda": 2
+        },
+        "routing_diagnostics": {
+          "candidate_destination_nodes": 6,
+          "candidate_scores": 1,
+          "nearest_routed_m": null,
+          "route_results": 0,
+          "routes_within_access_range": 0
+        },
+        "scoring_fingerprints": {
+          "pipeline\\config\\params.yaml": "a05e9e9aac805de4a12217214ee574f6dc8813054d2fa8993a73e7d649bb1ce1",
+          "pipeline\\config\\weights.yaml": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+          "pipeline\\routing.py": "8fb450690bf9d024b9c43dd02476a7d4e73805cd3b59b6ecbc2022dcc1a69e7c",
+          "pipeline\\scoring.py": "255b4a225a625848e150673b01bccfbc679eea668a254667a9b01c2179bf610c",
+          "pipeline\\scoring_integration.py": "a7b4a8cbaefb4731e6711ffb8595e3241de654032e887691eef7bc91f5b975ae"
+        },
+        "source_hashes": {
+          "bus_routes": "a52a1503aa2d68a0a9e59703ea96a9c0e6cff1720e10d0479384c6f97a88f829",
+          "bus_services": "2d2b12b89ed2b2314be7d1ac2738afbdcd2af10a07a7cb6db1fb890d56348e2f",
+          "bus_stops": "0362ab970c661de6b322a3372c9ab980faf49805921891a7a1da260687a16a4a",
+          "covered_linkway": "d943fe2a992ad50c449c40484e0c642da480598b17f6008907c7b253d87b19ee",
+          "leaf_area_index": "26281dbacf4d8707df48d40b83060c65bf81c3f1a39ff81aebaefb8fd628c899",
+          "mrt_lrt_exits": "a7eaa90f30991dc0ac4aa970d704123ce3ec9e60c82b42c32a32e74be7dc0327",
+          "nparks_heritage_road_green_buffers": "87238ae673f898a30b1fcbf5b5527625b4c49c7aa1769567adb92b93b9b685b5",
+          "nparks_heritage_trees": "7f9a1b6413735824704993994b5491c30dcb9d1b746e80a5c17a6f59629d835f",
+          "nparks_nature_ways": "9b4e0e1e9d868cc9bff468e1b3028214707f2a41661bc8f279c61e88094f2d11",
+          "nparks_park_connector_loop": "83c1838bea9ee355d2ba52c2060eb185612dd0e2e3fdb113aff9cdd6e5c27efd",
+          "nparks_tracks": "2df9d9170d716ceefc2e82aa8889a21a27a3a086996bf330a6ab6b21cb1f0627",
+          "osm_extract": "0cd4f995c2ab6b38b2985ba9417861e93dc1f58c8ffae06c3deecc37f259128d",
+          "overhead_bridge_underpass": "bfa4a0a08a32c72a1ca35aad30e89f940a59ef6fdc137ddf8135a50760d7d444",
+          "traffic_signals": "942ff2506603f431f0782a3acdc70fec75d4b15c73b54f1a983c804c60d818af"
+        },
+        "subscore_status": {
+          "access": "real_routed_shortest_distance",
+          "bus": "real",
+          "crossing": "real_traffic_signals_with_grade_separated_exemption",
+          "heat": "provisional_covered_plus_nparks_shade_proxy_heat_only",
+          "rain": "real_routed_covered_length_ratio"
+        },
+        "transit_node_set": {
+          "bus_stop_candidate_radius_m": 300,
+          "bus_stop_candidate_selection_radius_m": 305,
+          "bus_stop_candidate_tolerance_m": 5,
+          "bus_stop_candidates_direct": 1,
+          "mrt_lrt_exit_candidates": 5
+        }
+      },
+      "route_options": {
+        "best_transit": {
+          "best_node": {
+            "exit": "03539",
+            "name": "Marina Bay Stn",
+            "routed_m": null,
+            "snap_distance_m": 43.6,
+            "station": "Marina Bay Stn",
+            "straight_line_m": 222.5,
+            "type": "bus_stop"
+          },
+          "exposure_gaps": [],
+          "paths": {
+            "detour_pct": 0,
+            "routing_type": "direct_bus_fallback_unrouted",
+            "sheltered_m": 222.5,
+            "shortest_m": 222.5
+          },
+          "state": "SCORED_PARTIAL",
+          "subscores": {
+            "access": 100,
+            "bus": 100,
+            "crossing": null,
+            "heat": null,
+            "rain": null
+          },
+          "total": 55
+        },
+        "bus": {
+          "best_node": {
+            "exit": "03539",
+            "name": "Marina Bay Stn",
+            "routed_m": null,
+            "snap_distance_m": 43.6,
+            "station": "Marina Bay Stn",
+            "straight_line_m": 222.5,
+            "type": "bus_stop"
+          },
+          "exposure_gaps": [],
+          "paths": {
+            "detour_pct": 0,
+            "routing_type": "direct_bus_fallback_unrouted",
+            "sheltered_m": 222.5,
+            "shortest_m": 222.5
+          },
+          "state": "SCORED_PARTIAL",
+          "subscores": {
+            "access": 100,
+            "bus": 100,
+            "crossing": null,
+            "heat": null,
+            "rain": null
+          },
+          "total": 55
+        },
+        "mrt_lrt": {
+          "best_node": {
+            "name": "No route found",
+            "routed_m": null,
+            "type": "mrt_lrt_exit"
+          },
+          "exposure_gaps": null,
+          "paths": null,
+          "state": "NO_TRANSIT_IN_RANGE",
+          "subscores": null,
+          "total": null
+        }
+      },
+      "state": "SCORED_PARTIAL",
+      "subscores": {
+        "access": 100,
+        "bus": 100,
+        "crossing": null,
+        "heat": null,
+        "rain": null
+      },
+      "total": 55
+    },
+    {
+      "best_node": null,
+      "data_as_of": "2026-08-01T21:49:20.977890+00:00",
+      "exposure_gaps": null,
+      "paths": null,
+      "postal": "079908",
+      "provenance": {
+        "bus_connectivity": {
+          "expected_wait_min": 0.316,
+          "nearest_routed_m": 15.2,
+          "routed_stop_count": 1,
+          "service_count": 19,
+          "straight_line_stop_count": 8
+        },
+        "manifest": "raw/manifest.json",
+        "origin_snap_distance_m": 20.6,
+        "postal_universe": "processed\\score_batches\\full_rescore_20260804_205430\\partitions\\part01_of04.parquet",
+        "reason": "all_numeric_transit_candidates_rejected_by_bus_route_trust_gate",
+        "routing": {
+          "detour_budget": 1.25,
+          "network": "processed\\network_island.parquet",
+          "shelter_lambda": 2
+        },
+        "routing_diagnostics": {
+          "candidate_destination_nodes": 10,
+          "candidate_scores": 0,
+          "nearest_routed_m": 15.2,
+          "route_results": 1,
+          "routes_within_access_range": 1
+        },
+        "scoring_fingerprints": {
+          "pipeline\\config\\params.yaml": "a05e9e9aac805de4a12217214ee574f6dc8813054d2fa8993a73e7d649bb1ce1",
+          "pipeline\\config\\weights.yaml": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+          "pipeline\\routing.py": "8fb450690bf9d024b9c43dd02476a7d4e73805cd3b59b6ecbc2022dcc1a69e7c",
+          "pipeline\\scoring.py": "255b4a225a625848e150673b01bccfbc679eea668a254667a9b01c2179bf610c",
+          "pipeline\\scoring_integration.py": "a7b4a8cbaefb4731e6711ffb8595e3241de654032e887691eef7bc91f5b975ae"
+        },
+        "source_hashes": {
+          "bus_routes": "a52a1503aa2d68a0a9e59703ea96a9c0e6cff1720e10d0479384c6f97a88f829",
+          "bus_services": "2d2b12b89ed2b2314be7d1ac2738afbdcd2af10a07a7cb6db1fb890d56348e2f",
+          "bus_stops": "0362ab970c661de6b322a3372c9ab980faf49805921891a7a1da260687a16a4a",
+          "covered_linkway": "d943fe2a992ad50c449c40484e0c642da480598b17f6008907c7b253d87b19ee",
+          "leaf_area_index": "26281dbacf4d8707df48d40b83060c65bf81c3f1a39ff81aebaefb8fd628c899",
+          "mrt_lrt_exits": "a7eaa90f30991dc0ac4aa970d704123ce3ec9e60c82b42c32a32e74be7dc0327",
+          "nparks_heritage_road_green_buffers": "87238ae673f898a30b1fcbf5b5527625b4c49c7aa1769567adb92b93b9b685b5",
+          "nparks_heritage_trees": "7f9a1b6413735824704993994b5491c30dcb9d1b746e80a5c17a6f59629d835f",
+          "nparks_nature_ways": "9b4e0e1e9d868cc9bff468e1b3028214707f2a41661bc8f279c61e88094f2d11",
+          "nparks_park_connector_loop": "83c1838bea9ee355d2ba52c2060eb185612dd0e2e3fdb113aff9cdd6e5c27efd",
+          "nparks_tracks": "2df9d9170d716ceefc2e82aa8889a21a27a3a086996bf330a6ab6b21cb1f0627",
+          "osm_extract": "0cd4f995c2ab6b38b2985ba9417861e93dc1f58c8ffae06c3deecc37f259128d",
+          "overhead_bridge_underpass": "bfa4a0a08a32c72a1ca35aad30e89f940a59ef6fdc137ddf8135a50760d7d444",
+          "traffic_signals": "942ff2506603f431f0782a3acdc70fec75d4b15c73b54f1a983c804c60d818af"
+        },
+        "subscore_status": {
+          "access": "real_routed_shortest_distance",
+          "bus": "real",
+          "crossing": "real_traffic_signals_with_grade_separated_exemption",
+          "heat": "provisional_covered_plus_nparks_shade_proxy_heat_only",
+          "rain": "real_routed_covered_length_ratio"
+        },
+        "transit_node_set": {
+          "bus_stop_candidate_radius_m": 300,
+          "bus_stop_candidate_selection_radius_m": 305,
+          "bus_stop_candidate_tolerance_m": 5,
+          "bus_stop_candidates_direct": 8,
+          "mrt_lrt_exit_candidates": 2
+        },
+        "untrusted_bus_routes": {
+          "access_connector_trust_max_m": 40,
+          "access_connector_trust_min_ratio": 0.2,
+          "candidate_count": 1,
+          "endpoint_snap_guard_min_m": 25,
+          "endpoint_snap_guard_min_ratio": 0.6,
+          "examples": [
+            {
+              "bus_stop_code": "03222",
+              "direct_m": 36.9,
+              "name": "Hub Synergy Pt",
+              "routed_m": 48.3,
+              "routing_type": "sheltered"
+            }
+          ],
+          "policy": "skipped_from_routed_scoring; long-detour bus candidates may still use partial direct fallback",
+          "reason_counts": {
+            "dominant_unrouted_bus_endpoint_snap": 1
+          },
+          "road_centerline_guard_max_pedestrian_m": 25,
+          "road_centerline_guard_min_m": 50,
+          "road_centerline_guard_min_ratio": 0.5
+        }
+      },
+      "state": "NO_TRANSIT_IN_RANGE",
+      "subscores": null,
+      "total": null
+    }
+  ],
+  "geom/h3/886520db39fffff.json": [
+    {
+      "candidates": {
+        "bus:03509": {
+          "exposure_gaps": [
+            {
+              "geom": "ooyFed|xRST",
+              "label": "exposed gap",
+              "len_m": 16.3
+            },
+            {
+              "geom": "wryF{d|xR@R",
+              "label": "exposed gap",
+              "len_m": 11,
+              "part_index": 0
+            },
+            {
+              "geom": "gryF{d|xRO?",
+              "label": "exposed gap",
+              "len_m": 9.1,
+              "part_index": 1
+            }
+          ],
+          "sheltered": "ooyFed|xRST??m@_@UKO???@R",
+          "sheltered_parts": [
+            "ooyFed|xRST",
+            "cpyFoc|xRm@_@UKO?",
+            "wryF{d|xR@R"
+          ],
+          "shortest": "ooyFed|xRST??m@_@UKO???@R",
+          "shortest_parts": [
+            "ooyFed|xRST",
+            "cpyFoc|xRm@_@UKO?",
+            "wryF{d|xR@R"
+          ]
+        },
+        "bus:03511": {
+          "exposure_gaps": [
+            {
+              "geom": "yjyFy}{xRKF",
+              "label": "exposed gap",
+              "len_m": 7.6,
+              "part_index": 0
+            },
+            {
+              "geom": "cpyFoc|xRx@bAHFCDVLFDMXdAj@PH",
+              "label": "exposed gap",
+              "len_m": 155.8,
+              "part_index": 1
+            },
+            {
+              "geom": "ooyFed|xRST",
+              "label": "exposed gap",
+              "len_m": 16.3,
+              "part_index": 2
+            }
+          ],
+          "sheltered": "yjyFy}{xRKF}C}Dx@bAHFCDVLFDMXdAj@PHuCkEST",
+          "sheltered_parts": [
+            "yjyFy}{xRKF",
+            "cpyFoc|xRx@bAHFCDVLFDMXdAj@PH",
+            "ooyFed|xRST"
+          ],
+          "shortest": "yjyFy}{xRKF}C}Dx@bAHFCDVLFDMXdAj@PHuCkEST",
+          "shortest_parts": [
+            "yjyFy}{xRKF",
+            "cpyFoc|xRx@bAHFCDVLFDMXdAj@PH",
+            "ooyFed|xRST"
+          ]
+        },
+        "bus:03519": {
+          "exposure_gaps": [
+            {
+              "geom": "ahyFa}{xRf@F",
+              "label": "exposed gap",
+              "len_m": 22.7,
+              "part_index": 0
+            },
+            {
+              "geom": "cpyFoc|xRx@bAHFCDVLFDtBjAZPNH",
+              "label": "exposed gap",
+              "len_m": 189.5,
+              "part_index": 1
+            },
+            {
+              "geom": "ooyFed|xRST",
+              "label": "exposed gap",
+              "len_m": 16.3,
+              "part_index": 2
+            }
+          ],
+          "sheltered": "ahyFa}{xRf@FiHuEx@bAHFCDVLFDtBjAZPNHmFcFST",
+          "sheltered_parts": [
+            "ahyFa}{xRf@F",
+            "cpyFoc|xRx@bAHFCDVLFDtBjAZPNH",
+            "ooyFed|xRST"
+          ],
+          "shortest": "ahyFa}{xRf@FiHuEx@bAHFCDVLFDtBjAZPNHmFcFST",
+          "shortest_parts": [
+            "ahyFa}{xRf@F",
+            "cpyFoc|xRx@bAHFCDVLFDtBjAZPNH",
+            "ooyFed|xRST"
+          ]
+        },
+        "mrt:21624": {
+          "exposure_gaps": [
+            {
+              "geom": "inyFka|xRkAC",
+              "label": "exposed gap",
+              "len_m": 42.5,
+              "part_index": 0
+            },
+            {
+              "geom": "cpyFoc|xRx@bA",
+              "label": "exposed gap",
+              "len_m": 50.3,
+              "part_index": 1
+            },
+            {
+              "geom": "ooyFed|xRST",
+              "label": "exposed gap",
+              "len_m": 16.3,
+              "part_index": 2
+            }
+          ],
+          "sheltered": "inyFka|xRkACP_Ax@bAe@yAST",
+          "sheltered_parts": [
+            "inyFka|xRkAC",
+            "cpyFoc|xRx@bA",
+            "ooyFed|xRST"
+          ],
+          "shortest": "inyFka|xRkACP_Ax@bAe@yAST",
+          "shortest_parts": [
+            "inyFka|xRkAC",
+            "cpyFoc|xRx@bA",
+            "ooyFed|xRST"
+          ]
+        },
+        "mrt:21678": {
+          "exposure_gaps": [
+            {
+              "geom": "inyFka|xRkAP",
+              "label": "exposed gap",
+              "len_m": 43.3,
+              "part_index": 0
+            },
+            {
+              "geom": "cpyFoc|xRx@bA",
+              "label": "exposed gap",
+              "len_m": 50.3,
+              "part_index": 1
+            },
+            {
+              "geom": "ooyFed|xRST",
+              "label": "exposed gap",
+              "len_m": 16.3,
+              "part_index": 2
+            }
+          ],
+          "sheltered": "inyFka|xRkAPPuAx@bAe@yAST",
+          "sheltered_parts": [
+            "inyFka|xRkAP",
+            "cpyFoc|xRx@bA",
+            "ooyFed|xRST"
+          ],
+          "shortest": "inyFka|xRkAPPuAx@bAe@yAST",
+          "shortest_parts": [
+            "inyFka|xRkAP",
+            "cpyFoc|xRx@bA",
+            "ooyFed|xRST"
+          ]
+        }
+      },
+      "exposure_gaps": [
+        {
+          "geom": "ooyFed|xRST",
+          "label": "exposed gap near 1.28269, 103.85998",
+          "len_m": 16.3
+        },
+        {
+          "geom": "wryF{d|xR@R",
+          "label": "exposed gap near 1.28314, 103.86011",
+          "len_m": 11,
+          "part_index": 0
+        },
+        {
+          "geom": "gryF{d|xRO?",
+          "label": "exposed gap near 1.28314, 103.86011",
+          "len_m": 9.1,
+          "part_index": 1
+        }
+      ],
+      "postal": "018956",
+      "route_options": {
+        "best_transit": {
+          "exposure_gaps": [
+            {
+              "geom": "ooyFed|xRST",
+              "label": "exposed gap near 1.28269, 103.85998",
+              "len_m": 16.3
+            },
+            {
+              "geom": "wryF{d|xR@R",
+              "label": "exposed gap near 1.28314, 103.86011",
+              "len_m": 11,
+              "part_index": 0
+            },
+            {
+              "geom": "gryF{d|xRO?",
+              "label": "exposed gap near 1.28314, 103.86011",
+              "len_m": 9.1,
+              "part_index": 1
+            }
+          ],
+          "sheltered": "ooyFed|xRST??m@_@UKO???@R",
+          "sheltered_parts": [
+            "ooyFed|xRST",
+            "cpyFoc|xRm@_@UKO?",
+            "wryF{d|xR@R"
+          ],
+          "shortest": "ooyFed|xRST??m@_@UKO???@R",
+          "shortest_parts": [
+            "ooyFed|xRST",
+            "cpyFoc|xRm@_@UKO?",
+            "wryF{d|xR@R"
+          ]
+        },
+        "bus": {
+          "exposure_gaps": [
+            {
+              "geom": "ooyFed|xRST",
+              "label": "exposed gap near 1.28269, 103.85998",
+              "len_m": 16.3
+            },
+            {
+              "geom": "wryF{d|xR@R",
+              "label": "exposed gap near 1.28314, 103.86011",
+              "len_m": 11,
+              "part_index": 0
+            },
+            {
+              "geom": "gryF{d|xRO?",
+              "label": "exposed gap near 1.28314, 103.86011",
+              "len_m": 9.1,
+              "part_index": 1
+            }
+          ],
+          "sheltered": "ooyFed|xRST??m@_@UKO???@R",
+          "sheltered_parts": [
+            "ooyFed|xRST",
+            "cpyFoc|xRm@_@UKO?",
+            "wryF{d|xR@R"
+          ],
+          "shortest": "ooyFed|xRST??m@_@UKO???@R",
+          "shortest_parts": [
+            "ooyFed|xRST",
+            "cpyFoc|xRm@_@UKO?",
+            "wryF{d|xR@R"
+          ]
+        },
+        "mrt_lrt": {
+          "exposure_gaps": [
+            {
+              "geom": "cpyFoc|xRx@bAHFCDVLFDMXCJ?F@H@D",
+              "label": "exposed gap near 1.28248, 103.85958",
+              "len_m": 119.3,
+              "part_index": 0
+            },
+            {
+              "geom": "ooyFed|xRST",
+              "label": "exposed gap near 1.28248, 103.85958",
+              "len_m": 16.3,
+              "part_index": 1
+            },
+            {
+              "geom": "}eyF}y{xR@I",
+              "label": "exposed gap near 1.28143, 103.85861",
+              "len_m": 5.4,
+              "part_index": 0
+            },
+            {
+              "geom": "ijyF}{{xRTGDAFAlAv@JHLH",
+              "label": "exposed gap near 1.28143, 103.85861",
+              "len_m": 92.4,
+              "part_index": 1
+            }
+          ],
+          "sheltered": "}eyF}y{xR@IgIgHx@bAHFCDVLFDMXCJ?F@H@DDNPPfAj@F?TGDAFAlAv@JHLHqHgIST",
+          "sheltered_parts": [
+            "}eyF}y{xR@I",
+            "cpyFoc|xRx@bAHFCDVLFDMXCJ?F@H@DDNPPfAj@F?TGDAFAlAv@JHLH",
+            "ooyFed|xRST"
+          ],
+          "shortest": "}eyF}y{xR@IgIgHx@bAHFCDVLFDMXCJ`Ah@lAn@lAv@JHLHqHgIST",
+          "shortest_parts": [
+            "}eyF}y{xR@I",
+            "cpyFoc|xRx@bAHFCDVLFDMXCJ`Ah@lAn@lAv@JHLH",
+            "ooyFed|xRST"
+          ]
+        }
+      },
+      "sheltered": "ooyFed|xRST??m@_@UKO???@R",
+      "sheltered_parts": [
+        "ooyFed|xRST",
+        "cpyFoc|xRm@_@UKO?",
+        "wryF{d|xR@R"
+      ],
+      "shortest": "ooyFed|xRST??m@_@UKO???@R",
+      "shortest_parts": [
+        "ooyFed|xRST",
+        "cpyFoc|xRm@_@UKO?",
+        "wryF{d|xR@R"
+      ]
+    }
+  ],
+  "geom/postal-prefix/079.json": {}
+}

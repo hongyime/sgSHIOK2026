@@ -128,16 +128,17 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Tests/done: M04-M07/M18. Offline, missing worker, tile failure and geometry failure identify the right stage; useful result remains. Copied data excludes query strings, postal history, report notes, tokens and credentials. Retry cannot restore stale selection.
 - Gate: FREE. No telemetry provider or hidden upload.
 
-### [ ] T04: Define the usable published transit-option contract
-- Status: READY. Size: S. Parent: P1.1.
+### [x] T04: Define the usable published transit-option contract
+- Status: DONE (normalizer contract, not picker integration). Size: M (contract plus shared validation). Parent: P1.1.
 - Depends on: none.
-- Scope: `web/lib/nearest-transit.ts`, `web/lib/types.ts`, `selectionForChosenStop` in `web/app/page.tsx`, existing reduced fixtures; decisions/QA output.
+- Scope: inspect `web/lib/nearest-transit.ts`, `web/lib/types.ts` and `selectionForChosenStop`; add `web/lib/published-transit-options.ts` with real-fixture and synthetic-boundary tests, contract and decisions. No picker/ranking wiring in this ticket.
 - Do: enumerate what the existing fixtures and candidate shards actually supply: routed geometry, routed distance, shelter metric, gaps, category and provenance. Define eligibility and a bounded list policy from those fields. Distinguish published candidates, straight-line-only POIs and live previews. Propose a maximum of three useful choices per category; record deterministic ordering before coding it.
 - Tests/done: W02-W08/W12-W13. A contract table and executable fixture cases demonstrate every eligible/missing case. No nearest WALK claim based solely on straight-line distance and no best-shelter claim for missing coverage. The bound limits displayed evidence, not an assertion that all stops were evaluated.
 - Gate: FREE, read-only artifacts. Insufficient candidate evidence blocks only the unsupported option, not existing walks.
+- Outcome 2026-09-09: pure shared normalizer preserves whole source representations, stable identity, separate metric/geometry/gap capabilities and unsupported-vs-conflicting evidence.328 behavioral +16 real-fixture tests pass;358 existing +344 new =702/39 isolated full suite, TypeScript/integrity and11 source identities pass. Parent retained a three-failure red regression before correcting the conflict branch; independent review approved. No ranking/page wiring or browser/coverage claim. Evidence: `qa/revamp-r1/published-options-20260909/summary.json`.
 
 ### [ ] T05: Select useful options deterministically
-- Status: WAIT_DEPS. Size: M. Parent: P1.1.
+- Status: READY. Size: M. Parent: P1.1.
 - Depends on: T04.
 - Scope: `web/lib/nearest-transit.ts` or one focused selector module; candidate tests using reduced real fixtures.
 - Do: select nearest and most-covered eligible published options with stable ties and deduplication; retain the currently selected valid option. Keep MRT/LRT and bus categories separate. Extract a helper only where it will be shared by picker/comparison.

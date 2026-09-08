@@ -1,0 +1,410 @@
+{
+  "contractVersion": 2,
+  "date": "2026-09-09",
+  "ticket": "T04",
+  "status": "T04_normalizer_reviewed_and_tested_T05_T06_pending",
+  "implementationBase": "1f36844f92d48555ce8b1a5800ad2e458130e8af",
+  "implementationReceipt": "qa/revamp-r1/published-options-20260909/summary.json",
+  "reviewedHead": "8b76862dbafc082fc86f2a37e4e3a5e87d985278",
+  "scope": {
+    "artifact": "qa/revamp-r1/published-option-contract-20260909.json",
+    "purpose": "Define a published transit-option evidence contract and deterministic display policy; do not implement a selector.",
+    "implementationOrder": "T04 normalizer and cases are now implemented and independently reviewed; parent isolated validation passes. T05 winner ordering and T06 UI follow separately.",
+    "categoryLimit": 3,
+    "categories": ["mrt_lrt", "bus"],
+    "routeVariantForComparison": "sheltered",
+    "pipelineCost": "zero",
+    "writesThisAssignment": "Original design sidecar refined this JSON only. Subsequent T04 implementation adds web/lib/published-transit-options.ts and behavioral tests; parent records checks and decisions and commits reviewed changes. Real fixture bytes and all protected sources remain unchanged.",
+    "notAuthorized": ["pipeline execution", "input rebuild", "dependency installation", "build", "deployment", "protected payload write", "X: access"],
+    "sources": ["PRODUCT-PLAN.md:130", "PRODUCT-PLAN.md:138", "PRODUCT-PLAN.md:146", "ARCHITECTURE.md:16", "qa/SHIOK-acceptance-tests.md:27"]
+  },
+  "evidence": {
+    "bundle": "generated_20260805_prefer_scored_routed",
+    "fixture": "web/lib/__tests__/fixtures/published-options.json",
+    "provenance": "web/lib/__tests__/fixtures/published-options.provenance.json",
+    "fixtureBytes": 36007,
+    "fixtureSha256": "6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7",
+    "fixtureTests": "web/lib/__tests__/published-options-fixture.test.ts",
+    "previousFocusedReceipt": {
+      "command": "node C:/sgSHIOK2026/web/scripts/test-web.mjs lib/__tests__/published-options-fixture.test.ts --no-cache --reporter=verbose",
+      "passed": 16,
+      "files": 1,
+      "exitCode": 0,
+      "scope": "Prior fixture extraction assignment. Contract/identity assertions, not selector winners, UI integration or preview recovery. Not rerun to draft this document."
+    },
+    "protectedSourcePaths": [
+      "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz"
+    ],
+    "identityScope": "All four required source byte sizes, SHA256 and decoded SHA256 matched the existing published-walks.provenance.json expectations before fixture extraction. This contract reads the fixture and recorded provenance; it does not claim a new protected-source hash pass.",
+    "reductions": "Three complete score objects, one geometry record with all category and candidate geometry but without route_segments, projected manifest, filtered 079 geometry index. Full reduction details remain in the fixture provenance file.",
+    "limitations": [
+      "Three score records are not a complete-bundle candidate-coverage audit.",
+      "The fixture contains no sampled valid zero-length routed walk and no dedicated proven outside-range record.",
+      "The empty filtered 079 index proves absence for 079908 only; no geometry-absence claim is made for 018990.",
+      "Legacy scoring fingerprints and source hashes are retained; missing per-record digest capabilities are not synthesized or grounds to discard otherwise usable legacy route evidence."
+    ]
+  },
+  "fieldContractTable": [
+    {
+      "field": "identity_and_category",
+      "defaultAndCategorySource": "score.best_node or score.route_options[category].best_node: type, name, optional exit and station",
+      "candidateSource": "score.candidates[].node_id, node_name, node_type",
+      "meaning": "One published destination for the current postal and bundle; bus_stop maps to bus and mrt_lrt_exit maps to mrt_lrt. POI mrt_exit is a distinct vocabulary mapped explicitly to mrt_lrt.",
+      "validity": "Category must be recognized and internally compatible with the destination identity. Preserve stable IDs and leading-zero bus codes. Use the exact JSON-array key encoding and published-evidence alias rules below; optional POIs never determine identity or precedence.",
+      "unknown": "Do not default unknown type to bus. A category default without a POI ID remains addressable by an internal category-default identity; that internal identity is not a fabricated public stop ID.",
+      "sources": ["web/lib/types.ts:11", "web/lib/types.ts:73", "web/lib/nearest-transit.ts:23", "web/app/page.tsx:842"]
+    },
+    {
+      "field": "shown_sheltered_walk_distance_m",
+      "defaultAndCategorySource": "matching score.paths.sheltered_m or route_options[category].paths.sheltered_m",
+      "candidateSource": "matching candidate.paths.sheltered_m",
+      "meaning": "Total length of the shown sheltered-route variant, not covered metres and not a straight-line estimate.",
+      "validity": "Routed evidence and matching usable sheltered geometry are prerequisites. A finite positive value is eligible for shortest-shown-walk ranking; preserve original precision until presentation.",
+      "unknown": "Null/absent are missing; wrong-type/nonfinite/negative/zero are invalid for positive walk distance, with distinct reason codes. Both suppress distance ranking but do not erase valid geometry or independent valid coverage. Never substitute shortest_m, direct_distance_m, POI haversine distance or zero.",
+      "sources": ["web/lib/types.ts:21", "web/lib/types.ts:55", "web/components/walk-summary.tsx:8"]
+    },
+    {
+      "field": "other_distance_fields",
+      "defaultAndCategorySource": "paths.shortest_m, best_node.routed_m, best_node.straight_line_m, paths.covered_m",
+      "candidateSource": "paths.shortest_m and direct_distance_m; no candidate covered_m summary field",
+      "meaning": "shortest_m describes another route variant; direct distances describe displacement, not a walk; covered_m is covered length within a route. None is a replacement for sheltered_m.",
+      "validity": "Retain each field with its own meaning. If the user switches to shortest geometry, use its matching shortest metric and only separately supplied shortest coverage.",
+      "unknown": "Candidate shortest-route coverage is not supplied by CandidatePaths; missing coverage and missing shortest gaps stay unavailable. Preview field meanings require repair before reuse.",
+      "sources": ["web/lib/types.ts:14", "web/lib/types.ts:22", "web/lib/types.ts:32", "web/lib/types.ts:55", "web/lib/live-route-scoring.ts:287"]
+    },
+    {
+      "field": "covered_ratio",
+      "defaultAndCategorySource": "matching paths.covered_ratio",
+      "candidateSource": "matching candidate.paths.covered_ratio",
+      "meaning": "Published covered share of this same sheltered walk, expressed as a fraction from 0 to 1; compare fractions, not rounded percentage labels.",
+      "validity": "Finite numeric value in [0,1] plus eligible routed evidence. Zero is real zero coverage and can participate in coverage ranking. Coverage need not be present for a route to remain inspectable or distance-rankable.",
+      "unknown": "Absent, null, nonfinite or out-of-range coverage never becomes zero, never wins a most-covered label and never implies zero exposure. Do not substitute heat, rain subscores, shade_ratio or preview overlap.",
+      "sources": ["web/lib/types.ts:27", "web/lib/types.ts:58", "web/components/walk-summary.tsx:9", "web/lib/__tests__/published-options-fixture.test.ts:182"]
+    },
+    {
+      "field": "logical_exposure_gaps",
+      "defaultAndCategorySource": "matching score.exposure_gaps or route_options[category].exposure_gaps: len_m, label, optional location",
+      "candidateSource": "No logical score-gap list in the published candidate summary. Only matching geometry fragments are supplied.",
+      "meaning": "The published score-level list defines logical uncovered stretches for the sheltered route. Its lengths and locations remain unchanged; whole-stretch length differs from a clipped rendering fragment.",
+      "validity": "Known matching logical gaps with individually valid nonnegative lengths provide summed uncovered metres and the longest logical stretch. Preserve the canonical default/category list as a unit; apply gapCapabilities for malformed lengths, unavailable map anchors and fragment-only evidence.",
+      "unknown": "Null or absent means unavailable. An empty list on an unrouted fallback is not evidence of a fully covered walk. No logical longest-gap claim from fragments alone; do not replace score gaps with fragments or infer exact gaps from rounded coverage.",
+      "sources": ["web/lib/types.ts:39", "web/lib/types.ts:93", "web/lib/types.ts:115", "web/components/walk-summary.tsx:10", "web/lib/__tests__/published-options-fixture.test.ts:142"]
+    },
+    {
+      "field": "geometry_and_gap_fragments",
+      "defaultAndCategorySource": "PostalGeom default or matching PostalGeom.route_options[category]",
+      "candidateSource": "PostalGeom.candidates[node_id], checked against geometry_ref = postal + '_' + node_id",
+      "meaning": "Encoded shortest/sheltered lines, optional multipart arrays and exposure_gaps rendering fragments with geom, len_m, label and sometimes part_index. route_segments are optional and omitted only from the reduced fixture.",
+      "validity": "Require the same postal, bundle, destination and route variant. Apply geometryCapabilities: strict encoded-integer validation, valid coordinates, at least two distinct positions, and no silent joining or dropping of malformed multipart members. A non-null reference alone proves nothing.",
+      "unknown": "Missing, malformed or mismatched geometry blocks offering a selectable published walk but does not delete useful score text. Fragment part_index identifies rendering parts, not a recoverable logical-gap ID. Inspect fragments individually; do not relabel their maximum as longest continuous stretch.",
+      "sources": ["web/lib/types.ts:118", "web/lib/types.ts:135", "web/lib/types.ts:156", "web/lib/__tests__/published-options-fixture.test.ts:96", "web/lib/__tests__/published-options-fixture.test.ts:158"]
+    },
+    {
+      "field": "route_trust_and_availability",
+      "defaultAndCategorySource": "Own state, paths.routing_type, best_node.routed_m and matching geometry; parent provenance may explain absence or rejected candidates",
+      "candidateSource": "Own state, routing_type and route_trust, plus matching geometry",
+      "meaning": "Separate graph-routed published evidence, graph routes with recorded exposed access connectors, direct/unrouted estimates, unavailable evidence and previews.",
+      "validity": "Use the explicit routingTrustMatrix grounded in the router, connector emitters and candidate trust serializer. It includes sheltered, shortest_fallback and shortest_due_to_detour and same-category connector variants. Preserve positively classified path-bearing NO_TRANSIT_IN_RANGE evidence without making a locked-score or all-stops eligibility claim.",
+      "unknown": "direct_bus_fallback_unrouted and live_onemap_preview are never published-walk ranking inputs. Unknown trust/type combinations remain unclassified, not silently accepted or called corruption. Do not infer selected-route trust from a provenance warning about a rejected candidate.",
+      "sources": ["web/lib/types.ts:73", "web/lib/__tests__/published-options-fixture.test.ts:166", "web/lib/__tests__/published-options-fixture.test.ts:193"]
+    },
+    {
+      "field": "evidence_provenance_and_locked_scores",
+      "defaultAndCategorySource": "Manifest bundle identity/generated_at; record data_as_of/provenance; category option's own score values when present",
+      "candidateSource": "Parent bundle/postal context plus candidate node_id, geometry_ref, state, route_trust and routing_type; no candidate total, subscores or independent provenance block",
+      "meaning": "Retain where each displayed field came from. Candidate route metrics do not become proof that the default composite or category composite was calculated for that candidate.",
+      "validity": "Keep evidence source kind and original field paths through selection. Immutable legacy source maps remain usable without fabricating a new digest. Do not rank by the inherited default total or state.",
+      "unknown": "No independent candidate fingerprint, input digest, timestamp, shortest coverage or complete evaluated-stop universe is established by this fixture. Preserve these limitations rather than copying defaults into missing candidate capabilities.",
+      "sources": ["web/lib/types.ts:86", "web/lib/types.ts:109", "web/lib/__tests__/published-options-fixture.test.ts:205", "web/app/page.tsx:858"]
+    }
+  ],
+  "eligibility": {
+    "optionStates": ["published_routed", "published_routed_partial_metrics", "published_unrouted", "geometry_unavailable", "geometry_partial", "identity_invalid", "trust_unclassified", "preview_only", "evidence_conflict"],
+    "publishedWalkPrerequisites": [
+      "Read evidence from the original postal score/geometry, not a selected-route object that has already replaced or dropped category/candidate fields.",
+      "Require recognized category and a stable source identity from identityAndDeduplication; optional POIs are not inputs to normalization.",
+      "Require a positive routingTrustMatrix result. Explicit direct/unrouted and preview evidence never becomes a published walk merely because distances or geometry_ref exist.",
+      "Require complete usable sheltered geometry and no duplicate-group quarantine. Missing or invalid individual metrics remain explicitly tagged capabilities; they do not erase independent valid evidence."
+    ],
+    "distanceRankable": "Published walk prerequisites plus shelteredDistance.status == valid under numericCapabilities. Invalid or missing coverage does not block a valid distance role; it cannot supply a coverage tie-break.",
+    "coverageRankable": "Published walk prerequisites plus coveredRatio.status == valid under numericCapabilities. Missing or invalid distance does not block independently recorded valid coverage; equal coverage puts a valid positive distance before unavailable distance. The invalid reason remains visible to the adapter, not collapsed into missing.",
+    "retainCurrent": "Current selection must be from this postal, bundle and category and satisfy the published walk prerequisites. It may have missing metrics. Never retain an unrelated, stale, unrouted, invalid or preview selection inside the published winners list.",
+    "geometryMissing": "Keep available textual evidence and an explicit geometry limitation outside the selectable-walk winners; a loading/error state is not permanent absence.",
+    "trustExpansion": "routingTrustMatrix is the accepted finite vocabulary grounded in the inspected source, not just the sample. An unlisted combination is trust_unclassified; expansion requires a source-backed contract amendment and a normalizer test, not a permissive graph_routed prefix match or a full-record scan.",
+    "rangeRule": "Do not reapply a new numeric radius to the already-published options or equate NO_TRANSIT_IN_RANGE with a proven >1.2 km route. Preserve source reason and valid evidence; rejected/disconnected routes are not the same as known out-of-range routes."
+  },
+  "identityAndDeduplication": {
+    "keyEncoding": "ECMAScript JSON.stringify of the specified array, with no replacer or spacing. This is the complete key string, not a colon-joined approximation; array values remain strings except numeric encoding version 1.",
+    "contextValidation": "bundle is the exact nonempty artifact-version string supplied by the reader; postal is an already-normalized six-ASCII-digit string; category is exactly bus or mrt_lrt. Reject whitespace-padded/invalid context; do not trim, lowercase, numerically coerce or Unicode-normalize identity fields.",
+    "defaultInternalKeyArray": ["pw", 1, "<bundle>", "<postal>", "<category>", "default"],
+    "distinctTopDefaultKeyArray": ["pw", 1, "<bundle>", "<postal>", "<category>", "top-default"],
+    "candidateKeyArray": ["pw", 1, "<bundle>", "<postal>", "<category>", "candidate", "<exact node_id>"],
+    "defaultExample": "[\"pw\",1,\"generated_20260805_prefer_scored_routed\",\"018956\",\"bus\",\"default\"]",
+    "candidateExample": "[\"pw\",1,\"generated_20260805_prefer_scored_routed\",\"018956\",\"mrt_lrt\",\"candidate\",\"mrt:21678\"]",
+    "defaultSlot": "The category option, when present, owns default. If the category option is absent, a matching-category top-level default owns that same key. A present unusable category option is not overwritten by the top-level score; preserve its unavailable representation and offer any distinct valid top-level route as top-default. A duplicate is resolved by the rules below.",
+    "candidateIdValidation": "Require a string with the exact category prefix bus: or mrt:, a nonempty suffix, no leading/trailing whitespace and no control character U+0000..U+001F or U+007F. Preserve the suffix verbatim, including zeros; do not assume all bus IDs are five digits or MRT IDs parse as integers. node_type must be bus_stop or mrt_lrt_exit and agree with both prefix and requested category.",
+    "optionalPoiRule": "Optional POIs may add presentation metadata after normalization. Their absence, arrival, order, labels or aliases must not change an option key, grouping, category, precedence, eligibility or selectionRef. The normalizer accepts no POI collection and makes no network request.",
+    "aliasPriority": [
+      "Exact published candidate node_id joins repeated candidate identities within context. A default bus exit matching /^[0-9]{5}$/ supplies a strong bus:<exit> alias; defaults with the same strong bus alias join. A conflicting known strong bus alias vetoes any weaker match.",
+      "For a default without a strong bus alias, require one unique same-category candidate identity with an exactly equal nonempty published destination name and exactly equal complete sheltered geometry signature. Names use original code-unit equality, not case folding, substring, station-only or locale matching. MRT station/exit from optional POIs is never used.",
+      "The same exact-name and geometry-signature rule can join top-level and category defaults. More than one distinct candidate ID matching a default is ambiguous: join none of those IDs, retain the stable default and report alias_ambiguous. Never merge different known candidate IDs merely because names or lines match.",
+      "After an identity join, compare evidence for conflicts before applying source precedence. A valid scalar disagreement is a conflict, not a reason to pretend the identities were unrelated."
+    ],
+    "geometrySignature": "For complete usable sheltered geometry, JSON.stringify of the authoritative original encoded line-part array chosen by geometryCapabilities. No vertex snapping, reversing, sorting, rounding, joining or topology inference. Different signatures do not establish a weak alias even if a human might recognize the same walk.",
+    "canonicalKeyPriority": ["default", "top-default", "candidate key"],
+    "keyStability": "Joining a candidate alias never renames default to its node ID. The complete score/geometry snapshot and bundle determine grouping once; input order and later POIs do not. Changes to the actual bundle or authoritative evidence are a new normalization input, not an optional-metadata event.",
+    "selectionRef": "Return a separate source locator for the chosen whole representation: category_default(category), top_default, or candidate(exact node_id). It is not derived by parsing display text. A canonical default key represented by candidate evidence may legitimately use candidate selectionRef; internal keys are never emitted as invented ?stop= values.",
+    "sameIdentityPrecedence": ["matching category default", "matching top-level default", "candidate summary"],
+    "precedenceDomain": "Apply precedence only among structurally valid, positively routed representations with complete matching sheltered geometry. Missing/invalid individual metric capabilities do not lower the whole-record role priority. If none is usable, return unavailable evidence; do not build a hybrid from pieces.",
+    "preserveCanonicalEvidence": "Choose a whole representation, including its own metric capabilities and logical-gap list. A preferred default with null coverage stays null even if its duplicate candidate records a number. Preserve candidate evidence separately. If default geometry is unavailable and a duplicate candidate is the only usable representation, use that candidate as a unit: its logical gaps remain unavailable rather than borrowing default gaps whose route pairing was not established.",
+    "conflictComparison": "For a strong or established weak identity group, compare structurally valid known category/routed-class values, valid shortest_m/sheltered_m/covered_ratio values and complete sheltered geometry signatures. Compare equal-semantic fields only with exact source numeric equality, no tolerance. Null/absent versus a valid number is missing evidence, not a numeric disagreement; an invalid metric is separately diagnosed and never trusted as a conflicting number. Numeric equality does not require display rounding or identical JSON numeric spelling.",
+    "conflicts": "Two valid representations disagreeing on the same semantic metric, complete geometry or routed versus unrouted class quarantine the entire identity group as evidence_conflict. All distance/coverage/current-list eligibility is false for that group. Preserve original default/text and raw source references in diagnostic output; do not automatically replace the displayed original with the other source. A legitimate different route must acquire an explicit future variant contract, not a silent merge.",
+    "duplicateSameRole": "Exact semantic duplicates collapse. For repeated same-role identities, compare presence/status/value of metrics, route classification, authoritative geometry and same-kind logical gaps. If these differ, including missing versus valid, quarantine the group as duplicate_representation_conflict rather than choosing by array order. Cosmetic labels or unrelated provenance do not affect ranking; choose their whole representative by deterministic sorted-key JSON code-unit order over those metadata fields. Never combine numeric fields across duplicate rows.",
+    "malformedRepresentation": "Quarantine a malformed identity/reference/geometry representation individually before precedence. Its invalid numeric/string claims cannot poison a valid default group. Preserve the rejection reason; if remaining validated representations conflict, apply group quarantine. Unsupported trust is unclassified, not proof that another supported representation is wrong.",
+    "nonConflicts": ["Score logical gaps versus geometry fragments, including 36.5/20.2 versus 36.4/16.3 for the real default bus", "Absent candidate composite/subscores versus an existing default composite", "Missing capability versus valid capability across different source roles", "Different optional POI labels", "Unknown/malformed claims that were not validated as contradictory evidence"],
+    "stableIdentityComparison": "Compare exact canonical identity strings using deterministic code-unit order, not locale-dependent display-name sorting. Equal candidate input permutations must produce the same canonical options and order."
+  },
+  "routingTrustMatrix": {
+    "sourceContract": ["pipeline/routing.py:346", "pipeline/scoring_integration.py:950", "pipeline/scoring_integration.py:1064", "pipeline/scoring_integration.py:1468", "pipeline/scoring_integration.py:1536", "pipeline/scoring_integration.py:1806", "pipeline/scoring_integration.py:1917", "pipeline/scoring_integration.py:1939", "pipeline/scoring_integration.py:1978", "pipeline/export.py:1352", "tests/test_scoring_integration.py:2133"],
+    "baseRoutedTypes": ["sheltered", "shortest_fallback", "shortest_due_to_detour"],
+    "busRoutedTypes": ["sheltered", "shortest_fallback", "shortest_due_to_detour", "sheltered_with_bus_stop_access_connector", "shortest_fallback_with_bus_stop_access_connector", "shortest_due_to_detour_with_bus_stop_access_connector"],
+    "mrtRoutedTypes": ["sheltered", "shortest_fallback", "shortest_due_to_detour", "sheltered_with_mrt_lrt_exit_access_connector", "shortest_fallback_with_mrt_lrt_exit_access_connector", "shortest_due_to_detour_with_mrt_lrt_exit_access_connector"],
+    "candidateRows": [
+      {"category": "bus", "nodeType": "bus_stop", "idPrefix": "bus:", "trust": "graph_routed_bus_stop", "routingTypesFrom": "busRoutedTypes", "classification": "routed"},
+      {"category": "bus", "nodeType": "bus_stop", "idPrefix": "bus:", "trust": "graph_routed_bus_stop_with_access_connector", "routingTypesFrom": "busRoutedTypes", "classification": "routed"},
+      {"category": "mrt_lrt", "nodeType": "mrt_lrt_exit", "idPrefix": "mrt:", "trust": "graph_routed_mrt_lrt_exit", "routingTypesFrom": "mrtRoutedTypes", "classification": "routed"},
+      {"category": "mrt_lrt", "nodeType": "mrt_lrt_exit", "idPrefix": "mrt:", "trust": "graph_routed_mrt_lrt_exit_with_access_connector", "routingTypesFrom": "mrtRoutedTypes", "classification": "routed"},
+      {"category": "bus", "nodeType": "bus_stop", "idPrefix": "bus:", "trust": "direct_bus_fallback_unrouted", "routingTypes": ["direct_bus_fallback_unrouted"], "classification": "unrouted"}
+    ],
+    "connectorCrossProductRationale": "Trust derives from connector-length fields, independently of the routing_type suffix. Unit contracts accept connector trust with base sheltered; connector emitters always suffix routing_type, even though zero/rounded connector length can produce the plain trust tag. Therefore both own-category graph trust tags accept base and own-category connector types; do not infer an unrecorded connector length. Cross-category suffixes and generic graph_routed are not accepted for bus/MRT.",
+    "defaultRows": [
+      {"category": "bus", "bestNodeType": "bus_stop", "routingTypesFrom": "busRoutedTypes", "trustField": "not present in default schema", "classification": "routed"},
+      {"category": "mrt_lrt", "bestNodeType": "mrt_lrt_exit", "routingTypesFrom": "mrtRoutedTypes", "trustField": "not present in default schema", "classification": "routed"},
+      {"category": "bus", "bestNodeType": "bus_stop", "routingTypes": ["direct_bus_fallback_unrouted"], "classification": "unrouted"}
+    ],
+    "defaultClassification": "Recognized own best-node category, state and paths.routing_type establish the default's recorded routing class; complete paired geometry determines published-walk capability. Do not add a default-only positive-distance prerequisite: valid coverage survives when all distance fields are missing or invalid, just as for candidates. best_node.routed_m and paths.shortest_m come from the same producer variable, not independent measurements. If both are valid and unequal for the same default, retain a local evidence conflict; neither ever fills another metric field.",
+    "stateRows": [
+      {"state": "SCORED", "matrixRoutedResult": "routed; metric and geometry capabilities decide eligibility"},
+      {"state": "SCORED_PARTIAL", "matrixRoutedResult": "routed partial score; no composite threshold or missing-subscore veto"},
+      {"state": "NO_TRANSIT_IN_RANGE", "matrixRoutedResult": "routed evidence with scoring_eligibility_unavailable; still inspectable and rankable on valid walk metrics when geometry is complete. Preserve state/reason and make no numeric range inference."},
+      {"state": "NOT_YET_SCORED", "matrixRoutedResult": "trust_unclassified unless explicit preview marker, which is preview_only; no producer contract establishes a published routed NOT_YET_SCORED candidate"}
+    ],
+    "stateSource": "public_no_transit_evidence_option explicitly retains paths/best_node/gaps for NO_TRANSIT_IN_RANGE; validate_score_record accepts that path-bearing state. Candidate serializer may emit the same state. This is source-backed capability, not an assertion that the three real fixture rows exercise every state combination.",
+    "failClosedRules": [
+      "Candidate node type/prefix/category mismatch is identity_invalid before matrix matching.",
+      "Either routing_type or candidate route_trust explicitly saying direct_bus_fallback_unrouted vetoes published-walk eligibility. Only a valid recorded state and recognized own-category graph/direct combination can assert routing_trust_conflict. Invalid/NOT_YET_SCORED state or an unknown graph-prefixed tag remains unclassified, not validated contradictory evidence. Candidate unrouted classification requires both recognized direct markers.",
+      "Any explicit live_onemap_preview routing/provenance marker or provenance.authoritative_score == false on the supplied top-level record makes the entire supplied selection context preview_only, including retained candidate arrays. Candidate summaries have no independent provenance: veto a preview context but never copy parent metadata as proof that a candidate was scored.",
+      "Absent/null/empty/unlisted candidate trust or routing type is trust_unclassified. A graph_routed prefix match is not an acceptance rule.",
+      "For defaults, absent paths or best_node is unavailable evidence, not a route inferred from geometry. Unlisted states are state_invalid. A default category mismatch remains identity_invalid.",
+      "A provenance warning about rejected alternatives is not a preview marker or selected-route trust veto. Do not use rejected-candidate untrusted_subscores, composite value or missing legacy digests to reject independently supported selected evidence."
+    ]
+  },
+  "numericCapabilities": {
+    "representation": "Each metric returns {status: valid|missing|invalid, value: original number only when valid, reason: stable reason code otherwise, sourceField: original field locator}. Omit value for missing/invalid; retain raw evidence separately. Never coerce strings, booleans, null or objects into numbers.",
+    "missing": {"inputs": ["absent property / undefined", "null"], "reason": "metric_missing"},
+    "invalidType": {"inputs": ["numeric string", "boolean", "object", "array"], "reason": "metric_type_invalid"},
+    "invalidNonfinite": {"inputs": ["Number.NaN", "positive Infinity", "negative Infinity"], "reason": "metric_nonfinite"},
+    "positiveWalkDistance": {"valid": "typeof number, finite and > 0", "negativeReason": "metric_negative", "zeroReason": "zero_walk_length_unestablished", "zeroPolicy": "Zero is a present invalid/unestablished walk length, not missing and not a shortest-walk winner; no sampled zero-length walk establishes another policy."},
+    "coveredRatio": {"valid": "typeof number, finite and >= 0 and <= 1", "outsideReason": "ratio_out_of_range", "boundaries": "Both 0 and 1 are valid; -0 is numeric zero. Do not clamp, round or divide values that appear to be percentages."},
+    "nonnegativeLength": {"fields": ["direct distance", "covered_m", "logical gap len_m", "fragment len_m"], "valid": "typeof number, finite and >= 0", "negativeReason": "metric_negative"},
+    "independentFailure": "Invalid/missing coverage disables only coverage-dependent metrics/ranking. Invalid/missing sheltered distance disables distance-dependent metrics/ranking. Valid independent metrics and route geometry survive with reasons; do not report an invalid number merely as unavailable without its diagnostic distinction.",
+    "noFallbacks": ["No shortest/direct/POI distance replaces sheltered_m", "No candidate metric fills a missing canonical default field", "No default metric fills a missing candidate field", "No covered_m replaces total route distance", "No inferred exact gap from rounded ratio", "No zero for missing gap list"],
+    "equality": "Compare valid same-unit numeric values exactly before presentation; source 0 and 0.0 are equal numbers. Invalid raw values never participate in numeric comparison or duplicate-conflict proofs. No tolerance or recomputation is introduced."
+  },
+  "geometryCapabilities": {
+    "representation": "Return missing|invalid|partial|complete for each route variant, authoritative encodedParts, validated display parts and reason codes. complete is required for published automatic ranking/current-list retention; partial/missing still preserves independent textual evidence.",
+    "matching": "Candidate geometry_ref must be exactly postal + '_' + node_id and its own geometry map key must exist. Null/absent reference is geometry_missing, even if an orphan map entry exists; non-null wrong reference is geometry_reference_mismatch. Defaults use only their paired top-level/category geometry, never a different destination's map entry.",
+    "sourcePairingLimit": "Bundle identity comes from the reader-supplied source context, not from an invented field in legacy raw records. Require score and geometry source contexts to agree with the requested bundle/postal; missing or contradictory pairing is source_context_invalid. This is structural pairing, not a cryptographic audit; the normalizer does not read files, hash sources or independently prove that a dishonest caller labelled bytes correctly.",
+    "authoritativeParts": [
+      "When sheltered_parts is a nonempty array, that original ordered array is authoritative; every member must be a nonempty valid polyline. Do not use the flattened sheltered line to repair an invalid member.",
+      "When sheltered_parts is absent, null or an empty array, use the single sheltered string as the only part. Missing/null/empty sheltered is geometry_missing.",
+      "A present non-array sheltered_parts is geometry_schema_invalid; no fallback. A non-string member is geometry_part_invalid. A malformed unused flattened sheltered string does not invalidate otherwise complete authoritative parts, but record unused_geometry_invalid and never render it.",
+      "Preserve separate valid parts, their order and indices. Do not join endpoints, fill missing parts, drop malformed members and call the result complete, or infer a new walking connection."
+    ],
+    "strictPolyline": [
+      "Use precision 5, matching web/lib/polyline.ts. Validate the encoding before relying on its permissive decoder.",
+      "Every character code must be in inclusive ASCII [63,126]. Every unsigned encoded integer must terminate with a byte below 0x20 after subtracting 63; reject truncated continuation groups, more than seven groups or unsigned values above 0xffffffff.",
+      "Require complete latitude/longitude integer pairs, safe-integer accumulated scaled coordinates, finite decoded coordinates within latitude [-90,90] and longitude [-180,180]. Do not accept a dangling latitude or implicit zero longitude.",
+      "A usable line part needs at least two distinct decoded positions; repeated points may remain but a one-point or entirely repeated-position part is geometry_degenerate. Do not infer another precision or silently clamp coordinates."
+    ],
+    "partialOutcome": "If some authoritative parts are valid and some invalid/degenerate, return partial with original invalid indices and valid display parts retained. None valid means invalid. The adapter may render the valid parts only with a partial state; no complete-route readiness or automatic option badges. Do not let full-route metrics imply the map shows the complete route.",
+    "scope": "T04 validates per-part encoding, source pairing and structural completeness, not real-world pedestrian connectivity or equality between geometric length and published numeric distance. No routing, geometry-length remeasurement, input repair or coordinate tolerance is authorized.",
+    "rendererBoundary": "A future adapter must pass only validated fields. Existing route_segments are optional alternate rendering detail: malformed members do not replace validated base route parts or poison base-route eligibility; disable that optional detail and retain a diagnostic. The reduced fixture intentionally has no route_segments.",
+    "source": ["web/lib/polyline.ts:3", "web/lib/route-geojson.ts:32", "pipeline/export.py:1367", "pipeline/export.py:2104"]
+  },
+  "gapCapabilities": {
+    "logicalGaps": "Use only the chosen whole default/category representation's exposure_gaps when the selected variant is sheltered and routed classification is positive. Candidate summaries never gain logical gaps by casting geometry fragments to ExposureGap[].",
+    "missing": "Null/absent list is logical_gaps_missing. A non-array list is logical_gaps_invalid. An empty list is known zero recorded logical gaps only for supported routed evidence; direct/unrouted/preview classifications do not become zero-exposure published walks.",
+    "lengths": "Validate every logical len_m as finite nonnegative. Any invalid/missing length makes total and longest logical gap unavailable with logical_gap_length_invalid; do not silently sum the surviving subset. Preserve valid entries for explicitly partial inspection. Zero lengths are allowed because source gap lengths are rounded to one decimal.",
+    "locations": "Missing location affects map-anchor capability only. A present location needs finite numeric lat/lon in geographic bounds; invalid location yields gap_anchor_invalid without discarding a valid length. Never manufacture a logical-gap anchor from an unmatched fragment, nearest POI or default of zero coordinates.",
+    "labels": "Labels are presentation metadata, never identity. Missing/non-string labels do not invalidate valid lengths; the UI may use a generic label but must not use it to merge logical gaps.",
+    "fragments": "Validate each encoded geom with the strict polyline rules and len_m with nonnegativeLength. part_index, if supplied, must be a nonnegative integer but is retained only as source rendering metadata: do not assume it indexes sheltered_parts or uniquely identifies a logical gap. Missing/invalid part_index cannot invent a join.",
+    "fragmentFailure": "Invalid fragment encoding/length/index disables that fragment's precise highlight and makes fragment evidence partial. It does not invalidate an independently complete main route or valid logical score-gap list. Do not let malformed optional gap geometry crash route rendering or inflate route bounds.",
+    "fragmentOnly": "Return logical total/longest unavailable with logical_gaps_not_published. Valid fragments can be inspected with their own lengths and encoded coordinates; no automatic aggregation or maximum is passed off as the four-metric logical uncovered total/longest. Default/category score gaps always take precedence as a unit.",
+    "shortestVariant": "No sheltered logical gap list or candidate sheltered fragments are attached to a different shortest route. Unless a separately published matching shortest gap capability is added later, shortest gap metrics/highlights remain unavailable even when shortest distance is valid.",
+    "source": ["pipeline/scoring_integration.py:849", "pipeline/scoring_integration.py:1008", "web/lib/types.ts:39", "web/lib/types.ts:118", "web/components/walk-summary.tsx:10"]
+  },
+  "orderingPolicy": {
+    "scopeLabel": "Among available published walks, not every nearby stop.",
+    "categoryHandling": "Build independent mrt_lrt and bus pools. best_transit is a source role, not a third competing category. Categorize the top-level default by its destination type.",
+    "poolConstruction": [
+      "Include the category default and matching category geometry even when that destination is absent from score.candidates.",
+      "Include the top-level default in its own destination category.",
+      "Include retained published candidates with matching geometry and source context.",
+      "Resolve identities and deduplicate before ranking; retain source references and missing-capability reasons. Do not sort or mutate the original records, arrays or geometry."
+    ],
+    "shortestShownWalk": {
+      "label": "Shortest shown walk",
+      "eligible": "distanceRankable",
+      "order": ["sheltered_m ascending", "valid covered_ratio descending; unknown last", "canonical identity ascending"],
+      "forbiddenClaim": "Do not call a haversine-nearest stop the nearest walk, or use shortest_m while displaying sheltered-route coverage."
+    },
+    "mostCoveredShownWalk": {
+      "label": "Most covered shown walk",
+      "eligible": "coverageRankable",
+      "order": ["covered_ratio descending", "positive finite sheltered_m ascending; unknown last", "canonical identity ascending"],
+      "zeroAndUnknown": "Known 0 can tie or win among measured options. If every coverage is unknown, there is no winner. A label refers only to options with measured coverage, not to unevaluated options."
+    },
+    "selectionSlotsInOrder": [
+      "Shortest-shown-walk winner if one exists.",
+      "Most-covered-shown-walk winner if one exists and is a different canonical identity; attach both roles when it is the same identity.",
+      "Current valid published selection if distinct; initially the category default is the current selection.",
+      "If fewer than three distinct choices remain, include the eligible category default if not already represented. Do not fill spare slots with arbitrary remaining candidates or straight-line POIs."
+    ],
+    "hardBound": "Deduplicate after adding each role and cap the final list at three distinct options per category. Winners plus one valid current selection never exceed three before the default fallback.",
+    "defaultPreservation": "A default absent from retained candidates remains in the evidence pool, can win a role, and remains the reset target. If three distinct roles already fill the list, do not displace the current selection solely to force the default into a fourth slot.",
+    "presentationRounding": "Rank on source numbers at full supplied precision; format display units/percentages only afterward. Rounding must not create ties or move a source value.",
+    "requestPolicy": "No network request, live preview, candidate generation or geometry computation during ordering. Existing artifact retrieval remains outside the pure policy. A preview can start only after explicit destination selection."
+  },
+  "fixtureExamples": {
+    "postal": "018956",
+    "defaultBus": {"identity": "bus:03509", "directDistanceM": 56.3, "shortestM": 81.2, "shelteredM": 81.2, "coveredRatio": 0.551},
+    "mrtCategoryDefault": {"name": "BAYFRONT MRT STATION Exit E", "shortestM": 293.6, "shelteredM": 308.4, "coveredRatio": 0.241, "presentInFiveCandidateSummaries": false},
+    "retainedCandidates": [
+      {"id": "mrt:21624", "category": "mrt_lrt", "shelteredM": 109.2, "coveredRatio": 0},
+      {"id": "bus:03509", "category": "bus", "shelteredM": 81.2, "coveredRatio": 0.551},
+      {"id": "mrt:21678", "category": "mrt_lrt", "shelteredM": 110, "coveredRatio": 0},
+      {"id": "bus:03511", "category": "bus", "shelteredM": 180.2, "coveredRatio": 0},
+      {"id": "bus:03519", "category": "bus", "shelteredM": 229.2, "coveredRatio": 0}
+    ],
+    "proposedPolicyConsequencesNotExecutedSelectorResults": [
+      "With category defaults selected, bus:03509 represents both distance and coverage roles once; no filler bus options are required.",
+      "MRT Exit C supplies the shortest shown sheltered walk and category-default Exit E supplies the most-covered measured walk. Current Exit E deduplicates with its coverage role.",
+      "If MRT Exit D is explicitly selected, retain it as the third MRT choice while keeping C and E.",
+      "If bus:03511 is explicitly selected, retain it alongside bus:03509; the latter still occupies only one identity."
+    ],
+    "sameBusGapEvidence": {
+      "scoreGapLengthsM": [16.3, 20.2],
+      "geometryFragmentLengthsM": [16.3, 11, 9.1],
+      "candidateGeometryFragmentLengthsM": [16.3, 11, 9.1],
+      "arithmetic": ["16.3 + 20.2 = 36.5 score-gap metres", "16.3 + 11.0 + 9.1 = 36.4 rendering-fragment metres", "max(16.3, 20.2) = 20.2 logical longest gap", "max(16.3, 11.0, 9.1) = 16.3 largest fragment, not the logical longest gap"],
+      "rule": "Preserve both representations and their rounding/topology differences; do not repair protected input or normalize one to the other."
+    },
+    "unroutedCounterexample": {"postal": "018990", "candidateId": "bus:03539", "shelteredM": 222.5, "geometryRef": "018990_bus:03539", "coveredRatio": null, "routeTrust": "direct_bus_fallback_unrouted", "meaning": "Positive distance and reference do not establish a published walk. Empty gaps do not establish zero exposure."},
+    "missingCounterexample": {"postal": "079908", "reason": "all_numeric_transit_candidates_rejected_by_bus_route_trust_gate", "paths": null, "gaps": null, "meaning": "No selected published route; this rejection reason is not proof of distance beyond the range cap."}
+  },
+  "unknownsAndLimits": [
+    "Candidate summaries are a retained subset, not an exhaustive search result. Five candidates globally does not mean five per category or every stop evaluated.",
+    "Matching encoded geometry still requires decoder/topology validation in T05/T06; the sixteen fixture tests check retained identity/fields and nonempty encodings, not all runtime rendering behavior.",
+    "Candidate geometry fragment totals can be exposed as explicitly qualified mapped-fragment evidence, but not substituted for logical-gap totals in the shared four-metric summary. Without a logical-gap mapping, candidate longest continuous gap is unavailable.",
+    "A default without a confident POI ID must still be selectable through its existing category role; T06 must not invent a shareable stop ID.",
+    "Unknown route-trust variants require evidence-based classification. Connector-bearing routes are not blanket-rejected merely because they contain exposed access connectors.",
+    "Default/candidate scalar conflicts, exact ties, malformed IDs/geometry, nonfinite numbers, absent fields and stale selections need explicitly synthetic failure fixtures in T05/T06; do not label them newly discovered production defects.",
+    "No completeness claim, fresh source validation, full-bundle scan, new routing or performance measurement follows from this contract."
+  ],
+  "normalizerExecutionContract": {
+    "ticket": "T04",
+    "status": "implemented_reviewed_and_executed",
+    "input": "One immutable reader-supplied bundle/postal context, original ScoreRecord and paired PostalGeom (or explicit geometry availability), with source context for each payload. Validate raw score.postal and geom.postal against context; require both supplied source bundle IDs to match. Do not accept the adapted activeSelection, optional POIs, live-preview cache, current winner or comparator settings.",
+    "output": "All normalized published source options grouped by stable identity, chosen whole source representation, selectionRef, per-field numeric/gap capabilities, geometry completeness, source locators and deterministic diagnostics. Distance/coverage rankability flags are capabilities, not winner roles. No maximum-three truncation or current-selection retention yet.",
+    "deterministicOutput": "Sort identity groups by exact key code-unit order. Sort aliases by exact original node_id and diagnostics by key, source role, field and reason. Keep source locators role/node_id-based rather than making array indices part of identity. Do not make ordinary duplicate metadata or optional POI arrival change numeric output.",
+    "testMethod": "Exercise the shared runtime normalizer/validators, not a duplicated test-only classifier. Use immutable real fixture objects and in-memory, explicitly labelled synthetic clones for missing/invalid/conflict cases. Never alter the committed fixture bytes. NaN/Infinity cases must be constructed in memory because JSON cannot encode them.",
+    "existingSixteenTests": "Remain fixture identity/content tests. They do not import this contract or a runtime normalizer and cannot satisfy the cases below by themselves.",
+    "cases": [
+      {"id": "N01", "kind": "real", "setup": "Normalize complete 018956 fixture for each category without POIs.", "expected": "Bus pool has default bus:03509 plus candidate bus:03511 and bus:03519. MRT pool has stable internal Exit E default plus candidates mrt:21624 and mrt:21678. Every pool entry is positively routed with complete matched geometry; no ranking roles assigned.", "acceptance": ["W02", "W06", "W13"]},
+      {"id": "N02", "kind": "real", "setup": "Inspect canonical keys and selectionRef for 018956 defaults.", "expected": "Exact JSON-array default keys use encoding version 1. Bus default keeps its default key despite candidate alias bus:03509; MRT Exit E remains selectable by category_default with no invented mrt: ID.", "acceptance": ["W05", "W06"]},
+      {"id": "N03", "kind": "real", "setup": "Normalize the repeated top/default/candidate bus:03509 evidence.", "expected": "Choose the category-default whole representation. Logical lengths remain [16.3,20.2], total 36.5, longest 20.2; retain geometry [16.3,11,9.1] separately and do not flag the semantic split as a conflict.", "acceptance": ["W05", "W13"]},
+      {"id": "N04", "kind": "real", "setup": "Normalize 018990 and 079908.", "expected": "018990 is published_unrouted even with positive 222.5 distance and a non-null geometry_ref; no published rankability or logical zero exposure. 079908 preserves missing paths/gaps and trust-rejection reason, not an inferred distance beyond 1.2 km.", "acceptance": ["W02", "W03", "W04", "W07"]},
+      {"id": "N05", "kind": "synthetic source-contract matrix", "setup": "For compatible complete-geometry candidate clones, exercise each of the four routed candidate rows with every one of its six permitted routing types, both SCORED and SCORED_PARTIAL.", "expected": "4 trust rows x 6 routing types x 2 states = 48 combinations classify routed; no connector blanket veto. Use source-contract labels, not fabricated claims that these are 48 observed production records.", "acceptance": ["W02", "W06"]},
+      {"id": "N06", "kind": "synthetic source-contract matrix", "setup": "For compatible complete-geometry default clones, exercise both default category rows with all six permitted routing types. Also remove all three distance fields, then make them invalid, while retaining valid own coverage and complete geometry; separately give valid routed_m and shortest_m unequal values.", "expected": "2 category rows x 6 routing types = 12 combinations classify routed without requiring candidate route_trust or a positive distance corroborator. All unavailable distances stay unavailable, while valid coverage remains coverage-rankable. Valid unequal same-semantic distances cause a local conflict. No shortest/direct substitution into shelteredDistance.", "acceptance": ["W02", "W06", "W07"]},
+      {"id": "N07", "kind": "synthetic source-contract case", "setup": "Create a path-bearing NO_TRANSIT_IN_RANGE clone with a supported routed matrix row, complete geometry and null total/subscores; separately a clone with a preserved explicit outside-range reason.", "expected": "Valid published walk capabilities remain inspectable/rankable independent of locked-score eligibility; preserve NO_TRANSIT_IN_RANGE/reason without inventing a 1.2 km calculation. This is not the real 079908 rejection shape.", "acceptance": ["W02", "W04"]},
+      {"id": "N08", "kind": "synthetic", "setup": "Use absent/null/empty/unlisted trust or routing types, generic graph_routed, wrong-category suffix, NOT_YET_SCORED, and an unrecognized state.", "expected": "Unlisted recognized-state combinations are trust_unclassified; unknown state is state_invalid. None obtains published rankability by prefix matching.", "acceptance": ["W02", "W03", "W06"]},
+      {"id": "N09", "kind": "synthetic", "setup": "Put a direct fallback marker on one trust/type field and graph routing on the other; put a preview marker on the entire original input context while retaining its candidates.", "expected": "Conflicting direct/graph representation is quarantined with routing_trust_conflict. Preview input produces only preview_only context, never published winners from retained candidate arrays.", "acceptance": ["W03", "W12"]},
+      {"id": "N10", "kind": "synthetic", "setup": "Use numeric postal, whitespace-padded context, different score/geometry source bundles or raw postals, missing source pairing, wrong node-ID prefix, empty suffix, control characters or mismatched node_type/category; keep a valid leading-zero bus ID control case.", "expected": "Invalid context/identity is rejected with explicit diagnostics, never coerced or defaulted to bus. Contradictory/missing source pairing yields source_context_invalid. Valid bus:03509 preserves all digits.", "acceptance": ["W06", "W13"]},
+      {"id": "N11", "kind": "synthetic", "setup": "Repeat identical source normalization before and after optional POI collections elsewhere in the test harness change order, names, availability and station/exit aliases.", "expected": "The normalizer has no POI input; canonical keys, grouping, source precedence, numeric capabilities and selectionRef are identical.", "acceptance": ["W06", "W08", "W13"]},
+      {"id": "N12", "kind": "synthetic", "setup": "Remove a category option; test matching-category top-level fallback, and separately a present but unusable category default with a distinct valid top-level destination.", "expected": "Absent category uses the stable default key for the top source. Present unusable category is not silently overwritten; distinct valid top source retains top-default identity and its own evidence.", "acceptance": ["W02", "W06"]},
+      {"id": "N13", "kind": "synthetic", "setup": "Exercise a unique exact-name/complete-geometry default-to-MRT alias, same name with different geometry, same station with different exit, two different candidate IDs matching one default, and a conflicting strong bus ID.", "expected": "Only the unique complete evidence match aliases. Ambiguous candidate matches produce alias_ambiguous and no ID merge. Strong bus disagreement vetoes weaker matching; default identity remains stable.", "acceptance": ["W05", "W06", "W08"]},
+      {"id": "N14", "kind": "synthetic", "setup": "Set canonical category-default coverage missing, then invalid, while its duplicate candidate retains valid coverage; preserve valid default geometry and distance.", "expected": "Whole category-default representation still wins precedence; coverage remains missing or invalid with its reason. No per-field fallback to candidate 0.551 and no loss of valid distance/geometry.", "acceptance": ["W02", "W07", "W13"]},
+      {"id": "N15", "kind": "synthetic", "setup": "Make the default geometry unavailable while a strong-identity duplicate candidate has complete valid geometry.", "expected": "Candidate becomes the chosen whole usable representation under the same canonical default key; selectionRef targets the candidate, and logical gaps are not borrowed from the unmatched default.", "acceptance": ["W02", "W05", "W13"]},
+      {"id": "N16", "kind": "synthetic", "setup": "Give validated same-identity sources conflicting positive sheltered distance, coverage or complete geometry; separately duplicate one same-role candidate with unequal presence/status/metric values; permute input order.", "expected": "Entire affected identity is evidence_conflict or duplicate_representation_conflict and not rankable/retainable. Raw default/text remains diagnostic evidence, no automatic source substitution. Outcome is permutation-independent.", "acceptance": ["W05", "W08", "W13"]},
+      {"id": "N17", "kind": "synthetic", "setup": "Add malformed reference/geometry or unsupported trust/state duplicates beside valid default/candidate evidence; include direct/graph combinations with an invalid state, NOT_YET_SCORED or unknown graph-prefixed trust. Separately add identical same-role duplicates with only cosmetic metadata differences.", "expected": "Unvalidated representations cannot overwrite or quarantine valid evidence through claims they do not establish. Recognized contradictory routed/unrouted evidence still quarantines. Semantic duplicates collapse deterministically without borrowing numeric fields.", "acceptance": ["W02", "W05", "W08"]},
+      {"id": "N18", "kind": "synthetic numeric boundary matrix", "setup": "For each metric test absent, null, a numeric string, false, object/array, NaN, both infinities and a negative number; for routed distance additionally zero; for coverage additionally 0,1, just below0 and just above1.", "expected": "Missing/type/nonfinite/negative/zero/out-of-range reason codes follow numericCapabilities exactly. Valid 0/1 coverage survives. No coercion, clamping or fallback. Valid independent metric capabilities survive the other metric's failure.", "acceptance": ["W02", "W07", "W13"]},
+      {"id": "N19", "kind": "synthetic", "setup": "Make sheltered_m absent while shortest_m, direct distance and POI proximity would all be available outside the adapter; use separate missing and invalid coverage clones.", "expected": "shelteredDistance stays missing, never any alternate distance; coverage missing/invalid stays unrankable for coverage. A separately valid ratio can remain coverage-rankable with distance unavailable.", "acceptance": ["W02", "W07"]},
+      {"id": "N20", "kind": "synthetic", "setup": "Use a null reference with an orphan geometry entry; a wrong non-null reference with a same-named entry; a correct reference with absent geometry.", "expected": "Explicit missing/reference-mismatch reasons; no geometry acceptance based solely on a populated string or similarly named map entry. Other unrelated usable options survive.", "acceptance": ["W02", "W03"]},
+      {"id": "N21", "kind": "synthetic strict-geometry matrix", "setup": "Use out-of-alphabet characters, unterminated/overflowing integer groups, dangling latitude, out-of-range decoded coordinates, one-point/identical-point parts and a valid control polyline.", "expected": "Each malformed/degenerate case is rejected before a permissive decoder can invent coordinates; valid control uses precision5 and passes. No coordinate clamp or precision guessing.", "acceptance": ["W03", "W13"]},
+      {"id": "N22", "kind": "synthetic", "setup": "Put one invalid member among valid authoritative sheltered_parts, with a tempting valid flattened sheltered line; then make every member invalid.", "expected": "First result is partial with exact invalid indices, valid pieces retained, complete-route rankability false and no fallback join. All-invalid result is invalid. Text metrics remain distinct from map completeness.", "acceptance": ["W02", "W03"]},
+      {"id": "N23", "kind": "synthetic", "setup": "Exercise absent/null/empty parts with a valid flat line; a non-array parts field; and complete valid parts with an invalid unused flat line.", "expected": "Only absent/null/empty parts permit the flat fallback. Non-array parts is invalid. Valid authoritative parts remain complete despite unused_geometry_invalid on the flat field.", "acceptance": ["W02", "W03"]},
+      {"id": "N24", "kind": "synthetic", "setup": "Add malformed optional route_segments or malformed exposure-gap geometry to a record with complete valid authoritative route parts.", "expected": "Base route remains usable; affected optional details are disabled/partial with reasons and cannot replace the validated base line or contaminate bounds.", "acceptance": ["W02", "W03"]},
+      {"id": "N25", "kind": "synthetic logical-gap matrix", "setup": "Exercise null/absent/non-array logical gaps, an empty routed list, empty unrouted list, a list with missing/negative/nonfinite length, and valid zero-length source rounding.", "expected": "Missing/invalid distinctions hold; any invalid length disables aggregate logical total/longest without summing only the good subset. Supported empty routed list is recorded zero; unrouted empty list is unavailable as published exposure.", "acceptance": ["W02", "W07", "W13"]},
+      {"id": "N26", "kind": "synthetic", "setup": "Make a logical gap location missing or invalid while its length is valid; make a fragment index fractional/negative or fragment encoding malformed.", "expected": "Logical metric length survives anchor failure. Invalid fragment highlight is disabled; part_index never reconstructs logical-gap identity or authorizes a join. Main route remains usable.", "acceptance": ["W02", "W03", "W13"]},
+      {"id": "N27", "kind": "real plus synthetic variant", "setup": "Normalize real candidate MRT D fragment-only evidence; ask the capability adapter for shortest-route gaps on a record with sheltered logical gaps.", "expected": "Candidate logical total/longest are unavailable despite inspectable fragment lengths. Shortest variant never inherits sheltered gaps or uncovered metrics.", "acceptance": ["W02", "W07", "W13"]},
+      {"id": "N28", "kind": "synthetic", "setup": "Remove all legacy per-record digest fields or leave the real legacy maps; include a rejected-candidate warning on an otherwise supported default.", "expected": "No fabricated digests, no selected-route veto from unrelated rejected-candidate warnings and no candidate-specific composite/provenance invented from default context.", "acceptance": ["W02", "W13"]},
+      {"id": "N29", "kind": "all cases", "setup": "Deep-freeze and snapshot source records/geometry; run normalization with fetch unavailable and no public-data filesystem access.", "expected": "Outputs come solely from supplied evidence, with no mutation, network call, protected read, geometry-length recomputation or weight change. Snapshot stays byte-for-byte equivalent when serialized as before.", "acceptance": ["W08", "W13"]}
+    ],
+    "doneGate": "Satisfied for the normalizer: N01-N29 families and explicit matrix/boundary regressions execute in 328 behavioral tests, separate from 16 real-fixture tests. Parent isolated full suite:358 previous +16 fixture +328 normalizer =702 tests in39 files; TypeScript, integrity and11 source identities pass. Exact receipts and the preserved three-failure red regression are linked in implementationReceipt. This does not close T05 winner behavior or T06 UI/preview recovery."
+  },
+  "rankingExecutionContract": {
+    "ticket": "T05",
+    "status": "specified_not_implemented_or_executed",
+    "input": "Normalized nonquarantined per-category option pools, current canonical key and the existing declared orderingPolicy. No raw identity/geometry reparsing, POIs, network or score recomputation inside sorting.",
+    "cases": [
+      {"id": "R01", "setup": "Real 018956 with category defaults current.", "expected": "Bus default occupies one choice with both distance/coverage roles. MRT C distance winner and internal Exit E coverage/current default are two choices. No arbitrary fill candidates."},
+      {"id": "R02", "setup": "Real MRT D current; separately bus:03511 current.", "expected": "Retain D as third MRT choice alongside C/E; retain bus:03511 alongside the single dual-role bus default. Categories never mix."},
+      {"id": "R03", "setup": "Distinct distance winner, coverage winner, current selection and a fourth default fallback.", "expected": "Exactly the first three roles remain; default stays resettable in the pool but is not a fourth choice and does not displace current."},
+      {"id": "R04", "setup": "Synthetic equal distances with different coverage, equal coverage with different distance, both equal, and shuffled candidate/source input.", "expected": "Apply unrounded declared numeric tie order and code-unit canonical-key final tie; same final list and roles for every permutation."},
+      {"id": "R05", "setup": "Missing/invalid coverage on all or some options; real zero coverage controls.", "expected": "Only valid coverage participates. All unavailable means no coverage winner; all known zero still has a deterministic winner. Distance winners remain independently eligible."},
+      {"id": "R06", "setup": "Valid coverage with missing/invalid distance; equal coverage with one valid positive distance.", "expected": "Known coverage can win independently; on a coverage tie the known valid distance comes first. Unavailable distance cannot win distance role."},
+      {"id": "R07", "setup": "Current key absent, wrong bundle/postal/category, preview-only, partial geometry or quarantined; also a valid current with missing metrics.", "expected": "Do not retain invalid/stale current keys. Retain the valid complete-geometry current even without winner metrics; never fan out a live preview."},
+      {"id": "R08", "setup": "Empty category, one usable option, missing candidate list with a usable category default, and a category default absent from candidate summaries.", "expected": "Return zero/one/useful bounded options appropriately. Default evidence survives without fabricating a candidate ID or another category's walk."},
+      {"id": "R09", "setup": "Different full-precision metrics whose displayed rounded labels tie.", "expected": "Original numeric ordering wins; no label-based tie, clamping or rewritten metric."},
+      {"id": "R10", "setup": "Frozen normalized inputs with fetch unavailable, duplicate winner roles and repeated sorting.", "expected": "No mutation or requests; canonical default logical gaps remain unchanged; at most three distinct options per category and deterministic output."}
+    ],
+    "deferredToT06": ["picker/summary/URL atomic selection", "default selectionRef mapping without invented stop ID", "category switching without losing original candidate geometry", "live-preview adapter semantics and failed/stale preview recovery W12", "validated partial geometry/fragment presentation", "reason-aware range and unavailable copy"],
+    "boundary": "No selector, normalizer, runtime adapter or new tests are implemented by this design-only refinement."
+  },
+  "acceptanceMapping": [
+    {"id": "W02", "catalogue": "qa/SHIOK-acceptance-tests.md:27", "requirement": "Available evidence shown; missing != zero", "fixtureEvidence": "Real 018990 null coverage/positive unrouted distance; null paths/gaps for 079908; real zero coverage for MRT C/D.", "remaining": "T05/T06 adapters and UI must preserve missing capability semantics, including geometry-only routes. Fixture tests alone do not close this integration case."},
+    {"id": "W03", "catalogue": "qa/SHIOK-acceptance-tests.md:28", "requirement": "No drawn invented connection or success claim", "fixtureEvidence": "079908 rejected-route reason and no matching prefix entry; 018990 explicit unrouted trust.", "remaining": "T05 excludes non-walk evidence; T06 must not draw a synthetic straight connection as a published walk."},
+    {"id": "W04", "catalogue": "qa/SHIOK-acceptance-tests.md:29", "requirement": "Explicit range limitation without hiding valid evidence", "fixtureEvidence": "079908 proves that the NO_TRANSIT_IN_RANGE state alone does not establish a numeric out-of-range reason.", "remaining": "Dedicated outside-range fixture and reason-aware UI test are still required. This sample does not complete W04."},
+    {"id": "W05", "catalogue": "qa/SHIOK-acceptance-tests.md:30", "requirement": "Same nearest/most-sheltered candidate appears once", "fixtureEvidence": "018956 bus:03509 appears as top-level default, category default and candidate with matching route metrics.", "remaining": "T05 must execute role deduplication, preserve default logical gaps and prove the bound."},
+    {"id": "W06", "catalogue": "qa/SHIOK-acceptance-tests.md:31", "requirement": "Destination and metrics stay in selected category", "fixtureEvidence": "Both categories and matching geometry are retained; MRT Exit E exists only as category default, not in the five candidates.", "remaining": "T05 must include category defaults; T06 must retain candidate geometry across category changes and prevent mixed-category selection."},
+    {"id": "W07", "catalogue": "qa/SHIOK-acceptance-tests.md:32", "requirement": "Missing shelter metric is not best shelter or zero exposure", "fixtureEvidence": "018990 contains real null candidate coverage; C/D contain real zero coverage.", "remaining": "T05 must test a routed candidate with deliberately removed coverage as a labelled synthetic mutation, plus all-unknown coverage."},
+    {"id": "W08", "catalogue": "qa/SHIOK-acceptance-tests.md:33", "requirement": "Stable documented tie-break", "fixtureEvidence": "Real candidates seed synthetic equal-distance/equal-coverage and shuffled-order cases; no claim that the real sample has equal distance winners.", "remaining": "T05 must execute permutation, duplicate and stable-identity tests under the specified tie policy."},
+    {"id": "W12", "catalogue": "qa/SHIOK-acceptance-tests.md:37", "requirement": "Preview failure is explicit and original result preserved", "fixtureEvidence": "Published evidence provides the preserved result; no network request or failure is executed by fixture tests.", "remaining": "T06 must test failed/stale preview, preserve the original result, and avoid any request when matching published candidate geometry is already present."},
+    {"id": "W13", "catalogue": "qa/SHIOK-acceptance-tests.md:38", "requirement": "Published values and weights unchanged", "fixtureEvidence": "Source identities and numeric values retained; score-gap and fragment differences asserted without repairs.", "remaining": "T05/T06 must prove input immutability and selected-source metric identity. The contract does not authorize touching weights or protected data."}
+  ],
+  "reservedBugsForT05T06": [
+    {"id": "B01", "ownerTicket": "T05", "source": "web/lib/nearest-transit.ts:8", "finding": "Comments deny candidate route evidence broadly; implementation ranks POIs by haversine distance at line 115, not published walks.", "requiredChange": "Separate POI proximity/preview capability from the published evidence selector; retain the useful published candidate and category-default pool."},
+    {"id": "B02", "ownerTicket": "T06", "source": "web/app/page.tsx:789", "finding": "optionGeomToPostalGeom omits candidates and routeOptionGeom uses it for category selection, losing original candidate geometry.", "requiredChange": "Preserve access to the original evidence pool during category selection so published candidates do not fall into the live-preview path."},
+    {"id": "B03", "ownerTicket": "T06", "source": "web/app/page.tsx:854", "finding": "Missing candidate shortest_m falls back to straight-line or zero; sheltered_m falls back to shortest_m. Geometry presence alone permits adaptation.", "requiredChange": "Use explicit missing routed-distance capability; do not invent values or skip trust/reference checks."},
+    {"id": "B04", "ownerTicket": "T06", "source": "web/app/page.tsx:842", "finding": "Candidate adaptation ignores candScore.node_name/node_type when POI metadata is absent and can classify an MRT candidate as bus.", "requiredChange": "Use published candidate identity/category as primary evidence; unknown stays unknown. Preserve a category-default selection without inventing a POI ID."},
+    {"id": "B05", "ownerTicket": "T06", "source": "web/app/page.tsx:869", "finding": "Candidate geometry fragments replace exposure_gaps; walkMetrics then treats their maximum as a logical longest stretch. Duplicate-default selection can change gap numbers.", "requiredChange": "Preserve canonical default/category logical gaps and represent candidate fragment-only capability explicitly. Test the 36.5/20.2 versus 36.4/16.3 case."},
+    {"id": "B06", "ownerTicket": "T06", "source": "web/lib/live-route-scoring.ts:287", "finding": "Preview straight_line_m is set to routed distance, and sheltered_m at line 300 is covered length while walkMetrics reads sheltered_m as total route length.", "requiredChange": "Repair preview adapter field meanings before sharing metrics with picker/comparison; keep preview provenance and eligibility separate from published options."},
+    {"id": "B07", "ownerTicket": "T06", "source": "web/components/walk-summary.tsx:32", "finding": "Every NO_TRANSIT_IN_RANGE record receives an outside-1.2-km message, including real 079908 whose reason is trust rejection. Unrouted empty gaps also currently become zero gap metrics.", "requiredChange": "Render reason/capability-aware limitations and do not present missing route evidence as zero exposure or a proven numeric range failure."},
+    {"id": "B08", "ownerTicket": "T05", "source": "web/lib/nearest-transit.ts:115", "finding": "The current proximity sorter has no explicit tie-break beyond distance, and default ID resolution at line 125 can fall back to name matching.", "requiredChange": "Use the declared canonical identity, alias validation, scalar conflict handling and stable tie rules in the new pure selector; test input permutations."},
+    {"id": "B09", "ownerTicket": "T06", "source": "web/app/page.tsx:858", "finding": "Candidate adaptation spreads the default ScoreRecord and retains its total/state/provenance, despite a different destination's metrics.", "requiredChange": "Retain locked score context separately, never portray it as a candidate-specific score or use inherited default state/provenance as proof of candidate capability. No rescoring or locked-value change."}
+  ],
+  "handoff": {
+    "parentReviewRequired": false,
+    "normalizerImplemented": true,
+    "normalizerCasesExecuted": true,
+    "selectorImplemented": false,
+    "candidateWinnerTestsExecuted": false,
+    "runtimeNormalizerValidation": true,
+    "browserValidationClaimed": false,
+    "completionClaim": "T04 normalizer implemented and reviewed with328 behavioral tests plus16 fixture assertions; full702/39 isolated suite passes. R01-R10 winner selection remains specified only. T05/T06 interaction and W02-W08/W12-W13 end-to-end integration remain open; no new browser/build/performance or whole-bundle coverage claim."
+  }
+}

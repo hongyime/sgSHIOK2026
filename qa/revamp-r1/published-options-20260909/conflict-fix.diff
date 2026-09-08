@@ -1,0 +1,32 @@
+diff --git "a/C:\\sgSHIOK2026\\tmp\\test-without-data-pEwezv\\web\\lib\\published-transit-options.ts" "b/C:\\sgSHIOK2026\\web\\lib\\published-transit-options.ts"
+index 5eb3031..998715b 100644
+--- "a/C:\\sgSHIOK2026\\tmp\\test-without-data-pEwezv\\web\\lib\\published-transit-options.ts"
++++ "b/C:\\sgSHIOK2026\\web\\lib\\published-transit-options.ts"
+@@ -255,20 +255,21 @@ function classify(row: Obj | null, role: Role, category: PublishedTransitCategor
+   if (type === 'live_onemap_preview' || trust === 'live_onemap_preview') return 'preview';
+   const nodeType = category === 'bus' ? 'bus_stop' : 'mrt_lrt_exit';
+   const acceptedTypes = [...baseTypes, ...baseTypes.map(base => `${base}_with_${nodeType}_access_connector`)];
++  const graphTrust = trust === `graph_routed_${nodeType}` || trust === `graph_routed_${nodeType}_with_access_connector`;
+   const stateValid = typeof row?.state === 'string' && ['SCORED', 'SCORED_PARTIAL', 'NO_TRANSIT_IN_RANGE', 'NOT_YET_SCORED'].includes(row.state);
+   if (!stateValid) diagnostics.push('state_invalid');
++  if (!stateValid || row?.state === 'NOT_YET_SCORED') return 'unclassified';
++  if (row?.state === 'NO_TRANSIT_IN_RANGE') diagnostics.push('scoring_eligibility_unavailable');
+   if (type === directType || trust === directType) {
+-    if ((typeof trust === 'string' && trust.startsWith('graph_routed')) || (typeof type === 'string' && acceptedTypes.includes(type) && trust === directType)) {
++    if ((type === directType && graphTrust) || (typeof type === 'string' && acceptedTypes.includes(type) && trust === directType)) {
+       diagnostics.push('routing_trust_conflict'); return 'conflict';
+     }
+-    return category === 'bus' && stateValid ? 'unrouted' : 'unclassified';
++    return category === 'bus' && type === directType && (role !== 'candidate' || trust === directType)
++      ? 'unrouted' : 'unclassified';
+   }
+-  if (!stateValid) return 'unclassified';
+-  if (row?.state === 'NOT_YET_SCORED') return 'unclassified';
+-  if (row?.state === 'NO_TRANSIT_IN_RANGE') diagnostics.push('scoring_eligibility_unavailable');
+   if (!paths || typeof type !== 'string' || !acceptedTypes.includes(type)) return 'unclassified';
+   if (role === 'candidate') {
+-    if (trust !== `graph_routed_${nodeType}` && trust !== `graph_routed_${nodeType}_with_access_connector`) return 'unclassified';
++    if (!graphTrust) return 'unclassified';
+   } else {
+     if (!object(row?.best_node)) return 'unclassified';
+     if (metrics.routed_m.status === 'valid' && metrics.shortest_m.status === 'valid' && metrics.routed_m.value !== metrics.shortest_m.value) {

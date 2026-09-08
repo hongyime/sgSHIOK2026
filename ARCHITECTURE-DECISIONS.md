@@ -223,3 +223,44 @@ twice weekly, backup destination/keys and recovery handling. Provisioning,
 tooling, backend validation and production activation stay separately gated.
 Detailed proposal, alternatives and official sources:
 `qa/revamp-r1/report-service-proposal-20260908.json`.
+
+## ADR-15: Preserve published option evidence before ranking (2026-09-09)
+
+Use one pure normalizer for the original score and geometry snapshot, before
+any chosen-stop adapter drops candidates or replaces default fields. It accepts
+an explicit paired bundle/postal context and one transit category; optional
+POIs, live requests and inherited composite scores are not ranking inputs.
+This is structural validation, not a new cryptographic provenance audit.
+
+Retain category defaults as well as published candidate summaries. Default
+identities are internal versioned keys, not fabricated stop IDs; preserve exact
+published IDs separately. Join strong validated bus identities or unique exact
+name/geometry evidence, never a POI label or station-only resemblance. Preserve
+the chosen whole representation; do not fill its missing fields from a duplicate.
+Validated contradictory evidence excludes that identity from recommendations;
+unsupported trust, invalid state and malformed identity cannot poison valid
+evidence by asserting an identity or contradiction they do not establish.
+
+Keep valid, missing and invalid numerical capabilities distinct. Supported
+routing type/category/state plus complete paired geometry establish a usable
+published walk; a missing distance does not discard valid coverage. Defaults
+do not need an extra positive-distance corroborator: routed_m and shortest_m
+are produced from the same variable, not independent measurements. No metric
+is replaced with straight-line distance, another route variant or zero.
+
+Validate encoded route parts without changing coordinates or measuring a new
+route. Incomplete multipart geometry remains partial, never silently repaired
+from a flattened line. Logical score gaps retain their total/longest meaning;
+map fragments cannot reconstruct whole stretches from part_index. Candidate
+fragment-only evidence cannot acquire default logical gaps. Shortest-route
+gaps remain unavailable unless separately published for that route variant.
+Consumers must use validated geometry, not forward raw diagnostic geometry.
+Optional route-segment styling needs its own validated adapter before reuse.
+
+T05 will choose shortest shown walk, most covered and valid current selection,
+deduplicated to at most three per category with stable unrounded ties. T06 will
+wire those choices, map/summary/URL and explicit preview recovery. Neither UI
+integration nor all-stop evaluation is established by T04 fixture validation.
+Contract and real source identities:
+`qa/revamp-r1/published-option-contract-20260909.json` and
+`web/lib/__tests__/fixtures/published-options.provenance.json`.

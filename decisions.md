@@ -2583,3 +2583,30 @@ moderator and private backup handling before those dependent tasks proceed.
 The map and comparison tasks continue independently of this gate.
 Proposal and official source references:
 qa/revamp-r1/report-service-proposal-20260908.json; ADR-14.
+
+## 2026-09-09: Normalize published walk evidence before choosing alternatives
+
+T04 supplies a pure shared boundary for the original score/geometry snapshot,
+with source context, category, stable identity, whole-representation precedence
+and separate valid/missing/invalid capabilities. Include category defaults even
+when absent from candidate summaries. Do not substitute POI proximity for routed
+distance, inherit a default composite for a candidate, or join by optional labels.
+
+Logical uncovered stretches and clipped rendering fragments are not equivalent:
+the real default's16.3+20.2=36.5m/longest20.2m differs from fragments
+16.3+11+9.1=36.4m/maximum16.3m. Preserve both sources and their meanings.
+
+Independent review removed a draft default-only distance prerequisite: routed_m
+and shortest_m derive from the same producer variable, not independent evidence.
+Missing distance does not erase valid coverage. Review also fixed coercible
+states, invalid strong aliases, unsupported duplicate poisoning, empty geometry
+and degenerate-line diagnostics. Three parent red regressions caught remaining
+state/trust conflict branches before exact finite-matrix checks corrected them.
+
+Validation:358 previous +16 fixture +328 behavioral =702 tests;37+1+1=39 files,
+production-data reads denied, TypeScript/integrity and11 source identities pass.
+Raw inputs preserve order; normalized capabilities/locators are deterministic.
+No published value, input, locked weight or geometry is changed. No pipeline,
+installation or deployment. The module is not yet wired into the existing picker.
+T05 ordering and T06 map/summary/URL integration follow ADR-15 and the contract.
+Evidence: qa/revamp-r1/published-options-20260909/summary.json.

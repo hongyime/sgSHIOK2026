@@ -1554,3 +1554,94 @@ DISAGREEMENTS
 2. T12 DONE closes the proposal only. T14-T18 backend behavior, request expiry,
    synthetic quota/restore tests and production release remain unimplemented or
    unapproved; a general completion goal does not approve these owner decisions.
+
+## T04 published-option normalization, 2026-09-09
+
+Scope: shared pure evidence normalization, not winner selection or page wiring.
+Contract: qa/revamp-r1/published-option-contract-20260909.json; ADR-15.
+Machine receipt: qa/revamp-r1/published-options-20260909/summary.json.
+The existing preview/build and top-left layout are unchanged by this module.
+
+The new fixture retains three original score records, one reduced geometry
+record with all candidate/category parts and gaps, and projected indexes/manifest.
+All four source identities match the established eleven-source provenance set.
+Real fixture SHA256:6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7.
+Its sixteen tests validate fixture identity/content, not normalization by themselves.
+
+```text
+node C:/sgSHIOK2026/qa/revamp-r1/published-options-20260909/check.mjs focused-1 focused
+ Test Files  2 passed (2)
+      Tests  333 passed (333)
+```
+
+That first parent pass contained317 normalizer+16 fixture assertions. Subsequent
+review found three combinations still incorrectly quarantining a valid route:
+an array-shaped state, an unsupported graph-prefixed trust tag, and NOT_YET_SCORED,
+each paired with direct/graph markers. The parent added failing tests before
+fixing the classifier; the full red stdout/stderr and source diff are preserved.
+
+```text
+node C:/sgSHIOK2026/qa/revamp-r1/published-options-20260909/check.mjs conflict-red-1 focused
+ Test Files  1 failed | 1 passed (2)
+      Tests  3 failed | 333 passed (336)
+exit_code=1
+```
+
+Validate state before contradictory evidence; require finite own-category trust
+values rather than a graph_routed prefix. Known routed-versus-unrouted conflicts
+still fail eligibility. The first post-fix full run passed694/39. Final explicit
+false-value and zero-fragment boundaries added eight tests, with no runtime change.
+
+```text
+node C:/sgSHIOK2026/qa/revamp-r1/published-options-20260909/check.mjs full-2 full
+ Test Files  39 passed (39)
+      Tests  702 passed (702)
+TypeScript --noEmit --incremental false: exit_code=0
+python scripts/check_repo_integrity.py
+repo_integrity=ok
+exit_code=0
+git diff --check: exit_code=0
+```
+
+Full raw commands/output and the eleven matching anchor hashes are in full-2/checks.json.
+The tests ran in tmp/test-without-data-HvvZmY with productionDataDirectoryAbsent=true,
+guardProbePassed=true and reads of both production-data paths denied. Existing
+dependencies were linked; no install. Source-only module is not imported by the
+page yet; no new build, browser, performance or deployed-feature result is claimed.
+
+Arithmetic:358 prior +16 fixture +328 normalizer =702 tests;
+37 prior +1 fixture file +1 normalizer file =39 files.
+N01-N29 cover real source preservation and labelled synthetic routing, identity,
+duplicate, metric, geometry, gap and immutability cases. W02-W08/W12-W13 supply
+the contract requirements; their T05/T06 integrated user journeys remain pending.
+Reviewer Parfit approved final source/test design and inspected the red receipt;
+the full-suite execution is the parent's, not an additional reviewer run.
+
+The author's initial292pass/5fail attempt is reported history, not a retained raw
+transcript: N16 assertions compared raw candidate-array order after deliberately
+reversing it. Corrected assertions compare normalized capabilities/diagnostics and
+source locators; original raw arrays remain unchanged. Later author312/312 and
+317/317 results are also reported history. Parent command receipts are retained.
+
+FINDINGS
+1. A real category MRT default is absent from the retained five candidates. The
+   normalizer keeps it; optional POIs never decide identity or numerical evidence.
+2. The real default's logical gaps16.3+20.2=36.5m/longest20.2m differ from map
+   fragments16.3+11+9.1=36.4m/maximum16.3m. Default gaps survive deduplication;
+   candidate fragments do not become fabricated logical gaps or shortest gaps.
+3. Review corrected an unnecessary default-only distance prerequisite, state
+   coercion, invalid alias absorption, unsupported duplicate poisoning, empty-flat
+   geometry classification and degenerate-line diagnostics before landing.
+4. Three additional parent red regressions proved the conflict-branch fixes.
+   Missing or unsupported evidence cannot assert validated contradictions; genuine
+   contradictions remain excluded.702 tests/39 files and final checks pass.
+5. T04 completes the normalization boundary only. T05 selection and T06 picker,
+   preview-field repair, sanitized rendering and map/summary/URL integration follow.
+   Zero pipeline/install/deployment commands; no protected-payload changes.
+DISAGREEMENTS
+1. routed_m and shortest_m are not independent corroboration: both come from the
+   same producer variable. Missing distance must not erase valid route coverage.
+2. Green fixture shape tests alone were insufficient. The shared normalizer now
+   executes behavioral cases, but this is not a whole-bundle or all-stops audit.
+3. Raw source ordering is preserved deliberately. Determinism applies to normalized
+   capabilities, diagnostics and locators, not to rewriting original evidence.
