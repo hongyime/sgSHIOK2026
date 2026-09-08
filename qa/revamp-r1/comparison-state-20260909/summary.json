@@ -1,0 +1,170 @@
+{
+  "task": "T09",
+  "date": "2026-09-08T23:26:19.800Z",
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "532e7aaf3771b989cf19ccec3e3ed851f11acca0",
+  "status": "complete_state_storage_and_delivery_guard_contract_not_ui",
+  "sources": [
+    {
+      "path": "web/lib/__tests__/comparison-state.test.ts",
+      "bytes": 22050,
+      "sha256": "c2d8bbaf01ebc70df02b26a55ed61a46fafa9b1d4420312d11d5665aa48afbb8",
+      "matchesTestedSnapshot": true
+    },
+    {
+      "path": "web/lib/comparison-state.ts",
+      "bytes": 6888,
+      "sha256": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651",
+      "matchesTestedSnapshot": true
+    }
+  ],
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "match": true
+    }
+  ],
+  "validation": {
+    "checksPath": "qa/revamp-r1/published-options-20260909/comparison-state-full-1/checks.json",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-4NOfrz",
+    "tests": {
+      "previous": 1109,
+      "added": 45,
+      "total": 1154,
+      "files": 48,
+      "arithmetic": "1109 + 45 = 1154; 47 + 1 = 48"
+    },
+    "commands": [
+      {
+        "command": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:/sgSHIOK2026/web/scripts/test-without-production-data.mjs",
+          "--reporter=dot"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 88.155
+      },
+      {
+        "command": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:/sgSHIOK2026/web/node_modules/typescript/bin/tsc",
+          "--project",
+          "C:/sgSHIOK2026/web/tsconfig.json",
+          "--noEmit",
+          "--incremental",
+          "false"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 3.526
+      },
+      {
+        "command": "python",
+        "args": [
+          "C:/sgSHIOK2026/scripts/check_repo_integrity.py"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 0.802
+      },
+      {
+        "command": "git",
+        "args": [
+          "diff",
+          "--check"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 0.255
+      }
+    ],
+    "focusedRed": "qa/revamp-r1/comparison-state-20260909/b-focused-1788909455648/receipt.json",
+    "focusedGreen": "qa/revamp-r1/comparison-state-20260909/b-focused-1788909633842/receipt.json",
+    "review": "Parent implementation; Raman45 independent tests; Parfit state/storage review; Anscombe delivery-guard review. Review is distinct from parent integrated execution."
+  },
+  "catalogue": {
+    "C02/C05/C06": "Bounded immutable transitions; strict versioned persistence and restored/empty/invalid/unavailable outcomes. No storage writes on read or unrelated-key access.",
+    "C09": "Delivery-predicate tests supply fresh caller-owned tokens for remove/re-add, category ABA, retry, closure and bundle changes. Actual loader callback/token lifetime integration remains T10."
+  },
+  "findings": [
+    "State stores only version1, up to3 unique six-digit postal strings, one shared category and active membership. Leading zeros survive; unknown versions/fields, duplicates and oversized or malformed payloads fail closed.",
+    "Add activates, removal preserves order with deterministic adjacent activation, and invalid/duplicate/fourth changes are rejected without mutating state.",
+    "Injected storage access catches denied getters, operation failures and quota errors. Reads never write or repair; writes touch only the owned key. Failure leaves in-memory state usable.",
+    "Two red regressions were corrected: sparse arrays formerly serialized holes as null, and a truthy runtime open string passed the delivery gate. Dense validation and literal true now reject both.",
+    "1154/48 isolated tests, TypeScript, repository integrity and11 source anchors pass. Both new source/test files match the tested snapshot."
+  ],
+  "disagreements": [
+    "A token-matching predicate is not an implemented request lifecycle. T10 must synchronously invalidate/renew tokens and read current context at delivery before any UI race-safety claim.",
+    "A comparison row may finish while inactive; moving the map additionally requires active-column ownership. Applying active-only delivery to every callback would wrongly discard other columns.",
+    "This pure module is not wired into the app yet. No new UI, browser persistence, share flow or release acceptance is claimed."
+  ],
+  "limitations": [
+    "No runtime/UI imports changed. No new build/browser run was needed for this unmounted pure module; existing local preview remains T08 build5qkRQo8F7DVo53iS0ul33.",
+    "T10 must restore before persisting, start no closed-view requests, invalidate tokens synchronously on every specified lifecycle change, and resolve ADR-16 pinned map evidence.",
+    "No pipeline, installation, deployment, protected input/output mutation or X operation."
+  ],
+  "pipelineRuns": 0,
+  "pipelineCost": 0,
+  "installations": 0,
+  "deploymentCommands": 0
+}

@@ -330,3 +330,40 @@ potentially substituted selectedSource again.
 T08 implements this pure contract with reduced real fixtures. T09-T11 still
 owe persistence, visible comparison, loading/failure handling and share URLs.
 No pipeline, live routing, input expansion or new hosting service is needed.
+
+## ADR-17: Keep a minimal local shortlist and transient request ownership (2026-09-09)
+
+T09 stores only version1, zero to three unique six-digit postal strings, one
+bus/MRT-LRT category and the active postal. Use the single owned key
+shiok:comparison:v1. Preserve leading zeros; reject coercion, whitespace,
+duplicates, excess homes, unknown versions/fields and inconsistent membership.
+The entire stored payload is validated, not partially repaired. Never persist
+metrics, provenance, bundle snapshots, request identifiers, report drafts or
+browsing history alongside the shortlist.
+
+Add appends and activates a new postal. Duplicate/fourth/invalid additions leave
+state unchanged with an explicit rejection. Remove preserves order; removing
+the active entry selects the next remaining position, otherwise the previous
+last entry. Empty means no active postal. Category changes preserve the postal
+list and active entry. Reset clears the list but keeps the chosen category.
+
+Storage access and operations can fail. Inject access, catch failures, retain
+usable in-memory state and report persistence availability to the caller.
+Reading never writes, deletes or repairs storage. Write only the owned key,
+once per explicit change after restoration, with no quota-retry loop or pruning
+of unrelated keys. Do not save the initial empty UI state before restoration.
+
+Network request ownership is separate and never persisted. T10 must allocate
+monotonically increasing request IDs and keep the current token for each column.
+Tokens include bundle, postal and category. Invalidate synchronously on removal,
+category/bundle change, retry and comparison closure; re-add/reopen gets new IDs.
+All success, failure and geometry callbacks must pass the same delivery guard.
+Abort is supplementary, not the correctness guarantee. A predicate alone cannot
+invalidate tokens: T10's actual loader must prove remove/re-add and category ABA
+races in integration tests. T09 supplies the tested predicate contract only.
+
+Inactive listed rows may finish loading; moving the map additionally requires
+the postal to remain the active column and ADR-16's pinned default source.
+Closed comparison starts no reads and accepts no old completions. Ordinary
+postal search must remain independent of storage or comparison-load failures.
+T10/T11 still own browser integration, accessible controls and explicit sharing.

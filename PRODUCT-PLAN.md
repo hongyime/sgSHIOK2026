@@ -175,16 +175,17 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Policy: ADR-16 fixes the shared category's declared default sheltered walk. Same-category top default is permitted only if no category default is declared; unavailable defaults cannot silently become candidates. Comparison adds postals, not inspector candidate snapshots. Shared metrics preserve useful text without geometry and explicit missing capabilities.
 - Outcome 2026-09-09: declared-source pinning and shared walkMetrics are implemented. Review found a partial-geometry metric-conflict bypass; comparison now checks independently validated sources within the established identity group, without changing picker semantics.44 real-fixture/boundary tests plus1065 previous =1109/47 isolated tests; TypeScript/build/integrity/11anchors pass.43 existing-walk browser regression checks and8 inspected captures protect extraction compatibility, not a new comparison UI. Evidence: `qa/revamp-r1/comparison-20260909/summary.json`.
 
-### [ ] T09: Build the shortlist state and persistence
-- Status: READY. Size: M. Parent: P1.2.
+### [x] T09: Build the shortlist state and persistence
+- Status: DONE (state/storage and delivery-guard contract; UI loader follows T10). Size: M. Parent: P1.2.
 - Depends on: T08.
 - Scope: proposed `web/lib/comparison-state.ts`, existing storage helper patterns and focused reducer/storage tests.
 - Do: add/remove up to three unique six-digit postals, one shared category and active column; version the local state. Keep only the minimum shortlist state, not browsing history or report drafts. Fetch through existing readers, only when needed.
 - Tests/done: C02/C05/C06/C09. Duplicate/fourth entry, leading zeros, corrupt/old storage, denied quota, reload and removal pass; storage failure never breaks search. Stale responses cannot replace changed shortlist entries.
 - Gate: FREE. Local only; no account or provider.
+- Outcome 2026-09-09: strict versioned three-postal state, immutable transitions, owned-key storage adapters and delivery guard pass45 independent tests;1109+45=1154/48 isolated tests, TypeScript/integrity/11anchors pass. Sparse-array encoding and truthy-open defects were reproduced then fixed. No runtime/UI import changed. T10 must actually restore before writing, invalidate fresh tokens on lifecycle changes, suppress closed-view reads and gate active map ownership; helper tests do not establish that integration. Evidence: `qa/revamp-r1/comparison-state-20260909/summary.json`.
 
 ### [ ] T10: Ship home comparison in the map-first UI
-- Status: WAIT_DEPS. Size: M. Parent: P1.2.
+- Status: READY. Size: M. Parent: P1.2.
 - Depends on: T09.
 - Scope: proposed `web/components/home-comparison.tsx` and CSS, `web/app/page.tsx`, comparison browser/component tests.
 - Do: contextual Add to comparison, explicit add/remove, common category and aligned evidence rows; focus one compared walk on the map without losing the shortlist. Use a compact accessible comparison view, not permanent cards covering the map. Keep the planning-area ranking secondary and distinct.

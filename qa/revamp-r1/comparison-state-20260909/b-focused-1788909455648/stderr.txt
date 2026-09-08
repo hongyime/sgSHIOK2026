@@ -1,0 +1,45 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  lib/__tests__/comparison-state.test.ts > T09: strict bounded persistence codec > rejects sparse in-memory postal arrays before encoding or applying an action
+AssertionError: expected { …(2) } to deeply equal { encoded: null, …(1) }
+
+- Expected
++ Received
+
+  {
+-   "encoded": null,
+-   "reason": "invalid_state",
++   "encoded": "{\"version\":1,\"postals\":[\"001001\",null],\"category\":\"mrt_lrt\",\"activePostal\":\"001001\"}",
++   "reason": null,
+  }
+
+ ❯ lib/__tests__/comparison-state.test.ts:258:8
+    256|       encoded: encodeComparisonState(invalid),
+    257|       reason: transitionComparison(invalid, { type: 'reset' }).reason,
+    258|     }).toEqual({ encoded: null, reason: 'invalid_state' });
+       |        ^
+    259|   });
+    260| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  lib/__tests__/comparison-state.test.ts > T09: request delivery identity without loader or UI side effects > requires open to be exactly true, not a truthy malformed runtime value
+AssertionError: "false": expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ lib/__tests__/comparison-state.test.ts:412:89
+    410|     for (const open of [false, 'false', 'true', 1, {}, null, undefined…
+    411|       const current = { ...context(), open } as unknown as Parameters<…
+    412|       expect(comparisonRequestMatches(request, request, current), JSON…
+       |                                                                                         ^
+    413|     }
+    414|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

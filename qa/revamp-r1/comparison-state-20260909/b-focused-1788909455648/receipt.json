@@ -1,0 +1,29 @@
+{
+  "root": "C:/sgSHIOK2026",
+  "command": "node C:/sgSHIOK2026/web/scripts/test-web.mjs lib/__tests__/comparison-state.test.ts --no-cache",
+  "exitCode": 1,
+  "signal": null,
+  "elapsedSeconds": 9.021397299999999,
+  "before": {
+    "web/lib/__tests__/comparison-state.test.ts": {
+      "bytes": 22050,
+      "sha256": "c2d8bbaf01ebc70df02b26a55ed61a46fafa9b1d4420312d11d5665aa48afbb8"
+    },
+    "web/lib/comparison-state.ts": {
+      "bytes": 6870,
+      "sha256": "d303da54d63b6abbb1ea24dae706ad51aa77dce677f211059f5184da3f8afbf2"
+    }
+  },
+  "after": {
+    "web/lib/__tests__/comparison-state.test.ts": {
+      "bytes": 22050,
+      "sha256": "c2d8bbaf01ebc70df02b26a55ed61a46fafa9b1d4420312d11d5665aa48afbb8"
+    },
+    "web/lib/comparison-state.ts": {
+      "bytes": 6870,
+      "sha256": "d303da54d63b6abbb1ea24dae706ad51aa77dce677f211059f5184da3f8afbf2"
+    }
+  },
+  "stdout": "stdout.txt",
+  "stderr": "stderr.txt"
+}

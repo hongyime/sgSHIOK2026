@@ -1973,3 +1973,61 @@ DISAGREEMENTS
 Pipeline runs=0; pipeline cost=$0; installations=0; deployment commands=0.
 No protected payload, locked weight or X: mutation. The preview uses the final
 T08build on4326; continuously written server logs are not committed.
+
+## 2026-09-09 T09: Minimal shortlist state and persistence
+
+Working root: C:\sgSHIOK2026; hostname: Prawn-E14.
+Base:532e7aa. Receipt: qa/revamp-r1/comparison-state-20260909/summary.json.
+This section is appended; no prior verification line is changed.
+
+```text
+node C:/sgSHIOK2026/web/scripts/test-web.mjs lib/__tests__/comparison-state.test.ts --no-cache
+Red:43 passed /2 failed; exit1
+Green:45 passed /0 failed; exit0
+node C:/sgSHIOK2026/qa/revamp-r1/published-options-20260909/check.mjs comparison-state-full-1 full
+ Test Files  48 passed (48)
+      Tests  1154 passed (1154)
+TypeScript --noEmit --incremental false: exit0
+python scripts/check_repo_integrity.py: repo_integrity=ok; exit0
+git diff --check: exit0
+11 protected source anchors: match
+```
+
+Focused raw stdout/stderr and source identities are preserved in
+comparison-state-20260909/b-focused-1788909455648 (red) and
+b-focused-1788909633842 (green). The45-test source stayed byte-identical between
+red and green. Dense-array validation corrects sparse holes serializing as null;
+literal open===true rejects a truthy runtime string. These were corrected
+implementation defects, not modified test expectations.1109+45=1154tests and
+47+1=48files. Both new source/test files match the isolated tested snapshot.
+
+Parent implemented, Raman independently tested, Parfit reviewed state/storage,
+and Anscombe reviewed delivery ownership. Catalogue C02/C05/C06 has transition
+and storage contract coverage. C09 guard tests supply fresh caller tokens for
+ABA/remove-re-add/retry/closure/bundle cases; they do not claim that a UI loader
+already invalidates those tokens. T10 owns that actual integration and its
+browser/race acceptance. No app runtime import changed, so no new build/browser
+run is claimed; the preview remains the accepted T08 existing-walk build.
+
+FINDINGS
+1. A strict version1 shortlist now retains up to3 unique postal strings, shared
+   category and active membership. No scores, provenance, history or reports are
+   serialized. Leading zeros remain intact; malformed/extra state fails closed.
+2. Add/remove/activate/category/reset transitions are immutable and bounded.
+   Read adapters never write, repair, enumerate or delete; write adapters only
+   touch the owned key. Denied storage and quota errors preserve in-memory use.
+3. Two red regressions were fixed before landing: sparse postal arrays and a
+   truthy runtime open flag. The unchanged45-test suite now passes.
+4.1154/48 isolated tests, TypeScript/integrity and11 input identities pass.
+DISAGREEMENTS
+1. A delivery predicate is not a request lifecycle. T10 must invalidate tokens
+   synchronously and inspect current ownership at callback time; tests of the
+   predicate alone do not establish browser ABA safety.
+2. Inactive listed columns may receive results. Only camera/focus updates need
+   the extra active-column guard; filtering every result by active membership
+   would discard other comparison columns incorrectly.
+3. This completes the state/storage contract, not the visible comparison or
+   sharing workflow. No browser storage, UI or deployment completion is claimed.
+
+Pipeline runs=0; pipeline cost=$0; installations=0; deployment commands=0.
+Protected inputs/outputs, weights.yaml and X: remain unmodified.

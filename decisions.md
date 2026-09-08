@@ -2736,3 +2736,27 @@ keeps only current instructions and safeguards; its179-line superseded history
 remains in Git at ab671dc and the existing verification evidence. Do not let
 old preview URLs or obsolete stop-before-features instructions override the
 current goal. Evidence: qa/revamp-r1/comparison-20260909/summary.json.
+
+## 2026-09-09: Keep shortlist persistence separate from loaded evidence
+
+T09 implements ADR-17's minimal local shortlist and immutable transitions.
+Persist exactly version1, up to3 unique six-digit postal strings, one category
+and active membership under shiok:comparison:v1. No scores, provenance, history,
+reports or request IDs enter storage. Validate the complete payload; reading
+never writes, repairs, prunes or deletes. Denied access and quota errors preserve
+the usable in-memory state and return an explicit persistence outcome.
+
+Two initial validation defects were caught and corrected before landing:
+sparse arrays could encode null holes, and a truthy open string could pass the
+delivery guard. The unchanged45-test file goes from43pass/2fail to45pass;
+the integrated suite passes1109+45=1154 tests in47+1=48files, with TypeScript,
+repository integrity and11 source identities intact.
+
+The request guard tests identities, membership, bundle/category and literal open
+state, not a self-managing network lifecycle. T10 must renew/invalidate tokens
+synchronously on removal, category/bundle changes, retry and close, read current
+ownership at delivery and guard every result/error/geometry callback. Inactive
+columns may receive their own results; map updates additionally require active
+ownership. Restore storage before user-action persistence. No actual shortlist
+UI or loader is claimed yet. Evidence:
+qa/revamp-r1/comparison-state-20260909/summary.json.

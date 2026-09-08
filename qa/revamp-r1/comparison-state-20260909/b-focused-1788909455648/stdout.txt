@@ -1,0 +1,12 @@
+
+ RUN  v4.1.10 C:/sgSHIOK2026/web
+
+ ❯ lib/__tests__/comparison-state.test.ts (45 tests | 2 failed) 175ms
+     × rejects sparse in-memory postal arrays before encoding or applying an action 39ms
+     × requires open to be exactly true, not a truthy malformed runtime value 6ms
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 43 passed (45)
+   Start at  07:17:42
+   Duration  2.08s (transform 507ms, setup 0ms, import 638ms, tests 175ms, environment 1ms)
+
