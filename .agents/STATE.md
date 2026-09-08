@@ -3,11 +3,11 @@
 Date: 2026-09-08
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Current task: Codex owns remaining validation directly; no further agent delegation. Code review of 303ef44 accepted with browser acceptance pending. Independent 17 focused tests / 3 files, 6 diagnostic tests and integrity passed. Preflight on 2026-09-08 at 08:33 failed: seven samples, 778-1114 MiB available, CPU 96.889-100%, sustained paging. No build/browser launched. Owner must free host capacity; then Codex resumes audited build, visual checks and controlled comparison without another review loop.
+Current task: Codex completed current-build visual validation after owner explicitly authorized running under existing host load. Direct production build and TypeScript passed; 19 browser checks passed, four required viewport captures show current routes. Lamp/gap updates leave route sources unchanged; retry/style recovery and actual alternate-exit selection work. No measured speedup or deployment. Evidence: qa/revamp-r1/direct-visual-20260908/summary.json. No further agent delegation or headroom-blocked functional replay required for this change.
 Evidence: qa/verification/REVAMP-R1-core-walk.md (append-only corrections and catalogue mapping).
-Machine-readable handback: qa/revamp-r1/route-source-separation/summary.json (current). Earlier sync, portability and functional summaries remain historical evidence.
+Machine-readable handback: qa/revamp-r1/direct-visual-20260908/summary.json (current). Prior implementation, sync, portability and functional summaries remain historical evidence.
 Code fixes pushed: 04fae3e and 7788e35; evidence is included with this handback.
-Prior preview address: http://localhost:4318/; not rebuilt or verified for this treatment. No current-treatment browser screenshot/count claim.
+Current preview: http://localhost:4319/; verified build mb-nkeKWttJjDfRzfSWOV of 303ef44 runtime source. Server PID 90984. The old 4318 address is not this treatment.
 Portability checks: isolated full suite 228 passed / 30 files; focused 15 passed / 3 files; zero failures/skips. Test copy has no web/public/data; Node filesystem guard denies original and copied data paths. Existing dependencies linked; no install. TypeScript and repo integrity passed. Reduced fixture indexes do not audit the complete production bundle.
 Prior functional checks: full suite 228 passed / 30 files; focused regression run passed; TypeScript,
 direct frontend build and repo integrity passed. All four required viewports show

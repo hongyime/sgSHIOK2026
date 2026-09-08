@@ -992,3 +992,62 @@ FINDINGS
 DISAGREEMENTS
 1. None. Next action requires owner to free capacity by closing unused apps or
    pausing other workloads normally. Codex will then execute validation directly.
+
+### Direct current-build visual validation, 2026-09-08
+Owner: "i need all those, can you just run?" This explicitly overrides the host
+headroom pause for bounded functional checks. No unrelated app was terminated.
+Root C:\sgSHIOK2026, host PRAWN-E14, source HEAD 03af28b; runtime product 303ef44.
+Direct installed Next build bypassed package ensure-data-bundle.mjs:
+```text
+node C:/sgSHIOK2026/web/node_modules/next/dist/bin/next build C:/sgSHIOK2026/web
+build_exit=0 elapsed_seconds=293.6755468
+BUILD_ID=mb-nkeKWttJjDfRzfSWOV
+preview=http://localhost:4319/
+preview_pid=90984
+```
+Build includes successful TypeScript. NODE_OPTIONS limited each Node heap to
+2048 MiB; Next still used seven static-page workers. Generated next-env.d.ts was
+restored to its original content. No dependency install or data helper execution.
+
+New diagnostics and screenshots: qa/revamp-r1/direct-visual-20260908/.
+First run passed 11 checks before a harness error: CDP could not serialize the
+Map returned by the synthetic map.fire call. The error and browser.json remain.
+Adding void to the synthetic call fixed the harness; no app fix was required.
+Completion ran in a fresh output directory and passed all 19 checks, exit 0.
+No uncaught page exceptions. Durations 37680 ms and 113429 ms include different
+execution paths and host conditions; they are not latency comparison samples.
+
+Primary four viewport screenshots were individually visually inspected:
+1440x950, 390x844, 390x667, 320x667. Each has four current-key route features,
+loaded basemap/source and stable screenshot brackets, with readable metrics and
+no horizontal overflow or panel/attribution overlap. One initial selected-route
+setData call per run, four features. First run loaded 1180 lamp points without
+route writes; gap focus likewise avoided route writes. Completion's lamp window
+had no writes yet, so positive asynchronous lamp evidence comes from run one.
+Completion recovered current data after synthetic renderer failure/retry and
+full style replacement. Actual alternate-exit click rendered three current-key
+features and updated values to 110 m / 0% / 110 m / 50 m. Inspected style-recovery
+and alternate screenshots. Some completion captures report basemapLoaded=false
+while visible tiles/current routes render; not every tile request had completed.
+The first four loaded captures and completion retry/style captures report true.
+
+Post-run verification:
+```text
+protected_source_hashes_matched=11
+repo_integrity=ok
+```
+Tracked runtime diff is empty. No full web-suite rerun; earlier independent
+focused 17 tests and diagnostic 6 tests remain recorded separately. Commit the
+new script, reports, build output and screenshots for clone-based verification.
+
+FINDINGS
+1. Current-build visual validation now supports functional acceptance of route
+   source separation, recovery and alternate selection. The map is not blank.
+2. Optional updates avoid route writes in a real browser, not only hook mocks.
+3. Initial harness failure was corrected and preserved. No application change
+   was needed to complete these checks.
+4. Performance/M12 and physical-phone acceptance remain distinct. No claimed
+   speedup, controlled baseline comparison, pipeline work or deployment.
+DISAGREEMENTS
+1. None with running under load after explicit owner authorization. Functional
+   verification could proceed; representative benchmarking could not be claimed.

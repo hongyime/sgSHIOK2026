@@ -2413,3 +2413,15 @@ pending; fewer writes prove no speedup. Obtain owner-arranged headroom before an
 audited baseline/treatment comparison. Preserve the accepted diagnosis's 27 writes
 per run/54 per pair and the sync opt-out's fail-open lookup limitation. No other
 feature, pipeline, install, protected payload change or deployment. Stop for review.
+
+### 2026-09-08: Separate loaded-host functional checks from performance claims
+Owner explicitly asked Codex to run despite needing the other applications.
+The prior host-pressure gate is waived for this bounded build and visual check,
+not for claiming representative performance. Existing apps were left running.
+Installed direct Next build bypassed the protected-data preparation hook; one
+browser ran at a time. Actual-build screenshots, source-write observations,
+recovery and selection checks now support functional acceptance of 303ef44.
+Do not keep this implementation blocked on an unloaded-machine benchmark when
+the remaining question is performance, not demonstrated rendering correctness.
+No baseline build or measured speedup is claimed. Deployment and pipeline work
+remain separately gated. Evidence: qa/revamp-r1/direct-visual-20260908/summary.json.

@@ -1,0 +1,1028 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "commit": "03af28b9835e6e98954d49699a5b612715d02530",
+  "buildId": "mb-nkeKWttJjDfRzfSWOV",
+  "url": "http://localhost:4319/",
+  "startedAt": "2026-09-08T01:51:49.525Z",
+  "checks": [
+    {
+      "name": "current route screenshot loaded-390x844",
+      "pass": true,
+      "detail": {
+        "count": 4,
+        "key": "1:shiokest:primary",
+        "basemapLoaded": true
+      }
+    },
+    {
+      "name": "layout 390x844",
+      "pass": true
+    },
+    {
+      "name": "current route screenshot loaded-390x667",
+      "pass": true,
+      "detail": {
+        "count": 4,
+        "key": "1:shiokest:primary",
+        "basemapLoaded": true
+      }
+    },
+    {
+      "name": "layout 390x667",
+      "pass": true
+    },
+    {
+      "name": "current route screenshot loaded-320x667",
+      "pass": true,
+      "detail": {
+        "count": 4,
+        "key": "1:shiokest:primary",
+        "basemapLoaded": true
+      }
+    },
+    {
+      "name": "layout 320x667",
+      "pass": true
+    },
+    {
+      "name": "current route screenshot loaded-1440x950",
+      "pass": true,
+      "detail": {
+        "count": 4,
+        "key": "1:shiokest:primary",
+        "basemapLoaded": true
+      }
+    },
+    {
+      "name": "layout 1440x950",
+      "pass": true
+    },
+    {
+      "name": "gap focus leaves route sources unchanged",
+      "pass": true,
+      "detail": [
+        {
+          "at": 23419.699999928474,
+          "source": "active-exposure-gap",
+          "objectId": 18,
+          "count": 1
+        },
+        {
+          "at": 23492.899999976158,
+          "source": "lamp-posts",
+          "objectId": 19,
+          "count": 0
+        }
+      ]
+    },
+    {
+      "name": "current route screenshot gap-focused",
+      "pass": true,
+      "detail": {
+        "count": 4,
+        "key": "1:shiokest:primary",
+        "basemapLoaded": true
+      }
+    },
+    {
+      "name": "lamp toggle leaves route sources unchanged",
+      "pass": true,
+      "detail": [
+        {
+          "at": 26499.299999952316,
+          "source": "lamp-posts",
+          "objectId": 20,
+          "count": 1180
+        }
+      ]
+    }
+  ],
+  "captures": [
+    {
+      "name": "loaded-390x844",
+      "sha256": "a0ca0512889bd20e9a1b634bd0f16808a53c4da622bcbf4b01de96dd845d0413",
+      "before": {
+        "at": 11418.299999952316,
+        "width": 390,
+        "height": 844,
+        "postal": "018956",
+        "key": "1:shiokest:primary",
+        "status": "ready",
+        "padding": {
+          "top": 106,
+          "right": 12,
+          "bottom": 221,
+          "left": 12
+        },
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2824930944615005
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "count": 4,
+        "sourceLoaded": true,
+        "basemapLoaded": true,
+        "search": {
+          "x": 10,
+          "y": 54,
+          "right": 307,
+          "bottom": 94,
+          "width": 297,
+          "height": 40
+        },
+        "identity": {
+          "x": 10,
+          "y": 10,
+          "right": 87,
+          "bottom": 36.6875,
+          "width": 77,
+          "height": 26.6875
+        },
+        "panel": {
+          "x": 8,
+          "y": 635,
+          "right": 382,
+          "bottom": 806,
+          "width": 374,
+          "height": 171
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "right": 382,
+          "bottom": 840,
+          "width": 268,
+          "height": 24
+        },
+        "metrics": [
+          {
+            "text": "81 m\nWalk distance",
+            "bottom": 795
+          },
+          {
+            "text": "55%\nCovered",
+            "bottom": 795
+          },
+          {
+            "text": "37 m\nUncovered",
+            "bottom": 795
+          },
+          {
+            "text": "20 m\nLongest gap",
+            "bottom": 795
+          }
+        ],
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nSearch\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap"
+      },
+      "after": {
+        "at": 11614.599999904633,
+        "width": 390,
+        "height": 844,
+        "postal": "018956",
+        "key": "1:shiokest:primary",
+        "status": "ready",
+        "padding": {
+          "top": 106,
+          "right": 12,
+          "bottom": 221,
+          "left": 12
+        },
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2824930944615005
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "count": 4,
+        "sourceLoaded": true,
+        "basemapLoaded": true,
+        "search": {
+          "x": 10,
+          "y": 54,
+          "right": 307,
+          "bottom": 94,
+          "width": 297,
+          "height": 40
+        },
+        "identity": {
+          "x": 10,
+          "y": 10,
+          "right": 87,
+          "bottom": 36.6875,
+          "width": 77,
+          "height": 26.6875
+        },
+        "panel": {
+          "x": 8,
+          "y": 635,
+          "right": 382,
+          "bottom": 806,
+          "width": 374,
+          "height": 171
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "right": 382,
+          "bottom": 840,
+          "width": 268,
+          "height": 24
+        },
+        "metrics": [
+          {
+            "text": "81 m\nWalk distance",
+            "bottom": 795
+          },
+          {
+            "text": "55%\nCovered",
+            "bottom": 795
+          },
+          {
+            "text": "37 m\nUncovered",
+            "bottom": 795
+          },
+          {
+            "text": "20 m\nLongest gap",
+            "bottom": 795
+          }
+        ],
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nSearch\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap"
+      },
+      "stable": true
+    },
+    {
+      "name": "loaded-390x667",
+      "sha256": "7251a7ef44e50b55e1d61f9c8e59d87489571774834133fa397c9911892a8475",
+      "before": {
+        "at": 12897.899999976158,
+        "width": 390,
+        "height": 667,
+        "postal": "018956",
+        "key": "1:shiokest:primary",
+        "status": "ready",
+        "padding": {
+          "top": 106,
+          "right": 12,
+          "bottom": 221,
+          "left": 12
+        },
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2824930944615005
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "count": 4,
+        "sourceLoaded": true,
+        "basemapLoaded": true,
+        "search": {
+          "x": 10,
+          "y": 54,
+          "right": 307,
+          "bottom": 94,
+          "width": 297,
+          "height": 40
+        },
+        "identity": {
+          "x": 10,
+          "y": 10,
+          "right": 87,
+          "bottom": 36.6875,
+          "width": 77,
+          "height": 26.6875
+        },
+        "panel": {
+          "x": 8,
+          "y": 458,
+          "right": 382,
+          "bottom": 629,
+          "width": 374,
+          "height": 171
+        },
+        "attribution": {
+          "x": 114,
+          "y": 639,
+          "right": 382,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "metrics": [
+          {
+            "text": "81 m\nWalk distance",
+            "bottom": 618
+          },
+          {
+            "text": "55%\nCovered",
+            "bottom": 618
+          },
+          {
+            "text": "37 m\nUncovered",
+            "bottom": 618
+          },
+          {
+            "text": "20 m\nLongest gap",
+            "bottom": 618
+          }
+        ],
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nSearch\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap"
+      },
+      "after": {
+        "at": 13032.199999928474,
+        "width": 390,
+        "height": 667,
+        "postal": "018956",
+        "key": "1:shiokest:primary",
+        "status": "ready",
+        "padding": {
+          "top": 106,
+          "right": 12,
+          "bottom": 221,
+          "left": 12
+        },
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2824930944615005
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "count": 4,
+        "sourceLoaded": true,
+        "basemapLoaded": true,
+        "search": {
+          "x": 10,
+          "y": 54,
+          "right": 307,
+          "bottom": 94,
+          "width": 297,
+          "height": 40
+        },
+        "identity": {
+          "x": 10,
+          "y": 10,
+          "right": 87,
+          "bottom": 36.6875,
+          "width": 77,
+          "height": 26.6875
+        },
+        "panel": {
+          "x": 8,
+          "y": 458,
+          "right": 382,
+          "bottom": 629,
+          "width": 374,
+          "height": 171
+        },
+        "attribution": {
+          "x": 114,
+          "y": 639,
+          "right": 382,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "metrics": [
+          {
+            "text": "81 m\nWalk distance",
+            "bottom": 618
+          },
+          {
+            "text": "55%\nCovered",
+            "bottom": 618
+          },
+          {
+            "text": "37 m\nUncovered",
+            "bottom": 618
+          },
+          {
+            "text": "20 m\nLongest gap",
+            "bottom": 618
+          }
+        ],
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nSearch\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap"
+      },
+      "stable": true
+    },
+    {
+      "name": "loaded-320x667",
+      "sha256": "7a501dd8aa0aef9a6c88d5dbd5345d38cc778c87f6948398f6e4aba7aaad3de5",
+      "before": {
+        "at": 14306.199999928474,
+        "width": 320,
+        "height": 667,
+        "postal": "018956",
+        "key": "1:shiokest:primary",
+        "status": "ready",
+        "padding": {
+          "top": 106,
+          "right": 12,
+          "bottom": 218,
+          "left": 12
+        },
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.282503709389772
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "count": 4,
+        "sourceLoaded": true,
+        "basemapLoaded": true,
+        "search": {
+          "x": 10,
+          "y": 54,
+          "right": 237,
+          "bottom": 94,
+          "width": 227,
+          "height": 40
+        },
+        "identity": {
+          "x": 10,
+          "y": 10,
+          "right": 75.125,
+          "bottom": 32.5,
+          "width": 65.125,
+          "height": 22.5
+        },
+        "panel": {
+          "x": 8,
+          "y": 461,
+          "right": 312,
+          "bottom": 629,
+          "width": 304,
+          "height": 168
+        },
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "right": 312,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "metrics": [
+          {
+            "text": "81 m\nWalk distance",
+            "bottom": 618
+          },
+          {
+            "text": "55%\nCovered",
+            "bottom": 618
+          },
+          {
+            "text": "37 m\nUncovered",
+            "bottom": 618
+          },
+          {
+            "text": "20 m\nLongest gap",
+            "bottom": 618
+          }
+        ],
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nSearch\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap"
+      },
+      "after": {
+        "at": 14419.099999904633,
+        "width": 320,
+        "height": 667,
+        "postal": "018956",
+        "key": "1:shiokest:primary",
+        "status": "ready",
+        "padding": {
+          "top": 106,
+          "right": 12,
+          "bottom": 218,
+          "left": 12
+        },
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.282503709389772
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "count": 4,
+        "sourceLoaded": true,
+        "basemapLoaded": true,
+        "search": {
+          "x": 10,
+          "y": 54,
+          "right": 237,
+          "bottom": 94,
+          "width": 227,
+          "height": 40
+        },
+        "identity": {
+          "x": 10,
+          "y": 10,
+          "right": 75.125,
+          "bottom": 32.5,
+          "width": 65.125,
+          "height": 22.5
+        },
+        "panel": {
+          "x": 8,
+          "y": 461,
+          "right": 312,
+          "bottom": 629,
+          "width": 304,
+          "height": 168
+        },
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "right": 312,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "metrics": [
+          {
+            "text": "81 m\nWalk distance",
+            "bottom": 618
+          },
+          {
+            "text": "55%\nCovered",
+            "bottom": 618
+          },
+          {
+            "text": "37 m\nUncovered",
+            "bottom": 618
+          },
+          {
+            "text": "20 m\nLongest gap",
+            "bottom": 618
+          }
+        ],
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nSearch\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap"
+      },
+      "stable": true
+    },
+    {
+      "name": "loaded-1440x950",
+      "sha256": "ee8f65f0a522161769161536adceaf0124c54bcf25211ef1b6aa3d309dd75561",
+      "before": {
+        "at": 20395.099999904633,
+        "width": 1440,
+        "height": 950,
+        "postal": "018956",
+        "key": "1:shiokest:primary",
+        "status": "ready",
+        "padding": {
+          "top": 68,
+          "right": 12,
+          "bottom": 40,
+          "left": 298
+        },
+        "center": {
+          "lng": 103.85901778994014,
+          "lat": 1.2829990726594929
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "count": 4,
+        "sourceLoaded": true,
+        "basemapLoaded": true,
+        "search": {
+          "x": 499,
+          "y": 14,
+          "right": 859,
+          "bottom": 56,
+          "width": 360,
+          "height": 42
+        },
+        "identity": {
+          "x": 16,
+          "y": 14,
+          "right": 105.828125,
+          "bottom": 46,
+          "width": 89.828125,
+          "height": 32
+        },
+        "panel": {
+          "x": 16,
+          "y": 92,
+          "right": 286,
+          "bottom": 356,
+          "width": 270,
+          "height": 264
+        },
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "right": 1432,
+          "bottom": 946,
+          "width": 268,
+          "height": 24
+        },
+        "metrics": [
+          {
+            "text": "81 m\nWalk distance",
+            "bottom": 281
+          },
+          {
+            "text": "55%\nCovered",
+            "bottom": 281
+          },
+          {
+            "text": "37 m\nUncovered",
+            "bottom": 339
+          },
+          {
+            "text": "20 m\nLongest gap",
+            "bottom": 339
+          }
+        ],
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nSearch\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap"
+      },
+      "after": {
+        "at": 22152.5,
+        "width": 1440,
+        "height": 950,
+        "postal": "018956",
+        "key": "1:shiokest:primary",
+        "status": "ready",
+        "padding": {
+          "top": 68,
+          "right": 12,
+          "bottom": 40,
+          "left": 298
+        },
+        "center": {
+          "lng": 103.85901778994014,
+          "lat": 1.2829990726594929
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "count": 4,
+        "sourceLoaded": true,
+        "basemapLoaded": true,
+        "search": {
+          "x": 499,
+          "y": 14,
+          "right": 859,
+          "bottom": 56,
+          "width": 360,
+          "height": 42
+        },
+        "identity": {
+          "x": 16,
+          "y": 14,
+          "right": 105.828125,
+          "bottom": 46,
+          "width": 89.828125,
+          "height": 32
+        },
+        "panel": {
+          "x": 16,
+          "y": 92,
+          "right": 286,
+          "bottom": 356,
+          "width": 270,
+          "height": 264
+        },
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "right": 1432,
+          "bottom": 946,
+          "width": 268,
+          "height": 24
+        },
+        "metrics": [
+          {
+            "text": "81 m\nWalk distance",
+            "bottom": 281
+          },
+          {
+            "text": "55%\nCovered",
+            "bottom": 281
+          },
+          {
+            "text": "37 m\nUncovered",
+            "bottom": 339
+          },
+          {
+            "text": "20 m\nLongest gap",
+            "bottom": 339
+          }
+        ],
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nSearch\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap"
+      },
+      "stable": true
+    },
+    {
+      "name": "gap-focused",
+      "sha256": "6c6dfbe7c0c91fdd39a88f6c95b2a7bce31674d1dfdb3572b111aef425b72626",
+      "before": {
+        "at": 24964.5,
+        "width": 1440,
+        "height": 950,
+        "postal": "018956",
+        "key": "1:shiokest:primary",
+        "status": "ready",
+        "padding": {
+          "top": 68,
+          "right": 12,
+          "bottom": 40,
+          "left": 298
+        },
+        "center": {
+          "lng": 103.86011499999995,
+          "lat": 1.2831420000000122
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "count": 4,
+        "sourceLoaded": true,
+        "basemapLoaded": true,
+        "search": {
+          "x": 499,
+          "y": 14,
+          "right": 859,
+          "bottom": 56,
+          "width": 360,
+          "height": 42
+        },
+        "identity": {
+          "x": 16,
+          "y": 14,
+          "right": 105.828125,
+          "bottom": 46,
+          "width": 89.828125,
+          "height": 32
+        },
+        "panel": {
+          "x": 16,
+          "y": 92,
+          "right": 286,
+          "bottom": 356,
+          "width": 270,
+          "height": 264
+        },
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "right": 1432,
+          "bottom": 946,
+          "width": 268,
+          "height": 24
+        },
+        "metrics": [
+          {
+            "text": "81 m\nWalk distance",
+            "bottom": 281
+          },
+          {
+            "text": "55%\nCovered",
+            "bottom": 281
+          },
+          {
+            "text": "37 m\nUncovered",
+            "bottom": 339
+          },
+          {
+            "text": "20 m\nLongest gap",
+            "bottom": 339
+          }
+        ],
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. Selected exposed gap marker at map coordinate 1.28314, 103.86011.\n\nSHIOK.\nSearch\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap"
+      },
+      "after": {
+        "at": 25355.899999976158,
+        "width": 1440,
+        "height": 950,
+        "postal": "018956",
+        "key": "1:shiokest:primary",
+        "status": "ready",
+        "padding": {
+          "top": 68,
+          "right": 12,
+          "bottom": 40,
+          "left": 298
+        },
+        "center": {
+          "lng": 103.86011499999995,
+          "lat": 1.2831420000000122
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "count": 4,
+        "sourceLoaded": true,
+        "basemapLoaded": true,
+        "search": {
+          "x": 499,
+          "y": 14,
+          "right": 859,
+          "bottom": 56,
+          "width": 360,
+          "height": 42
+        },
+        "identity": {
+          "x": 16,
+          "y": 14,
+          "right": 105.828125,
+          "bottom": 46,
+          "width": 89.828125,
+          "height": 32
+        },
+        "panel": {
+          "x": 16,
+          "y": 92,
+          "right": 286,
+          "bottom": 356,
+          "width": 270,
+          "height": 264
+        },
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "right": 1432,
+          "bottom": 946,
+          "width": 268,
+          "height": 24
+        },
+        "metrics": [
+          {
+            "text": "81 m\nWalk distance",
+            "bottom": 281
+          },
+          {
+            "text": "55%\nCovered",
+            "bottom": 281
+          },
+          {
+            "text": "37 m\nUncovered",
+            "bottom": 339
+          },
+          {
+            "text": "20 m\nLongest gap",
+            "bottom": 339
+          }
+        ],
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. Selected exposed gap marker at map coordinate 1.28314, 103.86011.\n\nSHIOK.\nSearch\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap"
+      },
+      "stable": true
+    }
+  ],
+  "errors": [],
+  "conditions": "Owner authorized execution under existing host pressure. One headless Chrome/SwiftShader session, no throttle; local production build; real data and OneMap raster. Not a performance comparison or real-phone benchmark.",
+  "initialWrites": [
+    {
+      "at": 8384,
+      "source": "shortest-route",
+      "objectId": 1,
+      "count": 0
+    },
+    {
+      "at": 8384.299999952316,
+      "source": "shiokest-route",
+      "objectId": 2,
+      "count": 4,
+      "key": "1:shiokest:primary"
+    },
+    {
+      "at": 8384.399999976158,
+      "source": "exposure-gaps",
+      "objectId": 3,
+      "count": 3
+    },
+    {
+      "at": 8384.399999976158,
+      "source": "transit-node",
+      "objectId": 4,
+      "count": 1
+    },
+    {
+      "at": 8384.5,
+      "source": "active-exposure-gap",
+      "objectId": 5,
+      "count": 0
+    },
+    {
+      "at": 8384.5,
+      "source": "transit-pois",
+      "objectId": 6,
+      "count": 68
+    },
+    {
+      "at": 8384.5,
+      "source": "feedback-route",
+      "objectId": 7,
+      "count": 0
+    },
+    {
+      "at": 8384.599999904633,
+      "source": "feedback-points",
+      "objectId": 8,
+      "count": 0
+    },
+    {
+      "at": 8384.599999904633,
+      "source": "lamp-posts",
+      "objectId": 9,
+      "count": 0
+    },
+    {
+      "at": 8472.099999904633,
+      "source": "lamp-posts",
+      "objectId": 10,
+      "count": 0
+    },
+    {
+      "at": 8480.599999904633,
+      "source": "lamp-posts",
+      "objectId": 11,
+      "count": 0
+    }
+  ],
+  "initialObservationWallMs": 17223,
+  "failure": "Error: Object reference chain is too long\n    at ws.onmessage (file:///C:/sgSHIOK2026/qa/revamp-r1/direct-visual-20260908/verify.mjs:84:100)\n    at [nodejs.internal.kHybridDispatch] (node:internal/event_target:856:20)\n    at WebSocket.dispatchEvent (node:internal/event_target:789:26)\n    at fireEvent (node:internal/deps/undici/undici:15024:14)\n    at #onMessage (node:internal/deps/undici/undici:16341:9)\n    at Object.onMessage (node:internal/deps/undici/undici:16049:76)\n    at websocketMessageReceived (node:internal/deps/undici/undici:15028:15)\n    at node:internal/deps/undici/undici:15751:21\n    at node:internal/deps/undici/undici:15531:11\n    at afterWrite (node:internal/streams/writable:710:5)",
+  "failureState": {
+    "at": 30624.099999904633,
+    "width": 1440,
+    "height": 950,
+    "postal": "018956",
+    "key": "1:shiokest:primary",
+    "status": "error",
+    "padding": {
+      "top": 68,
+      "right": 12,
+      "bottom": 40,
+      "left": 298
+    },
+    "center": {
+      "lng": 103.86011499999995,
+      "lat": 1.2831420000000122
+    },
+    "zoom": 16.6,
+    "moving": false,
+    "count": 4,
+    "sourceLoaded": true,
+    "basemapLoaded": true,
+    "search": {
+      "x": 499,
+      "y": 14,
+      "right": 859,
+      "bottom": 56,
+      "width": 360,
+      "height": 42
+    },
+    "identity": {
+      "x": 16,
+      "y": 14,
+      "right": 105.828125,
+      "bottom": 46,
+      "width": 89.828125,
+      "height": 32
+    },
+    "panel": {
+      "x": 16,
+      "y": 92,
+      "right": 286,
+      "bottom": 356,
+      "width": 270,
+      "height": 264
+    },
+    "attribution": {
+      "x": 1164,
+      "y": 922,
+      "right": 1432,
+      "bottom": 946,
+      "width": 268,
+      "height": 24
+    },
+    "metrics": [
+      {
+        "text": "81 m\nWalk distance",
+        "bottom": 281
+      },
+      {
+        "text": "55%\nCovered",
+        "bottom": 281
+      },
+      {
+        "text": "37 m\nUncovered",
+        "bottom": 339
+      },
+      {
+        "text": "20 m\nLongest gap",
+        "bottom": 339
+      }
+    ],
+    "overflow": false,
+    "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. Selected exposed gap marker at map coordinate 1.28314, 103.86011.\n\nSHIOK.\nSearch\n\nMap failed: The map could not render. Walk evidence is still available.\n\nMap failed: The map could not render. Walk evidence is still available. Retry map\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap"
+  },
+  "finishedAt": "2026-09-08T01:52:27.248Z",
+  "elapsedMs": 37680
+}

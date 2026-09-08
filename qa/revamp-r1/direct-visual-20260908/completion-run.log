@@ -1,0 +1,19 @@
+PASS current route screenshot loaded-390x844 {"count":4,"key":"1:shiokest:primary","basemapLoaded":true}
+PASS layout 390x844 
+PASS current route screenshot loaded-390x667 {"count":4,"key":"1:shiokest:primary","basemapLoaded":true}
+PASS layout 390x667 
+PASS current route screenshot loaded-320x667 {"count":4,"key":"1:shiokest:primary","basemapLoaded":true}
+PASS layout 320x667 
+PASS current route screenshot loaded-1440x950 {"count":4,"key":"1:shiokest:primary","basemapLoaded":false}
+PASS layout 1440x950 
+PASS gap focus leaves route sources unchanged [{"at":59683.299999952316,"source":"active-exposure-gap","objectId":18,"count":1},{"at":59967.39999997616,"source":"lamp-posts","objectId":19,"count":0}]
+PASS current route screenshot gap-focused {"count":4,"key":"1:shiokest:primary","basemapLoaded":true}
+PASS lamp toggle leaves route sources unchanged []
+PASS retry republishes route sources [{"at":68494.69999992847,"source":"lamp-posts","objectId":22,"count":0},{"at":76399.19999992847,"source":"shortest-route","objectId":23,"count":0},{"at":76399.29999995232,"source":"shiokest-route","objectId":24,"count":4,"key":"1:shiokest:primary"},{"at":76399.29999995232,"source":"exposure-gaps","objectId":25,"count":3},{"at":76399.39999997616,"source":"transit-node","objectId":26,"count":1},{"at":76399.39999997616,"source":"active-exposure-gap","objectId":27,"count":1},{"at":76399.39999997616,"source":"transit-pois","objectId":28,"count":68},{"at":76399.39999997616,"source":"feedback-route","objectId":29,"count":0},{"at":76399.39999997616,"source":"feedback-points","objectId":30,"count":0},{"at":76399.39999997616,"source":"lamp-posts","objectId":31,"count":0},{"at":76406.09999990463,"source":"lamp-posts","objectId":32,"count":0},{"at":76559.59999990463,"source":"lamp-posts","objectId":33,"count":0}]
+PASS current route screenshot retry-recovered {"count":4,"key":"1:shiokest:primary","basemapLoaded":true}
+PASS all route sources restored [{"at":80652.29999995232,"source":"shortest-route","objectId":23,"count":0},{"at":80652.39999997616,"source":"shiokest-route","objectId":24,"count":4,"key":"1:shiokest:primary"},{"at":80652.5,"source":"exposure-gaps","objectId":25,"count":3},{"at":80652.5,"source":"transit-node","objectId":26,"count":1},{"at":80652.5,"source":"active-exposure-gap","objectId":27,"count":1},{"at":80652.5,"source":"transit-pois","objectId":28,"count":68},{"at":80652.5,"source":"feedback-route","objectId":29,"count":0},{"at":80652.59999990463,"source":"feedback-points","objectId":30,"count":0},{"at":80652.59999990463,"source":"lamp-posts","objectId":33,"count":0},{"at":80826.09999990463,"source":"lamp-posts","objectId":34,"count":0}]
+PASS current route screenshot style-recovered {"count":4,"key":"1:shiokest:primary","basemapLoaded":true}
+PASS published alternate exit rendered {"x":786.582973017107,"y":526.854852838349}
+PASS alternate selection republishes route [{"at":87647.79999995232,"source":"shortest-route","objectId":35,"count":0},{"at":87647.89999997616,"source":"shiokest-route","objectId":36,"count":3,"key":"2:shiokest:primary"},{"at":87648,"source":"exposure-gaps","objectId":37,"count":3},{"at":87648,"source":"transit-node","objectId":38,"count":1},{"at":87648,"source":"active-exposure-gap","objectId":39,"count":0},{"at":87672.19999992847,"source":"lamp-posts","objectId":40,"count":0}]
+PASS current route screenshot alternate-selected {"count":3,"key":"2:shiokest:primary","basemapLoaded":false}
+PASS no uncaught page exceptions []

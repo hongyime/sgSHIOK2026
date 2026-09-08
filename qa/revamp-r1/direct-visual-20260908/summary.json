@@ -1,0 +1,36 @@
+{
+  "date": "2026-09-08",
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "baseCommit": "03af28b9835e6e98954d49699a5b612715d02530",
+  "productCommit": "303ef4441db391037cd56ae6dde768c1236da5c2",
+  "authorization": "Owner explicitly requested execution with existing applications left running. Host-pressure gate waived for bounded build and functional visual validation, not a representative performance claim.",
+  "build": {
+    "command": "node C:/sgSHIOK2026/web/node_modules/next/dist/bin/next build C:/sgSHIOK2026/web",
+    "environment": { "NEXT_TELEMETRY_DISABLED": "1", "NODE_OPTIONS": "--max-old-space-size=2048" },
+    "exitCode": 0,
+    "elapsedSeconds": 293.6755468,
+    "buildId": "mb-nkeKWttJjDfRzfSWOV",
+    "packageDataHelperBypassed": true,
+    "typescriptPassed": true,
+    "generatedNextEnvRestored": true,
+    "limits": "Heap limit applies to each Node process; Next used seven static-page workers. This was not a single-worker build. Runtime sources were unchanged; generated next-env.d.ts diff restored."
+  },
+  "preview": { "url": "http://localhost:4319/", "pid": 90984, "buildId": "mb-nkeKWttJjDfRzfSWOV", "productionDeploymentInvoked": false },
+  "browser": {
+    "mode": "One installed headless Chrome/SwiftShader session at a time, local production server, actual local bundle and OneMap raster; service worker bypassed",
+    "firstAttempt": { "report": "browser.json", "passedChecks": 11, "elapsedMs": 37680, "outcome": "Harness serialization error after successful viewport, gap and lamp checks. Synthetic map.fire returned a Map; corrected to void. Not an uncaught application failure." },
+    "completion": { "report": "completion/browser.json", "passedChecks": 19, "failedChecks": 0, "elapsedMs": 113429, "uncaughtExceptions": 0, "exitCode": 0 },
+    "inspectedCaptures": ["loaded-1440x950.png", "loaded-390x844.png", "loaded-390x667.png", "loaded-320x667.png", "completion/style-recovered.png", "completion/alternate-selected.png"],
+    "primaryViewports": "All four primary-run loaded captures have four current-key route features, loaded basemap/source, stable screenshot brackets and no horizontal overflow or metrics/attribution overlap.",
+    "sourceWrites": "One initial shiokest-route setData call containing four features in each run. Not a clean timing comparison with earlier diagnosis.",
+    "optionalLayers": "First run completed lamp source publication with 1180 points and zero route writes; gap focus likewise avoided route writes. Completion lamp window had no writes yet; positive loaded-lamp evidence rests on the first run.",
+    "recovery": "Retry/style replacement republish all four route-owned sources; four current rendered features recover. Actual exit click selects alternate, renders three current-key features, clears old gap and displays 110 m, 0% covered, 110 m uncovered, 50 m longest gap.",
+    "basemapLimit": "Completion desktop and alternate captures report basemapLoaded=false while visible tiles/current routes render. Not every raster request completed. Primary four captures and completion retry/style captures report true."
+  },
+  "validation": { "protectedSourceHashesMatched": 11, "integrity": "repo_integrity=ok", "diffCheck": "passed", "webSuiteRerun": false, "priorIndependentFocusedTests": 17, "priorIndependentDiagnosticTests": 6 },
+  "acceptance": "Actual-build browser/visual evidence supports source-separation functional acceptance. Representative latency, native-phone checks, service-worker-on release checks and M12 budgets remain separate. No baseline/treatment timing comparison or speedup claimed.",
+  "protections": { "pipelineRuns": 0, "pipelineCost": 0, "installs": 0, "protectedPayloadMutations": 0, "unrelatedProcessesStopped": 0, "deploymentInvoked": false },
+  "findings": ["Current build renders the selected walk at all four required viewport sizes.", "Optional lamp/gap updates avoid route writes; recovery and alternate selection work in the browser.", "Initial harness failure retained and corrected; no product fix required.", "Execution under load provided functional evidence, not a speedup measurement."],
+  "disagreements": ["None with explicit owner authorization to proceed under load; unrelated applications left running."]
+}

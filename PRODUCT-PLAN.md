@@ -146,3 +146,18 @@ and release remain open. Evidence: qa/revamp-r1/route-source-separation/summary.
 and appended qa/verification/REVAMP-R1-core-walk.md. No pipeline, installation,
 protected-data change, UI/schema change, deployment or unrelated feature.
 Stop for independent review of this implementation before further work.
+
+### Direct current-build visual validation, 2026-09-08
+Owner authorized execution under existing host pressure without closing apps.
+Codex built the treatment directly with installed Next, bypassing the data helper;
+build and TypeScript passed in 293.676 seconds. Current local preview is :4319.
+The completed browser run passed 19 checks. Inspected captures at 1440x950,
+390x844, 390x667 and 320x667 show four current route features with readable metrics
+and no overlap. Lamp/gap source isolation, retry, style recreation and actual
+alternate-exit selection have browser evidence. Initial harness serialization
+failure is preserved and corrected, not counted as a product regression.
+Functional browser validation of source separation is accepted. This is not a
+baseline/treatment speed comparison, native-phone result or deployment approval.
+No further headroom-gated functional replay is required for this change. M12
+numerical budgets and representative latency remain open separately.
+Evidence: qa/revamp-r1/direct-visual-20260908/summary.json and appended review log.
