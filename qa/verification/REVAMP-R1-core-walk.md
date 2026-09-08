@@ -1210,3 +1210,37 @@ FINDINGS
 DISAGREEMENTS
 1. OneMap attribution cannot be hidden under its published integration guidance.
    No disagreement with the requested layout or collapsible data disclosure.
+
+## Executable task board, 2026-09-08
+
+Owner requested actionable tasks, not another high-level roadmap. Expanded
+PRODUCT-PLAN.md into T01-T28; each has status, dependencies, file scope, work,
+acceptance tests, size and gate. Updated STATE, ADR-12, decisions and the test
+catalogue (specification, not blanket passing status). Runtime baseline f5896f5.
+This is documentation only after the preceding verified layout commit.
+
+Dependency/field validation against the actual markdown:
+```text
+task_count=28
+unique_ids=28
+field_checks=ok dependency_checks=ok acyclic=true
+READY=6
+WAIT_DEPS=18
+OWNER=4
+6 + 18 + 4 = 28
+```
+The six READY entries are T01,T02,T04,T12,T19,T22. Owner gates are T13
+(reporting infrastructure/policy), T21 (specific compute job), T26 (physical
+device/users) and T28 (deployment). Dependent work waits; independent work
+continues. Primary execution order: T01, T04-T07, T08-T11, with diagnostics
+bounded and proposals/read-only tasks independently startable.
+
+FINDINGS
+1. The earlier backlog described outcomes but lacked session-sized execution
+   contracts. Each of 28 tickets now states what to change and how to verify it.
+2. Reporting, compute and deployment approvals are separate. Core-walk delivery
+   must not wait for every service feature or for a new rescore.
+3. No feature or future acceptance case is marked complete by creating its task.
+DISAGREEMENTS
+1. None with actionable direct execution. A task list is not permission to cross
+   owner-only gates; those gates do not block unrelated safe work.

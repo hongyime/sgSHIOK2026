@@ -2467,3 +2467,24 @@ disclosure, not a substitute for required attribution.
 
 Evidence: qa/revamp-r1/left-stack-20260908/summary.json. No scoring, protected
 data mutation, dependency installation or deployment is part of this change.
+
+## 2026-09-08: Make the product backlog executable
+
+Owner requested a detailed task list the agent can act on. PRODUCT-PLAN.md now
+contains T01-T28 with code boundaries, dependency graph, acceptance catalogue
+links, definition of done, cost/approval gates and a continuation protocol.
+Six tasks are immediately startable; eighteen await dependencies; four require
+owner decisions or physical actions. This is planned work, not 28 completions.
+Codex works directly, one coherent slice/commit at a time, and pushes main.
+Do not restart the old multi-agent review loop or completed provenance phases.
+
+Start cache-upgrade safety, then bounded published transit choices and chosen-home
+comparison. Keep diagnostics bounded; a lack of benchmark headroom does not
+block unrelated product work. Proposal, read-only coverage and freshness tasks
+can proceed independently. Reporting needs approved $0 storage/privacy/moderation;
+new computation and production release retain separate gates. An owner-blocked
+task does not suspend the entire backlog. No pipeline action is authorized here.
+
+The core walk may ship before comparison/reports through its own applicable
+acceptance and explicit release gate. Do not turn completion of the entire
+service into another obstacle to shipping a complete smaller user outcome.

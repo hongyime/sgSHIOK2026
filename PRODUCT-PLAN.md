@@ -21,8 +21,8 @@ Historical handbacks below do not override the current backlog in this section.
 | ID | Work and current state | Done means | Cost / gate |
 | --- | --- | --- | --- |
 | P0.1 | DONE locally: map mounted from plain `/`; empty selection is idle, not a geometry error. Prior checks missed this entry point. | Current production build: root, typed postal, shared URL and normal worker-controlled revisit render correctly. Evidence: qa/revamp-r1/map-first-home-20260908/summary.json. Existing selected-route retry regressions remain green. | Frontend, zero pipeline; not deployed. |
-| P0.2 | DONE locally: SHIOK beside search, icon submit inside the field, About data expandable at bottom center. | Desktop and 320/390px captures inspected; keyboard submission and expansion passed, no overlap. Required attribution remains visible. 240 isolated tests and 42 browser checks passed. | Frontend, zero pipeline; not deployed. |
-| P0.3 | PARTIAL: rebuilt preview at http://localhost:4320/ passes service-worker-enabled same-build revisits. Old-release upgrade, physical-phone acceptance and representative latency remain open. | Stable documented preview; service-worker-enabled revisit/update smoke; stale assets, worker/CSP errors and retry surfaced. No blank screen accepted from route-only tests. | Frontend/operations, zero pipeline; production publish separately approved. |
+| P0.2 | DONE locally, revised by owner: SHIOK top left, search below, equal-width result below search; About data bottom right. | Narrow/mobile and desktop browser checks pass; stack measured as top padding on narrow screens and left padding on desktop. Required attribution remains visible. 242 isolated tests pass. Evidence: qa/revamp-r1/left-stack-20260908/summary.json. | Frontend, zero pipeline; no deployment invoked. |
+| P0.3 | PARTIAL: rebuilt preview at http://localhost:4321/ passes service-worker-enabled same-build revisits. Old-release upgrade, physical-phone acceptance and representative latency remain open. | Stable documented preview; service-worker-enabled revisit/update smoke; stale assets, worker/CSP errors and retry surfaced. No blank screen accepted from route-only tests. | Frontend/operations, zero pipeline; production publish separately approved. |
 | P1.1 | Finish the core walk flow. Metrics/gaps and selectable map stops work, but there is no finished bounded options list. | Nearest and most-covered eligible published options, clear distance/coverage trade-offs, correct alternate metrics and explicit unavailable cases. Do not imply all stops were evaluated. | Frontend using existing artifacts first; new candidate computation requires approval. |
 | P1.2 | Home comparison is NOT built as designed. The existing planning-area ranking is not this feature. | Add/remove up to 3 chosen postals; same transit category; destination, distance, covered %, uncovered distance and longest gap; explicit missing data; local persistence; validated share URL. | Frontend, zero pipeline, no accounts/provider required. |
 | P1.3 | Reports are NOT a functioning service. Current tools can prepare/copy a draft, not durably submit it. | Concrete $0 storage/moderation proposal, retention/abuse policy, owner access; then two report types, bounded map location/segment, durable receipt, pending/accepted/rejected/duplicate states. | Proposal is free. Provider/infrastructure decision before submission implementation. No agency submission. |
@@ -47,6 +47,291 @@ are unfinished. Verification has consumed iterations without delivering those
 outcomes. Move through the backlog above; do not reopen closed provenance work as
 a substitute for product delivery. Numerical speed improvement is still unproven,
 but it is not a reason to prevent all feature work that uses the current data.
+
+## Executable tickets (2026-09-08)
+
+These tickets expand the backlog above; they do not mark unbuilt work complete.
+Owner: Codex executes all agent work directly. Owner-only actions are explicit.
+Current runtime baseline: f5896f5, the owner-requested top-left layout revision.
+The layout revision is complete locally, not a prerequisite to reimplement the shell.
+No additional agents, framework rewrite or new scoring model is part of this list.
+
+### How to execute this list
+- Start T01, then T04-T07, then T08-T11. T02 is a bounded diagnostic/fix task,
+  not permission to spend another phase exclusively measuring. T03 can follow
+  T01; T12, T19 and T22 can proceed without waiting for feature dependencies.
+- Keep only one implementation ticket in progress. Finish its tests, evidence,
+  coherent commit and push to main before taking the next startable ticket.
+- READY means no dependency is pending, not completed. WAIT_DEPS means finish
+  the listed tickets first. OWNER means only the user can clear that gate.
+- A gated ticket blocks only its dependent work. Continue unrelated free work;
+  ask the owner only for an actual decision, credential/account or physical action.
+- Every task below is zero pipeline cost except T21, which is NOT authorized.
+  Zero pipeline does not mean zero engineering effort or unlimited hosted usage.
+- Use C:\sgSHIOK2026 exclusively; absolute write paths; preserve locked weights,
+  frozen inputs, protected outputs, and every existing verification line.
+  Do not use build scripts that prepare/mutate protected data, install dependencies,
+  migrate storage, or deploy under the label of a frontend task.
+- Sizes S/M/L mean roughly one narrow edit, a focused vertical slice, or several
+  focused slices. They are not wall-clock estimates on this loaded machine.
+  Split an L task at its stated contract/UI boundary if it cannot be verified in
+  one session; no speculative estimate authorizes a long run.
+
+### Common completion contract
+Tests are written with the change, not as a final separate phase. Reuse the real
+reduced fixtures and their source-hash provenance. Add clearly labelled synthetic
+failure/storage/transport fixtures where needed; do not invent published data.
+Run focused behavioural tests, then the isolated suite at the completed feature
+boundary: `node web/scripts/test-without-production-data.mjs --reporter=dot`.
+New test files must be staged
+before that runner so its tracked-source snapshot includes them. Existing tests
+must remain green with production-data access denied; explain count changes.
+Run installed TypeScript and `python scripts/check_repo_integrity.py` as relevant.
+UI changes require a direct Next production build (bypass package data preparation),
+one real-browser session with service workers enabled, and inspected screenshots
+at 1440x950, 390x844, 390x667 and 320x667. Match current route features to captures.
+Do not mistake viewport emulation for a phone or tests for user acceptance.
+Append outcomes, failures, limitations, FINDINGS and DISAGREEMENTS to existing
+verification evidence. Update this ticket's status, test mapping and STATE; commit
+with a conventional prefix and push main. Never rewrite prior evidence/history.
+No ticket is DONE merely because a document, mock, passing count or button exists.
+
+### [ ] T01: Make cached-release upgrades safe
+- Status: READY. Size: M. Parent: P0.3.
+- Depends on: none.
+- Scope: `web/public/sw.js`, `web/lib/service-worker-cache.ts`, `web/lib/__tests__/deployment.test.ts`; new behavioural worker tests and fresh QA browser captures.
+- Do: reproduce build A -> B on the SAME local origin/profile without clearing caches. Inspect shell/asset version handling and registration failure retry. Fix only demonstrated stale-shell, cross-cache deletion or chunk-recovery defects; preserve immutable versioned data caching and avoid reload loops.
+- Tests/done: M16-M17, O06/O08. Root and shared postal work after upgrade and simulated unavailable old chunks; unrelated origin caches survive; registration failure is retryable; navigation does not add polling. Screenshot B's real selected route. A test-only build copy must exclude protected payloads and use existing dependencies, never move them.
+- Gate: FREE. Local two-build test only; no deployment or protected-data rebuild.
+
+### [ ] T02: Reduce the next measured loading bottleneck
+- Status: READY. Size: M. Parent: P0.3.
+- Depends on: none.
+- Scope: existing loading-diagnosis/source-separation QA harnesses; `web/lib/data.ts`, `web/components/route-evidence-map.tsx` only when attribution supports an edit.
+- Do: one bounded cold/warm profile with stage timestamps, transfer counts and route writes; isolate essential map/score/geometry from optional requests. Select ONE evidenced bottleneck, regression-test and fix it. Stop profiling if host pressure prevents attribution; keep feature work moving. Do not close unrelated apps or assert hardware-only causation.
+- Tests/done: M08-M13. Optional controls do not resubmit unchanged route sources; essential reads deduplicate; old/new build identities and cache definitions recorded. Report any observed latency change with limitations, or explicitly no measured improvement. M12 numerical acceptance remains provisional until a defensible profile is reviewed.
+- Gate: FREE. No heavy repeated builds/baselines by default; no pipeline or representative-phone claim.
+
+### [ ] T03: Give failures a useful, privacy-safe diagnostic
+- Status: WAIT_DEPS. Size: S. Parent: P0.3.
+- Depends on: T01.
+- Scope: `web/app/page.tsx`, map adapter, artifact readers, new small diagnostic helper/tests only if existing helpers cannot serve it.
+- Do: verify loading/error stages and retry first. Add explicit Copy diagnostics to failure details where needed: build/artifact version, failed stage, sanitized error/status and timings. No successful-load banner, constant progress prose or remote analytics.
+- Tests/done: M04-M07/M18. Offline, missing worker, tile failure and geometry failure identify the right stage; useful result remains. Copied data excludes query strings, postal history, report notes, tokens and credentials. Retry cannot restore stale selection.
+- Gate: FREE. No telemetry provider or hidden upload.
+
+### [ ] T04: Define the usable published transit-option contract
+- Status: READY. Size: S. Parent: P1.1.
+- Depends on: none.
+- Scope: `web/lib/nearest-transit.ts`, `web/lib/types.ts`, `selectionForChosenStop` in `web/app/page.tsx`, existing reduced fixtures; decisions/QA output.
+- Do: enumerate what the existing fixtures and candidate shards actually supply: routed geometry, routed distance, shelter metric, gaps, category and provenance. Define eligibility and a bounded list policy from those fields. Distinguish published candidates, straight-line-only POIs and live previews. Propose a maximum of three useful choices per category; record deterministic ordering before coding it.
+- Tests/done: W02-W08/W12-W13. A contract table and executable fixture cases demonstrate every eligible/missing case. No nearest WALK claim based solely on straight-line distance and no best-shelter claim for missing coverage. The bound limits displayed evidence, not an assertion that all stops were evaluated.
+- Gate: FREE, read-only artifacts. Insufficient candidate evidence blocks only the unsupported option, not existing walks.
+
+### [ ] T05: Select useful options deterministically
+- Status: WAIT_DEPS. Size: M. Parent: P1.1.
+- Depends on: T04.
+- Scope: `web/lib/nearest-transit.ts` or one focused selector module; candidate tests using reduced real fixtures.
+- Do: select nearest and most-covered eligible published options with stable ties and deduplication; retain the currently selected valid option. Keep MRT/LRT and bus categories separate. Extract a helper only where it will be shared by picker/comparison.
+- Tests/done: W05-W08/W13. Same option winning both appears once; ties, partial metrics, unknown IDs and empty categories behave deterministically; original records and numerical values remain unchanged. No live request during sorting.
+- Gate: FREE. No new candidate generation or scoring.
+
+### [ ] T06: Ship the bounded transit-choice interaction
+- Status: WAIT_DEPS. Size: M. Parent: P1.1.
+- Depends on: T05.
+- Scope: `web/components/transit-stop-picker.tsx` and its CSS, `web/app/page.tsx`, existing selection/URL handlers and behavioural tests.
+- Do: present the bounded choices only when useful; show destination and routed distance/coverage trade-offs. Reuse the existing picker rather than creating a competing one. Update map, summary and URL atomically; distinguish an optional preview from published evidence and request it only on explicit selection.
+- Tests/done: S05-S08, W05-W08/W10/W12, M11/M15. Keyboard selection, rapid A/B changes, failed preview, shared stop, one-option and no-option states pass. The top-left stack stays equal-width and the map remains visible at all required sizes.
+- Gate: FREE. No automatic live-route fan-out or new backend.
+
+### [ ] T07: Complete the uncovered-stretch journey
+- Status: WAIT_DEPS. Size: S. Parent: P1.1.
+- Depends on: T06.
+- Scope: `web/components/walk-summary.tsx`, gap controls in `web/app/page.tsx`, existing map focus adapter/tests.
+- Do: make the path from four metrics to an actual uncovered stretch and back clear. Reuse existing gap highlighting; fix concrete interaction gaps only. Keep shortest-route gaps unavailable when that geometry lacks matching evidence.
+- Tests/done: W01-W04/W09-W11/W13, M03/M10/M15, U01 preparation. Every metric and highlight belongs to the selected route; switching routes clears old focus; expand/close restores context; missing is not zero. No weather/dryness/safety guarantee.
+- Gate: FREE. This completes an inspectable core walk, not an all-postal coverage claim.
+
+### [ ] T08: Define a shared home-comparison row
+- Status: WAIT_DEPS. Size: S. Parent: P1.2.
+- Depends on: T05.
+- Scope: `web/components/walk-summary.tsx`, `web/lib/types.ts`, proposed `web/lib/comparison.ts` and tests.
+- Do: reuse or extract the selected-walk metrics adapter for up to three postals, with bundle version, category, destination, distance, coverage, uncovered distance, longest gap and explicit availability. Preserve selected-route semantics and provenance; do not invent a score.
+- Tests/done: C03-C04, W01/W02/W10/W13. Same fixture yields identical numbers in walk and comparison; absent gaps stay unavailable; a bus-only record is not silently substituted into an MRT comparison.
+- Gate: FREE. No rank computation or new artifact.
+
+### [ ] T09: Build the shortlist state and persistence
+- Status: WAIT_DEPS. Size: M. Parent: P1.2.
+- Depends on: T08.
+- Scope: proposed `web/lib/comparison-state.ts`, existing storage helper patterns and focused reducer/storage tests.
+- Do: add/remove up to three unique six-digit postals, one shared category and active column; version the local state. Keep only the minimum shortlist state, not browsing history or report drafts. Fetch through existing readers, only when needed.
+- Tests/done: C02/C05/C06/C09. Duplicate/fourth entry, leading zeros, corrupt/old storage, denied quota, reload and removal pass; storage failure never breaks search. Stale responses cannot replace changed shortlist entries.
+- Gate: FREE. Local only; no account or provider.
+
+### [ ] T10: Ship home comparison in the map-first UI
+- Status: WAIT_DEPS. Size: M. Parent: P1.2.
+- Depends on: T09.
+- Scope: proposed `web/components/home-comparison.tsx` and CSS, `web/app/page.tsx`, comparison browser/component tests.
+- Do: contextual Add to comparison, explicit add/remove, common category and aligned evidence rows; focus one compared walk on the map without losing the shortlist. Use a compact accessible comparison view, not permanent cards covering the map. Keep the planning-area ranking secondary and distinct.
+- Tests/done: C01-C04/C09, M03/M15. Two/three columns align, mobile can inspect every value and return to the route, partial failure affects only its column, and closed comparison triggers no shortlist data reads. No fabricated total ranking.
+- Gate: FREE. No expansion of candidate/scoring inputs.
+
+### [ ] T11: Share and restore a shortlist safely
+- Status: WAIT_DEPS. Size: S. Parent: P1.2.
+- Depends on: T10.
+- Scope: comparison state codec, existing URL handling in `web/app/page.tsx`, share controls/tests.
+- Do: validate/version an explicit share URL; define URL-vs-storage precedence; preserve ordinary single-postal links. Disclose that the link contains chosen postals; clipboard failure offers an accessible fallback.
+- Tests/done: S06-S07, C06-C09. Round-trip two/three postals/category; reject unknown, duplicate, oversized and malformed state; back/forward remains coherent. No private report, note, account token or history serialized; no automatic sharing.
+- Gate: FREE. No server-side saved homes.
+
+### [ ] T12: Present a concrete $0 reporting proposal
+- Status: READY. Size: S. Parent: P1.3.
+- Depends on: none.
+- Scope: existing ARCHITECTURE/ADR/decisions and report code inspection, not live provisioning.
+- Do: compare feasible durable-storage options using current official limits at execution time. Recommend one with hard usage caps, owner access, location/note minimization, idempotency, spam protection, retention/deletion, backup and failure behaviour. Separate map corrections from shelter requests; no resident accounts or contact details.
+- Tests/done: F01/F11-F13 design criteria. Written API/storage/auth boundaries, realistic cap assumptions, moderator workflow, required owner actions and a rejected-option rationale; explain honestly if $0 durability cannot be supported. No signup or speculative implementation under a chosen provider.
+- Gate: FREE proposal only. Provider terms/limits must be checked, not assumed permanent.
+
+### [ ] T13: Owner approves the reporting service boundary
+- Status: OWNER. Size: S. Parent: P1.3.
+- Depends on: T12.
+- Scope: approval recorded in decisions.md; owner account/credential setup only after explicit authorization.
+- Do: obtain provider, privacy/retention, abuse-limit, access-control and moderation-cadence decisions. Identify exactly which account/secret or physical action the owner must supply.
+- Tests/done: approved decision and usable least-privilege credentials via local secret storage; no secret committed. A missing approval leaves real submission disabled, with no false success.
+- Gate: OWNER. Does not block T01-T11, T19-T20 or T22-T25.
+
+### [ ] T14: Implement report validation and lifecycle contracts
+- Status: WAIT_DEPS. Size: M. Parent: P1.3.
+- Depends on: T13.
+- Scope: proposed `web/lib/reports.ts` and focused schema/lifecycle tests; existing feedback point/segment types.
+- Do: validate report type, bounded Singapore point/segment, note limits, schema, request ID and bundle context. Define pending/accepted/rejected/duplicate transitions, server-owned fields and request identity. Never treat acceptance as proof a shelter exists.
+- Tests/done: F01-F03/F05/F08-F10/F13. Invalid/nonfinite coordinates, oversized payload, injected markup, forbidden transitions and client-supplied moderation fields are rejected; both report types remain distinct.
+- Gate: Approved infrastructure contract; zero pipeline.
+
+### [ ] T15: Persist reports and issue truthful receipts
+- Status: WAIT_DEPS. Size: M. Parent: P1.3.
+- Depends on: T14.
+- Scope: proposed report API route and approved storage adapter, integration tests; no public data writes.
+- Do: implement atomic idempotent submission, server receipt, private pending state, timeouts and initial abuse/cap enforcement. Deny public listing and unauthorized moderator access from the first implementation; minimize retained request metadata.
+- Tests/done: F02-F07/F11. Same request retry creates at most one report; mismatched reused ID is rejected; quota/backend failure returns failure, not a receipt. Read/list and moderation access are denied without approved authorization. Failure recovery never copies notes into logs.
+- Gate: T13 approval, local/test backend first. No production deployment implicit.
+
+### [ ] T16: Ship the report composition and receipt flow
+- Status: WAIT_DEPS. Size: M. Parent: P1.3.
+- Depends on: T15.
+- Scope: proposed report form component, existing feedback controls/map point tools, `web/app/page.tsx`, browser tests.
+- Do: contextually choose mapping error or shelter request, mark a point/bounded stretch, enter an optional note, review and submit. Make draft vs sent unmistakable; preserve draft on recoverable error, show real receipt and clear sensitive state deliberately. No copied JSON masquerading as submission.
+- Tests/done: F01-F06/F13, C08, M15. Keyboard/mobile map context, validation, offline/error/retry and duplicate click pass. No mandatory contact info; no private note in a share link or published evidence.
+- Gate: T13 approval. End-to-end acceptance requires actual durable receipt, not only mocked success.
+
+### [ ] T17: Build the private owner moderation queue
+- Status: WAIT_DEPS. Size: M. Parent: P1.3.
+- Depends on: T15.
+- Scope: approved private moderation route/UI and storage rules; lifecycle/access tests.
+- Do: authenticate only the moderator; list/filter pending reports, inspect context, accept/reject/mark duplicate with reasons and audit time. Keep queue/navigation separate from the resident map experience.
+- Tests/done: F07-F10. Unauthenticated/unauthorized requests cannot read notes or mutate state; duplicate links resolve safely; decisions are traceable. Accepting either type never alters frozen artifacts or current map truth.
+- Gate: Approved owner access. No anonymous administrative endpoint or data edits.
+
+### [ ] T18: Exercise report failure, abuse and retention limits
+- Status: WAIT_DEPS. Size: M. Parent: P1.3.
+- Depends on: T16, T17.
+- Scope: report integration/operational tests, approved retention worker if required, privacy/runbook entries.
+- Do: test cap exhaustion, spam/idempotency races, unavailable storage, expired sessions and retention/deletion on synthetic records. Verify report lookup/receipt cannot enumerate another person's report. Document owner moderation and incident actions.
+- Tests/done: F04-F07/F11-F12. Bounded costs, private state, honest failure and deletion evidence meet the approved policy; no test touches real resident data. No production receipt claim without controlled real-backend validation.
+- Gate: T13-approved infrastructure only. Required before enabling reporting in production.
+
+### [ ] T19: Build a read-only walk-coverage gap register
+- Status: READY. Size: M. Parent: P2.1.
+- Depends on: none.
+- Scope: existing data/index readers and audit helpers; new analysis output only in a fresh approved QA directory.
+- Do: begin with index metadata and a small timed read pilot. Estimate scan cost before a broader pass. Classify missing address, geometry, candidate evidence, route disconnection, range limit and missing score separately; mark unknown rather than infer a cause from absence. Reuse settled evidence, not another provenance investigation.
+- Tests/done: W02-W04, O03/O10/O13. Fixture classifications and arithmetic reconcile with inspected sources. Output per-postal/category reasons, counts, unknowns, paths/identities and pilot/projection. Stop on mismatch, unsafe memory/IO behaviour or an unexpectedly unbounded read.
+- Gate: FREE read-only. No score/check/ingest/network/export command; no mutation of raw, processed or existing QA/public payloads.
+
+### [ ] T20: Propose the smallest useful data improvement
+- Status: WAIT_DEPS. Size: S. Parent: P2.2.
+- Depends on: T19.
+- Scope: decisions and current execution plan, supported by the gap register.
+- Do: choose one user-relevant gap category; separate missing export from genuinely absent input/routes. Specify prerequisites, immutable outputs, comparison fields, fixed/marginal pilot, projected cost, stop rule and rollback. Do not equate every incomplete score with a missing walk.
+- Tests/done: O03-O06/O11. Owner can accept/reject a named job with bounded cost and benefit. Export-only vs routing/rescore is justified from the actual gap. Never promise historical T14 throughput on current hardware.
+- Gate: FREE proposal. Not permission to run its pilot or rebuild a mismatched input.
+
+### [ ] T21: Execute only a specifically approved data job
+- Status: OWNER. Size: L. Parent: P2.2.
+- Depends on: T20.
+- Scope: only the job and fresh output paths explicitly approved at that time.
+- Do: verify inputs, run the approved pilot, separate fixed from marginal cost, observe its gate, and proceed only within the approved budget. Preserve all old artifacts. Report changed records and value/provenance differences; request a separate release decision.
+- Tests/done: O03-O06/O10-O11 and approved field-comparison criteria. New version validates, old hashes remain identical and unexpected score changes stop the job. Pilot failure or budget stop is a valid outcome, not permission to retry with a larger run.
+- Gate: NOT AUTHORIZED. No pipeline action until explicit job/budget approval. Not a blocker for a frontend-only release.
+
+### [ ] T22: Separate source, check and release freshness
+- Status: READY. Size: S. Parent: P2.3.
+- Depends on: none.
+- Scope: DataDetails in `web/app/page.tsx`, source metadata readers/tests; no frozen manifest edits.
+- Do: define typed source-updated, last-checked and release dates with unknown/stale states. Present concise facts inside About data; retain supporting records without flooding the main map. Identify what static snapshots currently exist instead of implying live monitoring.
+- Tests/done: O01-O02. Checking an old source today does not make its data current; unknown date stays unknown; timezone/format handling is tested. Display-only changes cannot alter scores or protected manifests.
+- Gate: FREE. No source download, re-ingest or automatic refresh.
+
+### [ ] T23: Establish a bounded metadata-check routine
+- Status: WAIT_DEPS. Size: M. Parent: P2.3.
+- Depends on: T22.
+- Scope: inspect existing freshness/check automation, then a narrowly scoped read-only checker and workflow only if needed; runbook/fixtures.
+- Do: choose a documented cadence and inspect source metadata, not datasets. Deduplicate notices, handle rate limits and errors, record successful/failed checks and give the owner an actionable failure notice. No automatic processing or blanket workflow rewrite.
+- Tests/done: O01-O02/O09. Unchanged metadata does nothing expensive; stale/manual/unknown and unavailable endpoints remain distinct. Test scheduled logic with fixtures; do not claim a cron fired until an actual run is observed.
+- Gate: FREE within existing account/source limits. New secrets/accounts, external writes or alert-provider setup require specific approval; never call run.py check/ingest/network.
+
+### [ ] T24: Make maintenance ownership and recovery explicit
+- Status: WAIT_DEPS. Size: S. Parent: P2.3.
+- Depends on: T22.
+- Scope: existing operational docs/decisions and tracked scripts inventory, read-only metadata.
+- Do: propose concrete source-check, report-review and release-review cadence; name owner actions, failures, fallback and free-cap checks. Record which payloads remain untracked/irreplaceable and a non-destructive backup/recovery proposal. Separate agent-runnable checks from physical backup and credential actions.
+- Tests/done: O06-O11. A new session can identify the current frontend/artifact, find its validation and stage a rollback plan without moving live data. Reporting cadence must reconcile with T13 before reporting release. No backup or restore claimed unless exercised under its own approval.
+- Gate: FREE docs/read-only. No evidence copy, migration, deletion or automatic activation.
+
+### [ ] T25: Run cross-feature accessibility and failure acceptance
+- Status: WAIT_DEPS. Size: M. Parent: P3.1.
+- Depends on: T07, T11.
+- Scope: web regression/browser tests and existing acceptance catalogue; narrowly scoped fixes for observed blockers.
+- Do: keyboard-only, zoomed text, reduced motion, mobile viewport, failed storage/network and fast navigation across inspect/compare. Include reporting only after T18, not as a fake passing placeholder. Recheck the requested top-left stack, equal widths, About data and attribution.
+- Tests/done: S08, M03-M07/M14-M18, C01-C09; applicable F cases. No inaccessible controls, hidden current route, overlapping content or stale cross-feature state. Actual screenshot/count captures and exact failures/fixes recorded.
+- Gate: FREE browser work; physical device/user evidence belongs to T26.
+
+### [ ] T26: Owner/device and real-user task acceptance
+- Status: OWNER. Size: S. Parent: P3.1.
+- Depends on: T25.
+- Scope: task script and append-only observations; fixes return to the responsible ticket.
+- Do: supply the owner with exact unaided tasks: inspect an unfamiliar postal, explain exposure, compare two homes, interpret missing data, and submit a report only if enabled. Ask for a real phone check and a small agreed user sample; do not invent users or timings.
+- Tests/done: U01-U05 and reviewed M12 profile. Actual task completion/blockers, device/context and owner acceptance recorded. Unrun report tasks stay pending. No private home postals or notes in public evidence.
+- Gate: OWNER physical/user participation. Does not prevent preparing the release candidate.
+
+### [ ] T27: Prepare a bounded frontend release candidate
+- Status: WAIT_DEPS. Size: M. Parent: P3.2.
+- Depends on: T01, T07, T11, T25.
+- Scope: existing deployment/readiness scripts, release tests and handback; no invocation of activation/deploy/data preparation.
+- Do: name exact commit, current unchanged artifact, deploy-trigger configuration, test evidence and rollback. Include only complete features; reporting additionally needs T18 and approved operational ownership. Review request/caching/free-tier exposure using current limits before recommending release. Inspect script side effects rather than trust names.
+- Tests/done: O05-O08/O10, M16-M17. Legacy provenance vs genuine defect remains distinguished; staged build works with current data; cache-upgrade and rollback procedures are specific; no protected write in dry validation. Outstanding owner/user decisions are explicit.
+- Gate: FREE preparation. A push is not deployment authorization; inspect whether current Git integration auto-deploys before future runtime pushes and stop if it conflicts with this gate.
+
+### [ ] T28: Publish an approved frontend and verify it
+- Status: OWNER. Size: M. Parent: P3.2.
+- Depends on: T27.
+- Scope: only the exact approved deployment target/commit and unchanged artifact, existing safe deploy workflow.
+- Do: obtain release approval including T26 results or an explicit limited-release exception. Deploy once, verify fresh/returning users, selected route, URLs, enabled features and request behaviour; record deployment identity. On failure stop at the named stage and follow only the approved rollback.
+- Tests/done: O06-O08, M16-M17, applicable S/C/F smoke tests. Remote app actually matches the approved commit/artifact, not merely a successful push. Errors are visible and the prior release remains recoverable. Set the next maintenance review from T24.
+- Gate: OWNER deployment approval. No export/rescore, existing payload overwrite or new provider implicit.
+
+### Release and continuation rules
+- Core walk can be released after T01 and T04-T07 plus its own applicable T25-T28
+  checks; it does not need to wait for comparison, reports or a rescore. Run the
+  release checks for that smaller scope and explicitly exclude unbuilt features.
+- Inspect + compare is the next complete free frontend milestone. Private reports
+  are a separate milestone behind T13/T18. Data expansion remains optional/gated.
+- Append a receipt per completed ticket: status, commit, tests/catalogue cases,
+  browser evidence where applicable, remaining limitation and next ticket.
+- Resume from the first READY ticket whose dependencies are DONE; never restart
+  P11-P17, old provenance debates, migrations or already accepted source separation.
+- Arbitrary origin/destination, weather, bus remodel, accounts, paid services and
+  a new composite/weight vector are not hidden tasks in this plan.
 
 ## Historical milestone plan
 The following records retain previous plans and evidence; use the backlog above

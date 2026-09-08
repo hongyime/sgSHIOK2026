@@ -1,6 +1,8 @@
 # SHIOK Revamp Acceptance Test Catalogue
 Date: 2026-09-06
-Status: all cases PLANNED. This is a test specification, not a claim of passing tests.
+Status: test specification; an entry is not a passing result. Individual executed
+results live in qa/verification/REVAMP-R1-core-walk.md and its linked receipts.
+New M16-M18/O13 cases below are planned targets, not retroactive pass claims.
 Implement automated cases with the corresponding feature; do not introduce
 permanently skipped tests or artificial passing placeholders.
 Levels: U = unit; I = integration; B = browser; M = manual/operational.
@@ -39,8 +41,8 @@ Every case specifies a trigger and observable outcome.
 | ID | Level | Trigger | Expected result |
 | --- | --- | --- | --- |
 | M01 | B | Cold desktop load | Selected route visible in unobscured map area |
-| M02 | B | Cold mobile load | Route visible above compact bottom sheet |
-| M03 | B | Expand/collapse sheet; resize/rotate | Correct viewport fit; no invisible route |
+| M02 | B | Cold mobile load | Route visible below the top-left search/result stack |
+| M03 | B | Expand/collapse results; resize/rotate | Correct viewport fit; no invisible route |
 | M04 | B | Basemap tiles fail | Partial state; useful text/route retained if available |
 | M05 | B | Style loads but route not rendered | Must not report fully ready |
 | M06 | B | Geometry fails | Retryable error; no indefinite loading |
@@ -53,6 +55,9 @@ Every case specifies a trigger and observable outcome.
 | M13 | B | Capture screenshot and feature counts together | Visible route asserted at same viewport/time |
 | M14 | B | Reduced motion and keyboard map controls | Usable focus, labels and nonanimated alternative |
 | M15 | B | All viewports | Attribution visible; no overlapping controls |
+| M16 | B | Plain home, typed search, shared URL and normal revisit | Basemap appears before selection; equal-width search/results beneath top-left SHIOK; About data bottom right; selected route visible |
+| M17 | B | Old-to-new build on the same origin with service worker enabled | No stale-shell/chunk blank screen or reload loop; unrelated caches preserved; versioned data caching retained |
+| M18 | I | Copy diagnostics after worker/tile/geometry failure | Correct stage and retry; no postal history, query strings, tokens, report text or automatic upload |
 
 ## Home comparison
 | ID | Level | Trigger | Expected result |
@@ -99,6 +104,7 @@ Every case specifies a trigger and observable outcome.
 | O10 | M | Each implementation commit | weights.yaml and protected payloads untouched |
 | O11 | M | Goal loop reaches gated task | Stops with proposal; no implicit compute/deploy approval |
 | O12 | M | Fresh checkout | Design/ADR/plan discoverable without ignored docs directory |
+| O13 | I | Read-only coverage audit on mixed-availability fixtures | Route and score absence classified separately; unknown cause explicit; source counts reconcile; no input or protected-output writes |
 
 ## User acceptance sessions
 | ID | Level | Trigger | Expected result |

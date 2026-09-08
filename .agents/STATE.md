@@ -4,12 +4,12 @@ Date: 2026-09-08
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
 Startup guard: assert cwd is exactly `C:\sgSHIOK2026`; abort otherwise. All writes use absolute C: repository paths. X: is a cold mirror, never a session root.
-Current task: implemented owner-requested map-first homepage and header. SHIOK sits beside postal search; icon submit is inside the field; About data expands at bottom center. Confirmed blank-homepage defect: map was only mounted after selecting a route. Fixed; empty selection is now normal idle basemap state.
+Current task: owner revised layout again: SHIOK top left, search below, equal-width results below search; About data bottom right. Implemented measured top-left map padding and preserved required OneMap attribution. Detailed executable backlog prepared in PRODUCT-PLAN.md: 28 tickets with dependencies, scoped files, tests and explicit gates. Current layout supersedes the earlier centered header.
 Evidence: qa/verification/REVAMP-R1-core-walk.md (append-only corrections and catalogue mapping).
-Machine-readable handback: qa/revamp-r1/map-first-home-20260908/summary.json (current). Prior handbacks are historical evidence, not completion of the whole product.
-Current preview: http://localhost:4320/; build 3QYHJYXOe2erg5FV0zCFn; owned server PID 95320. Old 4319 server stopped before rebuild. 4318 is not this build.
-Checks: 240 isolated web tests / 32 files, TypeScript/direct production build, 42 browser checks, zero browser exceptions/request failures, 11 source hashes and repo integrity passed. Service workers enabled; root, search and same-build revisits tested. Desktop/mobile screenshots inspected. First harness attempt missed the Enter character; corrected and retained, not an app failure.
-Next: follow PRODUCT-PLAN.md current backlog, not the superseded review gates below. Finish bounded transit choices, chosen-home comparison, real private reports, data-gap register and a maintenance/release loop. Provider, pipeline and deployment approvals remain separate. Old-to-new service-worker upgrade, physical-phone and representative latency acceptance remain open; no claimed speedup.
+Machine-readable handback: qa/revamp-r1/left-stack-20260908/summary.json (current). Prior handbacks remain historical evidence, not completion of the whole service.
+Current preview: http://localhost:4321/; build e8Hlhkml4c3i_uMGJdd3P; owned server PID 97544. Old 4320 preview stopped before rebuild. Earlier ports do not identify this build.
+Checks: 242 isolated tests / 32 files, TypeScript/direct build, 58 final browser checks, four current route features at all four sizes, all final basemap capture brackets loaded. 11 source hashes and integrity passed. Local setup/startup failures and early incomplete tile captures retained. No speedup or physical-phone claim.
+Next: execute PRODUCT-PLAN.md T01, then T04-T07 and T08-T11; T02 is bounded, not another review-only phase. READY tasks: T01,T02,T04,T12,T19,T22. OWNER gates: T13 reporting provider/policy, T21 specifically approved compute, T26 physical/user acceptance, T28 deployment. Skip gated tasks and continue independent work. No further delegation. Documentation approval is not compute/provider/deployment approval.
 Owner authorizes functional work under existing host load; leave other apps alone. No further delegation or repeated review-only loop. This turn ran no pipeline, installs or production deployment and changed no protected payload.
 
 ## Superseded detailed handoff (history only; current task and backlog above take precedence)

@@ -108,3 +108,16 @@ assumption, not just its CSS coordinates.
 OneMap's GreyLite integration guidance explicitly says not to remove its
 attribution: https://www.onemap.gov.sg/docs/maps/greylite.html (checked 2026-09-08).
 Keep logo and copyright independently visible; About data is not a replacement.
+
+## ADR-12: Direct execution from resumable tickets (2026-09-08)
+Supersedes ADR-10's delegated-agent procedure; the owner asked Codex to execute
+directly. PRODUCT-PLAN.md is the single task board, not a second copy under
+ignored docs/ or a private session store. Each ticket names dependencies, file
+scope, acceptance cases, size and an approval gate; STATE points to the next
+startable ticket. Tests land with their feature and completion includes evidence
+and a pushed commit, not only a checked box or mock implementation.
+Finish one narrow slice at a time. Gates stop dependent work only; continue
+independent free work. Core walk, comparison, reports and data expansion can
+ship as separate explicitly approved releases; reports/rescore do not block
+an otherwise complete frontend-only improvement. Planning does not authorize
+pipeline work, account/provider setup, protected payload writes or deployment.
