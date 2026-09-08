@@ -2537,3 +2537,26 @@ modules are in CacheStorage. This is not full offline navigation, automatic
 legacy-upgrade acceptance or a performance benchmark. The pre-load watchdog
 and retry gap remains next; no pipeline or deployment command was run.
 Evidence: qa/revamp-r1/worker-cache-20260909/summary.json.
+
+## 2026-09-09: Bound map startup and offer recovery at the correct lifetime
+
+The selected-route watchdog cannot cover startup before MapLibre emits load.
+Add a30-second component-startup deadline, separate from rendered-route readiness.
+It covers the component's MapLibre import and first load, not the outer Next
+lazy-component chunk. Keep recoverable tile failures partial with the deadline
+active; pre-load Retry creates a new owned map attempt.
+
+A real held-worker test proved that terminal startup failure cannot reliably
+recover by remounting the map: the library's page-global dispatcher retains the
+worker. Offer explicit Reload page instead, preserving the current URL and asking
+before discarding unsent feedback. Never auto-reload or use private library resets.
+Late events/imports and teardown errors must not suppress or change recovery.
+
+358 isolated tests/37 files, TypeScript/build/integrity and11 anchors pass.
+The final browser run observes the30-second failure, a new Document/worker200
+after the actual reload button, identical four metrics, and four current route
+features at1440x950,390x844,390x667,320x667. Screenshots inspected; first mobile
+recovery capture includes tile crossfade. No performance, phone or full-offline
+claim. Earlier failed injection/remount evidence remains. Next is the published
+option contract/selector; infrastructure and compute gates remain in force.
+Evidence: qa/revamp-r1/map-startup-20260909/summary.json.

@@ -25,6 +25,17 @@ writeFileSync(resolve(root, 'qa/revamp-r1/cached-release-20260908', `static-over
   reason: 'Copy the current static worker source into the QA snapshot; compare the two hashes to determine whether it changed.',
 }, null, 2) + '\n');
 let active = 'A', offline = false;
+let holdWorker = false;
+const heldWorkerResponses = new Map();
+const workerHoldRequests = [];
+function releaseWorkers() {
+  holdWorker = false;
+  for (const [response, request] of heldWorkerResponses) {
+    request.releasedAt = Date.now();
+    response.writeHead(503, { 'Cache-Control': 'no-store' }).end('QA held worker released; retry allowed');
+  }
+  heldWorkerResponses.clear();
+}
 const child = spawn(process.execPath, [resolve(root, 'web/node_modules/next/dist/bin/next'), 'start', snapshot, '-p', '4323', '-H', '127.0.0.1'],
   { cwd: root, windowsHide: true, stdio: 'inherit', env: { ...process.env, NEXT_TELEMETRY_DISABLED: '1' } });
 child.on('error', error => { console.error(error); process.exitCode = 1; server.close(); });
@@ -38,18 +49,31 @@ const server = http.createServer((req, res) => {
   const url = new URL(req.url, 'http://127.0.0.1:4324');
   if (url.pathname === '/__qa/status') {
     res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
-    res.end(JSON.stringify({ active, offline, buildA, buildB, workerASha256, counts, requests })); return;
+    res.end(JSON.stringify({ active, offline, buildA, buildB, workerASha256, counts, requests,
+      workerHold: { enabled: holdWorker, pending: heldWorkerResponses.size, requests: workerHoldRequests } })); return;
   }
   if (url.pathname.startsWith('/__qa/select/')) {
     if (req.method !== 'POST' || req.headers['x-shiok-qa'] !== 'local-upgrade') { res.writeHead(403).end(); return; }
     const value = url.pathname.split('/').at(-1);
-    if (!['A', 'B', 'offline', 'online'].includes(value)) { res.writeHead(400).end(); return; }
-    if (value === 'A' || value === 'B') active = value;
+    if (!['A', 'B', 'offline', 'online', 'hold-worker', 'release-worker'].includes(value)) { res.writeHead(400).end(); return; }
+    if (value === 'hold-worker') {
+      if (active !== 'B' || offline || holdWorker) { res.writeHead(409).end(); return; }
+      holdWorker = true;
+    } else if (value === 'release-worker') releaseWorkers();
+    else if (value === 'A' || value === 'B') active = value;
     else offline = value === 'offline';
-    console.log(JSON.stringify({ active, offline, at: new Date().toISOString() }));
+    console.log(JSON.stringify({ active, offline, holdWorker, at: new Date().toISOString() }));
     res.writeHead(204).end(); return;
   }
   if (!['GET', 'HEAD'].includes(req.method) || offline) { counts.failures++; receipt(url.pathname, 503); res.writeHead(503).end('QA network unavailable'); return; }
+  if (holdWorker && active === 'B' && url.pathname === '/maplibre/6.1.0/maplibre-gl-worker.mjs') {
+    const request = { path: url.pathname, wallMs: Date.now(), active, buildB };
+    workerHoldRequests.push(request);
+    if (workerHoldRequests.length > 50) workerHoldRequests.shift();
+    heldWorkerResponses.set(res, request);
+    res.on('close', () => { request.closedAt = Date.now(); heldWorkerResponses.delete(res); });
+    return;
+  }
   // Next serves public/ from disk, not its compiled build. Pin the old worker to the reviewed commit.
   if (active === 'A' && url.pathname === '/sw.js') {
     receipt(url.pathname, 200);
@@ -71,4 +95,4 @@ const server = http.createServer((req, res) => {
 });
 server.on('error', error => { console.error(error); child.kill(); process.exitCode = 1; });
 server.listen(4324, '127.0.0.1', () => console.log(JSON.stringify({ preview: 'http://127.0.0.1:4324/', buildA, buildB, pid: process.pid, serverPid: child.pid })));
-for (const signal of ['SIGINT', 'SIGTERM']) process.on(signal, () => { server.close(); child.kill(); });
+for (const signal of ['SIGINT', 'SIGTERM']) process.on(signal, () => { releaseWorkers(); server.close(); child.kill(); });

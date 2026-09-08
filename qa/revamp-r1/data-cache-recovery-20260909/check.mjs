@@ -6,7 +6,7 @@ import { createHash } from 'node:crypto';
 const root = 'C:\\sgSHIOK2026';
 if (process.cwd() !== root) throw Error('Wrong working root');
 const [name, mode = 'focused'] = process.argv.slice(2);
-if (!/^[a-z0-9-]+$/.test(name || '') || !['focused', 'worker', 'full'].includes(mode)) throw Error('Unique report name and focused/worker/full mode required');
+if (!/^[a-z0-9-]+$/.test(name || '') || !['focused', 'worker', 'startup', 'full'].includes(mode)) throw Error('Unique report name and focused/worker/startup/full mode required');
 const output = resolve(root, 'qa/revamp-r1/data-cache-recovery-20260909', name);
 if (existsSync(output)) throw Error('Preserve previous evidence');
 mkdirSync(output);
@@ -24,6 +24,7 @@ for (const source of Object.values(sources)) {
 }
 const focusedFiles = mode === 'worker'
   ? ['lib/__tests__/service-worker-behaviour.test.ts', 'lib/__tests__/deployment.test.ts']
+  : mode === 'startup' ? ['lib/__tests__/route-source-lifecycle.test.ts', 'lib/__tests__/map-startup-import.test.ts', 'lib/__tests__/map-recovery-actions.test.tsx']
   : ['lib/__tests__/data-cache-recovery.test.ts', 'lib/__tests__/data-fetch-policy.test.ts'];
 const commands = mode !== 'full'
   ? [[process.execPath, ['C:/sgSHIOK2026/web/scripts/test-web.mjs', ...focusedFiles, '--reporter=dot']]]

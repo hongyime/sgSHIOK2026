@@ -15,6 +15,11 @@ const hooks = vi.hoisted(() => {
     flush() { effects.splice(0).forEach(fn => fn()); return dirty; },
     reset() { slots.length = 0; effects.length = 0; },
     unmount() { slots.forEach(s => s.cleanup?.()); },
+    replayEffects() {
+      slots.forEach(s => {
+        if ('cleanup' in s) { s.cleanup?.(); s.cleanup = undefined; s.deps = undefined; }
+      });
+    },
     useRef(value: unknown) { const i = index++; return slots[i] ??= { current: value }; },
     useState(initial: any) {
       const i = index++;
@@ -35,8 +40,8 @@ const hooks = vi.hoisted(() => {
   };
 });
 vi.mock('react', async original => ({ ...await original<typeof import('react')>(), ...hooks }));
-const lib = vi.hoisted(() => ({ instance: null as any, manifest: vi.fn() }));
-vi.mock('maplibre-gl', () => ({ Map: class { constructor() { return lib.instance; } }, Popup: class {}, setWorkerUrl: vi.fn(), addProtocol: vi.fn() }));
+const lib = vi.hoisted(() => ({ instance: null as any, manifest: vi.fn(), construct: vi.fn() }));
+vi.mock('maplibre-gl', () => ({ Map: class { constructor() { lib.construct(); return lib.instance; } }, Popup: class {}, setWorkerUrl: vi.fn(), addProtocol: vi.fn() }));
 vi.mock('../lamp-overlay', async original => ({ ...await original<typeof import('../lamp-overlay')>(), fetchLampOverlayManifest: lib.manifest }));
 import { RouteEvidenceMap } from '../../components/route-evidence-map';
 
@@ -80,10 +85,13 @@ function render(update: Partial<Props> = {}) {
     if (frames.length) { frames.splice(0).forEach(fn => fn()); again = true; }
   }
 }
-async function mount() {
+async function start() {
   render();
   await vi.dynamicImportSettled();
   for (let i = 0; i < 12; i++) await Promise.resolve();
+}
+async function mount() {
+  await start();
   expect(map.handlers.get('load')?.size).toBe(1);
   map.emit('style.load'); map.emit('load'); render();
 }
@@ -91,6 +99,7 @@ const routeWrites = () => map.writes.filter(w => routeIds.includes(w.id));
 beforeEach(() => {
   vi.useFakeTimers(); hooks.reset(); frames = []; map = fakeMap(); lib.instance = map;
   lib.manifest.mockReset().mockResolvedValue(null);
+  lib.construct.mockReset();
   vi.stubGlobal('window', { location: { search: '' }, matchMedia: () => ({ matches: true }) });
   vi.stubGlobal('requestAnimationFrame', (fn: () => void) => { frames.push(fn); return frames.length; });
   vi.stubGlobal('cancelAnimationFrame', vi.fn());
@@ -100,6 +109,159 @@ beforeEach(() => {
   props = { routes: [{ id: '018956', label: 'Published fixture', color: '#008f86', geom }], mode: 'shiokest', onStatusChange: vi.fn() };
 });
 afterEach(() => { hooks.unmount(); vi.useRealTimers(); vi.unstubAllGlobals(); });
+
+describe('M01/M08/M11: bounded map startup in the executed component', () => {
+  it.each([true, false])('times out a silent startup with a selected walk=%s', async selected => {
+    if (!selected) props = { ...props, routes: [] };
+    await start();
+    vi.advanceTimersByTime(29_999);
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('initializing');
+    vi.advanceTimersByTime(1);
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', expect.stringContaining('Reload'), 'reload');
+    expect(map.remove).toHaveBeenCalledTimes(1);
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('does not mistake style.load for completed startup', async () => {
+    await start();
+    map.emit('style.load'); render();
+    vi.advanceTimersByTime(30_000);
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', expect.stringContaining('Reload'), 'reload');
+    expect(routeWrites()).toHaveLength(0);
+  });
+
+  it('cancels the startup deadline on load but waits for current route rendering', async () => {
+    await mount();
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('initializing', undefined);
+    map.render();
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('ready', undefined);
+    expect(vi.getTimerCount()).toBe(0);
+    vi.advanceTimersByTime(60_000);
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('ready', undefined);
+    expect(map.remove).not.toHaveBeenCalled();
+  });
+
+  it('makes a pre-load worker failure terminal and ignores late events', async () => {
+    await start();
+    const lateLoad = [...map.handlers.get('load')!][0];
+    const lateStyle = [...map.handlers.get('style.load')!][0];
+    const lateError = [...map.handlers.get('error')!][0];
+    map.emit('error', { sourceId: 'worker' });
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', expect.any(String), 'reload');
+    expect(map.remove).toHaveBeenCalledTimes(1);
+    const status = props.onStatusChange as ReturnType<typeof vi.fn>; status.mockClear();
+    lateLoad(); lateStyle(); lateError({ sourceId: 'onemap' }); render();
+    vi.advanceTimersByTime(60_000);
+    expect(status).not.toHaveBeenCalled();
+    expect(routeWrites()).toHaveLength(0);
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('retains a map that reaches load after a recoverable tile failure', async () => {
+    await start();
+    map.emit('error', { sourceId: 'onemap' });
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('partial', expect.any(String));
+    expect(map.remove).not.toHaveBeenCalled();
+    map.emit('style.load'); map.emit('load'); render(); map.render();
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('partial', expect.any(String));
+    expect(routeWrites().map(w => w.id)).toEqual(routeIds);
+    vi.advanceTimersByTime(60_000);
+    expect(map.remove).not.toHaveBeenCalled();
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('keeps the startup deadline active after a tile failure that never settles', async () => {
+    await start();
+    vi.advanceTimersByTime(20_000);
+    map.emit('error', { sourceId: 'onemap' });
+    vi.advanceTimersByTime(10_000);
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', expect.stringContaining('Reload'), 'reload');
+    expect(map.remove).toHaveBeenCalledTimes(1);
+  });
+
+  it('retries a pre-load tile failure using a fresh attempt before the deadline', async () => {
+    await start();
+    const failedMap = map;
+    const lateLoad = [...failedMap.handlers.get('load')!][0];
+    failedMap.emit('error', { sourceId: 'onemap' });
+    map = fakeMap(); lib.instance = map;
+    render({ retryKey: 1 });
+    await mount(); map.render();
+    expect(failedMap.remove).toHaveBeenCalledTimes(1);
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('ready', undefined);
+    expect(lib.construct).toHaveBeenCalledTimes(2);
+    const status = props.onStatusChange as ReturnType<typeof vi.fn>; status.mockClear();
+    lateLoad(); vi.advanceTimersByTime(60_000);
+    expect(status).not.toHaveBeenCalled();
+    expect(map.remove).not.toHaveBeenCalled();
+  });
+
+  it('reports startup failure even if teardown throws and never repeats that teardown', async () => {
+    await start();
+    map.remove.mockImplementation(() => { throw Error('GPU context already gone'); });
+    expect(() => vi.advanceTimersByTime(30_000)).not.toThrow();
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', expect.stringContaining('Reload'), 'reload');
+    expect((window as unknown as { __shiokRouteMap: unknown }).__shiokRouteMap).toBeNull();
+    expect(vi.getTimerCount()).toBe(0);
+    hooks.unmount();
+    expect(map.remove).toHaveBeenCalledTimes(1);
+  });
+
+  it('supports effect cleanup/setup replay with retained refs and a single owned map', async () => {
+    await mount(); map.render();
+    const previous = map;
+    const lateLoad = [...previous.handlers.get('load')!][0];
+    hooks.replayEffects();
+    map = fakeMap(); lib.instance = map;
+    await mount(); map.render();
+    expect(previous.remove).toHaveBeenCalledTimes(1);
+    expect(lib.construct).toHaveBeenCalledTimes(2);
+    const status = props.onStatusChange as ReturnType<typeof vi.fn>; status.mockClear();
+    lateLoad(); vi.advanceTimersByTime(60_000);
+    expect(status).not.toHaveBeenCalled();
+    hooks.unmount();
+    expect(map.remove).toHaveBeenCalledTimes(1);
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('reports a rejected constructor once without leaving a startup timer', async () => {
+    lib.construct.mockImplementation(() => { throw Error('WebGL unavailable'); });
+    await start();
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', expect.any(String), 'reload');
+    const status = props.onStatusChange as ReturnType<typeof vi.fn>; status.mockClear();
+    vi.advanceTimersByTime(60_000);
+    expect(status).not.toHaveBeenCalled();
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('unmounts during import without constructing a map or reporting a late failure', async () => {
+    render(); hooks.unmount();
+    const status = props.onStatusChange as ReturnType<typeof vi.fn>; status.mockClear();
+    await vi.dynamicImportSettled();
+    vi.advanceTimersByTime(60_000);
+    expect(lib.construct).not.toHaveBeenCalled();
+    expect(status).not.toHaveBeenCalled();
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('isolates attempt ownership across remounts without claiming a real worker pool reset', async () => {
+    await start();
+    const oldMap = map;
+    const oldHandlers = ['load', 'style.load', 'error'].map(event => [...oldMap.handlers.get(event)!][0]);
+    vi.advanceTimersByTime(30_000);
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', expect.any(String), 'reload');
+    hooks.unmount(); hooks.reset();
+    map = fakeMap(); lib.instance = map;
+    await mount(); map.render();
+    const status = props.onStatusChange as ReturnType<typeof vi.fn>; status.mockClear();
+    oldHandlers.forEach(fn => fn({ sourceId: 'onemap' }));
+    vi.advanceTimersByTime(60_000);
+    expect(status).not.toHaveBeenCalled();
+    expect(map.remove).not.toHaveBeenCalled();
+    expect(oldMap.remove).toHaveBeenCalledTimes(1);
+    expect(routeWrites().map(w => w.id)).toEqual(routeIds);
+  });
+});
 
 describe('M05/M10/M11: source ownership in the executed map component', () => {
   it('keeps the basemap usable with no selected walk instead of reporting missing geometry', async () => {

@@ -1,0 +1,101 @@
+{
+  "commands": [
+    {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:/sgSHIOK2026/web/scripts/test-web.mjs",
+        "lib/__tests__/route-source-lifecycle.test.ts",
+        "--reporter=dot"
+      ],
+      "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\nxxx·xx··x·········\n\n Test Files  1 failed (1)\n      Tests  6 failed | 12 passed (18)\n   Start at  01:43:31\n   Duration  2.59s (transform 1.13s, setup 0ms, import 1.35s, tests 329ms, environment 0ms)\n\n",
+      "stderr": "\n⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯\n\n FAIL  lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > times out a silent startup with a selected walk=true\n FAIL  lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > times out a silent startup with a selected walk=false\nAssertionError: expected last \"vi.fn()\" call to have been called with [ 'error', StringContaining \"Retry\" ]\n\n- Expected\n+ Received\n\n  [\n-   \"error\",\n-   StringContaining \"Retry\",\n+   \"initializing\",\n  ]\n\n ❯ lib/__tests__/route-source-lifecycle.test.ts:115:34\n    113|     expect(props.onStatusChange).toHaveBeenLastCalledWith('initializin…\n    114|     vi.advanceTimersByTime(1);\n    115|     expect(props.onStatusChange).toHaveBeenLastCalledWith('error', exp…\n       |                                  ^\n    116|     expect(map.remove).toHaveBeenCalledTimes(1);\n    117|     expect(vi.getTimerCount()).toBe(0);\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯\n\n FAIL  lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > does not mistake style.load for completed startup\nAssertionError: expected last \"vi.fn()\" call to have been called with [ 'error', StringContaining \"Retry\" ]\n\n- Expected\n+ Received\n\n  [\n-   \"error\",\n-   StringContaining \"Retry\",\n+   \"initializing\",\n  ]\n\n ❯ lib/__tests__/route-source-lifecycle.test.ts:124:34\n    122|     map.emit('style.load'); render();\n    123|     vi.advanceTimersByTime(30_000);\n    124|     expect(props.onStatusChange).toHaveBeenLastCalledWith('error', exp…\n       |                                  ^\n    125|     expect(routeWrites()).toHaveLength(0);\n    126|   });\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯\n\n FAIL  lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > makes pre-load onemap failure terminal and ignores late events\nAssertionError: expected last \"vi.fn()\" call to have been called with [ 'error', Any<String> ]\n\n- Expected\n+ Received\n\n  [\n-   \"error\",\n+   \"partial\",\n    \"Some basemap tiles could not load. Walk evidence is still available.\",\n  ]\n\n ❯ lib/__tests__/route-source-lifecycle.test.ts:145:34\n    143|     const lateError = [...map.handlers.get('error')!][0];\n    144|     map.emit('error', { sourceId });\n    145|     expect(props.onStatusChange).toHaveBeenLastCalledWith('error', exp…\n       |                                  ^\n    146|     expect(map.remove).toHaveBeenCalledTimes(1);\n    147|     const status = props.onStatusChange as ReturnType<typeof vi.fn>; s…\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯\n\n FAIL  lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > makes pre-load worker failure terminal and ignores late events\nAssertionError: expected \"vi.fn()\" to be called 1 times, but got 0 times\n ❯ lib/__tests__/route-source-lifecycle.test.ts:146:24\n    144|     map.emit('error', { sourceId });\n    145|     expect(props.onStatusChange).toHaveBeenLastCalledWith('error', exp…\n    146|     expect(map.remove).toHaveBeenCalledTimes(1);\n       |                        ^\n    147|     const status = props.onStatusChange as ReturnType<typeof vi.fn>; s…\n    148|     lateLoad(); lateStyle(); lateError({ sourceId: 'onemap' }); render…\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯\n\n FAIL  lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > remounts after timeout and cannot let failed attempt A overwrite successful B\nAssertionError: expected last \"vi.fn()\" call to have been called with [ 'error', Any<String> ]\n\n- Expected\n+ Received\n\n  [\n-   \"error\",\n-   Any<String>,\n+   \"initializing\",\n  ]\n\n ❯ lib/__tests__/route-source-lifecycle.test.ts:180:34\n    178|     const oldHandlers = ['load', 'style.load', 'error'].map(event => […\n    179|     vi.advanceTimersByTime(30_000);\n    180|     expect(props.onStatusChange).toHaveBeenLastCalledWith('error', exp…\n       |                                  ^\n    181|     hooks.unmount(); hooks.reset();\n    182|     map = fakeMap(); lib.instance = map;\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯\n\n",
+      "exitCode": 1,
+      "elapsedSeconds": 6.545
+    }
+  ],
+  "inputs": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "actual": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "actual": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "actual": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "actual": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "actual": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "actual": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "actual": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "actual": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "match": true
+    }
+  ],
+  "startedAt": "2026-09-08T17:43:27.777Z",
+  "pipelineRuns": 0,
+  "installs": 0,
+  "deployment": false,
+  "finishedAt": "2026-09-08T17:43:34.615Z",
+  "ok": false
+}

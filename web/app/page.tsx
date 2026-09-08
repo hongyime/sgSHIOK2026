@@ -28,6 +28,7 @@ import type {
   FeedbackPoint,
   RouteDisplayMode,
   RouteMapItem,
+  RouteMapRecovery,
 } from "../components/route-evidence-map";
 import {
   deriveNearestTransitCandidates,
@@ -2097,6 +2098,7 @@ export default function Home() {
   const [lampOverlayEnabled, setLampOverlayEnabled] = useState(false);
   const [aboutDataOpen, setAboutDataOpen] = useState(false);
   const [mapLoadStatus, setMapLoadStatus] = useState<MapLoadStatus>("idle");
+  const [mapRecovery, setMapRecovery] = useState<RouteMapRecovery | null>(null);
   const [mapLoadError, setMapLoadError] = useState<string | null>(null);
   const [feedbackPoints, setFeedbackPoints] = useState<FeedbackPoint[]>([]);
   const [feedbackSegmentLabels, setFeedbackSegmentLabels] = useState<FeedbackSegmentLabel[]>([]);
@@ -2568,9 +2570,10 @@ export default function Home() {
     setCopyStatus("");
   };
 
-  const handleMapStatusChange = useCallback((status: MapLoadStatus, message?: string) => {
+  const handleMapStatusChange = useCallback((status: MapLoadStatus, message?: string, recovery?: RouteMapRecovery) => {
     setMapLoadStatus(status);
     setMapLoadError(message ?? null);
+    setMapRecovery(recovery ?? null);
   }, []);
 
   const copyFeedback = async () => {
@@ -2643,9 +2646,12 @@ export default function Home() {
         <p className={styles.srOnly} role="status" aria-live="polite">{visibleMapStatus}</p>
         {(mapLoadStatus === "partial" || mapLoadStatus === "error") && <div className={styles.errorBox} role="status">
           {visibleMapStatus} <button type="button" onClick={() => {
-            if (mapLoadStatus === "partial") setMapRetryKey(key => key + 1);
+            if (mapRecovery === "reload") {
+              const hasDraft = feedbackPoints.length > 0 || feedbackNote.trim().length > 0;
+              if (!hasDraft || window.confirm("Reloading will discard your unsent feedback. Reload the page?")) window.location.reload();
+            } else if (mapLoadStatus === "partial") setMapRetryKey(key => key + 1);
             else setMapInstanceKey(key => key + 1);
-          }}>Retry map</button>
+          }}>{mapRecovery === "reload" ? "Reload page" : "Retry map"}</button>
         </div>}
         {geometryError && <div className={styles.errorBox} role="status">Walk geometry could not load. Your record is still available. <button type="button" onClick={retryGeometry}>Retry geometry</button></div>}
         {chosenStopId && !transitSelection?.geom?.candidates?.[chosenStopId] && !liveRouteCache[chosenStopId] && <div className={styles.errorBox} role="status">

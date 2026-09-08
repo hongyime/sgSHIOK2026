@@ -1427,3 +1427,70 @@ DISAGREEMENTS
    navigation or a guarantee for unvisited postals.
 2. Improved harness timing is not product latency evidence. The broader task
    board and owner gates are still active.
+
+## T01 startup recovery, 2026-09-09: explicit reload after worker failure
+
+Receipt: `qa/revamp-r1/map-startup-20260909/summary.json`.
+Raw outputs and failure/capture records are linked from that receipt.
+```text
+node C:\sgSHIOK2026\qa\revamp-r1\data-cache-recovery-20260909\check.mjs startup-baseline-1 startup
+baseline:6 failed +12 passed =18
+node C:\sgSHIOK2026\qa\revamp-r1\data-cache-recovery-20260909\check.mjs startup-actions-1 startup
+focused:22 lifecycle +5 controlled-import +7 page-action =34 passed /3 files
+node C:\sgSHIOK2026\qa\revamp-r1\data-cache-recovery-20260909\check.mjs startup-full-4 full
+full:333 prior +13 lifecycle +5 import +7 page-action =358 passed
+files:35 prior +2 =37; production-data access denied in the isolated copy
+TypeScript --noEmit --incremental false:exit0
+python scripts/check_repo_integrity.py:repo_integrity=ok,exit0
+git diff --check:exit0
+node C:\sgSHIOK2026\qa\revamp-r1\cached-release-20260908\build-snapshot.mjs startup-20260909-3
+build:1yBIxF2hxkFbQ0wR27y96,exit0
+node C:\sgSHIOK2026\qa\revamp-r1\map-startup-20260909\browser.mjs reload-worker-1 1yBIxF2hxkFbQ0wR27y96
+browser:reload-worker-1-1788892118975-8677b6dd/browser.json,ok=true,exit0
+```
+
+Independent source review rejected the first patch's terminal treatment of an
+early tile error and exception-unsafe teardown. Both were corrected. Recoverable
+tiles may still reach load; pre-load retry restarts only its owned attempt.
+The page-action test host first had a recursive traversal error; its corrected
+seven tests passed in the parent's focused and final isolated runs. No claim
+that deterministic hook tests model actual React DOM, GPU or worker lifetime.
+
+Preserved browser attempts:
+- silent-worker-1:page Fetch did not intercept the worker; four features rendered.
+  This is failed fault injection, not application failure or recovery acceptance.
+  Original runner bytes preserved beside its report. Chrome99288 later ESRCH.
+- held-worker-1:proxy held the exact worker until the30-second watchdog fired.
+  Four metrics survived. In-page remount timed out again, with no new worker
+  request. MapLibre's singleton global dispatcher retains a pool owner; see
+  installed6.1.0 util/worker_pool.ts:36,util/dispatcher.ts:103 and
+  source/rtl_text_plugin_main_thread.ts:11. addProtocol itself is not the owner.
+  Original runner/report preserved. Chrome95092 later ESRCH.
+- reload-worker-1:real proxy hold, unchanged timer duration, explicit Reload page.
+  Watchdog observed30010.100ms; new Document at the same URL/build; worker200;
+  four matching current-route features at all four required sizes; metrics
+  unchanged81m/55%/37m/20m. Failure phase41.562s +recovery14.504s =56.066s
+  before cleanup, not a page-load or performance comparison. Proxy hold cleared;
+  owned Chrome exit observed; no uncaught page exception.
+
+All five final PNGs inspected. Error is actionable and retains metrics; recovered
+routes are visible with the approved top-left stack/About data position. The
+first390x844 recovery capture includes a raster crossfade; subsequent desktop,
+390x667 and320x667 captures are sharp. Source/snapshot identities and11 protected
+source anchors match. No inputs, library bytes, weights or score values changed.
+
+FINDINGS
+1. The old route probe could not time out pre-load initialization. The new
+   component deadline bounds that phase and invalidates stale callbacks.
+2. Real worker lifetime differs from isolated map-instance mocks. Explicit
+   user reload recovers the tested terminal failure; map remount alone did not.
+3. Recoverable tiles still use partial-map retry. Reload never occurs merely
+   because a status changed, and unsent feedback requires confirmation.
+4.358 tests/37 files, TypeScript/build/integrity,11 anchors and final browser pass.
+   Pipeline0,installations0,deployment commands0. No old verification line changed.
+DISAGREEMENTS
+1. An early tile error is not necessarily fatal; the initial patch was corrected
+   before landing. A green hook suite alone could not establish worker recovery.
+2. This does not complete T01:outer lazy-chunk failures, automatic legacy-client
+   upgrades and performance/physical-user acceptance remain distinct. The full
+   T01-T28 goal and owner gates remain active.

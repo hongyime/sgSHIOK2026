@@ -41,6 +41,7 @@ export interface FocusedExposureGap {
 }
 
 export type RouteMapLoadStatus = "idle" | "mounting" | "initializing" | "ready" | "partial" | "error";
+export type RouteMapRecovery = "reload";
 
 const SINGAPORE_BOUNDS: [[number, number], [number, number]] = [
   [103.55, 1.13],
@@ -48,6 +49,7 @@ const SINGAPORE_BOUNDS: [[number, number], [number, number]] = [
 ];
 
 const ONE_MAP_TILE_BOUNDS = [103.596, 1.1443, 104.4309, 1.4835] as [number, number, number, number];
+const MAP_START_TIMEOUT_MS = 30_000;
 const ONE_MAP_ATTRIBUTION =
   '<img src="https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png" style="height:20px;width:20px;"/>&nbsp;<a href="https://www.onemap.gov.sg/" target="_blank" rel="noopener noreferrer">OneMap</a>&nbsp;&copy;&nbsp;contributors&nbsp;&#124;&nbsp;<a href="https://www.sla.gov.sg/" target="_blank" rel="noopener noreferrer">Singapore Land Authority</a>';
 
@@ -1122,7 +1124,7 @@ export function RouteEvidenceMap({
   chosenStopId?: string | null;
   showLampOverlay?: boolean;
   focusedExposureGap?: FocusedExposureGap | null;
-  onStatusChange?: (status: RouteMapLoadStatus, message?: string) => void;
+  onStatusChange?: (status: RouteMapLoadStatus, message?: string, recovery?: RouteMapRecovery) => void;
   retryKey?: number;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -1137,6 +1139,8 @@ export function RouteEvidenceMap({
 
   const routeVisibleRef = useRef(false);
   const [loaded, setLoaded] = useState(false);
+  const [startupAttempt, setStartupAttempt] = useState(0);
+  const handledRetryKeyRef = useRef(retryKey);
   // A new style or explicit recovery needs current data even when props are unchanged.
   const [sourceGeneration, setSourceGeneration] = useState(0);
   const [lampData, setLampData] = useState<PointFeatureCollection>(emptyPointCollection);
@@ -1213,6 +1217,39 @@ export function RouteEvidenceMap({
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return;
     let active = true;
+    let initialLoadComplete = false;
+    let ownedMap: maplibregl.Map | null = null;
+    mapProblemRef.current = null;
+
+    function removeOwnedMap() {
+      const map = ownedMap;
+      ownedMap = null;
+      if (mapRef.current === map) mapRef.current = null;
+      if (typeof window !== "undefined") {
+        const debug = window as unknown as { __shiokRouteMap?: maplibregl.Map | null };
+        if (debug.__shiokRouteMap === map) debug.__shiokRouteMap = null;
+      }
+      try {
+        map?.remove();
+      } catch {
+        // A failed teardown must not suppress Retry or remove a later attempt.
+      }
+    }
+
+    function failStartup(message: string) {
+      if (!active || initialLoadComplete) return;
+      active = false;
+      clearTimeout(startupTimer);
+      mapProblemRef.current = { status: "error", message };
+      removeOwnedMap();
+      // MapLibre can retain a failed page-wide worker across map remounts.
+      onStatusChangeRef.current?.("error", message, "reload");
+    }
+
+    // The selected-route probe starts after load, so startup needs its own deadline.
+    const startupTimer = setTimeout(() => {
+      failStartup("The map did not start. Reload the page to try again. Walk evidence is still available.");
+    }, MAP_START_TIMEOUT_MS);
 
     async function initMap() {
       onStatusChangeRef.current?.("mounting");
@@ -1237,6 +1274,7 @@ export function RouteEvidenceMap({
         // narrow screens instead of collapsing behind MapLibre's compact toggle.
         attributionControl: false,
       });
+      ownedMap = mapRef.current;
       if (typeof window !== "undefined") {
         (window as unknown as { __shiokRouteMap?: maplibregl.Map }).__shiokRouteMap = mapRef.current;
       }
@@ -1244,6 +1282,8 @@ export function RouteEvidenceMap({
         if (!active || !mapRef.current) return;
         ensureRouteLayers(mapRef.current);
         bindPoiInteractions(mapRef.current, maplibre.Popup);
+        initialLoadComplete = true;
+        clearTimeout(startupTimer);
         setLoaded(true);
 
       });
@@ -1257,6 +1297,10 @@ export function RouteEvidenceMap({
       mapRef.current.on("error", (event) => {
         if (!active) return;
         const tileFailure = (event as { sourceId?: string }).sourceId === "onemap";
+        if (!initialLoadComplete && !tileFailure) {
+          failStartup("The map could not start. Reload the page to try again. Walk evidence is still available.");
+          return;
+        }
         const status = tileFailure ? "partial" : "error";
         const message = tileFailure ? "Some basemap tiles could not load. Walk evidence is still available." : "The map could not render. Walk evidence is still available.";
         mapProblemRef.current = { status, message };
@@ -1265,16 +1309,15 @@ export function RouteEvidenceMap({
     }
 
     void initMap().catch((err) => {
-      if (!active) return;
       const message = err instanceof Error ? err.message : "Map failed to initialize.";
-      onStatusChangeRef.current?.("error", message);
+      failStartup(message);
     });
 
     return () => {
       active = false;
+      clearTimeout(startupTimer);
       cancelProbeRef.current?.();
-      mapRef.current?.remove();
-      mapRef.current = null;
+      removeOwnedMap();
       if (typeof window !== "undefined") {
         const debugWindow = window as unknown as {
           __shiokRouteMap?: maplibregl.Map | null;
@@ -1285,7 +1328,7 @@ export function RouteEvidenceMap({
       }
       setLoaded(false);
     };
-  }, []);
+  }, [startupAttempt]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -1500,7 +1543,12 @@ export function RouteEvidenceMap({
   }, [loaded, sourceGeneration, routeKey, viewport, focusedExposureGap]);
 
   useEffect(() => {
-    if (!loaded || !retryKey) return;
+    if (retryKey === handledRetryKeyRef.current) return;
+    handledRetryKeyRef.current = retryKey;
+    if (!loaded) {
+      setStartupAttempt(attempt => attempt + 1);
+      return;
+    }
     const map = mapRef.current;
     if (!map) return;
     mapProblemRef.current = null;

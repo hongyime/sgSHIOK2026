@@ -171,3 +171,22 @@ Do not widen the rule to unversioned assets or arbitrary worker endpoints.
 Observed origin-outage rendering now passes for a previously visited walk;
 unvisited data, external tile outages and legacy client upgrades remain distinct.
 Evidence: `qa/revamp-r1/worker-cache-20260909/summary.json`.
+
+### T01 startup ownership and recovery, 2026-09-09
+
+Bound map-component startup from before its MapLibre import through the first
+`load` event with a 30-second deadline. This is a recoverability limit, not a
+load-time target. `style.load` alone is not completion. Keep the existing
+selection-specific rendered-feature probe separate after startup.
+
+A recoverable basemap tile error can still settle and allow `load`; keep that
+map and its deadline alive. Retry before load creates a fresh owned attempt;
+retry after load retains the existing source-recovery path. Terminal startup
+failure detaches the old map before teardown and requests an explicit page
+reload. MapLibre's global dispatcher can keep a failed worker alive across map
+remounts; the real fault-injection test reproduced that limitation. No private
+worker-pool reset or automatic reload is introduced. Retain the URL; ask before
+discarding unsent feedback. Late imports/events cannot change a newer attempt.
+The page's outer lazy-component chunk and automatic old-client upgrades remain
+separate acceptance requirements, not implicitly covered by this deadline.
+Evidence: `qa/revamp-r1/map-startup-20260909/summary.json`.

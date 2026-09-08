@@ -1,0 +1,8 @@
+{
+  "buildB": "NRscHVWglxKauPvXZMGR4",
+  "source": "web/public/sw.js",
+  "destination": "C:\\sgSHIOK2026\\tmp\\cached-release-startup-20260909-2\\web\\public\\sw.js",
+  "previousWorkerSha256": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc",
+  "sha256": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc",
+  "reason": "Copy the current static worker source into the QA snapshot; compare the two hashes to determine whether it changed."
+}
