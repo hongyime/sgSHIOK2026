@@ -299,7 +299,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain('role="status"');
     expect(html).toContain("Postal 560231 shelter-map panel ready.");
     expect(html).not.toContain("Postal 560231 shelter-map panel loaded.");
-    expect(html).toContain("Shelter-map walk evidence 48% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
+    expect(html).toContain("Shelter-map walk evidence 48% covered-walkway ratio.");
+    expect(html).not.toContain("181 m exposed across 2 gaps");
     expect(html).not.toContain("Shelter-map walk evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
     expect(html).toContain("Locked score for sorting 72 out of 100.");
     expect(html.indexOf("Shelter-map walk evidence 48% covered-walkway ratio")).toBeLessThan(
@@ -946,18 +947,19 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Showing the longest 3; 1 shorter gap included in the total.");
   });
 
-  it("names the shortest walk in exposure copy when that display is active", () => {
+  it("does not attach sheltered gaps to the shortest walk's exposure copy", () => {
     const html = renderScoreCard({
       routeMode: "shortest",
     });
 
     expect(html).toContain("48% covered-walkway ratio on the shortest walk.");
-    expect(html).toContain("181 m exposed across 2 gaps on the shortest walk.");
+    expect(html).toContain("Exposed gap measurements are unavailable for this shortest walk.");
+    expect(html).not.toContain("181 m exposed across 2 gaps");
     expect(html).toContain("Shortest walk distance to transit stop or exit.");
     expect(html).not.toContain("Shortest walk distance to transit.");
     expect(html).not.toContain("Sheltered walk distance to transit.");
     expect(html).toContain(
-      "Shelter-map walk evidence 48% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m."
+      "Shelter-map walk evidence 48% covered-walkway ratio."
     );
     expect(html).not.toContain(
       "Shelter-map walk evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m."
@@ -966,7 +968,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("exposed across 2 gaps on the selected walk.");
   });
 
-  it("names the displayed walk in the no-gap exposure fallback", () => {
+  it("keeps shortest gaps unavailable when the sheltered list is empty", () => {
     const recordWithoutGaps: ScoreRecord = {
       ...scoredRecord,
       exposure_gaps: [],
@@ -980,9 +982,9 @@ describe("rendered accessibility output", () => {
       rankingRecords: [recordWithoutGaps],
     });
 
-    expect(html).toContain("No exposed gaps are listed for this shortest walk.");
+    expect(html).toContain("Exposed gap measurements are unavailable for this shortest walk.");
     expect(html).toContain('aria-label="Exposed gap evidence"');
-    expect(html).toContain("All mapped segments for this shortest walk stay under covered-walkway or connector evidence.");
+    expect(html).not.toContain("All mapped segments");
     expect(html).not.toContain("All recorded segments for this display stay under covered-walkway or connector evidence.");
     expect(html).not.toContain("All recorded segments for this shortest walk stay under covered-walkway or connector evidence.");
     expect(html).toContain("Covered-walkway evidence");
@@ -990,6 +992,16 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("0 m exposed across 0 gaps");
     expect(html).not.toContain("No exposed gaps are recorded for this selected walk.");
     expect(html).not.toContain("No exposed gaps are recorded for this shortest walk.");
+  });
+
+  it.each([null, []] as const)("distinguishes sheltered missing versus recorded-empty gaps: %j", gaps => {
+    const record = { ...scoredRecord, exposure_gaps: gaps === null ? null : [] };
+    const html = renderScoreCard({ selection: { ...selection, score: record } });
+    expect(html).toContain(gaps === null
+      ? "Exposed gap measurements are unavailable for this sheltered walk."
+      : "No exposed gaps are listed for this sheltered walk.");
+    expect(html).not.toContain("All mapped segments");
+    expect(html).not.toContain("0 m exposed across 0 gaps");
   });
 
   it("labels transit stop-or-exit availability before a user switches modes", () => {
@@ -1430,9 +1442,10 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain('aria-label="Shelter-map evidence reasons"');
     expect(html).toContain("Estimate display straight-line bus estimate; Straight-line bus estimate active.");
     expect(html).not.toContain("Evidence display straight-line bus estimate");
-    expect(html).toContain("Straight-line bus estimate evidence 62% covered-walkway ratio; 181 m exposed across 2 gaps; longest gap 142 m.");
+    expect(html).toContain("Straight-line bus estimate evidence unavailable.");
+    expect(html).not.toContain("181 m exposed across 2 gaps");
     expect(html).not.toContain("Shelter-map walk evidence 62% covered-walkway ratio");
-    expect(html).toContain("Where the estimate is exposed");
+    expect(html).not.toContain("Where the estimate is exposed");
     expect(html).not.toContain("Where the walk is exposed");
     expect(html).toContain('aria-label="Straight-line bus estimate details"');
     expect(html).not.toContain('aria-label="Direct-bus fallback details"');
@@ -1440,8 +1453,8 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("onto the straight-line bus estimate");
     expect(html).not.toContain("onto the shelter-map walk");
     expect(html).not.toContain("Walk display sheltered walk; Direct bus service estimate active.");
-    expect(html).toContain("62% covered-walkway ratio for the straight-line bus estimate.");
-    expect(html).toContain("Exposed gaps for straight-line bus estimate");
+    expect(html).toContain("Unavailable covered-walkway ratio for the straight-line bus estimate.");
+    expect(html).not.toContain("Exposed gaps for straight-line bus estimate");
     expect(html).toContain("<span>Verified shelter-map walk</span><strong>No published walk</strong>");
     expect(html).not.toContain("<span>Verified shelter-map walk</span><strong>Pending</strong>");
     expect(html).not.toContain("<span>Extra walk</span><strong>0 m</strong>");

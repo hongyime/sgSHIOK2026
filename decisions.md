@@ -2665,3 +2665,33 @@ page overflow and rendered-feature counts alone are insufficient visual checks.
 Evidence: qa/revamp-r1/published-interaction-20260909/summary.json. T07 must still
 connect these measurements to honest logical-gap/fragment exploration; T06 is
 not an all-postal coverage, representative-performance or deployment claim.
+
+## 2026-09-09: Explore mapped sections without replacing logical gap statistics
+
+T07 adds a collapsed Mapped exposed sections disclosure below the walk summary.
+Each button selects an exact published, validated fragment of the current
+sheltered walk; Back to walk clears focus and restores the whole-route view.
+Shortest mode without corresponding fragment evidence offers no borrowed gap
+list. Keep missing, partial and recorded-empty evidence distinct. Home no longer
+shows the contradictory legacy exposure panels alongside this explorer.
+
+Fragment identity includes option, encoding and unrounded published length;
+context includes selected source, route variant and retained geometry. Exact
+duplicates collapse but adjacent/reversed pieces are not invented logical gaps.
+The real bus example remains36.5m uncovered and20.2m longest logical gap despite
+three mapped sections of16.3m,11m and9.1m. Do not recompute either headline from
+those fragments. A selectable section is a spatial observation, not a claim to
+have mapped every metre of a complete gap.
+
+Map focus independently verifies context, exact coordinates and membership in
+the current route. Selection/clear changes only the focus source, uses measured
+overlay padding and does not undo an intentional pan on unrelated renders.
+Close/back restores disclosure focus. If async route replacement removes a
+focused explorer, return focus to the stable Walk details button; never steal
+focus from another control. This review-found accessibility defect and inherited
+shortest/unrouted exposure assertions were corrected before landing.
+
+Evidence: qa/revamp-r1/exposure-sections-20260909/summary.json.1065 tests/46 files,
+TypeScript, build, integrity,11 anchors and the final8 inspected captures pass.
+This completes the published core-walk exploration, not full coverage, a live
+preview service, physical-phone performance acceptance or deployment.

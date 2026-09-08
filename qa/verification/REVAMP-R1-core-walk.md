@@ -1801,3 +1801,90 @@ blank EOF line. The staged whitespace check reports that artifact-only warning;
 the check with blank-at-eof disabled passes. Preserve the probe bytes rather
 than reformat its raw receipt. Continuously written QA server logs are not
 staged; their build/process identity is recorded in STATE and browser receipts.
+
+## 2026-09-09 T07: Published mapped-section exploration
+
+Working root: C:\sgSHIOK2026; hostname: Prawn-E14.
+Base: e5d33b578287ae2a23e19c604ffa2c390195012c.
+Receipt: qa/revamp-r1/exposure-sections-20260909/summary.json.
+This section is appended; no previous evidence line is replaced.
+
+Executed final validation:
+
+```text
+node C:/sgSHIOK2026/qa/revamp-r1/published-options-20260909/check.mjs exposure-full-3 full
+ Test Files  46 passed (46)
+      Tests  1065 passed (1065)
+TypeScript --noEmit --incremental false: exit0
+python scripts/check_repo_integrity.py: repo_integrity=ok; exit0
+git diff --check: exit0
+11 source anchors: match
+node C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/build-snapshot.mjs exposure-sections-20260909-2
+buildId=oTlweYMlE8n6Tc4sGF9U2; exit0
+node C:/sgSHIOK2026/qa/revamp-r1/exposure-sections-20260909/browser.mjs acceptance-3 oTlweYMlE8n6Tc4sGF9U2
+43 checks passed; 8 screenshots; owned Chrome exited; exit0
+```
+
+The checks.json/build.json/browser.json files retain raw command output and
+individual check/capture details. The summary generator verifies all12 scoped
+source/test files match the isolated tested snapshot and final built source,
+and rehashes the11 protected source anchors read-only. Tests are964 previous +
+33 model +39 explorer +17 map +10 page +2 accessibility =1065;44+2=46files.
+
+Browser capture directory: exposure-sections-20260909/acceptance-3-1788905990095
+under qa/revamp-r1. Parent inspected walk-390x844, section-1440x950,
+section-390x844, section-390x667, section-320x667, back-to-walk-320x667,
+closed-320x667 and shortest-focus-return-320x667. All have current route
+features before/after capture; section captures also have the exact published
+line vertices, visible focus features and measured focus bounds. Native keyboard
+selection/back/close, map pan preservation, actual-DOM context/shortest removal
+and outside-focus preservation pass. Replacement is programmatically triggered
+while focus stays inside the old explorer; this is not live API success evidence.
+
+Catalogue mapping: W01-W04/W09-W11/W13 use model/explorer/page/legacy tests;
+M03/M10/M15 use map lifecycle/interaction tests and final browser receipt;
+U01 is keyboard/emulated-viewport preparation, not recruited-user acceptance.
+Parfit implemented explorer/tests, Raman model/map/tests, Anscombe independent
+model tests/review, parent integration/build/browser/visual checks. Anscombe's
+final read-only review approved the async focus-removal fix, with browser proof
+subsequently obtained on the rebuilt code.
+
+Retained failures and corrections:
+- exposure-full-1 had6failures/1043pass: five inherited assertions borrowed
+  sheltered/unrouted gaps or guaranteed coverage; nullable distance also failed
+  its type contract. These were corrected explicitly. Full2 passed1051 before
+  the async-focus fix; full3 is the final1065-test state.
+- Browser1 timed out initial desktop CDP evaluation before a capture. No map
+  success or hardware-only cause is asserted. Browser2 captured the correct
+  initial mobile route but read obsolete private source._data.features for
+  focus. Final probing uses public await source.getData(). That probe failure
+  is not evidence of a map defect. Both reports remain unchanged.
+- Independent review found a real P2: removing the keyboard-focused explorer
+  asynchronously lost focus to the document. Lifetime cleanup now returns it
+  to the stable Walk details button only when the disappearing explorer owns
+  focus. Unit and final actual-DOM browser checks verify the correction.
+
+FINDINGS
+1. The collapsed mapped-section list now connects the selected walk to exact
+   exposed line fragments and back. Focus/context validation rejects stale
+   callbacks and foreign fragments without rewriting unchanged base sources.
+2. Logical gaps remain36.5m total/20.2m longest for the real bus example;
+   mapped pieces remain16.3m,11m,9.1m. Missing/partial/shortest evidence does not
+   become zero or an all-covered guarantee. Duplicate Home exposure panels are
+   suppressed; the inherited incorrect exposure assertions were corrected.
+3. Async keyboard-focus loss was found and fixed, not merely documented.
+4.1065/46 isolated tests, TypeScript/build/integrity,11 anchors and43 browser
+   checks pass;8 captures were inspected. Approved corner layout is preserved.
+DISAGREEMENTS
+1. A mapped piece is not necessarily a complete logical gap.36.4m of fragments
+   cannot replace36.5m total exposure, and16.3m cannot replace20.2m longest gap.
+2. The obsolete private-field browser probe was a harness defect; no rendering
+   repair or performance improvement is attributed to correcting it.
+3. Functional headless acceptance is not physical-phone, numerical M12,
+   nationwide coverage or release acceptance. Those gates remain open.
+
+Pipeline runs=0; pipeline cost=$0; installations=0; deployment commands=0.
+Existing inputs, protected outputs and X: were not modified. Continuously
+written preview logs are excluded from the commit. Preview4326 uses the final
+T07build; proxyPID71512 and NextPID99696. It serves existing data read-only and
+deliberately returns503 for live preview APIs.

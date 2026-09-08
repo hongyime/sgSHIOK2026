@@ -49,7 +49,9 @@ import {
 } from "../lib/subscore-ranking";
 import { requestServiceWorkerCache } from "../lib/service-worker-cache";
 import styles from "./page.module.css";
-import { WalkSummary } from "../components/walk-summary";
+import { WalkSummary, walkMetrics } from "../components/walk-summary";
+import { ExposureSectionExplorer } from "../components/exposure-section-explorer";
+import { publishedExposureSections, resolveMappedExposureFocus } from "../lib/published-exposure-sections";
 import { TransitStopPicker } from "../components/transit-stop-picker";
 import { selectPublishedTransitChoices } from "../lib/published-transit-choices";
 import {
@@ -601,7 +603,7 @@ function lockedScoreBadgeCopy(value: number | null | undefined): { label: string
     : { label: "No full locked score", value: "Walk evidence" };
 }
 
-function formatDistance(value: number | undefined): string {
+function formatDistance(value: number | null | undefined): string {
   if (typeof value !== "number") return "Unavailable";
   return value >= 1000 ? `${(value / 1000).toFixed(1)} km` : `${Math.round(value)} m`;
 }
@@ -680,7 +682,7 @@ function exposureGapMapActionLabel(gap: ExposureGap, index: number, location: st
   return `${action} ${exposureGapCopy(gap.len_m, index)} at map coordinate ${location}`;
 }
 
-function exposureGapFocusTarget(score: ScoreRecord, gap: ExposureGap, index: number): FocusedExposureGap | null {
+function exposureGapFocusTarget(score: ScoreRecord, gap: ExposureGap, index: number): { key: string; lat: number; lon: number } | null {
   if (!gap.location) return null;
   const { lat, lon } = gap.location;
   if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
@@ -1170,6 +1172,7 @@ export function ScoreCard({
   onFocusExposureGap,
   lampOverlayEnabled = false,
   hideWalkControls = false,
+  hideExposureDetails = false,
 }: {
   selection: LoadedSelection | null;
   routeMode: RouteDisplayMode;
@@ -1199,6 +1202,7 @@ export function ScoreCard({
   onFocusExposureGap?: (gap: FocusedExposureGap) => void;
   lampOverlayEnabled?: boolean;
   hideWalkControls?: boolean;
+  hideExposureDetails?: boolean;
 }) {
   const [overflowOpen, setOverflowOpen] = useState(false);
 
@@ -1242,9 +1246,9 @@ export function ScoreCard({
   const coveredRatio = score.paths?.covered_ratio !== undefined ? Math.round(score.paths.covered_ratio * 100) : null;
   const shortestCoveredRatio =
     score.paths?.shortest_covered_ratio !== undefined ? Math.round(score.paths.shortest_covered_ratio * 100) : null;
-  const selectedDistance =
-    routeMode === "shortest" && !sameRoute ? score.paths?.shortest_m : score.paths?.sheltered_m;
-  const selectedCoverage = routeMode === "shortest" && !sameRoute ? shortestCoveredRatio : coveredRatio;
+  const selectedWalkMetrics = walkMetrics(score, routeMode === "shortest" && !sameRoute, selection.publishedOption);
+  const selectedDistance = selectedWalkMetrics.distance;
+  const selectedCoverage = selectedWalkMetrics.coverage;
   const selectedRouteLabel = directBusFallback
     ? "Straight-line bus estimate"
     : previewRoute
@@ -1286,7 +1290,8 @@ export function ScoreCard({
   const sourceBreakdown = routeSourceBreakdown(selection, routeMode, sameRoute);
   const sourceEvidenceLabel = directBusFallback ? "Straight-line bus estimate source evidence" : "Shelter source evidence";
   const reasonListLabel = directBusFallback ? "Straight-line bus estimate evidence reasons" : "Shelter-map evidence reasons";
-  const exposureGaps = score.exposure_gaps ? [...score.exposure_gaps].sort((a, b) => b.len_m - a.len_m) : [];
+  const exposureGaps = selectedWalkMetrics.uncovered !== null && score.exposure_gaps
+    ? [...score.exposure_gaps].sort((a, b) => b.len_m - a.len_m) : [];
   const endpointSnapM = score.paths?.endpoint_snap_connector_m ?? 0;
   const extraWalkLabel =
     extraWalkM === null ? "Unavailable" : sameRoute || extraWalkM === 0 ? "0 m" : `+${Math.round(extraWalkM)} m`;
@@ -1361,7 +1366,9 @@ export function ScoreCard({
     : `on ${selectedWalkLabel}`;
   const longestGapText = longestGap
     ? `${formatDistance(longestGap.len_m)} is the longest exposed gap.`
-    : `No exposed gaps are listed for this ${selectedWalkLabel}.`;
+    : selectedWalkMetrics.uncovered === null
+      ? `Exposed gap measurements are unavailable for this ${selectedWalkLabel}.`
+      : `No exposed gaps are listed for this ${selectedWalkLabel}.`;
   const exposureHeroText =
     exposureGaps.length === 0
       ? longestGapText
@@ -1411,8 +1418,7 @@ export function ScoreCard({
       : `No map location is available for ${
           exposureGaps.length === 1 ? "this exposed gap" : "these exposed gaps"
         }.`;
-  const zeroGapEvidenceText = `No exposed gaps are listed for this ${selectedWalkLabel}.`;
-  const zeroGapCoverageText = `All mapped segments for this ${selectedWalkLabel} stay under covered-walkway or connector evidence.`;
+  const zeroGapEvidenceText = longestGapText;
   const evidenceRows: EvidenceBreakdownRow[] = score.subscores
     ? [
         {
@@ -1561,7 +1567,7 @@ export function ScoreCard({
 
       {!hideWalkControls && <TransitModeControl score={score} mode={transitMode} setMode={setTransitMode} />}
 
-      {score.paths && (
+      {!hideExposureDetails && score.paths && (
         <div className={styles.exposureHero} aria-label="Walk exposure evidence">
           <span>{exposureHeroLabel}</span>
           <strong>{formatPercent(selectedCoverage)} covered-walkway ratio {selectedWalkPrepPhrase}.</strong>
@@ -1772,17 +1778,16 @@ export function ScoreCard({
         </div>
       )}
 
-      {score.paths && !directBusFallback && !previewRoute && exposureGaps.length === 0 && (
+      {!hideExposureDetails && score.paths && !directBusFallback && !previewRoute && exposureGaps.length === 0 && (
         <div className={styles.gapList} aria-label="Exposed gap evidence">
           <h3>Exposed gaps {selectedWalkHeadingPhrase}</h3>
           <p className={styles.gapSummary}>
             <span>{zeroGapEvidenceText}</span>
-            <span>{zeroGapCoverageText}</span>
           </p>
         </div>
       )}
 
-      {exposureGaps.length > 0 && (
+      {!hideExposureDetails && exposureGaps.length > 0 && (
         <div className={styles.gapList} aria-label="Exposed gap evidence">
           <h3>Exposed gaps {selectedWalkHeadingPhrase}</h3>
           <p className={styles.gapSummary}>
@@ -1970,7 +1975,7 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [searchAttempted, setSearchAttempted] = useState(false);
   const [chosenStopId, setChosenStopId] = useState<string | null>(null);
-  const [focusedExposureGap, setFocusedExposureGap] = useState<FocusedExposureGap | null>(null);
+  const [exposureSelection, setExposureSelection] = useState<{ contextKey: string; sectionKey: string } | null>(null);
   const [liveRouteCache, setLiveRouteCache] = useState<Record<string, LoadedSelection>>({});
   const liveRoutePreviewInFlightRef = useRef<Map<string, Promise<LiveRoutePreviewPayload>>>(new Map());
   const [liveRoutePreviewStatuses, setLiveRoutePreviewStatuses] = useState<Record<string, LiveRoutePreviewStatus>>({});
@@ -1980,6 +1985,10 @@ export default function Home() {
   const [rankPanelOpen, setRankPanelOpen] = useState(false);
   const loadSelectionRequestIdRef = useRef(0);
   const panelRef = useRef<HTMLElement | null>(null);
+  const walkDetailsButtonRef = useRef<HTMLButtonElement | null>(null);
+  const restoreWalkControlFocus = useCallback(() => {
+    walkDetailsButtonRef.current?.focus({ preventScroll: true });
+  }, []);
   const [sheetExpanded, setSheetExpanded] = useState(false);
   const [mapRetryKey, setMapRetryKey] = useState(0);
   const [mapInstanceKey, setMapInstanceKey] = useState(0);
@@ -2005,7 +2014,7 @@ export default function Home() {
   useEffect(() => {
     setLiveRouteCache({});
     setLiveRoutePreviewStatuses({});
-    setFocusedExposureGap(null);
+    setExposureSelection(null);
     setRankPanelOpen(false);
     setRankingRecords([]);
     setRankingLoading(false);
@@ -2244,6 +2253,24 @@ export default function Home() {
     : routesAreSame(activeSelection);
   const mapRouteMode = sameSelectedRoute || (activeSelection?.publishedOption && activeSelection.publishedOption.geometry.shortest.parts.length === 0)
     ? "shiokest" : routeMode;
+  const exposureModel = useMemo(
+    () => publishedExposureSections(activeSelection?.publishedOption ?? null, mapRouteMode),
+    [activeSelection?.publishedOption, mapRouteMode]
+  );
+  // Resolve against current evidence during render, before a stale focus could reach the map.
+  const focusedExposureGap = useMemo(
+    () => resolveMappedExposureFocus(exposureModel, exposureSelection),
+    [exposureModel, exposureSelection]
+  );
+  const currentExposureContext = useRef(exposureModel.contextKey);
+  currentExposureContext.current = exposureModel.contextKey;
+  useEffect(() => {
+    setExposureSelection(current => current?.contextKey === exposureModel.contextKey ? current : null);
+  }, [exposureModel.contextKey]);
+  const handleExposureSelection = (sectionKey: string | null) => {
+    if (currentExposureContext.current !== exposureModel.contextKey) return;
+    setExposureSelection(sectionKey === null ? null : { contextKey: exposureModel.contextKey, sectionKey });
+  };
   const showDetailOverlay = Boolean(primary);
   const visibleMapStatus = mapStatusLabel(mapLoadStatus, mapLoadError);
 
@@ -2304,6 +2331,7 @@ export default function Home() {
       return;
     }
     if (!preserveInitialUrl) discardPendingUrlIntent();
+    setExposureSelection(null);
     const requestId = loadSelectionRequestIdRef.current + 1;
     loadSelectionRequestIdRef.current = requestId;
     preloadRouteMap();
@@ -2405,7 +2433,7 @@ export default function Home() {
   const handleRouteModeChange = useCallback((mode: RouteDisplayMode) => {
     discardPendingUrlIntent();
     setRouteMode(mode);
-    setFocusedExposureGap(null);
+    setExposureSelection(null);
     syncStopUrl(chosenStopId, transitMode, mode);
   }, [chosenStopId, transitMode, syncStopUrl, discardPendingUrlIntent]);
 
@@ -2414,7 +2442,7 @@ export default function Home() {
     setTransitMode(mode);
     setChosenStopId(null);
     setLiveRoutePreviewStatuses({});
-    setFocusedExposureGap(null);
+    setExposureSelection(null);
     syncStopUrl(null, mode);
   }, [syncStopUrl, discardPendingUrlIntent]);
 
@@ -2429,7 +2457,7 @@ export default function Home() {
             setTransitMode(target.mode);
             setChosenStopId(target.stopId);
             setLiveRoutePreviewStatuses({});
-            setFocusedExposureGap(null);
+            setExposureSelection(null);
             syncStopUrl(target.stopId, target.mode);
             return;
           }
@@ -2443,7 +2471,7 @@ export default function Home() {
       if (!resolved) {
         setLiveRoutePreviewStatuses({});
       }
-      setFocusedExposureGap(null);
+      setExposureSelection(null);
       syncStopUrl(resolved, mode);
     },
     [primary, mapTransitPois, transitMode, bestCandidateId, syncStopUrl, discardPendingUrlIntent]
@@ -2457,14 +2485,9 @@ export default function Home() {
     setTransitMode(target.mode);
     setChosenStopId(target.stopId);
     setLiveRoutePreviewStatuses({});
-    setFocusedExposureGap(null);
+    setExposureSelection(null);
     syncStopUrl(target.stopId, target.mode);
   };
-
-  const handleFocusExposureGap = useCallback((gap: FocusedExposureGap) => {
-    setFocusedExposureGap(gap);
-    setSheetExpanded(false);
-  }, []);
 
 
   const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -2553,6 +2576,7 @@ export default function Home() {
           chosenStopId={chosenStopId ?? bestCandidateId}
           showLampOverlay={lampOverlayEnabled}
           focusedExposureGap={focusedExposureGap}
+          mappedExposureContextKey={exposureModel.contextKey}
           onStatusChange={handleMapStatusChange}
           retryKey={mapRetryKey}
         />
@@ -2627,11 +2651,13 @@ export default function Home() {
 
         {showDetailOverlay && !aboutDataOpen && (
           <aside ref={panelRef} className={`${styles.resultPanel} ${sheetExpanded ? styles.sheetExpanded : ""}`}>
-            <button type="button" className={styles.sheetToggle} aria-expanded={sheetExpanded}
+            <button ref={walkDetailsButtonRef} type="button" className={styles.sheetToggle} aria-expanded={sheetExpanded}
               aria-controls="walk-details" onClick={() => setSheetExpanded(value => !value)}>
               {sheetExpanded ? "Collapse walk details" : "Walk details"}
             </button>
             <WalkSummary postal={primary!.result.POSTAL} score={activeSelection?.score ?? null} option={activeSelection?.publishedOption} shortest={mapRouteMode === "shortest" && !sameSelectedRoute} />
+            <ExposureSectionExplorer model={exposureModel} selectedKey={focusedExposureGap?.key ?? null}
+              onSelect={handleExposureSelection} mode={mapRouteMode} onFocusedRemoval={restoreWalkControlFocus} />
             {primary?.score && <TransitModeControl score={primary.score} mode={transitMode} setMode={handleTransitModeChange} />}
             <TransitStopPicker selection={publishedChoices} onSelect={handlePublishedChoice} />
             <div id="walk-details" className={styles.secondaryDetails}>
@@ -2688,9 +2714,9 @@ export default function Home() {
               rankPanelOpen={rankPanelOpen}
               setRankPanelOpen={setRankPanelOpen}
               focusedExposureGapKey={focusedExposureGap?.key ?? null}
-              onFocusExposureGap={handleFocusExposureGap}
               lampOverlayEnabled={lampOverlayEnabled}
               hideWalkControls
+              hideExposureDetails
             />}
             </div>
           </aside>
@@ -2698,7 +2724,10 @@ export default function Home() {
       </div>
 
         <footer className={styles.dataDock} data-map-overlay="bottom">
-          <DataDetails manifest={manifest} onToggle={event => setAboutDataOpen(event.currentTarget.open)} />
+          <DataDetails manifest={manifest} onToggle={event => {
+            setAboutDataOpen(event.currentTarget.open);
+            if (event.currentTarget.open) setExposureSelection(null);
+          }} />
         </footer>
     </main>
   );

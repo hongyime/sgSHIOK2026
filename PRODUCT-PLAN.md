@@ -155,13 +155,14 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: FREE. No automatic live-route fan-out or new backend.
 - Outcome 2026-09-09: normalized picker, independent candidate summary/geometry and real-ID URL targets are integrated; original evidence survives category changes, delayed geometry/POIs and stale preview responses. Preview field/provenance defects and inherited unrouted/range assertions corrected explicitly.769+195=964 isolated tests/44 files, TypeScript, direct build, integrity and11 anchors pass.54 browser checks and8 inspected captures cover keyboard choice/reset, category, shared candidate and4sizes; actual built/tested sources match. Text-cell and category-button bounds were added after visual review caught failures that page overflow checks missed. Evidence: `qa/revamp-r1/published-interaction-20260909/summary.json`. No performance, all-postal, pipeline or deployment claim. T07 legacy gap details remain open.
 
-### [ ] T07: Complete the uncovered-stretch journey
-- Status: READY. Size: S. Parent: P1.1.
+### [x] T07: Complete the uncovered-stretch journey
+- Status: DONE. Size: S. Parent: P1.1.
 - Depends on: T06.
 - Scope: `web/components/walk-summary.tsx`, gap controls in `web/app/page.tsx`, existing map focus adapter/tests.
 - Do: make the path from four metrics to an actual uncovered stretch and back clear. Reuse existing gap highlighting; fix concrete interaction gaps only. Keep shortest-route gaps unavailable when that geometry lacks matching evidence.
 - Tests/done: W01-W04/W09-W11/W13, M03/M10/M15, U01 preparation. Every metric and highlight belongs to the selected route; switching routes clears old focus; expand/close restores context; missing is not zero. No weather/dryness/safety guarantee.
 - Gate: FREE. This completes an inspectable core walk, not an all-postal coverage claim.
+- Outcome 2026-09-09: mapped-section disclosure selects exact validated fragment lines, preserves logical gap statistics, and returns to the whole walk. Stale selection, shortest/preview replacement, duplicate sections, pan preservation and async keyboard-focus removal are covered.964+33+39+17+10+2=1065 isolated tests/46files, TypeScript/build/integrity/11anchors pass. Final browser acceptance and8 inspected captures at4sizes pass; two earlier harness failures remain recorded. Evidence: `qa/revamp-r1/exposure-sections-20260909/summary.json`. No physical-device/performance, pipeline or deployment claim.
 
 ### [ ] T08: Define a shared home-comparison row
 - Status: READY. Size: S. Parent: P1.2.

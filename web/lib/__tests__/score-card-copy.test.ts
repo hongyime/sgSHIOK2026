@@ -1047,13 +1047,14 @@ describe("score card copy", () => {
     expect(cssSource).not.toContain(".scoreBadge strong {\n    font-size: 18px;");
   });
 
-  it("renders zero exposed gaps as evidence instead of hiding the gap section", () => {
+  it("keeps missing gap evidence distinct from recorded empty gaps", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
     expect(source).toContain('aria-label="Exposed gap evidence"');
     expect(source).toContain('<div className={styles.gapList} aria-label="Exposed gap evidence">');
-    expect(source).toContain("const zeroGapCoverageText = `All mapped segments for this ${selectedWalkLabel} stay under covered-walkway or connector evidence.`;");
-    expect(source).toContain("{zeroGapCoverageText}");
+    expect(source).toContain("selectedWalkMetrics.uncovered === null");
+    expect(source).toContain("Exposed gap measurements are unavailable for this ${selectedWalkLabel}.");
+    expect(source).not.toContain("All mapped segments for this ${selectedWalkLabel} stay under covered-walkway or connector evidence.");
     expect(source).not.toContain("All recorded segments for this display stay under covered-walkway or connector evidence.");
     expect(source).not.toContain("All recorded segments for this ${selectedWalkLabel} stay under covered-walkway or connector evidence.");
     expect(source).toContain("No exposed gaps are listed for this ${selectedWalkLabel}.");

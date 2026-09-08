@@ -1,0 +1,485 @@
+{
+  "task": "T07",
+  "date": "2026-09-08T22:24:58.919Z",
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "e5d33b578287ae2a23e19c604ffa2c390195012c",
+  "status": "complete_published_exposed_section_journey",
+  "sources": [
+    {
+      "path": "web/app/page.tsx",
+      "bytes": 112166,
+      "sha256": "782e896a1e8451e95cdfde92d2cad94fc985bfbf4125a65a09c1edde393326aa",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/components/exposure-section-explorer.module.css",
+      "bytes": 1606,
+      "sha256": "a3540b60e154b08b30e04035589b4728cd20a938b3684cefa652e80553294a5a",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/components/exposure-section-explorer.tsx",
+      "bytes": 4674,
+      "sha256": "ea7dda0c0ec66e33a4050e4ab1c8bd169bf2c419f54eeb6032cddeb1107458cd",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/components/route-evidence-map.tsx",
+      "bytes": 58360,
+      "sha256": "09f2008fed2506e72811396ea46eab95de3215c933c6db82eb52e933f4ba0bc4",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/accessibility-render.test.tsx",
+      "bytes": 79808,
+      "sha256": "046ba15ecba6266f98bfa8a05d66751aa026a871689183c9d039116a967219dd",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/exposure-section-explorer.test.tsx",
+      "bytes": 22376,
+      "sha256": "17615388d819cef0b3c8b43e6e03a39af54bdbaef280a64841994f3a878f7c71",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/published-exposure-sections.test.ts",
+      "bytes": 16575,
+      "sha256": "cd0d6511922174d22d6415893a39d81d5af8c783c5857d9dd96d4e78cc08a298",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "bytes": 49834,
+      "sha256": "83dd6a107157f5c7e973874c7c94dd1d4fd1c2a4be9884387ba310b196ac97f6",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/route-evidence-map-interaction.test.ts",
+      "bytes": 21026,
+      "sha256": "1576b6aebd5da2542a497519b72669fff08bbdc37ae35219c8e523ee79e93740",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "bytes": 29369,
+      "sha256": "331da5598e45e84d58f220f96ebcb8104ab6a92ee1189c3852fcc7b5df6e822d",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/score-card-copy.test.ts",
+      "bytes": 79586,
+      "sha256": "0ec35f7d6a3a2f8e423ab69ae2885e01fab2496b89d867e0caa6672bfbe3602b",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/published-exposure-sections.ts",
+      "bytes": 4058,
+      "sha256": "f81f4d2b17acde090bb8cbcc9799cbccabce9bbfc34976a765015947ef3522cf",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    }
+  ],
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "match": true
+    }
+  ],
+  "validation": {
+    "checksPath": "qa/revamp-r1/published-options-20260909/exposure-full-3/checks.json",
+    "buildPath": "qa/revamp-r1/cached-release-20260908/exposure-sections-20260909-2/build.json",
+    "browserPath": "qa/revamp-r1/exposure-sections-20260909/acceptance-3-1788905990095/browser.json",
+    "buildId": "oTlweYMlE8n6Tc4sGF9U2",
+    "testSnapshot": "tmp\\test-without-data-KNrxBl",
+    "tests": {
+      "previous": 964,
+      "model": 33,
+      "explorer": 39,
+      "map": 17,
+      "page": 10,
+      "accessibility": 2,
+      "total": 1065,
+      "files": 46,
+      "arithmetic": "964 + 33 + 39 + 17 + 10 + 2 = 1065; 44 + 2 = 46"
+    },
+    "commands": [
+      {
+        "command": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:/sgSHIOK2026/web/scripts/test-without-production-data.mjs",
+          "--reporter=dot"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 48.97
+      },
+      {
+        "command": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:/sgSHIOK2026/web/node_modules/typescript/bin/tsc",
+          "--project",
+          "C:/sgSHIOK2026/web/tsconfig.json",
+          "--noEmit",
+          "--incremental",
+          "false"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 1.871
+      },
+      {
+        "command": "python",
+        "args": [
+          "C:/sgSHIOK2026/scripts/check_repo_integrity.py"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 0.705
+      },
+      {
+        "command": "git",
+        "args": [
+          "diff",
+          "--check"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 0.142
+      }
+    ],
+    "browserChecks": [
+      {
+        "name": "served expected build",
+        "pass": true
+      },
+      {
+        "name": "actual HTML contains expected build",
+        "pass": true
+      },
+      {
+        "name": "logical metrics remain published values",
+        "pass": true
+      },
+      {
+        "name": "walk-390x844 current route during capture",
+        "pass": true
+      },
+      {
+        "name": "walk-390x844 equal-width stack without overflow",
+        "pass": true
+      },
+      {
+        "name": "control hit: Mapped exposed sections (3)",
+        "pass": true
+      },
+      {
+        "name": "three real mapped sections",
+        "pass": true
+      },
+      {
+        "name": "control hit: Section 116 m",
+        "pass": true
+      },
+      {
+        "name": "section-1440x950 current route during capture",
+        "pass": true
+      },
+      {
+        "name": "section-1440x950 equal-width stack without overflow",
+        "pass": true
+      },
+      {
+        "name": "section-1440x950 exact section visible and framed",
+        "pass": true
+      },
+      {
+        "name": "section-390x844 current route during capture",
+        "pass": true
+      },
+      {
+        "name": "section-390x844 equal-width stack without overflow",
+        "pass": true
+      },
+      {
+        "name": "section-390x844 exact section visible and framed",
+        "pass": true
+      },
+      {
+        "name": "section-390x667 current route during capture",
+        "pass": true
+      },
+      {
+        "name": "section-390x667 equal-width stack without overflow",
+        "pass": true
+      },
+      {
+        "name": "section-390x667 exact section visible and framed",
+        "pass": true
+      },
+      {
+        "name": "section-320x667 current route during capture",
+        "pass": true
+      },
+      {
+        "name": "section-320x667 equal-width stack without overflow",
+        "pass": true
+      },
+      {
+        "name": "section-320x667 exact section visible and framed",
+        "pass": true
+      },
+      {
+        "name": "section selection/layout made no base-route writes",
+        "pass": true
+      },
+      {
+        "name": "native gesture moved the map",
+        "pass": true
+      },
+      {
+        "name": "unrelated query edit does not undo pan",
+        "pass": true
+      },
+      {
+        "name": "control hit: Back to walk",
+        "pass": true
+      },
+      {
+        "name": "back restores keyboard focus to disclosure",
+        "pass": true
+      },
+      {
+        "name": "back-to-walk-320x667 current route during capture",
+        "pass": true
+      },
+      {
+        "name": "back-to-walk-320x667 equal-width stack without overflow",
+        "pass": true
+      },
+      {
+        "name": "control hit: Section 116 m",
+        "pass": true
+      },
+      {
+        "name": "control hit: Mapped exposed sections (3)",
+        "pass": true
+      },
+      {
+        "name": "closing returns keyboard focus",
+        "pass": true
+      },
+      {
+        "name": "closed-320x667 current route during capture",
+        "pass": true
+      },
+      {
+        "name": "closed-320x667 equal-width stack without overflow",
+        "pass": true
+      },
+      {
+        "name": "control hit: Mapped exposed sections (3)",
+        "pass": true
+      },
+      {
+        "name": "control hit: Section 116 m",
+        "pass": true
+      },
+      {
+        "name": "context replacement restores focus to stable walk control",
+        "pass": true
+      },
+      {
+        "name": "control hit: Mapped exposed sections (4)",
+        "pass": true
+      },
+      {
+        "name": "control hit: Section 1119 m",
+        "pass": true
+      },
+      {
+        "name": "unavailable explorer removal restores focus",
+        "pass": true
+      },
+      {
+        "name": "shortest-focus-return-320x667 current route during capture",
+        "pass": true
+      },
+      {
+        "name": "shortest-focus-return-320x667 equal-width stack without overflow",
+        "pass": true
+      },
+      {
+        "name": "outside keyboard focus is not stolen",
+        "pass": true
+      },
+      {
+        "name": "no uncaught browser error",
+        "pass": true
+      },
+      {
+        "name": "no live preview request",
+        "pass": true
+      }
+    ],
+    "captures": [
+      {
+        "name": "walk-390x844",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\exposure-sections-20260909\\acceptance-3-1788905990095\\walk-390x844.png",
+        "bytes": 151536,
+        "sha256": "2a53ccc55de7a0d67c107c9e20dd48a05ef2cef86ec41789d83808f5b49be9d6"
+      },
+      {
+        "name": "section-1440x950",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\exposure-sections-20260909\\acceptance-3-1788905990095\\section-1440x950.png",
+        "bytes": 471187,
+        "sha256": "758c634dd29b0eb42bd48c91cc52d489530a913a2814432f026ebbd4551334a4"
+      },
+      {
+        "name": "section-390x844",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\exposure-sections-20260909\\acceptance-3-1788905990095\\section-390x844.png",
+        "bytes": 126812,
+        "sha256": "e96adc9286091e115089a2ead2685806f2e4c03f014130aa4d6d73a90c2f534d"
+      },
+      {
+        "name": "section-390x667",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\exposure-sections-20260909\\acceptance-3-1788905990095\\section-390x667.png",
+        "bytes": 106902,
+        "sha256": "9bac94dd39411a40e7bdc1d12556ff7b49c8b311c38ffee3c630e77f28ee8c33"
+      },
+      {
+        "name": "section-320x667",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\exposure-sections-20260909\\acceptance-3-1788905990095\\section-320x667.png",
+        "bytes": 79384,
+        "sha256": "0f4a5e033a4a60b3ec56acafd28d5fd8c7cd5d146d20f10fe24137ca07f718ff"
+      },
+      {
+        "name": "back-to-walk-320x667",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\exposure-sections-20260909\\acceptance-3-1788905990095\\back-to-walk-320x667.png",
+        "bytes": 77931,
+        "sha256": "46170dbf57b42823909d9c9106ceee9d87ec89636c990500d1c2c7e872e1745c"
+      },
+      {
+        "name": "closed-320x667",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\exposure-sections-20260909\\acceptance-3-1788905990095\\closed-320x667.png",
+        "bytes": 93615,
+        "sha256": "8fe591049950a0ce2d0a3c47fcc6083c51d1d51113b9181719ddda8e1613d79e"
+      },
+      {
+        "name": "shortest-focus-return-320x667",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\exposure-sections-20260909\\acceptance-3-1788905990095\\shortest-focus-return-320x667.png",
+        "bytes": 101435,
+        "sha256": "729839459597e5058826ae426561b65950690500f01dce137ce1be95815b32db"
+      }
+    ],
+    "visualReview": "Parent inspected all eight final screenshots at 1440x950,390x844,390x667,320x667. Current selected route/focus features and exact fragment vertices checked before/after capture. Narrow inspector scrolls within its measured bounds; map, required attribution and About data remain visible.",
+    "cleanup": {
+      "closeSent": true,
+      "chromeExited": true,
+      "browserAbsent": true,
+      "chromePid": 88272
+    },
+    "review": "Parfit: explorer/tests; Raman: model/map/tests; Anscombe: independent model tests and P2 focus-removal review; parent: integration/tests/build/browser/visual review. Final scoped focus review approved read-only."
+  },
+  "retainedFailures": [
+    "exposure-full-1: 6 failed,1043 passed; five inherited assertions wrongly borrowed sheltered metrics or guaranteed coverage, and nullable distance type failed. Corrected explicitly. Full2 passed1051/46 before the focus-removal fix; full3 is final1065/46.",
+    "acceptance-1: initial desktop CDP Runtime.evaluate timeout before screenshot. No rendered-map claim and no hardware-only cause established.",
+    "acceptance-2: initial mobile route/metrics and section selection passed, but focus probe read obsolete MapLibre source._data.features. Installed library wraps _data; final harness uses public await source.getData(). This failed probe does not establish a map rendering failure.",
+    "Independent review found an actual P2: asynchronously removing the focused explorer left focus on the document. Lifetime-only cleanup now returns it to the stable Walk details button, only when the disappearing explorer owns focus. Tests and final real-DOM replacement checks cover the fix."
+  ],
+  "catalogue": {
+    "W01-W04/W09-W11/W13": "model33/explorer39/page44 tests, legacy missing-vs-empty assertions; logical metrics remain36.5m/20.2m while mapped fragments remain16.3m,11m,9.1m.",
+    "M03/M10/M15": "map lifecycle/interaction49 tests and final browser: exact published line/vertices, measured focus bounds, clear/back/close, unchanged base sources, pan preservation, context replacement and shortest removal.",
+    "U01": "Keyboard and emulated viewport preparation only; no recruited-user acceptance."
+  },
+  "findings": [
+    "A collapsed Mapped exposed sections disclosure now connects the four measurements to actual selected-route fragments and back to the whole walk.",
+    "Logical gap statistics are not reconstructed from fragments. Partial/missing/shortest geometry never becomes zero or an all-covered guarantee; legacy contradictory gap panels are suppressed in Home.",
+    "Mapped focus is independently validated against current route geometry/context. Stale callbacks, duplicate fragments, context replacement and optional renders cannot focus another route or resubmit unchanged base sources.",
+    "The inherited borrowed shortest/unrouted exposure assertions and asynchronous keyboard-focus-removal defect were corrected explicitly.",
+    "1065/46 isolated tests, TypeScript, direct build, repository integrity,11 anchors and final browser acceptance pass. All8 final screenshots were inspected."
+  ],
+  "disagreements": [
+    "A mapped section is not necessarily one complete logical gap. The real three fragments total36.4m while logical gaps total36.5m; the largest fragment16.3m is not the20.2m longest logical gap.",
+    "The second browser failure was an obsolete private-field probe, not proof that the section failed to render. No app fix is attributed to that harness repair.",
+    "Functional headless acceptance is not physical-phone, representative-performance, nationwide coverage or production-release acceptance."
+  ],
+  "limitations": [
+    "SwiftShader desktop-engine viewport emulation, not physical-device timing. No speedup claim.",
+    "QA preview uses immutable existing local artifacts and blocks live APIs; browser context-removal checks programmatically trigger replacement while keyboard focus remains inside. Actual live-preview races execute in component tests only.",
+    "No new scoring, export, installation, deployment, protected input/output mutation or X operation."
+  ],
+  "pipelineRuns": 0,
+  "pipelineCost": 0,
+  "installations": 0,
+  "deploymentCommands": 0
+}

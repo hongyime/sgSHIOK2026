@@ -2,6 +2,12 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { ComponentProps } from 'react';
 import type { PostalGeom } from '../types';
 import { readPublishedFixture } from './fixtures/published-data';
+import publishedOptions from './fixtures/published-options.json';
+import { normalizePublishedTransitOptions } from '../published-transit-options';
+import { publishedOptionGeometry } from '../published-walk-view';
+import { publishedExposureSections, resolveMappedExposureFocus } from '../published-exposure-sections';
+import { encodePolyline } from '../polyline';
+import { overlayPadding } from '../map-viewport';
 
 // A deterministic effect host for the actual component: dependency comparison,
 // state/ref/memo persistence and cleanup run; DOM/WebGL are replaced by spies.
@@ -71,8 +77,8 @@ function fakeMap() {
   sources.set('onemap', { setTiles: vi.fn() });
   return map;
 }
-let map: ReturnType<typeof fakeMap>, props: Props, frames: (() => void)[];
-const container = { closest: () => ({ querySelectorAll: () => [] }), getBoundingClientRect: () => ({ left: 0, top: 0, width: 390, height: 844 }) };
+let map: ReturnType<typeof fakeMap>, props: Props, frames: (() => void)[], overlays: any[];
+const container = { closest: () => ({ querySelectorAll: () => overlays }), getBoundingClientRect: () => ({ left: 0, top: 0, width: 390, height: 844 }) };
 function render(update: Partial<Props> = {}) {
   props = { ...props, ...update };
   let again = true, runs = 0;
@@ -96,8 +102,21 @@ async function mount() {
   map.emit('style.load'); map.emit('load'); render();
 }
 const routeWrites = () => map.writes.filter(w => routeIds.includes(w.id));
+function mappedFixture() {
+  const postal = '018956', bundle = 'fixture';
+  const pool = normalizePublishedTransitOptions({
+    postal, bundle, category: 'bus',
+    score: publishedOptions['scores/DOWNTOWN_CORE_PART_001.json'].find(row => row.postal === postal),
+    geometry: publishedOptions['geom/h3/886520db39fffff.json'][0],
+    scoreContext: { postal, bundle }, geometryContext: { postal, bundle },
+  });
+  const option = pool.options.find(row => row.selectionRef.kind === 'category_default')!;
+  const model = publishedExposureSections(option, 'shiokest');
+  const focus = resolveMappedExposureFocus(model, { contextKey: model.contextKey, sectionKey: model.sections[0].key })!;
+  return { option, model, focus, geom: publishedOptionGeometry(postal, option)! };
+}
 beforeEach(() => {
-  vi.useFakeTimers(); hooks.reset(); frames = []; map = fakeMap(); lib.instance = map;
+  vi.useFakeTimers(); hooks.reset(); frames = []; overlays = []; map = fakeMap(); lib.instance = map;
   lib.manifest.mockReset().mockResolvedValue(null);
   lib.construct.mockReset();
   vi.stubGlobal('window', { location: { search: '' }, matchMedia: () => ({ matches: true }) });
@@ -260,6 +279,112 @@ describe('M01/M08/M11: bounded map startup in the executed component', () => {
     expect(map.remove).not.toHaveBeenCalled();
     expect(oldMap.remove).toHaveBeenCalledTimes(1);
     expect(routeWrites().map(w => w.id)).toEqual(routeIds);
+  });
+});
+
+describe('T07 mapped-section focus in the executed map component', () => {
+  it('draws the exact validated line and fits its bounds with measured padding, then clear restores the walk', async () => {
+    const { focus, geom, model } = mappedFixture();
+    const panel = { left: 12, top: 12, right: 312, bottom: 330, edge: 'top-left' as const };
+    overlays = [{ dataset: { mapOverlay: panel.edge }, getBoundingClientRect: () => panel }];
+    props = { ...props, routes: [{ ...props.routes[0], geom }], mappedExposureContextKey: model.contextKey };
+    await mount();
+    const wholeWalkFit = structuredClone(map.fitBounds.mock.calls.at(-1));
+    expect(wholeWalkFit![1].padding).toEqual(overlayPadding(390, 844, [panel]));
+    map.writes.length = 0; map.fitBounds.mockClear();
+    render({ focusedExposureGap: focus });
+    const coordinates = focus.points.map(([lat, lon]) => [lon, lat]);
+    expect(map.sources.get('active-exposure-gap').data.features).toEqual([
+      expect.objectContaining({ geometry: { type: 'LineString', coordinates }, properties: expect.objectContaining({ key: focus.key }) }),
+    ]);
+    expect(map.layers.get('active-exposure-section-line')).toMatchObject({ type: 'line', source: 'active-exposure-gap' });
+    expect(map.layers.get('active-exposure-section-casing')).toMatchObject({ type: 'line', source: 'active-exposure-gap' });
+    expect(map.fitBounds).toHaveBeenCalledExactlyOnceWith([
+      [Math.min(...coordinates.map(p => p[0])), Math.min(...coordinates.map(p => p[1]))],
+      [Math.max(...coordinates.map(p => p[0])), Math.max(...coordinates.map(p => p[1]))],
+    ], wholeWalkFit![1]);
+    expect(map.easeTo).not.toHaveBeenCalled();
+    expect(map.writes.map(w => w.id)).toEqual(['active-exposure-gap']);
+    map.writes.length = 0; map.fitBounds.mockClear();
+    render({ focusedExposureGap: null });
+    expect(map.writes.map(w => w.id)).toEqual(['active-exposure-gap']);
+    expect(map.sources.get('active-exposure-gap').data.features).toEqual([]);
+    expect(map.fitBounds).toHaveBeenCalledExactlyOnceWith(...wholeWalkFit!);
+  });
+
+  it('equivalent focus objects and optional renders do not rewrite sources or snap back after a gesture', async () => {
+    const { focus, geom, model } = mappedFixture();
+    props = { ...props, routes: [{ ...props.routes[0], geom }], mappedExposureContextKey: model.contextKey, focusedExposureGap: focus };
+    await mount(); map.emit('movestart', { originalEvent: {} });
+    map.writes.length = 0; map.fitBounds.mockClear(); map.easeTo.mockClear();
+    render({ focusedExposureGap: structuredClone(focus) });
+    expect(map.writes).toEqual([]);
+    render({ transitPois: { type: 'FeatureCollection', features: [] } });
+    expect(map.writes.map(w => w.id)).toEqual(['transit-pois']);
+    expect(map.fitBounds).not.toHaveBeenCalled(); expect(map.easeTo).not.toHaveBeenCalled();
+  });
+
+  it.each(['context', 'missing-context', 'shortest', 'no-route', 'other-geometry', 'other-base', 'foreign-points', 'foreign-encoding', 'length', 'nan', 'degenerate'])('rejects stale/foreign mapped focus: %s', async mutation => {
+    const { focus, geom, model } = mappedFixture();
+    props = { ...props, routes: [{ ...props.routes[0], geom }], mappedExposureContextKey: model.contextKey, focusedExposureGap: focus };
+    await mount();
+    expect(map.sources.get('active-exposure-gap').data.features[0]?.geometry.type).toBe('LineString');
+    map.writes.length = 0;
+    if (mutation === 'context') render({ mappedExposureContextKey: 'different-current-selection' });
+    if (mutation === 'missing-context') render({ mappedExposureContextKey: null });
+    if (mutation === 'shortest') render({ mode: 'shortest' });
+    if (mutation === 'no-route') render({ routes: [] });
+    if (mutation === 'other-geometry') render({ routes: [{ ...props.routes[0], geom: { ...geom, exposure_gaps: [] } }] });
+    if (mutation === 'other-base') render({ routes: [{ ...props.routes[0], geom: { ...geom,
+      sheltered: '', sheltered_parts: [encodePolyline([[1.3, 103.8], [1.301, 103.801]])], route_segments: undefined } }] });
+    if (mutation === 'foreign-points') render({ focusedExposureGap: { ...focus, points: [[89, 170], [89.1, 170.1]] } });
+    if (mutation === 'foreign-encoding') render({ focusedExposureGap: { ...focus, encoded: encodePolyline([[89, 170], [89.1, 170.1]]) } });
+    if (mutation === 'length') render({ focusedExposureGap: { ...focus, lengthM: focus.lengthM + 1 } });
+    if (mutation === 'nan') render({ focusedExposureGap: { ...focus, points: [[Number.NaN, 103.86], [1.28, 103.861]] } });
+    if (mutation === 'degenerate') render({ focusedExposureGap: { ...focus, points: [focus.points[0], focus.points[0]] } });
+    expect(map.sources.get('active-exposure-gap').data.features).toEqual([]);
+    expect((window as any).__shiokRouteDebug.summary).not.toContain('Selected mapped exposed section');
+  });
+
+  it('allows sheltered focus in both mode and clears it when switching to shortest only', async () => {
+    const { option, geom } = mappedFixture();
+    const model = publishedExposureSections(option, 'both');
+    const focus = resolveMappedExposureFocus(model, { contextKey: model.contextKey, sectionKey: model.sections[0].key })!;
+    props = { ...props, mode: 'both', routes: [{ ...props.routes[0], geom }], mappedExposureContextKey: model.contextKey, focusedExposureGap: focus };
+    await mount();
+    expect(map.sources.get('active-exposure-gap').data.features[0]?.geometry.type).toBe('LineString');
+    render({ mode: 'shortest' });
+    expect(map.sources.get('active-exposure-gap').data.features).toEqual([]);
+  });
+
+  it('keeps mapped focus on surviving sheltered pieces when shortest is partial and the option is not retainable', async () => {
+    const { option } = mappedFixture();
+    const partial = structuredClone(option);
+    partial.geometry.shortest.status = 'partial'; partial.geometry.shortest.signature = null;
+    partial.geometry.shortest.parts = partial.geometry.shortest.parts.slice(0, 1);
+    partial.retainable = false;
+    const model = publishedExposureSections(partial, 'shiokest');
+    const focus = resolveMappedExposureFocus(model, { contextKey: model.contextKey, sectionKey: model.sections[0].key })!;
+    props = { ...props, routes: [{ ...props.routes[0], geom: publishedOptionGeometry('018956', partial)! }],
+      mappedExposureContextKey: model.contextKey, focusedExposureGap: focus };
+    await mount();
+    expect(map.sources.get('active-exposure-gap').data.features[0]?.geometry.type).toBe('LineString');
+    expect(map.sources.get('active-exposure-gap').data.features[0]?.geometry.coordinates).toEqual(focus.points.map(([lat, lon]) => [lon, lat]));
+  });
+
+  it('restores current line focus after style recreation without mutating readonly points', async () => {
+    const { focus, geom, model } = mappedFixture();
+    for (const point of focus.points) Object.freeze(point);
+    Object.freeze(focus.points); Object.freeze(focus);
+    props = { ...props, routes: [{ ...props.routes[0], geom }], mappedExposureContextKey: model.contextKey, focusedExposureGap: focus };
+    await mount();
+    const expected = structuredClone(map.sources.get('active-exposure-gap').data);
+    expect(expected.features[0]?.geometry.type).toBe('LineString');
+    for (const id of allIds) map.sources.delete(id);
+    map.layers.clear(); map.writes.length = 0;
+    map.emit('style.load'); render();
+    expect(map.sources.get('active-exposure-gap').data).toEqual(expected);
+    expect(map.layers.get('active-exposure-section-line')).toBeDefined();
   });
 });
 

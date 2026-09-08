@@ -108,9 +108,10 @@ vi.mock('../data', async () => {
   };
 });
 
-import Home, { ScoreCard } from '../../app/page';
+import Home, { DataDetails, ScoreCard } from '../../app/page';
 import { WalkSummary, walkMetrics } from '../../components/walk-summary';
 import { TransitStopPicker } from '../../components/transit-stop-picker';
+import { ExposureSectionExplorer } from '../../components/exposure-section-explorer';
 
 type Element = ReactElement<Record<string, unknown> & { children?: ReactNode }>;
 type MapProps = ComponentProps<typeof RouteEvidenceMap>;
@@ -206,6 +207,16 @@ function child<P>(type: unknown): ReactElement<P> {
 const map = () => child<MapProps>(dependencies.MapChild).props;
 const summary = () => child<SummaryProps>(WalkSummary).props;
 const picker = () => child<PickerProps>(TransitStopPicker).props;
+const explorer = () => child<ComponentProps<typeof ExposureSectionExplorer>>(ExposureSectionExplorer).props;
+function focusFirstSection() {
+  const section = explorer().model.sections[0];
+  expect(section).toBeDefined();
+  explorer().onSelect(section.key);
+  render();
+  expect(map().focusedExposureGap).toMatchObject({ kind: 'mapped-section', key: section.key });
+  expect(map().mappedExposureContextKey).toBe(explorer().model.contextKey);
+  return section;
+}
 
 function render() {
   for (let attempt = 0; attempt < 40; attempt++) {
@@ -651,6 +662,143 @@ describe('Home explicit preview failure and stale-response boundaries', () => {
     expect(url.searchParams.get('postal')).toBe(B);
     expect(url.searchParams.has('stop')).toBe(false);
     expect(picker().selection.choices).toHaveLength(0);
+  });
+});
+
+describe('Home mapped-exposure selection ownership', () => {
+  it('provides the explorer a stable walk-control focus return target', async () => {
+    await loadA();
+    const control = elements(tree).find(element => element.type === 'button' && element.props['aria-controls'] === 'walk-details')!;
+    const focus = vi.fn();
+    (control.props.ref as React.RefObject<HTMLButtonElement|null>).current = { focus } as unknown as HTMLButtonElement;
+    explorer().onFocusedRemoval!();
+    expect(focus).toHaveBeenCalledWith({ preventScroll: true });
+    const callback = explorer().onFocusedRemoval;
+    await clickPageButton('Walk details');
+    expect(explorer().onFocusedRemoval).toBe(callback);
+  });
+  it('exposes three real fragments without replacing complete logical statistics', async () => {
+    await loadA();
+    const before = walkMetrics(summary().score, summary().shortest, summary().option);
+    expect(explorer().model.sections).toHaveLength(3);
+    expect(explorer().model.sections.map(section => section.lengthM).sort((a,b) => a-b)).toEqual([9.1,11,16.3]);
+    const section = focusFirstSection();
+    expect(map().focusedExposureGap).toMatchObject({ encoded: section.encoded, points: section.points });
+    expect(explorer().selectedKey).toBe(section.key);
+    expect(walkMetrics(summary().score, summary().shortest, summary().option)).toEqual(before);
+    expect(before.uncovered).toBeCloseTo(36.5);
+    expect(before.longest).toBe(20.2);
+    expect(child<ComponentProps<typeof ScoreCard>>(ScoreCard).props.hideExposureDetails).toBe(true);
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it('clears explicitly while preserving the selected walk and URL', async () => {
+    await loadA();
+    focusFirstSection();
+    const before = { summary: summary(), routes: map().routes, href: url.href };
+    explorer().onSelect(null);
+    render();
+    expect(map().focusedExposureGap).toBeNull();
+    expect(explorer().selectedKey).toBeNull();
+    expect(summary()).toEqual(before.summary);
+    expect(map().routes).toBe(before.routes);
+    expect(url.href).toBe(before.href);
+  });
+
+  it('keeps the same focus object on unrelated detail and lighting changes', async () => {
+    await loadA();
+    focusFirstSection();
+    const focused = map().focusedExposureGap;
+    await clickPageButton('Walk details');
+    expect(map().focusedExposureGap).toBe(focused);
+    await clickPageButton('Night lighting');
+    expect(map().focusedExposureGap).toBe(focused);
+    await clickPageButton('Collapse walk details');
+    expect(map().focusedExposureGap).toBe(focused);
+  });
+
+  it('rejects a previous category callback before it can replace or clear new focus', async () => {
+    await loadA();
+    const oldProps = explorer();
+    const oldSection = focusFirstSection();
+    await setMode('mrt_lrt');
+    expect(map().focusedExposureGap).toBeNull();
+    focusFirstSection();
+    const focused = map().focusedExposureGap;
+    oldProps.onSelect(oldSection.key);
+    render();
+    expect(map().focusedExposureGap).toBe(focused);
+    oldProps.onSelect(null);
+    render();
+    expect(map().focusedExposureGap).toBe(focused);
+  });
+
+  it('candidate selection clears old focus and retains its own mapped fragments', async () => {
+    await loadA();
+    await setMode('mrt_lrt');
+    const oldSection = focusFirstSection();
+    await choose('mrt:21624');
+    expect(map().focusedExposureGap).toBeNull();
+    expect(explorer().model.sections.length).toBeGreaterThan(0);
+    expect(explorer().model.sections.some(section => section.key === oldSection.key)).toBe(false);
+    focusFirstSection();
+    expect(walkMetrics(summary().score, false, summary().option)).toMatchObject({ distance: 109.2, coverage: 0, uncovered: null, longest: null });
+    expect(elements(tree).filter(element => element.type === ScoreCard)).toHaveLength(0);
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it('shortest excludes sheltered sections and returning does not resurrect old focus', async () => {
+    await loadA();
+    await setMode('mrt_lrt');
+    focusFirstSection();
+    await setRouteMode('shortest');
+    expect(map().focusedExposureGap).toBeNull();
+    expect(explorer().model.status).toBe('unavailable');
+    expect(explorer().model.sections).toHaveLength(0);
+    await setRouteMode('shiokest');
+    expect(explorer().model.sections.length).toBeGreaterThan(0);
+    expect(map().focusedExposureGap).toBeNull();
+  });
+
+  it('same-postal resubmission clears focus immediately while the next reads wait', async () => {
+    await loadA();
+    focusFirstSection();
+    const nextScore = deferred<ScoreRecord|null>(), nextGeometry = deferred<PostalGeom|null>();
+    scores.set(A,nextScore);
+    geometries.set(A,nextGeometry);
+    const pending = submit(A);
+    expect(map().focusedExposureGap).toBeNull();
+    nextScore.resolve(sourceScore);
+    nextGeometry.resolve(sourceGeometry);
+    await settle();
+    await pending;
+    expect(map().focusedExposureGap).toBeNull();
+  });
+
+  it('opening About data clears a focus whose explorer is no longer visible', async () => {
+    await loadA();
+    focusFirstSection();
+    const about = child<ComponentProps<typeof DataDetails>>(DataDetails).props;
+    about.onToggle!({ currentTarget: { open: true } } as React.ToggleEvent<HTMLDetailsElement>);
+    render();
+    expect(map().focusedExposureGap).toBeNull();
+    expect(elements(tree).filter(element => element.type === ExposureSectionExplorer)).toHaveLength(0);
+  });
+
+  it('a successful explicit preview cannot retain or reopen a published section', async () => {
+    await previewReady();
+    const oldProps = explorer();
+    const oldSection = focusFirstSection();
+    const request = allowPreview();
+    await startPreview();
+    expect(map().focusedExposureGap).toBeNull();
+    request.resolve(Response.json({ ok: true, route_geometry: originalGeometry.candidates['mrt:21624'].sheltered_parts[0], total_distance_m:109.2 }));
+    await settle();
+    expect(summary().option).toBeUndefined();
+    expect(explorer().model.status).toBe('unavailable');
+    oldProps.onSelect(oldSection.key);
+    render();
+    expect(map().focusedExposureGap).toBeNull();
   });
 });
 

@@ -1,0 +1,1753 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "build": "w-U43QeMj81EaiUHpMmQ9",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\exposure-sections-20260909\\acceptance-2-1788904996858",
+  "profile": "C:\\sgSHIOK2026\\tmp\\exposure-browser-dbC113",
+  "startedAt": "2026-09-08T22:03:16.867Z",
+  "checks": [
+    {
+      "name": "served expected build",
+      "pass": true,
+      "detail": {
+        "build": "w-U43QeMj81EaiUHpMmQ9",
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-exposure-sections-20260909-1\\web",
+        "pid": 104184,
+        "nextPid": 103040,
+        "requests": [
+          {
+            "path": "/",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904766941
+          },
+          {
+            "path": "/_next/static/chunks/0q6yr-_s9abv8.css",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904767782
+          },
+          {
+            "path": "/_next/static/chunks/2wu61p_p0hxro.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904767821
+          },
+          {
+            "path": "/_next/static/chunks/3wkt3-74el481.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904768083
+          },
+          {
+            "path": "/_next/static/chunks/02pk9t3s3kefu.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904768094
+          },
+          {
+            "path": "/_next/static/chunks/01f6e7bd-uft9.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904768122
+          },
+          {
+            "path": "/_next/static/chunks/turbopack-2e309nymh7qge.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904768145
+          },
+          {
+            "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904768411
+          },
+          {
+            "path": "/_next/static/chunks/01mgjreeoqv7v.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904768481
+          },
+          {
+            "path": "/_next/static/chunks/0lw917ezcpwfy.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904768531
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+            "status": 200,
+            "kind": "data",
+            "at": 1788904770403
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+            "status": 404,
+            "kind": "data",
+            "at": 1788904770654
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+            "status": 404,
+            "kind": "data",
+            "at": 1788904770767
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+            "status": 200,
+            "kind": "data",
+            "at": 1788904770808
+          },
+          {
+            "path": "/_next/static/chunks/3rkv8c6mnn1zz.css",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904770810
+          },
+          {
+            "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904770956
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+            "status": 200,
+            "kind": "data",
+            "at": 1788904770982
+          },
+          {
+            "path": "/_next/static/chunks/3sabpe1h4wu8y.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904770987
+          },
+          {
+            "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904771292
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+            "status": 404,
+            "kind": "data",
+            "at": 1788904771312
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+            "status": 200,
+            "kind": "data",
+            "at": 1788904771467
+          },
+          {
+            "path": "/icon.svg",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904771658
+          },
+          {
+            "path": "/sw.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904771746
+          },
+          {
+            "path": "/_next/static/chunks/0ag5bor0qthp-.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904771749
+          },
+          {
+            "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904773534
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+            "status": 200,
+            "kind": "data",
+            "at": 1788904774661
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+            "status": 200,
+            "kind": "data",
+            "at": 1788904775122
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+            "status": 200,
+            "kind": "data",
+            "at": 1788904775135
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+            "status": 200,
+            "kind": "data",
+            "at": 1788904775238
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+            "status": 200,
+            "kind": "data",
+            "at": 1788904775318
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+            "status": 200,
+            "kind": "data",
+            "at": 1788904775360
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+            "status": 404,
+            "kind": "data",
+            "at": 1788904775430
+          },
+          {
+            "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+            "status": 200,
+            "kind": "app",
+            "at": 1788904775463
+          }
+        ]
+      }
+    },
+    {
+      "name": "actual HTML contains expected build",
+      "pass": true
+    },
+    {
+      "name": "logical metrics remain published values",
+      "pass": true,
+      "detail": [
+        "81 m",
+        "55%",
+        "37 m",
+        "20 m"
+      ]
+    },
+    {
+      "name": "walk-390x844 current route during capture",
+      "pass": true,
+      "detail": {
+        "before": {
+          "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+          "status": "ready",
+          "name": "Bayfront Stn Exit B/MBS",
+          "metrics": [
+            "81 m",
+            "55%",
+            "37 m",
+            "20 m"
+          ],
+          "routeKey": "3:shiokest:primary",
+          "routeFeatures": 4,
+          "basemap": true,
+          "moving": false,
+          "center": {
+            "lng": 103.86003,
+            "lat": 1.2840417677999199
+          },
+          "zoom": 16.6,
+          "active": [],
+          "focusRendered": 0,
+          "projected": [],
+          "focusFits": false,
+          "walkFits": false,
+          "sectionOpen": false,
+          "sectionButtons": [
+            {
+              "text": "Section 116 m",
+              "pressed": "false",
+              "rect": {
+                "x": 21,
+                "y": 322.6875,
+                "width": 278,
+                "height": 44
+              }
+            },
+            {
+              "text": "Section 211 m",
+              "pressed": "false",
+              "rect": {
+                "x": 21,
+                "y": 370.6875,
+                "width": 278,
+                "height": 44
+              }
+            },
+            {
+              "text": "Section 39 m",
+              "pressed": "false",
+              "rect": {
+                "x": 21,
+                "y": 418.6875,
+                "width": 278,
+                "height": 44
+              }
+            }
+          ],
+          "focusText": " OneMap © contributors | Singapore Land AuthorityShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.SHIOK.Map readyWalk detailsPostal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gapMapped exposed sections (3)Section 116 mSection 211 mSection 39 mPublished walkdisplayed walkMRT/LRT exitspublished walkBus stopspublished walkShortest same as sheltered walk.Check how sheltered the walk to transit feels before you pick a place.Night lightingPostal 018956 shelter-map panel ready. Bayfront Stn Exit B/Mbs. Shelter-map walk evidence 55% covered-walkway ratio; 37 m exposed across 2 gaps; longest gap 20 m. Locked score for sorting 82 out of 100. Published shelter-map walk selected. Walk display sheltered walk; Sheltered walk active.Postal 018956Bayfront Stn Exit B/MbsLocked score for sorting82/100⋯Report missing shelterCopy correction reportSheltered walkShortest walk (same)Exposed gapsHDB void-deck shelterBridge/underpass shelterMRT/LRTBus stopLTA covered linkway 45 mPostal access walk 16 mStop/exit access walk 11 mExposed 9 mSheltered walk81 mCovered-walkway ratio55%Extra walk0 m81 m sheltered walk to bus stop55% covered-walkway ratio on sheltered walkShelter-map evidence and locked scoreFour display rows; weights unchangedShelter exposureIn this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence.Heat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.Same displayed value as shelter exposure for this postal.Heat estimate evidence: covered 45 m; nearby greenery 0 m.55%Covered-walkway ratioWalk to stop or exitSheltered walk distance to bus stop.81 m35% locked stop/exit walkBus service supportA low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop.10020% locked bus supportLocked SHIOK scoreStart with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.Crossing friction still contributes 5% to the locked score, but has low separation in this release.82/100Locked score for sortingCompare nearby addressesNearby address comparison loads only when opened.Show comparisonNearby greenery 0%Access link 27 mNearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index.Access link is the short walk from the postal or transit point onto the shelter-map walk.About dataShelter-map evidence as of 2 Aug 2026. Some newer addresses and some locked scores are not in this release.Address list: June 2020 OneMap-derived postal scrape; newer developments may be missing.P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list.28 Aug 2026 OSM addr:postcode coverage cross-check: 25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 June 2020 address-list postcodes, with 20 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry.Source-age snapshot: 29 Aug 2026 17:23 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh.Source freshness detailAt the 29 Aug 2026 source-age check, Bus Stops, Bus Services, and Bus Routes were the nearest current sources to their stale threshold, and HDB Existing Building was the oldest current item. Freshness may have changed since that snapshot; source refreshes use new dated input versions instead of changing published data in place. The source inventory covers address, transport, shelter, greenery, boundary, and lighting references, including the June 2020 OneMap-derived address seed. Stale sources are ordered by days past their freshness threshold: Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Traffic Signals, Pedestrian Overhead Bridge / Underpass, Covered Linkway, NParks Heritage Trees, NParks Nature Ways, and NParks Leaf Area Index.Covered Linkway follows a quarterly 120-day freshness threshold; published data uses the Mar 2026 LTA geospatial listing. A 28 Aug 2026 source-listing check found the covered-linkway, bridge/underpass, and traffic-signal listings still matched the published data; stale source data still requires a new dated input version before any refresh.NParks Leaf Area Index is a freshness-only reference table here; walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature.Sources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address registry (© OpenStreetMap contributors, ODbL). ATTRIBUTION.mdHeat estimate: shelter plus sparse nearby greenery, not measured temperature(self.__next_f=self.__next_f||[]).push([0])self.__next_f.push([1,\"1:\\\"$Sreact.fragment\\\"\\n2:I[88287,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"default\\\"]\\n3:I[74895,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"default\\\"]\\n4:I[83380,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"ClientPageRoot\\\"]\\n5:I[40206,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\",\\\"/_next/static/chunks/01mgjreeoqv7v.js\\\",\\\"/_next/static/chunks/0lw917ezcpwfy.js\\\"],\\\"default\\\"]\\n8:I[51858,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"OutletBoundary\\\"]\\n9:\\\"$Sreact.suspense\\\"\\nb:I[51858,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"ViewportBoundary\\\"]\\nd:I[51858,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"MetadataBoundary\\\"]\\nf:I[52576,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"default\\\",1]\\n:HL[\\\"/_next/static/chunks/0q6yr-_s9abv8.css\\\",\\\"style\\\"]\\n\"])self.__next_f.push([1,\"0:{\\\"P\\\":null,\\\"c\\\":[\\\"\\\",\\\"\\\"],\\\"q\\\":\\\"\\\",\\\"i\\\":false,\\\"f\\\":[[[\\\"\\\",{\\\"children\\\":[\\\"__PAGE__\\\",{},\\\"$undefined\\\",\\\"$undefined\\\",4608]},\\\"$undefined\\\",\\\"$undefined\\\",4624],[[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[[\\\"$\\\",\\\"script\\\",\\\"script-0\\\",{\\\"src\\\":\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\",\\\"async\\\":true,\\\"nonce\\\":\\\"$undefined\\\"}]],[\\\"$\\\",\\\"html\\\",null,{\\\"lang\\\":\\\"en\\\",\\\"children\\\":[[\\\"$\\\",\\\"head\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"meta\\\",null,{\\\"name\\\":\\\"viewport\\\",\\\"content\\\":\\\"width=device-width, initial-scale=1\\\"}]}],[\\\"$\\\",\\\"body\\\",null,{\\\"style\\\":{\\\"margin\\\":0,\\\"fontFamily\\\":\\\"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif\\\",\\\"backgroundColor\\\":\\\"#0f172a\\\",\\\"color\\\":\\\"#f8fafc\\\",\\\"minHeight\\\":\\\"100vh\\\",\\\"display\\\":\\\"flex\\\",\\\"flexDirection\\\":\\\"column\\\"},\\\"children\\\":[\\\"$\\\",\\\"$L2\\\",null,{\\\"parallelRouterKey\\\":\\\"children\\\",\\\"error\\\":\\\"$undefined\\\",\\\"errorStyles\\\":\\\"$undefined\\\",\\\"errorScripts\\\":\\\"$undefined\\\",\\\"template\\\":[\\\"$\\\",\\\"$L3\\\",null,{}],\\\"templateStyles\\\":\\\"$undefined\\\",\\\"templateScripts\\\":\\\"$undefined\\\",\\\"notFound\\\":[[[\\\"$\\\",\\\"title\\\",null,{\\\"children\\\":\\\"404: This page could not be found.\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"fontFamily\\\":\\\"system-ui,\\\\\\\"Segoe UI\\\\\\\",Roboto,Helvetica,Arial,sans-serif,\\\\\\\"Apple Color Emoji\\\\\\\",\\\\\\\"Segoe UI Emoji\\\\\\\"\\\",\\\"height\\\":\\\"100vh\\\",\\\"textAlign\\\":\\\"center\\\",\\\"display\\\":\\\"flex\\\",\\\"flexDirection\\\":\\\"column\\\",\\\"alignItems\\\":\\\"center\\\",\\\"justifyContent\\\":\\\"center\\\"},\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"style\\\",null,{\\\"dangerouslySetInnerHTML\\\":{\\\"__html\\\":\\\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\\\"}}],[\\\"$\\\",\\\"h1\\\",null,{\\\"className\\\":\\\"next-error-h1\\\",\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\",\\\"margin\\\":\\\"0 20px 0 0\\\",\\\"padding\\\":\\\"0 23px 0 0\\\",\\\"fontSize\\\":24,\\\"fontWeight\\\":500,\\\"verticalAlign\\\":\\\"top\\\",\\\"lineHeight\\\":\\\"49px\\\"},\\\"children\\\":404}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\"},\\\"children\\\":[\\\"$\\\",\\\"h2\\\",null,{\\\"style\\\":{\\\"fontSize\\\":14,\\\"fontWeight\\\":400,\\\"lineHeight\\\":\\\"49px\\\",\\\"margin\\\":0},\\\"children\\\":\\\"This page could not be found.\\\"}]}]]}]}]],[]],\\\"forbidden\\\":\\\"$undefined\\\",\\\"unauthorized\\\":\\\"$undefined\\\"}]}]]}]]}],{\\\"children\\\":[[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[\\\"$\\\",\\\"$L4\\\",null,{\\\"Component\\\":\\\"$5\\\",\\\"serverProvidedParams\\\":{\\\"searchParams\\\":{},\\\"params\\\":{},\\\"promises\\\":[\\\"$@6\\\",\\\"$@7\\\"]}}],[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/chunks/0q6yr-_s9abv8.css\\\",\\\"precedence\\\":\\\"next\\\",\\\"crossOrigin\\\":\\\"$undefined\\\",\\\"nonce\\\":\\\"$undefined\\\"}],[\\\"$\\\",\\\"script\\\",\\\"script-0\\\",{\\\"src\\\":\\\"/_next/static/chunks/01mgjreeoqv7v.js\\\",\\\"async\\\":true,\\\"nonce\\\":\\\"$undefined\\\"}],[\\\"$\\\",\\\"script\\\",\\\"script-1\\\",{\\\"src\\\":\\\"/_next/static/chunks/0lw917ezcpwfy.js\\\",\\\"async\\\":true,\\\"nonce\\\":\\\"$undefined\\\"}]],[\\\"$\\\",\\\"$L8\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"$9\\\",null,{\\\"name\\\":\\\"Next.MetadataOutlet\\\",\\\"children\\\":\\\"$@a\\\"}]}]]}],{},null,false,null]},null,false,null],[\\\"$\\\",\\\"$1\\\",\\\"h\\\",{\\\"children\\\":[null,[\\\"$\\\",\\\"$Lb\\\",null,{\\\"children\\\":\\\"$Lc\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"hidden\\\":true,\\\"children\\\":[\\\"$\\\",\\\"$Ld\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"$9\\\",null,{\\\"name\\\":\\\"Next.Metadata\\\",\\\"children\\\":\\\"$Le\\\"}]}]}],null]}],false]],\\\"m\\\":\\\"$undefined\\\",\\\"G\\\":[\\\"$f\\\",[]],\\\"S\\\":true,\\\"h\\\":null,\\\"r\\\":\\\"$undefined\\\",\\\"s\\\":\\\"$undefined\\\",\\\"a\\\":\\\"$undefined\\\",\\\"l\\\":\\\"$undefined\\\",\\\"p\\\":\\\"$undefined\\\",\\\"d\\\":\\\"$undefined\\\",\\\"b\\\":\\\"w-U43QeMj81EaiUHpMmQ9\\\"}\\n\"])self.__next_f.push([1,\"6:{}\\n7:\\\"$0:f:0:1:1:children:0:props:children:0:props:serverProvidedParams:params\\\"\\n\"])self.__next_f.push([1,\"c:[[\\\"$\\\",\\\"meta\\\",\\\"0\\\",{\\\"charSet\\\":\\\"utf-8\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"viewport\\\",\\\"content\\\":\\\"width=device-width, initial-scale=1\\\"}]]\\n\"])self.__next_f.push([1,\"10:I[49310,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"IconMark\\\"]\\na:null\\ne:[[\\\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"description\\\",\\\"content\\\":\\\"Check covered-walkway shelter and exposed gaps on Singapore walks to transit.\\\"}],[\\\"$\\\",\\\"link\\\",\\\"2\\\",{\\\"rel\\\":\\\"canonical\\\",\\\"href\\\":\\\"https://sgshiok.vercel.app/\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"3\\\",{\\\"property\\\":\\\"og:title\\\",\\\"content\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"4\\\",{\\\"property\\\":\\\"og:description\\\",\\\"content\\\":\\\"Check covered-walkway shelter and exposed gaps on Singapore walks to transit.\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"5\\\",{\\\"property\\\":\\\"og:url\\\",\\\"content\\\":\\\"https://sgshiok.vercel.app/\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"6\\\",{\\\"property\\\":\\\"og:site_name\\\",\\\"content\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"7\\\",{\\\"property\\\":\\\"og:type\\\",\\\"content\\\":\\\"website\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"8\\\",{\\\"name\\\":\\\"twitter:card\\\",\\\"content\\\":\\\"summary\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"9\\\",{\\\"name\\\":\\\"twitter:title\\\",\\\"content\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"10\\\",{\\\"name\\\":\\\"twitter:description\\\",\\\"content\\\":\\\"Check covered-walkway shelter and exposed gaps on Singapore walks to transit.\\\"}],[\\\"$\\\",\\\"link\\\",\\\"11\\\",{\\\"rel\\\":\\\"icon\\\",\\\"href\\\":\\\"/icon.svg\\\"}],[\\\"$\\\",\\\"$L10\\\",\\\"12\\\",{}]]\\n\"])",
+          "overflow": false,
+          "viewport": [
+            390,
+            844
+          ],
+          "padding": {
+            "top": 399.6875,
+            "right": 12,
+            "bottom": 77,
+            "left": 12
+          },
+          "search": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44
+          },
+          "panel": {
+            "x": 10,
+            "y": 106.6875,
+            "width": 300,
+            "height": 281
+          },
+          "writes": []
+        },
+        "after": {
+          "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+          "status": "ready",
+          "name": "Bayfront Stn Exit B/MBS",
+          "metrics": [
+            "81 m",
+            "55%",
+            "37 m",
+            "20 m"
+          ],
+          "routeKey": "3:shiokest:primary",
+          "routeFeatures": 4,
+          "basemap": true,
+          "moving": false,
+          "center": {
+            "lng": 103.86003,
+            "lat": 1.2840417677999199
+          },
+          "zoom": 16.6,
+          "active": [],
+          "focusRendered": 0,
+          "projected": [],
+          "focusFits": false,
+          "walkFits": false,
+          "sectionOpen": false,
+          "sectionButtons": [
+            {
+              "text": "Section 116 m",
+              "pressed": "false",
+              "rect": {
+                "x": 21,
+                "y": 322.6875,
+                "width": 278,
+                "height": 44
+              }
+            },
+            {
+              "text": "Section 211 m",
+              "pressed": "false",
+              "rect": {
+                "x": 21,
+                "y": 370.6875,
+                "width": 278,
+                "height": 44
+              }
+            },
+            {
+              "text": "Section 39 m",
+              "pressed": "false",
+              "rect": {
+                "x": 21,
+                "y": 418.6875,
+                "width": 278,
+                "height": 44
+              }
+            }
+          ],
+          "focusText": " OneMap © contributors | Singapore Land AuthorityShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.SHIOK.Map readyWalk detailsPostal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gapMapped exposed sections (3)Section 116 mSection 211 mSection 39 mPublished walkdisplayed walkMRT/LRT exitspublished walkBus stopspublished walkShortest same as sheltered walk.Check how sheltered the walk to transit feels before you pick a place.Night lightingPostal 018956 shelter-map panel ready. Bayfront Stn Exit B/Mbs. Shelter-map walk evidence 55% covered-walkway ratio; 37 m exposed across 2 gaps; longest gap 20 m. Locked score for sorting 82 out of 100. Published shelter-map walk selected. Walk display sheltered walk; Sheltered walk active.Postal 018956Bayfront Stn Exit B/MbsLocked score for sorting82/100⋯Report missing shelterCopy correction reportSheltered walkShortest walk (same)Exposed gapsHDB void-deck shelterBridge/underpass shelterMRT/LRTBus stopLTA covered linkway 45 mPostal access walk 16 mStop/exit access walk 11 mExposed 9 mSheltered walk81 mCovered-walkway ratio55%Extra walk0 m81 m sheltered walk to bus stop55% covered-walkway ratio on sheltered walkShelter-map evidence and locked scoreFour display rows; weights unchangedShelter exposureIn this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence.Heat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.Same displayed value as shelter exposure for this postal.Heat estimate evidence: covered 45 m; nearby greenery 0 m.55%Covered-walkway ratioWalk to stop or exitSheltered walk distance to bus stop.81 m35% locked stop/exit walkBus service supportA low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop.10020% locked bus supportLocked SHIOK scoreStart with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.Crossing friction still contributes 5% to the locked score, but has low separation in this release.82/100Locked score for sortingCompare nearby addressesNearby address comparison loads only when opened.Show comparisonNearby greenery 0%Access link 27 mNearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index.Access link is the short walk from the postal or transit point onto the shelter-map walk.About dataShelter-map evidence as of 2 Aug 2026. Some newer addresses and some locked scores are not in this release.Address list: June 2020 OneMap-derived postal scrape; newer developments may be missing.P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list.28 Aug 2026 OSM addr:postcode coverage cross-check: 25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 June 2020 address-list postcodes, with 20 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry.Source-age snapshot: 29 Aug 2026 17:23 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh.Source freshness detailAt the 29 Aug 2026 source-age check, Bus Stops, Bus Services, and Bus Routes were the nearest current sources to their stale threshold, and HDB Existing Building was the oldest current item. Freshness may have changed since that snapshot; source refreshes use new dated input versions instead of changing published data in place. The source inventory covers address, transport, shelter, greenery, boundary, and lighting references, including the June 2020 OneMap-derived address seed. Stale sources are ordered by days past their freshness threshold: Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Traffic Signals, Pedestrian Overhead Bridge / Underpass, Covered Linkway, NParks Heritage Trees, NParks Nature Ways, and NParks Leaf Area Index.Covered Linkway follows a quarterly 120-day freshness threshold; published data uses the Mar 2026 LTA geospatial listing. A 28 Aug 2026 source-listing check found the covered-linkway, bridge/underpass, and traffic-signal listings still matched the published data; stale source data still requires a new dated input version before any refresh.NParks Leaf Area Index is a freshness-only reference table here; walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature.Sources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address registry (© OpenStreetMap contributors, ODbL). ATTRIBUTION.mdHeat estimate: shelter plus sparse nearby greenery, not measured temperature(self.__next_f=self.__next_f||[]).push([0])self.__next_f.push([1,\"1:\\\"$Sreact.fragment\\\"\\n2:I[88287,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"default\\\"]\\n3:I[74895,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"default\\\"]\\n4:I[83380,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"ClientPageRoot\\\"]\\n5:I[40206,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\",\\\"/_next/static/chunks/01mgjreeoqv7v.js\\\",\\\"/_next/static/chunks/0lw917ezcpwfy.js\\\"],\\\"default\\\"]\\n8:I[51858,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"OutletBoundary\\\"]\\n9:\\\"$Sreact.suspense\\\"\\nb:I[51858,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"ViewportBoundary\\\"]\\nd:I[51858,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"MetadataBoundary\\\"]\\nf:I[52576,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"default\\\",1]\\n:HL[\\\"/_next/static/chunks/0q6yr-_s9abv8.css\\\",\\\"style\\\"]\\n\"])self.__next_f.push([1,\"0:{\\\"P\\\":null,\\\"c\\\":[\\\"\\\",\\\"\\\"],\\\"q\\\":\\\"\\\",\\\"i\\\":false,\\\"f\\\":[[[\\\"\\\",{\\\"children\\\":[\\\"__PAGE__\\\",{},\\\"$undefined\\\",\\\"$undefined\\\",4608]},\\\"$undefined\\\",\\\"$undefined\\\",4624],[[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[[\\\"$\\\",\\\"script\\\",\\\"script-0\\\",{\\\"src\\\":\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\",\\\"async\\\":true,\\\"nonce\\\":\\\"$undefined\\\"}]],[\\\"$\\\",\\\"html\\\",null,{\\\"lang\\\":\\\"en\\\",\\\"children\\\":[[\\\"$\\\",\\\"head\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"meta\\\",null,{\\\"name\\\":\\\"viewport\\\",\\\"content\\\":\\\"width=device-width, initial-scale=1\\\"}]}],[\\\"$\\\",\\\"body\\\",null,{\\\"style\\\":{\\\"margin\\\":0,\\\"fontFamily\\\":\\\"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif\\\",\\\"backgroundColor\\\":\\\"#0f172a\\\",\\\"color\\\":\\\"#f8fafc\\\",\\\"minHeight\\\":\\\"100vh\\\",\\\"display\\\":\\\"flex\\\",\\\"flexDirection\\\":\\\"column\\\"},\\\"children\\\":[\\\"$\\\",\\\"$L2\\\",null,{\\\"parallelRouterKey\\\":\\\"children\\\",\\\"error\\\":\\\"$undefined\\\",\\\"errorStyles\\\":\\\"$undefined\\\",\\\"errorScripts\\\":\\\"$undefined\\\",\\\"template\\\":[\\\"$\\\",\\\"$L3\\\",null,{}],\\\"templateStyles\\\":\\\"$undefined\\\",\\\"templateScripts\\\":\\\"$undefined\\\",\\\"notFound\\\":[[[\\\"$\\\",\\\"title\\\",null,{\\\"children\\\":\\\"404: This page could not be found.\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"fontFamily\\\":\\\"system-ui,\\\\\\\"Segoe UI\\\\\\\",Roboto,Helvetica,Arial,sans-serif,\\\\\\\"Apple Color Emoji\\\\\\\",\\\\\\\"Segoe UI Emoji\\\\\\\"\\\",\\\"height\\\":\\\"100vh\\\",\\\"textAlign\\\":\\\"center\\\",\\\"display\\\":\\\"flex\\\",\\\"flexDirection\\\":\\\"column\\\",\\\"alignItems\\\":\\\"center\\\",\\\"justifyContent\\\":\\\"center\\\"},\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"style\\\",null,{\\\"dangerouslySetInnerHTML\\\":{\\\"__html\\\":\\\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\\\"}}],[\\\"$\\\",\\\"h1\\\",null,{\\\"className\\\":\\\"next-error-h1\\\",\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\",\\\"margin\\\":\\\"0 20px 0 0\\\",\\\"padding\\\":\\\"0 23px 0 0\\\",\\\"fontSize\\\":24,\\\"fontWeight\\\":500,\\\"verticalAlign\\\":\\\"top\\\",\\\"lineHeight\\\":\\\"49px\\\"},\\\"children\\\":404}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\"},\\\"children\\\":[\\\"$\\\",\\\"h2\\\",null,{\\\"style\\\":{\\\"fontSize\\\":14,\\\"fontWeight\\\":400,\\\"lineHeight\\\":\\\"49px\\\",\\\"margin\\\":0},\\\"children\\\":\\\"This page could not be found.\\\"}]}]]}]}]],[]],\\\"forbidden\\\":\\\"$undefined\\\",\\\"unauthorized\\\":\\\"$undefined\\\"}]}]]}]]}],{\\\"children\\\":[[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[\\\"$\\\",\\\"$L4\\\",null,{\\\"Component\\\":\\\"$5\\\",\\\"serverProvidedParams\\\":{\\\"searchParams\\\":{},\\\"params\\\":{},\\\"promises\\\":[\\\"$@6\\\",\\\"$@7\\\"]}}],[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/chunks/0q6yr-_s9abv8.css\\\",\\\"precedence\\\":\\\"next\\\",\\\"crossOrigin\\\":\\\"$undefined\\\",\\\"nonce\\\":\\\"$undefined\\\"}],[\\\"$\\\",\\\"script\\\",\\\"script-0\\\",{\\\"src\\\":\\\"/_next/static/chunks/01mgjreeoqv7v.js\\\",\\\"async\\\":true,\\\"nonce\\\":\\\"$undefined\\\"}],[\\\"$\\\",\\\"script\\\",\\\"script-1\\\",{\\\"src\\\":\\\"/_next/static/chunks/0lw917ezcpwfy.js\\\",\\\"async\\\":true,\\\"nonce\\\":\\\"$undefined\\\"}]],[\\\"$\\\",\\\"$L8\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"$9\\\",null,{\\\"name\\\":\\\"Next.MetadataOutlet\\\",\\\"children\\\":\\\"$@a\\\"}]}]]}],{},null,false,null]},null,false,null],[\\\"$\\\",\\\"$1\\\",\\\"h\\\",{\\\"children\\\":[null,[\\\"$\\\",\\\"$Lb\\\",null,{\\\"children\\\":\\\"$Lc\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"hidden\\\":true,\\\"children\\\":[\\\"$\\\",\\\"$Ld\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"$9\\\",null,{\\\"name\\\":\\\"Next.Metadata\\\",\\\"children\\\":\\\"$Le\\\"}]}]}],null]}],false]],\\\"m\\\":\\\"$undefined\\\",\\\"G\\\":[\\\"$f\\\",[]],\\\"S\\\":true,\\\"h\\\":null,\\\"r\\\":\\\"$undefined\\\",\\\"s\\\":\\\"$undefined\\\",\\\"a\\\":\\\"$undefined\\\",\\\"l\\\":\\\"$undefined\\\",\\\"p\\\":\\\"$undefined\\\",\\\"d\\\":\\\"$undefined\\\",\\\"b\\\":\\\"w-U43QeMj81EaiUHpMmQ9\\\"}\\n\"])self.__next_f.push([1,\"6:{}\\n7:\\\"$0:f:0:1:1:children:0:props:children:0:props:serverProvidedParams:params\\\"\\n\"])self.__next_f.push([1,\"c:[[\\\"$\\\",\\\"meta\\\",\\\"0\\\",{\\\"charSet\\\":\\\"utf-8\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"viewport\\\",\\\"content\\\":\\\"width=device-width, initial-scale=1\\\"}]]\\n\"])self.__next_f.push([1,\"10:I[49310,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"IconMark\\\"]\\na:null\\ne:[[\\\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"description\\\",\\\"content\\\":\\\"Check covered-walkway shelter and exposed gaps on Singapore walks to transit.\\\"}],[\\\"$\\\",\\\"link\\\",\\\"2\\\",{\\\"rel\\\":\\\"canonical\\\",\\\"href\\\":\\\"https://sgshiok.vercel.app/\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"3\\\",{\\\"property\\\":\\\"og:title\\\",\\\"content\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"4\\\",{\\\"property\\\":\\\"og:description\\\",\\\"content\\\":\\\"Check covered-walkway shelter and exposed gaps on Singapore walks to transit.\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"5\\\",{\\\"property\\\":\\\"og:url\\\",\\\"content\\\":\\\"https://sgshiok.vercel.app/\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"6\\\",{\\\"property\\\":\\\"og:site_name\\\",\\\"content\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"7\\\",{\\\"property\\\":\\\"og:type\\\",\\\"content\\\":\\\"website\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"8\\\",{\\\"name\\\":\\\"twitter:card\\\",\\\"content\\\":\\\"summary\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"9\\\",{\\\"name\\\":\\\"twitter:title\\\",\\\"content\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"10\\\",{\\\"name\\\":\\\"twitter:description\\\",\\\"content\\\":\\\"Check covered-walkway shelter and exposed gaps on Singapore walks to transit.\\\"}],[\\\"$\\\",\\\"link\\\",\\\"11\\\",{\\\"rel\\\":\\\"icon\\\",\\\"href\\\":\\\"/icon.svg\\\"}],[\\\"$\\\",\\\"$L10\\\",\\\"12\\\",{}]]\\n\"])",
+          "overflow": false,
+          "viewport": [
+            390,
+            844
+          ],
+          "padding": {
+            "top": 399.6875,
+            "right": 12,
+            "bottom": 77,
+            "left": 12
+          },
+          "search": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44
+          },
+          "panel": {
+            "x": 10,
+            "y": 106.6875,
+            "width": 300,
+            "height": 281
+          },
+          "writes": []
+        }
+      }
+    },
+    {
+      "name": "walk-390x844 equal-width stack without overflow",
+      "pass": true,
+      "detail": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+        "status": "ready",
+        "name": "Bayfront Stn Exit B/MBS",
+        "metrics": [
+          "81 m",
+          "55%",
+          "37 m",
+          "20 m"
+        ],
+        "routeKey": "3:shiokest:primary",
+        "routeFeatures": 4,
+        "basemap": true,
+        "moving": false,
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2840417677999199
+        },
+        "zoom": 16.6,
+        "active": [],
+        "focusRendered": 0,
+        "projected": [],
+        "focusFits": false,
+        "walkFits": false,
+        "sectionOpen": false,
+        "sectionButtons": [
+          {
+            "text": "Section 116 m",
+            "pressed": "false",
+            "rect": {
+              "x": 21,
+              "y": 322.6875,
+              "width": 278,
+              "height": 44
+            }
+          },
+          {
+            "text": "Section 211 m",
+            "pressed": "false",
+            "rect": {
+              "x": 21,
+              "y": 370.6875,
+              "width": 278,
+              "height": 44
+            }
+          },
+          {
+            "text": "Section 39 m",
+            "pressed": "false",
+            "rect": {
+              "x": 21,
+              "y": 418.6875,
+              "width": 278,
+              "height": 44
+            }
+          }
+        ],
+        "focusText": " OneMap © contributors | Singapore Land AuthorityShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.SHIOK.Map readyWalk detailsPostal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gapMapped exposed sections (3)Section 116 mSection 211 mSection 39 mPublished walkdisplayed walkMRT/LRT exitspublished walkBus stopspublished walkShortest same as sheltered walk.Check how sheltered the walk to transit feels before you pick a place.Night lightingPostal 018956 shelter-map panel ready. Bayfront Stn Exit B/Mbs. Shelter-map walk evidence 55% covered-walkway ratio; 37 m exposed across 2 gaps; longest gap 20 m. Locked score for sorting 82 out of 100. Published shelter-map walk selected. Walk display sheltered walk; Sheltered walk active.Postal 018956Bayfront Stn Exit B/MbsLocked score for sorting82/100⋯Report missing shelterCopy correction reportSheltered walkShortest walk (same)Exposed gapsHDB void-deck shelterBridge/underpass shelterMRT/LRTBus stopLTA covered linkway 45 mPostal access walk 16 mStop/exit access walk 11 mExposed 9 mSheltered walk81 mCovered-walkway ratio55%Extra walk0 m81 m sheltered walk to bus stop55% covered-walkway ratio on sheltered walkShelter-map evidence and locked scoreFour display rows; weights unchangedShelter exposureIn this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence.Heat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.Same displayed value as shelter exposure for this postal.Heat estimate evidence: covered 45 m; nearby greenery 0 m.55%Covered-walkway ratioWalk to stop or exitSheltered walk distance to bus stop.81 m35% locked stop/exit walkBus service supportA low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop.10020% locked bus supportLocked SHIOK scoreStart with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.Crossing friction still contributes 5% to the locked score, but has low separation in this release.82/100Locked score for sortingCompare nearby addressesNearby address comparison loads only when opened.Show comparisonNearby greenery 0%Access link 27 mNearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index.Access link is the short walk from the postal or transit point onto the shelter-map walk.About dataShelter-map evidence as of 2 Aug 2026. Some newer addresses and some locked scores are not in this release.Address list: June 2020 OneMap-derived postal scrape; newer developments may be missing.P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list.28 Aug 2026 OSM addr:postcode coverage cross-check: 25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 June 2020 address-list postcodes, with 20 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry.Source-age snapshot: 29 Aug 2026 17:23 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh.Source freshness detailAt the 29 Aug 2026 source-age check, Bus Stops, Bus Services, and Bus Routes were the nearest current sources to their stale threshold, and HDB Existing Building was the oldest current item. Freshness may have changed since that snapshot; source refreshes use new dated input versions instead of changing published data in place. The source inventory covers address, transport, shelter, greenery, boundary, and lighting references, including the June 2020 OneMap-derived address seed. Stale sources are ordered by days past their freshness threshold: Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Traffic Signals, Pedestrian Overhead Bridge / Underpass, Covered Linkway, NParks Heritage Trees, NParks Nature Ways, and NParks Leaf Area Index.Covered Linkway follows a quarterly 120-day freshness threshold; published data uses the Mar 2026 LTA geospatial listing. A 28 Aug 2026 source-listing check found the covered-linkway, bridge/underpass, and traffic-signal listings still matched the published data; stale source data still requires a new dated input version before any refresh.NParks Leaf Area Index is a freshness-only reference table here; walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature.Sources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address registry (© OpenStreetMap contributors, ODbL). ATTRIBUTION.mdHeat estimate: shelter plus sparse nearby greenery, not measured temperature(self.__next_f=self.__next_f||[]).push([0])self.__next_f.push([1,\"1:\\\"$Sreact.fragment\\\"\\n2:I[88287,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"default\\\"]\\n3:I[74895,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"default\\\"]\\n4:I[83380,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"ClientPageRoot\\\"]\\n5:I[40206,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\",\\\"/_next/static/chunks/01mgjreeoqv7v.js\\\",\\\"/_next/static/chunks/0lw917ezcpwfy.js\\\"],\\\"default\\\"]\\n8:I[51858,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"OutletBoundary\\\"]\\n9:\\\"$Sreact.suspense\\\"\\nb:I[51858,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"ViewportBoundary\\\"]\\nd:I[51858,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"MetadataBoundary\\\"]\\nf:I[52576,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"default\\\",1]\\n:HL[\\\"/_next/static/chunks/0q6yr-_s9abv8.css\\\",\\\"style\\\"]\\n\"])self.__next_f.push([1,\"0:{\\\"P\\\":null,\\\"c\\\":[\\\"\\\",\\\"\\\"],\\\"q\\\":\\\"\\\",\\\"i\\\":false,\\\"f\\\":[[[\\\"\\\",{\\\"children\\\":[\\\"__PAGE__\\\",{},\\\"$undefined\\\",\\\"$undefined\\\",4608]},\\\"$undefined\\\",\\\"$undefined\\\",4624],[[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[[\\\"$\\\",\\\"script\\\",\\\"script-0\\\",{\\\"src\\\":\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\",\\\"async\\\":true,\\\"nonce\\\":\\\"$undefined\\\"}]],[\\\"$\\\",\\\"html\\\",null,{\\\"lang\\\":\\\"en\\\",\\\"children\\\":[[\\\"$\\\",\\\"head\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"meta\\\",null,{\\\"name\\\":\\\"viewport\\\",\\\"content\\\":\\\"width=device-width, initial-scale=1\\\"}]}],[\\\"$\\\",\\\"body\\\",null,{\\\"style\\\":{\\\"margin\\\":0,\\\"fontFamily\\\":\\\"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif\\\",\\\"backgroundColor\\\":\\\"#0f172a\\\",\\\"color\\\":\\\"#f8fafc\\\",\\\"minHeight\\\":\\\"100vh\\\",\\\"display\\\":\\\"flex\\\",\\\"flexDirection\\\":\\\"column\\\"},\\\"children\\\":[\\\"$\\\",\\\"$L2\\\",null,{\\\"parallelRouterKey\\\":\\\"children\\\",\\\"error\\\":\\\"$undefined\\\",\\\"errorStyles\\\":\\\"$undefined\\\",\\\"errorScripts\\\":\\\"$undefined\\\",\\\"template\\\":[\\\"$\\\",\\\"$L3\\\",null,{}],\\\"templateStyles\\\":\\\"$undefined\\\",\\\"templateScripts\\\":\\\"$undefined\\\",\\\"notFound\\\":[[[\\\"$\\\",\\\"title\\\",null,{\\\"children\\\":\\\"404: This page could not be found.\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"fontFamily\\\":\\\"system-ui,\\\\\\\"Segoe UI\\\\\\\",Roboto,Helvetica,Arial,sans-serif,\\\\\\\"Apple Color Emoji\\\\\\\",\\\\\\\"Segoe UI Emoji\\\\\\\"\\\",\\\"height\\\":\\\"100vh\\\",\\\"textAlign\\\":\\\"center\\\",\\\"display\\\":\\\"flex\\\",\\\"flexDirection\\\":\\\"column\\\",\\\"alignItems\\\":\\\"center\\\",\\\"justifyContent\\\":\\\"center\\\"},\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"style\\\",null,{\\\"dangerouslySetInnerHTML\\\":{\\\"__html\\\":\\\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\\\"}}],[\\\"$\\\",\\\"h1\\\",null,{\\\"className\\\":\\\"next-error-h1\\\",\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\",\\\"margin\\\":\\\"0 20px 0 0\\\",\\\"padding\\\":\\\"0 23px 0 0\\\",\\\"fontSize\\\":24,\\\"fontWeight\\\":500,\\\"verticalAlign\\\":\\\"top\\\",\\\"lineHeight\\\":\\\"49px\\\"},\\\"children\\\":404}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\"},\\\"children\\\":[\\\"$\\\",\\\"h2\\\",null,{\\\"style\\\":{\\\"fontSize\\\":14,\\\"fontWeight\\\":400,\\\"lineHeight\\\":\\\"49px\\\",\\\"margin\\\":0},\\\"children\\\":\\\"This page could not be found.\\\"}]}]]}]}]],[]],\\\"forbidden\\\":\\\"$undefined\\\",\\\"unauthorized\\\":\\\"$undefined\\\"}]}]]}]]}],{\\\"children\\\":[[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[\\\"$\\\",\\\"$L4\\\",null,{\\\"Component\\\":\\\"$5\\\",\\\"serverProvidedParams\\\":{\\\"searchParams\\\":{},\\\"params\\\":{},\\\"promises\\\":[\\\"$@6\\\",\\\"$@7\\\"]}}],[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/chunks/0q6yr-_s9abv8.css\\\",\\\"precedence\\\":\\\"next\\\",\\\"crossOrigin\\\":\\\"$undefined\\\",\\\"nonce\\\":\\\"$undefined\\\"}],[\\\"$\\\",\\\"script\\\",\\\"script-0\\\",{\\\"src\\\":\\\"/_next/static/chunks/01mgjreeoqv7v.js\\\",\\\"async\\\":true,\\\"nonce\\\":\\\"$undefined\\\"}],[\\\"$\\\",\\\"script\\\",\\\"script-1\\\",{\\\"src\\\":\\\"/_next/static/chunks/0lw917ezcpwfy.js\\\",\\\"async\\\":true,\\\"nonce\\\":\\\"$undefined\\\"}]],[\\\"$\\\",\\\"$L8\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"$9\\\",null,{\\\"name\\\":\\\"Next.MetadataOutlet\\\",\\\"children\\\":\\\"$@a\\\"}]}]]}],{},null,false,null]},null,false,null],[\\\"$\\\",\\\"$1\\\",\\\"h\\\",{\\\"children\\\":[null,[\\\"$\\\",\\\"$Lb\\\",null,{\\\"children\\\":\\\"$Lc\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"hidden\\\":true,\\\"children\\\":[\\\"$\\\",\\\"$Ld\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"$9\\\",null,{\\\"name\\\":\\\"Next.Metadata\\\",\\\"children\\\":\\\"$Le\\\"}]}]}],null]}],false]],\\\"m\\\":\\\"$undefined\\\",\\\"G\\\":[\\\"$f\\\",[]],\\\"S\\\":true,\\\"h\\\":null,\\\"r\\\":\\\"$undefined\\\",\\\"s\\\":\\\"$undefined\\\",\\\"a\\\":\\\"$undefined\\\",\\\"l\\\":\\\"$undefined\\\",\\\"p\\\":\\\"$undefined\\\",\\\"d\\\":\\\"$undefined\\\",\\\"b\\\":\\\"w-U43QeMj81EaiUHpMmQ9\\\"}\\n\"])self.__next_f.push([1,\"6:{}\\n7:\\\"$0:f:0:1:1:children:0:props:children:0:props:serverProvidedParams:params\\\"\\n\"])self.__next_f.push([1,\"c:[[\\\"$\\\",\\\"meta\\\",\\\"0\\\",{\\\"charSet\\\":\\\"utf-8\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"viewport\\\",\\\"content\\\":\\\"width=device-width, initial-scale=1\\\"}]]\\n\"])self.__next_f.push([1,\"10:I[49310,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"IconMark\\\"]\\na:null\\ne:[[\\\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"description\\\",\\\"content\\\":\\\"Check covered-walkway shelter and exposed gaps on Singapore walks to transit.\\\"}],[\\\"$\\\",\\\"link\\\",\\\"2\\\",{\\\"rel\\\":\\\"canonical\\\",\\\"href\\\":\\\"https://sgshiok.vercel.app/\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"3\\\",{\\\"property\\\":\\\"og:title\\\",\\\"content\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"4\\\",{\\\"property\\\":\\\"og:description\\\",\\\"content\\\":\\\"Check covered-walkway shelter and exposed gaps on Singapore walks to transit.\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"5\\\",{\\\"property\\\":\\\"og:url\\\",\\\"content\\\":\\\"https://sgshiok.vercel.app/\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"6\\\",{\\\"property\\\":\\\"og:site_name\\\",\\\"content\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"7\\\",{\\\"property\\\":\\\"og:type\\\",\\\"content\\\":\\\"website\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"8\\\",{\\\"name\\\":\\\"twitter:card\\\",\\\"content\\\":\\\"summary\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"9\\\",{\\\"name\\\":\\\"twitter:title\\\",\\\"content\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"10\\\",{\\\"name\\\":\\\"twitter:description\\\",\\\"content\\\":\\\"Check covered-walkway shelter and exposed gaps on Singapore walks to transit.\\\"}],[\\\"$\\\",\\\"link\\\",\\\"11\\\",{\\\"rel\\\":\\\"icon\\\",\\\"href\\\":\\\"/icon.svg\\\"}],[\\\"$\\\",\\\"$L10\\\",\\\"12\\\",{}]]\\n\"])",
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ],
+        "padding": {
+          "top": 399.6875,
+          "right": 12,
+          "bottom": 77,
+          "left": 12
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 281
+        },
+        "writes": []
+      }
+    },
+    {
+      "name": "control hit: Mapped exposed sections (3)",
+      "pass": true,
+      "detail": {
+        "x": 160,
+        "y": 300.6875,
+        "text": "Mapped exposed sections (3)",
+        "hit": true
+      }
+    },
+    {
+      "name": "three real mapped sections",
+      "pass": true,
+      "detail": [
+        {
+          "text": "Section 116 m",
+          "pressed": "false",
+          "rect": {
+            "x": 21,
+            "y": 322.6875,
+            "width": 278,
+            "height": 44
+          }
+        },
+        {
+          "text": "Section 211 m",
+          "pressed": "false",
+          "rect": {
+            "x": 21,
+            "y": 370.6875,
+            "width": 278,
+            "height": 44
+          }
+        },
+        {
+          "text": "Section 39 m",
+          "pressed": "false",
+          "rect": {
+            "x": 21,
+            "y": 418.6875,
+            "width": 278,
+            "height": 44
+          }
+        }
+      ]
+    },
+    {
+      "name": "control hit: Section 116 m",
+      "pass": true,
+      "detail": {
+        "x": 160,
+        "y": 344.6875,
+        "text": "Section 116 m",
+        "hit": true
+      }
+    },
+    {
+      "name": "selected section",
+      "pass": false,
+      "detail": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+        "status": "ready",
+        "name": "Bayfront Stn Exit B/MBS",
+        "metrics": [
+          "81 m",
+          "55%",
+          "37 m",
+          "20 m"
+        ],
+        "routeKey": "3:shiokest:primary",
+        "routeFeatures": 4,
+        "basemap": true,
+        "moving": false,
+        "center": {
+          "lng": 103.85997500000002,
+          "lat": 1.2844828163918152
+        },
+        "zoom": 16.6,
+        "active": [],
+        "focusRendered": 0,
+        "projected": [],
+        "focusFits": false,
+        "walkFits": false,
+        "sectionOpen": true,
+        "sectionButtons": [
+          {
+            "text": "Section 116 m",
+            "pressed": "true",
+            "rect": {
+              "x": 21,
+              "y": 322.6875,
+              "width": 278,
+              "height": 44
+            }
+          },
+          {
+            "text": "Section 211 m",
+            "pressed": "false",
+            "rect": {
+              "x": 21,
+              "y": 370.6875,
+              "width": 278,
+              "height": 44
+            }
+          },
+          {
+            "text": "Section 39 m",
+            "pressed": "false",
+            "rect": {
+              "x": 21,
+              "y": 418.6875,
+              "width": 278,
+              "height": 44
+            }
+          }
+        ],
+        "focusText": "Section 116 m",
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ],
+        "padding": {
+          "top": 583.6875,
+          "right": 12,
+          "bottom": 77,
+          "left": 12
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 465
+        },
+        "writes": [
+          "active-exposure-gap"
+        ]
+      }
+    }
+  ],
+  "captures": [
+    {
+      "name": "walk-390x844",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\exposure-sections-20260909\\acceptance-2-1788904996858\\walk-390x844.png",
+      "bytes": 151536,
+      "sha256": "2a53ccc55de7a0d67c107c9e20dd48a05ef2cef86ec41789d83808f5b49be9d6",
+      "before": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+        "status": "ready",
+        "name": "Bayfront Stn Exit B/MBS",
+        "metrics": [
+          "81 m",
+          "55%",
+          "37 m",
+          "20 m"
+        ],
+        "routeKey": "3:shiokest:primary",
+        "routeFeatures": 4,
+        "basemap": true,
+        "moving": false,
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2840417677999199
+        },
+        "zoom": 16.6,
+        "active": [],
+        "focusRendered": 0,
+        "projected": [],
+        "focusFits": false,
+        "walkFits": false,
+        "sectionOpen": false,
+        "sectionButtons": [
+          {
+            "text": "Section 116 m",
+            "pressed": "false",
+            "rect": {
+              "x": 21,
+              "y": 322.6875,
+              "width": 278,
+              "height": 44
+            }
+          },
+          {
+            "text": "Section 211 m",
+            "pressed": "false",
+            "rect": {
+              "x": 21,
+              "y": 370.6875,
+              "width": 278,
+              "height": 44
+            }
+          },
+          {
+            "text": "Section 39 m",
+            "pressed": "false",
+            "rect": {
+              "x": 21,
+              "y": 418.6875,
+              "width": 278,
+              "height": 44
+            }
+          }
+        ],
+        "focusText": " OneMap © contributors | Singapore Land AuthorityShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.SHIOK.Map readyWalk detailsPostal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gapMapped exposed sections (3)Section 116 mSection 211 mSection 39 mPublished walkdisplayed walkMRT/LRT exitspublished walkBus stopspublished walkShortest same as sheltered walk.Check how sheltered the walk to transit feels before you pick a place.Night lightingPostal 018956 shelter-map panel ready. Bayfront Stn Exit B/Mbs. Shelter-map walk evidence 55% covered-walkway ratio; 37 m exposed across 2 gaps; longest gap 20 m. Locked score for sorting 82 out of 100. Published shelter-map walk selected. Walk display sheltered walk; Sheltered walk active.Postal 018956Bayfront Stn Exit B/MbsLocked score for sorting82/100⋯Report missing shelterCopy correction reportSheltered walkShortest walk (same)Exposed gapsHDB void-deck shelterBridge/underpass shelterMRT/LRTBus stopLTA covered linkway 45 mPostal access walk 16 mStop/exit access walk 11 mExposed 9 mSheltered walk81 mCovered-walkway ratio55%Extra walk0 m81 m sheltered walk to bus stop55% covered-walkway ratio on sheltered walkShelter-map evidence and locked scoreFour display rows; weights unchangedShelter exposureIn this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence.Heat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.Same displayed value as shelter exposure for this postal.Heat estimate evidence: covered 45 m; nearby greenery 0 m.55%Covered-walkway ratioWalk to stop or exitSheltered walk distance to bus stop.81 m35% locked stop/exit walkBus service supportA low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop.10020% locked bus supportLocked SHIOK scoreStart with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.Crossing friction still contributes 5% to the locked score, but has low separation in this release.82/100Locked score for sortingCompare nearby addressesNearby address comparison loads only when opened.Show comparisonNearby greenery 0%Access link 27 mNearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index.Access link is the short walk from the postal or transit point onto the shelter-map walk.About dataShelter-map evidence as of 2 Aug 2026. Some newer addresses and some locked scores are not in this release.Address list: June 2020 OneMap-derived postal scrape; newer developments may be missing.P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list.28 Aug 2026 OSM addr:postcode coverage cross-check: 25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 June 2020 address-list postcodes, with 20 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry.Source-age snapshot: 29 Aug 2026 17:23 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh.Source freshness detailAt the 29 Aug 2026 source-age check, Bus Stops, Bus Services, and Bus Routes were the nearest current sources to their stale threshold, and HDB Existing Building was the oldest current item. Freshness may have changed since that snapshot; source refreshes use new dated input versions instead of changing published data in place. The source inventory covers address, transport, shelter, greenery, boundary, and lighting references, including the June 2020 OneMap-derived address seed. Stale sources are ordered by days past their freshness threshold: Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Traffic Signals, Pedestrian Overhead Bridge / Underpass, Covered Linkway, NParks Heritage Trees, NParks Nature Ways, and NParks Leaf Area Index.Covered Linkway follows a quarterly 120-day freshness threshold; published data uses the Mar 2026 LTA geospatial listing. A 28 Aug 2026 source-listing check found the covered-linkway, bridge/underpass, and traffic-signal listings still matched the published data; stale source data still requires a new dated input version before any refresh.NParks Leaf Area Index is a freshness-only reference table here; walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature.Sources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address registry (© OpenStreetMap contributors, ODbL). ATTRIBUTION.mdHeat estimate: shelter plus sparse nearby greenery, not measured temperature(self.__next_f=self.__next_f||[]).push([0])self.__next_f.push([1,\"1:\\\"$Sreact.fragment\\\"\\n2:I[88287,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"default\\\"]\\n3:I[74895,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"default\\\"]\\n4:I[83380,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"ClientPageRoot\\\"]\\n5:I[40206,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\",\\\"/_next/static/chunks/01mgjreeoqv7v.js\\\",\\\"/_next/static/chunks/0lw917ezcpwfy.js\\\"],\\\"default\\\"]\\n8:I[51858,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"OutletBoundary\\\"]\\n9:\\\"$Sreact.suspense\\\"\\nb:I[51858,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"ViewportBoundary\\\"]\\nd:I[51858,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"MetadataBoundary\\\"]\\nf:I[52576,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"default\\\",1]\\n:HL[\\\"/_next/static/chunks/0q6yr-_s9abv8.css\\\",\\\"style\\\"]\\n\"])self.__next_f.push([1,\"0:{\\\"P\\\":null,\\\"c\\\":[\\\"\\\",\\\"\\\"],\\\"q\\\":\\\"\\\",\\\"i\\\":false,\\\"f\\\":[[[\\\"\\\",{\\\"children\\\":[\\\"__PAGE__\\\",{},\\\"$undefined\\\",\\\"$undefined\\\",4608]},\\\"$undefined\\\",\\\"$undefined\\\",4624],[[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[[\\\"$\\\",\\\"script\\\",\\\"script-0\\\",{\\\"src\\\":\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\",\\\"async\\\":true,\\\"nonce\\\":\\\"$undefined\\\"}]],[\\\"$\\\",\\\"html\\\",null,{\\\"lang\\\":\\\"en\\\",\\\"children\\\":[[\\\"$\\\",\\\"head\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"meta\\\",null,{\\\"name\\\":\\\"viewport\\\",\\\"content\\\":\\\"width=device-width, initial-scale=1\\\"}]}],[\\\"$\\\",\\\"body\\\",null,{\\\"style\\\":{\\\"margin\\\":0,\\\"fontFamily\\\":\\\"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif\\\",\\\"backgroundColor\\\":\\\"#0f172a\\\",\\\"color\\\":\\\"#f8fafc\\\",\\\"minHeight\\\":\\\"100vh\\\",\\\"display\\\":\\\"flex\\\",\\\"flexDirection\\\":\\\"column\\\"},\\\"children\\\":[\\\"$\\\",\\\"$L2\\\",null,{\\\"parallelRouterKey\\\":\\\"children\\\",\\\"error\\\":\\\"$undefined\\\",\\\"errorStyles\\\":\\\"$undefined\\\",\\\"errorScripts\\\":\\\"$undefined\\\",\\\"template\\\":[\\\"$\\\",\\\"$L3\\\",null,{}],\\\"templateStyles\\\":\\\"$undefined\\\",\\\"templateScripts\\\":\\\"$undefined\\\",\\\"notFound\\\":[[[\\\"$\\\",\\\"title\\\",null,{\\\"children\\\":\\\"404: This page could not be found.\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"fontFamily\\\":\\\"system-ui,\\\\\\\"Segoe UI\\\\\\\",Roboto,Helvetica,Arial,sans-serif,\\\\\\\"Apple Color Emoji\\\\\\\",\\\\\\\"Segoe UI Emoji\\\\\\\"\\\",\\\"height\\\":\\\"100vh\\\",\\\"textAlign\\\":\\\"center\\\",\\\"display\\\":\\\"flex\\\",\\\"flexDirection\\\":\\\"column\\\",\\\"alignItems\\\":\\\"center\\\",\\\"justifyContent\\\":\\\"center\\\"},\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"style\\\",null,{\\\"dangerouslySetInnerHTML\\\":{\\\"__html\\\":\\\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\\\"}}],[\\\"$\\\",\\\"h1\\\",null,{\\\"className\\\":\\\"next-error-h1\\\",\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\",\\\"margin\\\":\\\"0 20px 0 0\\\",\\\"padding\\\":\\\"0 23px 0 0\\\",\\\"fontSize\\\":24,\\\"fontWeight\\\":500,\\\"verticalAlign\\\":\\\"top\\\",\\\"lineHeight\\\":\\\"49px\\\"},\\\"children\\\":404}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\"},\\\"children\\\":[\\\"$\\\",\\\"h2\\\",null,{\\\"style\\\":{\\\"fontSize\\\":14,\\\"fontWeight\\\":400,\\\"lineHeight\\\":\\\"49px\\\",\\\"margin\\\":0},\\\"children\\\":\\\"This page could not be found.\\\"}]}]]}]}]],[]],\\\"forbidden\\\":\\\"$undefined\\\",\\\"unauthorized\\\":\\\"$undefined\\\"}]}]]}]]}],{\\\"children\\\":[[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[\\\"$\\\",\\\"$L4\\\",null,{\\\"Component\\\":\\\"$5\\\",\\\"serverProvidedParams\\\":{\\\"searchParams\\\":{},\\\"params\\\":{},\\\"promises\\\":[\\\"$@6\\\",\\\"$@7\\\"]}}],[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/chunks/0q6yr-_s9abv8.css\\\",\\\"precedence\\\":\\\"next\\\",\\\"crossOrigin\\\":\\\"$undefined\\\",\\\"nonce\\\":\\\"$undefined\\\"}],[\\\"$\\\",\\\"script\\\",\\\"script-0\\\",{\\\"src\\\":\\\"/_next/static/chunks/01mgjreeoqv7v.js\\\",\\\"async\\\":true,\\\"nonce\\\":\\\"$undefined\\\"}],[\\\"$\\\",\\\"script\\\",\\\"script-1\\\",{\\\"src\\\":\\\"/_next/static/chunks/0lw917ezcpwfy.js\\\",\\\"async\\\":true,\\\"nonce\\\":\\\"$undefined\\\"}]],[\\\"$\\\",\\\"$L8\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"$9\\\",null,{\\\"name\\\":\\\"Next.MetadataOutlet\\\",\\\"children\\\":\\\"$@a\\\"}]}]]}],{},null,false,null]},null,false,null],[\\\"$\\\",\\\"$1\\\",\\\"h\\\",{\\\"children\\\":[null,[\\\"$\\\",\\\"$Lb\\\",null,{\\\"children\\\":\\\"$Lc\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"hidden\\\":true,\\\"children\\\":[\\\"$\\\",\\\"$Ld\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"$9\\\",null,{\\\"name\\\":\\\"Next.Metadata\\\",\\\"children\\\":\\\"$Le\\\"}]}]}],null]}],false]],\\\"m\\\":\\\"$undefined\\\",\\\"G\\\":[\\\"$f\\\",[]],\\\"S\\\":true,\\\"h\\\":null,\\\"r\\\":\\\"$undefined\\\",\\\"s\\\":\\\"$undefined\\\",\\\"a\\\":\\\"$undefined\\\",\\\"l\\\":\\\"$undefined\\\",\\\"p\\\":\\\"$undefined\\\",\\\"d\\\":\\\"$undefined\\\",\\\"b\\\":\\\"w-U43QeMj81EaiUHpMmQ9\\\"}\\n\"])self.__next_f.push([1,\"6:{}\\n7:\\\"$0:f:0:1:1:children:0:props:children:0:props:serverProvidedParams:params\\\"\\n\"])self.__next_f.push([1,\"c:[[\\\"$\\\",\\\"meta\\\",\\\"0\\\",{\\\"charSet\\\":\\\"utf-8\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"viewport\\\",\\\"content\\\":\\\"width=device-width, initial-scale=1\\\"}]]\\n\"])self.__next_f.push([1,\"10:I[49310,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"IconMark\\\"]\\na:null\\ne:[[\\\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"description\\\",\\\"content\\\":\\\"Check covered-walkway shelter and exposed gaps on Singapore walks to transit.\\\"}],[\\\"$\\\",\\\"link\\\",\\\"2\\\",{\\\"rel\\\":\\\"canonical\\\",\\\"href\\\":\\\"https://sgshiok.vercel.app/\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"3\\\",{\\\"property\\\":\\\"og:title\\\",\\\"content\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"4\\\",{\\\"property\\\":\\\"og:description\\\",\\\"content\\\":\\\"Check covered-walkway shelter and exposed gaps on Singapore walks to transit.\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"5\\\",{\\\"property\\\":\\\"og:url\\\",\\\"content\\\":\\\"https://sgshiok.vercel.app/\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"6\\\",{\\\"property\\\":\\\"og:site_name\\\",\\\"content\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"7\\\",{\\\"property\\\":\\\"og:type\\\",\\\"content\\\":\\\"website\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"8\\\",{\\\"name\\\":\\\"twitter:card\\\",\\\"content\\\":\\\"summary\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"9\\\",{\\\"name\\\":\\\"twitter:title\\\",\\\"content\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"10\\\",{\\\"name\\\":\\\"twitter:description\\\",\\\"content\\\":\\\"Check covered-walkway shelter and exposed gaps on Singapore walks to transit.\\\"}],[\\\"$\\\",\\\"link\\\",\\\"11\\\",{\\\"rel\\\":\\\"icon\\\",\\\"href\\\":\\\"/icon.svg\\\"}],[\\\"$\\\",\\\"$L10\\\",\\\"12\\\",{}]]\\n\"])",
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ],
+        "padding": {
+          "top": 399.6875,
+          "right": 12,
+          "bottom": 77,
+          "left": 12
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 281
+        },
+        "writes": []
+      },
+      "after": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+        "status": "ready",
+        "name": "Bayfront Stn Exit B/MBS",
+        "metrics": [
+          "81 m",
+          "55%",
+          "37 m",
+          "20 m"
+        ],
+        "routeKey": "3:shiokest:primary",
+        "routeFeatures": 4,
+        "basemap": true,
+        "moving": false,
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2840417677999199
+        },
+        "zoom": 16.6,
+        "active": [],
+        "focusRendered": 0,
+        "projected": [],
+        "focusFits": false,
+        "walkFits": false,
+        "sectionOpen": false,
+        "sectionButtons": [
+          {
+            "text": "Section 116 m",
+            "pressed": "false",
+            "rect": {
+              "x": 21,
+              "y": 322.6875,
+              "width": 278,
+              "height": 44
+            }
+          },
+          {
+            "text": "Section 211 m",
+            "pressed": "false",
+            "rect": {
+              "x": 21,
+              "y": 370.6875,
+              "width": 278,
+              "height": 44
+            }
+          },
+          {
+            "text": "Section 39 m",
+            "pressed": "false",
+            "rect": {
+              "x": 21,
+              "y": 418.6875,
+              "width": 278,
+              "height": 44
+            }
+          }
+        ],
+        "focusText": " OneMap © contributors | Singapore Land AuthorityShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.SHIOK.Map readyWalk detailsPostal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gapMapped exposed sections (3)Section 116 mSection 211 mSection 39 mPublished walkdisplayed walkMRT/LRT exitspublished walkBus stopspublished walkShortest same as sheltered walk.Check how sheltered the walk to transit feels before you pick a place.Night lightingPostal 018956 shelter-map panel ready. Bayfront Stn Exit B/Mbs. Shelter-map walk evidence 55% covered-walkway ratio; 37 m exposed across 2 gaps; longest gap 20 m. Locked score for sorting 82 out of 100. Published shelter-map walk selected. Walk display sheltered walk; Sheltered walk active.Postal 018956Bayfront Stn Exit B/MbsLocked score for sorting82/100⋯Report missing shelterCopy correction reportSheltered walkShortest walk (same)Exposed gapsHDB void-deck shelterBridge/underpass shelterMRT/LRTBus stopLTA covered linkway 45 mPostal access walk 16 mStop/exit access walk 11 mExposed 9 mSheltered walk81 mCovered-walkway ratio55%Extra walk0 m81 m sheltered walk to bus stop55% covered-walkway ratio on sheltered walkShelter-map evidence and locked scoreFour display rows; weights unchangedShelter exposureIn this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence.Heat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.Same displayed value as shelter exposure for this postal.Heat estimate evidence: covered 45 m; nearby greenery 0 m.55%Covered-walkway ratioWalk to stop or exitSheltered walk distance to bus stop.81 m35% locked stop/exit walkBus service supportA low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop.10020% locked bus supportLocked SHIOK scoreStart with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.Crossing friction still contributes 5% to the locked score, but has low separation in this release.82/100Locked score for sortingCompare nearby addressesNearby address comparison loads only when opened.Show comparisonNearby greenery 0%Access link 27 mNearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index.Access link is the short walk from the postal or transit point onto the shelter-map walk.About dataShelter-map evidence as of 2 Aug 2026. Some newer addresses and some locked scores are not in this release.Address list: June 2020 OneMap-derived postal scrape; newer developments may be missing.P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list.28 Aug 2026 OSM addr:postcode coverage cross-check: 25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 June 2020 address-list postcodes, with 20 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry.Source-age snapshot: 29 Aug 2026 17:23 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh.Source freshness detailAt the 29 Aug 2026 source-age check, Bus Stops, Bus Services, and Bus Routes were the nearest current sources to their stale threshold, and HDB Existing Building was the oldest current item. Freshness may have changed since that snapshot; source refreshes use new dated input versions instead of changing published data in place. The source inventory covers address, transport, shelter, greenery, boundary, and lighting references, including the June 2020 OneMap-derived address seed. Stale sources are ordered by days past their freshness threshold: Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Traffic Signals, Pedestrian Overhead Bridge / Underpass, Covered Linkway, NParks Heritage Trees, NParks Nature Ways, and NParks Leaf Area Index.Covered Linkway follows a quarterly 120-day freshness threshold; published data uses the Mar 2026 LTA geospatial listing. A 28 Aug 2026 source-listing check found the covered-linkway, bridge/underpass, and traffic-signal listings still matched the published data; stale source data still requires a new dated input version before any refresh.NParks Leaf Area Index is a freshness-only reference table here; walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature.Sources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address registry (© OpenStreetMap contributors, ODbL). ATTRIBUTION.mdHeat estimate: shelter plus sparse nearby greenery, not measured temperature(self.__next_f=self.__next_f||[]).push([0])self.__next_f.push([1,\"1:\\\"$Sreact.fragment\\\"\\n2:I[88287,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"default\\\"]\\n3:I[74895,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"default\\\"]\\n4:I[83380,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"ClientPageRoot\\\"]\\n5:I[40206,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\",\\\"/_next/static/chunks/01mgjreeoqv7v.js\\\",\\\"/_next/static/chunks/0lw917ezcpwfy.js\\\"],\\\"default\\\"]\\n8:I[51858,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"OutletBoundary\\\"]\\n9:\\\"$Sreact.suspense\\\"\\nb:I[51858,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"ViewportBoundary\\\"]\\nd:I[51858,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"MetadataBoundary\\\"]\\nf:I[52576,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"default\\\",1]\\n:HL[\\\"/_next/static/chunks/0q6yr-_s9abv8.css\\\",\\\"style\\\"]\\n\"])self.__next_f.push([1,\"0:{\\\"P\\\":null,\\\"c\\\":[\\\"\\\",\\\"\\\"],\\\"q\\\":\\\"\\\",\\\"i\\\":false,\\\"f\\\":[[[\\\"\\\",{\\\"children\\\":[\\\"__PAGE__\\\",{},\\\"$undefined\\\",\\\"$undefined\\\",4608]},\\\"$undefined\\\",\\\"$undefined\\\",4624],[[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[[\\\"$\\\",\\\"script\\\",\\\"script-0\\\",{\\\"src\\\":\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\",\\\"async\\\":true,\\\"nonce\\\":\\\"$undefined\\\"}]],[\\\"$\\\",\\\"html\\\",null,{\\\"lang\\\":\\\"en\\\",\\\"children\\\":[[\\\"$\\\",\\\"head\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"meta\\\",null,{\\\"name\\\":\\\"viewport\\\",\\\"content\\\":\\\"width=device-width, initial-scale=1\\\"}]}],[\\\"$\\\",\\\"body\\\",null,{\\\"style\\\":{\\\"margin\\\":0,\\\"fontFamily\\\":\\\"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif\\\",\\\"backgroundColor\\\":\\\"#0f172a\\\",\\\"color\\\":\\\"#f8fafc\\\",\\\"minHeight\\\":\\\"100vh\\\",\\\"display\\\":\\\"flex\\\",\\\"flexDirection\\\":\\\"column\\\"},\\\"children\\\":[\\\"$\\\",\\\"$L2\\\",null,{\\\"parallelRouterKey\\\":\\\"children\\\",\\\"error\\\":\\\"$undefined\\\",\\\"errorStyles\\\":\\\"$undefined\\\",\\\"errorScripts\\\":\\\"$undefined\\\",\\\"template\\\":[\\\"$\\\",\\\"$L3\\\",null,{}],\\\"templateStyles\\\":\\\"$undefined\\\",\\\"templateScripts\\\":\\\"$undefined\\\",\\\"notFound\\\":[[[\\\"$\\\",\\\"title\\\",null,{\\\"children\\\":\\\"404: This page could not be found.\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"fontFamily\\\":\\\"system-ui,\\\\\\\"Segoe UI\\\\\\\",Roboto,Helvetica,Arial,sans-serif,\\\\\\\"Apple Color Emoji\\\\\\\",\\\\\\\"Segoe UI Emoji\\\\\\\"\\\",\\\"height\\\":\\\"100vh\\\",\\\"textAlign\\\":\\\"center\\\",\\\"display\\\":\\\"flex\\\",\\\"flexDirection\\\":\\\"column\\\",\\\"alignItems\\\":\\\"center\\\",\\\"justifyContent\\\":\\\"center\\\"},\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"style\\\",null,{\\\"dangerouslySetInnerHTML\\\":{\\\"__html\\\":\\\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\\\"}}],[\\\"$\\\",\\\"h1\\\",null,{\\\"className\\\":\\\"next-error-h1\\\",\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\",\\\"margin\\\":\\\"0 20px 0 0\\\",\\\"padding\\\":\\\"0 23px 0 0\\\",\\\"fontSize\\\":24,\\\"fontWeight\\\":500,\\\"verticalAlign\\\":\\\"top\\\",\\\"lineHeight\\\":\\\"49px\\\"},\\\"children\\\":404}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\"},\\\"children\\\":[\\\"$\\\",\\\"h2\\\",null,{\\\"style\\\":{\\\"fontSize\\\":14,\\\"fontWeight\\\":400,\\\"lineHeight\\\":\\\"49px\\\",\\\"margin\\\":0},\\\"children\\\":\\\"This page could not be found.\\\"}]}]]}]}]],[]],\\\"forbidden\\\":\\\"$undefined\\\",\\\"unauthorized\\\":\\\"$undefined\\\"}]}]]}]]}],{\\\"children\\\":[[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[\\\"$\\\",\\\"$L4\\\",null,{\\\"Component\\\":\\\"$5\\\",\\\"serverProvidedParams\\\":{\\\"searchParams\\\":{},\\\"params\\\":{},\\\"promises\\\":[\\\"$@6\\\",\\\"$@7\\\"]}}],[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/chunks/0q6yr-_s9abv8.css\\\",\\\"precedence\\\":\\\"next\\\",\\\"crossOrigin\\\":\\\"$undefined\\\",\\\"nonce\\\":\\\"$undefined\\\"}],[\\\"$\\\",\\\"script\\\",\\\"script-0\\\",{\\\"src\\\":\\\"/_next/static/chunks/01mgjreeoqv7v.js\\\",\\\"async\\\":true,\\\"nonce\\\":\\\"$undefined\\\"}],[\\\"$\\\",\\\"script\\\",\\\"script-1\\\",{\\\"src\\\":\\\"/_next/static/chunks/0lw917ezcpwfy.js\\\",\\\"async\\\":true,\\\"nonce\\\":\\\"$undefined\\\"}]],[\\\"$\\\",\\\"$L8\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"$9\\\",null,{\\\"name\\\":\\\"Next.MetadataOutlet\\\",\\\"children\\\":\\\"$@a\\\"}]}]]}],{},null,false,null]},null,false,null],[\\\"$\\\",\\\"$1\\\",\\\"h\\\",{\\\"children\\\":[null,[\\\"$\\\",\\\"$Lb\\\",null,{\\\"children\\\":\\\"$Lc\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"hidden\\\":true,\\\"children\\\":[\\\"$\\\",\\\"$Ld\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"$9\\\",null,{\\\"name\\\":\\\"Next.Metadata\\\",\\\"children\\\":\\\"$Le\\\"}]}]}],null]}],false]],\\\"m\\\":\\\"$undefined\\\",\\\"G\\\":[\\\"$f\\\",[]],\\\"S\\\":true,\\\"h\\\":null,\\\"r\\\":\\\"$undefined\\\",\\\"s\\\":\\\"$undefined\\\",\\\"a\\\":\\\"$undefined\\\",\\\"l\\\":\\\"$undefined\\\",\\\"p\\\":\\\"$undefined\\\",\\\"d\\\":\\\"$undefined\\\",\\\"b\\\":\\\"w-U43QeMj81EaiUHpMmQ9\\\"}\\n\"])self.__next_f.push([1,\"6:{}\\n7:\\\"$0:f:0:1:1:children:0:props:children:0:props:serverProvidedParams:params\\\"\\n\"])self.__next_f.push([1,\"c:[[\\\"$\\\",\\\"meta\\\",\\\"0\\\",{\\\"charSet\\\":\\\"utf-8\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"viewport\\\",\\\"content\\\":\\\"width=device-width, initial-scale=1\\\"}]]\\n\"])self.__next_f.push([1,\"10:I[49310,[\\\"/_next/static/chunks/1oaw9uq-pttep.js\\\"],\\\"IconMark\\\"]\\na:null\\ne:[[\\\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"description\\\",\\\"content\\\":\\\"Check covered-walkway shelter and exposed gaps on Singapore walks to transit.\\\"}],[\\\"$\\\",\\\"link\\\",\\\"2\\\",{\\\"rel\\\":\\\"canonical\\\",\\\"href\\\":\\\"https://sgshiok.vercel.app/\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"3\\\",{\\\"property\\\":\\\"og:title\\\",\\\"content\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"4\\\",{\\\"property\\\":\\\"og:description\\\",\\\"content\\\":\\\"Check covered-walkway shelter and exposed gaps on Singapore walks to transit.\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"5\\\",{\\\"property\\\":\\\"og:url\\\",\\\"content\\\":\\\"https://sgshiok.vercel.app/\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"6\\\",{\\\"property\\\":\\\"og:site_name\\\",\\\"content\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"7\\\",{\\\"property\\\":\\\"og:type\\\",\\\"content\\\":\\\"website\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"8\\\",{\\\"name\\\":\\\"twitter:card\\\",\\\"content\\\":\\\"summary\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"9\\\",{\\\"name\\\":\\\"twitter:title\\\",\\\"content\\\":\\\"S.H.I.O.K. Shelter Map\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"10\\\",{\\\"name\\\":\\\"twitter:description\\\",\\\"content\\\":\\\"Check covered-walkway shelter and exposed gaps on Singapore walks to transit.\\\"}],[\\\"$\\\",\\\"link\\\",\\\"11\\\",{\\\"rel\\\":\\\"icon\\\",\\\"href\\\":\\\"/icon.svg\\\"}],[\\\"$\\\",\\\"$L10\\\",\\\"12\\\",{}]]\\n\"])",
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ],
+        "padding": {
+          "top": 399.6875,
+          "right": 12,
+          "bottom": 77,
+          "left": 12
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 281
+        },
+        "writes": []
+      }
+    }
+  ],
+  "actions": [
+    {
+      "x": 160,
+      "y": 300.6875,
+      "text": "Mapped exposed sections (3)",
+      "hit": true,
+      "keyboard": true
+    },
+    {
+      "x": 160,
+      "y": 344.6875,
+      "text": "Section 116 m",
+      "hit": true,
+      "keyboard": true
+    }
+  ],
+  "errors": [],
+  "network": [
+    {
+      "requestId": "23CBE93C544B90C0AF3246F613DB14B8",
+      "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+      "status": 200,
+      "type": "Document"
+    },
+    {
+      "requestId": "103300.2",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/0q6yr-_s9abv8.css",
+      "status": 200,
+      "type": "Stylesheet"
+    },
+    {
+      "requestId": "103300.3",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/3wkt3-74el481.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "requestId": "103300.4",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/2wu61p_p0hxro.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "requestId": "103300.7",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/turbopack-2e309nymh7qge.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "requestId": "103300.8",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/1oaw9uq-pttep.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "requestId": "103300.9",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/01mgjreeoqv7v.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "requestId": "103300.6",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/01f6e7bd-uft9.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "requestId": "103300.5",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/02pk9t3s3kefu.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "requestId": "103300.10",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/0lw917ezcpwfy.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "requestId": "103300.22",
+      "url": "http://127.0.0.1:4326/icon.svg",
+      "status": 200,
+      "type": "Other"
+    },
+    {
+      "requestId": "103300.23",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/3rkv8c6mnn1zz.css",
+      "status": 200,
+      "type": "Stylesheet"
+    },
+    {
+      "requestId": "103300.28",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.25",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/2rmzgxedjsyy1.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "requestId": "103300.24",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/3sabpe1h4wu8y.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "requestId": "103300.27",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.30",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.29",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/0ag5bor0qthp-.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "requestId": "103300.34",
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "status": 200,
+      "type": "Image"
+    },
+    {
+      "requestId": "103300.32",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.33",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.35",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.36",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.26",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/3_zdoql-8zsg0.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "requestId": "103300.40",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.41",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.42",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.43",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.44",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.45",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.46",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.47",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.48",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.49",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.50",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.51",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.52",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.53",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.54",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.55",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.59",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.60",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.61",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.62",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.63",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.64",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.65",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.66",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.67",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.68",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.69",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.70",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.71",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.72",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.73",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.74",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.75",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.76",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.77",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.78",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.79",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.80",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.81",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.82",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.83",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.84",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.85",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.86",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.87",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.88",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.89",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.90",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.91",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.92",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.93",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.96",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.94",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.100",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.95",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.97",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.98",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.107",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.108",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.109",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.110",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.111",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.112",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.113",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.114",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.115",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.116",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.117",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.118",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.119",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.120",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.121",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.122",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.123",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.124",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.125",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.126",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.127",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.128",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.129",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.130",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.131",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.132",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.133",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.134",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.135",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.136",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.137",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.138",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.139",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.140",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.141",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.142",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.143",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.144",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.145",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.146",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.147",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.148",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.149",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.150",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.151",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.152",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.153",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.154",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.155",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.156",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.157",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260268.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.158",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260268.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.159",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260268.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.160",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260268.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "requestId": "103300.161",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260268.png",
+      "status": 200,
+      "type": "Fetch"
+    }
+  ],
+  "cleanup": {
+    "closeSent": true,
+    "chromeExited": true
+  },
+  "policy": "Functional CDP test of actual build and immutable published data. Fresh profile, SwiftShader, source-write instrumentation only. No representative timing, installation, pipeline or deployment claim.",
+  "chromePid": 86324,
+  "lastSample": {
+    "name": "selected section",
+    "value": {
+      "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+      "status": "ready",
+      "name": "Bayfront Stn Exit B/MBS",
+      "metrics": [
+        "81 m",
+        "55%",
+        "37 m",
+        "20 m"
+      ],
+      "routeKey": "3:shiokest:primary",
+      "routeFeatures": 4,
+      "basemap": true,
+      "moving": false,
+      "center": {
+        "lng": 103.85997500000002,
+        "lat": 1.2844828163918152
+      },
+      "zoom": 16.6,
+      "active": [],
+      "focusRendered": 0,
+      "projected": [],
+      "focusFits": false,
+      "walkFits": false,
+      "sectionOpen": true,
+      "sectionButtons": [
+        {
+          "text": "Section 116 m",
+          "pressed": "true",
+          "rect": {
+            "x": 21,
+            "y": 322.6875,
+            "width": 278,
+            "height": 44
+          }
+        },
+        {
+          "text": "Section 211 m",
+          "pressed": "false",
+          "rect": {
+            "x": 21,
+            "y": 370.6875,
+            "width": 278,
+            "height": 44
+          }
+        },
+        {
+          "text": "Section 39 m",
+          "pressed": "false",
+          "rect": {
+            "x": 21,
+            "y": 418.6875,
+            "width": 278,
+            "height": 44
+          }
+        }
+      ],
+      "focusText": "Section 116 m",
+      "overflow": false,
+      "viewport": [
+        390,
+        844
+      ],
+      "padding": {
+        "top": 583.6875,
+        "right": 12,
+        "bottom": 77,
+        "left": 12
+      },
+      "search": {
+        "x": 10,
+        "y": 54.6875,
+        "width": 300,
+        "height": 44
+      },
+      "panel": {
+        "x": 10,
+        "y": 106.6875,
+        "width": 300,
+        "height": 465
+      },
+      "writes": [
+        "active-exposure-gap"
+      ]
+    }
+  },
+  "document": {
+    "requestId": "23CBE93C544B90C0AF3246F613DB14B8",
+    "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+    "status": 200,
+    "type": "Document",
+    "bytes": 12889,
+    "sha256": "c73eea32307d32c37061268c260e3662bd3fa3376c7370172642f2a185c53b0b"
+  },
+  "failure": "Error: selected section\n    at check (file:///C:/sgSHIOK2026/qa/revamp-r1/exposure-sections-20260909/browser.mjs:25:146)\n    at waitFor (file:///C:/sgSHIOK2026/qa/revamp-r1/exposure-sections-20260909/browser.mjs:69:3)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/exposure-sections-20260909/browser.mjs:123:3",
+  "stderr": "\r\nDevTools listening on ws://127.0.0.1:24869/devtools/browser/bb871bb9-11eb-46ce-834d-2050327f39d8\r\n[86324:100392:0909/060351.674:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n[86324:100392:0909/060413.438:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n[86324:100392:0909/060453.793:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\nCreated TensorFlow Lite XNNPACK delegate for CPU.\r\n",
+  "finishedAt": "2026-09-08T22:05:06.496Z",
+  "ok": false
+}

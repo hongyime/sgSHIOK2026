@@ -17,6 +17,8 @@ import {
 import { cleanTransitPoiProperties, transitPoiPopupHtml } from "../lib/transit-popup";
 import type { LineStringFeatureCollection, LineStringFeature, LngLat } from "../lib/route-geojson";
 import type { PostalGeom, TransitPoiCollection } from "../lib/types";
+import { decodePolyline, type LatLng } from "../lib/polyline";
+import type { MappedSectionFocus } from "../lib/published-exposure-sections";
 import styles from "./route-evidence-map.module.css";
 import { overlayPadding, usableMapBox, watchSelectedRoute, type MapPadding, type OverlayBounds } from "../lib/map-viewport";
 
@@ -34,11 +36,14 @@ export interface FeedbackPoint {
   lat: number;
 }
 
-export interface FocusedExposureGap {
+export interface LegacyExposureGapFocus {
+  kind?: "point";
   key: string;
   lat: number;
   lon: number;
 }
+
+export type FocusedExposureGap = LegacyExposureGapFocus | MappedSectionFocus;
 
 export type RouteMapLoadStatus = "idle" | "mounting" | "initializing" | "ready" | "partial" | "error";
 export type RouteMapRecovery = "reload";
@@ -202,7 +207,60 @@ function emptyPointCollection(): PointFeatureCollection {
   return { type: "FeatureCollection", features: [] };
 }
 
-function activeExposureGapCollection(focusedExposureGap: FocusedExposureGap | null): PointFeatureCollection {
+function validSectionPoints(points: readonly LatLng[]): boolean {
+  return Array.isArray(points) && points.length >= 2
+    && points.every(point => Array.isArray(point) && point.length === 2
+      && Number.isFinite(point[0]) && Math.abs(point[0]) <= 90
+      && Number.isFinite(point[1]) && Math.abs(point[1]) <= 180)
+    && points.some(point => point[0] !== points[0][0] || point[1] !== points[0][1]);
+}
+
+function sameSectionPoints(a: readonly LatLng[], b: readonly LatLng[]): boolean {
+  return a.length === b.length && a.every((point, index) => point[0] === b[index][0] && point[1] === b[index][1]);
+}
+
+function sectionOnShelteredPart(points: readonly LatLng[], geom: PostalGeom): boolean {
+  const parts = geom.sheltered_parts?.length ? geom.sheltered_parts : [geom.sheltered];
+  const distinct = (line: readonly LatLng[]) => line.filter((point, index) => index === 0
+    || point[0] !== line[index - 1][0] || point[1] !== line[index - 1][1]);
+  const section = distinct(points);
+  return parts.some(encoded => {
+    if (typeof encoded !== "string" || !encoded) return false;
+    const part = distinct(decodePolyline(encoded));
+    if (!validSectionPoints(part)) return false;
+    for (let start = 0; start <= part.length - section.length; start++) {
+      const slice = part.slice(start, start + section.length);
+      if (sameSectionPoints(section, slice) || sameSectionPoints(section, slice.reverse())) return true;
+    }
+    return false;
+  });
+}
+
+function currentExposureFocus(
+  focus: FocusedExposureGap | null, contextKey: string | null, routes: RouteMapItem[], mode: RouteDisplayMode,
+): FocusedExposureGap | null {
+  if (!focus) return null;
+  if (focus.kind === "mapped-section") {
+    if (!contextKey || contextKey !== focus.contextKey || mode === "shortest"
+      || typeof focus.encoded !== "string" || !focus.encoded
+      || !Number.isFinite(focus.lengthM) || focus.lengthM < 0 || !validSectionPoints(focus.points)) return null;
+    // Check the exact current mapped observation and its base path, never an array index.
+    const matches = routes.some(route => route.geom.exposure_gaps.some(gap => gap.geom === focus.encoded && gap.len_m === focus.lengthM)
+      && sameSectionPoints(focus.points, decodePolyline(focus.encoded)) && sectionOnShelteredPart(focus.points, route.geom));
+    return matches ? { ...focus, points: focus.points.map(([lat, lon]): LatLng => [lat, lon]) } : null;
+  }
+  return Number.isFinite(focus.lat) && Math.abs(focus.lat) <= 90
+    && Number.isFinite(focus.lon) && Math.abs(focus.lon) <= 180 ? { ...focus } : null;
+}
+
+function activeExposureGapCollection(focusedExposureGap: FocusedExposureGap | null): MapFeatureCollection {
+  if (focusedExposureGap?.kind === "mapped-section") {
+    return { type: "FeatureCollection", features: [{
+      type: "Feature", geometry: { type: "LineString", coordinates: focusedExposureGap.points.map(([lat, lon]): LngLat => [lon, lat]) },
+      properties: { kind: "active_exposure_section", key: focusedExposureGap.key,
+        context_key: focusedExposureGap.contextKey, len_m: focusedExposureGap.lengthM },
+    }] };
+  }
   if (
     !focusedExposureGap ||
     !Number.isFinite(focusedExposureGap.lat) ||
@@ -747,6 +805,7 @@ function ensureRouteLayers(map: maplibregl.Map) {
       id: "active-exposure-gap-ring",
       type: "circle",
       source: "active-exposure-gap",
+      filter: ["==", "$type", "Point"],
       paint: {
         "circle-color": "#c4332b",
         "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 7, 16, 12, 18, 16],
@@ -755,6 +814,23 @@ function ensureRouteLayers(map: maplibregl.Map) {
         "circle-stroke-opacity": 0.95,
         "circle-stroke-width": 3,
       },
+    });
+  }
+
+  if (!map.getLayer("active-exposure-section-casing")) {
+    map.addLayer({
+      id: "active-exposure-section-casing", type: "line", source: "active-exposure-gap",
+      filter: ["==", "$type", "LineString"],
+      layout: { "line-cap": "round", "line-join": "round" },
+      paint: { "line-color": "#ffffff", "line-width": 10, "line-opacity": 0.95 },
+    });
+  }
+  if (!map.getLayer("active-exposure-section-line")) {
+    map.addLayer({
+      id: "active-exposure-section-line", type: "line", source: "active-exposure-gap",
+      filter: ["==", "$type", "LineString"],
+      layout: { "line-cap": "round", "line-join": "round" },
+      paint: { "line-color": "#b82018", "line-width": 6, "line-opacity": 1 },
     });
   }
 
@@ -1026,6 +1102,10 @@ export function nightLightingSummary(status: LampOverlayStatus, lampCount: numbe
 }
 
 export function selectedExposureGapSummary(focusedExposureGap: FocusedExposureGap | null): string | null {
+  if (focusedExposureGap?.kind === "mapped-section") {
+    return Number.isFinite(focusedExposureGap.lengthM) && focusedExposureGap.lengthM >= 0 && validSectionPoints(focusedExposureGap.points)
+      ? `Selected mapped exposed section, ${Math.round(focusedExposureGap.lengthM)} m, on the sheltered walk.` : null;
+  }
   if (
     !focusedExposureGap ||
     !Number.isFinite(focusedExposureGap.lat) ||
@@ -1064,8 +1144,8 @@ function mapTextSummary(
         : `${routeData.shiokest.features.length} sheltered-walk segments`;
   const exposed =
     routeData.exposure.features.length === 1
-      ? "1 exposed gap"
-      : `${routeData.exposure.features.length} exposed gaps`;
+      ? "1 mapped exposed section"
+      : `${routeData.exposure.features.length} mapped exposed sections`;
 
   return [
     `Shelter-map view for ${routeLabels}.`,
@@ -1108,7 +1188,8 @@ export function RouteEvidenceMap({
   onSelectTransitStop,
   chosenStopId = null,
   showLampOverlay = false,
-  focusedExposureGap = null,
+  focusedExposureGap: requestedExposureGap = null,
+  mappedExposureContextKey = null,
   onStatusChange,
   retryKey = 0,
 }: {
@@ -1124,6 +1205,8 @@ export function RouteEvidenceMap({
   chosenStopId?: string | null;
   showLampOverlay?: boolean;
   focusedExposureGap?: FocusedExposureGap | null;
+  /** Current normalized explorer context; required for mapped-section focus only. */
+  mappedExposureContextKey?: string | null;
   onStatusChange?: (status: RouteMapLoadStatus, message?: string, recovery?: RouteMapRecovery) => void;
   retryKey?: number;
 }) {
@@ -1154,9 +1237,18 @@ export function RouteEvidenceMap({
     }
     return data;
   }, [routeKey]);
+  const focusSignature = JSON.stringify(requestedExposureGap?.kind === "mapped-section"
+    ? [requestedExposureGap.kind, requestedExposureGap.key, requestedExposureGap.contextKey,
+      requestedExposureGap.encoded, requestedExposureGap.lengthM, requestedExposureGap.points]
+    : requestedExposureGap ? ["point", requestedExposureGap.key, requestedExposureGap.lat, requestedExposureGap.lon] : null);
+  // Parent resolution is synchronous; this independent guard also binds focus to current map data.
+  const focusedExposureGap = useMemo(
+    () => currentExposureFocus(requestedExposureGap, mappedExposureContextKey, routes, mode),
+    [focusSignature, mappedExposureContextKey, routeKey]
+  );
   const activeGapData = useMemo(
     () => activeExposureGapCollection(focusedExposureGap),
-    [focusedExposureGap?.key, focusedExposureGap?.lat, focusedExposureGap?.lon]
+    [focusedExposureGap]
   );
   const transitPoiData = useMemo(() => transitPoiCollection(transitPois), [transitPois]);
   const feedbackData = useMemo(() => feedbackCollections(feedbackPoints), [feedbackPoints]);
@@ -1519,7 +1611,10 @@ export function RouteEvidenceMap({
     }
     onStatusChangeRef.current?.(mapProblemRef.current?.status ?? "initializing", mapProblemRef.current?.message);
     // One fit for a selection or measured layout change, never from render/idle/tile events.
-    if (focusedExposureGap) {
+    if (focusedExposureGap?.kind === "mapped-section") {
+      const sectionBounds = boundsFor(focusedExposureGap.points.map(([lat, lon]): LngLat => [lon, lat]));
+      if (sectionBounds) fitRouteBounds(map, sectionBounds, viewport.padding);
+    } else if (focusedExposureGap) {
       map.easeTo({ center: [focusedExposureGap.lon, focusedExposureGap.lat], padding: viewport.padding,
         zoom: Math.max(map.getZoom(), 16.4), duration: prefersReducedMotion() ? 0 : 350 });
     } else {
