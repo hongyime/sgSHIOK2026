@@ -1,0 +1,73 @@
+{
+  "date": "2026-09-08T19:55:34.869Z",
+  "task": "T05",
+  "workingRoot": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "6f3392318db6614c09f2d1006fa9f719b698437d",
+  "sources": [
+    {
+      "path": "web/lib/published-transit-choices.ts",
+      "bytes": 3747,
+      "sha256": "f003bbef239b81c52d6ac36079602b5c6b8265952961aa475b62f986ef1bf73b",
+      "lines": 92,
+      "matchesTestedSnapshot": true
+    },
+    {
+      "path": "web/lib/__tests__/published-transit-choices.test.ts",
+      "bytes": 28696,
+      "sha256": "6e7890504b25deb486c2eef84556d3639aebd14a00ed24a622272e324fed4095",
+      "lines": 587,
+      "matchesTestedSnapshot": true
+    }
+  ],
+  "checks": "qa/revamp-r1/published-options-20260909/choices-full-1/checks.json",
+  "inputCount": 11,
+  "allInputsMatch": true,
+  "commandExitCodes": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "legacyPoiChange": "Opening documentation comment only; remaining source byte-identical to tested snapshot",
+  "tests": {
+    "previous": 702,
+    "newSelector": 67,
+    "total": 769,
+    "files": 40,
+    "arithmetic": "702 + 67 = 769; 39 + 1 = 40"
+  },
+  "status": "complete_pure_selector_only",
+  "review": {
+    "author": "Parent",
+    "testAuthor": "Parfit",
+    "sourceReviewer": "Raman",
+    "result": "Approved source design; parent ran the isolated full suite",
+    "testAuthorReportedFocused": {
+      "passed": 67,
+      "files": 1,
+      "exitCode": 0
+    }
+  },
+  "realFixtureAssertions": [
+    "Bus03509 is one shortest/most-covered/current choice.",
+    "MRT C wins distance; category-default Exit E wins coverage despite no candidate ID.",
+    "Current MRT D is retained third; categories remain separate."
+  ],
+  "findings": [
+    "Select only normalized retainable walks, at most three per category, with merged shortest/most-covered/current roles and an eligible default fallback only when space remains.",
+    "Full-precision ties use known metrics before unavailable values and canonical code-unit keys. Known zero coverage remains measurable.",
+    "An unavailable category default keeps reset ownership; stale explicit current keys do not silently select it. Original option objects and logical gaps are unchanged.",
+    "Corrected the POI helper's false claim that published candidate metrics/geometry are absent; proximity behavior remains unchanged.",
+    "769 tests/40 files, TypeScript/integrity and11 source identities pass with protected data access denied."
+  ],
+  "disagreements": [
+    "Nearest POI is not shortest published walk; no ranking promise extends to every nearby stop.",
+    "Selector completion is not picker integration. The page does not mount the existing TransitStopPicker yet; T06 must wire choices, geometry, metrics and URL."
+  ],
+  "limitations": [
+    "No new UI/build/browser/performance/deployment claim; preview remains build1yBIxF2hxkFbQ0wR27y96 at http://127.0.0.1:4324/.",
+    "No pipeline, installations or protected-payload writes.",
+    "An optional TypeScript API transpile probe failed with MODULE_NOT_FOUND for ./web/node_modules/typescript. Native node --check and the installed TypeScript CLI subsequently passed; no dependency repair or installation was performed."
+  ]
+}

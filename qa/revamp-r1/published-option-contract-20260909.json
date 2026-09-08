@@ -2,14 +2,15 @@
   "contractVersion": 2,
   "date": "2026-09-09",
   "ticket": "T04",
-  "status": "T04_normalizer_reviewed_and_tested_T05_T06_pending",
+  "status": "T04_T05_reviewed_and_tested_T06_pending",
   "implementationBase": "1f36844f92d48555ce8b1a5800ad2e458130e8af",
   "implementationReceipt": "qa/revamp-r1/published-options-20260909/summary.json",
+  "selectionImplementationReceipt": "qa/revamp-r1/published-options-20260909/choices-summary.json",
   "reviewedHead": "8b76862dbafc082fc86f2a37e4e3a5e87d985278",
   "scope": {
     "artifact": "qa/revamp-r1/published-option-contract-20260909.json",
-    "purpose": "Define a published transit-option evidence contract and deterministic display policy; do not implement a selector.",
-    "implementationOrder": "T04 normalizer and cases are now implemented and independently reviewed; parent isolated validation passes. T05 winner ordering and T06 UI follow separately.",
+    "purpose": "Define a published transit-option evidence contract and deterministic display policy. T04 normalizer and T05 pure selector are implemented; T06 UI remains separate.",
+    "implementationOrder": "T04 normalizer and T05 winner ordering are implemented, independently reviewed and validated by the parent isolated suite. T06 UI follows separately.",
     "categoryLimit": 3,
     "categories": ["mrt_lrt", "bus"],
     "routeVariantForComparison": "sheltered",
@@ -358,7 +359,7 @@
   },
   "rankingExecutionContract": {
     "ticket": "T05",
-    "status": "specified_not_implemented_or_executed",
+    "status": "implemented_reviewed_and_executed",
     "input": "Normalized nonquarantined per-category option pools, current canonical key and the existing declared orderingPolicy. No raw identity/geometry reparsing, POIs, network or score recomputation inside sorting.",
     "cases": [
       {"id": "R01", "setup": "Real 018956 with category defaults current.", "expected": "Bus default occupies one choice with both distance/coverage roles. MRT C distance winner and internal Exit E coverage/current default are two choices. No arbitrary fill candidates."},
@@ -373,18 +374,18 @@
       {"id": "R10", "setup": "Frozen normalized inputs with fetch unavailable, duplicate winner roles and repeated sorting.", "expected": "No mutation or requests; canonical default logical gaps remain unchanged; at most three distinct options per category and deterministic output."}
     ],
     "deferredToT06": ["picker/summary/URL atomic selection", "default selectionRef mapping without invented stop ID", "category switching without losing original candidate geometry", "live-preview adapter semantics and failed/stale preview recovery W12", "validated partial geometry/fragment presentation", "reason-aware range and unavailable copy"],
-    "boundary": "No selector, normalizer, runtime adapter or new tests are implemented by this design-only refinement."
+    "boundary": "T05 pure selector and67 tests execute R01-R10;702 previous +67 =769 tests in40 files pass. Omitted current means the declared default, explicit null means no current role; invalid explicit keys never silently select the default. Reset identity comes from source locators, even when unavailable. No raw identity/geometry reparsing, UI wiring, preview repair or new browser claim."
   },
   "acceptanceMapping": [
-    {"id": "W02", "catalogue": "qa/SHIOK-acceptance-tests.md:27", "requirement": "Available evidence shown; missing != zero", "fixtureEvidence": "Real 018990 null coverage/positive unrouted distance; null paths/gaps for 079908; real zero coverage for MRT C/D.", "remaining": "T05/T06 adapters and UI must preserve missing capability semantics, including geometry-only routes. Fixture tests alone do not close this integration case."},
+    {"id": "W02", "catalogue": "qa/SHIOK-acceptance-tests.md:27", "requirement": "Available evidence shown; missing != zero", "fixtureEvidence": "Real 018990 null coverage/positive unrouted distance; null paths/gaps for 079908; real zero coverage for MRT C/D.", "remaining": "T05 preserves missing capabilities in executed selector tests; T06 adapters and UI must preserve them, including geometry-only routes. Pure tests alone do not close this integration case."},
     {"id": "W03", "catalogue": "qa/SHIOK-acceptance-tests.md:28", "requirement": "No drawn invented connection or success claim", "fixtureEvidence": "079908 rejected-route reason and no matching prefix entry; 018990 explicit unrouted trust.", "remaining": "T05 excludes non-walk evidence; T06 must not draw a synthetic straight connection as a published walk."},
     {"id": "W04", "catalogue": "qa/SHIOK-acceptance-tests.md:29", "requirement": "Explicit range limitation without hiding valid evidence", "fixtureEvidence": "079908 proves that the NO_TRANSIT_IN_RANGE state alone does not establish a numeric out-of-range reason.", "remaining": "Dedicated outside-range fixture and reason-aware UI test are still required. This sample does not complete W04."},
-    {"id": "W05", "catalogue": "qa/SHIOK-acceptance-tests.md:30", "requirement": "Same nearest/most-sheltered candidate appears once", "fixtureEvidence": "018956 bus:03509 appears as top-level default, category default and candidate with matching route metrics.", "remaining": "T05 must execute role deduplication, preserve default logical gaps and prove the bound."},
-    {"id": "W06", "catalogue": "qa/SHIOK-acceptance-tests.md:31", "requirement": "Destination and metrics stay in selected category", "fixtureEvidence": "Both categories and matching geometry are retained; MRT Exit E exists only as category default, not in the five candidates.", "remaining": "T05 must include category defaults; T06 must retain candidate geometry across category changes and prevent mixed-category selection."},
-    {"id": "W07", "catalogue": "qa/SHIOK-acceptance-tests.md:32", "requirement": "Missing shelter metric is not best shelter or zero exposure", "fixtureEvidence": "018990 contains real null candidate coverage; C/D contain real zero coverage.", "remaining": "T05 must test a routed candidate with deliberately removed coverage as a labelled synthetic mutation, plus all-unknown coverage."},
-    {"id": "W08", "catalogue": "qa/SHIOK-acceptance-tests.md:33", "requirement": "Stable documented tie-break", "fixtureEvidence": "Real candidates seed synthetic equal-distance/equal-coverage and shuffled-order cases; no claim that the real sample has equal distance winners.", "remaining": "T05 must execute permutation, duplicate and stable-identity tests under the specified tie policy."},
+    {"id": "W05", "catalogue": "qa/SHIOK-acceptance-tests.md:30", "requirement": "Same nearest/most-sheltered candidate appears once", "fixtureEvidence": "018956 bus:03509 appears as top-level default, category default and candidate with matching route metrics.", "remaining": "T05 role deduplication, gap preservation and max-three bound pass; T06 must display and select those choices coherently."},
+    {"id": "W06", "catalogue": "qa/SHIOK-acceptance-tests.md:31", "requirement": "Destination and metrics stay in selected category", "fixtureEvidence": "Both categories and matching geometry are retained; MRT Exit E exists only as category default, not in the five candidates.", "remaining": "T05 category-default and cross-category tests pass; T06 must retain candidate geometry across category changes and prevent mixed-category selection."},
+    {"id": "W07", "catalogue": "qa/SHIOK-acceptance-tests.md:32", "requirement": "Missing shelter metric is not best shelter or zero exposure", "fixtureEvidence": "018990 contains real null candidate coverage; C/D contain real zero coverage.", "remaining": "T05 synthetic missing/invalid/all-unknown coverage and real zero-coverage tests pass. T06 must retain those distinctions in copy and displayed metrics."},
+    {"id": "W08", "catalogue": "qa/SHIOK-acceptance-tests.md:33", "requirement": "Stable documented tie-break", "fixtureEvidence": "Real candidates seed synthetic equal-distance/equal-coverage and shuffled-order cases; no claim that the real sample has equal distance winners.", "remaining": "T05 permutation, duplicate, full-precision and code-unit tie tests pass; T06 must not replace this order with POI or display-label sorting."},
     {"id": "W12", "catalogue": "qa/SHIOK-acceptance-tests.md:37", "requirement": "Preview failure is explicit and original result preserved", "fixtureEvidence": "Published evidence provides the preserved result; no network request or failure is executed by fixture tests.", "remaining": "T06 must test failed/stale preview, preserve the original result, and avoid any request when matching published candidate geometry is already present."},
-    {"id": "W13", "catalogue": "qa/SHIOK-acceptance-tests.md:38", "requirement": "Published values and weights unchanged", "fixtureEvidence": "Source identities and numeric values retained; score-gap and fragment differences asserted without repairs.", "remaining": "T05/T06 must prove input immutability and selected-source metric identity. The contract does not authorize touching weights or protected data."}
+    {"id": "W13", "catalogue": "qa/SHIOK-acceptance-tests.md:38", "requirement": "Published values and weights unchanged", "fixtureEvidence": "Source identities and numeric values retained; score-gap and fragment differences asserted without repairs.", "remaining": "T05 frozen-input and exact selected-object identity tests pass; T06 must prove the same for adapters and rendering. The contract does not authorize touching weights or protected data."}
   ],
   "reservedBugsForT05T06": [
     {"id": "B01", "ownerTicket": "T05", "source": "web/lib/nearest-transit.ts:8", "finding": "Comments deny candidate route evidence broadly; implementation ranks POIs by haversine distance at line 115, not published walks.", "requiredChange": "Separate POI proximity/preview capability from the published evidence selector; retain the useful published candidate and category-default pool."},
@@ -401,10 +402,10 @@
     "parentReviewRequired": false,
     "normalizerImplemented": true,
     "normalizerCasesExecuted": true,
-    "selectorImplemented": false,
-    "candidateWinnerTestsExecuted": false,
+    "selectorImplemented": true,
+    "candidateWinnerTestsExecuted": true,
     "runtimeNormalizerValidation": true,
     "browserValidationClaimed": false,
-    "completionClaim": "T04 normalizer implemented and reviewed with328 behavioral tests plus16 fixture assertions; full702/39 isolated suite passes. R01-R10 winner selection remains specified only. T05/T06 interaction and W02-W08/W12-W13 end-to-end integration remain open; no new browser/build/performance or whole-bundle coverage claim."
+    "completionClaim": "T04 normalization and T05 pure selection are implemented and reviewed. T05 adds67 selector tests; full769/40 isolated suite passes. T06 interaction and W02-W08/W12-W13 end-to-end integration remain open; no new browser/build/performance or whole-bundle coverage claim."
   }
 }

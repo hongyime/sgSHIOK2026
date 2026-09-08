@@ -1,18 +1,15 @@
 /**
- * Nearest-transit derivation for the point-to-point stop picker.
+ * POI proximity helpers for optional destination previews.
  *
  * Pure client-side helpers: given a postal's origin coordinate and the loaded
  * transit POI collection, rank the nearest bus_stop / mrt_exit POIs by direct
  * (haversine) distance and pick the top N candidates.
  *
- * The published shelter-map bundle does NOT ship a ranked candidate list or per-stop
- * route geometry alongside each postal, so:
- *   - Candidate distances here are STRAIGHT-LINE, not routed metres.
- *   - Coverage / sheltered ratios are NOT known for non-best candidates.
- *   - Selecting a candidate may update the displayed walk via precomputed
- *     candidate geometry or a live OneMap preview; until then, comparisons stay
- *     straight-line only.
- * The picker surface documents these limits (see `TransitStopPicker`).
+ * Distances in this POI-only view are straight-line, not routed metres. The
+ * published bundle also carries candidate route metrics, matching geometry and
+ * category defaults; use published-transit-options and published-transit-choices
+ * for that evidence. A POI-only entry does not establish its walk or coverage.
+ * Keep explicit live previews separate from published-walk recommendations.
  */
 import type {
   ScoreRecord,

@@ -137,16 +137,17 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: FREE, read-only artifacts. Insufficient candidate evidence blocks only the unsupported option, not existing walks.
 - Outcome 2026-09-09: pure shared normalizer preserves whole source representations, stable identity, separate metric/geometry/gap capabilities and unsupported-vs-conflicting evidence.328 behavioral +16 real-fixture tests pass;358 existing +344 new =702/39 isolated full suite, TypeScript/integrity and11 source identities pass. Parent retained a three-failure red regression before correcting the conflict branch; independent review approved. No ranking/page wiring or browser/coverage claim. Evidence: `qa/revamp-r1/published-options-20260909/summary.json`.
 
-### [ ] T05: Select useful options deterministically
-- Status: READY. Size: M. Parent: P1.1.
+### [x] T05: Select useful options deterministically
+- Status: DONE (pure selector; UI follows T06). Size: M. Parent: P1.1.
 - Depends on: T04.
 - Scope: `web/lib/nearest-transit.ts` or one focused selector module; candidate tests using reduced real fixtures.
 - Do: select nearest and most-covered eligible published options with stable ties and deduplication; retain the currently selected valid option. Keep MRT/LRT and bus categories separate. Extract a helper only where it will be shared by picker/comparison.
 - Tests/done: W05-W08/W13. Same option winning both appears once; ties, partial metrics, unknown IDs and empty categories behave deterministically; original records and numerical values remain unchanged. No live request during sorting.
 - Gate: FREE. No new candidate generation or scoring.
+- Outcome 2026-09-09: selector consumes the normalized pool and returns at most three distinct choices in shortest/most-covered/current/default-fallback order. It preserves reset ownership, stable unrounded ties, category boundaries and missing capabilities.67 selector tests plus702 previous =769/40 isolated tests; TypeScript/integrity and11 anchors pass. The old POI helper's false no-candidate-evidence comment is corrected; no POI behavior change. Evidence: `qa/revamp-r1/published-options-20260909/choices-summary.json`. T06 integration is next, not already rendered.
 
 ### [ ] T06: Ship the bounded transit-choice interaction
-- Status: WAIT_DEPS. Size: M. Parent: P1.1.
+- Status: READY. Size: M. Parent: P1.1.
 - Depends on: T05.
 - Scope: `web/components/transit-stop-picker.tsx` and its CSS, `web/app/page.tsx`, existing selection/URL handlers and behavioural tests.
 - Do: present the bounded choices only when useful; show destination and routed distance/coverage trade-offs. Reuse the existing picker rather than creating a competing one. Update map, summary and URL atomically; distinguish an optional preview from published evidence and request it only on explicit selection.

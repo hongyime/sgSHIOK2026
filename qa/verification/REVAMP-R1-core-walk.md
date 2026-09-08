@@ -1645,3 +1645,60 @@ DISAGREEMENTS
    executes behavioral cases, but this is not a whole-bundle or all-stops audit.
 3. Raw source ordering is preserved deliberately. Determinism applies to normalized
    capabilities, diagnostics and locators, not to rewriting original evidence.
+
+## T05 bounded published choices, 2026-09-09
+
+Working root:C:\sgSHIOK2026; host:Prawn-E14; base:6f33923.
+Receipt:qa/revamp-r1/published-options-20260909/choices-summary.json.
+Full command output:choices-full-1/checks.json in the same directory.
+The selector and its tests match the tested snapshot byte-for-byte. The only
+nearest-transit.ts change is its opening comment; the remainder matches that
+snapshot. Its old assertion that published candidate measurements are absent
+was false and is now corrected, without changing POI behavior.
+
+```text
+node C:/sgSHIOK2026/qa/revamp-r1/published-options-20260909/check.mjs choices-full-1 full
+ Test Files  40 passed (40)
+      Tests  769 passed (769)
+TypeScript --noEmit --incremental false: exit_code=0
+python scripts/check_repo_integrity.py
+repo_integrity=ok
+exit_code=0
+git diff --check: exit_code=0
+```
+
+Arithmetic:702 previous +67 selector =769 tests;39 previous +1 selector =40 files.
+The isolated snapshot tmp/test-without-data-ZrftfY contained165 source files,
+no production data, and passed its blocked-data access probe. All eleven source
+hashes/sizes match. Existing dependencies were linked; no installation occurred.
+Parfit authored and reported67/67 focused tests; Raman reviewed the92-line
+selector and approved. The full-suite execution above is the parent's.
+
+The real fixture makes bus03509 one shortest/most-covered/current choice. MRT C
+wins distance; category-default Exit E wins coverage despite no candidate ID.
+Current MRT D remains available as the third choice. R01-R10 also execute
+category isolation, exact ties, invalid/unknown/zero measurements, contradictory
+evidence exclusion, missing/unavailable defaults, stale selection, immutability
+and absence of fetch/raw-metadata dependencies. W02/W05-W08/W13 now have a tested
+selection boundary; their visible picker/map/summary/URL journeys remain T06.
+
+An optional parent TypeScript API probe failed with MODULE_NOT_FOUND for
+./web/node_modules/typescript. Native node --check and the installed TypeScript
+CLI passed; this did not trigger an installation or dependency repair.
+
+FINDINGS
+1. The pure selector returns no more than three distinct retained walks, merging
+   shortest/most-covered/current roles and adding a usable default only if space
+   remains. Ordering uses unrounded published measurements and canonical keys.
+2. Reset ownership survives an unavailable category default. An explicit stale
+   current key does not silently select the default. Known zero remains measured;
+   absent/invalid values cannot win by being coerced to zero.
+3. The old POI-helper documentation was corrected explicitly.702+67=769 tests
+   across40 files, TypeScript, repository integrity and eleven identities pass.
+4. No pipeline, installs, protected-data writes or deployment command. No new
+   browser/build/performance claim: the selector is not yet imported by the page.
+DISAGREEMENTS
+1. Nearest POI is not shortest published walk. This bounded selection cannot
+   promise to compare every nearby stop or manufacture missing walk evidence.
+2. Pure selection completion is not interaction completion. T06 must mount the
+   existing picker and keep route geometry, measurements and URL synchronized.

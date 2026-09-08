@@ -2610,3 +2610,23 @@ No published value, input, locked weight or geometry is changed. No pipeline,
 installation or deployment. The module is not yet wired into the existing picker.
 T05 ordering and T06 map/summary/URL integration follow ADR-15 and the contract.
 Evidence: qa/revamp-r1/published-options-20260909/summary.json.
+
+## 2026-09-09: Select useful walks without filling an arbitrary list
+
+T05 ranks only the validated published pool in one category: shortest shown
+sheltered walk, most covered, valid current, then default fallback if space.
+Merge roles by canonical identity and cap at three; preserve the default reset
+target without displacing a distinct valid current for a fourth choice.
+Ties use full metric precision, known values before unavailable ones, then
+code-unit key order. No POI distance, preview request or score recomputation.
+
+Real fixture tests retain bus03509 once for both wins, MRT C for distance and
+the category-default MRT E for coverage; current MRT D becomes the third choice.
+Correct the old POI helper comment that denied this published candidate evidence;
+its proximity behavior is unchanged and does not become a walk-ranking engine.
+
+702 previous +67 selector =769 web tests in39+1=40 files pass with production
+data access denied, plus TypeScript/integrity and11 source identities. This is
+not page integration or a new browser/build/performance/deployment claim. T06
+must wire the existing picker, summaries, selected geometry and URL together.
+Evidence: qa/revamp-r1/published-options-20260909/choices-summary.json.

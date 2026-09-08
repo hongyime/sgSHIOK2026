@@ -264,3 +264,23 @@ integration nor all-stop evaluation is established by T04 fixture validation.
 Contract and real source identities:
 `qa/revamp-r1/published-option-contract-20260909.json` and
 `web/lib/__tests__/fixtures/published-options.provenance.json`.
+
+### T05 selector boundary, 2026-09-09
+
+`selectPublishedTransitChoices` consumes the normalized pool, category and
+optional current key without reading raw score/geometry/POIs. Order shortest
+shown walk by sheltered distance, known coverage descending, then exact key;
+order most covered by known ratio, known positive distance, then exact key.
+Use full source precision. Valid zero coverage is not missing coverage.
+
+Merge winner roles, retain valid current, then add an eligible category default
+only if absent and fewer than three choices remain. Never fill arbitrary spare
+slots. Source locators identify the default without parsing a label or inventing
+a stop ID. An unavailable default still owns reset but is not a selectable walk.
+Omitted current selects the declared default; explicit null requests no current
+role. A stale explicit key does not silently become the default selection.
+
+This pure selector does not drive the page yet. T06 must preserve original
+candidate geometry across mode changes, repair preview metric meanings and use
+validated geometry/gap capabilities without copying raw optional segments.
+The existing POI proximity helpers remain separate and do not rank walks.
