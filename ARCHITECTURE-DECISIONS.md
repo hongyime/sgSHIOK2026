@@ -160,3 +160,14 @@ This recovers data, not every map dependency. A later origin-outage test records
 the MapLibre worker URL returning503. Keep worker-asset availability, pre-load
 failure deadlines, and automatic legacy-upgrade acceptance separate and open.
 Evidence: `qa/revamp-r1/data-cache-recovery-20260909/summary.json`.
+
+### T01 worker dependencies, 2026-09-09
+
+The shipped MapLibre worker and shared module are immutable release dependencies,
+like hashed application chunks. Cache only their pinned `/maplibre/6.1.0/`
+directory in the SW and assign immutable HTTP headers to that same directory.
+An upgrade must use a new versioned path, not replace bytes under the old URL.
+Do not widen the rule to unversioned assets or arbitrary worker endpoints.
+Observed origin-outage rendering now passes for a previously visited walk;
+unvisited data, external tile outages and legacy client upgrades remain distinct.
+Evidence: `qa/revamp-r1/worker-cache-20260909/summary.json`.

@@ -2522,3 +2522,18 @@ excluded MapLibre worker returns503 during origin outage. The final outage
 capture timed out; do not claim offline-map acceptance or a measured speedup.
 Next is the small worker-availability/pre-load-recovery fix, not a rescore.
 Evidence: qa/revamp-r1/data-cache-recovery-20260909/summary.json.
+
+## 2026-09-09: Keep the versioned map worker available with cached walks
+
+The observed MapLibre worker503 was caused by a missing cache policy for the
+shipped module directory. Add only `/maplibre/6.1.0/` to immutable SW/HTTP caching;
+future library upgrades must use a different versioned path. No worker library
+bytes, map geometry, score values, weights or inputs change.
+
+333 isolated tests/35 files, TypeScript/build/integrity and11 input identities
+pass. A fresh-profile Chromium check proves the visited walk survives origin
+outage with four unchanged metrics and four rendered features; both worker
+modules are in CacheStorage. This is not full offline navigation, automatic
+legacy-upgrade acceptance or a performance benchmark. The pre-load watchdog
+and retry gap remains next; no pipeline or deployment command was run.
+Evidence: qa/revamp-r1/worker-cache-20260909/summary.json.

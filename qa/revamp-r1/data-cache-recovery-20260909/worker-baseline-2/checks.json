@@ -1,0 +1,102 @@
+{
+  "commands": [
+    {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:/sgSHIOK2026/web/scripts/test-web.mjs",
+        "lib/__tests__/service-worker-behaviour.test.ts",
+        "lib/__tests__/deployment.test.ts",
+        "--reporter=dot"
+      ],
+      "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n··············xxxxxxxx·················································x···x··················\n\n Test Files  2 failed (2)\n      Tests  10 failed | 84 passed (94)\n   Start at  01:07:35\n   Duration  4.46s (transform 515ms, setup 0ms, import 714ms, tests 1.56s, environment 1ms)\n\n",
+      "stderr": "\n⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯\n\n FAIL  lib/__tests__/deployment.test.ts > deployment packaging > keeps service-worker caching scoped to static public assets\nAssertionError: expected 'const CACHE_NAME = \"sgshiok-static-v1…' to contain '\"/maplibre/6.1.0/\"'\n\n- Expected\n+ Received\n\n- \"/maplibre/6.1.0/\"\n+ const CACHE_NAME = \"sgshiok-static-v1\";\n+ const SHELL_CACHE_NAME = \"sgshiok-shell-v2\";\n+ const SHELL_CACHE_KEY = new URL(\"/\", self.location.origin).href;\n+ const inFlight = new Map();\n+ let navigationSequence = 0;\n+ let latestSuccessfulNavigation = 0;\n+ let shellWrite = Promise.resolve();\n+ const CACHEABLE_EXACT_PATHS = new Set([\n+   \"/icon.svg\",\n+   \"/favicon.ico\",\n+   \"/apple-touch-icon.png\",\n+   \"/apple-touch-icon-precomposed.png\",\n+   \"/robots.txt\",\n+   \"/sitemap.xml\",\n+   \"/site.webmanifest\",\n+   \"/manifest.json\",\n+ ]);\n+ const CACHEABLE_PREFIXES = [\"/_next/static/\", \"/data/\"];\n+ const CACHE_MAX_AGE_MS = new Map([\n+   [\"/robots.txt\", 604_800_000],\n+   [\"/sitemap.xml\", 604_800_000],\n+   [\"/site.webmanifest\", 604_800_000],\n+   [\"/manifest.json\", 604_800_000],\n+ ]);\n+\n+ function isCacheableRequest(request) {\n+   if (request.method !== \"GET\") return false;\n+\n+   const url = new URL(request.url);\n+   if (url.origin !== self.location.origin) return false;\n+   if (url.pathname.startsWith(\"/api/\")) return false;\n+   if (request.headers.has(\"RSC\") || request.headers.has(\"Next-Router-Prefetch\") ||\n+       request.headers.get(\"Purpose\") === \"prefetch\" || request.headers.get(\"Sec-Purpose\")?.includes(\"prefetch\") || url.searchParams.has(\"_rsc\") ||\n+       request.headers.has(\"Range\")) return false;\n+   if (url.pathname === \"/\") return request.mode === \"navigate\";\n+\n+   return CACHEABLE_EXACT_PATHS.has(url.pathname) || CACHEABLE_PREFIXES.some((prefix) => url.pathname.startsWith(prefix));\n+ }\n+\n+ function cacheMaxAgeMs(request) {\n+   const url = new URL(request.url, self.location.origin);\n+   if (CACHEABLE_PREFIXES.some((prefix) => url.pathname.startsWith(prefix))) return Infinity;\n+   if (\n+     url.pathname === \"/icon.svg\" ||\n+     url.pathname === \"/favicon.ico\" ||\n+     url.pathname === \"/apple-touch-icon.png\" ||\n+     url.pathname === \"/apple-touch-icon-precomposed.png\"\n+   ) {\n+     return Infinity;\n+   }\n+   return CACHE_MAX_AGE_MS.get(url.pathname) ?? 0;\n+ }\n+\n+ function isFreshEnough(response, maxAgeMs) {\n+   if (maxAgeMs === Infinity) return true;\n+   const cachedAt = Date.parse(response.headers.get(\"date\") || \"\");\n+   if (!Number.isFinite(cachedAt)) return false;\n+   return Date.now() - cachedAt < maxAgeMs;\n+ }\n+\n+ async function readCache(name, key) {\n+   try {\n+     return await (await caches.open(name)).match(key);\n+   } catch {\n+     return undefined;\n+   }\n+ }\n+\n+ async function writeCache(name, key, response) {\n+   try {\n+     await (await caches.open(name)).put(key, response);\n+   } catch {\n+     // Storage/quota failures must never turn a successful fetch into an error.\n+   }\n+ }\n+\n+ function canStore(response) {\n+   return response.status === 200 && !/\\b(no-store|private)\\b/i.test(response.headers.get(\"Cache-Control\") || \"\");\n+ }\n+\n+ async function navigationResponse(event) {\n+   const sequence = ++navigationSequence;\n+   const controller = new AbortController();\n+   let settled = false;\n+   const fallback = readCache(SHELL_CACHE_NAME, SHELL_CACHE_KEY);\n+   const timer = setTimeout(() => {\n+     // A slow first visit must not be aborted when there is nothing to show offline.\n+     void fallback.then(cached => { if (cached && !settled) controller.abort(); });\n+   }, 10000);\n+   try {\n+     const response = await fetch(event.request, { cache: \"no-cache\", signal: controller.signal });\n+     if (response.ok) {\n+       if (canStore(response) && response.headers.get(\"Content-Type\")?.includes(\"text/html\")) {\n+         const copy = response.clone();\n+         latestSuccessfulNavigation = Math.max(latestSuccessfulNavigation, sequence);\n+         // Serialize shell writes so a slow previous navigation cannot overwrite a newer one.\n+         shellWrite = shellWrite.then(() => sequence === latestSuccessfulNavigation\n+           ? writeCache(SHELL_CACHE_NAME, SHELL_CACHE_KEY, copy) : undefined);\n+         event.waitUntil(shellWrite);\n+       }\n+       return response;\n+     }\n+     return (await fallback) || response;\n+   } catch (error) {\n+     const cached = await fallback;\n+     if (cached) return cached;\n+     throw error;\n+   } finally {\n+     settled = true;\n+     clearTimeout(timer);\n+   }\n+ }\n+\n+ async function assetResponse(event) {\n+   const request = event.request;\n+   const cached = await readCache(CACHE_NAME, request);\n+   if (cached && isFreshEnough(cached, cacheMaxAgeMs(request))) return cached;\n+   const key = `${request.cache === \"only-if-cached\" ? \"cache-only\" : \"network-allowed\"}:${request.url}`;\n+   let pending = inFlight.get(key);\n+   if (!pending) {\n+     pending = fetch(request).then(response => {\n+       if (canStore(response)) event.waitUntil(writeCache(CACHE_NAME, request, response.clone()));\n+       return response;\n+     }).finally(() => inFlight.delete(key));\n+     inFlight.set(key, pending);\n+   }\n+   try {\n+     const response = (await pending).clone();\n+     return !response.ok && cached ? cached : response;\n+   } catch (error) {\n+     if (cached) return cached;\n+     throw error;\n+   }\n+ }\n+\n+ self.addEventListener(\"install\", (event) => {\n+   event.waitUntil(self.skipWaiting());\n+ });\n+\n+ self.addEventListener(\"activate\", (event) => {\n+   event.waitUntil(\n+     caches\n+       .keys()\n+       // Keep immutable assets used by already-open tabs and leave unrelated applications alone.\n+       .then((keys) => Promise.all(keys.filter((key) => key === \"sgshiok-shell-v1\").map((key) => caches.delete(key))))\n+       .catch(() => undefined)\n+       .then(() => self.clients.claim()),\n+   );\n+ });\n+\n+ self.addEventListener(\"fetch\", (event) => {\n+   const { request } = event;\n+   if (!isCacheableRequest(request)) return;\n+   event.respondWith(request.mode === \"navigate\" ? navigationResponse(event) : assetResponse(event));\n+ });\n+\n\n ❯ lib/__tests__/deployment.test.ts:115:29\n    113|     }\n    114|     for (const prefix of ['\"/_next/static/\"', '\"/data/\"', '\"/maplibre/…\n    115|       expect(serviceWorker).toContain(prefix);\n       |                             ^\n    116|     }\n    117|     expect(serviceWorker).toContain('if (url.pathname.startsWith(\"/api…\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯\n\n FAIL  lib/__tests__/deployment.test.ts > deployment packaging > gives the pinned MapLibre module directory immutable headers without broadening other versions\nTypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))\n ❯ lib/__tests__/deployment.test.ts:153:56\n    151|\n    152|   it(\"gives the pinned MapLibre module directory immutable headers wit…\n    153|     expect(await headersFor(\"/maplibre/6.1.0/:path*\")).toContainEqual({\n       |                                                        ^\n    154|       key: \"Cache-Control\", value: \"public, max-age=31536000, immutabl…\n    155|     });\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯\n\n FAIL  lib/__tests__/service-worker-behaviour.test.ts > service worker release behavior (executed worker, synthetic transport) > versioned MapLibre module /maplibre/6.1.0/maplibre-gl-worker.mjs > caches the first successful read and survives 503 without revalidation\n FAIL  lib/__tests__/service-worker-behaviour.test.ts > service worker release behavior (executed worker, synthetic transport) > versioned MapLibre module /maplibre/6.1.0/maplibre-gl-worker.mjs > caches the first successful read and survives network rejection without revalidation\nError: Expected worker interception: https://shiok.test/maplibre/6.1.0/maplibre-gl-worker.mjs\n ❯ Object.request lib/__tests__/service-worker-behaviour.test.ts:163:34\n    161|     async request(request: Request) {\n    162|       const event = dispatch(\"fetch\", request);\n    163|       if (!event.response) throw new Error(`Expected worker intercepti…\n       |                                  ^\n    164|       return event.response;\n    165|     },\n ❯ lib/__tests__/service-worker-behaviour.test.ts:295:34\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯\n\n FAIL  lib/__tests__/service-worker-behaviour.test.ts > service worker release behavior (executed worker, synthetic transport) > versioned MapLibre module /maplibre/6.1.0/maplibre-gl-worker.mjs > does not cache an initial 503 and permits a successful retry\nError: Expected worker interception: https://shiok.test/maplibre/6.1.0/maplibre-gl-worker.mjs\n ❯ Object.request lib/__tests__/service-worker-behaviour.test.ts:163:34\n    161|     async request(request: Request) {\n    162|       const event = dispatch(\"fetch\", request);\n    163|       if (!event.response) throw new Error(`Expected worker intercepti…\n       |                                  ^\n    164|       return event.response;\n    165|     },\n ❯ lib/__tests__/service-worker-behaviour.test.ts:331:39\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯\n\n FAIL  lib/__tests__/service-worker-behaviour.test.ts > service worker release behavior (executed worker, synthetic transport) > versioned MapLibre module /maplibre/6.1.0/maplibre-gl-worker.mjs > does not cache an initial network rejection and permits a successful retry\nAssertionError: expected Error: Expected worker interception: http… to be TypeError: origin unavailable // Object.is equality\n\n- Expected\n+ Received\n\n- TypeError {\n-   \"message\": \"origin unavailable\",\n+ Error {\n+   \"message\": \"Expected worker interception: https://shiok.test/maplibre/6.1.0/maplibre-gl-worker.mjs\",\n  }\n\n ❯ lib/__tests__/service-worker-behaviour.test.ts:329:46\n    327|\n    328|       if (failure === \"network rejection\") {\n    329|         await expect(worker.request(request)).rejects.toBe(original);\n       |                                              ^\n    330|       } else {\n    331|         const response = await worker.request(request);\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯\n\n FAIL  lib/__tests__/service-worker-behaviour.test.ts > service worker release behavior (executed worker, synthetic transport) > versioned MapLibre module /maplibre/6.1.0/maplibre-gl-shared.mjs > caches the first successful read and survives 503 without revalidation\n FAIL  lib/__tests__/service-worker-behaviour.test.ts > service worker release behavior (executed worker, synthetic transport) > versioned MapLibre module /maplibre/6.1.0/maplibre-gl-shared.mjs > caches the first successful read and survives network rejection without revalidation\nError: Expected worker interception: https://shiok.test/maplibre/6.1.0/maplibre-gl-shared.mjs\n ❯ Object.request lib/__tests__/service-worker-behaviour.test.ts:163:34\n    161|     async request(request: Request) {\n    162|       const event = dispatch(\"fetch\", request);\n    163|       if (!event.response) throw new Error(`Expected worker intercepti…\n       |                                  ^\n    164|       return event.response;\n    165|     },\n ❯ lib/__tests__/service-worker-behaviour.test.ts:295:34\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯\n\n FAIL  lib/__tests__/service-worker-behaviour.test.ts > service worker release behavior (executed worker, synthetic transport) > versioned MapLibre module /maplibre/6.1.0/maplibre-gl-shared.mjs > does not cache an initial 503 and permits a successful retry\nError: Expected worker interception: https://shiok.test/maplibre/6.1.0/maplibre-gl-shared.mjs\n ❯ Object.request lib/__tests__/service-worker-behaviour.test.ts:163:34\n    161|     async request(request: Request) {\n    162|       const event = dispatch(\"fetch\", request);\n    163|       if (!event.response) throw new Error(`Expected worker intercepti…\n       |                                  ^\n    164|       return event.response;\n    165|     },\n ❯ lib/__tests__/service-worker-behaviour.test.ts:331:39\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/10]⎯\n\n FAIL  lib/__tests__/service-worker-behaviour.test.ts > service worker release behavior (executed worker, synthetic transport) > versioned MapLibre module /maplibre/6.1.0/maplibre-gl-shared.mjs > does not cache an initial network rejection and permits a successful retry\nAssertionError: expected Error: Expected worker interception: http… to be TypeError: origin unavailable // Object.is equality\n\n- Expected\n+ Received\n\n- TypeError {\n-   \"message\": \"origin unavailable\",\n+ Error {\n+   \"message\": \"Expected worker interception: https://shiok.test/maplibre/6.1.0/maplibre-gl-shared.mjs\",\n  }\n\n ❯ lib/__tests__/service-worker-behaviour.test.ts:329:46\n    327|\n    328|       if (failure === \"network rejection\") {\n    329|         await expect(worker.request(request)).rejects.toBe(original);\n       |                                              ^\n    330|       } else {\n    331|         const response = await worker.request(request);\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/10]⎯\n\n",
+      "exitCode": 1,
+      "elapsedSeconds": 9.809
+    }
+  ],
+  "inputs": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "actual": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "actual": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "actual": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "actual": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "actual": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "actual": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "actual": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "actual": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "match": true
+    }
+  ],
+  "startedAt": "2026-09-08T17:07:30.068Z",
+  "pipelineRuns": 0,
+  "installs": 0,
+  "deployment": false,
+  "finishedAt": "2026-09-08T17:07:40.389Z",
+  "ok": false
+}

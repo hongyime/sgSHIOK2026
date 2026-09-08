@@ -1379,3 +1379,51 @@ DISAGREEMENTS
    T01/T02 remain PARTIAL; M12 and the all-tasks goal are not complete.
 2. Harness deadline failures are neither successful acceptance nor proof of a
    new score defect. Transport evidence and capture limitations remain distinct.
+
+## T01 worker dependency recovery, 2026-09-09: bounded outage case passes
+
+Receipt: `qa/revamp-r1/worker-cache-20260909/summary.json`, including actual
+module HEAD response headers, source/build/snapshot hashes and PNG identities.
+Raw command stdout/stderr remains in the referenced check/build JSON/log files.
+```text
+node C:\sgSHIOK2026\qa\revamp-r1\data-cache-recovery-20260909\check.mjs worker-baseline-2 worker
+node C:\sgSHIOK2026\qa\revamp-r1\data-cache-recovery-20260909\check.mjs worker-fixed-1 worker
+node C:\sgSHIOK2026\qa\revamp-r1\data-cache-recovery-20260909\check.mjs worker-full-1 full
+node C:\sgSHIOK2026\qa\revamp-r1\cached-release-20260908\build-snapshot.mjs worker-cache-20260909-1
+node C:\sgSHIOK2026\qa\revamp-r1\data-cache-recovery-20260909\browser-outage.mjs worker-fixed-1 ZOMdJX4lzIvcwtb9TmT_x
+```
+
+Baseline10 failed +84 passed =94. Treatment94/94 passes. Full318 +14 worker
+cases +1 header case =333 tests;35 files unchanged. TypeScript, direct build,
+repo_integrity and11 source identities pass. Earlier worker-baseline-1 omitted
+Vitest globals and is not a valid deployment baseline; the helper now reuses
+the established project test runner. No earlier report was overwritten.
+
+Browser: `data-cache-recovery-20260909/worker-fixed-1-1788887576565-2b9a4b4f/browser.json`.
+Every check passes; cleanup verifies online origin and owned Chrome exit.
+Both390x844 screenshots are inspected, stable and byte-identical:161078 bytes,
+sha2567e17f921d92cb9858083518aa4bbba757bad7f50aeb5dfd50688ab67da53f2f7.
+Each bracket reports four current rendered features. Cached B HTML, score and
+geometry survive origin outage. Metrics stay81 m /55% /37 m /20 m. Both module
+URLs appear in CacheStorage and zero worker-module requests reach the offline
+origin. Actual module HTTP headers are public,max-age=31536000,immutable.
+
+The lighter harness polls small state instead of repeated full diagnostics,
+prints check names, and reserves20s within its existing45s outage budget for
+capture.65.175s online and7.433s outage are whole harness phases, not a speedup
+comparison or phone benchmark. External OneMap tiles remained reachable.
+
+FINDINGS
+1. Versioned worker dependencies were missing from the cache policy. The narrow
+   SW prefix/HTTP-header fix now passes real visited-walk origin-outage recovery.
+2. Source review and15 new regressions protect failures/retries and reject other
+   versions, unversioned and unrelated paths.333 isolated tests/35 files pass.
+3. The earlier outage failure is superseded for this scenario only. Automatic
+   legacy upgrades and pre-load watchdog/retry remain open; T01 is still PARTIAL.
+4. No pipeline, installation, input mutation or deployment command was run.
+   Live deployment status was not independently re-audited in this local check.
+DISAGREEMENTS
+1. A cached visited walk with reachable external tiles is not full offline
+   navigation or a guarantee for unvisited postals.
+2. Improved harness timing is not product latency evidence. The broader task
+   board and owner gates are still active.

@@ -111,7 +111,9 @@ describe("deployment packaging", () => {
     ]) {
       expect(serviceWorker).toContain(path);
     }
-    expect(serviceWorker).toContain('const CACHEABLE_PREFIXES = ["/_next/static/", "/data/"]');
+    for (const prefix of ['"/_next/static/"', '"/data/"', '"/maplibre/6.1.0/"']) {
+      expect(serviceWorker).toContain(prefix);
+    }
     expect(serviceWorker).toContain('if (url.pathname.startsWith("/api/")) return false;');
     expect(serviceWorker).toContain('const SHELL_CACHE_NAME = "sgshiok-shell-v2";');
     expect(serviceWorker).not.toContain("caches.match(");
@@ -145,6 +147,18 @@ describe("deployment packaging", () => {
     for (const path of ["/data/:path*", "/_next/static/:path*"]) {
       expect(await headersFor(path)).toContainEqual({ key: "Cache-Control", value: "public, max-age=31536000, immutable" });
     }
+  });
+
+  it("gives the pinned MapLibre module directory immutable headers without broadening other versions", async () => {
+    expect(await headersFor("/maplibre/6.1.0/:path*")).toContainEqual({
+      key: "Cache-Control", value: "public, max-age=31536000, immutable",
+    });
+    const routes = await nextConfig.headers();
+    expect(routes.filter((route: { source: string }) => route.source.startsWith("/maplibre"))
+      .map((route: { source: string }) => route.source)).toEqual(["/maplibre/6.1.0/:path*"]);
+    expect(await headersFor("/:path*")).not.toEqual(expect.arrayContaining([
+      { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+    ]));
   });
 
   it("keeps crawler controls away from data and API payloads", () => {

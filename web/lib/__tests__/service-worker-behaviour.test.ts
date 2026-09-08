@@ -279,6 +279,72 @@ describe("service worker release behavior (executed worker, synthetic transport)
     expect(worker.networkCalls).toHaveLength(1);
   });
 
+  describe.each([
+    "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+    "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+  ])("versioned MapLibre module %s", (path) => {
+    it.each(["503", "network rejection"] as const)("caches the first successful read and survives %s without revalidation", async (failure) => {
+      const worker = createWorker();
+      const body = `export const fixturePath = ${JSON.stringify(path)};`;
+      const transport = vi.fn(async () => new Response(body, {
+        headers: { "Content-Type": "text/javascript", date: "Mon, 01 Jan 2001 00:00:00 GMT" },
+      }));
+      worker.controls.fetch = transport;
+      const request = new Request(new URL(path, ORIGIN), { mode: "same-origin" });
+
+      const first = await worker.request(request);
+      expect(first.status).toBe(200);
+      expect(await first.text()).toBe(body);
+      await worker.settle();
+      expect(worker.nativeFetchCalls).toHaveLength(1);
+      expect(worker.networkCalls).toHaveLength(1);
+      expect(transport).toHaveBeenCalledTimes(1);
+      expect(worker.browserHttpCache.size).toBe(0);
+      expect(await worker.stores.get("sgshiok-static-v1")?.get(urlOf(path))?.clone().text()).toBe(body);
+
+      const outage = vi.fn(async () => {
+        if (failure === "network rejection") throw new TypeError("origin unavailable");
+        return new Response("origin unavailable", { status: 503 });
+      });
+      worker.controls.fetch = outage;
+      const cached = await worker.request(request);
+      expect(cached.status).toBe(200);
+      expect(await cached.text()).toBe(body);
+      expect(outage).not.toHaveBeenCalled();
+      expect(worker.nativeFetchCalls).toHaveLength(1);
+      expect(worker.networkCalls).toHaveLength(1);
+      await worker.settle();
+    });
+
+    it.each(["503", "network rejection"] as const)("does not cache an initial %s and permits a successful retry", async (failure) => {
+      const worker = createWorker();
+      const original = new TypeError("origin unavailable");
+      worker.controls.fetch = async () => {
+        if (failure === "network rejection") throw original;
+        return new Response("origin unavailable", { status: 503 });
+      };
+      const request = new Request(new URL(path, ORIGIN), { mode: "same-origin" });
+
+      if (failure === "network rejection") {
+        await expect(worker.request(request)).rejects.toBe(original);
+      } else {
+        const response = await worker.request(request);
+        expect(response.status).toBe(503);
+        expect(await response.text()).toBe("origin unavailable");
+      }
+      await worker.settle();
+      expect(worker.stores.get("sgshiok-static-v1")?.has(urlOf(path)) ?? false).toBe(false);
+
+      worker.controls.fetch = async () => new Response("recovered module");
+      expect(await (await worker.request(request)).text()).toBe("recovered module");
+      await worker.settle();
+      expect(await (await worker.request(request)).text()).toBe("recovered module");
+      expect(worker.nativeFetchCalls).toHaveLength(2);
+      expect(worker.networkCalls).toHaveLength(2);
+      await worker.settle();
+    });
+  });
+
   describe.each(["/data/version-A/scores/01.json", "/_next/static/build-A/app.js"])("cache-only recovery for %s", (path) => {
     function cacheOnlyRequest() {
       return new Request(new URL(path, ORIGIN), { cache: "only-if-cached", mode: "same-origin" });
@@ -415,6 +481,12 @@ describe("service worker release behavior (executed worker, synthetic transport)
     ["Sec-Purpose prefetch", "/", { headers: { "Sec-Purpose": "prefetch;prerender" } }],
     ["Sec-Purpose asset prefetch", "/_next/static/A/map.js", { headers: { "Sec-Purpose": "prefetch;prerender" } }],
     ["Range asset", "/_next/static/A/map.js", { headers: { Range: "bytes=0-5" } }],
+    ["unversioned MapLibre worker", "/maplibre/maplibre-gl-worker.mjs", {}],
+    ["unversioned MapLibre shared module", "/maplibre/maplibre-gl-shared.mjs", {}],
+    ["unapproved MapLibre version", "/maplibre/6.2.0/maplibre-gl-worker.mjs", {}],
+    ["lookalike MapLibre version prefix", "/maplibre/6.1.0-extra/maplibre-gl-worker.mjs", {}],
+    ["bare MapLibre version path", "/maplibre/6.1.0", {}],
+    ["arbitrary module", "/vendor/maplibre-gl-worker.mjs", {}],
   ] as [string, string, RequestInit][])("leaves %s requests to the browser without touching any cache", (_name, path, init) => {
     const worker = createWorker();
     const request = new Request(new URL(path, ORIGIN), init);

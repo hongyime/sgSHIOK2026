@@ -53,7 +53,7 @@ const add = (key, entry, limit = 4000) => {
 const remaining = (maximum = 5000) => Math.max(1, Math.min(maximum, phaseDeadline - Date.now()));
 function check(name, pass, details, fatal = false) {
   report.checks.push({ ...stamp(), name, pass: Boolean(pass), details });
-  console.log(`${pass ? 'PASS' : 'FAIL'} ${name} ${JSON.stringify(details ?? null)}`);
+  console.log(`${pass ? 'PASS' : 'FAIL'} ${name}`);
   if (!pass && fatal) throw Error(name);
 }
 function assertTime() {
@@ -217,7 +217,7 @@ async function observe(predicate, deadline, stage) {
   while (Date.now() < deadline) {
     assertTime();
     try {
-      latest = await evaluate(facts, Math.max(1, Math.min(5000, deadline - Date.now())));
+      latest = await evaluate(pollFacts, Math.max(1, Math.min(5000, deadline - Date.now())));
       const documentResponse = [...responses.values()].find(r => r.type === 'Document' && r.loaderId === activeLoader);
       const currentDocument = mainFrameLoader === activeLoader && !!documentResponse &&
         completedRequests.has(documentResponse.requestId);
@@ -233,6 +233,19 @@ async function observe(predicate, deadline, stage) {
 }
 const realRoute = s => s.postal === '018956' && s.metrics.length === 4 && s.routeCount === 4 &&
   s.basemapLoaded === true && s.moving === false;
+const pollFacts = `(() => {
+  const map = window.__shiokRouteMap, key = window.__shiokRouteDebug?.routeKey;
+  window.__t02Outage?.attach(map);
+  const summary = document.querySelector('[aria-label="Walk summary"]');
+  const metrics = summary ? [...summary.querySelectorAll('div > strong')].map(node => ({
+    value: node.textContent, label: node.parentElement.querySelector('span')?.textContent
+  })).filter(item => ['Walk distance','Covered','Uncovered','Longest gap'].includes(item.label)) : [];
+  return { postal: summary?.dataset.postal || null, metrics, key,
+    status: document.querySelector('main')?.dataset.mapStatus || null,
+    routeCount: key && map?.getLayer('shiokest-route-line') ? map.queryRenderedFeatures({layers:['shiokest-route-line']}).filter(f => f.properties?.render_key === key).length : 0,
+    basemapLoaded: !!map?.getSource('onemap') && map.isSourceLoaded('onemap'),
+    moving: map?.isMoving(), worker: { controlled: !!navigator.serviceWorker?.controller } };
+})()`;
 function artifactKind(url) {
   const path = new URL(url).pathname;
   if (/\/scores?\//i.test(path)) return /\/(?:index|prefix-index)\.json(?:\.gz)?$/i.test(path) ? 'score-index' : 'score';
@@ -349,7 +362,7 @@ try {
   const beforeOutage = await proxySnapshot('outage-start');
   check('origin outage enabled on B', beforeOutage?.offline === true && beforeOutage?.active === 'B', beforeOutage, true);
   activeLoader = (await send('Page.navigate', { url: selectedUrl }, 30000)).loaderId;
-  const recovery = await observe(s => realRoute(s) && s.worker.controlled, phaseDeadline - 8000, 'origin-outage');
+  const recovery = await observe(s => realRoute(s) && s.worker.controlled, phaseDeadline - 20000, 'origin-outage');
   // Failure is diagnostic output, not a reason to skip the screenshot and network receipts.
   const offline = await capture('outage-B-390x844', activeLoader);
   report.outageObservation = { reachedRealRoute: recovery.reached, latest: recovery.latest };

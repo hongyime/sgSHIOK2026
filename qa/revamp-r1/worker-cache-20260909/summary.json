@@ -1,0 +1,429 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "task": "T01 worker dependency recovery",
+  "status": "SUBTASK_DONE",
+  "wholeT01": "PARTIAL",
+  "pipelineRuns": 0,
+  "installations": 0,
+  "deployment": false,
+  "preview": "http://127.0.0.1:4324",
+  "build": {
+    "path": "qa/revamp-r1/cached-release-20260908/worker-cache-20260909-1/build.json",
+    "buildId": "ZOMdJX4lzIvcwtb9TmT_x",
+    "exitCode": 0,
+    "identities": [
+      {
+        "path": "web/public/sw.js",
+        "current": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc",
+        "recorded": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc",
+        "snapshot": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc",
+        "match": true
+      },
+      {
+        "path": "web/next.config.js",
+        "current": "9dabd78e5bf0154a2438234d3b14b850af6251c55b9480dc5db0f07bd63c87ab",
+        "recorded": "9dabd78e5bf0154a2438234d3b14b850af6251c55b9480dc5db0f07bd63c87ab",
+        "snapshot": "9dabd78e5bf0154a2438234d3b14b850af6251c55b9480dc5db0f07bd63c87ab",
+        "match": true
+      },
+      {
+        "path": "web/lib/data.ts",
+        "current": "8c1dfaf0086b6038570b8e8b737b446928840babaf03c537161768f5f4f5841f",
+        "recorded": "8c1dfaf0086b6038570b8e8b737b446928840babaf03c537161768f5f4f5841f",
+        "snapshot": "8c1dfaf0086b6038570b8e8b737b446928840babaf03c537161768f5f4f5841f",
+        "match": true
+      },
+      {
+        "path": "web/components/route-evidence-map.tsx",
+        "current": "157334ffa8f2cb6fa9a91bd06b86f1fba8bba67091fd07083943eabf254c9c01",
+        "recorded": "157334ffa8f2cb6fa9a91bd06b86f1fba8bba67091fd07083943eabf254c9c01",
+        "snapshot": "157334ffa8f2cb6fa9a91bd06b86f1fba8bba67091fd07083943eabf254c9c01",
+        "match": true
+      }
+    ]
+  },
+  "validation": {
+    "path": "qa/revamp-r1/data-cache-recovery-20260909/worker-full-1/checks.json",
+    "ok": true,
+    "inputAnchorsMatched": 11,
+    "testArithmetic": "318 + 14 worker cases + 1 header case = 333 tests; 35 files unchanged",
+    "focusedArithmetic": "49 prior worker + 14 new = 63; 30 prior deployment + 1 new = 31; 63 + 31 = 94",
+    "commands": [
+      {
+        "command": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:/sgSHIOK2026/web/scripts/test-without-production-data.mjs",
+          "--reporter=dot"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:/sgSHIOK2026/web/node_modules/typescript/bin/tsc",
+          "--project",
+          "C:/sgSHIOK2026/web/tsconfig.json",
+          "--noEmit",
+          "--incremental",
+          "false"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": "python",
+        "args": [
+          "C:/sgSHIOK2026/scripts/check_repo_integrity.py"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": "git",
+        "args": [
+          "diff",
+          "--check"
+        ],
+        "exitCode": 0
+      }
+    ],
+    "baseline": "worker-baseline-2/checks.json: 10 failed + 84 passed = 94. worker-baseline-1 omitted Vitest globals and is not a valid deployment-suite baseline.",
+    "treatment": "worker-fixed-1/checks.json: 94/94 passed",
+    "independentReview": "Parfit authored and ran the red baseline, then approved the narrow runtime prefix/header change at source-review level. Parent executed treatment and full suite."
+  },
+  "browser": {
+    "path": "qa/revamp-r1/data-cache-recovery-20260909/worker-fixed-1-1788887576565-2b9a4b4f/browser.json",
+    "ok": true,
+    "checks": [
+      {
+        "name": "proxy serves the explicitly pinned B build",
+        "pass": true
+      },
+      {
+        "name": "online first visit has real route and controlling worker",
+        "pass": true
+      },
+      {
+        "name": "first actual Document is B",
+        "pass": true
+      },
+      {
+        "name": "online controlled baseline verified",
+        "pass": true
+      },
+      {
+        "name": "online phase within 120 seconds",
+        "pass": true
+      },
+      {
+        "name": "origin outage enabled on B",
+        "pass": true
+      },
+      {
+        "name": "outage actual Document is cached B",
+        "pass": true
+      },
+      {
+        "name": "outage restores matching four metrics",
+        "pass": true
+      },
+      {
+        "name": "outage score and geometry have 200 SW responses",
+        "pass": true
+      },
+      {
+        "name": "outage route observation captured without requiring success",
+        "pass": true
+      },
+      {
+        "name": "outage selected route survives",
+        "pass": true
+      },
+      {
+        "name": "outage phase within 45 seconds",
+        "pass": true
+      },
+      {
+        "name": "no uncaught page exceptions",
+        "pass": true
+      }
+    ],
+    "onlineMs": 65175,
+    "originOutageMs": 7433,
+    "recovery": {
+      "documentB": true,
+      "documentFromServiceWorker": true,
+      "metrics": [
+        {
+          "value": "81 m",
+          "label": "Walk distance"
+        },
+        {
+          "value": "55%",
+          "label": "Covered"
+        },
+        {
+          "value": "37 m",
+          "label": "Uncovered"
+        },
+        {
+          "value": "20 m",
+          "label": "Longest gap"
+        }
+      ],
+      "metricsEqualOnline": true,
+      "routeCount": 4,
+      "routeRecovered": true,
+      "score200FromSW": [
+        {
+          "at": "2026-09-08T17:14:02.547Z",
+          "phase": "outage",
+          "requestId": "100996.348",
+          "loaderId": "F6947A77D06BEF2B785EA55A4B9CDC36",
+          "type": "Fetch",
+          "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+          "status": 200,
+          "mimeType": "application/json",
+          "fromServiceWorker": true,
+          "fromDiskCache": true,
+          "serviceWorkerResponseSource": "cache-storage",
+          "protocol": "http/1.1",
+          "headers": {
+            "x-robots-tag": "noindex, nofollow, noarchive",
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "cache-control": "public, max-age=31536000, immutable",
+            "content-encoding": "gzip",
+            "etag": "W/\"4fe52d-19fd21417c0\"",
+            "access-control-allow-methods": "GET, HEAD, OPTIONS",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "x-content-type-options": "nosniff",
+            "accept-ranges": "bytes",
+            "access-control-allow-origin": "*",
+            "date": "Tue, 08 Sep 2026 17:13:42 GMT",
+            "content-type": "application/json; charset=UTF-8",
+            "last-modified": "Wed, 05 Aug 2026 13:19:20 GMT",
+            "vary": "Accept-Encoding",
+            "access-control-allow-headers": "Content-Type"
+          },
+          "timing": {
+            "requestTime": 958339.627697,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": -1,
+            "dnsEnd": -1,
+            "connectStart": -1,
+            "connectEnd": -1,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": 0.004,
+            "workerReady": 3.549,
+            "workerFetchStart": 3.549,
+            "workerRespondWithSettled": 8.926,
+            "sendStart": 3.549,
+            "sendEnd": 3.549,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 9.386,
+            "receiveHeadersEnd": 9.386
+          },
+          "artifact": "score"
+        }
+      ],
+      "geom200FromSW": [
+        {
+          "at": "2026-09-08T17:14:02.333Z",
+          "phase": "outage",
+          "requestId": "100996.337",
+          "loaderId": "F6947A77D06BEF2B785EA55A4B9CDC36",
+          "type": "Fetch",
+          "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+          "status": 200,
+          "mimeType": "application/gzip",
+          "fromServiceWorker": true,
+          "fromDiskCache": true,
+          "serviceWorkerResponseSource": "cache-storage",
+          "protocol": "http/1.1",
+          "headers": {
+            "x-robots-tag": "noindex, nofollow, noarchive",
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "cache-control": "public, max-age=31536000, immutable",
+            "etag": "W/\"b8-1a04d0111ca\"",
+            "access-control-allow-methods": "GET, HEAD, OPTIONS",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "x-content-type-options": "nosniff",
+            "accept-ranges": "bytes",
+            "access-control-allow-origin": "*",
+            "content-length": "184",
+            "date": "Tue, 08 Sep 2026 17:13:40 GMT",
+            "content-type": "application/gzip",
+            "last-modified": "Sat, 29 Aug 2026 10:11:50 GMT",
+            "access-control-allow-headers": "Content-Type"
+          },
+          "timing": {
+            "requestTime": 958339.307935,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": -1,
+            "dnsEnd": -1,
+            "connectStart": -1,
+            "connectEnd": -1,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": 0.002,
+            "workerReady": 1.516,
+            "workerFetchStart": 1.516,
+            "workerRespondWithSettled": 45.927,
+            "sendStart": 1.516,
+            "sendEnd": 1.516,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 46.332,
+            "receiveHeadersEnd": 46.332
+          },
+          "artifact": "geom"
+        },
+        {
+          "at": "2026-09-08T17:14:02.340Z",
+          "phase": "outage",
+          "requestId": "100996.345",
+          "loaderId": "F6947A77D06BEF2B785EA55A4B9CDC36",
+          "type": "Fetch",
+          "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+          "status": 200,
+          "mimeType": "application/json",
+          "fromServiceWorker": true,
+          "fromDiskCache": true,
+          "serviceWorkerResponseSource": "cache-storage",
+          "protocol": "http/1.1",
+          "headers": {
+            "x-robots-tag": "noindex, nofollow, noarchive",
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "cache-control": "public, max-age=31536000, immutable",
+            "content-encoding": "gzip",
+            "etag": "W/\"237af-19fd2382250\"",
+            "access-control-allow-methods": "GET, HEAD, OPTIONS",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "x-content-type-options": "nosniff",
+            "accept-ranges": "bytes",
+            "access-control-allow-origin": "*",
+            "date": "Tue, 08 Sep 2026 17:13:42 GMT",
+            "content-type": "application/json; charset=UTF-8",
+            "last-modified": "Wed, 05 Aug 2026 13:58:42 GMT",
+            "vary": "Accept-Encoding",
+            "access-control-allow-headers": "Content-Type"
+          },
+          "timing": {
+            "requestTime": 958339.418534,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": -1,
+            "dnsEnd": -1,
+            "connectStart": -1,
+            "connectEnd": -1,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": 0.002,
+            "workerReady": 2.196,
+            "workerFetchStart": 2.196,
+            "workerRespondWithSettled": 13.713,
+            "sendStart": 2.196,
+            "sendEnd": 2.196,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 14.091,
+            "receiveHeadersEnd": 14.091
+          },
+          "artifact": "geom"
+        }
+      ]
+    },
+    "cleanup": {
+      "originRestoredOnline": true,
+      "originVerifiedOnline": true,
+      "browserCloseSent": true,
+      "ownedChromeKillSent": true,
+      "chromeExitCode": null,
+      "chromeSignalCode": "SIGTERM",
+      "chromeExited": true
+    },
+    "images": [
+      {
+        "label": "online-B-390x844",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\data-cache-recovery-20260909\\worker-fixed-1-1788887576565-2b9a4b4f\\online-B-390x844.png",
+        "bytes": 161078,
+        "width": 390,
+        "height": 844,
+        "sha256": "7e17f921d92cb9858083518aa4bbba757bad7f50aeb5dfd50688ab67da53f2f7",
+        "stable": true,
+        "beforeFeatures": 4,
+        "afterFeatures": 4
+      },
+      {
+        "label": "outage-B-390x844",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\data-cache-recovery-20260909\\worker-fixed-1-1788887576565-2b9a4b4f\\outage-B-390x844.png",
+        "bytes": 161078,
+        "width": 390,
+        "height": 844,
+        "sha256": "7e17f921d92cb9858083518aa4bbba757bad7f50aeb5dfd50688ab67da53f2f7",
+        "stable": true,
+        "beforeFeatures": 4,
+        "afterFeatures": 4
+      }
+    ],
+    "cachedWorkerModules": [
+      "http://127.0.0.1:4324/maplibre/6.1.0/maplibre-gl-worker.mjs",
+      "http://127.0.0.1:4324/maplibre/6.1.0/maplibre-gl-shared.mjs"
+    ],
+    "outageWorkerOriginRequests": [],
+    "visualInspection": "Parent inspected the online and origin-outage PNGs. Both are390x844, stable, four selected route features; the requested left stack and bottom-right About data remain visible. Images are byte-identical.",
+    "limits": "Fresh-profile B-only Chromium/software-GPU test of a previously visited walk, not automatic A-to-B upgrade, whole-device offline, a physical phone, uncached-postal availability, or a speedup benchmark."
+  },
+  "actualModuleHeaders": [
+    {
+      "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=31536000, immutable",
+        "connection": "close",
+        "content-length": "19108",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "application/javascript; charset=UTF-8",
+        "date": "Tue, 08 Sep 2026 17:18:46 GMT",
+        "etag": "W/\"4aa4-19fffad9b1f\"",
+        "last-modified": "Fri, 14 Aug 2026 09:49:55 GMT",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "vary": "Accept-Encoding",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=31536000, immutable",
+        "connection": "close",
+        "content-length": "479327",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "application/javascript; charset=UTF-8",
+        "date": "Tue, 08 Sep 2026 17:18:46 GMT",
+        "etag": "W/\"7505f-19fffad9af2\"",
+        "last-modified": "Fri, 14 Aug 2026 09:49:55 GMT",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "vary": "Accept-Encoding",
+        "x-content-type-options": "nosniff"
+      }
+    }
+  ],
+  "QAChanges": "Reuse the project test runner for globals. Poll only small state and keep full diagnostics for captures; print check names rather than huge JSON. Reserve20s of the same45s outage budget for image/body evidence. No prior failed report was overwritten.",
+  "FINDINGS": [
+    "The two shipped MapLibre modules were excluded from the immutable cache. The version-pinned SW allowlist and HTTP headers now cover them without broadening arbitrary or unversioned paths.",
+    "Actual browser origin outage now preserves the cached B document, score/geometry, four identical metrics and four current rendered route features. Both worker modules appear in CacheStorage; no worker request reaches the unavailable origin in this run.",
+    "All333 isolated web tests, TypeScript/build/integrity and11 source anchors pass. No scoring, export, input changes, installations or deployment.",
+    "Automatic legacy upgrade and the independently identified pre-load watchdog/retry gap remain open. This successful bounded scenario does not complete T01 or the whole product backlog."
+  ],
+  "DISAGREEMENTS": [
+    "These harness phase times do not establish a latency improvement; the harness was made lighter and host load is uncontrolled.",
+    "Origin outage with external tiles reachable is not a promise of full offline navigation or support for an unvisited postal."
+  ]
+}

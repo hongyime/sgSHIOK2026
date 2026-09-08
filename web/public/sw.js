@@ -15,7 +15,7 @@ const CACHEABLE_EXACT_PATHS = new Set([
   "/site.webmanifest",
   "/manifest.json",
 ]);
-const CACHEABLE_PREFIXES = ["/_next/static/", "/data/"];
+const CACHEABLE_PREFIXES = ["/_next/static/", "/data/", "/maplibre/6.1.0/"];
 const CACHE_MAX_AGE_MS = new Map([
   ["/robots.txt", 604_800_000],
   ["/sitemap.xml", 604_800_000],
