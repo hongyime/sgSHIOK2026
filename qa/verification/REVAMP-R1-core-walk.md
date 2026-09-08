@@ -1888,3 +1888,88 @@ Existing inputs, protected outputs and X: were not modified. Continuously
 written preview logs are excluded from the commit. Preview4326 uses the final
 T07build; proxyPID71512 and NextPID99696. It serves existing data read-only and
 deliberately returns503 for live preview APIs.
+
+## 2026-09-09 T08: Shared category-default comparison row
+
+Working root: C:\sgSHIOK2026; hostname: Prawn-E14.
+Base: ab671dc011e2640646ba67b96e0195f5cce81a74.
+Receipt: qa/revamp-r1/comparison-20260909/summary.json.
+This section is appended; no previous verification line changes.
+
+Final commands/results:
+
+```text
+node C:/sgSHIOK2026/web/scripts/test-web.mjs lib/__tests__/comparison.test.ts --no-cache
+ Test Files  1 passed (1)
+      Tests  44 passed (44)
+node C:/sgSHIOK2026/qa/revamp-r1/published-options-20260909/check.mjs comparison-full-1 full
+ Test Files  47 passed (47)
+      Tests  1109 passed (1109)
+TypeScript --noEmit --incremental false: exit0
+python scripts/check_repo_integrity.py: repo_integrity=ok; exit0
+git diff --check: exit0
+11 protected source anchors: match
+node C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/build-snapshot.mjs comparison-contract-20260909-1
+buildId=5qkRQo8F7DVo53iS0ul33; exit0
+node C:/sgSHIOK2026/qa/revamp-r1/exposure-sections-20260909/browser.mjs comparison-regression-1 5qkRQo8F7DVo53iS0ul33
+43 checks passed;8 screenshots; owned Chrome exited; exit0
+```
+
+Raw focused receipts in comparison-20260909:
+- b-focused-1788907465473:36pass before expanded review cases.
+- b-focused-1788907574542:39pass/1fail. A partial declared bus geometry plus
+  synthetic82.2m contradicted81.2m aliases but returned partial geometry status.
+- b-focused-1788908135995:41pass/3fail after implementation correction. Their
+  unavailable/all-null assertions passed; diagnostic-name assertions were stale.
+- b-focused-1788908160958:44pass after correcting the three expected prefixes
+  in two assertion lines. No cases were removed or runtime code changed then.
+Each directory retains raw stdout/stderr, exits and before/after source hashes.
+
+All five scoped source/test files match the isolated tested snapshot and final
+built source.1065 previous +44 new =1109 tests;46+1=47files. Existing normalizer
+and picker tests remain green; comparison adds no fetch or file-read dependency.
+
+Browser receipt/captures: qa/revamp-r1/exposure-sections-20260909/
+comparison-regression-1-1788908602992. Parent inspected all8 final captures at
+1440x950,390x844,390x667 and320x667: initial walk, four focused sizes, Back to
+walk, closed disclosure and shortest focus-return. Exact section vertices,
+current route features and overlay bounds bracket captures. Native keyboard,
+pan preservation and asynchronous DOM-removal focus checks pass. Chrome.close
+was followed by bounded owned-process termination; exit and absence verified.
+This is existing-walk regression coverage after extraction, not a comparison
+UI that has not yet been implemented, physical-phone timing or a speed claim.
+
+Catalogue mapping: C03/C04 data-contract preparation uses44 comparison cases;
+visible columns/shared category interaction still belongs to T10. W01/W02/
+W10/W13 reuse the shared walkMetrics and existing summary/selection cases.
+Parfit implemented, Raman independently tested, Anscombe reviewed read-only;
+parent ran integrated/build/browser checks and inspected the captures.
+
+FINDINGS
+1. ADR-16 now pins each comparison row to the declared category-default
+   sheltered walk. Missing/conflicting defaults cannot silently become another
+   candidate/category or an invented composite. Four metrics remain nullable.
+2. A default group may select an alternate representation. The row now pins the
+   actual declaration while preserving useful measurements without geometry.
+3. Review found and tests reproduced a partial-geometry conflict bypass. A
+   comparison-only consistency check now independently validates already-grouped
+   sources and rejects valid metric disagreement without changing picker rules.
+   This was a synthetic test mutation, not a protected input/hash mismatch.
+4. Comparison-specific diagnostics preserve underlying evidence status. Three
+   inherited test-prefix expectations were corrected explicitly. Provenance
+   references remain original-field locators, not newly audited digests.
+5. The task board reflects completed local core-walk work. STATE drops179lines
+   of superseded instructions, retained in Git at ab671dc; existing verification
+   evidence is untouched. Current safeguards and evidence links remain in STATE.
+DISAGREEMENTS
+1. Default-group membership alone does not establish default-source authority.
+   The picker group cannot safely supply comparison metrics without pinning.
+2. Partial geometry does not erase valid, same-identity metric contradictions.
+   The first40-test implementation needed the review-found comparison check.
+3.1109passing tests and the existing-walk browser run establish this contract,
+   not completion of shortlist persistence, comparison UI or sharing. T09-T11
+   and the owner service/compute/user-acceptance/deployment gates remain open.
+
+Pipeline runs=0; pipeline cost=$0; installations=0; deployment commands=0.
+No protected payload, locked weight or X: mutation. The preview uses the final
+T08build on4326; continuously written server logs are not committed.

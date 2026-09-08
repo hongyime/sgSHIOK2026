@@ -1,0 +1,45 @@
+{
+  "root": "C:/sgSHIOK2026",
+  "command": "node C:/sgSHIOK2026/web/scripts/test-web.mjs lib/__tests__/comparison.test.ts --no-cache",
+  "exitCode": 1,
+  "signal": null,
+  "elapsedSeconds": 6.8307780000000005,
+  "before": {
+    "web/lib/__tests__/comparison.test.ts": {
+      "bytes": 22964,
+      "sha256": "bd8bf1571ca7e7d00de500f982f0d7e4800d0fabe481a5a50dec8bb342e948b9"
+    },
+    "web/lib/comparison.ts": {
+      "bytes": 9138,
+      "sha256": "72888f9e00c9404349e458175a0e34c0eb171c6dbd8c2e69360983dcf17d1130"
+    },
+    "web/lib/walk-metrics.ts": {
+      "bytes": 5295,
+      "sha256": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f"
+    },
+    "web/lib/published-transit-choices.ts": {
+      "bytes": 4074,
+      "sha256": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0"
+    }
+  },
+  "after": {
+    "web/lib/__tests__/comparison.test.ts": {
+      "bytes": 22964,
+      "sha256": "bd8bf1571ca7e7d00de500f982f0d7e4800d0fabe481a5a50dec8bb342e948b9"
+    },
+    "web/lib/comparison.ts": {
+      "bytes": 9138,
+      "sha256": "72888f9e00c9404349e458175a0e34c0eb171c6dbd8c2e69360983dcf17d1130"
+    },
+    "web/lib/walk-metrics.ts": {
+      "bytes": 5295,
+      "sha256": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f"
+    },
+    "web/lib/published-transit-choices.ts": {
+      "bytes": 4074,
+      "sha256": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0"
+    }
+  },
+  "stdout": "stdout.txt",
+  "stderr": "stderr.txt"
+}

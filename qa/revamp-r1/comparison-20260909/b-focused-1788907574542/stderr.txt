@@ -1,0 +1,37 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  lib/__tests__/comparison.test.ts > T08 C03/C04: declared category-default sheltered comparison > synthetic partial declared geometry cannot hide a positive metric contradiction with intact same-stop aliases
+AssertionError: expected { …(13) } to match object { availability: 'unavailable', …(2) }
+(19 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "availability": "unavailable",
++   "availability": "partial",
+    "metrics": {
+-     "coverage": null,
+-     "distance": null,
+-     "longest": null,
+-     "uncovered": null,
++     "coverage": 55,
++     "distance": 82.2,
++     "longest": 20.2,
++     "uncovered": 36.5,
+    },
+-   "reason": "evidence_conflict",
++   "reason": "geometry_incomplete",
+  }
+
+ ❯ lib/__tests__/comparison.test.ts:206:20
+    204|     expect(promoted.metrics.sheltered_m).toMatchObject({ status: 'vali…
+    205|     const result = row(value);
+    206|     expect(result).toMatchObject({ availability: 'unavailable', reason…
+       |                    ^
+    207|   });
+    208|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

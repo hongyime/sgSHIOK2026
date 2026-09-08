@@ -19,6 +19,19 @@ export interface PublishedTransitChoices {
   selectedKey: string | null;
 }
 
+export function declaredPublishedTransitDefault(
+  pool: PublishedTransitNormalizationResult,
+  category: PublishedTransitCategory,
+): PublishedTransitOption | null {
+  if (pool.contextStatus !== 'valid') return null;
+  const options = pool.options.filter(option => option.category === category);
+  // An unavailable category default still owns reset; do not replace it with a top default.
+  return options.find(option => option.sources.some(source =>
+    source.selectionRef.kind === 'category_default' && source.selectionRef.category === category))
+    ?? options.find(option => option.sources.some(source => source.selectionRef.kind === 'top_default'))
+    ?? null;
+}
+
 function compareKeys(a: PublishedTransitOption, b: PublishedTransitOption): number {
   return a.key < b.key ? -1 : a.key > b.key ? 1 : 0;
 }
@@ -52,11 +65,7 @@ export function selectPublishedTransitChoices(
   }
 
   const options = pool.options.filter(option => option.category === category);
-  // An unavailable category default still owns reset; do not replace it with a top default.
-  const categoryDefault = options.find(option => option.sources.some(source =>
-    source.selectionRef.kind === 'category_default' && source.selectionRef.category === category));
-  const defaultOption = categoryDefault
-    ?? options.find(option => option.sources.some(source => source.selectionRef.kind === 'top_default'));
+  const defaultOption = declaredPublishedTransitDefault(pool, category);
   const defaultKey = defaultOption?.key ?? null;
   const requestedKey = currentKey === undefined ? defaultKey : currentKey;
   const usable = options.filter(option => option.retainable);

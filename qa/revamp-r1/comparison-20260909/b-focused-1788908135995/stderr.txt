@@ -1,0 +1,39 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  lib/__tests__/comparison.test.ts > T08 C03/C04: declared category-default sheltered comparison > synthetic partial declaration still exposes conflicting covered_ratio against intact aliases
+AssertionError: expected [ …(4) ] to include 'evidence_conflict:covered_ratio'
+ ❯ lib/__tests__/comparison.test.ts:225:41
+    223|     const result = row(value);
+    224|     expect(result).toMatchObject({ availability: 'unavailable', reason…
+    225|     expect(result.evidence.diagnostics).toContain(`evidence_conflict:$…
+       |                                         ^
+    226|   });
+    227|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  lib/__tests__/comparison.test.ts > T08 C03/C04: declared category-default sheltered comparison > synthetic partial declaration still exposes conflicting shortest_m against intact aliases
+AssertionError: expected [ …(4) ] to include 'evidence_conflict:shortest_m'
+ ❯ lib/__tests__/comparison.test.ts:225:41
+    223|     const result = row(value);
+    224|     expect(result).toMatchObject({ availability: 'unavailable', reason…
+    225|     expect(result.evidence.diagnostics).toContain(`evidence_conflict:$…
+       |                                         ^
+    226|   });
+    227|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  lib/__tests__/comparison.test.ts > T08 C03/C04: declared category-default sheltered comparison > synthetic partial candidate contradiction is checked even when the complete declared default stays selected
+AssertionError: expected [ …(4) ] to include 'evidence_conflict:sheltered_m'
+ ❯ lib/__tests__/comparison.test.ts:240:41
+    238|     const result = row(value);
+    239|     expect(result).toMatchObject({ availability: 'unavailable', reason…
+    240|     expect(result.evidence.diagnostics).toContain('evidence_conflict:s…
+       |                                         ^
+    241|   });
+    242|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

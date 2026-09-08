@@ -284,3 +284,49 @@ This pure selector does not drive the page yet. T06 must preserve original
 candidate geometry across mode changes, repair preview metric meanings and use
 validated geometry/gap capabilities without copying raw optional segments.
 The existing POI proximity helpers remain separate and do not rank walks.
+
+## ADR-16: Compare category-default sheltered walks (2026-09-09)
+
+Comparison adds a postal, not the inspector's currently selected candidate.
+Every column uses the same explicit bus or MRT/LRT category and the published
+default sheltered walk for that category. T05's shortest/most-covered picker
+winners answer an inspection question; silently choosing either would change
+the meaning of a home comparison. Do not add a hidden composite ranking.
+
+Resolve the declared category-default source from the full normalized pool,
+not the bounded picker or only geometrically retainable choices. A same-category
+top-level default is allowed only when no category default is declared. An
+unavailable, rejected or conflicting declared default stays unavailable; it is
+not replaced with another candidate or transit category. Valid measurements may
+remain useful when drawing is unavailable. Destination and evidence status must
+be visible per column; adding a postal does not promise complete walk evidence.
+
+Use the same pure walk-metrics adapter as the inspector. Preserve published
+precision until presentation, including existing coverage-percent rounding.
+Keep distance, coverage, logical uncovered total and longest logical gap
+independently nullable. Missing is not zero, and mapped fragments do not
+reconstruct logical gaps. No shortest-variant gaps may be borrowed.
+
+The row carries bundle/postal/category, a versioned fixed selection policy,
+route variant, selected option/source locator, destination and capability
+status. It is derived from paired source contexts, not persisted as a score or
+new artifact. Preserve source provenance as evidence, without claiming a
+cryptographic audit or constructing candidate provenance from its default.
+Default-group ownership is not selected-source authority: the picker may choose
+a healthier alias. Comparison pins the actual declared representation instead.
+Within that already-established identity group, trusted routed representations
+must agree on valid shortest distance, sheltered distance and covered ratio even
+when geometry is partial. Reuse normalizer validation for each representation;
+do not create new aliases or accept unsupported/wholly invalid-geometry sources
+as contradictions. A comparison-only metric contradiction clears displayed
+metrics and names the field without rewriting the normalizer's original status.
+T09 persists only validated postals, shared category and active column; T10
+must make this fixed-policy meaning clear and show the actual destination.
+Changing the inspector stop/variant cannot silently change stored comparison
+semantics. Active column only controls which compared walk is on the map.
+T10 must resolve that same pinned source for the map, not look up the group's
+potentially substituted selectedSource again.
+
+T08 implements this pure contract with reduced real fixtures. T09-T11 still
+owe persistence, visible comparison, loading/failure handling and share URLs.
+No pipeline, live routing, input expansion or new hosting service is needed.

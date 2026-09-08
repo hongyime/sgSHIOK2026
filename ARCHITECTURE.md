@@ -61,6 +61,9 @@ Offer trade-offs rather than a new overall ranking. Missing evidence is explicit
 Persist locally, with graceful fallback when storage is unavailable.
 Share only on explicit action; shared URLs disclose selected postals.
 Version and validate URL/local-storage state; never serialize private reports.
+ADR-16 fixes each column to the published category-default sheltered walk, not
+the inspector's chosen alternate or a hidden ranking winner. Add a postal,
+show its actual destination, and keep missing category evidence unavailable.
 
 ## Frontend boundaries
 Incrementally separate search, walk summary, transit selection, comparison,

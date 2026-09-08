@@ -22,8 +22,8 @@ Historical handbacks below do not override the current backlog in this section.
 | --- | --- | --- | --- |
 | P0.1 | DONE locally: map mounted from plain `/`; empty selection is idle, not a geometry error. Prior checks missed this entry point. | Current production build: root, typed postal, shared URL and normal worker-controlled revisit render correctly. Evidence: qa/revamp-r1/map-first-home-20260908/summary.json. Existing selected-route retry regressions remain green. | Frontend, zero pipeline; not deployed. |
 | P0.2 | DONE locally, revised by owner: SHIOK top left, search below, equal-width result below search; About data bottom right. | Narrow/mobile and desktop browser checks pass; stack measured as top padding on narrow screens and left padding on desktop. Required attribution remains visible. 242 isolated tests pass. Evidence: qa/revamp-r1/left-stack-20260908/summary.json. | Frontend, zero pipeline; no deployment invoked. |
-| P0.3 | PARTIAL: rebuilt preview at http://localhost:4321/ passes service-worker-enabled same-build revisits. Old-release upgrade, physical-phone acceptance and representative latency remain open. | Stable documented preview; service-worker-enabled revisit/update smoke; stale assets, worker/CSP errors and retry surfaced. No blank screen accepted from route-only tests. | Frontend/operations, zero pipeline; production publish separately approved. |
-| P1.1 | Finish the core walk flow. Metrics/gaps and selectable map stops work, but there is no finished bounded options list. | Nearest and most-covered eligible published options, clear distance/coverage trade-offs, correct alternate metrics and explicit unavailable cases. Do not imply all stops were evaluated. | Frontend using existing artifacts first; new candidate computation requires approval. |
+| P0.3 | PARTIAL: current preview/build identity is in STATE; same-build revisits and visited-walk outage recovery have evidence. Automatic old-release upgrade, physical-phone acceptance and representative latency remain open. | Stable documented preview; service-worker-enabled revisit/update smoke; stale assets, worker/CSP errors and retry surfaced. No blank screen accepted from route-only tests. | Frontend/operations, zero pipeline; production publish separately approved. |
+| P1.1 | DONE locally through T04-T07: bounded published choices, consistent selected metrics/geometry, and mapped exposed-section exploration. | Shortest shown and most-covered eligible published options, clear distance/coverage trade-offs, correct alternate metrics and explicit unavailable cases. Do not imply all stops were evaluated or fragments are complete logical gaps. | Frontend using existing artifacts; no new candidate computation or deployment. |
 | P1.2 | Home comparison is NOT built as designed. The existing planning-area ranking is not this feature. | Add/remove up to 3 chosen postals; same transit category; destination, distance, covered %, uncovered distance and longest gap; explicit missing data; local persistence; validated share URL. | Frontend, zero pipeline, no accounts/provider required. |
 | P1.3 | Reports are NOT a functioning service. Current tools can prepare/copy a draft, not durably submit it. | Concrete $0 storage/moderation proposal, retention/abuse policy, owner access; then two report types, bounded map location/segment, durable receipt, pending/accepted/rejected/duplicate states. | Proposal is free. Provider/infrastructure decision before submission implementation. No agency submission. |
 | P2.1 | Full walk coverage remains incomplete; score coverage and route coverage are different. | Read-only gap register by postal/transit category and cause: absent address, route disconnection, selection limit, missing geometry/export, missing score. Name affected inputs and existing evidence before proposing fixes. | Read-only analysis, zero scoring/export; do not rerun settled coordinate/provenance work. |
@@ -52,7 +52,8 @@ but it is not a reason to prevent all feature work that uses the current data.
 
 These tickets expand the backlog above; they do not mark unbuilt work complete.
 Owner: Codex executes all agent work directly. Owner-only actions are explicit.
-Current runtime baseline: f5896f5, the owner-requested top-left layout revision.
+Layout baseline: f5896f5, the owner-requested top-left layout revision. Core walk
+through T07 is pushed at ab671dc; STATE records the current tested preview.
 The layout revision is complete locally, not a prerequisite to reimplement the shell.
 The subsequent all-tasks goal authorizes independent subagent verification with
 disjoint file scopes; the parent alone commits. No framework rewrite or new scoring model.
@@ -164,16 +165,18 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: FREE. This completes an inspectable core walk, not an all-postal coverage claim.
 - Outcome 2026-09-09: mapped-section disclosure selects exact validated fragment lines, preserves logical gap statistics, and returns to the whole walk. Stale selection, shortest/preview replacement, duplicate sections, pan preservation and async keyboard-focus removal are covered.964+33+39+17+10+2=1065 isolated tests/46files, TypeScript/build/integrity/11anchors pass. Final browser acceptance and8 inspected captures at4sizes pass; two earlier harness failures remain recorded. Evidence: `qa/revamp-r1/exposure-sections-20260909/summary.json`. No physical-device/performance, pipeline or deployment claim.
 
-### [ ] T08: Define a shared home-comparison row
-- Status: READY. Size: S. Parent: P1.2.
+### [x] T08: Define a shared home-comparison row
+- Status: DONE (row contract, not comparison UI). Size: S. Parent: P1.2.
 - Depends on: T05.
 - Scope: `web/components/walk-summary.tsx`, `web/lib/types.ts`, proposed `web/lib/comparison.ts` and tests.
 - Do: reuse or extract the selected-walk metrics adapter for up to three postals, with bundle version, category, destination, distance, coverage, uncovered distance, longest gap and explicit availability. Preserve selected-route semantics and provenance; do not invent a score.
 - Tests/done: C03-C04, W01/W02/W10/W13. Same fixture yields identical numbers in walk and comparison; absent gaps stay unavailable; a bus-only record is not silently substituted into an MRT comparison.
 - Gate: FREE. No rank computation or new artifact.
+- Policy: ADR-16 fixes the shared category's declared default sheltered walk. Same-category top default is permitted only if no category default is declared; unavailable defaults cannot silently become candidates. Comparison adds postals, not inspector candidate snapshots. Shared metrics preserve useful text without geometry and explicit missing capabilities.
+- Outcome 2026-09-09: declared-source pinning and shared walkMetrics are implemented. Review found a partial-geometry metric-conflict bypass; comparison now checks independently validated sources within the established identity group, without changing picker semantics.44 real-fixture/boundary tests plus1065 previous =1109/47 isolated tests; TypeScript/build/integrity/11anchors pass.43 existing-walk browser regression checks and8 inspected captures protect extraction compatibility, not a new comparison UI. Evidence: `qa/revamp-r1/comparison-20260909/summary.json`.
 
 ### [ ] T09: Build the shortlist state and persistence
-- Status: WAIT_DEPS. Size: M. Parent: P1.2.
+- Status: READY. Size: M. Parent: P1.2.
 - Depends on: T08.
 - Scope: proposed `web/lib/comparison-state.ts`, existing storage helper patterns and focused reducer/storage tests.
 - Do: add/remove up to three unique six-digit postals, one shared category and active column; version the local state. Keep only the minimum shortlist state, not browsing history or report drafts. Fetch through existing readers, only when needed.

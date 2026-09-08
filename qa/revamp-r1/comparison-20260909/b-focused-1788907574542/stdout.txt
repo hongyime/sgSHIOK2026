@@ -1,0 +1,11 @@
+
+ RUN  v4.1.10 C:/sgSHIOK2026/web
+
+ ❯ lib/__tests__/comparison.test.ts (40 tests | 1 failed) 218ms
+     × synthetic partial declared geometry cannot hide a positive metric contradiction with intact same-stop aliases 22ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 39 passed (40)
+   Start at  06:46:17
+   Duration  1.25s (transform 454ms, setup 0ms, import 562ms, tests 218ms, environment 0ms)
+

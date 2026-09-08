@@ -2695,3 +2695,44 @@ Evidence: qa/revamp-r1/exposure-sections-20260909/summary.json.1065 tests/46 fil
 TypeScript, build, integrity,11 anchors and the final8 inspected captures pass.
 This completes the published core-walk exploration, not full coverage, a live
 preview service, physical-phone performance acceptance or deployment.
+
+## 2026-09-09: Pin home comparisons to a declared category-default walk
+
+T08 implements ADR-16 as a pure comparison-row contract. A shortlist adds
+postals, not whichever alternate happens to be selected in the inspector.
+Each column uses the common category's declared sheltered default; only an
+absent category declaration permits a same-category top-level default. Invalid,
+unrouted or conflicting declarations remain unavailable instead of becoming a
+different candidate, a bus-to-MRT substitution or a fabricated zero score.
+
+Extract walkMetrics unchanged from the component into a shared pure module,
+retaining its compatibility export. Comparison and inspection share nullable
+distance, rounded coverage percent, logical uncovered total and longest gap.
+Valid measurements survive missing geometry; geometry and metric capabilities
+remain separate. Row provenance references identify original source fields;
+they are not newly generated or audited scoring digests.
+
+Default-group ownership does not prove which source supplies its measurements.
+The picker may select a healthier alias, so comparison pins the declared whole
+representation. Independent review also found that partial geometry could hide
+a valid same-stop metric contradiction. The red test returned82.2m instead of
+rejecting its contradiction with81.2m aliases. These were explicit in-memory
+fixture mutations, not changes to a protected source. A comparison-only check
+now independently validates sources already in that identity group and rejects
+valid disagreement in shortest/sheltered distance or covered ratio. It does not
+change normalizer/picker semantics, create aliases, or let unsupported sources
+and wholly invalid geometry poison an otherwise valid declaration.
+
+Keep the original option status as evidence; use comparison_evidence_conflict
+diagnostics and clear all displayed metrics when this stricter check fails.
+Three initial diagnostic assertions incorrectly expected the normalizer prefix;
+they were corrected explicitly, preserving the red receipts. The44 focused
+cases and1109/47 isolated suite pass. T09-T11 still owe shortlist state,
+persistence, the visible comparison experience and sharing. T10 must resolve
+the same pinned source when focusing a comparison column on the map.
+
+The current task board now marks T04-T07 local core-walk work complete. STATE
+keeps only current instructions and safeguards; its179-line superseded history
+remains in Git at ab671dc and the existing verification evidence. Do not let
+old preview URLs or obsolete stop-before-features instructions override the
+current goal. Evidence: qa/revamp-r1/comparison-20260909/summary.json.

@@ -1,0 +1,431 @@
+{
+  "task": "T08",
+  "date": "2026-09-08T23:05:41.661Z",
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "ab671dc011e2640646ba67b96e0195f5cce81a74",
+  "status": "complete_comparison_row_contract_not_ui",
+  "sources": [
+    {
+      "path": "web/components/walk-summary.tsx",
+      "bytes": 1450,
+      "sha256": "bf80c05b259e1c634bd3171eb1a6fe11198b4f3cca035175a45b55ef307a3e9f",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/comparison.test.ts",
+      "bytes": 22986,
+      "sha256": "d4cd7baf2fc7409b2a043f73b436c85034403a06e0a3daef35a7f0513c8dd388",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/comparison.ts",
+      "bytes": 9138,
+      "sha256": "72888f9e00c9404349e458175a0e34c0eb171c6dbd8c2e69360983dcf17d1130",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/published-transit-choices.ts",
+      "bytes": 4074,
+      "sha256": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/walk-metrics.ts",
+      "bytes": 5295,
+      "sha256": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    }
+  ],
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "match": true
+    }
+  ],
+  "policy": "ADR-16: category_default_sheltered_v1. Compare postals using the common category declaration, never the inspector candidate or picker winner. Missing/conflicting declarations cannot silently use another option/category.",
+  "validation": {
+    "checksPath": "qa/revamp-r1/published-options-20260909/comparison-full-1/checks.json",
+    "buildPath": "qa/revamp-r1/cached-release-20260908/comparison-contract-20260909-1/build.json",
+    "browserPath": "qa/revamp-r1/exposure-sections-20260909/comparison-regression-1-1788908602992/browser.json",
+    "buildId": "5qkRQo8F7DVo53iS0ul33",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-ayxsyz",
+    "tests": {
+      "previous": 1065,
+      "added": 44,
+      "total": 1109,
+      "files": 47,
+      "arithmetic": "1065 + 44 = 1109; 46 + 1 = 47"
+    },
+    "commands": [
+      {
+        "command": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:/sgSHIOK2026/web/scripts/test-without-production-data.mjs",
+          "--reporter=dot"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 119.167
+      },
+      {
+        "command": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:/sgSHIOK2026/web/node_modules/typescript/bin/tsc",
+          "--project",
+          "C:/sgSHIOK2026/web/tsconfig.json",
+          "--noEmit",
+          "--incremental",
+          "false"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 3.738
+      },
+      {
+        "command": "python",
+        "args": [
+          "C:/sgSHIOK2026/scripts/check_repo_integrity.py"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 0.996
+      },
+      {
+        "command": "git",
+        "args": [
+          "diff",
+          "--check"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 0.302
+      }
+    ],
+    "browserChecks": [
+      {
+        "name": "served expected build",
+        "pass": true
+      },
+      {
+        "name": "actual HTML contains expected build",
+        "pass": true
+      },
+      {
+        "name": "logical metrics remain published values",
+        "pass": true
+      },
+      {
+        "name": "walk-390x844 current route during capture",
+        "pass": true
+      },
+      {
+        "name": "walk-390x844 equal-width stack without overflow",
+        "pass": true
+      },
+      {
+        "name": "control hit: Mapped exposed sections (3)",
+        "pass": true
+      },
+      {
+        "name": "three real mapped sections",
+        "pass": true
+      },
+      {
+        "name": "control hit: Section 116 m",
+        "pass": true
+      },
+      {
+        "name": "section-1440x950 current route during capture",
+        "pass": true
+      },
+      {
+        "name": "section-1440x950 equal-width stack without overflow",
+        "pass": true
+      },
+      {
+        "name": "section-1440x950 exact section visible and framed",
+        "pass": true
+      },
+      {
+        "name": "section-390x844 current route during capture",
+        "pass": true
+      },
+      {
+        "name": "section-390x844 equal-width stack without overflow",
+        "pass": true
+      },
+      {
+        "name": "section-390x844 exact section visible and framed",
+        "pass": true
+      },
+      {
+        "name": "section-390x667 current route during capture",
+        "pass": true
+      },
+      {
+        "name": "section-390x667 equal-width stack without overflow",
+        "pass": true
+      },
+      {
+        "name": "section-390x667 exact section visible and framed",
+        "pass": true
+      },
+      {
+        "name": "section-320x667 current route during capture",
+        "pass": true
+      },
+      {
+        "name": "section-320x667 equal-width stack without overflow",
+        "pass": true
+      },
+      {
+        "name": "section-320x667 exact section visible and framed",
+        "pass": true
+      },
+      {
+        "name": "section selection/layout made no base-route writes",
+        "pass": true
+      },
+      {
+        "name": "native gesture moved the map",
+        "pass": true
+      },
+      {
+        "name": "unrelated query edit does not undo pan",
+        "pass": true
+      },
+      {
+        "name": "control hit: Back to walk",
+        "pass": true
+      },
+      {
+        "name": "back restores keyboard focus to disclosure",
+        "pass": true
+      },
+      {
+        "name": "back-to-walk-320x667 current route during capture",
+        "pass": true
+      },
+      {
+        "name": "back-to-walk-320x667 equal-width stack without overflow",
+        "pass": true
+      },
+      {
+        "name": "control hit: Section 116 m",
+        "pass": true
+      },
+      {
+        "name": "control hit: Mapped exposed sections (3)",
+        "pass": true
+      },
+      {
+        "name": "closing returns keyboard focus",
+        "pass": true
+      },
+      {
+        "name": "closed-320x667 current route during capture",
+        "pass": true
+      },
+      {
+        "name": "closed-320x667 equal-width stack without overflow",
+        "pass": true
+      },
+      {
+        "name": "control hit: Mapped exposed sections (3)",
+        "pass": true
+      },
+      {
+        "name": "control hit: Section 116 m",
+        "pass": true
+      },
+      {
+        "name": "context replacement restores focus to stable walk control",
+        "pass": true
+      },
+      {
+        "name": "control hit: Mapped exposed sections (4)",
+        "pass": true
+      },
+      {
+        "name": "control hit: Section 1119 m",
+        "pass": true
+      },
+      {
+        "name": "unavailable explorer removal restores focus",
+        "pass": true
+      },
+      {
+        "name": "shortest-focus-return-320x667 current route during capture",
+        "pass": true
+      },
+      {
+        "name": "shortest-focus-return-320x667 equal-width stack without overflow",
+        "pass": true
+      },
+      {
+        "name": "outside keyboard focus is not stolen",
+        "pass": true
+      },
+      {
+        "name": "no uncaught browser error",
+        "pass": true
+      },
+      {
+        "name": "no live preview request",
+        "pass": true
+      }
+    ],
+    "captures": [
+      {
+        "name": "walk-390x844",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\exposure-sections-20260909\\comparison-regression-1-1788908602992\\walk-390x844.png",
+        "bytes": 151536,
+        "sha256": "2a53ccc55de7a0d67c107c9e20dd48a05ef2cef86ec41789d83808f5b49be9d6"
+      },
+      {
+        "name": "section-1440x950",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\exposure-sections-20260909\\comparison-regression-1-1788908602992\\section-1440x950.png",
+        "bytes": 471187,
+        "sha256": "758c634dd29b0eb42bd48c91cc52d489530a913a2814432f026ebbd4551334a4"
+      },
+      {
+        "name": "section-390x844",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\exposure-sections-20260909\\comparison-regression-1-1788908602992\\section-390x844.png",
+        "bytes": 126812,
+        "sha256": "e96adc9286091e115089a2ead2685806f2e4c03f014130aa4d6d73a90c2f534d"
+      },
+      {
+        "name": "section-390x667",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\exposure-sections-20260909\\comparison-regression-1-1788908602992\\section-390x667.png",
+        "bytes": 106902,
+        "sha256": "9bac94dd39411a40e7bdc1d12556ff7b49c8b311c38ffee3c630e77f28ee8c33"
+      },
+      {
+        "name": "section-320x667",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\exposure-sections-20260909\\comparison-regression-1-1788908602992\\section-320x667.png",
+        "bytes": 79384,
+        "sha256": "0f4a5e033a4a60b3ec56acafd28d5fd8c7cd5d146d20f10fe24137ca07f718ff"
+      },
+      {
+        "name": "back-to-walk-320x667",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\exposure-sections-20260909\\comparison-regression-1-1788908602992\\back-to-walk-320x667.png",
+        "bytes": 77970,
+        "sha256": "6e421e98b9eaf241fda7b56af0a7eb5ab5b3598118fad3d99265845257b78d42"
+      },
+      {
+        "name": "closed-320x667",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\exposure-sections-20260909\\comparison-regression-1-1788908602992\\closed-320x667.png",
+        "bytes": 93910,
+        "sha256": "91d400f0418e833c61f7687d21e6af0e92db10fe9a0ea5a17f71ec0fc6989fda"
+      },
+      {
+        "name": "shortest-focus-return-320x667",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\exposure-sections-20260909\\comparison-regression-1-1788908602992\\shortest-focus-return-320x667.png",
+        "bytes": 101496,
+        "sha256": "960e54131b8e99b96f0754992c4c68939daea561f50a8548709d8e5cc4a8fd1c"
+      }
+    ],
+    "visualReview": "Parent inspected all eight final existing-walk regression captures at four viewports. This checks extraction compatibility, not a comparison UI that is not implemented yet.",
+    "cleanup": {
+      "closeSent": true,
+      "killSent": true,
+      "chromeExited": true,
+      "browserAbsent": true,
+      "chromePid": 104728
+    },
+    "review": "Parfit implementation; Raman independent real-fixture/boundary tests; Anscombe adversarial read-only source review; parent integrated validation and screenshot review."
+  },
+  "retainedFailures": [
+    "b-focused-1788907465473:36 initial tests pass. Expanded b-focused-1788907574542:39pass/1fail, reproducing the review-found partial-default metric-conflict bypass. This was an explicitly mutated fixture, not a changed protected input.",
+    "After the implementation fix,41/44 passed; three new cases expected the normalizer diagnostic prefix instead of comparison_evidence_conflict. Their unavailable/all-null assertions already passed. Test prefixes were corrected, keeping underlying normalizer status truthful. Raw red/green receipts are preserved under this directory."
+  ],
+  "catalogue": {
+    "C03/C04": "44 contract tests for shared category/default/availability; visible column/category UI acceptance remains T10.",
+    "W01/W02/W10/W13": "Shared pure walkMetrics and compatibility re-export retain existing summary/selection tests; fresh browser verifies unchanged walk rendering and focus."
+  },
+  "findings": [
+    "Comparison rows now carry fixed policy, bundle/postal/category, real destination/source locator, four nullable metrics and separate capability/status evidence. No fabricated composite, candidate provenance or implicit category fallback.",
+    "Default-group ownership and selected-source authority differ. The row pins the declared representation even when the existing picker chooses a healthier alias; useful measurements survive missing geometry.",
+    "Review found partial geometry could hide a trusted same-stop metric contradiction. A comparison-only check now independently normalizes existing group sources and blocks valid differing shortest/sheltered distances or coverage without changing picker/normalizer behavior.",
+    "Logical gaps retain their published meaning; 36.5m/20.2m are not replaced by mapped-fragment totals. Provenance references are original-field locators, not newly audited digests.",
+    "The top-level task board now reflects completed local core walk work. Home comparison remains unfinished until T09-T11 provide state, visible controls and sharing."
+  ],
+  "disagreements": [
+    "A group that contains a default is not necessarily displaying that default representation. Comparison cannot safely use the picker group selectedSource without pinning the declaration.",
+    "Partial geometry does not make independently valid, same-identity metric contradictions disappear. The first44-test implementation required a stricter comparison-specific check.",
+    "This is a tested data contract, not a shipped comparison interface or user acceptance. Existing-walk browser regression does not claim otherwise."
+  ],
+  "limitations": [
+    "No new comparison controls, shortlist storage, sharing, live requests or service provisioning.",
+    "Headless SwiftShader viewport emulation is not a representative phone benchmark. No speedup or deployment claim.",
+    "No protected input/output change, pipeline run, installation or X operation. Existing QA preview APIs remain disabled."
+  ],
+  "pipelineRuns": 0,
+  "pipelineCost": 0,
+  "installations": 0,
+  "deploymentCommands": 0
+}
