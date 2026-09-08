@@ -1,6 +1,11 @@
 const CACHE_NAME = "sgshiok-static-v1";
+const SHELL_CACHE_NAME = "sgshiok-shell-v2";
+const SHELL_CACHE_KEY = new URL("/", self.location.origin).href;
+const inFlight = new Map();
+let navigationSequence = 0;
+let latestSuccessfulNavigation = 0;
+let shellWrite = Promise.resolve();
 const CACHEABLE_EXACT_PATHS = new Set([
-  "/",
   "/icon.svg",
   "/favicon.ico",
   "/apple-touch-icon.png",
@@ -12,7 +17,6 @@ const CACHEABLE_EXACT_PATHS = new Set([
 ]);
 const CACHEABLE_PREFIXES = ["/_next/static/", "/data/"];
 const CACHE_MAX_AGE_MS = new Map([
-  ["/", 604_800_000],
   ["/robots.txt", 604_800_000],
   ["/sitemap.xml", 604_800_000],
   ["/site.webmanifest", 604_800_000],
@@ -25,6 +29,10 @@ function isCacheableRequest(request) {
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return false;
   if (url.pathname.startsWith("/api/")) return false;
+  if (request.headers.has("RSC") || request.headers.has("Next-Router-Prefetch") ||
+      request.headers.get("Purpose") === "prefetch" || request.headers.get("Sec-Purpose")?.includes("prefetch") || url.searchParams.has("_rsc") ||
+      request.headers.has("Range")) return false;
+  if (url.pathname === "/") return request.mode === "navigate";
 
   return CACHEABLE_EXACT_PATHS.has(url.pathname) || CACHEABLE_PREFIXES.some((prefix) => url.pathname.startsWith(prefix));
 }
@@ -50,13 +58,78 @@ function isFreshEnough(response, maxAgeMs) {
   return Date.now() - cachedAt < maxAgeMs;
 }
 
-async function fetchAndCache(request) {
-  const response = await fetch(request);
-  if (response.ok) {
-    const cache = await caches.open(CACHE_NAME);
-    await cache.put(request, response.clone());
+async function readCache(name, key) {
+  try {
+    return await (await caches.open(name)).match(key);
+  } catch {
+    return undefined;
   }
-  return response;
+}
+
+async function writeCache(name, key, response) {
+  try {
+    await (await caches.open(name)).put(key, response);
+  } catch {
+    // Storage/quota failures must never turn a successful fetch into an error.
+  }
+}
+
+function canStore(response) {
+  return response.status === 200 && !/\b(no-store|private)\b/i.test(response.headers.get("Cache-Control") || "");
+}
+
+async function navigationResponse(event) {
+  const sequence = ++navigationSequence;
+  const controller = new AbortController();
+  let settled = false;
+  const fallback = readCache(SHELL_CACHE_NAME, SHELL_CACHE_KEY);
+  const timer = setTimeout(() => {
+    // A slow first visit must not be aborted when there is nothing to show offline.
+    void fallback.then(cached => { if (cached && !settled) controller.abort(); });
+  }, 10000);
+  try {
+    const response = await fetch(event.request, { cache: "no-cache", signal: controller.signal });
+    if (response.ok) {
+      if (canStore(response) && response.headers.get("Content-Type")?.includes("text/html")) {
+        const copy = response.clone();
+        latestSuccessfulNavigation = Math.max(latestSuccessfulNavigation, sequence);
+        // Serialize shell writes so a slow previous navigation cannot overwrite a newer one.
+        shellWrite = shellWrite.then(() => sequence === latestSuccessfulNavigation
+          ? writeCache(SHELL_CACHE_NAME, SHELL_CACHE_KEY, copy) : undefined);
+        event.waitUntil(shellWrite);
+      }
+      return response;
+    }
+    return (await fallback) || response;
+  } catch (error) {
+    const cached = await fallback;
+    if (cached) return cached;
+    throw error;
+  } finally {
+    settled = true;
+    clearTimeout(timer);
+  }
+}
+
+async function assetResponse(event) {
+  const request = event.request;
+  const cached = await readCache(CACHE_NAME, request);
+  if (cached && isFreshEnough(cached, cacheMaxAgeMs(request))) return cached;
+  let pending = inFlight.get(request.url);
+  if (!pending) {
+    pending = fetch(request).then(response => {
+      if (canStore(response)) event.waitUntil(writeCache(CACHE_NAME, request, response.clone()));
+      return response;
+    }).finally(() => inFlight.delete(request.url));
+    inFlight.set(request.url, pending);
+  }
+  try {
+    const response = (await pending).clone();
+    return !response.ok && cached ? cached : response;
+  } catch (error) {
+    if (cached) return cached;
+    throw error;
+  }
 }
 
 self.addEventListener("install", (event) => {
@@ -67,7 +140,9 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then((keys) => Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))))
+      // Keep immutable assets used by already-open tabs and leave unrelated applications alone.
+      .then((keys) => Promise.all(keys.filter((key) => key === "sgshiok-shell-v1").map((key) => caches.delete(key))))
+      .catch(() => undefined)
       .then(() => self.clients.claim()),
   );
 });
@@ -75,12 +150,5 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   const { request } = event;
   if (!isCacheableRequest(request)) return;
-  const cacheKey = request.mode === "navigate" ? "/" : request;
-
-  event.respondWith(
-    caches.match(cacheKey).then((cached) => {
-      if (cached && isFreshEnough(cached, cacheMaxAgeMs(cacheKey))) return cached;
-      return fetchAndCache(cacheKey);
-    }),
-  );
+  event.respondWith(request.mode === "navigate" ? navigationResponse(event) : assetResponse(event));
 });

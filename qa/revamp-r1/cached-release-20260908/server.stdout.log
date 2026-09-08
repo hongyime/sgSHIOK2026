@@ -1,0 +1,9 @@
+{"preview":"http://127.0.0.1:4324/","buildA":"e8Hlhkml4c3i_uMGJdd3P","buildB":"KQZm6qMJF8AfCpaPaTMwV","pid":97000,"serverPid":89984}
+▲ Next.js 16.3.0
+- Local:         http://127.0.0.1:4323
+- Network:       http://127.0.0.1:4323
+✓ Ready in 2.1s
+✓ Running next.config.js took 289ms
+{"active":"A","offline":false,"at":"2026-09-08T14:53:57.340Z"}
+{"active":"A","offline":false,"at":"2026-09-08T14:53:57.377Z"}
+{"active":"A","offline":false,"at":"2026-09-08T14:57:05.157Z"}

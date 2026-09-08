@@ -2488,3 +2488,22 @@ task does not suspend the entire backlog. No pipeline action is authorized here.
 The core walk may ship before comparison/reports through its own applicable
 acceptance and explicit release gate. Do not turn completion of the entire
 service into another obstacle to shipping a complete smaller user outcome.
+
+## 2026-09-08: Cache safety progress is not seamless-upgrade acceptance
+
+Revalidate mutable HTML and sw.js; preserve immutable data/chunk caching and
+unrelated caches. Add behavioral tests for storage failures, stale responses,
+registration retries and concurrent navigations. The complete isolated suite
+passes 289 tests in 34 files; no protected payload or scoring change.
+
+An explicit worker update rendered the new build and four current route features
+at all four viewport sizes while 12 old JavaScript URLs returned 404. Automatic
+legacy activation did not pass the 90-second observation gate. Origin outage
+served the cached new HTML but failed walk loading because compressed probes
+returned 503 before the reader tried cached plain JSON. Keep T01 PARTIAL; fix the
+evidenced reader path under T02 and do not claim every release/offline case passed.
+Evidence: qa/revamp-r1/cached-release-20260908/summary.json.
+
+The subsequent all-tasks goal authorizes independent subagents with disjoint
+scopes. Parent alone reviews/commits/pushes. This does not approve infrastructure,
+pipeline execution, physical-user signoff or deployment.

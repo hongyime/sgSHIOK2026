@@ -121,3 +121,27 @@ independent free work. Core walk, comparison, reports and data expansion can
 ship as separate explicitly approved releases; reports/rescore do not block
 an otherwise complete frontend-only improvement. Planning does not authorize
 pipeline work, account/provider setup, protected payload writes or deployment.
+
+## ADR-13: Mutable shell revalidation and bounded cache recovery (2026-09-08)
+Mutable root HTML and the stable worker script revalidate; versioned data/chunks
+retain immutable caching. Keep existing static assets for open old tabs. A new
+shell cache must neither read unrelated caches nor remove unknown/future ones.
+Quota/cache failures cannot turn a successful fetch into a page failure. A slow
+navigation times out only when a fallback exists, and a settled response must
+never be aborted by a later cache-read completion. Newer successful navigation
+wins cache-write races; a later failure must not suppress an earlier success.
+Request worker update on page intent; failures allow a later intent to retry,
+without polling or automatic reload loops. Exclude RSC/prefetch and API traffic.
+
+T01's browser evidence is conditional, not complete: explicit worker update
+activated B and preserved route rendering and unrelated caches. Automatic A-to-B
+activation did not meet its observation gate. A's shipped code cannot be changed
+retroactively by B's headers/helper; do not equate this with permanent lockout.
+The origin-outage failure is separate: cached plain JSON was not tried when the
+compressed probe returned 503. Recover only available cached alternate bytes on
+transport failure, never silently substitute for successful-but-corrupt data.
+No pipeline payload, schema, value or version is changed by frontend recovery.
+
+The owner's subsequent all-tasks goal explicitly requests independent agents,
+superseding ADR-12's no-delegation procedure only. Keep disjoint write scopes;
+the parent reviews, commits and pushes. All owner-only gates remain in force.

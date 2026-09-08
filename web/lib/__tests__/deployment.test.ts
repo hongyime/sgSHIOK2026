@@ -1,6 +1,13 @@
 import dataBundle from "../../data-bundle.json";
 import { readFileSync } from "fs";
 import { join } from "path";
+import { createRequire } from "node:module";
+
+const nextConfig = createRequire(import.meta.url)("../../next.config.js");
+async function headersFor(source: string) {
+  const routes = await nextConfig.headers();
+  return routes.find((route: { source: string }) => route.source === source)?.headers;
+}
 
 describe("deployment packaging", () => {
   it("uploads the active generated data bundle to Vercel", () => {
@@ -75,8 +82,8 @@ describe("deployment packaging", () => {
     expect(helper).toContain("if (serviceWorkerRegistrationRequested) return;");
     expect(helper).toContain("serviceWorkerRegistrationRequested = true;");
     expect(helper).toContain(".getRegistration(\"/\")");
-    expect(helper).toContain("if (registration) return registration;");
-    expect(helper).toContain('navigator.serviceWorker.register("/sw.js")');
+    expect(helper).toContain("await registration.update();");
+    expect(helper).toContain('navigator.serviceWorker.register("/sw.js", { updateViaCache: "none" })');
     expect(helper).not.toContain("window.addEventListener");
     expect(page).toContain("requestServiceWorkerCache();");
   });
@@ -106,15 +113,14 @@ describe("deployment packaging", () => {
     }
     expect(serviceWorker).toContain('const CACHEABLE_PREFIXES = ["/_next/static/", "/data/"]');
     expect(serviceWorker).toContain('if (url.pathname.startsWith("/api/")) return false;');
-    expect(serviceWorker).toContain('const cacheKey = request.mode === "navigate" ? "/" : request;');
-    expect(serviceWorker).toContain("caches.match(cacheKey)");
-    expect(serviceWorker).toContain("await cache.put(request, response.clone())");
+    expect(serviceWorker).toContain('const SHELL_CACHE_NAME = "sgshiok-shell-v2";');
+    expect(serviceWorker).not.toContain("caches.match(");
   });
 
   it("bounds service-worker freshness for stable non-hashed URLs", () => {
     const serviceWorker = readFileSync(join(__dirname, "../../public/sw.js"), "utf-8");
 
-    expect(serviceWorker).toContain('["/", 604_800_000]');
+    expect(serviceWorker).not.toContain('["/", 604_800_000]');
     expect(serviceWorker).toContain('["/robots.txt", 604_800_000]');
     expect(serviceWorker).toContain('["/sitemap.xml", 604_800_000]');
     expect(serviceWorker).toContain('["/site.webmanifest", 604_800_000]');
@@ -124,23 +130,21 @@ describe("deployment packaging", () => {
     expect(serviceWorker).toContain('url.pathname === "/apple-touch-icon.png"');
     expect(serviceWorker).toContain('url.pathname === "/apple-touch-icon-precomposed.png"');
     expect(serviceWorker).toContain('Date.parse(response.headers.get("date") || "")');
-    expect(serviceWorker).toContain("cached && isFreshEnough(cached, cacheMaxAgeMs(cacheKey))");
+    expect(serviceWorker).toContain("cached && isFreshEnough(cached, cacheMaxAgeMs(request))");
   });
 
-  it("sets bounded deployment headers for the service worker script", () => {
-    const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
-
-    expect(config).toContain('source: "/sw.js"');
-    expect(config).toContain('value: "public, max-age=86400, stale-while-revalidate=604800"');
-    expect(config).toContain('key: "Service-Worker-Allowed"');
-    expect(config).toContain('value: "/"');
+  it("revalidates the service worker script instead of serving a stale release", async () => {
+    expect(await headersFor("/sw.js")).toEqual(expect.arrayContaining([
+      { key: "Cache-Control", value: "public, max-age=0, must-revalidate" },
+      { key: "Service-Worker-Allowed", value: "/" },
+    ]));
   });
 
-  it("caches the app shell for one week to reduce repeat edge requests", () => {
-    const config = readFileSync(join(__dirname, "../../next.config.js"), "utf-8");
-
-    expect(config).toContain('source: "/"');
-    expect(config).toContain('value: "public, max-age=604800, stale-while-revalidate=2592000"');
+  it("revalidates mutable HTML while keeping versioned data and chunks immutable", async () => {
+    expect(await headersFor("/")).toContainEqual({ key: "Cache-Control", value: "public, max-age=0, must-revalidate" });
+    for (const path of ["/data/:path*", "/_next/static/:path*"]) {
+      expect(await headersFor(path)).toContainEqual({ key: "Cache-Control", value: "public, max-age=31536000, immutable" });
+    }
   });
 
   it("keeps crawler controls away from data and API payloads", () => {

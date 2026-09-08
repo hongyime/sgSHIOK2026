@@ -7,13 +7,17 @@ export function requestServiceWorkerCache() {
   if (serviceWorkerRegistrationRequested) return;
   serviceWorkerRegistrationRequested = true;
 
-  navigator.serviceWorker
-    .getRegistration("/")
-    .then((registration) => {
-      if (registration) return registration;
-      return navigator.serviceWorker.register("/sw.js");
+  return Promise.resolve()
+    .then(() => navigator.serviceWorker.getRegistration("/"))
+    .then(async (registration) => {
+      if (registration) {
+        await registration.update();
+        return registration;
+      }
+      return navigator.serviceWorker.register("/sw.js", { updateViaCache: "none" });
     })
     .catch(() => {
       // Quota relief is opportunistic; the app must work without SW support.
+      serviceWorkerRegistrationRequested = false;
     });
 }

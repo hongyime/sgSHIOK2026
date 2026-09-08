@@ -1244,3 +1244,72 @@ FINDINGS
 DISAGREEMENTS
 1. None with actionable direct execution. A task list is not permission to cross
    owner-only gates; those gates do not block unrelated safe work.
+
+## T01 cache-release progress, 2026-09-08: PARTIAL, not release acceptance
+
+Implementation and generated command receipts:
+- `qa/revamp-r1/cached-release-20260908/summary.json`
+- `qa/revamp-r1/cached-release-20260908/validation-final-1/validation.json`
+- `qa/revamp-r1/cached-release-20260908/treatment-2/build.json`
+- `qa/revamp-r1/cached-release-20260908/acceptance-6/browser.json`
+- `qa/revamp-r1/cached-release-20260908/explicit-update-1/browser.json`
+
+The validation JSON contains unabridged stdout/stderr and exit codes from the
+isolated runner, installed TypeScript, repository integrity and diff whitespace
+check. All four exit0; all11 source byte/hash anchors match. Test arithmetic:
+242 + 39 executed-worker cases + 8 registration cases = 289 tests.
+32 + 2 new test files = 34 files. The T04 agent's uncommitted fixture suite is
+not included in these counts. Focused worker/registration/deployment: 77/77.
+
+Independent review caught five issues while hardening the worker: broad shell
+cache cleanup, abort without fallback, failed-newer navigation suppressing an
+older success, asset prefetch interception, and a delayed cache lookup aborting
+an already-returned response. All were fixed and regression-tested. Browser
+headers for root and sw.js are actually max-age0/must-revalidate, not merely
+source-string assertions. Existing immutable static/data cache is retained.
+
+The test infrastructure failures remain in their original directories. They
+include a dependency-junction build failure, proxy host mismatch, consumed
+Next bootstrap-buffer assertion, accidental use of current disk sw.js by the
+old server, debugger port collision and an early null document body. Pinning
+the old worker to c83fc96 and asserting its SHA fixes the false-baseline risk.
+Build1 emitted a compiler panic log into default external TEMP; it was not
+opened or removed. Later builds explicitly put TEMP/TMP inside this repository.
+
+Acceptance6 is a genuine failed automatic-transition observation: A supplied a
+new controlled Document but B activation was not observed in90seconds. It does
+not identify why. Do not infer permanent lockout, a hardware-only explanation,
+or that CDP prevented ordinary browser update checks.
+
+Explicit-update1 is a separate diagnostic, not a replacement PASS. An explicit
+registration.update() activated reviewed B worker SHA256:
+173611b9a193b0db26ed9b1ef8913962a319f2bf40dedf347adc7c3e1f150eff
+BuildB is KQZm6qMJF8AfCpaPaTMwV, a source-only build snapshot with QA root
+override and recorded static-worker overlay. Its real Document response was
+identified, and four current selected-route features were visible at1440x950,
+390x844,390x667,320x667. Parent inspected all four PNGs. The390x667 capture
+retains peripheral raster fade/blur; no crisp-all-tiles or performance claim.
+Twelve previously successful A JavaScript URLs now return404 on B, while B
+renders. Foreign/future cache sentinel contents remain identical.
+
+The origin-outage part failed: B HTML was served200 through the worker, but
+the walk reader stopped on scores/index.json.gz503. Previously used plain JSON
+was not tried when gzip probes returned503 instead of404. The basemap remained
+visible with a retryable selection error. No offline-walk PASS is claimed; T02
+has this concrete recovery defect to fix without adding uncached requests or
+masking successful-but-corrupt JSON. No pipeline or input rebuild is warranted.
+
+FINDINGS
+1. Cache/header/registration fixes are reviewed and unit-tested;289 isolated
+   tests and the build/type/integrity checks pass.47 new tests are accounted for.
+2. Explicit-update rendering and cache preservation passed; automatic legacy
+   transition and origin-outage walk acceptance did not. T01 stays PARTIAL.
+3. Cached plain artifact recovery is the next measured functional failure,
+   not a reason to restart scoring or another broad performance investigation.
+4. Locked weights and protected payloads are unchanged. Pipeline runs0,
+   installations0, deployments0. Existing verification lines are preserved.
+DISAGREEMENTS
+1. Unit-test success does not justify all-tests/all-tasks-complete or seamless
+   legacy-update claims. Earlier failed attempts remain evidence, not erased.
+2. The failed update observation does not establish a single causal mechanism;
+   broader release and physical-device acceptance remain open.

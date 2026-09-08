@@ -1,0 +1,96 @@
+{
+  "origin": "http://127.0.0.1:4324",
+  "server": {
+    "active": "A",
+    "offline": false,
+    "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+    "buildB": "KQZm6qMJF8AfCpaPaTMwV",
+    "counts": {
+      "A": 0,
+      "B": 0,
+      "data": 0,
+      "failures": 0
+    }
+  },
+  "startedAt": "2026-09-08T14:53:57.410Z",
+  "checks": [],
+  "captures": [],
+  "exceptions": [],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:4324/?postal=018956",
+      "status": 502,
+      "fromServiceWorker": false,
+      "mimeType": "text/plain",
+      "headers": {
+        "Connection": "keep-alive",
+        "Date": "Tue, 08 Sep 2026 14:54:04 GMT",
+        "Keep-Alive": "timeout=5",
+        "Transfer-Encoding": "chunked"
+      }
+    }
+  ],
+  "workerVersions": [
+    {
+      "versionId": "0",
+      "registrationId": "0",
+      "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": [],
+      "targetId": "CAD3791C75F200F595D7ED2E5D85CBF9"
+    },
+    {
+      "versionId": "0",
+      "registrationId": "0",
+      "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+      "runningStatus": "stopping",
+      "status": "activated",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": [],
+      "targetId": "CAD3791C75F200F595D7ED2E5D85CBF9"
+    },
+    {
+      "versionId": "0",
+      "registrationId": "0",
+      "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+      "runningStatus": "stopped",
+      "status": "activated",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": []
+    }
+  ],
+  "serviceWorkerBypassed": false,
+  "cachesCleared": false,
+  "browser": {
+    "pid": 92832,
+    "stderr": "\r\nDevTools listening on ws://127.0.0.1:9847/devtools/browser/c47f75bf-8e9e-4753-88fd-87bfd58e5513\r\n[92832:98604:0908/225513.161:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[92832:98604:0908/225513.161:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[92832:98604:0908/225539.231:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n[92832:98604:0908/225620.648:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n"
+  },
+  "failure": "Error: Condition deadline window.__shiokRouteMap?.getLayer('shiokest-route-line') && !window.__shiokRouteMap.isMoving() && window.__shiokRouteMap.isSourceLoaded('shiokest-route') && window.__shiokRouteMap.queryRenderedFeatures({layers:['shiokest-route-line']}).some(f=>f.properties.render_key===window.__shiokRouteDebug.routeKey) && window.__shiokRouteMap.isSourceLoaded('onemap')\n    at until (file:///C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/browser-upgrade.mjs:70:11)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/browser-upgrade.mjs:86:3",
+  "failureState": {
+    "basemapLoaded": false,
+    "routeCount": 0,
+    "text": "This page isn’t working\n\n127.0.0.1 is currently unable to handle this request.\n\nHTTP ERROR 502\nReload",
+    "worker": false,
+    "buildPayload": "[]",
+    "width": 390,
+    "height": 844
+  },
+  "finishedAt": "2026-09-08T14:57:05.165Z",
+  "serverAfter": {
+    "active": "A",
+    "offline": false,
+    "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+    "buildB": "KQZm6qMJF8AfCpaPaTMwV",
+    "counts": {
+      "A": 1,
+      "B": 0,
+      "data": 0,
+      "failures": 1
+    }
+  }
+}

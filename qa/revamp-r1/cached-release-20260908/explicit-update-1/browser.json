@@ -1,0 +1,4082 @@
+{
+  "origin": "http://127.0.0.1:4324",
+  "server": {
+    "active": "A",
+    "offline": false,
+    "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+    "buildB": "KQZm6qMJF8AfCpaPaTMwV",
+    "workerASha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+    "counts": {
+      "A": 31,
+      "B": 5,
+      "data": 14,
+      "failures": 0
+    }
+  },
+  "startedAt": "2026-09-08T15:32:19.368Z",
+  "checks": [
+    {
+      "name": "stable screenshot A-shared",
+      "pass": true
+    },
+    {
+      "name": "A real selected route and expected build",
+      "pass": true,
+      "details": {
+        "build": "e8Hlhkml4c3i_uMGJdd3P",
+        "features": 4,
+        "document": {
+          "requestId": "10A96AF2DB89D8CF55D9DDE67CA92D99",
+          "fromServiceWorker": false,
+          "sha256": "4ad9e4f9b97117f3203bba69a950b0bcfcab96ad3805a6b56503550bbfec544b",
+          "buildA": true,
+          "buildB": false
+        }
+      }
+    },
+    {
+      "name": "served worker changed from pinned A to current B",
+      "pass": true
+    },
+    {
+      "name": "served B worker equals reviewed source",
+      "pass": true,
+      "details": "173611b9a193b0db26ed9b1ef8913962a319f2bf40dedf347adc7c3e1f150eff"
+    },
+    {
+      "name": "actual worker response requires revalidation",
+      "pass": true,
+      "details": {
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "connection": "keep-alive",
+        "content-encoding": "gzip",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "application/javascript; charset=UTF-8",
+        "date": "Tue, 08 Sep 2026 15:33:46 GMT",
+        "etag": "W/\"14ff-1a0817fdecc\"",
+        "keep-alive": "timeout=5",
+        "last-modified": "Tue, 08 Sep 2026 14:50:36 GMT",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "service-worker-allowed": "/",
+        "transfer-encoding": "chunked",
+        "vary": "Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-robots-tag": "noindex, nofollow, noarchive"
+      }
+    },
+    {
+      "name": "actual root response requires revalidation",
+      "pass": true,
+      "details": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "connection": "keep-alive",
+        "content-encoding": "gzip",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Tue, 08 Sep 2026 15:33:46 GMT",
+        "etag": "\"2co1bdbhw29y0\"",
+        "keep-alive": "timeout=5",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "transfer-encoding": "chunked",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-nextjs-cache": "HIT",
+        "x-nextjs-prerender": "1, 1",
+        "x-nextjs-stale-time": "300",
+        "x-powered-by": "Next.js"
+      }
+    },
+    {
+      "name": "explicit update request succeeds",
+      "pass": true,
+      "details": {
+        "ok": true,
+        "active": "activated"
+      }
+    },
+    {
+      "name": "worker activated after explicit diagnostic update",
+      "pass": true,
+      "details": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "805B40E51D065C93C360A707541EA1FC"
+        },
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "starting",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "805B40E51D065C93C360A707541EA1FC"
+        },
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "running",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "805B40E51D065C93C360A707541EA1FC"
+        },
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "running",
+          "status": "installed",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "805B40E51D065C93C360A707541EA1FC"
+        },
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "805B40E51D065C93C360A707541EA1FC"
+        },
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "805B40E51D065C93C360A707541EA1FC"
+        },
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "stopped",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": []
+        },
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "stopped",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1788881553.646673,
+          "controlledClients": []
+        },
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1788881553.646673,
+          "controlledClients": []
+        },
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1788881553.646673,
+          "controlledClients": [],
+          "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+        },
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "starting",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1788881553.646673,
+          "controlledClients": [],
+          "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+        },
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1788881553.646673,
+          "controlledClients": [],
+          "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+        },
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "installed",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1788881553.646673,
+          "controlledClients": [],
+          "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+        },
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1788881553.646673,
+          "controlledClients": [],
+          "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+        },
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1788881553.646673,
+          "controlledClients": [
+            "01E32B9D18E00ABAC088501E0EA12615"
+          ],
+          "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+        },
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1788881553.646673,
+          "controlledClients": [
+            "01E32B9D18E00ABAC088501E0EA12615"
+          ],
+          "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+        },
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1788881553.646673,
+          "controlledClients": [
+            "01E32B9D18E00ABAC088501E0EA12615"
+          ],
+          "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+        },
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "stopping",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "805B40E51D065C93C360A707541EA1FC"
+        },
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "stopped",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": []
+        },
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1788881553.646673,
+          "controlledClients": [
+            "01E32B9D18E00ABAC088501E0EA12615"
+          ],
+          "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+        },
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1788881553.646673,
+          "controlledClients": [],
+          "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+        },
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1788881553.646673,
+          "controlledClients": [],
+          "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+        },
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1788881553.646673,
+          "controlledClients": [],
+          "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "stopped",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": []
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": []
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "starting",
+          "status": "installing",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "installing",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "installed",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "stopping",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1788881553.646673,
+          "controlledClients": [],
+          "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+        },
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "stopped",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1788881553.646673,
+          "controlledClients": []
+        },
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "stopped",
+          "status": "redundant",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1788881553.646673,
+          "controlledClients": []
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [
+            "01E32B9D18E00ABAC088501E0EA12615"
+          ],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [
+            "01E32B9D18E00ABAC088501E0EA12615"
+          ],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [
+            "01E32B9D18E00ABAC088501E0EA12615"
+          ],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [
+            "01E32B9D18E00ABAC088501E0EA12615"
+          ],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [
+            "01E32B9D18E00ABAC088501E0EA12615"
+          ],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [
+            "01E32B9D18E00ABAC088501E0EA12615"
+          ],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "stopping",
+          "status": "activated",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": [],
+          "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+        },
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4324/sw.js",
+          "runningStatus": "stopped",
+          "status": "activated",
+          "scriptLastModified": 1788879036,
+          "scriptResponseTime": 1788881627.177708,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "name": "stable screenshot B-shared-mobile",
+      "pass": true
+    },
+    {
+      "name": "B selected route after same-profile upgrade",
+      "pass": true,
+      "details": {
+        "features": 4,
+        "build": "KQZm6qMJF8AfCpaPaTMwV",
+        "document": {
+          "requestId": "C7199749FCF99F8187DABC0E4BF00ACC",
+          "fromServiceWorker": true,
+          "sha256": "986c6fcfdfa5271656f4192e30caf97affcb79a7be094eec66fc86a68102e144",
+          "buildA": false,
+          "buildB": true
+        }
+      }
+    },
+    {
+      "name": "unrelated and future cache preserved",
+      "pass": true,
+      "details": [
+        "sgshiok-static-v1",
+        "other-app-v1",
+        "sgshiok-shell-v999",
+        "sgshiok-shell-v2"
+      ]
+    },
+    {
+      "name": "foreign and future cache contents unchanged",
+      "pass": true,
+      "details": [
+        {
+          "name": "other-app-v1",
+          "body": "other-app-v1"
+        },
+        {
+          "name": "sgshiok-shell-v999",
+          "body": "sgshiok-shell-v999"
+        }
+      ]
+    },
+    {
+      "name": "new server actually lacks at least one old JS chunk",
+      "pass": true,
+      "details": [
+        {
+          "url": "http://127.0.0.1:4324/_next/static/chunks/310vm2bl3xxpt.js",
+          "status": 404
+        },
+        {
+          "url": "http://127.0.0.1:4324/_next/static/chunks/0y-dctk-kmqss.js",
+          "status": 404
+        },
+        {
+          "url": "http://127.0.0.1:4324/_next/static/chunks/3fntmmi971322.js",
+          "status": 404
+        },
+        {
+          "url": "http://127.0.0.1:4324/_next/static/chunks/2zaun8r9-gox7.js",
+          "status": 404
+        },
+        {
+          "url": "http://127.0.0.1:4324/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+          "status": 404
+        },
+        {
+          "url": "http://127.0.0.1:4324/_next/static/chunks/3g398rb4su43l.js",
+          "status": 404
+        },
+        {
+          "url": "http://127.0.0.1:4324/_next/static/chunks/27iodt6ap9svx.js",
+          "status": 404
+        },
+        {
+          "url": "http://127.0.0.1:4324/_next/static/chunks/08ttfj81-47mu.js",
+          "status": 404
+        },
+        {
+          "url": "http://127.0.0.1:4324/_next/static/chunks/0npwww6p9wx1o.js",
+          "status": 404
+        },
+        {
+          "url": "http://127.0.0.1:4324/_next/static/chunks/0j6tjjnrv2h3w.js",
+          "status": 404
+        },
+        {
+          "url": "http://127.0.0.1:4324/_next/static/chunks/39xhkg3l-se9r.js",
+          "status": 404
+        },
+        {
+          "url": "http://127.0.0.1:4324/_next/static/chunks/318x15h178iv-.js",
+          "status": 404
+        }
+      ]
+    },
+    {
+      "name": "stable screenshot B-selected-1440x950",
+      "pass": true
+    },
+    {
+      "name": "current features at 1440",
+      "pass": true
+    },
+    {
+      "name": "stable screenshot B-selected-390x667",
+      "pass": true
+    },
+    {
+      "name": "current features at 390",
+      "pass": true
+    },
+    {
+      "name": "stable screenshot B-selected-320x667",
+      "pass": true
+    },
+    {
+      "name": "current features at 320",
+      "pass": true
+    }
+  ],
+  "captures": [
+    {
+      "label": "A-shared",
+      "before": {
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2836525539690342
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 6 MRT or LRT stations, 32 exits, and 25 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true,
+        "buildPayload": "[]",
+        "width": 390,
+        "height": 844,
+        "document": {
+          "requestId": "10A96AF2DB89D8CF55D9DDE67CA92D99",
+          "fromServiceWorker": false,
+          "sha256": "4ad9e4f9b97117f3203bba69a950b0bcfcab96ad3805a6b56503550bbfec544b",
+          "buildA": true,
+          "buildB": false
+        }
+      },
+      "after": {
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2836525539690342
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 6 MRT or LRT stations, 32 exits, and 25 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true,
+        "buildPayload": "[]",
+        "width": 390,
+        "height": 844
+      },
+      "stable": true
+    },
+    {
+      "label": "B-shared-mobile",
+      "before": {
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2836525539690342
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 6 MRT or LRT stations, 32 exits, and 25 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true,
+        "buildPayload": "[]",
+        "width": 390,
+        "height": 844,
+        "document": {
+          "requestId": "C7199749FCF99F8187DABC0E4BF00ACC",
+          "fromServiceWorker": true,
+          "sha256": "986c6fcfdfa5271656f4192e30caf97affcb79a7be094eec66fc86a68102e144",
+          "buildA": false,
+          "buildB": true
+        }
+      },
+      "after": {
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2836525539690342
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 6 MRT or LRT stations, 32 exits, and 25 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true,
+        "buildPayload": "[]",
+        "width": 390,
+        "height": 844
+      },
+      "stable": true
+    },
+    {
+      "label": "B-selected-1440x950",
+      "before": {
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.85892577084377,
+          "lat": 1.2826700099267327
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 6 MRT or LRT stations, 32 exits, and 25 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true,
+        "buildPayload": "[]",
+        "width": 1440,
+        "height": 950,
+        "document": {
+          "requestId": "C7199749FCF99F8187DABC0E4BF00ACC",
+          "fromServiceWorker": true,
+          "sha256": "986c6fcfdfa5271656f4192e30caf97affcb79a7be094eec66fc86a68102e144",
+          "buildA": false,
+          "buildB": true
+        }
+      },
+      "after": {
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.85892577084377,
+          "lat": 1.2826700099267327
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 6 MRT or LRT stations, 32 exits, and 25 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true,
+        "buildPayload": "[]",
+        "width": 1440,
+        "height": 950
+      },
+      "stable": true
+    },
+    {
+      "label": "B-selected-390x667",
+      "before": {
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2836525539690342
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "initializing",
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 6 MRT or LRT stations, 32 exits, and 25 bus stops.\n\nSHIOK.\n\nMap loading\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true,
+        "buildPayload": "[]",
+        "width": 390,
+        "height": 667,
+        "document": {
+          "requestId": "C7199749FCF99F8187DABC0E4BF00ACC",
+          "fromServiceWorker": true,
+          "sha256": "986c6fcfdfa5271656f4192e30caf97affcb79a7be094eec66fc86a68102e144",
+          "buildA": false,
+          "buildB": true
+        }
+      },
+      "after": {
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2836525539690342
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 6 MRT or LRT stations, 32 exits, and 25 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true,
+        "buildPayload": "[]",
+        "width": 390,
+        "height": 667
+      },
+      "stable": true
+    },
+    {
+      "label": "B-selected-320x667",
+      "before": {
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2836419390455234
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 6 MRT or LRT stations, 32 exits, and 25 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true,
+        "buildPayload": "[]",
+        "width": 320,
+        "height": 667,
+        "document": {
+          "requestId": "C7199749FCF99F8187DABC0E4BF00ACC",
+          "fromServiceWorker": true,
+          "sha256": "986c6fcfdfa5271656f4192e30caf97affcb79a7be094eec66fc86a68102e144",
+          "buildA": false,
+          "buildB": true
+        }
+      },
+      "after": {
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2836419390455234
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 6 MRT or LRT stations, 32 exits, and 25 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true,
+        "buildPayload": "[]",
+        "width": 320,
+        "height": 667
+      },
+      "stable": true
+    }
+  ],
+  "exceptions": [],
+  "requests": [
+    {
+      "requestId": "10A96AF2DB89D8CF55D9DDE67CA92D99",
+      "resourceType": "Document",
+      "url": "http://127.0.0.1:4324/?postal=018956",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "text/html",
+      "headers": {
+        "cache-control": "public, max-age=604800, stale-while-revalidate=2592000",
+        "connection": "keep-alive",
+        "content-encoding": "gzip",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Tue, 08 Sep 2026 15:32:27 GMT",
+        "etag": "\"ngd0cj63yf9y0\"",
+        "keep-alive": "timeout=5",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "transfer-encoding": "chunked",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-nextjs-cache": "HIT",
+        "x-nextjs-prerender": "1, 1",
+        "x-nextjs-stale-time": "300",
+        "x-powered-by": "Next.js"
+      }
+    },
+    {
+      "requestId": "89868.2",
+      "resourceType": "Stylesheet",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/3mic8ep312z99.css",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "text/css",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"6fac-1a08049db9c\"",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:28 GMT",
+        "last-modified": "Tue, 08 Sep 2026 09:11:59 GMT",
+        "content-type": "text/css; charset=UTF-8",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.3",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/310vm2bl3xxpt.js",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"14f4-1a08049d594\"",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:28 GMT",
+        "last-modified": "Tue, 08 Sep 2026 09:11:57 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.4",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/0y-dctk-kmqss.js",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"7ebd-1a08049dd70\"",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:28 GMT",
+        "last-modified": "Tue, 08 Sep 2026 09:11:59 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.8",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/3fntmmi971322.js",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"3829-1a08049db5f\"",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:29 GMT",
+        "last-modified": "Tue, 08 Sep 2026 09:11:59 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.9",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/2zaun8r9-gox7.js",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"49c-1a08049d527\"",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:29 GMT",
+        "last-modified": "Tue, 08 Sep 2026 09:11:57 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.7",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"25b4-1a08049d5b1\"",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:29 GMT",
+        "last-modified": "Tue, 08 Sep 2026 09:11:57 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.6",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/3g398rb4su43l.js",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"2740c-1a08049d516\"",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:29 GMT",
+        "last-modified": "Tue, 08 Sep 2026 09:11:57 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.10",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/27iodt6ap9svx.js",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"43ce6-1a08049ddec\"",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:30 GMT",
+        "last-modified": "Tue, 08 Sep 2026 09:11:59 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.5",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/08ttfj81-47mu.js",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"37ed6-1a08049d9fc\"",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:29 GMT",
+        "last-modified": "Tue, 08 Sep 2026 09:11:58 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.22",
+      "resourceType": "Other",
+      "url": "http://127.0.0.1:4324/icon.svg",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "image/svg+xml",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "keep-alive": "timeout=5",
+        "x-nextjs-cache": "HIT",
+        "date": "Tue, 08 Sep 2026 15:32:32 GMT",
+        "content-type": "image/svg+xml",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch"
+      }
+    },
+    {
+      "requestId": "89868.28",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404,
+      "fromServiceWorker": false,
+      "mimeType": "text/html",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-encoding": "gzip",
+        "etag": "\"v9jvzca7gw7j1\"",
+        "x-content-type-options": "nosniff",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-nextjs-stale-time": "300",
+        "keep-alive": "timeout=5",
+        "x-nextjs-prerender": "1, 1",
+        "date": "Tue, 08 Sep 2026 15:32:33 GMT",
+        "content-type": "text/html; charset=utf-8",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "access-control-allow-headers": "Content-Type",
+        "transfer-encoding": "chunked",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "access-control-allow-origin": "*",
+        "x-nextjs-cache": "HIT",
+        "x-powered-by": "Next.js"
+      }
+    },
+    {
+      "requestId": "89868.23",
+      "resourceType": "Stylesheet",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/2_c6f5vawm6vi.css",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "text/css",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"e23-1a08049d4cd\"",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:33 GMT",
+        "last-modified": "Tue, 08 Sep 2026 09:11:57 GMT",
+        "content-type": "text/css; charset=UTF-8",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.25",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/0npwww6p9wx1o.js",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "application/javascript",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "etag": "W/\"232-1a08049d4af\"",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "content-length": "562",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:33 GMT",
+        "last-modified": "Tue, 08 Sep 2026 09:11:57 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.27",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "application/gzip",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "etag": "W/\"b8-1a04d0111ca\"",
+        "x-content-type-options": "nosniff",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:33 GMT",
+        "last-modified": "Sat, 29 Aug 2026 10:11:50 GMT",
+        "content-type": "application/gzip",
+        "access-control-allow-headers": "Content-Type",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "184"
+      }
+    },
+    {
+      "requestId": "89868.24",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/0j6tjjnrv2h3w.js",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"9a84-1a08049dae4\"",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:33 GMT",
+        "last-modified": "Tue, 08 Sep 2026 09:11:58 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.31",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 404,
+      "fromServiceWorker": false,
+      "mimeType": "text/html",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-encoding": "gzip",
+        "etag": "\"v9jvzca7gw7j1\"",
+        "x-content-type-options": "nosniff",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-nextjs-stale-time": "300",
+        "keep-alive": "timeout=5",
+        "x-nextjs-prerender": "1, 1",
+        "date": "Tue, 08 Sep 2026 15:32:35 GMT",
+        "content-type": "text/html; charset=utf-8",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "access-control-allow-headers": "Content-Type",
+        "transfer-encoding": "chunked",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "access-control-allow-origin": "*",
+        "x-nextjs-cache": "HIT",
+        "x-powered-by": "Next.js"
+      }
+    },
+    {
+      "requestId": "89868.30",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "application/json",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-encoding": "gzip",
+        "etag": "W/\"9afa-19fd2193070\"",
+        "x-content-type-options": "nosniff",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:35 GMT",
+        "last-modified": "Wed, 05 Aug 2026 13:24:54 GMT",
+        "content-type": "application/json; charset=UTF-8",
+        "vary": "Accept-Encoding",
+        "access-control-allow-headers": "Content-Type",
+        "transfer-encoding": "chunked",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*"
+      }
+    },
+    {
+      "requestId": "89868.29",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/39xhkg3l-se9r.js",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "application/javascript",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "etag": "W/\"95-1a08049dd73\"",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "content-length": "149",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:35 GMT",
+        "last-modified": "Tue, 08 Sep 2026 09:11:59 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.34",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "status": 404,
+      "fromServiceWorker": false,
+      "mimeType": "text/html",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-encoding": "gzip",
+        "etag": "\"v9jvzca7gw7j1\"",
+        "x-content-type-options": "nosniff",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-nextjs-stale-time": "300",
+        "keep-alive": "timeout=5",
+        "x-nextjs-prerender": "1, 1",
+        "date": "Tue, 08 Sep 2026 15:32:35 GMT",
+        "content-type": "text/html; charset=utf-8",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "access-control-allow-headers": "Content-Type",
+        "transfer-encoding": "chunked",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "access-control-allow-origin": "*",
+        "x-nextjs-cache": "HIT",
+        "x-powered-by": "Next.js"
+      }
+    },
+    {
+      "requestId": "89868.33",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "application/json",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-encoding": "gzip",
+        "etag": "W/\"237af-19fd2382250\"",
+        "x-content-type-options": "nosniff",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:36 GMT",
+        "last-modified": "Wed, 05 Aug 2026 13:58:42 GMT",
+        "content-type": "application/json; charset=UTF-8",
+        "vary": "Accept-Encoding",
+        "access-control-allow-headers": "Content-Type",
+        "transfer-encoding": "chunked",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*"
+      }
+    },
+    {
+      "requestId": "89868.36",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "application/json",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-encoding": "gzip",
+        "etag": "W/\"4fe52d-19fd21417c0\"",
+        "x-content-type-options": "nosniff",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:36 GMT",
+        "last-modified": "Wed, 05 Aug 2026 13:19:20 GMT",
+        "content-type": "application/json; charset=UTF-8",
+        "vary": "Accept-Encoding",
+        "access-control-allow-headers": "Content-Type",
+        "transfer-encoding": "chunked",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*"
+      }
+    },
+    {
+      "requestId": "89868.26",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/318x15h178iv-.js",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"eb5c7-1a08049d5aa\"",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:33 GMT",
+        "last-modified": "Tue, 08 Sep 2026 09:11:57 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.83",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "status": 502,
+      "fromServiceWorker": true,
+      "mimeType": "",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Keep-Alive": "timeout=5",
+        "Date": "Tue, 08 Sep 2026 15:32:52 GMT",
+        "Connection": "keep-alive"
+      }
+    },
+    {
+      "requestId": "89868.88",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "status": 404,
+      "fromServiceWorker": true,
+      "mimeType": "text/html",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-encoding": "gzip",
+        "etag": "\"v9jvzca7gw7j1\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "keep-alive": "timeout=5",
+        "x-nextjs-stale-time": "300",
+        "date": "Tue, 08 Sep 2026 15:32:55 GMT",
+        "x-nextjs-prerender": "1, 1",
+        "content-type": "text/html; charset=utf-8",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "access-control-allow-headers": "Content-Type",
+        "transfer-encoding": "chunked",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "access-control-allow-origin": "*",
+        "x-nextjs-cache": "HIT",
+        "x-powered-by": "Next.js"
+      }
+    },
+    {
+      "requestId": "89868.84",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/gzip",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "etag": "W/\"2bd-1a04d012125\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:55 GMT",
+        "content-type": "application/gzip",
+        "last-modified": "Sat, 29 Aug 2026 10:11:54 GMT",
+        "access-control-allow-headers": "Content-Type",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "701"
+      }
+    },
+    {
+      "requestId": "89868.82",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/gzip",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "etag": "W/\"258-1a04d0130b1\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:55 GMT",
+        "content-type": "application/gzip",
+        "last-modified": "Sat, 29 Aug 2026 10:11:58 GMT",
+        "access-control-allow-headers": "Content-Type",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "600"
+      }
+    },
+    {
+      "requestId": "89868.86",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/gzip",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "etag": "W/\"431-1a04d01197c\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:55 GMT",
+        "content-type": "application/gzip",
+        "last-modified": "Sat, 29 Aug 2026 10:11:52 GMT",
+        "access-control-allow-headers": "Content-Type",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "1073"
+      }
+    },
+    {
+      "requestId": "89868.85",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/gzip",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "etag": "W/\"3f2-1a04d0122be\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:55 GMT",
+        "content-type": "application/gzip",
+        "last-modified": "Sat, 29 Aug 2026 10:11:55 GMT",
+        "access-control-allow-headers": "Content-Type",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "1010"
+      }
+    },
+    {
+      "requestId": "89868.87",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/gzip",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "etag": "W/\"688-1a04d012f43\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:56 GMT",
+        "content-type": "application/gzip",
+        "last-modified": "Sat, 29 Aug 2026 10:11:58 GMT",
+        "access-control-allow-headers": "Content-Type",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "1672"
+      }
+    },
+    {
+      "requestId": "89502DF626EC811682644B930A1947ED",
+      "resourceType": "Document",
+      "url": "http://127.0.0.1:4324/",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "text/html",
+      "headers": {
+        "cache-control": "public, max-age=604800, stale-while-revalidate=2592000",
+        "connection": "keep-alive",
+        "content-encoding": "gzip",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Tue, 08 Sep 2026 15:33:27 GMT",
+        "etag": "\"ngd0cj63yf9y0\"",
+        "keep-alive": "timeout=5",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "transfer-encoding": "chunked",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-nextjs-cache": "HIT",
+        "x-nextjs-prerender": "1, 1",
+        "x-nextjs-stale-time": "300",
+        "x-powered-by": "Next.js"
+      }
+    },
+    {
+      "requestId": "89868.150",
+      "resourceType": "Stylesheet",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/3mic8ep312z99.css",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "text/css",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"6fac-1a08049db9c\"",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "date": "Tue, 08 Sep 2026 15:32:28 GMT",
+        "content-type": "text/css; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 09:11:59 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.151",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/310vm2bl3xxpt.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"14f4-1a08049d594\"",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "date": "Tue, 08 Sep 2026 15:32:28 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 09:11:57 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.152",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/0y-dctk-kmqss.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"7ebd-1a08049dd70\"",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "date": "Tue, 08 Sep 2026 15:32:28 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 09:11:59 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.156",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/3fntmmi971322.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"3829-1a08049db5f\"",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "date": "Tue, 08 Sep 2026 15:32:29 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 09:11:59 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.155",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"25b4-1a08049d5b1\"",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "date": "Tue, 08 Sep 2026 15:32:29 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 09:11:57 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.157",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/2zaun8r9-gox7.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"49c-1a08049d527\"",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "date": "Tue, 08 Sep 2026 15:32:29 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 09:11:57 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.154",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/3g398rb4su43l.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"2740c-1a08049d516\"",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "date": "Tue, 08 Sep 2026 15:32:29 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 09:11:57 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.158",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/27iodt6ap9svx.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"43ce6-1a08049ddec\"",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "date": "Tue, 08 Sep 2026 15:32:30 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 09:11:59 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.153",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/08ttfj81-47mu.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"37ed6-1a08049d9fc\"",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "date": "Tue, 08 Sep 2026 15:32:29 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 09:11:58 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.179",
+      "resourceType": "Stylesheet",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/2_c6f5vawm6vi.css",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "text/css",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"e23-1a08049d4cd\"",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "date": "Tue, 08 Sep 2026 15:32:33 GMT",
+        "content-type": "text/css; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 09:11:57 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.180",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/39xhkg3l-se9r.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "etag": "W/\"95-1a08049dd73\"",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "content-length": "149",
+        "date": "Tue, 08 Sep 2026 15:32:35 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 09:11:59 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.181",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/0j6tjjnrv2h3w.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"9a84-1a08049dae4\"",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "date": "Tue, 08 Sep 2026 15:32:33 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 09:11:58 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.186",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/0npwww6p9wx1o.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "etag": "W/\"232-1a08049d4af\"",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "content-length": "562",
+        "date": "Tue, 08 Sep 2026 15:32:33 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 09:11:57 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.187",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/318x15h178iv-.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"eb5c7-1a08049d5aa\"",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "date": "Tue, 08 Sep 2026 15:32:33 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 09:11:57 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "C7199749FCF99F8187DABC0E4BF00ACC",
+      "resourceType": "Document",
+      "url": "http://127.0.0.1:4324/?postal=018956",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "text/html",
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "connection": "keep-alive",
+        "content-encoding": "gzip",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Tue, 08 Sep 2026 15:33:49 GMT",
+        "etag": "\"2co1bdbhw29y0\"",
+        "keep-alive": "timeout=5",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "transfer-encoding": "chunked",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-nextjs-cache": "HIT",
+        "x-nextjs-prerender": "1, 1",
+        "x-nextjs-stale-time": "300",
+        "x-powered-by": "Next.js"
+      }
+    },
+    {
+      "requestId": "89868.245",
+      "resourceType": "Stylesheet",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/2g37_uc_c64zk.css",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "text/css",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"6fac-1a0817fd233\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:50 GMT",
+        "content-type": "text/css; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:32 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.246",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/3wkt3-74el481.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"14f4-1a0817fd247\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:50 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:32 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.247",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/2wu61p_p0hxro.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"7ec9-1a0817fd44d\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:50 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:33 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.250",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"25b4-1a0817fd2a6\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:51 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:32 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.251",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/1oaw9uq-pttep.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"3830-1a0817fd277\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:51 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:32 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.252",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/1ozrn7p3x-zsn.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"498-1a0817fd2e2\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:51 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:33 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.249",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/0in607kxyceyg.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"27413-1a0817fd258\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:51 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:32 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.248",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/11axl_urhtotz.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"37ed2-1a0817fd255\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:51 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:32 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.253",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/1l43k80h-w4_t.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"43d3c-1a0817fd359\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:51 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:33 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.274",
+      "resourceType": "Stylesheet",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/3s10ltc49009v.css",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "text/css",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"e23-1a0817fd4c4\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:52 GMT",
+        "content-type": "text/css; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:33 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.279",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/gzip",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "etag": "W/\"b8-1a04d0111ca\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "184",
+        "date": "Tue, 08 Sep 2026 15:32:33 GMT",
+        "content-type": "application/gzip",
+        "last-modified": "Sat, 29 Aug 2026 10:11:50 GMT",
+        "access-control-allow-headers": "Content-Type"
+      }
+    },
+    {
+      "requestId": "89868.280",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404,
+      "fromServiceWorker": true,
+      "mimeType": "text/html",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-encoding": "gzip",
+        "etag": "\"v9jvzca7gw7j1\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "keep-alive": "timeout=5",
+        "x-nextjs-stale-time": "300",
+        "date": "Tue, 08 Sep 2026 15:33:53 GMT",
+        "x-nextjs-prerender": "1, 1",
+        "content-type": "text/html; charset=utf-8",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "access-control-allow-headers": "Content-Type",
+        "transfer-encoding": "chunked",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "access-control-allow-origin": "*",
+        "x-nextjs-cache": "HIT",
+        "x-powered-by": "Next.js"
+      }
+    },
+    {
+      "requestId": "89868.276",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/2rmzgxedjsyy1.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "etag": "W/\"22d-1a0817fd22d\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "content-length": "557",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:53 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:32 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.275",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/04qv2q4958d88.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"9a7f-1a0817fd279\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:53 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:32 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.288",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 404,
+      "fromServiceWorker": true,
+      "mimeType": "text/html",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-encoding": "gzip",
+        "etag": "\"v9jvzca7gw7j1\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "keep-alive": "timeout=5",
+        "x-nextjs-stale-time": "300",
+        "date": "Tue, 08 Sep 2026 15:33:53 GMT",
+        "x-nextjs-prerender": "1, 1",
+        "content-type": "text/html; charset=utf-8",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "access-control-allow-headers": "Content-Type",
+        "transfer-encoding": "chunked",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "access-control-allow-origin": "*",
+        "x-nextjs-cache": "HIT",
+        "x-powered-by": "Next.js"
+      }
+    },
+    {
+      "requestId": "89868.281",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/0up7hw-09wphj.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "etag": "W/\"94-1a0817fd28a\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "content-length": "148",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:53 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:32 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.290",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/json",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"9afa-19fd2193070\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "date": "Tue, 08 Sep 2026 15:32:35 GMT",
+        "content-type": "application/json; charset=UTF-8",
+        "last-modified": "Wed, 05 Aug 2026 13:24:54 GMT",
+        "vary": "Accept-Encoding",
+        "access-control-allow-headers": "Content-Type"
+      }
+    },
+    {
+      "requestId": "89868.291",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/json",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"237af-19fd2382250\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "date": "Tue, 08 Sep 2026 15:32:36 GMT",
+        "content-type": "application/json; charset=UTF-8",
+        "last-modified": "Wed, 05 Aug 2026 13:58:42 GMT",
+        "vary": "Accept-Encoding",
+        "access-control-allow-headers": "Content-Type"
+      }
+    },
+    {
+      "requestId": "89868.294",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "status": 404,
+      "fromServiceWorker": true,
+      "mimeType": "text/html",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-encoding": "gzip",
+        "etag": "\"v9jvzca7gw7j1\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "keep-alive": "timeout=5",
+        "x-nextjs-stale-time": "300",
+        "date": "Tue, 08 Sep 2026 15:33:53 GMT",
+        "x-nextjs-prerender": "1, 1",
+        "content-type": "text/html; charset=utf-8",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "access-control-allow-headers": "Content-Type",
+        "transfer-encoding": "chunked",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "access-control-allow-origin": "*",
+        "x-nextjs-cache": "HIT",
+        "x-powered-by": "Next.js"
+      }
+    },
+    {
+      "requestId": "89868.297",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/json",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"4fe52d-19fd21417c0\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "date": "Tue, 08 Sep 2026 15:32:36 GMT",
+        "content-type": "application/json; charset=UTF-8",
+        "last-modified": "Wed, 05 Aug 2026 13:19:20 GMT",
+        "vary": "Accept-Encoding",
+        "access-control-allow-headers": "Content-Type"
+      }
+    },
+    {
+      "requestId": "89868.277",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/3_zdoql-8zsg0.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"eb5c9-1a0817fd4c4\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:53 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:33 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.299",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/gzip",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "etag": "W/\"258-1a04d0130b1\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:55 GMT",
+        "content-type": "application/gzip",
+        "last-modified": "Sat, 29 Aug 2026 10:11:58 GMT",
+        "access-control-allow-headers": "Content-Type",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "600"
+      }
+    },
+    {
+      "requestId": "89868.300",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "status": 502,
+      "fromServiceWorker": true,
+      "mimeType": "",
+      "headers": {
+        "Date": "Tue, 08 Sep 2026 15:32:52 GMT"
+      }
+    },
+    {
+      "requestId": "89868.301",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/gzip",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "etag": "W/\"2bd-1a04d012125\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:55 GMT",
+        "content-type": "application/gzip",
+        "last-modified": "Sat, 29 Aug 2026 10:11:54 GMT",
+        "access-control-allow-headers": "Content-Type",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "701"
+      }
+    },
+    {
+      "requestId": "89868.302",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/gzip",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "etag": "W/\"3f2-1a04d0122be\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:55 GMT",
+        "content-type": "application/gzip",
+        "last-modified": "Sat, 29 Aug 2026 10:11:55 GMT",
+        "access-control-allow-headers": "Content-Type",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "1010"
+      }
+    },
+    {
+      "requestId": "89868.303",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/gzip",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "etag": "W/\"431-1a04d01197c\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:55 GMT",
+        "content-type": "application/gzip",
+        "last-modified": "Sat, 29 Aug 2026 10:11:52 GMT",
+        "access-control-allow-headers": "Content-Type",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "1073"
+      }
+    },
+    {
+      "requestId": "89868.304",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/gzip",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "etag": "W/\"688-1a04d012f43\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:32:56 GMT",
+        "content-type": "application/gzip",
+        "last-modified": "Sat, 29 Aug 2026 10:11:58 GMT",
+        "access-control-allow-headers": "Content-Type",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "1672"
+      }
+    },
+    {
+      "requestId": "89868.305",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "status": 404,
+      "fromServiceWorker": true,
+      "mimeType": "text/html",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-encoding": "gzip",
+        "etag": "\"v9jvzca7gw7j1\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "keep-alive": "timeout=5",
+        "x-nextjs-stale-time": "300",
+        "date": "Tue, 08 Sep 2026 15:33:54 GMT",
+        "x-nextjs-prerender": "1, 1",
+        "content-type": "text/html; charset=utf-8",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "access-control-allow-headers": "Content-Type",
+        "transfer-encoding": "chunked",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "access-control-allow-origin": "*",
+        "x-nextjs-cache": "HIT",
+        "x-powered-by": "Next.js"
+      }
+    },
+    {
+      "requestId": "2F29D99C2ED622950AE5CE9B44426683",
+      "resourceType": "Document",
+      "url": "http://127.0.0.1:4324/?postal=018956",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "text/html",
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "connection": "keep-alive",
+        "content-encoding": "gzip",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Tue, 08 Sep 2026 15:33:49 GMT",
+        "etag": "\"2co1bdbhw29y0\"",
+        "keep-alive": "timeout=5",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "transfer-encoding": "chunked",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-nextjs-cache": "HIT",
+        "x-nextjs-prerender": "1, 1",
+        "x-nextjs-stale-time": "300",
+        "x-powered-by": "Next.js"
+      }
+    },
+    {
+      "requestId": "89868.527",
+      "resourceType": "Stylesheet",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/2g37_uc_c64zk.css",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "text/css",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"6fac-1a0817fd233\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:50 GMT",
+        "content-type": "text/css; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:32 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.528",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/3wkt3-74el481.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"14f4-1a0817fd247\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:50 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:32 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.529",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/2wu61p_p0hxro.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"7ec9-1a0817fd44d\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:50 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:33 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.530",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/11axl_urhtotz.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"37ed2-1a0817fd255\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:51 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:32 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.531",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/0in607kxyceyg.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"27413-1a0817fd258\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:51 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:32 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.532",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"25b4-1a0817fd2a6\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:51 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:32 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.533",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/1oaw9uq-pttep.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"3830-1a0817fd277\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:51 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:32 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.534",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/1ozrn7p3x-zsn.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"498-1a0817fd2e2\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:51 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:33 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.535",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/1l43k80h-w4_t.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"43d3c-1a0817fd359\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:51 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:33 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.547",
+      "resourceType": "Stylesheet",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/3s10ltc49009v.css",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "text/css",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"e23-1a0817fd4c4\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:52 GMT",
+        "content-type": "text/css; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:33 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.548",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/04qv2q4958d88.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"9a7f-1a0817fd279\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:53 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:32 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.549",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/2rmzgxedjsyy1.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "etag": "W/\"22d-1a0817fd22d\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "content-length": "557",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:53 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:32 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.550",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/3_zdoql-8zsg0.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"eb5c9-1a0817fd4c4\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:53 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:33 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.554",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/0up7hw-09wphj.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/javascript",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "etag": "W/\"94-1a0817fd28a\"",
+        "connection": "keep-alive",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "content-length": "148",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:33:53 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Tue, 08 Sep 2026 14:50:32 GMT",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "89868.551",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "mimeType": "application/gzip",
+      "headers": {
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "etag": "W/\"b8-1a04d0111ca\"",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "184",
+        "date": "Tue, 08 Sep 2026 15:32:33 GMT",
+        "content-type": "application/gzip",
+        "last-modified": "Sat, 29 Aug 2026 10:11:50 GMT",
+        "access-control-allow-headers": "Content-Type"
+      }
+    },
+    {
+      "requestId": "89868.552",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 503,
+      "fromServiceWorker": true,
+      "mimeType": "",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Keep-Alive": "timeout=5",
+        "Date": "Tue, 08 Sep 2026 15:34:34 GMT",
+        "Connection": "keep-alive"
+      }
+    },
+    {
+      "requestId": "89868.555",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/scores/index.json.gz",
+      "status": 503,
+      "fromServiceWorker": true,
+      "mimeType": "",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Keep-Alive": "timeout=5",
+        "Date": "Tue, 08 Sep 2026 15:34:43 GMT",
+        "Connection": "keep-alive"
+      }
+    },
+    {
+      "requestId": "89868.558",
+      "resourceType": "Fetch",
+      "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 503,
+      "fromServiceWorker": true,
+      "mimeType": "",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Keep-Alive": "timeout=5",
+        "Date": "Tue, 08 Sep 2026 15:34:43 GMT",
+        "Connection": "keep-alive"
+      }
+    }
+  ],
+  "workerVersions": [
+    {
+      "versionId": "0",
+      "registrationId": "0",
+      "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+      "runningStatus": "starting",
+      "status": "new",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": [],
+      "targetId": "805B40E51D065C93C360A707541EA1FC"
+    },
+    {
+      "versionId": "0",
+      "registrationId": "0",
+      "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+      "runningStatus": "starting",
+      "status": "installing",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": [],
+      "targetId": "805B40E51D065C93C360A707541EA1FC"
+    },
+    {
+      "versionId": "0",
+      "registrationId": "0",
+      "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+      "runningStatus": "running",
+      "status": "installing",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": [],
+      "targetId": "805B40E51D065C93C360A707541EA1FC"
+    },
+    {
+      "versionId": "0",
+      "registrationId": "0",
+      "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+      "runningStatus": "running",
+      "status": "installed",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": [],
+      "targetId": "805B40E51D065C93C360A707541EA1FC"
+    },
+    {
+      "versionId": "0",
+      "registrationId": "0",
+      "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+      "runningStatus": "running",
+      "status": "activating",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": [],
+      "targetId": "805B40E51D065C93C360A707541EA1FC"
+    },
+    {
+      "versionId": "0",
+      "registrationId": "0",
+      "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": [],
+      "targetId": "805B40E51D065C93C360A707541EA1FC"
+    },
+    {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "stopped",
+      "status": "new",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": []
+    },
+    {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "stopped",
+      "status": "new",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 1788881553.646673,
+      "controlledClients": []
+    },
+    {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "starting",
+      "status": "new",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 1788881553.646673,
+      "controlledClients": []
+    },
+    {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "starting",
+      "status": "new",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 1788881553.646673,
+      "controlledClients": [],
+      "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+    },
+    {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "starting",
+      "status": "installing",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 1788881553.646673,
+      "controlledClients": [],
+      "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+    },
+    {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "installing",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 1788881553.646673,
+      "controlledClients": [],
+      "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+    },
+    {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "installed",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 1788881553.646673,
+      "controlledClients": [],
+      "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+    },
+    {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activating",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 1788881553.646673,
+      "controlledClients": [],
+      "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+    },
+    {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activating",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 1788881553.646673,
+      "controlledClients": [
+        "01E32B9D18E00ABAC088501E0EA12615"
+      ],
+      "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+    },
+    {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 1788881553.646673,
+      "controlledClients": [
+        "01E32B9D18E00ABAC088501E0EA12615"
+      ],
+      "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+    },
+    {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 1788881553.646673,
+      "controlledClients": [
+        "01E32B9D18E00ABAC088501E0EA12615"
+      ],
+      "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+    },
+    {
+      "versionId": "0",
+      "registrationId": "0",
+      "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+      "runningStatus": "stopping",
+      "status": "activated",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": [],
+      "targetId": "805B40E51D065C93C360A707541EA1FC"
+    },
+    {
+      "versionId": "0",
+      "registrationId": "0",
+      "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+      "runningStatus": "stopped",
+      "status": "activated",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": []
+    },
+    {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 1788881553.646673,
+      "controlledClients": [
+        "01E32B9D18E00ABAC088501E0EA12615"
+      ],
+      "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+    },
+    {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 1788881553.646673,
+      "controlledClients": [],
+      "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+    },
+    {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 1788881553.646673,
+      "controlledClients": [],
+      "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+    },
+    {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 1788881553.646673,
+      "controlledClients": [],
+      "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "stopped",
+      "status": "new",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": []
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "starting",
+      "status": "new",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": []
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "starting",
+      "status": "new",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": [],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "starting",
+      "status": "new",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "starting",
+      "status": "installing",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "installing",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "installed",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "stopping",
+      "status": "activated",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 1788881553.646673,
+      "controlledClients": [],
+      "targetId": "650B5AC9F726363BC1FA70F04F358E86"
+    },
+    {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "stopped",
+      "status": "activated",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 1788881553.646673,
+      "controlledClients": []
+    },
+    {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "stopped",
+      "status": "redundant",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 1788881553.646673,
+      "controlledClients": []
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activating",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activating",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activating",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activating",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [
+        "01E32B9D18E00ABAC088501E0EA12615"
+      ],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activating",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [
+        "01E32B9D18E00ABAC088501E0EA12615"
+      ],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activating",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [
+        "01E32B9D18E00ABAC088501E0EA12615"
+      ],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activating",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [
+        "01E32B9D18E00ABAC088501E0EA12615"
+      ],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [
+        "01E32B9D18E00ABAC088501E0EA12615"
+      ],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [
+        "01E32B9D18E00ABAC088501E0EA12615"
+      ],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "stopping",
+      "status": "activated",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": [],
+      "targetId": "36F9B42DE5979DB9B797FA4009281B58"
+    },
+    {
+      "versionId": "2",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:4324/sw.js",
+      "runningStatus": "stopped",
+      "status": "activated",
+      "scriptLastModified": 1788879036,
+      "scriptResponseTime": 1788881627.177708,
+      "controlledClients": []
+    }
+  ],
+  "serviceWorkerBypassed": false,
+  "cachesCleared": false,
+  "mode": "explicit-update",
+  "explicitWorkerUpdate": true,
+  "workerBeforeSha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+  "browser": {
+    "pid": 99988,
+    "stderr": "\r\nDevTools listening on ws://127.0.0.1:39930/devtools/browser/1912d135-3a4a-4ce6-a195-f6e0998abedc\r\n[99988:85744:0908/233721.410:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n[99988:85744:0908/233721.439:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n",
+    "debugJsonUrl": "http://127.0.0.1:39930/json"
+  },
+  "beforeCaches": [
+    "sgshiok-static-v1",
+    "other-app-v1",
+    "sgshiok-shell-v999"
+  ],
+  "successfulAChunks": [
+    "http://127.0.0.1:4324/_next/static/chunks/310vm2bl3xxpt.js",
+    "http://127.0.0.1:4324/_next/static/chunks/0y-dctk-kmqss.js",
+    "http://127.0.0.1:4324/_next/static/chunks/3fntmmi971322.js",
+    "http://127.0.0.1:4324/_next/static/chunks/2zaun8r9-gox7.js",
+    "http://127.0.0.1:4324/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+    "http://127.0.0.1:4324/_next/static/chunks/3g398rb4su43l.js",
+    "http://127.0.0.1:4324/_next/static/chunks/27iodt6ap9svx.js",
+    "http://127.0.0.1:4324/_next/static/chunks/08ttfj81-47mu.js",
+    "http://127.0.0.1:4324/_next/static/chunks/0npwww6p9wx1o.js",
+    "http://127.0.0.1:4324/_next/static/chunks/0j6tjjnrv2h3w.js",
+    "http://127.0.0.1:4324/_next/static/chunks/39xhkg3l-se9r.js",
+    "http://127.0.0.1:4324/_next/static/chunks/318x15h178iv-.js"
+  ],
+  "swHeader": {
+    "accept-ranges": "bytes",
+    "cache-control": "public, max-age=0, must-revalidate",
+    "connection": "keep-alive",
+    "content-encoding": "gzip",
+    "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+    "content-type": "application/javascript; charset=UTF-8",
+    "date": "Tue, 08 Sep 2026 15:33:46 GMT",
+    "etag": "W/\"14ff-1a0817fdecc\"",
+    "keep-alive": "timeout=5",
+    "last-modified": "Tue, 08 Sep 2026 14:50:36 GMT",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "service-worker-allowed": "/",
+    "transfer-encoding": "chunked",
+    "vary": "Accept-Encoding",
+    "x-content-type-options": "nosniff",
+    "x-robots-tag": "noindex, nofollow, noarchive"
+  },
+  "servedWorkerSha256": "173611b9a193b0db26ed9b1ef8913962a319f2bf40dedf347adc7c3e1f150eff",
+  "rootHeader": {
+    "cache-control": "public, max-age=0, must-revalidate",
+    "connection": "keep-alive",
+    "content-encoding": "gzip",
+    "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+    "content-type": "text/html; charset=utf-8",
+    "date": "Tue, 08 Sep 2026 15:33:46 GMT",
+    "etag": "\"2co1bdbhw29y0\"",
+    "keep-alive": "timeout=5",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "transfer-encoding": "chunked",
+    "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+    "x-content-type-options": "nosniff",
+    "x-nextjs-cache": "HIT",
+    "x-nextjs-prerender": "1, 1",
+    "x-nextjs-stale-time": "300",
+    "x-powered-by": "Next.js"
+  },
+  "updateResult": {
+    "ok": true,
+    "active": "activated"
+  },
+  "afterCaches": [
+    "sgshiok-static-v1",
+    "other-app-v1",
+    "sgshiok-shell-v999",
+    "sgshiok-shell-v2"
+  ],
+  "sentinels": [
+    {
+      "name": "other-app-v1",
+      "body": "other-app-v1"
+    },
+    {
+      "name": "sgshiok-shell-v999",
+      "body": "sgshiok-shell-v999"
+    }
+  ],
+  "oldChunkChecks": [
+    {
+      "url": "http://127.0.0.1:4324/_next/static/chunks/310vm2bl3xxpt.js",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:4324/_next/static/chunks/0y-dctk-kmqss.js",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:4324/_next/static/chunks/3fntmmi971322.js",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:4324/_next/static/chunks/2zaun8r9-gox7.js",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:4324/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:4324/_next/static/chunks/3g398rb4su43l.js",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:4324/_next/static/chunks/27iodt6ap9svx.js",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:4324/_next/static/chunks/08ttfj81-47mu.js",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:4324/_next/static/chunks/0npwww6p9wx1o.js",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:4324/_next/static/chunks/0j6tjjnrv2h3w.js",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:4324/_next/static/chunks/39xhkg3l-se9r.js",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:4324/_next/static/chunks/318x15h178iv-.js",
+      "status": 404
+    }
+  ],
+  "beforeOutage": {
+    "active": "B",
+    "offline": true,
+    "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+    "buildB": "KQZm6qMJF8AfCpaPaTMwV",
+    "workerASha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+    "counts": {
+      "A": 52,
+      "B": 39,
+      "data": 32,
+      "failures": 1
+    }
+  },
+  "failure": "Error: Condition deadline window.__shiokRouteMap?.getLayer('shiokest-route-line') && !window.__shiokRouteMap.isMoving() && window.__shiokRouteMap.isSourceLoaded('shiokest-route') && window.__shiokRouteMap.queryRenderedFeatures({layers:['shiokest-route-line']}).some(f=>f.properties.render_key===window.__shiokRouteDebug.routeKey) && window.__shiokRouteMap.isSourceLoaded('onemap')\n    at until (file:///C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/browser-upgrade.mjs:91:11)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/browser-upgrade.mjs:161:3",
+  "failureState": {
+    "key": "1:shiokest:",
+    "center": {
+      "lng": 103.851959,
+      "lat": 1.29027
+    },
+    "zoom": 11.6,
+    "moving": false,
+    "basemapLoaded": true,
+    "routeCount": 0,
+    "status": "initializing",
+    "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap loading\n\nscores/index.json.gz fetch failed: 503\nRetry selection\nAbout data",
+    "worker": true,
+    "buildPayload": "[]",
+    "width": 320,
+    "height": 667
+  },
+  "finishedAt": "2026-09-08T15:37:34.971Z",
+  "serverAfter": {
+    "active": "B",
+    "offline": false,
+    "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+    "buildB": "KQZm6qMJF8AfCpaPaTMwV",
+    "workerASha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+    "counts": {
+      "A": 52,
+      "B": 39,
+      "data": 32,
+      "failures": 10
+    }
+  }
+}

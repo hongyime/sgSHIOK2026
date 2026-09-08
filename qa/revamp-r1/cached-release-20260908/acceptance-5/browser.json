@@ -1,0 +1,199 @@
+{
+  "origin": "http://127.0.0.1:4324",
+  "server": {
+    "active": "A",
+    "offline": false,
+    "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+    "buildB": "KQZm6qMJF8AfCpaPaTMwV",
+    "workerASha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+    "counts": {
+      "A": 0,
+      "B": 0,
+      "data": 0,
+      "failures": 0
+    }
+  },
+  "startedAt": "2026-09-08T15:20:08.437Z",
+  "checks": [],
+  "captures": [],
+  "exceptions": [],
+  "requests": [
+    {
+      "requestId": "CBD6F5AB8523D738C9C689AD237E6379",
+      "resourceType": "Document",
+      "url": "http://127.0.0.1:4324/?postal=018956",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "text/html",
+      "headers": {
+        "cache-control": "public, max-age=604800, stale-while-revalidate=2592000",
+        "connection": "keep-alive",
+        "content-encoding": "gzip",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Tue, 08 Sep 2026 15:20:14 GMT",
+        "etag": "\"ngd0cj63yf9y0\"",
+        "keep-alive": "timeout=5",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "transfer-encoding": "chunked",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-nextjs-cache": "HIT",
+        "x-nextjs-prerender": "1, 1",
+        "x-nextjs-stale-time": "300",
+        "x-powered-by": "Next.js"
+      }
+    },
+    {
+      "requestId": "77464.2",
+      "resourceType": "Stylesheet",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/3mic8ep312z99.css",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "text/css",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"6fac-1a08049db9c\"",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:20:14 GMT",
+        "last-modified": "Tue, 08 Sep 2026 09:11:59 GMT",
+        "content-type": "text/css; charset=UTF-8",
+        "vary": "Accept-Encoding"
+      }
+    },
+    {
+      "requestId": "77464.3",
+      "resourceType": "Script",
+      "url": "http://127.0.0.1:4324/_next/static/chunks/310vm2bl3xxpt.js",
+      "status": 200,
+      "fromServiceWorker": false,
+      "mimeType": "application/javascript",
+      "headers": {
+        "transfer-encoding": "chunked",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "cache-control": "public, max-age=31536000, immutable",
+        "content-encoding": "gzip",
+        "etag": "W/\"14f4-1a08049d594\"",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "accept-ranges": "bytes",
+        "keep-alive": "timeout=5",
+        "date": "Tue, 08 Sep 2026 15:20:14 GMT",
+        "last-modified": "Tue, 08 Sep 2026 09:11:57 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "vary": "Accept-Encoding"
+      }
+    }
+  ],
+  "workerVersions": [
+    {
+      "versionId": "0",
+      "registrationId": "0",
+      "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+      "runningStatus": "starting",
+      "status": "new",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": [],
+      "targetId": "27689619AE09602EE356F548611F8E21"
+    },
+    {
+      "versionId": "0",
+      "registrationId": "0",
+      "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+      "runningStatus": "starting",
+      "status": "installing",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": [],
+      "targetId": "27689619AE09602EE356F548611F8E21"
+    },
+    {
+      "versionId": "0",
+      "registrationId": "0",
+      "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+      "runningStatus": "running",
+      "status": "installing",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": [],
+      "targetId": "27689619AE09602EE356F548611F8E21"
+    },
+    {
+      "versionId": "0",
+      "registrationId": "0",
+      "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+      "runningStatus": "running",
+      "status": "installed",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": [],
+      "targetId": "27689619AE09602EE356F548611F8E21"
+    },
+    {
+      "versionId": "0",
+      "registrationId": "0",
+      "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+      "runningStatus": "running",
+      "status": "activating",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": [],
+      "targetId": "27689619AE09602EE356F548611F8E21"
+    },
+    {
+      "versionId": "0",
+      "registrationId": "0",
+      "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 0,
+      "controlledClients": [],
+      "targetId": "27689619AE09602EE356F548611F8E21"
+    }
+  ],
+  "serviceWorkerBypassed": false,
+  "cachesCleared": false,
+  "workerBeforeSha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+  "browser": {
+    "pid": 76940,
+    "stderr": "\r\nDevTools listening on ws://127.0.0.1:55340/devtools/browser/53515605-0cfd-4f8e-8bcf-55faa9da1e11\r\n",
+    "debugJsonUrl": "http://127.0.0.1:55340/json"
+  },
+  "failure": "Error: TypeError: Cannot read properties of null (reading 'innerText')\n    at <anonymous>:1:54\n    at evaluate (file:///C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/browser-upgrade.mjs:77:40)\n    at async until (file:///C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/browser-upgrade.mjs:83:11)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/browser-upgrade.mjs:108:3",
+  "failureState": {
+    "basemapLoaded": false,
+    "routeCount": 0,
+    "status": "idle",
+    "text": "SHIOK.\n\nMap waiting\n\nAbout data",
+    "worker": false,
+    "buildPayload": "[]",
+    "width": 390,
+    "height": 844
+  },
+  "finishedAt": "2026-09-08T15:20:15.115Z",
+  "serverAfter": {
+    "active": "A",
+    "offline": false,
+    "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+    "buildB": "KQZm6qMJF8AfCpaPaTMwV",
+    "workerASha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+    "counts": {
+      "A": 10,
+      "B": 0,
+      "data": 0,
+      "failures": 0
+    }
+  }
+}

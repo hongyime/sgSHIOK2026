@@ -1,0 +1,44 @@
+{
+  "origin": "http://127.0.0.1:4324",
+  "server": {
+    "active": "A",
+    "offline": false,
+    "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+    "buildB": "KQZm6qMJF8AfCpaPaTMwV",
+    "workerASha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+    "counts": {
+      "A": 0,
+      "B": 0,
+      "data": 0,
+      "failures": 0
+    }
+  },
+  "startedAt": "2026-09-08T15:14:24.071Z",
+  "checks": [],
+  "captures": [],
+  "exceptions": [],
+  "requests": [],
+  "workerVersions": [],
+  "serviceWorkerBypassed": false,
+  "cachesCleared": false,
+  "workerBeforeSha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+  "browser": {
+    "pid": 100388,
+    "stderr": "[100388:100820:0908/231434.123:ERROR:net\\socket\\tcp_socket_win.cc:530] bind() returned an error: Only one usage of each socket address (protocol/network address/port) is normally permitted. (0x2740)\r\n\r\nDevTools listening on ws://[::1]:9847/devtools/browser/682ba13d-68b1-4696-8863-c9bd170948da\r\n[100388:98036:0908/231516.110:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n[100388:98036:0908/231545.077:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n"
+  },
+  "failure": "Error: Browser startup deadline\n    at file:///C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/browser-upgrade.mjs:48:20",
+  "finishedAt": "2026-09-08T15:15:54.635Z",
+  "serverAfter": {
+    "active": "A",
+    "offline": false,
+    "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+    "buildB": "KQZm6qMJF8AfCpaPaTMwV",
+    "workerASha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+    "counts": {
+      "A": 0,
+      "B": 0,
+      "data": 0,
+      "failures": 0
+    }
+  }
+}

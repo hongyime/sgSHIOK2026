@@ -1,0 +1,223 @@
+{
+  "workingRoot": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "task": "T01",
+  "status": "PARTIAL",
+  "codeReview": "Independent subagent approved source after five identified races/policy defects were fixed.",
+  "sourceWorkerSha256": "173611b9a193b0db26ed9b1ef8913962a319f2bf40dedf347adc7c3e1f150eff",
+  "validation": {
+    "ok": true,
+    "inputHashesMatched": 11,
+    "commands": [
+      {
+        "command": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:/sgSHIOK2026/web/scripts/test-without-production-data.mjs",
+          "--reporter=dot"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:/sgSHIOK2026/web/node_modules/typescript/bin/tsc",
+          "--project",
+          "C:/sgSHIOK2026/web/tsconfig.json",
+          "--noEmit",
+          "--incremental",
+          "false"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": "python",
+        "args": [
+          "C:/sgSHIOK2026/scripts/check_repo_integrity.py"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": "git",
+        "args": [
+          "diff",
+          "--check"
+        ],
+        "exitCode": 0
+      }
+    ],
+    "testSummary": "Test Files  34 passed (34)\n      Tests  289 passed (289)",
+    "arithmetic": "242 + 39 worker behavior + 8 registration = 289 tests; 32 + 2 = 34 files",
+    "source": "validation-final-1/validation.json"
+  },
+  "automaticLegacyUpgrade": {
+    "passed": false,
+    "failure": "Error: normal navigation activates updated worker without forced update\n    at check (file:///C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/browser-upgrade.mjs:38:20)\n    at file:///C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/browser-upgrade.mjs:128:3",
+    "source": "acceptance-6/browser.json",
+    "interpretation": "A served a distinct controlled navigation, but no B activation was observed in 90 seconds. Cause is not established; no claim of permanent lockout or seamless migration."
+  },
+  "postExplicitUpdate": {
+    "intervention": {
+      "ok": true,
+      "active": "activated"
+    },
+    "allChecksPassed": false,
+    "selectedCaptures": [
+      {
+        "label": "B-shared-mobile",
+        "stable": true,
+        "width": 390,
+        "height": 844,
+        "routeCount": 4,
+        "document": {
+          "requestId": "C7199749FCF99F8187DABC0E4BF00ACC",
+          "fromServiceWorker": true,
+          "sha256": "986c6fcfdfa5271656f4192e30caf97affcb79a7be094eec66fc86a68102e144",
+          "buildA": false,
+          "buildB": true
+        }
+      },
+      {
+        "label": "B-selected-1440x950",
+        "stable": true,
+        "width": 1440,
+        "height": 950,
+        "routeCount": 4,
+        "document": {
+          "requestId": "C7199749FCF99F8187DABC0E4BF00ACC",
+          "fromServiceWorker": true,
+          "sha256": "986c6fcfdfa5271656f4192e30caf97affcb79a7be094eec66fc86a68102e144",
+          "buildA": false,
+          "buildB": true
+        }
+      },
+      {
+        "label": "B-selected-390x667",
+        "stable": true,
+        "width": 390,
+        "height": 667,
+        "routeCount": 4,
+        "document": {
+          "requestId": "C7199749FCF99F8187DABC0E4BF00ACC",
+          "fromServiceWorker": true,
+          "sha256": "986c6fcfdfa5271656f4192e30caf97affcb79a7be094eec66fc86a68102e144",
+          "buildA": false,
+          "buildB": true
+        }
+      },
+      {
+        "label": "B-selected-320x667",
+        "stable": true,
+        "width": 320,
+        "height": 667,
+        "routeCount": 4,
+        "document": {
+          "requestId": "C7199749FCF99F8187DABC0E4BF00ACC",
+          "fromServiceWorker": true,
+          "sha256": "986c6fcfdfa5271656f4192e30caf97affcb79a7be094eec66fc86a68102e144",
+          "buildA": false,
+          "buildB": true
+        }
+      }
+    ],
+    "oldSuccessfulChunksNow404": [
+      {
+        "url": "http://127.0.0.1:4324/_next/static/chunks/310vm2bl3xxpt.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4324/_next/static/chunks/0y-dctk-kmqss.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4324/_next/static/chunks/3fntmmi971322.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4324/_next/static/chunks/2zaun8r9-gox7.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4324/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4324/_next/static/chunks/3g398rb4su43l.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4324/_next/static/chunks/27iodt6ap9svx.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4324/_next/static/chunks/08ttfj81-47mu.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4324/_next/static/chunks/0npwww6p9wx1o.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4324/_next/static/chunks/0j6tjjnrv2h3w.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4324/_next/static/chunks/39xhkg3l-se9r.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4324/_next/static/chunks/318x15h178iv-.js",
+        "status": 404
+      }
+    ],
+    "preservedSentinels": [
+      {
+        "name": "other-app-v1",
+        "body": "other-app-v1"
+      },
+      {
+        "name": "sgshiok-shell-v999",
+        "body": "sgshiok-shell-v999"
+      }
+    ],
+    "failure": "Error: Condition deadline window.__shiokRouteMap?.getLayer('shiokest-route-line') && !window.__shiokRouteMap.isMoving() && window.__shiokRouteMap.isSourceLoaded('shiokest-route') && window.__shiokRouteMap.queryRenderedFeatures({layers:['shiokest-route-line']}).some(f=>f.properties.render_key===window.__shiokRouteDebug.routeKey) && window.__shiokRouteMap.isSourceLoaded('onemap')\n    at until (file:///C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/browser-upgrade.mjs:91:11)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/browser-upgrade.mjs:161:3",
+    "failureState": {
+      "key": "1:shiokest:",
+      "center": {
+        "lng": 103.851959,
+        "lat": 1.29027
+      },
+      "zoom": 11.6,
+      "moving": false,
+      "basemapLoaded": true,
+      "routeCount": 0,
+      "status": "initializing",
+      "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap loading\n\nscores/index.json.gz fetch failed: 503\nRetry selection\nAbout data",
+      "worker": true,
+      "buildPayload": "[]",
+      "width": 320,
+      "height": 667
+    },
+    "source": "explicit-update-1/browser.json"
+  },
+  "visualInspection": "Parent inspected all four B selected-route PNGs. Route and requested top-left stack are visible; one narrow capture retains a peripheral raster fade/blur. Not a latency or physical-phone acceptance claim.",
+  "setupFailures": {
+    "build1": "Turbopack rejected external dependency junction. Snapshot2 used documented QA-only common root. Compiler1 emitted a panic log to its default external TEMP; subsequent build redirected TEMP/TMP inside the repository. No panic log was opened or deleted.",
+    "acceptance1": "Proxy addressed A at 127.0.0.1, but old preview listens on localhost; browser received 502. Fixed target address.",
+    "acceptance2": "Next consumed __next_f; build assertion was invalid despite four route features. Fixed using actual Document response bytes.",
+    "acceptance3": "Old compiled server served current public/sw.js from disk. Not a valid A-worker upgrade; now pin A worker to git c83fc96 and assert its SHA.",
+    "acceptance4": "Fixed debugger port collided; Chrome bound IPv6. Now use port0 and the spawned browser endpoint.",
+    "acceptance5": "Polling read body before document creation; now null-safe."
+  },
+  "FINDINGS": [
+    "Worker no longer holds mutable HTML for seven days; versioned data/chunks remain cache-first. Actual root/SW HTTP headers require revalidation.",
+    "Scoped caches, failure-safe storage, registration retry, RSC/prefetch exclusions, request deduplication and navigation/timeout races have executed regressions.",
+    "After an explicit update, B renders four current route features at all four required viewport sizes with 12 old successful JS URLs unavailable on the server. Foreign/future sentinel contents survive.",
+    "Automatic legacy transition did not pass its 90-second browser gate. Browser-managed update cause remains unresolved; T01 is not complete.",
+    "Origin outage retained the B HTML shell but lost the walk: the reader abandoned cached plain JSON when compressed probes returned503. Next action is a cache-only alternate-format recovery with behavioral tests, not pipeline rebuilding.",
+    "All 11 source anchors match. Zero pipeline, installs, protected-payload changes or deployments. Full isolated tests289/34, TypeScript and repo_integrity pass."
+  ],
+  "DISAGREEMENTS": [
+    "Passing unit tests and explicit-update captures do not establish automatic legacy upgrades or offline walk acceptance. No all-tasks-complete claim.",
+    "Do not attribute the update timeout solely to hardware, caching headers or CDP; available telemetry cannot choose among those mechanisms."
+  ]
+}
