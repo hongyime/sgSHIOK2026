@@ -1494,3 +1494,63 @@ DISAGREEMENTS
 2. This does not complete T01:outer lazy-chunk failures, automatic legacy-client
    upgrades and performance/physical-user acceptance remain distinct. The full
    T01-T28 goal and owner gates remain active.
+
+## T12 reporting proposal, 2026-09-09: decision-ready, not approved infrastructure
+
+Parent reviewed the twenty-source proposal and independently rechecked official
+Workers limits, D1 pricing, Access setup and Worker-wide Access protection on
+2026-09-09. ADR-14 and decisions link the full proposal. Reviewer Anscombe parsed
+the final JSON and approved proposal completion; no backend tests or provider
+actions were performed. F01/F11-F13 are addressed as design criteria only.
+
+```text
+proposal=C:/sgSHIOK2026/qa/revamp-r1/report-service-proposal-20260908.json
+validation=JSON parse, unique source IDs, HTTPS URLs, source-reference resolution,
+unapproved owner/provider/deployment flags, cost arithmetic and review caveats
+```
+
+```json
+{
+  "proposal": "C:/sgSHIOK2026/qa/revamp-r1/report-service-proposal-20260908.json",
+  "sha256": "ab8d24377b595b84d806eeee02986651bdd80b498cc98912fd0d767e6156a85d",
+  "bytes": 34149,
+  "json_valid": true,
+  "unique_sources": 20,
+  "source_references": 34,
+  "source_references_valid": true,
+  "owner_approved": false,
+  "provisioned": false,
+  "retained_payload_arithmetic": "5000 * 8192 = 40960000",
+  "proposal_checks": "pass",
+  "runtime_or_backend_tests_executed": false
+}
+```
+
+```text
+python scripts/check_repo_integrity.py
+repo_integrity=ok
+exit_code=0
+git diff --check
+exit_code=0
+```
+
+FINDINGS
+1. T12 proposes Cloudflare non-paid plans and quota-driven unavailability, not
+   guaranteed uptime. Access Free still requires owner payment-method setup.
+2. Review corrected three ambiguities before landing: active-store abuse-bucket
+   deletion is not erasure from recovery history; authenticated committed-receipt
+   replay survives challenge expiry; deletion records survive independently of a
+   restored snapshot. Independent backups exclude short-lived abuse buckets.
+3. Reports remain private, with two report types, no resident accounts/contact
+   fields/photos, durable receipt semantics and an owner-only moderation queue.
+   The current clipboard draft is not a working submission service.
+4. T13 is pending. No signup, installation, provider resource, backend operation,
+   scoring/export, protected-payload mutation or deployment command occurred.
+   This documentation change does not alter the last358/37 web test baseline;
+   no suite was rerun for a JSON/decision-only change.
+DISAGREEMENTS
+1. A zero-dollar provider plan is not an availability or immediate-total-erasure
+   guarantee. The proposal names both limitations instead of promising them.
+2. T12 DONE closes the proposal only. T14-T18 backend behavior, request expiry,
+   synthetic quota/restore tests and production release remain unimplemented or
+   unapproved; a general completion goal does not approve these owner decisions.

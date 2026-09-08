@@ -1,0 +1,512 @@
+{
+  "schema_version": 1,
+  "task": "T12",
+  "title": "Private resident reports with bounded zero-dollar infrastructure",
+  "research_access_date": "2026-09-08",
+  "parent_review_date": "2026-09-09",
+  "rechecked_source_ids": ["workers_limits", "d1_pricing", "access_setup", "worker_access"],
+  "working_root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "status": "proposal_not_owner_approved",
+  "authorization": {
+    "current_action": "Parent reviewed the proposal, integrated retention/replay/restore corrections, and is committing the proposal and linked decisions. This does not approve a provider or authorize provisioning.",
+    "provider_approved": false,
+    "provisioning_approved": false,
+    "deployment_approved": false,
+    "pipeline_runs": 0,
+    "installations": 0,
+    "external_writes": 0,
+    "parent_action": "T12 is complete as a decision-ready proposal only. T13 remains an explicit owner gate; T14-T18 are not completed by this artifact."
+  },
+  "local_contracts": [
+    {
+      "path": "PRODUCT-PLAN.md",
+      "sections": "T12-T18",
+      "requirement": "Concrete provider, storage, abuse, owner access, retention and failure proposal before infrastructure approval or implementation."
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "section": "Feedback design",
+      "requirement": "Separate mapping errors and shelter requests; private reports; server-owned receipt and moderation state; no contact details or implicit provider approval."
+    },
+    {
+      "path": "qa/SHIOK-acceptance-tests.md",
+      "cases": "F01-F13",
+      "requirement": "Truthful durable receipts, idempotency, access control, lifecycle, abuse limits and deletion tests."
+    }
+  ],
+  "recommendation": {
+    "provider": "Cloudflare",
+    "components": [
+      "Workers Free submission endpoint",
+      "D1 Free private database",
+      "Turnstile Free managed widget",
+      "Separate Workers Free moderator application protected by Access Free"
+    ],
+    "frontend": "Retain the existing Vercel frontend; submit directly to the reporting Worker, without a Vercel function proxy.",
+    "domain": "Use provider-issued workers.dev hostnames; no purchased domain is required for the proposal.",
+    "reason": "A transactional database and private moderator application fit the report lifecycle. Free-plan request and database limits fail rather than authorize metered overages; a low-volume service can therefore remain at zero provider spend with explicitly accepted availability limits.",
+    "claim_boundary": "Feasible design under current documented Free plans, not a deployed service, availability guarantee, contractual perpetual price guarantee or approved infrastructure choice.",
+    "source_ids": ["workers_pricing", "workers_limits", "d1_pricing", "d1_limits", "turnstile_plans", "access_plans", "worker_access"]
+  },
+  "costs_and_provider_quotas": {
+    "currency": "USD",
+    "proposed_recurring_provider_cost": 0,
+    "pipeline_cost": 0,
+    "engineering_time_estimate": "Not estimated by this research; implementation and controlled backend validation remain work in T14-T18.",
+    "hard_zero_conditions": [
+      "Explicitly verify Workers Free, D1 Free and Access Free before provisioning or activation.",
+      "Do not use an existing Workers Paid account on the assumption that unused included allowances provide a hard zero-dollar cap.",
+      "No paid add-ons, paid plan conversion, automatic upgrade authorization, purchased domain or billed backup service is included.",
+      "Keep fail-closed behavior. When free limits are exhausted, accept unavailable reporting rather than paid overages.",
+      "Application counters and alerts are operational controls, not a substitute for selecting a non-billed plan."
+    ],
+    "spend_cap_distinction": "A free allowance inside a paid plan is not a hard spend cap. This proposal relies on non-paid plans and documented quota rejection, not on a provider-wide configurable dollar cap. It does not promise uninterrupted service or protection from future plan changes.",
+    "access_payment_method": {
+      "required_by_documented_onboarding": true,
+      "free_plan_still_requires_payment_details": true,
+      "documented_charge_on_free": false,
+      "owner_action_required": true,
+      "source_id": "access_setup"
+    },
+    "limits": [
+      {
+        "component": "Workers Free",
+        "requests_per_account_per_day": 100000,
+        "reset": "00:00 UTC",
+        "cpu_ms_per_invocation": 10,
+        "memory_mb": 128,
+        "workers_per_account": 100,
+        "cron_triggers_per_account": 5,
+        "exhaustion": "Daily request exhaustion returns Cloudflare error 1027. CPU or memory exhaustion can return error 1102. Shared account usage includes both reporting Workers.",
+        "source_ids": ["workers_limits", "workers_pricing"]
+      },
+      {
+        "component": "D1 Free",
+        "rows_read_per_account_per_day": 5000000,
+        "rows_written_per_account_per_day": 100000,
+        "storage_gb_per_account": 5,
+        "database_size_mb": 500,
+        "databases_per_account": 10,
+        "queries_per_worker_invocation": 50,
+        "time_travel_days": 7,
+        "reset": "00:00 UTC",
+        "exhaustion": "Daily read/write exhaustion rejects queries. Storage exhaustion prevents new data and affected schema/index operations until space is reclaimed.",
+        "accounting_cautions": [
+          "Rows read are not the same as query count.",
+          "Indexes add written rows and storage.",
+          "Maintenance and dashboard queries consume quota too.",
+          "Daily enforcement was explicitly announced effective 2026-09-01."
+        ],
+        "source_ids": ["d1_pricing", "d1_limits", "d1_enforcement"]
+      },
+      {
+        "component": "Turnstile Free",
+        "widgets_per_account": 20,
+        "hostnames_per_widget": 10,
+        "challenges_and_verifications": "Unlimited under the published Free plan",
+        "analytics_lookback_days": 7,
+        "remove_provider_branding": false,
+        "source_id": "turnstile_plans"
+      },
+      {
+        "component": "Access Free",
+        "user_limit": 50,
+        "proposed_moderators": 1,
+        "resident_access_accounts": 0,
+        "source_ids": ["access_plans", "access_setup"]
+      }
+    ]
+  },
+  "boundaries": {
+    "public_api": {
+      "endpoint": "POST /v1/reports on the public submission Worker",
+      "public_methods": ["POST for submission", "OPTIONS for allowlisted browser preflight"],
+      "public_listing": false,
+      "public_report_body_lookup": false,
+      "resident_accounts": false,
+      "cache_control": "no-store",
+      "cors": "Allow only approved frontend origins and required methods/headers. CORS is not authentication or bot protection.",
+      "service_worker": "Never cache report requests, responses, secrets or private moderation content."
+    },
+    "moderator_api": {
+      "deployment": "Separate Worker serving a private queue and lifecycle API",
+      "access_scope": "Protect the entire Worker, including production domains and preview URLs; no hostname or preview bypass.",
+      "authorization": "Deny by default, then allow only the explicitly approved moderator identity.",
+      "jwt_validation": ["signature", "trusted issuer", "application audience", "expiry", "approved moderator identity"],
+      "do_not_trust": "Unverified email or identity headers",
+      "mutation_security": ["same-origin checks", "CSRF protection", "server-side transition validation", "optimistic revision checks"],
+      "source_ids": ["worker_access", "access_jwt"]
+    },
+    "database": {
+      "public_database_credentials": false,
+      "access": "D1 bindings only in the two server Workers; no database binding or account token in resident JavaScript.",
+      "tables": ["reports", "moderation_events", "idempotency_tombstones", "quota_counters", "short_lived_abuse_buckets", "maintenance_state"],
+      "query_policy": "Parameterized queries, bounded indexed listing and no generic SQL endpoint.",
+      "least_privilege_limit": "D1 bindings grant broad database capability. Separate code paths are an application security boundary, not per-table or per-resident database roles.",
+      "source_id": "worker_bindings"
+    },
+    "secrets": {
+      "server_only": ["Turnstile secret", "HMAC abuse-control key", "any receipt/request signing key"],
+      "deployment_only": ["scoped provider deployment credentials"],
+      "public_configuration": ["Turnstile sitekey", "report API origin"],
+      "storage_rule": "Owner-approved local secret storage and provider secrets only; never commit secrets or expose them through URLs, evidence or browser logs."
+    }
+  },
+  "payload": {
+    "proposal_not_frozen_schema": true,
+    "required_fields": ["schema_version", "client_request_id", "report_type", "geometry", "referenced_bundle_version"],
+    "report_types": ["mapping_error", "shelter_request"],
+    "optional_context": ["six-digit postal code when attached to a selected postal", "destination identifier", "transit category", "published route identifier"],
+    "geometry": {
+      "allowed": ["Point", "LineString"],
+      "coordinate_order": "longitude, latitude, explicitly normalized at the UI/API boundary",
+      "validation": "Finite numeric coordinates within a reviewed Singapore service boundary, with a point or bounded segment appropriate to the report type.",
+      "max_vertices": 32,
+      "max_segment_length_m": 1200,
+      "unresolved_detail": "T14 must pin the exact service-boundary constants and existing geometry helper used for validation; no boundary or route generation is authorized here."
+    },
+    "optional_note_max_characters": 1000,
+    "max_complete_request_bytes": 8192,
+    "reject": ["unknown fields", "client-supplied moderation state", "client-supplied receipt or server timestamps", "nonfinite coordinates", "oversized content", "contact fields", "uploaded files or photos"],
+    "text_handling": "Render notes as plain text, never executable HTML. Warn residents not to enter personal information; automatic rejection of contact fields does not guarantee that free text contains no personal information.",
+    "current_code_reduction": {
+      "path": "web/app/page.tsx",
+      "function": "buildFeedbackPayload",
+      "unnecessary_current_fields": ["current_total", "current_best_node", "current_paths"],
+      "finding": "Do not persist the clipboard payload wholesale. Its existing single correction issue also does not distinguish mapping errors from shelter requests."
+    }
+  },
+  "lifecycle": {
+    "initial_state": "pending",
+    "server_owned": ["receipt_id", "received_at", "state", "revision", "moderated_at", "moderator_id"],
+    "allowed_transitions": ["pending -> accepted", "pending -> rejected", "pending -> duplicate"],
+    "moderation_requirements": ["approved moderator", "reason", "atomic audit event", "expected revision"],
+    "duplicate_requirements": ["existing target", "no self-link", "no cycle"],
+    "acceptance_semantics": {
+      "shelter_request": "Accepted for consideration; does not establish that a shelter exists or promise construction.",
+      "mapping_error": "Accepted for investigation/correction; evidence and a separately approved versioned release are required before published routes change."
+    },
+    "public_data_mutation": false
+  },
+  "idempotency_and_receipts": {
+    "request_identity": "Random client request ID plus independently generated 256-bit retry secret; only the secret hash is stored server-side.",
+    "payload_identity": "Canonical validated report-content hash, excluding replaceable challenge tokens and transport fields.",
+    "atomic_write": "Unique request identity, report insertion, quota consumption and initial audit event commit together. Avoid separate read-then-insert accounting.",
+    "same_id_same_payload": "Require the matching retry secret and return the original receipt metadata without a second report or quota debit. Authenticate an existing committed request separately from fresh Turnstile verification: an expired or already-used challenge must not prevent receipt recovery. Keep bounded transport/authentication abuse controls on this replay path.",
+    "same_id_changed_payload": "Return 409 after authenticating the retry; never overwrite the first report.",
+    "receipt": "Return 201 only after durable database commit. A receipt contains server identity/time and confirms receipt, not verification or acceptance.",
+    "ambiguous_timeout": "Retain draft and request identity. Retry the same submission to resolve whether the original commit succeeded.",
+    "secret_handling": "No secrets in URLs, shared links, remote logs or public evidence. No report-body lookup using a receipt identifier alone.",
+    "bounded_retry_requirement": "T14 must define a server-enforceable request expiry and retain minimal deduplication tombstones through that validity period. Deletion must not allow an expired request to create a new report. The mechanism and exact lifetime are unresolved; this proposal does not claim unbounded idempotency.",
+    "source_id": "d1_database_api"
+  },
+  "abuse_and_application_caps": {
+    "owner_approval_required": true,
+    "new_reports_per_utc_day_global": 100,
+    "new_reports_per_short_lived_ip_bucket_per_utc_day": 5,
+    "pending_reports_max": 500,
+    "retained_report_rows_max": 5000,
+    "quota_atomicity": "Global/day, pending and retained limits are checked and updated inside the database transaction that admits a new report.",
+    "pre_database_controls": ["method/path/origin validation", "streamed body-size bound", "coarse burst rate limiting", "server-side Turnstile verification before admitting a new report, not as a prerequisite to authenticated committed-receipt recovery"],
+    "turnstile": {
+      "load_policy": "Load a managed widget only when composing a report, not on map browsing.",
+      "verify": ["success", "expected hostname", "expected action"],
+      "token_lifetime_seconds": 300,
+      "single_use": true,
+      "validation_retry": "Use Siteverify idempotency_key for retries of a verification request. This is separate from application report idempotency.",
+      "source_id": "turnstile_validation"
+    },
+    "rate_limiter_limit": "Cloudflare's Worker rate limiter is location-local, permissive and eventually consistent. It is not an exact global counter or financial accounting system.",
+    "ip_limit_limit": "Shared networks can inconvenience legitimate residents; distributed traffic can evade per-IP buckets. No promise of complete spam prevention.",
+    "privacy": "Use rotating keyed HMAC buckets and purge from the active store within 48 hours, subject to the documented cleanup/outage limitation. Provider recovery history can retain pre-deletion buckets for up to seven additional days; exclude abuse buckets from independent backups. Do not store raw IPs or user agents in report rows. Cryptographic hashing does not by itself make request metadata anonymous.",
+    "capacity_arithmetic": {
+      "retained_payload_bytes": "5000 * 8192 = 40960000 bytes",
+      "not_included": ["database pages", "indexes", "audit events", "tombstones", "quota counters", "backup copies"],
+      "validation_required": "Measure actual storage and rows_read/rows_written on synthetic admission, retry, moderation and cleanup operations in T18. Report count is not a proven database quota budget."
+    },
+    "source_id": "worker_rate_limit"
+  },
+  "failure_behavior": {
+    "application_limit": "429 with bounded retry advice; no receipt for a rejected new report.",
+    "backend_or_challenge_unavailable": "503 or a truthful unavailable UI; retain the draft and request identity.",
+    "provider_level_failure": "Cloudflare may return HTML, a resource-limit error or a network failure before application code runs. The browser must handle non-JSON responses without displaying success.",
+    "authentication_failure": "Deny queue access and mutations; retain no private content in an unauthenticated response.",
+    "partial_or_ambiguous_commit": "Use the original authenticated idempotency identity on retry, not a fresh report ID.",
+    "quota_attack": "Attack traffic can exhaust the shared Free account request or query budget and prevent reporting or moderation until reset. Separate Workers do not create separate account quotas.",
+    "no_fallbacks": ["automatic paid upgrade", "public GitHub issue", "email with private notes", "clipboard success presented as server submission"],
+    "map_independence": "Reporting failure must not disable existing published walks or map browsing.",
+    "logs": "No report notes, full coordinates, tokens, request bodies or contact information in application logs."
+  },
+  "privacy_and_retention": {
+    "owner_approval_required": true,
+    "resident_accounts_or_contact_details_requested": false,
+    "photos_or_other_uploads": false,
+    "report_content_expiry": "Earlier of 90 days after receipt or 30 days after resolution.",
+    "cleanup": "Daily bounded deletion with indexed expiry queries; queries suppress expired report content immediately. Check cleanup health and capacity before admitting new reports.",
+    "early_deletion": "Moderator can delete accidental personal information promptly. T13 must approve any resident withdrawal mechanism; do not expose report bodies through a deletion capability.",
+    "audit_policy": "Delete or minimize associated private audit details and secrets under the same approved retention policy. Expiring report text while retaining equivalent text in audit rows is not deletion.",
+    "backup_residue": "D1 Time Travel can recover pre-deletion data for up to seven days. SQL deletion is not immediate erasure from recovery history.",
+    "restore_rule": "Reapply deletion/expiry rules before reopening access after restoration. Keep an approved minimal early-deletion ledger independently of the restored snapshot and through every applicable recovery window, with no report text or location. A ledger rolled back with the database cannot prevent resurrection. If the independent ledger is unavailable or inconsistent, do not reopen restored report access.",
+    "outage_limit": "Provider or quota outages can delay physical deletion. This proposal does not promise an unconditional 90-day physical-erasure deadline; the owner must approve realistic cleanup and incident handling.",
+    "provider_processing": "Turnstile processes IP address, TLS/browser signals and associated origin. No resident login does not mean anonymous or zero-personal-data processing.",
+    "provider_retention_uncertainty": "The reviewed Turnstile Privacy Addendum does not specify a numerical retention period for its signals. SHIOK's report-row policy cannot be represented as controlling all provider security metadata.",
+    "residency": "APAC is a placement hint, not guaranteed Singapore-only storage or processing. D1 documents EU and FedRAMP jurisdictions, not a Singapore jurisdiction. Do not make a Singapore-residency claim.",
+    "legal_boundary": "This is a technical proposal, not a legal compliance determination. Owner approval of privacy notice, provider terms and applicable obligations remains required.",
+    "source_ids": ["d1_time_travel", "turnstile_privacy", "d1_location"]
+  },
+  "backups_and_operations": {
+    "built_in_recovery": "D1 Free seven-day Time Travel; same-provider/account recovery is not an independent backup.",
+    "proposed_independent_backup": "Weekly encrypted owner-controlled export, retained no longer than seven days, in a separately approved private destination outside public Git/evidence. Exclude short-lived abuse buckets. Keep the approved early-deletion ledger independently from the snapshot being restored; validate retention and deletion before reopening access.",
+    "approval_details": ["destination", "encryption and key custody", "deletion method", "restore procedure", "loss window accepted by owner"],
+    "cost_constraint": "No paid backup provider is authorized or included. Use an owner-approved existing destination only after its privacy, capacity and retention are accepted.",
+    "maximum_expected_backup_loss_window": "Up to seven days between successful weekly exports; missed exports increase this window. Not a guaranteed recovery objective.",
+    "moderation_cadence_proposal": "Owner reviews the private queue twice weekly, removes accidental personal information promptly and disables intake when unable to keep up.",
+    "moderation_ui": "Filter by type/state/date; inspect location and bundle context; accept/reject/mark duplicate with reason; show revision and decision time. Queue is separate from the resident map.",
+    "no_contact_consequence": "No emailed decision or follow-up interview with residents is available without changing the approved no-contact scope.",
+    "incident_actions": ["disable new intake", "preserve private incident evidence only under approved policy", "inspect quota/auth/cleanup state", "restore only through an approved procedure", "revalidate access and deletion rules before reopening"],
+    "source_id": "d1_time_travel"
+  },
+  "provider_comparison": [
+    {
+      "option": "Cloudflare Workers Free + D1 Free + Turnstile Free + Access Free",
+      "decision": "recommended_subject_to_T13",
+      "strengths": ["transactional durable receipt", "documented quota rejection on Free", "managed moderator authentication", "seven-day recovery", "no purchased domain required"],
+      "constraints": ["Access requires payment-method onboarding", "availability can stop at quota", "no Singapore-only residency guarantee", "provider security metadata is not governed by report-row retention", "independent backup and moderator time remain owner responsibilities"],
+      "source_ids": ["workers_pricing", "d1_pricing", "worker_access", "access_setup", "d1_location"]
+    },
+    {
+      "option": "Supabase Free",
+      "decision": "viable_runner_up_not_recommended_for_this_low_activity_service",
+      "verified_free_limits": {
+        "database_mb": 500,
+        "active_projects": 2,
+        "egress_gb": 5,
+        "cached_egress_gb": 5,
+        "automatic_backup_included": false,
+        "point_in_time_recovery_included": false
+      },
+      "reason": "Free projects may pause after a low-activity seven-day period. That creates avoidable owner intervention for a small reporting queue. Paid spend caps do not convert a paid plan into a zero-dollar plan.",
+      "source_ids": ["supabase_pricing", "supabase_pausing"]
+    },
+    {
+      "option": "Firebase Spark / Blaze",
+      "decision": "not_selected",
+      "reason": "Spark is genuinely no-cost, but the conventional Cloud Functions server-side enforcement path requires Blaze and a billing account. A split external backend can avoid that path but adds complexity without improving this recommendation. Do not treat Blaze's included allowances or budget alerts as a hard zero-dollar cap.",
+      "source_id": "firebase_plans"
+    },
+    {
+      "option": "Public GitHub issues, clipboard JSON or browser-only storage",
+      "decision": "rejected_for_contract_mismatch",
+      "reason": "Public issues violate report privacy; clipboard/local state does not supply a durable server receipt. These are not equivalent reporting services."
+    },
+    {
+      "option": "Private issue repository or spreadsheet",
+      "decision": "not_selected",
+      "reason": "Still requires a secure submission service, moderator access controls, concurrency-safe identity, retention and abuse handling. It does not remove the important implementation work."
+    }
+  ],
+  "owner_decisions": [
+    {
+      "id": "T13-provider",
+      "status": "unapproved",
+      "decision": "Approve Cloudflare and verify that the designated Workers, D1 and Access plans are Free, including accepting required Access payment-method onboarding."
+    },
+    {
+      "id": "T13-privacy",
+      "status": "unapproved",
+      "decision": "Approve minimized payload, provider processing/residency disclosures, report retention, early deletion, backup residue and realistic outage handling."
+    },
+    {
+      "id": "T13-caps",
+      "status": "unapproved",
+      "decision": "Approve submission/backlog/storage caps, shared-network trade-offs, challenge UX and temporarily unavailable reporting instead of paid scaling."
+    },
+    {
+      "id": "T13-moderator",
+      "status": "unapproved",
+      "decision": "Name the moderator, approve authentication and twice-weekly review, and identify the operator who disables intake during absence or incidents."
+    },
+    {
+      "id": "T13-backup",
+      "status": "unapproved",
+      "decision": "Approve private encrypted backup destination, keys, seven-day retention, early-deletion handling and accepted recovery loss window."
+    },
+    {
+      "id": "T13-account-and-secrets",
+      "status": "owner_action_required",
+      "decision": "Create/designate account, enable MFA, retain recovery credentials and provide only scoped credentials through approved secret storage. No secret is requested in chat or committed evidence."
+    },
+    {
+      "id": "implementation-and-release",
+      "status": "separate_gates_remain",
+      "decision": "Authorize provisioning, necessary tooling and synthetic backend validation explicitly. Complete T14-T18 and obtain release approval before enabling production submission; a general completion goal does not erase these gates."
+    }
+  ],
+  "required_validation_before_activation": [
+    "F01/F13: both report types, minimized fields, no resident account/contact/photo requirement.",
+    "F02/F03: nonfinite and out-of-bound geometry, oversized streamed body, note and unknown-field rejection, inert markup rendering.",
+    "F04/F06: actual durable commit before receipt; timeout after commit and non-JSON provider errors preserve truthful state.",
+    "F05: concurrent same-ID submissions, changed payload, wrong retry secret, quota debit once, deletion/tombstone/expiry boundaries.",
+    "F07: public listing/body lookup denied, forged/expired/wrong-audience JWT rejected, alternate production/preview host protection, unauthorized moderator, CSRF and XSS.",
+    "F08-F10: revision races, reason/audit requirements, duplicate cycles and no published-data mutation.",
+    "F11: global cap races, per-IP caveats, challenge expiry/replay/timeout, request/read/write/storage exhaustion, kill switch and actual per-operation quota accounting.",
+    "F12: synthetic retention cleanup, early deletion, missed cleanup, backup deletion, restoration without resurrecting expired/private content.",
+    "End-to-end: controlled synthetic submission and moderator retrieval against an explicitly approved real backend, without using real resident data.",
+    "Local fixtures or green tests alone do not establish a deployed durable reporting service."
+  ],
+  "findings": [
+    "A bounded zero-dollar service is feasible under the documented Cloudflare Free plans if temporary unavailability is accepted; free allowances inside paid plans are not equivalent.",
+    "Access Free still requires payment details during onboarding, an unavoidable owner action for the recommended authentication choice.",
+    "Worker rate limiting is not globally exact; transactional application caps are still needed.",
+    "Seven-day database recovery, independent backups and provider security signals make immediate total erasure an unsupported promise.",
+    "The existing clipboard report shape includes unnecessary score/path detail and does not yet implement distinct durable report types.",
+    "No provider has been approved and T13-T18 remain open; this research does not authorize provisioning or deployment.",
+    "Review corrected three proposal ambiguities: 48-hour abuse-bucket retention describes active storage rather than all recovery copies; authenticated committed-receipt recovery must survive challenge expiry; and a deletion ledger must survive independently of the snapshot being restored."
+  ],
+  "disagreements": [
+    "None with the approved private, no-resident-account, no-contact, no-photo direction. The proposal rejects interpreting hard zero-dollar spend as guaranteed service availability or zero provider processing of personal data."
+  ],
+  "sources": [
+    {
+      "id": "workers_pricing",
+      "url": "https://developers.cloudflare.com/workers/platform/pricing/",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": "2026-08-28",
+      "supports": "Free versus Paid plan, paid base cost and included usage."
+    },
+    {
+      "id": "workers_limits",
+      "url": "https://developers.cloudflare.com/workers/platform/limits/",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": "2026-09-05",
+      "supports": "Daily requests, CPU, memory, Worker and cron counts, UTC reset and exhaustion errors."
+    },
+    {
+      "id": "d1_pricing",
+      "url": "https://developers.cloudflare.com/d1/platform/pricing/",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": "2026-04-21",
+      "supports": "Free read/write/storage quotas, rejection at exhaustion, indexed-write and storage accounting."
+    },
+    {
+      "id": "d1_limits",
+      "url": "https://developers.cloudflare.com/d1/platform/limits/",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": "2026-04-21",
+      "supports": "Database count/size, queries per invocation and seven-day Free recovery."
+    },
+    {
+      "id": "d1_enforcement",
+      "url": "https://developers.cloudflare.com/changelog/post/2026-09-01-d1-free-tier-limit-enforcement/",
+      "accessed_on": "2026-09-08",
+      "published_on": "2026-09-01",
+      "supports": "Explicit daily Free row-limit enforcement and corresponding error behavior."
+    },
+    {
+      "id": "turnstile_plans",
+      "url": "https://developers.cloudflare.com/turnstile/plans/",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": "2026-08-14",
+      "supports": "Free widget/hostname limits, unlimited challenges, analytics lookback and branding restriction."
+    },
+    {
+      "id": "access_plans",
+      "url": "https://www.cloudflare.com/plans/",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": null,
+      "supports": "Zero Trust Free 50-user limit and zero-dollar plan."
+    },
+    {
+      "id": "worker_access",
+      "url": "https://developers.cloudflare.com/workers/configuration/cloudflare-access/",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": "2026-08-18",
+      "supports": "Worker-level protection covering associated domains and preview URLs."
+    },
+    {
+      "id": "access_setup",
+      "url": "https://developers.cloudflare.com/cloudflare-one/setup/",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": "2026-04-17",
+      "supports": "Account/MFA setup and payment details required even when selecting Zero Trust Free."
+    },
+    {
+      "id": "access_jwt",
+      "url": "https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/validating-json/",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": null,
+      "supports": "Server-side JWT validation, trusted issuer/audience and signing-key rotation."
+    },
+    {
+      "id": "worker_bindings",
+      "url": "https://developers.cloudflare.com/workers/runtime-apis/bindings/",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": "2026-07-22",
+      "supports": "Bindings grant server resource capabilities without embedding account credentials in frontend code."
+    },
+    {
+      "id": "d1_database_api",
+      "url": "https://developers.cloudflare.com/d1/worker-api/d1-database/",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": null,
+      "supports": "Parameterized statements and batch transaction rollback."
+    },
+    {
+      "id": "turnstile_validation",
+      "url": "https://developers.cloudflare.com/turnstile/get-started/server-side-validation/",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": null,
+      "supports": "Server verification, five-minute single-use tokens and validation idempotency_key."
+    },
+    {
+      "id": "worker_rate_limit",
+      "url": "https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": "2026-04-23",
+      "supports": "Permissive, per-location, eventually consistent limits are not an accurate accounting system."
+    },
+    {
+      "id": "d1_time_travel",
+      "url": "https://developers.cloudflare.com/d1/reference/time-travel/",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": null,
+      "supports": "Point-in-time recovery and seven-day Free history."
+    },
+    {
+      "id": "turnstile_privacy",
+      "url": "https://www.cloudflare.com/turnstile-privacy-policy/",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": "2025-06-18",
+      "supports": "IP, TLS/browser signals, origin and provider processing roles; no numerical signal-retention period found in this addendum."
+    },
+    {
+      "id": "d1_location",
+      "url": "https://developers.cloudflare.com/d1/configuration/data-location/",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": "2026-04-21",
+      "supports": "Location hints are not guarantees; documented jurisdiction choices are EU and FedRAMP."
+    },
+    {
+      "id": "supabase_pricing",
+      "url": "https://supabase.com/pricing",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": null,
+      "supports": "Free database/projects/egress, no included automatic backups/PITR and paid-plan spend-cap distinction."
+    },
+    {
+      "id": "supabase_pausing",
+      "url": "https://supabase.com/docs/guides/platform/free-project-pausing",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": null,
+      "supports": "Free-project pausing after low activity over a seven-day period."
+    },
+    {
+      "id": "firebase_plans",
+      "url": "https://firebase.google.com/docs/projects/billing/firebase-pricing-plans",
+      "accessed_on": "2026-09-08",
+      "page_updated_on": null,
+      "supports": "Spark no-cost versus Blaze billing and Cloud Functions access."
+    }
+  ]
+}

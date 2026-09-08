@@ -190,3 +190,36 @@ discarding unsent feedback. Late imports/events cannot change a newer attempt.
 The page's outer lazy-component chunk and automatic old-client upgrades remain
 separate acceptance requirements, not implicitly covered by this deadline.
 Evidence: `qa/revamp-r1/map-startup-20260909/summary.json`.
+
+## ADR-14: Bounded private reporting proposal (2026-09-09)
+
+Status: proposed, awaiting T13 owner approval. T12 design work is complete, not
+the reporting service. Recommend Cloudflare Workers Free, D1 Free, Turnstile
+Free, and a separate moderator Worker protected by Access Free on all domains
+and previews. Retain Vercel for the resident map and avoid a submission proxy.
+Access's documented Free onboarding still requires owner payment details.
+
+Use private minimal location/note reports of two types: mapping error and
+shelter request. No resident account, contact field, photograph, public listing
+or report-body lookup. Admit a report, debit bounded quotas and write its audit
+event atomically; only a committed report gets a receipt. An authenticated
+retry of an already committed request must not depend on a fresh challenge.
+T14 must pin request expiry and deduplication tombstone lifetime before coding.
+
+Propose 100 new reports/day, 500 pending and 5,000 retained; select non-paid
+plans and accept outages instead of automatic paid scaling. Provider account
+quotas include retries, moderation and maintenance, not just report inserts.
+Validate real operation costs with synthetic data only after approval.
+
+Expire report content at the earlier of 90 days from receipt or 30 days after
+resolution. Delete abuse buckets from active storage within 48 hours, subject
+to outages. Recovery history can retain deleted data for seven further days;
+exclude abuse buckets from independent backups. Early-deletion records must
+survive independently of any restored snapshot; otherwise keep restored access
+closed. No immediate total-erasure or Singapore-only residency promise.
+
+Owner approval must cover provider/payment setup, privacy, quotas, moderation
+twice weekly, backup destination/keys and recovery handling. Provisioning,
+tooling, backend validation and production activation stay separately gated.
+Detailed proposal, alternatives and official sources:
+`qa/revamp-r1/report-service-proposal-20260908.json`.

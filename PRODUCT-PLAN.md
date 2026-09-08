@@ -192,13 +192,14 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Tests/done: S06-S07, C06-C09. Round-trip two/three postals/category; reject unknown, duplicate, oversized and malformed state; back/forward remains coherent. No private report, note, account token or history serialized; no automatic sharing.
 - Gate: FREE. No server-side saved homes.
 
-### [ ] T12: Present a concrete $0 reporting proposal
-- Status: READY. Size: S. Parent: P1.3.
+### [x] T12: Present a concrete $0 reporting proposal
+- Status: DONE (proposal only). Size: S. Parent: P1.3.
 - Depends on: none.
 - Scope: existing ARCHITECTURE/ADR/decisions and report code inspection, not live provisioning.
 - Do: compare feasible durable-storage options using current official limits at execution time. Recommend one with hard usage caps, owner access, location/note minimization, idempotency, spam protection, retention/deletion, backup and failure behaviour. Separate map corrections from shelter requests; no resident accounts or contact details.
 - Tests/done: F01/F11-F13 design criteria. Written API/storage/auth boundaries, realistic cap assumptions, moderator workflow, required owner actions and a rejected-option rationale; explain honestly if $0 durability cannot be supported. No signup or speculative implementation under a chosen provider.
 - Gate: FREE proposal only. Provider terms/limits must be checked, not assumed permanent.
+- Outcome 2026-09-09: recommend Cloudflare Workers/D1/Turnstile/Access Free with quota-driven outages, private owner moderation and bounded retention. Access requires owner payment-method setup. Reviewed proposal, alternatives, source links, API/auth boundaries, limits and unresolved implementation tests: `qa/revamp-r1/report-service-proposal-20260908.json`. Active-store deletion differs from recovery-copy retention; retry and independent deletion-ledger requirements are explicit. T13 is unapproved; no service, provisioning or deployment is claimed.
 
 ### [ ] T13: Owner approves the reporting service boundary
 - Status: OWNER. Size: S. Parent: P1.3.

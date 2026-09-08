@@ -2560,3 +2560,26 @@ recovery capture includes tile crossfade. No performance, phone or full-offline
 claim. Earlier failed injection/remount evidence remains. Next is the published
 option contract/selector; infrastructure and compute gates remain in force.
 Evidence: qa/revamp-r1/map-startup-20260909/summary.json.
+
+## 2026-09-09: Present bounded private reporting for owner approval
+
+T12 is complete as a proposal, not implementation or provider approval.
+Recommend Workers/D1/Turnstile/Access Free for private mapping-error and
+shelter-request receipts plus owner moderation, retaining the existing frontend.
+Zero provider spend requires non-paid plans and accepting quota outages; Free
+Access still requires payment details from the account owner during setup.
+No account, provider resource, backend, installation or deployment is created.
+
+Proposed caps:100 new/day,500 pending,5000 retained; maximum retained payload
+budget before storage overhead is5000*8192=40960000 bytes. Requests, indexed
+reads/writes, audits, maintenance and retries still consume provider quotas.
+No resident accounts/contact fields/photos; no report content in public Git.
+
+Review corrected active-store versus recovery-copy retention, authenticated
+receipt replay after challenge expiry, and independent deletion-ledger survival
+on restore. These are requirements for T14-T18, not tested backend guarantees.
+Owner must approve provider/payment setup, privacy/retention, operational limits,
+moderator and private backup handling before those dependent tasks proceed.
+The map and comparison tasks continue independently of this gate.
+Proposal and official source references:
+qa/revamp-r1/report-service-proposal-20260908.json; ADR-14.
