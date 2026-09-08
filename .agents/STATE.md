@@ -3,7 +3,7 @@
 Date: 2026-09-08
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Current task: authorized route-source separation implemented from fc6d1c6 and handed back for independent review. Optional collection changes produce zero route writes in executed component effects; replacement/clearing, same-ID geometry, source recreation, retry and stale callbacks covered. Focused 18/18 in 4 files; isolated suite 236/236 in 31 files; six diagnostic tests, installed TypeScript and integrity pass. Browser/performance validation pending: CPU 100%, 541-835 MiB available and sustained paging. No browser/build launched or latency benefit claimed. Accepted sync opt-out retains its fail-open topic-lookup limitation.
+Current task: Codex owns remaining validation directly; no further agent delegation. Code review of 303ef44 accepted with browser acceptance pending. Independent 17 focused tests / 3 files, 6 diagnostic tests and integrity passed. Preflight on 2026-09-08 at 08:33 failed: seven samples, 778-1114 MiB available, CPU 96.889-100%, sustained paging. No build/browser launched. Owner must free host capacity; then Codex resumes audited build, visual checks and controlled comparison without another review loop.
 Evidence: qa/verification/REVAMP-R1-core-walk.md (append-only corrections and catalogue mapping).
 Machine-readable handback: qa/revamp-r1/route-source-separation/summary.json (current). Earlier sync, portability and functional summaries remain historical evidence.
 Code fixes pushed: 04fae3e and 7788e35; evidence is included with this handback.

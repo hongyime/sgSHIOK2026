@@ -961,3 +961,34 @@ All protected data/evidence and weights remain untouched. No installs, scoring,
 exports, processing or deployment. Production was not deployed; pipeline runs 0,
 pipeline cost $0. STATE, PRODUCT-PLAN and durable decisions updated. Stop for
 independent review; performance gate remains explicit, not an approval to widen scope.
+
+### Codex review and direct validation preflight, 2026-09-08
+Owner requested direct execution, not further delegation. Reviewed 303ef44:
+17 isolated focused tests across 3 files and 6 diagnostic tests passed;
+repo_integrity=ok. Remote main matched 303ef4441db391037cd56ae6dde768c1236da5c2.
+Code review accepted; custom effect-host tests do not prove browser behavior.
+
+Audited package build: it invokes ensure-data-bundle.mjs, so it must not be used
+for validation. Direct installed Next build remains the intended frontend path.
+Before launching it, executed typeperf with 5-second intervals and 7 samples.
+Columns: local timestamp, available MiB, pages input/sec, total CPU percent.
+```text
+09/08/2026 08:33:09.606,970.000000,4808.888700,96.889001
+09/08/2026 08:33:14.628,1063.000000,4344.949327,100.000000
+09/08/2026 08:33:19.634,1114.000000,3191.829301,100.000000
+09/08/2026 08:33:24.638,1051.000000,2877.029206,99.571116
+09/08/2026 08:33:29.649,865.000000,2395.211925,100.000000
+09/08/2026 08:33:34.670,905.000000,2123.013406,100.000000
+09/08/2026 08:33:39.722,778.000000,7265.229215,100.000000
+```
+Sustained-pressure gate fired. No build, browser, pipeline, installation or deploy.
+Filtered Node command-line inspection found no repo-specific process matching
+sgSHIOK2026, 4318, test-without-production-data or revamp-browser. This does not
+prove absence of all repo processes; no unrelated process was stopped.
+
+FINDINGS
+1. Code/unit review accepted. Browser validation remains pending, not failed.
+2. Current host pressure blocks the controlled comparison. No speedup claim.
+DISAGREEMENTS
+1. None. Next action requires owner to free capacity by closing unused apps or
+   pausing other workloads normally. Codex will then execute validation directly.
