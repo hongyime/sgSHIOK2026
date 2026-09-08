@@ -1,0 +1,7 @@
+{
+  "buildB": "PlU4d8GR_-suMyZLJW7By",
+  "source": "web/public/sw.js",
+  "destination": "C:\\sgSHIOK2026\\tmp\\cached-release-data-recovery-20260909-1\\web\\public\\sw.js",
+  "sha256": "173611b9a193b0db26ed9b1ef8913962a319f2bf40dedf347adc7c3e1f150eff",
+  "reason": "Final reviewed worker race fix after snapshot compilation began; only static SW file overlaid."
+}

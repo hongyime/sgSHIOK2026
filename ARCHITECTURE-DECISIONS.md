@@ -145,3 +145,18 @@ No pipeline payload, schema, value or version is changed by frontend recovery.
 The owner's subsequent all-tasks goal explicitly requests independent agents,
 superseding ADR-12's no-delegation procedure only. Keep disjoint write scopes;
 the parent reviews, commits and pushes. All owner-only gates remain in force.
+
+### T02 implementation, 2026-09-09
+
+On gzip transport failure or 5xx, a same-origin browser may recover an existing
+plain artifact using `only-if-cached` and `same-origin`. Do not add an uncached
+plain network fallback, mask cancellation, suppress successful-response decode
+errors, or probe plain versions of compressed-only transit shards. Cache misses
+retain the original failure. The server does not use this browser-only fallback.
+Worker in-flight keys separate cache-only and network-allowed consumers in both
+arrival orders. Executed regressions cover these distinctions.
+
+This recovers data, not every map dependency. A later origin-outage test records
+the MapLibre worker URL returning503. Keep worker-asset availability, pre-load
+failure deadlines, and automatic legacy-upgrade acceptance separate and open.
+Evidence: `qa/revamp-r1/data-cache-recovery-20260909/summary.json`.

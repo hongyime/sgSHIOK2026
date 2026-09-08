@@ -109,13 +109,14 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Progress: 2026-09-08 cache/header/registration fixes pass 289 isolated tests / 34 files, TypeScript and integrity. After explicit worker update, B renders four current features at all four sizes; 12 A JS URLs are absent and foreign/future cache contents survive. Automatic activation was not observed within 90 seconds. Origin outage preserved HTML but the artifact reader rejected missing gzip probes before using cached plain JSON. T02 now has that concrete recovery defect to fix; automatic legacy-transition acceptance remains open. Evidence: `qa/revamp-r1/cached-release-20260908/summary.json`.
 
 ### [ ] T02: Reduce the next measured loading bottleneck
-- Status: READY. Size: M. Parent: P0.3.
+- Status: PARTIAL. Size: M. Parent: P0.3.
 - Depends on: none.
 - Scope: existing loading-diagnosis/source-separation QA harnesses; `web/lib/data.ts`, `web/components/route-evidence-map.tsx` only when attribution supports an edit.
 - Do: one bounded cold/warm profile with stage timestamps, transfer counts and route writes; isolate essential map/score/geometry from optional requests. Select ONE evidenced bottleneck, regression-test and fix it. Stop profiling if host pressure prevents attribution; keep feature work moving. Do not close unrelated apps or assert hardware-only causation.
 - Tests/done: M08-M13. Optional controls do not resubmit unchanged route sources; essential reads deduplicate; old/new build identities and cache definitions recorded. Report any observed latency change with limitations, or explicitly no measured improvement. M12 numerical acceptance remains provisional until a defensible profile is reviewed.
 - Gate: FREE. No heavy repeated builds/baselines by default; no pipeline or representative-phone claim.
 - First implementation target: T01's origin-outage report identifies a 503 compressed-format probe preventing cached plain score/geometry reads. Add bounded cache-only alternate-format recovery without masking decode failures or adding an uncached retry on 5xx. Keep any latency/automatic-upgrade claim separate.
+- Progress 2026-09-09: that reader fix is implemented and independently reviewed. 318 isolated tests/35 files, TypeScript/build/integrity and 11 source anchors pass. Browser transport recovers cached score/geometry after gzip503. Final online mobile view has four selected features. Origin-outage map is not accepted: proxy records the excluded MapLibre worker returning503, and final capture exhausted its deadline. Address worker availability and pre-load error recovery under T01; no measured speedup or M12 acceptance is claimed. Evidence: `qa/revamp-r1/data-cache-recovery-20260909/summary.json`.
 
 ### [ ] T03: Give failures a useful, privacy-safe diagnostic
 - Status: WAIT_DEPS. Size: S. Parent: P0.3.

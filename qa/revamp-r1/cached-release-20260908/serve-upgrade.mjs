@@ -16,22 +16,29 @@ const workerA = execFileSync('git', ['show', 'c83fc96:web/public/sw.js'], { cwd:
 const workerASha256 = createHash('sha256').update(workerA).digest('hex');
 // Public worker source is served as a static file; it does not require another Next compilation.
 const worker = resolve(root, 'web/public/sw.js');
+const previousWorkerSha256 = createHash('sha256').update(readFileSync(resolve(snapshot, 'public/sw.js'))).digest('hex');
 copyFileSync(worker, resolve(snapshot, 'public/sw.js'));
 writeFileSync(resolve(root, 'qa/revamp-r1/cached-release-20260908', `static-overlay-${Date.now()}.json`), JSON.stringify({
   buildB, source: 'web/public/sw.js', destination: resolve(snapshot, 'public/sw.js'),
+  previousWorkerSha256,
   sha256: createHash('sha256').update(readFileSync(worker)).digest('hex'),
-  reason: 'Final reviewed worker race fix after snapshot compilation began; only static SW file overlaid.',
+  reason: 'Copy the current static worker source into the QA snapshot; compare the two hashes to determine whether it changed.',
 }, null, 2) + '\n');
 let active = 'A', offline = false;
 const child = spawn(process.execPath, [resolve(root, 'web/node_modules/next/dist/bin/next'), 'start', snapshot, '-p', '4323', '-H', '127.0.0.1'],
   { cwd: root, windowsHide: true, stdio: 'inherit', env: { ...process.env, NEXT_TELEMETRY_DISABLED: '1' } });
 child.on('error', error => { console.error(error); process.exitCode = 1; server.close(); });
 const counts = { A: 0, B: 0, data: 0, failures: 0 };
+const requests = [];
+function receipt(path, status) {
+  requests.push({ path, status, active, offline, at: new Date().toISOString() });
+  if (requests.length > 500) requests.shift();
+}
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, 'http://127.0.0.1:4324');
   if (url.pathname === '/__qa/status') {
     res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
-    res.end(JSON.stringify({ active, offline, buildA, buildB, workerASha256, counts })); return;
+    res.end(JSON.stringify({ active, offline, buildA, buildB, workerASha256, counts, requests })); return;
   }
   if (url.pathname.startsWith('/__qa/select/')) {
     if (req.method !== 'POST' || req.headers['x-shiok-qa'] !== 'local-upgrade') { res.writeHead(403).end(); return; }
@@ -42,9 +49,10 @@ const server = http.createServer((req, res) => {
     console.log(JSON.stringify({ active, offline, at: new Date().toISOString() }));
     res.writeHead(204).end(); return;
   }
-  if (!['GET', 'HEAD'].includes(req.method) || offline) { counts.failures++; res.writeHead(503).end('QA network unavailable'); return; }
+  if (!['GET', 'HEAD'].includes(req.method) || offline) { counts.failures++; receipt(url.pathname, 503); res.writeHead(503).end('QA network unavailable'); return; }
   // Next serves public/ from disk, not its compiled build. Pin the old worker to the reviewed commit.
   if (active === 'A' && url.pathname === '/sw.js') {
+    receipt(url.pathname, 200);
     res.writeHead(200, { 'Content-Type': 'application/javascript', 'Cache-Control': 'public, max-age=86400, stale-while-revalidate=604800', 'Service-Worker-Allowed': '/' });
     res.end(req.method === 'HEAD' ? undefined : workerA); return;
   }
@@ -54,10 +62,11 @@ const server = http.createServer((req, res) => {
   counts[data ? 'data' : active]++;
   const upstream = http.request({ hostname, port: target, path: req.url, method: req.method,
     headers: { ...req.headers, host: `${hostname}:${target}` } }, response => {
+    receipt(url.pathname, response.statusCode);
     res.writeHead(response.statusCode, response.headers);
     response.pipe(res);
   });
-  upstream.on('error', error => { counts.failures++; console.error(error.message); if (!res.headersSent) res.writeHead(502); res.end(); });
+  upstream.on('error', error => { counts.failures++; receipt(url.pathname, 502); console.error(error.message); if (!res.headersSent) res.writeHead(502); res.end(); });
   req.pipe(upstream);
 });
 server.on('error', error => { console.error(error); child.kill(); process.exitCode = 1; });

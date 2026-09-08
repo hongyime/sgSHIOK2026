@@ -2507,3 +2507,18 @@ Evidence: qa/revamp-r1/cached-release-20260908/summary.json.
 The subsequent all-tasks goal authorizes independent subagents with disjoint
 scopes. Parent alone reviews/commits/pushes. This does not approve infrastructure,
 pipeline execution, physical-user signoff or deployment.
+
+## 2026-09-09: Recover cached walk data without adding fallback downloads
+
+The T02 browser reader now tries only an already cached plain artifact after a
+gzip network/5xx failure. Keep the same bundle/path, browser/same-origin limits,
+original failure on a miss, cancellation and decode-error boundaries, and no
+plain fallback for compressed-only transit. Separate cache-only versus normal
+worker in-flight requests. No numerical value or pipeline input changes.
+
+The final 318-test isolated suite, TypeScript, build, integrity and 11 source
+anchors pass. Browser transport verifies cached score/geometry recovery, but an
+excluded MapLibre worker returns503 during origin outage. The final outage
+capture timed out; do not claim offline-map acceptance or a measured speedup.
+Next is the small worker-availability/pre-load-recovery fix, not a rescore.
+Evidence: qa/revamp-r1/data-cache-recovery-20260909/summary.json.

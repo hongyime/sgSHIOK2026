@@ -1,15 +1,15 @@
 # Current State
 
-Date: 2026-09-08
+Date: 2026-09-09
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
 Startup guard: assert cwd is exactly `C:\sgSHIOK2026`; abort otherwise. All writes use absolute C: repository paths. X: is a cold mirror, never a session root.
-Current task: active goal to complete PRODUCT-PLAN T01-T28. T01 runtime and adversarial source review complete; browser upgrade proof remains pending. A supplied worker tests and independent review; B supplied new T04 published-option fixtures; C supplied the T12 reporting proposal. Parent alone commits/pushes. Approved top-left layout unchanged.
+Current task: active goal to complete PRODUCT-PLAN T01-T28. T01 partial progress pushed e51ac87. T02 reader recovery and cache-policy isolation reviewed; final 318/318 isolated tests, TypeScript/integrity/build pass. Browser proves data recovery; outage map still fails and final capture timed out. Parent alone commits/pushes. Approved top-left layout unchanged.
 Evidence: qa/verification/REVAMP-R1-core-walk.md (append-only corrections and catalogue mapping).
-Machine-readable handback: qa/revamp-r1/left-stack-20260908/summary.json (current). Prior handbacks remain historical evidence, not completion of the whole service.
-Current preview: http://localhost:4321/; build e8Hlhkml4c3i_uMGJdd3P; owned server PID 97544. Old 4320 preview stopped before rebuild. Earlier ports do not identify this build.
-Checks: 242 isolated tests / 32 files, TypeScript/direct build, 58 final browser checks, four current route features at all four sizes, all final basemap capture brackets loaded. 11 source hashes and integrity passed. Local setup/startup failures and early incomplete tile captures retained. No speedup or physical-phone claim.
-Next: T02's evidenced cache-only alternate-format recovery, then T04-T07/T08-T11. T01 PARTIAL: 77 focused and 289 isolated tests/34 files pass, TypeScript/integrity/11 source hashes pass. Explicit-update browser renders B at four sizes and preserves sentinels while 12 old JS URLs return404. Automatic upgrade failed90s gate; origin outage served B HTML but gzip503 stopped the reader before cached plain JSON. See qa/revamp-r1/cached-release-20260908/summary.json. No all-browser-cases-passed claim. QA proxy PID76680 on4324 serves snapshot B (KQZm6qMJF8AfCpaPaTMwV) plus reviewed static SW overlay; old4321 remains. T04 fixtures16 tests and T12 proposal are new/uncommitted pending parent integration. OWNER gates remain T13 provider/policy, T21 compute, T26 physical/user acceptance, T28 deployment.
+Machine-readable handback: qa/revamp-r1/data-cache-recovery-20260909/summary.json. Prior handbacks remain historical evidence, not completion of the whole service.
+Current preview: http://127.0.0.1:4324/; QA proxy PID94656, build kII4ULp-szY9-sx6BRphK, online/B. Original4321/PID97544 supplies protected data read-only and is an older compiled app. No deployment.
+Checks: 318 isolated tests / 35 files; 24 focused reader/compression tests and 49 independently executed worker tests; TypeScript/direct build/integrity/11 source hashes passed. Final-build mobile online screenshot inspected with four current features; first treatment captured all four viewports. No speedup or phone acceptance claim.
+Next: fix observed MapLibre worker503/cache exclusion and pre-load watchdog/retry gap under T01, then integrate T04 contract/16 fixture tests and T12 proposal, followed by T05-T11 features. T01/T02 remain PARTIAL: data recovers but origin-outage map and automatic legacy upgrade are not accepted. See new summary for harness timeouts and separate observations. T04 fixture/contract and T12 proposal remain new/uncommitted; do not lose them. OWNER gates: T13 provider/policy, T21 compute, T26 physical/user acceptance, T28 deployment.
 Owner authorizes functional work under existing host load; leave other apps alone. Latest goal explicitly requests subagent verification, superseding the earlier no-delegation restriction. No pipeline, installs, deployment or protected-payload mutation authorized. Goal stays active until every task and applicable gate is actually complete.
 
 ## Superseded detailed handoff (history only; current task and backlog above take precedence)

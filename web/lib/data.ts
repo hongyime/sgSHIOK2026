@@ -78,6 +78,26 @@ class ArtifactFetchError extends Error {
   constructor(path: string, public status: number) { super(`${path} fetch failed: ${status}`); }
 }
 
+async function cachedPlainResponse(path: string, failure: unknown): Promise<Response> {
+  if (typeof window === "undefined" || compressedOnlyArtifact(path)) throw failure;
+  let url: URL;
+  try {
+    url = new URL(dataUrl(path), window.location.href);
+  } catch {
+    throw failure;
+  }
+  if (url.origin !== window.location.origin) throw failure;
+  let cached: Response;
+  try {
+    // Recover an already visited immutable artifact without a second network download.
+    cached = await fetch(dataUrl(path), { cache: "only-if-cached", mode: "same-origin" });
+  } catch {
+    throw failure;
+  }
+  if (!cached.ok) throw failure;
+  return cached;
+}
+
 async function fetchJson<T>(path: string): Promise<T> {
   const pending = _jsonInFlight.get(path);
   if (pending) return pending as Promise<T>;
@@ -85,8 +105,18 @@ async function fetchJson<T>(path: string): Promise<T> {
   const request = (async () => {
     if (hasCompressedArtifact(path)) {
       const gzPath = `${path}.gz`;
-      const gzRes = await fetch(dataUrl(gzPath), DATA_FETCH_OPTIONS);
+      let gzRes: Response;
+      try {
+        gzRes = await fetch(dataUrl(gzPath), DATA_FETCH_OPTIONS);
+      } catch (failure) {
+        if (failure instanceof Error && failure.name === "AbortError") throw failure;
+        return decodeJsonResponse<T>(await cachedPlainResponse(path, failure), path);
+      }
       if (gzRes.ok) return decodeJsonResponse<T>(gzRes, gzPath);
+      if (gzRes.status >= 500 && gzRes.status <= 599) {
+        const failure = new ArtifactFetchError(gzPath, gzRes.status);
+        return decodeJsonResponse<T>(await cachedPlainResponse(path, failure), path);
+      }
       if (gzRes.status !== 404) throw new ArtifactFetchError(gzPath, gzRes.status);
       if (compressedOnlyArtifact(path)) {
         throw new Error(`${gzPath} fetch failed: ${gzRes.status}`);

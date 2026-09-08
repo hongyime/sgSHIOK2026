@@ -45,6 +45,7 @@ function createWorker() {
   const reads: string[] = [];
   const opened: string[] = [];
   const deleted: string[] = [];
+  const nativeFetchCalls: Request[] = [];
   const networkCalls: Request[] = [];
   const browserHttpCache = new Map<string, Response>();
   const listeners = new Map<string, (event: WorkerEvent) => void>();
@@ -53,6 +54,7 @@ function createWorker() {
     fetch: async (_request: Request): Promise<Response> => html("A"),
     putGate: undefined as Promise<void> | undefined,
     matchGate: undefined as Promise<void> | undefined,
+    httpCacheGate: undefined as Promise<void> | undefined,
   };
   let claims = 0;
   let originEnumerations = 0;
@@ -117,11 +119,18 @@ function createWorker() {
     },
     fetch: async (input: CacheInput, init?: RequestInit) => {
       const request = new Request(typeof input === "string" ? urlOf(input) : input, init);
-      networkCalls.push(request);
+      nativeFetchCalls.push(request);
+      // A native cache-only miss is an HTTP 504, never a transport request.
+      if (request.cache === "only-if-cached") {
+        if (controls.httpCacheGate) await controls.httpCacheGate;
+        return browserHttpCache.get(request.url)?.clone()
+          ?? new Response("HTTP cache miss", { status: 504 });
+      }
       const staleBrowserResponse = browserHttpCache.get(request.url);
       if (staleBrowserResponse && !["no-store", "reload", "no-cache"].includes(request.cache)) {
         return staleBrowserResponse.clone();
       }
+      networkCalls.push(request);
       return controls.fetch(request);
     },
   }, { filename: "web/public/sw.js" });
@@ -145,7 +154,7 @@ function createWorker() {
   }
 
   return {
-    controls, faults, reads, opened, deleted, networkCalls, browserHttpCache, stores,
+    controls, faults, reads, opened, deleted, nativeFetchCalls, networkCalls, browserHttpCache, stores,
     get claims() { return claims; },
     get originEnumerations() { return originEnumerations; },
     dispatch,
@@ -268,6 +277,123 @@ describe("service worker release behavior (executed worker, synthetic transport)
     worker.controls.fetch = async () => { throw new Error("immutable cache hit must not fetch"); };
     expect(await (await worker.request(request)).text()).toBe("immutable A");
     expect(worker.networkCalls).toHaveLength(1);
+  });
+
+  describe.each(["/data/version-A/scores/01.json", "/_next/static/build-A/app.js"])("cache-only recovery for %s", (path) => {
+    function cacheOnlyRequest() {
+      return new Request(new URL(path, ORIGIN), { cache: "only-if-cached", mode: "same-origin" });
+    }
+
+    it("returns a CacheStorage hit without invoking native fetch or transport", async () => {
+      const worker = createWorker();
+      worker.seed("sgshiok-static-v1", path, new Response("CacheStorage asset"));
+      worker.browserHttpCache.set(urlOf(path), new Response("different HTTP cache asset"));
+      const transport = vi.fn(async () => new Response("network asset"));
+      worker.controls.fetch = transport;
+
+      const response = await worker.request(cacheOnlyRequest());
+      expect(response.status).toBe(200);
+      expect(await response.text()).toBe("CacheStorage asset");
+      expect(worker.nativeFetchCalls).toHaveLength(0);
+      expect(worker.networkCalls).toHaveLength(0);
+      expect(transport).not.toHaveBeenCalled();
+      await worker.settle();
+    });
+
+    it("returns a native HTTP cache hit without invoking transport", async () => {
+      const worker = createWorker();
+      worker.browserHttpCache.set(urlOf(path), new Response("HTTP cache asset"));
+      const transport = vi.fn(async () => new Response("network asset"));
+      worker.controls.fetch = transport;
+
+      const response = await worker.request(cacheOnlyRequest());
+      expect(response.status).toBe(200);
+      expect(await response.text()).toBe("HTTP cache asset");
+      expect(worker.nativeFetchCalls).toHaveLength(1);
+      expect(worker.nativeFetchCalls[0].url).toBe(urlOf(path));
+      expect(worker.nativeFetchCalls[0].cache).toBe("only-if-cached");
+      expect(worker.nativeFetchCalls[0].mode).toBe("same-origin");
+      expect(worker.networkCalls).toHaveLength(0);
+      expect(transport).not.toHaveBeenCalled();
+      await worker.settle();
+    });
+
+    it("returns 504 on both cache misses without invoking transport or caching the failure", async () => {
+      const worker = createWorker();
+      worker.seed("another-app-v1", path, new Response("foreign asset"));
+      const transport = vi.fn(async () => new Response("network asset"));
+      worker.controls.fetch = transport;
+
+      const response = await worker.request(cacheOnlyRequest());
+      expect(response.status).toBe(504);
+      expect(await response.text()).toBe("HTTP cache miss");
+      expect(worker.nativeFetchCalls).toHaveLength(1);
+      expect(worker.nativeFetchCalls[0].cache).toBe("only-if-cached");
+      expect(worker.nativeFetchCalls[0].mode).toBe("same-origin");
+      expect(worker.networkCalls).toHaveLength(0);
+      expect(transport).not.toHaveBeenCalled();
+      expect(worker.reads).not.toContain("another-app-v1");
+      expect(worker.opened).not.toContain("another-app-v1");
+      expect(worker.originEnumerations).toBe(0);
+      await worker.settle();
+      expect(worker.stores.get("sgshiok-static-v1")?.has(urlOf(path)) ?? false).toBe(false);
+    });
+
+    it.each(["ordinary-first", "cache-only-first"] as const)("isolates concurrent same-URL requests: %s", async (order) => {
+      const worker = createWorker();
+      const httpLookup = deferred();
+      const network = deferred();
+      worker.controls.httpCacheGate = httpLookup.promise;
+      const transport = vi.fn(async () => {
+        await network.promise;
+        return new Response("network asset");
+      });
+      worker.controls.fetch = transport;
+      const ordinaryRequest = () => new Request(new URL(path, ORIGIN), { cache: "force-cache" });
+      const cacheOnlyFirst = order === "cache-only-first";
+      const first = worker.request(cacheOnlyFirst ? cacheOnlyRequest() : ordinaryRequest());
+      let second: Promise<Response> | undefined;
+      let ordinary: Promise<Response> | undefined;
+
+      try {
+        // Keep the first native request pending until the second reaches native fetch.
+        await vi.waitFor(() => expect(worker.nativeFetchCalls).toHaveLength(1));
+        expect(worker.nativeFetchCalls[0].cache).toBe(cacheOnlyFirst ? "only-if-cached" : "force-cache");
+        expect(worker.networkCalls).toHaveLength(cacheOnlyFirst ? 0 : 1);
+        second = worker.request(cacheOnlyFirst ? ordinaryRequest() : cacheOnlyRequest());
+        ordinary = cacheOnlyFirst ? second : first;
+        const cacheOnly = cacheOnlyFirst ? first : second;
+
+        await vi.waitFor(() => expect(worker.nativeFetchCalls).toHaveLength(2));
+        expect(worker.nativeFetchCalls.map(request => request.url)).toEqual([urlOf(path), urlOf(path)]);
+        expect(worker.nativeFetchCalls.map(request => request.cache)).toEqual(
+          cacheOnlyFirst ? ["only-if-cached", "force-cache"] : ["force-cache", "only-if-cached"],
+        );
+        expect(worker.networkCalls).toHaveLength(1);
+        expect(worker.networkCalls[0].cache).toBe("force-cache");
+        expect(transport).toHaveBeenCalledTimes(1);
+
+        // Cache-only must finish with a miss while the ordinary network stays pending.
+        httpLookup.release();
+        const miss = await cacheOnly;
+        expect(miss.status).toBe(504);
+        expect(await miss.text()).toBe("HTTP cache miss");
+      } finally {
+        httpLookup.release();
+        network.release();
+        await Promise.allSettled(second ? [first, second] : [first]);
+      }
+
+      const response = await ordinary!;
+      expect(response.status).toBe(200);
+      expect(await response.text()).toBe("network asset");
+      await worker.settle();
+      expect(await (await worker.request(cacheOnlyRequest())).text()).toBe("network asset");
+      expect(worker.nativeFetchCalls).toHaveLength(2);
+      expect(worker.networkCalls).toHaveLength(1);
+      expect(transport).toHaveBeenCalledTimes(1);
+      await worker.settle();
+    });
   });
 
   it.each(["open", "match", "put"] as const)("optional immutable cache %s rejection does not lose a network chunk", async (operation) => {

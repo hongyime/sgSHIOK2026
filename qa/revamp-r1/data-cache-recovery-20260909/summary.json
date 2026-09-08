@@ -1,0 +1,333 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "task": "T02",
+  "status": "PARTIAL",
+  "implementation": "Cache-only alternate-format reader recovery is implemented and independently reviewed. Whole-walk outage and performance acceptance remain open.",
+  "pipelineRuns": 0,
+  "installations": 0,
+  "deployment": false,
+  "validation": {
+    "path": "qa/revamp-r1/data-cache-recovery-20260909/full-2/checks.json",
+    "ok": true,
+    "inputAnchorsMatched": 11,
+    "commands": [
+      {
+        "command": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:/sgSHIOK2026/web/scripts/test-without-production-data.mjs",
+          "--reporter=dot"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:/sgSHIOK2026/web/node_modules/typescript/bin/tsc",
+          "--project",
+          "C:/sgSHIOK2026/web/tsconfig.json",
+          "--noEmit",
+          "--incremental",
+          "false"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": "python",
+        "args": [
+          "C:/sgSHIOK2026/scripts/check_repo_integrity.py"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": "git",
+        "args": [
+          "diff",
+          "--check"
+        ],
+        "exitCode": 0
+      }
+    ],
+    "testArithmetic": "289 + 19 data recovery + 10 worker isolation = 318 tests; 34 + 1 = 35 files",
+    "focusedArithmetic": "19 recovery + 5 compression = 24; 39 previous worker + 10 isolation = 49",
+    "baseline": "baseline-1/checks.json: 6 failed + 14 passed = 20 tests; no reader fix present.",
+    "independentReview": "Parfit approved final runtime source; independently executed 49 worker tests. Review identified cache-policy races, cancellation, URL-parser error preservation and concurrency coverage; all were addressed."
+  },
+  "build": {
+    "path": "qa/revamp-r1/cached-release-20260908/data-recovery-20260909-2/build.json",
+    "buildId": "kII4ULp-szY9-sx6BRphK",
+    "exitCode": 0,
+    "sourceIdentity": [
+      {
+        "path": "web/lib/data.ts",
+        "current": "8c1dfaf0086b6038570b8e8b737b446928840babaf03c537161768f5f4f5841f",
+        "built": "8c1dfaf0086b6038570b8e8b737b446928840babaf03c537161768f5f4f5841f",
+        "snapshot": "8c1dfaf0086b6038570b8e8b737b446928840babaf03c537161768f5f4f5841f",
+        "match": true
+      },
+      {
+        "path": "web/public/sw.js",
+        "current": "449b636c8c13f48c239ee494ae0fce28f5e806a6bae9b33666b10d35d80d4957",
+        "built": "449b636c8c13f48c239ee494ae0fce28f5e806a6bae9b33666b10d35d80d4957",
+        "snapshot": "449b636c8c13f48c239ee494ae0fce28f5e806a6bae9b33666b10d35d80d4957",
+        "match": true
+      },
+      {
+        "path": "web/components/route-evidence-map.tsx",
+        "current": "157334ffa8f2cb6fa9a91bd06b86f1fba8bba67091fd07083943eabf254c9c01",
+        "built": "157334ffa8f2cb6fa9a91bd06b86f1fba8bba67091fd07083943eabf254c9c01",
+        "snapshot": "157334ffa8f2cb6fa9a91bd06b86f1fba8bba67091fd07083943eabf254c9c01",
+        "match": true
+      }
+    ]
+  },
+  "firstBrowser": {
+    "path": "qa/revamp-r1/cached-release-20260908/data-recovery-explicit-20260909-1/browser.json",
+    "build": "PlU4d8GR_-suMyZLJW7By",
+    "interpretation": "Before the final cancellation and request-policy hardening, actual gzip503 to cached-plain200 recovery restored four metrics. All four online viewport captures were inspected with four current features; origin-outage map still stalled.",
+    "captures": [
+      {
+        "label": "B-shared-mobile",
+        "stable": true,
+        "features": 4
+      },
+      {
+        "label": "B-selected-1440x950",
+        "stable": true,
+        "features": 4
+      },
+      {
+        "label": "B-selected-390x667",
+        "stable": true,
+        "features": 4
+      },
+      {
+        "label": "B-selected-320x667",
+        "stable": true,
+        "features": 4
+      }
+    ],
+    "failure": "Error: Condition deadline window.__shiokRouteMap?.getLayer('shiokest-route-line') && !window.__shiokRouteMap.isMoving() && window.__shiokRouteMap.isSourceLoaded('shiokest-route') && window.__shiokRouteMap.queryRenderedFeatures({layers:['shiokest-route-line']}).some(f=>f.properties.render_key===window.__shiokRouteDebug.routeKey) && window.__shiokRouteMap.isSourceLoaded('onemap')\n    at until (file:///C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/browser-upgrade.mjs:91:11)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/browser-upgrade.mjs:161:3",
+    "state": {
+      "key": "2:shiokest:primary",
+      "center": {
+        "lng": 103.851959,
+        "lat": 1.29027
+      },
+      "zoom": 11.6,
+      "moving": false,
+      "basemapLoaded": true,
+      "routeCount": 0,
+      "status": "initializing",
+      "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap loading\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+      "worker": true,
+      "buildPayload": "[]",
+      "width": 320,
+      "height": 667
+    }
+  },
+  "finalBrowser": {
+    "path": "qa/revamp-r1/data-cache-recovery-20260909/bounded-2-1788886047048-c5632c71/browser.json",
+    "build": "kII4ULp-szY9-sx6BRphK",
+    "fullAcceptance": false,
+    "checked": [
+      {
+        "name": "proxy serves the explicitly pinned B build",
+        "pass": true
+      },
+      {
+        "name": "online first visit has real route and controlling worker",
+        "pass": true
+      },
+      {
+        "name": "first actual Document is B",
+        "pass": true
+      },
+      {
+        "name": "online controlled baseline verified",
+        "pass": true
+      },
+      {
+        "name": "online phase within 120 seconds",
+        "pass": true
+      },
+      {
+        "name": "origin outage enabled on B",
+        "pass": true
+      },
+      {
+        "name": "outage actual Document is cached B",
+        "pass": false
+      },
+      {
+        "name": "outage restores matching four metrics",
+        "pass": false
+      },
+      {
+        "name": "outage score and geometry have 200 SW responses",
+        "pass": true
+      },
+      {
+        "name": "outage route observation captured without requiring success",
+        "pass": false
+      },
+      {
+        "name": "outage selected route survives",
+        "pass": false
+      },
+      {
+        "name": "outage phase within 45 seconds",
+        "pass": false
+      },
+      {
+        "name": "no uncaught page exceptions",
+        "pass": true
+      }
+    ],
+    "onlineMilliseconds": 88146,
+    "outageMilliseconds": 45156,
+    "sourceAndDataRecovery": [
+      {
+        "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "status": 200,
+        "fromServiceWorker": true,
+        "artifact": "geom"
+      },
+      {
+        "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+        "status": 503,
+        "fromServiceWorker": true,
+        "artifact": "score-index"
+      },
+      {
+        "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "status": 200,
+        "fromServiceWorker": true,
+        "artifact": "score-index"
+      },
+      {
+        "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+        "status": 503,
+        "fromServiceWorker": true,
+        "artifact": "geom"
+      },
+      {
+        "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+        "status": 503,
+        "fromServiceWorker": true,
+        "artifact": "score"
+      },
+      {
+        "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "status": 200,
+        "fromServiceWorker": true,
+        "artifact": "geom"
+      },
+      {
+        "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "status": 200,
+        "fromServiceWorker": true,
+        "artifact": "score"
+      },
+      {
+        "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "status": 200,
+        "fromServiceWorker": true,
+        "artifact": "other"
+      },
+      {
+        "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "status": 200,
+        "fromServiceWorker": true,
+        "artifact": "other"
+      },
+      {
+        "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "status": 200,
+        "fromServiceWorker": true,
+        "artifact": "other"
+      },
+      {
+        "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "status": 200,
+        "fromServiceWorker": true,
+        "artifact": "other"
+      },
+      {
+        "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "status": 200,
+        "fromServiceWorker": true,
+        "artifact": "other"
+      },
+      {
+        "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "status": 200,
+        "fromServiceWorker": true,
+        "artifact": "other"
+      },
+      {
+        "url": "http://127.0.0.1:4324/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+        "status": 503,
+        "fromServiceWorker": true,
+        "artifact": "other"
+      }
+    ],
+    "workerFailures": [
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+        "status": 503,
+        "active": "B",
+        "offline": true,
+        "at": "2026-09-08T16:48:56.591Z"
+      }
+    ],
+    "captures": [
+      {
+        "label": "online-B-390x844",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\data-cache-recovery-20260909\\bounded-2-1788886047048-c5632c71\\online-B-390x844.png",
+        "stable": true,
+        "beforeFeatures": 4,
+        "afterFeatures": 4
+      },
+      {
+        "label": "outage-B-390x844",
+        "stable": false
+      }
+    ],
+    "limitations": [
+      "Final online screenshot was inspected with four selected features. This is not an automatic-upgrade test or a phone/performance benchmark.",
+      "Outage capture exhausted its budget; actual HTML body and four UI metrics were not verified in that final capture. Do not count those failed assertions as product regressions or as passes.",
+      "Final origin-outage score/geometry responses are 200 from CacheStorage after gzip503; worker-module request is independently recorded as503 by the proxy.",
+      "88.146 s online and45.156 s outage are harness-phase observations, not comparable page-load timings; outage exceeded its45 s gate by0.156 s.",
+      "bounded-1 ended at the harness five-second Page.navigate timeout. The retry raised only that sub-timeout within the same overall budget; earlier evidence is retained.",
+      "Both browser cleanup reports failed to observe Chrome exit within their short wait. Subsequent parent process checks are recorded separately below."
+    ]
+  },
+  "laterProcessChecks": [
+    {
+      "pid": 99604,
+      "alive": false,
+      "code": "ESRCH"
+    },
+    {
+      "pid": 48340,
+      "alive": false,
+      "code": "ESRCH"
+    }
+  ],
+  "supportingSources": [
+    "https://developer.mozilla.org/en-US/docs/Web/API/Request/cache"
+  ],
+  "QAReceiptCorrection": "The reused static-overlay reason originally mentioned a race fix after compilation. For the final snapshot, recorded source/current/snapshot hashes are identical; no post-build worker byte change occurred. The helper now records the previous hash and neutral copy reason.",
+  "FINDINGS": [
+    "The gzip503 reader failure is fixed without a fresh plain-JSON network fallback. A cache miss preserves the original failure; cancellation, corrupt payloads, compressed-only shards and 4xx remain bounded failures.",
+    "Request deduplication now separates only-if-cached from network-allowed reads in both arrival orders. Ten executed worker tests cover native-cache and CacheStorage semantics.",
+    "The final built app renders the approved top-left layout and current walk online. All318 isolated tests, TypeScript, integrity and11 source anchors pass.",
+    "Origin-outage proxy receipts show /maplibre/6.1.0/maplibre-gl-worker.mjs returning503. Worker modules are not in the SW allowlist; bootstrap failure handling and worker caching are the next narrow work.",
+    "Source review found no watchdog before MapLibre load; a bootstrap failure without a handled error can remain initializing indefinitely, and partial retry before load does not execute. This is a source finding, not a claim that every bootstrap error hangs."
+  ],
+  "DISAGREEMENTS": [
+    "Cached data recovery does not establish offline-map acceptance or resolve the separate automatic legacy-upgrade failure. T01 and T02 remain partial; no measured speedup or all-goal-complete claim.",
+    "The final outage screenshot/timing failures are not reliable evidence of new data or score defects. Preserve the successful transport observations and failed capture boundaries separately."
+  ]
+}

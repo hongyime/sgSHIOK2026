@@ -1,0 +1,388 @@
+{
+  "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-data-recovery-20260909-1",
+  "output": "C:\\sgSHIOK2026\\qa\\revamp-r1\\cached-release-20260908\\data-recovery-20260909-1",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\node_modules\\next\\dist\\bin\\next",
+    "build",
+    "C:\\sgSHIOK2026\\tmp\\cached-release-data-recovery-20260909-1\\web"
+  ],
+  "protectedDataAbsent": true,
+  "dependencyInstall": false,
+  "sources": [
+    {
+      "path": "web/.gitignore",
+      "sha256": "6fe16e5e5dad9408c6a9082604c816d8067641ae1b5e59aceb90eb51c1088c63"
+    },
+    {
+      "path": "web/.vercelignore",
+      "sha256": "b3d8b2181a750cb269414b575e25bb4e1300d0c31f32b5930abf4d089f4d4ccc"
+    },
+    {
+      "path": "web/app/api/onemap-route/route.ts",
+      "sha256": "0a8885496fd124ae5807586597961eb826c36e813e488784db86b6b3c3197184"
+    },
+    {
+      "path": "web/app/api/onemap-search/route.ts",
+      "sha256": "ce9b6557e4dc193a3f9dd477ed5c6dd3b52c48aa7cc66bf403d61029ed2526a5"
+    },
+    {
+      "path": "web/app/api/onemap.ts",
+      "sha256": "897129fc36ef7da8dec7f12008e06e4ae1181225ffc5b50518f05ba5d255bf98"
+    },
+    {
+      "path": "web/app/icon.svg",
+      "sha256": "c0bd7140b0fdf9ef8220017c4a07428301ab84e80c4090acd36da4c0da9d0dd2"
+    },
+    {
+      "path": "web/app/layout.tsx",
+      "sha256": "629503df867c00de8bac541deac30d6f16f5cd2800f4540422d407c318d21350"
+    },
+    {
+      "path": "web/app/page.module.css",
+      "sha256": "f9fb3a9a593f02ca04e8c7c6ef427752ec31002334f9650918ed4f0cf9c4f89e"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "30a5cfcb0e2f448607b4c8c18c89932903e216ca5ecf625afba1b821074b5bbd"
+    },
+    {
+      "path": "web/app/robots.ts",
+      "sha256": "114d20450cca32f28485448c758c031fa7479b699ba8673e21d115875b66e078"
+    },
+    {
+      "path": "web/app/sitemap.ts",
+      "sha256": "e7ccaa26063b9f0dfce8eb2b7e7b7a7ed3a50681644c2baeb40cc6e348da7ea5"
+    },
+    {
+      "path": "web/components/route-evidence-map.module.css",
+      "sha256": "393171c936486ee971f000d24899629bbbf237eaa3d85d3c023ef9fd4d3d6191"
+    },
+    {
+      "path": "web/components/route-evidence-map.tsx",
+      "sha256": "157334ffa8f2cb6fa9a91bd06b86f1fba8bba67091fd07083943eabf254c9c01"
+    },
+    {
+      "path": "web/components/transit-stop-picker.module.css",
+      "sha256": "bf770ce8b71350aa9d81f828b6957210aafb204a5bf77f58f42eb5b0c6ab051f"
+    },
+    {
+      "path": "web/components/transit-stop-picker.tsx",
+      "sha256": "49db4d27123607aba168519a3bc822bafa8ce745a65314db958eff0812eabb70"
+    },
+    {
+      "path": "web/components/walk-summary.tsx",
+      "sha256": "3c654ac8258562533905a94423d9a455ebf869dd987d69d97f75b96e02e80995"
+    },
+    {
+      "path": "web/data-bundle.json",
+      "sha256": "d5ce7703d5ee6b39651947749f9bd2f4c6d642fe2af06e1d9324671ce8f009e8"
+    },
+    {
+      "path": "web/lib/__tests__/accessibility-render.test.tsx",
+      "sha256": "1ae10e69debe632d62b357ec0a0c816206bc513dd7c65a8fd422c1a7b9edf022"
+    },
+    {
+      "path": "web/lib/__tests__/data-base.test.ts",
+      "sha256": "741336b2f620f1567d7715270aa04245e0d0f57ab3436632d77a666e60ab1c02"
+    },
+    {
+      "path": "web/lib/__tests__/data-cache-recovery.test.ts",
+      "sha256": "36e1ad8872a7a24d05f7ab980a9ca858b6a6baa363de6a677d6229e12a08a128"
+    },
+    {
+      "path": "web/lib/__tests__/data-fetch-policy.test.ts",
+      "sha256": "b65c4773c49fa2b94d2b86c896ce4141a9f82d113dc090abd4507eb33d812ea1"
+    },
+    {
+      "path": "web/lib/__tests__/data.test.ts",
+      "sha256": "6d0b688fffe7ae02debb1fcc61e4c4b9745c1de68e556056e794070c1618e763"
+    },
+    {
+      "path": "web/lib/__tests__/deployment.test.ts",
+      "sha256": "a66f40285538f92725ed65dd1eebd6dba314fccf99fd670165828318bd322787"
+    },
+    {
+      "path": "web/lib/__tests__/ensure-data-bundle.test.mjs",
+      "sha256": "4e5e8c4373e523ea3edcca0c66d2bf0e67f6b4314bf61430648bd277e58c555c"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-data.ts",
+      "sha256": "078361aabbb455955ad70e9cef10a22121fb69476481031cb118b7aee8b990be"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-walks.json",
+      "sha256": "e29cc74ce7ec9f69b360e596a2ecd6b07e4cba453bb46b2cc091c9ff61036c86"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-walks.provenance.json",
+      "sha256": "485e9d62fe1488c5cbd8086cdc9a26efc7cb83ec4dc4770b58dddc387c47826d"
+    },
+    {
+      "path": "web/lib/__tests__/geom-promoted-shard.test.ts",
+      "sha256": "afbbce3371614bd859684f186d0dd98216f7649ad8cd9a5d56fa941f76050c0d"
+    },
+    {
+      "path": "web/lib/__tests__/geometry-recovery.test.ts",
+      "sha256": "7609499e054ac0110892542288c38d8d76e4aaedad1bef8f8bfa79d67679e8e4"
+    },
+    {
+      "path": "web/lib/__tests__/ignore-build.test.mjs",
+      "sha256": "a0f94ed9a81c5bb2da2bcb22d3864e3851e16ecdd450f9d880042d2198a20c55"
+    },
+    {
+      "path": "web/lib/__tests__/lamp-overlay.test.ts",
+      "sha256": "4721ae09349fcbe885588385578198415ddbda952d659ec2287517a0a36d5b1e"
+    },
+    {
+      "path": "web/lib/__tests__/live-route-scoring.test.ts",
+      "sha256": "85309324466b4a635dc9e4390abb5379336cde0fad3d9a48552c6ead37d8d0c1"
+    },
+    {
+      "path": "web/lib/__tests__/locked-score-availability.test.ts",
+      "sha256": "1ebf79cabb1f31f486cce37d0e8252285f18cccbca8a7d5f467b4f72c6c7967e"
+    },
+    {
+      "path": "web/lib/__tests__/map-first-shell.test.ts",
+      "sha256": "9faadc5c07c9a0521f4a3742c41fe3be44cc334f2cea76bd39d27c906aca1c55"
+    },
+    {
+      "path": "web/lib/__tests__/map-viewport.test.ts",
+      "sha256": "28b270a28cad8d9429a6915d4fd1443e198ab817225adfabbce40ec4e06e2b56"
+    },
+    {
+      "path": "web/lib/__tests__/map-worker.test.ts",
+      "sha256": "9d589c548c06e90a4530addb5f15bb691c5e352d5adc2c73672c8d14d2f7a29a"
+    },
+    {
+      "path": "web/lib/__tests__/onemap-api-security.test.ts",
+      "sha256": "be7b8f13516e8813b3886c18d77b6934329a6123c18cf96f1ff94d75c3b8c5d0"
+    },
+    {
+      "path": "web/lib/__tests__/onemap-search.test.ts",
+      "sha256": "d4b2a218584763407356162680f939648096a4a0f3d470a2d15a4b5aec6be26c"
+    },
+    {
+      "path": "web/lib/__tests__/polyline.test.ts",
+      "sha256": "8c449899dabe2cdfd9dbab156bb059739976e1d677e96dc0a77debf0bf3741f6"
+    },
+    {
+      "path": "web/lib/__tests__/rank-payload.test.ts",
+      "sha256": "611e7a69751489944084f62ba928000c51a4c725680df3a5bae3533ac366056b"
+    },
+    {
+      "path": "web/lib/__tests__/revamp-layout.test.ts",
+      "sha256": "2e65feb2641a78040bf998b8ca2ffe2e492d8f183e3176796977665b37357f1d"
+    },
+    {
+      "path": "web/lib/__tests__/route-display.test.ts",
+      "sha256": "2c54d6d61a4d7ab9083ab9ac0cd1271300cf2b7eaf2d623627b251329c41d0a4"
+    },
+    {
+      "path": "web/lib/__tests__/route-evidence-map-interaction.test.ts",
+      "sha256": "5214d2bb9f30063f6745689a2eda2f7143f8b1d6e7b837fd45168d066ab1e948"
+    },
+    {
+      "path": "web/lib/__tests__/route-geojson.test.ts",
+      "sha256": "c19e3d9963fde623b3024fb3aacf0086f5bb9271ece1f85a9faa14865958314e"
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "sha256": "163b6f6d1ee6c357de2fd673dc82e742658a9216dc7cdb2d6c04baeb84df2d34"
+    },
+    {
+      "path": "web/lib/__tests__/score-card-copy.test.ts",
+      "sha256": "80be0a8a7c10e56c3e4b6aed0cf29a964bf3ea2a9c258fd74277a6e6e25f8b30"
+    },
+    {
+      "path": "web/lib/__tests__/score-prefix-index.test.ts",
+      "sha256": "2d4db8c99905b6f8c1fdbf60934b69e05bcaf5123f05681bc4fec9f4e46623eb"
+    },
+    {
+      "path": "web/lib/__tests__/service-worker-behaviour.test.ts",
+      "sha256": "7f719aa0720c9e9119987ca5282c44345b0eb8e25ba194445e809e303f2e246a"
+    },
+    {
+      "path": "web/lib/__tests__/service-worker-registration.test.ts",
+      "sha256": "f4535bf604766d3d3f4860dd3bed3913e9e3ef0bbe884adce527806a319f6627"
+    },
+    {
+      "path": "web/lib/__tests__/subscore-ranking.test.ts",
+      "sha256": "aadb4288f1645ce037708fd94cc15b143e801496ca343cfed30fbbde5e6193a2"
+    },
+    {
+      "path": "web/lib/__tests__/transit-popup.test.ts",
+      "sha256": "975629f65aaba9ff4ebfeec730adda8c284ed02ca5db51ca0f2d77fafc67029a"
+    },
+    {
+      "path": "web/lib/__tests__/transit-shards.test.ts",
+      "sha256": "50bad6bbe876f3629714d7a52304cd738521341e02f81d4ffe961d95397c4da4"
+    },
+    {
+      "path": "web/lib/__tests__/transit-stop-picker.test.tsx",
+      "sha256": "d8a900f8f39c608ef90613a1dda2c4ba3729b924556b99b23a5946168e21889b"
+    },
+    {
+      "path": "web/lib/__tests__/typescript-contract.test.ts",
+      "sha256": "c7ea76a7e35962a4888deb4f49f58b40e87ea2c04a1f1a35494ec0adc31d4849"
+    },
+    {
+      "path": "web/lib/__tests__/walk-real-records.test.ts",
+      "sha256": "3312e7b38e5c433dd1ce4b7049250cbefdf89a995e6e613c8f25a29efbf79851"
+    },
+    {
+      "path": "web/lib/data.ts",
+      "sha256": "381aee65792968631e63299266297b4c63f61cd4befe5e25cfebb1c74bd2b4e3"
+    },
+    {
+      "path": "web/lib/lamp-overlay.ts",
+      "sha256": "717167658fa49110c04db6d82ccbdf1e3bf9efb77008fa5cfc2f425551dfe9df"
+    },
+    {
+      "path": "web/lib/live-route-scoring.ts",
+      "sha256": "b85b7b488f6f638d7c72bb3fc144819bf37c03f8f51ceae669f4293f5a5fd156"
+    },
+    {
+      "path": "web/lib/local-glyph-protocol.ts",
+      "sha256": "b4b9a3220c1c10e2542c992bccc9aa41228d907fc02444ace84ce3e7446c5f71"
+    },
+    {
+      "path": "web/lib/locked-score-availability.ts",
+      "sha256": "8e9adcd7e2b83d6a6d9fbc8c93442cc9a12e32caf2ac7643feaadf6d4ee7de0c"
+    },
+    {
+      "path": "web/lib/map-viewport.ts",
+      "sha256": "49950f3193d01a2b2c9243c7d5c2e8341d2fa3ceb56ddf859ba6e9fc54d96d15"
+    },
+    {
+      "path": "web/lib/nearest-transit.ts",
+      "sha256": "057b42ba5f354ea83575cc2012d48716b8cf4b059ee5ea6233a6efd70cff1403"
+    },
+    {
+      "path": "web/lib/onemap-search.ts",
+      "sha256": "6aff99e5fed66948a90c12e711a7fb93d0e8a20697bf847f2c262d2b5c874757"
+    },
+    {
+      "path": "web/lib/polyline.ts",
+      "sha256": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e"
+    },
+    {
+      "path": "web/lib/route-display.ts",
+      "sha256": "611d1a5d50deb74776f8c79dd67a0b4f48e0fb8647e4e3f5237d923403b4088d"
+    },
+    {
+      "path": "web/lib/route-geojson.ts",
+      "sha256": "3485e2692a46f92cdfbc7512a8ce95654656cd9beee7c1858ab230d373f60543"
+    },
+    {
+      "path": "web/lib/service-worker-cache.ts",
+      "sha256": "c2f9d464baf18d4404a68e55bee937cb9ad8bb0a8f90c011322fa6f701ea3a89"
+    },
+    {
+      "path": "web/lib/subscore-ranking.ts",
+      "sha256": "d8f3f9e6813ddc230af0cafd9eab414aec3e4fb87634447c4c815c50432e9b6a"
+    },
+    {
+      "path": "web/lib/transit-popup.ts",
+      "sha256": "b771d147079b4b5d6cf0b45530af8b0154f0dd8ddaca5fd6dadcd6fc517a6ade"
+    },
+    {
+      "path": "web/lib/types.ts",
+      "sha256": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98"
+    },
+    {
+      "path": "web/next-env.d.ts",
+      "sha256": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc"
+    },
+    {
+      "path": "web/next.config.js",
+      "sha256": "43362b98a9271071c95a8bd1a2242c40e8d169324a4f4cd33f857582999dfa76"
+    },
+    {
+      "path": "web/package-lock.json",
+      "sha256": "04765d87615d6d3f835adcc311b0489665e82113744d1cf291836ef8ed3aeb4e"
+    },
+    {
+      "path": "web/package.json",
+      "sha256": "2a3d13156cece44b108e090d9069f36297d0c53fcb0e760f2138516a6d4b7ae9"
+    },
+    {
+      "path": "web/public/maplibre/6.1.0/LICENSE.txt",
+      "sha256": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2"
+    },
+    {
+      "path": "web/public/maplibre/6.1.0/maplibre-gl-shared.mjs",
+      "sha256": "ce66c617187b6956d878d3961aceeb7c335eec3f76ee8d80737a917d8e989860"
+    },
+    {
+      "path": "web/public/maplibre/6.1.0/maplibre-gl-worker.mjs",
+      "sha256": "5a77b4637ea5ae64f0b1f208e4b1f4d9c681e2575d96e592f2074925597224c6"
+    },
+    {
+      "path": "web/public/site.webmanifest",
+      "sha256": "e0ace347324935ce0e1904ff7c4a1f638a36d9d23bac6422659d683edbf46517"
+    },
+    {
+      "path": "web/public/sw.js",
+      "sha256": "173611b9a193b0db26ed9b1ef8913962a319f2bf40dedf347adc7c3e1f150eff"
+    },
+    {
+      "path": "web/scripts/browser-smoke.mjs",
+      "sha256": "e7b2e794bddac3636fa68bb23a72b0556b2150cc10079dff974c108432862185"
+    },
+    {
+      "path": "web/scripts/deny-production-data.cjs",
+      "sha256": "0d6a0c3db6f777cc87ecc1d753cbc07205f492acc29d5a8661bc87471794bfe4"
+    },
+    {
+      "path": "web/scripts/ensure-data-bundle.mjs",
+      "sha256": "637966de4f209fb88bd9323e99e32b62401f8fe7d2c3fc565a75f4390ed43477"
+    },
+    {
+      "path": "web/scripts/extract-walk-test-fixtures.py",
+      "sha256": "4e56b76670514fca404e987a0cb14b0cc490b87e3193eab1de451d0792750616"
+    },
+    {
+      "path": "web/scripts/ignore-build.mjs",
+      "sha256": "12c54471d0fa4a6626e06401659ce2aaa9c052ec5d94c900fd12ee1a4c911126"
+    },
+    {
+      "path": "web/scripts/measure-lookup-transfer.mjs",
+      "sha256": "93aa67d7d8ed90cad5f18a56b4b28bfc5d9bdfe9acf9564da47cdf4e716c46fe"
+    },
+    {
+      "path": "web/scripts/revamp-browser.mjs",
+      "sha256": "48dfb9172af03d4f7f7fa5e9df4dfb8495cfe8be673d5b81ed7e4c145ee75461"
+    },
+    {
+      "path": "web/scripts/test-web.mjs",
+      "sha256": "acb616c59ceb37421101d88fb86116cf9155c657fa0bd9b756d25c2f84fccce6"
+    },
+    {
+      "path": "web/scripts/test-without-production-data.mjs",
+      "sha256": "8b01e905acd876d79504fcb4b4639d7ba02141c3d5eb2c4b906477ce1a0e4b44"
+    },
+    {
+      "path": "web/section10-presentation-proposal.md",
+      "sha256": "28eafa24a80eaf70b903295600f9f334e410869e9068d7e908154588cbedf3fc"
+    },
+    {
+      "path": "web/tsconfig.json",
+      "sha256": "e5020c21a4e117f0a789a28fc54838b21ab2e287f8c2fc0efab2c811839b4459"
+    },
+    {
+      "path": "web/vercel.json",
+      "sha256": "8fa6b3ece819b65ecfbce77f6062126f3bb6b8394e36819e916849fab11baff3"
+    },
+    {
+      "path": "web/vitest.config.ts",
+      "sha256": "65efb23283a46aff714d0e7893d09e60fdd3c1c4ca631ebd6606b4131c757e10"
+    }
+  ],
+  "qaConfigOverride": "const config = require('./next.qa-base.cjs');\nmodule.exports = { ...config, turbopack: { ...config.turbopack, root: \"C:\\\\sgSHIOK2026\" } };\n",
+  "generatedConfigSha256": "7d0f88bd23f0a9757d395052933e5fbe9be143701e2828c8ee97aa7e31b36514",
+  "startedAt": "2026-09-08T16:10:32.604Z",
+  "base": "e51ac87e0f4d230ef82f001c98d5e628f2e97855",
+  "exitCode": 0,
+  "finishedAt": "2026-09-08T16:15:45.697Z",
+  "buildId": "PlU4d8GR_-suMyZLJW7By"
+}

@@ -1313,3 +1313,69 @@ DISAGREEMENTS
    legacy-update claims. Earlier failed attempts remain evidence, not erased.
 2. The failed update observation does not establish a single causal mechanism;
    broader release and physical-device acceptance remain open.
+
+## T02 cached data recovery, 2026-09-09: reviewed fix, partial acceptance
+
+Command receipts and complete stdout/stderr:
+- `qa/revamp-r1/data-cache-recovery-20260909/baseline-1/checks.json`
+- `qa/revamp-r1/data-cache-recovery-20260909/fixed-1/checks.json`
+- `qa/revamp-r1/data-cache-recovery-20260909/fixed-2/checks.json`
+- `qa/revamp-r1/data-cache-recovery-20260909/full-1/checks.json`
+- `qa/revamp-r1/data-cache-recovery-20260909/full-2/checks.json`
+- `qa/revamp-r1/data-cache-recovery-20260909/summary.json`
+
+Executed from C:\sgSHIOK2026:
+```text
+node C:\sgSHIOK2026\qa\revamp-r1\data-cache-recovery-20260909\check.mjs baseline-1 focused
+node C:\sgSHIOK2026\qa\revamp-r1\data-cache-recovery-20260909\check.mjs fixed-2 focused
+node C:\sgSHIOK2026\qa\revamp-r1\data-cache-recovery-20260909\check.mjs full-2 full
+node C:\sgSHIOK2026\qa\revamp-r1\cached-release-20260908\build-snapshot.mjs data-recovery-20260909-2
+node C:\sgSHIOK2026\qa\revamp-r1\data-cache-recovery-20260909\browser-outage.mjs bounded-2 kII4ULp-szY9-sx6BRphK
+```
+
+Test arithmetic: baseline6 failed +14 passed =20; final19 recovery +5 existing
+compression =24 focused; worker39 previous +10 cache-isolation =49 independently
+executed tests. Full289 previous +19 recovery +10 isolation =318; 34 +1 =35 files.
+TypeScript, direct build, integrity and11 source identities pass. Reduced T04
+fixtures are still uncommitted and excluded from this isolated-suite count.
+
+Final runtime source, recorded build source and snapshot hashes match exactly;
+see summary.json. Final build ID: kII4ULp-szY9-sx6BRphK. Current local QA preview
+is http://127.0.0.1:4324/, owned proxy94656, online/B; not production.
+
+Browser records are preserved, not rewritten:
+- `cached-release-20260908/data-recovery-explicit-20260909-1/browser.json`:
+  first treatment before final review hardening. Four online sizes inspected,
+  four current features each. During outage score/geometry recovered and four
+  metrics returned, but map remained initializing. No offline-map PASS.
+- `data-cache-recovery-20260909/bounded-1-1788885774799-3300042e/browser.json`:
+  five-second Page.navigate harness timeout. Corrected sub-timeout, not app code.
+- `data-cache-recovery-20260909/bounded-2-1788886047048-c5632c71/browser.json`:
+  final build, inspected online mobile screenshot with four features. CacheStorage
+  score/geometry200 responses after gzip503; proxy independently records
+  /maplibre/6.1.0/maplibre-gl-worker.mjs returning503 during outage. Outage capture
+  timed out, so final HTML-body identity, four UI metrics and route recovery were
+  not verified in that capture. 45.156 -45 =0.156 seconds over its outage gate.
+  The88.146-second online phase is not a page-load or representative-phone timing.
+
+Both bounded runs missed Chrome-exit observation during their cleanup wait;
+subsequent native process checks report PIDs99604 and48340 absent (ESRCH).
+Proxy restoration online succeeded. Reused overlay metadata had an inaccurate
+hardcoded reason; final source/snapshot hashes show no post-build worker-byte
+change. Helper now records the prior hash and neutral copy reason.
+
+FINDINGS
+1. Cache-only alternate-format recovery fixes the reproduced reader failure.
+   No fresh fallback download, hidden decode failure or computed-value change.
+2. Independent review found request-policy races, cancellation and error-preservation
+   cases; fixed and tested. Final isolated suite318/35, TypeScript/build/integrity pass.
+3. MapLibre worker503 is a separate observed dependency failure. Source review also
+   finds no pre-load watchdog and ineffective partial retry before load. Fix these
+   next; not every worker failure is claimed to follow the same event path.
+4. Source data is untouched. Pipeline0, installations0, deployment0. Existing
+   verification content remains above this appended section.
+DISAGREEMENTS
+1. Data recovery is not whole-walk outage or automatic-upgrade acceptance.
+   T01/T02 remain PARTIAL; M12 and the all-tasks goal are not complete.
+2. Harness deadline failures are neither successful acceptance nor proof of a
+   new score defect. Transport evidence and capture limitations remain distinct.

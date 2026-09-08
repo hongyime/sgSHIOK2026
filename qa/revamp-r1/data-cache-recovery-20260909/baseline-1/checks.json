@@ -1,0 +1,105 @@
+{
+  "commands": [
+    {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:/sgSHIOK2026/web/node_modules/vitest/vitest.mjs",
+        "run",
+        "lib/__tests__/data-cache-recovery.test.ts",
+        "lib/__tests__/data-fetch-policy.test.ts",
+        "--root",
+        "C:/sgSHIOK2026/web",
+        "--maxWorkers=1"
+      ],
+      "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n ❯ lib/__tests__/data-cache-recovery.test.ts (15 tests | 6 failed) 828ms\n     × loads unchanged published scores from cached JSON after gzip 503 627ms\n     × loads unchanged published scores from cached JSON after gzip network rejection 19ms\n     × preserves the original HTTP failure on a cache miss, then permits a clean retry 23ms\n     × preserves the original network failure when the cache-only fetch rejects 9ms\n     × surfaces corrupt cached plain JSON without starting another request 21ms\n     × deduplicates concurrent reads through the cache fallback 5ms\n\n Test Files  1 failed | 1 passed (2)\n      Tests  6 failed | 14 passed (20)\n   Start at  00:07:10\n   Duration  4.66s (transform 1.49s, setup 0ms, import 1.26s, tests 948ms, environment 1ms)\n\n",
+      "stderr": "\n⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯\n\n FAIL  lib/__tests__/data-cache-recovery.test.ts > cached alternate-format recovery > loads unchanged published scores from cached JSON after gzip 503\nAssertionError: promise rejected \"Error: scores/index.json.gz fetch failed:… { status: … }\" instead of resolving\n ❯ lib/__tests__/data-cache-recovery.test.ts:51:48\n     49|     const expected = records.find((record) => record.postal === \"01895…\n     50|     expect(expected).toBeDefined();\n     51|     await expect(fetchScoreForPostal(\"018956\")).resolves.toEqual(expec…\n       |                                                ^\n     52|     expect(fetchMock.mock.calls.map(([url]) => String(url))).toEqual([\n     53|       `${base}scores/prefix-index.json.gz`, `${base}scores/prefix-inde…\n\nCaused by: Error: scores/index.json.gz fetch failed: 503\n ❯ lib/data.ts:90:39\n ❯ fetchJson lib/data.ts:102:12\n ❯ getAreaIndex lib/data.ts:164:16\n ❯ scoreShardsForPostal lib/data.ts:201:17\n ❯ fetchScoreForPostal lib/data.ts:212:25\n ❯ lib/__tests__/data-cache-recovery.test.ts:51:5\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯\nSerialized Error: { status: 503 }\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯\n\n FAIL  lib/__tests__/data-cache-recovery.test.ts > cached alternate-format recovery > loads unchanged published scores from cached JSON after gzip network rejection\nAssertionError: promise rejected \"TypeError: Failed to fetch\" instead of resolving\n ❯ lib/__tests__/data-cache-recovery.test.ts:51:48\n     49|     const expected = records.find((record) => record.postal === \"01895…\n     50|     expect(expected).toBeDefined();\n     51|     await expect(fetchScoreForPostal(\"018956\")).resolves.toEqual(expec…\n       |                                                ^\n     52|     expect(fetchMock.mock.calls.map(([url]) => String(url))).toEqual([\n     53|       `${base}scores/prefix-index.json.gz`, `${base}scores/prefix-inde…\n\nCaused by: TypeError: Failed to fetch\n ❯ lib/__tests__/data-cache-recovery.test.ts:38:52\n ❯ lib/data.ts:88:27\n ❯ fetchJson lib/data.ts:99:4\n ❯ getAreaIndex lib/data.ts:164:22\n ❯ scoreShardsForPostal lib/data.ts:201:23\n ❯ fetchScoreForPostal lib/data.ts:212:25\n ❯ lib/__tests__/data-cache-recovery.test.ts:51:5\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯\n\n FAIL  lib/__tests__/data-cache-recovery.test.ts > cached alternate-format recovery > preserves the original HTTP failure on a cache miss, then permits a clean retry\nAssertionError: expected 2nd \"vi.fn()\" call to have been called with [ …(2) ], but called only 1 times\n ❯ lib/__tests__/data-cache-recovery.test.ts:66:23\n     64|     const { fetchManifest } = await import(\"../data\");\n     65|     await expect(fetchManifest()).rejects.toThrow(\"manifest.json.gz fe…\n     66|     expect(fetchMock).toHaveBeenNthCalledWith(2, `${base}manifest.json…\n       |                       ^\n     67|     await expect(fetchManifest()).resolves.toEqual(manifest);\n     68|     expect(fetchMock).toHaveBeenCalledTimes(3);\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯\n\n FAIL  lib/__tests__/data-cache-recovery.test.ts > cached alternate-format recovery > preserves the original network failure when the cache-only fetch rejects\nAssertionError: expected \"vi.fn()\" to be called 2 times, but got 1 times\n ❯ lib/__tests__/data-cache-recovery.test.ts:77:23\n     75|     const { fetchManifest } = await import(\"../data\");\n     76|     await expect(fetchManifest()).rejects.toBe(original);\n     77|     expect(fetchMock).toHaveBeenCalledTimes(2);\n       |                       ^\n     78|   });\n     79|\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯\n\n FAIL  lib/__tests__/data-cache-recovery.test.ts > cached alternate-format recovery > surfaces corrupt cached plain JSON without starting another request\nAssertionError: expected Error: manifest.json.gz fetch failed: 503 { status: … } to be an instance of SyntaxError\n ❯ lib/__tests__/data-cache-recovery.test.ts:108:34\n    106|     vi.stubGlobal(\"fetch\", fetchMock);\n    107|     const { fetchManifest } = await import(\"../data\");\n    108|     await expect(fetchManifest()).rejects.toBeInstanceOf(SyntaxError);\n       |                                  ^\n    109|     expect(fetchMock).toHaveBeenCalledTimes(2);\n    110|   });\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯\n\n FAIL  lib/__tests__/data-cache-recovery.test.ts > cached alternate-format recovery > deduplicates concurrent reads through the cache fallback\nError: manifest.json.gz fetch failed: 502\n ❯ lib/data.ts:90:39\n     88|       const gzRes = await fetch(dataUrl(gzPath), DATA_FETCH_OPTIONS);\n     89|       if (gzRes.ok) return decodeJsonResponse<T>(gzRes, gzPath);\n     90|       if (gzRes.status !== 404) throw new ArtifactFetchError(gzPath, g…\n       |                                       ^\n     91|       if (compressedOnlyArtifact(path)) {\n     92|         throw new Error(`${gzPath} fetch failed: ${gzRes.status}`);\n ❯ fetchJson lib/data.ts:102:12\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯\n\n",
+      "exitCode": 1,
+      "elapsedSeconds": 18.729
+    }
+  ],
+  "inputs": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "actual": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "actual": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "actual": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "actual": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "actual": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "actual": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "actual": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "actual": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "match": true
+    }
+  ],
+  "startedAt": "2026-09-08T16:06:56.782Z",
+  "pipelineRuns": 0,
+  "installs": 0,
+  "deployment": false,
+  "finishedAt": "2026-09-08T16:07:16.189Z",
+  "ok": false
+}

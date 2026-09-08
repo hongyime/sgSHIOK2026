@@ -115,13 +115,14 @@ async function assetResponse(event) {
   const request = event.request;
   const cached = await readCache(CACHE_NAME, request);
   if (cached && isFreshEnough(cached, cacheMaxAgeMs(request))) return cached;
-  let pending = inFlight.get(request.url);
+  const key = `${request.cache === "only-if-cached" ? "cache-only" : "network-allowed"}:${request.url}`;
+  let pending = inFlight.get(key);
   if (!pending) {
     pending = fetch(request).then(response => {
       if (canStore(response)) event.waitUntil(writeCache(CACHE_NAME, request, response.clone()));
       return response;
-    }).finally(() => inFlight.delete(request.url));
-    inFlight.set(request.url, pending);
+    }).finally(() => inFlight.delete(key));
+    inFlight.set(key, pending);
   }
   try {
     const response = (await pending).clone();
