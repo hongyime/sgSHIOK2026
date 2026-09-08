@@ -3,11 +3,11 @@
 Date: 2026-09-08
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Current task: independent review accepts restoration at e56ad58 and the inspected topic opt-out, with a fail-open API-error limitation recorded in decisions.md. Next agent implements only the Route-source separation section of IMPLEMENTATION-BRIEF.md. Browser timing remains headroom-gated; no deployment or pipeline work.
+Current task: authorized route-source separation implemented from fc6d1c6 and handed back for independent review. Optional collection changes produce zero route writes in executed component effects; replacement/clearing, same-ID geometry, source recreation, retry and stale callbacks covered. Focused 18/18 in 4 files; isolated suite 236/236 in 31 files; six diagnostic tests, installed TypeScript and integrity pass. Browser/performance validation pending: CPU 100%, 541-835 MiB available and sustained paging. No browser/build launched or latency benefit claimed. Accepted sync opt-out retains its fail-open topic-lookup limitation.
 Evidence: qa/verification/REVAMP-R1-core-walk.md (append-only corrections and catalogue mapping).
-Machine-readable handbacks: qa/sync-repair/20260907/summary.json and writer-proof.json (current); qa/revamp-r1/repair-portability/summary.json and qa/revamp-r1/repair-final/summary.json (prior functional checks).
+Machine-readable handback: qa/revamp-r1/route-source-separation/summary.json (current). Earlier sync, portability and functional summaries remain historical evidence.
 Code fixes pushed: 04fae3e and 7788e35; evidence is included with this handback.
-Preview: http://localhost:4318/ (local Next production server; frontend-only build).
+Prior preview address: http://localhost:4318/; not rebuilt or verified for this treatment. No current-treatment browser screenshot/count claim.
 Portability checks: isolated full suite 228 passed / 30 files; focused 15 passed / 3 files; zero failures/skips. Test copy has no web/public/data; Node filesystem guard denies original and copied data paths. Existing dependencies linked; no install. TypeScript and repo integrity passed. Reduced fixture indexes do not audit the complete production bundle.
 Prior functional checks: full suite 228 passed / 30 files; focused regression run passed; TypeScript,
 direct frontend build and repo integrity passed. All four required viewports show
@@ -23,11 +23,11 @@ writes per run, 54 across the pair. Host CPU 100%, available 707-1377 MiB, susta
 Remaining: performance acceptance and review of proposed M12 budgets; native parse/decompression
 and server CPU attribution, complete worker transfers and usable V8 trace. No
 representative phone/production benchmark. No additional measurements under pressure.
-Next: stop for independent sync-repair review. Keep no-config-sync on this repository;
-future shared configuration refreshes require deliberate review/adoption. The guard
-depends on the upstream writer continuing to honor that topic. Any later performance
-work needs owner-arranged headroom and review of route-source separation and corrected
-telemetry; latency benefit is unproven. No implementation or comparison/reporting.
+Next: stop for independent route-source implementation review. Browser comparison
+needs owner-arranged host headroom and audited baseline/treatment builds using the
+same cache definitions, postal and viewport; do not use pressure-limited 4d52b80
+times as a clean baseline. Keep no-config-sync; upstream topic lookup failure can
+bypass it. No comparison/reporting features, pipeline work or deployment.
 Scope: real-data core walk UI and map reliability, not comparison/report infrastructure.
 Mockup approved at 0de3d5f. Reuse production MapLibre, never the illustrative canvas.
 Prototype uses explicitly illustrative geometry/metrics; dialogs do not submit reports.

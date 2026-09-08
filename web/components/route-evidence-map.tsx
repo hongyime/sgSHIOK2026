@@ -144,6 +144,7 @@ const SOURCE_IDS = [
   "feedback-points",
 ] as const;
 const EMPTY_TRANSIT_POIS: TransitPoiCollection = { type: "FeatureCollection", features: [] };
+const EMPTY_FEEDBACK_POINTS: FeedbackPoint[] = [];
 const TRANSIT_POI_HOT_PINK = "#ff2d75";
 const TRANSIT_POI_BUS_PURPLE = "#6f4c8b";
 const LAMP_OVERLAY_MIN_ZOOM = 13;
@@ -1100,7 +1101,7 @@ export function RouteEvidenceMap({
   mode,
   transitPois = EMPTY_TRANSIT_POIS,
   feedbackEnabled = false,
-  feedbackPoints = [],
+  feedbackPoints = EMPTY_FEEDBACK_POINTS,
   onFeedbackPoint,
   onSelectTransitStop,
   chosenStopId = null,
@@ -1136,6 +1137,8 @@ export function RouteEvidenceMap({
 
   const routeVisibleRef = useRef(false);
   const [loaded, setLoaded] = useState(false);
+  // A new style or explicit recovery needs current data even when props are unchanged.
+  const [sourceGeneration, setSourceGeneration] = useState(0);
   const [lampData, setLampData] = useState<PointFeatureCollection>(emptyPointCollection);
   const [lampOverlayStatus, setLampOverlayStatus] = useState<LampOverlayStatus>("off");
   const routeRevisionRef = useRef(0);
@@ -1238,11 +1241,18 @@ export function RouteEvidenceMap({
         (window as unknown as { __shiokRouteMap?: maplibregl.Map }).__shiokRouteMap = mapRef.current;
       }
       mapRef.current.on("load", () => {
-        if (!mapRef.current) return;
+        if (!active || !mapRef.current) return;
         ensureRouteLayers(mapRef.current);
         bindPoiInteractions(mapRef.current, maplibre.Popup);
         setLoaded(true);
 
+      });
+      mapRef.current.on("style.load", () => {
+        if (!active || !mapRef.current) return;
+        cancelProbeRef.current?.();
+        routeVisibleRef.current = false;
+        ensureRouteLayers(mapRef.current);
+        setSourceGeneration(generation => generation + 1);
       });
       mapRef.current.on("error", (event) => {
         if (!active) return;
@@ -1280,18 +1290,40 @@ export function RouteEvidenceMap({
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !loaded) return;
-    ensureRouteLayers(map);
-
+    // Route-owned collections change together. Optional overlays do not own them.
     setSourceData(map, "shortest-route", routeData.shortest);
     setSourceData(map, "shiokest-route", routeData.shiokest);
     setSourceData(map, "exposure-gaps", routeData.exposure);
-    setSourceData(map, "active-exposure-gap", activeGapData);
     setSourceData(map, "transit-node", routeData.transit);
+  }, [loaded, sourceGeneration, routeData]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !loaded) return;
+    setSourceData(map, "active-exposure-gap", activeGapData);
+  }, [loaded, sourceGeneration, activeGapData]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !loaded) return;
     setSourceData(map, "transit-pois", transitPoiData);
+  }, [loaded, sourceGeneration, transitPoiData]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !loaded) return;
     setSourceData(map, "feedback-route", feedbackData.route);
     setSourceData(map, "feedback-points", feedbackData.points);
-    setSourceData(map, "lamp-posts", lampData);
+  }, [loaded, sourceGeneration, feedbackData]);
 
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !loaded) return;
+    setSourceData(map, "lamp-posts", lampData);
+  }, [loaded, sourceGeneration, lampData]);
+
+  useEffect(() => {
+    if (!loaded) return;
     if (
       typeof window !== "undefined" &&
       new URLSearchParams(window.location.search).has("debugMap")
@@ -1404,7 +1436,7 @@ export function RouteEvidenceMap({
       map.off("moveend", updateLampOverlay);
       map.off("zoomend", updateLampOverlay);
     };
-  }, [loaded, showLampOverlay]);
+  }, [loaded, sourceGeneration, showLampOverlay]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -1464,23 +1496,29 @@ export function RouteEvidenceMap({
     };
     map.on("movestart", onGesture);
     return () => { cancel(); map.off("movestart", onGesture); };
-  }, [loaded, routeKey, viewport, focusedExposureGap]);
+  }, [loaded, sourceGeneration, routeKey, viewport, focusedExposureGap]);
 
   useEffect(() => {
     if (!loaded || !retryKey) return;
     const map = mapRef.current;
     if (!map) return;
     mapProblemRef.current = null;
+    cancelProbeRef.current?.();
+    routeVisibleRef.current = false;
+    ensureRouteLayers(map);
+    setSourceGeneration(generation => generation + 1);
     onStatusChangeRef.current?.("initializing");
     const source = map.getSource("onemap") as maplibregl.RasterTileSource | undefined;
     source?.setTiles(["https://www.onemap.gov.sg/maps/tiles/Grey_HD/{z}/{x}/{y}.png"]);
+    let active = true;
     const settled = () => {
-      if (!map.isSourceLoaded("onemap")) return;
+      if (!active || !map.isSourceLoaded("onemap")) return;
+      active = false;
       map.off("sourcedata", settled);
       if (routeVisibleRef.current && !mapProblemRef.current) onStatusChangeRef.current?.("ready");
     };
     map.on("sourcedata", settled);
-    return () => { map.off("sourcedata", settled); };
+    return () => { active = false; map.off("sourcedata", settled); };
   }, [loaded, retryKey]);
 
   const onSelectTransitStopRef = useRef(onSelectTransitStop);
@@ -1554,7 +1592,7 @@ export function RouteEvidenceMap({
         ["==", ["get", "id"], idToken],
       ]);
     }
-  }, [chosenStopId, loaded]);
+  }, [chosenStopId, loaded, sourceGeneration]);
 
   return (
     <div className={styles.mapShell}>

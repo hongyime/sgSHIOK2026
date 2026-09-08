@@ -838,3 +838,126 @@ Independent focused rerun:
 python -m pytest tests/test_repo_integrity.py --basetemp=C:/sgSHIOK2026/tmp/sync-review-20260908 -p no:cacheprovider -q
 29 passed in 23.09s
 ```
+
+### Route-source separation implementation, 2026-09-08
+
+Root/host asserted first: C:\sgSHIOK2026 / Prawn-E14. Read STATE, AGENTS,
+web/AGENTS, installed Next use-client guidance and IMPLEMENTATION-BRIEF, including
+the fc6d1c6 authorization. Clean tracked main was already at
+fc6d1c660d2a89937ead51dafdab351d1739989e; fetch and --ff-only pull found no
+intervening remote changes. Startup integrity passed. No X: commands or writes.
+
+FINDINGS: publication behavior is improved; browser/performance validation pending.
+The combined effect is split by data ownership. Four route sources (shortest,
+shiokest, gaps, transit endpoint) no longer resubmit on optional collection changes.
+Active highlight, transit POIs, feedback and lamps have separate effects. The
+default empty feedback array is stable. Source-generation changes on style reload
+or explicit retry republish the current data and rearm readiness/overlay state.
+Retry listeners now reject already queued callbacks after settlement or cleanup.
+No UI, schema, route/score data, dependencies or pipeline changes.
+
+Executed source spies in route-source-lifecycle.test.ts cover:
+
+- Initial route publication: one write to each of the four owned sources.
+- POI-only change: one POI write, zero route writes and zero route fits.
+- Feedback-only change: two feedback writes, zero route writes/fits.
+- Async lamp completion to unavailable/empty: one lamp write, zero route writes/fits.
+- Gap focus/clear: only the highlight source changes; intentional camera behavior
+  remains. Default omitted feedback does not add unrelated writes.
+- Route replacement and empty clearing: each publishes all four route collections.
+- Same postal/route ID with changed real alternate geometry: new geometry publishes
+  with the existing fresh readiness revision. No render-key-only deduplication.
+- Style recreation and missing-source retry: current route data republishes, old
+  render callbacks are inert, current features satisfy readiness, and listener
+  counts remain bounded across repeated retries and unmount.
+- Intentional gesture cancels the probe; optional updates do not refit or time out.
+
+Tests execute the actual component through a deterministic dependency/effect host;
+DOM/WebGL and external network are spies. This is component publication/lifecycle
+evidence, not a browser renderer test. Real route geometries come from the existing
+portable published-walks fixture/provenance; optional errors are synthetic.
+No original production data is needed or downloaded.
+
+Baseline and intermediate reports are preserved in the new
+qa/revamp-r1/route-source-separation directory. before.json (1 passed/6 failed)
+emitted load before dynamic import had settled; before-mounted.json (0/7) lacked
+the moveLayer fake. These are harness setup failures, not product regressions.
+After correcting the harness, baseline.json has 3 passed/4 failed: duplicate
+initial route publication after lamp state, gap rewriting other sources, absent
+style recovery and absent missing-source recovery. after-first.json has 6/1;
+the remaining assertion expected an explicit undefined retry argument where the
+existing callback supplies one argument. It was corrected to check both current
+render readiness and retry settlement. focused-first.json passed 17/17. Final
+retry-callback regression also invokes stale handlers after current route success
+and after unmount. No source-string assertions were added or changed.
+
+Command evidence (all root C:\sgSHIOK2026; output paths below abbreviated by OUT
+= C:/sgSHIOK2026/qa/revamp-r1/route-source-separation):
+
+- `node C:/sgSHIOK2026/web/scripts/test-web.mjs route-source-lifecycle.test.ts map-viewport.test.ts walk-real-records.test.ts geometry-recovery.test.ts --reporter=json --outputFile=OUT/focused-final.json`:
+  18 passed in 4 files, no failures/skips.
+- `node C:/sgSHIOK2026/web/scripts/test-without-production-data.mjs --reporter=json --outputFile=OUT/full-isolated-final.json`:
+  236 passed in 31 files, no failures/skips. Earlier full-isolated.json also passed
+  236 tests before the final retry-callback guard; final suite rerun covers it.
+  Fresh tracked-source snapshot tmp/test-without-data-7PrB0K contains no
+  web/public/data. Filesystem guard probes deny both original and snapshot data
+  paths; installed node_modules linked, no install. isolation receipt in summary.
+- `node C:/sgSHIOK2026/web/node_modules/typescript/bin/tsc --project C:/sgSHIOK2026/web/tsconfig.json --noEmit --incremental false`: exit 0.
+- `python C:/sgSHIOK2026/scripts/check_repo_integrity.py`: repo_integrity=ok.
+- `node --test C:/sgSHIOK2026/qa/revamp-r1/route-source-separation/diagnostic-session.test.mjs`:
+  6 passed, zero failed/skipped. `node --check` on new capture.mjs passed.
+- `git diff --check`: passed. Exploratory rg calls with Windows glob operands or
+  guessed test filenames failed; rg --files then located actual tests. Those
+  failed searches are not test failures or evidence of coverage.
+
+Diagnostic corrections exist only in new files in this task's directory. The new
+capture driver imports diagnostic-session.mjs: register trace completion waiting
+before Tracing.end, retain late data chunks, distinguish timeout/truncation from
+successful flush, and remove detached sessions before warm worker collection.
+Mid-query detach becomes an explicit diagnostic record, not an application error;
+other telemetry failures remain visible. Source writes carry cheap reference IDs;
+payload-probe.js computes SHA-256 fingerprints of serialization after the loaded
+screenshot/measurement bracket. Same-reference, equal serialized data and repeated
+render keys are distinct. Fingerprints describe finalization-time data, not an
+immutable submission-time snapshot. The executed payload test uses identical keys
+with both equal and changed coordinates; serialization occurs only at finalization.
+No full application transfer or complete CPU attribution is claimed. Actual browser
+trace flushing remains pending even though the collector's event behavior is tested.
+
+The future capture driver requires a fresh output name, explicit reviewed headroom
+and an audited build commit, records Next BUILD_ID, and retains the existing postal
+018956, 390x844 viewport, cold/warm cache definitions, worker/page byte scope and
+120-second deadline. It stops after a failed loaded capture. An operator still must
+audit the serving build against its claimed commit; a provided SHA is not proof.
+Original loading-diagnosis scripts, captures and hashes remain unchanged.
+
+Host gate: typeperf sampled available MiB, pages input/output, page reads and total
+CPU at two-second intervals for eight rows into headroom.csv. First rate row is
+unavailable; all seven valid rate samples show CPU 100%. Available memory spans
+541-835 MiB, pages input 8418.78-13903.26/sec and page reads 1049.73-2250.37/sec.
+This shows sustained pressure, not hardware-only causation. No browser launched,
+no build, no repetition or unrelated-process termination. Browser/performance
+validation pending. Smallest owner action: provide a quieter session or suitable
+host, then audit baseline/treatment builds and execute a matched-profile comparison.
+The prior localhost:4318 preview was not rebuilt/verified for this treatment.
+Before/after screenshots and current-route counts at 1440x950, 390x844, 390x667 and
+320px are not collected in this task; no earlier screenshot is relabelled as new.
+
+Catalogue mapping: M05/M10/M11 map to the eight executed source-lifecycle tests and
+existing map-viewport stale-feature/callback/gesture tests; M03/M15 retain executed
+measured-padding tests; M06/M07 map to geometry-recovery and partial/retry checks;
+W01/W02/W03/W13 map to the five portable real-record/alternate-stop tests. Existing
+Round 1 stale A-failure/B-success and alternate-stop browser evidence is preserved,
+not rerun or promoted to new browser coverage. M12 latency/transfer budgets,
+representative phone/production performance and browser regression comparison
+remain open; unrelated catalogue items get no new blanket PASS classification.
+
+Review context remains: diagnosis 4d52b80 has 27 source writes EACH run, 54 across
+the pair. Repeated keys were not proven equal payloads by that old probe, and those
+pressure-limited times are not a clean baseline. Reduced writes prove no speedup.
+DISAGREEMENTS: none with the bounded authorization. Sync prevention still fails
+open on upstream topic lookup errors; no upstream settings were changed.
+All protected data/evidence and weights remain untouched. No installs, scoring,
+exports, processing or deployment. Production was not deployed; pipeline runs 0,
+pipeline cost $0. STATE, PRODUCT-PLAN and durable decisions updated. Stop for
+independent review; performance gate remains explicit, not an approval to widen scope.

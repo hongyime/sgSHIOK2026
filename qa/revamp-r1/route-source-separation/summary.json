@@ -1,0 +1,196 @@
+{
+  "recordedAt": "2026-09-08T00:11:08.846322+00:00",
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "base": "fc6d1c660d2a89937ead51dafdab351d1739989e",
+  "status": "Scoped implementation and required non-browser checks complete; stop for independent review; browser/performance validation pending",
+  "productFiles": [
+    "web/components/route-evidence-map.tsx",
+    "web/lib/__tests__/route-source-lifecycle.test.ts"
+  ],
+  "publication": {
+    "routeSources": [
+      "shortest-route",
+      "shiokest-route",
+      "exposure-gaps",
+      "transit-node"
+    ],
+    "initialRouteWrites": 4,
+    "optionalOnlyRouteWrites": 0,
+    "poiOnlyWrites": 1,
+    "feedbackOnlyWrites": 2,
+    "lampUnavailableCompletionWrites": 1,
+    "gapOnlyWrites": 1,
+    "replacementClearingRecoveryRouteWritesEach": 4,
+    "identity": "Collection references and explicit source generation, never render-key-only deduplication. Changed geometry at the same route ID receives the existing fresh readiness revision.",
+    "scope": "Actual component in a deterministic hook/effect host with map spies; no real DOM, React browser scheduler or WebGL proof"
+  },
+  "reports": {
+    "before.json": {
+      "tests": 7,
+      "passed": 1,
+      "failed": 6,
+      "pending": 0,
+      "files": 1
+    },
+    "before-mounted.json": {
+      "tests": 7,
+      "passed": 0,
+      "failed": 7,
+      "pending": 0,
+      "files": 1
+    },
+    "baseline.json": {
+      "tests": 7,
+      "passed": 3,
+      "failed": 4,
+      "pending": 0,
+      "files": 1
+    },
+    "after-first.json": {
+      "tests": 7,
+      "passed": 6,
+      "failed": 1,
+      "pending": 0,
+      "files": 1
+    },
+    "focused-first.json": {
+      "tests": 17,
+      "passed": 17,
+      "failed": 0,
+      "pending": 0,
+      "files": 3
+    },
+    "focused-final.json": {
+      "tests": 18,
+      "passed": 18,
+      "failed": 0,
+      "pending": 0,
+      "files": 4
+    },
+    "full-isolated.json": {
+      "tests": 236,
+      "passed": 236,
+      "failed": 0,
+      "pending": 0,
+      "files": 31
+    },
+    "full-isolated-final.json": {
+      "tests": 236,
+      "passed": 236,
+      "failed": 0,
+      "pending": 0,
+      "files": 31
+    }
+  },
+  "isolation": {
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-7PrB0K",
+    "copiedFiles": 152,
+    "productionDataDirectoryAbsent": true,
+    "guardProbePassed": true,
+    "forbiddenPaths": [
+      "C:\\sgSHIOK2026\\web\\public\\data",
+      "C:\\sgSHIOK2026\\tmp\\test-without-data-7PrB0K\\web\\public\\data"
+    ],
+    "dependencies": "Existing node_modules linked; no installation",
+    "testArgs": [
+      "--reporter=json",
+      "--outputFile=C:/sgSHIOK2026/qa/revamp-r1/route-source-separation/full-isolated-final.json"
+    ],
+    "exitCode": 0
+  },
+  "checks": {
+    "focused": "18 passed / 4 files",
+    "isolatedSuite": "236 passed / 31 files",
+    "typescript": "installed compiler --noEmit --incremental false, exit 0",
+    "integrity": "repo_integrity=ok",
+    "diffCheck": "passed",
+    "diagnosticTests": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "command": "node --test C:/sgSHIOK2026/qa/revamp-r1/route-source-separation/diagnostic-session.test.mjs"
+    },
+    "captureSyntax": "node --check passed"
+  },
+  "diagnostics": {
+    "trace": "Wait for Tracing.tracingComplete, retain late chunks, expose timeout/truncation",
+    "workers": "Remove detached sessions; telemetry failures remain separate from application errors",
+    "payloads": "Reference IDs in source wrapper; SHA-256 of serialized data at finalization outside measurement. Not an immutable call-time snapshot. Repeated render keys alone do not establish equality.",
+    "liveBrowserValidation": "pending; original captures never overwritten",
+    "originalGitBlobsUnchanged": {
+      "qa/revamp-r1/loading-diagnosis/capture.mjs": "523a4cbfb42884b44bb82d38a262bf4eed30acc7",
+      "qa/revamp-r1/loading-diagnosis/browser-probe.js": "13616d62474a78c85bf6876ee9430a816a2702aa",
+      "qa/revamp-r1/loading-diagnosis/capture.json": "7034af7c3227baa460093888e766f3a00cb1e443",
+      "qa/revamp-r1/loading-diagnosis/analysis.json": "656452d2249581618fbbf970b6f8ecffe71dffeb",
+      "qa/revamp-r1/loading-diagnosis/timeline.json.gz": "e8d166196ef703b533c0b3c3178abf6aa1ba559c",
+      "qa/revamp-r1/loading-diagnosis/cold-390x844.png": "6a871fe1ed1fbc84007ba5053530e8a417399c27",
+      "qa/revamp-r1/loading-diagnosis/warm-390x844.png": "6a871fe1ed1fbc84007ba5053530e8a417399c27"
+    }
+  },
+  "headroom": {
+    "file": "headroom.csv",
+    "rows": 8,
+    "validRateRows": 7,
+    "unavailableInitialRateRows": 1,
+    "availableMiB": [
+      541.0,
+      835.0
+    ],
+    "pagesInputPerSecond": [
+      8418.780916219212,
+      13903.26088784441
+    ],
+    "pageReadsPerSecond": [
+      1049.7282830227107,
+      2250.3739262711233
+    ],
+    "cpuPercent": [
+      100.0,
+      100.0
+    ],
+    "decision": "Sustained pressure: no browser or build comparison. Hardware-only causation not established."
+  },
+  "browser": {
+    "status": "browser/performance validation pending",
+    "newCaptures": [],
+    "newRenderedRouteCounts": {},
+    "priorPreview": "http://localhost:4318/ \u2014 not rebuilt or verified for treatment",
+    "smallestOwnerAction": "Provide quieter session or suitable host; audit baseline/treatment serving builds, then run matched cache/postal/viewport comparison with new diagnostic files.",
+    "noSpeedupClaim": true,
+    "pressureLimitedPriorTimesAreNotCleanBaseline": true
+  },
+  "catalogue": {
+    "M05/M10/M11": "Eight executed source-lifecycle tests and map-viewport stale-feature/callback/gesture tests",
+    "M03/M15": "Existing measured-padding tests executed",
+    "M06/M07": "Geometry recovery and partial/retry checks executed",
+    "W01/W02/W03/W13": "Five portable real-record/alternate-stop tests executed",
+    "M12": "Open: reviewed budgets and representative latency/transfer validation",
+    "priorBrowserRaceEvidence": "A-failure/B-success preserved; not rerun"
+  },
+  "failuresAndCorrections": {
+    "before.json": "Harness emitted load before import settled; not product regression",
+    "before-mounted.json": "Fake map lacked moveLayer; not product regression",
+    "baseline.json": "Valid baseline: 4 expected behavioral failures, 3 pass",
+    "after-first.json": "6 pass, assertion mismatch about retry callback optional argument corrected",
+    "exploratorySearches": "Invalid Windows glob operands / guessed filenames failed; corrected by rg --files"
+  },
+  "reviewContext": {
+    "sourceWritesEachPriorRun": 27,
+    "sourceWritesPriorPair": 54,
+    "performanceAcceptance": false,
+    "syncOptout": "Conditional, upstream lookup failure proceeds; no settings changed"
+  },
+  "protections": {
+    "pipelineRuns": 0,
+    "pipelineCost": 0,
+    "installs": 0,
+    "deployments": 0,
+    "builds": 0,
+    "protectedPayloadChanges": 0,
+    "originalEvidenceChanges": 0,
+    "unrelatedFeatureChanges": 0
+  },
+  "findings": "Optional sources no longer rewrite unchanged route collections; recovery and cancellation remain explicit. Fewer writes are not speedup evidence.",
+  "disagreements": []
+}

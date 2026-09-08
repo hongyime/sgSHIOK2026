@@ -2388,3 +2388,28 @@ Do not reopen a broad verification phase: proceed with the narrowly specified
 route-source separation and behavioral tests in IMPLEMENTATION-BRIEF.md. Reduced
 source writes do not establish a latency saving; browser comparison remains gated
 by host headroom, and deployment and pipeline work remain unauthorized.
+
+### 2026-09-08: Separate source ownership; retain explicit recovery publication
+Implement the fc6d1c6 frontend authorization with five publication effects: route,
+active gap, transit POIs, feedback and lamps. Collection identity and an explicit
+source-generation counter drive writes; no render-key-only cache or serialization
+in the publication path. A geometry change at an unchanged selected route ID still
+creates the existing new render revision. Style recreation and retry are deliberate
+republish boundaries and also reset readiness. Retry listeners use an active flag
+so removed but queued callbacks cannot report later success.
+
+Behavioral evidence uses the real component with a deterministic hook/effect host,
+source spies and existing portable geometry fixtures; it does not prove WebGL
+rendering or React browser scheduling. Focused 18 tests and isolated 236-test web
+suite pass. New diagnostic files wait for the actual trace completion event,
+remove detached workers, retain telemetry failures separately from app errors,
+and fingerprint payload references after measurement. Six diagnostic tests pass.
+Fingerprints describe serialization at finalization, not immutable call-time
+snapshots; repeated keys alone never establish equal data.
+
+Host pressure persists (100% CPU, 541-835 MiB available, sustained paging), so no
+browser/build comparison was attempted. Browser/performance validation remains
+pending; fewer writes prove no speedup. Obtain owner-arranged headroom before an
+audited baseline/treatment comparison. Preserve the accepted diagnosis's 27 writes
+per run/54 per pair and the sync opt-out's fail-open lookup limitation. No other
+feature, pipeline, install, protected payload change or deployment. Stop for review.

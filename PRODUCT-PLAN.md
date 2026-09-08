@@ -114,3 +114,35 @@ and worker transfer attribution remain unresolved; V8 trace export contained zer
 events. Correct telemetry and obtain owner-arranged host headroom before another
 controlled pair. Whole-app transfer, representative phone performance, reviewed
 M12 budgets and release approval remain open. Stop for independent review.
+
+### Route-source separation handback, 2026-09-08
+Implemented only the fc6d1c6 authorization. The four route-owned sources now
+publish separately from POIs, lamps, feedback and the active-gap highlight.
+Executed component effect tests show zero route writes for those optional-only
+changes; gap focus/clear still moves the camera intentionally. Replacement and
+empty clearing publish all four route sources. Changed geometry at the same
+postal/route ID propagates with a fresh readiness revision, without key-only
+deduplication or JSON serialization for publication decisions.
+
+Style recreation and explicit retry republish current collections, restore lamp
+visibility/chosen-stop filters and rearm current-selection readiness. Queued retry
+callbacks become inert on settlement/cleanup; repeated recovery does not accumulate
+listeners. Stable default empty feedback avoids unrelated feedback writes.
+Focused checks: 18 passed in 4 files. Isolated full suite: 236 passed in 31 files,
+no failures/skips; existing dependencies linked, original and copied production
+data paths denied. Installed TypeScript and integrity pass. Six diagnostic tests
+prove completion-event waiting, detached-worker accounting and off-window payload
+fingerprints. Original diagnostic files/captures and verification lines remain.
+
+Browser/performance validation pending: seven valid host samples all show 100%
+CPU, 541-835 MiB available and sustained page reads. No browser comparison, build,
+new screenshot/count pair or latency saving is claimed. Reduced writes establish
+publication behavior only. The accepted prior diagnosis recorded 27 source writes
+EACH run, 54 across the pair; its pressured times are not a clean baseline.
+Smallest owner action: provide a quieter session or suitable host, then audit
+baseline/treatment builds and run the gated matching-profile comparison using the
+new diagnostic driver. Native attribution, representative performance, M12 budgets
+and release remain open. Evidence: qa/revamp-r1/route-source-separation/summary.json
+and appended qa/verification/REVAMP-R1-core-walk.md. No pipeline, installation,
+protected-data change, UI/schema change, deployment or unrelated feature.
+Stop for independent review of this implementation before further work.
