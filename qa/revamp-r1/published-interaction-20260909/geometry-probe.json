@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "ticket": "T06",
+  "date": "2026-09-09",
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "scope": "Bounded read-only original 018956 geometry probe, sanitized segment coloring and foreign-fragment map-bounds correction. No pipeline, protected writes, installs or deployment.",
+  "inputs": {
+    "originalGeometry": {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "matchedExistingAnchor": true
+    },
+    "reducedScoreFixture": "web/lib/__tests__/fixtures/published-options.json",
+    "existingSourceIdentityReceipt": "web/lib/__tests__/fixtures/published-options.provenance.json",
+    "note": "Both reduced geometry fixtures omit route_segments. Original geometry was read only from the named 145327-byte shard and reduced in memory to postal 018956. Score evidence came from the unchanged reduced fixture."
+  },
+  "preFixProbes": {
+    "command": "PowerShell in C:\\sgSHIOK2026: a JavaScript here-string piped to node --input-type=module; Node registerHooks resolved repository .ts imports without output generation.",
+    "sourceIdentityLimit": "These historical outputs predate the foreign-fragment fix. Working-tree implementation byte hashes were not captured for those historical probes.",
+    "associationProbe": {
+      "exitCode": 0,
+      "rawStdout": "{\"source\":\"web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json\",\"bytes\":145327,\"sha256\":\"8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f\",\"expectedSha256\":\"8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f\",\"match\":true}\n{\"name\":\"top_default\",\"variants\":{\"shortest\":{\"rawSegments\":4,\"acceptedSegments\":4,\"status\":\"complete\",\"reasons\":[],\"unmatchedSegmentIndices\":[]},\"sheltered\":{\"rawSegments\":4,\"acceptedSegments\":4,\"status\":\"complete\",\"reasons\":[],\"unmatchedSegmentIndices\":[]}},\"fragments\":{\"raw\":3,\"validated\":3,\"pathMatched\":3,\"unmatchedIndices\":[]}}\n{\"name\":\"category_best_transit\",\"variants\":{\"shortest\":{\"rawSegments\":4,\"acceptedSegments\":4,\"status\":\"complete\",\"reasons\":[],\"unmatchedSegmentIndices\":[]},\"sheltered\":{\"rawSegments\":4,\"acceptedSegments\":4,\"status\":\"complete\",\"reasons\":[],\"unmatchedSegmentIndices\":[]}},\"fragments\":{\"raw\":3,\"validated\":3,\"pathMatched\":3,\"unmatchedIndices\":[]}}\n{\"name\":\"category_bus\",\"variants\":{\"shortest\":{\"rawSegments\":4,\"acceptedSegments\":4,\"status\":\"complete\",\"reasons\":[],\"unmatchedSegmentIndices\":[]},\"sheltered\":{\"rawSegments\":4,\"acceptedSegments\":4,\"status\":\"complete\",\"reasons\":[],\"unmatchedSegmentIndices\":[]}},\"fragments\":{\"raw\":3,\"validated\":3,\"pathMatched\":3,\"unmatchedIndices\":[]}}\n{\"name\":\"category_mrt_lrt\",\"variants\":{\"shortest\":{\"rawSegments\":3,\"acceptedSegments\":3,\"status\":\"complete\",\"reasons\":[],\"unmatchedSegmentIndices\":[]},\"sheltered\":{\"rawSegments\":5,\"acceptedSegments\":5,\"status\":\"complete\",\"reasons\":[],\"unmatchedSegmentIndices\":[]}},\"fragments\":{\"raw\":4,\"validated\":4,\"pathMatched\":4,\"unmatchedIndices\":[]}}\n{\"name\":\"mrt:21624\",\"variants\":{\"shortest\":{\"rawSegments\":3,\"acceptedSegments\":3,\"status\":\"complete\",\"reasons\":[],\"unmatchedSegmentIndices\":[]},\"sheltered\":{\"rawSegments\":3,\"acceptedSegments\":3,\"status\":\"complete\",\"reasons\":[],\"unmatchedSegmentIndices\":[]}},\"fragments\":{\"raw\":3,\"validated\":3,\"pathMatched\":3,\"unmatchedIndices\":[]}}\n{\"name\":\"bus:03509\",\"variants\":{\"shortest\":{\"rawSegments\":4,\"acceptedSegments\":4,\"status\":\"complete\",\"reasons\":[],\"unmatchedSegmentIndices\":[]},\"sheltered\":{\"rawSegments\":4,\"acceptedSegments\":4,\"status\":\"complete\",\"reasons\":[],\"unmatchedSegmentIndices\":[]}},\"fragments\":{\"raw\":3,\"validated\":3,\"pathMatched\":3,\"unmatchedIndices\":[]}}\n{\"name\":\"mrt:21678\",\"variants\":{\"shortest\":{\"rawSegments\":3,\"acceptedSegments\":3,\"status\":\"complete\",\"reasons\":[],\"unmatchedSegmentIndices\":[]},\"sheltered\":{\"rawSegments\":3,\"acceptedSegments\":3,\"status\":\"complete\",\"reasons\":[],\"unmatchedSegmentIndices\":[]}},\"fragments\":{\"raw\":3,\"validated\":3,\"pathMatched\":3,\"unmatchedIndices\":[]}}\n{\"name\":\"bus:03511\",\"variants\":{\"shortest\":{\"rawSegments\":3,\"acceptedSegments\":3,\"status\":\"complete\",\"reasons\":[],\"unmatchedSegmentIndices\":[]},\"sheltered\":{\"rawSegments\":3,\"acceptedSegments\":3,\"status\":\"complete\",\"reasons\":[],\"unmatchedSegmentIndices\":[]}},\"fragments\":{\"raw\":3,\"validated\":3,\"pathMatched\":3,\"unmatchedIndices\":[]}}\n{\"name\":\"bus:03519\",\"variants\":{\"shortest\":{\"rawSegments\":3,\"acceptedSegments\":3,\"status\":\"complete\",\"reasons\":[],\"unmatchedSegmentIndices\":[]},\"sheltered\":{\"rawSegments\":3,\"acceptedSegments\":3,\"status\":\"complete\",\"reasons\":[],\"unmatchedSegmentIndices\":[]}},\"fragments\":{\"raw\":3,\"validated\":3,\"pathMatched\":3,\"unmatchedIndices\":[]}}\n{\"syntheticForeignFragment\":{\"highlightable\":true,\"baseRetainable\":true,\"originalBounds\":[[103.85992,1.28264],[103.86014,1.28316]],\"foreignBounds\":[[103.85992,1.28264],[170.1,89.1]]}}\n"
+    },
+    "renderedColorProbe": {
+      "exitCode": 0,
+      "rawStdout": "{\"category\":\"bus\",\"selection\":{\"kind\":\"candidate\",\"nodeId\":\"bus:03511\"},\"checks\":{\"shortest\":{\"rawCount\":3,\"renderedCount\":3,\"rawCovered\":[0,0,0],\"renderedCovered\":[0,0,0],\"sourceClassesEqual\":true},\"sheltered\":{\"rawCount\":3,\"renderedCount\":3,\"rawCovered\":[0,0,0],\"renderedCovered\":[0,0,0],\"sourceClassesEqual\":true}}}\n{\"category\":\"bus\",\"selection\":{\"kind\":\"candidate\",\"nodeId\":\"bus:03519\"},\"checks\":{\"shortest\":{\"rawCount\":3,\"renderedCount\":3,\"rawCovered\":[0,0,0],\"renderedCovered\":[0,0,0],\"sourceClassesEqual\":true},\"sheltered\":{\"rawCount\":3,\"renderedCount\":3,\"rawCovered\":[0,0,0],\"renderedCovered\":[0,0,0],\"sourceClassesEqual\":true}}}\n{\"category\":\"bus\",\"selection\":{\"kind\":\"category_default\",\"category\":\"bus\"},\"checks\":{\"shortest\":{\"rawCount\":4,\"renderedCount\":4,\"rawCovered\":[0,1,0,0],\"renderedCovered\":[0,1,0,0],\"sourceClassesEqual\":true},\"sheltered\":{\"rawCount\":4,\"renderedCount\":4,\"rawCovered\":[0,1,0,0],\"renderedCovered\":[0,1,0,0],\"sourceClassesEqual\":true}}}\n{\"category\":\"mrt_lrt\",\"selection\":{\"kind\":\"candidate\",\"nodeId\":\"mrt:21624\"},\"checks\":{\"shortest\":{\"rawCount\":3,\"renderedCount\":3,\"rawCovered\":[0,0,0],\"renderedCovered\":[0,0,0],\"sourceClassesEqual\":true},\"sheltered\":{\"rawCount\":3,\"renderedCount\":3,\"rawCovered\":[0,0,0],\"renderedCovered\":[0,0,0],\"sourceClassesEqual\":true}}}\n{\"category\":\"mrt_lrt\",\"selection\":{\"kind\":\"candidate\",\"nodeId\":\"mrt:21678\"},\"checks\":{\"shortest\":{\"rawCount\":3,\"renderedCount\":3,\"rawCovered\":[0,0,0],\"renderedCovered\":[0,0,0],\"sourceClassesEqual\":true},\"sheltered\":{\"rawCount\":3,\"renderedCount\":3,\"rawCovered\":[0,0,0],\"renderedCovered\":[0,0,0],\"sourceClassesEqual\":true}}}\n{\"category\":\"mrt_lrt\",\"selection\":{\"kind\":\"category_default\",\"category\":\"mrt_lrt\"},\"checks\":{\"shortest\":{\"rawCount\":3,\"renderedCount\":3,\"rawCovered\":[0,0,0],\"renderedCovered\":[0,0,0],\"sourceClassesEqual\":true},\"sheltered\":{\"rawCount\":5,\"renderedCount\":5,\"rawCovered\":[0,0,1,0,0],\"renderedCovered\":[0,0,1,0,0],\"sourceClassesEqual\":true}}}\n"
+    },
+    "stderr": "Both Node probes emitted MODULE_TYPELESS_PACKAGE_JSON for the TypeScript source. Exit was 0; no package.json change was made."
+  },
+  "observedArithmetic": {
+    "sourceRepresentations": 9,
+    "shortestRawAndAccepted": "4 + 4 + 4 + 3 + 3 + 4 + 3 + 3 + 3 = 31",
+    "shelteredRawAndAccepted": "4 + 4 + 4 + 5 + 3 + 4 + 3 + 3 + 3 = 33",
+    "segmentEntries": "31 + 33 = 64",
+    "fragmentEntries": "3 + 3 + 3 + 4 + 3 + 3 + 3 + 3 + 3 = 28",
+    "scope": "Representation counts include repeated top/best-transit/bus/default-candidate evidence, not 9 distinct walks. The renderer probe covers 6 normalized options: 19 shortest + 21 sheltered = 40 segment entries, with 19 fragment entries."
+  },
+  "testHistory": [
+    {
+      "phase": "initial geometry implementation",
+      "command": "node C:/sgSHIOK2026/web/scripts/test-web.mjs lib/__tests__/published-transit-options.test.ts lib/__tests__/published-walk-view.test.ts --no-cache",
+      "passed": 402,
+      "failed": 0,
+      "files": 2,
+      "exitCode": 0,
+      "start": "04:13:50",
+      "durationSeconds": 4.51
+    },
+    {
+      "phase": "red repeated-edge regression",
+      "command": "node C:/sgSHIOK2026/web/scripts/test-web.mjs lib/__tests__/published-transit-options.test.ts --no-cache -t \"repeated edges keep valid full coloring\"",
+      "passed": 1,
+      "failed": 1,
+      "filteredSkips": 386,
+      "files": 1,
+      "exitCode": 1,
+      "start": "04:15:58",
+      "durationSeconds": 1.38,
+      "finding": "Greedy segment placement rejected a valid full partition. The shell-based runner also selected an existing repeated-position test; do not describe this as one executed test."
+    },
+    {
+      "phase": "exact edge multiplicity correction",
+      "passed": 403,
+      "failed": 0,
+      "files": 2,
+      "exitCode": 0,
+      "start": "04:16:45",
+      "durationSeconds": 4.63
+    },
+    {
+      "phase": "red nonrouted geometry regression",
+      "command": "node C:/sgSHIOK2026/web/scripts/test-web.mjs lib/__tests__/published-walk-view.test.ts --no-cache -t rejects-nonrouted",
+      "passed": 0,
+      "failed": 4,
+      "filteredSkips": 15,
+      "files": 1,
+      "exitCode": 1,
+      "start": "04:19:03",
+      "durationSeconds": 1.21
+    },
+    {
+      "phase": "routed-classification correction",
+      "passed": 407,
+      "failed": 0,
+      "files": 2,
+      "exitCode": 0,
+      "start": "04:19:17",
+      "durationSeconds": 3.12
+    },
+    {
+      "phase": "red foreign-fragment regression",
+      "command": "node C:/sgSHIOK2026/web/scripts/test-web.mjs lib/__tests__/published-walk-view.test.ts --no-cache -t foreign-fragment",
+      "passed": 0,
+      "failed": 2,
+      "filteredSkips": 19,
+      "files": 1,
+      "exitCode": 1,
+      "start": "04:26:49",
+      "durationSeconds": 3.23,
+      "failures": [
+        "foreign-fragment valid distant coordinates cannot contaminate map bounds or logical metrics",
+        "foreign-fragment one precision-grid shift is not silently snapped onto the selected path"
+      ],
+      "observedFailure": {
+        "expectedBounds": [
+          [
+            103.85992,
+            1.28264
+          ],
+          [
+            103.86014,
+            1.28316
+          ]
+        ],
+        "receivedBounds": [
+          [
+            103.85992,
+            1.28264
+          ],
+          [
+            170.1,
+            89.1
+          ]
+        ],
+        "shiftedFragmentExpectedCount": 2,
+        "shiftedFragmentActualCount": 3
+      }
+    },
+    {
+      "phase": "foreign-fragment path association correction",
+      "command": "node C:/sgSHIOK2026/web/scripts/test-web.mjs lib/__tests__/published-transit-options.test.ts lib/__tests__/published-walk-view.test.ts --no-cache",
+      "passed": 418,
+      "failed": 0,
+      "filteredSkips": 0,
+      "files": 2,
+      "exitCode": 0,
+      "start": "04:28:31",
+      "durationSeconds": 17,
+      "normalizerTests": 397,
+      "adapterTests": 21,
+      "arithmetic": "397 + 21 = 418; previous 407 + 9 normalizer + 2 adapter = 418",
+      "rawFinalSummary": "\n Test Files  2 passed (2)\n      Tests  418 passed (418)\n   Start at  04:28:31\n   Duration  17.00s (transform 5.59s, setup 0ms, import 6.72s, tests 6.55s, environment 3ms)\n\n"
+    }
+  ],
+  "postFixProbe": {
+    "exitCode": 0,
+    "command": "@'\nimport { readFileSync } from 'node:fs';\nimport { createHash } from 'node:crypto';\nimport { registerHooks } from 'node:module';\nregisterHooks({ resolve(specifier, context, nextResolve) {\n  if (specifier.startsWith('./') && context.parentURL?.startsWith('file:///C:/sgSHIOK2026/web/lib/') && !specifier.endsWith('.ts')) return nextResolve(new URL(specifier + '.ts', context.parentURL).href, context);\n  return nextResolve(specifier, context);\n} });\nconst { normalizePublishedTransitOptions } = await import('file:///C:/sgSHIOK2026/web/lib/published-transit-options.ts');\nconst { publishedOptionGeometry } = await import('file:///C:/sgSHIOK2026/web/lib/published-walk-view.ts');\nconst { postalGeomToRouteGeoJson } = await import('file:///C:/sgSHIOK2026/web/lib/route-geojson.ts');\nconst { encodePolyline } = await import('file:///C:/sgSHIOK2026/web/lib/polyline.ts');\nconst root='C:/sgSHIOK2026/';\nconst identity=path=>{const bytes=readFileSync(root+path);return {path,bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')};};\nconst receipt=JSON.parse(readFileSync(root+'web/lib/__tests__/fixtures/published-options.provenance.json','utf8'));\nconst anchor=receipt.sources['geom/h3/886520db39fffff.json'];\nconst sourceBytes=readFileSync(root+anchor.path);\nconst sourceHash=createHash('sha256').update(sourceBytes).digest('hex');\nconsole.log(JSON.stringify({kind:'sourceAnchor',path:anchor.path,bytes:sourceBytes.length,sha256:sourceHash,expectedSha256:anchor.sha256,match:sourceHash===anchor.sha256}));\nif(sourceHash!==anchor.sha256)throw new Error('STOP: source hash mismatch');\nconst fixturePath='web/lib/__tests__/fixtures/published-options.json';\nconst fixtureIdentity=identity(fixturePath);\nconsole.log(JSON.stringify({kind:'fixtureAnchor',...fixtureIdentity,expectedSha256:receipt.fixtureSha256,match:fixtureIdentity.sha256===receipt.fixtureSha256}));\nif(fixtureIdentity.sha256!==receipt.fixtureSha256)throw new Error('STOP: fixture hash mismatch');\nconst fixture=JSON.parse(readFileSync(root+fixturePath,'utf8'));\nconst original=fixture['scores/DOWNTOWN_CORE_PART_001.json'].find(row=>row.postal==='018956');\nconst geometry=JSON.parse(sourceBytes.toString('utf8')).find(row=>row.postal==='018956');\nconst context={bundle:'generated_20260805_prefer_scored_routed',postal:'018956'};\nconst normalize=(score,geom,category)=>normalizePublishedTransitOptions({...context,category,score,geometry:geom,scoreContext:context,geometryContext:context});\nconst summaries=[];\nconst defaults=[{name:'top_default',row:original,geom:geometry},...['best_transit','bus','mrt_lrt'].map(name=>({name:'category_'+name,row:original.route_options[name],geom:geometry.route_options[name]}))];\nfor(const source of defaults){\n  const category=source.row.best_node.type==='bus_stop'?'bus':'mrt_lrt';\n  const score={...original,best_node:null,candidates:[],route_options:{[category]:source.row}};\n  const geom={postal:'018956',route_options:{[category]:source.geom}};\n  summaries.push({name:source.name,raw:source.geom,option:normalize(score,geom,category).options[0]});\n}\nfor(const candidate of original.candidates){\n  const category=candidate.node_type==='bus_stop'?'bus':'mrt_lrt';\n  const score={...original,best_node:{type:category==='bus'?'mrt_lrt_exit':'bus_stop'},route_options:undefined,candidates:[candidate]};\n  summaries.push({name:candidate.node_id,raw:geometry.candidates[candidate.node_id],option:normalize(score,geometry,category).options[0]});\n}\nlet shortest=0,sheltered=0,fragments=0;\nfor(const {name,raw,option} of summaries){\n  const variants={};\n  for(const variant of ['shortest','sheltered']){\n    const cap=option.geometry.routeSegments[variant];\n    variants[variant]={raw:raw.route_segments[variant].length,accepted:cap.segments.length,status:cap.status,reasons:cap.reasons};\n    if(variant==='shortest')shortest+=cap.segments.length;else sheltered+=cap.segments.length;\n  }\n  const accepted=option.gaps.sheltered.fragments.entries.filter(f=>f.highlightable).length;\n  fragments+=accepted;\n  console.log(JSON.stringify({kind:'sourceRepresentationAfter',name,variants,fragments:{raw:raw.exposure_gaps.length,accepted,reasons:option.gaps.sheltered.fragments.reasons}}));\n}\nconsole.log(JSON.stringify({kind:'representationTotalsAfter',representations:summaries.length,shortestAccepted:shortest,shelteredAccepted:sheltered,segmentArithmetic:shortest+' + '+sheltered+' = '+(shortest+sheltered),fragmentAccepted:fragments,note:'Includes repeated default representations; not distinct walks.'}));\nfor(const category of ['bus','mrt_lrt']){\n  for(const option of normalize(original,geometry,category).options){\n    const render=postalGeomToRouteGeoJson(publishedOptionGeometry('018956',option));\n    const raw=option.selectedSource.rawGeometry;\n    const checks={};\n    for(const variant of ['shortest','sheltered']){\n      checks[variant]={raw:raw.route_segments[variant].length,rendered:render[variant].features.length,coveredEqual:JSON.stringify(raw.route_segments[variant].map(s=>s.is_covered?1:0))===JSON.stringify(render[variant].features.map(f=>f.properties.is_covered)),sourceClassesEqual:JSON.stringify(raw.route_segments[variant].map(s=>s.source_class))===JSON.stringify(render[variant].features.map(f=>f.properties.source_class))};\n    }\n    console.log(JSON.stringify({kind:'renderedColorAfter',category,selection:option.selectionRef,checks}));\n  }\n}\nconst getDefault=g=>normalize(original,g,'bus').options.find(o=>o.sources.some(s=>s.selectionRef.kind==='category_default'));\nconst clean=getDefault(geometry),badGeom=structuredClone(geometry);\nbadGeom.route_options.bus.exposure_gaps[0].geom=encodePolyline([[89,170],[89.1,170.1]]);\nconst bad=getDefault(badGeom);\nconst cleanView=publishedOptionGeometry('018956',clean),badView=publishedOptionGeometry('018956',bad);\nconsole.log(JSON.stringify({kind:'foreignFragmentAfter',highlightable:bad.gaps.sheltered.fragments.entries[0].highlightable,reasons:bad.gaps.sheltered.fragments.entries[0].reasons,originalBounds:postalGeomToRouteGeoJson(cleanView).bounds,foreignBounds:postalGeomToRouteGeoJson(badView).bounds,renderedFragmentCount:badView.exposure_gaps.length,metricsUnchanged:JSON.stringify(clean.metrics)===JSON.stringify(bad.metrics),logicalGapsUnchanged:JSON.stringify(clean.gaps.sheltered.logical)===JSON.stringify(bad.gaps.sheltered.logical),baseRetainable:bad.retainable}));\nconsole.log(JSON.stringify({kind:'implementationSources',sources:['web/lib/published-transit-options.ts','web/lib/published-walk-view.ts','web/lib/__tests__/published-transit-options.test.ts','web/lib/__tests__/published-walk-view.test.ts'].map(identity)}));\n\n'@ | node --input-type=module",
+    "script": "import { readFileSync } from 'node:fs';\nimport { createHash } from 'node:crypto';\nimport { registerHooks } from 'node:module';\nregisterHooks({ resolve(specifier, context, nextResolve) {\n  if (specifier.startsWith('./') && context.parentURL?.startsWith('file:///C:/sgSHIOK2026/web/lib/') && !specifier.endsWith('.ts')) return nextResolve(new URL(specifier + '.ts', context.parentURL).href, context);\n  return nextResolve(specifier, context);\n} });\nconst { normalizePublishedTransitOptions } = await import('file:///C:/sgSHIOK2026/web/lib/published-transit-options.ts');\nconst { publishedOptionGeometry } = await import('file:///C:/sgSHIOK2026/web/lib/published-walk-view.ts');\nconst { postalGeomToRouteGeoJson } = await import('file:///C:/sgSHIOK2026/web/lib/route-geojson.ts');\nconst { encodePolyline } = await import('file:///C:/sgSHIOK2026/web/lib/polyline.ts');\nconst root='C:/sgSHIOK2026/';\nconst identity=path=>{const bytes=readFileSync(root+path);return {path,bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')};};\nconst receipt=JSON.parse(readFileSync(root+'web/lib/__tests__/fixtures/published-options.provenance.json','utf8'));\nconst anchor=receipt.sources['geom/h3/886520db39fffff.json'];\nconst sourceBytes=readFileSync(root+anchor.path);\nconst sourceHash=createHash('sha256').update(sourceBytes).digest('hex');\nconsole.log(JSON.stringify({kind:'sourceAnchor',path:anchor.path,bytes:sourceBytes.length,sha256:sourceHash,expectedSha256:anchor.sha256,match:sourceHash===anchor.sha256}));\nif(sourceHash!==anchor.sha256)throw new Error('STOP: source hash mismatch');\nconst fixturePath='web/lib/__tests__/fixtures/published-options.json';\nconst fixtureIdentity=identity(fixturePath);\nconsole.log(JSON.stringify({kind:'fixtureAnchor',...fixtureIdentity,expectedSha256:receipt.fixtureSha256,match:fixtureIdentity.sha256===receipt.fixtureSha256}));\nif(fixtureIdentity.sha256!==receipt.fixtureSha256)throw new Error('STOP: fixture hash mismatch');\nconst fixture=JSON.parse(readFileSync(root+fixturePath,'utf8'));\nconst original=fixture['scores/DOWNTOWN_CORE_PART_001.json'].find(row=>row.postal==='018956');\nconst geometry=JSON.parse(sourceBytes.toString('utf8')).find(row=>row.postal==='018956');\nconst context={bundle:'generated_20260805_prefer_scored_routed',postal:'018956'};\nconst normalize=(score,geom,category)=>normalizePublishedTransitOptions({...context,category,score,geometry:geom,scoreContext:context,geometryContext:context});\nconst summaries=[];\nconst defaults=[{name:'top_default',row:original,geom:geometry},...['best_transit','bus','mrt_lrt'].map(name=>({name:'category_'+name,row:original.route_options[name],geom:geometry.route_options[name]}))];\nfor(const source of defaults){\n  const category=source.row.best_node.type==='bus_stop'?'bus':'mrt_lrt';\n  const score={...original,best_node:null,candidates:[],route_options:{[category]:source.row}};\n  const geom={postal:'018956',route_options:{[category]:source.geom}};\n  summaries.push({name:source.name,raw:source.geom,option:normalize(score,geom,category).options[0]});\n}\nfor(const candidate of original.candidates){\n  const category=candidate.node_type==='bus_stop'?'bus':'mrt_lrt';\n  const score={...original,best_node:{type:category==='bus'?'mrt_lrt_exit':'bus_stop'},route_options:undefined,candidates:[candidate]};\n  summaries.push({name:candidate.node_id,raw:geometry.candidates[candidate.node_id],option:normalize(score,geometry,category).options[0]});\n}\nlet shortest=0,sheltered=0,fragments=0;\nfor(const {name,raw,option} of summaries){\n  const variants={};\n  for(const variant of ['shortest','sheltered']){\n    const cap=option.geometry.routeSegments[variant];\n    variants[variant]={raw:raw.route_segments[variant].length,accepted:cap.segments.length,status:cap.status,reasons:cap.reasons};\n    if(variant==='shortest')shortest+=cap.segments.length;else sheltered+=cap.segments.length;\n  }\n  const accepted=option.gaps.sheltered.fragments.entries.filter(f=>f.highlightable).length;\n  fragments+=accepted;\n  console.log(JSON.stringify({kind:'sourceRepresentationAfter',name,variants,fragments:{raw:raw.exposure_gaps.length,accepted,reasons:option.gaps.sheltered.fragments.reasons}}));\n}\nconsole.log(JSON.stringify({kind:'representationTotalsAfter',representations:summaries.length,shortestAccepted:shortest,shelteredAccepted:sheltered,segmentArithmetic:shortest+' + '+sheltered+' = '+(shortest+sheltered),fragmentAccepted:fragments,note:'Includes repeated default representations; not distinct walks.'}));\nfor(const category of ['bus','mrt_lrt']){\n  for(const option of normalize(original,geometry,category).options){\n    const render=postalGeomToRouteGeoJson(publishedOptionGeometry('018956',option));\n    const raw=option.selectedSource.rawGeometry;\n    const checks={};\n    for(const variant of ['shortest','sheltered']){\n      checks[variant]={raw:raw.route_segments[variant].length,rendered:render[variant].features.length,coveredEqual:JSON.stringify(raw.route_segments[variant].map(s=>s.is_covered?1:0))===JSON.stringify(render[variant].features.map(f=>f.properties.is_covered)),sourceClassesEqual:JSON.stringify(raw.route_segments[variant].map(s=>s.source_class))===JSON.stringify(render[variant].features.map(f=>f.properties.source_class))};\n    }\n    console.log(JSON.stringify({kind:'renderedColorAfter',category,selection:option.selectionRef,checks}));\n  }\n}\nconst getDefault=g=>normalize(original,g,'bus').options.find(o=>o.sources.some(s=>s.selectionRef.kind==='category_default'));\nconst clean=getDefault(geometry),badGeom=structuredClone(geometry);\nbadGeom.route_options.bus.exposure_gaps[0].geom=encodePolyline([[89,170],[89.1,170.1]]);\nconst bad=getDefault(badGeom);\nconst cleanView=publishedOptionGeometry('018956',clean),badView=publishedOptionGeometry('018956',bad);\nconsole.log(JSON.stringify({kind:'foreignFragmentAfter',highlightable:bad.gaps.sheltered.fragments.entries[0].highlightable,reasons:bad.gaps.sheltered.fragments.entries[0].reasons,originalBounds:postalGeomToRouteGeoJson(cleanView).bounds,foreignBounds:postalGeomToRouteGeoJson(badView).bounds,renderedFragmentCount:badView.exposure_gaps.length,metricsUnchanged:JSON.stringify(clean.metrics)===JSON.stringify(bad.metrics),logicalGapsUnchanged:JSON.stringify(clean.gaps.sheltered.logical)===JSON.stringify(bad.gaps.sheltered.logical),baseRetainable:bad.retainable}));\nconsole.log(JSON.stringify({kind:'implementationSources',sources:['web/lib/published-transit-options.ts','web/lib/published-walk-view.ts','web/lib/__tests__/published-transit-options.test.ts','web/lib/__tests__/published-walk-view.test.ts'].map(identity)}));\n",
+    "rawCombinedOutput": "{\"kind\":\"sourceAnchor\",\"path\":\"web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json\",\"bytes\":145327,\"sha256\":\"8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f\",\"expectedSha256\":\"8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f\",\"match\":true}\n{\"kind\":\"fixtureAnchor\",\"path\":\"web/lib/__tests__/fixtures/published-options.json\",\"bytes\":36007,\"sha256\":\"6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7\",\"expectedSha256\":\"6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7\",\"match\":true}\n{\"kind\":\"sourceRepresentationAfter\",\"name\":\"top_default\",\"variants\":{\"shortest\":{\"raw\":4,\"accepted\":4,\"status\":\"complete\",\"reasons\":[]},\"sheltered\":{\"raw\":4,\"accepted\":4,\"status\":\"complete\",\"reasons\":[]}},\"fragments\":{\"raw\":3,\"accepted\":3,\"reasons\":[]}}\n{\"kind\":\"sourceRepresentationAfter\",\"name\":\"category_best_transit\",\"variants\":{\"shortest\":{\"raw\":4,\"accepted\":4,\"status\":\"complete\",\"reasons\":[]},\"sheltered\":{\"raw\":4,\"accepted\":4,\"status\":\"complete\",\"reasons\":[]}},\"fragments\":{\"raw\":3,\"accepted\":3,\"reasons\":[]}}\n{\"kind\":\"sourceRepresentationAfter\",\"name\":\"category_bus\",\"variants\":{\"shortest\":{\"raw\":4,\"accepted\":4,\"status\":\"complete\",\"reasons\":[]},\"sheltered\":{\"raw\":4,\"accepted\":4,\"status\":\"complete\",\"reasons\":[]}},\"fragments\":{\"raw\":3,\"accepted\":3,\"reasons\":[]}}\n{\"kind\":\"sourceRepresentationAfter\",\"name\":\"category_mrt_lrt\",\"variants\":{\"shortest\":{\"raw\":3,\"accepted\":3,\"status\":\"complete\",\"reasons\":[]},\"sheltered\":{\"raw\":5,\"accepted\":5,\"status\":\"complete\",\"reasons\":[]}},\"fragments\":{\"raw\":4,\"accepted\":4,\"reasons\":[]}}\n{\"kind\":\"sourceRepresentationAfter\",\"name\":\"mrt:21624\",\"variants\":{\"shortest\":{\"raw\":3,\"accepted\":3,\"status\":\"complete\",\"reasons\":[]},\"sheltered\":{\"raw\":3,\"accepted\":3,\"status\":\"complete\",\"reasons\":[]}},\"fragments\":{\"raw\":3,\"accepted\":3,\"reasons\":[]}}\n{\"kind\":\"sourceRepresentationAfter\",\"name\":\"bus:03509\",\"variants\":{\"shortest\":{\"raw\":4,\"accepted\":4,\"status\":\"complete\",\"reasons\":[]},\"sheltered\":{\"raw\":4,\"accepted\":4,\"status\":\"complete\",\"reasons\":[]}},\"fragments\":{\"raw\":3,\"accepted\":3,\"reasons\":[]}}\n{\"kind\":\"sourceRepresentationAfter\",\"name\":\"mrt:21678\",\"variants\":{\"shortest\":{\"raw\":3,\"accepted\":3,\"status\":\"complete\",\"reasons\":[]},\"sheltered\":{\"raw\":3,\"accepted\":3,\"status\":\"complete\",\"reasons\":[]}},\"fragments\":{\"raw\":3,\"accepted\":3,\"reasons\":[]}}\n{\"kind\":\"sourceRepresentationAfter\",\"name\":\"bus:03511\",\"variants\":{\"shortest\":{\"raw\":3,\"accepted\":3,\"status\":\"complete\",\"reasons\":[]},\"sheltered\":{\"raw\":3,\"accepted\":3,\"status\":\"complete\",\"reasons\":[]}},\"fragments\":{\"raw\":3,\"accepted\":3,\"reasons\":[]}}\n{\"kind\":\"sourceRepresentationAfter\",\"name\":\"bus:03519\",\"variants\":{\"shortest\":{\"raw\":3,\"accepted\":3,\"status\":\"complete\",\"reasons\":[]},\"sheltered\":{\"raw\":3,\"accepted\":3,\"status\":\"complete\",\"reasons\":[]}},\"fragments\":{\"raw\":3,\"accepted\":3,\"reasons\":[]}}\n{\"kind\":\"representationTotalsAfter\",\"representations\":9,\"shortestAccepted\":31,\"shelteredAccepted\":33,\"segmentArithmetic\":\"31 + 33 = 64\",\"fragmentAccepted\":28,\"note\":\"Includes repeated default representations; not distinct walks.\"}\n{\"kind\":\"renderedColorAfter\",\"category\":\"bus\",\"selection\":{\"kind\":\"candidate\",\"nodeId\":\"bus:03511\"},\"checks\":{\"shortest\":{\"raw\":3,\"rendered\":3,\"coveredEqual\":true,\"sourceClassesEqual\":true},\"sheltered\":{\"raw\":3,\"rendered\":3,\"coveredEqual\":true,\"sourceClassesEqual\":true}}}\n{\"kind\":\"renderedColorAfter\",\"category\":\"bus\",\"selection\":{\"kind\":\"candidate\",\"nodeId\":\"bus:03519\"},\"checks\":{\"shortest\":{\"raw\":3,\"rendered\":3,\"coveredEqual\":true,\"sourceClassesEqual\":true},\"sheltered\":{\"raw\":3,\"rendered\":3,\"coveredEqual\":true,\"sourceClassesEqual\":true}}}\n{\"kind\":\"renderedColorAfter\",\"category\":\"bus\",\"selection\":{\"kind\":\"category_default\",\"category\":\"bus\"},\"checks\":{\"shortest\":{\"raw\":4,\"rendered\":4,\"coveredEqual\":true,\"sourceClassesEqual\":true},\"sheltered\":{\"raw\":4,\"rendered\":4,\"coveredEqual\":true,\"sourceClassesEqual\":true}}}\n{\"kind\":\"renderedColorAfter\",\"category\":\"mrt_lrt\",\"selection\":{\"kind\":\"candidate\",\"nodeId\":\"mrt:21624\"},\"checks\":{\"shortest\":{\"raw\":3,\"rendered\":3,\"coveredEqual\":true,\"sourceClassesEqual\":true},\"sheltered\":{\"raw\":3,\"rendered\":3,\"coveredEqual\":true,\"sourceClassesEqual\":true}}}\n{\"kind\":\"renderedColorAfter\",\"category\":\"mrt_lrt\",\"selection\":{\"kind\":\"candidate\",\"nodeId\":\"mrt:21678\"},\"checks\":{\"shortest\":{\"raw\":3,\"rendered\":3,\"coveredEqual\":true,\"sourceClassesEqual\":true},\"sheltered\":{\"raw\":3,\"rendered\":3,\"coveredEqual\":true,\"sourceClassesEqual\":true}}}\n{\"kind\":\"renderedColorAfter\",\"category\":\"mrt_lrt\",\"selection\":{\"kind\":\"category_default\",\"category\":\"mrt_lrt\"},\"checks\":{\"shortest\":{\"raw\":3,\"rendered\":3,\"coveredEqual\":true,\"sourceClassesEqual\":true},\"sheltered\":{\"raw\":5,\"rendered\":5,\"coveredEqual\":true,\"sourceClassesEqual\":true}}}\n{\"kind\":\"foreignFragmentAfter\",\"highlightable\":false,\"reasons\":[\"gap_fragment_path_mismatch\"],\"originalBounds\":[[103.85992,1.28264],[103.86014,1.28316]],\"foreignBounds\":[[103.85992,1.28264],[103.86014,1.28316]],\"renderedFragmentCount\":2,\"metricsUnchanged\":true,\"logicalGapsUnchanged\":true,\"baseRetainable\":true}\n{\"kind\":\"implementationSources\",\"sources\":[{\"path\":\"web/lib/published-transit-options.ts\",\"bytes\":34110,\"sha256\":\"d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82\"},{\"path\":\"web/lib/published-walk-view.ts\",\"bytes\":2058,\"sha256\":\"f4969aea23227fefe9154848541ba3349c433a59fecf891d647d99c0312ff618\"},{\"path\":\"web/lib/__tests__/published-transit-options.test.ts\",\"bytes\":51498,\"sha256\":\"a701a1b913cfad5b37c7cf833e5c58f786ebfbe80dd2d8a4d292ef99b8b261e2\"},{\"path\":\"web/lib/__tests__/published-walk-view.test.ts\",\"bytes\":12777,\"sha256\":\"cc828c29aa420f75227c1e7a60ab2cf1f29a19784fa076e1099275efb115de48\"}]}\n(node:100092) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/sgSHIOK2026/web/lib/published-transit-options.ts is not specified and it doesn't parse as CommonJS.\nReparsing as ES module because module syntax was detected. This incurs a performance overhead.\nTo eliminate this warning, add \"type\": \"module\" to \\\\?\\C:\\sgSHIOK2026\\web\\package.json.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+  },
+  "implementationSources": [
+    {
+      "path": "web/lib/published-transit-options.ts",
+      "bytes": 34110,
+      "sha256": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82"
+    },
+    {
+      "path": "web/lib/published-walk-view.ts",
+      "bytes": 2058,
+      "sha256": "f4969aea23227fefe9154848541ba3349c433a59fecf891d647d99c0312ff618"
+    },
+    {
+      "path": "web/lib/__tests__/published-transit-options.test.ts",
+      "bytes": 51498,
+      "sha256": "a701a1b913cfad5b37c7cf833e5c58f786ebfbe80dd2d8a4d292ef99b8b261e2"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-view.test.ts",
+      "bytes": 12777,
+      "sha256": "cc828c29aa420f75227c1e7a60ab2cf1f29a19784fa076e1099275efb115de48"
+    }
+  ],
+  "changedPaths": [
+    "web/lib/published-transit-options.ts",
+    "web/lib/published-walk-view.ts",
+    "web/lib/__tests__/published-transit-options.test.ts",
+    "web/lib/__tests__/published-walk-view.test.ts",
+    "qa/revamp-r1/published-interaction-20260909/geometry-probe.json"
+  ],
+  "findings": [
+    "All 64 segment entries and 28 fragment entries in nine original 018956 source representations survive validation. Six normalized options retain exact rendered covered flags and source classes. These counts include repeated defaults and do not establish corpus-wide acceptance.",
+    "Before the fix, an explicitly synthetic valid distant fragment expanded bounds from Singapore to [170.1,89.1]. Exact contiguous surviving-sheltered-part matching now makes that fragment non-highlightable with gap_fragment_path_mismatch; map bounds, normalized metrics and logical gaps remain unchanged.",
+    "The map adapter rejects every non-routed classification before accessing geometry, while routed partial defaults may retain independently validated base parts.",
+    "The segment validator uses exact edge multiplicities after single-base-part contiguity checks, preserving legitimate repeated edges without allowing incomplete, overlapping or unrelated optional segments to override the route."
+  ],
+  "disagreements": [],
+  "boundaries": [
+    "No scoring, export, rescore, subset, ingest, network build, install, deployment, protected mutation, git command, staging or commit.",
+    "No fixture or global types edits. Parent owns page/picker/summary integration and the final isolated full suite.",
+    "Exact precision-5 decoded matching allows reversed direction and ignores only consecutive identical positions for association. It does not interpolate, snap, infer connections or recompute any metric.",
+    "Fragment entries retain original lengths/labels/coordinates for diagnostics. Only path-associated highlightable fragments enter the geometry adapter. Logical gap totals/longest are separate and unchanged.",
+    "Raw geometry/source references are diagnostic-only. Rendering consumes normalized capabilities; source-class coloring never falls back to unvalidated raw segments."
+  ]
+}
+

@@ -11,6 +11,7 @@ import {
   fetchTransitPois,
   fetchTransitPoisForGeom,
   PINNED_DATA_MANIFEST,
+  DATA_BASE,
 } from "../lib/data";
 import type {
   Manifest,
@@ -49,6 +50,17 @@ import {
 import { requestServiceWorkerCache } from "../lib/service-worker-cache";
 import styles from "./page.module.css";
 import { WalkSummary } from "../components/walk-summary";
+import { TransitStopPicker } from "../components/transit-stop-picker";
+import { selectPublishedTransitChoices } from "../lib/published-transit-choices";
+import {
+  normalizePublishedSelection,
+  publishedDefault,
+  publishedOptionForStop,
+  publishedSelectionView,
+  publishedChoiceTarget,
+  type PublishedWalkSelection,
+} from "../lib/published-walk-selection";
+import type { PublishedTransitCategory } from "../lib/published-transit-options";
 
 const RouteEvidenceMap = dynamic(
   () => import("../components/route-evidence-map").then((module) => module.RouteEvidenceMap),
@@ -60,11 +72,7 @@ function preloadRouteMap() {
   void import("maplibre-gl");
 }
 
-export interface LoadedSelection {
-  result: SearchResult;
-  score: ScoreRecord | null;
-  geom: PostalGeom | null;
-}
+export type LoadedSelection = PublishedWalkSelection;
 
 const REASON_SUBSCORE_KEYS: Array<keyof Subscores> = ["rain", "access", "bus", "heat", "crossing"];
 
@@ -119,6 +127,15 @@ function liveRoutePreviewCacheKey(
 function replaceUrlQuery(pathname: string, params: URLSearchParams): void {
   const query = params.toString();
   window.history.replaceState(null, "", query ? `${pathname}?${query}` : pathname);
+}
+
+function writeWalkUrl(pathname: string, postal: string, mode: TransitAccessMode, stop: string | null, route: RouteDisplayMode): void {
+  const params = new URLSearchParams(window.location.search);
+  params.set("postal", postal);
+  if (mode === "best_transit") params.delete("transit"); else params.set("transit", mode);
+  if (stop) params.set("stop", stop); else params.delete("stop");
+  if (route === "shiokest") params.delete("route"); else params.set("route", route);
+  replaceUrlQuery(pathname, params);
 }
 
 function liveRoutePreviewStorage(): Storage | null {
@@ -726,9 +743,9 @@ function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): str
   const reason = provenanceReason(score, transitMode);
   if (reason === "transit_candidates_graph_disconnected") return "No connected shelter-map walk";
   if (reason === "no_transit_candidates_selected") return "No qualifying transit stop or exit within 1.2 km";
-  return nearestRoutedTransitM(score, transitMode) !== null
+  return (nearestRoutedTransitM(score, transitMode) ?? 0) > 1200
     ? "Connected walk beyond 1.2 km"
-    : `No connected shelter-map walk to ${transitModeLabel(transitMode)} within 1.2 km`;
+    : `No verified published walk to ${transitModeLabel(transitMode)}`;
 }
 
 function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): string | null {
@@ -747,10 +764,10 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
       return "No MRT/LRT exit or bus stop qualifies within the locked 1.2 km transit range for this postal.";
     }
     const nearestM = nearestRoutedTransitM(score, transitMode);
-    if (nearestM !== null) {
+    if (nearestM !== null && nearestM > 1200) {
       return `Closest published connected shelter-map walk is about ${formatDistance(nearestM)} away; locked transit range is 1.2 km.`;
     }
-    return `No published shelter-map walk to ${transitModeLabel(transitMode)} qualifies within the locked 1.2 km transit range.`;
+    return `No verified walk to ${transitModeLabel(transitMode)} is published. The record does not establish why.`;
   }
   if (score.state === "NOT_YET_SCORED") {
     return "This postal is in the June 2020 address list, but the published shelter-map data does not include a full locked score for it.";
@@ -762,182 +779,24 @@ function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): str
   return null;
 }
 
-function routeOptionScore(score: ScoreRecord, mode: TransitAccessMode): ScoreRecord {
-  if (mode === "best_transit") return score;
-  const option = score.route_options?.[mode];
-  if (!option) {
-    return {
-      ...score,
-      state: "NO_TRANSIT_IN_RANGE",
-      total: null,
-      subscores: null,
-      best_node: null,
-      paths: null,
-      exposure_gaps: null,
-    };
-  }
-  return {
-    ...score,
-    state: option.state,
-    total: option.total,
-    subscores: option.subscores,
-    best_node: option.best_node,
-    paths: option.paths,
-    exposure_gaps: option.exposure_gaps,
-  };
-}
-
-function optionGeomToPostalGeom(postal: string, option: PostalRouteGeomOption): PostalGeom {
-  return {
-    postal,
-    shortest: option.shortest,
-    sheltered: option.sheltered,
-    shortest_parts: option.shortest_parts,
-    sheltered_parts: option.sheltered_parts,
-    exposure_gaps: option.exposure_gaps,
-    route_segments: option.route_segments,
-  };
-}
-
-function routeOptionGeom(geom: PostalGeom | null, mode: TransitAccessMode): PostalGeom | null {
-  if (!geom) return null;
-  if (mode === "best_transit") return geom;
-  const option = geom.route_options?.[mode];
-  return option ? optionGeomToPostalGeom(geom.postal, option) : null;
-}
-
-function selectionForTransitMode(
-  selection: LoadedSelection | null,
-  mode: TransitAccessMode
-): LoadedSelection | null {
-  if (!selection) return null;
-  return {
-    result: selection.result,
-    score: selection.score ? routeOptionScore(selection.score, mode) : null,
-    geom: routeOptionGeom(selection.geom, mode),
-  };
-}
-
 export function selectionForChosenStop(
   baseSelection: LoadedSelection | null,
   chosenStopId: string | null,
-  candidates: TransitCandidate[],
-  mapTransitPois: TransitPoiCollection,
-  originLatLng: { lat: number; lng: number } | null,
+  _candidates: TransitCandidate[],
+  _mapTransitPois: TransitPoiCollection,
+  _originLatLng: { lat: number; lng: number } | null,
   liveRouteCache?: Record<string, LoadedSelection>
 ): LoadedSelection | null {
   if (!baseSelection || !chosenStopId) return baseSelection;
-
-  // 1. If we already have a live OneMap-snapped preview route for this stop, return it.
-  if (liveRouteCache && liveRouteCache[chosenStopId]) {
-    return liveRouteCache[chosenStopId];
+  for (const category of ["bus", "mrt_lrt"] as const) {
+    const pool = normalizePublishedSelection(baseSelection, category, DATA_BASE);
+    const option = publishedOptionForStop(pool, chosenStopId);
+    if (option) return publishedSelectionView(baseSelection, option);
   }
-
-  // 2. If pre-computed candidate geometry exists in the shard, use it!
-  const candGeomOption = baseSelection.geom?.candidates?.[chosenStopId];
-  const candScore = baseSelection.score?.candidates?.find(
-    (c) => c.node_id === chosenStopId
-  );
-  if (candGeomOption && baseSelection.geom) {
-    const adaptedGeom = optionGeomToPostalGeom(baseSelection.geom.postal, candGeomOption);
-    const matchedCandidate = candidates.find((c) => c.id === chosenStopId);
-    const poiFeature = mapTransitPois.features.find(
-      (f) => f.properties?.id === chosenStopId
-    );
-    const stopName =
-      poiFeature?.properties?.name ?? matchedCandidate?.name ?? chosenStopId;
-    const stopKind =
-      poiFeature?.properties?.kind ?? matchedCandidate?.kind ?? "transit";
-    const stopCode = poiFeature?.properties?.code ?? matchedCandidate?.code;
-    const stopStation =
-      poiFeature?.properties?.station ?? matchedCandidate?.station;
-    const stopExit = poiFeature?.properties?.exit ?? matchedCandidate?.exit;
-    const shortestM = candScore?.paths?.shortest_m ?? matchedCandidate?.straight_line_m ?? 0;
-    const shelteredM = candScore?.paths?.sheltered_m ?? shortestM;
-    const coveredRatio = candScore?.paths?.covered_ratio ?? undefined;
-
-    const adaptedScore: ScoreRecord | null = baseSelection.score
-      ? {
-          ...baseSelection.score,
-          best_node: {
-            type: stopKind === "mrt_exit" ? "mrt_lrt_exit" : "bus_stop",
-            name: stopName,
-            routed_m: shortestM,
-            exit: stopCode || stopExit,
-            station: stopStation,
-            straight_line_m: matchedCandidate?.straight_line_m ?? shortestM,
-          },
-          exposure_gaps: candGeomOption.exposure_gaps ?? null,
-          paths: {
-            // Candidate evidence must not inherit another destination's metrics.
-            shortest_m: shortestM,
-            sheltered_m: shelteredM,
-            detour_pct: candScore?.paths?.detour_pct ?? 0,
-            routing_type: candScore?.routing_type ?? "precomputed_candidate",
-            covered_ratio: coveredRatio,
-            covered_m: coveredRatio === undefined ? undefined : Math.round(shelteredM * coveredRatio),
-          },
-        }
-      : null;
-
-    return {
-      result: baseSelection.result,
-      score: adaptedScore,
-      geom: adaptedGeom,
-    };
-  }
-
-  // 3. Fallback: show shelter-map evidence only while OneMap loads in background.
-  const matchedCandidate = candidates.find((c) => c.id === chosenStopId);
-  const poiFeature = mapTransitPois.features.find(
-    (f) => f.properties?.id === chosenStopId
-  );
-
-  const coords = poiFeature?.geometry?.coordinates;
-  const stopLng =
-    Array.isArray(coords) && typeof coords[0] === "number"
-      ? coords[0]
-      : matchedCandidate?.coordinates[0];
-  const stopLat =
-    Array.isArray(coords) && typeof coords[1] === "number"
-      ? coords[1]
-      : matchedCandidate?.coordinates[1];
-
-  if (
-    originLatLng &&
-    stopLat !== undefined &&
-    stopLng !== undefined
-  ) {
-    const targetStop = {
-      id: chosenStopId,
-      name: poiFeature?.properties?.name ?? matchedCandidate?.name ?? chosenStopId,
-      kind: (poiFeature?.properties?.kind ?? matchedCandidate?.kind ?? "bus_stop") as "bus_stop" | "mrt_exit",
-      coordinates: [stopLng, stopLat] as [number, number],
-      code: poiFeature?.properties?.code ?? matchedCandidate?.code,
-      station: poiFeature?.properties?.station ?? matchedCandidate?.station,
-      exit: poiFeature?.properties?.exit ?? matchedCandidate?.exit,
-      straight_line_m: haversineMeters(originLatLng.lat, originLatLng.lng, stopLat, stopLng),
-    };
-
-    const directScored = scoreLiveRoute({
-      postal: baseSelection.result.POSTAL,
-      originCoords: originLatLng,
-      targetStop,
-      routeCoordinates: [
-        [originLatLng.lat, originLatLng.lng],
-        [stopLat, stopLng],
-      ],
-      baseScore: baseSelection.score,
-      baseGeom: baseSelection.geom,
-    });
-
-    return {
-      result: baseSelection.result,
-      score: directScored.score,
-      geom: directScored.geom,
-    };
-  }
-
+  const preview = liveRouteCache?.[chosenStopId];
+  if (preview?.result.POSTAL === baseSelection.result.POSTAL
+      && preview.score?.paths?.routing_type === "live_onemap_preview") return preview;
+  // An unknown destination or failed preview is not a straight-line walking route.
   return baseSelection;
 }
 
@@ -996,9 +855,9 @@ function scoreReasons(score: ScoreRecord, transitMode: TransitAccessMode): strin
       return ["No qualifying transit stop or exit within 1.2 km", "Beyond 1.2 km locked range"];
     }
     const nearestM = nearestRoutedTransitM(score, transitMode);
-    return nearestM !== null
+    return nearestM !== null && nearestM > 1200
       ? [`Closest connected shelter-map walk to ${label} is ${formatDistance(nearestM)}`, "Locked transit range is 1.2 km"]
-      : [`No shelter-map walk to ${label} within 1.2 km locked range`, "Nearby transit may still exist beyond the locked 1.2 km transit range"];
+      : [`No verified published walk to ${label}`, "Distance or connection failure is not established by this record"];
   }
   if (score.state === "NOT_YET_SCORED") {
     return ["No full locked score in published shelter-map data", "Some shelter-map evidence may still be available"];
@@ -1310,6 +1169,7 @@ export function ScoreCard({
   focusedExposureGapKey = null,
   onFocusExposureGap,
   lampOverlayEnabled = false,
+  hideWalkControls = false,
 }: {
   selection: LoadedSelection | null;
   routeMode: RouteDisplayMode;
@@ -1338,6 +1198,7 @@ export function ScoreCard({
   focusedExposureGapKey?: string | null;
   onFocusExposureGap?: (gap: FocusedExposureGap) => void;
   lampOverlayEnabled?: boolean;
+  hideWalkControls?: boolean;
 }) {
   const [overflowOpen, setOverflowOpen] = useState(false);
 
@@ -1698,7 +1559,7 @@ export function ScoreCard({
         </div>
       </div>
 
-      <TransitModeControl score={score} mode={transitMode} setMode={setTransitMode} />
+      {!hideWalkControls && <TransitModeControl score={score} mode={transitMode} setMode={setTransitMode} />}
 
       {score.paths && (
         <div className={styles.exposureHero} aria-label="Walk exposure evidence">
@@ -1840,7 +1701,7 @@ export function ScoreCard({
         </div>
       )}
 
-      {score.paths && !directBusFallback && !previewRoute && (
+      {!hideWalkControls && score.paths && !directBusFallback && !previewRoute && (
         <RouteModeControl
           mode={routeMode}
           setMode={setRouteMode}
@@ -2127,6 +1988,16 @@ export default function Home() {
   const pendingSelectionRef = useRef<SearchResult | null>(null);
   // Pending stop id from ?stop= URL param — applied once the postal's candidates load.
   const pendingUrlStopIdRef = useRef<string | null>(null);
+  const pendingUrlTransitRef = useRef<TransitAccessMode | null>(null);
+  const pendingUrlRouteRef = useRef<RouteDisplayMode | null>(null);
+  const pendingUrlPostalRef = useRef<string | null>(null);
+  const [transitPoisReady, setTransitPoisReady] = useState(false);
+  const discardPendingUrlIntent = useCallback(() => {
+    pendingUrlStopIdRef.current = null;
+    pendingUrlTransitRef.current = null;
+    pendingUrlRouteRef.current = null;
+    pendingUrlPostalRef.current = null;
+  }, []);
 
   const pathname = usePathname();
 
@@ -2176,8 +2047,14 @@ export default function Home() {
   // candidates are known so we can validate the id against real POIs.
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const initialStop = new URLSearchParams(window.location.search).get("stop");
+    const params = new URLSearchParams(window.location.search);
+    pendingUrlPostalRef.current = normalizePostal(params.get("postal") || "");
+    const initialStop = params.get("stop");
     if (initialStop) pendingUrlStopIdRef.current = initialStop;
+    const initialTransit = params.get("transit");
+    if (initialTransit === "bus" || initialTransit === "mrt_lrt") pendingUrlTransitRef.current = initialTransit;
+    const initialRoute = params.get("route");
+    if (initialRoute === "shortest" || initialRoute === "both") pendingUrlRouteRef.current = initialRoute;
     // Intentionally run only on mount; further URL changes come from our own writes.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -2196,9 +2073,29 @@ export default function Home() {
     });
   }, [originLatLng, mapTransitPois, transitMode]);
 
+  const publishedCategory: PublishedTransitCategory = transitMode === "best_transit"
+    ? primary?.score?.best_node?.type === "mrt_lrt_exit" ? "mrt_lrt" : "bus"
+    : transitMode;
+  // Normalize the original record and shard, never the already-adapted selected view.
+  const publishedPool = useMemo(
+    () => normalizePublishedSelection(primary, publishedCategory, DATA_BASE),
+    [primary, publishedCategory]
+  );
+  const defaultOption = useMemo(
+    () => publishedDefault(publishedPool, transitMode),
+    [publishedPool, transitMode]
+  );
+  const selectedPublishedOption = useMemo(
+    () => chosenStopId ? publishedOptionForStop(publishedPool, chosenStopId) : defaultOption,
+    [publishedPool, chosenStopId, defaultOption]
+  );
   const transitSelection = useMemo(
-    () => selectionForTransitMode(primary, transitMode),
-    [primary, transitMode]
+    () => primary ? publishedSelectionView(primary, defaultOption) : null,
+    [primary, defaultOption]
+  );
+  const publishedChoices = useMemo(
+    () => selectPublishedTransitChoices(publishedPool, publishedCategory, selectedPublishedOption?.key ?? null),
+    [publishedPool, publishedCategory, selectedPublishedOption]
   );
 
   const bestCandidateId = useMemo(
@@ -2209,8 +2106,7 @@ export default function Home() {
   // Background fetch to snap arbitrary clicked stops onto real OneMap sidewalks for preview evidence.
   useEffect(() => {
     if (!chosenStopId || !transitSelection || !originLatLng) return;
-    const hasPrecomputed = Boolean(transitSelection.geom?.candidates?.[chosenStopId]);
-    if (hasPrecomputed || liveRouteCache[chosenStopId]) {
+    if (selectedPublishedOption || liveRouteCache[chosenStopId]) {
       setLiveRoutePreviewStatuses((current) => {
         if (!current[chosenStopId]) return current;
         const next = { ...current };
@@ -2261,14 +2157,18 @@ export default function Home() {
         straight_line_m: haversineMeters(originLatLng.lat, originLatLng.lng, stopLat, stopLng),
       };
 
-      const liveScored = scoreLiveRoute({
+      let liveScored: ReturnType<typeof scoreLiveRoute>;
+      try { liveScored = scoreLiveRoute({
         postal: transitSelection.result.POSTAL,
         originCoords: originLatLng,
         targetStop,
         routeCoordinates: decoded,
         baseScore: transitSelection.score,
-        baseGeom: transitSelection.geom,
-      });
+        baseGeom: primary?.geom,
+      }); } catch {
+        setLiveRoutePreviewStatuses(current => ({ ...current, [chosenStopId]: "unavailable" }));
+        return false;
+      }
 
       const liveSelection: LoadedSelection = {
         result: transitSelection.result,
@@ -2313,7 +2213,7 @@ export default function Home() {
         }
       })
       .catch((err) => {
-        console.warn("OneMap live route fetch failed; keeping direct fallback:", err);
+        console.warn("OneMap live route fetch failed; keeping the published walk:", err);
         if (active) {
           setLiveRoutePreviewStatuses((current) => ({ ...current, [chosenStopId]: "unavailable" }));
         }
@@ -2322,47 +2222,88 @@ export default function Home() {
     return () => {
       active = false;
     };
-  }, [chosenStopId, transitSelection, originLatLng, candidates, mapTransitPois, liveRouteCache, previewRetryKey]);
+  }, [chosenStopId, transitSelection, selectedPublishedOption, primary?.geom, originLatLng, candidates, mapTransitPois, liveRouteCache, previewRetryKey]);
 
   const activeSelection = useMemo(
     () => {
+      if (primary && selectedPublishedOption) return publishedSelectionView(primary, selectedPublishedOption);
+      if (chosenStopId) {
+        const preview = liveRouteCache[chosenStopId];
+        if (preview?.result.POSTAL === primary?.result.POSTAL) return preview;
+      }
       // A pending/failed preview is not a walking route. Keep the published result.
-      if (chosenStopId && !transitSelection?.geom?.candidates?.[chosenStopId] && !liveRouteCache[chosenStopId]) return transitSelection;
-      return selectionForChosenStop(
-        transitSelection,
-        chosenStopId,
-        candidates,
-        mapTransitPois,
-        originLatLng,
-        liveRouteCache
-      );
+      return transitSelection;
     },
-    [transitSelection, chosenStopId, candidates, mapTransitPois, originLatLng, liveRouteCache]
+    [primary, selectedPublishedOption, transitSelection, chosenStopId, liveRouteCache]
   );
 
   const mapRoutes = useMemo(() => buildRouteItems(activeSelection), [activeSelection]);
-  const mapRouteMode = routesAreSame(activeSelection) ? "shiokest" : routeMode;
+  const sameSelectedRoute = activeSelection?.publishedOption
+    ? activeSelection.publishedOption.geometry.shortest.signature !== null
+      && activeSelection.publishedOption.geometry.shortest.signature === activeSelection.publishedOption.geometry.sheltered.signature
+    : routesAreSame(activeSelection);
+  const mapRouteMode = sameSelectedRoute || (activeSelection?.publishedOption && activeSelection.publishedOption.geometry.shortest.parts.length === 0)
+    ? "shiokest" : routeMode;
   const showDetailOverlay = Boolean(primary);
   const visibleMapStatus = mapStatusLabel(mapLoadStatus, mapLoadError);
 
-  // Apply pending URL stop once candidates for this postal are known.
+  // Published choices resolve independently of optional POI loading.
   useEffect(() => {
-    if (!primary?.geom || routeTransitPois.features.length === 0) return;
+    if (!primary || loading) return;
+    if (pendingUrlPostalRef.current !== primary.result.POSTAL) {
+      discardPendingUrlIntent();
+      return;
+    }
+    const pendingMode = pendingUrlTransitRef.current;
+    const nextMode = pendingMode ?? transitMode;
+    const nextRoute = pendingUrlRouteRef.current ?? routeMode;
+    if (pendingMode) {
+      setTransitMode(pendingMode);
+    }
+    if (pendingUrlRouteRef.current) {
+      setRouteMode(pendingUrlRouteRef.current);
+      pendingUrlRouteRef.current = null;
+    }
     const pending = pendingUrlStopIdRef.current;
-    if (!pending) return;
-    if (candidates.some((candidate) => candidate.id === pending) ||
-        mapTransitPois.features.some((feature) => feature.properties.id === pending)) {
+    if (!pending) {
+      if (pathname) writeWalkUrl(pathname, primary.result.POSTAL, nextMode, null, nextRoute);
+      discardPendingUrlIntent(); return;
+    }
+    for (const category of ["bus", "mrt_lrt"] as const) {
+      const option = publishedOptionForStop(normalizePublishedSelection(primary, category, DATA_BASE), pending);
+      if (option && (!pendingMode || option.category === pendingMode)) {
+        const target = publishedChoiceTarget(option);
+        setTransitMode(target.mode);
+        setChosenStopId(target.stopId);
+        pendingUrlStopIdRef.current = null;
+        pendingUrlTransitRef.current = null;
+        pendingUrlPostalRef.current = null;
+        if (pathname) writeWalkUrl(pathname, primary.result.POSTAL, target.mode, target.stopId, nextRoute);
+        return;
+      }
+    }
+    if (!transitPoisReady) return;
+    const poi = mapTransitPois.features.find(feature => feature.properties.id === pending);
+    const category = poi?.properties.kind === "bus_stop" ? "bus" : poi?.properties.kind === "mrt_exit" ? "mrt_lrt" : null;
+    if (category && (!pendingMode || category === pendingMode)) {
+      setTransitMode(category);
       setChosenStopId(pending);
+      if (pathname) writeWalkUrl(pathname, primary.result.POSTAL, category, pending, nextRoute);
+    } else {
+      if (pathname) writeWalkUrl(pathname, primary.result.POSTAL, nextMode, null, nextRoute);
     }
     pendingUrlStopIdRef.current = null;
-  }, [candidates, primary?.geom, routeTransitPois, mapTransitPois]);
+    pendingUrlTransitRef.current = null;
+    pendingUrlPostalRef.current = null;
+  }, [primary, loading, transitPoisReady, mapTransitPois, pathname, transitMode, routeMode, discardPendingUrlIntent]);
 
-  const loadSelection = async (result: SearchResult) => {
+  const loadSelection = async (result: SearchResult, preserveInitialUrl = false) => {
     const postal = normalizePostal(result.POSTAL);
     if (!postal) {
       setError("This OneMap match has no 6-digit postal code. Choose another match or enter the postal code directly.");
       return;
     }
+    if (!preserveInitialUrl) discardPendingUrlIntent();
     const requestId = loadSelectionRequestIdRef.current + 1;
     loadSelectionRequestIdRef.current = requestId;
     preloadRouteMap();
@@ -2382,14 +2323,11 @@ export default function Home() {
       ]);
       if (requestId !== loadSelectionRequestIdRef.current) return;
       setPrimary({ result: { ...result, POSTAL: postal }, score, geom: null });
-      setRouteTransitPois({ type: "FeatureCollection", features: [] });
-      const { geom, failed } = await geometry;
-      if (requestId !== loadSelectionRequestIdRef.current) return;
-      setGeometryError(failed);
-      if (requestId !== loadSelectionRequestIdRef.current) return;
-      setManifest(loadedManifest);
-      setPrimary({ result: { ...result, POSTAL: postal }, score, geom });
+      setChosenStopId(null);
       setTransitMode("best_transit");
+      setLiveRouteCache({});
+      setLiveRoutePreviewStatuses({});
+      setTransitPoisReady(false);
       setRouteMode("shiokest");
       setSheetExpanded(false);
       setFeedbackEnabled(false);
@@ -2397,7 +2335,16 @@ export default function Home() {
       setFeedbackSegmentLabels([]);
       setFeedbackNote("");
       setCopyStatus("");
-      setChosenStopId(null);
+      if (!preserveInitialUrl && pathname) {
+        writeWalkUrl(pathname, postal, "best_transit", null, "shiokest");
+      }
+      setRouteTransitPois({ type: "FeatureCollection", features: [] });
+      const { geom, failed } = await geometry;
+      if (requestId !== loadSelectionRequestIdRef.current) return;
+      setGeometryError(failed);
+      if (requestId !== loadSelectionRequestIdRef.current) return;
+      setManifest(loadedManifest);
+      setPrimary({ result: { ...result, POSTAL: postal }, score, geom });
       void fetchTransitPoisForGeom(geom)
         .then(async (nearbyTransitPois) => {
           if (requestId !== loadSelectionRequestIdRef.current) return;
@@ -2407,10 +2354,12 @@ export default function Home() {
             setBaseTransitPois(nearbyTransitPois);
           }
           setRouteTransitPois(nearbyTransitPois);
+          setTransitPoisReady(true);
         })
         .catch(() => {
           if (requestId === loadSelectionRequestIdRef.current) {
             setRouteTransitPois({ type: "FeatureCollection", features: [] });
+            setTransitPoisReady(true);
           }
         });
     } catch (err) {
@@ -2428,7 +2377,7 @@ export default function Home() {
     const postal = normalizePostal(new URLSearchParams(window.location.search).get("postal") || "");
     if (postal) {
       setQuery(postal);
-      void loadSelection({ POSTAL: postal, BUILDING: `Postal ${postal}`, ROAD_NAME: "", LATITUDE: "", LONGITUDE: "", SEARCHVAL: `S${postal}` });
+      void loadSelection({ POSTAL: postal, BUILDING: `Postal ${postal}`, ROAD_NAME: "", LATITUDE: "", LONGITUDE: "", SEARCHVAL: `S${postal}` }, true);
     }
     return () => { loadSelectionRequestIdRef.current += 1; };
   }, []);
@@ -2446,80 +2395,77 @@ export default function Home() {
     }
   };
 
-  /** Update the URL to reflect the current postal / stop selection without a reload. */
   const syncStopUrl = useCallback(
-    (nextStopId: string | null) => {
-      if (!pathname) return;
-      if (typeof window === "undefined") return;
-      const currentPostal = primary?.result?.POSTAL ?? null;
-      const params = new URLSearchParams(window.location.search);
-      if (currentPostal) {
-        params.set("postal", currentPostal);
-      } else {
-        params.delete("postal");
-      }
-      if (nextStopId) {
-        params.set("stop", nextStopId);
-      } else {
-        params.delete("stop");
-      }
-      replaceUrlQuery(pathname, params);
+    (nextStopId: string | null, nextMode: TransitAccessMode = transitMode, nextRoute: RouteDisplayMode = routeMode) => {
+      if (pathname && primary?.result.POSTAL) writeWalkUrl(pathname, primary.result.POSTAL, nextMode, nextStopId, nextRoute);
     },
-    [pathname, primary?.result?.POSTAL]
+    [pathname, primary?.result.POSTAL, transitMode, routeMode]
   );
 
   const handleRouteModeChange = useCallback((mode: RouteDisplayMode) => {
+    discardPendingUrlIntent();
     setRouteMode(mode);
     setFocusedExposureGap(null);
-  }, []);
+    syncStopUrl(chosenStopId, transitMode, mode);
+  }, [chosenStopId, transitMode, syncStopUrl, discardPendingUrlIntent]);
 
   const handleTransitModeChange = useCallback((mode: TransitAccessMode) => {
+    discardPendingUrlIntent();
     setTransitMode(mode);
     setChosenStopId(null);
     setLiveRoutePreviewStatuses({});
     setFocusedExposureGap(null);
-  }, []);
+    syncStopUrl(null, mode);
+  }, [syncStopUrl, discardPendingUrlIntent]);
 
   const handleStopSelect = useCallback(
     (nextStopId: string | null) => {
+      discardPendingUrlIntent();
+      if (primary && nextStopId) {
+        for (const category of ["bus", "mrt_lrt"] as const) {
+          const option = publishedOptionForStop(normalizePublishedSelection(primary, category, DATA_BASE), nextStopId);
+          if (option) {
+            const target = publishedChoiceTarget(option);
+            setTransitMode(target.mode);
+            setChosenStopId(target.stopId);
+            setLiveRoutePreviewStatuses({});
+            setFocusedExposureGap(null);
+            syncStopUrl(target.stopId, target.mode);
+            return;
+          }
+        }
+      }
       const resolved = nextStopId && nextStopId !== bestCandidateId ? nextStopId : null;
+      const poi = mapTransitPois.features.find(feature => feature.properties.id === resolved);
+      const mode = poi?.properties.kind === "bus_stop" ? "bus" : poi?.properties.kind === "mrt_exit" ? "mrt_lrt" : transitMode;
+      setTransitMode(mode);
       setChosenStopId(resolved);
       if (!resolved) {
         setLiveRoutePreviewStatuses({});
       }
       setFocusedExposureGap(null);
-      syncStopUrl(resolved);
+      syncStopUrl(resolved, mode);
     },
-    [bestCandidateId, syncStopUrl]
+    [primary, mapTransitPois, transitMode, bestCandidateId, syncStopUrl, discardPendingUrlIntent]
   );
+
+  const handlePublishedChoice = (key: string | null) => {
+    const option = publishedPool.options.find(item => item.key === (key ?? publishedChoices.defaultKey));
+    if (!option || (key !== null && !option.retainable)) return;
+    discardPendingUrlIntent();
+    const target = publishedChoiceTarget(option);
+    setTransitMode(target.mode);
+    setChosenStopId(target.stopId);
+    setLiveRoutePreviewStatuses({});
+    setFocusedExposureGap(null);
+    syncStopUrl(target.stopId, target.mode);
+  };
 
   const handleFocusExposureGap = useCallback((gap: FocusedExposureGap) => {
     setFocusedExposureGap(gap);
     setSheetExpanded(false);
   }, []);
 
-  // Mirror the loaded postal into ?postal= so shared links resolve. This runs
-  // whenever the selected postal changes; the ?stop= param is only written by
-  // `handleStopSelect`.
-  const lastSyncedPostalRef = useRef<string | null>(null);
-  useEffect(() => {
-    const postal = primary?.result?.POSTAL ?? null;
-    if (postal === lastSyncedPostalRef.current) return;
-    lastSyncedPostalRef.current = postal;
-    if (!pathname || typeof window === "undefined") return;
-    const params = new URLSearchParams(window.location.search);
-    if (postal) {
-      params.set("postal", postal);
-      if (!pendingUrlStopIdRef.current) params.delete("stop");
-    } else {
-      params.delete("postal");
-      params.delete("stop");
-    }
-    replaceUrlQuery(pathname, params);
-    // We intentionally depend only on the postal here; other URL state comes
-    // from explicit handlers to avoid overwriting the ?stop= param mid-flight.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [primary?.result?.POSTAL]);
 
   const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -2654,7 +2600,7 @@ export default function Home() {
           }}>{mapRecovery === "reload" ? "Reload page" : "Retry map"}</button>
         </div>}
         {geometryError && <div className={styles.errorBox} role="status">Walk geometry could not load. Your record is still available. <button type="button" onClick={retryGeometry}>Retry geometry</button></div>}
-        {chosenStopId && !transitSelection?.geom?.candidates?.[chosenStopId] && !liveRouteCache[chosenStopId] && <div className={styles.errorBox} role="status">
+        {chosenStopId && !selectedPublishedOption && !liveRouteCache[chosenStopId] && <div className={styles.errorBox} role="status">
           {liveRoutePreviewStatuses[chosenStopId] === "unavailable" ? "Walking preview unavailable. Published walk shown." : "Loading walking preview. Published walk shown."}
           {liveRoutePreviewStatuses[chosenStopId] === "unavailable" && <button type="button" onClick={() => setPreviewRetryKey(key => key + 1)}>Retry preview</button>}
           <button type="button" onClick={() => handleStopSelect(null)}>Keep published walk</button>
@@ -2685,8 +2631,12 @@ export default function Home() {
               aria-controls="walk-details" onClick={() => setSheetExpanded(value => !value)}>
               {sheetExpanded ? "Collapse walk details" : "Walk details"}
             </button>
-            <WalkSummary postal={primary!.result.POSTAL} score={activeSelection?.score ?? null} shortest={mapRouteMode === "shortest" && !routesAreSame(activeSelection)} />
+            <WalkSummary postal={primary!.result.POSTAL} score={activeSelection?.score ?? null} option={activeSelection?.publishedOption} shortest={mapRouteMode === "shortest" && !sameSelectedRoute} />
+            {primary?.score && <TransitModeControl score={primary.score} mode={transitMode} setMode={handleTransitModeChange} />}
+            <TransitStopPicker selection={publishedChoices} onSelect={handlePublishedChoice} />
             <div id="walk-details" className={styles.secondaryDetails}>
+            {activeSelection?.geom && <RouteModeControl mode={mapRouteMode} setMode={handleRouteModeChange}
+              disabled={false} sameRoute={sameSelectedRoute} directBusFallback={false} />}
         <div className={styles.secondaryControls}>
           <div>
 
@@ -2709,7 +2659,10 @@ export default function Home() {
           </div>
         </div>
 
-            <ScoreCard
+            {primary?.score && !activeSelection?.score ? (
+              activeSelection?.publishedOption?.selectedSource.selectionRef.kind === "candidate"
+                ? <p className={styles.stateNote}>No full score is recorded for this alternative walk.</p> : null
+            ) : <ScoreCard
               selection={activeSelection}
               routeMode={mapRouteMode}
               setRouteMode={handleRouteModeChange}
@@ -2737,7 +2690,8 @@ export default function Home() {
               focusedExposureGapKey={focusedExposureGap?.key ?? null}
               onFocusExposureGap={handleFocusExposureGap}
               lampOverlayEnabled={lampOverlayEnabled}
-            />
+              hideWalkControls
+            />}
             </div>
           </aside>
         )}

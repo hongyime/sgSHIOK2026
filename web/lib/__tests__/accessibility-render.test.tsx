@@ -1210,10 +1210,10 @@ describe("rendered accessibility output", () => {
       rankingRecords: [noBusWalkRecord],
     });
 
-    expect(html).toContain("No connected shelter-map walk to bus stop within 1.2 km");
+    expect(html).toContain("No verified published walk to bus stop");
     expect(html).not.toContain("No connected shelter-map walk to bus stop within range");
-    expect(html).toContain("No published shelter-map walk to bus stop qualifies within the locked 1.2 km transit range.");
-    expect(html).toContain("No shelter-map walk to bus stop within 1.2 km locked range");
+    expect(html).toContain("No verified walk to bus stop is published. The record does not establish why.");
+    expect(html).toContain("Distance or connection failure is not established by this record");
     expect(html).not.toContain("No shelter-map walk to bus stop within locked transit range");
     expect(html).not.toContain("No connected bus stop shelter-map walk within range");
     expect(html).not.toContain("No bus stop walk was found within the locked 1.2 km transit range.");

@@ -261,7 +261,7 @@ describe("shelter map interactions", () => {
     expect(pageSource).not.toContain('previewRoute ? "Preview route" : "Sheltered route"');
     expect(pageSource).toContain("{score.paths && !previewRoute && (");
     expect(pageSource).toContain("{score.paths && previewRoute && (");
-    expect(pageSource).toContain("{score.paths && !directBusFallback && !previewRoute && (");
+    expect(pageSource).toContain("{!hideWalkControls && score.paths && !directBusFallback && !previewRoute && (");
 
     expect(pageSource).toContain("params.delete(\"stop\")");
     expect(pageSource).toContain("onResetChosenStop={() => handleStopSelect(null)}");
@@ -272,15 +272,14 @@ describe("shelter map interactions", () => {
     expect(pageSource).not.toContain("router.replace");
   });
 
-  it("keeps precomputed candidate geometry authoritative instead of demoting it to preview", () => {
+  it("guards the normalized published selection path ahead of the optional preview adapter", () => {
     const pageSource = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
-    expect(pageSource).toContain("const candGeomOption = baseSelection.geom?.candidates?.[chosenStopId]");
-    expect(pageSource).toContain("const candScore = baseSelection.score?.candidates?.find");
-    expect(pageSource).toContain("if (candGeomOption && baseSelection.geom)");
-    expect(pageSource).toContain('routing_type: candScore?.routing_type ?? "precomputed_candidate"');
-    expect(pageSource.indexOf("if (candGeomOption && baseSelection.geom)")).toBeLessThan(
-      pageSource.indexOf("Fallback: show shelter-map evidence only while OneMap loads in background")
+    expect(pageSource).toContain("const option = publishedOptionForStop(pool, chosenStopId)");
+    expect(pageSource).toContain("if (option) return publishedSelectionView(baseSelection, option)");
+    expect(pageSource).not.toContain('routing_type: candScore?.routing_type ?? "precomputed_candidate"');
+    expect(pageSource.indexOf("if (option) return publishedSelectionView(baseSelection, option)")).toBeLessThan(
+      pageSource.indexOf("const preview = liveRouteCache?.[chosenStopId]")
     );
   });
 });

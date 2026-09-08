@@ -2630,3 +2630,38 @@ data access denied, plus TypeScript/integrity and11 source identities. This is
 not page integration or a new browser/build/performance/deployment claim. T06
 must wire the existing picker, summaries, selected geometry and URL together.
 Evidence: qa/revamp-r1/published-options-20260909/choices-summary.json.
+
+## 2026-09-09: Keep published choice, route and measurements together
+
+T06 mounts the bounded picker beneath the selected walk, collapsed unless the
+resident opens Other walks. Keep original score/geometry evidence available for
+category changes; do not adapt a category view and then lose its candidates.
+One validated option owns the destination, measurements, drawing and URL target.
+Default roles do not require invented stop IDs. Shared links restore explicit
+category/stop/route intent; a subsequent user action supersedes delayed URL intent.
+
+Candidate views have no inherited default total, state or provenance. Their
+missing routed measurements remain unavailable. Preserve complete logical gap
+statistics separately from mapped fragments: the real default's36.5m total and
+20.2m longest gap must not become the fragment sum36.4m and maximum16.3m.
+Validated route segments may replace a base path only when they completely
+partition it. A fragment must belong to a surviving route part before it can be
+highlighted or affect bounds. These changes do not rewrite any published input.
+
+The optional live-preview adapter now uses sheltered_m for full walk length,
+covered_m for covered length and straight_line_m for endpoint distance. It has
+null total/subscores and explicit non-authoritative provenance. Invalid geometry
+is rejected; failure/stale callbacks retain the selected published walk. Merely
+selecting a retained published option must not start a preview request.
+
+Keep positive unrouted estimates distinct from a verified walk. Correct the
+inherited018990 assertion that treated222.5m of direct bus fallback as a walk;
+NO_TRANSIT_IN_RANGE alone also does not prove a numeric1.2km range failure.
+The compact layout preserves the approved top-left equal-width stack and
+bottom-right About data, with required basemap attribution retained. Missing
+metric text must fit its own cell, and category labels their own touch targets;
+page overflow and rendered-feature counts alone are insufficient visual checks.
+
+Evidence: qa/revamp-r1/published-interaction-20260909/summary.json. T07 must still
+connect these measurements to honest logical-gap/fragment exploration; T06 is
+not an all-postal coverage, representative-performance or deployment claim.

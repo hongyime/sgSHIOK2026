@@ -146,16 +146,17 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: FREE. No new candidate generation or scoring.
 - Outcome 2026-09-09: selector consumes the normalized pool and returns at most three distinct choices in shortest/most-covered/current/default-fallback order. It preserves reset ownership, stable unrounded ties, category boundaries and missing capabilities.67 selector tests plus702 previous =769/40 isolated tests; TypeScript/integrity and11 anchors pass. The old POI helper's false no-candidate-evidence comment is corrected; no POI behavior change. Evidence: `qa/revamp-r1/published-options-20260909/choices-summary.json`. T06 integration is next, not already rendered.
 
-### [ ] T06: Ship the bounded transit-choice interaction
-- Status: READY. Size: M. Parent: P1.1.
+### [x] T06: Ship the bounded transit-choice interaction
+- Status: DONE. Size: M. Parent: P1.1.
 - Depends on: T05.
 - Scope: `web/components/transit-stop-picker.tsx` and its CSS, `web/app/page.tsx`, existing selection/URL handlers and behavioural tests.
 - Do: present the bounded choices only when useful; show destination and routed distance/coverage trade-offs. Reuse the existing picker rather than creating a competing one. Update map, summary and URL atomically; distinguish an optional preview from published evidence and request it only on explicit selection.
 - Tests/done: S05-S08, W05-W08/W10/W12, M11/M15. Keyboard selection, rapid A/B changes, failed preview, shared stop, one-option and no-option states pass. The top-left stack stays equal-width and the map remains visible at all required sizes.
 - Gate: FREE. No automatic live-route fan-out or new backend.
+- Outcome 2026-09-09: normalized picker, independent candidate summary/geometry and real-ID URL targets are integrated; original evidence survives category changes, delayed geometry/POIs and stale preview responses. Preview field/provenance defects and inherited unrouted/range assertions corrected explicitly.769+195=964 isolated tests/44 files, TypeScript, direct build, integrity and11 anchors pass.54 browser checks and8 inspected captures cover keyboard choice/reset, category, shared candidate and4sizes; actual built/tested sources match. Text-cell and category-button bounds were added after visual review caught failures that page overflow checks missed. Evidence: `qa/revamp-r1/published-interaction-20260909/summary.json`. No performance, all-postal, pipeline or deployment claim. T07 legacy gap details remain open.
 
 ### [ ] T07: Complete the uncovered-stretch journey
-- Status: WAIT_DEPS. Size: S. Parent: P1.1.
+- Status: READY. Size: S. Parent: P1.1.
 - Depends on: T06.
 - Scope: `web/components/walk-summary.tsx`, gap controls in `web/app/page.tsx`, existing map focus adapter/tests.
 - Do: make the path from four metrics to an actual uncovered stretch and back clear. Reuse existing gap highlighting; fix concrete interaction gaps only. Keep shortest-route gaps unavailable when that geometry lacks matching evidence.
@@ -163,7 +164,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: FREE. This completes an inspectable core walk, not an all-postal coverage claim.
 
 ### [ ] T08: Define a shared home-comparison row
-- Status: WAIT_DEPS. Size: S. Parent: P1.2.
+- Status: READY. Size: S. Parent: P1.2.
 - Depends on: T05.
 - Scope: `web/components/walk-summary.tsx`, `web/lib/types.ts`, proposed `web/lib/comparison.ts` and tests.
 - Do: reuse or extract the selected-walk metrics adapter for up to three postals, with bundle version, category, destination, distance, coverage, uncovered distance, longest gap and explicit availability. Preserve selected-route semantics and provenance; do not invent a score.

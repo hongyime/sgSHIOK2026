@@ -543,13 +543,22 @@
 }
 
 .transitSegmented {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .transitSegmented button {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 44px;
   gap: 2px;
   align-content: center;
+}
+
+.transitSegmented button > span,
+.transitSegmented button > small {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: normal;
 }
 
 .transitSegmented small {
@@ -1521,6 +1530,9 @@ button.gapItem:hover,
   min-height: 0;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
   padding: 12px;
   border: 1px solid #cddad4;
   border-radius: 8px;
@@ -1546,7 +1558,9 @@ button.gapItem:hover,
 .walkDestination { margin: 8px 0; padding: 8px 0; border-block: 1px solid #e0e7e3; font-size: 12px; }
 .walkDestination strong { display: block; margin-top: 3px; font-size: 15px; }
 .walkMetrics { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px 8px; margin: 12px 0 4px; }
+.walkMetrics > div { display: grid; grid-template-rows: 32px auto; min-width: 0; }
 .walkMetrics strong { display: block; font-size: 21px; overflow-wrap: anywhere; }
+.walkMetrics strong[data-unavailable] { font-size: 12px; white-space: nowrap; overflow-wrap: normal; align-self: center; }
 .walkMetrics span { display: block; margin-top: 3px; font-size: 11px; color: #5d7069; }
 .secondaryDetails { display: none; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
 .sheetExpanded .secondaryDetails { display: block; margin-top: 10px; }
@@ -1562,10 +1576,12 @@ button.gapItem:hover,
   .walkDestination { margin: 5px 0; padding: 5px 0; }
   .walkDestination strong { font-size: 14px; }
   .walkMetrics { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 5px; margin: 7px 0 0; }
+  .walkMetrics > div { grid-template-rows: 26px auto; }
   .walkMetrics strong { font-size: 17px; }
   .walkMetrics span { font-size: 10px; }
 }
 @media (max-width:340px) {
+  .walkMetrics > div { grid-template-rows: 23px auto; }
   .walkMetrics strong { font-size: 15px; }
   .walkMetrics span { font-size: 9px; }
 }

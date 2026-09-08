@@ -1,14 +1,13 @@
 import { readFileSync } from "fs";
 import { join } from "path";
-import { describe, expect, it, vi } from "vitest";
-import React from "react";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import React, { type ReactElement, type ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
-import {
-  buildComparisonText,
-  RESET_CHIP_ID,
-  TransitStopPicker,
-} from "../../components/transit-stop-picker";
+import { TransitStopPicker } from "../../components/transit-stop-picker";
+import { selectPublishedTransitChoices, type PublishedTransitChoices } from "../published-transit-choices";
+import { normalizePublishedTransitOptions, type PublishedTransitCategory } from "../published-transit-options";
+import publishedFixture from "./fixtures/published-options.json";
 import {
   candidateComparison,
   deriveNearestTransitCandidates,
@@ -116,32 +115,6 @@ describe("haversineMeters", () => {
 });
 
 describe("deriveNearestTransitCandidates", () => {
-  it("documents candidate limits against the shelter-map bundle, not a score bundle", () => {
-    const source = readFileSync(join(__dirname, "../nearest-transit.ts"), "utf-8");
-    expect(source).toContain("The published shelter-map bundle does NOT ship a ranked candidate list");
-    expect(source).toContain("scoring data that the published shelter-map bundle does not ship");
-    expect(source).toContain("Selecting a candidate may update the displayed walk via precomputed");
-    expect(source).toContain("candidate geometry or a live OneMap preview");
-    expect(source).toContain("straight-line only");
-    expect(source).not.toContain("The current shelter-map bundle does NOT ship a ranked candidate list");
-    expect(source).not.toContain("The current score bundle does NOT ship a ranked candidate list");
-    expect(source).not.toContain("scoring data that today's bundle does not ship");
-    expect(source).not.toContain("The map route line stays on the auto-picked best_transit stop");
-  });
-
-  it("keeps transit picker comments aligned with the shelter-map panel frame", () => {
-    const source = readFileSync(
-      join(__dirname, "../../components/transit-stop-picker.tsx"),
-      "utf-8"
-    );
-    expect(source).toContain("The shelter-map panel already announces the active target's selected");
-    expect(source).toContain("walk distance in its headline row");
-    expect(source).toContain("shelter-map panel updates after selection");
-    expect(source).not.toContain("The primary score card already announces");
-    expect(source).not.toContain("active stop's routed");
-    expect(source).not.toContain("See TODO(stop-picker)");
-  });
-
   it("returns up to 5 nearest bus_stop + mrt_exit POIs sorted by distance", () => {
     const result = deriveNearestTransitCandidates({
       originLat,
@@ -265,245 +238,337 @@ describe("nextChipAction (keyboard math)", () => {
   });
 });
 
-describe("buildComparisonText", () => {
-  it("returns the % farther string when the pick is farther", () => {
-    expect(
-      buildComparisonText({ fartherPct: 42, bestStraightM: 100, activeStraightM: 142 })
-    ).toBe(
-      "42% farther than published stop or exit (+42 m straight-line only; shelter-map walk evidence updates after selection)"
-    );
-  });
-  it("returns null when the pick is not farther", () => {
-    expect(buildComparisonText({ fartherPct: 0, bestStraightM: 100, activeStraightM: 100 })).toBeNull();
-    expect(buildComparisonText({ fartherPct: -5, bestStraightM: 100, activeStraightM: 95 })).toBeNull();
-    expect(buildComparisonText(null)).toBeNull();
-    expect(buildComparisonText(undefined)).toBeNull();
-  });
-});
+// -- Published picker: actual component callbacks and static native semantics --
+// The old comparison-copy and source-handler assertions are replaced, not relabelled
+// as behavioral passes. POI distance/comparison/keyboard helper tests above remain.
+// No DOM is installed: callbacks execute on actual React elements; native keyboard
+// behavior and pixel fit still require the parent's browser acceptance.
+const bundle = "generated_20260805_prefer_scored_routed";
+const postal = "018956";
+const publishedScore = publishedFixture["scores/DOWNTOWN_CORE_PART_001.json"]
+  .find(row => row.postal === postal)!;
+const publishedGeometry = publishedFixture["geom/h3/886520db39fffff.json"][0];
 
-// -- Component rendering (renderToStaticMarkup smoke tests) ------------------
-
-function renderPicker(props: Parameters<typeof TransitStopPicker>[0]): string {
-  return renderToStaticMarkup(React.createElement(TransitStopPicker, props));
+function pool(category: PublishedTransitCategory = "mrt_lrt") {
+  return normalizePublishedTransitOptions({
+    bundle, postal, category,
+    score: structuredClone(publishedScore),
+    geometry: structuredClone(publishedGeometry),
+    scoreContext: { bundle, postal },
+    geometryContext: { bundle, postal },
+  });
 }
 
-describe("TransitStopPicker component", () => {
-  const candidates = deriveNearestTransitCandidates({
-    originLat,
-    originLng,
-    transitPois: CANDIDATES,
-    mode: "best_transit",
-    limit: 5,
-  });
-  const bestStopId = "bus:66361";
+function choices(category: PublishedTransitCategory = "mrt_lrt", current?: string | null) {
+  return selectPublishedTransitChoices(pool(category), category, current);
+}
 
-  it("renders one chip per candidate (5) with the best chip active when no override", () => {
-    const html = renderPicker({
-      candidates,
-      activeStopId: null,
-      bestStopId,
-      onSelect: () => {},
-    });
-    const chipMatches = html.match(/data-chip-id="[^"]+"/g) ?? [];
-    // 5 candidate chips + 0 reset (activeStopId is null / matches best)
-    expect(chipMatches).toHaveLength(5);
-    expect(html).toContain("Nearby transit stops and exits");
-    expect(html).toContain("MRT/LRT exit");
-    expect(html).toContain("Bus stop");
-    expect(html).toContain('aria-label="Transit stop and exit picker"');
-    expect(html).toContain('aria-label="Nearby transit stops and exits"');
-    expect(html).not.toContain("Nearby transit</div>");
-    expect(html).not.toContain("Nearby transit targets");
-    expect(html).not.toContain(">MRT</span>");
-    expect(html).not.toContain(">Bus</span>");
-    expect(html).not.toContain('aria-label="Transit stop picker"');
-    expect(html).not.toContain('aria-label="Nearby transit stops"');
-    expect(html).not.toContain('aria-label="Transit target picker"');
-    expect(html).not.toContain('aria-label="Nearby transit targets"');
-    expect(html).toContain(`data-chip-id="${bestStopId}"`);
-    // Best chip has aria-current
-    expect(html).toMatch(new RegExp(`data-chip-id="${bestStopId}"[^>]*aria-current="true"`));
-  });
+function freeze(value: unknown): void {
+  if (!value || typeof value !== "object" || Object.isFrozen(value)) return;
+  Object.values(value).forEach(freeze);
+  Object.freeze(value);
+}
 
-  it("renders reset chip + 5 candidates when a non-best stop is active", () => {
-    const html = renderPicker({
-      candidates,
-      activeStopId: "bus:66411",
-      bestStopId,
-      onSelect: () => {},
-    });
-    const chipMatches = html.match(/data-chip-id="[^"]+"/g) ?? [];
-    // 5 candidate chips + 1 reset chip
-    expect(chipMatches).toHaveLength(6);
-    expect(html).toContain(`data-chip-id="${RESET_CHIP_ID}"`);
-    expect(html).toMatch(/data-chip-id="bus:66411"[^>]*aria-current="true"/);
-    expect(html).toContain("Reset to published stop or exit");
-    expect(html).toContain('aria-label="Reset to published transit stop or exit"');
-    expect(html).not.toContain("Reset to auto-picked stop or exit");
-    expect(html).not.toContain("Reset to best");
-    expect(html).not.toContain('aria-label="Reset to auto-picked best transit"');
-    expect(html).not.toContain("Reset to auto-picked target");
-    expect(html).not.toContain('aria-label="Reset to auto-picked transit target"');
-  });
+type Element = ReactElement<{
+  children?: ReactNode;
+  onClick?: () => void;
+  type?: string;
+  role?: string;
+  title?: string;
+  open?: boolean;
+  onKeyDown?: unknown;
+  tabIndex?: number;
+  "aria-pressed"?: boolean;
+  "aria-label"?: string;
+}>;
 
-  it("renders the straight-line comparison note with metre delta when non-best is active", () => {
-    const html = renderPicker({
-      candidates,
-      activeStopId: "bus:66421", // furthest of the top-5 fixtures
-      bestStopId,
-      onSelect: () => {},
-    });
-    expect(html).toMatch(
-      /\d+% farther than published stop or exit \(\+\d+ m straight-line only; shelter-map walk evidence updates after selection\)/
-    );
-    expect(html).not.toContain("farther than auto-picked target");
-    expect(html).not.toContain("farther than auto-picked stop or exit");
-    expect(html).not.toContain("farther than best");
+function elements(node: ReactNode): Element[] {
+  if (Array.isArray(node)) return node.flatMap(elements);
+  if (!React.isValidElement<Element["props"]>(node)) return [];
+  return [node, ...elements(node.props.children)];
+}
+function text(node: ReactNode): string {
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(text).join("");
+  if (React.isValidElement<Element["props"]>(node)) return text(node.props.children);
+  return "";
+}
+function choiceButtons(tree: ReactNode) {
+  return elements(tree).filter(element => element.type === "button" &&
+    typeof element.props["aria-pressed"] === "boolean");
+}
+function resetButton(tree: ReactNode) {
+  return elements(tree).find(element => element.type === "button" &&
+    element.props["aria-label"] === "Use published default");
+}
+function renderPicker(selection: PublishedTransitChoices, onSelect = vi.fn()) {
+  const before = structuredClone(selection);
+  freeze(selection);
+  const tree = TransitStopPicker({ selection, onSelect });
+  const html = renderToStaticMarkup(tree);
+  expect(selection).toEqual(before);
+  expect(fetch).not.toHaveBeenCalled();
+  return { tree, html, onSelect };
+}
+
+beforeEach(() => {
+  vi.stubGlobal("fetch", vi.fn(() => { throw new Error("Picker must not fetch"); }));
+});
+afterEach(() => vi.unstubAllGlobals());
+
+describe("TransitStopPicker published choices", () => {
+  it("hides an empty selection and a sole current published default", () => {
+    expect(renderPicker({ choices: [], defaultKey: null, selectedKey: null }).tree).toBeNull();
+    const single = choices("bus");
+    expect(single.choices).toHaveLength(1);
+    expect(single.selectedKey).toBe(single.defaultKey);
+    expect(renderPicker(single).tree).toBeNull();
   });
 
-  it("uses aria-current on the active chip and NOT on inactive chips", () => {
-    const html = renderPicker({
-      candidates,
-      activeStopId: "bus:66411",
-      bestStopId,
-      onSelect: () => {},
-    });
-    const activeMarkers = html.match(/aria-current="true"/g) ?? [];
-    expect(activeMarkers).toHaveLength(1);
+  it("is a collapsed native disclosure with a visible count and named group", () => {
+    const selection = choices();
+    const { tree, html } = renderPicker(selection);
+    expect(tree?.type).toBe("details");
+    expect(tree?.props.open).toBeUndefined();
+    const summary = elements(tree).filter(element => element.type === "summary");
+    expect(summary).toHaveLength(1);
+    expect(text(summary[0])).toBe("Other walks (2)");
+    expect(elements(tree).filter(element => element.props.role === "group")
+      .map(element => element.props["aria-label"])).toEqual(["Published walks"]);
+    expect(html).not.toMatch(/Nearby|straight-line|farther than|all nearby|current|default/i);
+    expect(resetButton(tree)).toBeUndefined();
   });
 
-  it("hides the straight-line distance span on the currently-active chip", () => {
-    // Rationale: the shelter-map panel already displays the selected walk
-    // distance for the active target in its headline row, so we drop the chip's
-    // straight-line distance to avoid two distance readings side by side.
-    // Non-active chips still show their distance so users can compare.
-    // Distance stays available via the button title attribute for a11y.
-    const html = renderPicker({
-      candidates,
-      activeStopId: "bus:66411",
-      bestStopId,
-      onSelect: () => {},
-    });
-    const activeChipMatch = html.match(
-      /<button[^>]*data-chip-id="bus:66411"[^>]*>[\s\S]*?<\/button>/
-    );
-    expect(activeChipMatch).not.toBeNull();
-    // The active chip must not carry a chipDistance span.
-    expect(activeChipMatch![0]).not.toMatch(/chipDistance/);
-    // Sanity: some inactive chip in the same picker still shows its distance.
-    const distanceMatches = html.match(/chipDistance/g) ?? [];
-    expect(distanceMatches.length).toBeGreaterThan(0);
+  it("uses the real category default absent from candidate summaries without inventing an ID", () => {
+    const selection = choices();
+    const declared = selection.choices.find(choice => choice.option.key === selection.defaultKey)!;
+    expect(declared.option.name).toBe("BAYFRONT MRT STATION Exit E");
+    expect(declared.option.selectionRef).toEqual({ kind: "category_default", category: "mrt_lrt" });
+    expect(publishedScore.candidates.some(candidate => candidate.node_name === declared.option.name)).toBe(false);
+    const { tree, onSelect } = renderPicker(selection);
+    const button = choiceButtons(tree).find(element => text(element).includes(declared.option.name!))!;
+    button.props.onClick!();
+    expect(onSelect).toHaveBeenCalledExactlyOnceWith(declared.option.key);
+    expect(button.props["aria-pressed"]).toBe(true);
   });
 
-  it("keeps the straight-line distance span on every chip when the published pick is active", () => {
-    // activeStopId === null falls back to bestStopId, so the best chip is
-    // "active" for render. In that case we still hide distance on the best.
-    const html = renderPicker({
-      candidates,
-      activeStopId: null,
-      bestStopId,
-      onSelect: () => {},
-    });
-    // 5 chips total: 4 non-active with distance, 1 active (best) without.
-    const distanceMatches = html.match(/chipDistance/g) ?? [];
-    expect(distanceMatches).toHaveLength(candidates.length - 1);
-    // The best chip has no chipDistance.
-    const bestChipMatch = html.match(
-      new RegExp(`<button[^>]*data-chip-id="${bestStopId}"[^>]*>[\\s\\S]*?<\\/button>`)
-    );
-    expect(bestChipMatch).not.toBeNull();
-    expect(bestChipMatch![0]).not.toMatch(/chipDistance/);
+  it("shows sheltered-route metres and coverage for every choice, including the current default", () => {
+    const { tree } = renderPicker(choices());
+    const labels = choiceButtons(tree).map(text);
+    expect(labels).toEqual([
+      "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+      "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+    ]);
+    expect(labels.join(" ")).not.toContain("294 m");
+    expect(labels.join(" ")).not.toContain("245 m");
   });
 
-  it("keeps the distance available via the chip title tooltip for screen readers", () => {
-    const html = renderPicker({
-      candidates,
-      activeStopId: "bus:66411",
-      bestStopId,
-      onSelect: () => {},
-    });
-    // Every chip should still have a title with its distance in it, active or not.
-    for (const candidate of candidates) {
-      expect(html).toContain(`title="${candidate.name} (~`);
+  it("executes actual selection callbacks then renders controlled current/reset state", () => {
+    const normalized = pool();
+    let current: string | null | undefined;
+    const onSelect = vi.fn((key: string | null) => { current = key; });
+    const initial = renderPicker(selectPublishedTransitChoices(normalized, "mrt_lrt"), onSelect);
+    const nextKey = initial.tree && choices().choices[0].option.key;
+    choiceButtons(initial.tree)[0].props.onClick!();
+    expect(onSelect).toHaveBeenCalledExactlyOnceWith(nextKey);
+    const updated = renderPicker(selectPublishedTransitChoices(normalized, "mrt_lrt", current), onSelect);
+    expect(choiceButtons(updated.tree).map(button => button.props["aria-pressed"])).toEqual([true, false]);
+    expect(resetButton(updated.tree)).toBeDefined();
+    resetButton(updated.tree)!.props.onClick!();
+    expect(onSelect.mock.calls).toEqual([[nextKey], [null]]);
+    expect(current).toBeNull();
+    // The parent owns mapping reset(null) to its declared-default state.
+    const reset = renderPicker(selectPublishedTransitChoices(normalized, "mrt_lrt"), onSelect);
+    expect(resetButton(reset.tree)).toBeUndefined();
+    expect(choiceButtons(reset.tree).map(button => button.props["aria-pressed"])).toEqual([false, true]);
+  });
+
+  it("keeps three choices maximum with a separate reset even when the default is not listed", () => {
+    const normalized = pool();
+    const current = normalized.options.find(option => option.aliases.includes("mrt:21678"))!;
+    const selection = selectPublishedTransitChoices(normalized, "mrt_lrt", current.key);
+    expect(selection.choices).toHaveLength(3);
+    // Normalized selector contract permits a reset target outside the displayed three.
+    selection.defaultKey = JSON.stringify(["unavailable-published-default"]);
+    const { tree, onSelect } = renderPicker(selection);
+    expect(choiceButtons(tree)).toHaveLength(3);
+    expect(elements(tree).filter(element => element.type === "button")).toHaveLength(4);
+    expect(text(elements(tree).find(element => element.type === "summary"))).toBe("Other walks (3)");
+    resetButton(tree)!.props.onClick!();
+    expect(onSelect).toHaveBeenCalledExactlyOnceWith(null);
+  });
+
+  it("defensively bounds overlong supplied choices without adding a filler option", () => {
+    const selection = choices();
+    const extra = structuredClone(selection.choices[0]);
+    extra.option.key = "synthetic-extra-1";
+    const fourth = structuredClone(extra);
+    fourth.option.key = "synthetic-extra-2";
+    selection.choices.push(extra, fourth);
+    const { tree } = renderPicker(selection);
+    expect(choiceButtons(tree)).toHaveLength(3);
+    expect(choiceButtons(tree).map(button => button.key))
+      .toEqual(selection.choices.slice(0, 3).map(choice => choice.option.key));
+  });
+
+  it("merges real duplicate default/candidate winner roles into one rendered choice", () => {
+    const selection = choices("bus", null);
+    expect(selection.choices).toHaveLength(1);
+    expect(selection.choices[0].option.sources.length).toBe(3);
+    expect(selection.choices[0].roles).toEqual(["shortest", "most_covered"]);
+    const { tree, onSelect } = renderPicker(selection);
+    expect(choiceButtons(tree)).toHaveLength(1);
+    expect(text(choiceButtons(tree)[0])).toContain("Shortest shown / Most covered");
+    expect(text(choiceButtons(tree)[0])).not.toMatch(/Current|Default/);
+    expect(choiceButtons(tree)[0].props["aria-pressed"]).toBe(false);
+    choiceButtons(tree)[0].props.onClick!();
+    expect(onSelect).toHaveBeenCalledExactlyOnceWith(selection.choices[0].option.key);
+  });
+
+  it.each(["missing", "invalid"] as const)("prints %s metrics as unavailable, not zero or another distance", status => {
+    const selection = choices();
+    const chosen = selection.choices[0].option;
+    chosen.metrics.sheltered_m = { status, reason: "synthetic-boundary", sourceField: "paths.sheltered_m" };
+    chosen.metrics.covered_ratio = { status, reason: "synthetic-boundary", sourceField: "paths.covered_ratio" };
+    const { tree } = renderPicker(selection);
+    const label = text(choiceButtons(tree)[0]);
+    expect(label).toContain("Walk distance unavailable");
+    expect(label).toContain("Coverage unavailable");
+    expect(label).not.toMatch(/\d+ m walk|\d+% covered|NaN|undefined/);
+  });
+
+  it("keeps valid zero coverage visible instead of calling it unavailable", () => {
+    const { tree } = renderPicker(choices());
+    const shortest = text(choiceButtons(tree)[0]);
+    expect(shortest).toContain("0% covered");
+    expect(shortest).not.toContain("Coverage unavailable");
+  });
+
+  it("rounds only for display without rewriting the supplied values or keys", () => {
+    const selection = choices();
+    const { tree } = renderPicker(selection);
+    expect(selection.choices[0].option.metrics.sheltered_m).toMatchObject({ status: "valid", value: 109.2 });
+    expect(selection.choices[1].option.metrics.covered_ratio).toMatchObject({ status: "valid", value: 0.241 });
+    expect(choiceButtons(tree).map(button => button.key)).toEqual(selection.choices.map(choice => choice.option.key));
+  });
+
+  it("never reorders supplied choices by their rounded labels", () => {
+    const selection = choices();
+    selection.choices.reverse();
+    const { tree } = renderPicker(selection);
+    expect(choiceButtons(tree).map(button => button.key)).toEqual(selection.choices.map(choice => choice.option.key));
+  });
+
+  it("retains reset when the real default lacks geometry and is unavailable", () => {
+    const normalized = pool();
+    const declared = normalized.options.find(option =>
+      option.sources.some(source => source.selectionRef.kind === "category_default"))!;
+    // This clone isolates the UI's unavailable reset policy; T04 validates geometry.
+    declared.retainable = false;
+    declared.distanceRankable = false;
+    declared.coverageRankable = false;
+    const current = normalized.options.find(option => option.aliases.includes("mrt:21624"))!;
+    const selection = selectPublishedTransitChoices(normalized, "mrt_lrt", current.key);
+    expect(selection.selectedKey).toBe(current.key);
+    expect(selection.defaultKey).toBe(declared.key);
+    expect(selection.choices.some(choice => choice.option.key === declared.key)).toBe(false);
+    const { tree, onSelect } = renderPicker(selection);
+    expect(choiceButtons(tree)).toHaveLength(1);
+    const reset = resetButton(tree)!;
+    expect(reset.props.title).toBe("Use published default");
+    expect(text(reset)).toBe("Use published default");
+    reset.props.onClick!();
+    expect(onSelect).toHaveBeenCalledExactlyOnceWith(null);
+  });
+
+  it("does not show an empty picker when the default and every choice are unavailable", () => {
+    const selection = choices();
+    selection.choices = [];
+    selection.selectedKey = null;
+    const { tree, onSelect } = renderPicker(selection);
+    expect(choiceButtons(tree)).toHaveLength(0);
+    expect(tree).toBeNull();
+    expect(resetButton(tree)).toBeUndefined();
+    expect(onSelect).not.toHaveBeenCalled();
+  });
+
+  it("does not auto-select when rendering a changed or outdated current key", () => {
+    const selection = choices();
+    selection.selectedKey = "synthetic-stale-current";
+    const { tree, onSelect } = renderPicker(selection);
+    expect(choiceButtons(tree).every(button => button.props["aria-pressed"] === false)).toBe(true);
+    expect(onSelect).not.toHaveBeenCalled();
+    resetButton(tree)!.props.onClick!();
+    expect(onSelect).toHaveBeenCalledExactlyOnceWith(null);
+  });
+
+  it("uses native buttons and summary semantics without trapping Tab, Enter, or Space", () => {
+    const { tree } = renderPicker(choices("mrt_lrt", null));
+    const buttons = elements(tree).filter(element => element.type === "button");
+    expect(buttons.length).toBeGreaterThan(0);
+    for (const button of buttons) {
+      expect(button.props.type).toBe("button");
+      expect(button.props.tabIndex).toBeUndefined();
+      expect(button.props.onKeyDown).toBeUndefined();
+      expect(button.props.onClick).toBeTypeOf("function");
     }
+    expect(elements(tree).every(element => element.props.onKeyDown === undefined)).toBe(true);
+    expect(elements(tree).filter(element => element.type === "summary")).toHaveLength(1);
   });
 
-  it("returns null when there are no candidates", () => {
-    const html = renderPicker({
-      candidates: [],
-      activeStopId: null,
-      bestStopId: null,
-      onSelect: () => {},
-    });
-    expect(html).toBe("");
+  it.each(["bus", "mrt_lrt"] as const)("uses a category label for an unavailable %s destination name, never a fabricated ID", category => {
+    const selection = choices(category, null);
+    selection.choices[0].option.name = null;
+    const { tree } = renderPicker(selection);
+    const label = text(choiceButtons(tree)[0]);
+    expect(label.startsWith(category === "bus" ? "Bus stop" : "MRT/LRT exit")).toBe(true);
+    expect(label).not.toContain(selection.choices[0].option.key);
+  });
+
+  it("preserves and safely escapes long published destination text", () => {
+    const selection = choices();
+    const name = "<script>UnbrokenDestination".repeat(20);
+    selection.choices[0].option.name = name;
+    const { tree, html } = renderPicker(selection);
+    expect(text(choiceButtons(tree)[0])).toContain(name);
+    expect(html).toContain("&lt;script&gt;");
+    expect(html).not.toContain("<script>");
   });
 });
 
-// -- Source-based structural checks (event wiring we cannot exercise) --------
+describe("TransitStopPicker narrow-container CSS constraints (not a browser pixel measurement)", () => {
+  const css = readFileSync(join(__dirname, "../../components/transit-stop-picker.module.css"), "utf8");
+  function rule(selector: string): string {
+    const blocks = Array.from(css.matchAll(/([^{}]+)\{([^{}]*)\}/g))
+      .filter(match => match[1].split(",").map(value => value.trim()).includes(selector));
+    expect(blocks.length).toBeGreaterThan(0);
+    return blocks.map(match => match[2]).join("\n");
+  }
 
-describe("TransitStopPicker source contract", () => {
-  const source = readFileSync(
-    join(__dirname, "../../components/transit-stop-picker.tsx"),
-    "utf-8"
-  );
-
-  it("wires the chip button onClick to onSelect with the candidate id", () => {
-    expect(source).toContain("onClick={() => onSelect(candidate.id)}");
+  it("lets a 320px parent shrink the picker and buttons with border-box sizing", () => {
+    expect(rule(".picker")).toMatch(/min-width:\s*0/);
+    expect(rule(".picker")).toMatch(/max-width:\s*100%/);
+    expect(rule(".choice")).toMatch(/box-sizing:\s*border-box/);
+    expect(rule(".choice")).toMatch(/min-width:\s*0/);
+    expect(rule(".choice")).toMatch(/max-width:\s*100%/);
+    expect(rule(".choices")).toMatch(/grid-template-columns:\s*minmax\(0,\s*1fr\)/);
+    expect(rule(".choice")).toMatch(/grid-template-columns:\s*minmax\(0,\s*1fr\)/);
   });
 
-  it("wires the reset chip onClick to onSelect(null)", () => {
-    expect(source).toContain("onClick={() => onSelect(null)}");
-  });
-
-  it("routes keyboard events through nextChipAction", () => {
-    expect(source).toContain("nextChipAction(chipIds, currentIndex, event.key)");
-    expect(source).toContain('action.kind === "activate"');
-    expect(source).toContain('action.kind === "focus"');
-  });
-
-  it("marks the active chip with aria-current", () => {
-    expect(source).toContain('aria-current={isActive ? "true" : undefined}');
-  });
-});
-
-// -- Handler contract: onSelect is invoked with the correct id ---------------
-
-describe("TransitStopPicker onSelect contract", () => {
-  const candidates = deriveNearestTransitCandidates({
-    originLat,
-    originLng,
-    transitPois: CANDIDATES,
-    mode: "best_transit",
-    limit: 5,
-  });
-
-  it("Enter on a candidate chip activates onSelect with that candidate id", () => {
-    // Walk through what the keyboard handler does when Enter is pressed on
-    // a chip: nextChipAction returns {kind:"activate", chipId}, and the
-    // component invokes onSelect(chipId) unless chipId === RESET_CHIP_ID.
-    const chipIds = candidates.map((c) => c.id);
-    const activateOn = chipIds[2];
-    const action = nextChipAction(chipIds, 2, "Enter");
-    expect(action).toEqual({ kind: "activate", chipId: activateOn });
-
-    const onSelect = vi.fn();
-    // Simulate the component's activation branch
-    if (action.kind === "activate") {
-      onSelect(action.chipId === RESET_CHIP_ID ? null : action.chipId);
+  it("wraps metrics, roles and unbroken names instead of clipping or horizontal scrolling", () => {
+    expect(rule(".metrics")).toMatch(/flex-wrap:\s*wrap/);
+    for (const selector of [".choice", ".reset", ".destination", ".roles", ".metrics > span"]) {
+      expect(rule(selector)).toMatch(/overflow-wrap:\s*anywhere/);
     }
-    expect(onSelect).toHaveBeenCalledTimes(1);
-    expect(onSelect).toHaveBeenCalledWith(activateOn);
+    expect(css).not.toMatch(/white-space:\s*nowrap|text-overflow:\s*ellipsis|overflow-x:\s*(auto|scroll)/);
+    expect(css).not.toMatch(/font-size:[^;]*(vw|cqw)|letter-spacing:\s*-/);
   });
 
-  it("Enter on the reset chip activates onSelect(null)", () => {
-    const chipIds = [RESET_CHIP_ID, ...candidates.map((c) => c.id)];
-    const action = nextChipAction(chipIds, 0, "Enter");
-    expect(action).toEqual({ kind: "activate", chipId: RESET_CHIP_ID });
-
-    const onSelect = vi.fn();
-    if (action.kind === "activate") {
-      onSelect(action.chipId === RESET_CHIP_ID ? null : action.chipId);
+  it("keeps native tap targets and visible keyboard focus without a nested floating card", () => {
+    for (const selector of [".choice", ".reset", ".summary"]) {
+      expect(rule(selector)).toMatch(/min-height:\s*44px/);
+      expect(rule(selector + ":focus-visible")).toMatch(/outline:\s*2px solid/);
     }
-    expect(onSelect).toHaveBeenCalledWith(null);
+    expect(rule(".picker")).not.toMatch(/box-shadow|backdrop-filter|border-radius|background/);
   });
 });

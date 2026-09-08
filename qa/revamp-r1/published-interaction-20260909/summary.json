@@ -1,0 +1,556 @@
+{
+  "date": "2026-09-08T21:30:11.519Z",
+  "task": "T06",
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "64d8f519788cdd86f08eec8d69f868d3da82ecac",
+  "status": "complete_published_choice_interaction",
+  "sources": [
+    {
+      "path": "web/app/page.module.css",
+      "bytes": 28757,
+      "sha256": "d8a5074f4338fee1dc0afb4db89d36c0ba1414ed1cf8dded52241ffcf75bc35c",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/app/page.tsx",
+      "bytes": 110384,
+      "sha256": "83e4b2e22064fba0a4428f9a06c5efa9d4219fc71fc7f6debb92e29a7051bacb",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/components/transit-stop-picker.module.css",
+      "bytes": 1737,
+      "sha256": "aac04993ce4fae9e5b222a853bfd0f20e53197ae9bbffff3ca634596bcb7f974",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/components/transit-stop-picker.tsx",
+      "bytes": 2792,
+      "sha256": "7637b29f320581f6e04778984c3aefd33e55d31ee9f3e196fa608f5bd5e52143",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/components/walk-summary.tsx",
+      "bytes": 6334,
+      "sha256": "3e94ecfad2277c34465998065638f97ac2caa8269d6b4c7feb425e6b0f4cc05c",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/accessibility-render.test.tsx",
+      "bytes": 79219,
+      "sha256": "a091de8e3b7213d5b8e1a0f8de2abc083e060c6943b5d1d7cf30a14d136d2335",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/live-route-scoring.test.ts",
+      "bytes": 8837,
+      "sha256": "70135b45edec85599df3b31652394f427976128c91eef586988ad4f0510c7284",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/published-transit-options.test.ts",
+      "bytes": 51498,
+      "sha256": "a701a1b913cfad5b37c7cf833e5c58f786ebfbe80dd2d8a4d292ef99b8b261e2",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "bytes": 43121,
+      "sha256": "831b25983bbc8e3aac6da29ff502178459e0955df6cd923c1f4c3ce42e9b146e",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-selection.test.ts",
+      "bytes": 6615,
+      "sha256": "9942fe62a109c62190ea0a1084d23309dcb052b2a7a618ec68c7b4f86c25669a",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-view.test.ts",
+      "bytes": 12777,
+      "sha256": "cc828c29aa420f75227c1e7a60ab2cf1f29a19784fa076e1099275efb115de48",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/revamp-layout.test.ts",
+      "bytes": 2406,
+      "sha256": "9e6613d07cbd93083541166605cc40eb82290790290f379b7058cea291868485",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/route-evidence-map-interaction.test.ts",
+      "bytes": 20098,
+      "sha256": "b64da9d0c1136d4b235c95a458950c95dfebfb04796ba1e6d202b89000a536da",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/score-card-copy.test.ts",
+      "bytes": 79502,
+      "sha256": "18f50017548d8edd96b611e544effe6b1f5dc2e66fc73824c1904bf390c2e19e",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/transit-stop-picker.test.tsx",
+      "bytes": 24830,
+      "sha256": "f739563c641cd4d9a98434627d74ae15cd294a4bce48f61e16353dc552579ab8",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/walk-real-records.test.ts",
+      "bytes": 4528,
+      "sha256": "5fffa159367aaafef5ce3a791e1546b86b280e12e6d6b4574221e5ace2bc537b",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/walk-summary-options.test.ts",
+      "bytes": 11171,
+      "sha256": "b31d4067ff0070e688ad37ff52b346f3a77d43813b1d346621df4470bd246d4a",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/live-route-scoring.ts",
+      "bytes": 9232,
+      "sha256": "b69619c29758536d69954fbfca9335174819121e16c130ba3746a80e21242521",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/published-transit-options.ts",
+      "bytes": 34110,
+      "sha256": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/published-walk-selection.ts",
+      "bytes": 3582,
+      "sha256": "b6403d266cacce74930dc5e98ac3b5f3e971227807b58e5f4f5e7f76783576d2",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/published-walk-view.ts",
+      "bytes": 2058,
+      "sha256": "f4969aea23227fefe9154848541ba3349c433a59fecf891d647d99c0312ff618",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    }
+  ],
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "match": true
+    }
+  ],
+  "validation": {
+    "checksPath": "qa/revamp-r1/published-options-20260909/interaction-full-5/checks.json",
+    "buildPath": "qa/revamp-r1/cached-release-20260908/published-interaction-20260909-4/build.json",
+    "browserPath": "qa/revamp-r1/published-interaction-20260909/acceptance-5-1788902801302/browser.json",
+    "buildId": "JBibDXHZs5Vmiijg1AfsI",
+    "tests": {
+      "previous": 769,
+      "added": 195,
+      "total": 964,
+      "files": 44,
+      "arithmetic": "769 + 195 = 964; 40 + 4 = 44"
+    },
+    "testSnapshot": "tmp\\test-without-data-1BhZoK",
+    "commands": [
+      {
+        "command": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:/sgSHIOK2026/web/scripts/test-without-production-data.mjs",
+          "--reporter=dot"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 63.451
+      },
+      {
+        "command": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:/sgSHIOK2026/web/node_modules/typescript/bin/tsc",
+          "--project",
+          "C:/sgSHIOK2026/web/tsconfig.json",
+          "--noEmit",
+          "--incremental",
+          "false"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 6.733
+      },
+      {
+        "command": "python",
+        "args": [
+          "C:/sgSHIOK2026/scripts/check_repo_integrity.py"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 1.467
+      },
+      {
+        "command": "git",
+        "args": [
+          "diff",
+          "--check"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 1.159
+      }
+    ],
+    "screenshotNames": [
+      "mrt-default-390x844",
+      "choices-open-390x844",
+      "mrt-c-390x844",
+      "bus-1440x950",
+      "bus-390x844",
+      "bus-390x667",
+      "bus-320x667",
+      "shared-c-320x667"
+    ],
+    "screenshotReview": "Parent visually inspected each final capture; source-feature assertions captured before/after each screenshot.",
+    "browserChecks": [
+      {
+        "name": "served snapshot is expected build",
+        "pass": true
+      },
+      {
+        "name": "actual received HTML is the expected build",
+        "pass": true
+      },
+      {
+        "name": "mrt-default-390x844 current route during screenshot",
+        "pass": true
+      },
+      {
+        "name": "mrt-default-390x844 no page overflow",
+        "pass": true
+      },
+      {
+        "name": "mrt-default-390x844 metric text fits without split words",
+        "pass": true
+      },
+      {
+        "name": "mrt-default-390x844 category labels fit their touch targets",
+        "pass": true
+      },
+      {
+        "name": "control hit-test: Other walks (2)",
+        "pass": true
+      },
+      {
+        "name": "keyboard opens native published choices",
+        "pass": true
+      },
+      {
+        "name": "choices-open-390x844 current route during screenshot",
+        "pass": true
+      },
+      {
+        "name": "choices-open-390x844 no page overflow",
+        "pass": true
+      },
+      {
+        "name": "choices-open-390x844 metric text fits without split words",
+        "pass": true
+      },
+      {
+        "name": "choices-open-390x844 category labels fit their touch targets",
+        "pass": true
+      },
+      {
+        "name": "control hit-test: BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+        "pass": true
+      },
+      {
+        "name": "candidate measurements remain independent",
+        "pass": true
+      },
+      {
+        "name": "candidate URL uses its real ID",
+        "pass": true
+      },
+      {
+        "name": "mrt-c-390x844 current route during screenshot",
+        "pass": true
+      },
+      {
+        "name": "mrt-c-390x844 no page overflow",
+        "pass": true
+      },
+      {
+        "name": "mrt-c-390x844 metric text fits without split words",
+        "pass": true
+      },
+      {
+        "name": "mrt-c-390x844 category labels fit their touch targets",
+        "pass": true
+      },
+      {
+        "name": "control hit-test: Use published default",
+        "pass": true
+      },
+      {
+        "name": "default reset has no fabricated stop ID",
+        "pass": true
+      },
+      {
+        "name": "control hit-test: Bus stopspublished walk",
+        "pass": true
+      },
+      {
+        "name": "bus measurements preserved",
+        "pass": true
+      },
+      {
+        "name": "one default does not create a useless picker",
+        "pass": true
+      },
+      {
+        "name": "top-left equal-width stack 1440",
+        "pass": true
+      },
+      {
+        "name": "About data bottom-right 1440",
+        "pass": true
+      },
+      {
+        "name": "bus-1440x950 current route during screenshot",
+        "pass": true
+      },
+      {
+        "name": "bus-1440x950 no page overflow",
+        "pass": true
+      },
+      {
+        "name": "bus-1440x950 metric text fits without split words",
+        "pass": true
+      },
+      {
+        "name": "bus-1440x950 category labels fit their touch targets",
+        "pass": true
+      },
+      {
+        "name": "top-left equal-width stack 390",
+        "pass": true
+      },
+      {
+        "name": "About data bottom-right 390",
+        "pass": true
+      },
+      {
+        "name": "bus-390x844 current route during screenshot",
+        "pass": true
+      },
+      {
+        "name": "bus-390x844 no page overflow",
+        "pass": true
+      },
+      {
+        "name": "bus-390x844 metric text fits without split words",
+        "pass": true
+      },
+      {
+        "name": "bus-390x844 category labels fit their touch targets",
+        "pass": true
+      },
+      {
+        "name": "top-left equal-width stack 390",
+        "pass": true
+      },
+      {
+        "name": "About data bottom-right 390",
+        "pass": true
+      },
+      {
+        "name": "bus-390x667 current route during screenshot",
+        "pass": true
+      },
+      {
+        "name": "bus-390x667 no page overflow",
+        "pass": true
+      },
+      {
+        "name": "bus-390x667 metric text fits without split words",
+        "pass": true
+      },
+      {
+        "name": "bus-390x667 category labels fit their touch targets",
+        "pass": true
+      },
+      {
+        "name": "top-left equal-width stack 320",
+        "pass": true
+      },
+      {
+        "name": "About data bottom-right 320",
+        "pass": true
+      },
+      {
+        "name": "bus-320x667 current route during screenshot",
+        "pass": true
+      },
+      {
+        "name": "bus-320x667 no page overflow",
+        "pass": true
+      },
+      {
+        "name": "bus-320x667 metric text fits without split words",
+        "pass": true
+      },
+      {
+        "name": "bus-320x667 category labels fit their touch targets",
+        "pass": true
+      },
+      {
+        "name": "shared-c-320x667 current route during screenshot",
+        "pass": true
+      },
+      {
+        "name": "shared-c-320x667 no page overflow",
+        "pass": true
+      },
+      {
+        "name": "shared-c-320x667 metric text fits without split words",
+        "pass": true
+      },
+      {
+        "name": "shared-c-320x667 category labels fit their touch targets",
+        "pass": true
+      },
+      {
+        "name": "published choices made no live-preview request",
+        "pass": true
+      },
+      {
+        "name": "no uncaught page errors",
+        "pass": true
+      }
+    ],
+    "cleanup": {
+      "closeSent": true,
+      "chromeExited": true
+    },
+    "postRunCleanup": {
+      "chromePid": 103012,
+      "ownedBrowserAbsent": true,
+      "checkedAt": "2026-09-08T21:30:11.775Z",
+      "note": "Harness and subsequent OS PID probe both confirm owned browser exit."
+    }
+  },
+  "review": {
+    "pickerAndPageTests": "Parfit",
+    "geometryValidation": "Raman",
+    "summaryPreviewAndIndependentSelectionReview": "Anscombe",
+    "finalExecutionAndVisualReview": "Parent"
+  },
+  "geometryProbe": "qa/revamp-r1/published-interaction-20260909/geometry-probe.json",
+  "retainedFailures": [
+    "interaction-full-1: three stale expectations failed; source-dump diagnostics retained in checks.json.",
+    "acceptance-1: CDP Enter omitted text CR; native disclosure remained closed. Corrected test verifies open state and owned browser exit.",
+    "acceptance-2 passed functional checks, but visual inspection found midword Unavailable wrapping. Added compact typography, stable metric tracks and font-ready per-cell bounds checks before acceptance-3.",
+    "acceptance-3 passed the expanded checks; visual inspection then caught category subtitle spill. Explicit inner grid tracks and44px touch targets were added, with per-button text-bound checks.",
+    "acceptance-4 raced the initial document transition before documentElement existed. It made no screenshot/interaction claim. Readiness sampling now treats that state as pending; acceptance-5 retains the same app build."
+  ],
+  "findings": [
+    "The bounded picker now uses the original normalized published pool. Category, destination, measurements, geometry and URL stay together; valid published choices issue no preview request.",
+    "Candidates no longer inherit default total/state/provenance or fabricated distances. Real candidate C retains109m/0%; unsupported logical-gap values remain unavailable. Bus default retains81m/55%/37m/20m.",
+    "Preview field meanings are corrected: sheltered_m is full preview walk distance, covered_m is covered distance, straight_line_m is endpoint distance. Preview total/subscores are null and provenance is explicitly non-authoritative.",
+    "Validated complete segment partitions preserve real shelter colors. Foreign fragments cannot expand route bounds; mapped fragments remain distinct from complete logical gap statistics.",
+    "Initial URL, same-postal reload, delayed geometry/POIs, explicit category/route choice and stale preview callbacks have executed regressions. Missing category is not misreported as an absent postal.",
+    "964 isolated tests/44 files, TypeScript, direct build, integrity,11 source anchors and browser functional acceptance pass. Approved equal-width top-left stack and bottom-right About data remain visible."
+  ],
+  "disagreements": [
+    "A positive distance on an explicitly unrouted fallback is not a verified walk. Corrected the inherited real018990 test expectation instead of preserving that presentation error.",
+    "Passing DOM/page overflow checks is not visual acceptance; the first successful browser run still split Unavailable midword. This was corrected and rechecked.",
+    "This closes published-choice interaction, not all-postal coverage, gap exploration, representative performance or release acceptance."
+  ],
+  "limitations": [
+    "Headless desktop-engine emulation uses SwiftShader; no representative phone timing, speedup, whole-bundle validation or deployment claim.",
+    "Local QA proxy serves unmodified protected data read-only and deliberately rejects live preview APIs; failure/race paths execute in component tests.",
+    "T07 still must connect summary metrics to honest logical-gap/fragment exploration and remove contradictory legacy gap details.",
+    "No pipeline run, installation, protected-payload mutation, X operation or deployment command. Only owned test processes were replaced/closed."
+  ],
+  "pipelineRuns": 0,
+  "pipelineCost": 0,
+  "installations": 0,
+  "deploymentCommands": 0
+}

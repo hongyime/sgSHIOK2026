@@ -22,11 +22,11 @@ describe("score card copy", () => {
     expect(source).toContain("Connected walk beyond 1.2 km");
     expect(source).toContain("No connected shelter-map walk");
     expect(source).not.toContain("Shelter-map walk not connected yet");
-    expect(source).toContain("No connected shelter-map walk to ${transitModeLabel(transitMode)} within 1.2 km");
+    expect(source).toContain("No verified published walk to ${transitModeLabel(transitMode)}");
     expect(source).toContain('return "transit stop or exit";');
     expect(source).not.toContain('return "transit";');
     expect(source).not.toContain("No connected shelter-map walk to ${transitModeLabel(transitMode)} within range");
-    expect(source).toContain("No published shelter-map walk to ${transitModeLabel(transitMode)} qualifies within the locked 1.2 km transit range.");
+    expect(source).toContain("No verified walk to ${transitModeLabel(transitMode)} is published. The record does not establish why.");
     expect(source).toContain("Transit stop or exit found");
     expect(source).not.toContain("Transit target found");
     expect(source).toContain("No qualifying transit stop or exit within 1.2 km");
@@ -42,7 +42,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("within the 1.2 km scoring range for this postal");
     expect(source).toContain("Closest connected shelter-map walk to ${label} is ${formatDistance(nearestM)}");
     expect(source).toContain("Closest published connected shelter-map walk is about ${formatDistance(nearestM)}");
-    expect(source).toContain("No shelter-map walk to ${label} within 1.2 km locked range");
+    expect(source).toContain("No verified published walk to ${label}");
     expect(source).not.toContain("No shelter-map walk to ${label} within locked transit range");
     expect(source).not.toContain("Closest connected ${label} shelter-map walk is ${formatDistance(nearestM)}");
     expect(source).not.toContain("Closest routed ${label} is ${formatDistance(nearestM)}");
@@ -58,7 +58,7 @@ describe("score card copy", () => {
     expect(source).toContain("Beyond 1.2 km locked range");
     expect(source).not.toContain("Outside locked transit range");
     expect(source).not.toContain("Outside current 1.2 km scoring range");
-    expect(source).toContain("Nearby transit may still exist beyond the locked 1.2 km transit range");
+    expect(source).toContain("Distance or connection failure is not established by this record");
     expect(source).not.toContain("current scoring range is 1.2 km");
     expect(source).not.toContain("within the current scoring range");
     expect(source).not.toContain("Current scoring range is 1.2 km");
@@ -181,9 +181,9 @@ describe("score card copy", () => {
     expect(source).not.toContain('aria-label="Transit target type"');
     expect(source).not.toContain('aria-label="Transit target"');
     const pickerSource = readFileSync(join(__dirname, "../../components/transit-stop-picker.tsx"), "utf-8");
-    expect(pickerSource).toContain("Nearby transit stops and exits");
-    expect(pickerSource).toContain('aria-label="Transit stop and exit picker"');
-    expect(pickerSource).toContain('aria-label="Nearby transit stops and exits"');
+    expect(pickerSource).toContain("Other walks");
+    expect(pickerSource).toContain('aria-label="Published walks"');
+    expect(pickerSource).not.toContain("Nearby transit stops and exits");
     expect(pickerSource).not.toContain("Nearby transit targets");
     expect(pickerSource).not.toContain('aria-label="Transit target picker"');
     expect(pickerSource).not.toContain('aria-label="Nearby transit targets"');

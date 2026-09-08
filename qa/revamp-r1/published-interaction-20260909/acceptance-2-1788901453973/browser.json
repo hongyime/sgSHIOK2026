@@ -1,0 +1,6531 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "build": "euRKPw8URSzUbedRTZ32U",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\published-interaction-20260909\\acceptance-2-1788901453973",
+  "profile": "C:\\sgSHIOK2026\\tmp\\published-walk-browser-3nn3wJ",
+  "startedAt": "2026-09-08T21:04:13.977Z",
+  "checks": [
+    {
+      "name": "served snapshot is expected build",
+      "pass": true,
+      "detail": {
+        "build": "euRKPw8URSzUbedRTZ32U",
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-published-interaction-20260909-2\\web",
+        "pid": 96092,
+        "nextPid": 96836,
+        "requests": [
+          {
+            "path": "/",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900942665
+          },
+          {
+            "path": "/_next/static/chunks/2wo8o9pl4wu5r.css",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900942902
+          },
+          {
+            "path": "/_next/static/chunks/3wkt3-74el481.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900942918
+          },
+          {
+            "path": "/_next/static/chunks/2wu61p_p0hxro.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900942944
+          },
+          {
+            "path": "/_next/static/chunks/11axl_urhtotz.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900943000
+          },
+          {
+            "path": "/_next/static/chunks/0in607kxyceyg.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900943015
+          },
+          {
+            "path": "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900943035
+          },
+          {
+            "path": "/_next/static/chunks/3nb6axsuazyhm.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900943046
+          },
+          {
+            "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900943052
+          },
+          {
+            "path": "/_next/static/chunks/1__ampz9o0grs.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900943077
+          },
+          {
+            "path": "/icon.svg",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900943656
+          },
+          {
+            "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900943704
+          },
+          {
+            "path": "/_next/static/chunks/3smf43rt8k1g4.css",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900943706
+          },
+          {
+            "path": "/_next/static/chunks/3t12vbbbt_0uh.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900943726
+          },
+          {
+            "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900943743
+          },
+          {
+            "path": "/_next/static/chunks/1s0fsd68wz2sd.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900943848
+          },
+          {
+            "path": "/sw.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900943852
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+            "status": 404,
+            "kind": "data",
+            "at": 1788900944478
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+            "status": 200,
+            "kind": "data",
+            "at": 1788900944497
+          },
+          {
+            "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900944964
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+            "status": 200,
+            "kind": "data",
+            "at": 1788900945061
+          },
+          {
+            "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+            "status": 200,
+            "kind": "app",
+            "at": 1788900946481
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+            "status": 404,
+            "kind": "data",
+            "at": 1788900946748
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+            "status": 404,
+            "kind": "data",
+            "at": 1788900946750
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+            "status": 200,
+            "kind": "data",
+            "at": 1788900947216
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+            "status": 200,
+            "kind": "data",
+            "at": 1788900947269
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+            "status": 200,
+            "kind": "data",
+            "at": 1788900949760
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+            "status": 200,
+            "kind": "data",
+            "at": 1788900949767
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+            "status": 200,
+            "kind": "data",
+            "at": 1788900949825
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+            "status": 200,
+            "kind": "data",
+            "at": 1788900949845
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+            "status": 200,
+            "kind": "data",
+            "at": 1788900949885
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+            "status": 404,
+            "kind": "data",
+            "at": 1788900949900
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+            "status": 200,
+            "kind": "data",
+            "at": 1788900949922
+          }
+        ]
+      }
+    },
+    {
+      "name": "actual received HTML is the expected build",
+      "pass": true,
+      "detail": {
+        "requestId": "09BC805649E7152E07BAE1721B8C9565",
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt",
+        "status": 200,
+        "type": "Document",
+        "cache": false,
+        "serviceWorker": false,
+        "bytes": 12889,
+        "sha256": "34e3243180a0b3de053897afe78ebea867607d9e30d0da0dfce4bd459d283851",
+        "containsExpectedBuild": true
+      }
+    },
+    {
+      "name": "mrt-default-390x844 current route during screenshot",
+      "pass": true,
+      "detail": {
+        "before": {
+          "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt",
+          "status": "initializing",
+          "name": "BAYFRONT MRT STATION Exit E",
+          "postal": "018956",
+          "metrics": [
+            {
+              "value": "308 m",
+              "label": "Walk distance"
+            },
+            {
+              "value": "24%",
+              "label": "Covered"
+            },
+            {
+              "value": "234 m",
+              "label": "Uncovered"
+            },
+            {
+              "value": "136 m",
+              "label": "Longest gap"
+            }
+          ],
+          "key": "3:shiokest:primary",
+          "currentFeatures": 6,
+          "basemap": true,
+          "moving": false,
+          "choicesOpen": false,
+          "choices": [
+            {
+              "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+              "selected": "false"
+            },
+            {
+              "text": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+              "selected": "true"
+            }
+          ],
+          "overflow": false,
+          "viewport": [
+            390,
+            844
+          ],
+          "brand": {
+            "x": 10,
+            "y": 10,
+            "width": 74,
+            "height": 36.6875
+          },
+          "search": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44
+          },
+          "panel": {
+            "x": 10,
+            "y": 106.6875,
+            "width": 300,
+            "height": 270.1875
+          },
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844
+          },
+          "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "summary": {
+            "x": 21,
+            "y": 142.6875,
+            "width": 278,
+            "height": 124
+          },
+          "about": {
+            "x": 281,
+            "y": 780,
+            "width": 96,
+            "height": 31
+          }
+        },
+        "after": {
+          "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt",
+          "status": "ready",
+          "name": "BAYFRONT MRT STATION Exit E",
+          "postal": "018956",
+          "metrics": [
+            {
+              "value": "308 m",
+              "label": "Walk distance"
+            },
+            {
+              "value": "24%",
+              "label": "Covered"
+            },
+            {
+              "value": "234 m",
+              "label": "Uncovered"
+            },
+            {
+              "value": "136 m",
+              "label": "Longest gap"
+            }
+          ],
+          "key": "3:shiokest:primary",
+          "currentFeatures": 6,
+          "basemap": true,
+          "moving": false,
+          "choicesOpen": false,
+          "choices": [
+            {
+              "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+              "selected": "false"
+            },
+            {
+              "text": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+              "selected": "true"
+            }
+          ],
+          "overflow": false,
+          "viewport": [
+            390,
+            844
+          ],
+          "brand": {
+            "x": 10,
+            "y": 10,
+            "width": 74,
+            "height": 36.6875
+          },
+          "search": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44
+          },
+          "panel": {
+            "x": 10,
+            "y": 106.6875,
+            "width": 300,
+            "height": 270.1875
+          },
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844
+          },
+          "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "summary": {
+            "x": 21,
+            "y": 142.6875,
+            "width": 278,
+            "height": 124
+          },
+          "about": {
+            "x": 281,
+            "y": 780,
+            "width": 96,
+            "height": 31
+          }
+        }
+      }
+    },
+    {
+      "name": "mrt-default-390x844 no page overflow",
+      "pass": true,
+      "detail": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "control hit-test: Other walks (2)",
+      "pass": true,
+      "detail": {
+        "x": 160,
+        "y": 343.875,
+        "text": "Other walks (2)",
+        "hit": true,
+        "visible": true
+      }
+    },
+    {
+      "name": "keyboard opens native published choices",
+      "pass": true
+    },
+    {
+      "name": "choices-open-390x844 current route during screenshot",
+      "pass": true,
+      "detail": {
+        "before": {
+          "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt",
+          "status": "ready",
+          "name": "BAYFRONT MRT STATION Exit E",
+          "postal": "018956",
+          "metrics": [
+            {
+              "value": "308 m",
+              "label": "Walk distance"
+            },
+            {
+              "value": "24%",
+              "label": "Covered"
+            },
+            {
+              "value": "234 m",
+              "label": "Uncovered"
+            },
+            {
+              "value": "136 m",
+              "label": "Longest gap"
+            }
+          ],
+          "key": "3:shiokest:primary",
+          "currentFeatures": 6,
+          "basemap": true,
+          "moving": false,
+          "choicesOpen": true,
+          "choices": [
+            {
+              "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+              "selected": "false"
+            },
+            {
+              "text": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+              "selected": "true"
+            }
+          ],
+          "overflow": false,
+          "viewport": [
+            390,
+            844
+          ],
+          "brand": {
+            "x": 10,
+            "y": 10,
+            "width": 74,
+            "height": 36.6875
+          },
+          "search": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44
+          },
+          "panel": {
+            "x": 10,
+            "y": 106.6875,
+            "width": 300,
+            "height": 428.53125
+          },
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844
+          },
+          "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "summary": {
+            "x": 21,
+            "y": 142.6875,
+            "width": 278,
+            "height": 124
+          },
+          "about": {
+            "x": 281,
+            "y": 780,
+            "width": 96,
+            "height": 31
+          }
+        },
+        "after": {
+          "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt",
+          "status": "ready",
+          "name": "BAYFRONT MRT STATION Exit E",
+          "postal": "018956",
+          "metrics": [
+            {
+              "value": "308 m",
+              "label": "Walk distance"
+            },
+            {
+              "value": "24%",
+              "label": "Covered"
+            },
+            {
+              "value": "234 m",
+              "label": "Uncovered"
+            },
+            {
+              "value": "136 m",
+              "label": "Longest gap"
+            }
+          ],
+          "key": "3:shiokest:primary",
+          "currentFeatures": 6,
+          "basemap": true,
+          "moving": false,
+          "choicesOpen": true,
+          "choices": [
+            {
+              "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+              "selected": "false"
+            },
+            {
+              "text": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+              "selected": "true"
+            }
+          ],
+          "overflow": false,
+          "viewport": [
+            390,
+            844
+          ],
+          "brand": {
+            "x": 10,
+            "y": 10,
+            "width": 74,
+            "height": 36.6875
+          },
+          "search": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44
+          },
+          "panel": {
+            "x": 10,
+            "y": 106.6875,
+            "width": 300,
+            "height": 428.53125
+          },
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844
+          },
+          "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "summary": {
+            "x": 21,
+            "y": 142.6875,
+            "width": 278,
+            "height": 124
+          },
+          "about": {
+            "x": 281,
+            "y": 780,
+            "width": 96,
+            "height": 31
+          }
+        }
+      }
+    },
+    {
+      "name": "choices-open-390x844 no page overflow",
+      "pass": true,
+      "detail": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "control hit-test: BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+      "pass": true,
+      "detail": {
+        "x": 160,
+        "y": 404.4609375,
+        "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+        "hit": true,
+        "visible": true
+      }
+    },
+    {
+      "name": "candidate measurements remain independent",
+      "pass": true,
+      "detail": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt&stop=mrt%3A21624",
+        "status": "ready",
+        "name": "BAYFRONT MRT STATION Exit C",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "109 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "0%",
+            "label": "Covered"
+          },
+          {
+            "value": "Unavailable",
+            "label": "Uncovered"
+          },
+          {
+            "value": "Unavailable",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "4:shiokest:primary",
+        "currentFeatures": 3,
+        "basemap": true,
+        "moving": false,
+        "choicesOpen": true,
+        "choices": [
+          {
+            "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+            "selected": "true"
+          },
+          {
+            "text": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+            "selected": "false"
+          }
+        ],
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 494.109375
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 147
+        },
+        "about": {
+          "x": 281,
+          "y": 780,
+          "width": 96,
+          "height": 31
+        }
+      }
+    },
+    {
+      "name": "candidate URL uses its real ID",
+      "pass": true,
+      "detail": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt&stop=mrt%3A21624"
+    },
+    {
+      "name": "mrt-c-390x844 current route during screenshot",
+      "pass": true,
+      "detail": {
+        "before": {
+          "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt&stop=mrt%3A21624",
+          "status": "ready",
+          "name": "BAYFRONT MRT STATION Exit C",
+          "postal": "018956",
+          "metrics": [
+            {
+              "value": "109 m",
+              "label": "Walk distance"
+            },
+            {
+              "value": "0%",
+              "label": "Covered"
+            },
+            {
+              "value": "Unavailable",
+              "label": "Uncovered"
+            },
+            {
+              "value": "Unavailable",
+              "label": "Longest gap"
+            }
+          ],
+          "key": "4:shiokest:primary",
+          "currentFeatures": 3,
+          "basemap": true,
+          "moving": false,
+          "choicesOpen": true,
+          "choices": [
+            {
+              "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+              "selected": "true"
+            },
+            {
+              "text": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+              "selected": "false"
+            }
+          ],
+          "overflow": false,
+          "viewport": [
+            390,
+            844
+          ],
+          "brand": {
+            "x": 10,
+            "y": 10,
+            "width": 74,
+            "height": 36.6875
+          },
+          "search": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44
+          },
+          "panel": {
+            "x": 10,
+            "y": 106.6875,
+            "width": 300,
+            "height": 494.109375
+          },
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844
+          },
+          "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "summary": {
+            "x": 21,
+            "y": 142.6875,
+            "width": 278,
+            "height": 147
+          },
+          "about": {
+            "x": 281,
+            "y": 780,
+            "width": 96,
+            "height": 31
+          }
+        },
+        "after": {
+          "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt&stop=mrt%3A21624",
+          "status": "ready",
+          "name": "BAYFRONT MRT STATION Exit C",
+          "postal": "018956",
+          "metrics": [
+            {
+              "value": "109 m",
+              "label": "Walk distance"
+            },
+            {
+              "value": "0%",
+              "label": "Covered"
+            },
+            {
+              "value": "Unavailable",
+              "label": "Uncovered"
+            },
+            {
+              "value": "Unavailable",
+              "label": "Longest gap"
+            }
+          ],
+          "key": "4:shiokest:primary",
+          "currentFeatures": 3,
+          "basemap": true,
+          "moving": false,
+          "choicesOpen": true,
+          "choices": [
+            {
+              "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+              "selected": "true"
+            },
+            {
+              "text": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+              "selected": "false"
+            }
+          ],
+          "overflow": false,
+          "viewport": [
+            390,
+            844
+          ],
+          "brand": {
+            "x": 10,
+            "y": 10,
+            "width": 74,
+            "height": 36.6875
+          },
+          "search": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44
+          },
+          "panel": {
+            "x": 10,
+            "y": 106.6875,
+            "width": 300,
+            "height": 494.109375
+          },
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844
+          },
+          "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "summary": {
+            "x": 21,
+            "y": 142.6875,
+            "width": 278,
+            "height": 147
+          },
+          "about": {
+            "x": 281,
+            "y": 780,
+            "width": 96,
+            "height": 31
+          }
+        }
+      }
+    },
+    {
+      "name": "mrt-c-390x844 no page overflow",
+      "pass": true,
+      "detail": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "control hit-test: Use published default",
+      "pass": true,
+      "detail": {
+        "x": 93.5,
+        "y": 567.796875,
+        "text": "Use published default",
+        "hit": true,
+        "visible": true
+      }
+    },
+    {
+      "name": "default reset has no fabricated stop ID",
+      "pass": true,
+      "detail": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt"
+    },
+    {
+      "name": "control hit-test: Bus stopspublished walk",
+      "pass": true,
+      "detail": {
+        "x": 252,
+        "y": 293.78125,
+        "text": "Bus stopspublished walk",
+        "hit": true,
+        "visible": true
+      }
+    },
+    {
+      "name": "bus measurements preserved",
+      "pass": true,
+      "detail": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+        "status": "ready",
+        "name": "Bayfront Stn Exit B/MBS",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "81 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "55%",
+            "label": "Covered"
+          },
+          {
+            "value": "37 m",
+            "label": "Uncovered"
+          },
+          {
+            "value": "20 m",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "6:shiokest:primary",
+        "currentFeatures": 4,
+        "basemap": true,
+        "moving": false,
+        "choices": [],
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 217.1875
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 124
+        },
+        "about": {
+          "x": 281,
+          "y": 780,
+          "width": 96,
+          "height": 31
+        }
+      }
+    },
+    {
+      "name": "one default does not create a useless picker",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "top-left equal-width stack 1440",
+      "pass": true,
+      "detail": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+        "status": "ready",
+        "name": "Bayfront Stn Exit B/MBS",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "81 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "55%",
+            "label": "Covered"
+          },
+          {
+            "value": "37 m",
+            "label": "Uncovered"
+          },
+          {
+            "value": "20 m",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "6:shiokest:primary",
+        "currentFeatures": 4,
+        "basemap": true,
+        "moving": false,
+        "choices": [],
+        "overflow": false,
+        "viewport": [
+          1440,
+          950
+        ],
+        "brand": {
+          "x": 12,
+          "y": 12,
+          "width": 91,
+          "height": 32
+        },
+        "search": {
+          "x": 12,
+          "y": 52,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 334.34375
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 950
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 25,
+          "y": 142,
+          "width": 274,
+          "height": 213
+        },
+        "about": {
+          "x": 1331,
+          "y": 886,
+          "width": 96,
+          "height": 31
+        }
+      }
+    },
+    {
+      "name": "About data bottom-right 1440",
+      "pass": true,
+      "detail": {
+        "x": 1331,
+        "y": 886,
+        "width": 96,
+        "height": 31
+      }
+    },
+    {
+      "name": "bus-1440x950 current route during screenshot",
+      "pass": true,
+      "detail": {
+        "before": {
+          "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+          "status": "ready",
+          "name": "Bayfront Stn Exit B/MBS",
+          "postal": "018956",
+          "metrics": [
+            {
+              "value": "81 m",
+              "label": "Walk distance"
+            },
+            {
+              "value": "55%",
+              "label": "Covered"
+            },
+            {
+              "value": "37 m",
+              "label": "Uncovered"
+            },
+            {
+              "value": "20 m",
+              "label": "Longest gap"
+            }
+          ],
+          "key": "6:shiokest:primary",
+          "currentFeatures": 4,
+          "basemap": true,
+          "moving": false,
+          "choices": [],
+          "overflow": false,
+          "viewport": [
+            1440,
+            950
+          ],
+          "brand": {
+            "x": 12,
+            "y": 12,
+            "width": 91,
+            "height": 32
+          },
+          "search": {
+            "x": 12,
+            "y": 52,
+            "width": 300,
+            "height": 44
+          },
+          "panel": {
+            "x": 12,
+            "y": 104,
+            "width": 300,
+            "height": 334.34375
+          },
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 950
+          },
+          "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "summary": {
+            "x": 25,
+            "y": 142,
+            "width": 274,
+            "height": 213
+          },
+          "about": {
+            "x": 1331,
+            "y": 886,
+            "width": 96,
+            "height": 31
+          }
+        },
+        "after": {
+          "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+          "status": "ready",
+          "name": "Bayfront Stn Exit B/MBS",
+          "postal": "018956",
+          "metrics": [
+            {
+              "value": "81 m",
+              "label": "Walk distance"
+            },
+            {
+              "value": "55%",
+              "label": "Covered"
+            },
+            {
+              "value": "37 m",
+              "label": "Uncovered"
+            },
+            {
+              "value": "20 m",
+              "label": "Longest gap"
+            }
+          ],
+          "key": "6:shiokest:primary",
+          "currentFeatures": 4,
+          "basemap": true,
+          "moving": false,
+          "choices": [],
+          "overflow": false,
+          "viewport": [
+            1440,
+            950
+          ],
+          "brand": {
+            "x": 12,
+            "y": 12,
+            "width": 91,
+            "height": 32
+          },
+          "search": {
+            "x": 12,
+            "y": 52,
+            "width": 300,
+            "height": 44
+          },
+          "panel": {
+            "x": 12,
+            "y": 104,
+            "width": 300,
+            "height": 334.34375
+          },
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 950
+          },
+          "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "summary": {
+            "x": 25,
+            "y": 142,
+            "width": 274,
+            "height": 213
+          },
+          "about": {
+            "x": 1331,
+            "y": 886,
+            "width": 96,
+            "height": 31
+          }
+        }
+      }
+    },
+    {
+      "name": "bus-1440x950 no page overflow",
+      "pass": true,
+      "detail": [
+        1440,
+        950
+      ]
+    },
+    {
+      "name": "top-left equal-width stack 390",
+      "pass": true,
+      "detail": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+        "status": "ready",
+        "name": "Bayfront Stn Exit B/MBS",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "81 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "55%",
+            "label": "Covered"
+          },
+          {
+            "value": "37 m",
+            "label": "Uncovered"
+          },
+          {
+            "value": "20 m",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "6:shiokest:primary",
+        "currentFeatures": 4,
+        "basemap": true,
+        "moving": false,
+        "choices": [],
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 217.1875
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 124
+        },
+        "about": {
+          "x": 281,
+          "y": 780,
+          "width": 96,
+          "height": 31
+        }
+      }
+    },
+    {
+      "name": "About data bottom-right 390",
+      "pass": true,
+      "detail": {
+        "x": 281,
+        "y": 780,
+        "width": 96,
+        "height": 31
+      }
+    },
+    {
+      "name": "bus-390x844 current route during screenshot",
+      "pass": true,
+      "detail": {
+        "before": {
+          "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+          "status": "ready",
+          "name": "Bayfront Stn Exit B/MBS",
+          "postal": "018956",
+          "metrics": [
+            {
+              "value": "81 m",
+              "label": "Walk distance"
+            },
+            {
+              "value": "55%",
+              "label": "Covered"
+            },
+            {
+              "value": "37 m",
+              "label": "Uncovered"
+            },
+            {
+              "value": "20 m",
+              "label": "Longest gap"
+            }
+          ],
+          "key": "6:shiokest:primary",
+          "currentFeatures": 4,
+          "basemap": true,
+          "moving": false,
+          "choices": [],
+          "overflow": false,
+          "viewport": [
+            390,
+            844
+          ],
+          "brand": {
+            "x": 10,
+            "y": 10,
+            "width": 74,
+            "height": 36.6875
+          },
+          "search": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44
+          },
+          "panel": {
+            "x": 10,
+            "y": 106.6875,
+            "width": 300,
+            "height": 217.1875
+          },
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844
+          },
+          "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "summary": {
+            "x": 21,
+            "y": 142.6875,
+            "width": 278,
+            "height": 124
+          },
+          "about": {
+            "x": 281,
+            "y": 780,
+            "width": 96,
+            "height": 31
+          }
+        },
+        "after": {
+          "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+          "status": "ready",
+          "name": "Bayfront Stn Exit B/MBS",
+          "postal": "018956",
+          "metrics": [
+            {
+              "value": "81 m",
+              "label": "Walk distance"
+            },
+            {
+              "value": "55%",
+              "label": "Covered"
+            },
+            {
+              "value": "37 m",
+              "label": "Uncovered"
+            },
+            {
+              "value": "20 m",
+              "label": "Longest gap"
+            }
+          ],
+          "key": "6:shiokest:primary",
+          "currentFeatures": 4,
+          "basemap": true,
+          "moving": false,
+          "choices": [],
+          "overflow": false,
+          "viewport": [
+            390,
+            844
+          ],
+          "brand": {
+            "x": 10,
+            "y": 10,
+            "width": 74,
+            "height": 36.6875
+          },
+          "search": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44
+          },
+          "panel": {
+            "x": 10,
+            "y": 106.6875,
+            "width": 300,
+            "height": 217.1875
+          },
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844
+          },
+          "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "summary": {
+            "x": 21,
+            "y": 142.6875,
+            "width": 278,
+            "height": 124
+          },
+          "about": {
+            "x": 281,
+            "y": 780,
+            "width": 96,
+            "height": 31
+          }
+        }
+      }
+    },
+    {
+      "name": "bus-390x844 no page overflow",
+      "pass": true,
+      "detail": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "top-left equal-width stack 390",
+      "pass": true,
+      "detail": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+        "status": "ready",
+        "name": "Bayfront Stn Exit B/MBS",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "81 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "55%",
+            "label": "Covered"
+          },
+          {
+            "value": "37 m",
+            "label": "Uncovered"
+          },
+          {
+            "value": "20 m",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "6:shiokest:primary",
+        "currentFeatures": 4,
+        "basemap": true,
+        "moving": false,
+        "choices": [],
+        "overflow": false,
+        "viewport": [
+          390,
+          667
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 217.1875
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 667
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 124
+        },
+        "about": {
+          "x": 281,
+          "y": 603,
+          "width": 96,
+          "height": 31
+        }
+      }
+    },
+    {
+      "name": "About data bottom-right 390",
+      "pass": true,
+      "detail": {
+        "x": 281,
+        "y": 603,
+        "width": 96,
+        "height": 31
+      }
+    },
+    {
+      "name": "bus-390x667 current route during screenshot",
+      "pass": true,
+      "detail": {
+        "before": {
+          "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+          "status": "ready",
+          "name": "Bayfront Stn Exit B/MBS",
+          "postal": "018956",
+          "metrics": [
+            {
+              "value": "81 m",
+              "label": "Walk distance"
+            },
+            {
+              "value": "55%",
+              "label": "Covered"
+            },
+            {
+              "value": "37 m",
+              "label": "Uncovered"
+            },
+            {
+              "value": "20 m",
+              "label": "Longest gap"
+            }
+          ],
+          "key": "6:shiokest:primary",
+          "currentFeatures": 4,
+          "basemap": true,
+          "moving": false,
+          "choices": [],
+          "overflow": false,
+          "viewport": [
+            390,
+            667
+          ],
+          "brand": {
+            "x": 10,
+            "y": 10,
+            "width": 74,
+            "height": 36.6875
+          },
+          "search": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44
+          },
+          "panel": {
+            "x": 10,
+            "y": 106.6875,
+            "width": 300,
+            "height": 217.1875
+          },
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 667
+          },
+          "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "summary": {
+            "x": 21,
+            "y": 142.6875,
+            "width": 278,
+            "height": 124
+          },
+          "about": {
+            "x": 281,
+            "y": 603,
+            "width": 96,
+            "height": 31
+          }
+        },
+        "after": {
+          "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+          "status": "ready",
+          "name": "Bayfront Stn Exit B/MBS",
+          "postal": "018956",
+          "metrics": [
+            {
+              "value": "81 m",
+              "label": "Walk distance"
+            },
+            {
+              "value": "55%",
+              "label": "Covered"
+            },
+            {
+              "value": "37 m",
+              "label": "Uncovered"
+            },
+            {
+              "value": "20 m",
+              "label": "Longest gap"
+            }
+          ],
+          "key": "6:shiokest:primary",
+          "currentFeatures": 4,
+          "basemap": true,
+          "moving": false,
+          "choices": [],
+          "overflow": false,
+          "viewport": [
+            390,
+            667
+          ],
+          "brand": {
+            "x": 10,
+            "y": 10,
+            "width": 74,
+            "height": 36.6875
+          },
+          "search": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44
+          },
+          "panel": {
+            "x": 10,
+            "y": 106.6875,
+            "width": 300,
+            "height": 217.1875
+          },
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 667
+          },
+          "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "summary": {
+            "x": 21,
+            "y": 142.6875,
+            "width": 278,
+            "height": 124
+          },
+          "about": {
+            "x": 281,
+            "y": 603,
+            "width": 96,
+            "height": 31
+          }
+        }
+      }
+    },
+    {
+      "name": "bus-390x667 no page overflow",
+      "pass": true,
+      "detail": [
+        390,
+        667
+      ]
+    },
+    {
+      "name": "top-left equal-width stack 320",
+      "pass": true,
+      "detail": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+        "status": "ready",
+        "name": "Bayfront Stn Exit B/MBS",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "81 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "55%",
+            "label": "Covered"
+          },
+          {
+            "value": "37 m",
+            "label": "Uncovered"
+          },
+          {
+            "value": "20 m",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "6:shiokest:primary",
+        "currentFeatures": 4,
+        "basemap": true,
+        "moving": false,
+        "choices": [],
+        "overflow": false,
+        "viewport": [
+          320,
+          667
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 214.1875
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 667
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 121
+        },
+        "about": {
+          "x": 211,
+          "y": 603,
+          "width": 96,
+          "height": 31
+        }
+      }
+    },
+    {
+      "name": "About data bottom-right 320",
+      "pass": true,
+      "detail": {
+        "x": 211,
+        "y": 603,
+        "width": 96,
+        "height": 31
+      }
+    },
+    {
+      "name": "bus-320x667 current route during screenshot",
+      "pass": true,
+      "detail": {
+        "before": {
+          "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+          "status": "initializing",
+          "name": "Bayfront Stn Exit B/MBS",
+          "postal": "018956",
+          "metrics": [
+            {
+              "value": "81 m",
+              "label": "Walk distance"
+            },
+            {
+              "value": "55%",
+              "label": "Covered"
+            },
+            {
+              "value": "37 m",
+              "label": "Uncovered"
+            },
+            {
+              "value": "20 m",
+              "label": "Longest gap"
+            }
+          ],
+          "key": "6:shiokest:primary",
+          "currentFeatures": 4,
+          "basemap": true,
+          "moving": false,
+          "choices": [],
+          "overflow": false,
+          "viewport": [
+            320,
+            667
+          ],
+          "brand": {
+            "x": 10,
+            "y": 10,
+            "width": 74,
+            "height": 36.6875
+          },
+          "search": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44
+          },
+          "panel": {
+            "x": 10,
+            "y": 106.6875,
+            "width": 300,
+            "height": 214.1875
+          },
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 320,
+            "height": 667
+          },
+          "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "summary": {
+            "x": 21,
+            "y": 142.6875,
+            "width": 278,
+            "height": 121
+          },
+          "about": {
+            "x": 211,
+            "y": 603,
+            "width": 96,
+            "height": 31
+          }
+        },
+        "after": {
+          "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+          "status": "ready",
+          "name": "Bayfront Stn Exit B/MBS",
+          "postal": "018956",
+          "metrics": [
+            {
+              "value": "81 m",
+              "label": "Walk distance"
+            },
+            {
+              "value": "55%",
+              "label": "Covered"
+            },
+            {
+              "value": "37 m",
+              "label": "Uncovered"
+            },
+            {
+              "value": "20 m",
+              "label": "Longest gap"
+            }
+          ],
+          "key": "6:shiokest:primary",
+          "currentFeatures": 4,
+          "basemap": true,
+          "moving": false,
+          "choices": [],
+          "overflow": false,
+          "viewport": [
+            320,
+            667
+          ],
+          "brand": {
+            "x": 10,
+            "y": 10,
+            "width": 74,
+            "height": 36.6875
+          },
+          "search": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44
+          },
+          "panel": {
+            "x": 10,
+            "y": 106.6875,
+            "width": 300,
+            "height": 214.1875
+          },
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 320,
+            "height": 667
+          },
+          "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "summary": {
+            "x": 21,
+            "y": 142.6875,
+            "width": 278,
+            "height": 121
+          },
+          "about": {
+            "x": 211,
+            "y": 603,
+            "width": 96,
+            "height": 31
+          }
+        }
+      }
+    },
+    {
+      "name": "bus-320x667 no page overflow",
+      "pass": true,
+      "detail": [
+        320,
+        667
+      ]
+    },
+    {
+      "name": "shared-c-320x667 current route during screenshot",
+      "pass": true,
+      "detail": {
+        "before": {
+          "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt&stop=mrt%3A21624",
+          "status": "ready",
+          "name": "BAYFRONT MRT STATION Exit C",
+          "postal": "018956",
+          "metrics": [
+            {
+              "value": "109 m",
+              "label": "Walk distance"
+            },
+            {
+              "value": "0%",
+              "label": "Covered"
+            },
+            {
+              "value": "Unavailable",
+              "label": "Uncovered"
+            },
+            {
+              "value": "Unavailable",
+              "label": "Longest gap"
+            }
+          ],
+          "key": "3:shiokest:primary",
+          "currentFeatures": 3,
+          "basemap": true,
+          "moving": false,
+          "choicesOpen": false,
+          "choices": [
+            {
+              "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+              "selected": "true"
+            },
+            {
+              "text": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+              "selected": "false"
+            }
+          ],
+          "overflow": false,
+          "viewport": [
+            320,
+            667
+          ],
+          "brand": {
+            "x": 10,
+            "y": 10,
+            "width": 74,
+            "height": 36.6875
+          },
+          "search": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44
+          },
+          "panel": {
+            "x": 10,
+            "y": 106.6875,
+            "width": 300,
+            "height": 287.1875
+          },
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 320,
+            "height": 667
+          },
+          "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "summary": {
+            "x": 21,
+            "y": 142.6875,
+            "width": 278,
+            "height": 141
+          },
+          "about": {
+            "x": 211,
+            "y": 603,
+            "width": 96,
+            "height": 31
+          }
+        },
+        "after": {
+          "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt&stop=mrt%3A21624",
+          "status": "ready",
+          "name": "BAYFRONT MRT STATION Exit C",
+          "postal": "018956",
+          "metrics": [
+            {
+              "value": "109 m",
+              "label": "Walk distance"
+            },
+            {
+              "value": "0%",
+              "label": "Covered"
+            },
+            {
+              "value": "Unavailable",
+              "label": "Uncovered"
+            },
+            {
+              "value": "Unavailable",
+              "label": "Longest gap"
+            }
+          ],
+          "key": "3:shiokest:primary",
+          "currentFeatures": 3,
+          "basemap": true,
+          "moving": false,
+          "choicesOpen": false,
+          "choices": [
+            {
+              "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+              "selected": "true"
+            },
+            {
+              "text": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+              "selected": "false"
+            }
+          ],
+          "overflow": false,
+          "viewport": [
+            320,
+            667
+          ],
+          "brand": {
+            "x": 10,
+            "y": 10,
+            "width": 74,
+            "height": 36.6875
+          },
+          "search": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44
+          },
+          "panel": {
+            "x": 10,
+            "y": 106.6875,
+            "width": 300,
+            "height": 287.1875
+          },
+          "canvas": {
+            "x": 0,
+            "y": 0,
+            "width": 320,
+            "height": 667
+          },
+          "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "summary": {
+            "x": 21,
+            "y": 142.6875,
+            "width": 278,
+            "height": 141
+          },
+          "about": {
+            "x": 211,
+            "y": 603,
+            "width": 96,
+            "height": 31
+          }
+        }
+      }
+    },
+    {
+      "name": "shared-c-320x667 no page overflow",
+      "pass": true,
+      "detail": [
+        320,
+        667
+      ]
+    },
+    {
+      "name": "published choices made no live-preview request",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "no uncaught page errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "captures": [
+    {
+      "name": "mrt-default-390x844",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\published-interaction-20260909\\acceptance-2-1788901453973\\mrt-default-390x844.png",
+      "bytes": 129463,
+      "sha256": "0f1b9f647b482c926fbb895ce9f9006436632eb88562810c05e97d18605dfe1f",
+      "before": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt",
+        "status": "initializing",
+        "name": "BAYFRONT MRT STATION Exit E",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "308 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "24%",
+            "label": "Covered"
+          },
+          {
+            "value": "234 m",
+            "label": "Uncovered"
+          },
+          {
+            "value": "136 m",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "3:shiokest:primary",
+        "currentFeatures": 6,
+        "basemap": true,
+        "moving": false,
+        "choicesOpen": false,
+        "choices": [
+          {
+            "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+            "selected": "false"
+          },
+          {
+            "text": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+            "selected": "true"
+          }
+        ],
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 270.1875
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 124
+        },
+        "about": {
+          "x": 281,
+          "y": 780,
+          "width": 96,
+          "height": 31
+        }
+      },
+      "after": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt",
+        "status": "ready",
+        "name": "BAYFRONT MRT STATION Exit E",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "308 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "24%",
+            "label": "Covered"
+          },
+          {
+            "value": "234 m",
+            "label": "Uncovered"
+          },
+          {
+            "value": "136 m",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "3:shiokest:primary",
+        "currentFeatures": 6,
+        "basemap": true,
+        "moving": false,
+        "choicesOpen": false,
+        "choices": [
+          {
+            "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+            "selected": "false"
+          },
+          {
+            "text": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+            "selected": "true"
+          }
+        ],
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 270.1875
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 124
+        },
+        "about": {
+          "x": 281,
+          "y": 780,
+          "width": 96,
+          "height": 31
+        }
+      }
+    },
+    {
+      "name": "choices-open-390x844",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\published-interaction-20260909\\acceptance-2-1788901453973\\choices-open-390x844.png",
+      "bytes": 123851,
+      "sha256": "eb91c94f95424f6746ddc4509cee033973913392bdba6cb03f8707971e755912",
+      "before": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt",
+        "status": "ready",
+        "name": "BAYFRONT MRT STATION Exit E",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "308 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "24%",
+            "label": "Covered"
+          },
+          {
+            "value": "234 m",
+            "label": "Uncovered"
+          },
+          {
+            "value": "136 m",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "3:shiokest:primary",
+        "currentFeatures": 6,
+        "basemap": true,
+        "moving": false,
+        "choicesOpen": true,
+        "choices": [
+          {
+            "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+            "selected": "false"
+          },
+          {
+            "text": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+            "selected": "true"
+          }
+        ],
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 428.53125
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 124
+        },
+        "about": {
+          "x": 281,
+          "y": 780,
+          "width": 96,
+          "height": 31
+        }
+      },
+      "after": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt",
+        "status": "ready",
+        "name": "BAYFRONT MRT STATION Exit E",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "308 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "24%",
+            "label": "Covered"
+          },
+          {
+            "value": "234 m",
+            "label": "Uncovered"
+          },
+          {
+            "value": "136 m",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "3:shiokest:primary",
+        "currentFeatures": 6,
+        "basemap": true,
+        "moving": false,
+        "choicesOpen": true,
+        "choices": [
+          {
+            "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+            "selected": "false"
+          },
+          {
+            "text": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+            "selected": "true"
+          }
+        ],
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 428.53125
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 124
+        },
+        "about": {
+          "x": 281,
+          "y": 780,
+          "width": 96,
+          "height": 31
+        }
+      }
+    },
+    {
+      "name": "mrt-c-390x844",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\published-interaction-20260909\\acceptance-2-1788901453973\\mrt-c-390x844.png",
+      "bytes": 122098,
+      "sha256": "12e82c031409c017416c88d6b59571ba719a4a8434dc63e400537e69fdf1c826",
+      "before": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt&stop=mrt%3A21624",
+        "status": "ready",
+        "name": "BAYFRONT MRT STATION Exit C",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "109 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "0%",
+            "label": "Covered"
+          },
+          {
+            "value": "Unavailable",
+            "label": "Uncovered"
+          },
+          {
+            "value": "Unavailable",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "4:shiokest:primary",
+        "currentFeatures": 3,
+        "basemap": true,
+        "moving": false,
+        "choicesOpen": true,
+        "choices": [
+          {
+            "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+            "selected": "true"
+          },
+          {
+            "text": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+            "selected": "false"
+          }
+        ],
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 494.109375
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 147
+        },
+        "about": {
+          "x": 281,
+          "y": 780,
+          "width": 96,
+          "height": 31
+        }
+      },
+      "after": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt&stop=mrt%3A21624",
+        "status": "ready",
+        "name": "BAYFRONT MRT STATION Exit C",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "109 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "0%",
+            "label": "Covered"
+          },
+          {
+            "value": "Unavailable",
+            "label": "Uncovered"
+          },
+          {
+            "value": "Unavailable",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "4:shiokest:primary",
+        "currentFeatures": 3,
+        "basemap": true,
+        "moving": false,
+        "choicesOpen": true,
+        "choices": [
+          {
+            "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+            "selected": "true"
+          },
+          {
+            "text": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+            "selected": "false"
+          }
+        ],
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 494.109375
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 147
+        },
+        "about": {
+          "x": 281,
+          "y": 780,
+          "width": 96,
+          "height": 31
+        }
+      }
+    },
+    {
+      "name": "bus-1440x950",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\published-interaction-20260909\\acceptance-2-1788901453973\\bus-1440x950.png",
+      "bytes": 464610,
+      "sha256": "f62096da1a050b4a2c46369d652597c623a31c8e5b35843d4e03b41c5e0b1cbd",
+      "before": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+        "status": "ready",
+        "name": "Bayfront Stn Exit B/MBS",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "81 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "55%",
+            "label": "Covered"
+          },
+          {
+            "value": "37 m",
+            "label": "Uncovered"
+          },
+          {
+            "value": "20 m",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "6:shiokest:primary",
+        "currentFeatures": 4,
+        "basemap": true,
+        "moving": false,
+        "choices": [],
+        "overflow": false,
+        "viewport": [
+          1440,
+          950
+        ],
+        "brand": {
+          "x": 12,
+          "y": 12,
+          "width": 91,
+          "height": 32
+        },
+        "search": {
+          "x": 12,
+          "y": 52,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 334.34375
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 950
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 25,
+          "y": 142,
+          "width": 274,
+          "height": 213
+        },
+        "about": {
+          "x": 1331,
+          "y": 886,
+          "width": 96,
+          "height": 31
+        }
+      },
+      "after": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+        "status": "ready",
+        "name": "Bayfront Stn Exit B/MBS",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "81 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "55%",
+            "label": "Covered"
+          },
+          {
+            "value": "37 m",
+            "label": "Uncovered"
+          },
+          {
+            "value": "20 m",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "6:shiokest:primary",
+        "currentFeatures": 4,
+        "basemap": true,
+        "moving": false,
+        "choices": [],
+        "overflow": false,
+        "viewport": [
+          1440,
+          950
+        ],
+        "brand": {
+          "x": 12,
+          "y": 12,
+          "width": 91,
+          "height": 32
+        },
+        "search": {
+          "x": 12,
+          "y": 52,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 334.34375
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 950
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 25,
+          "y": 142,
+          "width": 274,
+          "height": 213
+        },
+        "about": {
+          "x": 1331,
+          "y": 886,
+          "width": 96,
+          "height": 31
+        }
+      }
+    },
+    {
+      "name": "bus-390x844",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\published-interaction-20260909\\acceptance-2-1788901453973\\bus-390x844.png",
+      "bytes": 160427,
+      "sha256": "74e63b2e5632fd2a3579734637df130179f67a011407f033ede379f67b2d1767",
+      "before": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+        "status": "ready",
+        "name": "Bayfront Stn Exit B/MBS",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "81 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "55%",
+            "label": "Covered"
+          },
+          {
+            "value": "37 m",
+            "label": "Uncovered"
+          },
+          {
+            "value": "20 m",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "6:shiokest:primary",
+        "currentFeatures": 4,
+        "basemap": true,
+        "moving": false,
+        "choices": [],
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 217.1875
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 124
+        },
+        "about": {
+          "x": 281,
+          "y": 780,
+          "width": 96,
+          "height": 31
+        }
+      },
+      "after": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+        "status": "ready",
+        "name": "Bayfront Stn Exit B/MBS",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "81 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "55%",
+            "label": "Covered"
+          },
+          {
+            "value": "37 m",
+            "label": "Uncovered"
+          },
+          {
+            "value": "20 m",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "6:shiokest:primary",
+        "currentFeatures": 4,
+        "basemap": true,
+        "moving": false,
+        "choices": [],
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 217.1875
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 124
+        },
+        "about": {
+          "x": 281,
+          "y": 780,
+          "width": 96,
+          "height": 31
+        }
+      }
+    },
+    {
+      "name": "bus-390x667",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\published-interaction-20260909\\acceptance-2-1788901453973\\bus-390x667.png",
+      "bytes": 124180,
+      "sha256": "99f0d60cdd5bd6c074498d489d334ad19444a8cf828eed87c5ea06bb6d197132",
+      "before": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+        "status": "ready",
+        "name": "Bayfront Stn Exit B/MBS",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "81 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "55%",
+            "label": "Covered"
+          },
+          {
+            "value": "37 m",
+            "label": "Uncovered"
+          },
+          {
+            "value": "20 m",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "6:shiokest:primary",
+        "currentFeatures": 4,
+        "basemap": true,
+        "moving": false,
+        "choices": [],
+        "overflow": false,
+        "viewport": [
+          390,
+          667
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 217.1875
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 667
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 124
+        },
+        "about": {
+          "x": 281,
+          "y": 603,
+          "width": 96,
+          "height": 31
+        }
+      },
+      "after": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+        "status": "ready",
+        "name": "Bayfront Stn Exit B/MBS",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "81 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "55%",
+            "label": "Covered"
+          },
+          {
+            "value": "37 m",
+            "label": "Uncovered"
+          },
+          {
+            "value": "20 m",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "6:shiokest:primary",
+        "currentFeatures": 4,
+        "basemap": true,
+        "moving": false,
+        "choices": [],
+        "overflow": false,
+        "viewport": [
+          390,
+          667
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 217.1875
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 667
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 124
+        },
+        "about": {
+          "x": 281,
+          "y": 603,
+          "width": 96,
+          "height": 31
+        }
+      }
+    },
+    {
+      "name": "bus-320x667",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\published-interaction-20260909\\acceptance-2-1788901453973\\bus-320x667.png",
+      "bytes": 97404,
+      "sha256": "19c015ca03f8a80abd001d38707883c119851393919c6246cf40f6b694886aed",
+      "before": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+        "status": "initializing",
+        "name": "Bayfront Stn Exit B/MBS",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "81 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "55%",
+            "label": "Covered"
+          },
+          {
+            "value": "37 m",
+            "label": "Uncovered"
+          },
+          {
+            "value": "20 m",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "6:shiokest:primary",
+        "currentFeatures": 4,
+        "basemap": true,
+        "moving": false,
+        "choices": [],
+        "overflow": false,
+        "viewport": [
+          320,
+          667
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 214.1875
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 667
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 121
+        },
+        "about": {
+          "x": 211,
+          "y": 603,
+          "width": 96,
+          "height": 31
+        }
+      },
+      "after": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+        "status": "ready",
+        "name": "Bayfront Stn Exit B/MBS",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "81 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "55%",
+            "label": "Covered"
+          },
+          {
+            "value": "37 m",
+            "label": "Uncovered"
+          },
+          {
+            "value": "20 m",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "6:shiokest:primary",
+        "currentFeatures": 4,
+        "basemap": true,
+        "moving": false,
+        "choices": [],
+        "overflow": false,
+        "viewport": [
+          320,
+          667
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 214.1875
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 667
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 121
+        },
+        "about": {
+          "x": 211,
+          "y": 603,
+          "width": 96,
+          "height": 31
+        }
+      }
+    },
+    {
+      "name": "shared-c-320x667",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\published-interaction-20260909\\acceptance-2-1788901453973\\shared-c-320x667.png",
+      "bytes": 87769,
+      "sha256": "ce19f312ed441a7a1dc12342ef7f6d8ea120c4e10ad6b901a9350652184d2651",
+      "before": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt&stop=mrt%3A21624",
+        "status": "ready",
+        "name": "BAYFRONT MRT STATION Exit C",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "109 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "0%",
+            "label": "Covered"
+          },
+          {
+            "value": "Unavailable",
+            "label": "Uncovered"
+          },
+          {
+            "value": "Unavailable",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "3:shiokest:primary",
+        "currentFeatures": 3,
+        "basemap": true,
+        "moving": false,
+        "choicesOpen": false,
+        "choices": [
+          {
+            "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+            "selected": "true"
+          },
+          {
+            "text": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+            "selected": "false"
+          }
+        ],
+        "overflow": false,
+        "viewport": [
+          320,
+          667
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 287.1875
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 667
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 141
+        },
+        "about": {
+          "x": 211,
+          "y": 603,
+          "width": 96,
+          "height": 31
+        }
+      },
+      "after": {
+        "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt&stop=mrt%3A21624",
+        "status": "ready",
+        "name": "BAYFRONT MRT STATION Exit C",
+        "postal": "018956",
+        "metrics": [
+          {
+            "value": "109 m",
+            "label": "Walk distance"
+          },
+          {
+            "value": "0%",
+            "label": "Covered"
+          },
+          {
+            "value": "Unavailable",
+            "label": "Uncovered"
+          },
+          {
+            "value": "Unavailable",
+            "label": "Longest gap"
+          }
+        ],
+        "key": "3:shiokest:primary",
+        "currentFeatures": 3,
+        "basemap": true,
+        "moving": false,
+        "choicesOpen": false,
+        "choices": [
+          {
+            "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+            "selected": "true"
+          },
+          {
+            "text": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+            "selected": "false"
+          }
+        ],
+        "overflow": false,
+        "viewport": [
+          320,
+          667
+        ],
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 287.1875
+        },
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 667
+        },
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "summary": {
+          "x": 21,
+          "y": 142.6875,
+          "width": 278,
+          "height": 141
+        },
+        "about": {
+          "x": 211,
+          "y": 603,
+          "width": 96,
+          "height": 31
+        }
+      }
+    }
+  ],
+  "actions": [
+    {
+      "x": 160,
+      "y": 343.875,
+      "text": "Other walks (2)",
+      "hit": true,
+      "visible": true,
+      "keyboard": true
+    },
+    {
+      "x": 160,
+      "y": 404.4609375,
+      "text": "BAYFRONT MRT STATION Exit C109 m walk0% coveredShortest shown",
+      "hit": true,
+      "visible": true,
+      "keyboard": true
+    },
+    {
+      "x": 93.5,
+      "y": 567.796875,
+      "text": "Use published default",
+      "hit": true,
+      "visible": true,
+      "keyboard": true
+    },
+    {
+      "x": 252,
+      "y": 293.78125,
+      "text": "Bus stopspublished walk",
+      "hit": true,
+      "visible": true,
+      "keyboard": false
+    }
+  ],
+  "errors": [],
+  "console": [],
+  "network": [
+    {
+      "requestId": "09BC805649E7152E07BAE1721B8C9565",
+      "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt",
+      "status": 200,
+      "type": "Document",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.2",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/2wo8o9pl4wu5r.css",
+      "status": 200,
+      "type": "Stylesheet",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.3",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/3wkt3-74el481.js",
+      "status": 200,
+      "type": "Script",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.4",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/2wu61p_p0hxro.js",
+      "status": 200,
+      "type": "Script",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.7",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+      "status": 200,
+      "type": "Script",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.9",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/3nb6axsuazyhm.js",
+      "status": 200,
+      "type": "Script",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.8",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/1oaw9uq-pttep.js",
+      "status": 200,
+      "type": "Script",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.6",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/0in607kxyceyg.js",
+      "status": 200,
+      "type": "Script",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.5",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/11axl_urhtotz.js",
+      "status": 200,
+      "type": "Script",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.10",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/1__ampz9o0grs.js",
+      "status": 200,
+      "type": "Script",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.22",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/3smf43rt8k1g4.css",
+      "status": 200,
+      "type": "Stylesheet",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.28",
+      "url": "http://127.0.0.1:4326/icon.svg",
+      "status": 200,
+      "type": "Other",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.27",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.24",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/2rmzgxedjsyy1.js",
+      "status": 200,
+      "type": "Script",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.26",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.23",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/3t12vbbbt_0uh.js",
+      "status": 200,
+      "type": "Script",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.30",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.29",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/1s0fsd68wz2sd.js",
+      "status": 200,
+      "type": "Script",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.32",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 404,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.33",
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "status": 200,
+      "type": "Image",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.35",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "status": 404,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.37",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.39",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.25",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/3_zdoql-8zsg0.js",
+      "status": 200,
+      "type": "Script",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.43",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8132.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.45",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8133.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.44",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8133.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.47",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8134.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.46",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8132.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.42",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8133.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.51",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8131.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.49",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8134.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.48",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8132.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.52",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8133.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.53",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8131.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.54",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8132.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.50",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8134.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.55",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8131.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.56",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8133.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.57",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8132.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.61",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8135.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.62",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8134.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.63",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8135.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.64",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8134.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.65",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8135.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.66",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8131.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.67",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8131.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.68",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8130.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.69",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8130.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.70",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8135.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.71",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8130.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.72",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8135.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.73",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8136.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.74",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8136.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.75",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8130.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.76",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8136.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.77",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8130.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.78",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8136.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.79",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8129.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.80",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8136.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.81",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8129.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.82",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8129.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.97",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8137.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.98",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8129.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.99",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8129.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.100",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8137.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.101",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8137.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.102",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8137.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.84",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.85",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.86",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.87",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.83",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.88",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.89",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "status": 404,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.103",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8137.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.104",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8128.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.105",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8128.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.106",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8128.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.107",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8128.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.108",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8128.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.109",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.110",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.111",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.112",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.113",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.114",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.115",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.116",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.117",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.118",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.119",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.120",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.121",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.122",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.123",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.124",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.125",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.126",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.127",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.128",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.129",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.130",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.131",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.132",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.133",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.134",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.135",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.136",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.137",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260278.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.138",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260278.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.139",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.140",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260278.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.141",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260278.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.142",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.143",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.144",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.145",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260278.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.146",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.147",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.148",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260279.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.149",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260279.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.150",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260279.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.151",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260279.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.152",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.153",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.154",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.155",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260279.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.156",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.157",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.158",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.159",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.160",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.161",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.162",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.163",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.164",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.167",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260278.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.168",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260269.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.169",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260269.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.170",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260269.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.165",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.166",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.171",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260269.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.172",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260269.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.173",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260269.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.174",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260268.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.175",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260268.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.176",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260268.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.177",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260268.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.178",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260268.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.195",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.196",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.197",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.198",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.199",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.200",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.201",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.203",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.205",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260278.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.202",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260269.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.206",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.207",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.208",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.209",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.210",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.211",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.212",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.213",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.214",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.215",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.216",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.217",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.218",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.219",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.220",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.221",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.222",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.223",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.224",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.225",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.226",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.227",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.228",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260278.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.229",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.230",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260279.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.231",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.232",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.233",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.234",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.235",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.236",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.237",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.238",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260279.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.239",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.240",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.241",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.242",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.243",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.244",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260278.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.245",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.246",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260279.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.247",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.248",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260278.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.249",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.250",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.251",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.252",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.253",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.254",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.255",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.256",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260279.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.257",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260278.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.258",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.259",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260279.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.260",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260278.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.261",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.262",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.263",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.264",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260279.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.265",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.266",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.267",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.268",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260279.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.269",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.270",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260278.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.271",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.272",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.273",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.274",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.275",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260279.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.276",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260278.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.277",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260279.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.278",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260280.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.279",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260280.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.280",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260280.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.281",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260280.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.282",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260280.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.283",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260280.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.284",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260280.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.285",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260280.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.286",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260280.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.287",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260280.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.289",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.290",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.291",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.292",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.288",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260280.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.293",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.294",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260278.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.295",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260280.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.296",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260280.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.297",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.298",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260279.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.299",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.300",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260280.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.301",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260280.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.302",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "E7241EF032C69D4D125FBE11F3A6A882",
+      "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt&stop=mrt%3A21624",
+      "status": 200,
+      "type": "Document",
+      "cache": false,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.305",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/2wo8o9pl4wu5r.css",
+      "status": 200,
+      "type": "Stylesheet",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.306",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/3wkt3-74el481.js",
+      "status": 200,
+      "type": "Script",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.307",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/2wu61p_p0hxro.js",
+      "status": 200,
+      "type": "Script",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.312",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/3nb6axsuazyhm.js",
+      "status": 200,
+      "type": "Script",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.311",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/1oaw9uq-pttep.js",
+      "status": 200,
+      "type": "Script",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.310",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+      "status": 200,
+      "type": "Script",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.309",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/0in607kxyceyg.js",
+      "status": 200,
+      "type": "Script",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.313",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/1__ampz9o0grs.js",
+      "status": 200,
+      "type": "Script",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.308",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/11axl_urhtotz.js",
+      "status": 200,
+      "type": "Script",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.334",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/3smf43rt8k1g4.css",
+      "status": 200,
+      "type": "Stylesheet",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.337",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/2rmzgxedjsyy1.js",
+      "status": 200,
+      "type": "Script",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.335",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/3t12vbbbt_0uh.js",
+      "status": 200,
+      "type": "Script",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.339",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.343",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/1s0fsd68wz2sd.js",
+      "status": 200,
+      "type": "Script",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.349",
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "status": 200,
+      "type": "Image",
+      "cache": false,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.340",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.351",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.348",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 404,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.353",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "status": 404,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.354",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.356",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.338",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/3_zdoql-8zsg0.js",
+      "status": 200,
+      "type": "Script",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.357",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8133.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.358",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8132.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.359",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8133.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.373",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.374",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.375",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.360",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8133.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.376",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.377",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.361",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8132.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.362",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8134.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.363",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8132.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.364",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8134.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.365",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8134.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.366",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8131.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.378",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.367",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8133.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.368",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8131.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.369",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8132.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.370",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8131.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.371",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8133.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.379",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "status": 404,
+      "type": "Fetch",
+      "cache": false,
+      "serviceWorker": true
+    },
+    {
+      "requestId": "88028.372",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8132.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.381",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8135.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.384",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8134.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.385",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8135.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.386",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8134.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.387",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8135.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.388",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8131.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.389",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8131.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.390",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8130.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.391",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8130.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.392",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8135.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.394",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8135.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.393",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8130.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.395",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8136.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.397",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8130.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.396",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8136.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.398",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8136.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.399",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8130.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.401",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8129.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.400",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8136.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.402",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8136.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.404",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8129.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.403",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8129.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.405",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8129.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.406",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8129.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.407",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.408",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.409",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.410",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.411",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.412",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.413",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.414",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.415",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.416",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260274.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.417",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.418",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260273.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.419",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.420",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.421",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260275.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.422",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.423",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260272.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.424",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.425",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.426",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.427",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.428",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260276.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.429",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.430",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260271.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.432",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.431",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.433",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.434",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.435",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.436",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260277.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.437",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    },
+    {
+      "requestId": "88028.438",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260270.png",
+      "status": 200,
+      "type": "Fetch",
+      "cache": true,
+      "serviceWorker": false
+    }
+  ],
+  "cleanup": {
+    "closeSent": true,
+    "killSent": true,
+    "chromeExited": true
+  },
+  "policy": "Functional CDP browser acceptance; fresh owned profile, real unmodified static data, no installations or pipeline. Local API requests deliberately return503. Not representative performance.",
+  "chromePid": 81492,
+  "document": {
+    "requestId": "09BC805649E7152E07BAE1721B8C9565",
+    "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt",
+    "status": 200,
+    "type": "Document",
+    "cache": false,
+    "serviceWorker": false,
+    "bytes": 12889,
+    "sha256": "34e3243180a0b3de053897afe78ebea867607d9e30d0da0dfce4bd459d283851",
+    "containsExpectedBuild": true
+  },
+  "stderr": "\r\nDevTools listening on ws://127.0.0.1:39990/devtools/browser/dbc70c85-caea-41d7-9d34-311813c5e7c9\r\n[81492:102336:0909/050432.639:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n[81492:102336:0909/050501.472:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n[81492:100360:0909/050509.570:ERROR:components\\webapps\\browser\\web_contents\\web_app_url_loader.cc:180] Error loading about:blank page took too long to load.\r\n[81492:102336:0909/050556.082:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n",
+  "finishedAt": "2026-09-08T21:06:51.035Z",
+  "ok": true
+}

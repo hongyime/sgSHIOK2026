@@ -1702,3 +1702,102 @@ DISAGREEMENTS
    promise to compare every nearby stop or manufacture missing walk evidence.
 2. Pure selection completion is not interaction completion. T06 must mount the
    existing picker and keep route geometry, measurements and URL synchronized.
+
+## 2026-09-09 T06: Published choices, independent measurements and selected geometry
+
+Working root:C:\sgSHIOK2026; host:Prawn-E14; base:64d8f51.
+Receipt:qa/revamp-r1/published-interaction-20260909/summary.json.
+Raw commands/results:published-options-20260909/interaction-full-1 through
+interaction-full-5/checks.json. Earlier failures are retained unchanged.
+
+```text
+node C:/sgSHIOK2026/qa/revamp-r1/published-options-20260909/check.mjs interaction-full-5 full
+ Test Files  44 passed (44)
+      Tests  964 passed (964)
+TypeScript --noEmit --incremental false: exit_code=0
+python scripts/check_repo_integrity.py
+repo_integrity=ok
+exit_code=0
+git diff --check: exit_code=0
+node C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/build-snapshot.mjs published-interaction-20260909-4
+buildId=JBibDXHZs5Vmiijg1AfsI
+exitCode=0
+node C:/sgSHIOK2026/qa/revamp-r1/published-interaction-20260909/browser.mjs acceptance-5 JBibDXHZs5Vmiijg1AfsI
+ok=true
+captures=8
+browserChecks=54
+cleanup.chromeExited=true
+```
+
+Arithmetic:769 previous +195 additional =964 tests;40 previous +4 files =44.
+Final isolated snapshot:tmp/test-without-data-1BhZoK,171 copied source files,
+production data absent, guard probe passed, existing dependencies linked.
+The parent rehashed21 changed source/test files against that snapshot and the
+build's source receipt:all match. Eleven protected source hashes/sizes still
+match. No new dependency installation, scoring, export or input rebuild.
+
+Functional browser evidence:published-interaction-20260909/
+acceptance-5-1788902801302/browser.json and its eight PNGs. Parent inspected
+every final capture. Actual received HTML contains the expected build identity;
+current selected-route features were measured before and after every capture.
+Keyboard opening, MRT C selection, default reset, bus category, candidate shared
+URL and1440x950/390x844/390x667/320x667 layouts pass. Per-cell metric text and
+per-button text bounds pass after fonts load; category targets are at least44px.
+No live-preview request or uncaught page error was recorded. This is headless
+functional acceptance with SwiftShader, not a representative phone benchmark.
+Local QA proxy reads existing static data and deliberately rejects preview APIs.
+The current preview is http://127.0.0.1:4326/; no deployment command was run.
+
+Parfit authored picker/page tests; Raman validated the geometry adapter; Anscombe
+implemented summary/preview repairs and independently reviewed selection races.
+Final tests, build, browser execution and visual review are the parent's.
+S05-S08/W05-W08/W10/W12/M11/M15 now have executed selection/URL/race boundaries;
+W12 transport/HTTP/invalid-JSON/stale failures are component tests, not a claim
+that the browser successfully used a live routing backend. W01-W04/W13 have
+normalized summary/geometry assertions. W09's inspectable gap journey remains
+T07 and is not closed by these route-rendering screenshots.
+
+Corrections and failed attempts retained:
+- interaction-full-1 failed three stale assertions, including old range/adapter
+  expectations. interaction-full-2/3 passed962/963 tests respectively; the final
+  missing-category and compact-label regressions bring the total to964.
+- The real018990 positive222.5m direct fallback was incorrectly treated by an
+  inherited test as a verified walk. Its source is unchanged; the assertion now
+  expects unavailable walk metrics. Missing category is not an absent postal.
+- acceptance-1 sent incomplete CDP Enter events; the disclosure stayed closed.
+  The repaired harness sends text CR and explicitly verifies native open state.
+- acceptance-2 passed functional assertions but split Unavailable midword;
+  acceptance-3 fixed that but visual review exposed category subtitle spill.
+  Compact unavailable typography, stable rows, explicit button grid tracks and
+ 44px targets now pass per-cell/per-control bounds in the final captures.
+- acceptance-4 sampled before documentElement existed; no interaction/screenshot
+  success is claimed. The readiness probe treats that transition as pending.
+- Earlier harness cleanup notifications timed out; final acceptance5 confirms
+  owned Chrome exit, independently checked afterward. Other apps were untouched.
+
+FINDINGS
+1. Original normalized evidence now drives the bounded choice, summary, drawing
+   and URL together. Published choices make no live-preview request. Default
+   role identity does not require a fabricated stop ID.
+2. Candidate views no longer borrow the default score/state/provenance or invent
+   routed distances. MRT C retains109m/0%, with logical gap values unavailable;
+   bus default retains81m/55%/37m/20m. Published bytes are unchanged.
+3. Preview field meanings and provenance were corrected explicitly. Logical gap
+   totals remain separate from fragments. Complete segment partitions preserve
+   source shelter colors; a foreign fragment no longer expands map bounds.
+4.964/44 isolated tests, TypeScript, build, integrity,11 anchors and54 browser
+   checks pass. Eight final captures were inspected; required attribution and
+   the approved map-first top-left stack/bottom-right data dock remain visible.
+DISAGREEMENTS
+1. A positive explicitly unrouted distance is not a verified walk. The inherited
+   expectation was corrected instead of perpetuating that presentation error.
+2. DOM counts and page overflow checks do not prove visual quality. Two compact
+   layout defects were found by screenshot review and fixed before acceptance.
+3. T06 completion is not gap exploration, nationwide coverage, numerical M12
+   acceptance or deployment. Those remaining task/owner gates stay open.
+
+Commit preparation note: the untouched raw geometry-probe.json has an extra
+blank EOF line. The staged whitespace check reports that artifact-only warning;
+the check with blank-at-eof disabled passes. Preserve the probe bytes rather
+than reformat its raw receipt. Continuously written QA server logs are not
+staged; their build/process identity is recorded in STATE and browser receipts.

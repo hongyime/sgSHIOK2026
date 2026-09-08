@@ -4,7 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { walkMetrics, WalkSummary } from '../../components/walk-summary';
 import type { ScoreRecord } from '../types';
 
-const record = { postal: '018956', paths: { shortest_m: 80.7, sheltered_m: 80.7, covered_ratio: 0.5539 }, exposure_gaps: [{len_m:20.1},{len_m:16.3}] } as ScoreRecord;
+const record = { postal: '018956', state: 'SCORED', best_node: { type: 'bus_stop', name: 'Published stop', routed_m: 80.7 }, paths: { shortest_m: 80.7, sheltered_m: 80.7, covered_ratio: 0.5539, routing_type: 'sheltered' }, exposure_gaps: [{len_m:20.1},{len_m:16.3}] } as ScoreRecord;
 describe('Round 1 executed summary behaviour', () => {
   it('W01/W13: preserves published precision until display rounding', () => {
     const before = JSON.stringify(record);
@@ -28,5 +28,11 @@ describe('Round 1 executed summary behaviour', () => {
     for(const label of ['Walk distance','Covered','Uncovered','Longest gap']) expect(html).toContain(label);
     expect(html).toContain('81 m');
     expect(renderToStaticMarkup(React.createElement(WalkSummary,{postal:record.postal,score:null}))).toContain('Unavailable');
+  });
+  it('marks only unavailable values for compact single-word typography', () => {
+    const missing = renderToStaticMarkup(React.createElement(WalkSummary,{postal:record.postal,score:null}));
+    expect(missing.match(/data-unavailable="true"/g)).toHaveLength(4);
+    const measured = renderToStaticMarkup(React.createElement(WalkSummary,{postal:record.postal,score:record}));
+    expect(measured).not.toContain('data-unavailable');
   });
 });

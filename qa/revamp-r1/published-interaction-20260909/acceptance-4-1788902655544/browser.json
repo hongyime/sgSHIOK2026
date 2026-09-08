@@ -1,0 +1,46 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "build": "JBibDXHZs5Vmiijg1AfsI",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\published-interaction-20260909\\acceptance-4-1788902655544",
+  "profile": "C:\\sgSHIOK2026\\tmp\\published-walk-browser-JOy6ED",
+  "startedAt": "2026-09-08T21:24:15.552Z",
+  "checks": [
+    {
+      "name": "served snapshot is expected build",
+      "pass": true,
+      "detail": {
+        "build": "JBibDXHZs5Vmiijg1AfsI",
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-published-interaction-20260909-4\\web",
+        "pid": 103568,
+        "nextPid": 94456,
+        "requests": []
+      }
+    }
+  ],
+  "captures": [],
+  "actions": [],
+  "errors": [],
+  "console": [],
+  "network": [
+    {
+      "requestId": "5FECCD5195B2DBABFC36E1C833652EB4",
+      "url": "http://127.0.0.1:4326/?postal=018956&transit=mrt_lrt",
+      "status": 200,
+      "type": "Document",
+      "cache": false,
+      "serviceWorker": false
+    }
+  ],
+  "cleanup": {
+    "closeError": "CDP timeout: Browser.close",
+    "killSent": true,
+    "chromeExited": false
+  },
+  "policy": "Functional CDP browser acceptance; fresh owned profile, real unmodified static data, no installations or pipeline. Local API requests deliberately return503. Not representative performance.",
+  "chromePid": 105224,
+  "failure": "Error: TypeError: Cannot read properties of null (reading 'scrollWidth')\n    at <anonymous>:14:39\n    at <anonymous>:18:3\n    at evaluate (file:///C:/sgSHIOK2026/qa/revamp-r1/published-interaction-20260909/browser.mjs:36:37)\n    at async waitReady (file:///C:/sgSHIOK2026/qa/revamp-r1/published-interaction-20260909/browser.mjs:60:15)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/published-interaction-20260909/browser.mjs:124:3",
+  "stderr": "\r\nDevTools listening on ws://127.0.0.1:57071/devtools/browser/4abd5eac-fb34-4d26-b78b-68818f82f253\r\n",
+  "finishedAt": "2026-09-08T21:25:02.664Z",
+  "ok": false
+}

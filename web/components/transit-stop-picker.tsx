@@ -1,175 +1,79 @@
 "use client";
 
-import React, { useMemo, useRef } from "react";
+import React from "react";
 import {
-  candidateComparison,
-  nextChipAction,
-  type CandidateComparison,
-  type TransitCandidate,
-} from "../lib/nearest-transit";
+  MAX_PUBLISHED_TRANSIT_CHOICES,
+  type PublishedTransitChoices,
+} from "../lib/published-transit-choices";
+import type { MetricCapability } from "../lib/published-transit-options";
 import styles from "./transit-stop-picker.module.css";
 
-export const RESET_CHIP_ID = "__reset__";
-
 export interface TransitStopPickerProps {
-  candidates: TransitCandidate[];
-  /** POI id of the currently displayed transit stop or exit (null means "use published stop or exit"). */
-  activeStopId: string | null;
-  /** POI id of the published transit stop or exit for the current transit mode. */
-  bestStopId: string | null;
-  onSelect: (stopId: string | null) => void;
-  /**
-   * Optional override — normally the picker computes comparison from candidates
-   * directly, but tests may inject a comparison to exercise formatting.
-   */
-  comparison?: CandidateComparison | null;
+  selection: PublishedTransitChoices;
+  onSelect: (key: string | null) => void;
 }
 
-function formatMeters(m: number): string {
-  if (!Number.isFinite(m)) return "\u2014";
-  return m >= 1000 ? `${(m / 1000).toFixed(1)} km` : `${Math.round(m)} m`;
+function walkDistance(metric: MetricCapability): string {
+  return metric.status === "valid"
+    ? `${Math.round(metric.value)} m walk`
+    : "Walk distance unavailable";
 }
 
-function chipKindLabel(kind: TransitCandidate["kind"]): string {
-  return kind === "mrt_exit" ? "MRT/LRT exit" : "Bus stop";
+function coverage(metric: MetricCapability): string {
+  return metric.status === "valid"
+    ? `${Math.round(metric.value * 100)}% covered`
+    : "Coverage unavailable";
 }
 
-/**
- * Public copy used by the comparison note under the chip row.
- * Kept simple because the chip comparison itself is straight-line only; the
- * shelter-map panel updates after selection when candidate geometry or a live
- * OneMap preview is available.
- */
-export function buildComparisonText(
-  comparison: CandidateComparison | null | undefined
-): string | null {
-  if (!comparison) return null;
-  const pct = Math.round(comparison.fartherPct);
-  if (pct <= 0) return null;
-  const deltaM = Math.max(0, comparison.activeStraightM - comparison.bestStraightM);
-  return `${pct}% farther than published stop or exit (+${formatMeters(
-    deltaM
-  )} straight-line only; shelter-map walk evidence updates after selection)`;
-}
-
-export function TransitStopPicker({
-  candidates,
-  activeStopId,
-  bestStopId,
-  onSelect,
-  comparison: comparisonOverride,
-}: TransitStopPickerProps) {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-
-  const chipIds = useMemo(() => {
-    if (candidates.length === 0) return [];
-    const ids: string[] = [];
-    const showReset = activeStopId !== null && activeStopId !== bestStopId;
-    if (showReset) ids.push(RESET_CHIP_ID);
-    for (const candidate of candidates) ids.push(candidate.id);
-    return ids;
-  }, [candidates, activeStopId, bestStopId]);
-
-  const comparison = useMemo<CandidateComparison | null>(() => {
-    if (comparisonOverride !== undefined) return comparisonOverride;
-    if (activeStopId === null || activeStopId === bestStopId) return null;
-    const active = candidates.find((candidate) => candidate.id === activeStopId);
-    const best = candidates.find((candidate) => candidate.id === bestStopId);
-    return candidateComparison(active ?? null, best ?? null);
-  }, [candidates, activeStopId, bestStopId, comparisonOverride]);
-
-  if (candidates.length === 0) return null;
-
-  const activeForRender = activeStopId ?? bestStopId;
-
-  function focusChipByIndex(index: number) {
-    if (!containerRef.current) return;
-    const buttons = containerRef.current.querySelectorAll<HTMLButtonElement>(
-      "button[data-chip-id]"
-    );
-    const target = buttons[index];
-    if (target) target.focus();
-  }
-
-  function handleKeyDown(event: React.KeyboardEvent<HTMLDivElement>) {
-    const el = event.target as HTMLElement;
-    const chipId = el.getAttribute("data-chip-id");
-    if (!chipId) return;
-    const currentIndex = chipIds.indexOf(chipId);
-    const action = nextChipAction(chipIds, currentIndex, event.key);
-    if (action.kind === "focus") {
-      event.preventDefault();
-      focusChipByIndex(action.index);
-      return;
-    }
-    if (action.kind === "activate") {
-      event.preventDefault();
-      onSelect(action.chipId === RESET_CHIP_ID ? null : action.chipId);
-    }
-  }
-
-  const showReset = activeStopId !== null && activeStopId !== bestStopId;
-  const comparisonText = buildComparisonText(comparison);
+export function TransitStopPicker({ selection, onSelect }: TransitStopPickerProps) {
+  const choices = selection.choices.slice(0, MAX_PUBLISHED_TRANSIT_CHOICES);
+  const showReset = selection.selectedKey !== null && selection.selectedKey !== selection.defaultKey;
+  if (choices.length === 0 || (choices.length === 1 && selection.selectedKey === selection.defaultKey)) return null;
 
   return (
-    <div className={styles.pickerShell} aria-label="Transit stop and exit picker">
-      <div className={styles.pickerHeader}>Nearby transit stops and exits</div>
-      <div
-        ref={containerRef}
-        className={styles.chipRow}
-        role="group"
-        aria-label="Nearby transit stops and exits"
-        onKeyDown={handleKeyDown}
-      >
-        {showReset && (
-          <button
-            type="button"
-            data-chip-id={RESET_CHIP_ID}
-            className={styles.chipReset}
-            onClick={() => onSelect(null)}
-            aria-label="Reset to published transit stop or exit"
-          >
-            Reset to published stop or exit
-          </button>
-        )}
-        {candidates.map((candidate) => {
-          const isActive = candidate.id === activeForRender;
-          const isBest = candidate.id === bestStopId;
+    <details className={styles.picker}>
+      <summary className={styles.summary}>
+        Other walks <span className={styles.count}>({choices.length})</span>
+      </summary>
+      <div className={styles.choices} role="group" aria-label="Published walks">
+        {choices.map(({ option, roles }) => {
+          const labels = [
+            ...(roles.includes("shortest") ? ["Shortest shown"] : []),
+            ...(roles.includes("most_covered") ? ["Most covered"] : []),
+          ];
           return (
             <button
-              key={candidate.id}
+              key={option.key}
               type="button"
-              data-chip-id={candidate.id}
-              data-kind={candidate.kind}
-              data-is-best={isBest ? "true" : undefined}
-              className={`${styles.chip} ${isActive ? styles.chipActive : ""}`}
-              aria-current={isActive ? "true" : undefined}
-              onClick={() => onSelect(candidate.id)}
-              title={`${candidate.name} (~${formatMeters(candidate.straight_line_m)})`}
+              className={styles.choice}
+              aria-pressed={option.key === selection.selectedKey}
+              onClick={() => onSelect(option.key)}
             >
-              <span className={styles.chipKind}>{chipKindLabel(candidate.kind)}</span>
-              <span className={styles.chipName}>{candidate.name}</span>
-              {/*
-                The shelter-map panel already announces the active target's selected
-                walk distance in its headline row, so we hide the chip's straight-line
-                distance while a chip is active to reduce duplication. Non-active
-                chips still surface their distance so users can compare picks.
-                Distance stays discoverable via the title tooltip for a11y.
-              */}
-              {!isActive && (
-                <span className={styles.chipDistance}>
-                  {formatMeters(candidate.straight_line_m)}
-                </span>
+              <span className={styles.destination}>
+                {option.name || (option.category === "bus" ? "Bus stop" : "MRT/LRT exit")}
+              </span>
+              <span className={styles.metrics}>
+                <span>{walkDistance(option.metrics.sheltered_m)}</span>
+                <span>{coverage(option.metrics.covered_ratio)}</span>
+              </span>
+              {labels.length > 0 && (
+                <span className={styles.roles}>{labels.join(" / ")}</span>
               )}
             </button>
           );
         })}
       </div>
-      {comparisonText && (
-        <p className={styles.comparisonText} role="status">
-          {comparisonText}
-        </p>
+      {showReset && (
+        <button
+          type="button"
+          className={styles.reset}
+          aria-label="Use published default"
+          title="Use published default"
+          onClick={() => onSelect(null)}
+        >
+          Use published default
+        </button>
       )}
-    </div>
+    </details>
   );
 }

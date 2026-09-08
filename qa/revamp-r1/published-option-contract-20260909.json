@@ -2,15 +2,16 @@
   "contractVersion": 2,
   "date": "2026-09-09",
   "ticket": "T04",
-  "status": "T04_T05_reviewed_and_tested_T06_pending",
+  "status": "T04_T05_T06_reviewed_and_tested",
   "implementationBase": "1f36844f92d48555ce8b1a5800ad2e458130e8af",
   "implementationReceipt": "qa/revamp-r1/published-options-20260909/summary.json",
   "selectionImplementationReceipt": "qa/revamp-r1/published-options-20260909/choices-summary.json",
+  "interactionImplementationReceipt": "qa/revamp-r1/published-interaction-20260909/summary.json",
   "reviewedHead": "8b76862dbafc082fc86f2a37e4e3a5e87d985278",
   "scope": {
     "artifact": "qa/revamp-r1/published-option-contract-20260909.json",
-    "purpose": "Define a published transit-option evidence contract and deterministic display policy. T04 normalizer and T05 pure selector are implemented; T06 UI remains separate.",
-    "implementationOrder": "T04 normalizer and T05 winner ordering are implemented, independently reviewed and validated by the parent isolated suite. T06 UI follows separately.",
+    "purpose": "Define the published transit-option contract and deterministic display policy. T04 normalization, T05 selection and T06 interaction are implemented; historical stage-specific acceptance notes below retain their original scope.",
+    "implementationOrder": "T04 normalization, T05 selection, then T06 integration. T06 receipt supersedes the stage-specific pending integration notes below; T07 gap exploration remains separate.",
     "categoryLimit": 3,
     "categories": ["mrt_lrt", "bus"],
     "routeVariantForComparison": "sheltered",
@@ -405,7 +406,7 @@
     "selectorImplemented": true,
     "candidateWinnerTestsExecuted": true,
     "runtimeNormalizerValidation": true,
-    "browserValidationClaimed": false,
-    "completionClaim": "T04 normalization and T05 pure selection are implemented and reviewed. T05 adds67 selector tests; full769/40 isolated suite passes. T06 interaction and W02-W08/W12-W13 end-to-end integration remain open; no new browser/build/performance or whole-bundle coverage claim."
+    "browserValidationClaimed": true,
+    "completionClaim": "T06 original-pool picker/summary/geometry/URL integration is complete.964/44 isolated tests, TypeScript/integrity/build,11 anchors and54 browser checks pass;8 final captures inspected at4sizes. All21 changed source/test files match tested and built bytes. Geometry segments/fragments and preview semantics are validated without rewriting sources. T07 remains responsible for metric-to-gap exploration and contradictory legacy details; no performance, deployment or whole-bundle coverage claim."
   }
 }

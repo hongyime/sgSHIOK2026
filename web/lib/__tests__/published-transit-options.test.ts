@@ -554,17 +554,167 @@ describe('T04 geometry is paired, strict, multipart and independently optional',
     expect(option.gaps.sheltered.fragments.status).toBe('partial');
     expect(option.gaps.sheltered.fragments.entries[0].highlightable).toBe(false);
   });
-  it('N24 even valid optional segments are omitted at this normalizer rendering boundary', () => {
-    const i = candidateOnly(); setCandidateGeometry(i, { route_segments: { sheltered: [{ geom: line, len_m: 1, is_covered: true }] } });
+  it('N24 T06 enables validated optional segments only with exact full-base association', () => {
+    const i = candidateOnly();
+    const source = geom(i).candidates['bus:03509'];
+    // Synthetic segments reuse real base parts; these len_m values are not claimed as published.
+    source.route_segments = { sheltered: source.sheltered_parts.map((encoded: string) => ({ geom: encoded, len_m: 1, is_covered: true })) };
     const option = one(i);
-    expect(option.geometry.routeSegmentsAvailable).toBe(false);
+    expect(option.geometry.routeSegmentsAvailable).toBe(true);
+    expect(option.geometry.routeSegments.sheltered.status).toBe('complete');
     expect(option.geometry).not.toHaveProperty('route_segments');
     expect(option.diagnostics).not.toContain('optional_route_segments_invalid');
     expect(option.selectedSource.rawGeometry).toHaveProperty('route_segments');
   });
 });
 
+describe('T06 optional segment capability (synthetic segments, no scoring)', () => {
+  function segmentedInput() {
+    const i = candidateOnly();
+    setCandidateGeometry(i, {
+      shortest_parts: [line, otherLine], sheltered_parts: [line, otherLine],
+      route_segments: {
+        shortest: [{ geom: line, len_m: 0, is_covered: false }, { geom: otherLine, len_m: 2.125, is_covered: true }],
+        sheltered: [{ geom: line, len_m: 0, is_covered: false }, { geom: otherLine, len_m: 2.125, is_covered: true }],
+      },
+    });
+    return i;
+  }
+  function shelteredSegments(i: PublishedTransitNormalizationInput): Mutable[] { return geom(i).candidates['bus:03509'].route_segments.sheltered; }
+  for (const field of ['geom', 'len_m', 'is_covered', 'part_index', 'source_class', 'source_layer', 'synth_class', 'confidence', 'source_summary']) {
+    const invalids = field === 'geom' ? [null, 1, '_', '!!!!'] : field === 'len_m' ? [undefined, null, '1', -1, NaN, Infinity]
+      : field === 'is_covered' ? [undefined, null, 'true', 0, 1] : field === 'part_index' ? [null, '0', -1, 0.5, Infinity] : [null, 1, {}, []];
+    for (const [index, bad] of invalids.entries()) it(`T06 rejects invalid optional segment ${field} case ${index} without poisoning the route`, () => {
+      const i = segmentedInput(); shelteredSegments(i)[0][field] = bad;
+      const option = one(i);
+      expect(option.retainable).toBe(true);
+      expect(option.geometry.sheltered.status).toBe('complete');
+      expect(option.geometry.routeSegments.sheltered).toMatchObject({ status: 'invalid', segments: [] });
+      expect(option.geometry.routeSegments.shortest.status).toBe('complete');
+      expect(option.geometry.routeSegmentsAvailable).toBe(true);
+      expect(option.diagnostics).toContain('optional_route_segments_invalid');
+    });
+  }
+  it('T06 allowlists segment metadata and treats source part_index as local, not a base-part index', () => {
+    const i = segmentedInput();
+    Object.assign(shelteredSegments(i)[0], { part_index: 999, source_class: 'osm_covered', source_layer: 'source', synth_class: '', confidence: 'observed', source_summary: 'source:1', unknown: 'drop', geometry: 'drop' });
+    const result = one(i).geometry.routeSegments.sheltered;
+    expect(result.status).toBe('complete');
+    expect(result.segments[0]).toEqual({ geom: line, len_m: 0, is_covered: false, source_class: 'osm_covered', source_layer: 'source', synth_class: '', confidence: 'observed', source_summary: 'source:1' });
+    expect(result.segments[1].len_m).toBe(2.125);
+  });
+  for (const mutation of ['incomplete', 'overlap', 'unrelated', 'bridge', 'cross-variant']) it(`T06 ${mutation} optional segments cannot replace good base parts`, () => {
+    const i = segmentedInput();
+    const source = geom(i).candidates['bus:03509'];
+    if (mutation === 'incomplete') source.route_segments.sheltered.pop();
+    if (mutation === 'overlap') source.route_segments.sheltered.push(clone(source.route_segments.sheltered[0]));
+    if (mutation === 'unrelated') source.route_segments.sheltered[0].geom = encodePolyline([[1, 104], [1.1, 104.1]]);
+    if (mutation === 'bridge') source.route_segments.sheltered = [{ geom: encodePolyline([[1.301, 103.801], [1.3, 103.8], [1.302, 103.802]]), len_m: 1, is_covered: true }];
+    if (mutation === 'cross-variant') { source.shortest_parts = [encodePolyline([[1, 104], [1.1, 104.1]])]; source.route_segments.shortest = clone(source.route_segments.sheltered); }
+    const option = one(i);
+    expect(option.retainable).toBe(true);
+    const capability = option.geometry.routeSegments[mutation === 'cross-variant' ? 'shortest' : 'sheltered'];
+    expect(capability.status).toBe('invalid');
+    expect(capability.segments).toEqual([]);
+    expect(capability.reasons).toEqual([mutation === 'incomplete' ? 'optional_route_segments_incomplete' : 'optional_route_segments_path_mismatch']);
+  });
+  it('T06 matches exact contiguous pieces in either direction without depending on segment list order', () => {
+    const i = segmentedInput();
+    const source = geom(i).candidates['bus:03509'];
+    source.sheltered_parts = [encodePolyline([[1.3, 103.8], [1.301, 103.801], [1.302, 103.802]])];
+    source.route_segments.sheltered = [
+      { geom: encodePolyline([[1.302, 103.802], [1.301, 103.801]]), len_m: 1, is_covered: true },
+      { geom: encodePolyline([[1.3, 103.8], [1.3, 103.8], [1.301, 103.801]]), len_m: 2, is_covered: false },
+    ];
+    expect(one(i).geometry.routeSegments.sheltered.status).toBe('complete');
+  });
+  it('T06 repeated edges keep valid full coloring for either segment order', () => {
+    const a: [number, number] = [1.3, 103.8];
+    const b: [number, number] = [1.301, 103.801];
+    const c: [number, number] = [1.302, 103.802];
+    for (const reverse of [false, true]) {
+      const i = segmentedInput(); const source = geom(i).candidates['bus:03509'];
+      source.sheltered_parts = [encodePolyline([a, b, a, b, c])];
+      source.route_segments.sheltered = [
+        { geom: encodePolyline([a, b]), len_m: 1, is_covered: true },
+        { geom: encodePolyline([a, b, a]), len_m: 2, is_covered: false },
+        { geom: encodePolyline([b, c]), len_m: 1, is_covered: true },
+      ];
+      if (reverse) source.route_segments.sheltered.reverse();
+      expect(one(i).geometry.routeSegments.sheltered.status).toBe('complete');
+    }
+  });
+  it('T06 partial base geometry cannot be replaced with an otherwise valid segment list', () => {
+    const i = segmentedInput(); geom(i).candidates['bus:03509'].sheltered_parts[1] = '_';
+    const option = one(i);
+    expect(option.geometry.sheltered.status).toBe('partial');
+    expect(option.geometry.routeSegments.sheltered).toMatchObject({ status: 'unavailable', segments: [], reasons: ['optional_route_segments_base_incomplete'] });
+    expect(option.geometry.routeSegments.shortest.status).toBe('complete');
+  });
+  for (const raw of [undefined, null, [], {}, '', false]) it(`T06 segment container boundary ${JSON.stringify(raw)}`, () => {
+    const i = segmentedInput(); geom(i).candidates['bus:03509'].route_segments = raw;
+    const option = one(i);
+    expect(option.retainable).toBe(true);
+    expect(option.geometry.routeSegments.sheltered.status).toBe(raw == null || (raw && !Array.isArray(raw) && typeof raw === 'object') ? 'missing' : 'invalid');
+  });
+  for (const raw of [undefined, null, [], {}, '']) it(`T06 segment list boundary ${JSON.stringify(raw)}`, () => {
+    const i = segmentedInput(); geom(i).candidates['bus:03509'].route_segments.sheltered = raw;
+    const capability = one(i).geometry.routeSegments.sheltered;
+    expect(capability.status).toBe(raw == null || Array.isArray(raw) ? 'missing' : 'invalid');
+    expect(capability.segments).toEqual([]);
+  });
+});
+
 describe('T04 gap capabilities are not interchangeable (synthetic except N27)', () => {
+  for (const direction of ['forward', 'reverse', 'repeated']) it(`T06 fragment exact contiguous ${direction} portion keeps source length and label`, () => {
+    const i = defaultOnly(); const source = geom(i).route_options.bus;
+    const a: [number, number] = [1.3, 103.8];
+    const b: [number, number] = [1.301, 103.801];
+    const c: [number, number] = [1.302, 103.802];
+    source.sheltered_parts = [encodePolyline([a, b, c])];
+    source.exposure_gaps = [{ geom: encodePolyline(direction === 'forward' ? [b, c] : direction === 'reverse' ? [c, b] : [b, b, c]), len_m: 0.125, label: 'Synthetic gap', part_index: 999 }];
+    const o = one(i);
+    expect(o.gaps.sheltered.fragments.status).toBe('complete');
+    expect(o.gaps.sheltered.fragments.entries[0]).toMatchObject({ highlightable: true, length: { status: 'valid', value: 0.125 }, label: 'Synthetic gap', partIndex: 999 });
+    expect(value(o.gaps.sheltered.logical.total_m)).toBe(36.5);
+    expect(value(o.gaps.sheltered.logical.longest_m)).toBe(20.2);
+  });
+  for (const mutation of ['foreign', 'bridge', 'skipped-vertex', 'shifted-grid']) it(`T06 ${mutation} fragment is diagnostic only, not a walk metric or map highlight`, () => {
+    const i = defaultOnly(); const source = geom(i).route_options.bus;
+    const a: [number, number] = [1.3, 103.8];
+    const b: [number, number] = [1.301, 103.801];
+    const c: [number, number] = [1.302, 103.802];
+    source.sheltered_parts = [encodePolyline([a, b, c])];
+    let points: [number, number][] = [[89, 170], [89.1, 170.1]];
+    if (mutation === 'bridge') { source.sheltered_parts = [encodePolyline([a, b]), encodePolyline([b, c])]; points = [a, b, c]; }
+    if (mutation === 'skipped-vertex') points = [a, c];
+    if (mutation === 'shifted-grid') points = [[1.30001, 103.8], [1.30101, 103.801]];
+    source.exposure_gaps = [{ geom: encodePolyline(points), len_m: 12.345, label: 'Synthetic gap' }];
+    const o = one(i);
+    expect(o.gaps.sheltered.fragments.entries[0]).toMatchObject({ highlightable: false, length: { status: 'valid', value: 12.345 }, reasons: ['gap_fragment_path_mismatch'] });
+    expect(o.diagnostics).toContain('gap_fragment_path_mismatch');
+    expect(o.gaps.sheltered.fragments.status).toBe('partial');
+    expect(value(o.gaps.sheltered.logical.total_m)).toBe(36.5);
+    expect(o.retainable).toBe(true);
+  });
+  it('T06 fragments on surviving partial-base pieces remain usable without lending validity to missing parts', () => {
+    const i = defaultOnly(); const source = geom(i).route_options.bus;
+    source.sheltered_parts = [line, '_'];
+    source.exposure_gaps = [{ geom: line, len_m: 0, label: 'Surviving' }, { geom: otherLine, len_m: 2, label: 'Unmatched' }];
+    const o = one(i);
+    expect(o.geometry.sheltered.status).toBe('partial');
+    expect(o.gaps.sheltered.fragments.entries.map(entry => entry.highlightable)).toEqual([true, false]);
+    expect(o.gaps.sheltered.fragments.entries[1].reasons).toEqual(['gap_fragment_path_mismatch']);
+    expect(value(o.gaps.sheltered.logical.longest_m)).toBe(20.2);
+  });
+  it('T06 no sheltered base makes otherwise valid fragments unavailable for highlighting', () => {
+    const i = defaultOnly(); const source = geom(i).route_options.bus;
+    source.sheltered_parts = []; source.sheltered = '';
+    const o = one(i);
+    expect(o.gaps.sheltered.fragments.entries.every(entry => !entry.highlightable)).toBe(true);
+    expect(o.gaps.sheltered.fragments.reasons).toContain('gap_fragment_path_unavailable');
+    expect(value(o.gaps.sheltered.logical.total_m)).toBe(36.5);
+  });
   for (const gaps of [undefined, null, {}, 'gaps']) it(`N25 missing/malformed logical list ${JSON.stringify(gaps)}`, () => {
     const i = defaultOnly(); score(i).route_options.bus.exposure_gaps = gaps;
     const logical = one(i).gaps.sheltered.logical;

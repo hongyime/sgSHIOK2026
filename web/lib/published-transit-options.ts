@@ -1,5 +1,5 @@
 import { decodePolyline, type LatLng } from './polyline';
-import type { TransitAccessMode } from './types';
+import type { RouteSegment, TransitAccessMode } from './types';
 
 export type PublishedTransitCategory = Exclude<TransitAccessMode, 'best_transit'>;
 export interface PublishedSourceContext { bundle: string; postal: string }
@@ -29,6 +29,12 @@ export interface GeometryCapability {
   signature: string | null;
   reasons: string[];
 }
+export interface RouteSegmentCapability {
+  status: 'missing' | 'invalid' | 'unavailable' | 'complete';
+  // Nonempty only after the entire variant exactly covers its validated base parts.
+  segments: RouteSegment[];
+  reasons: string[];
+}
 export interface LogicalGapCapability {
   status: 'missing' | 'invalid' | 'partial' | 'complete' | 'unavailable';
   entries: {
@@ -47,6 +53,7 @@ export interface FragmentCapability {
   entries: {
     sourceIndex: number;
     length: MetricCapability;
+    label: string | null;
     encoded: string | null;
     points: LatLng[] | null;
     partIndex: number | null;
@@ -79,8 +86,13 @@ export interface PublishedTransitOption {
     | 'geometry_unavailable' | 'geometry_partial' | 'identity_invalid' | 'trust_unclassified'
     | 'preview_only' | 'evidence_conflict';
   metrics: PublishedOptionMetrics;
-  // Segment coloring is intentionally unavailable, even if raw source segments are valid.
-  geometry: { shortest: GeometryCapability; sheltered: GeometryCapability; routeSegmentsAvailable: false };
+  geometry: {
+    shortest: GeometryCapability;
+    sheltered: GeometryCapability;
+    routeSegments: { shortest: RouteSegmentCapability; sheltered: RouteSegmentCapability };
+    // Convenience only: consult each variant's capability before rendering its segments.
+    routeSegmentsAvailable: boolean;
+  };
   gaps: {
     sheltered: { logical: LogicalGapCapability; fragments: FragmentCapability };
     shortest: { logical: LogicalGapCapability; fragments: FragmentCapability };
@@ -233,16 +245,20 @@ function logicalGaps(raw: unknown, classification: PublishedRouteClassification,
   if (!Number.isFinite(total)) return { ...unavailableLogical('logical_gap_length_invalid', 'partial'), entries, reasons: unique([...reasons, 'logical_gap_length_invalid']) };
   return { status: 'complete', entries, total_m: metric(total, 'nonnegative', 'exposure_gaps'), longest_m: metric(longest, 'nonnegative', 'exposure_gaps'), reasons: unique(reasons) };
 }
-function fragments(raw: unknown): FragmentCapability {
+function fragments(raw: unknown, base: GeometryCapability): FragmentCapability {
   if (raw == null) return { status: 'missing', entries: [], reasons: ['gap_fragments_missing'] };
   if (!Array.isArray(raw)) return { status: 'invalid', entries: [], reasons: ['gap_fragments_invalid'] };
+  const parts = base.parts.map(part => distinctConsecutive(part.points));
   const entries = raw.map((gap, sourceIndex) => {
     const row = object(gap);
     const points = strictPolyline(row?.geom);
     const length = metric(row?.len_m, 'nonnegative', `geometry.exposure_gaps[${sourceIndex}].len_m`);
     const indexValid = !own(row, 'part_index') || (typeof row?.part_index === 'number' && Number.isSafeInteger(row.part_index) && row.part_index >= 0);
     const reasons = [...(!points ? ['gap_fragment_geometry_invalid'] : []), ...(length.status !== 'valid' ? ['gap_fragment_length_invalid'] : []), ...(!indexValid ? ['gap_fragment_index_invalid'] : [])];
-    return { sourceIndex, length, points, encoded: points && typeof row?.geom === 'string' ? row.geom : null,
+    if (points && !matchesContiguousPart(distinctConsecutive(points), parts)) {
+      reasons.push(parts.length ? 'gap_fragment_path_mismatch' : 'gap_fragment_path_unavailable');
+    }
+    return { sourceIndex, length, label: typeof row?.label === 'string' ? row.label : null, points, encoded: points && typeof row?.geom === 'string' ? row.geom : null,
       partIndex: indexValid && typeof row?.part_index === 'number' ? row.part_index : null, highlightable: reasons.length === 0, reasons };
   });
   return { status: entries.some(entry => !entry.highlightable) ? 'partial' : 'complete', entries, reasons: unique(entries.flatMap(entry => entry.reasons)) };
@@ -278,17 +294,63 @@ function classify(row: Obj | null, role: Role, category: PublishedTransitCategor
   }
   return 'routed';
 }
-function optionalSegmentsInvalid(raw: unknown): boolean {
-  if (raw == null) return false;
-  const segments = object(raw);
-  if (!segments) return true;
-  return ['shortest', 'sheltered'].some(variant => {
-    const entries = segments[variant];
-    return entries != null && (!Array.isArray(entries) || entries.some(segment => {
-      const row = object(segment);
-      return !strictPolyline(row?.geom) || metric(row?.len_m, 'nonnegative', 'len_m').status !== 'valid' || typeof row?.is_covered !== 'boolean';
-    }));
-  });
+const segmentMetadata = ['source_class', 'source_layer', 'synth_class', 'confidence', 'source_summary'] as const;
+const samePoint = (a: LatLng, b: LatLng): boolean => a[0] === b[0] && a[1] === b[1];
+const edgeKey = (a: LatLng, b: LatLng): string => JSON.stringify(JSON.stringify(a) < JSON.stringify(b) ? [a, b] : [b, a]);
+function distinctConsecutive(points: LatLng[]): LatLng[] {
+  return points.filter((point, index) => index === 0 || !samePoint(point, points[index - 1]));
+}
+function matchesContiguousPart(points: LatLng[], parts: LatLng[][]): boolean {
+  for (const part of parts) for (let start = 0; start <= part.length - points.length; start++) {
+    if (points.every((point, offset) => samePoint(point, part[start + offset]))
+      || points.every((point, offset) => samePoint(point, part[start + points.length - 1 - offset]))) return true;
+  }
+  return false;
+}
+function segmentCapability(raw: unknown, variant: 'shortest' | 'sheltered', base: GeometryCapability): RouteSegmentCapability {
+  const unavailable = (status: RouteSegmentCapability['status'], reason: string): RouteSegmentCapability => ({ status, segments: [], reasons: [reason] });
+  if (raw == null) return unavailable('missing', 'optional_route_segments_missing');
+  const container = object(raw);
+  if (!container) return unavailable('invalid', 'optional_route_segments_invalid');
+  const entries = container[variant];
+  if (entries == null || (Array.isArray(entries) && entries.length === 0)) return unavailable('missing', 'optional_route_segments_missing');
+  if (!Array.isArray(entries)) return unavailable('invalid', 'optional_route_segments_invalid');
+  const validated: { segment: RouteSegment; points: LatLng[] }[] = [];
+  for (const entry of entries) {
+    const row = object(entry);
+    const points = strictPolyline(row?.geom);
+    const length = metric(row?.len_m, 'nonnegative', 'route_segments.len_m');
+    // Export's part_index is local to a source-class group, not an index into base.parts.
+    const indexValid = !own(row, 'part_index') || (typeof row?.part_index === 'number' && Number.isSafeInteger(row.part_index) && row.part_index >= 0);
+    if (!points || typeof row?.geom !== 'string' || length.status !== 'valid' || typeof row?.is_covered !== 'boolean'
+      || !indexValid || segmentMetadata.some(key => own(row, key) && typeof row?.[key] !== 'string')) {
+      return unavailable('invalid', 'optional_route_segments_invalid');
+    }
+    const segment: RouteSegment = { geom: row.geom, len_m: length.value, is_covered: row.is_covered };
+    for (const key of segmentMetadata) if (typeof row[key] === 'string') segment[key] = row[key];
+    validated.push({ segment, points: distinctConsecutive(points) });
+  }
+  if (base.status !== 'complete') return unavailable('unavailable', 'optional_route_segments_base_incomplete');
+  const parts = base.parts.map(part => distinctConsecutive(part.points));
+  const remaining = new Map<string, number>();
+  for (const part of parts) for (let index = 1; index < part.length; index++) {
+    const key = edgeKey(part[index - 1], part[index]);
+    remaining.set(key, (remaining.get(key) ?? 0) + 1);
+  }
+  // A renderer prefers any segment list over ALL base parts. Only an exact, disjoint
+  // coordinate partition may replace them; malformed, partial or unrelated detail is omitted.
+  // Edge multiplicities avoid greedy placement when the published route repeats a stretch.
+  for (const entry of validated) {
+    if (!matchesContiguousPart(entry.points, parts)) return unavailable('invalid', 'optional_route_segments_path_mismatch');
+    for (let index = 1; index < entry.points.length; index++) {
+      const key = edgeKey(entry.points[index - 1], entry.points[index]);
+      const count = remaining.get(key) ?? 0;
+      if (count <= 0) return unavailable('invalid', 'optional_route_segments_path_mismatch');
+      remaining.set(key, count - 1);
+    }
+  }
+  if ([...remaining.values()].some(count => count > 0)) return unavailable('invalid', 'optional_route_segments_incomplete');
+  return { status: 'complete', segments: validated.map(entry => entry.segment), reasons: [] };
 }
 function representation(raw: unknown, rawGeometry: unknown, selectionRef: PublishedOptionSelectionRef, key: string, category: PublishedTransitCategory, preview: boolean, geometryReason?: string): Representation {
   const row = object(raw);
@@ -311,15 +373,21 @@ function representation(raw: unknown, rawGeometry: unknown, selectionRef: Publis
   const checkedClassification = classify(row, role, category, metrics, preview, diagnostics);
   const classification = identityValid || checkedClassification === 'preview' ? checkedClassification : 'unclassified';
   if (classification === 'unclassified') diagnostics.push('trust_unclassified');
-  const geometry = {
-    shortest: geometryCapability(rawGeometry, 'shortest'), sheltered: geometryCapability(rawGeometry, 'sheltered'), routeSegmentsAvailable: false as const,
-  };
+  let shortest = geometryCapability(rawGeometry, 'shortest');
+  let sheltered = geometryCapability(rawGeometry, 'sheltered');
   if (geometryReason) {
     const status = geometryReason === 'geometry_reference_mismatch' ? 'invalid' : 'missing';
-    geometry.shortest = emptyGeometry(status, geometryReason); geometry.sheltered = emptyGeometry(status, geometryReason);
+    shortest = emptyGeometry(status, geometryReason); sheltered = emptyGeometry(status, geometryReason);
   }
-  if (optionalSegmentsInvalid(object(rawGeometry)?.route_segments)) diagnostics.push('optional_route_segments_invalid');
-  const fragmentEvidence = fragments(object(rawGeometry)?.exposure_gaps);
+  const segmentSource = object(rawGeometry)?.route_segments;
+  const routeSegments = { shortest: segmentCapability(segmentSource, 'shortest', shortest), sheltered: segmentCapability(segmentSource, 'sheltered', sheltered) };
+  const geometry: PublishedTransitOption['geometry'] = { shortest, sheltered, routeSegments,
+    routeSegmentsAvailable: Object.values(routeSegments).some(capability => capability.status === 'complete') };
+  for (const [variant, capability] of Object.entries(routeSegments)) {
+    if (capability.status === 'invalid') diagnostics.push('optional_route_segments_invalid');
+    if (capability.status !== 'missing') diagnostics.push(...capability.reasons.map(reason => `${variant}:${reason}`));
+  }
+  const fragmentEvidence = fragments(object(rawGeometry)?.exposure_gaps, sheltered);
   const gaps: PublishedTransitOption['gaps'] = {
     sheltered: { logical: logicalGaps(row?.exposure_gaps, classification, role), fragments: fragmentEvidence },
     shortest: { logical: unavailableLogical('shortest_gaps_not_published'), fragments: { status: 'unavailable', entries: [], reasons: ['shortest_gaps_not_published'] } },

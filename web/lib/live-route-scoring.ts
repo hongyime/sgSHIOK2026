@@ -1,7 +1,7 @@
 /**
  * Live client-side shelter segmentation for preview shelter-map evidence.
  *
- * Takes a pedestrian walking route (e.g. from OneMap API or direct path),
+ * Takes a supplied pedestrian walking route (e.g. from OneMap API),
  * tests sub-segments against local shelter evidence (LTA linkways, HDB void decks,
  * overhead bridges), and produces multi-color RouteSegments. It deliberately
  * does not produce authoritative SHIOK scores; published locked scores come
@@ -163,16 +163,17 @@ export function scoreLiveRoute(options: LiveRouteOptions): {
     baseGeom,
   } = options;
 
+  const validPoint = (point: unknown): point is LatLng => Array.isArray(point) && point.length === 2 &&
+    typeof point[0] === "number" && typeof point[1] === "number" &&
+    Number.isFinite(point[0]) && Number.isFinite(point[1]) && Math.abs(point[0]) <= 90 && Math.abs(point[1]) <= 180;
+  if (!Array.isArray(routeCoordinates) || routeCoordinates.length < 2 || !routeCoordinates.every(validPoint)) {
+    throw new Error("Preview route requires at least two valid route coordinates.");
+  }
+  if (!validPoint([originCoords.lat, originCoords.lng]) || !validPoint([targetStop.coordinates[1], targetStop.coordinates[0]])) {
+    throw new Error("Preview origin and target coordinates are invalid.");
+  }
+  const coords = routeCoordinates;
   const shelterEvidence = extractShelterEvidence(baseGeom);
-
-  // Ensure we have at least start and end
-  const coords: LatLng[] =
-    routeCoordinates.length >= 2
-      ? routeCoordinates
-      : [
-          [originCoords.lat, originCoords.lng],
-          [targetStop.coordinates[1], targetStop.coordinates[0]],
-        ];
 
   interface SubChunk {
     pts: LatLng[];
@@ -218,24 +219,8 @@ export function scoreLiveRoute(options: LiveRouteOptions): {
     }
   }
 
-  // Fallback if empty chunks
   if (chunks.length === 0) {
-    const directLen = haversineMeters(
-      originCoords.lat,
-      originCoords.lng,
-      targetStop.coordinates[1],
-      targetStop.coordinates[0]
-    );
-    totalDistanceM = directLen;
-    chunks.push({
-      pts: [
-        [originCoords.lat, originCoords.lng],
-        [targetStop.coordinates[1], targetStop.coordinates[0]],
-      ],
-      lenM: directLen,
-      isCovered: false,
-      sourceClass: "exposed",
-    });
+    throw new Error("Preview route has no usable segments.");
   }
 
   // Convert chunks to RouteSegments and ExposureGaps
@@ -285,8 +270,8 @@ export function scoreLiveRoute(options: LiveRouteOptions): {
     station: "station" in targetStop ? targetStop.station : undefined,
     exit: "exit" in targetStop ? targetStop.exit : undefined,
     routed_m: roundedTotalM,
-    straight_line_m: roundedTotalM,
-    snap_distance_m: 0,
+    straight_line_m: Math.round(haversineMeters(originCoords.lat, originCoords.lng,
+      targetStop.coordinates[1], targetStop.coordinates[0])),
   };
 
   const scoreRecord: ScoreRecord = {
@@ -297,14 +282,14 @@ export function scoreLiveRoute(options: LiveRouteOptions): {
     best_node: bestNode,
     paths: {
       shortest_m: roundedTotalM,
-      sheltered_m: roundedShelteredM,
+      sheltered_m: roundedTotalM,
       detour_pct: 0,
       covered_m: roundedShelteredM,
       covered_ratio: Number(coveredRatio.toFixed(3)),
+      shortest_covered_ratio: Number(coveredRatio.toFixed(3)),
       routing_type: "live_onemap_preview",
     },
     exposure_gaps: exposureGaps,
-    candidates: baseScore?.candidates ?? [],
     data_as_of: baseScore?.data_as_of ?? null,
     provenance: {
       source: "live_onemap_preview",
