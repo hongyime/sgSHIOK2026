@@ -213,7 +213,7 @@ describe("rendered accessibility output", () => {
   it("renders the current public-source sample in data limits", () => {
     const html = renderToStaticMarkup(<Home />);
 
-    expect(html).toContain("About the data");
+    expect(html).toContain("About data");
     expect(html).toContain("Shelter-map evidence as of 2 Aug 2026. Some newer addresses and some locked scores are not in this release.");
     expect(html).not.toContain("Data limits: June 2020 addresses; roughly 1 in 4 lack full locked scores");
     expect(html).not.toContain("Data limits: frozen v1 addresses; roughly 1 in 4 lack full locked scores");

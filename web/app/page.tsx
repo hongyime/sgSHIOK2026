@@ -2035,10 +2035,11 @@ function Metric({ label, value }: { label: string; value: string }) {
   );
 }
 
-export function DataDetails({ manifest }: { manifest: Manifest | null }) {
+export function DataDetails({ manifest, onToggle }: { manifest: Manifest | null; onToggle?: React.ToggleEventHandler<HTMLDetailsElement> }) {
   return (
-        <details className={styles.dataLimits}>
-          <summary>About the data</summary>
+        <details className={styles.dataLimits} onToggle={onToggle}>
+          <summary>About data</summary>
+          <div className={styles.dataBody}>
           <p>
             Shelter-map evidence as of {formatDataDate(manifest)}. Some newer addresses and some locked scores are not in this release.
           </p>
@@ -2079,6 +2080,7 @@ export function DataDetails({ manifest }: { manifest: Manifest | null }) {
             </a>
           </p>
           <p>Heat estimate: shelter plus sparse nearby greenery, not measured temperature</p>
+          </div>
         </details>
   );
 }
@@ -2093,7 +2095,7 @@ export default function Home() {
   const [routeMode, setRouteMode] = useState<RouteDisplayMode>("shiokest");
   const [feedbackEnabled, setFeedbackEnabled] = useState(false);
   const [lampOverlayEnabled, setLampOverlayEnabled] = useState(false);
-  const [showMap, setShowMap] = useState(false);
+  const [aboutDataOpen, setAboutDataOpen] = useState(false);
   const [mapLoadStatus, setMapLoadStatus] = useState<MapLoadStatus>("idle");
   const [mapLoadError, setMapLoadError] = useState<string | null>(null);
   const [feedbackPoints, setFeedbackPoints] = useState<FeedbackPoint[]>([]);
@@ -2338,25 +2340,8 @@ export default function Home() {
 
   const mapRoutes = useMemo(() => buildRouteItems(activeSelection), [activeSelection]);
   const mapRouteMode = routesAreSame(activeSelection) ? "shiokest" : routeMode;
-  const mapAvailable = mapRoutes.length > 0;
-  const shouldRenderRouteMap = mapAvailable && showMap;
   const showDetailOverlay = Boolean(primary);
   const visibleMapStatus = mapStatusLabel(mapLoadStatus, mapLoadError);
-
-  useEffect(() => {
-    if (!mapAvailable) {
-      setMapLoadStatus("idle");
-      setMapLoadError(null);
-      return;
-    }
-    if (!showMap) {
-      setMapLoadStatus("hidden");
-      setMapLoadError(null);
-      return;
-    }
-    setMapLoadStatus((current) => (current === "ready" ? current : "mounting"));
-    setMapLoadError(null);
-  }, [mapAvailable, showMap]);
 
   // Apply pending URL stop once candidates for this postal are known.
   useEffect(() => {
@@ -2404,7 +2389,6 @@ export default function Home() {
       setPrimary({ result: { ...result, POSTAL: postal }, score, geom });
       setTransitMode("best_transit");
       setRouteMode("shiokest");
-      setShowMap(true);
       setSheetExpanded(false);
       setFeedbackEnabled(false);
       setFeedbackPoints([]);
@@ -2455,7 +2439,6 @@ export default function Home() {
       const geom = await fetchGeomForPostal(primary.result.POSTAL);
       if (requestId !== loadSelectionRequestIdRef.current) return;
       setPrimary(current => current ? { ...current, geom } : current);
-      setShowMap(true);
     } catch {
       if (requestId === loadSelectionRequestIdRef.current) setGeometryError(true);
     }
@@ -2509,7 +2492,6 @@ export default function Home() {
   );
 
   const handleFocusExposureGap = useCallback((gap: FocusedExposureGap) => {
-    setShowMap(true);
     setFocusedExposureGap(gap);
     setSheetExpanded(false);
   }, []);
@@ -2610,7 +2592,6 @@ export default function Home() {
 
   return (
     <main className={styles.appShell} data-map-status={mapLoadStatus}>
-      {shouldRenderRouteMap && (
         <RouteEvidenceMap
           key={mapInstanceKey}
           routes={mapRoutes}
@@ -2626,30 +2607,16 @@ export default function Home() {
           onStatusChange={handleMapStatusChange}
           retryKey={mapRetryKey}
         />
-      )}
-      {!shouldRenderRouteMap && mapAvailable && (
-        <section className={styles.mapPlaceholder} aria-label="Map preview">
-          <div>
-            <strong>Map hidden for faster loading</strong>
-            <span>Open it when you want the route trace, exposed-gap locations, or night-lighting layer.</span>
-          </div>
-          <button type="button" onClick={() => setShowMap(true)}>
-            Show map
-          </button>
-        </section>
-      )}
-
-      {/* SHIOK identity — always visible top-left, separate from the sliding panel */}
-      <div className={styles.identityRow} data-map-overlay="top">
-        <h1 className={styles.identityBrand} aria-label="S.H.I.O.K. Shelter Map">SHIOK<span aria-hidden="true">.</span></h1>
-      </div>
-
       <section
         className={styles.searchOverlay}
         data-map-overlay="top"
         aria-label="Postal-code search"
         aria-busy={loading}
       >
+        <div className={styles.searchToolbar}>
+        <div className={styles.identityRow}>
+          <h1 className={styles.identityBrand} aria-label="S.H.I.O.K. Shelter Map">SHIOK<span aria-hidden="true">.</span></h1>
+        </div>
         <form onSubmit={handleSearch} className={styles.searchForm} aria-busy={loading}>
           <input
             id="postal-search-input"
@@ -2667,12 +2634,12 @@ export default function Home() {
             onFocus={preloadRouteMap}
             aria-label="Enter 6-digit Singapore postal code"
           />
-          <button id="postal-search-button" type="submit" aria-busy={loading}>
-            {loading ? "Searching" : "Search"}
+          <button id="postal-search-button" type="submit" aria-label="Search postal code" title="Search postal code" aria-busy={loading}>
+            <span className={loading ? styles.searchSpinner : styles.searchGlyph} aria-hidden="true" />
           </button>
         </form>
+        </div>
 
-        {!showDetailOverlay && <DataDetails manifest={manifest} />}
         <p className={styles.srOnly} role="status" aria-live="polite">{visibleMapStatus}</p>
         {(mapLoadStatus === "partial" || mapLoadStatus === "error") && <div className={styles.errorBox} role="status">
           {visibleMapStatus} <button type="button" onClick={() => {
@@ -2706,7 +2673,7 @@ export default function Home() {
 
       </section>
 
-        {showDetailOverlay && (
+        {showDetailOverlay && !aboutDataOpen && (
           <aside ref={panelRef} data-map-overlay="panel" className={`${styles.resultPanel} ${sheetExpanded ? styles.sheetExpanded : ""}`}>
             <button type="button" className={styles.sheetToggle} aria-expanded={sheetExpanded}
               aria-controls="walk-details" onClick={() => setSheetExpanded(value => !value)}>
@@ -2726,7 +2693,6 @@ export default function Home() {
                 title="Show lamp-post locations on the map"
                 onClick={() => {
                   preloadRouteMap();
-                  setShowMap(true);
                   setLampOverlayEnabled((enabled) => !enabled);
                 }}
               >
@@ -2766,12 +2732,13 @@ export default function Home() {
               onFocusExposureGap={handleFocusExposureGap}
               lampOverlayEnabled={lampOverlayEnabled}
             />
-            <DataDetails manifest={manifest} />
             </div>
           </aside>
         )}
 
-        <footer className={styles.pageFooter}>Walk evidence: covered-walkway ratio and exposed gaps on the route.</footer>
+        <footer className={styles.dataDock} data-map-overlay="bottom">
+          <DataDetails manifest={manifest} onToggle={event => setAboutDataOpen(event.currentTarget.open)} />
+        </footer>
     </main>
   );
 }

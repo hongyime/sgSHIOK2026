@@ -40,7 +40,7 @@ export interface FocusedExposureGap {
   lon: number;
 }
 
-export type RouteMapLoadStatus = "mounting" | "initializing" | "ready" | "partial" | "error";
+export type RouteMapLoadStatus = "idle" | "mounting" | "initializing" | "ready" | "partial" | "error";
 
 const SINGAPORE_BOUNDS: [[number, number], [number, number]] = [
   [103.55, 1.13],
@@ -1470,7 +1470,8 @@ export function RouteEvidenceMap({
     cancelProbeRef.current?.();
     routeVisibleRef.current = false;
     if (!routeData.bounds) {
-      onStatusChangeRef.current?.("error", "No route geometry is published for this walk.");
+      // No selected walk is a normal basemap state, not missing route evidence.
+      onStatusChangeRef.current?.(mapProblemRef.current?.status ?? "idle", mapProblemRef.current?.message);
       return;
     }
     onStatusChangeRef.current?.(mapProblemRef.current?.status ?? "initializing", mapProblemRef.current?.message);

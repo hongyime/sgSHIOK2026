@@ -1051,3 +1051,93 @@ FINDINGS
 DISAGREEMENTS
 1. None with running under load after explicit owner authorization. Functional
    verification could proceed; representative benchmarking could not be claimed.
+
+## Correction and delivery: map-first home and product backlog, 2026-09-08
+
+The prior "map is not blank" conclusion covered selected-route entry only. It
+did not establish a working plain homepage. Owner reported a blank local map;
+inspection confirmed Home mounted RouteEvidenceMap only when routes existed
+and showMap was true. Plain `/` omitted the component. Empty-selection map
+readiness also emitted a geometry error. Both are corrected in this change.
+Nothing above this appended section is modified or withdrawn as raw evidence.
+
+Implemented: SHIOK beside search, accessible magnifier submit inside the field,
+one bottom-center expandable About data disclosure, basemap on first entry,
+and normal idle state with no selection. Required attribution stays visible.
+Data expansion hides the result panel without clearing the selected walk.
+PRODUCT-PLAN.md now names remaining outcomes with acceptance and cost gates;
+ARCHITECTURE.md, ARCHITECTURE-DECISIONS.md, decisions.md and STATE are aligned.
+
+Machine-readable evidence: qa/revamp-r1/map-first-home-20260908/summary.json.
+Exact browser receipts, screenshot brackets and images are in `first/` and
+`keyboard-corrected/` beneath that directory. Build logs are included.
+
+Observed validation:
+```text
+root=C:\sgSHIOK2026
+hostname=Prawn-E14
+base=89598c1c4c0171458b217cb697657efc59258566
+TDD: 8 passed + 4 expected failures = 12 tests, 2 files
+Focused green: 12 passed, 2 files
+First isolated attempt: 3 failures of 240
+Corrections: two obsolete copy assertions and RouteMapLoadStatus missing idle
+node web/scripts/test-without-production-data.mjs --reporter=dot
+isolated_tests=240 passed; files=32; failed=0; skipped=0; exit=0
+count_delta=236 + 3 shell tests + 1 lifecycle test = 240
+file_delta=31 + 1 = 32
+snapshot=C:\sgSHIOK2026\tmp\test-without-data-Gybooh
+copiedFiles=153 productionDataDirectoryAbsent=true guardProbePassed=true
+node C:/sgSHIOK2026/web/node_modules/next/dist/bin/next build C:/sgSHIOK2026/web
+NEXT_TELEMETRY_DISABLED=1 NODE_OPTIONS=--max-old-space-size=2048
+build_exit=0 elapsed_seconds=183.7155944
+buildId=3QYHJYXOe2erg5FV0zCFn
+TypeScript=passed; direct build bypassed protected-data preparation hook
+generated next-env.d.ts changes restored; static-page workers=7
+preview=http://localhost:4320/ server_pid=95320
+node C:/sgSHIOK2026/qa/revamp-r1/map-first-home-20260908/browser.mjs first
+first_attempt=16 checks passed; 4 captures; search condition timed out; exit=1
+node C:/sgSHIOK2026/qa/revamp-r1/map-first-home-20260908/browser.mjs keyboard-corrected
+corrected_attempt=42 checks passed; 10 captures; exit=0
+serviceWorkerBypassed=false
+searchInput={"value":"018956","focused":"postal-search-input","valid":true}
+searchEvents=["Enter","submit"]
+initial_score_or_geometry_requests=0
+selected_viewports=390x667,320x667,1440x950
+current_route_features=4 at each selected viewport
+uncaught_exceptions=0 failed_requests=0
+protected_fixture_source_hashes=11/11 matched
+python scripts/check_repo_integrity.py
+repo_integrity=ok
+integrity_exit_code=0
+git check-ignore -v qa/verification/REVAMP-R1-core-walk.md qa/revamp-r1/map-first-home-20260908/summary.json
+check_ignore_exit=1
+pipeline_runs=0 installs=0 protected_payload_mutations=0 deployment_invoked=false
+```
+
+First browser attempt is retained as a failure, not quietly replaced: the
+synthetic Enter key lacked carriage-return text, so the native form never
+submitted. The corrected CDP command records focus, valid input and the real
+submit event before waiting for a route. No additional product change was
+needed. Screenshot inspection covered empty desktop/mobile home, selected
+desktop and narrow mobile routes, expanded data, and worker-controlled return
+home. Stable before/after route-count and camera receipts accompany captures.
+No physical-phone, old-to-new release-cache upgrade or latency claim is made.
+Existing apps remained running. Only our old preview was stopped before rebuild;
+the new production-mode local server is intentionally left running.
+
+FINDINGS
+1. The user-reported blank entry point was a real product defect, missed by the
+   previous route-only browser path. Map now mounts before postal selection.
+2. Requested layout is implemented and visually checked; disclosure/source
+   details no longer occupy the primary journey. Mandatory attribution remains.
+3. Four new tests give 240 across 32 files. Corrected stale assertions and the
+   idle-status type contract explicitly; retained failed harness evidence.
+4. Home comparison, real reports and a maintained data/release loop are not done.
+   The current PRODUCT-PLAN backlog supersedes historical completion rhetoric.
+5. Same-build service-worker revisits pass. Release upgrades, real-phone and
+   representative latency validation are still separate. No pipeline or deploy.
+DISAGREEMENTS
+1. None with the requested layout. The prior broader map-health claim was too
+   strong because the plain homepage was not tested; corrected here.
+2. Source details can be hidden behind disclosure; required map attribution
+   remains independently visible. UI work is not approval to recompute data.

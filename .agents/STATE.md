@@ -3,9 +3,16 @@
 Date: 2026-09-08
 Working root: `C:\sgSHIOK2026`
 Machine: `Prawn-E14`
-Current task: Codex completed current-build visual validation after owner explicitly authorized running under existing host load. Direct production build and TypeScript passed; 19 browser checks passed, four required viewport captures show current routes. Lamp/gap updates leave route sources unchanged; retry/style recovery and actual alternate-exit selection work. No measured speedup or deployment. Evidence: qa/revamp-r1/direct-visual-20260908/summary.json. No further agent delegation or headroom-blocked functional replay required for this change.
+Startup guard: assert cwd is exactly `C:\sgSHIOK2026`; abort otherwise. All writes use absolute C: repository paths. X: is a cold mirror, never a session root.
+Current task: implemented owner-requested map-first homepage and header. SHIOK sits beside postal search; icon submit is inside the field; About data expands at bottom center. Confirmed blank-homepage defect: map was only mounted after selecting a route. Fixed; empty selection is now normal idle basemap state.
 Evidence: qa/verification/REVAMP-R1-core-walk.md (append-only corrections and catalogue mapping).
-Machine-readable handback: qa/revamp-r1/direct-visual-20260908/summary.json (current). Prior implementation, sync, portability and functional summaries remain historical evidence.
+Machine-readable handback: qa/revamp-r1/map-first-home-20260908/summary.json (current). Prior handbacks are historical evidence, not completion of the whole product.
+Current preview: http://localhost:4320/; build 3QYHJYXOe2erg5FV0zCFn; owned server PID 95320. Old 4319 server stopped before rebuild. 4318 is not this build.
+Checks: 240 isolated web tests / 32 files, TypeScript/direct production build, 42 browser checks, zero browser exceptions/request failures, 11 source hashes and repo integrity passed. Service workers enabled; root, search and same-build revisits tested. Desktop/mobile screenshots inspected. First harness attempt missed the Enter character; corrected and retained, not an app failure.
+Next: follow PRODUCT-PLAN.md current backlog, not the superseded review gates below. Finish bounded transit choices, chosen-home comparison, real private reports, data-gap register and a maintenance/release loop. Provider, pipeline and deployment approvals remain separate. Old-to-new service-worker upgrade, physical-phone and representative latency acceptance remain open; no claimed speedup.
+Owner authorizes functional work under existing host load; leave other apps alone. No further delegation or repeated review-only loop. This turn ran no pipeline, installs or production deployment and changed no protected payload.
+
+## Superseded detailed handoff (history only; current task and backlog above take precedence)
 Code fixes pushed: 04fae3e and 7788e35; evidence is included with this handback.
 Current preview: http://localhost:4319/; verified build mb-nkeKWttJjDfRzfSWOV of 303ef44 runtime source. Server PID 90984. The old 4318 address is not this treatment.
 Portability checks: isolated full suite 228 passed / 30 files; focused 15 passed / 3 files; zero failures/skips. Test copy has no web/public/data; Node filesystem guard denies original and copied data paths. Existing dependencies linked; no install. TypeScript and repo integrity passed. Reduced fixture indexes do not audit the complete production bundle.

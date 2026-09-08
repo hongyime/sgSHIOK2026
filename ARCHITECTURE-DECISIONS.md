@@ -81,3 +81,16 @@ Feedback: zero pipeline cost; free durable infrastructure feasibility unresolved
 New artifact generation/export: gated, pilot-derived cost; no fixed estimate accepted.
 Routing/rescore/refresh: gated local compute, measured separately from fixed startup.
 Arbitrary origin/destination: future scope requiring its own design and budget.
+
+## ADR: Map-first home and restrained data disclosure (2026-09-08)
+Status: owner-requested, implemented locally; deployment separate.
+The basemap is the primary surface even with no selected postal. Mount MapLibre
+from `/` and defer postal score/geometry reads until intent. Empty route state
+is idle; selected-record geometry failures still retain explicit retry/evidence.
+Put SHIOK beside the centered input, accessible icon submit inside the field,
+and a collapsed About data disclosure at bottom center. Keep mandatory map
+attribution outside that disclosure. Opening data hides, but does not discard,
+the result selection; close it to return to the same walk.
+Test real homepage and worker-controlled revisits as well as direct postal links.
+Readiness of one viewer is not completion of comparison, reporting, maintenance
+or a new release. Current outcomes and acceptance gates live in PRODUCT-PLAN.md.

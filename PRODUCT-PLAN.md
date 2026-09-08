@@ -1,11 +1,58 @@
 # SHIOK Revamp Execution Plan
-Date: 2026-09-06
+Current product assessment: 2026-09-08
 Authoritative design: ARCHITECTURE.md
 Decisions: ARCHITECTURE-DECISIONS.md
 Test catalogue: qa/SHIOK-acceptance-tests.md
-All items below are pending unless explicitly marked complete with evidence.
+The live product is not the full agreed service. A tested postal walk viewer is
+one slice, not completion of home comparison, private reporting or maintenance.
+Historical handbacks below do not override the current backlog in this section.
 
-## Milestones in order
+## Product outcomes
+1. Inspect: see the actual walk to nearby transit, how much is covered, and where
+   the uncovered stretches are. No live weather or promise of staying dry.
+2. Compare: compare up to three possible homes using the same transit category
+   and route evidence, not an opaque composite ranking.
+3. Improve: privately report an incorrect map or a stretch that needs shelter,
+   with an actual receipt and owner moderation.
+4. Stay current: check government source updates, review reports, validate releases
+   and show honest dates. Slow source publication does not excuse our own backlog.
+
+## Current backlog, in execution order
+| ID | Work and current state | Done means | Cost / gate |
+| --- | --- | --- | --- |
+| P0.1 | DONE locally: map mounted from plain `/`; empty selection is idle, not a geometry error. Prior checks missed this entry point. | Current production build: root, typed postal, shared URL and normal worker-controlled revisit render correctly. Evidence: qa/revamp-r1/map-first-home-20260908/summary.json. Existing selected-route retry regressions remain green. | Frontend, zero pipeline; not deployed. |
+| P0.2 | DONE locally: SHIOK beside search, icon submit inside the field, About data expandable at bottom center. | Desktop and 320/390px captures inspected; keyboard submission and expansion passed, no overlap. Required attribution remains visible. 240 isolated tests and 42 browser checks passed. | Frontend, zero pipeline; not deployed. |
+| P0.3 | PARTIAL: rebuilt preview at http://localhost:4320/ passes service-worker-enabled same-build revisits. Old-release upgrade, physical-phone acceptance and representative latency remain open. | Stable documented preview; service-worker-enabled revisit/update smoke; stale assets, worker/CSP errors and retry surfaced. No blank screen accepted from route-only tests. | Frontend/operations, zero pipeline; production publish separately approved. |
+| P1.1 | Finish the core walk flow. Metrics/gaps and selectable map stops work, but there is no finished bounded options list. | Nearest and most-covered eligible published options, clear distance/coverage trade-offs, correct alternate metrics and explicit unavailable cases. Do not imply all stops were evaluated. | Frontend using existing artifacts first; new candidate computation requires approval. |
+| P1.2 | Home comparison is NOT built as designed. The existing planning-area ranking is not this feature. | Add/remove up to 3 chosen postals; same transit category; destination, distance, covered %, uncovered distance and longest gap; explicit missing data; local persistence; validated share URL. | Frontend, zero pipeline, no accounts/provider required. |
+| P1.3 | Reports are NOT a functioning service. Current tools can prepare/copy a draft, not durably submit it. | Concrete $0 storage/moderation proposal, retention/abuse policy, owner access; then two report types, bounded map location/segment, durable receipt, pending/accepted/rejected/duplicate states. | Proposal is free. Provider/infrastructure decision before submission implementation. No agency submission. |
+| P2.1 | Full walk coverage remains incomplete; score coverage and route coverage are different. | Read-only gap register by postal/transit category and cause: absent address, route disconnection, selection limit, missing geometry/export, missing score. Name affected inputs and existing evidence before proposing fixes. | Read-only analysis, zero scoring/export; do not rerun settled coordinate/provenance work. |
+| P2.2 | Resolve approved data gaps and source freshness, not an indiscriminate full rescore. | Versioned input/output plan, subset pilot with fixed/marginal cost, field comparisons, changed-record report, rollback and explicit release decision. | No processing authorized by this plan. Export/full rescore budget must be measured and approved. Never touch locked weights or mutate old payloads. |
+| P2.3 | Maintenance is not an owned end-to-end loop. Existing source-age snapshots and scripts are not proof of scheduled completion. | Assign check/review cadence, source metadata checks, report moderation queue, honest last-check/source/release dates, failure notice and a low-cost runbook. | Mostly free operations/docs; data refresh separately gated. |
+| P3.1 | Product acceptance has not happened. Browser regressions are not user research. | Observe intended users inspect a walk, compare homes and file a report; resolve actual task blockers and accessibility issues. | Zero pipeline; a few owner/recruited-user sessions. |
+| P3.2 | Production release is not implied by pushing main. | Approve exact frontend/artifact version; test service-worker-on returning users, local and live data identity, rollback and free-tier request budget; explicitly deploy and smoke-test. | Deployment requires owner approval. Existing bundle stays unchanged unless separately approved. |
+| Later | Arbitrary origin/destination, bus-model changes and expanded coverage. | Define candidate/routing policy and budget from the initial service's usage and gaps. | Separate design/compute approval; not silently included in current UI work. |
+
+## What is usable already
+- Postal-only lookup, selected-route metrics, gap inspection, published alternate
+  selection, partial failure/retry and responsive map layout have regression evidence.
+- Source updates no longer rewrite unchanged route data for every optional layer.
+- Versioned data and existing test fixtures are preserved. No newly computed data
+  or complete-coverage claim follows from the frontend changes.
+
+## Why it is not there yet
+The first interaction failed the map-first premise, secondary technical copy was
+in the main journey, and the two broader outcomes (home comparison and real reports)
+are unfinished. Verification has consumed iterations without delivering those
+outcomes. Move through the backlog above; do not reopen closed provenance work as
+a substitute for product delivery. Numerical speed improvement is still unproven,
+but it is not a reason to prevent all feature work that uses the current data.
+
+## Historical milestone plan
+The following records retain previous plans and evidence; use the backlog above
+for current scope and order.
+
+### Original milestones
 1. Complete: commit agreed design, ADR and acceptance catalogue.
 2. Owner approved: gesture-first prototype at 0de3d5f, in qa/prototypes/.
    Illustrative only. Empty/missing/failure states must be implemented and verified

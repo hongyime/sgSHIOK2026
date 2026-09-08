@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-08",
+  "root": "C:\\sgSHIOK2026",
+  "host": "Prawn-E14",
+  "baseCommit": "89598c1c4c0171458b217cb697657efc59258566",
+  "request": "SHIOK beside postal field, icon submit inside it, bottom-center expandable About data, fix blank local map, and provide an honest task list toward the agreed service.",
+  "cause": "Home mounted RouteEvidenceMap only when mapRoutes.length > 0 and showMap was true. Plain / had no map component. Empty-route readiness also reported missing geometry rather than normal idle state.",
+  "changes": [
+    "Always mount the existing MapLibre component; defer postal score and geometry requests until search intent.",
+    "Keep empty selection idle without suppressing actual basemap errors or selected-record geometry failures.",
+    "Group SHIOK with centered postal form; accessible magnifier submit inside the field; no text submit rectangle.",
+    "One native collapsed About data disclosure at bottom center; preserve required attribution independently. Opening it hides the result panel without clearing selection.",
+    "Update architecture and durable decisions; replace review-loop next steps with outcome-based PRODUCT-PLAN backlog."
+  ],
+  "tests": {
+    "red": { "files": 2, "passed": 8, "expectedFailures": 4, "scope": "Missing home map, header grouping, disclosure placement/copy, and erroneous empty-route status." },
+    "focusedGreen": { "files": 2, "passed": 12, "failed": 0 },
+    "firstIsolatedRun": { "tests": 240, "failed": 3, "cause": "Two obsolete copy assertions plus TypeScript contract missing idle in RouteMapLoadStatus. All corrected before acceptance." },
+    "isolatedGreen": {
+      "command": "node web/scripts/test-without-production-data.mjs --reporter=dot",
+      "files": 32, "passed": 240, "failed": 0, "skipped": 0, "exitCode": 0, "durationSeconds": 120.79,
+      "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-Gybooh",
+      "copiedFiles": 153, "productionDataDirectoryAbsent": true, "guardProbePassed": true,
+      "delta": "236 + 3 map-first shell tests + 1 empty-selection lifecycle test = 240; 31 + 1 new test file = 32. Existing dependencies linked, no install."
+    }
+  },
+  "build": {
+    "command": "node C:/sgSHIOK2026/web/node_modules/next/dist/bin/next build C:/sgSHIOK2026/web",
+    "environment": { "NEXT_TELEMETRY_DISABLED": "1", "NODE_OPTIONS": "--max-old-space-size=2048" },
+    "exitCode": 0, "elapsedSeconds": 183.7155944, "typescriptPassed": true,
+    "buildId": "3QYHJYXOe2erg5FV0zCFn",
+    "packageDataPreparationHookBypassed": true,
+    "generatedNextEnvChangesRestored": true,
+    "staticPageWorkers": 7,
+    "logs": ["build.log", "build-result.txt"]
+  },
+  "preview": { "url": "http://localhost:4320/", "pid": 95320, "priorOwnedServerStopped": 90984, "unrelatedAppsStopped": 0 },
+  "browser": {
+    "command": "node C:/sgSHIOK2026/qa/revamp-r1/map-first-home-20260908/browser.mjs keyboard-corrected",
+    "mode": "Installed headless Chrome, SwiftShader, one browser, local production build, real local published data and OneMap raster. Service workers enabled, not bypassed.",
+    "firstAttempt": { "report": "first/browser.json", "passedChecks": 16, "captures": 4, "outcome": "Search condition timed out: CDP Enter lacked the carriage-return text needed for default form submission. No application exception. Preserved, not reported as a passing full run." },
+    "completion": { "report": "keyboard-corrected/browser.json", "passedChecks": 42, "failedChecks": 0, "captures": 10, "exceptions": 0, "failedRequests": 0, "exitCode": 0 },
+    "searchReceipt": { "value": "018956", "focused": "postal-search-input", "valid": true, "events": ["Enter", "submit"] },
+    "initialViewports": ["390x844", "320x667", "1440x950"],
+    "selectedViewports": ["390x667", "320x667", "1440x950"],
+    "currentRouteFeaturesPerSelectedViewport": 4,
+    "scoreAndGeometryRequestsBeforeSearch": 0,
+    "visuallyInspected": [
+      "first/empty-390x844.png", "first/empty-1440x950.png",
+      "keyboard-corrected/selected-320x667.png", "keyboard-corrected/selected-390x667.png",
+      "keyboard-corrected/selected-1440x950.png", "keyboard-corrected/about-expanded.png",
+      "keyboard-corrected/return-home-worker-enabled.png"
+    ],
+    "scope": "Actual basemap on empty home, header geometry, no overflow, disclosure fit, Enter submits postal lookup, selected route visibility, result/disclosure separation, worker-controlled home revisit and shared-postal navigation.",
+    "limits": "No physical phone, touchscreen keyboard, old-release-to-new cache upgrade, controlled performance comparison or deployed-site validation. Screenshots are viewport emulations; not a representative phone benchmark."
+  },
+  "integrity": { "protectedFixtureSourceHashesMatched": 11, "hashReference": "web/lib/__tests__/fixtures/published-walks.provenance.json", "command": "python scripts/check_repo_integrity.py", "stdout": "repo_integrity=ok", "exitCode": 0 },
+  "protections": { "pipelineRuns": 0, "pipelineCost": 0, "installs": 0, "protectedPayloadMutations": 0, "deploymentInvoked": false, "xDriveAccess": false },
+  "findings": [
+    "The prior statement that the map was not blank only covered selected-route entry, not plain home. Plain home genuinely omitted the map component; fixed.",
+    "Requested shell works locally; 42 browser checks pass with service workers enabled. The first harness failure and test assertion/type corrections are retained explicitly.",
+    "The agreed service is not complete: bounded transit choices, chosen-home comparison, durable private reports, full route-coverage handling and an owned maintenance/release loop remain.",
+    "No data computation, speedup, production deployment or complete-coverage claim follows from these frontend changes."
+  ],
+  "disagreements": [
+    "None with the requested UI or map-first direction. A selected-route-only check was insufficient for the prior broader map-health claim.",
+    "Moving source details into a disclosure is appropriate; required map attribution remains separately visible."
+  ]
+}

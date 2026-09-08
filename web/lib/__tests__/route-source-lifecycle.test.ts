@@ -102,6 +102,14 @@ beforeEach(() => {
 afterEach(() => { hooks.unmount(); vi.useRealTimers(); vi.unstubAllGlobals(); });
 
 describe('M05/M10/M11: source ownership in the executed map component', () => {
+  it('keeps the basemap usable with no selected walk instead of reporting missing geometry', async () => {
+    props = { ...props, routes: [] };
+    await mount();
+    expect(map.handlers.get('load')?.size).toBe(1);
+    expect(map.fitBounds).not.toHaveBeenCalled();
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('idle', undefined);
+    expect((props.onStatusChange as ReturnType<typeof vi.fn>).mock.calls.some(([status]) => status === 'error')).toBe(false);
+  });
   it('publishes all sources initially, then optional POIs/feedback/lamps do not rewrite or refit the route', async () => {
     await mount();
     expect(routeWrites().map(w => w.id)).toEqual(routeIds);

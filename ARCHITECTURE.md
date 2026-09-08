@@ -1,6 +1,6 @@
 # SHIOK Product and Technical Design
 Date: 2026-09-06
-Status: accepted direction and gesture-first mockup; production implementation pending.
+Status: accepted direction; core viewer partially implemented. Current delivery gaps in PRODUCT-PLAN.md.
 Decision record: ARCHITECTURE-DECISIONS.md
 Acceptance catalogue: qa/SHIOK-acceptance-tests.md
 Execution plan: PRODUCT-PLAN.md
@@ -37,8 +37,10 @@ Never turn missing evidence into zero, or turn a recorded structure into a
 claim about current condition, wheelchair access, temperature or safety.
 
 ## Layout specification
-Desktop: full-viewport map with a centered search bar and approximately 270px
-floating left panel. Fit routes outside overlays. Transit choices only appear
+Desktop: full-viewport basemap from the empty homepage, with SHIOK immediately
+beside the centered postal field and an icon submit inside that field. Approximately
+270px floating result panel. About data opens from the bottom-center dock; retain
+required map attribution independently. Fit routes outside overlays. Transit choices only appear
 when meaningful real alternatives exist; gap details expand within the results area.
 Mobile: compact search and map, with a collapsible bottom sheet. Compact state
 shows destination and key metrics; expanded state holds secondary details.

@@ -2425,3 +2425,28 @@ Do not keep this implementation blocked on an unloaded-machine benchmark when
 the remaining question is performance, not demonstrated rendering correctness.
 No baseline build or measured speedup is claimed. Deployment and pipeline work
 remain separately gated. Evidence: qa/revamp-r1/direct-visual-20260908/summary.json.
+
+## 2026-09-08: Map-first entry point and outcome-based delivery backlog
+
+Owner requested SHIOK immediately beside postal search, an icon submit inside the
+field, and expandable About data at bottom center. Mount the basemap before any
+postal selection. An empty selection is not missing geometry and must not produce
+a route error. Required map attribution stays independent of the disclosure.
+Opening About data temporarily hides the result sheet without clearing selection,
+so narrow viewports do not stack competing panels.
+
+The previous visual verification began with selected routes and missed a real
+first-screen defect: the map component was conditional on route availability.
+Verification must cover plain home, typed search, shared links and normal visits
+with the service worker enabled, not only query-string entry with caching bypassed.
+Same-build revisits do not prove old-to-new release upgrades or phone performance.
+
+PRODUCT-PLAN.md now distinguishes the delivered viewer from the agreed service.
+Next product slices are bounded transit choices, comparison of up to three chosen
+homes, private reports with a real receipt, a data-gap register and a maintained
+source/report/release loop. A planning-area ranking is not home comparison; copied
+feedback JSON is not a submitted report. Existing data supports frontend work;
+this backlog does not authorize provider setup, new processing or deployment.
+No locked weights, scoring behavior or existing published payload changes.
+
+Evidence: qa/revamp-r1/map-first-home-20260908/summary.json.

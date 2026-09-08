@@ -272,7 +272,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("Try a known address?");
     expect(source).not.toContain("Need a quick look?");
     expect(source).not.toContain("Try Mayflower S560234");
-    expect(source).toContain('{loading ? "Searching" : "Search"}');
+    expect(source).toContain('aria-label="Search postal code"');
+    expect(source).toContain('aria-busy={loading}');
     expect(source).not.toContain('{loading ? "Loading" : "Search"}');
     expect(source).toContain("<form onSubmit={handleSearch}");
     expect(source).toContain("setQuery(postalInputValue(e.target.value));");
@@ -544,10 +545,10 @@ describe("score card copy", () => {
     expect(layoutSource).not.toContain("Singapore walk-to-transit comfort score");
   });
 
-  it("keeps the footer focused on route shelter evidence", () => {
+  it("keeps the footer as a disclosure rather than another tagline", () => {
     const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
-    expect(source).toContain(
+    expect(source).not.toContain(
       "Walk evidence: covered-walkway ratio and exposed gaps on the route.",
     );
     expect(source).not.toContain(
