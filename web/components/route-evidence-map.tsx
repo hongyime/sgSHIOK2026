@@ -18,7 +18,7 @@ import { cleanTransitPoiProperties, transitPoiPopupHtml } from "../lib/transit-p
 import type { LineStringFeatureCollection, LineStringFeature, LngLat } from "../lib/route-geojson";
 import type { PostalGeom, TransitPoiCollection } from "../lib/types";
 import styles from "./route-evidence-map.module.css";
-import { overlayPadding, usableMapBox, watchSelectedRoute, type MapPadding } from "../lib/map-viewport";
+import { overlayPadding, usableMapBox, watchSelectedRoute, type MapPadding, type OverlayBounds } from "../lib/map-viewport";
 
 export type RouteDisplayMode = "shiokest" | "shortest" | "both";
 
@@ -1450,7 +1450,7 @@ export function RouteEvidenceMap({
         const overlays = [...parent.querySelectorAll<HTMLElement>("[data-map-overlay]")].map(element => {
           const r = element.getBoundingClientRect();
           return { left: r.left - mapRect.left, top: r.top - mapRect.top, right: r.right - mapRect.left,
-            bottom: r.bottom - mapRect.top, edge: element.dataset.mapOverlay as "top" | "bottom" | "panel" };
+            bottom: r.bottom - mapRect.top, edge: element.dataset.mapOverlay as OverlayBounds["edge"] };
         }).filter(r => r.right > r.left && r.bottom > r.top);
         const next = { width: mapRect.width, height: mapRect.height, padding: overlayPadding(mapRect.width, mapRect.height, overlays) };
         setViewport(current => JSON.stringify(current) === JSON.stringify(next) ? current : next);

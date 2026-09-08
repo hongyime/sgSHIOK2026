@@ -94,3 +94,17 @@ the result selection; close it to return to the same walk.
 Test real homepage and worker-controlled revisits as well as direct postal links.
 Readiness of one viewer is not completion of comparison, reporting, maintenance
 or a new release. Current outcomes and acceptance gates live in PRODUCT-PLAN.md.
+
+## ADR-11: Owner revision to a top-left control stack (2026-09-08)
+Supersedes ADR-09 and the centered layout in the preceding map-first ADR for
+positioning only. SHIOK goes at top left; postal search below it; search/result
+cards below search at the same width. The stack is at most 300px and shrinks
+for narrow viewports. About data expands from bottom right. The empty-home
+basemap, quiet success state, postal-only input and icon submit remain.
+Measure the whole stack: reserve its left edge on wide screens and its bottom
+as top padding on narrow screens. Expanded content scrolls within a bounded
+stack so a usable route viewport remains. This replaces the bottom-sheet
+assumption, not just its CSS coordinates.
+OneMap's GreyLite integration guidance explicitly says not to remove its
+attribution: https://www.onemap.gov.sg/docs/maps/greylite.html (checked 2026-09-08).
+Keep logo and copyright independently visible; About data is not a replacement.

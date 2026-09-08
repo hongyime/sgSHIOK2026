@@ -1,0 +1,50 @@
+{
+  "date": "2026-09-08",
+  "root": "C:\\sgSHIOK2026",
+  "host": "Prawn-E14",
+  "baseCommit": "c76acc783f23ce506d8b058b1a90d2cd662c5fcd",
+  "request": "SHIOK top left, search below, equal-width results below search, About data bottom right; asks whether OneMap legend can be hidden.",
+  "layout": "Single unframed top-left stack, maximum width 300px. Narrow viewport reserves top map padding through the stack's bottom; wide viewport reserves its left edge. Expanded result content scrolls within a bounded stack. About data and attribution remain separate.",
+  "attribution": { "retained": true, "source": "https://www.onemap.gov.sg/docs/maps/greylite.html", "checked": "2026-09-08", "reason": "Official OneMap GreyLite integration explicitly instructs not to remove attribution. The logo/copyright line is not an optional map legend." },
+  "tests": {
+    "red": { "command": "node web/scripts/test-web.mjs lib/__tests__/map-viewport.test.ts lib/__tests__/map-first-shell.test.ts --reporter=dot", "passed": 6, "expectedFailures": 3, "files": 2, "exitCode": 1 },
+    "focusedGreen": { "passed": 9, "files": 2, "exitCode": 0 },
+    "isolatedGreen": { "command": "node web/scripts/test-without-production-data.mjs --reporter=dot", "passed": 242, "files": 32, "failed": 0, "skipped": 0, "exitCode": 0, "durationSeconds": 59.40, "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-8B3Boo", "copiedFiles": 153, "productionDataDirectoryAbsent": true, "guardProbePassed": true },
+    "delta": "240 + 2 top-left viewport tests = 242 tests; 32 existing test files + 0 new files = 32. Updated shell assertion reflects new owner layout."
+  },
+  "build": {
+    "command": "node C:/sgSHIOK2026/web/node_modules/next/dist/bin/next build C:/sgSHIOK2026/web",
+    "environment": { "NEXT_TELEMETRY_DISABLED": "1", "NODE_OPTIONS": "--max-old-space-size=2048" },
+    "exitCode": 0, "elapsedSeconds": 74.2686176, "buildId": "e8Hlhkml4c3i_uMGJdd3P", "typescriptPassed": true,
+    "dataPreparationHookBypassed": true, "staticPageWorkers": 7, "generatedNextEnvChangesRestored": true,
+    "logs": ["build.log", "build-result.txt"]
+  },
+  "preview": { "url": "http://localhost:4321/", "pid": 97544, "oldOwnedPreviewStopped": 95320, "httpPreflight": 200, "unrelatedAppsStopped": 0 },
+  "browser": {
+    "command": "node C:/sgSHIOK2026/qa/revamp-r1/left-stack-20260908/browser.mjs final-captures",
+    "mode": "Installed headless Chrome, SwiftShader, local production build, actual local data/OneMap tiles, service worker enabled. Viewport emulation, not a real phone.",
+    "attempts": [
+      { "report": "first/browser.json", "exitCode": 1, "outcome": "Preview server had not started: Get-NetTCPConnection preflight hung and browser navigation got ERR_CONNECTION_REFUSED. Stopped only owned setup shell. Cleanup also matched and stopped its own shell, so setup was then rerun once with a TCP bind probe; no unrelated app was stopped." },
+      { "report": "ready-server/browser.json", "exitCode": 0, "checksPassed": 58, "captures": 12, "outcome": "Layout and route checks passed; three route screenshots preceded full basemap source readiness. Peripheral blur is preserved, not presented as full tile-load acceptance." },
+      { "report": "settled-tiles/browser.json", "exitCode": 1, "checksPassed": 0, "outcome": "Chrome debugging endpoint did not become available within 90 seconds; no application test ran. No hardware-only cause established." },
+      { "report": "final-captures/browser.json", "exitCode": 0, "checksPassed": 58, "captures": 12, "outcome": "Bounded browser startup with stderr recorded; captures wait for both route and basemap readiness. All checks pass." }
+    ],
+    "finalUncaughtApplicationExceptions": 0, "finalPageFailedRequests": 0,
+    "selectedViewports": ["1440x950", "390x844", "390x667", "320x667"],
+    "currentSelectedRouteFeaturesAtEachViewport": 4,
+    "allFinalBasemapCaptureBracketsLoaded": true,
+    "allFinalCaptureBracketsStable": true,
+    "initialScoreAndGeometryRequests": 0,
+    "visuallyInspectedFinal": ["selected-1440x950.png", "selected-390x844.png", "selected-390x667.png", "selected-320x667.png", "about-expanded.png", "details-expanded-320x667.png"],
+    "checks": "Brand above left search; accessible in-field submit and Enter; equal-width result below input; bottom-right disclosure clears visible attribution; expanded mobile stack leaves route space; root and shared-postal revisits work under an active service worker.",
+    "limits": "No representative latency measurement, physical touchscreen keyboard, old-release-to-new cache upgrade or live production validation. Chrome GCM DEPRECATED_ENDPOINT messages are browser background stderr, not reported as application exceptions."
+  },
+  "integrity": { "protectedFixtureSourceHashesMatched": 11, "reference": "web/lib/__tests__/fixtures/published-walks.provenance.json", "repoIntegrity": "repo_integrity=ok", "exitCode": 0, "gitDiffCheck": 0 },
+  "protections": { "pipelineRuns": 0, "pipelineCost": 0, "installs": 0, "protectedPayloadWrites": 0, "xDriveAccess": false, "deploymentInvoked": false, "gitAutoDeployment": "web/vercel.json deploymentEnabled=false observed; unchanged" },
+  "findings": [
+    "Moving the former bottom sheet requires a different map-padding edge, not just CSS offsets. New top-left overlay logic is covered by tests and current-route captures.",
+    "All required sizes render the selected route and fully loaded basemap in final captures. Failed setup/browser attempts and early peripheral-tile captures remain preserved.",
+    "The OneMap logo/copyright line must remain while using this basemap; optional About data moves independently."
+  ],
+  "disagreements": ["Cannot hide OneMap attribution under its published integration guidance. No disagreement with the requested layout."]
+}

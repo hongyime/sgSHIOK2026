@@ -2607,9 +2607,9 @@ export default function Home() {
           onStatusChange={handleMapStatusChange}
           retryKey={mapRetryKey}
         />
+      <div className={styles.searchStack} data-map-overlay="top-left">
       <section
         className={styles.searchOverlay}
-        data-map-overlay="top"
         aria-label="Postal-code search"
         aria-busy={loading}
       >
@@ -2674,7 +2674,7 @@ export default function Home() {
       </section>
 
         {showDetailOverlay && !aboutDataOpen && (
-          <aside ref={panelRef} data-map-overlay="panel" className={`${styles.resultPanel} ${sheetExpanded ? styles.sheetExpanded : ""}`}>
+          <aside ref={panelRef} className={`${styles.resultPanel} ${sheetExpanded ? styles.sheetExpanded : ""}`}>
             <button type="button" className={styles.sheetToggle} aria-expanded={sheetExpanded}
               aria-controls="walk-details" onClick={() => setSheetExpanded(value => !value)}>
               {sheetExpanded ? "Collapse walk details" : "Walk details"}
@@ -2735,6 +2735,7 @@ export default function Home() {
             </div>
           </aside>
         )}
+      </div>
 
         <footer className={styles.dataDock} data-map-overlay="bottom">
           <DataDetails manifest={manifest} onToggle={event => setAboutDataOpen(event.currentTarget.open)} />

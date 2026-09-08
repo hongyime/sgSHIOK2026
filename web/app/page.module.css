@@ -7,18 +7,25 @@
   color: #17211f;
 }
 
-.searchOverlay {
+.searchStack {
   position: absolute;
   z-index: 3;
-  top: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(560px, calc(100% - 24px));
-  max-height: calc(100dvh - 28px);
+  top: 12px;
+  left: 12px;
+  width: min(300px, calc(100% - 24px));
+  max-height: min(70dvh, calc(100dvh - 140px));
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+}
+
+.searchOverlay {
+  flex: none;
+  width: 100%;
   display: grid;
   gap: 8px;
   min-height: 0;
-  padding-right: 2px;
 }
 
 .searchOverlayWithResult {
@@ -1291,12 +1298,6 @@ button.gapItem:hover,
 
 @media (max-width: 700px) {
   .searchOverlay {
-    top: 54px;
-    left: 10px;
-    right: 10px;
-    width: auto;
-    transform: none;
-    max-height: calc(100dvh - 20px);
     gap: 6px;
   }
 
@@ -1516,12 +1517,8 @@ button.gapItem:hover,
 
 .resultPanel {
   box-sizing: border-box;
-  position: absolute;
-  z-index: 3;
-  top: 92px;
-  left: 16px;
-  width: 270px;
-  max-height: calc(100dvh - 132px);
+  width: 100%;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   padding: 12px;
@@ -1560,8 +1557,7 @@ button.gapItem:hover,
 .secondaryDetails .dataLimits { padding: 12px 0; }
 .secondaryControls { padding-bottom: 8px; }
 @media (max-width:700px) {
-  .resultPanel { top: auto; bottom: 78px; left: 8px; right: 8px; width: auto; max-height: calc(100dvh - 170px); padding: 10px; }
-  .resultPanel.sheetExpanded { max-height: min(62dvh,calc(100dvh - 230px)); }
+  .resultPanel { padding: 10px; }
   .walkSummary h2 { font-size: 17px; margin: 2px 0; }
   .walkDestination { margin: 5px 0; padding: 5px 0; }
   .walkDestination strong { font-size: 14px; }
@@ -1574,12 +1570,12 @@ button.gapItem:hover,
   .walkMetrics span { font-size: 9px; }
 }
 
-.searchToolbar { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 10px; align-items: center; }
+.searchToolbar { display: grid; grid-template-columns: minmax(0,1fr); gap: 8px; }
 .searchGlyph { width: 13px; height: 13px; border: 2px solid currentColor; border-radius: 50%; position: relative; }
 .searchGlyph::after { content: ""; position: absolute; width: 7px; height: 2px; right: -6px; bottom: -3px; background: currentColor; transform: rotate(45deg); }
 .searchSpinner { width: 18px; height: 18px; border: 2px solid #b4c6c0; border-top-color: #008f86; border-radius: 50%; animation: searchSpin 1s linear infinite; }
 @keyframes searchSpin { to { transform: rotate(360deg); } }
-.dataDock { position: absolute; z-index: 5; bottom: 28px; left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100% - 24px); }
+.dataDock { position: absolute; z-index: 5; bottom: 32px; right: 12px; width: max-content; max-width: calc(100% - 24px); }
 .dataDock .dataLimits { padding: 0; border: 1px solid #cddad4; border-radius: 6px; background: rgba(255,255,255,.98); box-shadow: 0 2px 12px #19382a18; color: #354640; }
 .dataDock .dataLimits > summary { padding: 8px 14px; font-size: 12px; text-align: center; cursor: pointer; list-style: none; }
 .dataDock .dataLimits > summary::-webkit-details-marker { display: none; }
@@ -1588,7 +1584,7 @@ button.gapItem:hover,
 .dataBody p { margin: 10px 0; }
 .dataDock .freshnessDetails, .dataDock .freshnessDetails p { font-size: 12px !important; }
 @media (max-width:700px) {
-  .searchOverlay { top: 10px; width: calc(100% - 20px); }
+  .searchStack { top: 10px; left: 10px; width: min(300px, calc(100% - 20px)); }
   .searchToolbar { gap: 8px; }
   .identityRow { position: static; }
   .identityBrand { padding: 9px 7px; font-size: 17px; }

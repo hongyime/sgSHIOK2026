@@ -37,14 +37,15 @@ Never turn missing evidence into zero, or turn a recorded structure into a
 claim about current condition, wheelchair access, temperature or safety.
 
 ## Layout specification
-Desktop: full-viewport basemap from the empty homepage, with SHIOK immediately
-beside the centered postal field and an icon submit inside that field. Approximately
-270px floating result panel. About data opens from the bottom-center dock; retain
+Desktop: full-viewport basemap from the empty homepage. A top-left stack holds
+SHIOK, then the postal field with its icon submit, then an equal-width result
+panel (300px maximum). About data opens from the bottom-right dock; retain
 required map attribution independently. Fit routes outside overlays. Transit choices only appear
 when meaningful real alternatives exist; gap details expand within the results area.
-Mobile: compact search and map, with a collapsible bottom sheet. Compact state
-shows destination and key metrics; expanded state holds secondary details.
-Refit with the actual unobscured map bounds after sheet, viewport and route
+Mobile: the same top-left order and equal widths, constrained to the viewport.
+Compact results show destination and key metrics; expanded results scroll within
+the stack. Reserve visible map space below it, not above an imaginary bottom sheet.
+Refit with the actual unobscured map bounds after panel, viewport and route
 changes. Do not reset a user's intentional pan on every data/render update.
 Keep map attribution visible. Distinguish selected route from basemap lines.
 No visible zoom/reset toolbar or successful-load badge. Preserve MapLibre gestures,

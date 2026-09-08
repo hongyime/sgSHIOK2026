@@ -2450,3 +2450,20 @@ this backlog does not authorize provider setup, new processing or deployment.
 No locked weights, scoring behavior or existing published payload changes.
 
 Evidence: qa/revamp-r1/map-first-home-20260908/summary.json.
+
+## 2026-09-08: Owner revises controls to the top-left stack
+
+Owner superseded the centered header: SHIOK at top left, postal search below it,
+then equal-width results; About data at bottom right. Keep the existing icon
+submit, empty-home basemap and quiet success state. The whole stack is measured
+as left padding on desktop and top padding on mobile; do not keep the old
+bottom-sheet assumption when moving its CSS. Expanded results scroll within
+the bounded stack so the route remains inspectable below it on a narrow screen.
+
+Keep OneMap logo/copyright independently visible. The official GreyLite example
+explicitly says not to remove the attribution; checked 2026-09-08:
+https://www.onemap.gov.sg/docs/maps/greylite.html . About data is optional
+disclosure, not a substitute for required attribution.
+
+Evidence: qa/revamp-r1/left-stack-20260908/summary.json. No scoring, protected
+data mutation, dependency installation or deployment is part of this change.

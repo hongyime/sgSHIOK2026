@@ -1,0 +1,12 @@
+{
+  "url": "http://localhost:4321/",
+  "buildId": "e8Hlhkml4c3i_uMGJdd3P",
+  "startedAt": "2026-09-08T09:23:43.689Z",
+  "checks": [],
+  "captures": [],
+  "exceptions": [],
+  "failedRequests": [],
+  "serviceWorkerBypassed": false,
+  "failure": "Error: Browser startup deadline\n    at file:///C:/sgSHIOK2026/qa/revamp-r1/left-stack-20260908/browser.mjs:21:18",
+  "finishedAt": "2026-09-08T09:25:14.154Z"
+}

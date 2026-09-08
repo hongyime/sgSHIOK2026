@@ -1,0 +1,2371 @@
+{
+  "url": "http://localhost:4321/",
+  "buildId": "e8Hlhkml4c3i_uMGJdd3P",
+  "startedAt": "2026-09-08T09:27:26.865Z",
+  "checks": [
+    {
+      "name": "plain homepage has a basemap and no route error",
+      "pass": true
+    },
+    {
+      "name": "no score or geometry fetch before search",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "stable empty-390x844",
+      "pass": true
+    },
+    {
+      "name": "brand above left search 390",
+      "pass": true
+    },
+    {
+      "name": "icon inside field 390",
+      "pass": true
+    },
+    {
+      "name": "bottom-right disclosure and visible attribution 390",
+      "pass": true
+    },
+    {
+      "name": "stable empty-320x667",
+      "pass": true
+    },
+    {
+      "name": "brand above left search 320",
+      "pass": true
+    },
+    {
+      "name": "icon inside field 320",
+      "pass": true
+    },
+    {
+      "name": "bottom-right disclosure and visible attribution 320",
+      "pass": true
+    },
+    {
+      "name": "stable empty-1440x950",
+      "pass": true
+    },
+    {
+      "name": "brand above left search 1440",
+      "pass": true
+    },
+    {
+      "name": "icon inside field 1440",
+      "pass": true
+    },
+    {
+      "name": "bottom-right disclosure and visible attribution 1440",
+      "pass": true
+    },
+    {
+      "name": "stable about-expanded",
+      "pass": true
+    },
+    {
+      "name": "expanded About data fits and contains source details",
+      "pass": true
+    },
+    {
+      "name": "real postal input is focused and valid",
+      "pass": true,
+      "detail": {
+        "value": "018956",
+        "focused": "postal-search-input",
+        "valid": true
+      }
+    },
+    {
+      "name": "keyboard Enter submits the form",
+      "pass": true,
+      "detail": [
+        "Enter",
+        "submit"
+      ]
+    },
+    {
+      "name": "stable selected-390x844",
+      "pass": true
+    },
+    {
+      "name": "brand above left search 390",
+      "pass": true
+    },
+    {
+      "name": "icon inside field 390",
+      "pass": true
+    },
+    {
+      "name": "bottom-right disclosure and visible attribution 390",
+      "pass": true
+    },
+    {
+      "name": "result below search with same width 390",
+      "pass": true
+    },
+    {
+      "name": "current selected route 390",
+      "pass": true
+    },
+    {
+      "name": "result clears About dock 390",
+      "pass": true
+    },
+    {
+      "name": "stable selected-390x667",
+      "pass": true
+    },
+    {
+      "name": "brand above left search 390",
+      "pass": true
+    },
+    {
+      "name": "icon inside field 390",
+      "pass": true
+    },
+    {
+      "name": "bottom-right disclosure and visible attribution 390",
+      "pass": true
+    },
+    {
+      "name": "result below search with same width 390",
+      "pass": true
+    },
+    {
+      "name": "current selected route 390",
+      "pass": true
+    },
+    {
+      "name": "result clears About dock 390",
+      "pass": true
+    },
+    {
+      "name": "stable selected-320x667",
+      "pass": true
+    },
+    {
+      "name": "brand above left search 320",
+      "pass": true
+    },
+    {
+      "name": "icon inside field 320",
+      "pass": true
+    },
+    {
+      "name": "bottom-right disclosure and visible attribution 320",
+      "pass": true
+    },
+    {
+      "name": "result below search with same width 320",
+      "pass": true
+    },
+    {
+      "name": "current selected route 320",
+      "pass": true
+    },
+    {
+      "name": "result clears About dock 320",
+      "pass": true
+    },
+    {
+      "name": "stable selected-1440x950",
+      "pass": true
+    },
+    {
+      "name": "brand above left search 1440",
+      "pass": true
+    },
+    {
+      "name": "icon inside field 1440",
+      "pass": true
+    },
+    {
+      "name": "bottom-right disclosure and visible attribution 1440",
+      "pass": true
+    },
+    {
+      "name": "result below search with same width 1440",
+      "pass": true
+    },
+    {
+      "name": "current selected route 1440",
+      "pass": true
+    },
+    {
+      "name": "stable details-expanded-320x667",
+      "pass": true
+    },
+    {
+      "name": "brand above left search 320",
+      "pass": true
+    },
+    {
+      "name": "icon inside field 320",
+      "pass": true
+    },
+    {
+      "name": "bottom-right disclosure and visible attribution 320",
+      "pass": true
+    },
+    {
+      "name": "result below search with same width 320",
+      "pass": true
+    },
+    {
+      "name": "expanded stack preserves usable map height",
+      "pass": true
+    },
+    {
+      "name": "stable selected-about",
+      "pass": true
+    },
+    {
+      "name": "data disclosure does not compete with result panel",
+      "pass": true
+    },
+    {
+      "name": "stable return-home-worker-enabled",
+      "pass": true
+    },
+    {
+      "name": "normal returning homepage still shows map",
+      "pass": true
+    },
+    {
+      "name": "stable shared-postal-worker-enabled",
+      "pass": true
+    },
+    {
+      "name": "normal worker-controlled shared link shows route",
+      "pass": true
+    },
+    {
+      "name": "no uncaught application exceptions",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "captures": [
+    {
+      "label": "empty-390x844",
+      "before": {
+        "width": 390,
+        "height": 844,
+        "key": "1:shiokest:",
+        "center": {
+          "lng": 103.851959,
+          "lat": 1.29027
+        },
+        "zoom": 11.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 0,
+        "status": "idle",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 280,
+          "y": 779,
+          "right": 378,
+          "bottom": 812,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 280,
+          "y": 779,
+          "right": 378,
+          "bottom": 812,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 281,
+          "y": 811,
+          "right": 377,
+          "bottom": 1265,
+          "width": 96,
+          "height": 454
+        },
+        "panel": null,
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 88.6875
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "right": 382,
+          "bottom": 840,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap waiting\n\nAbout data",
+        "worker": false
+      },
+      "after": {
+        "width": 390,
+        "height": 844,
+        "key": "1:shiokest:",
+        "center": {
+          "lng": 103.851959,
+          "lat": 1.29027
+        },
+        "zoom": 11.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 0,
+        "status": "idle",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 280,
+          "y": 779,
+          "right": 378,
+          "bottom": 812,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 280,
+          "y": 779,
+          "right": 378,
+          "bottom": 812,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 281,
+          "y": 811,
+          "right": 377,
+          "bottom": 1265,
+          "width": 96,
+          "height": 454
+        },
+        "panel": null,
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 88.6875
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "right": 382,
+          "bottom": 840,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap waiting\n\nAbout data",
+        "worker": false
+      },
+      "stable": true
+    },
+    {
+      "label": "empty-320x667",
+      "before": {
+        "width": 320,
+        "height": 667,
+        "key": "1:shiokest:",
+        "center": {
+          "lng": 103.851959,
+          "lat": 1.29027
+        },
+        "zoom": 11.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 0,
+        "status": "idle",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 211,
+          "y": 634,
+          "right": 307,
+          "bottom": 1014.84375,
+          "width": 96,
+          "height": 380.84375
+        },
+        "panel": null,
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 88.6875
+        },
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "right": 312,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap waiting\n\nAbout data",
+        "worker": false
+      },
+      "after": {
+        "width": 320,
+        "height": 667,
+        "key": "1:shiokest:",
+        "center": {
+          "lng": 103.851959,
+          "lat": 1.29027
+        },
+        "zoom": 11.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 0,
+        "status": "idle",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 211,
+          "y": 634,
+          "right": 307,
+          "bottom": 1014.84375,
+          "width": 96,
+          "height": 380.84375
+        },
+        "panel": null,
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 88.6875
+        },
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "right": 312,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap waiting\n\nAbout data",
+        "worker": false
+      },
+      "stable": true
+    },
+    {
+      "label": "empty-1440x950",
+      "before": {
+        "width": 1440,
+        "height": 950,
+        "key": "1:shiokest:",
+        "center": {
+          "lng": 103.851959,
+          "lat": 1.29027
+        },
+        "zoom": 11.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 0,
+        "status": "idle",
+        "brand": {
+          "x": 12,
+          "y": 12,
+          "right": 103,
+          "bottom": 44,
+          "width": 91,
+          "height": 32
+        },
+        "input": {
+          "x": 12,
+          "y": 52,
+          "right": 312,
+          "bottom": 96,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 268,
+          "y": 52,
+          "right": 312,
+          "bottom": 96,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 1330,
+          "y": 885,
+          "right": 1428,
+          "bottom": 918,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 1330,
+          "y": 885,
+          "right": 1428,
+          "bottom": 918,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 1331,
+          "y": 917,
+          "right": 1427,
+          "bottom": 1371,
+          "width": 96,
+          "height": 454
+        },
+        "panel": null,
+        "stack": {
+          "x": 12,
+          "y": 12,
+          "right": 312,
+          "bottom": 96,
+          "width": 300,
+          "height": 84
+        },
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "right": 1432,
+          "bottom": 946,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap waiting\n\nAbout data",
+        "worker": false
+      },
+      "after": {
+        "width": 1440,
+        "height": 950,
+        "key": "1:shiokest:",
+        "center": {
+          "lng": 103.851959,
+          "lat": 1.29027
+        },
+        "zoom": 11.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 0,
+        "status": "idle",
+        "brand": {
+          "x": 12,
+          "y": 12,
+          "right": 103,
+          "bottom": 44,
+          "width": 91,
+          "height": 32
+        },
+        "input": {
+          "x": 12,
+          "y": 52,
+          "right": 312,
+          "bottom": 96,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 268,
+          "y": 52,
+          "right": 312,
+          "bottom": 96,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 1330,
+          "y": 885,
+          "right": 1428,
+          "bottom": 918,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 1330,
+          "y": 885,
+          "right": 1428,
+          "bottom": 918,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 1331,
+          "y": 917,
+          "right": 1427,
+          "bottom": 1371,
+          "width": 96,
+          "height": 454
+        },
+        "panel": null,
+        "stack": {
+          "x": 12,
+          "y": 12,
+          "right": 312,
+          "bottom": 96,
+          "width": 300,
+          "height": 84
+        },
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "right": 1432,
+          "bottom": 946,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap waiting\n\nAbout data",
+        "worker": false
+      },
+      "stable": true
+    },
+    {
+      "label": "about-expanded",
+      "before": {
+        "width": 390,
+        "height": 667,
+        "key": "1:shiokest:",
+        "center": {
+          "lng": 103.851959,
+          "lat": 1.29027
+        },
+        "zoom": 11.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 0,
+        "status": "idle",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 12,
+          "y": 221.15625,
+          "right": 378,
+          "bottom": 635,
+          "width": 366,
+          "height": 413.84375
+        },
+        "about": {
+          "x": 12,
+          "y": 221.15625,
+          "right": 380,
+          "bottom": 635,
+          "width": 368,
+          "height": 413.84375
+        },
+        "body": {
+          "x": 13,
+          "y": 253.15625,
+          "right": 379,
+          "bottom": 634,
+          "width": 366,
+          "height": 380.84375
+        },
+        "panel": null,
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 88.6875
+        },
+        "attribution": {
+          "x": 114,
+          "y": 639,
+          "right": 382,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap waiting\n\nAbout data\n\nShelter-map evidence as of 2 Aug 2026. Some newer addresses and some locked scores are not in this release.\n\nAddress list: June 2020 OneMap-derived postal scrape; newer developments may be missing.\n\nP19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list.\n\n28 Aug 2026 OSM addr:postcode coverage cross-check: 25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 June 2020 address-list postcodes, with 20 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry.\n\nSource-age snapshot: 29 Aug 2026 17:23 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh.\n\nSource freshness detail\n\nCovered Linkway follows a quarterly 120-day freshness threshold; published data uses the Mar 2026 LTA geospatial listing. A 28 Aug 2026 source-listing check found the covered-linkway, bridge/underpass, and traffic-signal listings still matched the published data; stale source data still requires a new dated input version before any refresh.\n\nNParks Leaf Area Index is a freshness-only reference table here; walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature.\n\nSources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address registry (© OpenStreetMap contributors, ODbL). ATTRIBUTION.md\n\nHeat estimate: shelter plus sparse nearby greenery, not measured temperature",
+        "worker": false
+      },
+      "after": {
+        "width": 390,
+        "height": 667,
+        "key": "1:shiokest:",
+        "center": {
+          "lng": 103.851959,
+          "lat": 1.29027
+        },
+        "zoom": 11.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 0,
+        "status": "idle",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 12,
+          "y": 221.15625,
+          "right": 378,
+          "bottom": 635,
+          "width": 366,
+          "height": 413.84375
+        },
+        "about": {
+          "x": 12,
+          "y": 221.15625,
+          "right": 380,
+          "bottom": 635,
+          "width": 368,
+          "height": 413.84375
+        },
+        "body": {
+          "x": 13,
+          "y": 253.15625,
+          "right": 379,
+          "bottom": 634,
+          "width": 366,
+          "height": 380.84375
+        },
+        "panel": null,
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 88.6875
+        },
+        "attribution": {
+          "x": 114,
+          "y": 639,
+          "right": 382,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap waiting\n\nAbout data\n\nShelter-map evidence as of 2 Aug 2026. Some newer addresses and some locked scores are not in this release.\n\nAddress list: June 2020 OneMap-derived postal scrape; newer developments may be missing.\n\nP19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list.\n\n28 Aug 2026 OSM addr:postcode coverage cross-check: 25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 June 2020 address-list postcodes, with 20 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry.\n\nSource-age snapshot: 29 Aug 2026 17:23 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh.\n\nSource freshness detail\n\nCovered Linkway follows a quarterly 120-day freshness threshold; published data uses the Mar 2026 LTA geospatial listing. A 28 Aug 2026 source-listing check found the covered-linkway, bridge/underpass, and traffic-signal listings still matched the published data; stale source data still requires a new dated input version before any refresh.\n\nNParks Leaf Area Index is a freshness-only reference table here; walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature.\n\nSources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address registry (© OpenStreetMap contributors, ODbL). ATTRIBUTION.md\n\nHeat estimate: shelter plus sparse nearby greenery, not measured temperature",
+        "worker": false
+      },
+      "stable": true
+    },
+    {
+      "label": "selected-390x844",
+      "before": {
+        "width": 390,
+        "height": 844,
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2836525539690342
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 280,
+          "y": 779,
+          "right": 378,
+          "bottom": 812,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 280,
+          "y": 779,
+          "right": 378,
+          "bottom": 812,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 281,
+          "y": 811,
+          "right": 377,
+          "bottom": 1265,
+          "width": 96,
+          "height": 454
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "right": 310,
+          "bottom": 277.6875,
+          "width": 300,
+          "height": 171
+        },
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 277.6875,
+          "width": 300,
+          "height": 267.6875
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "right": 382,
+          "bottom": 840,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true
+      },
+      "after": {
+        "width": 390,
+        "height": 844,
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2836525539690342
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 280,
+          "y": 779,
+          "right": 378,
+          "bottom": 812,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 280,
+          "y": 779,
+          "right": 378,
+          "bottom": 812,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 281,
+          "y": 811,
+          "right": 377,
+          "bottom": 1265,
+          "width": 96,
+          "height": 454
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "right": 310,
+          "bottom": 277.6875,
+          "width": 300,
+          "height": 171
+        },
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 277.6875,
+          "width": 300,
+          "height": 267.6875
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "right": 382,
+          "bottom": 840,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true
+      },
+      "stable": true
+    },
+    {
+      "label": "selected-390x667",
+      "before": {
+        "width": 390,
+        "height": 667,
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2836525539690342
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 280,
+          "y": 602,
+          "right": 378,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 280,
+          "y": 602,
+          "right": 378,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 281,
+          "y": 634,
+          "right": 377,
+          "bottom": 1014.84375,
+          "width": 96,
+          "height": 380.84375
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "right": 310,
+          "bottom": 277.6875,
+          "width": 300,
+          "height": 171
+        },
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 277.6875,
+          "width": 300,
+          "height": 267.6875
+        },
+        "attribution": {
+          "x": 114,
+          "y": 639,
+          "right": 382,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true
+      },
+      "after": {
+        "width": 390,
+        "height": 667,
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2836525539690342
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 280,
+          "y": 602,
+          "right": 378,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 280,
+          "y": 602,
+          "right": 378,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 281,
+          "y": 634,
+          "right": 377,
+          "bottom": 1014.84375,
+          "width": 96,
+          "height": 380.84375
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "right": 310,
+          "bottom": 277.6875,
+          "width": 300,
+          "height": 171
+        },
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 277.6875,
+          "width": 300,
+          "height": 267.6875
+        },
+        "attribution": {
+          "x": 114,
+          "y": 639,
+          "right": 382,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true
+      },
+      "stable": true
+    },
+    {
+      "label": "selected-320x667",
+      "before": {
+        "width": 320,
+        "height": 667,
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2836419390455234
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 211,
+          "y": 634,
+          "right": 307,
+          "bottom": 1014.84375,
+          "width": 96,
+          "height": 380.84375
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "right": 310,
+          "bottom": 274.6875,
+          "width": 300,
+          "height": 168
+        },
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 274.6875,
+          "width": 300,
+          "height": 264.6875
+        },
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "right": 312,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true
+      },
+      "after": {
+        "width": 320,
+        "height": 667,
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2836419390455234
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 211,
+          "y": 634,
+          "right": 307,
+          "bottom": 1014.84375,
+          "width": 96,
+          "height": 380.84375
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "right": 310,
+          "bottom": 274.6875,
+          "width": 300,
+          "height": 168
+        },
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 274.6875,
+          "width": 300,
+          "height": 264.6875
+        },
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "right": 312,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true
+      },
+      "stable": true
+    },
+    {
+      "label": "selected-1440x950",
+      "before": {
+        "width": 1440,
+        "height": 950,
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.85892577084377,
+          "lat": 1.2826700099267327
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "brand": {
+          "x": 12,
+          "y": 12,
+          "right": 103,
+          "bottom": 44,
+          "width": 91,
+          "height": 32
+        },
+        "input": {
+          "x": 12,
+          "y": 52,
+          "right": 312,
+          "bottom": 96,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 268,
+          "y": 52,
+          "right": 312,
+          "bottom": 96,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 1330,
+          "y": 885,
+          "right": 1428,
+          "bottom": 918,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 1330,
+          "y": 885,
+          "right": 1428,
+          "bottom": 918,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 1331,
+          "y": 917,
+          "right": 1427,
+          "bottom": 1371,
+          "width": 96,
+          "height": 454
+        },
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "right": 312,
+          "bottom": 368,
+          "width": 300,
+          "height": 264
+        },
+        "stack": {
+          "x": 12,
+          "y": 12,
+          "right": 312,
+          "bottom": 368,
+          "width": 300,
+          "height": 356
+        },
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "right": 1432,
+          "bottom": 946,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true
+      },
+      "after": {
+        "width": 1440,
+        "height": 950,
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.85892577084377,
+          "lat": 1.2826700099267327
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "brand": {
+          "x": 12,
+          "y": 12,
+          "right": 103,
+          "bottom": 44,
+          "width": 91,
+          "height": 32
+        },
+        "input": {
+          "x": 12,
+          "y": 52,
+          "right": 312,
+          "bottom": 96,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 268,
+          "y": 52,
+          "right": 312,
+          "bottom": 96,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 1330,
+          "y": 885,
+          "right": 1428,
+          "bottom": 918,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 1330,
+          "y": 885,
+          "right": 1428,
+          "bottom": 918,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 1331,
+          "y": 917,
+          "right": 1427,
+          "bottom": 1371,
+          "width": 96,
+          "height": 454
+        },
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "right": 312,
+          "bottom": 368,
+          "width": 300,
+          "height": 264
+        },
+        "stack": {
+          "x": 12,
+          "y": 12,
+          "right": 312,
+          "bottom": 368,
+          "width": 300,
+          "height": 356
+        },
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "right": 1432,
+          "bottom": 946,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true
+      },
+      "stable": true
+    },
+    {
+      "label": "details-expanded-320x667",
+      "before": {
+        "width": 320,
+        "height": 667,
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2843573958474082
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "initializing",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 211,
+          "y": 634,
+          "right": 307,
+          "bottom": 1014.84375,
+          "width": 96,
+          "height": 380.84375
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "right": 310,
+          "bottom": 476.890625,
+          "width": 300,
+          "height": 370.203125
+        },
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 476.890625,
+          "width": 300,
+          "height": 466.890625
+        },
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "right": 312,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap loading\n\nCollapse walk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\n\nCheck how sheltered the walk to transit feels before you pick a place.\n\nNight lighting\n\nPostal 018956 shelter-map panel ready. Bayfront Stn Exit B/Mbs. Shelter-map walk evidence 55% covered-walkway ratio; 37 m exposed across 2 gaps; longest gap 20 m. Locked score for sorting 82 out of 100. Published shelter-map walk selected. Walk display sheltered walk; Sheltered walk active.\n\nPostal 018956\n\nBayfront Stn Exit B/Mbs\n\nLOCKED SCORE FOR SORTING\n82/100\n⋯\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nWHERE THE WALK IS EXPOSED\n55% covered-walkway ratio on the sheltered walk.\n\n37 m exposed across 2 gaps; 20 m is the longest exposed gap.\n\nSheltered walk\nShortest walk (same)\nExposed gaps\nHDB void-deck shelter\nBridge/underpass shelter\nMRT/LRT\nBus stop\nLTA covered linkway 45 m\nPostal access walk 16 m\nStop/exit access walk 11 m\nExposed 9 m\nSheltered walk\n81 m\nCovered-walkway ratio\n55%\nExtra walk\n0 m\n81 m sheltered walk to transit stop or exit\n55% covered-walkway ratio on sheltered walk\nShelter-map evidence and locked score\nFour display rows; weights unchanged\nShelter exposure\nIn this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence.\nHeat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.\nSame displayed value as shelter exposure for this postal.\nHeat estimate evidence: covered 45 m; nearby greenery 0 m.\n55%\nCovered-walkway ratio\nWalk to stop or exit\nSheltered walk distance to transit stop or exit.\n81 m\n35% locked stop/exit walk\nBus service support\nA low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop.\n100\n20% locked bus support\nLocked SHIOK score\nStart with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.\nCrossing friction still contributes 5% to the locked score, but has low separation in this release.\n82/100\nLocked score for sorting\nCompare nearby addresses\nNearby address comparison loads only when opened.\nShow comparison\nShortest same as sheltered walk.\nNearby greenery\n0%\nAccess link\n27 m\nNearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index.\nAccess link is the short walk from the postal or transit point onto the shelter-map walk.\nExposed gaps on sheltered walk\n\n37 m exposed across 2 gaps on the sheltered walk.\nAll listed exposed gaps are shown.\n2 of 2 exposed gaps include map coordinates.\n\nReport missing shelter\n20 m\nLongest short exposed stretch\nMap coordinate 1.28314, 103.86011\nFocus on map\n16 m\nGap 2 short exposed stretch\nMap coordinate 1.28269, 103.85998\nFocus on map\nAbout data",
+        "worker": true
+      },
+      "after": {
+        "width": 320,
+        "height": 667,
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2843573958474082
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 211,
+          "y": 634,
+          "right": 307,
+          "bottom": 1014.84375,
+          "width": 96,
+          "height": 380.84375
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "right": 310,
+          "bottom": 476.890625,
+          "width": 300,
+          "height": 370.203125
+        },
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 476.890625,
+          "width": 300,
+          "height": 466.890625
+        },
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "right": 312,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nCollapse walk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\n\nCheck how sheltered the walk to transit feels before you pick a place.\n\nNight lighting\n\nPostal 018956 shelter-map panel ready. Bayfront Stn Exit B/Mbs. Shelter-map walk evidence 55% covered-walkway ratio; 37 m exposed across 2 gaps; longest gap 20 m. Locked score for sorting 82 out of 100. Published shelter-map walk selected. Walk display sheltered walk; Sheltered walk active.\n\nPostal 018956\n\nBayfront Stn Exit B/Mbs\n\nLOCKED SCORE FOR SORTING\n82/100\n⋯\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nWHERE THE WALK IS EXPOSED\n55% covered-walkway ratio on the sheltered walk.\n\n37 m exposed across 2 gaps; 20 m is the longest exposed gap.\n\nSheltered walk\nShortest walk (same)\nExposed gaps\nHDB void-deck shelter\nBridge/underpass shelter\nMRT/LRT\nBus stop\nLTA covered linkway 45 m\nPostal access walk 16 m\nStop/exit access walk 11 m\nExposed 9 m\nSheltered walk\n81 m\nCovered-walkway ratio\n55%\nExtra walk\n0 m\n81 m sheltered walk to transit stop or exit\n55% covered-walkway ratio on sheltered walk\nShelter-map evidence and locked score\nFour display rows; weights unchanged\nShelter exposure\nIn this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence.\nHeat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.\nSame displayed value as shelter exposure for this postal.\nHeat estimate evidence: covered 45 m; nearby greenery 0 m.\n55%\nCovered-walkway ratio\nWalk to stop or exit\nSheltered walk distance to transit stop or exit.\n81 m\n35% locked stop/exit walk\nBus service support\nA low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop.\n100\n20% locked bus support\nLocked SHIOK score\nStart with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.\nCrossing friction still contributes 5% to the locked score, but has low separation in this release.\n82/100\nLocked score for sorting\nCompare nearby addresses\nNearby address comparison loads only when opened.\nShow comparison\nShortest same as sheltered walk.\nNearby greenery\n0%\nAccess link\n27 m\nNearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index.\nAccess link is the short walk from the postal or transit point onto the shelter-map walk.\nExposed gaps on sheltered walk\n\n37 m exposed across 2 gaps on the sheltered walk.\nAll listed exposed gaps are shown.\n2 of 2 exposed gaps include map coordinates.\n\nReport missing shelter\n20 m\nLongest short exposed stretch\nMap coordinate 1.28314, 103.86011\nFocus on map\n16 m\nGap 2 short exposed stretch\nMap coordinate 1.28269, 103.85998\nFocus on map\nAbout data",
+        "worker": true
+      },
+      "stable": true
+    },
+    {
+      "label": "selected-about",
+      "before": {
+        "width": 320,
+        "height": 667,
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2816716536818689
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 12,
+          "y": 221.15625,
+          "right": 308,
+          "bottom": 635,
+          "width": 296,
+          "height": 413.84375
+        },
+        "about": {
+          "x": 12,
+          "y": 221.15625,
+          "right": 310,
+          "bottom": 635,
+          "width": 298,
+          "height": 413.84375
+        },
+        "body": {
+          "x": 13,
+          "y": 253.15625,
+          "right": 309,
+          "bottom": 634,
+          "width": 296,
+          "height": 380.84375
+        },
+        "panel": null,
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 88.6875
+        },
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "right": 312,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nAbout data\n\nShelter-map evidence as of 2 Aug 2026. Some newer addresses and some locked scores are not in this release.\n\nAddress list: June 2020 OneMap-derived postal scrape; newer developments may be missing.\n\nP19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list.\n\n28 Aug 2026 OSM addr:postcode coverage cross-check: 25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 June 2020 address-list postcodes, with 20 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry.\n\nSource-age snapshot: 29 Aug 2026 17:23 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh.\n\nSource freshness detail\n\nCovered Linkway follows a quarterly 120-day freshness threshold; published data uses the Mar 2026 LTA geospatial listing. A 28 Aug 2026 source-listing check found the covered-linkway, bridge/underpass, and traffic-signal listings still matched the published data; stale source data still requires a new dated input version before any refresh.\n\nNParks Leaf Area Index is a freshness-only reference table here; walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature.\n\nSources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address registry (© OpenStreetMap contributors, ODbL). ATTRIBUTION.md\n\nHeat estimate: shelter plus sparse nearby greenery, not measured temperature",
+        "worker": true
+      },
+      "after": {
+        "width": 320,
+        "height": 667,
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2816716536818689
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 12,
+          "y": 221.15625,
+          "right": 308,
+          "bottom": 635,
+          "width": 296,
+          "height": 413.84375
+        },
+        "about": {
+          "x": 12,
+          "y": 221.15625,
+          "right": 310,
+          "bottom": 635,
+          "width": 298,
+          "height": 413.84375
+        },
+        "body": {
+          "x": 13,
+          "y": 253.15625,
+          "right": 309,
+          "bottom": 634,
+          "width": 296,
+          "height": 380.84375
+        },
+        "panel": null,
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 88.6875
+        },
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "right": 312,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nAbout data\n\nShelter-map evidence as of 2 Aug 2026. Some newer addresses and some locked scores are not in this release.\n\nAddress list: June 2020 OneMap-derived postal scrape; newer developments may be missing.\n\nP19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list.\n\n28 Aug 2026 OSM addr:postcode coverage cross-check: 25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 June 2020 address-list postcodes, with 20 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry.\n\nSource-age snapshot: 29 Aug 2026 17:23 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh.\n\nSource freshness detail\n\nCovered Linkway follows a quarterly 120-day freshness threshold; published data uses the Mar 2026 LTA geospatial listing. A 28 Aug 2026 source-listing check found the covered-linkway, bridge/underpass, and traffic-signal listings still matched the published data; stale source data still requires a new dated input version before any refresh.\n\nNParks Leaf Area Index is a freshness-only reference table here; walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature.\n\nSources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address registry (© OpenStreetMap contributors, ODbL). ATTRIBUTION.md\n\nHeat estimate: shelter plus sparse nearby greenery, not measured temperature",
+        "worker": true
+      },
+      "stable": true
+    },
+    {
+      "label": "return-home-worker-enabled",
+      "before": {
+        "width": 320,
+        "height": 667,
+        "key": "1:shiokest:",
+        "center": {
+          "lng": 103.851959,
+          "lat": 1.29027
+        },
+        "zoom": 11.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 0,
+        "status": "idle",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 211,
+          "y": 634,
+          "right": 307,
+          "bottom": 1014.84375,
+          "width": 96,
+          "height": 380.84375
+        },
+        "panel": null,
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 88.6875
+        },
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "right": 312,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap waiting\n\nAbout data",
+        "worker": true
+      },
+      "after": {
+        "width": 320,
+        "height": 667,
+        "key": "1:shiokest:",
+        "center": {
+          "lng": 103.851959,
+          "lat": 1.29027
+        },
+        "zoom": 11.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 0,
+        "status": "idle",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 211,
+          "y": 634,
+          "right": 307,
+          "bottom": 1014.84375,
+          "width": 96,
+          "height": 380.84375
+        },
+        "panel": null,
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 88.6875
+        },
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "right": 312,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap waiting\n\nAbout data",
+        "worker": true
+      },
+      "stable": true
+    },
+    {
+      "label": "shared-postal-worker-enabled",
+      "before": {
+        "width": 320,
+        "height": 667,
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2836419390455234
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 211,
+          "y": 634,
+          "right": 307,
+          "bottom": 1014.84375,
+          "width": 96,
+          "height": 380.84375
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "right": 310,
+          "bottom": 274.6875,
+          "width": 300,
+          "height": 168
+        },
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 274.6875,
+          "width": 300,
+          "height": 264.6875
+        },
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "right": 312,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true
+      },
+      "after": {
+        "width": 320,
+        "height": 667,
+        "key": "2:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2836419390455234
+        },
+        "zoom": 16.6,
+        "moving": false,
+        "basemapLoaded": true,
+        "routeCount": 4,
+        "status": "ready",
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "right": 84,
+          "bottom": 46.6875,
+          "width": 74,
+          "height": 36.6875
+        },
+        "input": {
+          "x": 10,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 266,
+          "y": 54.6875,
+          "right": 310,
+          "bottom": 98.6875,
+          "width": 44,
+          "height": 44
+        },
+        "dock": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 210,
+          "y": 602,
+          "right": 308,
+          "bottom": 635,
+          "width": 98,
+          "height": 33
+        },
+        "body": {
+          "x": 211,
+          "y": 634,
+          "right": 307,
+          "bottom": 1014.84375,
+          "width": 96,
+          "height": 380.84375
+        },
+        "panel": {
+          "x": 10,
+          "y": 106.6875,
+          "right": 310,
+          "bottom": 274.6875,
+          "width": 300,
+          "height": 168
+        },
+        "stack": {
+          "x": 10,
+          "y": 10,
+          "right": 310,
+          "bottom": 274.6875,
+          "width": 300,
+          "height": 264.6875
+        },
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "right": 312,
+          "bottom": 663,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "worker": true
+      },
+      "stable": true
+    }
+  ],
+  "exceptions": [],
+  "failedRequests": [],
+  "serviceWorkerBypassed": false,
+  "browserStartup": {
+    "pid": 90692,
+    "port": 9846,
+    "stderr": "\r\nDevTools listening on ws://127.0.0.1:9846/devtools/browser/91784d56-e94b-4ffa-a92e-766a94a6fd6c\r\n[90692:98252:0908/172834.815:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n[90692:98252:0908/172901.095:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n"
+  },
+  "initialDataRequests": [],
+  "searchInput": {
+    "value": "018956",
+    "focused": "postal-search-input",
+    "valid": true
+  },
+  "searchEvents": [
+    "Enter",
+    "submit"
+  ],
+  "finishedAt": "2026-09-08T09:29:29.490Z"
+}

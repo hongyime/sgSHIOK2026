@@ -1,0 +1,101 @@
+{
+  "url": "http://localhost:4321/",
+  "buildId": "e8Hlhkml4c3i_uMGJdd3P",
+  "startedAt": "2026-09-08T09:17:32.639Z",
+  "checks": [],
+  "captures": [],
+  "exceptions": [],
+  "failedRequests": [
+    {
+      "requestId": "979A866D5C31C2F3727C96BF82499B88",
+      "timestamp": 929764.832032,
+      "type": "Document",
+      "errorText": "net::ERR_CONNECTION_REFUSED",
+      "canceled": false
+    },
+    {
+      "requestId": "6E52C71271023AB98E5DF7503A8C2B16",
+      "timestamp": 929768.683689,
+      "type": "Document",
+      "errorText": "net::ERR_CONNECTION_REFUSED",
+      "canceled": false
+    },
+    {
+      "requestId": "6E52C71271023AB98E5DF7503A8C2B16",
+      "timestamp": 929768.697775,
+      "type": "Document",
+      "errorText": "net::ERR_ABORTED",
+      "canceled": true
+    },
+    {
+      "requestId": "CD5666F52D1E9611B88E363FC5C8E259",
+      "timestamp": 929776.089051,
+      "type": "Document",
+      "errorText": "net::ERR_CONNECTION_REFUSED",
+      "canceled": false
+    },
+    {
+      "requestId": "CD5666F52D1E9611B88E363FC5C8E259",
+      "timestamp": 929776.101315,
+      "type": "Document",
+      "errorText": "net::ERR_ABORTED",
+      "canceled": true
+    },
+    {
+      "requestId": "1DA9B1A378A111387C2F7AE0DC77BCEB",
+      "timestamp": 929808.465195,
+      "type": "Document",
+      "errorText": "net::ERR_CONNECTION_REFUSED",
+      "canceled": false
+    },
+    {
+      "requestId": "1DA9B1A378A111387C2F7AE0DC77BCEB",
+      "timestamp": 929808.476254,
+      "type": "Document",
+      "errorText": "net::ERR_ABORTED",
+      "canceled": true
+    },
+    {
+      "requestId": "5A739BBB3B19646A7616DA2F517C4F30",
+      "timestamp": 929870.90381,
+      "type": "Document",
+      "errorText": "net::ERR_CONNECTION_REFUSED",
+      "canceled": false
+    },
+    {
+      "requestId": "5A739BBB3B19646A7616DA2F517C4F30",
+      "timestamp": 929870.93373,
+      "type": "Document",
+      "errorText": "net::ERR_ABORTED",
+      "canceled": true
+    }
+  ],
+  "serviceWorkerBypassed": false,
+  "failure": "Error: Condition deadline window.__shiokRouteMap?.getSource('onemap') && window.__shiokRouteMap.isSourceLoaded('onemap') && !window.__shiokRouteMap.isMoving()\n    at until (file:///C:/sgSHIOK2026/qa/revamp-r1/left-stack-20260908/browser.mjs:27:137)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/left-stack-20260908/browser.mjs:34:37",
+  "failureState": {
+    "width": 390,
+    "height": 844,
+    "basemapLoaded": false,
+    "routeCount": 0,
+    "brand": {
+      "x": 24,
+      "y": 210.40625,
+      "right": 366,
+      "bottom": 238.53125,
+      "width": 342,
+      "height": 28.125
+    },
+    "input": null,
+    "submit": null,
+    "dock": null,
+    "about": null,
+    "body": null,
+    "panel": null,
+    "stack": null,
+    "attribution": null,
+    "overflow": false,
+    "text": "This site can’t be reached\n\nlocalhost refused to connect.\n\nTry:\n\nChecking the connection\nChecking the proxy and the firewall\nERR_CONNECTION_REFUSED\nReload\nDetails",
+    "worker": false
+  },
+  "finishedAt": "2026-09-08T09:20:44.371Z"
+}

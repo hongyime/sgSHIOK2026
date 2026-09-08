@@ -1141,3 +1141,72 @@ DISAGREEMENTS
    strong because the plain homepage was not tested; corrected here.
 2. Source details can be hidden behind disclosure; required map attribution
    remains independently visible. UI work is not approval to recompute data.
+
+## Owner revision: top-left stack, 2026-09-08
+
+Owner changed the previous layout request: SHIOK at top left, search below,
+equal-width results immediately below search, About data bottom right.
+Implemented an unframed 300px maximum stack and measured `top-left` map edge:
+narrow screens reserve the stack's bottom as top padding; desktop reserves its
+right as left padding. Expanded result contents scroll while map space remains.
+Prior centered-layout evidence above is preserved, not rewritten as this layout.
+
+OneMap attribution is retained. Official GreyLite integration says not to remove
+it: https://www.onemap.gov.sg/docs/maps/greylite.html (checked 2026-09-08).
+The copyright/logo line is not an optional legend. About data moves independently.
+
+Observed commands/results; full browser receipts/captures and build logs are at
+qa/revamp-r1/left-stack-20260908/ with summary.json mapping every attempt:
+```text
+root=C:\sgSHIOK2026 hostname=Prawn-E14
+base=c76acc783f23ce506d8b058b1a90d2cd662c5fcd
+node web/scripts/test-web.mjs lib/__tests__/map-viewport.test.ts lib/__tests__/map-first-shell.test.ts --reporter=dot
+red=3 expected failures + 6 passed = 9 tests; 2 files
+green=9 passed; 2 files; exit=0
+node web/scripts/test-without-production-data.mjs --reporter=dot
+242 passed; 32 files; 0 failed; 0 skipped; exit=0
+240 + 2 viewport tests = 242; 32 + 0 new test files = 32
+snapshot=C:\sgSHIOK2026\tmp\test-without-data-8B3Boo
+copiedFiles=153 productionDataDirectoryAbsent=true guardProbePassed=true
+node C:/sgSHIOK2026/web/node_modules/next/dist/bin/next build C:/sgSHIOK2026/web
+build_exit=0 elapsed_seconds=74.2686176
+buildId=e8Hlhkml4c3i_uMGJdd3P
+TypeScript=passed static_page_workers=7 generated_next_env_changes=restored
+data_preparation_hook=bypassed
+preview=http://localhost:4321/ pid=97544 http_preflight=200
+first/browser.json: exit=1, local preview not listening, ERR_CONNECTION_REFUSED
+ready-server/browser.json: exit=0, 58 checks, 12 captures, 3 captured before full basemap readiness
+settled-tiles/browser.json: exit=1, Chrome startup deadline, 0 application checks
+node C:/sgSHIOK2026/qa/revamp-r1/left-stack-20260908/browser.mjs final-captures
+final-captures/browser.json: exit=0, 58 checks, 12 stable captures
+selected_viewports=1440x950,390x844,390x667,320x667
+current_route_features=4 at each selected viewport
+all_final_basemap_capture_brackets_loaded=true
+final_uncaught_application_exceptions=0 final_page_failed_requests=0
+service_worker_bypassed=false
+protected_fixture_source_hashes=11 matched
+python scripts/check_repo_integrity.py
+repo_integrity=ok
+integrity_exit=0
+git_diff_check_exit=0
+pipeline_runs=0 installs=0 protected_payload_writes=0 deployment_invoked=false
+```
+
+Setup failures are not omitted: the Windows TCP-table preflight hung, and the
+first browser ran before server startup. Cleanup stopped only owned setup shells
+(including its own matching shell); a TCP bind check then preceded successful
+startup. Another Chrome startup failed before any application check; final
+startup recorded stderr on a fresh debug port. No hardware-only diagnosis is made.
+Final screenshots were inspected at all four selected-route sizes, plus expanded
+mobile details and About data. No old/new release-cache, physical-phone or speed
+claim. Only our previous preview was stopped; unrelated apps were left running.
+
+FINDINGS
+1. Requested control order and equal widths are implemented, with map padding
+   matching the relocated results on both desktop and mobile.
+2. Final screenshots show current route and loaded basemap; intermediate
+   failures and peripheral-tile loading captures remain preserved.
+3. 242 tests pass. No pipeline, installation, protected write or deploy invoked.
+DISAGREEMENTS
+1. OneMap attribution cannot be hidden under its published integration guidance.
+   No disagreement with the requested layout or collapsible data disclosure.

@@ -1,0 +1,3 @@
+Error: Condition deadline window.__shiokRouteMap?.getSource('onemap') && window.__shiokRouteMap.isSourceLoaded('onemap') && !window.__shiokRouteMap.isMoving()
+    at until (file:///C:/sgSHIOK2026/qa/revamp-r1/left-stack-20260908/browser.mjs:27:137)
+    at async file:///C:/sgSHIOK2026/qa/revamp-r1/left-stack-20260908/browser.mjs:34:37

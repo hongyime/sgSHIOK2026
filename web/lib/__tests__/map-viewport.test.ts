@@ -1,6 +1,18 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
 import { overlayPadding, usableMapBox, watchSelectedRoute } from '../map-viewport';
 
+describe('top-left search and result stack', () => {
+  it('fits the route below a mobile stack, not above an imaginary bottom sheet', () => {
+    const padding = overlayPadding(390, 667, [{left:10,top:10,right:310,bottom:300,edge:'top-left'}]);
+    expect(padding).toEqual({top:312,right:12,bottom:12,left:12});
+    expect(usableMapBox(390,667,padding)).toEqual([[12,312],[378,655]]);
+  });
+  it('fits to the right of the desktop stack and accounts for its expanded height on mobile', () => {
+    expect(overlayPadding(1440,950,[{left:12,top:12,right:312,bottom:560,edge:'top-left'}]).left).toBe(324);
+    expect(overlayPadding(390,667,[{left:10,top:10,right:310,bottom:440,edge:'top-left'}]).top).toBe(452);
+  });
+});
+
 afterEach(() => vi.useRealTimers());
 describe('measured viewport and selection lifecycle', () => {
   it('M03/M15: uses mobile sheet bounds and preserves an unobscured rectangle at 320px', () => {

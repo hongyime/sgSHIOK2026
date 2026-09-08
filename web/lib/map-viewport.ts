@@ -1,12 +1,14 @@
 export interface MapPadding { top: number; right: number; bottom: number; left: number }
-export interface OverlayBounds { left: number; top: number; right: number; bottom: number; edge: 'top' | 'bottom' | 'panel' }
+export interface OverlayBounds { left: number; top: number; right: number; bottom: number; edge: 'top' | 'bottom' | 'panel' | 'top-left' }
 
 /** DOM bounds are relative to the map, in CSS pixels, including expanded sheets. */
 export function overlayPadding(width: number, height: number, overlays: OverlayBounds[]): MapPadding {
   const padding = { top: 12, right: 12, bottom: 12, left: 12 };
   for (const rect of overlays) {
     if (rect.right <= 0 || rect.bottom <= 0 || rect.left >= width || rect.top >= height) continue;
-    const edge = rect.edge === 'panel' ? (rect.right - rect.left > width / 2 ? 'bottom' : 'left') : rect.edge;
+    const wide = rect.right - rect.left > width / 2;
+    const edge = rect.edge === 'top-left' ? (wide ? 'top' : 'left')
+      : rect.edge === 'panel' ? (wide ? 'bottom' : 'left') : rect.edge;
     if (edge === 'top') padding.top = Math.max(padding.top, rect.bottom + 12);
     if (edge === 'bottom') padding.bottom = Math.max(padding.bottom, height - rect.top + 12);
     if (edge === 'left') padding.left = Math.max(padding.left, rect.right + 12);
