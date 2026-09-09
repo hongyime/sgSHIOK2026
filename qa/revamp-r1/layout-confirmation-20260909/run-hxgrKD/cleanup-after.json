@@ -1,0 +1,7 @@
+{
+  "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-u7bu19'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+  "exitCode": 0,
+  "stdout": "{\"before\":[],\"remaining\":[]}\r\n",
+  "stderr": "",
+  "verified": true
+}

@@ -1,0 +1,22 @@
+{
+  "reviewer": "Anscombe, read-only independent subagent",
+  "receipt": "qa/revamp-r1/layout-confirmation-20260909/run-YaHEvG/browser.json",
+  "verdict": "Accepted as bounded visual evidence; no third run needed.",
+  "checks": 37,
+  "capturesInspectedAndHashMatched": 6,
+  "offlineAssertions": [
+    "950 - 918 = 32px bottom gap on both desktop captures.",
+    "844 - 812 = 32px bottom gap on the 390x844 capture.",
+    "667 - 635 = 32px bottom gap on the remaining three captures.",
+    "All states record legendVisible=false, loaded attribution image, and 4px dock-to-credit clearance.",
+    "All four selected views have 300px search and result widths, left aligned with results below search.",
+    "Expanded About remains inside the viewport and hides the competing results."
+  ],
+  "cleanup": "Profile-scoped remaining=[] audit verifies cleanup; graceful Chrome exit was not observed.",
+  "limitations": "Build advertised by proxy, not actual browser Document-body attestation. No deployment, service-worker, physical-device or performance claim. Parent separately verified on-disk snapshot source identities.",
+  "initialRun": "run-hxgrKD failed after one correct empty-desktop screenshot. Not accepted as full layout validation; first receipt and follow-up cleanup retained.",
+  "repositoryIntegrity": {"command": "python scripts/check_repo_integrity.py", "stdout": "repo_integrity=ok\n", "exitCode": 0},
+  "runtimeChanges": 0,
+  "FINDINGS": ["Requested arrangement already exists; current local preview verified.", "Optional legend absent in inspected states; required OneMap logo and attribution retained."],
+  "DISAGREEMENTS": ["Attribution is not an optional legend and cannot be removed while using OneMap tiles."]
+}

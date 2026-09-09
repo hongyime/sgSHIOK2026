@@ -1,0 +1,59 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs",
+    "lib/__tests__/map-viewport.test.ts",
+    "lib/__tests__/map-first-shell.test.ts",
+    "--no-cache",
+    "--reporter=dot"
+  ],
+  "exitCode": 0,
+  "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n···········\n\n Test Files  2 passed (2)\n      Tests  11 passed (11)\n   Start at  16:32:31\n   Duration  13.63s (transform 4.62s, setup 0ms, import 5.80s, tests 892ms, environment 2ms)\n\n",
+  "stderr": "",
+  "elapsedSeconds": 54.787,
+  "before": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "46526e84bc880707a2a4e0e557011c723ce9424acb67fd3d9217e2b44e85e100"
+    },
+    {
+      "path": "web/lib/__tests__/map-viewport.test.ts",
+      "sha256": "28b270a28cad8d9429a6915d4fd1443e198ab817225adfabbce40ec4e06e2b56"
+    },
+    {
+      "path": "web/lib/__tests__/map-first-shell.test.ts",
+      "sha256": "11050f4e65d7c081ec53a979fc683347181a611b44b0793fffbee6834f637613"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "46526e84bc880707a2a4e0e557011c723ce9424acb67fd3d9217e2b44e85e100"
+    },
+    {
+      "path": "web/lib/__tests__/map-viewport.test.ts",
+      "sha256": "28b270a28cad8d9429a6915d4fd1443e198ab817225adfabbce40ec4e06e2b56"
+    },
+    {
+      "path": "web/lib/__tests__/map-first-shell.test.ts",
+      "sha256": "11050f4e65d7c081ec53a979fc683347181a611b44b0793fffbee6834f637613"
+    }
+  ],
+  "identitiesStable": true
+}

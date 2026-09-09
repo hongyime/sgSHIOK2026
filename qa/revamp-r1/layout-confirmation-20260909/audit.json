@@ -1,0 +1,119 @@
+{
+  "base": "a17fa5059dfd9215026b904ca83620a4a6567116",
+  "captures": [
+    {
+      "name": "empty-desktop",
+      "hashMatch": true,
+      "before": {
+        "bottomGap": 32,
+        "legendVisible": false
+      },
+      "after": {
+        "bottomGap": 32,
+        "legendVisible": false
+      },
+      "additionalAssertions": true
+    },
+    {
+      "name": "selected-1440x950",
+      "hashMatch": true,
+      "before": {
+        "bottomGap": 32,
+        "legendVisible": false
+      },
+      "after": {
+        "bottomGap": 32,
+        "legendVisible": false
+      },
+      "additionalAssertions": true
+    },
+    {
+      "name": "selected-390x844",
+      "hashMatch": true,
+      "before": {
+        "bottomGap": 32,
+        "legendVisible": false
+      },
+      "after": {
+        "bottomGap": 32,
+        "legendVisible": false
+      },
+      "additionalAssertions": true
+    },
+    {
+      "name": "selected-390x667",
+      "hashMatch": true,
+      "before": {
+        "bottomGap": 32,
+        "legendVisible": false
+      },
+      "after": {
+        "bottomGap": 32,
+        "legendVisible": false
+      },
+      "additionalAssertions": true
+    },
+    {
+      "name": "selected-320x667",
+      "hashMatch": true,
+      "before": {
+        "bottomGap": 32,
+        "legendVisible": false
+      },
+      "after": {
+        "bottomGap": 32,
+        "legendVisible": false
+      },
+      "additionalAssertions": true
+    },
+    {
+      "name": "about-expanded-320x667",
+      "hashMatch": true,
+      "before": {
+        "bottomGap": 32,
+        "legendVisible": false
+      },
+      "after": {
+        "bottomGap": 32,
+        "legendVisible": false
+      },
+      "additionalAssertions": true
+    }
+  ],
+  "sources": [
+    {
+      "path": "web/app/page.tsx",
+      "committed": "dab151a563035526f02a9e87b94ca6d223c6b66396769f02e2859e3a24d71162",
+      "built": "dab151a563035526f02a9e87b94ca6d223c6b66396769f02e2859e3a24d71162",
+      "match": true
+    },
+    {
+      "path": "web/app/page.module.css",
+      "committed": "90594191b9e7894e2165de26164cdd8d5630b821dd6a01ce682526d2ee00777b",
+      "built": "90594191b9e7894e2165de26164cdd8d5630b821dd6a01ce682526d2ee00777b",
+      "match": true
+    },
+    {
+      "path": "web/components/route-evidence-map.tsx",
+      "committed": "7e492fa0753b6e59e000fddfafe4ef3ea92237b3996301aca141d3ab2b6c7dc0",
+      "built": "7e492fa0753b6e59e000fddfafe4ef3ea92237b3996301aca141d3ab2b6c7dc0",
+      "match": true
+    },
+    {
+      "path": "web/components/route-evidence-map.module.css",
+      "committed": "ab32c76913f123a9ad69f64cfac953d51387ce5de8b2c7af2da0711d76b566d0",
+      "built": "ab32c76913f123a9ad69f64cfac953d51387ce5de8b2c7af2da0711d76b566d0",
+      "match": true
+    }
+  ],
+  "cleanupVerified": true,
+  "evidence": {
+    "path": "qa/verification/REVAMP-R1-core-walk.md",
+    "originalBytes": 174201,
+    "originalSha256": "f7dcd0bf6c43708ea1b6d23daac4b3f9dcb265148b13a4f8965217c06d71d455",
+    "currentBytes": 177002,
+    "prefixUnchanged": true
+  },
+  "limitation": "Proxy advertised build and on-disk snapshot identity verified; actual browser Document response body was not captured in this focused run.",
+  "ok": true
+}

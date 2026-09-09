@@ -2670,3 +2670,52 @@ deployment_commands=0
 protected_payload_mutations=0
 goal_complete=false
 ```
+
+## Layout Reconfirmation 2026-09-09
+
+Latest owner request: SHIOK top left, search below, result below at the same width,
+and About data bottom right. This layout was already implemented; this is a
+focused confirmation, not a claim of new runtime changes. Uncommitted T19/T22
+work is preserved and excluded from this commit and the running snapshot.
+
+```text
+root=C:\sgSHIOK2026
+hostname=Prawn-E14
+base=a17fa5059dfd9215026b904ca83620a4a6567116
+preview=http://127.0.0.1:4332/
+proxy_advertised_build=ENBtn8fzW-j8FH5dZ6qyJ
+node qa/revamp-r1/comparison-sharing-20260909/focused.mjs layout-confirmation-1 lib/__tests__/map-viewport.test.ts lib/__tests__/map-first-shell.test.ts
+Test Files  2 passed (2)
+Tests  11 passed (11)
+exit_code=0
+node qa/revamp-r1/layout-confirmation-20260909/browser.mjs
+first_receipt=qa/revamp-r1/layout-confirmation-20260909/run-hxgrKD/browser.json
+first_result=FAIL after empty-desktop capture; Runtime.evaluate timeout; graceful Chrome exit not confirmed
+first_cleanup=run-hxgrKD/cleanup-after.json; exit0; remaining=[]; verified=true
+second_receipt=qa/revamp-r1/layout-confirmation-20260909/run-YaHEvG/browser.json
+second_result=PASS
+checks=37
+captures=1 empty desktop + 4 selected-route viewports + 1 expanded About data = 6
+selected_viewports=1440x950,390x844,390x667,320x667
+current_route_features=4 at each selected viewport
+second_elapsed_seconds=163.105
+second_cleanup=owned-profile process audit verified; graceful exit flag alone remained false
+runtime_source_edits=0
+pipeline_runs=0
+protected_payload_mutations=0
+installations=0
+deployment_commands=0
+FINDINGS
+1. The requested layout already exists in the latest pushed source and current local preview. All six new captures were inspected; equal-width results and the expanded data disclosure fit.
+2. Optional attribution controls and the visible route legend are absent in these collapsed states. Required OneMap logo and credit remain; they are not an optional legend.
+3. First browser timeout and incomplete graceful cleanup are preserved, not counted as acceptance. Subsequent owned-process audits verified cleanup. No representative latency claim is made.
+DISAGREEMENTS
+1. The OneMap logo and attribution cannot be removed while using this basemap. Official integration documentation requires both.
+2. This focused run did not capture the actual browser Document body. Its build claim is limited to proxy status and the separately checked snapshot source hashes, not a new network-level build attestation.
+```
+
+OneMap attribution requirement checked against
+https://www.onemap.gov.sg/docs/maps/original.html on 2026-09-09.
+Receipt and screenshot hashes, explicit bottom-gap and legend assertions, snapshot
+identities and append-only evidence proof are in
+`qa/revamp-r1/layout-confirmation-20260909/audit.json`.

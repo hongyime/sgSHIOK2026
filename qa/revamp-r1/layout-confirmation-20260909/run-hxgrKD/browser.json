@@ -1,0 +1,1966 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "origin": "http://127.0.0.1:4332",
+  "build": "ENBtn8fzW-j8FH5dZ6qyJ",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\layout-confirmation-20260909\\run-hxgrKD",
+  "profile": "C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-u7bu19",
+  "startedAt": "2026-09-09T08:30:45.887Z",
+  "checks": [
+    {
+      "name": "expected current preview build",
+      "pass": true
+    },
+    {
+      "name": "empty-desktop stable loaded basemap and current route",
+      "pass": true
+    },
+    {
+      "name": "empty-desktop top-left brand above search",
+      "pass": true
+    },
+    {
+      "name": "empty-desktop search icon inside input",
+      "pass": true
+    },
+    {
+      "name": "empty-desktop bottom-right data dock clears visible credit",
+      "pass": true
+    },
+    {
+      "name": "empty-desktop no horizontal overflow or optional attribution widget",
+      "pass": true
+    }
+  ],
+  "captures": [
+    {
+      "name": "empty-desktop",
+      "bytes": 566983,
+      "sha256": "b79da96a4f1e83b23c8a4709a976bde3d106e3542eba7cd9384770d81f8187ca",
+      "before": {
+        "width": 1440,
+        "height": 950,
+        "brand": {
+          "x": 12,
+          "y": 14,
+          "right": 103,
+          "bottom": 46,
+          "width": 91,
+          "height": 32
+        },
+        "input": {
+          "x": 12,
+          "y": 56,
+          "right": 312,
+          "bottom": 100,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 268,
+          "y": 56,
+          "right": 312,
+          "bottom": 100,
+          "width": 44,
+          "height": 44
+        },
+        "panel": null,
+        "dock": {
+          "x": 1330,
+          "y": 885,
+          "right": 1428,
+          "bottom": 918,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 1330,
+          "y": 885,
+          "right": 1428,
+          "bottom": 918,
+          "width": 98,
+          "height": 33
+        },
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "right": 1432,
+          "bottom": 946,
+          "width": 268,
+          "height": 24
+        },
+        "expanded": false,
+        "overflow": false,
+        "status": "idle",
+        "moving": false,
+        "tiles": true,
+        "basemap": true,
+        "routeKey": "1:shiokest:",
+        "routeCount": 0,
+        "creditImageLoaded": true,
+        "optionalAttributionControl": false,
+        "legendVisible": false
+      },
+      "after": {
+        "width": 1440,
+        "height": 950,
+        "brand": {
+          "x": 12,
+          "y": 14,
+          "right": 103,
+          "bottom": 46,
+          "width": 91,
+          "height": 32
+        },
+        "input": {
+          "x": 12,
+          "y": 56,
+          "right": 312,
+          "bottom": 100,
+          "width": 300,
+          "height": 44
+        },
+        "submit": {
+          "x": 268,
+          "y": 56,
+          "right": 312,
+          "bottom": 100,
+          "width": 44,
+          "height": 44
+        },
+        "panel": null,
+        "dock": {
+          "x": 1330,
+          "y": 885,
+          "right": 1428,
+          "bottom": 918,
+          "width": 98,
+          "height": 33
+        },
+        "about": {
+          "x": 1330,
+          "y": 885,
+          "right": 1428,
+          "bottom": 918,
+          "width": 98,
+          "height": 33
+        },
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "right": 1432,
+          "bottom": 946,
+          "width": 268,
+          "height": 24
+        },
+        "expanded": false,
+        "overflow": false,
+        "status": "idle",
+        "moving": false,
+        "tiles": true,
+        "basemap": true,
+        "routeKey": "1:shiokest:",
+        "routeCount": 0,
+        "creditImageLoaded": true,
+        "optionalAttributionControl": false,
+        "legendVisible": false
+      }
+    }
+  ],
+  "exceptions": [],
+  "blockedApis": [],
+  "limits": "Functional Chrome/SwiftShader viewport checks, cache and service-worker bypass; not a performance, deployment or physical-device claim. No runtime source edits or pipeline work.",
+  "preview": {
+    "build": "ENBtn8fzW-j8FH5dZ6qyJ",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-native-postal-20260909-1\\web",
+    "pid": 103712,
+    "nextPid": 106656,
+    "mode": "clear",
+    "requests": [
+      {
+        "path": "/",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940809187
+      },
+      {
+        "path": "/_next/static/chunks/2vmbtvc_dp_7u.css",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940809266
+      },
+      {
+        "path": "/",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940810433
+      },
+      {
+        "path": "/_next/static/chunks/2vmbtvc_dp_7u.css",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940810494
+      },
+      {
+        "path": "/_next/static/chunks/3wkt3-74el481.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940810558
+      },
+      {
+        "path": "/_next/static/chunks/2wu61p_p0hxro.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940810571
+      },
+      {
+        "path": "/_next/static/chunks/11axl_urhtotz.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940810603
+      },
+      {
+        "path": "/_next/static/chunks/0in607kxyceyg.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940810634
+      },
+      {
+        "path": "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940810700
+      },
+      {
+        "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940810725
+      },
+      {
+        "path": "/_next/static/chunks/3wkt3-74el481.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940810756
+      },
+      {
+        "path": "/_next/static/chunks/0chjshpyy6j4v.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940810761
+      },
+      {
+        "path": "/_next/static/chunks/2mkdvs4fd-pr5.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940810765
+      },
+      {
+        "path": "/_next/static/chunks/2wu61p_p0hxro.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940810815
+      },
+      {
+        "path": "/_next/static/chunks/11axl_urhtotz.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940810818
+      },
+      {
+        "path": "/_next/static/chunks/0in607kxyceyg.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940810864
+      },
+      {
+        "path": "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940810905
+      },
+      {
+        "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940810909
+      },
+      {
+        "path": "/_next/static/chunks/0chjshpyy6j4v.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940810941
+      },
+      {
+        "path": "/_next/static/chunks/2mkdvs4fd-pr5.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940811000
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940811493
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940811499
+      },
+      {
+        "path": "/icon.svg",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940811522
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940811542
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940811553
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940811565
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940811586
+      },
+      {
+        "path": "/_next/static/chunks/1gk2mezfqs8i1.css",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940811599
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940811621
+      },
+      {
+        "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940811658
+      },
+      {
+        "path": "/_next/static/chunks/32fln1bes_hfk.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940811682
+      },
+      {
+        "path": "/_next/static/chunks/459zpdnjsidvt.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940811684
+      },
+      {
+        "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940811690
+      },
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940812956
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940814785
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940814817
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940814818
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940814981
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940815071
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940815073
+      },
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940815097
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940815104
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940819047
+      },
+      {
+        "path": "/icon.svg",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940819203
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-index.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940819267
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/pois.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940819490
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/pois.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940819588
+      },
+      {
+        "path": "/",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940820977
+      },
+      {
+        "path": "/_next/static/chunks/2vmbtvc_dp_7u.css",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940821062
+      },
+      {
+        "path": "/",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940822709
+      },
+      {
+        "path": "/_next/static/chunks/2vmbtvc_dp_7u.css",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940822798
+      },
+      {
+        "path": "/_next/static/chunks/3wkt3-74el481.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940822947
+      },
+      {
+        "path": "/_next/static/chunks/2wu61p_p0hxro.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940822961
+      },
+      {
+        "path": "/_next/static/chunks/11axl_urhtotz.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940822966
+      },
+      {
+        "path": "/_next/static/chunks/0in607kxyceyg.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940822984
+      },
+      {
+        "path": "/_next/static/chunks/0chjshpyy6j4v.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940823058
+      },
+      {
+        "path": "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940823059
+      },
+      {
+        "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940823065
+      },
+      {
+        "path": "/_next/static/chunks/3wkt3-74el481.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940823067
+      },
+      {
+        "path": "/_next/static/chunks/2mkdvs4fd-pr5.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940823094
+      },
+      {
+        "path": "/_next/static/chunks/2wu61p_p0hxro.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940823153
+      },
+      {
+        "path": "/_next/static/chunks/0in607kxyceyg.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940823165
+      },
+      {
+        "path": "/_next/static/chunks/11axl_urhtotz.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940823166
+      },
+      {
+        "path": "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940823167
+      },
+      {
+        "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940823188
+      },
+      {
+        "path": "/_next/static/chunks/0chjshpyy6j4v.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940823236
+      },
+      {
+        "path": "/_next/static/chunks/2mkdvs4fd-pr5.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940823269
+      },
+      {
+        "path": "/icon.svg",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940823628
+      },
+      {
+        "path": "/_next/static/chunks/1gk2mezfqs8i1.css",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940823780
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940823792
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940823803
+      },
+      {
+        "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940823806
+      },
+      {
+        "path": "/_next/static/chunks/32fln1bes_hfk.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940823812
+      },
+      {
+        "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940823815
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940823851
+      },
+      {
+        "path": "/_next/static/chunks/459zpdnjsidvt.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940823859
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940823873
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940823882
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940823911
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940824015
+      },
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940824329
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940824771
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940824808
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940824859
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940824880
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940824882
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940824883
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940824884
+      },
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940824914
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940828690
+      },
+      {
+        "path": "/icon.svg",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940828806
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-index.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940828980
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/pois.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940829187
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/pois.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940829296
+      },
+      {
+        "path": "/",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940830609
+      },
+      {
+        "path": "/_next/static/chunks/2vmbtvc_dp_7u.css",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940830764
+      },
+      {
+        "path": "/_next/static/chunks/3wkt3-74el481.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940831078
+      },
+      {
+        "path": "/_next/static/chunks/2wu61p_p0hxro.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940831125
+      },
+      {
+        "path": "/_next/static/chunks/11axl_urhtotz.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940831191
+      },
+      {
+        "path": "/_next/static/chunks/0in607kxyceyg.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940831199
+      },
+      {
+        "path": "/_next/static/chunks/0chjshpyy6j4v.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940831276
+      },
+      {
+        "path": "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940831319
+      },
+      {
+        "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940831379
+      },
+      {
+        "path": "/_next/static/chunks/2mkdvs4fd-pr5.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940831405
+      },
+      {
+        "path": "/icon.svg",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940831985
+      },
+      {
+        "path": "/_next/static/chunks/1gk2mezfqs8i1.css",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940832144
+      },
+      {
+        "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940832175
+      },
+      {
+        "path": "/_next/static/chunks/32fln1bes_hfk.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940832179
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940832204
+      },
+      {
+        "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940832206
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940832227
+      },
+      {
+        "path": "/_next/static/chunks/459zpdnjsidvt.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940832285
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940832320
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940832327
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940832455
+      },
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940832881
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940833015
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940833209
+      },
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940833450
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940835143
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940835184
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940835203
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940835207
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940835212
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940835216
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940835218
+      },
+      {
+        "path": "/icon.svg",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940835269
+      },
+      {
+        "path": "/",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940975004
+      },
+      {
+        "path": "/_next/static/chunks/2vmbtvc_dp_7u.css",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940975208
+      },
+      {
+        "path": "/",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940977172
+      },
+      {
+        "path": "/_next/static/chunks/2vmbtvc_dp_7u.css",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940977625
+      },
+      {
+        "path": "/_next/static/chunks/3wkt3-74el481.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940977933
+      },
+      {
+        "path": "/_next/static/chunks/2wu61p_p0hxro.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940977977
+      },
+      {
+        "path": "/_next/static/chunks/11axl_urhtotz.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940978001
+      },
+      {
+        "path": "/_next/static/chunks/0in607kxyceyg.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940978079
+      },
+      {
+        "path": "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940978145
+      },
+      {
+        "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940978166
+      },
+      {
+        "path": "/_next/static/chunks/0chjshpyy6j4v.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940978296
+      },
+      {
+        "path": "/_next/static/chunks/2mkdvs4fd-pr5.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940978366
+      },
+      {
+        "path": "/_next/static/chunks/3wkt3-74el481.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940978386
+      },
+      {
+        "path": "/_next/static/chunks/2wu61p_p0hxro.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940978416
+      },
+      {
+        "path": "/_next/static/chunks/11axl_urhtotz.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940978744
+      },
+      {
+        "path": "/_next/static/chunks/0in607kxyceyg.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940979007
+      },
+      {
+        "path": "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940979138
+      },
+      {
+        "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940979329
+      },
+      {
+        "path": "/_next/static/chunks/0chjshpyy6j4v.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940979559
+      },
+      {
+        "path": "/_next/static/chunks/2mkdvs4fd-pr5.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940979962
+      },
+      {
+        "path": "/icon.svg",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940985016
+      },
+      {
+        "path": "/_next/static/chunks/1gk2mezfqs8i1.css",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940985776
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940985948
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940985952
+      },
+      {
+        "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940986157
+      },
+      {
+        "path": "/_next/static/chunks/459zpdnjsidvt.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940986181
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940986185
+      },
+      {
+        "path": "/_next/static/chunks/32fln1bes_hfk.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940986212
+      },
+      {
+        "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940986214
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940986931
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940986953
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940987331
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940987346
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940989102
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940989109
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940989152
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940989156
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940989162
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940989180
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788940989184
+      },
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940989842
+      },
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788940991501
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941014521
+      },
+      {
+        "path": "/icon.svg",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941014585
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-index.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941014639
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/pois.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941015509
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/pois.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941015621
+      },
+      {
+        "path": "/",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941022486
+      },
+      {
+        "path": "/_next/static/chunks/2vmbtvc_dp_7u.css",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941022637
+      },
+      {
+        "path": "/",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941028504
+      },
+      {
+        "path": "/_next/static/chunks/2vmbtvc_dp_7u.css",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941028635
+      },
+      {
+        "path": "/_next/static/chunks/3wkt3-74el481.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941028795
+      },
+      {
+        "path": "/_next/static/chunks/2wu61p_p0hxro.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941028832
+      },
+      {
+        "path": "/_next/static/chunks/11axl_urhtotz.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941028875
+      },
+      {
+        "path": "/_next/static/chunks/0in607kxyceyg.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941031237
+      },
+      {
+        "path": "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941031247
+      },
+      {
+        "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941031365
+      },
+      {
+        "path": "/_next/static/chunks/0chjshpyy6j4v.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941031370
+      },
+      {
+        "path": "/_next/static/chunks/2mkdvs4fd-pr5.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941031413
+      },
+      {
+        "path": "/_next/static/chunks/3wkt3-74el481.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941031535
+      },
+      {
+        "path": "/_next/static/chunks/0in607kxyceyg.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941031537
+      },
+      {
+        "path": "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941031599
+      },
+      {
+        "path": "/_next/static/chunks/2wu61p_p0hxro.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941031604
+      },
+      {
+        "path": "/_next/static/chunks/11axl_urhtotz.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941031631
+      },
+      {
+        "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941031710
+      },
+      {
+        "path": "/_next/static/chunks/0chjshpyy6j4v.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941031711
+      },
+      {
+        "path": "/_next/static/chunks/2mkdvs4fd-pr5.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941031713
+      },
+      {
+        "path": "/icon.svg",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941032124
+      },
+      {
+        "path": "/_next/static/chunks/1gk2mezfqs8i1.css",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941032303
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941032344
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941032350
+      },
+      {
+        "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941032427
+      },
+      {
+        "path": "/_next/static/chunks/459zpdnjsidvt.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941032428
+      },
+      {
+        "path": "/_next/static/chunks/32fln1bes_hfk.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941032431
+      },
+      {
+        "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941032435
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941032508
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941032566
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941032767
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941032805
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941032816
+      },
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941034589
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941034772
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941034774
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941034776
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941034781
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941034814
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941034824
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941034825
+      },
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941035260
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941041787
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-index.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941042000
+      },
+      {
+        "path": "/icon.svg",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941042006
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/pois.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941042110
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/pois.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941042201
+      },
+      {
+        "path": "/",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941043675
+      },
+      {
+        "path": "/_next/static/chunks/2vmbtvc_dp_7u.css",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941043754
+      },
+      {
+        "path": "/_next/static/chunks/3wkt3-74el481.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941044040
+      },
+      {
+        "path": "/_next/static/chunks/2wu61p_p0hxro.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941044072
+      },
+      {
+        "path": "/_next/static/chunks/11axl_urhtotz.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941044096
+      },
+      {
+        "path": "/_next/static/chunks/0in607kxyceyg.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941044097
+      },
+      {
+        "path": "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941044156
+      },
+      {
+        "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941044208
+      },
+      {
+        "path": "/_next/static/chunks/0chjshpyy6j4v.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941044285
+      },
+      {
+        "path": "/_next/static/chunks/2mkdvs4fd-pr5.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941044609
+      },
+      {
+        "path": "/icon.svg",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941046634
+      },
+      {
+        "path": "/_next/static/chunks/1gk2mezfqs8i1.css",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941046667
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941046696
+      },
+      {
+        "path": "/_next/static/chunks/32fln1bes_hfk.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941046703
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941046704
+      },
+      {
+        "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941046709
+      },
+      {
+        "path": "/_next/static/chunks/459zpdnjsidvt.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941046723
+      },
+      {
+        "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941046728
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941046740
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941046755
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941046884
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941046892
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941046912
+      },
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941047229
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941047746
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941047748
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941047793
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941047799
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941047801
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "status": 200,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941047813
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+        "status": 404,
+        "kind": "read-only-data",
+        "mode": "clear",
+        "at": 1788941047815
+      },
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941047823
+      },
+      {
+        "path": "/icon.svg",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788941047828
+      }
+    ]
+  },
+  "chromePid": 110908,
+  "failure": "Error: CDP timeout Runtime.evaluate\n    at Timeout._onTimeout (file:///C:/sgSHIOK2026/qa/revamp-r1/layout-confirmation-20260909/browser.mjs:29:65)\n    at listOnTimeout (node:internal/timers:635:17)\n    at process.processTimers (node:internal/timers:571:7)",
+  "chromeExited": false,
+  "elapsedMs": 65997,
+  "stderr": "\r\nDevTools listening on ws://127.0.0.1:28339/devtools/browser/747627da-439e-4ac5-a892-8738eebac1e2\r\n[110908:74636:0909/163141.903:ERROR:chrome\\browser\\web_applications\\externally_managed_app_manager.cc:680] https://drive.google.com/drive/installwebapp?usp=chrome_default from install source 1 failed to install with reason 21\r\n",
+  "ok": false
+}
