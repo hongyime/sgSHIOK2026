@@ -1,0 +1,107 @@
+{
+  "status": "STOPPED_INPUT_IDENTITY",
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "base": "d8c8f04f6bff62f08d1b8b75b4bc85ec319f1ce2",
+  "checks": {
+    "focusedTestsPassed": true,
+    "testedSourcesUnchanged": true,
+    "stoppedOnInputMismatch": true,
+    "localInputsStableDuringAttempt": true,
+    "noCatalogProduced": true,
+    "evidenceAppendOnly": true
+  },
+  "currentSources": [
+    {
+      "path": "tests/test_source_metadata_cli.py",
+      "sha256": "e417d0dd0a7f4a59217d44a5462ed5805fc2f8e9fb2d6e7286fa176fdd07d036"
+    },
+    {
+      "path": "tests/test_source_metadata_http.py",
+      "sha256": "d04e9324fb259ee8dfa99a1b48d49b3d554e59054b20a6f6468e31c68266cce7"
+    },
+    {
+      "path": "tests/test_source_metadata_catalog.py",
+      "sha256": "f96013e63fb6d58e2862344ea9e0859b8636464417ae36aa7678842bccb571a0"
+    },
+    {
+      "path": "tests/test_source_metadata_state.py",
+      "sha256": "dc8fb96cf764b9876e5982e74b2fd3439f6623e4fb282cfa0c0b5aa9a95413e3"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": "4fc1c85180c5f8df8a2c302a291b71fe88ba76b1e918e10b8376fe6353a31b28"
+    },
+    {
+      "path": "scripts/build_source_metadata_catalog.py",
+      "sha256": "86bae42170df7d9a66b13db715737ed627774144265434edef4c41b631695c7b"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "96986b0726b30959a4b37867a714ec56cd8e6b77248e7758bf1b788b12810b7b"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    }
+  ],
+  "tests": {
+    "total": 187,
+    "files": 4,
+    "arithmetic": "39 CLI + 54 HTTP + 9 catalog + 85 state = 187",
+    "receipt": "qa/revamp-r1/source-monitor-20260909/cli-green-2/checks.json",
+    "fullProjectSuiteRun": false
+  },
+  "mismatch": {
+    "path": "raw/manifest.json",
+    "committedSha256": "159d5f7818174da8d80eafda3be95de9cfb65aa2fc1fc94a78ab174a001b383b",
+    "localSha256": "ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a",
+    "cause": "unknown, not investigated",
+    "receipt": "qa/revamp-r1/source-monitor-20260909/catalog-create-1/command.json"
+  },
+  "evidence": {
+    "path": "qa/verification/REVAMP-R1-core-walk.md",
+    "previousBytes": 187086,
+    "previousSha256": "c6b0fc6544bd5cb57f85d33ba379a9a60a60b98118d017dd1e483a948f13f8eb",
+    "bytes": 192835,
+    "sha256": "2cafa2026623e6a13547cdaef5d997a8044f2bf54d21cac4594bce22c563153d"
+  },
+  "review": {
+    "stateTests": "Parfit: 85 passed, frozen; no sidecar processes",
+    "verdict": "Anscombe: NOT_APPROVED",
+    "open": [
+      {
+        "severity": "P2",
+        "path": "scripts/source_metadata_http.py",
+        "finding": "Observed 429 cooldown can be lost or bypassed by deadline/cleanup handling."
+      },
+      {
+        "severity": "P2",
+        "path": "scripts/check_source_metadata.py",
+        "finding": "Report written before state persistence can claim success despite a later state-write failure."
+      }
+    ],
+    "readOnlySession": {
+      "id": 76119,
+      "parentPoll": "Unknown process id 76119",
+      "exitCodeKnown": false
+    },
+    "agentsClosed": true
+  },
+  "gate": "Owner must disposition metadata mismatch. Do not investigate, repair or resume runtime work implicitly. Review fixes and activation/delivery approval also outstanding.",
+  "liveSourceRequests": 0,
+  "pipelineRuns": 0,
+  "installations": 0,
+  "deployments": 0,
+  "externalNoticeWrites": 0,
+  "FINDINGS": [
+    "Local and committed raw manifest bytes differ; the local file was stable before and after this stopped attempt.",
+    "187 focused tests pass; two review defects remain and no live execution is approved.",
+    "Validated latestObservation fixes the ETag integration; acknowledged staleness and deferred checks no longer report all-clear in fixtures.",
+    "Metadata-check scheduling and delivered deduplicated notices remain unimplemented approval-gated work."
+  ],
+  "DISAGREEMENTS": [
+    "Passing fixtures cannot establish operational completion.",
+    "The mismatch does not establish formatting drift or corruption; cause and preferred version are unknown."
+  ]
+}

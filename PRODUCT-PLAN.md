@@ -319,12 +319,27 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   Evidence: `qa/revamp-r1/source-freshness-20260909/summary.json`.
 
 ### [ ] T23: Establish a bounded metadata-check routine
-- Status: READY. Size: M. Parent: P2.3.
+- Status: PARTIAL; STOPPED at metadata identity gate, owner disposition required. Size: M. Parent: P2.3.
 - Depends on: T22.
 - Scope: inspect existing freshness/check automation, then a narrowly scoped read-only checker and workflow only if needed; runbook/fixtures.
 - Do: choose a documented cadence and inspect source metadata, not datasets. Deduplicate notices, handle rate limits and errors, record successful/failed checks and give the owner an actionable failure notice. No automatic processing or blanket workflow rewrite.
-- Tests/done: O01-O02/O09. Unchanged metadata does nothing expensive; stale/manual/unknown and unavailable endpoints remain distinct. Test scheduled logic with fixtures; do not claim a cron fired until an actual run is observed.
+- Tests/done: O01-O03/O14-O18. O09 remains shared-config protection, not scheduler coverage. Unchanged metadata does nothing expensive; stale/manual/unknown and unavailable endpoints remain distinct. Test scheduled logic with fixtures; do not claim a cron fired until an actual run is observed.
 - Gate: FREE within existing account/source limits. New secrets/accounts, external writes or alert-provider setup require specific approval; never call run.py check/ingest/network.
+- Checkpoint 2026-09-09: standalone stdlib HTTP/state/CLI and local catalog builder,
+  with 39 CLI + 54 HTTP + 9 catalog + 85 state = 187 focused fixture tests passing.
+  No full project-suite, live endpoint, scheduled-run or notice-delivery pass claimed.
+- Catalog creation stopped before output/network: raw/manifest.json committed SHA256
+  159d5f7818174da8d80eafda3be95de9cfb65aa2fc1fc94a78ab174a001b383b differs from local
+  ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a. Local bytes were stable
+  before/after. No diagnosis, rewrite, refresh or retry; owner must disposition it.
+- Independent review remains NOT APPROVED: preserve 429 cooldown through late/cleanup
+  outcomes and prevent a success report before state persistence. Fix and add regressions
+  only after the stop is lifted. No source-metadata-catalog.json was produced.
+- Proposed weekly metadata-only GitHub Actions + one persistent issue was not approved.
+  No workflow, issue, state-cache/artifact upload, secret or external notice was created.
+  Pending notices are local intents, not delivered alerts. A real scheduled run and
+  destination readback remain necessary for completion. Evidence:
+  `qa/revamp-r1/source-monitor-20260909/summary.json`.
 
 ### [ ] T24: Make maintenance ownership and recovery explicit
 - Status: READY. Size: S. Parent: P2.3.

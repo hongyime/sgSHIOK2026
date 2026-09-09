@@ -1,0 +1,63 @@
+{
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "args": [
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_source_metadata_cli.py",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\source-monitor-tests-cli-red-1",
+    "-q"
+  ],
+  "before": [
+    {
+      "path": "tests/test_source_metadata_cli.py",
+      "sha256": "a371f4edd3e224257db6ab6bf077d56f46f5fe0a92080a0d3b3ab38cc6789faa"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": null
+    },
+    {
+      "path": "scripts/build_source_metadata_catalog.py",
+      "sha256": "b6c3622df6a9fc004c40af953b21171577475d44e32ba5b94c7a0f13f66e1bf0"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "681641bcf3890b2978b329aa67e009f5239260dc2d4e7a222aaff0a20f77495d"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "6289ba2119018bd62a0a1d59ca741fc56776b24752b7b627236b0db8d00dc381"
+    }
+  ],
+  "after": [
+    {
+      "path": "tests/test_source_metadata_cli.py",
+      "sha256": "a371f4edd3e224257db6ab6bf077d56f46f5fe0a92080a0d3b3ab38cc6789faa"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": null
+    },
+    {
+      "path": "scripts/build_source_metadata_catalog.py",
+      "sha256": "b6c3622df6a9fc004c40af953b21171577475d44e32ba5b94c7a0f13f66e1bf0"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "681641bcf3890b2978b329aa67e009f5239260dc2d4e7a222aaff0a20f77495d"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "6289ba2119018bd62a0a1d59ca741fc56776b24752b7b627236b0db8d00dc381"
+    }
+  ],
+  "stable": true,
+  "exitCode": 2,
+  "stdout": "\r\n=================================== ERRORS ====================================\r\n_____________ ERROR collecting tests/test_source_metadata_cli.py ______________\r\nImportError while importing test module 'C:\\sgSHIOK2026\\tests\\test_source_metadata_cli.py'.\r\nHint: make sure your test modules/packages have valid Python names.\r\nTraceback:\r\nC:\\Program Files\\Python312\\Lib\\importlib\\__init__.py:90: in import_module\r\n    return _bootstrap._gcd_import(name[level:], package, level)\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\ntests\\test_source_metadata_cli.py:9: in <module>\r\n    from scripts.check_source_metadata import MonitorError, run_check\r\nE   ModuleNotFoundError: No module named 'scripts.check_source_metadata'\r\n=========================== short test summary info ===========================\r\nERROR tests/test_source_metadata_cli.py\r\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\r\n1 error in 1.42s\r\n",
+  "stderr": "",
+  "elapsedMs": 3965
+}

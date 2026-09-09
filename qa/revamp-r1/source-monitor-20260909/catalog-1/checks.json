@@ -1,0 +1,55 @@
+{
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "args": [
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_source_metadata_catalog.py",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\source-monitor-tests-catalog-1",
+    "-q"
+  ],
+  "before": [
+    {
+      "path": "tests/test_source_metadata_catalog.py",
+      "sha256": "f96013e63fb6d58e2862344ea9e0859b8636464417ae36aa7678842bccb571a0"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "b19ef768373e710fcbfee8808a7b8852a15561f36175b82cadd296621f1b0cd2"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b41416d89b931a7b9d0a5d46fdf62f0a8d17f5c3a522587f4aa477413b7cd71f"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": null
+    }
+  ],
+  "after": [
+    {
+      "path": "tests/test_source_metadata_catalog.py",
+      "sha256": "f96013e63fb6d58e2862344ea9e0859b8636464417ae36aa7678842bccb571a0"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "b19ef768373e710fcbfee8808a7b8852a15561f36175b82cadd296621f1b0cd2"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b41416d89b931a7b9d0a5d46fdf62f0a8d17f5c3a522587f4aa477413b7cd71f"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": null
+    }
+  ],
+  "stable": true,
+  "exitCode": 0,
+  "stdout": ".........                                                                [100%]\r\n9 passed in 1.62s\r\n",
+  "stderr": "",
+  "elapsedMs": 11756
+}

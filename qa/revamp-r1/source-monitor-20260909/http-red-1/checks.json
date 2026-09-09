@@ -1,0 +1,55 @@
+{
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "args": [
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_source_metadata_http.py",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\source-monitor-tests-http-red-1",
+    "-q"
+  ],
+  "before": [
+    {
+      "path": "tests/test_source_metadata_http.py",
+      "sha256": "3296847c9688d1b95dae9f9e9f01d5c75ab1cb903837e86e956915cd7cf40f11"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": null
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": null
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": null
+    }
+  ],
+  "after": [
+    {
+      "path": "tests/test_source_metadata_http.py",
+      "sha256": "3296847c9688d1b95dae9f9e9f01d5c75ab1cb903837e86e956915cd7cf40f11"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": null
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": null
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": null
+    }
+  ],
+  "stable": true,
+  "exitCode": 2,
+  "stdout": "\r\n=================================== ERRORS ====================================\r\n_____________ ERROR collecting tests/test_source_metadata_http.py _____________\r\nImportError while importing test module 'C:\\sgSHIOK2026\\tests\\test_source_metadata_http.py'.\r\nHint: make sure your test modules/packages have valid Python names.\r\nTraceback:\r\nC:\\Program Files\\Python312\\Lib\\importlib\\__init__.py:90: in import_module\r\n    return _bootstrap._gcd_import(name[level:], package, level)\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\ntests\\test_source_metadata_http.py:6: in <module>\r\n    from scripts.source_metadata_http import MetadataClient, observe_source\r\nE   ModuleNotFoundError: No module named 'scripts.source_metadata_http'\r\n=========================== short test summary info ===========================\r\nERROR tests/test_source_metadata_http.py\r\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\r\n1 error in 0.97s\r\n",
+  "stderr": "",
+  "elapsedMs": 2840
+}

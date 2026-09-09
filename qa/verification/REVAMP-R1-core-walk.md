@@ -2891,3 +2891,99 @@ matching probe units and all count arithmetic, and explicitly required T19 to st
 partial. New source freshness and maintenance work (T23/T24) can proceed without
 claiming that the full coverage register exists. Current local UI preview remains
 http://127.0.0.1:4334/; this audit introduced no new user-facing map change.
+
+## T23 Checkpoint 2026-09-09: Metadata Monitor Stopped At Input Identity
+
+This section is appended; no earlier evidence is changed. The local metadata-only
+checker is work in progress, not an activated maintenance service. Its CLI is
+fail-closed without a reviewed catalog. No source payload, live metadata endpoint,
+external notice, workflow activation or pipeline operation ran in this task.
+
+```text
+working_root=C:\sgSHIOK2026
+hostname=Prawn-E14
+base_commit=d8c8f04f6bff62f08d1b8b75b4bc85ec319f1ce2
+node qa/revamp-r1/source-monitor-20260909/check.mjs cli-green-2 tests/test_source_metadata_cli.py tests/test_source_metadata_http.py tests/test_source_metadata_catalog.py tests/test_source_metadata_state.py
+........................................................................ [ 38%]
+........................................................................ [ 77%]
+...........................................                              [100%]
+187 passed in 23.89s
+focused_test_arithmetic=39 CLI + 54 HTTP + 9 catalog + 85 state = 187
+test_files=4
+fixture_source_identities_stable=true
+full_project_test_suite_executed=false
+node qa/revamp-r1/source-monitor-20260909/exercise.mjs catalog catalog-create-1
+python_command=C:\sgSHIOK2026\.venv\Scripts\python.exe -B -m scripts.build_source_metadata_catalog
+catalog_create_exit_code=1
+catalog_create_elapsed_ms=1950
+RuntimeError: STOP_INPUT_MISMATCH tracked metadata: raw/manifest.json expected=159d5f7818174da8d80eafda3be95de9cfb65aa2fc1fc94a78ab174a001b383b actual=ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a
+raw_manifest_local_sha256_before=ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a
+raw_manifest_local_sha256_after=ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a
+catalog_created=false
+live_source_requests=0
+mismatch_investigation_or_repair=false
+independent_live_review=NOT_APPROVED
+T23_status=PARTIAL; STOPPED pending owner disposition
+pipeline_runs=0
+protected_input_mutations=0
+installations=0
+deployment_commands=0
+external_state_or_notice_writes=0
+actual_scheduled_runs_observed_for_this_monitor=0
+goal_complete=false
+```
+
+The complete stdout/stderr, exact arguments, timings and pre/post identities are
+in `qa/revamp-r1/source-monitor-20260909/cli-green-2/checks.json` and
+`catalog-create-1/command.json`. Earlier failed imports and failed fixture runs are
+preserved. A missing-module collection failure is not a demonstrated behavioral
+regression. Parent test coverage does not establish live API interoperability.
+
+The checker allows only data.gov.sg dataset-metadata and DataMall listing endpoints;
+it never follows a dataset download link. It has request, body, spacing and time
+caps and isolated request workers. Metadata update, local check, baseline age and
+availability are separate. Manual/unsupported/missing-credential sources are not
+silently marked current. Prior state is schema-validated and catalog-SHA-bound
+before conditional requests or cooldown reuse. Output goes into a fresh local
+`qa/source-monitor/<label>` directory; prior receipts are not overwritten.
+
+The weekly GitHub Actions plus one persistent issue proposal is not approved.
+There is no scheduled workflow, destination, secret setup or delivery claim.
+Pending notices remain local intents. Actual schedule execution, durable state
+restoration and external notice readback are still unverified acceptance O18.
+The local CLI remains Windows-root guarded; no portable Actions runner is claimed.
+
+Independent reviewer Anscombe returned two unresolved P2 findings before the
+input-identity stop. They remain open, not silently repaired after the stop:
+
+1. `scripts/source_metadata_http.py`: deadline/cleanup handling can discard or
+   bypass an observed 429 cooldown. Passing existing timeout and long-Retry-After
+   fixtures does not establish that combined edge case.
+2. `scripts/check_source_metadata.py`: the terminal report is written before state
+   persistence. A subsequent state-write failure can leave a success report even
+   though the process failed. Completion must depend on durable state persistence.
+
+Parfit's pure-state helper and tests are frozen at 85 passing tests, with no
+remaining sidecar processes reported. Anscombe's last read-only command had session
+76119 before interruption; the parent polled that exact handle and received
+`Unknown process id 76119`. Its exit code is unknown, not assumed successful. Both
+review agents were closed. No command was restarted based on an observation timeout.
+
+### FINDINGS
+1. Catalog generation detected different local and committed raw manifest bytes.
+   The local file was unchanged by this work. The cause is unknown; the owner must
+   disposition the mismatch before this work resumes. No normalization or repair ran.
+2. The monitor's 187 focused tests pass, but two independent review defects remain.
+   It is a gated checkpoint, not ready for live execution or unattended operation.
+3. The integration corrected use of `lastObservation` to validated
+   `latestObservation`, and added coverage preventing acknowledged staleness or a
+   budget-deferred check from producing an all-clear based on prior success.
+4. Existing freshness checks are manifest-only. New local notice intents do not
+   establish delivered alerts or a running schedule; activation remains owner-gated.
+
+### DISAGREEMENTS
+1. Passing fixtures is not proof that the operational monitoring task is complete.
+   Real endpoint outcomes, the two review fixes, state persistence and approved
+   notice/schedule execution remain outstanding.
+2. Different raw manifest bytes must not be explained away as formatting or repaired
+   implicitly. The receipt establishes a mismatch, not its cause or preferred version.

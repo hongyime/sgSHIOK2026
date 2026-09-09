@@ -1,0 +1,46 @@
+{
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "C:\\sgSHIOK2026\\tests\\test_source_metadata_state.py",
+    "--noconftest",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "addopts=",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\source-monitor-20260909\\state-tests-green-1\\pytest-temp"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "exitCode": 1,
+  "elapsedMs": 15863.996400032192,
+  "stdout": ".....................................F..............                     [100%]\n================================== FAILURES ===================================\n___ test_malformed_previous_state_cannot_authorize_unchanged_claim[change1] ___\n\nchange = {'sourceKey': 'other'}\n\n    @pytest.mark.parametrize(\"change\", [\n        {\"version\": 99}, {\"sourceKey\": \"other\"}, {\"episode\": True}, {\"episode\": -1},\n        {\"lastSuccessfulCheckAt\": \"invalid\"}, {\"latestObservation\": []}, {\"conditionId\": \"fake\"},\n        {\"pendingNotices\": [{\"id\": \"invented\"}]}, {\"extra\": \"unknown schema\"},\n    ])\n    def test_malformed_previous_state_cannot_authorize_unchanged_claim(change):\n        prior = transition(source(), None, observed(), NOW)\n        prior.update(change)\n        state = transition(source(), prior, {\"outcome\": \"not_modified\", \"attempted\": True}, LATER)\n        assert state[\"priorStateInvalid\"] is True\n        assert state[\"availability\"] == \"unknown\"\n        assert state[\"comparison\"] == \"unknown\"\n        assert state[\"latestObservation\"] is None\n        assert state[\"lastSuccessfulCheckAt\"] is None\n        assert \"prior_state_invalid\" in notice(state)[\"reasons\"]\n>       with pytest.raises(ValueError):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE ValueError\n\ntests\\test_source_metadata_state.py:310: Failed\n=========================== short test summary info ===========================\nFAILED tests/test_source_metadata_state.py::test_malformed_previous_state_cannot_authorize_unchanged_claim[change1]\n1 failed, 51 passed in 5.32s\n",
+  "stderr": "",
+  "before": {
+    "scripts/source_metadata_state.py": {
+      "bytes": 18841,
+      "sha256": "b41416d89b931a7b9d0a5d46fdf62f0a8d17f5c3a522587f4aa477413b7cd71f"
+    },
+    "tests/test_source_metadata_state.py": {
+      "bytes": 17243,
+      "sha256": "d795e22c2bc52f98de4fc73433a3335bd3b0c054a667065bab7952bc1bb7e499"
+    }
+  },
+  "after": {
+    "scripts/source_metadata_state.py": {
+      "bytes": 18841,
+      "sha256": "b41416d89b931a7b9d0a5d46fdf62f0a8d17f5c3a522587f4aa477413b7cd71f"
+    },
+    "tests/test_source_metadata_state.py": {
+      "bytes": 17243,
+      "sha256": "d795e22c2bc52f98de4fc73433a3335bd3b0c054a667065bab7952bc1bb7e499"
+    }
+  },
+  "sourcesUnchanged": true,
+  "pluginsDisabled": true,
+  "conftestDisabled": true,
+  "bytecodeDisabled": true
+}

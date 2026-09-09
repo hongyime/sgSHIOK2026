@@ -105,6 +105,11 @@ Every case specifies a trigger and observable outcome.
 | O11 | M | Goal loop reaches gated task | Stops with proposal; no implicit compute/deploy approval |
 | O12 | M | Fresh checkout | Design/ADR/plan discoverable without ignored docs directory |
 | O13 | I | Read-only coverage audit on mixed-availability fixtures | Route and score absence classified separately; unknown cause explicit; source counts reconcile; no input or protected-output writes |
+| O14 | I | Metadata checker receives redirects, malformed bodies, timeouts or 429 | Only allowlisted metadata endpoints; bounded requests and bodies; no payload fallback; observed cooldown survives deadline/cleanup and restored state |
+| O15 | I | Missing/corrupt/different-catalog prior monitor state, or clock rollback | No trusted conditional header or unchanged claim; explicit stop or first observation; old success never presented as a new check |
+| O16 | I | Repeated condition, recovery, acknowledged staleness or deferred check | Stable pending notice IDs; recovery/new episode distinguishable; acknowledgement does not make stale data current; deferred pass is incomplete |
+| O17 | I | Monitor output already exists, path escapes, input drifts or state persistence fails | No protected/old-output mutation; hash mismatch stops; incomplete persistence never leaves an authoritative success report |
+| O18 | M | Approved scheduled monitor and external notices | Real event:schedule run observed; previous durable state restored; deduplicated notice read back at destination before acknowledgement; no payload processing |
 
 ## User acceptance sessions
 | ID | Level | Trigger | Expected result |

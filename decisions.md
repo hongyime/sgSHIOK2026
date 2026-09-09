@@ -3022,3 +3022,29 @@ until a cheaper audited pass or a separately accepted larger read-only budget ca
 produce the full register. Do not reuse this estimate for scoring, export or user
 latency; it measures this audit on this loaded host. T23/T24 can proceed separately.
 Evidence: qa/revamp-r1/coverage-register-20260909/pilot-analysis.json.
+
+## 2026-09-09: Metadata monitoring checkpoint is not activated
+
+Keep publisher update dates, local check times, source availability and frozen
+baseline age separate. A metadata revision or stable listing reference is not
+proof that payload bytes or physical conditions changed. Never follow a listing
+download link, invoke ingestion, or automatically process a metadata change.
+Persist validated prior state before using ETags or retry deadlines; bind it to
+the exact reviewed catalog. Pending notice IDs are intents, not proof of delivery.
+
+The proposed weekly metadata-only GitHub Actions check with one persistent issue
+for state/notices is awaiting owner approval. No external state, notices, secrets
+or workflow were created. Local checkpoint commands are not operational approval.
+
+Catalog creation stopped on raw/manifest.json identity disagreement with committed
+bytes. It did not change that input, produce a catalog, or request any live source.
+Preserve the failure receipt rather than silently normalize or replace the file.
+The cause is unknown; owner disposition is required before this work resumes.
+
+Independent review also leaves two defects open: retaining an observed 429
+cooldown through late/cleanup outcomes, and making state persistence a prerequisite
+for an authoritative completion report. The 187 passing focused tests do not cover
+these failures, live source interoperability, durable alert delivery, or actual
+scheduling. T23 remains partial. Record those limits rather than calling a local
+snapshot an ongoing maintenance service. No full project test rerun was performed.
+Evidence: qa/revamp-r1/source-monitor-20260909/summary.json.

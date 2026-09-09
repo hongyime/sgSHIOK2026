@@ -1,0 +1,46 @@
+{
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "C:\\sgSHIOK2026\\tests\\test_source_metadata_state.py",
+    "--noconftest",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "addopts=",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\source-monitor-20260909\\state-tests-green-2\\pytest-temp"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "exitCode": 0,
+  "elapsedMs": 12084.182900027372,
+  "stdout": "................................................................         [100%]\n64 passed in 3.66s\n",
+  "stderr": "",
+  "before": {
+    "scripts/source_metadata_state.py": {
+      "bytes": 19172,
+      "sha256": "6289ba2119018bd62a0a1d59ca741fc56776b24752b7b627236b0db8d00dc381"
+    },
+    "tests/test_source_metadata_state.py": {
+      "bytes": 20277,
+      "sha256": "07fc6e349dd7b89fba9d8dd3bd8e95cf85f89e015aa8875eb3720f01066afae5"
+    }
+  },
+  "after": {
+    "scripts/source_metadata_state.py": {
+      "bytes": 19172,
+      "sha256": "6289ba2119018bd62a0a1d59ca741fc56776b24752b7b627236b0db8d00dc381"
+    },
+    "tests/test_source_metadata_state.py": {
+      "bytes": 20277,
+      "sha256": "07fc6e349dd7b89fba9d8dd3bd8e95cf85f89e015aa8875eb3720f01066afae5"
+    }
+  },
+  "sourcesUnchanged": true,
+  "pluginsDisabled": true,
+  "conftestDisabled": true,
+  "bytecodeDisabled": true
+}

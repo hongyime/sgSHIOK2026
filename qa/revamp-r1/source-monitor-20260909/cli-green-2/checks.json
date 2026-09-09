@@ -1,0 +1,90 @@
+{
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "args": [
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_source_metadata_cli.py",
+    "tests/test_source_metadata_http.py",
+    "tests/test_source_metadata_catalog.py",
+    "tests/test_source_metadata_state.py",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\source-monitor-tests-cli-green-2",
+    "-q"
+  ],
+  "before": [
+    {
+      "path": "tests/test_source_metadata_cli.py",
+      "sha256": "e417d0dd0a7f4a59217d44a5462ed5805fc2f8e9fb2d6e7286fa176fdd07d036"
+    },
+    {
+      "path": "tests/test_source_metadata_http.py",
+      "sha256": "d04e9324fb259ee8dfa99a1b48d49b3d554e59054b20a6f6468e31c68266cce7"
+    },
+    {
+      "path": "tests/test_source_metadata_catalog.py",
+      "sha256": "f96013e63fb6d58e2862344ea9e0859b8636464417ae36aa7678842bccb571a0"
+    },
+    {
+      "path": "tests/test_source_metadata_state.py",
+      "sha256": "dc8fb96cf764b9876e5982e74b2fd3439f6623e4fb282cfa0c0b5aa9a95413e3"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": "4fc1c85180c5f8df8a2c302a291b71fe88ba76b1e918e10b8376fe6353a31b28"
+    },
+    {
+      "path": "scripts/build_source_metadata_catalog.py",
+      "sha256": "86bae42170df7d9a66b13db715737ed627774144265434edef4c41b631695c7b"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "96986b0726b30959a4b37867a714ec56cd8e6b77248e7758bf1b788b12810b7b"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    }
+  ],
+  "after": [
+    {
+      "path": "tests/test_source_metadata_cli.py",
+      "sha256": "e417d0dd0a7f4a59217d44a5462ed5805fc2f8e9fb2d6e7286fa176fdd07d036"
+    },
+    {
+      "path": "tests/test_source_metadata_http.py",
+      "sha256": "d04e9324fb259ee8dfa99a1b48d49b3d554e59054b20a6f6468e31c68266cce7"
+    },
+    {
+      "path": "tests/test_source_metadata_catalog.py",
+      "sha256": "f96013e63fb6d58e2862344ea9e0859b8636464417ae36aa7678842bccb571a0"
+    },
+    {
+      "path": "tests/test_source_metadata_state.py",
+      "sha256": "dc8fb96cf764b9876e5982e74b2fd3439f6623e4fb282cfa0c0b5aa9a95413e3"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": "4fc1c85180c5f8df8a2c302a291b71fe88ba76b1e918e10b8376fe6353a31b28"
+    },
+    {
+      "path": "scripts/build_source_metadata_catalog.py",
+      "sha256": "86bae42170df7d9a66b13db715737ed627774144265434edef4c41b631695c7b"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "96986b0726b30959a4b37867a714ec56cd8e6b77248e7758bf1b788b12810b7b"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    }
+  ],
+  "stable": true,
+  "exitCode": 0,
+  "stdout": "........................................................................ [ 38%]\r\n........................................................................ [ 77%]\r\n...........................................                              [100%]\r\n187 passed in 23.89s\r\n",
+  "stderr": "",
+  "elapsedMs": 34009
+}

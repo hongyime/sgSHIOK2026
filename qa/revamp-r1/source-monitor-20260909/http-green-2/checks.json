@@ -1,0 +1,56 @@
+{
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "args": [
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_source_metadata_http.py",
+    "tests/test_source_metadata_catalog.py",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\source-monitor-tests-http-green-2",
+    "-q"
+  ],
+  "before": [
+    {
+      "path": "tests/test_source_metadata_http.py",
+      "sha256": "38ef604811aabf8cc212a4181eee438dc2ec2f092afddbbd5eb1d2960eb14960"
+    },
+    {
+      "path": "tests/test_source_metadata_catalog.py",
+      "sha256": "f96013e63fb6d58e2862344ea9e0859b8636464417ae36aa7678842bccb571a0"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "681641bcf3890b2978b329aa67e009f5239260dc2d4e7a222aaff0a20f77495d"
+    },
+    {
+      "path": "scripts/build_source_metadata_catalog.py",
+      "sha256": "b6c3622df6a9fc004c40af953b21171577475d44e32ba5b94c7a0f13f66e1bf0"
+    }
+  ],
+  "after": [
+    {
+      "path": "tests/test_source_metadata_http.py",
+      "sha256": "38ef604811aabf8cc212a4181eee438dc2ec2f092afddbbd5eb1d2960eb14960"
+    },
+    {
+      "path": "tests/test_source_metadata_catalog.py",
+      "sha256": "f96013e63fb6d58e2862344ea9e0859b8636464417ae36aa7678842bccb571a0"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "681641bcf3890b2978b329aa67e009f5239260dc2d4e7a222aaff0a20f77495d"
+    },
+    {
+      "path": "scripts/build_source_metadata_catalog.py",
+      "sha256": "b6c3622df6a9fc004c40af953b21171577475d44e32ba5b94c7a0f13f66e1bf0"
+    }
+  ],
+  "stable": true,
+  "exitCode": 0,
+  "stdout": ".............................................................            [100%]\r\n61 passed in 1.93s\r\n",
+  "stderr": "",
+  "elapsedMs": 5793
+}

@@ -1,0 +1,44 @@
+{
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "C:\\sgSHIOK2026\\tests\\test_source_metadata_state.py",
+    "--noconftest",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "addopts=",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\source-monitor-20260909\\state-tests-red-1\\pytest-temp"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "exitCode": 2,
+  "elapsedMs": 2421.0627999855205,
+  "stdout": "\n=================================== ERRORS ====================================\n____________ ERROR collecting tests/test_source_metadata_state.py _____________\nImportError while importing test module 'C:\\sgSHIOK2026\\tests\\test_source_metadata_state.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\nC:\\Program Files\\Python312\\Lib\\importlib\\__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests\\test_source_metadata_state.py:59: in <module>\n    from scripts.source_metadata_state import acknowledge, transition\nE   ModuleNotFoundError: No module named 'scripts.source_metadata_state'\n=========================== short test summary info ===========================\nERROR tests/test_source_metadata_state.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.91s\n",
+  "stderr": "",
+  "before": {
+    "scripts/source_metadata_state.py": {
+      "missing": true
+    },
+    "tests/test_source_metadata_state.py": {
+      "bytes": 17243,
+      "sha256": "d795e22c2bc52f98de4fc73433a3335bd3b0c054a667065bab7952bc1bb7e499"
+    }
+  },
+  "after": {
+    "scripts/source_metadata_state.py": {
+      "missing": true
+    },
+    "tests/test_source_metadata_state.py": {
+      "bytes": 17243,
+      "sha256": "d795e22c2bc52f98de4fc73433a3335bd3b0c054a667065bab7952bc1bb7e499"
+    }
+  },
+  "sourcesUnchanged": true,
+  "pluginsDisabled": true,
+  "conftestDisabled": true,
+  "bytecodeDisabled": true
+}
