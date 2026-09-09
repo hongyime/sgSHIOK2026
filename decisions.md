@@ -3078,3 +3078,34 @@ The corrected catalog was generated without any live source request. The two
 independent HTTP/CLI findings remain open; schedule and notice delivery remain
 separately gated. Evidence: qa/revamp-r1/source-monitor-20260909/manifest-identity.json,
 identity-green-1/checks.json and catalog-create-2/command.json.
+
+## 2026-09-10: Preserve rate limits and require verified local completion
+
+An observed HTTP 429 deadline remains knowledge even when response cleanup or the
+parent deadline later changes the final outcome to an error. The isolated worker
+emits a bounded, credential-free, complete cooldown receipt before cleanup. The
+parent validates that receipt and retains the host-wide not-before time through
+timeouts and termination. An incomplete frame is not trusted; a process killed
+before conveying any receipt cannot establish an observed cooldown.
+
+A readable success-shaped JSON file alone does not prove completed persistence.
+Write, flush, fsync, close and read back state first. Stage the report under a new
+name, sync and read it back, then publish the previously absent report.json using
+an atomic no-overwrite hard link. Retain the staged file. Unsupported publication
+fails closed; never fall back to direct final-name writes. Reusing state requires
+its matching verified terminal report and state hash. Verified exit-1 attention
+reports remain reusable, including deferrals; exit 2 or interrupted/unverified
+runs do not authorize conditional requests. This is a local filesystem contract,
+not demonstrated physical power-loss recovery.
+
+The single metadata-only live check produced 12 observations and two timeouts
+from 14 attempts. Three sources require credentials, three remain manual and four
+unsupported. Exit 1 and 16 pending notice intents correctly retain attention.
+Checking today does not date or validate frozen payload bytes. No input changes,
+dataset downloads, retries, notifications or pipeline commands were executed.
+
+The local checker and README runbook are usable; T23 remains partial until an
+approved scheduled runner, durable external state and actual notice delivery are
+verified. Do not silently interpret routine read-only approval as approval for
+that external activation. Evidence: qa/revamp-r1/source-monitor-20260909/
+review-fixes-green-2/checks.json and live-review-1/command.json.

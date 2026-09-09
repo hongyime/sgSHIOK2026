@@ -1,0 +1,47 @@
+{
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "args": [
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_source_metadata_http.py",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\source-monitor-tests-http-review-green-1",
+    "-q"
+  ],
+  "before": [
+    {
+      "path": "tests/test_source_metadata_http.py",
+      "sha256": "b57d0eb1fec696451889cd12aee5dc3ffb969ba7a375daf8c4b13f82b1babcb3"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "aae6234a2c065bc7fad1d49445061943fdd682209444b4bbf2376105bd9ca741"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    }
+  ],
+  "after": [
+    {
+      "path": "tests/test_source_metadata_http.py",
+      "sha256": "b57d0eb1fec696451889cd12aee5dc3ffb969ba7a375daf8c4b13f82b1babcb3"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "aae6234a2c065bc7fad1d49445061943fdd682209444b4bbf2376105bd9ca741"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    }
+  ],
+  "stable": true,
+  "exitCode": 0,
+  "stdout": "........................................................................ [ 94%]\r\n....                                                                     [100%]\r\n76 passed in 5.69s\r\n",
+  "stderr": "",
+  "elapsedMs": 10027
+}

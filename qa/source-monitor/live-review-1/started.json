@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "startedAt": "2026-09-09T16:17:07.165935+00:00",
+  "catalogSha256": "2bac6d661c827a57035abb5be4e65d9cddb92e5cb797c35a64709710cebcb4e4",
+  "baselineMeaning": "Tracked raw input metadata, not proof of the deployed bundle or current physical conditions. fetched_at is never a publisher update date.",
+  "stateRestored": false,
+  "previousStateSha256": null,
+  "noticeDelivery": "not_configured",
+  "sources": [],
+  "bounds": {
+    "maxRequests": 24,
+    "maxSeconds": 300,
+    "maxBytesPerResponse": 262144,
+    "requestSeconds": 10,
+    "perHostIntervalSeconds": 13
+  }
+}

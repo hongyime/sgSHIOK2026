@@ -1,5 +1,9 @@
 from datetime import UTC, datetime
 import json
+import socket
+import subprocess
+import sys
+import time
 
 import pytest
 
@@ -9,6 +13,17 @@ from scripts import source_metadata_http as transport
 
 URL = "https://api-production.data.gov.sg/v2/public/api/datasets/d_abc/metadata"
 NOW = datetime(2026, 9, 9, tzinfo=UTC)
+RETRY_AT = "2026-09-12T00:00:00+00:00"
+
+
+@pytest.fixture(autouse=True)
+def deny_live_network(monkeypatch):
+    def denied(*args, **kwargs):
+        raise AssertionError("Live network is forbidden in metadata HTTP tests")
+
+    monkeypatch.setattr(socket, "create_connection", denied)
+    monkeypatch.setattr(socket.socket, "connect", denied)
+    monkeypatch.setattr(socket.socket, "connect_ex", denied)
 
 
 class Response:
@@ -317,3 +332,194 @@ def test_cleanup_failure_is_recorded_without_exception_details():
 @pytest.mark.parametrize("date", ["0001-01-01T00:00:00+14:00", "9999-12-31T23:59:59-14:00"])
 def test_publisher_instant_overflow_is_unknown_not_a_crash(date):
     assert transport.publisher_instant(date) is None
+
+
+def test_late_429_headers_retain_cooldown_before_deadline_rejection():
+    response = Response(429, headers={"retry-after": "259200"})
+    response.delay = 6
+    client, requests, connections, _ = client_for([response], max_seconds=5)
+    result = client.get_json(URL)
+    assert result["outcome"] == "timeout"
+    assert result["statusCode"] == 429
+    assert result["retryAt"] == RETRY_AT
+    assert response.reads == 0 and connections[0].closed
+    assert client.get_json(URL) == {"outcome": "deferred", "attempted": False,
+                                    "reason": "host_rate_limited", "retryAt": RETRY_AT}
+    assert len(requests) == 1
+
+
+def test_observed_429_cleanup_error_preserves_cooldown_and_host_block():
+    response = Response(429, headers={"retry-after": "259200"})
+    client, requests, _, _ = client_for([response])
+    connect = client.connect
+
+    def factory(*args, **kwargs):
+        connection = connect(*args, **kwargs)
+        connection.close = lambda: (_ for _ in ()).throw(OSError("private cleanup failure"))
+        return connection
+
+    client.connect = factory
+    result = client.get_json(URL)
+    assert result["outcome"] == "http_error"
+    assert result["statusCode"] == 429 and result["retryAt"] == RETRY_AT
+    assert "private" not in json.dumps(result)
+    assert client.get_json(URL)["retryAt"] == RETRY_AT
+    assert len(requests) == 1 and response.reads == 0
+
+
+@pytest.mark.parametrize("outcome", ["rate_limited", "http_error", "timeout"])
+@pytest.mark.parametrize("late", [False, True])
+def test_parent_blocks_observed_429_independently_of_outcome_and_final_deadline(monkeypatch, outcome, late):
+    clock, calls = [0.0], []
+    completed = {"outcome": outcome, "attempted": True, "statusCode": 429, "retryAt": RETRY_AT}
+
+    def isolated(*args):
+        calls.append(args)
+        clock[0] = 6 if late else 1
+        return dict(completed)
+
+    monkeypatch.setattr(transport, "_isolated_request", isolated)
+    client = MetadataClient(monotonic=lambda: clock[0], max_seconds=5, wall_clock=lambda: NOW)
+    result = client.get_json(URL)
+    assert result["outcome"] == ("timeout" if late else outcome)
+    assert result["statusCode"] == 429 and result["retryAt"] == RETRY_AT
+    if late:
+        assert result["reason"] == "total_budget"
+    deferred = client.get_json(URL)
+    assert deferred["outcome"] == "deferred" and deferred["reason"] == "host_rate_limited"
+    assert deferred["retryAt"] == RETRY_AT and len(calls) == 1
+
+
+def rate_limit_frame(retry_at=RETRY_AT):
+    return json.dumps({"type": "rate_limit", "statusCode": 429, "retryAt": retry_at}) + "\n"
+
+
+@pytest.mark.parametrize("as_bytes", [False, True])
+def test_worker_timeout_retains_only_complete_safe_early_receipt(monkeypatch, as_bytes):
+    output = rate_limit_frame() + '{"outcome": "http_error", "private":'
+    if as_bytes:
+        output = output.encode()
+
+    def timeout(*args, **kwargs):
+        raise subprocess.TimeoutExpired(args[0], 1, output=output, stderr=b"private credentials")
+
+    monkeypatch.setattr(transport.subprocess, "run", timeout)
+    result = transport._isolated_request(URL, {}, 1024, 1)
+    assert result == {"outcome": "timeout", "attempted": True, "reason": "absolute_request_deadline",
+                      "statusCode": 429, "retryAt": RETRY_AT}
+
+
+@pytest.mark.parametrize("returncode,final", [
+    (0, {"outcome": "rate_limited", "attempted": True, "statusCode": 429, "retryAt": RETRY_AT}),
+    (0, {"outcome": "http_error", "attempted": True, "statusCode": 429, "retryAt": RETRY_AT,
+         "reason": "connection_cleanup_failed"}),
+    (1, None), (0, "incomplete final result"),
+])
+def test_completed_worker_keeps_early_429_on_cleanup_exit_or_bad_final_result(monkeypatch, returncode, final):
+    output = rate_limit_frame() + (json.dumps(final) if isinstance(final, dict) else final or "")
+    monkeypatch.setattr(transport.subprocess, "run", lambda *args, **kwargs:
+                        subprocess.CompletedProcess(args[0], returncode, output, "private failure"))
+    result = transport._isolated_request(URL, {}, 1024, 1)
+    assert result["statusCode"] == 429 and result["retryAt"] == RETRY_AT
+    assert result["outcome"] == (final["outcome"] if isinstance(final, dict) and returncode == 0 else "http_error")
+    assert "private" not in json.dumps(result)
+
+
+@pytest.mark.parametrize("output", [
+    rate_limit_frame().rstrip("\n"),
+    rate_limit_frame("not a date"),
+    '{"type":"rate_limit","statusCode":304,"retryAt":"2026-09-12T00:00:00+00:00"}\n',
+    '{"type":"rate_limit","statusCode":429,"retryAt":"2026-09-12T00:00:00+00:00","secret":"x"}\n',
+])
+def test_partial_or_malformed_progress_is_not_an_observed_cooldown(monkeypatch, output):
+    def timeout(*args, **kwargs):
+        raise subprocess.TimeoutExpired(args[0], 1, output=output)
+
+    monkeypatch.setattr(transport.subprocess, "run", timeout)
+    result = transport._isolated_request(URL, {}, 1024, 1)
+    assert result == {"outcome": "timeout", "attempted": True, "reason": "absolute_request_deadline"}
+
+
+def test_real_worker_emits_429_before_stalled_cleanup_and_is_killed_without_network(monkeypatch):
+    processes = []
+    original = transport.subprocess.Popen
+
+    def capture(*args, **kwargs):
+        process = original(*args, **kwargs)
+        processes.append(process)
+        assert "owner-secret" not in str(args)
+        assert "owner-secret" not in str(kwargs.get("env"))
+        return process
+
+    child = '''
+import http.client, runpy, socket, sys, time
+def denied(*args, **kwargs):
+    raise AssertionError("No network permitted")
+socket.create_connection = denied
+socket.socket.connect = denied
+class Response:
+    status = 429
+    def getheader(self, name, default=None):
+        return "259200" if name.lower() == "retry-after" else default
+class Connection:
+    def __init__(self, *args, **kwargs): pass
+    def request(self, *args, **kwargs): pass
+    def getresponse(self): return Response()
+    def close(self): time.sleep(20)
+http.client.HTTPSConnection = Connection
+sys.argv = ["scripts.source_metadata_http", "--worker"]
+runpy.run_module("scripts.source_metadata_http", run_name="__main__")
+'''
+    monkeypatch.setattr(transport, "_WORKER_COMMAND", (sys.executable, "-B", "-c", child))
+    monkeypatch.setattr(transport.subprocess, "Popen", capture)
+    started = time.monotonic()
+    result = transport._isolated_request(
+        "https://datamall2.mytransport.sg/ltaodataservice/GeospatialWholeIsland?ID=CoveredLinkWay",
+        {"AccountKey": "owner-secret"}, 1024, 3)
+    assert result["outcome"] == "timeout"
+    assert result["statusCode"] == 429
+    assert (datetime.fromisoformat(result["retryAt"]) - datetime.now(UTC)).total_seconds() > 71 * 3600
+    assert "owner-secret" not in json.dumps(result)
+    assert processes and all(process.poll() is not None for process in processes)
+    assert time.monotonic() - started < 10
+
+
+def test_early_429_receipt_precedes_deadline_and_cleanup_and_contains_only_safe_fields():
+    events = []
+    response = Response(429, body=b"private body", headers={"retry-after": "259200"})
+    response.delay = 6
+    client, _, _, _ = client_for([response], max_seconds=5,
+                                rate_limit_receipt=lambda value: events.append(("receipt", value)))
+    connect = client.connect
+
+    def factory(*args, **kwargs):
+        connection = connect(*args, **kwargs)
+
+        def close():
+            events.append(("close", None))
+            raise OSError("private cleanup error")
+
+        connection.close = close
+        return connection
+
+    client.connect = factory
+    result = client.get_json(URL)
+    assert events == [("receipt", {"statusCode": 429, "retryAt": RETRY_AT}), ("close", None)]
+    assert result["outcome"] == "http_error" and result["retryAt"] == RETRY_AT
+    assert response.reads == 0
+
+
+def test_early_429_cannot_be_overridden_by_a_conflicting_final_304(monkeypatch):
+    output = rate_limit_frame() + json.dumps({"outcome": "not_modified", "attempted": True, "statusCode": 304})
+    monkeypatch.setattr(transport.subprocess, "run", lambda *args, **kwargs:
+                        subprocess.CompletedProcess(args[0], 0, output, ""))
+    assert transport._isolated_request(URL, {}, 1024, 1) == {
+        "outcome": "http_error", "attempted": True, "reason": "worker_failure",
+        "statusCode": 429, "retryAt": RETRY_AT}
+
+
+def test_completed_worker_without_429_still_accepts_original_single_result_protocol(monkeypatch):
+    expected = {"outcome": "not_modified", "attempted": True, "statusCode": 304}
+    monkeypatch.setattr(transport.subprocess, "run", lambda *args, **kwargs:
+                        subprocess.CompletedProcess(args[0], 0, json.dumps(expected), ""))
+    assert transport._isolated_request(URL, {}, 1024, 1) == expected

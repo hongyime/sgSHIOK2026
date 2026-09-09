@@ -6,6 +6,7 @@ from pathlib import Path
 
 import pytest
 
+from scripts import check_source_metadata as monitor
 from scripts.check_source_metadata import MonitorError, run_check
 from scripts.source_metadata_state import acknowledge, transition
 
@@ -70,6 +71,10 @@ def previous_state(project, state):
     envelope = {"schemaVersion": 1, "catalogSha256": sha((root / "source-metadata-catalog.json").read_bytes()),
                 "finishedAt": "2026-09-09T00:00:00Z", "sources": {catalog["sources"][0]["key"]: state}}
     path.write_text(json.dumps(envelope), encoding="utf8")
+    report = {"schemaVersion": 1, "catalogSha256": envelope["catalogSha256"], "finishedAt": envelope["finishedAt"],
+              "exitCode": 1, "runStatus": "attention_required",
+              "persistence": {"status": "verified", "stateSha256": sha(path.read_bytes())}}
+    (path.parent / "report.json").write_text(json.dumps(report), encoding="utf8")
     return path
 
 
@@ -300,3 +305,188 @@ def test_runtime_anchor_never_uses_git_identity_in_place_of_recorded_local_bytes
     with pytest.raises(MonitorError, match="STOP_INPUT_MISMATCH"):
         run(project, "run2", client)
     assert not client.calls
+
+
+def test_success_report_follows_verified_state_persistence(project, monkeypatch):
+    writes = []
+    original = monitor._write
+
+    def inspect(path, value):
+        if path.name == "report.pending.json":
+            assert writes == ["started.json", "state.json"]
+            assert value["persistence"]["status"] == "verified"
+            assert value["persistence"]["stateSha256"] == sha((path.parent / "state.json").read_bytes())
+        original(path, value)
+        writes.append(path.name)
+
+    monkeypatch.setattr(monitor, "_write", inspect)
+    (report, code), _ = run(project)
+    assert code == 0 and report["persistence"]["status"] == "verified"
+    assert writes == ["started.json", "state.json", "report.pending.json"]
+    output = project[0] / "qa/source-monitor/run1"
+    assert (output / "report.json").read_bytes() == (output / "report.pending.json").read_bytes()
+
+
+@pytest.mark.parametrize("partial", [False, True])
+def test_failed_state_write_can_only_leave_a_failure_report(project, monkeypatch, partial):
+    original = monitor._write
+
+    def fail(path, value):
+        if path.name == "state.json":
+            if partial:
+                path.write_bytes(b'{"partial":')
+            raise OSError("private disk diagnostic")
+        original(path, value)
+
+    monkeypatch.setattr(monitor, "_write", fail)
+    (report, code), _ = run(project)
+    assert code == 2 and report["runStatus"] == "stopped"
+    assert report["persistence"] == {"status": "failed", "reason": "state_persistence_failed"}
+    stored = json.loads((project[0] / "qa/source-monitor/run1/report.json").read_bytes())
+    assert stored["exitCode"] == 2 and "private disk diagnostic" not in json.dumps(stored)
+    assert len(stored["sources"]) == 1
+
+
+@pytest.mark.parametrize("replacement", [b"{}", b"{", b" " * (1024 * 1024 + 1)],
+                         ids=["different-valid-json", "truncated-json", "oversized-state"])
+def test_state_readback_failure_is_not_reported_as_success(project, monkeypatch, replacement):
+    original = monitor._write
+
+    def change(path, value):
+        original(path, value)
+        if path.name == "state.json":
+            path.write_bytes(replacement)
+
+    monkeypatch.setattr(monitor, "_write", change)
+    (report, code), _ = run(project)
+    assert code == 2 and report["persistence"]["status"] == "failed"
+
+
+def test_state_fsync_failure_does_not_authorize_a_completion_report_or_restore(project, monkeypatch):
+    original_write, original_fsync = monitor._write, monitor.os.fsync
+    active = []
+
+    def write(path, value):
+        active.append(path.name)
+        try:
+            original_write(path, value)
+        finally:
+            active.pop()
+
+    def fsync(fd):
+        if active and active[-1] == "state.json":
+            raise OSError("private sync diagnostic")
+        return original_fsync(fd)
+
+    monkeypatch.setattr(monitor, "_write", write)
+    monkeypatch.setattr(monitor.os, "fsync", fsync)
+    (report, code), _ = run(project)
+    assert code == 2 and report["persistence"]["status"] == "failed"
+    prior = project[0] / "qa/source-monitor/run1/state.json"
+    client = Client()
+    with pytest.raises(MonitorError):
+        run(project, "run2", client, prior)
+    assert not client.calls
+
+
+@pytest.mark.parametrize("case", ["missing", "bad_hash", "failed", "unverified", "different_catalog", "different_finish"])
+def test_previous_state_requires_matching_verified_completion_receipt(project, case):
+    source = project[1]["sources"][0]
+    state = transition(source, None, {"outcome": "timeout", "attempted": True}, NOW)
+    path = previous_state(project, state)
+    report_path = path.parent / "report.json"
+    report = json.loads(report_path.read_bytes())
+    if case == "missing":
+        report_path.write_bytes(b"")
+    else:
+        if case == "bad_hash":
+            report["persistence"]["stateSha256"] = "0" * 64
+        elif case == "failed":
+            report.update(exitCode=2, runStatus="stopped")
+        elif case == "unverified":
+            report["persistence"]["status"] = "failed"
+        elif case == "different_catalog":
+            report["catalogSha256"] = "f" * 64
+        elif case == "different_finish":
+            report["finishedAt"] = "2026-09-08T00:00:00Z"
+        report_path.write_text(json.dumps(report))
+    client = Client()
+    with pytest.raises(MonitorError):
+        run(project, client=client, previous=path)
+    assert not client.calls
+
+
+@pytest.mark.parametrize("when", ["before-write", "after-write"])
+def test_report_write_or_close_error_cannot_publish_success(project, monkeypatch, when):
+    original = monitor._write
+
+    def fail(path, value):
+        if path.name in {"report.pending.json", "report.json"}:
+            if when == "after-write":
+                original(path, value)
+            raise OSError("private report write or close diagnostic")
+        original(path, value)
+
+    monkeypatch.setattr(monitor, "_write", fail)
+    with pytest.raises(MonitorError, match="STOP_REPORT_PUBLICATION"):
+        run(project)
+    output = project[0] / "qa/source-monitor/run1"
+    assert not (output / "report.json").exists()
+    with pytest.raises(MonitorError):
+        run(project, "run2", previous=output / "state.json")
+
+
+def test_report_fsync_error_cannot_publish_success(project, monkeypatch):
+    original_write, original_fsync = monitor._write, monitor.os.fsync
+    active = []
+
+    def write(path, value):
+        active.append(path.name)
+        try:
+            original_write(path, value)
+        finally:
+            active.pop()
+
+    def fsync(fd):
+        if active and active[-1] in {"report.pending.json", "report.json"}:
+            raise OSError("private report fsync diagnostic")
+        original_fsync(fd)
+
+    monkeypatch.setattr(monitor, "_write", write)
+    monkeypatch.setattr(monitor.os, "fsync", fsync)
+    with pytest.raises(MonitorError, match="STOP_REPORT_PUBLICATION"):
+        run(project)
+    assert not (project[0] / "qa/source-monitor/run1/report.json").exists()
+
+
+def test_report_readback_mismatch_never_publishes_success(project, monkeypatch):
+    original = monitor._write
+
+    def alter(path, value):
+        original(path, value)
+        if path.name in {"report.pending.json", "report.json"}:
+            path.write_bytes(b"{}")
+
+    monkeypatch.setattr(monitor, "_write", alter)
+    with pytest.raises(MonitorError, match="STOP_REPORT_READBACK_MISMATCH"):
+        run(project)
+    assert not (project[0] / "qa/source-monitor/run1/report.json").exists()
+
+
+@pytest.mark.parametrize("existing", [False, True])
+def test_report_publication_error_preserves_prior_files_without_fallback_write(project, monkeypatch, existing):
+    def fail_link(source, target):
+        if existing:
+            Path(target).write_bytes(b"another writer's file")
+            raise FileExistsError("existing report")
+        raise OSError("hard links unavailable")
+
+    monkeypatch.setattr(monitor.os, "link", fail_link)
+    with pytest.raises(MonitorError, match="STOP_REPORT_PUBLICATION"):
+        run(project)
+    output = project[0] / "qa/source-monitor/run1"
+    assert (output / "report.pending.json").exists()
+    if existing:
+        assert (output / "report.json").read_bytes() == b"another writer's file"
+    else:
+        assert not (output / "report.json").exists()

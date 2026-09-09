@@ -137,6 +137,13 @@ def _restore(root: Path, previous: Path | None, catalog: dict, catalog_sha: str,
             or not isinstance(value["sources"], dict)
             or set(value["sources"]) != {source["key"] for source in catalog["sources"]}):
         raise MonitorError("STOP_PRIOR_STATE_INVALID: catalog identity/schema/clock/source set differs; no requests executed")
+    completion = _json(_read(_safe_path(root, previous.with_name("report.json"))))
+    if (not isinstance(completion, dict) or type(completion.get("schemaVersion")) is not int or completion["schemaVersion"] != 1
+            or type(completion.get("exitCode")) is not int or completion["exitCode"] not in (0, 1)
+            or completion.get("runStatus") != {0: "ok", 1: "attention_required"}[completion["exitCode"]]
+            or completion.get("catalogSha256") != catalog_sha or completion.get("finishedAt") != value["finishedAt"]
+            or completion.get("persistence") != {"status": "verified", "stateSha256": _sha(content)}):
+        raise MonitorError("STOP_PRIOR_STATE_INVALID: no matching verified completion receipt; no requests executed")
     restored = {}
     for source in catalog["sources"]:
         try:
@@ -153,6 +160,22 @@ def _write(path: Path, value: Any) -> None:
     with path.open("x", encoding="utf8", newline="\n") as stream:
         json.dump(value, stream, indent=2, ensure_ascii=True, allow_nan=False)
         stream.write("\n")
+        stream.flush()
+        os.fsync(stream.fileno())
+
+
+def _publish_report(output: Path, report: dict) -> None:
+    """Expose only a closed, synced report; the staged file is retained, never replaced."""
+    pending = output / "report.pending.json"
+    try:
+        _write(pending, report)
+        expected = (json.dumps(report, indent=2, ensure_ascii=True, allow_nan=False) + "\n").encode("utf8")
+        if _read(pending) != expected:
+            raise MonitorError("STOP_REPORT_READBACK_MISMATCH")
+        # Same-directory hard-link publication is atomic and fails if the target exists.
+        os.link(pending, output / "report.json")
+    except OSError as error:
+        raise MonitorError("STOP_REPORT_PUBLICATION: no completion committed; preserve staged files and inspect local IO") from error
 
 
 def run_check(root: Path, output: Path, *, previous: Path | None = None,
@@ -228,11 +251,22 @@ def run_check(root: Path, output: Path, *, previous: Path | None = None,
     except MonitorError as error:
         code = 2
         report["integrity"] = {"status": "failed", "before": before, "error": str(error)}
+    report["persistence"] = {"status": "skipped", "reason": "integrity_failed"}
+    if code != 2:
+        envelope = {"schemaVersion": 1, "catalogSha256": catalog_sha, "finishedAt": report["finishedAt"], "sources": states}
+        try:
+            _write(output / "state.json", envelope)
+            saved = _read(output / "state.json")
+            expected = (json.dumps(envelope, indent=2, ensure_ascii=True, allow_nan=False) + "\n").encode("utf8")
+            if saved != expected:
+                raise MonitorError("STOP_STATE_READBACK_MISMATCH")
+            report["persistence"] = {"status": "verified", "stateSha256": _sha(saved)}
+        except (OSError, ValueError):
+            code = 2
+            report["persistence"] = {"status": "failed", "reason": "state_persistence_failed"}
     report["exitCode"] = code
     report["runStatus"] = {0: "ok", 1: "attention_required", 2: "stopped"}[code]
-    _write(output / "report.json", report)
-    if code != 2:
-        _write(output / "state.json", {"schemaVersion": 1, "catalogSha256": catalog_sha, "finishedAt": report["finishedAt"], "sources": states})
+    _publish_report(output, report)
     return report, code
 
 

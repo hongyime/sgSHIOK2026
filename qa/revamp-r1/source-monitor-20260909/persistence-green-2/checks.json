@@ -1,0 +1,63 @@
+{
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "args": [
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_source_metadata_cli.py",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\source-monitor-tests-persistence-green-2",
+    "-q"
+  ],
+  "before": [
+    {
+      "path": "tests/test_source_metadata_cli.py",
+      "sha256": "fef4cc8d8cbe460fc89b5c2a3be98de71ec156e81d0b959d4a80a3615d935408"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": "4dd097a98853bddf9f820c59962b18b0bc667208bc32feab07ab8a2e18edc1c0"
+    },
+    {
+      "path": "scripts/build_source_metadata_catalog.py",
+      "sha256": "50c4a57dba18eaa46e16c7c84431be36d16914e1228ec4d1f0f93f562667d261"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "96986b0726b30959a4b37867a714ec56cd8e6b77248e7758bf1b788b12810b7b"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    }
+  ],
+  "after": [
+    {
+      "path": "tests/test_source_metadata_cli.py",
+      "sha256": "fef4cc8d8cbe460fc89b5c2a3be98de71ec156e81d0b959d4a80a3615d935408"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": "4dd097a98853bddf9f820c59962b18b0bc667208bc32feab07ab8a2e18edc1c0"
+    },
+    {
+      "path": "scripts/build_source_metadata_catalog.py",
+      "sha256": "50c4a57dba18eaa46e16c7c84431be36d16914e1228ec4d1f0f93f562667d261"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "aae6234a2c065bc7fad1d49445061943fdd682209444b4bbf2376105bd9ca741"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    }
+  ],
+  "stable": false,
+  "exitCode": 0,
+  "stdout": ".......................................................                  [100%]\r\n55 passed in 51.21s\r\n",
+  "stderr": "",
+  "elapsedMs": 63294
+}

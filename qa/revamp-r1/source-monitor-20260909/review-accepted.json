@@ -1,0 +1,20 @@
+{
+  "reviewer": "Anscombe",
+  "scope": "Independent read-only review of final source identities and actual local live receipts; no writes, tests or live requests by reviewer.",
+  "disposition": "Accepted for commit; no remaining receipt-review blocker.",
+  "audit": "qa/revamp-r1/source-monitor-20260909/review-fixes-summary.json",
+  "checksConfirmed": 15,
+  "distinctSourceAndInputIdentitiesConfirmed": 11,
+  "evidenceArithmetic": "197711 committed prefix + 6272 appended = 203983 bytes",
+  "focusedTestArithmetic": "31 catalog + 61 CLI + 76 HTTP + 85 state = 253",
+  "reportAndPendingBytesMatch": true,
+  "reportAndStateHashesMatch": true,
+  "liveOutcome": "Exit 1 means attention required; 14 requests produced 12 observations and two timeouts. All 24 sources were classified, not verified current.",
+  "limits": [
+    "Not a full project-suite pass.",
+    "Sixteen notice intents remain undelivered.",
+    "Metadata dates do not establish payload freshness.",
+    "Timeout transfer bytes and individual request timings remain unmeasured in this receipt.",
+    "T23 remains PARTIAL pending approved operational activation and observed scheduling and delivery."
+  ]
+}

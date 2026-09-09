@@ -67,24 +67,59 @@ def _retry_at(value: str | None, now: datetime) -> str:
         return "9999-12-31T23:59:59+00:00"
 
 
+def _cooldown(result: dict[str, Any]) -> dict[str, Any]:
+    retry_at = publisher_instant(result.get("retryAt"))
+    if type(result.get("statusCode")) is int and result["statusCode"] == 429 and retry_at:
+        return {"statusCode": 429, "retryAt": retry_at}
+    return {}
+
+
+def _worker_output(output: str | bytes | None) -> tuple[dict[str, Any], str]:
+    """Read at most one complete, bounded early receipt; never trust a partial line."""
+    text = output.decode("utf-8", errors="replace") if isinstance(output, bytes) else output or ""
+    line, newline, remaining = text.partition("\n")
+    if newline and len(line) <= 256:
+        try:
+            receipt = json.loads(line)
+            if (isinstance(receipt, dict) and set(receipt) == {"type", "statusCode", "retryAt"}
+                    and receipt["type"] == "rate_limit"):
+                cooldown = _cooldown(receipt)
+                if cooldown:
+                    return cooldown, remaining
+        except (ValueError, RecursionError):
+            pass
+    return {}, text
+
+
+def _emit_rate_limit(cooldown: dict[str, Any]) -> None:
+    # The single early frame has no URL, credentials, raw headers or response body.
+    print(json.dumps({"type": "rate_limit", **cooldown}, separators=(",", ":")), flush=True)
+
+
 def _isolated_request(url: str, headers: dict[str, str], max_bytes: int, seconds: float) -> dict[str, Any]:
     """The parent timeout kills and waits for a stalled DNS/TLS/header/body worker."""
     env = {key: os.environ[key] for key in ("SYSTEMROOT", "WINDIR", "SYSTEMDRIVE", "PATH") if key in os.environ}
     env.update(PYTHONUTF8="1", PYTHONDONTWRITEBYTECODE="1", TEMP=str(_ROOT / "tmp"), TMP=str(_ROOT / "tmp"))
+    cooldown: dict[str, Any] = {}
     try:
         worker = subprocess.run(_WORKER_COMMAND, cwd=_ROOT, input=json.dumps({"url": url, "headers": headers, "maxBytes": max_bytes, "seconds": seconds}),
                                 capture_output=True, text=True, encoding="utf-8", timeout=seconds, env=env,
                                 creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+        cooldown, final = _worker_output(worker.stdout)
         if worker.returncode != 0:
-            return {"outcome": "http_error", "attempted": True, "reason": "worker_failure"}
-        result = json.loads(worker.stdout)
+            return {"outcome": "http_error", "attempted": True, "reason": "worker_failure", **cooldown}
+        result = json.loads(final)
         if not isinstance(result, dict) or not isinstance(result.get("outcome"), str):
             raise ValueError("Invalid worker result")
+        if cooldown and (result.get("statusCode") != 429 or result["outcome"] not in {"rate_limited", "timeout", "http_error"}):
+            raise ValueError("Conflicting worker result")
+        result.update(cooldown)
         return result
-    except subprocess.TimeoutExpired:
-        return {"outcome": "timeout", "attempted": True, "reason": "absolute_request_deadline"}
-    except (ValueError, OSError):
-        return {"outcome": "http_error", "attempted": True, "reason": "worker_failure"}
+    except subprocess.TimeoutExpired as error:
+        cooldown, _ = _worker_output(error.stdout)
+        return {"outcome": "timeout", "attempted": True, "reason": "absolute_request_deadline", **cooldown}
+    except (ValueError, OSError, RecursionError):
+        return {"outcome": "http_error", "attempted": True, "reason": "worker_failure", **cooldown}
 
 
 class MetadataClient:
@@ -93,7 +128,8 @@ class MetadataClient:
                  connection_factory: Callable[..., Any] | None = None,
                  monotonic: Callable[[], float] = time.monotonic,
                  sleep: Callable[[float], None] = time.sleep,
-                 wall_clock: Callable[[], datetime] = lambda: datetime.now(UTC)) -> None:
+                 wall_clock: Callable[[], datetime] = lambda: datetime.now(UTC),
+                 rate_limit_receipt: Callable[[dict[str, Any]], None] | None = None) -> None:
         if (type(max_requests) is not int or not 1 <= max_requests <= 24
                 or type(max_bytes) is not int or not 1 <= max_bytes <= 256 * 1024
                 or not 0 < max_seconds <= 300 or not 0 < request_seconds <= 10
@@ -105,6 +141,7 @@ class MetadataClient:
         self.budget_seconds = max_seconds
         self.request_seconds, self.interval = request_seconds, interval_seconds
         self.connect = connection_factory
+        self.rate_limit_receipt = rate_limit_receipt
         self.next_host: dict[str, float] = {}
         self.blocked_hosts: dict[str, str] = {}
         self.stats: dict[str, Any] = {"requests": 0, "bodyBytes": 0, "responses": []}
@@ -132,10 +169,13 @@ class MetadataClient:
         self.stats["requests"] += 1
         if self.connect is None:
             result = _isolated_request(url, extra, self.max_bytes, min(self.request_seconds, self.deadline - self.clock()))
+            cooldown = _cooldown(result)
             if self.clock() >= self.deadline:
-                result = {"outcome": "timeout", "attempted": True, "reason": "total_budget"}
-            if result["outcome"] == "rate_limited":
-                self.blocked_hosts[host] = result["retryAt"]
+                result.pop("data", None)
+                result.pop("etag", None)
+                result.update(outcome="timeout", attempted=True, reason="total_budget")
+            if cooldown:
+                self.blocked_hosts[host] = cooldown["retryAt"]
             self.stats["bodyBytes"] += result.get("bodyBytes", 0)
             self.stats["responses"].append({"url": url, **{k: v for k, v in result.items() if k not in {"data", "etag"}}})
             return result
@@ -146,13 +186,16 @@ class MetadataClient:
             connection.request("GET", target, headers={"Accept": "application/json", "Accept-Encoding": "identity",
                                "User-Agent": "sgSHIOK-Metadata-Monitor/1.0", **extra})
             response = connection.getresponse()
-            if self.clock() >= self.deadline:
-                result.update(outcome="timeout", reason="total_budget")
-                return result
             result["statusCode"] = response.status
             if response.status == 429:
                 result.update(outcome="rate_limited", retryAt=_retry_at(response.getheader("Retry-After"), self.wall_clock()))
                 self.blocked_hosts[host] = result["retryAt"]
+                if self.rate_limit_receipt is not None:
+                    self.rate_limit_receipt(_cooldown(result))
+            if self.clock() >= self.deadline:
+                result.update(outcome="timeout", reason="total_budget")
+                return result
+            if response.status == 429:
                 return result
             if response.status == 304:
                 result["outcome"] = "not_modified"
@@ -291,5 +334,6 @@ if __name__ == "__main__":
         raise SystemExit("Internal metadata worker requires the repository root")
     request = json.loads(sys.stdin.read(32769))
     worker_client = MetadataClient(max_requests=1, max_bytes=request["maxBytes"], max_seconds=request["seconds"],
-                                   request_seconds=request["seconds"], connection_factory=http.client.HTTPSConnection)
+                                   request_seconds=request["seconds"], connection_factory=http.client.HTTPSConnection,
+                                   rate_limit_receipt=_emit_rate_limit)
     json.dump(worker_client.get_json(request["url"], request["headers"]), sys.stdout)

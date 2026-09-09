@@ -1,0 +1,492 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "base": "46890846fdd1657ee803eca96800aa94f05e3cfe",
+  "checks": {
+    "testsPassed": true,
+    "testedSourcesUnchanged": true,
+    "liveSourcesAndInputsUnchanged": true,
+    "exactLocalInputAnchors": true,
+    "catalogIdentity": true,
+    "reportPublication": true,
+    "stateCompletion": true,
+    "recordedAttention": true,
+    "exactOutcomeCounts": true,
+    "exactAttemptCount": true,
+    "reportMatchesJournal": true,
+    "reportMatchesState": true,
+    "noDeliveredNoticeClaim": true,
+    "integrityPassed": true,
+    "evidenceAppendOnly": true
+  },
+  "identities": [
+    {
+      "path": "tests/test_source_metadata_catalog.py",
+      "sha256": "6a331a47b2a67104da56a04aa11f49b0d1bd5df1997d40628d5fd63acf7a1925"
+    },
+    {
+      "path": "tests/test_source_metadata_cli.py",
+      "sha256": "4f5d7ce37736302fd18d4a9d24dc9cbca88e66ed28b22ae27dadd93e40867d11"
+    },
+    {
+      "path": "tests/test_source_metadata_http.py",
+      "sha256": "b57d0eb1fec696451889cd12aee5dc3ffb969ba7a375daf8c4b13f82b1babcb3"
+    },
+    {
+      "path": "tests/test_source_metadata_state.py",
+      "sha256": "dc8fb96cf764b9876e5982e74b2fd3439f6623e4fb282cfa0c0b5aa9a95413e3"
+    },
+    {
+      "path": "scripts/build_source_metadata_catalog.py",
+      "sha256": "50c4a57dba18eaa46e16c7c84431be36d16914e1228ec4d1f0f93f562667d261"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "aae6234a2c065bc7fad1d49445061943fdd682209444b4bbf2376105bd9ca741"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": "9e56b6318194a742f3cb8f553e1690c343438544ef9537ac47f321a75568b6e5"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    }
+  ],
+  "liveIdentities": [
+    {
+      "path": "scripts/build_source_metadata_catalog.py",
+      "sha256": "50c4a57dba18eaa46e16c7c84431be36d16914e1228ec4d1f0f93f562667d261"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": "9e56b6318194a742f3cb8f553e1690c343438544ef9537ac47f321a75568b6e5"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "aae6234a2c065bc7fad1d49445061943fdd682209444b4bbf2376105bd9ca741"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    },
+    {
+      "path": "pipeline/config/sources.yaml",
+      "sha256": "a693817607edbafa7710598e408f369b2f8b255de0c613288fa817c78bca22cf"
+    },
+    {
+      "path": "raw/manifest.json",
+      "sha256": "ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a"
+    },
+    {
+      "path": "source-metadata-catalog.json",
+      "sha256": "2bac6d661c827a57035abb5be4e65d9cddb92e5cb797c35a64709710cebcb4e4"
+    }
+  ],
+  "receipts": [
+    {
+      "path": "qa/revamp-r1/source-monitor-20260909/http-review-red-1/checks.json",
+      "bytes": 21736,
+      "sha256": "207c2d78bd4df58f1cc2349a6fd97f998574ae51425342ab615e892eafe1c198",
+      "exitCode": 1,
+      "stable": true,
+      "result": "13 failed, 60 passed in 7.30s"
+    },
+    {
+      "path": "qa/revamp-r1/source-monitor-20260909/http-review-green-1/checks.json",
+      "bytes": 1477,
+      "sha256": "61af9a6ec264fb71c3d05f76758bd414229544660511f734edad5f29a4fec025",
+      "exitCode": 0,
+      "stable": true,
+      "result": "76 passed in 5.69s"
+    },
+    {
+      "path": "qa/revamp-r1/source-monitor-20260909/persistence-red-1/checks.json",
+      "bytes": 4226579,
+      "sha256": "6a7d5e29fc8abd3070122a56c1ef6dc8def8458852a7dd63f46fe0305e257434",
+      "exitCode": 1,
+      "stable": true,
+      "result": "12 failed, 42 passed, 2 errors in 9.61s"
+    },
+    {
+      "path": "qa/revamp-r1/source-monitor-20260909/persistence-green-1/checks.json",
+      "bytes": 4203218,
+      "sha256": "afe72814bfe02458239df6aecb78ff309cde5cf317b6f4893f232178325f6710",
+      "exitCode": 1,
+      "stable": true,
+      "result": "54 passed, 2 errors in 16.19s"
+    },
+    {
+      "path": "qa/revamp-r1/source-monitor-20260909/persistence-green-2/checks.json",
+      "bytes": 1993,
+      "sha256": "04d95680cd4c54fd3debc5bd870f08e674e1bccc15ee6e842545f11a94c7586c",
+      "exitCode": 0,
+      "stable": false,
+      "result": "55 passed in 51.21s"
+    },
+    {
+      "path": "qa/revamp-r1/source-monitor-20260909/review-fixes-green-1/checks.json",
+      "bytes": 3269,
+      "sha256": "de8abdb67257b4ac0b12faf12c4d0cd1a0f1a39ebccd606435eba0115a87bd7f",
+      "exitCode": 0,
+      "stable": true,
+      "result": "247 passed in 19.89s"
+    },
+    {
+      "path": "qa/revamp-r1/source-monitor-20260909/report-publication-red-1/checks.json",
+      "bytes": 15006,
+      "sha256": "c85519aada7c32bc0a8d969529f209f2e321cdf4fe83fe7ce19083213a51de30",
+      "exitCode": 1,
+      "stable": true,
+      "result": "7 failed, 54 passed in 19.30s"
+    },
+    {
+      "path": "qa/revamp-r1/source-monitor-20260909/review-fixes-green-2/checks.json",
+      "bytes": 3269,
+      "sha256": "a1641791bcf91eb5e735ab7973b7641ef8737f1ba248c91d1f8902df8422f62f",
+      "exitCode": 0,
+      "stable": true,
+      "result": "253 passed in 32.59s"
+    }
+  ],
+  "tests": {
+    "count": 253,
+    "files": 4,
+    "arithmetic": "31 catalog + 61 CLI + 76 HTTP + 85 state = 253",
+    "fullProjectSuite": false
+  },
+  "live": {
+    "output": "qa/source-monitor/live-review-1",
+    "commandReceipt": "qa/revamp-r1/source-monitor-20260909/live-review-1/command.json",
+    "exitCode": 1,
+    "wrapperSeconds": 172.922,
+    "checkerSeconds": 171.25,
+    "outcomeArithmetic": "12 observed + 2 timeout + 3 credentials_required + 3 manual + 4 unsupported = 24",
+    "attemptArithmetic": "12 observed + 2 timeout = 14",
+    "bounds": {
+      "maxRequests": 24,
+      "maxSeconds": 300,
+      "maxBytesPerResponse": 262144,
+      "requestSeconds": 10,
+      "perHostIntervalSeconds": 13
+    },
+    "transport": {
+      "requests": 14,
+      "bodyBytes": 18169,
+      "responses": [
+        {
+          "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_3f960c10fed6145404ca7b821f263b87/metadata",
+          "outcome": "response",
+          "attempted": true,
+          "statusCode": 200,
+          "bodyBytes": 2663,
+          "bodySha256": "100a4fe318c2539cf73c3864d56b3b9e69d5585d69f30ec0e1c52ea397974b3f"
+        },
+        {
+          "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_16b157c52ed637edd6ba1232e026258d/metadata",
+          "outcome": "response",
+          "attempted": true,
+          "statusCode": 200,
+          "bodyBytes": 1275,
+          "bodySha256": "ea9b622795edb93d55ffb257bc441cd98fc8dd2f9a8d2d9850059cfce133b5b2"
+        },
+        {
+          "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_ca109de3e83efdd9a10bc5f3dda70a98/metadata",
+          "outcome": "response",
+          "attempted": true,
+          "statusCode": 200,
+          "bodyBytes": 1006,
+          "bodySha256": "e2384495f85e1461faa1b573264f30f9e4d62509c0439a990ec1d5ce58c8747e"
+        },
+        {
+          "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_69141275d795e1fe2e496dda7c267d8d/metadata",
+          "outcome": "response",
+          "attempted": true,
+          "statusCode": 200,
+          "bodyBytes": 573,
+          "bodySha256": "3cbd16629a2241a23c1129c272a5a611b89b3fd90de148ef4d5b68aa60171a35"
+        },
+        {
+          "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_b39d3a0871985372d7e1637193335da5/metadata",
+          "outcome": "response",
+          "attempted": true,
+          "statusCode": 200,
+          "bodyBytes": 941,
+          "bodySha256": "9ef491d698b4c15d3d32972e1af6fb5aa236d49382b3278f0648b8010a476c7f"
+        },
+        {
+          "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_9233bdb05de067c3b3db21b836467a6a/metadata",
+          "outcome": "timeout",
+          "attempted": true,
+          "reason": "absolute_request_deadline"
+        },
+        {
+          "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_644ff187b6d14d6316f47284a4a6c81f/metadata",
+          "outcome": "timeout",
+          "attempted": true,
+          "reason": "absolute_request_deadline"
+        },
+        {
+          "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_af948e3f29cd12bc8b0caea19ae68286/metadata",
+          "outcome": "response",
+          "attempted": true,
+          "statusCode": 200,
+          "bodyBytes": 1256,
+          "bodySha256": "53953d78bda44ed55e8cec8d3f5dcf17b6ce4fc9d8162ed82c71043875c9a567"
+        },
+        {
+          "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_a69ef89737379f231d2ae93fd1c5707f/metadata",
+          "outcome": "response",
+          "attempted": true,
+          "statusCode": 200,
+          "bodyBytes": 1487,
+          "bodySha256": "4f20003b0dc1b933f7954a610f8b43ef5f5b83053fae65c63ea5d47a13e5e55c"
+        },
+        {
+          "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_306cc1018cb733346681883ee6d73054/metadata",
+          "outcome": "response",
+          "attempted": true,
+          "statusCode": 200,
+          "bodyBytes": 1859,
+          "bodySha256": "36136af18b61bdf3c8b92d6e19ebd017795935dcdb1f8e0cba2bb5a53cab90fa"
+        },
+        {
+          "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_b1d2b840ab9e993570c037b706b39bb8/metadata",
+          "outcome": "response",
+          "attempted": true,
+          "statusCode": 200,
+          "bodyBytes": 2403,
+          "bodySha256": "3cc348cba4a3a6971c2ca19813170d07540c2301f715731c7cff88cf33cb7567"
+        },
+        {
+          "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_4765db0e87b9c86336792efe8a1f7a66/metadata",
+          "outcome": "response",
+          "attempted": true,
+          "statusCode": 200,
+          "bodyBytes": 1961,
+          "bodySha256": "2c55b3cbf746ba664c2f1a4a34de0ab435160a51a82834b03fa374416008efee"
+        },
+        {
+          "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_e4495201ba4f77fa2ef9855bad6d2cd1/metadata",
+          "outcome": "response",
+          "attempted": true,
+          "statusCode": 200,
+          "bodyBytes": 1318,
+          "bodySha256": "e3a79c17ffca47bf3f456a8b348f66d0ecfb2e32b22fe71952a03ccd3f833149"
+        },
+        {
+          "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_be71daeab5930f96b90ad2857454d876/metadata",
+          "outcome": "response",
+          "attempted": true,
+          "statusCode": 200,
+          "bodyBytes": 1427,
+          "bodySha256": "82cfe72e3d3de65ce520b0a915e8c0512bcab78ab07657505b4332d29abbc032"
+        }
+      ]
+    },
+    "stateSha256": "ef5b04aed5e27d41fc43736fd944b4baf75c4899cfe6b323d5adb167757418bc",
+    "reportSha256": "a913ef920b1106f5467c5d1d02ea438139744f8bff8d295dc7a2aaef2059f1dc",
+    "sources": [
+      {
+        "key": "acra_registered_entities",
+        "outcome": "observed",
+        "reason": null,
+        "baselineFreshness": "unknown",
+        "observedFreshness": "current"
+      },
+      {
+        "key": "building_points",
+        "outcome": "observed",
+        "reason": null,
+        "baselineFreshness": "current",
+        "observedFreshness": "current"
+      },
+      {
+        "key": "bus_routes",
+        "outcome": "unsupported",
+        "reason": null,
+        "baselineFreshness": "unknown",
+        "observedFreshness": "unknown"
+      },
+      {
+        "key": "bus_services",
+        "outcome": "unsupported",
+        "reason": null,
+        "baselineFreshness": "unknown",
+        "observedFreshness": "unknown"
+      },
+      {
+        "key": "bus_stops",
+        "outcome": "unsupported",
+        "reason": null,
+        "baselineFreshness": "unknown",
+        "observedFreshness": "unknown"
+      },
+      {
+        "key": "covered_linkway",
+        "outcome": "credentials_required",
+        "reason": null,
+        "baselineFreshness": "stale",
+        "observedFreshness": "unknown"
+      },
+      {
+        "key": "lamp_posts",
+        "outcome": "observed",
+        "reason": null,
+        "baselineFreshness": "current",
+        "observedFreshness": "current"
+      },
+      {
+        "key": "leaf_area_index",
+        "outcome": "observed",
+        "reason": null,
+        "baselineFreshness": "stale",
+        "observedFreshness": "stale"
+      },
+      {
+        "key": "mrt_lrt_exits",
+        "outcome": "observed",
+        "reason": null,
+        "baselineFreshness": "current",
+        "observedFreshness": "current"
+      },
+      {
+        "key": "nparks_heritage_road_green_buffers",
+        "outcome": "timeout",
+        "reason": "absolute_request_deadline",
+        "baselineFreshness": "stale",
+        "observedFreshness": "unknown"
+      },
+      {
+        "key": "nparks_heritage_trees",
+        "outcome": "timeout",
+        "reason": "absolute_request_deadline",
+        "baselineFreshness": "stale",
+        "observedFreshness": "unknown"
+      },
+      {
+        "key": "nparks_nature_ways",
+        "outcome": "observed",
+        "reason": null,
+        "baselineFreshness": "stale",
+        "observedFreshness": "current"
+      },
+      {
+        "key": "nparks_park_connector_loop",
+        "outcome": "observed",
+        "reason": null,
+        "baselineFreshness": "current",
+        "observedFreshness": "current"
+      },
+      {
+        "key": "nparks_tracks",
+        "outcome": "observed",
+        "reason": null,
+        "baselineFreshness": "stale",
+        "observedFreshness": "stale"
+      },
+      {
+        "key": "osm_extract",
+        "outcome": "manual",
+        "reason": null,
+        "baselineFreshness": "manual",
+        "observedFreshness": "manual"
+      },
+      {
+        "key": "other_uen_registered_entities",
+        "outcome": "observed",
+        "reason": null,
+        "baselineFreshness": "unknown",
+        "observedFreshness": "current"
+      },
+      {
+        "key": "overhead_bridge_underpass",
+        "outcome": "credentials_required",
+        "reason": null,
+        "baselineFreshness": "stale",
+        "observedFreshness": "unknown"
+      },
+      {
+        "key": "overture_addresses_sg_candidate",
+        "outcome": "unsupported",
+        "reason": null,
+        "baselineFreshness": "unknown",
+        "observedFreshness": "unknown"
+      },
+      {
+        "key": "planning_area_boundary",
+        "outcome": "observed",
+        "reason": null,
+        "baselineFreshness": "stale",
+        "observedFreshness": "stale"
+      },
+      {
+        "key": "postal_universe_onemap_2020",
+        "outcome": "manual",
+        "reason": null,
+        "baselineFreshness": "manual",
+        "observedFreshness": "manual"
+      },
+      {
+        "key": "sla_dwelling_information",
+        "outcome": "observed",
+        "reason": null,
+        "baselineFreshness": "current",
+        "observedFreshness": "current"
+      },
+      {
+        "key": "traffic_signals",
+        "outcome": "credentials_required",
+        "reason": null,
+        "baselineFreshness": "stale",
+        "observedFreshness": "unknown"
+      },
+      {
+        "key": "train_station_codes",
+        "outcome": "manual",
+        "reason": null,
+        "baselineFreshness": "manual",
+        "observedFreshness": "manual"
+      },
+      {
+        "key": "ura_no_dwelling_units",
+        "outcome": "observed",
+        "reason": null,
+        "baselineFreshness": "unknown",
+        "observedFreshness": "stale"
+      }
+    ],
+    "scheduled": false,
+    "noticeDelivery": "not_configured",
+    "pendingNotices": 16
+  },
+  "integrity": {
+    "command": "python -B scripts/check_repo_integrity.py",
+    "exitCode": 0,
+    "stdout": "repo_integrity=ok\r\n",
+    "stderr": ""
+  },
+  "evidence": {
+    "path": "qa/verification/REVAMP-R1-core-walk.md",
+    "previousBytes": 197711,
+    "previousSha256": "5eb291a0c1b2bbabdd5220d302251e86b27e263f771c2364eddeda531318cf8c",
+    "bytes": 203983,
+    "sha256": "f621549beb861749d86b0db6426571cbe6ed73a2f5e1755dc77ff2dd0d1a8a6f"
+  },
+  "FINDINGS": [
+    "The exact metadata representation mismatch was resolved without protected writes.",
+    "Received 429 cooldown loss and premature completion were real defects, now regression-tested.",
+    "Direct final-report persistence was insufficient; seven additional failures drove staged publication.",
+    "253 focused tests pass with stable source identities; one live metadata pass correctly returns attention.",
+    "T23 remains partial: no scheduled execution, external state or actual notice delivery is claimed."
+  ],
+  "DISAGREEMENTS": [
+    "Parseable success JSON does not prove completed persistence.",
+    "Current metadata observations do not make frozen inputs current or prove changed payload bytes."
+  ],
+  "pipelineRuns": 0,
+  "datasetDownloads": 0,
+  "protectedInputWrites": 0,
+  "installations": 0,
+  "deployments": 0
+}

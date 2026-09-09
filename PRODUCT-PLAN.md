@@ -319,7 +319,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   Evidence: `qa/revamp-r1/source-freshness-20260909/summary.json`.
 
 ### [ ] T23: Establish a bounded metadata-check routine
-- Status: PARTIAL; metadata identity diagnosis resolved, HTTP/CLI review fixes and operational activation outstanding. Size: M. Parent: P2.3.
+- Status: PARTIAL; local checker, review fixes, runbook and one bounded live pass complete; operational activation outstanding. Size: M. Parent: P2.3.
 - Depends on: T22.
 - Scope: inspect existing freshness/check automation, then a narrowly scoped read-only checker and workflow only if needed; runbook/fixtures.
 - Do: choose a documented cadence and inspect source metadata, not datasets. Deduplicate notices, handle rate limits and errors, record successful/failed checks and give the owner an actionable failure notice. No automatic processing or blanket workflow rewrite.
@@ -351,6 +351,20 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   No live source check; the two review defects above remain open. The original
   failed attempt is retained, not overwritten. `manifest-identity.json` and
   `catalog-create-2/command.json` in the same evidence directory record the correction.
+- Update 2026-09-10: both HTTP/CLI review defects are fixed. Complete received 429
+  receipts survive timeout/cleanup; state and a staged report are synced and
+  read-back verified before no-overwrite completion publication. Restoration
+  requires the matching verified report. Independent review cleared one local pass.
+  Final stable suite: 31 catalog + 61 CLI + 76 HTTP + 85 state = 253 tests. Earlier
+  failed fixture and report-publication attempts remain recorded, not passed.
+- The single live pass took 172.922 seconds including wrapper startup, made 14
+  metadata attempts and retained all 24 outcomes: 12 observed + 2 timeout + 3
+  credentials-required + 3 manual + 4 unsupported = 24. Exit 1 correctly means
+  attention required; 16 pending notices are local intents, not delivered alerts.
+  Catalog, metadata inputs and runtime sources stayed byte-identical. No dataset
+  fetch, retry, input change or external write ran. Runbook: README.md, Bounded
+  Source Metadata Monitor (Local). Evidence: same directory's live-review-1 and
+  review-fixes-summary.json; complete local report under qa/source-monitor/live-review-1.
 
 ### [ ] T24: Make maintenance ownership and recovery explicit
 - Status: READY. Size: S. Parent: P2.3.

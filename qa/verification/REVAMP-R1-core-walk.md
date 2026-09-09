@@ -3078,3 +3078,116 @@ deployment_commands=0
 2. Equivalent parsed JSON is corroborating evidence, not permission to relax
    payload hashes or accept arbitrary byte changes. Only the narrow demonstrated
    textual representation difference is accepted during local catalog creation.
+
+## T23 review fixes and bounded live metadata check, 2026-09-10
+
+This section follows the identity-correction checkpoint at 4689084. It does not
+replace the original stop, red receipts, or earlier review findings. Owner approval
+covers routine bounded read-only diagnosis; operational activation remains gated.
+
+Two independently identified defects are corrected. HTTP now preserves a complete
+received 429 cooldown receipt across late deadlines, cleanup failures and worker
+termination. Tests include a controlled network-denied child process; partial
+receipt frames are deliberately not trusted. CLI completion now requires synced,
+closed, read-back-verified state and report. The report is staged, then published
+with a no-overwrite hard link; restoration requires the matching verified report.
+Unsupported publication fails closed. No physical power-loss experiment is claimed.
+
+The first state-first fix was insufficient: review showed that a direct final
+report write could leave success-shaped JSON even when its fsync failed. Seven
+executed report-publication regressions failed before staged publication fixed
+that defect. Retain that correction instead of describing the first fix as final.
+
+Executed fixture receipts, each preserving full stdout/stderr in its checks.json:
+
+```text
+qa/revamp-r1/source-monitor-20260909/http-review-red-1
+13 failed, 60 passed in 7.30s
+qa/revamp-r1/source-monitor-20260909/http-review-green-1
+76 passed in 5.69s
+qa/revamp-r1/source-monitor-20260909/persistence-red-1
+12 failed, 42 passed, 2 errors in 9.61s
+qa/revamp-r1/source-monitor-20260909/persistence-green-1
+54 passed, 2 errors in 16.19s
+qa/revamp-r1/source-monitor-20260909/persistence-green-2
+55 passed in 51.21s
+qa/revamp-r1/source-monitor-20260909/review-fixes-green-1
+247 passed in 19.89s
+qa/revamp-r1/source-monitor-20260909/report-publication-red-1
+7 failed, 54 passed in 19.30s
+node qa/revamp-r1/source-monitor-20260909/check.mjs review-fixes-green-2 tests/test_source_metadata_catalog.py tests/test_source_metadata_cli.py tests/test_source_metadata_http.py tests/test_source_metadata_state.py
+........................................................................ [ 28%]
+........................................................................ [ 56%]
+........................................................................ [ 85%]
+.....................................                                    [100%]
+253 passed in 32.59s
+```
+
+The two persistence fixture errors were Windows path-length failures: pytest's
+automatic ID included the large bytes fixture. Explicit short IDs corrected that
+harness defect without changing the tested payload. Both original large receipts
+are retained. persistence-green-2 is not a validated final pass: its tests exited
+0 but the wrapper exited 1 because HTTP source changed concurrently. The final
+review-fixes-green-2 receipt has stable before/after hashes for all eight tested
+source/test files. Arithmetic: 31 catalog + 61 CLI + 76 HTTP + 85 state = 253;
+212 checkpoint tests + 19 CLI + 22 HTTP = 253. This is not the full project suite.
+
+Independent read-only code review closed both HTTP/CLI findings and cleared one
+bounded local metadata pass, not scheduling or external notice delivery. The
+actual command ran once, without retry, with a fresh output directory:
+
+```text
+node qa/revamp-r1/source-monitor-20260909/exercise.mjs live live-review-1
+python_command=C:\sgSHIOK2026\.venv\Scripts\python.exe -B -m scripts.check_source_metadata --output C:\sgSHIOK2026\qa\source-monitor\live-review-1
+command_exit_code=1
+wrapper_elapsed_ms=172922
+checker_elapsed_seconds=171.25
+counts.sources=24
+counts.attempted=14
+counts.outcomes.credentials_required=3
+counts.outcomes.manual=3
+counts.outcomes.observed=12
+counts.outcomes.timeout=2
+counts.outcomes.unsupported=4
+pendingNotices=16
+noticeDelivery=not_configured
+integrity.status=ok
+identitiesStable=true
+runStatus=attention_required
+checkCompleted=true
+persistence.status=verified
+persistence.stateSha256=ef5b04aed5e27d41fc43736fd944b4baf75c4899cfe6b323d5adb167757418bc
+```
+
+Outcome arithmetic: 12 observed + 2 timeout + 3 credentials-required + 3 manual +
+4 unsupported = 24 sources; 12 observed + 2 timeout = 14 metadata attempts.
+172.922 - 171.25 = 1.672 seconds of wrapper/startup/remaining overhead; this is
+not a pipeline cost or a repeated performance benchmark. Complete means all
+source classifications were recorded, not that every endpoint succeeded.
+
+The report/state/observations are retained under qa/source-monitor/live-review-1.
+The command receipt records actual stdout, exit, timestamps and seven exact source,
+catalog and metadata identities before/after. The checker fetched metadata only,
+not datasets. The absence of DataMall credentials is reported rather than reading
+private .env content. All timeouts and pending notices remain visible. Local
+intents are not delivered alerts; a current observation does not update the frozen
+baseline or establish payload identity. README now gives the local command,
+previous-state validation, limits, failure handling and still-gated cadence.
+
+### FINDINGS
+1. The approved manifest diagnosis found only the exact LF/CRLF representation
+   difference; protected metadata stayed unchanged throughout diagnosis and live QA.
+2. Two real monitor defects were fixed and regression-tested: losing received
+   cooldowns and publishing completion before persistence was verified. The latter
+   needed a second review-driven fix; initial attempts remain in the record.
+3. The final focused suite passes 253 tests on stable source bytes. One live pass
+   honestly returns attention for 24 source classifications, including two timeouts
+   and three missing credentials. It does not establish all sources are current.
+4. T23's local implementation/runbook are ready. Scheduling, external state and
+   actual delivery remain unapproved/unverified, so the overall task stays partial.
+
+### DISAGREEMENTS
+1. A parseable success-shaped report is not sufficient evidence that its final
+   write/sync completed. Publish only after successful state/report verification.
+2. A successful metadata response does not certify frozen dataset freshness or
+   changed payload bytes. Routine read-only approval is not external activation.

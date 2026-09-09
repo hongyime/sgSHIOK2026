@@ -173,6 +173,82 @@ the two current OneMap helper routes; all routing runs in python-igraph on the p
 graph; published score values, coordinates and route origins have been independently verified,
 while the active legacy bundle predates record-level scoring-input and network provenance.
 
+## Bounded Source Metadata Monitor (Local)
+
+`source-metadata-catalog.json` is a reviewed local metadata baseline, not a dataset
+or proof of the deployed bundle. The standalone checker does not import the
+pipeline, load `.env`, download datasets, follow listing download links, refresh
+inputs, score, export or deploy. Do not use `run.py check` for this routine.
+
+From the internal working root, using the existing environment and a fresh output
+directory:
+
+```powershell
+if ((Get-Location).Path -ne 'C:\sgSHIOK2026') { throw 'Wrong working root' }
+$run = Get-Date -Format 'yyyyMMdd_HHmmss'
+C:\sgSHIOK2026\.venv\Scripts\python.exe -B -m scripts.check_source_metadata --output "C:\sgSHIOK2026\qa\source-monitor\$run"
+```
+
+On subsequent runs, also pass `--previous` with the absolute path to the preceding
+run's `state.json`. Keep its sibling `report.json`: restoration requires a matching
+verified completion receipt, catalog identity and state hash. A verified exit-1
+attention report is reusable, including deferred checks, so retry deadlines and
+known observations survive. Do not select an interrupted run without that receipt
+or an exit-2 stopped run. A missing/corrupt receipt stops before
+requests; it is not interpreted as unchanged metadata. Every output directory is
+new, and prior run files are preserved. No generic cleanup or input repair belongs
+in this command.
+
+- Bounds: at most 24 requests, 256 KiB response bodies plus one oversize-detection
+  byte, a 10-second isolated-request deadline, at least 13 seconds between requests
+  to the same host, and a 300-second HTTP budget. Local validation/persistence time
+  is additional. There are no automatic retries, redirect following or payload
+  fallbacks. The spacing is our conservative policy, not a claimed metadata quota.
+- Only data.gov.sg dataset-metadata and DataMall geospatial-listing endpoints are
+  supported. The process environment may supply `LTA_DATAMALL_ACCOUNT_KEY`; its
+  absence is explicitly reported. The checker never reads credentials from `.env`
+  or prints their values. Manual and unsupported sources stay distinct from errors.
+- `started.json` and `observations.jsonl` preserve partial-run evidence. A terminal
+  `report.json` records outcomes, successful-check times, publisher dates, immutable
+  baseline ages and pending notice intents separately. State is flushed, synced and
+  read back before a verified completion report is published. The report is first
+  written, synced, closed and verified as `report.pending.json`, then atomically
+  hard-linked to the previously absent `report.json`. The staged file is retained;
+  neither name is edited afterwards. Unsupported hard links or publication errors
+  fail closed, with no fallback overwrite. State or report persistence failure
+  stops the run and cannot authorize a later conditional request. These guarantees
+  use local filesystem write/sync semantics, not a tested physical power-loss recovery.
+- Exit 0 means no current automatic-check attention condition; it is not proof that
+  physical conditions or payload bytes are unchanged. Exit 1 means attention is
+  required, including unknown/stale/unavailable/unsupported sources, pending notices
+  or a deferred check. Exit 2 means local integrity, state or IO failure: inspect
+  the receipt and do not retry blindly. Preserve known 429 not-before times across
+  runs, including when cleanup or a deadline changes the final error classification.
+- A changed publisher timestamp is a metadata signal, not evidence of changed
+  dataset bytes. A stable DataMall listing reference does not prove its payload is
+  unchanged. Checking an old baseline today never makes it current.
+- The initial builder records Git and local text identities separately after an
+  exact LF/CRLF-only comparison of the two allowlisted metadata files. Runtime checks
+  still require the exact recorded local raw-byte hashes. Do not rewrite protected
+  inputs or substitute expected hashes. Routine read-only diagnosis is approved;
+  unresolved content differences stop consumption of the affected input. A changed
+  checkout representation needs a separately reviewed local catalog, not a payload
+  repair or automatic catalog overwrite.
+
+The proposed cadence is weekly, Tuesday 09:43 UTC. It is **not scheduled or an alert
+service yet**. GitHub Actions plus one persistent issue for durable state and
+deduplicated notices remains a proposal requiring explicit external-write approval.
+No workflow, issue, external cache, secret or notification delivery is configured by
+this checker. Pending notices are intents, not delivered alerts. Actual scheduled
+execution, state restoration and destination readback remain T23 acceptance work.
+The current command intentionally requires the Windows root; it is not yet a hosted
+Actions runner. T24 covers the broader ownership/recovery procedure separately.
+
+Documented endpoints: [data.gov.sg metadata API](https://guide.data.gov.sg/developer-guide/dataset-apis/get-dataset-metadata)
+and [DataMall API guide](https://datamall.lta.gov.sg/content/dam/datamall/datasets/LTA_DataMall_API_User_Guide.pdf).
+Evidence and limitations: `qa/verification/REVAMP-R1-core-walk.md`, task T23 in
+`PRODUCT-PLAN.md`, and the monitor receipts under `qa/revamp-r1/source-monitor-20260909/`.
+
 ## License And Attribution
 
 Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE). Source data and map

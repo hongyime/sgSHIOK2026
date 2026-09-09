@@ -1,0 +1,1765 @@
+{
+  "schemaVersion": 1,
+  "startedAt": "2026-09-09T16:17:07.165935+00:00",
+  "catalogSha256": "2bac6d661c827a57035abb5be4e65d9cddb92e5cb797c35a64709710cebcb4e4",
+  "baselineMeaning": "Tracked raw input metadata, not proof of the deployed bundle or current physical conditions. fetched_at is never a publisher update date.",
+  "stateRestored": false,
+  "previousStateSha256": null,
+  "noticeDelivery": "not_configured",
+  "sources": [
+    {
+      "key": "acra_registered_entities",
+      "name": "Entities Registered with ACRA",
+      "adapter": "datagov_metadata",
+      "result": {
+        "outcome": "observed",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 2663,
+        "bodySha256": "100a4fe318c2539cf73c3864d56b3b9e69d5585d69f30ec0e1c52ea397974b3f",
+        "metadata": {
+          "kind": "catalogue_revision",
+          "publisherUpdatedAt": "2026-08-14T06:01:45+00:00",
+          "etag": null,
+          "identity": "b874808b660b1501e17012e06cf1e557559a3d88d5718822b4c8bd4f35c129df"
+        }
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "acra_registered_entities",
+        "sourceContext": "03f5a03c0ad200fcb7d62b2b37c14c07ed41bf47da96c6cc788634c9e8cad8bd",
+        "evaluatedAt": "2026-09-09T16:17:10.345557Z",
+        "lastAttemptAt": "2026-09-09T16:17:10.345557Z",
+        "lastSuccessfulCheckAt": "2026-09-09T16:17:10.345557Z",
+        "availability": "available",
+        "availabilityReason": null,
+        "statusCode": 200,
+        "retryAt": null,
+        "freshness": {
+          "status": "unknown",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": 120
+        },
+        "observedFreshness": {
+          "status": "current",
+          "publisherUpdatedAt": "2026-08-14T06:01:45Z",
+          "ageDays": 26.427376684687502,
+          "staleAfterDays": 120
+        },
+        "latestObservation": {
+          "identity": "b874808b660b1501e17012e06cf1e557559a3d88d5718822b4c8bd4f35c129df",
+          "publisherUpdatedAt": "2026-08-14T06:01:45Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:17:10.345557Z"
+        },
+        "lastKnownRevision": {
+          "identity": "b874808b660b1501e17012e06cf1e557559a3d88d5718822b4c8bd4f35c129df",
+          "publisherUpdatedAt": "2026-08-14T06:01:45Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:17:10.345557Z"
+        },
+        "comparison": "first_observation",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "26c5f4998438ee2237d3bb8f0cfb0c908cc12d6302eab3e761dcf1bc7aed1e5b",
+        "pendingNotices": [
+          {
+            "id": "acra_registered_entities:1:26c5f4998438ee2237d3bb8f0cfb0c908cc12d6302eab3e761dcf1bc7aed1e5b",
+            "sourceKey": "acra_registered_entities",
+            "episode": 1,
+            "kind": "action",
+            "reasons": [
+              "baseline_age_unknown"
+            ],
+            "createdAt": "2026-09-09T16:17:10.345557Z"
+          }
+        ],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "building_points",
+      "name": "HDB Existing Building",
+      "adapter": "datagov_metadata",
+      "result": {
+        "outcome": "observed",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 1275,
+        "bodySha256": "ea9b622795edb93d55ffb257bc441cd98fc8dd2f9a8d2d9850059cfce133b5b2",
+        "metadata": {
+          "kind": "catalogue_revision",
+          "publisherUpdatedAt": "2026-06-21T02:07:14+00:00",
+          "etag": null,
+          "identity": "171c89d3e5329a70617c30631c55589345889758158b4386640525ba5a97e58f"
+        }
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "building_points",
+        "sourceContext": "5931cb8d458d737801989df09d9af90d7a1df8041b7c0e35a290d2f319c5e2cd",
+        "evaluatedAt": "2026-09-09T16:17:22.356947Z",
+        "lastAttemptAt": "2026-09-09T16:17:22.356947Z",
+        "lastSuccessfulCheckAt": "2026-09-09T16:17:22.356947Z",
+        "availability": "available",
+        "availabilityReason": null,
+        "statusCode": 200,
+        "retryAt": null,
+        "freshness": {
+          "status": "current",
+          "publisherUpdatedAt": "2026-06-21T02:06:46Z",
+          "ageDays": 80.59069857577546,
+          "staleAfterDays": 120
+        },
+        "observedFreshness": {
+          "status": "current",
+          "publisherUpdatedAt": "2026-06-21T02:07:14Z",
+          "ageDays": 80.59037450170139,
+          "staleAfterDays": 120
+        },
+        "latestObservation": {
+          "identity": "171c89d3e5329a70617c30631c55589345889758158b4386640525ba5a97e58f",
+          "publisherUpdatedAt": "2026-06-21T02:07:14Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:17:22.356947Z"
+        },
+        "lastKnownRevision": {
+          "identity": "171c89d3e5329a70617c30631c55589345889758158b4386640525ba5a97e58f",
+          "publisherUpdatedAt": "2026-06-21T02:07:14Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:17:22.356947Z"
+        },
+        "comparison": "first_observation",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "132ddd7279568517b389a8c1d9182f61e647c182fcd9e732f00b91911bf40d65",
+        "pendingNotices": [],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "bus_routes",
+      "name": "Bus Routes",
+      "adapter": "unsupported",
+      "result": {
+        "outcome": "unsupported",
+        "attempted": false
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "bus_routes",
+        "sourceContext": "e9f07eabb4e332fac91176513e78b6d0d2314cedbc35447254af7c20119d41d8",
+        "evaluatedAt": "2026-09-09T16:17:22.358588Z",
+        "lastAttemptAt": null,
+        "lastSuccessfulCheckAt": null,
+        "availability": "unsupported",
+        "availabilityReason": null,
+        "statusCode": null,
+        "retryAt": null,
+        "freshness": {
+          "status": "unknown",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": 30
+        },
+        "observedFreshness": {
+          "status": "unknown",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": 30
+        },
+        "latestObservation": null,
+        "lastKnownRevision": null,
+        "comparison": "unknown",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "412de176123b90977ed171eb5b56817b11ad38abe455051e0752da166756f545",
+        "pendingNotices": [
+          {
+            "id": "bus_routes:1:412de176123b90977ed171eb5b56817b11ad38abe455051e0752da166756f545",
+            "sourceKey": "bus_routes",
+            "episode": 1,
+            "kind": "action",
+            "reasons": [
+              "unsupported",
+              "baseline_age_unknown"
+            ],
+            "createdAt": "2026-09-09T16:17:22.358588Z"
+          }
+        ],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "bus_services",
+      "name": "Bus Services",
+      "adapter": "unsupported",
+      "result": {
+        "outcome": "unsupported",
+        "attempted": false
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "bus_services",
+        "sourceContext": "eb5a97a14b8434798b5c03701b603745aaac4967da3442d1951e537e34f2eb27",
+        "evaluatedAt": "2026-09-09T16:17:22.359131Z",
+        "lastAttemptAt": null,
+        "lastSuccessfulCheckAt": null,
+        "availability": "unsupported",
+        "availabilityReason": null,
+        "statusCode": null,
+        "retryAt": null,
+        "freshness": {
+          "status": "unknown",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": 30
+        },
+        "observedFreshness": {
+          "status": "unknown",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": 30
+        },
+        "latestObservation": null,
+        "lastKnownRevision": null,
+        "comparison": "unknown",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "42ff652b7fa0bbeb373ffc480378e95e1f249f5c137e74d69fcae368c15b4051",
+        "pendingNotices": [
+          {
+            "id": "bus_services:1:42ff652b7fa0bbeb373ffc480378e95e1f249f5c137e74d69fcae368c15b4051",
+            "sourceKey": "bus_services",
+            "episode": 1,
+            "kind": "action",
+            "reasons": [
+              "unsupported",
+              "baseline_age_unknown"
+            ],
+            "createdAt": "2026-09-09T16:17:22.359131Z"
+          }
+        ],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "bus_stops",
+      "name": "Bus Stops",
+      "adapter": "unsupported",
+      "result": {
+        "outcome": "unsupported",
+        "attempted": false
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "bus_stops",
+        "sourceContext": "b14c8a8a29397b206389a81e38e3198f9ac50eaecb86efe81ca01f9bcf318d8e",
+        "evaluatedAt": "2026-09-09T16:17:22.359833Z",
+        "lastAttemptAt": null,
+        "lastSuccessfulCheckAt": null,
+        "availability": "unsupported",
+        "availabilityReason": null,
+        "statusCode": null,
+        "retryAt": null,
+        "freshness": {
+          "status": "unknown",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": 30
+        },
+        "observedFreshness": {
+          "status": "unknown",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": 30
+        },
+        "latestObservation": null,
+        "lastKnownRevision": null,
+        "comparison": "unknown",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "b062b198c63bbbf8a61ca1d0e3452e60689015494c513bbc1f670beb64c21f2d",
+        "pendingNotices": [
+          {
+            "id": "bus_stops:1:b062b198c63bbbf8a61ca1d0e3452e60689015494c513bbc1f670beb64c21f2d",
+            "sourceKey": "bus_stops",
+            "episode": 1,
+            "kind": "action",
+            "reasons": [
+              "unsupported",
+              "baseline_age_unknown"
+            ],
+            "createdAt": "2026-09-09T16:17:22.359833Z"
+          }
+        ],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "covered_linkway",
+      "name": "Covered Linkway",
+      "adapter": "datamall_listing",
+      "result": {
+        "outcome": "credentials_required",
+        "attempted": false
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "covered_linkway",
+        "sourceContext": "4f3dbde3f4abe45e1b02d3a4e5d6fa1bd5b8140547bc1cd98bd5da898ba8c902",
+        "evaluatedAt": "2026-09-09T16:17:22.359833Z",
+        "lastAttemptAt": null,
+        "lastSuccessfulCheckAt": null,
+        "availability": "credentials_required",
+        "availabilityReason": null,
+        "statusCode": null,
+        "retryAt": null,
+        "freshness": {
+          "status": "stale",
+          "publisherUpdatedAt": "2026-03-06T08:24:22Z",
+          "ageDays": 187.32847638695603,
+          "staleAfterDays": 120
+        },
+        "observedFreshness": {
+          "status": "unknown",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": 120
+        },
+        "latestObservation": null,
+        "lastKnownRevision": null,
+        "comparison": "unknown",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "d595b0249d947396c60ff1c51498d2569efaacc25a326800b25f6ab826a0c9ae",
+        "pendingNotices": [
+          {
+            "id": "covered_linkway:1:d595b0249d947396c60ff1c51498d2569efaacc25a326800b25f6ab826a0c9ae",
+            "sourceKey": "covered_linkway",
+            "episode": 1,
+            "kind": "action",
+            "reasons": [
+              "credentials_required",
+              "baseline_stale"
+            ],
+            "createdAt": "2026-09-09T16:17:22.359833Z"
+          }
+        ],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "lamp_posts",
+      "name": "Lamp Posts",
+      "adapter": "datagov_metadata",
+      "result": {
+        "outcome": "observed",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 1006,
+        "bodySha256": "e2384495f85e1461faa1b573264f30f9e4d62509c0439a990ec1d5ce58c8747e",
+        "metadata": {
+          "kind": "catalogue_revision",
+          "publisherUpdatedAt": "2026-07-07T02:07:06+00:00",
+          "etag": null,
+          "identity": "bdf0a8c338271a5b47e63412e9faa15a00ff2d5e19bfd4d009d555a4227c4b8b"
+        }
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "lamp_posts",
+        "sourceContext": "25ffd5e358b19968703af350250f0b86a0acd8a0105cb0c986433050e77756c8",
+        "evaluatedAt": "2026-09-09T16:17:35.278968Z",
+        "lastAttemptAt": "2026-09-09T16:17:35.278968Z",
+        "lastSuccessfulCheckAt": "2026-09-09T16:17:35.278968Z",
+        "availability": "available",
+        "availabilityReason": null,
+        "statusCode": 200,
+        "retryAt": null,
+        "freshness": {
+          "status": "current",
+          "publisherUpdatedAt": "2026-07-07T02:06:48Z",
+          "ageDays": 64.59082498805556,
+          "staleAfterDays": 120
+        },
+        "observedFreshness": {
+          "status": "current",
+          "publisherUpdatedAt": "2026-07-07T02:07:06Z",
+          "ageDays": 64.59061665472223,
+          "staleAfterDays": 120
+        },
+        "latestObservation": {
+          "identity": "bdf0a8c338271a5b47e63412e9faa15a00ff2d5e19bfd4d009d555a4227c4b8b",
+          "publisherUpdatedAt": "2026-07-07T02:07:06Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:17:35.278968Z"
+        },
+        "lastKnownRevision": {
+          "identity": "bdf0a8c338271a5b47e63412e9faa15a00ff2d5e19bfd4d009d555a4227c4b8b",
+          "publisherUpdatedAt": "2026-07-07T02:07:06Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:17:35.278968Z"
+        },
+        "comparison": "first_observation",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "7ff5b15756ef9425cbe35443112fe951bc8cf14ab1b87776beb6dd8e04cfa5af",
+        "pendingNotices": [],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "leaf_area_index",
+      "name": "NParks Leaf Area Index",
+      "adapter": "datagov_metadata",
+      "result": {
+        "outcome": "observed",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 573,
+        "bodySha256": "3cbd16629a2241a23c1129c272a5a611b89b3fd90de148ef4d5b68aa60171a35",
+        "metadata": {
+          "kind": "catalogue_revision",
+          "publisherUpdatedAt": "2026-04-30T07:54:04+00:00",
+          "etag": null,
+          "identity": "4e7a29d7cdd3f9770369e85a3633246315dcd852cc11a1410ff8524640b81c8d"
+        }
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "leaf_area_index",
+        "sourceContext": "21d1f5bd6afcd2765aaf6e12ba4f79862764dcbdfcdba24bf8521cd4c63960e9",
+        "evaluatedAt": "2026-09-09T16:17:50.002017Z",
+        "lastAttemptAt": "2026-09-09T16:17:50.002017Z",
+        "lastSuccessfulCheckAt": "2026-09-09T16:17:50.002017Z",
+        "availability": "available",
+        "availabilityReason": null,
+        "statusCode": 200,
+        "retryAt": null,
+        "freshness": {
+          "status": "stale",
+          "publisherUpdatedAt": "2026-04-30T07:54:04Z",
+          "ageDays": 132.34983798630788,
+          "staleAfterDays": 120
+        },
+        "observedFreshness": {
+          "status": "stale",
+          "publisherUpdatedAt": "2026-04-30T07:54:04Z",
+          "ageDays": 132.34983798630788,
+          "staleAfterDays": 120
+        },
+        "latestObservation": {
+          "identity": "4e7a29d7cdd3f9770369e85a3633246315dcd852cc11a1410ff8524640b81c8d",
+          "publisherUpdatedAt": "2026-04-30T07:54:04Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:17:50.002017Z"
+        },
+        "lastKnownRevision": {
+          "identity": "4e7a29d7cdd3f9770369e85a3633246315dcd852cc11a1410ff8524640b81c8d",
+          "publisherUpdatedAt": "2026-04-30T07:54:04Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:17:50.002017Z"
+        },
+        "comparison": "first_observation",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "0d68de38af7d9a86394a06e8941a27338c41a2df0078834ea74fe3aae3d1d821",
+        "pendingNotices": [
+          {
+            "id": "leaf_area_index:1:0d68de38af7d9a86394a06e8941a27338c41a2df0078834ea74fe3aae3d1d821",
+            "sourceKey": "leaf_area_index",
+            "episode": 1,
+            "kind": "action",
+            "reasons": [
+              "baseline_stale",
+              "upstream_stale"
+            ],
+            "createdAt": "2026-09-09T16:17:50.002017Z"
+          }
+        ],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "mrt_lrt_exits",
+      "name": "MRT/LRT Station Exits",
+      "adapter": "datagov_metadata",
+      "result": {
+        "outcome": "observed",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 941,
+        "bodySha256": "9ef491d698b4c15d3d32972e1af6fb5aa236d49382b3278f0648b8010a476c7f",
+        "metadata": {
+          "kind": "catalogue_revision",
+          "publisherUpdatedAt": "2026-07-19T02:06:47+00:00",
+          "etag": null,
+          "identity": "56bfb48c87d2ab017440eec98d579d89f3863f4b20f01c5320c38d9d8c38d65d"
+        }
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "mrt_lrt_exits",
+        "sourceContext": "c2362e965ca04335be935a35966699795c6709bd79fc01689900dd6d4da5ae10",
+        "evaluatedAt": "2026-09-09T16:18:04.535270Z",
+        "lastAttemptAt": "2026-09-09T16:18:04.535270Z",
+        "lastSuccessfulCheckAt": "2026-09-09T16:18:04.535270Z",
+        "availability": "available",
+        "availabilityReason": null,
+        "statusCode": 200,
+        "retryAt": null,
+        "freshness": {
+          "status": "current",
+          "publisherUpdatedAt": "2026-07-19T02:06:46Z",
+          "ageDays": 52.59118675081018,
+          "staleAfterDays": 120
+        },
+        "observedFreshness": {
+          "status": "current",
+          "publisherUpdatedAt": "2026-07-19T02:06:47Z",
+          "ageDays": 52.59117517673611,
+          "staleAfterDays": 120
+        },
+        "latestObservation": {
+          "identity": "56bfb48c87d2ab017440eec98d579d89f3863f4b20f01c5320c38d9d8c38d65d",
+          "publisherUpdatedAt": "2026-07-19T02:06:47Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:18:04.535270Z"
+        },
+        "lastKnownRevision": {
+          "identity": "56bfb48c87d2ab017440eec98d579d89f3863f4b20f01c5320c38d9d8c38d65d",
+          "publisherUpdatedAt": "2026-07-19T02:06:47Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:18:04.535270Z"
+        },
+        "comparison": "first_observation",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "c9dba0cd986d64db3da755dcff990f509bd91bda9be6bdc7843e4aad575ee762",
+        "pendingNotices": [],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "nparks_heritage_road_green_buffers",
+      "name": "NParks Heritage Road Green Buffers",
+      "adapter": "datagov_metadata",
+      "result": {
+        "outcome": "timeout",
+        "attempted": true,
+        "reason": "absolute_request_deadline"
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "nparks_heritage_road_green_buffers",
+        "sourceContext": "237fb4b9043c120e8ab68655a7bad2555e88e02625e47ef0690aa74abd3a919c",
+        "evaluatedAt": "2026-09-09T16:18:22.760337Z",
+        "lastAttemptAt": "2026-09-09T16:18:22.760337Z",
+        "lastSuccessfulCheckAt": null,
+        "availability": "timeout",
+        "availabilityReason": null,
+        "statusCode": null,
+        "retryAt": null,
+        "freshness": {
+          "status": "stale",
+          "publisherUpdatedAt": "2026-02-01T02:06:51Z",
+          "ageDays": 220.59133981871526,
+          "staleAfterDays": 120
+        },
+        "observedFreshness": {
+          "status": "unknown",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": 120
+        },
+        "latestObservation": null,
+        "lastKnownRevision": null,
+        "comparison": "unknown",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "3224adf67215065f5b6c7b4b5822ca143280c733b16183ef2ff9fe81b1c24cb9",
+        "pendingNotices": [
+          {
+            "id": "nparks_heritage_road_green_buffers:1:3224adf67215065f5b6c7b4b5822ca143280c733b16183ef2ff9fe81b1c24cb9",
+            "sourceKey": "nparks_heritage_road_green_buffers",
+            "episode": 1,
+            "kind": "action",
+            "reasons": [
+              "timeout",
+              "baseline_stale"
+            ],
+            "createdAt": "2026-09-09T16:18:22.760337Z"
+          }
+        ],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "nparks_heritage_trees",
+      "name": "NParks Heritage Trees",
+      "adapter": "datagov_metadata",
+      "result": {
+        "outcome": "timeout",
+        "attempted": true,
+        "reason": "absolute_request_deadline"
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "nparks_heritage_trees",
+        "sourceContext": "53b6836eca213eddf8abc6c9d9eb38db2275bfb356185908db5deaf0fa25ac6b",
+        "evaluatedAt": "2026-09-09T16:18:35.736781Z",
+        "lastAttemptAt": "2026-09-09T16:18:35.736781Z",
+        "lastSuccessfulCheckAt": null,
+        "availability": "timeout",
+        "availabilityReason": null,
+        "statusCode": null,
+        "retryAt": null,
+        "freshness": {
+          "status": "stale",
+          "publisherUpdatedAt": "2026-04-01T02:06:45Z",
+          "ageDays": 161.5915594534838,
+          "staleAfterDays": 120
+        },
+        "observedFreshness": {
+          "status": "unknown",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": 120
+        },
+        "latestObservation": null,
+        "lastKnownRevision": null,
+        "comparison": "unknown",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "5aa7a53f1dc6b9f75a0f90081f76079cdd8a9bbccfb735f5714d7c058b6da0d1",
+        "pendingNotices": [
+          {
+            "id": "nparks_heritage_trees:1:5aa7a53f1dc6b9f75a0f90081f76079cdd8a9bbccfb735f5714d7c058b6da0d1",
+            "sourceKey": "nparks_heritage_trees",
+            "episode": 1,
+            "kind": "action",
+            "reasons": [
+              "timeout",
+              "baseline_stale"
+            ],
+            "createdAt": "2026-09-09T16:18:35.736781Z"
+          }
+        ],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "nparks_nature_ways",
+      "name": "NParks Nature Ways",
+      "adapter": "datagov_metadata",
+      "result": {
+        "outcome": "observed",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 1256,
+        "bodySha256": "53953d78bda44ed55e8cec8d3f5dcf17b6ce4fc9d8162ed82c71043875c9a567",
+        "metadata": {
+          "kind": "catalogue_revision",
+          "publisherUpdatedAt": "2026-08-22T02:06:48+00:00",
+          "etag": null,
+          "identity": "3deea2ea0c034674950514099555bd77942a26c43810a691be0dceafac078410"
+        }
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "nparks_nature_ways",
+        "sourceContext": "42b15d3f8b9a506b71fdefcdcd550b80ccfbcba76a05304e6a9cb6afbb2dfee5",
+        "evaluatedAt": "2026-09-09T16:18:48.012339Z",
+        "lastAttemptAt": "2026-09-09T16:18:48.012339Z",
+        "lastSuccessfulCheckAt": "2026-09-09T16:18:48.012339Z",
+        "availability": "available",
+        "availabilityReason": null,
+        "statusCode": 200,
+        "retryAt": null,
+        "freshness": {
+          "status": "stale",
+          "publisherUpdatedAt": "2026-04-16T02:06:48Z",
+          "ageDays": 146.59166680947916,
+          "staleAfterDays": 120
+        },
+        "observedFreshness": {
+          "status": "current",
+          "publisherUpdatedAt": "2026-08-22T02:06:48Z",
+          "ageDays": 18.591666809479165,
+          "staleAfterDays": 120
+        },
+        "latestObservation": {
+          "identity": "3deea2ea0c034674950514099555bd77942a26c43810a691be0dceafac078410",
+          "publisherUpdatedAt": "2026-08-22T02:06:48Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:18:48.012339Z"
+        },
+        "lastKnownRevision": {
+          "identity": "3deea2ea0c034674950514099555bd77942a26c43810a691be0dceafac078410",
+          "publisherUpdatedAt": "2026-08-22T02:06:48Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:18:48.012339Z"
+        },
+        "comparison": "first_observation",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "209089d5557300f3b4263dd37bc8d79cde016fcc373648ec7ff3ff8251816171",
+        "pendingNotices": [
+          {
+            "id": "nparks_nature_ways:1:209089d5557300f3b4263dd37bc8d79cde016fcc373648ec7ff3ff8251816171",
+            "sourceKey": "nparks_nature_ways",
+            "episode": 1,
+            "kind": "action",
+            "reasons": [
+              "baseline_stale"
+            ],
+            "createdAt": "2026-09-09T16:18:48.012339Z"
+          }
+        ],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "nparks_park_connector_loop",
+      "name": "NParks Park Connector Loop",
+      "adapter": "datagov_metadata",
+      "result": {
+        "outcome": "observed",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 1487,
+        "bodySha256": "4f20003b0dc1b933f7954a610f8b43ef5f5b83053fae65c63ea5d47a13e5e55c",
+        "metadata": {
+          "kind": "catalogue_revision",
+          "publisherUpdatedAt": "2026-07-15T02:06:55+00:00",
+          "etag": null,
+          "identity": "8c2878731ab8bdf2f0c016e7dc41f0c745d9abd888f276e78930c63f47411dd2"
+        }
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "nparks_park_connector_loop",
+        "sourceContext": "a40548daf0c4eb7978be47265a8c071b5a51642aad7b23c354e0e5137e1c2353",
+        "evaluatedAt": "2026-09-09T16:19:01.102292Z",
+        "lastAttemptAt": "2026-09-09T16:19:01.102292Z",
+        "lastSuccessfulCheckAt": "2026-09-09T16:19:01.102292Z",
+        "availability": "available",
+        "availabilityReason": null,
+        "statusCode": 200,
+        "retryAt": null,
+        "freshness": {
+          "status": "current",
+          "publisherUpdatedAt": "2026-07-15T02:06:54Z",
+          "ageDays": 56.59174886912037,
+          "staleAfterDays": 120
+        },
+        "observedFreshness": {
+          "status": "current",
+          "publisherUpdatedAt": "2026-07-15T02:06:55Z",
+          "ageDays": 56.5917372950463,
+          "staleAfterDays": 120
+        },
+        "latestObservation": {
+          "identity": "8c2878731ab8bdf2f0c016e7dc41f0c745d9abd888f276e78930c63f47411dd2",
+          "publisherUpdatedAt": "2026-07-15T02:06:55Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:19:01.102292Z"
+        },
+        "lastKnownRevision": {
+          "identity": "8c2878731ab8bdf2f0c016e7dc41f0c745d9abd888f276e78930c63f47411dd2",
+          "publisherUpdatedAt": "2026-07-15T02:06:55Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:19:01.102292Z"
+        },
+        "comparison": "first_observation",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "9370e6e9c51ea11981d8b7422c727f22925e5c6491e79996a2f6d293fdc3dc19",
+        "pendingNotices": [],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "nparks_tracks",
+      "name": "NParks Tracks",
+      "adapter": "datagov_metadata",
+      "result": {
+        "outcome": "observed",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 1859,
+        "bodySha256": "36136af18b61bdf3c8b92d6e19ebd017795935dcdb1f8e0cba2bb5a53cab90fa",
+        "metadata": {
+          "kind": "catalogue_revision",
+          "publisherUpdatedAt": "2025-12-25T02:06:58+00:00",
+          "etag": null,
+          "identity": "d3edd7c4b1e70729c250931cf714fd57b0238184578ed661d30f91a0481ccaf1"
+        }
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "nparks_tracks",
+        "sourceContext": "31e1c63e1ab4c32b53d4e831c3f2a3f6e39584b72090c32dd9ec5edcb051d74f",
+        "evaluatedAt": "2026-09-09T16:19:10.576583Z",
+        "lastAttemptAt": "2026-09-09T16:19:10.576583Z",
+        "lastSuccessfulCheckAt": "2026-09-09T16:19:10.576583Z",
+        "availability": "available",
+        "availabilityReason": null,
+        "statusCode": 200,
+        "retryAt": null,
+        "freshness": {
+          "status": "stale",
+          "publisherUpdatedAt": "2025-12-25T02:06:56Z",
+          "ageDays": 258.59183537711806,
+          "staleAfterDays": 120
+        },
+        "observedFreshness": {
+          "status": "stale",
+          "publisherUpdatedAt": "2025-12-25T02:06:58Z",
+          "ageDays": 258.5918122289699,
+          "staleAfterDays": 120
+        },
+        "latestObservation": {
+          "identity": "d3edd7c4b1e70729c250931cf714fd57b0238184578ed661d30f91a0481ccaf1",
+          "publisherUpdatedAt": "2025-12-25T02:06:58Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:19:10.576583Z"
+        },
+        "lastKnownRevision": {
+          "identity": "d3edd7c4b1e70729c250931cf714fd57b0238184578ed661d30f91a0481ccaf1",
+          "publisherUpdatedAt": "2025-12-25T02:06:58Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:19:10.576583Z"
+        },
+        "comparison": "first_observation",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "9cc8f6b8e8c99f9bea64a774aa321e22bd4da87a8df5127d846c8479155480ad",
+        "pendingNotices": [
+          {
+            "id": "nparks_tracks:1:9cc8f6b8e8c99f9bea64a774aa321e22bd4da87a8df5127d846c8479155480ad",
+            "sourceKey": "nparks_tracks",
+            "episode": 1,
+            "kind": "action",
+            "reasons": [
+              "baseline_stale",
+              "upstream_stale"
+            ],
+            "createdAt": "2026-09-09T16:19:10.576583Z"
+          }
+        ],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "osm_extract",
+      "name": "Geofabrik Malaysia/Singapore/Brunei OSM",
+      "adapter": "manual",
+      "result": {
+        "outcome": "manual",
+        "attempted": false
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "osm_extract",
+        "sourceContext": "e928ca33082ac9d691e35a7606412736f1189a59c9a4adad977b190404b0ddea",
+        "evaluatedAt": "2026-09-09T16:19:10.576583Z",
+        "lastAttemptAt": null,
+        "lastSuccessfulCheckAt": null,
+        "availability": "manual",
+        "availabilityReason": null,
+        "statusCode": null,
+        "retryAt": null,
+        "freshness": {
+          "status": "manual",
+          "publisherUpdatedAt": "2026-07-25T22:37:16Z",
+          "ageDays": null,
+          "staleAfterDays": null
+        },
+        "observedFreshness": {
+          "status": "manual",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": null
+        },
+        "latestObservation": null,
+        "lastKnownRevision": null,
+        "comparison": "manual",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "f0a92fd999fcaeba3fc953465ed716aa29d0a4bb1e7053bd6e6243e0272f8c9f",
+        "pendingNotices": [],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "other_uen_registered_entities",
+      "name": "Entities Registered with Other UEN Issuance Agencies",
+      "adapter": "datagov_metadata",
+      "result": {
+        "outcome": "observed",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 2403,
+        "bodySha256": "3cc348cba4a3a6971c2ca19813170d07540c2301f715731c7cff88cf33cb7567",
+        "metadata": {
+          "kind": "catalogue_revision",
+          "publisherUpdatedAt": "2026-08-14T05:52:42+00:00",
+          "etag": null,
+          "identity": "752404efdc9c9157f6c3bee2d08fcf1eba84b2c4314b4a1904d2a1a701839d76"
+        }
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "other_uen_registered_entities",
+        "sourceContext": "68e1f9908343ffc480e54920c154b2031976fab1549e1fc0bd0cb526542b25b3",
+        "evaluatedAt": "2026-09-09T16:19:20.408648Z",
+        "lastAttemptAt": "2026-09-09T16:19:20.408648Z",
+        "lastSuccessfulCheckAt": "2026-09-09T16:19:20.408648Z",
+        "availability": "available",
+        "availabilityReason": null,
+        "statusCode": 200,
+        "retryAt": null,
+        "freshness": {
+          "status": "unknown",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": 120
+        },
+        "observedFreshness": {
+          "status": "current",
+          "publisherUpdatedAt": "2026-08-14T05:52:42Z",
+          "ageDays": 26.43516676675926,
+          "staleAfterDays": 120
+        },
+        "latestObservation": {
+          "identity": "752404efdc9c9157f6c3bee2d08fcf1eba84b2c4314b4a1904d2a1a701839d76",
+          "publisherUpdatedAt": "2026-08-14T05:52:42Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:19:20.408648Z"
+        },
+        "lastKnownRevision": {
+          "identity": "752404efdc9c9157f6c3bee2d08fcf1eba84b2c4314b4a1904d2a1a701839d76",
+          "publisherUpdatedAt": "2026-08-14T05:52:42Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:19:20.408648Z"
+        },
+        "comparison": "first_observation",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "964cb988745adea4b6732ad6b6cf92d9e5d6ca35547f972dff7bedbfe1576355",
+        "pendingNotices": [
+          {
+            "id": "other_uen_registered_entities:1:964cb988745adea4b6732ad6b6cf92d9e5d6ca35547f972dff7bedbfe1576355",
+            "sourceKey": "other_uen_registered_entities",
+            "episode": 1,
+            "kind": "action",
+            "reasons": [
+              "baseline_age_unknown"
+            ],
+            "createdAt": "2026-09-09T16:19:20.408648Z"
+          }
+        ],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "overhead_bridge_underpass",
+      "name": "Pedestrian Overhead Bridge / Underpass",
+      "adapter": "datamall_listing",
+      "result": {
+        "outcome": "credentials_required",
+        "attempted": false
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "overhead_bridge_underpass",
+        "sourceContext": "a4f9f006eab9ae54cff891f66df30e7ba08b7728c53892d357b1c0baaa3f62a2",
+        "evaluatedAt": "2026-09-09T16:19:20.409668Z",
+        "lastAttemptAt": null,
+        "lastSuccessfulCheckAt": null,
+        "availability": "credentials_required",
+        "availabilityReason": null,
+        "statusCode": null,
+        "retryAt": null,
+        "freshness": {
+          "status": "stale",
+          "publisherUpdatedAt": "2026-03-06T08:24:03Z",
+          "ageDays": 187.33006261189814,
+          "staleAfterDays": 120
+        },
+        "observedFreshness": {
+          "status": "unknown",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": 120
+        },
+        "latestObservation": null,
+        "lastKnownRevision": null,
+        "comparison": "unknown",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "ef0f182dbe4684c167f1811959269fa882fb40414cf72fb0ecb1f0e590c4fabd",
+        "pendingNotices": [
+          {
+            "id": "overhead_bridge_underpass:1:ef0f182dbe4684c167f1811959269fa882fb40414cf72fb0ecb1f0e590c4fabd",
+            "sourceKey": "overhead_bridge_underpass",
+            "episode": 1,
+            "kind": "action",
+            "reasons": [
+              "credentials_required",
+              "baseline_stale"
+            ],
+            "createdAt": "2026-09-09T16:19:20.409668Z"
+          }
+        ],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "overture_addresses_sg_candidate",
+      "name": "Overture Maps Addresses \u2014 Singapore candidate",
+      "adapter": "unsupported",
+      "result": {
+        "outcome": "unsupported",
+        "attempted": false
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "overture_addresses_sg_candidate",
+        "sourceContext": "f4451b37f675731b4af30551d2b437dacf658c9a95495a7412c082223947270f",
+        "evaluatedAt": "2026-09-09T16:19:20.410289Z",
+        "lastAttemptAt": null,
+        "lastSuccessfulCheckAt": null,
+        "availability": "unsupported",
+        "availabilityReason": null,
+        "statusCode": null,
+        "retryAt": null,
+        "freshness": {
+          "status": "unknown",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": 45
+        },
+        "observedFreshness": {
+          "status": "unknown",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": 45
+        },
+        "latestObservation": null,
+        "lastKnownRevision": null,
+        "comparison": "unknown",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "a171d89e50d93a2ecc6f7bcae11d1ba75d5b39b24d210ad609978eeb6457c1a7",
+        "pendingNotices": [
+          {
+            "id": "overture_addresses_sg_candidate:1:a171d89e50d93a2ecc6f7bcae11d1ba75d5b39b24d210ad609978eeb6457c1a7",
+            "sourceKey": "overture_addresses_sg_candidate",
+            "episode": 1,
+            "kind": "action",
+            "reasons": [
+              "unsupported",
+              "baseline_age_unknown"
+            ],
+            "createdAt": "2026-09-09T16:19:20.410289Z"
+          }
+        ],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "planning_area_boundary",
+      "name": "Planning Area Boundaries (MP2019 No Sea)",
+      "adapter": "datagov_metadata",
+      "result": {
+        "outcome": "observed",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 1961,
+        "bodySha256": "2c55b3cbf746ba664c2f1a4a34de0ab435160a51a82834b03fa374416008efee",
+        "metadata": {
+          "kind": "catalogue_revision",
+          "publisherUpdatedAt": "2025-12-05T02:07:55+00:00",
+          "etag": null,
+          "identity": "1843969b90fab8b9a39bc9ae62becd20bb0d4de88abb59d4966c257078be247c"
+        }
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "planning_area_boundary",
+        "sourceContext": "c9255f243a2795d3c21c7736253c5622f0170c9b9f7133e501b42c69aaa42fbb",
+        "evaluatedAt": "2026-09-09T16:19:32.546951Z",
+        "lastAttemptAt": "2026-09-09T16:19:32.546951Z",
+        "lastSuccessfulCheckAt": "2026-09-09T16:19:32.546951Z",
+        "availability": "available",
+        "availabilityReason": null,
+        "statusCode": 200,
+        "retryAt": null,
+        "freshness": {
+          "status": "stale",
+          "publisherUpdatedAt": "2025-12-05T02:07:56Z",
+          "ageDays": 278.59139521934026,
+          "staleAfterDays": 120
+        },
+        "observedFreshness": {
+          "status": "stale",
+          "publisherUpdatedAt": "2025-12-05T02:07:55Z",
+          "ageDays": 278.59140679341436,
+          "staleAfterDays": 120
+        },
+        "latestObservation": {
+          "identity": "1843969b90fab8b9a39bc9ae62becd20bb0d4de88abb59d4966c257078be247c",
+          "publisherUpdatedAt": "2025-12-05T02:07:55Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:19:32.546951Z"
+        },
+        "lastKnownRevision": {
+          "identity": "1843969b90fab8b9a39bc9ae62becd20bb0d4de88abb59d4966c257078be247c",
+          "publisherUpdatedAt": "2025-12-05T02:07:55Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:19:32.546951Z"
+        },
+        "comparison": "first_observation",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "b4a1e73c958c9011b966a829f81869b41e114d636984cd3994c6e194ed2d5bee",
+        "pendingNotices": [
+          {
+            "id": "planning_area_boundary:1:b4a1e73c958c9011b966a829f81869b41e114d636984cd3994c6e194ed2d5bee",
+            "sourceKey": "planning_area_boundary",
+            "episode": 1,
+            "kind": "action",
+            "reasons": [
+              "baseline_stale",
+              "upstream_stale"
+            ],
+            "createdAt": "2026-09-09T16:19:32.546951Z"
+          }
+        ],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "postal_universe_onemap_2020",
+      "name": "OneMap-derived Singapore postal dump, accessed 10 Jun 2020 by xuancong84",
+      "adapter": "manual",
+      "result": {
+        "outcome": "manual",
+        "attempted": false
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "postal_universe_onemap_2020",
+        "sourceContext": "2db51351342c14856e6d2d1e4ad724c8e9b02af590e9307b5366bb0a334bca0e",
+        "evaluatedAt": "2026-09-09T16:19:32.548464Z",
+        "lastAttemptAt": null,
+        "lastSuccessfulCheckAt": null,
+        "availability": "manual",
+        "availabilityReason": null,
+        "statusCode": null,
+        "retryAt": null,
+        "freshness": {
+          "status": "manual",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": null
+        },
+        "observedFreshness": {
+          "status": "manual",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": null
+        },
+        "latestObservation": null,
+        "lastKnownRevision": null,
+        "comparison": "manual",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "25159b6ba337b8e2f5c0b8f039fdecf07d6e26e47dfbf5d8992d7d44a1f46358",
+        "pendingNotices": [],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "sla_dwelling_information",
+      "name": "SLA Dwelling Information",
+      "adapter": "datagov_metadata",
+      "result": {
+        "outcome": "observed",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 1318,
+        "bodySha256": "e3a79c17ffca47bf3f456a8b348f66d0ecfb2e32b22fe71952a03ccd3f833149",
+        "metadata": {
+          "kind": "catalogue_revision",
+          "publisherUpdatedAt": "2026-09-08T02:06:47+00:00",
+          "etag": null,
+          "identity": "010d40fbfdafc36829fc6806689b5ddf581c15441d02c9b43f7546ab60113e8e"
+        }
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "sla_dwelling_information",
+        "sourceContext": "74a59ab9ebb91daf98fc175ac048e6d3bcec213b14d7f675ce3e149b333989d5",
+        "evaluatedAt": "2026-09-09T16:19:45.590673Z",
+        "lastAttemptAt": "2026-09-09T16:19:45.590673Z",
+        "lastSuccessfulCheckAt": "2026-09-09T16:19:45.590673Z",
+        "availability": "available",
+        "availabilityReason": null,
+        "statusCode": 200,
+        "retryAt": null,
+        "freshness": {
+          "status": "current",
+          "publisherUpdatedAt": "2026-06-30T02:06:46Z",
+          "ageDays": 71.5923563735301,
+          "staleAfterDays": 120
+        },
+        "observedFreshness": {
+          "status": "current",
+          "publisherUpdatedAt": "2026-09-08T02:06:47Z",
+          "ageDays": 1.5923447994560185,
+          "staleAfterDays": 120
+        },
+        "latestObservation": {
+          "identity": "010d40fbfdafc36829fc6806689b5ddf581c15441d02c9b43f7546ab60113e8e",
+          "publisherUpdatedAt": "2026-09-08T02:06:47Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:19:45.590673Z"
+        },
+        "lastKnownRevision": {
+          "identity": "010d40fbfdafc36829fc6806689b5ddf581c15441d02c9b43f7546ab60113e8e",
+          "publisherUpdatedAt": "2026-09-08T02:06:47Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:19:45.590673Z"
+        },
+        "comparison": "first_observation",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "a74b67dfc0a69cc4318026824f9d61f67335eae84ed8fb8168cb26330bba0295",
+        "pendingNotices": [],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "traffic_signals",
+      "name": "Traffic Signals",
+      "adapter": "datamall_listing",
+      "result": {
+        "outcome": "credentials_required",
+        "attempted": false
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "traffic_signals",
+        "sourceContext": "dd09e4629cf1f0458f75b5897d6c8290b718ac5543080435edf79e1bd9437847",
+        "evaluatedAt": "2026-09-09T16:19:45.591964Z",
+        "lastAttemptAt": null,
+        "lastSuccessfulCheckAt": null,
+        "availability": "credentials_required",
+        "availabilityReason": null,
+        "statusCode": null,
+        "retryAt": null,
+        "freshness": {
+          "status": "stale",
+          "publisherUpdatedAt": "2026-03-06T08:24:01Z",
+          "ageDays": 187.33037722180558,
+          "staleAfterDays": 120
+        },
+        "observedFreshness": {
+          "status": "unknown",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": 120
+        },
+        "latestObservation": null,
+        "lastKnownRevision": null,
+        "comparison": "unknown",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "ffa4f5ceca5d167552ddc56a02737cf9fda334435e3ef490b0e2177733754829",
+        "pendingNotices": [
+          {
+            "id": "traffic_signals:1:ffa4f5ceca5d167552ddc56a02737cf9fda334435e3ef490b0e2177733754829",
+            "sourceKey": "traffic_signals",
+            "episode": 1,
+            "kind": "action",
+            "reasons": [
+              "credentials_required",
+              "baseline_stale"
+            ],
+            "createdAt": "2026-09-09T16:19:45.591964Z"
+          }
+        ],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "train_station_codes",
+      "name": "Train Station Codes and Chinese Names",
+      "adapter": "manual",
+      "result": {
+        "outcome": "manual",
+        "attempted": false
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "train_station_codes",
+        "sourceContext": "62396befa5546b3123547f520b94c9f85a25cc74af9b45645e5beb42a61abae7",
+        "evaluatedAt": "2026-09-09T16:19:45.591964Z",
+        "lastAttemptAt": null,
+        "lastSuccessfulCheckAt": null,
+        "availability": "manual",
+        "availabilityReason": null,
+        "statusCode": null,
+        "retryAt": null,
+        "freshness": {
+          "status": "manual",
+          "publisherUpdatedAt": "2026-08-01T20:27:42Z",
+          "ageDays": null,
+          "staleAfterDays": null
+        },
+        "observedFreshness": {
+          "status": "manual",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": null
+        },
+        "latestObservation": null,
+        "lastKnownRevision": null,
+        "comparison": "manual",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "2b2e717ebce850abdd9ba39bfc554ea17d74d10f6b182a1953df6f3bf15307c9",
+        "pendingNotices": [],
+        "lastAcknowledgedAt": null
+      }
+    },
+    {
+      "key": "ura_no_dwelling_units",
+      "name": "URA No of Dwelling Units",
+      "adapter": "datagov_metadata",
+      "result": {
+        "outcome": "observed",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 1427,
+        "bodySha256": "82cfe72e3d3de65ce520b0a915e8c0512bcab78ab07657505b4332d29abbc032",
+        "metadata": {
+          "kind": "catalogue_revision",
+          "publisherUpdatedAt": "2026-02-26T02:07:07+00:00",
+          "etag": null,
+          "identity": "092a3ceb978fa8ead641aa73091cb8266234c0a05b5037a5dfbab8fcc11ec358"
+        }
+      },
+      "state": {
+        "version": 1,
+        "sourceKey": "ura_no_dwelling_units",
+        "sourceContext": "bea4dac32c4110ddbb67ef68d35beca979c5b140c59c06bec9952140a8ad9e53",
+        "evaluatedAt": "2026-09-09T16:19:58.410232Z",
+        "lastAttemptAt": "2026-09-09T16:19:58.410232Z",
+        "lastSuccessfulCheckAt": "2026-09-09T16:19:58.410232Z",
+        "availability": "available",
+        "availabilityReason": null,
+        "statusCode": 200,
+        "retryAt": null,
+        "freshness": {
+          "status": "unknown",
+          "publisherUpdatedAt": null,
+          "ageDays": null,
+          "staleAfterDays": 120
+        },
+        "observedFreshness": {
+          "status": "stale",
+          "publisherUpdatedAt": "2026-02-26T02:07:07Z",
+          "ageDays": 195.5922616925,
+          "staleAfterDays": 120
+        },
+        "latestObservation": {
+          "identity": "092a3ceb978fa8ead641aa73091cb8266234c0a05b5037a5dfbab8fcc11ec358",
+          "publisherUpdatedAt": "2026-02-26T02:07:07Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:19:58.410232Z"
+        },
+        "lastKnownRevision": {
+          "identity": "092a3ceb978fa8ead641aa73091cb8266234c0a05b5037a5dfbab8fcc11ec358",
+          "publisherUpdatedAt": "2026-02-26T02:07:07Z",
+          "kind": "catalogue_revision",
+          "etag": null,
+          "observedAt": "2026-09-09T16:19:58.410232Z"
+        },
+        "comparison": "first_observation",
+        "priorStateInvalid": false,
+        "episode": 1,
+        "conditionId": "dab5940e64f0bebdcd96f03e297ffd862570e97c4d5a940e603d147b29be7be2",
+        "pendingNotices": [
+          {
+            "id": "ura_no_dwelling_units:1:dab5940e64f0bebdcd96f03e297ffd862570e97c4d5a940e603d147b29be7be2",
+            "sourceKey": "ura_no_dwelling_units",
+            "episode": 1,
+            "kind": "action",
+            "reasons": [
+              "baseline_age_unknown",
+              "upstream_stale"
+            ],
+            "createdAt": "2026-09-09T16:19:58.410232Z"
+          }
+        ],
+        "lastAcknowledgedAt": null
+      }
+    }
+  ],
+  "bounds": {
+    "maxRequests": 24,
+    "maxSeconds": 300,
+    "maxBytesPerResponse": 262144,
+    "requestSeconds": 10,
+    "perHostIntervalSeconds": 13
+  },
+  "finishedAt": "2026-09-09T16:19:58.411023+00:00",
+  "elapsedSeconds": 171.25,
+  "transport": {
+    "requests": 14,
+    "bodyBytes": 18169,
+    "responses": [
+      {
+        "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_3f960c10fed6145404ca7b821f263b87/metadata",
+        "outcome": "response",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 2663,
+        "bodySha256": "100a4fe318c2539cf73c3864d56b3b9e69d5585d69f30ec0e1c52ea397974b3f"
+      },
+      {
+        "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_16b157c52ed637edd6ba1232e026258d/metadata",
+        "outcome": "response",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 1275,
+        "bodySha256": "ea9b622795edb93d55ffb257bc441cd98fc8dd2f9a8d2d9850059cfce133b5b2"
+      },
+      {
+        "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_ca109de3e83efdd9a10bc5f3dda70a98/metadata",
+        "outcome": "response",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 1006,
+        "bodySha256": "e2384495f85e1461faa1b573264f30f9e4d62509c0439a990ec1d5ce58c8747e"
+      },
+      {
+        "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_69141275d795e1fe2e496dda7c267d8d/metadata",
+        "outcome": "response",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 573,
+        "bodySha256": "3cbd16629a2241a23c1129c272a5a611b89b3fd90de148ef4d5b68aa60171a35"
+      },
+      {
+        "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_b39d3a0871985372d7e1637193335da5/metadata",
+        "outcome": "response",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 941,
+        "bodySha256": "9ef491d698b4c15d3d32972e1af6fb5aa236d49382b3278f0648b8010a476c7f"
+      },
+      {
+        "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_9233bdb05de067c3b3db21b836467a6a/metadata",
+        "outcome": "timeout",
+        "attempted": true,
+        "reason": "absolute_request_deadline"
+      },
+      {
+        "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_644ff187b6d14d6316f47284a4a6c81f/metadata",
+        "outcome": "timeout",
+        "attempted": true,
+        "reason": "absolute_request_deadline"
+      },
+      {
+        "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_af948e3f29cd12bc8b0caea19ae68286/metadata",
+        "outcome": "response",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 1256,
+        "bodySha256": "53953d78bda44ed55e8cec8d3f5dcf17b6ce4fc9d8162ed82c71043875c9a567"
+      },
+      {
+        "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_a69ef89737379f231d2ae93fd1c5707f/metadata",
+        "outcome": "response",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 1487,
+        "bodySha256": "4f20003b0dc1b933f7954a610f8b43ef5f5b83053fae65c63ea5d47a13e5e55c"
+      },
+      {
+        "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_306cc1018cb733346681883ee6d73054/metadata",
+        "outcome": "response",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 1859,
+        "bodySha256": "36136af18b61bdf3c8b92d6e19ebd017795935dcdb1f8e0cba2bb5a53cab90fa"
+      },
+      {
+        "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_b1d2b840ab9e993570c037b706b39bb8/metadata",
+        "outcome": "response",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 2403,
+        "bodySha256": "3cc348cba4a3a6971c2ca19813170d07540c2301f715731c7cff88cf33cb7567"
+      },
+      {
+        "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_4765db0e87b9c86336792efe8a1f7a66/metadata",
+        "outcome": "response",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 1961,
+        "bodySha256": "2c55b3cbf746ba664c2f1a4a34de0ab435160a51a82834b03fa374416008efee"
+      },
+      {
+        "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_e4495201ba4f77fa2ef9855bad6d2cd1/metadata",
+        "outcome": "response",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 1318,
+        "bodySha256": "e3a79c17ffca47bf3f456a8b348f66d0ecfb2e32b22fe71952a03ccd3f833149"
+      },
+      {
+        "url": "https://api-production.data.gov.sg/v2/public/api/datasets/d_be71daeab5930f96b90ad2857454d876/metadata",
+        "outcome": "response",
+        "attempted": true,
+        "statusCode": 200,
+        "bodyBytes": 1427,
+        "bodySha256": "82cfe72e3d3de65ce520b0a915e8c0512bcab78ab07657505b4332d29abbc032"
+      }
+    ]
+  },
+  "pendingNotices": [
+    {
+      "id": "acra_registered_entities:1:26c5f4998438ee2237d3bb8f0cfb0c908cc12d6302eab3e761dcf1bc7aed1e5b",
+      "sourceKey": "acra_registered_entities",
+      "episode": 1,
+      "kind": "action",
+      "reasons": [
+        "baseline_age_unknown"
+      ],
+      "createdAt": "2026-09-09T16:17:10.345557Z"
+    },
+    {
+      "id": "bus_routes:1:412de176123b90977ed171eb5b56817b11ad38abe455051e0752da166756f545",
+      "sourceKey": "bus_routes",
+      "episode": 1,
+      "kind": "action",
+      "reasons": [
+        "unsupported",
+        "baseline_age_unknown"
+      ],
+      "createdAt": "2026-09-09T16:17:22.358588Z"
+    },
+    {
+      "id": "bus_services:1:42ff652b7fa0bbeb373ffc480378e95e1f249f5c137e74d69fcae368c15b4051",
+      "sourceKey": "bus_services",
+      "episode": 1,
+      "kind": "action",
+      "reasons": [
+        "unsupported",
+        "baseline_age_unknown"
+      ],
+      "createdAt": "2026-09-09T16:17:22.359131Z"
+    },
+    {
+      "id": "bus_stops:1:b062b198c63bbbf8a61ca1d0e3452e60689015494c513bbc1f670beb64c21f2d",
+      "sourceKey": "bus_stops",
+      "episode": 1,
+      "kind": "action",
+      "reasons": [
+        "unsupported",
+        "baseline_age_unknown"
+      ],
+      "createdAt": "2026-09-09T16:17:22.359833Z"
+    },
+    {
+      "id": "covered_linkway:1:d595b0249d947396c60ff1c51498d2569efaacc25a326800b25f6ab826a0c9ae",
+      "sourceKey": "covered_linkway",
+      "episode": 1,
+      "kind": "action",
+      "reasons": [
+        "credentials_required",
+        "baseline_stale"
+      ],
+      "createdAt": "2026-09-09T16:17:22.359833Z"
+    },
+    {
+      "id": "leaf_area_index:1:0d68de38af7d9a86394a06e8941a27338c41a2df0078834ea74fe3aae3d1d821",
+      "sourceKey": "leaf_area_index",
+      "episode": 1,
+      "kind": "action",
+      "reasons": [
+        "baseline_stale",
+        "upstream_stale"
+      ],
+      "createdAt": "2026-09-09T16:17:50.002017Z"
+    },
+    {
+      "id": "nparks_heritage_road_green_buffers:1:3224adf67215065f5b6c7b4b5822ca143280c733b16183ef2ff9fe81b1c24cb9",
+      "sourceKey": "nparks_heritage_road_green_buffers",
+      "episode": 1,
+      "kind": "action",
+      "reasons": [
+        "timeout",
+        "baseline_stale"
+      ],
+      "createdAt": "2026-09-09T16:18:22.760337Z"
+    },
+    {
+      "id": "nparks_heritage_trees:1:5aa7a53f1dc6b9f75a0f90081f76079cdd8a9bbccfb735f5714d7c058b6da0d1",
+      "sourceKey": "nparks_heritage_trees",
+      "episode": 1,
+      "kind": "action",
+      "reasons": [
+        "timeout",
+        "baseline_stale"
+      ],
+      "createdAt": "2026-09-09T16:18:35.736781Z"
+    },
+    {
+      "id": "nparks_nature_ways:1:209089d5557300f3b4263dd37bc8d79cde016fcc373648ec7ff3ff8251816171",
+      "sourceKey": "nparks_nature_ways",
+      "episode": 1,
+      "kind": "action",
+      "reasons": [
+        "baseline_stale"
+      ],
+      "createdAt": "2026-09-09T16:18:48.012339Z"
+    },
+    {
+      "id": "nparks_tracks:1:9cc8f6b8e8c99f9bea64a774aa321e22bd4da87a8df5127d846c8479155480ad",
+      "sourceKey": "nparks_tracks",
+      "episode": 1,
+      "kind": "action",
+      "reasons": [
+        "baseline_stale",
+        "upstream_stale"
+      ],
+      "createdAt": "2026-09-09T16:19:10.576583Z"
+    },
+    {
+      "id": "other_uen_registered_entities:1:964cb988745adea4b6732ad6b6cf92d9e5d6ca35547f972dff7bedbfe1576355",
+      "sourceKey": "other_uen_registered_entities",
+      "episode": 1,
+      "kind": "action",
+      "reasons": [
+        "baseline_age_unknown"
+      ],
+      "createdAt": "2026-09-09T16:19:20.408648Z"
+    },
+    {
+      "id": "overhead_bridge_underpass:1:ef0f182dbe4684c167f1811959269fa882fb40414cf72fb0ecb1f0e590c4fabd",
+      "sourceKey": "overhead_bridge_underpass",
+      "episode": 1,
+      "kind": "action",
+      "reasons": [
+        "credentials_required",
+        "baseline_stale"
+      ],
+      "createdAt": "2026-09-09T16:19:20.409668Z"
+    },
+    {
+      "id": "overture_addresses_sg_candidate:1:a171d89e50d93a2ecc6f7bcae11d1ba75d5b39b24d210ad609978eeb6457c1a7",
+      "sourceKey": "overture_addresses_sg_candidate",
+      "episode": 1,
+      "kind": "action",
+      "reasons": [
+        "unsupported",
+        "baseline_age_unknown"
+      ],
+      "createdAt": "2026-09-09T16:19:20.410289Z"
+    },
+    {
+      "id": "planning_area_boundary:1:b4a1e73c958c9011b966a829f81869b41e114d636984cd3994c6e194ed2d5bee",
+      "sourceKey": "planning_area_boundary",
+      "episode": 1,
+      "kind": "action",
+      "reasons": [
+        "baseline_stale",
+        "upstream_stale"
+      ],
+      "createdAt": "2026-09-09T16:19:32.546951Z"
+    },
+    {
+      "id": "traffic_signals:1:ffa4f5ceca5d167552ddc56a02737cf9fda334435e3ef490b0e2177733754829",
+      "sourceKey": "traffic_signals",
+      "episode": 1,
+      "kind": "action",
+      "reasons": [
+        "credentials_required",
+        "baseline_stale"
+      ],
+      "createdAt": "2026-09-09T16:19:45.591964Z"
+    },
+    {
+      "id": "ura_no_dwelling_units:1:dab5940e64f0bebdcd96f03e297ffd862570e97c4d5a940e603d147b29be7be2",
+      "sourceKey": "ura_no_dwelling_units",
+      "episode": 1,
+      "kind": "action",
+      "reasons": [
+        "baseline_age_unknown",
+        "upstream_stale"
+      ],
+      "createdAt": "2026-09-09T16:19:58.410232Z"
+    }
+  ],
+  "counts": {
+    "sources": 24,
+    "attempted": 14,
+    "outcomes": {
+      "credentials_required": 3,
+      "manual": 3,
+      "observed": 12,
+      "timeout": 2,
+      "unsupported": 4
+    }
+  },
+  "checkCompleted": true,
+  "integrity": {
+    "status": "ok",
+    "before": {
+      "pipeline/config/sources.yaml": "a693817607edbafa7710598e408f369b2f8b255de0c613288fa817c78bca22cf",
+      "raw/manifest.json": "ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a"
+    },
+    "after": {
+      "pipeline/config/sources.yaml": "a693817607edbafa7710598e408f369b2f8b255de0c613288fa817c78bca22cf",
+      "raw/manifest.json": "ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a"
+    }
+  },
+  "persistence": {
+    "status": "verified",
+    "stateSha256": "ef5b04aed5e27d41fc43736fd944b4baf75c4899cfe6b323d5adb167757418bc"
+  },
+  "exitCode": 1,
+  "runStatus": "attention_required"
+}
