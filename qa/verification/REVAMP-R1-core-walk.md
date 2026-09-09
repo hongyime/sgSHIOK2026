@@ -2365,3 +2365,70 @@ pre_append_evidence_bytes=139093
 pre_append_evidence_sha256=e2ae5d0647bd9b16ec0cbf768b4ee76ce7f43356d09f66ecf19580ae20ea4baa
 pre_append_working_prefix_unchanged=true
 ```
+
+## 2026-09-09: T01 staged map-download recovery, partial acceptance
+
+Command: `node C:/sgSHIOK2026/qa/revamp-r1/map-download-recovery-20260909/handback.mjs`
+
+```text
+working_root=C:\sgSHIOK2026
+hostname=PRAWN-E14
+base=df0d73b90ba9fc90ec2d4cd72b5888282cfcae47
+summary_sha256=710df626237c2589e89fd7b42acea3f1732a0b48484eae5d96493ee421505df3
+source_validation_ok=true
+changed_web_files=11
+tested_and_built_source_matches=11
+protected_anchor_matches=11/11
+web_tests=1441
+web_test_files=56
+test_arithmetic=1389 + 31 loader + 17 startup-stage + 3 entry-bootstrap + 1 page-recovery = 1441
+file_arithmetic=54 + 2 new test files = 56
+full_receipt=qa/revamp-r1/published-options-20260909/map-download-full-2/checks.json
+exit=0 command=C:\Program Files\nodejs\node.exe C:/sgSHIOK2026/web/scripts/test-without-production-data.mjs --reporter=dot
+exit=0 command=C:\Program Files\nodejs\node.exe C:/sgSHIOK2026/web/node_modules/typescript/bin/tsc --project C:/sgSHIOK2026/web/tsconfig.json --noEmit --incremental false
+exit=0 command=python C:/sgSHIOK2026/scripts/check_repo_integrity.py
+exit=0 command=git diff --check
+build=h9AvuCJNjxEN6dn1GBsPA
+build_exit=0
+build_receipt=qa/revamp-r1/cached-release-20260908/map-download-20260909-1/build.json
+browser_attempt_1=qa/revamp-r1/map-download-recovery-20260909/accepted-1-SiVg9K/browser.json
+ok=false checks=46 + 1 = 47 captures=6 cleanup_verified=true
+failure=Error: Acceptance failed: rejected-with-walk matching screenshot facts
+browser_attempt_2=qa/revamp-r1/map-download-recovery-20260909/accepted-2-P4ZwH3/browser.json
+ok=false checks=13 + 1 = 14 captures=2 cleanup_verified=true
+failure=Error: Acceptance failed: rejected-with-walk stable facts after data reads
+browser_attempt_3=qa/revamp-r1/map-download-recovery-20260909/accepted-3-C0EI2d/browser.json
+ok=true checks=30 + 0 = 30 captures=4 cleanup_verified=true
+visual_inspection=12 captured PNGs inspected; 6 + 2 + 4 = 12
+viewport_scope=390x844 Chromium/SwiftShader; not physical-device or representative latency evidence
+browser_scope=attempt1 held component/late release/explicit Reload passed; attempt3 both rejected imports passed
+capture_corrections=wait for stable full facts and consumed successful data; record HTTP error probes separately; fresh final rejection sample
+cache_scope=HTTP cache disabled and service worker bypassed; no automatic legacy-upgrade claim
+acceptance=M04-M07/M11 handler and recovery regressions; M13 current-feature screenshot after explicit reload; M16 entry bootstrap partly covered; M17/M18 remain open
+review=A outer-loader audit found elapsed-clock defect, corrected with 2 retained red-to-green regressions; C inner/bootstrap review found no blocker; C and parent corrected harness identity/stability/stale-sample issues
+FINDINGS
+1. The former outer dynamic import had no page-level timeout/error boundary; preload rejection was not contained. The loader adds a terminal 30-second download boundary and explicit reload recovery.
+2. Inner startup now reports library-download, glyph-setup, map-construction or map-startup; tile and selected-route failures remain distinct. Fixed messages do not expose raw exception URLs.
+3. Plain home and shared-comparison entry previously skipped cache registration/update. Common mount bootstrap now covers them; the existing helper deduplicates and retains explicit-intent retry.
+4. Independent review found wall-clock adjustment could distort outer elapsedMs. Monotonic timing and clock-jump regressions correct that inherited diagnostic defect.
+5. Fixture tests and browser fault checks have different scopes. This work does not establish representative latency or automatic old-client upgrades.
+DISAGREEMENTS
+1. A passing full fixture suite is not sufficient to declare map reliability complete; actual browser outcomes and remaining cache-transition acceptance stay explicit.
+2. The OneMap logo/copyright line is mandatory attribution, not an optional legend; approved left-stack layout remains unchanged.
+pre_append_evidence_bytes=146243
+pre_append_evidence_sha256=b3e1b51590d230fac63d54c967c0a8c0bdd6fbe14e4e4cafdd6dfec7360c4dd2
+pre_append_prefix_unchanged=true
+pipeline_runs=0
+pipeline_cost=$0
+dependency_installations=0
+deployment_commands=0
+protected_payload_mutations=0
+weights_yaml_changes=0
+X_operations=0
+```
+
+Additional independent-review qualification:
+
+```text
+M07_scope=Existing handler tests cover in-page partial-map retry. Explicit Reload browser evidence is separate and is not an M07 browser pass.
+```

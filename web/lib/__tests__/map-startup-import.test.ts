@@ -140,7 +140,8 @@ describe("map startup with a controlled pending module import", () => {
     expect(status).toHaveBeenCalledTimes(1);
     expect(construct).not.toHaveBeenCalled();
     vi.advanceTimersByTime(1);
-    expect(status).toHaveBeenLastCalledWith("error", expect.stringContaining("Reload"), "reload");
+    expect(status).toHaveBeenLastCalledWith("error", "The map library could not load. Reload the page to try again. Walk evidence is still available.", "reload",
+      { stage: "library-download", reason: "timeout", elapsedMs: 30_000 });
     expect(vi.getTimerCount()).toBe(0);
 
     status.mockClear();
@@ -174,7 +175,8 @@ describe("map startup with a controlled pending module import", () => {
     importGate.reject(new Error("module unavailable"));
     await settleImport();
     expect(status.mock.calls.map(([state]) => state)).toEqual(["mounting", "error"]);
-    expect(status).toHaveBeenLastCalledWith("error", expect.any(String), "reload");
+    expect(status).toHaveBeenLastCalledWith("error", "The map library could not load. Reload the page to try again. Walk evidence is still available.", "reload",
+      { stage: "library-download", reason: "rejected", elapsedMs: 0 });
     expect(construct).not.toHaveBeenCalled();
     expect(vi.getTimerCount()).toBe(0);
     status.mockClear();

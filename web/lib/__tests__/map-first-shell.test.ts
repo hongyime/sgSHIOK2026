@@ -4,6 +4,9 @@ import { describe, expect, it, vi } from 'vitest';
 
 vi.mock('next/navigation', () => ({ usePathname: () => '/' }));
 vi.mock('next/dynamic', () => ({ default: () => () => React.createElement('div', { 'data-map-mounted': true }) }));
+vi.mock('../../components/route-map-loader', () => ({
+  RouteMapLoader: () => React.createElement('div', { 'data-map-mounted': true }), preloadRouteMap: vi.fn(),
+}));
 import Home, { DataDetails } from '../../app/page';
 
 describe('map-first home shell', () => {

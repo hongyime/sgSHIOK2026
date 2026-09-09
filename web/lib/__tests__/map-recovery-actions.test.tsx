@@ -50,6 +50,7 @@ vi.mock("react", async original => {
   return { ...actual, ...hooks, default: { ...actual.default, ...hooks } };
 });
 vi.mock("next/dynamic", () => ({ default: () => children.MapChild }));
+vi.mock("../../components/route-map-loader", () => ({ RouteMapLoader: children.MapChild, preloadRouteMap: vi.fn() }));
 vi.mock("next/navigation", () => ({ usePathname: () => "/" }));
 
 import Home from "../../app/page";
@@ -130,6 +131,20 @@ afterEach(() => {
 });
 
 describe("Home map recovery actions", () => {
+  it("records the failed map stage and clears it when a later attempt starts", () => {
+    status("error", "The map download failed.", "reload", { stage: "component-download", reason: "rejected", elapsedMs: 12 });
+    let main = elements(tree).find(element => element.type === "main") as ReactElement<Record<string, unknown>>;
+    expect(main.props["data-map-stage"]).toBe("component-download");
+    expect(main.props["data-map-failure"]).toBe("rejected");
+    expect(buttons("Reload page")).toHaveLength(1);
+    expect(reload).not.toHaveBeenCalled();
+    status("mounting");
+    main = elements(tree).find(element => element.type === "main") as ReactElement<Record<string, unknown>>;
+    expect(main.props["data-map-stage"]).toBeUndefined();
+    expect(main.props["data-map-failure"]).toBeUndefined();
+    expect(buttons("Reload page")).toHaveLength(0);
+  });
+
   it("does not reload on failure or rerender; no-draft explicit Reload page calls reload once", () => {
     const original = mapChild();
     status("error", "The map did not start.", "reload");

@@ -95,6 +95,7 @@ vi.mock('react', async original => {
   return { ...actual, ...hooks, default: { ...actual.default, ...hooks } };
 });
 vi.mock('next/dynamic', () => ({ default: () => dependencies.MapChild }));
+vi.mock('../../components/route-map-loader', () => ({ RouteMapLoader: dependencies.MapChild, preloadRouteMap: vi.fn() }));
 vi.mock('next/navigation', () => ({ usePathname: () => '/' }));
 vi.mock('maplibre-gl', () => ({}));
 vi.mock('../../components/route-evidence-map', () => ({ RouteEvidenceMap: dependencies.MapChild }));
@@ -116,6 +117,7 @@ import { HomeComparison } from '../../components/home-comparison';
 import { ComparisonShareDialog } from '../../components/comparison-share-dialog';
 import { comparisonLinkFragment } from '../comparison-link';
 import { COMPARISON_STORAGE_KEY } from '../comparison-state';
+import { requestServiceWorkerCache } from '../service-worker-cache';
 
 type Element = ReactElement<Record<string, unknown> & { children?: ReactNode }>;
 type MapProps = ComponentProps<typeof RouteEvidenceMap>;
@@ -388,6 +390,19 @@ afterEach(() => {
     host.reset();
     vi.unstubAllGlobals();
   }
+});
+
+describe('Home cache bootstrap across entry paths', () => {
+  it.each(['', '#compare=1&postals=018956&transit=bus&active=018956', '#compare=broken'])(
+    'requests cache bootstrap on initial entry %s without requiring a postal search', fragment => {
+      vi.mocked(requestServiceWorkerCache).mockClear();
+      url = new URL('https://example.test/' + fragment);
+      render();
+      expect(requestServiceWorkerCache).toHaveBeenCalledTimes(1);
+      render();
+      expect(requestServiceWorkerCache).toHaveBeenCalledTimes(1);
+    },
+  );
 });
 
 describe('Home shared comparison URL lifecycle', () => {

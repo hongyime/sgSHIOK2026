@@ -136,7 +136,8 @@ describe('M01/M08/M11: bounded map startup in the executed component', () => {
     vi.advanceTimersByTime(29_999);
     expect(props.onStatusChange).toHaveBeenLastCalledWith('initializing');
     vi.advanceTimersByTime(1);
-    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', expect.stringContaining('Reload'), 'reload');
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', 'The map did not finish starting. Reload the page to try again. Walk evidence is still available.', 'reload',
+      { stage: 'map-startup', reason: 'timeout', elapsedMs: 30_000 });
     expect(map.remove).toHaveBeenCalledTimes(1);
     expect(vi.getTimerCount()).toBe(0);
   });
@@ -145,7 +146,8 @@ describe('M01/M08/M11: bounded map startup in the executed component', () => {
     await start();
     map.emit('style.load'); render();
     vi.advanceTimersByTime(30_000);
-    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', expect.stringContaining('Reload'), 'reload');
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', 'The map did not finish starting. Reload the page to try again. Walk evidence is still available.', 'reload',
+      { stage: 'map-startup', reason: 'timeout', elapsedMs: 30_000 });
     expect(routeWrites()).toHaveLength(0);
   });
 
@@ -166,7 +168,8 @@ describe('M01/M08/M11: bounded map startup in the executed component', () => {
     const lateStyle = [...map.handlers.get('style.load')!][0];
     const lateError = [...map.handlers.get('error')!][0];
     map.emit('error', { sourceId: 'worker' });
-    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', expect.any(String), 'reload');
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', 'The map did not finish starting. Reload the page to try again. Walk evidence is still available.', 'reload',
+      { stage: 'map-startup', reason: 'error', elapsedMs: 0 });
     expect(map.remove).toHaveBeenCalledTimes(1);
     const status = props.onStatusChange as ReturnType<typeof vi.fn>; status.mockClear();
     lateLoad(); lateStyle(); lateError({ sourceId: 'onemap' }); render();
@@ -179,10 +182,12 @@ describe('M01/M08/M11: bounded map startup in the executed component', () => {
   it('retains a map that reaches load after a recoverable tile failure', async () => {
     await start();
     map.emit('error', { sourceId: 'onemap' });
-    expect(props.onStatusChange).toHaveBeenLastCalledWith('partial', expect.any(String));
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('partial', expect.any(String), undefined,
+      { stage: 'basemap-tiles', reason: 'error', elapsedMs: 0 });
     expect(map.remove).not.toHaveBeenCalled();
     map.emit('style.load'); map.emit('load'); render(); map.render();
-    expect(props.onStatusChange).toHaveBeenLastCalledWith('partial', expect.any(String));
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('partial', expect.any(String), undefined,
+      { stage: 'basemap-tiles', reason: 'error', elapsedMs: 0 });
     expect(routeWrites().map(w => w.id)).toEqual(routeIds);
     vi.advanceTimersByTime(60_000);
     expect(map.remove).not.toHaveBeenCalled();
@@ -194,7 +199,8 @@ describe('M01/M08/M11: bounded map startup in the executed component', () => {
     vi.advanceTimersByTime(20_000);
     map.emit('error', { sourceId: 'onemap' });
     vi.advanceTimersByTime(10_000);
-    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', expect.stringContaining('Reload'), 'reload');
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', 'The map did not finish starting. Reload the page to try again. Walk evidence is still available.', 'reload',
+      { stage: 'map-startup', reason: 'timeout', elapsedMs: 30_000 });
     expect(map.remove).toHaveBeenCalledTimes(1);
   });
 
@@ -219,7 +225,8 @@ describe('M01/M08/M11: bounded map startup in the executed component', () => {
     await start();
     map.remove.mockImplementation(() => { throw Error('GPU context already gone'); });
     expect(() => vi.advanceTimersByTime(30_000)).not.toThrow();
-    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', expect.stringContaining('Reload'), 'reload');
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', 'The map did not finish starting. Reload the page to try again. Walk evidence is still available.', 'reload',
+      { stage: 'map-startup', reason: 'timeout', elapsedMs: 30_000 });
     expect((window as unknown as { __shiokRouteMap: unknown }).__shiokRouteMap).toBeNull();
     expect(vi.getTimerCount()).toBe(0);
     hooks.unmount();
@@ -246,7 +253,8 @@ describe('M01/M08/M11: bounded map startup in the executed component', () => {
   it('reports a rejected constructor once without leaving a startup timer', async () => {
     lib.construct.mockImplementation(() => { throw Error('WebGL unavailable'); });
     await start();
-    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', expect.any(String), 'reload');
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', 'The map could not be created. Reload the page to try again. Walk evidence is still available.', 'reload',
+      { stage: 'map-construction', reason: 'error', elapsedMs: 0 });
     const status = props.onStatusChange as ReturnType<typeof vi.fn>; status.mockClear();
     vi.advanceTimersByTime(60_000);
     expect(status).not.toHaveBeenCalled();
@@ -268,7 +276,8 @@ describe('M01/M08/M11: bounded map startup in the executed component', () => {
     const oldMap = map;
     const oldHandlers = ['load', 'style.load', 'error'].map(event => [...oldMap.handlers.get(event)!][0]);
     vi.advanceTimersByTime(30_000);
-    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', expect.any(String), 'reload');
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('error', 'The map did not finish starting. Reload the page to try again. Walk evidence is still available.', 'reload',
+      { stage: 'map-startup', reason: 'timeout', elapsedMs: 30_000 });
     hooks.unmount(); hooks.reset();
     map = fakeMap(); lib.instance = map;
     await mount(); map.render();
@@ -468,7 +477,8 @@ describe('M05/M10/M11: source ownership in the executed map component', () => {
     await mount(); map.render();
     const expected = map.sources.get('shiokest-route').data;
     map.emit('error', { sourceId: 'onemap' });
-    expect(props.onStatusChange).toHaveBeenLastCalledWith('partial', expect.any(String));
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('partial', expect.any(String), undefined,
+      { stage: 'basemap-tiles', reason: 'error', elapsedMs: 0 });
     expect(map.sources.get('shiokest-route').data).toBe(expected);
     map.sources.delete('shiokest-route'); map.writes.length = 0;
     render({ retryKey: 1 });

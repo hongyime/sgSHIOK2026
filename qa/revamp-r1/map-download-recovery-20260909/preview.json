@@ -1,0 +1,29 @@
+{
+  "stderr": "C:\\sgSHIOK2026\\qa\\revamp-r1\\map-download-recovery-20260909\\preview.stderr.log",
+  "dataServerPort": 4321,
+  "dataServerUntouched": true,
+  "at": "2026-09-09T04:25:14.0068179Z",
+  "pageStatus": 200,
+  "hostname": "PRAWN-E14",
+  "stdout": "C:\\sgSHIOK2026\\qa\\revamp-r1\\map-download-recovery-20260909\\preview.stdout.log",
+  "retired": [
+    {
+      "ProcessId": 100888,
+      "ParentProcessId": 101724,
+      "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:/sgSHIOK2026/qa/revamp-r1/comparison-sharing-20260909/serve.mjs cross-feature-20260909-2"
+    },
+    {
+      "ProcessId": 104764,
+      "ParentProcessId": 100888,
+      "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:\\sgSHIOK2026\\web\\node_modules\\next\\dist\\bin\\next start C:\\sgSHIOK2026\\tmp\\cached-release-cross-feature-20260909-2\\web -p 4327 -H 127.0.0.1"
+    }
+  ],
+  "root": "C:\\sgSHIOK2026",
+  "current": {
+    "build": "h9AvuCJNjxEN6dn1GBsPA",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-map-download-20260909-1\\web",
+    "pid": 104608,
+    "nextPid": 83636,
+    "requests": []
+  }
+}

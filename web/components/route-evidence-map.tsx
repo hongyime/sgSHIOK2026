@@ -47,6 +47,20 @@ export type FocusedExposureGap = LegacyExposureGapFocus | MappedSectionFocus;
 
 export type RouteMapLoadStatus = "idle" | "mounting" | "initializing" | "ready" | "partial" | "error";
 export type RouteMapRecovery = "reload";
+export interface RouteMapIssue {
+  stage: "component-download" | "library-download" | "glyph-setup" | "map-construction" | "map-startup" | "basemap-tiles" | "route-render";
+  reason: "timeout" | "rejected" | "error";
+  /** Elapsed since this map attempt, or since the selected-route visibility probe for its timeout. */
+  elapsedMs?: number;
+}
+
+type MapStartupStage = Extract<RouteMapIssue["stage"], "library-download" | "glyph-setup" | "map-construction" | "map-startup">;
+const MAP_START_FAILURE_MESSAGES: Record<MapStartupStage, string> = {
+  "library-download": "The map library could not load. Reload the page to try again. Walk evidence is still available.",
+  "glyph-setup": "Map labels could not be prepared. Reload the page to try again. Walk evidence is still available.",
+  "map-construction": "The map could not be created. Reload the page to try again. Walk evidence is still available.",
+  "map-startup": "The map did not finish starting. Reload the page to try again. Walk evidence is still available.",
+};
 
 const SINGAPORE_BOUNDS: [[number, number], [number, number]] = [
   [103.55, 1.13],
@@ -1207,18 +1221,24 @@ export function RouteEvidenceMap({
   focusedExposureGap?: FocusedExposureGap | null;
   /** Current normalized explorer context; required for mapped-section focus only. */
   mappedExposureContextKey?: string | null;
-  onStatusChange?: (status: RouteMapLoadStatus, message?: string, recovery?: RouteMapRecovery) => void;
+  onStatusChange?: (status: RouteMapLoadStatus, message?: string, recovery?: RouteMapRecovery, issue?: RouteMapIssue) => void;
   retryKey?: number;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const [viewport, setViewport] = useState({ width: 0, height: 0, padding: overlayPadding(0, 0, []) });
   const cancelProbeRef = useRef<(() => void) | null>(null);
-  const mapProblemRef = useRef<{ status: "partial" | "error"; message: string } | null>(null);
+  const mapProblemRef = useRef<{ status: "partial" | "error"; message: string; issue: RouteMapIssue } | null>(null);
   const lampManifestRef = useRef<LampOverlayManifest | null | undefined>(undefined);
   const lampTileCacheRef = useRef<Map<string, LampTilePayload | null>>(new Map());
   const lampRequestIdRef = useRef(0);
   const onStatusChangeRef = useRef(onStatusChange);
+
+  function reportMapStatus(fallback: RouteMapLoadStatus) {
+    const problem = mapProblemRef.current;
+    if (problem) onStatusChangeRef.current?.(problem.status, problem.message, undefined, problem.issue);
+    else onStatusChangeRef.current?.(fallback, undefined);
+  }
 
   const routeVisibleRef = useRef(false);
   const [loaded, setLoaded] = useState(false);
@@ -1317,6 +1337,9 @@ export function RouteEvidenceMap({
     let active = true;
     let initialLoadComplete = false;
     let ownedMap: maplibregl.Map | null = null;
+    let stage: MapStartupStage = "library-download";
+    const startedAt = performance.now();
+    const elapsedMs = () => Math.max(0, Math.round(performance.now() - startedAt));
     mapProblemRef.current = null;
 
     function removeOwnedMap() {
@@ -1334,32 +1357,37 @@ export function RouteEvidenceMap({
       }
     }
 
-    function failStartup(message: string) {
+    function failStartup(reason: RouteMapIssue["reason"]) {
       if (!active || initialLoadComplete) return;
       active = false;
       clearTimeout(startupTimer);
-      mapProblemRef.current = { status: "error", message };
+      const message = MAP_START_FAILURE_MESSAGES[stage];
+      const issue: RouteMapIssue = { stage, reason, elapsedMs: elapsedMs() };
+      mapProblemRef.current = { status: "error", message, issue };
       removeOwnedMap();
       // MapLibre can retain a failed page-wide worker across map remounts.
-      onStatusChangeRef.current?.("error", message, "reload");
+      onStatusChangeRef.current?.("error", message, "reload", issue);
     }
 
     // The selected-route probe starts after load, so startup needs its own deadline.
     const startupTimer = setTimeout(() => {
-      failStartup("The map did not start. Reload the page to try again. Walk evidence is still available.");
+      failStartup("timeout");
     }, MAP_START_TIMEOUT_MS);
 
     async function initMap() {
       onStatusChangeRef.current?.("mounting");
       const maplibre = await import("maplibre-gl");
       if (!active || !containerRef.current || mapRef.current) return;
+      stage = "map-construction";
       // MapLibre 6's relative worker URL is lost when Next bundles the main module.
       // These exact installed distribution files are served with their shared module.
       maplibre.setWorkerUrl("/maplibre/6.1.0/maplibre-gl-worker.mjs");
       onStatusChangeRef.current?.("initializing");
+      stage = "glyph-setup";
       await ensureLocalGlyphProtocol(maplibre);
       if (!active || !containerRef.current || mapRef.current) return;
 
+      stage = "map-construction";
       mapRef.current = new maplibre.Map({
         container: containerRef.current,
         style: ONE_MAP_STYLE,
@@ -1373,6 +1401,7 @@ export function RouteEvidenceMap({
         attributionControl: false,
       });
       ownedMap = mapRef.current;
+      stage = "map-startup";
       // MapLibre's canvas, not its outer container, owns native keyboard input.
       const canvas = ownedMap.getCanvas();
       canvas.setAttribute("aria-label", accessibleLabelRef.current);
@@ -1400,19 +1429,19 @@ export function RouteEvidenceMap({
         if (!active) return;
         const tileFailure = (event as { sourceId?: string }).sourceId === "onemap";
         if (!initialLoadComplete && !tileFailure) {
-          failStartup("The map could not start. Reload the page to try again. Walk evidence is still available.");
+          failStartup("error");
           return;
         }
         const status = tileFailure ? "partial" : "error";
         const message = tileFailure ? "Some basemap tiles could not load. Walk evidence is still available." : "The map could not render. Walk evidence is still available.";
-        mapProblemRef.current = { status, message };
-        onStatusChangeRef.current?.(status, message);
+        const issue: RouteMapIssue = { stage: tileFailure ? "basemap-tiles" : "route-render", reason: "error", elapsedMs: elapsedMs() };
+        mapProblemRef.current = { status, message, issue };
+        onStatusChangeRef.current?.(status, message, undefined, issue);
       });
     }
 
-    void initMap().catch((err) => {
-      const message = err instanceof Error ? err.message : "Map failed to initialize.";
-      failStartup(message);
+    void initMap().catch(() => {
+      failStartup(stage === "library-download" || stage === "glyph-setup" ? "rejected" : "error");
     });
 
     return () => {
@@ -1616,10 +1645,10 @@ export function RouteEvidenceMap({
     routeVisibleRef.current = false;
     if (!routeData.bounds) {
       // No selected walk is a normal basemap state, not missing route evidence.
-      onStatusChangeRef.current?.(mapProblemRef.current?.status ?? "idle", mapProblemRef.current?.message);
+      reportMapStatus("idle");
       return;
     }
-    onStatusChangeRef.current?.(mapProblemRef.current?.status ?? "initializing", mapProblemRef.current?.message);
+    reportMapStatus("initializing");
     // One fit for a selection or measured layout change, never from render/idle/tile events.
     if (focusedExposureGap?.kind === "mapped-section") {
       const sectionBounds = boundsFor(focusedExposureGap.points.map(([lat, lon]): LngLat => [lon, lat]));
@@ -1630,14 +1659,16 @@ export function RouteEvidenceMap({
     } else {
       fitRouteBounds(map, routeData.bounds, viewport.padding);
     }
+    const probeStartedAt = performance.now();
     const cancel = watchSelectedRoute(map, {
       key: routeKey, layers: ["shiokest-route-line", "shortest-route-line"],
       box: usableMapBox(viewport.width, viewport.height, viewport.padding),
       ready: () => {
         routeVisibleRef.current = true;
-        onStatusChangeRef.current?.(mapProblemRef.current?.status ?? "ready", mapProblemRef.current?.message);
+        reportMapStatus("ready");
       },
-      timeout: () => onStatusChangeRef.current?.("error", "The selected walk is not visible. Retry the map."),
+      timeout: () => onStatusChangeRef.current?.("error", "The selected walk is not visible. Retry the map.", undefined,
+        { stage: "route-render", reason: "timeout", elapsedMs: Math.max(0, Math.round(performance.now() - probeStartedAt)) }),
     });
     cancelProbeRef.current = cancel;
     const onGesture = (event: { originalEvent?: unknown }) => {

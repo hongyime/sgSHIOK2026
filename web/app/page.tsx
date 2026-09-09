@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import {
   fetchGeomForPostal,
@@ -30,7 +29,9 @@ import type {
   RouteDisplayMode,
   RouteMapItem,
   RouteMapRecovery,
+  RouteMapIssue,
 } from "../components/route-evidence-map";
+import { RouteMapLoader as RouteEvidenceMap, preloadRouteMap } from "../components/route-map-loader";
 import {
   deriveNearestTransitCandidates,
   haversineMeters,
@@ -71,16 +72,6 @@ import { HomeComparison } from "../components/home-comparison";
 import { ComparisonShareDialog } from "../components/comparison-share-dialog";
 
 const EMPTY_TRANSIT_POIS: TransitPoiCollection = { type: "FeatureCollection", features: [] };
-
-const RouteEvidenceMap = dynamic(
-  () => import("../components/route-evidence-map").then((module) => module.RouteEvidenceMap),
-  { ssr: false }
-);
-
-function preloadRouteMap() {
-  void import("../components/route-evidence-map");
-  void import("maplibre-gl");
-}
 
 export type LoadedSelection = PublishedWalkSelection;
 
@@ -1974,6 +1965,7 @@ export default function Home() {
   const [mapLoadStatus, setMapLoadStatus] = useState<MapLoadStatus>("idle");
   const [mapRecovery, setMapRecovery] = useState<RouteMapRecovery | null>(null);
   const [mapLoadError, setMapLoadError] = useState<string | null>(null);
+  const [mapIssue, setMapIssue] = useState<RouteMapIssue | null>(null);
   const [feedbackPoints, setFeedbackPoints] = useState<FeedbackPoint[]>([]);
   const [feedbackSegmentLabels, setFeedbackSegmentLabels] = useState<FeedbackSegmentLabel[]>([]);
   const [feedbackNote, setFeedbackNote] = useState("");
@@ -2021,6 +2013,10 @@ export default function Home() {
   const navigationHandler = useRef<() => void>(() => {});
   const [shareOpen, setShareOpen] = useState(false);
   const [comparisonLinkError, setComparisonLinkError] = useState<string | null>(null);
+  useEffect(() => {
+    // Plain home and shared comparisons need the same optional cache bootstrap as search.
+    void requestServiceWorkerCache();
+  }, []);
   const syncWalkUrl = useCallback((path: string, postal: string, mode: TransitAccessMode, stop: string | null, route: RouteDisplayMode) => {
     if (readComparisonLink(window.location.hash).kind === 'valid') return;
     writeWalkUrl(path, postal, mode, stop, route);
@@ -2660,10 +2656,11 @@ export default function Home() {
     setCopyStatus("");
   };
 
-  const handleMapStatusChange = useCallback((status: MapLoadStatus, message?: string, recovery?: RouteMapRecovery) => {
+  const handleMapStatusChange = useCallback((status: MapLoadStatus, message?: string, recovery?: RouteMapRecovery, issue?: RouteMapIssue) => {
     setMapLoadStatus(status);
     setMapLoadError(message ?? null);
     setMapRecovery(recovery ?? null);
+    setMapIssue(issue ?? null);
   }, []);
 
   const copyFeedback = async () => {
@@ -2684,7 +2681,8 @@ export default function Home() {
   };
 
   return (
-    <main className={styles.appShell} data-map-status={mapLoadStatus} data-comparison-open={comparison.open || undefined}
+    <main className={styles.appShell} data-map-status={mapLoadStatus} data-map-stage={mapIssue?.stage} data-map-failure={mapIssue?.reason}
+      data-comparison-open={comparison.open || undefined}
       onKeyDown={event => { if (event.key === 'Escape' && comparison.open) { event.preventDefault(); closeComparison(); } }}>
         <RouteEvidenceMap
           key={mapInstanceKey}

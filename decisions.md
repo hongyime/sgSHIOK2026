@@ -2849,3 +2849,33 @@ Evidence is qa/revamp-r1/cross-feature-20260909/summary.json and the appended
 REVAMP-R1 verification section. All old attempts remain, including automation
 timeouts and the explicit app failure. No pipeline, dependency installation,
 protected-payload mutation, X operation or deployment was performed.
+
+## 2026-09-09: Bound map downloads and preserve failure stages (T01 partial)
+
+Keep the lightweight page shell outside the dynamically loaded map. The outer
+loader gets a terminal 30-second deadline until the map component begins; the
+existing inner startup deadline then owns library, glyph and map initialization.
+These are separate deadlines, not a claim that all startup completes in 30 seconds.
+Catch component-download rejection in a React error boundary and contain optional
+preload rejection. A late download must not silently resurrect a failed instance.
+Explicit Reload page remains the recovery for terminal startup/download failures,
+with the existing confirmation before discarding an unsent feedback draft. Tile
+failures keep the lighter partial-map retry path.
+
+Use fixed error copy and a typed stage/reason/elapsed diagnostic rather than raw
+exception messages that may contain URLs or tokens. Use monotonic elapsed timing;
+independent review exposed wall-clock changes as a diagnostic accuracy defect.
+Successful loads do not add visible progress copy or telemetry uploads. The
+approved top-left SHIOK/search/result stack and bottom-right About data remain.
+
+Request optional service-worker registration/update on plain home and shared
+comparison entry as well as explicit search. Reuse the existing deduplicating,
+failure-contained helper and keep explicit-intent retry; introduce no polling.
+This corrects the skipped entry paths but does not prove automatic old-client
+upgrade. The targeted chunk-fault browser harness bypasses service workers and
+HTTP cache explicitly, so its results cannot be substituted for that acceptance.
+
+Final results and limitations live in
+qa/revamp-r1/map-download-recovery-20260909/summary.json and the append-only
+REVAMP-R1 evidence. T01/T25 and release acceptance remain open until their broader
+criteria have actual evidence; no pipeline work or deployment is authorized here.

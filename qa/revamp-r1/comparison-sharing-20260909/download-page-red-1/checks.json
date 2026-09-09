@@ -1,0 +1,50 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs",
+    "lib/__tests__/published-walk-page.test.tsx",
+    "--no-cache",
+    "--reporter=dot"
+  ],
+  "exitCode": 1,
+  "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\nxxx···································································\n\n Test Files  1 failed (1)\n      Tests  3 failed | 67 passed (70)\n   Start at  11:44:48\n   Duration  23.32s (transform 13.46s, setup 0ms, import 13.94s, tests 5.49s, environment 1ms)\n\n",
+  "stderr": "stderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > keeps published metrics/geometry on transport failure and resets without another request\nOneMap live route fetch failed; keeping the published walk: Error: Synthetic preview transport failure\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:890:51\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20\n\nstderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > keeps published metrics/geometry on invalid-json failure and resets without another request\nOneMap live route fetch failed; keeping the published walk: SyntaxError: Unexpected token 'o', \"not JSON\" is not valid JSON\n    at JSON.parse (<anonymous>)\n    at parseJSONFromBytes (node:internal/deps/undici/undici:4349:19)\n    at successSteps (node:internal/deps/undici/undici:6987:27)\n    at readAllBytes (node:internal/deps/undici/undici:5811:13)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n\nstderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > ignores late preview rejection after selecting published candidate C\nOneMap live route fetch failed; keeping the published walk: Error: Synthetic stale preview failure\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:957:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20\n\n\n⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯\n\n FAIL  lib/__tests__/published-walk-page.test.tsx > Home cache bootstrap across entry paths > requests cache bootstrap on initial entry  without requiring a postal search\n FAIL  lib/__tests__/published-walk-page.test.tsx > Home cache bootstrap across entry paths > requests cache bootstrap on initial entry #compare=1&postals=018956&transit=bus&active=018956 without requiring a postal search\n FAIL  lib/__tests__/published-walk-page.test.tsx > Home cache bootstrap across entry paths > requests cache bootstrap on initial entry #compare=broken without requiring a postal search\nAssertionError: expected \"vi.fn()\" to be called 1 times, but got 0 times\n ❯ lib/__tests__/published-walk-page.test.tsx:400:41\n    398|       url = new URL('https://example.test/' + fragment);\n    399|       render();\n    400|       expect(requestServiceWorkerCache).toHaveBeenCalledTimes(1);\n       |                                         ^\n    401|       render();\n    402|       expect(requestServiceWorkerCache).toHaveBeenCalledTimes(1);\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯\n\n",
+  "elapsedSeconds": 46.203,
+  "before": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "bb7ae9f623baae6c8a97530eff014aade72bf930d1fd800f252c795d64a993da"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "c94567285b7da77d8f3edf73ed8250b55089a485e82f6ba6a068b63095570a60"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "sha256": "7ac15e88e8f57508473569b1536e232513f7f79137f06c190bc9c906971d3cd2"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "bb7ae9f623baae6c8a97530eff014aade72bf930d1fd800f252c795d64a993da"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "c94567285b7da77d8f3edf73ed8250b55089a485e82f6ba6a068b63095570a60"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "sha256": "7ac15e88e8f57508473569b1536e232513f7f79137f06c190bc9c906971d3cd2"
+    }
+  ],
+  "identitiesStable": true
+}

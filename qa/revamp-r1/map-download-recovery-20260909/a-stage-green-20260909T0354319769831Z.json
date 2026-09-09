@@ -1,0 +1,44 @@
+{
+  "task": "T01 phase-aware map startup diagnostics",
+  "working_root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "run": "stage-green",
+  "command": "node C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs lib/__tests__/map-startup-stage.test.ts --no-cache --reporter=verbose",
+  "exit_code": 0,
+  "raw_command_output": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > identifies a pending library timeout without extending the 30-second deadline 976ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > ignores a late library resolve after the terminal deadline 44ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > ignores a late library reject after the terminal deadline 32ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > reports a rejected library with fixed copy and safe issue fields only 46ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > distinguishes rejected glyph setup from library download and construction 31ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > identifies a thrown constructor without publishing its raw exception 31ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > uses the remaining deadline after a slow import instead of granting another 30 seconds 32ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > does not mistake style.load for finished map startup 26ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > reports pre-load worker errors as startup errors without claiming a specific worker cause 46ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > keeps a pre-load basemap failure partial and retains the startup deadline 31ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > retains a partial basemap issue when load completes with no selected route 31ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > reports post-load rendering failure without escalating it to page reload 38ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > labels the selected-route visibility timeout separately from startup 41ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > cancels the deadline on successful load without introducing progress messages 31ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > does not construct or report an issue after unmount during import 32ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > keeps the replacement attempt deadline and ownership after an import overlaps remount 31ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > reports once even if teardown throws and ignores detached events after terminal failure 47ms\n\n Test Files  1 passed (1)\n      Tests  17 passed (17)\n   Start at  11:49:08\n   Duration  3.62s (transform 1.35s, setup 0ms, import 630ms, tests 1.56s, environment 0ms)\n\n",
+  "output_chunks": [
+    {
+      "chunk_id": "51a865",
+      "wall_time_seconds": 9.2867753,
+      "exit_code": 0,
+      "original_token_count": 725,
+      "output": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > identifies a pending library timeout without extending the 30-second deadline 976ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > ignores a late library resolve after the terminal deadline 44ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > ignores a late library reject after the terminal deadline 32ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > reports a rejected library with fixed copy and safe issue fields only 46ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > distinguishes rejected glyph setup from library download and construction 31ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > identifies a thrown constructor without publishing its raw exception 31ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > uses the remaining deadline after a slow import instead of granting another 30 seconds 32ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > does not mistake style.load for finished map startup 26ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > reports pre-load worker errors as startup errors without claiming a specific worker cause 46ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > keeps a pre-load basemap failure partial and retains the startup deadline 31ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > retains a partial basemap issue when load completes with no selected route 31ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > reports post-load rendering failure without escalating it to page reload 38ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > labels the selected-route visibility timeout separately from startup 41ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > cancels the deadline on successful load without introducing progress messages 31ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > does not construct or report an issue after unmount during import 32ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > keeps the replacement attempt deadline and ownership after an import overlaps remount 31ms\n \u2713 lib/__tests__/map-startup-stage.test.ts > phase-aware map startup issues > reports once even if teardown throws and ignores detached events after terminal failure 47ms\n\n Test Files  1 passed (1)\n      Tests  17 passed (17)\n   Start at  11:49:08\n   Duration  3.62s (transform 1.35s, setup 0ms, import 630ms, tests 1.56s, environment 0ms)\n\n"
+    }
+  ],
+  "raw_output_note": "Exact concatenation of exec_command/write_stdin output chunks; tools expose a combined stdout/stderr stream. Synthetic private.invalid URLs in red assertions are deliberate test inputs, not real private data.",
+  "summary": "17 passed",
+  "executed_passed_by_file": {
+    "lib/__tests__/map-startup-stage.test.ts": 17
+  },
+  "source_hashes_when_runtime_treatment_first_tested": {
+    "timestamp": "2026-09-09T03:49:59.0521925Z",
+    "files": [
+      {
+        "path": "web/components/route-evidence-map.tsx",
+        "sha256": "dbba167f7df7fb975e50a521d32483f1da39f910b44bc6034f6f3c492b809f94",
+        "bytes": 60465
+      },
+      {
+        "path": "web/lib/__tests__/map-startup-stage.test.ts",
+        "sha256": "95f7ccd4b45dfcfad813aa530e9d5d6ea3b691b63b0a4381ae8a1847cc58bfec",
+        "bytes": 14972
+      }
+    ]
+  },
+  "boundaries": [
+    "No elapsed-time reduction or cause-of-stall claim.",
+    "Real component effects/import rejection and route probe with deterministic hooks, timer and MapLibre doubles, not browser acceptance.",
+    "30-second startup deadline remains shared across all stages; no automatic reload.",
+    "No changes to parent page/loader, shared documentation, protected inputs/data, pipeline, installations, browser, staging or commits."
+  ]
+}

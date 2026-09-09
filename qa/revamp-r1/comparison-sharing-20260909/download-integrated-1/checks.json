@@ -1,0 +1,122 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs",
+    "lib/__tests__/route-map-loader.test.tsx",
+    "lib/__tests__/map-startup-stage.test.ts",
+    "lib/__tests__/map-startup-import.test.ts",
+    "lib/__tests__/route-source-lifecycle.test.ts",
+    "lib/__tests__/route-map-keyboard.test.ts",
+    "lib/__tests__/published-walk-page.test.tsx",
+    "lib/__tests__/service-worker-registration.test.ts",
+    "lib/__tests__/map-first-shell.test.ts",
+    "lib/__tests__/map-recovery-actions.test.tsx",
+    "--no-cache",
+    "--reporter=dot"
+  ],
+  "exitCode": 0,
+  "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n························································································································································································\n\n Test Files  9 passed (9)\n      Tests  184 passed (184)\n   Start at  12:02:38\n   Duration  30.60s (transform 5.46s, setup 0ms, import 9.26s, tests 9.39s, environment 8ms)\n\n",
+  "stderr": "stderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > keeps published metrics/geometry on transport failure and resets without another request\nOneMap live route fetch failed; keeping the published walk: Error: Synthetic preview transport failure\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:891:51\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20\n\nstderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > keeps published metrics/geometry on invalid-json failure and resets without another request\nOneMap live route fetch failed; keeping the published walk: SyntaxError: Unexpected token 'o', \"not JSON\" is not valid JSON\n    at JSON.parse (<anonymous>)\n    at parseJSONFromBytes (node:internal/deps/undici/undici:4349:19)\n    at successSteps (node:internal/deps/undici/undici:6987:27)\n    at readAllBytes (node:internal/deps/undici/undici:5811:13)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n\nstderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > ignores late preview rejection after selecting published candidate C\nOneMap live route fetch failed; keeping the published walk: Error: Synthetic stale preview failure\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:958:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20\n\n",
+  "elapsedSeconds": 34.86,
+  "before": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "bb7ae9f623baae6c8a97530eff014aade72bf930d1fd800f252c795d64a993da"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "89bc648010cd6c575c60a9dc980f6afc1f2fe188c3aab6322e17873ec122cdca"
+    },
+    {
+      "path": "web/lib/__tests__/route-map-loader.test.tsx",
+      "sha256": "98e728f09607a4fa4c474565796342bdfaeda6a0b2829f26ade9872c1360836d"
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-stage.test.ts",
+      "sha256": "95f7ccd4b45dfcfad813aa530e9d5d6ea3b691b63b0a4381ae8a1847cc58bfec"
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-import.test.ts",
+      "sha256": "2fcaa4f52893993199402dbf914b72a668e4cc73857cdae5a4adc60f2ed9e165"
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "sha256": "cd1fd8e4fa160b5c2591b683b34b04130259f200113c2de83c0ae052a567309c"
+    },
+    {
+      "path": "web/lib/__tests__/route-map-keyboard.test.ts",
+      "sha256": "685fa52e560de34b211357f2042dea60f538d8bae5e8e1e6f784147c1a880fa1"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "sha256": "da5dc4f7b436e8e18e7acdb3d0e7ba9675cf7cd8b6661cc060dae5d62ee6598d"
+    },
+    {
+      "path": "web/lib/__tests__/service-worker-registration.test.ts",
+      "sha256": "f4535bf604766d3d3f4860dd3bed3913e9e3ef0bbe884adce527806a319f6627"
+    },
+    {
+      "path": "web/lib/__tests__/map-first-shell.test.ts",
+      "sha256": "ddd31e3d872e8a75157eeae25af9de2d2eb1bd2c4e9b01c0783857bbd7fa16b3"
+    },
+    {
+      "path": "web/lib/__tests__/map-recovery-actions.test.tsx",
+      "sha256": "0a57110b9923681e76e04dbadc7534568168789b0435b72e7c0d6bbcd079e732"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "bb7ae9f623baae6c8a97530eff014aade72bf930d1fd800f252c795d64a993da"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "89bc648010cd6c575c60a9dc980f6afc1f2fe188c3aab6322e17873ec122cdca"
+    },
+    {
+      "path": "web/lib/__tests__/route-map-loader.test.tsx",
+      "sha256": "98e728f09607a4fa4c474565796342bdfaeda6a0b2829f26ade9872c1360836d"
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-stage.test.ts",
+      "sha256": "95f7ccd4b45dfcfad813aa530e9d5d6ea3b691b63b0a4381ae8a1847cc58bfec"
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-import.test.ts",
+      "sha256": "2fcaa4f52893993199402dbf914b72a668e4cc73857cdae5a4adc60f2ed9e165"
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "sha256": "cd1fd8e4fa160b5c2591b683b34b04130259f200113c2de83c0ae052a567309c"
+    },
+    {
+      "path": "web/lib/__tests__/route-map-keyboard.test.ts",
+      "sha256": "685fa52e560de34b211357f2042dea60f538d8bae5e8e1e6f784147c1a880fa1"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "sha256": "da5dc4f7b436e8e18e7acdb3d0e7ba9675cf7cd8b6661cc060dae5d62ee6598d"
+    },
+    {
+      "path": "web/lib/__tests__/service-worker-registration.test.ts",
+      "sha256": "f4535bf604766d3d3f4860dd3bed3913e9e3ef0bbe884adce527806a319f6627"
+    },
+    {
+      "path": "web/lib/__tests__/map-first-shell.test.ts",
+      "sha256": "ddd31e3d872e8a75157eeae25af9de2d2eb1bd2c4e9b01c0783857bbd7fa16b3"
+    },
+    {
+      "path": "web/lib/__tests__/map-recovery-actions.test.tsx",
+      "sha256": "0a57110b9923681e76e04dbadc7534568168789b0435b72e7c0d6bbcd079e732"
+    }
+  ],
+  "identitiesStable": true
+}

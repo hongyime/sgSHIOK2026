@@ -1,0 +1,20 @@
+{
+  "root": "C:/sgSHIOK2026",
+  "command": "node web/scripts/test-web.mjs lib/__tests__/route-map-loader.test.tsx",
+  "startedAt": "2026-09-09T03:49:05.444Z",
+  "finishedAt": "2026-09-09T03:49:12.028Z",
+  "elapsedMs": 6582,
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n\n Test Files  1 passed (1)\n      Tests  29 passed (29)\n   Start at  11:49:09\n   Duration  2.51s (transform 460ms, setup 0ms, import 479ms, tests 567ms, environment 0ms)\n\n",
+  "stderr": "",
+  "before": {
+    "web/components/route-map-loader.tsx": "a0a101df5adc5dfcfe4889164a7dae961c9b75a863d1ad6620a8b9f89d8c4853",
+    "web/lib/__tests__/route-map-loader.test.tsx": "be4521e371e2896bf0c1c70c801ae9e42cd7360e83e337ad27913fab120b1f24"
+  },
+  "after": {
+    "web/components/route-map-loader.tsx": "a0a101df5adc5dfcfe4889164a7dae961c9b75a863d1ad6620a8b9f89d8c4853",
+    "web/lib/__tests__/route-map-loader.test.tsx": "be4521e371e2896bf0c1c70c801ae9e42cd7360e83e337ad27913fab120b1f24"
+  }
+}

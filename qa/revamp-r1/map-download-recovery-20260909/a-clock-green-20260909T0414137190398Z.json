@@ -1,0 +1,98 @@
+{
+  "task": "T01 loader monotonic elapsed time",
+  "working_root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "command": "node C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs lib/__tests__/route-map-loader.test.tsx --no-cache --reporter=verbose",
+  "run": "green-after-performance-now-fix",
+  "exit_code": 0,
+  "raw_command_output": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > uses a real React boundary and one module-level non-SSR named-export loader 225ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > bounds a child that never begins mounting at exactly 30 seconds 31ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > uses latest props/callback without restarting the selection-independent deadline 110ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > measures elapsed time monotonically after a wall-clock adjustment of 3600000 ms 21ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > measures elapsed time monotonically after a wall-clock adjustment of -3600000 ms 29ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > hands the deadline to the child on its first idle status 21ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > hands the deadline to the child on its first mounting status 32ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > hands the deadline to the child on its first initializing status 73ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > hands the deadline to the child on its first ready status 43ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > hands the deadline to the child on its first partial status 28ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > hands the deadline to the child on its first error status 20ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > forwards inner diagnostic arguments unchanged rather than relabeling library/worker work 42ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > keeps a stable child callback forwarding only to the latest parent callback 21ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > accepts a first child status before the parent did-mount lifecycle 58ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > clears unmounted deadlines and ignores captured late child statuses and errors 33ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > does not let late child success or changed retry props resurrect a timed-out wrapper 24ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > does not restart the outer deadline for selection changes after the child starts 23ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > does not mutate frozen map props and forwards optional interaction props 22ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > survives lifecycle teardown/replay with one live deadline 19ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > supports an absent status callback without throwing on timeout 25ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > brands rejected component imports and reports a sanitized download failure 19ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > labels ordinary child render failures as route-render after child began=false 21ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > labels ordinary child render failures as route-render after child began=true 16ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > does not use error names/messages to impersonate a branded import failure 15ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > ignores a resolved import after timeout and leaves the rendered child removed 18ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > handles both hints safely with component rejected=false and library rejected=false 23ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > handles both hints safely with component rejected=true and library rejected=false 23ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > handles both hints safely with component rejected=false and library rejected=true 18ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > handles both hints safely with component rejected=true and library rejected=true 15ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > does not turn preload completion into map readiness 22ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > handles fire-and-forget hint rejections without automatic retry or readiness 20ms\n\n Test Files  1 passed (1)\n      Tests  31 passed (31)\n   Start at  12:12:56\n   Duration  4.48s (transform 710ms, setup 0ms, import 910ms, tests 1.12s, environment 1ms)\n\n",
+  "output_chunks": [
+    {
+      "chunk_id": "cca21f",
+      "wall_time_seconds": 10.0027969,
+      "session_id": 58517,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "ee210a",
+      "wall_time_seconds": 5.0024848,
+      "session_id": 58517,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "b83262",
+      "wall_time_seconds": 0.0000059,
+      "exit_code": 0,
+      "original_token_count": 1402,
+      "output": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > uses a real React boundary and one module-level non-SSR named-export loader 225ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > bounds a child that never begins mounting at exactly 30 seconds 31ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > uses latest props/callback without restarting the selection-independent deadline 110ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > measures elapsed time monotonically after a wall-clock adjustment of 3600000 ms 21ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > measures elapsed time monotonically after a wall-clock adjustment of -3600000 ms 29ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > hands the deadline to the child on its first idle status 21ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > hands the deadline to the child on its first mounting status 32ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > hands the deadline to the child on its first initializing status 73ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > hands the deadline to the child on its first ready status 43ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > hands the deadline to the child on its first partial status 28ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > hands the deadline to the child on its first error status 20ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > forwards inner diagnostic arguments unchanged rather than relabeling library/worker work 42ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > keeps a stable child callback forwarding only to the latest parent callback 21ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > accepts a first child status before the parent did-mount lifecycle 58ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > clears unmounted deadlines and ignores captured late child statuses and errors 33ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > does not let late child success or changed retry props resurrect a timed-out wrapper 24ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > does not restart the outer deadline for selection changes after the child starts 23ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > does not mutate frozen map props and forwards optional interaction props 22ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > survives lifecycle teardown/replay with one live deadline 19ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: native dynamic map download owner > supports an absent status callback without throwing on timeout 25ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > brands rejected component imports and reports a sanitized download failure 19ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > labels ordinary child render failures as route-render after child began=false 21ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > labels ordinary child render failures as route-render after child began=true 16ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > does not use error names/messages to impersonate a branded import failure 15ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > ignores a resolved import after timeout and leaves the rendered child removed 18ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > handles both hints safely with component rejected=false and library rejected=false 23ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > handles both hints safely with component rejected=true and library rejected=false 23ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > handles both hints safely with component rejected=false and library rejected=true 18ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > handles both hints safely with component rejected=true and library rejected=true 15ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > does not turn preload completion into map readiness 22ms\n \u2713 lib/__tests__/route-map-loader.test.tsx > T01: import rejection, render error and optional preload hints > handles fire-and-forget hint rejections without automatic retry or readiness 20ms\n\n Test Files  1 passed (1)\n      Tests  31 passed (31)\n   Start at  12:12:56\n   Duration  4.48s (transform 710ms, setup 0ms, import 910ms, tests 1.12s, environment 1ms)\n\n"
+    }
+  ],
+  "raw_output_note": "Exact combined stdout/stderr tool output.",
+  "counts": {
+    "passed": 31,
+    "failed": 0,
+    "total": 31
+  },
+  "arithmetic": "29 existing + 2 clock adjustment cases = 31 passed",
+  "red_receipt": "C:/sgSHIOK2026/qa/revamp-r1/map-download-recovery-20260909/a-clock-red-20260909T0411409233389Z.json",
+  "red_receipt_verified_before_runtime_edit": {
+    "path": "C:/sgSHIOK2026/qa/revamp-r1/map-download-recovery-20260909/a-clock-red-20260909T0411409233389Z.json",
+    "exit_code": 1,
+    "sha256": "9ea00013d8c36334e417cadfa940f31df8cf7ae35d563f79a50148d21d4549cb"
+  },
+  "source_before": {
+    "timestamp": "2026-09-09T04:10:25.3428492Z",
+    "files": [
+      {
+        "path": "web/components/route-map-loader.tsx",
+        "sha256": "1e3971ea91a45954f7f90516d07786a673d9ba49d74bf6c34620345ccc0c574a",
+        "bytes": 3137
+      },
+      {
+        "path": "web/lib/__tests__/route-map-loader.test.tsx",
+        "sha256": "98e728f09607a4fa4c474565796342bdfaeda6a0b2829f26ade9872c1360836d",
+        "bytes": 14941
+      }
+    ]
+  },
+  "source_hashes_at_red": {
+    "timestamp": "2026-09-09T04:11:40.9233389Z",
+    "files": [
+      {
+        "path": "web/components/route-map-loader.tsx",
+        "sha256": "1e3971ea91a45954f7f90516d07786a673d9ba49d74bf6c34620345ccc0c574a",
+        "bytes": 3137
+      },
+      {
+        "path": "web/lib/__tests__/route-map-loader.test.tsx",
+        "sha256": "d31f8ed81683c76f84698081513cdf3c0c1cfeb12d8484b64ac4a7e04241569c",
+        "bytes": 15862
+      }
+    ]
+  },
+  "source_hashes_at_green": {
+    "timestamp": "2026-09-09T04:14:13.7190398Z",
+    "original_test_body_sha256": "98e728f09607a4fa4c474565796342bdfaeda6a0b2829f26ade9872c1360836d",
+    "original_test_body_preserved": true,
+    "files": [
+      {
+        "path": "web/components/route-map-loader.tsx",
+        "sha256": "4a9c4dba5e545a6b6f9bf9296a8a22eb7cfe29cee401c27c54d3c38fac32c93b",
+        "bytes": 3158
+      },
+      {
+        "path": "web/lib/__tests__/route-map-loader.test.tsx",
+        "sha256": "d31f8ed81683c76f84698081513cdf3c0c1cfeb12d8484b64ac4a7e04241569c",
+        "bytes": 15862
+      }
+    ]
+  },
+  "test_source_unchanged_between_red_green": true,
+  "limits": [
+    "Only loader elapsed-time measurement changed; deadline, error-boundary and explicit recovery policy unchanged.",
+    "No real-browser or Next boundary acceptance claim; existing class/Next doubles retained.",
+    "No inner-map tests, build, stage, commit, installation, pipeline work, X access or protected-data mutations."
+  ]
+}

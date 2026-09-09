@@ -127,7 +127,7 @@ describe('T25: keyboard focus belongs to the MapLibre canvas', () => {
     expect(map.canvas.getAttribute('aria-label')).toBe('Shelter-map view for Published fixture, showing sheltered walk');
     expect(map.canvas.getAttribute('aria-describedby')).toBe(summary().props.id);
     expect(summary().props.children).toContain('Published fixture');
-    expect(props.onStatusChange).not.toHaveBeenCalledWith('error', expect.anything(), expect.anything());
+    expect(props.onStatusChange).not.toHaveBeenCalledWith('error', expect.anything(), expect.anything(), expect.anything());
   });
 
   it('updates selection and mode metadata without reconstructing the map', async () => {

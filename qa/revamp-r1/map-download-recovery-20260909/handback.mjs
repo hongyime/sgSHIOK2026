@@ -1,0 +1,37 @@
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { resolve } from 'node:path';
+const root = 'C:\\sgSHIOK2026';
+if (process.cwd() !== root) throw Error('Wrong working root');
+const path = resolve(root, 'qa/revamp-r1/map-download-recovery-20260909/summary.json');
+const bytes = readFileSync(path), summary = JSON.parse(bytes);
+console.log(`working_root=${root}\nhostname=${process.env.COMPUTERNAME}\nbase=${summary.base}`);
+console.log(`summary_sha256=${createHash('sha256').update(bytes).digest('hex')}`);
+console.log(`source_validation_ok=${summary.sourceValidationOk}\nchanged_web_files=${summary.sources.length}`);
+console.log(`tested_and_built_source_matches=${summary.sources.filter(source => source.matchesTestedSnapshot && source.matchesBuiltSource).length}`);
+console.log(`protected_anchor_matches=${summary.anchors.filter(anchor => anchor.match).length}/${summary.anchors.length}`);
+console.log(`web_tests=${summary.tests.passed}\nweb_test_files=${summary.tests.files}`);
+console.log('test_arithmetic=1389 + 31 loader + 17 startup-stage + 3 entry-bootstrap + 1 page-recovery = 1441');
+console.log('file_arithmetic=54 + 2 new test files = 56');
+console.log(`full_receipt=${summary.tests.receipt}`);
+for (const command of summary.tests.commands) console.log(`exit=${command.exitCode} command=${command.command} ${command.args.join(' ')}`);
+console.log(`build=${summary.build.buildId}\nbuild_exit=${summary.build.exitCode}\nbuild_receipt=${summary.build.receipt}`);
+for (const [index, attempt] of [...summary.priorBrowsers, summary.browser].entries()) {
+  const passed = attempt.checks.filter(check => check.pass).length, failed = attempt.checks.length - passed;
+  console.log(`browser_attempt_${index + 1}=${attempt.receipt}`);
+  console.log(`ok=${attempt.ok} checks=${passed} + ${failed} = ${attempt.checks.length} captures=${attempt.captures.length} cleanup_verified=${attempt.cleanup.verified}`);
+  if (attempt.failure) console.log(`failure=${attempt.failure.split('\n')[0]}`);
+}
+console.log('visual_inspection=12 captured PNGs inspected; 6 + 2 + 4 = 12');
+console.log('viewport_scope=390x844 Chromium/SwiftShader; not physical-device or representative latency evidence');
+console.log('browser_scope=attempt1 held component/late release/explicit Reload passed; attempt3 both rejected imports passed');
+console.log('capture_corrections=wait for stable full facts and consumed successful data; record HTTP error probes separately; fresh final rejection sample');
+console.log('cache_scope=HTTP cache disabled and service worker bypassed; no automatic legacy-upgrade claim');
+console.log('acceptance=M04-M07/M11 handler and recovery regressions; M13 current-feature screenshot after explicit reload; M16 entry bootstrap partly covered; M17/M18 remain open');
+console.log('review=A outer-loader audit found elapsed-clock defect, corrected with 2 retained red-to-green regressions; C inner/bootstrap review found no blocker; C and parent corrected harness identity/stability/stale-sample issues');
+console.log('FINDINGS');
+summary.findings.forEach((finding, index) => console.log(`${index + 1}. ${finding}`));
+console.log('DISAGREEMENTS');
+summary.disagreements.forEach((finding, index) => console.log(`${index + 1}. ${finding}`));
+console.log(`pre_append_evidence_bytes=${summary.evidencePrefix.bytes}\npre_append_evidence_sha256=${summary.evidencePrefix.sha256}\npre_append_prefix_unchanged=${summary.evidencePrefix.unchanged}`);
+console.log('pipeline_runs=0\npipeline_cost=$0\ndependency_installations=0\ndeployment_commands=0\nprotected_payload_mutations=0\nweights_yaml_changes=0\nX_operations=0');
