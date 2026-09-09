@@ -1,0 +1,63 @@
+{
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "args": [
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_source_metadata_catalog.py",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\source-monitor-tests-identity-red-1",
+    "-q"
+  ],
+  "before": [
+    {
+      "path": "tests/test_source_metadata_catalog.py",
+      "sha256": "6a331a47b2a67104da56a04aa11f49b0d1bd5df1997d40628d5fd63acf7a1925"
+    },
+    {
+      "path": "scripts/build_source_metadata_catalog.py",
+      "sha256": "86bae42170df7d9a66b13db715737ed627774144265434edef4c41b631695c7b"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "96986b0726b30959a4b37867a714ec56cd8e6b77248e7758bf1b788b12810b7b"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": "4fc1c85180c5f8df8a2c302a291b71fe88ba76b1e918e10b8376fe6353a31b28"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    }
+  ],
+  "after": [
+    {
+      "path": "tests/test_source_metadata_catalog.py",
+      "sha256": "6a331a47b2a67104da56a04aa11f49b0d1bd5df1997d40628d5fd63acf7a1925"
+    },
+    {
+      "path": "scripts/build_source_metadata_catalog.py",
+      "sha256": "86bae42170df7d9a66b13db715737ed627774144265434edef4c41b631695c7b"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "96986b0726b30959a4b37867a714ec56cd8e6b77248e7758bf1b788b12810b7b"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": "4fc1c85180c5f8df8a2c302a291b71fe88ba76b1e918e10b8376fe6353a31b28"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    }
+  ],
+  "stable": true,
+  "exitCode": 2,
+  "stdout": "\r\n=================================== ERRORS ====================================\r\n___________ ERROR collecting tests/test_source_metadata_catalog.py ____________\r\nImportError while importing test module 'C:\\sgSHIOK2026\\tests\\test_source_metadata_catalog.py'.\r\nHint: make sure your test modules/packages have valid Python names.\r\nTraceback:\r\nC:\\Program Files\\Python312\\Lib\\importlib\\__init__.py:90: in import_module\r\n    return _bootstrap._gcd_import(name[level:], package, level)\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\ntests\\test_source_metadata_catalog.py:3: in <module>\r\n    from scripts.build_source_metadata_catalog import make_catalog, metadata_identity\r\nE   ImportError: cannot import name 'metadata_identity' from 'scripts.build_source_metadata_catalog' (C:\\sgSHIOK2026\\scripts\\build_source_metadata_catalog.py)\r\n=========================== short test summary info ===========================\r\nERROR tests/test_source_metadata_catalog.py\r\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\r\n1 error in 2.17s\r\n",
+  "stderr": "",
+  "elapsedMs": 5158
+}

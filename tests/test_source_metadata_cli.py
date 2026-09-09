@@ -26,6 +26,7 @@ def project(tmp_path):
     catalog = {
         "schemaVersion": 1, "generatedAt": "2026-09-08T00:00:00Z", "baselineMeaning": "Fixture input metadata only",
         "anchors": {p: sha(b"{}\n") for p in ("pipeline/config/sources.yaml", "raw/manifest.json")},
+        "gitAnchors": {p: sha(b"{}\n") for p in ("pipeline/config/sources.yaml", "raw/manifest.json")},
         "sources": [{"key": "rail", "name": "Rail", "mode": "automatic", "adapter": "datagov_metadata",
                      "datasetId": "d_abc", "staleAfterDays": 120, "expectedCadence": "quarterly",
                      "baseline": {"publisherUpdatedAt": "2026-08-01T00:00:00Z", "sha256": "a" * 64, "present": True}}],
@@ -124,6 +125,8 @@ def test_uncheckable_sources_are_explicit_without_requests(project, adapter, out
     lambda c: c["sources"].append(deepcopy(c["sources"][0])),
     lambda c: c["sources"][0].update(datasetId="../download"),
     lambda c: c["anchors"].update({"../private": "b" * 64}),
+    lambda c: c.pop("gitAnchors"),
+    lambda c: c["gitAnchors"].update({"raw/manifest.json": "invalid"}),
     lambda c: c["sources"][0].update(mode="manual"),
     lambda c: c["sources"][0].update(staleAfterDays=True),
     lambda c: c["sources"][0]["baseline"].update(publisherUpdatedAt="2026-09-09"),
@@ -283,3 +286,17 @@ def test_invalid_credentials_stop_without_echoing_or_network(project):
         run_check(project[0], project[0] / "qa/source-monitor/invalid", client=client,
                   credentials={"LTA_DATAMALL_ACCOUNT_KEY": "private\nvalue"}, clock=lambda: NOW)
     assert "private" not in str(failure.value) and not client.calls
+
+
+def test_runtime_anchor_never_uses_git_identity_in_place_of_recorded_local_bytes(project):
+    root, catalog = project
+    path = root / "raw/manifest.json"
+    path.write_bytes(b'{}\r\n')
+    catalog["anchors"]["raw/manifest.json"] = sha(b'{}\r\n')
+    persist_catalog(project)
+    run(project)
+    path.write_bytes(b'{}\n')
+    client = Client()
+    with pytest.raises(MonitorError, match="STOP_INPUT_MISMATCH"):
+        run(project, "run2", client)
+    assert not client.calls

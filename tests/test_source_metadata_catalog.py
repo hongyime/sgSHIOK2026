@@ -1,6 +1,6 @@
 import pytest
 
-from scripts.build_source_metadata_catalog import make_catalog
+from scripts.build_source_metadata_catalog import make_catalog, metadata_identity
 
 
 def test_catalog_reuses_policy_and_never_substitutes_fetch_time():
@@ -39,3 +39,51 @@ def test_unsafe_endpoint_identifiers_are_rejected(kind, field, value):
 def test_ambiguous_recorded_dates_stay_unknown(date):
     result = make_catalog({"sources": {"x": {"kind": "other"}}}, {"sources": {"x": {"last_modified": date}}}, {}, "now")
     assert result["sources"][0]["baseline"]["publisherUpdatedAt"] is None
+
+
+@pytest.mark.parametrize("path", ["raw/manifest.json", "pipeline/config/sources.yaml"])
+def test_metadata_identity_records_both_hashes_without_mutating_crlf_bytes(path):
+    import hashlib
+    committed, local = b'{"sources":{}}\n', b'{"sources":{}}\r\n'
+    before = (committed, local)
+    result = metadata_identity(path, committed, local)
+    assert result == {"committedSha256": hashlib.sha256(committed).hexdigest(),
+                      "localSha256": hashlib.sha256(local).hexdigest(), "comparison": "lf_crlf_only",
+                      "committedBytes": len(committed), "localBytes": len(local)}
+    assert before == (committed, local)
+
+
+def test_identical_metadata_keeps_identical_raw_hashes():
+    result = metadata_identity("raw/manifest.json", b'{}\n', b'{}\n')
+    assert result["comparison"] == "identical"
+    assert result["committedSha256"] == result["localSha256"]
+
+
+@pytest.mark.parametrize("local", [b'{ }\n', b'{}\r', b'{}', b'{}\n\n', b'\xef\xbb\xbf{}\n', b'{"sources":null}\n', b'\xff\n'])
+def test_semantic_or_other_byte_differences_are_not_line_ending_exceptions(local):
+    with pytest.raises(RuntimeError, match="STOP_INPUT_MISMATCH"):
+        metadata_identity("raw/manifest.json", b'{}\n', local)
+
+
+@pytest.mark.parametrize("path", ["pipeline/config/weights.yaml", "raw/shelter.zip", "processed/network_island.parquet", "qa/releases/manifest.json", "../raw/manifest.json"])
+def test_metadata_exception_cannot_be_applied_to_any_other_input(path):
+    with pytest.raises(ValueError, match="not an allowlisted textual"):
+        metadata_identity(path, b'{}\n', b'{}\r\n')
+
+
+def test_same_json_with_reordered_keys_is_not_accepted():
+    with pytest.raises(RuntimeError, match="STOP_INPUT_MISMATCH"):
+        metadata_identity("raw/manifest.json", b'{"a":1,"b":2}\n', b'{"b":2,"a":1}\n')
+
+
+@pytest.mark.parametrize("content", [b'{}\r\n', b'{}\r', b'\xef\xbb\xbf{}\n', b'\x00\n', b'\xff\n'])
+def test_invalid_committed_text_is_not_silently_normalized(content):
+    with pytest.raises(ValueError, match="committed metadata"):
+        metadata_identity("raw/manifest.json", content, content)
+
+
+def test_catalog_retains_distinct_git_and_local_anchor_identities():
+    local = {"raw/manifest.json": "a" * 64}
+    committed = {"raw/manifest.json": "b" * 64}
+    result = make_catalog({"sources": {}}, {"sources": {}}, local, "now", git_anchors=committed)
+    assert result["anchors"] == local and result["gitAnchors"] == committed

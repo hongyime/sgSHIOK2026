@@ -2987,3 +2987,94 @@ review agents were closed. No command was restarted based on an observation time
    notice/schedule execution remain outstanding.
 2. Different raw manifest bytes must not be explained away as formatting or repaired
    implicitly. The receipt establishes a mismatch, not its cause or preferred version.
+
+## Correction 2026-09-09: Authorized Manifest Representation Diagnosis
+
+The owner approved the read-only investigation and asked that routine read-only
+checks not require another pause. The original stop receipt above remains intact.
+The discrepancy is now explained, not presumed: Git's LF bytes and the unchanged
+local CRLF bytes differ only in 235 carriage returns. Both parsed JSON documents
+and all 23 entire source entries are equal. This comparison does not rehash the
+underlying dataset files or make any new claim about them.
+
+```text
+committed_bytes=11381
+committed_sha256=159d5f7818174da8d80eafda3be95de9cfb65aa2fc1fc94a78ab174a001b383b
+committed_crlf=0
+committed_lf=235
+local_bytes=11616
+local_sha256=ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a
+local_crlf=235
+local_lf=235
+byte_arithmetic=11616 - 11381 = 235 = 235 CRLF terminators * 1 additional CR byte
+equal_after_only_CRLF_to_LF=true
+equal_parsed_JSON=true
+committed_source_count=23
+local_source_count=23
+local_sha256_after=ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a
+git ls-files --eol -- raw/manifest.json
+i/lf    w/crlf  attr/text=auto eol=lf 	raw/manifest.json
+```
+
+Diagnosis: the newly introduced catalog builder compared a committed text blob
+directly with worktree bytes and stopped on a Git representation difference.
+The `.gitattributes` declaration does not prove that existing untouched worktree
+files already use LF. No data value difference was found in this manifest.
+No protected file was rewritten, normalized, regenerated, fetched or replaced.
+The read-only diagnostic and machine-readable proof are retained at
+`qa/revamp-r1/source-monitor-20260909/manifest-identity.mjs` and
+`manifest-identity.json`.
+
+Correction plan: restrict initial catalog metadata equivalence to exact equality
+or this exact LF/CRLF representation difference in the two named textual metadata
+files only. Record committed and actual local raw-byte hashes separately. The
+runtime monitor must still require the exact recorded local byte hashes before
+and after each check. Dataset hashes, score/provenance digests, weights and all
+protected files keep their existing byte-level rules. Semantic JSON equivalence
+alone is not sufficient to accept whitespace, key order, value or other changes.
+
+Implemented correction, with preserved earlier red receipts:
+
+```text
+node qa/revamp-r1/source-monitor-20260909/check.mjs identity-green-1 tests/test_source_metadata_catalog.py tests/test_source_metadata_cli.py tests/test_source_metadata_http.py tests/test_source_metadata_state.py
+........................................................................ [ 33%]
+........................................................................ [ 67%]
+....................................................................     [100%]
+212 passed in 9.64s
+focused_test_arithmetic=31 catalog + 42 CLI + 54 HTTP + 85 state = 212
+added_test_arithmetic=187 + 22 catalog + 3 CLI = 212
+node qa/revamp-r1/source-monitor-20260909/exercise.mjs catalog catalog-create-2
+catalog_create_exit_code=0
+catalog_create_elapsed_ms=1903
+catalog_sources=14 data.gov.sg + 3 DataMall listings + 3 manual + 4 unsupported = 24
+catalog_output=source-metadata-catalog.json
+local_raw_manifest_anchor=ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a
+git_raw_manifest_anchor=159d5f7818174da8d80eafda3be95de9cfb65aa2fc1fc94a78ab174a001b383b
+raw_manifest_and_source_config_hashes_unchanged=true
+python -B scripts/check_repo_integrity.py
+repo_integrity=ok
+repo_integrity_exit_code=0
+live_source_requests=0
+pipeline_runs=0
+protected_input_writes=0
+deployment_commands=0
+```
+
+### FINDINGS
+1. The mismatch was a proven Git LF/worktree CRLF representation difference, not
+   changed manifest data. The earlier unexplained stop is now resolved without
+   modifying any protected bytes; no underlying dataset integrity claim is added.
+2. The corrected catalog records separate local and Git identities. Runtime
+   byte-level checks remain strict, including rejection of a later LF rewrite of
+   the CRLF file. JSON reserialization/content changes are not accepted exceptions.
+3. The owner-authorized routine diagnosis no longer needs a second approval pause.
+   Compute, protected mutation and external activation/deployment gates still apply.
+4. The focused suite is now 212 passing tests. The two HTTP/CLI review defects and
+   actual metadata-check/schedule/delivery acceptance remain unfinished.
+
+### DISAGREEMENTS
+1. The presence of `eol=lf` in attributes did not prove the existing worktree file
+   was LF. Actual bytes, not the desired checkout setting, establish that fact.
+2. Equivalent parsed JSON is corroborating evidence, not permission to relax
+   payload hashes or accept arbitrary byte changes. Only the narrow demonstrated
+   textual representation difference is accepted during local catalog creation.

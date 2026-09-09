@@ -1,0 +1,107 @@
+{
+  "base": "47e3c807922eab8ee6b9ae047dd5004ad96095bd",
+  "checks": {
+    "focusedTests": true,
+    "testedSourcesCurrent": true,
+    "catalogCreatedWithoutInputMutation": true,
+    "rawInputsStillMatchLocalAnchors": true,
+    "exactTextOnlyDiagnosis": true,
+    "all23ManifestEntriesIdentical": true,
+    "distinctManifestRepresentations": true,
+    "catalogCounts": true,
+    "evidenceAppendOnly": true
+  },
+  "sourceIdentities": [
+    {
+      "path": "tests/test_source_metadata_catalog.py",
+      "sha256": "6a331a47b2a67104da56a04aa11f49b0d1bd5df1997d40628d5fd63acf7a1925"
+    },
+    {
+      "path": "tests/test_source_metadata_cli.py",
+      "sha256": "0677c7b7c03b866affabcb9baca6efe5c03a35b0bb3751d16e3e1d1995caa496"
+    },
+    {
+      "path": "tests/test_source_metadata_http.py",
+      "sha256": "d04e9324fb259ee8dfa99a1b48d49b3d554e59054b20a6f6468e31c68266cce7"
+    },
+    {
+      "path": "tests/test_source_metadata_state.py",
+      "sha256": "dc8fb96cf764b9876e5982e74b2fd3439f6623e4fb282cfa0c0b5aa9a95413e3"
+    },
+    {
+      "path": "scripts/build_source_metadata_catalog.py",
+      "sha256": "50c4a57dba18eaa46e16c7c84431be36d16914e1228ec4d1f0f93f562667d261"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "96986b0726b30959a4b37867a714ec56cd8e6b77248e7758bf1b788b12810b7b"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": "bb6a6349df7d1aafa6541018560bc564a55c52c4f3ed9de6286cfe5e1356bdee"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "pipeline/config/sources.yaml",
+      "expected": "a693817607edbafa7710598e408f369b2f8b255de0c613288fa817c78bca22cf",
+      "actual": "a693817607edbafa7710598e408f369b2f8b255de0c613288fa817c78bca22cf"
+    },
+    {
+      "path": "raw/manifest.json",
+      "expected": "ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a",
+      "actual": "ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a"
+    }
+  ],
+  "catalog": {
+    "path": "source-metadata-catalog.json",
+    "sha256": "2bac6d661c827a57035abb5be4e65d9cddb92e5cb797c35a64709710cebcb4e4",
+    "sources": 24,
+    "adapters": {
+      "datagov_metadata": 14,
+      "datamall_listing": 3,
+      "manual": 3,
+      "unsupported": 4
+    }
+  },
+  "tests": {
+    "count": 212,
+    "files": 4,
+    "arithmetic": "31 catalog + 42 CLI + 54 HTTP + 85 state = 212",
+    "fullProjectSuite": false
+  },
+  "evidence": {
+    "path": "qa/verification/REVAMP-R1-core-walk.md",
+    "previousBytes": 192835,
+    "previousSha256": "2cafa2026623e6a13547cdaef5d997a8044f2bf54d21cac4594bce22c563153d",
+    "bytes": 197711,
+    "sha256": "5eb291a0c1b2bbabdd5220d302251e86b27e263f771c2364eddeda531318cf8c"
+  },
+  "independentReview": {
+    "reviewer": "Anscombe",
+    "disposition": "Accepted for identity-correction-only checkpoint commit.",
+    "limits": "Read-only review. Parent test receipts not independently executed. Does not approve live HTTP, schedule or external notices.",
+    "open": [
+      "429 cooldown can be lost/bypassed through deadline or cleanup.",
+      "Report completion precedes state persistence."
+    ]
+  },
+  "FINDINGS": [
+    "235 CR bytes account for the exact manifest difference; all23 source entries are equal.",
+    "Initial catalog metadata equivalence is narrowly allowlisted; runtime and payload hash rules stay byte-exact.",
+    "Owner approved routine read-only diagnosis without another approval pause; protected writes and activation remain gated.",
+    "Catalog created and212focused tests pass; two independent monitor defects remain open."
+  ],
+  "DISAGREEMENTS": [
+    "eol=lf attributes did not establish actual worktree line endings.",
+    "JSON semantic equality alone does not authorize arbitrary byte differences."
+  ],
+  "liveSourceRequests": 0,
+  "pipelineRuns": 0,
+  "protectedInputWrites": 0,
+  "deployments": 0
+}

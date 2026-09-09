@@ -3048,3 +3048,33 @@ these failures, live source interoperability, durable alert delivery, or actual
 scheduling. T23 remains partial. Record those limits rather than calling a local
 snapshot an ongoing maintenance service. No full project test rerun was performed.
 Evidence: qa/revamp-r1/source-monitor-20260909/summary.json.
+
+## 2026-09-09: Diagnose routine identity differences without another approval pause
+
+The owner explicitly approved the read-only manifest investigation and clarified
+that routine bounded read-only checks need not wait for a separate approval.
+After reporting a mismatch, diagnose it without changing either version. This
+does not authorize protected-input repairs, regeneration, compute, installs,
+external service activation or deployment. An unexplained payload mismatch still
+stops consumption of that input; do not replace expected hashes to force a pass.
+
+The stopped catalog attempt compared Git's LF metadata representation to the
+preserved CRLF worktree file. Direct byte comparison and independent review prove
+that 235 additional carriage returns explain the full 11616 - 11381 = 235 byte
+difference. The parsed document and every one of 23 source entries are equal.
+This is evidence about the manifest, not a new validation of the payloads it names.
+
+For initial metadata-catalog generation only, the exact two allowlisted textual
+metadata paths may match committed bytes directly or after only CRLF-to-LF
+conversion in memory. Committed text must be UTF-8 LF without BOM, bare CR or NUL.
+Any other difference stops. Store actual local raw-byte anchors and Git anchors
+separately. Do not apply normalization to datasets, payload hashes, scoring
+fingerprints, weights or runtime input checks. The runtime monitor still requires
+exact local byte hashes and catalog identity before/after each check. No input is
+rewritten. A clone with different local bytes requires a reviewed local catalog;
+this Windows-root-guarded checker is not yet a portable scheduled runner.
+
+The corrected catalog was generated without any live source request. The two
+independent HTTP/CLI findings remain open; schedule and notice delivery remain
+separately gated. Evidence: qa/revamp-r1/source-monitor-20260909/manifest-identity.json,
+identity-green-1/checks.json and catalog-create-2/command.json.

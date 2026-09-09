@@ -319,7 +319,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   Evidence: `qa/revamp-r1/source-freshness-20260909/summary.json`.
 
 ### [ ] T23: Establish a bounded metadata-check routine
-- Status: PARTIAL; STOPPED at metadata identity gate, owner disposition required. Size: M. Parent: P2.3.
+- Status: PARTIAL; metadata identity diagnosis resolved, HTTP/CLI review fixes and operational activation outstanding. Size: M. Parent: P2.3.
 - Depends on: T22.
 - Scope: inspect existing freshness/check automation, then a narrowly scoped read-only checker and workflow only if needed; runbook/fixtures.
 - Do: choose a documented cadence and inspect source metadata, not datasets. Deduplicate notices, handle rate limits and errors, record successful/failed checks and give the owner an actionable failure notice. No automatic processing or blanket workflow rewrite.
@@ -340,6 +340,17 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   Pending notices are local intents, not delivered alerts. A real scheduled run and
   destination readback remain necessary for completion. Evidence:
   `qa/revamp-r1/source-monitor-20260909/summary.json`.
+- Correction 2026-09-09 after explicit owner approval: committed LF vs local CRLF
+  accounts for all 235 differing bytes; all 23 source entries and parsed JSON match.
+  Independent read-only verification agrees. No protected bytes changed. Initial
+  catalog comparison now permits only exact LF/CRLF equivalence for the two named
+  textual metadata files, recording Git/local hashes separately. Runtime anchor
+  checks stay byte-exact. `source-metadata-catalog.json` was generated with 24 sources:
+  14 data.gov.sg + 3 DataMall listings + 3 manual + 4 unsupported = 24.
+  31 catalog + 42 CLI + 54 HTTP + 85 state = 212 focused tests pass; integrity is ok.
+  No live source check; the two review defects above remain open. The original
+  failed attempt is retained, not overwritten. `manifest-identity.json` and
+  `catalog-create-2/command.json` in the same evidence directory record the correction.
 
 ### [ ] T24: Make maintenance ownership and recovery explicit
 - Status: READY. Size: S. Parent: P2.3.

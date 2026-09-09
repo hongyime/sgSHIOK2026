@@ -1,0 +1,145 @@
+{
+  "path": "raw/manifest.json",
+  "committed": {
+    "bytes": 11381,
+    "sha256": "159d5f7818174da8d80eafda3be95de9cfb65aa2fc1fc94a78ab174a001b383b",
+    "crlf": 0,
+    "lf": 235,
+    "bom": false
+  },
+  "local": {
+    "bytes": 11616,
+    "sha256": "ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a",
+    "crlf": 235,
+    "lf": 235,
+    "bom": false
+  },
+  "equalBytes": false,
+  "exactAfterCRLFToLF": true,
+  "equalParsedJSON": true,
+  "sourceCount": 23,
+  "sources": [
+    {
+      "key": "acra_registered_entities",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "building_points",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "bus_routes",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "bus_services",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "bus_stops",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "covered_linkway",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "lamp_posts",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "leaf_area_index",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "mrt_lrt_exits",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "nparks_heritage_road_green_buffers",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "nparks_heritage_trees",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "nparks_nature_ways",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "nparks_park_connector_loop",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "nparks_tracks",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "osm_extract",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "other_uen_registered_entities",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "overhead_bridge_underpass",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "planning_area_boundary",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "postal_universe_onemap_2020",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "sla_dwelling_information",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "traffic_signals",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "train_station_codes",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    },
+    {
+      "key": "ura_no_dwelling_units",
+      "entireEntryEqual": true,
+      "recordedPayloadHashEqual": true
+    }
+  ],
+  "byteArithmetic": "11616 - 11381 = 235; 235 CRLF terminators add one CR byte each",
+  "gitEol": "i/lf    w/crlf  attr/text=auto eol=lf \traw/manifest.json\n",
+  "localAfterSha256": "ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a",
+  "scope": "Manifest representations only. Recorded source-entry hashes are equal, but underlying datasets were not rehashed by this diagnosis.",
+  "inputWrites": 0,
+  "networkRequests": 0,
+  "pipelineRuns": 0
+}

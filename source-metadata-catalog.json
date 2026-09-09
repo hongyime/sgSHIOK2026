@@ -1,0 +1,344 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-09T15:47:40.600446+00:00",
+  "anchors": {
+    "pipeline/config/sources.yaml": "a693817607edbafa7710598e408f369b2f8b255de0c613288fa817c78bca22cf",
+    "raw/manifest.json": "ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a"
+  },
+  "gitAnchors": {
+    "pipeline/config/sources.yaml": "a693817607edbafa7710598e408f369b2f8b255de0c613288fa817c78bca22cf",
+    "raw/manifest.json": "159d5f7818174da8d80eafda3be95de9cfb65aa2fc1fc94a78ab174a001b383b"
+  },
+  "baselineMeaning": "Tracked raw input metadata, not proof of the deployed bundle or current physical conditions. fetched_at is never a publisher update date.",
+  "sources": [
+    {
+      "key": "covered_linkway",
+      "name": "Covered Linkway",
+      "mode": "automatic",
+      "adapter": "datamall_listing",
+      "staleAfterDays": 120,
+      "expectedCadence": "quarterly",
+      "baseline": {
+        "publisherUpdatedAt": "2026-03-06T08:24:22+00:00",
+        "sha256": "d943fe2a992ad50c449c40484e0c642da480598b17f6008907c7b253d87b19ee",
+        "present": true
+      },
+      "keyword": "CoveredLinkWay"
+    },
+    {
+      "key": "overhead_bridge_underpass",
+      "name": "Pedestrian Overhead Bridge / Underpass",
+      "mode": "automatic",
+      "adapter": "datamall_listing",
+      "staleAfterDays": 120,
+      "expectedCadence": "quarterly",
+      "baseline": {
+        "publisherUpdatedAt": "2026-03-06T08:24:03+00:00",
+        "sha256": "bfa4a0a08a32c72a1ca35aad30e89f940a59ef6fdc137ddf8135a50760d7d444",
+        "present": true
+      },
+      "keyword": "PedestrainOverheadbridge_UnderPass"
+    },
+    {
+      "key": "bus_stops",
+      "name": "Bus Stops",
+      "mode": "automatic",
+      "adapter": "unsupported",
+      "staleAfterDays": 30,
+      "expectedCadence": "weekly",
+      "baseline": {
+        "publisherUpdatedAt": null,
+        "sha256": "0362ab970c661de6b322a3372c9ab980faf49805921891a7a1da260687a16a4a",
+        "present": true
+      }
+    },
+    {
+      "key": "bus_services",
+      "name": "Bus Services",
+      "mode": "automatic",
+      "adapter": "unsupported",
+      "staleAfterDays": 30,
+      "expectedCadence": "weekly",
+      "baseline": {
+        "publisherUpdatedAt": null,
+        "sha256": "2d2b12b89ed2b2314be7d1ac2738afbdcd2af10a07a7cb6db1fb890d56348e2f",
+        "present": true
+      }
+    },
+    {
+      "key": "bus_routes",
+      "name": "Bus Routes",
+      "mode": "automatic",
+      "adapter": "unsupported",
+      "staleAfterDays": 30,
+      "expectedCadence": "weekly",
+      "baseline": {
+        "publisherUpdatedAt": null,
+        "sha256": "a52a1503aa2d68a0a9e59703ea96a9c0e6cff1720e10d0479384c6f97a88f829",
+        "present": true
+      }
+    },
+    {
+      "key": "mrt_lrt_exits",
+      "name": "MRT/LRT Station Exits",
+      "mode": "automatic",
+      "adapter": "datagov_metadata",
+      "staleAfterDays": 120,
+      "expectedCadence": "quarterly",
+      "baseline": {
+        "publisherUpdatedAt": "2026-07-19T02:06:46+00:00",
+        "sha256": "a7eaa90f30991dc0ac4aa970d704123ce3ec9e60c82b42c32a32e74be7dc0327",
+        "present": true
+      },
+      "datasetId": "d_b39d3a0871985372d7e1637193335da5"
+    },
+    {
+      "key": "train_station_codes",
+      "name": "Train Station Codes and Chinese Names",
+      "mode": "manual",
+      "adapter": "manual",
+      "staleAfterDays": null,
+      "expectedCadence": "manual",
+      "baseline": {
+        "publisherUpdatedAt": "2026-08-01T20:27:42+00:00",
+        "sha256": "2d518f326e0e76444722caa96e784b5b86f8767652a2f730417294f1b4c4f2b6",
+        "present": true
+      }
+    },
+    {
+      "key": "traffic_signals",
+      "name": "Traffic Signals",
+      "mode": "automatic",
+      "adapter": "datamall_listing",
+      "staleAfterDays": 120,
+      "expectedCadence": "quarterly",
+      "baseline": {
+        "publisherUpdatedAt": "2026-03-06T08:24:01+00:00",
+        "sha256": "942ff2506603f431f0782a3acdc70fec75d4b15c73b54f1a983c804c60d818af",
+        "present": true
+      },
+      "keyword": "TrafficLight"
+    },
+    {
+      "key": "lamp_posts",
+      "name": "Lamp Posts",
+      "mode": "automatic",
+      "adapter": "datagov_metadata",
+      "staleAfterDays": 120,
+      "expectedCadence": "quarterly",
+      "baseline": {
+        "publisherUpdatedAt": "2026-07-07T02:06:48+00:00",
+        "sha256": "2b552c1429aaf93c544209df3da68838d708a78ec5ae86dcd2852c10b0589f29",
+        "present": true
+      },
+      "datasetId": "d_ca109de3e83efdd9a10bc5f3dda70a98"
+    },
+    {
+      "key": "building_points",
+      "name": "HDB Existing Building",
+      "mode": "automatic",
+      "adapter": "datagov_metadata",
+      "staleAfterDays": 120,
+      "expectedCadence": "quarterly",
+      "baseline": {
+        "publisherUpdatedAt": "2026-06-21T02:06:46+00:00",
+        "sha256": "7c987511548de3a82da403cabca02702031e02ade8703a9e401417883dfeb702",
+        "present": true
+      },
+      "datasetId": "d_16b157c52ed637edd6ba1232e026258d"
+    },
+    {
+      "key": "acra_registered_entities",
+      "name": "Entities Registered with ACRA",
+      "mode": "automatic",
+      "adapter": "datagov_metadata",
+      "staleAfterDays": 120,
+      "expectedCadence": "quarterly",
+      "baseline": {
+        "publisherUpdatedAt": null,
+        "sha256": "5d18dbe22516ee9ce4f3ad9e86f54dbe8ae1b2306e2bc9b3ec03fc8bd9aae892",
+        "present": true
+      },
+      "datasetId": "d_3f960c10fed6145404ca7b821f263b87"
+    },
+    {
+      "key": "other_uen_registered_entities",
+      "name": "Entities Registered with Other UEN Issuance Agencies",
+      "mode": "automatic",
+      "adapter": "datagov_metadata",
+      "staleAfterDays": 120,
+      "expectedCadence": "quarterly",
+      "baseline": {
+        "publisherUpdatedAt": null,
+        "sha256": "8d2b048866a8af3109299e60eb67fbcdca99d6a8a001861abc3da05a909264b1",
+        "present": true
+      },
+      "datasetId": "d_b1d2b840ab9e993570c037b706b39bb8"
+    },
+    {
+      "key": "sla_dwelling_information",
+      "name": "SLA Dwelling Information",
+      "mode": "automatic",
+      "adapter": "datagov_metadata",
+      "staleAfterDays": 120,
+      "expectedCadence": "quarterly",
+      "baseline": {
+        "publisherUpdatedAt": "2026-06-30T02:06:46+00:00",
+        "sha256": "a520d2a54bf628c83a11c21ca63ee1cd46386fc0aadb896911133c0742150271",
+        "present": true
+      },
+      "datasetId": "d_e4495201ba4f77fa2ef9855bad6d2cd1"
+    },
+    {
+      "key": "ura_no_dwelling_units",
+      "name": "URA No of Dwelling Units",
+      "mode": "automatic",
+      "adapter": "datagov_metadata",
+      "staleAfterDays": 120,
+      "expectedCadence": "quarterly",
+      "baseline": {
+        "publisherUpdatedAt": null,
+        "sha256": "9d249959b4010d00a7d91f8161f22188bbb0203a27185f91f46b41595f4884f0",
+        "present": true
+      },
+      "datasetId": "d_be71daeab5930f96b90ad2857454d876"
+    },
+    {
+      "key": "planning_area_boundary",
+      "name": "Planning Area Boundaries (MP2019 No Sea)",
+      "mode": "automatic",
+      "adapter": "datagov_metadata",
+      "staleAfterDays": 120,
+      "expectedCadence": "quarterly",
+      "baseline": {
+        "publisherUpdatedAt": "2025-12-05T02:07:56+00:00",
+        "sha256": "f23856251b467089f788d0fff72ef5a38e753f21aa69b4352401d7ed50d380cc",
+        "present": true
+      },
+      "datasetId": "d_4765db0e87b9c86336792efe8a1f7a66"
+    },
+    {
+      "key": "leaf_area_index",
+      "name": "NParks Leaf Area Index",
+      "mode": "automatic",
+      "adapter": "datagov_metadata",
+      "staleAfterDays": 120,
+      "expectedCadence": "quarterly",
+      "baseline": {
+        "publisherUpdatedAt": "2026-04-30T07:54:04+00:00",
+        "sha256": "26281dbacf4d8707df48d40b83060c65bf81c3f1a39ff81aebaefb8fd628c899",
+        "present": true
+      },
+      "datasetId": "d_69141275d795e1fe2e496dda7c267d8d"
+    },
+    {
+      "key": "nparks_nature_ways",
+      "name": "NParks Nature Ways",
+      "mode": "automatic",
+      "adapter": "datagov_metadata",
+      "staleAfterDays": 120,
+      "expectedCadence": "quarterly",
+      "baseline": {
+        "publisherUpdatedAt": "2026-04-16T02:06:48+00:00",
+        "sha256": "9b4e0e1e9d868cc9bff468e1b3028214707f2a41661bc8f279c61e88094f2d11",
+        "present": true
+      },
+      "datasetId": "d_af948e3f29cd12bc8b0caea19ae68286"
+    },
+    {
+      "key": "nparks_park_connector_loop",
+      "name": "NParks Park Connector Loop",
+      "mode": "automatic",
+      "adapter": "datagov_metadata",
+      "staleAfterDays": 120,
+      "expectedCadence": "quarterly",
+      "baseline": {
+        "publisherUpdatedAt": "2026-07-15T02:06:54+00:00",
+        "sha256": "83c1838bea9ee355d2ba52c2060eb185612dd0e2e3fdb113aff9cdd6e5c27efd",
+        "present": true
+      },
+      "datasetId": "d_a69ef89737379f231d2ae93fd1c5707f"
+    },
+    {
+      "key": "nparks_tracks",
+      "name": "NParks Tracks",
+      "mode": "automatic",
+      "adapter": "datagov_metadata",
+      "staleAfterDays": 120,
+      "expectedCadence": "quarterly",
+      "baseline": {
+        "publisherUpdatedAt": "2025-12-25T02:06:56+00:00",
+        "sha256": "2df9d9170d716ceefc2e82aa8889a21a27a3a086996bf330a6ab6b21cb1f0627",
+        "present": true
+      },
+      "datasetId": "d_306cc1018cb733346681883ee6d73054"
+    },
+    {
+      "key": "nparks_heritage_trees",
+      "name": "NParks Heritage Trees",
+      "mode": "automatic",
+      "adapter": "datagov_metadata",
+      "staleAfterDays": 120,
+      "expectedCadence": "quarterly",
+      "baseline": {
+        "publisherUpdatedAt": "2026-04-01T02:06:45+00:00",
+        "sha256": "7f9a1b6413735824704993994b5491c30dcb9d1b746e80a5c17a6f59629d835f",
+        "present": true
+      },
+      "datasetId": "d_644ff187b6d14d6316f47284a4a6c81f"
+    },
+    {
+      "key": "nparks_heritage_road_green_buffers",
+      "name": "NParks Heritage Road Green Buffers",
+      "mode": "automatic",
+      "adapter": "datagov_metadata",
+      "staleAfterDays": 120,
+      "expectedCadence": "quarterly",
+      "baseline": {
+        "publisherUpdatedAt": "2026-02-01T02:06:51+00:00",
+        "sha256": "87238ae673f898a30b1fcbf5b5527625b4c49c7aa1769567adb92b93b9b685b5",
+        "present": true
+      },
+      "datasetId": "d_9233bdb05de067c3b3db21b836467a6a"
+    },
+    {
+      "key": "osm_extract",
+      "name": "Geofabrik Malaysia/Singapore/Brunei OSM",
+      "mode": "manual",
+      "adapter": "manual",
+      "staleAfterDays": null,
+      "expectedCadence": "manual",
+      "baseline": {
+        "publisherUpdatedAt": "2026-07-25T22:37:16+00:00",
+        "sha256": "0cd4f995c2ab6b38b2985ba9417861e93dc1f58c8ffae06c3deecc37f259128d",
+        "present": true
+      }
+    },
+    {
+      "key": "postal_universe_onemap_2020",
+      "name": "OneMap-derived Singapore postal dump, accessed 10 Jun 2020 by xuancong84",
+      "mode": "manual",
+      "adapter": "manual",
+      "staleAfterDays": null,
+      "expectedCadence": "manual",
+      "baseline": {
+        "publisherUpdatedAt": null,
+        "sha256": "847ceebce6a9a8f5ca7e8ee32f6d857583c8d8025a0606be685411899ba59841",
+        "present": true
+      }
+    },
+    {
+      "key": "overture_addresses_sg_candidate",
+      "name": "Overture Maps Addresses \u2014 Singapore candidate",
+      "mode": "automatic",
+      "adapter": "unsupported",
+      "staleAfterDays": 45,
+      "expectedCadence": "monthly",
+      "baseline": {
+        "publisherUpdatedAt": null,
+        "sha256": null,
+        "present": false
+      }
+    }
+  ]
+}

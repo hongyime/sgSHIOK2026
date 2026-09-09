@@ -69,12 +69,14 @@ def _json(content: bytes) -> Any:
 
 def validate_catalog(catalog: Any) -> dict:
     try:
-        if (not isinstance(catalog, dict) or set(catalog) != {"schemaVersion", "generatedAt", "anchors", "baselineMeaning", "sources"}
+        if (not isinstance(catalog, dict) or set(catalog) != {"schemaVersion", "generatedAt", "anchors", "gitAnchors", "baselineMeaning", "sources"}
                 or type(catalog["schemaVersion"]) is not int or catalog["schemaVersion"] != 1
                 or publisher_instant(catalog["generatedAt"]) is None
                 or not isinstance(catalog["baselineMeaning"], str) or not 1 <= len(catalog["baselineMeaning"]) <= 1000
                 or not isinstance(catalog["anchors"], dict) or set(catalog["anchors"]) != ANCHORS
                 or not all(_hash(value) for value in catalog["anchors"].values())
+                or not isinstance(catalog["gitAnchors"], dict) or set(catalog["gitAnchors"]) != ANCHORS
+                or not all(_hash(value) for value in catalog["gitAnchors"].values())
                 or not isinstance(catalog["sources"], list) or not 1 <= len(catalog["sources"]) <= 64):
             raise ValueError("catalog header")
         seen = set()

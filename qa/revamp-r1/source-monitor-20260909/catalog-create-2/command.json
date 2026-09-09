@@ -1,0 +1,67 @@
+{
+  "phase": "catalog",
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "args": [
+    "-B",
+    "-m",
+    "scripts.build_source_metadata_catalog"
+  ],
+  "startedAt": "2026-09-09T15:47:38.957Z",
+  "elapsedMs": 1903,
+  "exitCode": 0,
+  "stdout": "{\"output\": \"C:\\\\sgSHIOK2026\\\\source-metadata-catalog.json\", \"sources\": 24, \"anchors\": {\"pipeline/config/sources.yaml\": \"a693817607edbafa7710598e408f369b2f8b255de0c613288fa817c78bca22cf\", \"raw/manifest.json\": \"ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a\"}, \"gitAnchors\": {\"pipeline/config/sources.yaml\": \"a693817607edbafa7710598e408f369b2f8b255de0c613288fa817c78bca22cf\", \"raw/manifest.json\": \"159d5f7818174da8d80eafda3be95de9cfb65aa2fc1fc94a78ab174a001b383b\"}, \"gitRevision\": \"47e3c807922eab8ee6b9ae047dd5004ad96095bd\", \"representations\": {\"pipeline/config/sources.yaml\": {\"committedSha256\": \"a693817607edbafa7710598e408f369b2f8b255de0c613288fa817c78bca22cf\", \"localSha256\": \"a693817607edbafa7710598e408f369b2f8b255de0c613288fa817c78bca22cf\", \"comparison\": \"identical\", \"committedBytes\": 9272, \"localBytes\": 9272}, \"raw/manifest.json\": {\"committedSha256\": \"159d5f7818174da8d80eafda3be95de9cfb65aa2fc1fc94a78ab174a001b383b\", \"localSha256\": \"ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a\", \"comparison\": \"lf_crlf_only\", \"committedBytes\": 11381, \"localBytes\": 11616}}, \"adapters\": {\"datagov_metadata\": 14, \"datamall_listing\": 3, \"manual\": 3, \"unsupported\": 4}}\r\n",
+  "stderr": "",
+  "before": [
+    {
+      "path": "scripts/build_source_metadata_catalog.py",
+      "sha256": "50c4a57dba18eaa46e16c7c84431be36d16914e1228ec4d1f0f93f562667d261"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": "bb6a6349df7d1aafa6541018560bc564a55c52c4f3ed9de6286cfe5e1356bdee"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "96986b0726b30959a4b37867a714ec56cd8e6b77248e7758bf1b788b12810b7b"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    },
+    {
+      "path": "pipeline/config/sources.yaml",
+      "sha256": "a693817607edbafa7710598e408f369b2f8b255de0c613288fa817c78bca22cf"
+    },
+    {
+      "path": "raw/manifest.json",
+      "sha256": "ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a"
+    }
+  ],
+  "after": [
+    {
+      "path": "scripts/build_source_metadata_catalog.py",
+      "sha256": "50c4a57dba18eaa46e16c7c84431be36d16914e1228ec4d1f0f93f562667d261"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": "bb6a6349df7d1aafa6541018560bc564a55c52c4f3ed9de6286cfe5e1356bdee"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "96986b0726b30959a4b37867a714ec56cd8e6b77248e7758bf1b788b12810b7b"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    },
+    {
+      "path": "pipeline/config/sources.yaml",
+      "sha256": "a693817607edbafa7710598e408f369b2f8b255de0c613288fa817c78bca22cf"
+    },
+    {
+      "path": "raw/manifest.json",
+      "sha256": "ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a"
+    }
+  ],
+  "identitiesStable": true
+}

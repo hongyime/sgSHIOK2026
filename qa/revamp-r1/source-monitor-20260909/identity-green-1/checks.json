@@ -1,0 +1,90 @@
+{
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "args": [
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_source_metadata_catalog.py",
+    "tests/test_source_metadata_cli.py",
+    "tests/test_source_metadata_http.py",
+    "tests/test_source_metadata_state.py",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\source-monitor-tests-identity-green-1",
+    "-q"
+  ],
+  "before": [
+    {
+      "path": "tests/test_source_metadata_catalog.py",
+      "sha256": "6a331a47b2a67104da56a04aa11f49b0d1bd5df1997d40628d5fd63acf7a1925"
+    },
+    {
+      "path": "tests/test_source_metadata_cli.py",
+      "sha256": "0677c7b7c03b866affabcb9baca6efe5c03a35b0bb3751d16e3e1d1995caa496"
+    },
+    {
+      "path": "tests/test_source_metadata_http.py",
+      "sha256": "d04e9324fb259ee8dfa99a1b48d49b3d554e59054b20a6f6468e31c68266cce7"
+    },
+    {
+      "path": "tests/test_source_metadata_state.py",
+      "sha256": "dc8fb96cf764b9876e5982e74b2fd3439f6623e4fb282cfa0c0b5aa9a95413e3"
+    },
+    {
+      "path": "scripts/build_source_metadata_catalog.py",
+      "sha256": "50c4a57dba18eaa46e16c7c84431be36d16914e1228ec4d1f0f93f562667d261"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "96986b0726b30959a4b37867a714ec56cd8e6b77248e7758bf1b788b12810b7b"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": "bb6a6349df7d1aafa6541018560bc564a55c52c4f3ed9de6286cfe5e1356bdee"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    }
+  ],
+  "after": [
+    {
+      "path": "tests/test_source_metadata_catalog.py",
+      "sha256": "6a331a47b2a67104da56a04aa11f49b0d1bd5df1997d40628d5fd63acf7a1925"
+    },
+    {
+      "path": "tests/test_source_metadata_cli.py",
+      "sha256": "0677c7b7c03b866affabcb9baca6efe5c03a35b0bb3751d16e3e1d1995caa496"
+    },
+    {
+      "path": "tests/test_source_metadata_http.py",
+      "sha256": "d04e9324fb259ee8dfa99a1b48d49b3d554e59054b20a6f6468e31c68266cce7"
+    },
+    {
+      "path": "tests/test_source_metadata_state.py",
+      "sha256": "dc8fb96cf764b9876e5982e74b2fd3439f6623e4fb282cfa0c0b5aa9a95413e3"
+    },
+    {
+      "path": "scripts/build_source_metadata_catalog.py",
+      "sha256": "50c4a57dba18eaa46e16c7c84431be36d16914e1228ec4d1f0f93f562667d261"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "96986b0726b30959a4b37867a714ec56cd8e6b77248e7758bf1b788b12810b7b"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": "bb6a6349df7d1aafa6541018560bc564a55c52c4f3ed9de6286cfe5e1356bdee"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    }
+  ],
+  "stable": true,
+  "exitCode": 0,
+  "stdout": "........................................................................ [ 33%]\r\n........................................................................ [ 67%]\r\n....................................................................     [100%]\r\n212 passed in 9.64s\r\n",
+  "stderr": "",
+  "elapsedMs": 12927
+}
