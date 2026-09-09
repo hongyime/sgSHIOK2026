@@ -120,24 +120,17 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "another new numeric version path" in normalized
     assert "builder refuses non-empty output directories" in normalized
     assert "lamp_posts_v1/` remains the published artifact" in normalized
-    assert "uv run python run.py check --freshness-only" in normalized
-    assert "zero-mutation source-age check" in normalized
-    assert "does not probe upstream APIs" in normalized
-    assert "reports current, stale, manual, unknown-policy, and unknown-age sources" in normalized
-    assert "grouped action summaries include source names" in normalized
-    assert "traffic_signals (Traffic Signals)" in normalized
-    assert "manifest-only sources missing from `sources.yaml` are reported as unknown-policy" in normalized
-    assert "so operators do not need to cross-reference `sources.yaml`" in normalized
-    assert "source policy covers every source currently recorded in `raw/manifest.json`" in normalized
-    assert "ACRA, other-UEN, and June 2020 OneMap-derived postal-universe inputs" in normalized
+    assert "For routine checks use the standalone **Bounded Source Metadata Monitor (Local)**" in normalized
+    assert "standing prohibition on `run.py check` includes its freshness and discovery variants" in normalized
+    assert "Source update, local check and release dates are different facts" in normalized
+    assert "Unknown publisher dates stay unknown" in normalized
+    assert "unsupported and manual sources explicit, rather than treating them as successfully checked" in normalized
     assert "If stale sources appear, report them" in normalized
-    assert "plan a versioned refresh; do not mutate frozen v1 in place" in normalized
+    assert "propose a separately approved versioned refresh; do not mutate frozen v1 in place" in normalized
     assert "NParks Leaf Area Index can appear in freshness as a tracked reference table" in normalized
     assert "published legacy bundle may carry it as a non-score reference source hash" in normalized
     assert "not route geometry, shade-proxy geometry, or score evidence" in normalized
     assert "future score provenance excludes it" in normalized
-    assert "current unknown-age source is the Overture Maps Addresses Singapore candidate" in normalized
-    assert "cached manifest has no timestamp for that candidate archive" in normalized
     assert "LTA geospatial listings such as Covered Linkway use a quarterly cadence" in normalized
     assert "120-day stale threshold" in normalized
     assert "does not prove no newer upstream release exists" in normalized
@@ -146,10 +139,9 @@ def test_readme_documents_local_lamp_overlay_artifact() -> None:
     assert "21 Aug 2026 metadata-only DataMall discovery check" not in normalized
     assert "Covered Linkway and bridge/underpass discovery URLs differ from frozen v1" not in normalized
     assert "traffic signals still matched" not in normalized
-    assert "uv run python run.py check --geospatial-discovery-only" in normalized
-    assert "discovery-only check" in normalized
-    assert "without downloading payloads or writing the manifest" in normalized
-    assert "changed discovery URLs require a new numbered input version, not an in-place repair" in normalized
+    assert "That is historical evidence, not current verification" in normalized
+    assert "missing credentials stay explicit" in normalized
+    assert "listing changes never trigger a payload download or in-place repair" in normalized
     assert "`pipeline/config/weights.yaml` — locked score weights." in normalized
     assert "`run.py` — cross-platform task runner for safe reports" in normalized
     assert "`p19-gap-status`, `p19-mcst-locations`, `p125-osm-status`, `readiness`, `readiness --gate-summary`, `batch-plan`, `validate`" in normalized
@@ -187,3 +179,61 @@ def test_readme_does_not_overclaim_legacy_bundle_reproducibility() -> None:
     )
     assert "active legacy bundle predates record-level scoring-input and network provenance" in normalized
     assert "every published score is reproducible from hashed inputs + tagged code" not in normalized
+
+
+def test_readme_monitor_requires_verified_state_without_pipeline_commands() -> None:
+    text = README.read_text(encoding="utf-8")
+    normalized = compact(text)
+
+    assert "-B -m scripts.check_source_metadata --output" in normalized
+    assert "verified exit-1 attention report is reusable, including deferred checks" in normalized
+    assert "exit-2 stopped run" in normalized
+    assert "pending notices are intents, not delivered alerts" in normalized.lower()
+    assert "never reads credentials from `.env`" in normalized
+    assert "No workflow, issue, external cache, secret or notification delivery is configured" in normalized
+    assert "exact recorded local raw-byte hashes" in normalized
+    assert "A changed publisher timestamp is a metadata signal, not evidence of changed dataset bytes" in normalized
+    assert "`check --freshness-only`" not in text
+    assert "`check --geospatial-discovery-only`" not in text
+    assert "uv run python run.py check" not in text
+
+
+def test_readme_holds_mutating_release_helpers_and_requires_cache_aware_rollback() -> None:
+    normalized = compact(README.read_text(encoding="utf-8"))
+
+    assert "Release safety hold (T31): do not execute the existing deploy/publish/activation helpers" in normalized
+    assert "data-preparation step writes missing derived files into the existing bundle" in normalized
+    assert "omits the separate lamp overlay" in normalized
+    assert "deploys before its final preflight and pointer commit" in normalized
+    assert "A failing command therefore does not prove production stayed unchanged" in normalized
+    assert "`--no-wait` success is not READY" in normalized
+    assert "A hosting rollback does not roll browser caches back" in normalized
+    assert "Current MapLibre security disposition (T29)" in normalized
+    assert "No install, deployment or rollback ran in T24" in normalized
+    assert "Deploy production with" not in normalized
+
+
+def test_readme_maintenance_ownership_is_proposed_not_activated() -> None:
+    normalized = compact(README.read_text(encoding="utf-8"))
+
+    assert "### Ownership And Cadence" in normalized
+    assert "T23 schedule/delivery is unapproved" in normalized
+    assert "Name moderator and absence cover before enabling intake" in normalized
+    assert "No response-time SLA or activated calendar job" in normalized
+    assert "including any change to the current no-Cloudflare policy" in normalized
+    assert "Quota exhaustion means honest unavailability, not paid scaling or a false receipt" in normalized
+    assert "Keep deletion evidence independent of restored snapshots" in normalized
+    assert "Credential/MFA/payment-method setup and moderator/backup-key custody require the owner" in normalized
+
+
+def test_readme_distinguishes_inspection_from_production_and_backup_proof() -> None:
+    normalized = compact(README.read_text(encoding="utf-8"))
+
+    assert "Production deployment ID/source commit remain unverified" in normalized
+    assert "That compares this manifest only, not every deployed shard or the running browser" in normalized
+    assert "presence/index evidence, not a new recursive inventory" in normalized
+    assert "`checksums.json` itself is tracked; that does not back up the files it describes" in normalized
+    assert "Do not sync deletions, prune old versions or mutate the only source copy" in normalized
+    assert "restores into a **new** isolated destination" in normalized
+    assert "Hash mismatch stops the drill" in normalized
+    assert "No data copy, migration, backup or restore was performed in T24" in normalized

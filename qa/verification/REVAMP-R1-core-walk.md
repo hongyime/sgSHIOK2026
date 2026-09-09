@@ -3298,3 +3298,40 @@ privacy, moderator, credential or backup approval requirements.
    does not establish safety of confirmed deployment.
 2. Local HEAD, one manifest hash and a passing local build are not production
    identity, complete payload verification or an exercised rollback.
+
+### T24 documentation-suite correction after b5369eb, 2026-09-10
+
+The first 16 inspection/runbook checks were not the repository's existing
+documentation test suite. Running that suite exposed one obsolete assertion
+requiring the removed run.py check freshness recipe. The accepted wording change
+had not yet been reflected in that contract; b5369eb was not a full documentation-
+suite pass. The raw failing receipt is preserved, not overwritten.
+
+```text
+node qa/revamp-r1/maintenance-20260910/check-docs.mjs docs-red-1
+FAILED tests/test_readme.py::test_readme_documents_local_lamp_overlay_artifact
+1 failed, 35 passed in 25.40s
+node qa/revamp-r1/maintenance-20260910/check-docs.mjs docs-green-1
+........................................                                 [100%]
+40 passed in 39.77s
+```
+
+Only obsolete source-check recommendations/claims were replaced in the existing
+README test; unrelated universe, overlay, source-history, release-approval and
+legacy-reproducibility assertions remain. Four new documentation regressions cover
+verified standalone monitor state, the immutable-release safety hold, proposed
+ownership/privacy operations, and inspection-versus-production/backup proof.
+README's repo map also no longer lists the prohibited short check variants as
+recommended reports. No command or pipeline functionality was changed.
+
+Arithmetic: 4 existing README + 4 new README + 3 agent-doc + 29 repository-integrity
+= 40 tests across three files. The prior suite had 36 tests; 36 + 4 = 40. All six
+read/test source identities remained stable during the final run. This is not
+the full Python or web suite; no browser, staging, deployment, backup or pipeline
+run was performed. The earlier verification.json remains a receipt of its exact
+pre-follow-up source bytes, not current README/STATE bytes.
+
+FINDINGS: the initial receipt checks missed a stale existing test contract. Its
+executed failure is preserved; the corrected contract and four added regressions
+now pass. DISAGREEMENTS: restoring a prohibited command merely to satisfy the old
+copy test would preserve the wrong operational policy; test the approved policy.

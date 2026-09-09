@@ -1,0 +1,73 @@
+{
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "args": [
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_readme.py",
+    "tests/test_agent_docs.py",
+    "tests/test_repo_integrity.py",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\maintenance-docs-docs-green-1",
+    "-q"
+  ],
+  "elapsedMs": 62702,
+  "before": [
+    {
+      "path": "README.md",
+      "sha256": "9bd941bc71a9e0e48936f8f8cf7ea1e1b1ac18f201927aa81b892d09fa72b4c7"
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "2a581d22750f24a1c882cf535b75f6a9138d1d0bd2c967fa80ff45f316a14a31"
+    },
+    {
+      "path": "tests/test_readme.py",
+      "sha256": "98e41859d2e8dc66b7b389ecaa98b6dc474196c59e828024a700a013c719ea1b"
+    },
+    {
+      "path": "tests/test_agent_docs.py",
+      "sha256": "6f19ac08aad30af045d551694750436282bc5814b90df66271214065ac4ad969"
+    },
+    {
+      "path": "tests/test_repo_integrity.py",
+      "sha256": "24d6c47910121518af1945df0868eef0aa9646094e605a76811af71adb198dab"
+    },
+    {
+      "path": "scripts/check_repo_integrity.py",
+      "sha256": "8078ccd8aa20f645ed5f20297b9fdf8a416eb00ac1a5ab70a7d3782608c026cc"
+    }
+  ],
+  "after": [
+    {
+      "path": "README.md",
+      "sha256": "9bd941bc71a9e0e48936f8f8cf7ea1e1b1ac18f201927aa81b892d09fa72b4c7"
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "2a581d22750f24a1c882cf535b75f6a9138d1d0bd2c967fa80ff45f316a14a31"
+    },
+    {
+      "path": "tests/test_readme.py",
+      "sha256": "98e41859d2e8dc66b7b389ecaa98b6dc474196c59e828024a700a013c719ea1b"
+    },
+    {
+      "path": "tests/test_agent_docs.py",
+      "sha256": "6f19ac08aad30af045d551694750436282bc5814b90df66271214065ac4ad969"
+    },
+    {
+      "path": "tests/test_repo_integrity.py",
+      "sha256": "24d6c47910121518af1945df0868eef0aa9646094e605a76811af71adb198dab"
+    },
+    {
+      "path": "scripts/check_repo_integrity.py",
+      "sha256": "8078ccd8aa20f645ed5f20297b9fdf8a416eb00ac1a5ab70a7d3782608c026cc"
+    }
+  ],
+  "stable": true,
+  "exitCode": 0,
+  "stdout": "........................................                                 [100%]\r\n40 passed in 39.77s\r\n",
+  "stderr": ""
+}

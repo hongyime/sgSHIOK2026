@@ -388,6 +388,13 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Final independent review accepts the runbook and receipt scope. Verification:
   qa/revamp-r1/maintenance-20260910/verification.json; checked-in Git deploy policy
   is distinguished from unverified remote configuration. T31 is the next safe task.
+- Documentation-suite follow-up: initial 16 receipt checks did not cover the
+  existing README contract. Its obsolete freshness-command assertion failed
+  (1 failed, 35 passed). The contract now enforces standalone monitoring, immutable
+  release hold, proposed ownership and honest proof boundaries; four new cases
+  make 36 + 4 = 40 passing tests across README/agent-doc/integrity suites.
+  Receipts: maintenance-20260910/docs-red-1.json and docs-green-1.json. No full
+  project-suite or runtime release acceptance is claimed.
 
 ### [ ] T25: Run cross-feature accessibility and failure acceptance
 - Status: PARTIAL. Size: M. Parent: P3.1.
@@ -446,7 +453,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 ### [ ] T31: Make release preparation immutable before any deployment
 - Status: READY for fixture-only implementation. Size: M. Parent: P3.2.
 - Trigger: T24 found deploy-production -> publish -> npm build invokes data preparation in the existing bundle; staging includes untracked web children, omits lamp overlay and recompresses selected JSON. The release helper deploys before activation/final preflight and uses no-wait deployment.
-- Scope: narrowly scoped release/staging helpers and synthetic fixture tests. No production invocation, real-payload staging/copy, dependency installation or workflow activation.
+- Scope: narrowly scoped release/staging helpers and synthetic fixture tests. No production invocation, real-payload staging/copy, dependency installation or workflow activation. Existing test_publish.py calls export_static_artifacts; replace those test setup calls with static synthetic fixtures before running that suite under the zero-pipeline constraint.
 - Do: provide explicit non-mutating preparation, validate all approved artifacts and exact source inventory before external action, preserve existing compressed bytes and include the required overlay. Reject missing derived files rather than generating/restoring/downloading them. Separate preparation, approved deployment, ready-state verification and pointer activation; distinguish failure before versus after external changes. Never auto-commit ignore rewrites or claim no-wait means READY.
 - Tests/done: O06-O08/O10-O11 contracts on synthetic fixtures; no protected writes, no implicit install/fetch, injected failures leave pre-deploy pointers unchanged, staging excludes secrets/untracked source, both artifacts and byte identities are represented, async/error states are truthful. Real build/deployment/cache/rollback acceptance stays T27/T28, not passed by fixtures.
 - Gate: FREE fixture/source work only. Any actual data copy, install, deployment or activation requires its existing specific approval. No pipeline execution.

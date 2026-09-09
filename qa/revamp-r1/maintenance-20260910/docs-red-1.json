@@ -1,0 +1,73 @@
+{
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "args": [
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_readme.py",
+    "tests/test_agent_docs.py",
+    "tests/test_repo_integrity.py",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\maintenance-docs-docs-red-1",
+    "-q"
+  ],
+  "elapsedMs": 46976,
+  "before": [
+    {
+      "path": "README.md",
+      "sha256": "c040746aafaea5b75d915ed8fe54fcb89d692f57a1c6d605f2b19663ca0d22dd"
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "2a581d22750f24a1c882cf535b75f6a9138d1d0bd2c967fa80ff45f316a14a31"
+    },
+    {
+      "path": "tests/test_readme.py",
+      "sha256": "3c07adc02d8f20990c651ddd2b58aa7c8b291f37d222ec6b37530c8898811f0b"
+    },
+    {
+      "path": "tests/test_agent_docs.py",
+      "sha256": "6f19ac08aad30af045d551694750436282bc5814b90df66271214065ac4ad969"
+    },
+    {
+      "path": "tests/test_repo_integrity.py",
+      "sha256": "24d6c47910121518af1945df0868eef0aa9646094e605a76811af71adb198dab"
+    },
+    {
+      "path": "scripts/check_repo_integrity.py",
+      "sha256": "8078ccd8aa20f645ed5f20297b9fdf8a416eb00ac1a5ab70a7d3782608c026cc"
+    }
+  ],
+  "after": [
+    {
+      "path": "README.md",
+      "sha256": "c040746aafaea5b75d915ed8fe54fcb89d692f57a1c6d605f2b19663ca0d22dd"
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "2a581d22750f24a1c882cf535b75f6a9138d1d0bd2c967fa80ff45f316a14a31"
+    },
+    {
+      "path": "tests/test_readme.py",
+      "sha256": "3c07adc02d8f20990c651ddd2b58aa7c8b291f37d222ec6b37530c8898811f0b"
+    },
+    {
+      "path": "tests/test_agent_docs.py",
+      "sha256": "6f19ac08aad30af045d551694750436282bc5814b90df66271214065ac4ad969"
+    },
+    {
+      "path": "tests/test_repo_integrity.py",
+      "sha256": "24d6c47910121518af1945df0868eef0aa9646094e605a76811af71adb198dab"
+    },
+    {
+      "path": "scripts/check_repo_integrity.py",
+      "sha256": "8078ccd8aa20f645ed5f20297b9fdf8a416eb00ac1a5ab70a7d3782608c026cc"
+    }
+  ],
+  "stable": true,
+  "exitCode": 1,
+  "stdout": ".F..................................                                     [100%]\r\n================================== FAILURES ===================================\r\n______________ test_readme_documents_local_lamp_overlay_artifact ______________\r\n\r\n    def test_readme_documents_local_lamp_overlay_artifact() -> None:\r\n        text = README.read_text(encoding=\"utf-8\")\r\n        normalized = compact(text)\r\n    \r\n        assert \"## Local data artifacts\" in text\r\n        assert \"live shelter-map bundle remains configured\" in normalized\r\n        assert \"live score bundle remains configured\" not in normalized\r\n        assert \"`web/public/data/generated_20260805_prefer_scored_routed/`\" in normalized\r\n        assert \"locked-score coverage for 95,157 of 124,443 records\" in normalized\r\n        assert \"95,157 full locked scores out of 124,443 records\" not in normalized\r\n        assert \"95,157 full scores out of 124,443 records\" not in normalized\r\n        assert \"29,286 records, 23.5% or roughly a quarter, do not show a full locked score\" in normalized\r\n        assert \"29,286 records, roughly a quarter, do not show a full locked score\" not in normalized\r\n        assert \"partial shelter-map evidence\" in normalized\r\n        assert \"beyond locked transit range\" in normalized\r\n        assert \"beyond current transit range\" not in normalized\r\n        assert \"lack published locked scores\" in normalized\r\n        assert \"awaiting scoring\" not in normalized\r\n        assert \"night lighting map layer is a separate local artifact\" in normalized\r\n        assert \"night-lighting map layer is a separate local artifact\" not in normalized\r\n        assert \"`web/public/data/lamp_posts_v1/`\" in normalized\r\n        assert \"700 H3-r8 tile files plus `manifest.json`\" in normalized\r\n        assert \"126,144 LTA lamp-post points\" in normalized\r\n        assert \"source last modified 7 Jul 2026\" in normalized\r\n        assert \"Map evidence only\" not in normalized\r\n        assert \"map evidence only and is not part of the locked score\" in normalized\r\n        assert \"uv run python run.py readiness\" in normalized\r\n        assert \"uv run python run.py readiness --gate-summary\" in normalized\r\n        assert (\r\n            \"prints the same gate verdict, checks and warnings without the full nested report\"\r\n            in normalized\r\n        )\r\n        assert \"uv run python scripts/production_readiness.py\" not in normalized\r\n        assert \"`python scripts/production_readiness.py`\" not in normalized\r\n        assert \"validates the shelter-map bundle\" in normalized\r\n        assert \"validates the score bundle\" not in normalized\r\n        assert \"Do not rebuild, overwrite, or mutate existing public data directories\" in normalized\r\n        assert \"If Vercel Hobby Edge Requests hit quota\" in normalized\r\n        assert \"production is serving current `main`\" in normalized\r\n        assert \"automatic Git deployments are intentionally disabled in `web/vercel.json`\" in normalized\r\n        assert \"committed cache and crawler reductions do not affect live traffic until the owner manually deploys\" in normalized\r\n        assert \"pause or protect the Vercel project from the Vercel dashboard/API\" in normalized\r\n        assert \"firewall deny rules or temporary attack mode are also owner-level controls\" in normalized\r\n        assert \"change public availability or visitor friction\" in normalized\r\n        assert \"owner decisions, not agent-default repository changes\" in normalized\r\n        assert \"uv run python run.py lamp-overlay --output web/public/data/lamp_posts_v2 --confirm-lamp-overlay\" in normalized\r\n        assert \"replacement night lighting overlay\" in normalized\r\n        assert \"replacement night-lighting overlay\" not in normalized\r\n        assert \"another new numeric version path\" in normalized\r\n        assert \"builder refuses non-empty output directories\" in normalized\r\n        assert \"lamp_posts_v1/` remains the published artifact\" in normalized\r\n>       assert \"uv run python run.py check --freshness-only\" in normalized\r\nE       AssertionError: assert 'uv run python run.py check --freshness-only' in '# S.H.I.O.K. Shelter Map A free, non-commercial civic web app for Singapore postal records that answers: if I move he...ENSE](LICENSE) and [NOTICE](NOTICE). Source data and map attribution are recorded in [ATTRIBUTION.md](ATTRIBUTION.md).'\r\n\r\ntests\\test_readme.py:123: AssertionError\r\n=========================== short test summary info ===========================\r\nFAILED tests/test_readme.py::test_readme_documents_local_lamp_overlay_artifact\r\n1 failed, 35 passed in 25.40s\r\n",
+  "stderr": ""
+}
