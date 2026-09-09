@@ -357,13 +357,14 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: owner approval for dependency installation; zero pipeline. No deployment included. Other independent free frontend tasks may proceed.
 - Evidence: qa/revamp-r1/security-triage-20260909/source-corrected.json; the earlier guessed-path rg failure remains in checks.json. Owner has been asked; no installation is authorized or executed.
 
-### [ ] T30: Preserve postal search before hydration
-- Status: READY. Size: S. Parent: P0.3. Prioritize before the remaining read-only coverage/freshness work.
+### [x] T30: Preserve postal search before hydration
+- Status: DONE (native GET, DOM-value ownership, scripts-held and hydration-boundary acceptance). Size: S. Parent: P0.3.
 - Evidence: T03 browser attempt `qa/revamp-r1/failure-diagnostics-20260909/accepted-1-KEGzaW/browser.json` submitted the usable server-rendered form before React attached its handler. A second Document navigated to `/?`; the unnamed input's postal was lost. The diagnostic harness now waits for hydration, which is not an application fix.
 - Scope: `web/app/page.tsx`, server-rendered form tests and a fresh bounded browser case. Preserve the approved layout, postal-only validation and existing hydrated search.
 - Do: provide a native GET fallback that retains the postal in the supported URL, or another equally reliable progressive-enhancement path. Do not hide the problem behind a longer arbitrary browser delay or claim that waiting fixes real early interaction.
 - Tests/done: submit Enter and the search button while application scripts are held; the postal survives and the matching record loads after release. Invalid postal input remains rejected; hydrated search does not add full-page reloads or API fan-out. Recheck a normal shared-postal arrival.
 - Gate: FREE; no pipeline, dependency installation, protected-payload mutation or deployment.
+- Accepted 2026-09-09: 1607+22=1629 isolated web tests/60 files, TypeScript/integrity and direct build pass. Real application scripts held through native Enter and button submissions; the postal-only GET survives. A third scenario types before hydration and submits after it without a new input/change event. Hydrated searches switch to a different real record without reload/API/POST. Final browser passes61checks/5captures after an explicit map idle capture barrier; the first run's mid-fade screenshot is preserved and not final visual evidence. `qa/revamp-r1/native-postal-20260909/summary.json`. This does not establish physical-keyboard/device or representative latency performance. Next startable work: T19/T22.
 
 ### Release and continuation rules
 - Core walk can be released after T01 and T04-T07 plus its own applicable T25-T28

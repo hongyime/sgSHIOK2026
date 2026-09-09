@@ -31,4 +31,25 @@ describe('map-first home shell', () => {
     expect(details).not.toMatch(/<details[^>]* open/);
     expect(details).toContain('ATTRIBUTION.md');
   });
+  it('server-renders a native root GET form for both Enter and the submit button', () => {
+    const html = renderToStaticMarkup(React.createElement(Home));
+    const form = html.match(/<form\b[^>]*>[\s\S]*?<\/form>/)?.[0];
+    expect(form).toBeDefined();
+    expect(form).toMatch(/<form\b[^>]*\baction="\/"/);
+    expect(form).toMatch(/<form\b[^>]*\bmethod="get"/);
+    expect(form).toMatch(/<button\b[^>]*id="postal-search-button"[^>]*type="submit"/);
+    expect(form).not.toMatch(/formAction=|formMethod=|noValidate=|formNoValidate=/i);
+  });
+  it('server-renders one required six-digit named text control so leading zeros survive GET', () => {
+    const html = renderToStaticMarkup(React.createElement(Home));
+    const input = html.match(/<input\b[^>]*id="postal-search-input"[^>]*>/)?.[0];
+    expect(input).toBeDefined();
+    expect(input).toContain('name="postal"');
+    expect(input).toContain('required=""');
+    expect(input).toContain('type="text"');
+    expect(input).toContain('inputMode="numeric"');
+    expect(input).toContain('pattern="[0-9]{6}"');
+    expect(input).toMatch(/maxLength="6"/i);
+    expect(html.match(/<input\b[^>]*name="postal"/g)).toHaveLength(1);
+  });
 });

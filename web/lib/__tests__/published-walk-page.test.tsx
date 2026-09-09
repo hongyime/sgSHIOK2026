@@ -230,10 +230,12 @@ function focusFirstSection() {
   return section;
 }
 
-function render() {
+function render(commitEffects = true) {
   for (let attempt = 0; attempt < 40; attempt++) {
     host.begin();
     tree = Home();
+    // Models a pending passive-effect commit, not browser hydration or event replay.
+    if (!commitEffects) return;
     host.commitEffects();
     if (!host.isDirty()) return;
   }
@@ -389,16 +391,30 @@ function mount(search = '') {
   url = new URL(`https://example.test/${search}`);
   render();
 }
-function inputPostal(postal: string) {
+function inputPostal(postal: string, commitEffects = true) {
   const input = elements(tree).find(element => element.type === 'input' && element.props.id === 'postal-search-input')!;
   expect(input).toBeDefined();
   (input.props.onChange as (event: unknown) => void)({ target: { value: postal } });
-  render();
+  render(commitEffects);
+}
+// The hook host has no DOM. Model only the named input/type boundary; native form
+// submission and constraint validation require the parent's held-script browser run.
+class PostalInputDouble {
+  constructor(public value: string) {}
+}
+function submitControl(control: PostalInputDouble | object | null) {
+  const form = elements(tree).find(element => element.type === 'form')!;
+  const preventDefault = vi.fn();
+  const namedItem = vi.fn((name: string) => name === 'postal' ? control : null);
+  const promise = (form.props.onSubmit as (event: unknown) => Promise<void>)({
+    preventDefault, currentTarget: { elements: { namedItem } },
+  });
+  return { promise, preventDefault, namedItem };
 }
 function submit(postal: string) {
   inputPostal(postal);
-  const form = elements(tree).find(element => element.type === 'form')!;
-  const promise = (form.props.onSubmit as (event: unknown) => Promise<void>)({ preventDefault: vi.fn() });
+  const input = elements(tree).find(element => element.props.id === 'postal-search-input')!;
+  const { promise } = submitControl(new PostalInputDouble(String(input.props.value)));
   render();
   return promise;
 }
@@ -502,6 +518,7 @@ beforeEach(() => {
   replaceState = vi.fn((_state, _title, next: string) => { url = new URL(next, url); });
   pushState = vi.fn((_state, _title, next: string) => { url = new URL(next, url); });
   navigationListeners = new Map();
+  vi.stubGlobal('HTMLInputElement', PostalInputDouble);
   vi.stubGlobal('fetch', fetchSpy);
   vi.stubGlobal('window', {
     location: { get href() { return url.href; }, get search() { return url.search; }, get hash() { return url.hash; } },
@@ -531,6 +548,111 @@ afterEach(() => {
     host.reset();
     vi.unstubAllGlobals();
   }
+});
+
+describe('T30 native postal search and initial navigation ownership', () => {
+  it.each(['', B])('reads the input synchronously instead of React query %j', async staleQuery => {
+    mount();
+    if (staleQuery) inputPostal(staleQuery);
+    const control = new PostalInputDouble(A);
+    const submitted = submitControl(control);
+    control.value = B;
+    expect(submitted.preventDefault).toHaveBeenCalledTimes(1);
+    expect(submitted.namedItem.mock.calls).toEqual([['postal']]);
+    expect(dependencies.fetchScoreForPostal.mock.calls).toEqual([[A]]);
+    expect(dependencies.fetchGeomForPostal.mock.calls).toEqual([[A, undefined, undefined]]);
+    render();
+    expect(elements(tree).find(element => element.props.id === 'postal-search-input')!.props.value).toBe(A);
+    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry);
+    await settle(); await submitted.promise;
+    expect(summary().postal).toBe(A);
+    expect(url.search).toBe(`?postal=${A}`);
+    expect(dependencies.fetchManifest).not.toHaveBeenCalled();
+    expect(dependencies.fetchScoreForPostal).toHaveBeenCalledTimes(1);
+    expect(dependencies.fetchGeomForPostal).toHaveBeenCalledTimes(1);
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it('trims a valid DOM postal without dropping its leading zero', async () => {
+    mount();
+    const { promise } = submitControl(new PostalInputDouble(` ${A} `));
+    render();
+    expect(dependencies.fetchScoreForPostal.mock.calls).toEqual([[A]]);
+    expect(elements(tree).find(element => element.props.id === 'postal-search-input')!.props.value).toBe(A);
+    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry);
+    await settle(); await promise;
+    expect(url.searchParams.get('postal')).toBe(A);
+  });
+
+  it.each(['', '01895', '0189567', '01895a', '  ', '\uff10\uff11\uff18\uff19\uff15\uff16'])(
+    'rejects invalid actual input %j even when React query is valid', async value => {
+      mount(); inputPostal(A);
+      const { promise, preventDefault } = submitControl(new PostalInputDouble(value));
+      expect(dependencies.fetchScoreForPostal).not.toHaveBeenCalled();
+      expect(dependencies.fetchGeomForPostal).not.toHaveBeenCalled();
+      expect(dependencies.fetchManifest).not.toHaveBeenCalled();
+      expect(preventDefault).toHaveBeenCalledTimes(1);
+      await promise; render();
+      expect(url.search).toBe('');
+      expect(replaceState).not.toHaveBeenCalled();
+    },
+  );
+
+  it.each([null, { value: A }])('rejects a missing or wrong-kind named control %j', async control => {
+    mount(); inputPostal(A);
+    const { promise } = submitControl(control);
+    expect(dependencies.fetchScoreForPostal).not.toHaveBeenCalled();
+    expect(dependencies.fetchGeomForPostal).not.toHaveBeenCalled();
+    await promise; render();
+    expect(url.search).toBe('');
+  });
+
+  it.each(['', `?postal=${B}&transit=mrt_lrt&stop=mrt:21624&route=shortest`])(
+    'keeps an explicit submit authoritative when the first URL effect is still pending: %s', async initial => {
+      url = new URL(`https://example.test/${initial}`);
+      render(false);
+      inputPostal(A, false);
+      const { promise } = submitControl(new PostalInputDouble(A));
+      expect(dependencies.fetchScoreForPostal.mock.calls).toEqual([[A]]);
+      render();
+      await settle();
+      expect(dependencies.fetchScoreForPostal.mock.calls).toEqual([[A]]);
+      expect(dependencies.fetchGeomForPostal.mock.calls).toEqual([[A, undefined, undefined]]);
+      scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry);
+      await settle(); await promise;
+      expect(summary().postal).toBe(A);
+      expect(modeControl().props.mode).toBe('best_transit');
+      expect(url.search).toBe(`?postal=${A}`);
+      expect(dependencies.fetchManifest).not.toHaveBeenCalled();
+      expect(fetchSpy).not.toHaveBeenCalled();
+    },
+  );
+
+  it('consumes a native GET postal once after mount with no submit handler call', async () => {
+    mount(`?postal=${A}`);
+    render(); render();
+    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry);
+    await settle();
+    expect(dependencies.fetchManifest).not.toHaveBeenCalled();
+    expect(dependencies.fetchScoreForPostal.mock.calls).toEqual([[A]]);
+    expect(dependencies.fetchGeomForPostal.mock.calls).toEqual([[A, undefined, undefined]]);
+    expect(summary().postal).toBe(A);
+    expect(url.search).toBe(`?postal=${A}`);
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it.each(['', '01895', '0189567', '01895a', '\uff10\uff11\uff18\uff19\uff15\uff16', '<script>'])(
+    'rejects invalid direct-URL postal %j without loading any record or API', async value => {
+      mount(`?postal=${encodeURIComponent(value)}&transit=mrt_lrt&route=shortest`);
+      await settle(); render();
+      expect(dependencies.fetchManifest).not.toHaveBeenCalled();
+      expect(dependencies.fetchScoreForPostal).not.toHaveBeenCalled();
+      expect(dependencies.fetchGeomForPostal).not.toHaveBeenCalled();
+      expect(elements(tree).some(element => element.type === WalkSummary)).toBe(false);
+      expect(elements(tree).find(element => element.props.id === 'postal-search-input')!.props.value).toBe('');
+      expect(fetchSpy).not.toHaveBeenCalled();
+    },
+  );
 });
 
 describe('Home cache bootstrap across entry paths', () => {

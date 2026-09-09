@@ -1,0 +1,1079 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "buildId": "ENBtn8fzW-j8FH5dZ6qyJ",
+  "browser": "accepted-2-csW97i",
+  "sources": [
+    {
+      "path": "web/.gitignore",
+      "built": "6fe16e5e5dad9408c6a9082604c816d8067641ae1b5e59aceb90eb51c1088c63",
+      "current": "6fe16e5e5dad9408c6a9082604c816d8067641ae1b5e59aceb90eb51c1088c63",
+      "tested": "6fe16e5e5dad9408c6a9082604c816d8067641ae1b5e59aceb90eb51c1088c63",
+      "match": true
+    },
+    {
+      "path": "web/.vercelignore",
+      "built": "b3d8b2181a750cb269414b575e25bb4e1300d0c31f32b5930abf4d089f4d4ccc",
+      "current": "b3d8b2181a750cb269414b575e25bb4e1300d0c31f32b5930abf4d089f4d4ccc",
+      "tested": "b3d8b2181a750cb269414b575e25bb4e1300d0c31f32b5930abf4d089f4d4ccc",
+      "match": true
+    },
+    {
+      "path": "web/app/api/onemap-route/route.ts",
+      "built": "0a8885496fd124ae5807586597961eb826c36e813e488784db86b6b3c3197184",
+      "current": "0a8885496fd124ae5807586597961eb826c36e813e488784db86b6b3c3197184",
+      "tested": "0a8885496fd124ae5807586597961eb826c36e813e488784db86b6b3c3197184",
+      "match": true
+    },
+    {
+      "path": "web/app/api/onemap-search/route.ts",
+      "built": "ce9b6557e4dc193a3f9dd477ed5c6dd3b52c48aa7cc66bf403d61029ed2526a5",
+      "current": "ce9b6557e4dc193a3f9dd477ed5c6dd3b52c48aa7cc66bf403d61029ed2526a5",
+      "tested": "ce9b6557e4dc193a3f9dd477ed5c6dd3b52c48aa7cc66bf403d61029ed2526a5",
+      "match": true
+    },
+    {
+      "path": "web/app/api/onemap.ts",
+      "built": "897129fc36ef7da8dec7f12008e06e4ae1181225ffc5b50518f05ba5d255bf98",
+      "current": "897129fc36ef7da8dec7f12008e06e4ae1181225ffc5b50518f05ba5d255bf98",
+      "tested": "897129fc36ef7da8dec7f12008e06e4ae1181225ffc5b50518f05ba5d255bf98",
+      "match": true
+    },
+    {
+      "path": "web/app/icon.svg",
+      "built": "c0bd7140b0fdf9ef8220017c4a07428301ab84e80c4090acd36da4c0da9d0dd2",
+      "current": "c0bd7140b0fdf9ef8220017c4a07428301ab84e80c4090acd36da4c0da9d0dd2",
+      "tested": "c0bd7140b0fdf9ef8220017c4a07428301ab84e80c4090acd36da4c0da9d0dd2",
+      "match": true
+    },
+    {
+      "path": "web/app/layout.tsx",
+      "built": "629503df867c00de8bac541deac30d6f16f5cd2800f4540422d407c318d21350",
+      "current": "629503df867c00de8bac541deac30d6f16f5cd2800f4540422d407c318d21350",
+      "tested": "629503df867c00de8bac541deac30d6f16f5cd2800f4540422d407c318d21350",
+      "match": true
+    },
+    {
+      "path": "web/app/page.module.css",
+      "built": "90594191b9e7894e2165de26164cdd8d5630b821dd6a01ce682526d2ee00777b",
+      "current": "90594191b9e7894e2165de26164cdd8d5630b821dd6a01ce682526d2ee00777b",
+      "tested": "90594191b9e7894e2165de26164cdd8d5630b821dd6a01ce682526d2ee00777b",
+      "match": true
+    },
+    {
+      "path": "web/app/page.tsx",
+      "built": "dab151a563035526f02a9e87b94ca6d223c6b66396769f02e2859e3a24d71162",
+      "current": "dab151a563035526f02a9e87b94ca6d223c6b66396769f02e2859e3a24d71162",
+      "tested": "dab151a563035526f02a9e87b94ca6d223c6b66396769f02e2859e3a24d71162",
+      "match": true
+    },
+    {
+      "path": "web/app/robots.ts",
+      "built": "114d20450cca32f28485448c758c031fa7479b699ba8673e21d115875b66e078",
+      "current": "114d20450cca32f28485448c758c031fa7479b699ba8673e21d115875b66e078",
+      "tested": "114d20450cca32f28485448c758c031fa7479b699ba8673e21d115875b66e078",
+      "match": true
+    },
+    {
+      "path": "web/app/sitemap.ts",
+      "built": "e7ccaa26063b9f0dfce8eb2b7e7b7a7ed3a50681644c2baeb40cc6e348da7ea5",
+      "current": "e7ccaa26063b9f0dfce8eb2b7e7b7a7ed3a50681644c2baeb40cc6e348da7ea5",
+      "tested": "e7ccaa26063b9f0dfce8eb2b7e7b7a7ed3a50681644c2baeb40cc6e348da7ea5",
+      "match": true
+    },
+    {
+      "path": "web/components/comparison-share-dialog.module.css",
+      "built": "d3cf3adf495462302dce41ed3f33ead9bd7f2d0340b39de97e3f86a2809d7e04",
+      "current": "d3cf3adf495462302dce41ed3f33ead9bd7f2d0340b39de97e3f86a2809d7e04",
+      "tested": "d3cf3adf495462302dce41ed3f33ead9bd7f2d0340b39de97e3f86a2809d7e04",
+      "match": true
+    },
+    {
+      "path": "web/components/comparison-share-dialog.tsx",
+      "built": "c13424b420ca97473599301f832a811dc74d3e79b97f3ceecec1832026abf71b",
+      "current": "c13424b420ca97473599301f832a811dc74d3e79b97f3ceecec1832026abf71b",
+      "tested": "c13424b420ca97473599301f832a811dc74d3e79b97f3ceecec1832026abf71b",
+      "match": true
+    },
+    {
+      "path": "web/components/exposure-section-explorer.module.css",
+      "built": "a3540b60e154b08b30e04035589b4728cd20a938b3684cefa652e80553294a5a",
+      "current": "a3540b60e154b08b30e04035589b4728cd20a938b3684cefa652e80553294a5a",
+      "tested": "a3540b60e154b08b30e04035589b4728cd20a938b3684cefa652e80553294a5a",
+      "match": true
+    },
+    {
+      "path": "web/components/exposure-section-explorer.tsx",
+      "built": "ea7dda0c0ec66e33a4050e4ab1c8bd169bf2c419f54eeb6032cddeb1107458cd",
+      "current": "ea7dda0c0ec66e33a4050e4ab1c8bd169bf2c419f54eeb6032cddeb1107458cd",
+      "tested": "ea7dda0c0ec66e33a4050e4ab1c8bd169bf2c419f54eeb6032cddeb1107458cd",
+      "match": true
+    },
+    {
+      "path": "web/components/failure-diagnostics-control.module.css",
+      "built": "9d7aaa37a75c122df1c99ef38295d1a8219a7413ba3ee3bc9e76d29dac83b802",
+      "current": "9d7aaa37a75c122df1c99ef38295d1a8219a7413ba3ee3bc9e76d29dac83b802",
+      "tested": "9d7aaa37a75c122df1c99ef38295d1a8219a7413ba3ee3bc9e76d29dac83b802",
+      "match": true
+    },
+    {
+      "path": "web/components/failure-diagnostics-control.tsx",
+      "built": "87023b56eb9e9bae6303cfa78c973295f4fbc56c506bc3804e0a58e7945234b0",
+      "current": "87023b56eb9e9bae6303cfa78c973295f4fbc56c506bc3804e0a58e7945234b0",
+      "tested": "87023b56eb9e9bae6303cfa78c973295f4fbc56c506bc3804e0a58e7945234b0",
+      "match": true
+    },
+    {
+      "path": "web/components/home-comparison.module.css",
+      "built": "ef4559e8f1e671a3f95c9d440f39b30178b45c54840e8f1546bee0439d285773",
+      "current": "ef4559e8f1e671a3f95c9d440f39b30178b45c54840e8f1546bee0439d285773",
+      "tested": "ef4559e8f1e671a3f95c9d440f39b30178b45c54840e8f1546bee0439d285773",
+      "match": true
+    },
+    {
+      "path": "web/components/home-comparison.tsx",
+      "built": "6bd53c49f4686c0c8f9399389d2d22e1614b2092966ffd7089b83a59d2f72b4a",
+      "current": "6bd53c49f4686c0c8f9399389d2d22e1614b2092966ffd7089b83a59d2f72b4a",
+      "tested": "6bd53c49f4686c0c8f9399389d2d22e1614b2092966ffd7089b83a59d2f72b4a",
+      "match": true
+    },
+    {
+      "path": "web/components/route-evidence-map.module.css",
+      "built": "ab32c76913f123a9ad69f64cfac953d51387ce5de8b2c7af2da0711d76b566d0",
+      "current": "ab32c76913f123a9ad69f64cfac953d51387ce5de8b2c7af2da0711d76b566d0",
+      "tested": "ab32c76913f123a9ad69f64cfac953d51387ce5de8b2c7af2da0711d76b566d0",
+      "match": true
+    },
+    {
+      "path": "web/components/route-evidence-map.tsx",
+      "built": "7e492fa0753b6e59e000fddfafe4ef3ea92237b3996301aca141d3ab2b6c7dc0",
+      "current": "7e492fa0753b6e59e000fddfafe4ef3ea92237b3996301aca141d3ab2b6c7dc0",
+      "tested": "7e492fa0753b6e59e000fddfafe4ef3ea92237b3996301aca141d3ab2b6c7dc0",
+      "match": true
+    },
+    {
+      "path": "web/components/route-map-loader.tsx",
+      "built": "4a9c4dba5e545a6b6f9bf9296a8a22eb7cfe29cee401c27c54d3c38fac32c93b",
+      "current": "4a9c4dba5e545a6b6f9bf9296a8a22eb7cfe29cee401c27c54d3c38fac32c93b",
+      "tested": "4a9c4dba5e545a6b6f9bf9296a8a22eb7cfe29cee401c27c54d3c38fac32c93b",
+      "match": true
+    },
+    {
+      "path": "web/components/transit-stop-picker.module.css",
+      "built": "aac04993ce4fae9e5b222a853bfd0f20e53197ae9bbffff3ca634596bcb7f974",
+      "current": "aac04993ce4fae9e5b222a853bfd0f20e53197ae9bbffff3ca634596bcb7f974",
+      "tested": "aac04993ce4fae9e5b222a853bfd0f20e53197ae9bbffff3ca634596bcb7f974",
+      "match": true
+    },
+    {
+      "path": "web/components/transit-stop-picker.tsx",
+      "built": "7637b29f320581f6e04778984c3aefd33e55d31ee9f3e196fa608f5bd5e52143",
+      "current": "7637b29f320581f6e04778984c3aefd33e55d31ee9f3e196fa608f5bd5e52143",
+      "tested": "7637b29f320581f6e04778984c3aefd33e55d31ee9f3e196fa608f5bd5e52143",
+      "match": true
+    },
+    {
+      "path": "web/components/walk-summary.tsx",
+      "built": "bf80c05b259e1c634bd3171eb1a6fe11198b4f3cca035175a45b55ef307a3e9f",
+      "current": "bf80c05b259e1c634bd3171eb1a6fe11198b4f3cca035175a45b55ef307a3e9f",
+      "tested": "bf80c05b259e1c634bd3171eb1a6fe11198b4f3cca035175a45b55ef307a3e9f",
+      "match": true
+    },
+    {
+      "path": "web/data-bundle.json",
+      "built": "d5ce7703d5ee6b39651947749f9bd2f4c6d642fe2af06e1d9324671ce8f009e8",
+      "current": "d5ce7703d5ee6b39651947749f9bd2f4c6d642fe2af06e1d9324671ce8f009e8",
+      "tested": "d5ce7703d5ee6b39651947749f9bd2f4c6d642fe2af06e1d9324671ce8f009e8",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/accessibility-render.test.tsx",
+      "built": "8252e4f30e99444d58d59cfff1a02d26a87617989b7a9a9dd7be49fa04427a74",
+      "current": "8252e4f30e99444d58d59cfff1a02d26a87617989b7a9a9dd7be49fa04427a74",
+      "tested": "8252e4f30e99444d58d59cfff1a02d26a87617989b7a9a9dd7be49fa04427a74",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/artifact-failure.test.ts",
+      "built": "e1b80c6786e7f7ede3e3af8009e5a4455286b3289f040695ac577d5e6fb19487",
+      "current": "e1b80c6786e7f7ede3e3af8009e5a4455286b3289f040695ac577d5e6fb19487",
+      "tested": "e1b80c6786e7f7ede3e3af8009e5a4455286b3289f040695ac577d5e6fb19487",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/comparison-controller.test.ts",
+      "built": "b0c63bef195b319afb43aeb11d275f7d2468f829bb38974f539d2d2138d58e9a",
+      "current": "b0c63bef195b319afb43aeb11d275f7d2468f829bb38974f539d2d2138d58e9a",
+      "tested": "b0c63bef195b319afb43aeb11d275f7d2468f829bb38974f539d2d2138d58e9a",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/comparison-link.test.ts",
+      "built": "08644514ac30961184d36c7fe8203700a2f47196e938a52f40af98b188402790",
+      "current": "08644514ac30961184d36c7fe8203700a2f47196e938a52f40af98b188402790",
+      "tested": "08644514ac30961184d36c7fe8203700a2f47196e938a52f40af98b188402790",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/comparison-share-dialog.test.tsx",
+      "built": "a859500d0ec694e467c0c4676854eb4512f611b00627ec419dd918597d198d6c",
+      "current": "a859500d0ec694e467c0c4676854eb4512f611b00627ec419dd918597d198d6c",
+      "tested": "a859500d0ec694e467c0c4676854eb4512f611b00627ec419dd918597d198d6c",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/comparison-shared-controller.test.ts",
+      "built": "4b2cbbdfba2b8433a9212727f8ce77c957a35470f2cfa14c353277cab3cfc503",
+      "current": "4b2cbbdfba2b8433a9212727f8ce77c957a35470f2cfa14c353277cab3cfc503",
+      "tested": "4b2cbbdfba2b8433a9212727f8ce77c957a35470f2cfa14c353277cab3cfc503",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/comparison-state.test.ts",
+      "built": "c2d8bbaf01ebc70df02b26a55ed61a46fafa9b1d4420312d11d5665aa48afbb8",
+      "current": "c2d8bbaf01ebc70df02b26a55ed61a46fafa9b1d4420312d11d5665aa48afbb8",
+      "tested": "c2d8bbaf01ebc70df02b26a55ed61a46fafa9b1d4420312d11d5665aa48afbb8",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/comparison.test.ts",
+      "built": "fb8ab02661fa1210c5c8987f1f655573fec90cfbdffbf293fdf66c1f0416a5f1",
+      "current": "fb8ab02661fa1210c5c8987f1f655573fec90cfbdffbf293fdf66c1f0416a5f1",
+      "tested": "fb8ab02661fa1210c5c8987f1f655573fec90cfbdffbf293fdf66c1f0416a5f1",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/data-base.test.ts",
+      "built": "741336b2f620f1567d7715270aa04245e0d0f57ab3436632d77a666e60ab1c02",
+      "current": "741336b2f620f1567d7715270aa04245e0d0f57ab3436632d77a666e60ab1c02",
+      "tested": "741336b2f620f1567d7715270aa04245e0d0f57ab3436632d77a666e60ab1c02",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/data-cache-recovery.test.ts",
+      "built": "f6f8300f0217f927a720e64f1a3a17eb3d6bbc0ee28868ad428c377ee42b187f",
+      "current": "f6f8300f0217f927a720e64f1a3a17eb3d6bbc0ee28868ad428c377ee42b187f",
+      "tested": "f6f8300f0217f927a720e64f1a3a17eb3d6bbc0ee28868ad428c377ee42b187f",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/data-failure-diagnostics.test.ts",
+      "built": "a10d85b14a60e0ddbc9370181710d20165799812687e2cc97a9e704c33246265",
+      "current": "a10d85b14a60e0ddbc9370181710d20165799812687e2cc97a9e704c33246265",
+      "tested": "a10d85b14a60e0ddbc9370181710d20165799812687e2cc97a9e704c33246265",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/data-fetch-policy.test.ts",
+      "built": "b65c4773c49fa2b94d2b86c896ce4141a9f82d113dc090abd4507eb33d812ea1",
+      "current": "b65c4773c49fa2b94d2b86c896ce4141a9f82d113dc090abd4507eb33d812ea1",
+      "tested": "b65c4773c49fa2b94d2b86c896ce4141a9f82d113dc090abd4507eb33d812ea1",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/data.test.ts",
+      "built": "6d0b688fffe7ae02debb1fcc61e4c4b9745c1de68e556056e794070c1618e763",
+      "current": "6d0b688fffe7ae02debb1fcc61e4c4b9745c1de68e556056e794070c1618e763",
+      "tested": "6d0b688fffe7ae02debb1fcc61e4c4b9745c1de68e556056e794070c1618e763",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/deployment.test.ts",
+      "built": "54b44ee6f6c6b37f2f5610e96b5ac3cf8c586027bf31b2772e03926ce9664537",
+      "current": "54b44ee6f6c6b37f2f5610e96b5ac3cf8c586027bf31b2772e03926ce9664537",
+      "tested": "54b44ee6f6c6b37f2f5610e96b5ac3cf8c586027bf31b2772e03926ce9664537",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/ensure-data-bundle.test.mjs",
+      "built": "4e5e8c4373e523ea3edcca0c66d2bf0e67f6b4314bf61430648bd277e58c555c",
+      "current": "4e5e8c4373e523ea3edcca0c66d2bf0e67f6b4314bf61430648bd277e58c555c",
+      "tested": "4e5e8c4373e523ea3edcca0c66d2bf0e67f6b4314bf61430648bd277e58c555c",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/exposure-section-explorer.test.tsx",
+      "built": "17615388d819cef0b3c8b43e6e03a39af54bdbaef280a64841994f3a878f7c71",
+      "current": "17615388d819cef0b3c8b43e6e03a39af54bdbaef280a64841994f3a878f7c71",
+      "tested": "17615388d819cef0b3c8b43e6e03a39af54bdbaef280a64841994f3a878f7c71",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/failure-diagnostics-control.test.tsx",
+      "built": "33a50d8a232d14b834969d930448e4817913f13e787a6cf2874b1c5c72b84ea4",
+      "current": "33a50d8a232d14b834969d930448e4817913f13e787a6cf2874b1c5c72b84ea4",
+      "tested": "33a50d8a232d14b834969d930448e4817913f13e787a6cf2874b1c5c72b84ea4",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/failure-diagnostics.test.ts",
+      "built": "32de671af613525520f5555af6ad7d3dd50e0662e34b6459fe058f60e9f0adb9",
+      "current": "32de671af613525520f5555af6ad7d3dd50e0662e34b6459fe058f60e9f0adb9",
+      "tested": "32de671af613525520f5555af6ad7d3dd50e0662e34b6459fe058f60e9f0adb9",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-data.ts",
+      "built": "078361aabbb455955ad70e9cef10a22121fb69476481031cb118b7aee8b990be",
+      "current": "078361aabbb455955ad70e9cef10a22121fb69476481031cb118b7aee8b990be",
+      "tested": "078361aabbb455955ad70e9cef10a22121fb69476481031cb118b7aee8b990be",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-options.json",
+      "built": "6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7",
+      "current": "6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7",
+      "tested": "6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-options.provenance.json",
+      "built": "8d0ac40ff2cc3616f2f41eec68b2712982859d301917373aa894ec49f37bf91a",
+      "current": "8d0ac40ff2cc3616f2f41eec68b2712982859d301917373aa894ec49f37bf91a",
+      "tested": "8d0ac40ff2cc3616f2f41eec68b2712982859d301917373aa894ec49f37bf91a",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-walks.json",
+      "built": "e29cc74ce7ec9f69b360e596a2ecd6b07e4cba453bb46b2cc091c9ff61036c86",
+      "current": "e29cc74ce7ec9f69b360e596a2ecd6b07e4cba453bb46b2cc091c9ff61036c86",
+      "tested": "e29cc74ce7ec9f69b360e596a2ecd6b07e4cba453bb46b2cc091c9ff61036c86",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-walks.provenance.json",
+      "built": "485e9d62fe1488c5cbd8086cdc9a26efc7cb83ec4dc4770b58dddc387c47826d",
+      "current": "485e9d62fe1488c5cbd8086cdc9a26efc7cb83ec4dc4770b58dddc387c47826d",
+      "tested": "485e9d62fe1488c5cbd8086cdc9a26efc7cb83ec4dc4770b58dddc387c47826d",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/geom-promoted-shard.test.ts",
+      "built": "afbbce3371614bd859684f186d0dd98216f7649ad8cd9a5d56fa941f76050c0d",
+      "current": "afbbce3371614bd859684f186d0dd98216f7649ad8cd9a5d56fa941f76050c0d",
+      "tested": "afbbce3371614bd859684f186d0dd98216f7649ad8cd9a5d56fa941f76050c0d",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/geometry-recovery.test.ts",
+      "built": "7609499e054ac0110892542288c38d8d76e4aaedad1bef8f8bfa79d67679e8e4",
+      "current": "7609499e054ac0110892542288c38d8d76e4aaedad1bef8f8bfa79d67679e8e4",
+      "tested": "7609499e054ac0110892542288c38d8d76e4aaedad1bef8f8bfa79d67679e8e4",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/home-comparison.test.tsx",
+      "built": "8bf831ae61313db72eb58add5b36eee5f785f632b31dbae92bff1d305c106e0c",
+      "current": "8bf831ae61313db72eb58add5b36eee5f785f632b31dbae92bff1d305c106e0c",
+      "tested": "8bf831ae61313db72eb58add5b36eee5f785f632b31dbae92bff1d305c106e0c",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/ignore-build.test.mjs",
+      "built": "a0f94ed9a81c5bb2da2bcb22d3864e3851e16ecdd450f9d880042d2198a20c55",
+      "current": "a0f94ed9a81c5bb2da2bcb22d3864e3851e16ecdd450f9d880042d2198a20c55",
+      "tested": "a0f94ed9a81c5bb2da2bcb22d3864e3851e16ecdd450f9d880042d2198a20c55",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/lamp-overlay.test.ts",
+      "built": "4721ae09349fcbe885588385578198415ddbda952d659ec2287517a0a36d5b1e",
+      "current": "4721ae09349fcbe885588385578198415ddbda952d659ec2287517a0a36d5b1e",
+      "tested": "4721ae09349fcbe885588385578198415ddbda952d659ec2287517a0a36d5b1e",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/live-route-scoring.test.ts",
+      "built": "70135b45edec85599df3b31652394f427976128c91eef586988ad4f0510c7284",
+      "current": "70135b45edec85599df3b31652394f427976128c91eef586988ad4f0510c7284",
+      "tested": "70135b45edec85599df3b31652394f427976128c91eef586988ad4f0510c7284",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/locked-score-availability.test.ts",
+      "built": "1ebf79cabb1f31f486cce37d0e8252285f18cccbca8a7d5f467b4f72c6c7967e",
+      "current": "1ebf79cabb1f31f486cce37d0e8252285f18cccbca8a7d5f467b4f72c6c7967e",
+      "tested": "1ebf79cabb1f31f486cce37d0e8252285f18cccbca8a7d5f467b4f72c6c7967e",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/map-first-shell.test.ts",
+      "built": "11050f4e65d7c081ec53a979fc683347181a611b44b0793fffbee6834f637613",
+      "current": "11050f4e65d7c081ec53a979fc683347181a611b44b0793fffbee6834f637613",
+      "tested": "11050f4e65d7c081ec53a979fc683347181a611b44b0793fffbee6834f637613",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/map-recovery-actions.test.tsx",
+      "built": "0a57110b9923681e76e04dbadc7534568168789b0435b72e7c0d6bbcd079e732",
+      "current": "0a57110b9923681e76e04dbadc7534568168789b0435b72e7c0d6bbcd079e732",
+      "tested": "0a57110b9923681e76e04dbadc7534568168789b0435b72e7c0d6bbcd079e732",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-import.test.ts",
+      "built": "2fcaa4f52893993199402dbf914b72a668e4cc73857cdae5a4adc60f2ed9e165",
+      "current": "2fcaa4f52893993199402dbf914b72a668e4cc73857cdae5a4adc60f2ed9e165",
+      "tested": "2fcaa4f52893993199402dbf914b72a668e4cc73857cdae5a4adc60f2ed9e165",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-stage.test.ts",
+      "built": "6ef58ab39e9685719002114ff9233babb737380886445f70f88c24191560d093",
+      "current": "6ef58ab39e9685719002114ff9233babb737380886445f70f88c24191560d093",
+      "tested": "6ef58ab39e9685719002114ff9233babb737380886445f70f88c24191560d093",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/map-viewport.test.ts",
+      "built": "28b270a28cad8d9429a6915d4fd1443e198ab817225adfabbce40ec4e06e2b56",
+      "current": "28b270a28cad8d9429a6915d4fd1443e198ab817225adfabbce40ec4e06e2b56",
+      "tested": "28b270a28cad8d9429a6915d4fd1443e198ab817225adfabbce40ec4e06e2b56",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/map-worker.test.ts",
+      "built": "9d589c548c06e90a4530addb5f15bb691c5e352d5adc2c73672c8d14d2f7a29a",
+      "current": "9d589c548c06e90a4530addb5f15bb691c5e352d5adc2c73672c8d14d2f7a29a",
+      "tested": "9d589c548c06e90a4530addb5f15bb691c5e352d5adc2c73672c8d14d2f7a29a",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/onemap-api-security.test.ts",
+      "built": "be7b8f13516e8813b3886c18d77b6934329a6123c18cf96f1ff94d75c3b8c5d0",
+      "current": "be7b8f13516e8813b3886c18d77b6934329a6123c18cf96f1ff94d75c3b8c5d0",
+      "tested": "be7b8f13516e8813b3886c18d77b6934329a6123c18cf96f1ff94d75c3b8c5d0",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/onemap-search.test.ts",
+      "built": "d4b2a218584763407356162680f939648096a4a0f3d470a2d15a4b5aec6be26c",
+      "current": "d4b2a218584763407356162680f939648096a4a0f3d470a2d15a4b5aec6be26c",
+      "tested": "d4b2a218584763407356162680f939648096a4a0f3d470a2d15a4b5aec6be26c",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/polyline.test.ts",
+      "built": "8c449899dabe2cdfd9dbab156bb059739976e1d677e96dc0a77debf0bf3741f6",
+      "current": "8c449899dabe2cdfd9dbab156bb059739976e1d677e96dc0a77debf0bf3741f6",
+      "tested": "8c449899dabe2cdfd9dbab156bb059739976e1d677e96dc0a77debf0bf3741f6",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/published-exposure-sections.test.ts",
+      "built": "cd0d6511922174d22d6415893a39d81d5af8c783c5857d9dd96d4e78cc08a298",
+      "current": "cd0d6511922174d22d6415893a39d81d5af8c783c5857d9dd96d4e78cc08a298",
+      "tested": "cd0d6511922174d22d6415893a39d81d5af8c783c5857d9dd96d4e78cc08a298",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/published-options-fixture.test.ts",
+      "built": "9b33bffe9ba63063bbd64a6dfd716c761aaeff20f2b89dc22a16ee38a564f55a",
+      "current": "9b33bffe9ba63063bbd64a6dfd716c761aaeff20f2b89dc22a16ee38a564f55a",
+      "tested": "9b33bffe9ba63063bbd64a6dfd716c761aaeff20f2b89dc22a16ee38a564f55a",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/published-transit-choices.test.ts",
+      "built": "6e7890504b25deb486c2eef84556d3639aebd14a00ed24a622272e324fed4095",
+      "current": "6e7890504b25deb486c2eef84556d3639aebd14a00ed24a622272e324fed4095",
+      "tested": "6e7890504b25deb486c2eef84556d3639aebd14a00ed24a622272e324fed4095",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/published-transit-options.test.ts",
+      "built": "a701a1b913cfad5b37c7cf833e5c58f786ebfbe80dd2d8a4d292ef99b8b261e2",
+      "current": "a701a1b913cfad5b37c7cf833e5c58f786ebfbe80dd2d8a4d292ef99b8b261e2",
+      "tested": "a701a1b913cfad5b37c7cf833e5c58f786ebfbe80dd2d8a4d292ef99b8b261e2",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "built": "715d22d72f767d42cf313c586982fb37cd5d7ba9fdd888146077460a493b3217",
+      "current": "715d22d72f767d42cf313c586982fb37cd5d7ba9fdd888146077460a493b3217",
+      "tested": "715d22d72f767d42cf313c586982fb37cd5d7ba9fdd888146077460a493b3217",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-selection.test.ts",
+      "built": "9942fe62a109c62190ea0a1084d23309dcb052b2a7a618ec68c7b4f86c25669a",
+      "current": "9942fe62a109c62190ea0a1084d23309dcb052b2a7a618ec68c7b4f86c25669a",
+      "tested": "9942fe62a109c62190ea0a1084d23309dcb052b2a7a618ec68c7b4f86c25669a",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-view.test.ts",
+      "built": "cc828c29aa420f75227c1e7a60ab2cf1f29a19784fa076e1099275efb115de48",
+      "current": "cc828c29aa420f75227c1e7a60ab2cf1f29a19784fa076e1099275efb115de48",
+      "tested": "cc828c29aa420f75227c1e7a60ab2cf1f29a19784fa076e1099275efb115de48",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/rank-payload.test.ts",
+      "built": "611e7a69751489944084f62ba928000c51a4c725680df3a5bae3533ac366056b",
+      "current": "611e7a69751489944084f62ba928000c51a4c725680df3a5bae3533ac366056b",
+      "tested": "611e7a69751489944084f62ba928000c51a4c725680df3a5bae3533ac366056b",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/revamp-layout.test.ts",
+      "built": "9e6613d07cbd93083541166605cc40eb82290790290f379b7058cea291868485",
+      "current": "9e6613d07cbd93083541166605cc40eb82290790290f379b7058cea291868485",
+      "tested": "9e6613d07cbd93083541166605cc40eb82290790290f379b7058cea291868485",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/route-display.test.ts",
+      "built": "2c54d6d61a4d7ab9083ab9ac0cd1271300cf2b7eaf2d623627b251329c41d0a4",
+      "current": "2c54d6d61a4d7ab9083ab9ac0cd1271300cf2b7eaf2d623627b251329c41d0a4",
+      "tested": "2c54d6d61a4d7ab9083ab9ac0cd1271300cf2b7eaf2d623627b251329c41d0a4",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/route-evidence-map-interaction.test.ts",
+      "built": "1576b6aebd5da2542a497519b72669fff08bbdc37ae35219c8e523ee79e93740",
+      "current": "1576b6aebd5da2542a497519b72669fff08bbdc37ae35219c8e523ee79e93740",
+      "tested": "1576b6aebd5da2542a497519b72669fff08bbdc37ae35219c8e523ee79e93740",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/route-geojson.test.ts",
+      "built": "c19e3d9963fde623b3024fb3aacf0086f5bb9271ece1f85a9faa14865958314e",
+      "current": "c19e3d9963fde623b3024fb3aacf0086f5bb9271ece1f85a9faa14865958314e",
+      "tested": "c19e3d9963fde623b3024fb3aacf0086f5bb9271ece1f85a9faa14865958314e",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/route-map-keyboard.test.ts",
+      "built": "685fa52e560de34b211357f2042dea60f538d8bae5e8e1e6f784147c1a880fa1",
+      "current": "685fa52e560de34b211357f2042dea60f538d8bae5e8e1e6f784147c1a880fa1",
+      "tested": "685fa52e560de34b211357f2042dea60f538d8bae5e8e1e6f784147c1a880fa1",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/route-map-loader.test.tsx",
+      "built": "d31f8ed81683c76f84698081513cdf3c0c1cfeb12d8484b64ac4a7e04241569c",
+      "current": "d31f8ed81683c76f84698081513cdf3c0c1cfeb12d8484b64ac4a7e04241569c",
+      "tested": "d31f8ed81683c76f84698081513cdf3c0c1cfeb12d8484b64ac4a7e04241569c",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "built": "1106f3313d9c0050d5e706f05e8fd362f0c38f4a9c3346199a914310f8246e98",
+      "current": "1106f3313d9c0050d5e706f05e8fd362f0c38f4a9c3346199a914310f8246e98",
+      "tested": "1106f3313d9c0050d5e706f05e8fd362f0c38f4a9c3346199a914310f8246e98",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/score-card-copy.test.ts",
+      "built": "751a91803f16c9dce1305dc5b810632646d94bb39f921b839038fd71cb98d39e",
+      "current": "751a91803f16c9dce1305dc5b810632646d94bb39f921b839038fd71cb98d39e",
+      "tested": "751a91803f16c9dce1305dc5b810632646d94bb39f921b839038fd71cb98d39e",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/score-prefix-index.test.ts",
+      "built": "2d4db8c99905b6f8c1fdbf60934b69e05bcaf5123f05681bc4fec9f4e46623eb",
+      "current": "2d4db8c99905b6f8c1fdbf60934b69e05bcaf5123f05681bc4fec9f4e46623eb",
+      "tested": "2d4db8c99905b6f8c1fdbf60934b69e05bcaf5123f05681bc4fec9f4e46623eb",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/service-worker-behaviour.test.ts",
+      "built": "4c87adc23468d3e651e18d62e963051ae9992707d4ac9cb2bc0f2ea856cd0841",
+      "current": "4c87adc23468d3e651e18d62e963051ae9992707d4ac9cb2bc0f2ea856cd0841",
+      "tested": "4c87adc23468d3e651e18d62e963051ae9992707d4ac9cb2bc0f2ea856cd0841",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/service-worker-registration.test.ts",
+      "built": "f4535bf604766d3d3f4860dd3bed3913e9e3ef0bbe884adce527806a319f6627",
+      "current": "f4535bf604766d3d3f4860dd3bed3913e9e3ef0bbe884adce527806a319f6627",
+      "tested": "f4535bf604766d3d3f4860dd3bed3913e9e3ef0bbe884adce527806a319f6627",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/subscore-ranking.test.ts",
+      "built": "aadb4288f1645ce037708fd94cc15b143e801496ca343cfed30fbbde5e6193a2",
+      "current": "aadb4288f1645ce037708fd94cc15b143e801496ca343cfed30fbbde5e6193a2",
+      "tested": "aadb4288f1645ce037708fd94cc15b143e801496ca343cfed30fbbde5e6193a2",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/transit-popup.test.ts",
+      "built": "975629f65aaba9ff4ebfeec730adda8c284ed02ca5db51ca0f2d77fafc67029a",
+      "current": "975629f65aaba9ff4ebfeec730adda8c284ed02ca5db51ca0f2d77fafc67029a",
+      "tested": "975629f65aaba9ff4ebfeec730adda8c284ed02ca5db51ca0f2d77fafc67029a",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/transit-shards.test.ts",
+      "built": "50bad6bbe876f3629714d7a52304cd738521341e02f81d4ffe961d95397c4da4",
+      "current": "50bad6bbe876f3629714d7a52304cd738521341e02f81d4ffe961d95397c4da4",
+      "tested": "50bad6bbe876f3629714d7a52304cd738521341e02f81d4ffe961d95397c4da4",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/transit-stop-picker.test.tsx",
+      "built": "f739563c641cd4d9a98434627d74ae15cd294a4bce48f61e16353dc552579ab8",
+      "current": "f739563c641cd4d9a98434627d74ae15cd294a4bce48f61e16353dc552579ab8",
+      "tested": "f739563c641cd4d9a98434627d74ae15cd294a4bce48f61e16353dc552579ab8",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/typescript-contract.test.ts",
+      "built": "c7ea76a7e35962a4888deb4f49f58b40e87ea2c04a1f1a35494ec0adc31d4849",
+      "current": "c7ea76a7e35962a4888deb4f49f58b40e87ea2c04a1f1a35494ec0adc31d4849",
+      "tested": "c7ea76a7e35962a4888deb4f49f58b40e87ea2c04a1f1a35494ec0adc31d4849",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/walk-real-records.test.ts",
+      "built": "5fffa159367aaafef5ce3a791e1546b86b280e12e6d6b4574221e5ace2bc537b",
+      "current": "5fffa159367aaafef5ce3a791e1546b86b280e12e6d6b4574221e5ace2bc537b",
+      "tested": "5fffa159367aaafef5ce3a791e1546b86b280e12e6d6b4574221e5ace2bc537b",
+      "match": true
+    },
+    {
+      "path": "web/lib/__tests__/walk-summary-options.test.ts",
+      "built": "b31d4067ff0070e688ad37ff52b346f3a77d43813b1d346621df4470bd246d4a",
+      "current": "b31d4067ff0070e688ad37ff52b346f3a77d43813b1d346621df4470bd246d4a",
+      "tested": "b31d4067ff0070e688ad37ff52b346f3a77d43813b1d346621df4470bd246d4a",
+      "match": true
+    },
+    {
+      "path": "web/lib/artifact-failure.ts",
+      "built": "3bf84004256bc6adedb15d985806a845296384a4cd6b77f95c0aad6e1663aeaf",
+      "current": "3bf84004256bc6adedb15d985806a845296384a4cd6b77f95c0aad6e1663aeaf",
+      "tested": "3bf84004256bc6adedb15d985806a845296384a4cd6b77f95c0aad6e1663aeaf",
+      "match": true
+    },
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "built": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240",
+      "current": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240",
+      "tested": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240",
+      "match": true
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "built": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7",
+      "current": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7",
+      "tested": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7",
+      "match": true
+    },
+    {
+      "path": "web/lib/comparison-state.ts",
+      "built": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651",
+      "current": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651",
+      "tested": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651",
+      "match": true
+    },
+    {
+      "path": "web/lib/comparison.ts",
+      "built": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb",
+      "current": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb",
+      "tested": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb",
+      "match": true
+    },
+    {
+      "path": "web/lib/data.ts",
+      "built": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99",
+      "current": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99",
+      "tested": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99",
+      "match": true
+    },
+    {
+      "path": "web/lib/failure-diagnostics.ts",
+      "built": "b4be16461d9e832bc41eddfea289dc5b8bffea4b9c01538b865590e7061b68b2",
+      "current": "b4be16461d9e832bc41eddfea289dc5b8bffea4b9c01538b865590e7061b68b2",
+      "tested": "b4be16461d9e832bc41eddfea289dc5b8bffea4b9c01538b865590e7061b68b2",
+      "match": true
+    },
+    {
+      "path": "web/lib/lamp-overlay.ts",
+      "built": "717167658fa49110c04db6d82ccbdf1e3bf9efb77008fa5cfc2f425551dfe9df",
+      "current": "717167658fa49110c04db6d82ccbdf1e3bf9efb77008fa5cfc2f425551dfe9df",
+      "tested": "717167658fa49110c04db6d82ccbdf1e3bf9efb77008fa5cfc2f425551dfe9df",
+      "match": true
+    },
+    {
+      "path": "web/lib/live-route-scoring.ts",
+      "built": "b69619c29758536d69954fbfca9335174819121e16c130ba3746a80e21242521",
+      "current": "b69619c29758536d69954fbfca9335174819121e16c130ba3746a80e21242521",
+      "tested": "b69619c29758536d69954fbfca9335174819121e16c130ba3746a80e21242521",
+      "match": true
+    },
+    {
+      "path": "web/lib/local-glyph-protocol.ts",
+      "built": "b4b9a3220c1c10e2542c992bccc9aa41228d907fc02444ace84ce3e7446c5f71",
+      "current": "b4b9a3220c1c10e2542c992bccc9aa41228d907fc02444ace84ce3e7446c5f71",
+      "tested": "b4b9a3220c1c10e2542c992bccc9aa41228d907fc02444ace84ce3e7446c5f71",
+      "match": true
+    },
+    {
+      "path": "web/lib/locked-score-availability.ts",
+      "built": "8e9adcd7e2b83d6a6d9fbc8c93442cc9a12e32caf2ac7643feaadf6d4ee7de0c",
+      "current": "8e9adcd7e2b83d6a6d9fbc8c93442cc9a12e32caf2ac7643feaadf6d4ee7de0c",
+      "tested": "8e9adcd7e2b83d6a6d9fbc8c93442cc9a12e32caf2ac7643feaadf6d4ee7de0c",
+      "match": true
+    },
+    {
+      "path": "web/lib/map-viewport.ts",
+      "built": "49950f3193d01a2b2c9243c7d5c2e8341d2fa3ceb56ddf859ba6e9fc54d96d15",
+      "current": "49950f3193d01a2b2c9243c7d5c2e8341d2fa3ceb56ddf859ba6e9fc54d96d15",
+      "tested": "49950f3193d01a2b2c9243c7d5c2e8341d2fa3ceb56ddf859ba6e9fc54d96d15",
+      "match": true
+    },
+    {
+      "path": "web/lib/nearest-transit.ts",
+      "built": "df12643fdf9423b606680d88204980cbf180f563f2641332b4136a516abfc2ad",
+      "current": "df12643fdf9423b606680d88204980cbf180f563f2641332b4136a516abfc2ad",
+      "tested": "df12643fdf9423b606680d88204980cbf180f563f2641332b4136a516abfc2ad",
+      "match": true
+    },
+    {
+      "path": "web/lib/onemap-search.ts",
+      "built": "6aff99e5fed66948a90c12e711a7fb93d0e8a20697bf847f2c262d2b5c874757",
+      "current": "6aff99e5fed66948a90c12e711a7fb93d0e8a20697bf847f2c262d2b5c874757",
+      "tested": "6aff99e5fed66948a90c12e711a7fb93d0e8a20697bf847f2c262d2b5c874757",
+      "match": true
+    },
+    {
+      "path": "web/lib/polyline.ts",
+      "built": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e",
+      "current": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e",
+      "tested": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e",
+      "match": true
+    },
+    {
+      "path": "web/lib/published-exposure-sections.ts",
+      "built": "f81f4d2b17acde090bb8cbcc9799cbccabce9bbfc34976a765015947ef3522cf",
+      "current": "f81f4d2b17acde090bb8cbcc9799cbccabce9bbfc34976a765015947ef3522cf",
+      "tested": "f81f4d2b17acde090bb8cbcc9799cbccabce9bbfc34976a765015947ef3522cf",
+      "match": true
+    },
+    {
+      "path": "web/lib/published-transit-choices.ts",
+      "built": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0",
+      "current": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0",
+      "tested": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0",
+      "match": true
+    },
+    {
+      "path": "web/lib/published-transit-options.ts",
+      "built": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82",
+      "current": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82",
+      "tested": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82",
+      "match": true
+    },
+    {
+      "path": "web/lib/published-walk-selection.ts",
+      "built": "b6403d266cacce74930dc5e98ac3b5f3e971227807b58e5f4f5e7f76783576d2",
+      "current": "b6403d266cacce74930dc5e98ac3b5f3e971227807b58e5f4f5e7f76783576d2",
+      "tested": "b6403d266cacce74930dc5e98ac3b5f3e971227807b58e5f4f5e7f76783576d2",
+      "match": true
+    },
+    {
+      "path": "web/lib/published-walk-view.ts",
+      "built": "f4969aea23227fefe9154848541ba3349c433a59fecf891d647d99c0312ff618",
+      "current": "f4969aea23227fefe9154848541ba3349c433a59fecf891d647d99c0312ff618",
+      "tested": "f4969aea23227fefe9154848541ba3349c433a59fecf891d647d99c0312ff618",
+      "match": true
+    },
+    {
+      "path": "web/lib/route-display.ts",
+      "built": "611d1a5d50deb74776f8c79dd67a0b4f48e0fb8647e4e3f5237d923403b4088d",
+      "current": "611d1a5d50deb74776f8c79dd67a0b4f48e0fb8647e4e3f5237d923403b4088d",
+      "tested": "611d1a5d50deb74776f8c79dd67a0b4f48e0fb8647e4e3f5237d923403b4088d",
+      "match": true
+    },
+    {
+      "path": "web/lib/route-geojson.ts",
+      "built": "3485e2692a46f92cdfbc7512a8ce95654656cd9beee7c1858ab230d373f60543",
+      "current": "3485e2692a46f92cdfbc7512a8ce95654656cd9beee7c1858ab230d373f60543",
+      "tested": "3485e2692a46f92cdfbc7512a8ce95654656cd9beee7c1858ab230d373f60543",
+      "match": true
+    },
+    {
+      "path": "web/lib/service-worker-cache.ts",
+      "built": "c2f9d464baf18d4404a68e55bee937cb9ad8bb0a8f90c011322fa6f701ea3a89",
+      "current": "c2f9d464baf18d4404a68e55bee937cb9ad8bb0a8f90c011322fa6f701ea3a89",
+      "tested": "c2f9d464baf18d4404a68e55bee937cb9ad8bb0a8f90c011322fa6f701ea3a89",
+      "match": true
+    },
+    {
+      "path": "web/lib/subscore-ranking.ts",
+      "built": "d8f3f9e6813ddc230af0cafd9eab414aec3e4fb87634447c4c815c50432e9b6a",
+      "current": "d8f3f9e6813ddc230af0cafd9eab414aec3e4fb87634447c4c815c50432e9b6a",
+      "tested": "d8f3f9e6813ddc230af0cafd9eab414aec3e4fb87634447c4c815c50432e9b6a",
+      "match": true
+    },
+    {
+      "path": "web/lib/transit-popup.ts",
+      "built": "b771d147079b4b5d6cf0b45530af8b0154f0dd8ddaca5fd6dadcd6fc517a6ade",
+      "current": "b771d147079b4b5d6cf0b45530af8b0154f0dd8ddaca5fd6dadcd6fc517a6ade",
+      "tested": "b771d147079b4b5d6cf0b45530af8b0154f0dd8ddaca5fd6dadcd6fc517a6ade",
+      "match": true
+    },
+    {
+      "path": "web/lib/types.ts",
+      "built": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98",
+      "current": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98",
+      "tested": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98",
+      "match": true
+    },
+    {
+      "path": "web/lib/walk-metrics.ts",
+      "built": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f",
+      "current": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f",
+      "tested": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f",
+      "match": true
+    },
+    {
+      "path": "web/next-env.d.ts",
+      "built": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc",
+      "current": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc",
+      "tested": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc",
+      "match": true
+    },
+    {
+      "path": "web/next.config.js",
+      "built": "9dabd78e5bf0154a2438234d3b14b850af6251c55b9480dc5db0f07bd63c87ab",
+      "current": "9dabd78e5bf0154a2438234d3b14b850af6251c55b9480dc5db0f07bd63c87ab",
+      "tested": "9dabd78e5bf0154a2438234d3b14b850af6251c55b9480dc5db0f07bd63c87ab",
+      "match": true
+    },
+    {
+      "path": "web/package-lock.json",
+      "built": "04765d87615d6d3f835adcc311b0489665e82113744d1cf291836ef8ed3aeb4e",
+      "current": "04765d87615d6d3f835adcc311b0489665e82113744d1cf291836ef8ed3aeb4e",
+      "tested": "04765d87615d6d3f835adcc311b0489665e82113744d1cf291836ef8ed3aeb4e",
+      "match": true
+    },
+    {
+      "path": "web/package.json",
+      "built": "2a3d13156cece44b108e090d9069f36297d0c53fcb0e760f2138516a6d4b7ae9",
+      "current": "2a3d13156cece44b108e090d9069f36297d0c53fcb0e760f2138516a6d4b7ae9",
+      "tested": "2a3d13156cece44b108e090d9069f36297d0c53fcb0e760f2138516a6d4b7ae9",
+      "match": true
+    },
+    {
+      "path": "web/public/maplibre/6.1.0/LICENSE.txt",
+      "built": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2",
+      "current": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2",
+      "tested": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2",
+      "match": true
+    },
+    {
+      "path": "web/public/maplibre/6.1.0/maplibre-gl-shared.mjs",
+      "built": "ce66c617187b6956d878d3961aceeb7c335eec3f76ee8d80737a917d8e989860",
+      "current": "ce66c617187b6956d878d3961aceeb7c335eec3f76ee8d80737a917d8e989860",
+      "tested": "ce66c617187b6956d878d3961aceeb7c335eec3f76ee8d80737a917d8e989860",
+      "match": true
+    },
+    {
+      "path": "web/public/maplibre/6.1.0/maplibre-gl-worker.mjs",
+      "built": "5a77b4637ea5ae64f0b1f208e4b1f4d9c681e2575d96e592f2074925597224c6",
+      "current": "5a77b4637ea5ae64f0b1f208e4b1f4d9c681e2575d96e592f2074925597224c6",
+      "tested": "5a77b4637ea5ae64f0b1f208e4b1f4d9c681e2575d96e592f2074925597224c6",
+      "match": true
+    },
+    {
+      "path": "web/public/site.webmanifest",
+      "built": "e0ace347324935ce0e1904ff7c4a1f638a36d9d23bac6422659d683edbf46517",
+      "current": "e0ace347324935ce0e1904ff7c4a1f638a36d9d23bac6422659d683edbf46517",
+      "tested": "e0ace347324935ce0e1904ff7c4a1f638a36d9d23bac6422659d683edbf46517",
+      "match": true
+    },
+    {
+      "path": "web/public/sw.js",
+      "built": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc",
+      "current": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc",
+      "tested": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc",
+      "match": true
+    },
+    {
+      "path": "web/scripts/browser-smoke.mjs",
+      "built": "e7b2e794bddac3636fa68bb23a72b0556b2150cc10079dff974c108432862185",
+      "current": "e7b2e794bddac3636fa68bb23a72b0556b2150cc10079dff974c108432862185",
+      "tested": "e7b2e794bddac3636fa68bb23a72b0556b2150cc10079dff974c108432862185",
+      "match": true
+    },
+    {
+      "path": "web/scripts/deny-production-data.cjs",
+      "built": "0d6a0c3db6f777cc87ecc1d753cbc07205f492acc29d5a8661bc87471794bfe4",
+      "current": "0d6a0c3db6f777cc87ecc1d753cbc07205f492acc29d5a8661bc87471794bfe4",
+      "tested": "0d6a0c3db6f777cc87ecc1d753cbc07205f492acc29d5a8661bc87471794bfe4",
+      "match": true
+    },
+    {
+      "path": "web/scripts/ensure-data-bundle.mjs",
+      "built": "637966de4f209fb88bd9323e99e32b62401f8fe7d2c3fc565a75f4390ed43477",
+      "current": "637966de4f209fb88bd9323e99e32b62401f8fe7d2c3fc565a75f4390ed43477",
+      "tested": "637966de4f209fb88bd9323e99e32b62401f8fe7d2c3fc565a75f4390ed43477",
+      "match": true
+    },
+    {
+      "path": "web/scripts/extract-walk-test-fixtures.py",
+      "built": "4e56b76670514fca404e987a0cb14b0cc490b87e3193eab1de451d0792750616",
+      "current": "4e56b76670514fca404e987a0cb14b0cc490b87e3193eab1de451d0792750616",
+      "tested": "4e56b76670514fca404e987a0cb14b0cc490b87e3193eab1de451d0792750616",
+      "match": true
+    },
+    {
+      "path": "web/scripts/ignore-build.mjs",
+      "built": "12c54471d0fa4a6626e06401659ce2aaa9c052ec5d94c900fd12ee1a4c911126",
+      "current": "12c54471d0fa4a6626e06401659ce2aaa9c052ec5d94c900fd12ee1a4c911126",
+      "tested": "12c54471d0fa4a6626e06401659ce2aaa9c052ec5d94c900fd12ee1a4c911126",
+      "match": true
+    },
+    {
+      "path": "web/scripts/measure-lookup-transfer.mjs",
+      "built": "93aa67d7d8ed90cad5f18a56b4b28bfc5d9bdfe9acf9564da47cdf4e716c46fe",
+      "current": "93aa67d7d8ed90cad5f18a56b4b28bfc5d9bdfe9acf9564da47cdf4e716c46fe",
+      "tested": "93aa67d7d8ed90cad5f18a56b4b28bfc5d9bdfe9acf9564da47cdf4e716c46fe",
+      "match": true
+    },
+    {
+      "path": "web/scripts/revamp-browser.mjs",
+      "built": "48dfb9172af03d4f7f7fa5e9df4dfb8495cfe8be673d5b81ed7e4c145ee75461",
+      "current": "48dfb9172af03d4f7f7fa5e9df4dfb8495cfe8be673d5b81ed7e4c145ee75461",
+      "tested": "48dfb9172af03d4f7f7fa5e9df4dfb8495cfe8be673d5b81ed7e4c145ee75461",
+      "match": true
+    },
+    {
+      "path": "web/scripts/test-web.mjs",
+      "built": "acb616c59ceb37421101d88fb86116cf9155c657fa0bd9b756d25c2f84fccce6",
+      "current": "acb616c59ceb37421101d88fb86116cf9155c657fa0bd9b756d25c2f84fccce6",
+      "tested": "acb616c59ceb37421101d88fb86116cf9155c657fa0bd9b756d25c2f84fccce6",
+      "match": true
+    },
+    {
+      "path": "web/scripts/test-without-production-data.mjs",
+      "built": "8b01e905acd876d79504fcb4b4639d7ba02141c3d5eb2c4b906477ce1a0e4b44",
+      "current": "8b01e905acd876d79504fcb4b4639d7ba02141c3d5eb2c4b906477ce1a0e4b44",
+      "tested": "8b01e905acd876d79504fcb4b4639d7ba02141c3d5eb2c4b906477ce1a0e4b44",
+      "match": true
+    },
+    {
+      "path": "web/section10-presentation-proposal.md",
+      "built": "28eafa24a80eaf70b903295600f9f334e410869e9068d7e908154588cbedf3fc",
+      "current": "28eafa24a80eaf70b903295600f9f334e410869e9068d7e908154588cbedf3fc",
+      "tested": "28eafa24a80eaf70b903295600f9f334e410869e9068d7e908154588cbedf3fc",
+      "match": true
+    },
+    {
+      "path": "web/tsconfig.json",
+      "built": "e5020c21a4e117f0a789a28fc54838b21ab2e287f8c2fc0efab2c811839b4459",
+      "current": "e5020c21a4e117f0a789a28fc54838b21ab2e287f8c2fc0efab2c811839b4459",
+      "tested": "e5020c21a4e117f0a789a28fc54838b21ab2e287f8c2fc0efab2c811839b4459",
+      "match": true
+    },
+    {
+      "path": "web/vercel.json",
+      "built": "8fa6b3ece819b65ecfbce77f6062126f3bb6b8394e36819e916849fab11baff3",
+      "current": "8fa6b3ece819b65ecfbce77f6062126f3bb6b8394e36819e916849fab11baff3",
+      "tested": "8fa6b3ece819b65ecfbce77f6062126f3bb6b8394e36819e916849fab11baff3",
+      "match": true
+    },
+    {
+      "path": "web/vitest.config.ts",
+      "built": "65efb23283a46aff714d0e7893d09e60fdd3c1c4ca631ebd6606b4131c757e10",
+      "current": "65efb23283a46aff714d0e7893d09e60fdd3c1c4ca631ebd6606b4131c757e10",
+      "tested": "65efb23283a46aff714d0e7893d09e60fdd3c1c4ca631ebd6606b4131c757e10",
+      "match": true
+    }
+  ],
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "actual": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "actual": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "actual": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "actual": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "actual": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "actual": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "actual": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "actual": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "match": true
+    }
+  ],
+  "evidence": {
+    "base": "3fc92ff",
+    "priorBytes": 169938,
+    "currentBytes": 174201,
+    "priorSha256": "874ccf19f70e358d17030bfded36dfdd1f473f14a4e7b67e60ecf0bc42f2d917",
+    "preserved": true
+  },
+  "buildPassed": true,
+  "testsPassed": true,
+  "isolationPassed": true,
+  "browserPassed": true,
+  "note": "Identity and test-isolation audit; separate review of actual browser assertions and screenshot contents still required.",
+  "ok": true
+}

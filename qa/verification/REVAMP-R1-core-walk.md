@@ -2606,3 +2606,67 @@ installations=0
 deployment_commands=0
 protected_payload_mutations=0
 ```
+
+## 2026-09-09: T30 native postal search and hydration ownership
+
+```text
+working_root=C:\sgSHIOK2026
+hostname=Prawn-E14
+base=3fc92ff1b176e0a193be5ee63fcb662c15b89008
+summary=qa/revamp-r1/native-postal-20260909/summary.json
+reviews=qa/revamp-r1/native-postal-20260909/reviews.json
+source_change=native root GET, named required six-digit text input, synchronous DOM-value read, explicit-submit ownership before initial URL effect
+red_receipt=qa/revamp-r1/comparison-sharing-20260909/native-postal-red/checks.json
+corrected_red_receipt=qa/revamp-r1/comparison-sharing-20260909/native-postal-red-2/checks.json
+green_receipt=qa/revamp-r1/comparison-sharing-20260909/native-postal-green/checks.json
+red_arithmetic=16failed+89passed=105; corrected15failed+90passed=105; green105passed
+red_correction=pinned manifest needs zero fetches, not one; test summary accessor and geometry argument shape corrected before runtime edits, not claimed as product defects
+focused_arithmetic=80 existing page+20 new page+3 existing shell+2 new shell=105
+full_command=node C:/sgSHIOK2026/qa/revamp-r1/published-options-20260909/check.mjs native-postal-full-1 full
+full_receipt=qa/revamp-r1/published-options-20260909/native-postal-full-1/checks.json
+ Test Files  60 passed (60)
+      Tests  1629 passed (1629)
+full_arithmetic=1607+20 page+2 shell=1629;60+0 new test files=60
+isolation_snapshot=tmp/test-without-data-WYxtYh
+production_data_directory_absent=true
+filesystem_guard_probe_passed=true
+typescript_exit=0
+repo_integrity=ok
+repo_integrity_exit=0
+build_command=node C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/build-snapshot.mjs native-postal-20260909-1
+build_receipt=qa/revamp-r1/cached-release-20260908/native-postal-20260909-1/build.json
+build_id=ENBtn8fzW-j8FH5dZ6qyJ
+build_exit=0
+browser_command=node C:/sgSHIOK2026/qa/revamp-r1/native-postal-20260909/browser.mjs accepted-2 ENBtn8fzW-j8FH5dZ6qyJ
+browser_receipt=qa/revamp-r1/native-postal-20260909/accepted-2-csW97i/browser.json
+browser_checks=61passed
+browser_captures=5
+browser_elapsed_ms=90608
+browser_cleanup_verified=true
+scenario_arithmetic=2 native submissions+1 hydration-boundary scenario=3 fresh contexts
+document_arithmetic=2 Enter+2 button+1 boundary=5
+native=actual Next scripts held through Enter/button and postal-only GET; native invalid values rejected without navigation
+boundary=type before React attaches, release scripts, preserve DOM value, Enter without another input/change event, one Document
+hydrated=different real record079908 accepted; old route features cleared; no Document reload, API request or POST
+first_browser_receipt=accepted-1-CcSMDJ/browser.json
+first_browser_correction=56checks passed but one basemap capture was mid-raster-fade. Preserved as functional evidence, not final settled-map visual proof.
+final_capture_barrier=isSourceLoaded(onemap),areTilesLoaded,no camera movement,actual map idle event after one QAtriggerRepaint,matching selected-result screenshot brackets
+browser_limits=390x844/320x667 emulation,SwiftShader,SW/cache bypass; runtime/window errors gated,resource logs retained but not universally zero-gated; no physical-device,upgrade or representative performance claim
+loader_count_scope=unit tests establish one-call selection semantics; Document counts alone cannot
+identity_audit=qa/revamp-r1/native-postal-20260909/identity-final.json
+preview=http://127.0.0.1:4332/
+preview_proxy_pid=103712
+preview_next_pid=106656
+FINDINGS
+1. Fixed postal loss before hydration with native GET plus DOM-value submission. The existing loader and URL parser remain the only data path.
+2. A pending initial URL effect cannot override a valid newer explicit search. Real held-script Enter/button, cross-hydration typing and hydrated replacement all pass.
+3. Raster-fade capture readiness required an idle barrier, not a production code change or arbitrary performance claim. Earlier capture evidence remains intact.
+DISAGREEMENTS
+1. An already-rendered successful route cannot prove a later Enter was handled; final browser checks require a different real record.
+2. Loaded flags are not complete visual evidence. This validation is not a map-speed benchmark.
+pipeline_runs=0
+installations=0
+deployment_commands=0
+protected_payload_mutations=0
+goal_complete=false
+```

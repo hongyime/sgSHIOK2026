@@ -1,0 +1,52 @@
+{
+  "date": "2026-09-09",
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "base": "3fc92ff1b176e0a193be5ee63fcb662c15b89008",
+  "task": "T30 preserve postal search before hydration",
+  "sourceFiles": ["web/app/page.tsx", "web/lib/__tests__/published-walk-page.test.tsx", "web/lib/__tests__/map-first-shell.test.ts"],
+  "change": "Native root GET, named required six-digit text input; hydrated handler synchronously reads actual DOM value and owns initial navigation before loading through the existing selection path.",
+  "tests": {
+    "red": "qa/revamp-r1/comparison-sharing-20260909/native-postal-red/checks.json",
+    "correctedRed": "qa/revamp-r1/comparison-sharing-20260909/native-postal-red-2/checks.json",
+    "green": "qa/revamp-r1/comparison-sharing-20260909/native-postal-green/checks.json",
+    "full": "qa/revamp-r1/published-options-20260909/native-postal-full-1/checks.json",
+    "arithmetic": "1607 + 20 page cases + 2 server-rendered form cases = 1629; 60 + 0 new test files = 60",
+    "focusedArithmetic": "80 existing page + 20 new page + 3 existing shell + 2 new shell = 105",
+    "results": "105/2 focused; 1629/60 full isolated, zero skips; TypeScript --noEmit --incremental false and repo_integrity=ok exit0",
+    "isolation": "tmp/test-without-data-WYxtYh; no production-data directory copied, original and snapshot paths denied by tested filesystem guard; existing dependencies linked",
+    "redCorrection": "Original red16failed+89passed=105; corrected red15failed+90passed=105. Wrong test expectations for pinned-manifest fetch count (zero, not one), summary().postal and geometry helper arguments were corrected before runtime editing. These are harness errors, not claimed application defects."
+  },
+  "build": {"id": "ENBtn8fzW-j8FH5dZ6qyJ", "receipt": "qa/revamp-r1/cached-release-20260908/native-postal-20260909-1/build.json", "exitCode": 0, "hooksBypassed": true},
+  "browser": {
+    "final": "qa/revamp-r1/native-postal-20260909/accepted-2-csW97i/browser.json",
+    "checks": 61,
+    "captures": 5,
+    "elapsedMs": 90608,
+    "cleanupVerified": true,
+    "scenarioArithmetic": "2 native submissions (Enter/button) + 1 typed-before-hydration boundary = 3 fresh contexts",
+    "documents": "2 native Enter Documents + 2 native button Documents + 1 boundary Document = 5",
+    "acceptance": "Actual Next script requests held until the second postal-only GET Document. Empty/short/non-digit/overlong native values rejected. Native arrival renders018956 and four current-route features. Hydrated submits switch to079908, preserve missing values as Unavailable and clear old route features without reload/API/POST. Boundary typing survives React attachment without a later input/change event.",
+    "captureReadiness": "isSourceLoaded(onemap), areTilesLoaded, no camera movement, actual map idle event after one QA triggerRepaint, and matching selected-result screenshot brackets",
+    "firstAttempt": "accepted-1-CcSMDJ/browser.json:56checks/5captures passed in46.628s but button-native screenshot was mid-raster-fade. Retained as functional evidence only; accepted2 supersedes visual readiness.",
+    "limits": "Emulated installed Chrome/SwiftShader at390x844 and320x667, SW/cache bypass. Runtime/window errors are gated; network/resource logs retained but not universally zero-gated. No physical device, service-worker upgrade, representative latency or native clipboard claim. Document counts do not prove loader call count; focused unit tests cover one-call selection semantics."
+  },
+  "audit": "qa/revamp-r1/native-postal-20260909/identity-final.json",
+  "reviews": "qa/revamp-r1/native-postal-20260909/reviews.json",
+  "preview": {"url": "http://127.0.0.1:4332/", "proxyPid": 103712, "nextPid": 106656, "apis": "deliberately unavailable; read-only data from4321"},
+  "FINDINGS": [
+    "The server-rendered postal form lost early searches because its input was unnamed and the client handler depended on potentially stale React state. Native GET plus DOM-value and initial-navigation ownership fixes both paths.",
+    "Initial URL replay could override an explicit early search; regression cases now preserve the newer submission and avoid duplicate score/geometry loads.",
+    "The first visual pass exposed a raster-fade capture race, not a new search failure. Final images wait for map idle and retain the approved layout."
+  ],
+  "DISAGREEMENTS": [
+    "An already-loaded successful route is not evidence that a subsequent Enter was handled. The browser now requires a different real record after hydrated submission.",
+    "Loaded flags alone do not prove a visually settled basemap, and functional timings here are not a map-speed benchmark."
+  ],
+  "pipelineRuns": 0,
+  "installations": 0,
+  "deploymentCommands": 0,
+  "protectedPayloadMutations": 0,
+  "goalComplete": false,
+  "next": "T19 read-only coverage gap register and T22 source/check/release freshness; separate owner/security/compute/deployment gates remain."
+}

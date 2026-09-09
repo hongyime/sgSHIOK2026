@@ -2949,3 +2949,23 @@ explicit Hide. Whole-overlay focus recovery remains part of T25 acceptance.
 Verification and its limits are recorded under
 qa/revamp-r1/failure-diagnostics-20260909/ and the append-only REVAMP-R1 evidence.
 This does not authorize deployment, dependency installation or pipeline work.
+
+## 2026-09-09: Postal search must survive early interaction
+
+The visible server-rendered search form must work before React attaches its
+handler. Use a native root GET with one required named six-digit text control;
+preserve leading zeros and reject non-postal input. Its URL uses the existing
+postal arrival contract, not a new search API or server action.
+
+After hydration, read the submitted input synchronously from the form rather
+than trusting potentially stale React query state. A valid explicit submission
+owns navigation before a pending initial-URL effect can replay the old postal.
+Use the existing selection loader and request ownership; do not add a second
+fetch effect. Hydrated submission still prevents a full-page navigation.
+
+Acceptance holds actual application scripts for native Enter/button cases and
+also types before hydration then submits after it without a synthetic change
+event. A different real record makes the hydrated-submit check sensitive to a
+dropped event. A map loaded flag is not proof that raster fading has finished;
+final visual captures wait for the map idle event, without claiming performance
+improvement. Evidence: qa/revamp-r1/native-postal-20260909/summary.json.

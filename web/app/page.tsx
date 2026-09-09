@@ -2674,13 +2674,18 @@ export default function Home() {
 
   const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const control = e.currentTarget.elements.namedItem("postal");
+    const value = control instanceof HTMLInputElement ? control.value : "";
+    const directPostal = normalizePostal(value);
+    setQuery(directPostal ?? postalInputValue(value));
     setSelectionFailure(null);
-    if (!query.trim()) { pendingSelectionRef.current = null; setError("Enter a 6-digit Singapore postal code."); return; }
+    if (!value.trim()) { pendingSelectionRef.current = null; setError("Enter a 6-digit Singapore postal code."); return; }
     preloadRouteMap();
     requestServiceWorkerCache();
 
-    const directPostal = normalizePostal(query);
     if (directPostal) {
+      // An explicit submit owns navigation even before the mount URL effect runs.
+      lastNavigationHref.current = window.location.href;
       setSearchAttempted(false);
       await loadSelection({
         BUILDING: `Postal ${directPostal}`,
@@ -2789,11 +2794,13 @@ export default function Home() {
             Compare{comparison.state.postals.length > 0 ? ` (${comparison.state.postals.length})` : ''}
           </button>
         </div>
-        <form onSubmit={handleSearch} className={styles.searchForm} aria-busy={loading}>
+        <form onSubmit={handleSearch} action="/" method="get" className={styles.searchForm} aria-busy={loading}>
           <input
             id="postal-search-input"
             ref={searchInputRef}
             type="text"
+            name="postal"
+            required
             inputMode="numeric"
             autoComplete="postal-code"
             maxLength={6}
