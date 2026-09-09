@@ -1,0 +1,7 @@
+{
+  "chunk_id": "852b22",
+  "wall_time_seconds": 3.4143844,
+  "exit_code": 0,
+  "original_token_count": 131,
+  "output": "[{\"ProcessId\":105332,\"CommandLine\":\"\\\"C:\\\\Program Files\\\\nodejs\\\\node.exe\\\" C:\\\\sgSHIOK2026\\\\qa\\\\revamp-r1\\\\published-interaction-20260909\\\\serve.mjs comparison-ui-20260909-3\"},{\"ProcessId\":92064,\"CommandLine\":\"\\\"C:\\\\Program Files\\\\nodejs\\\\node.exe\\\" C:\\\\sgSHIOK2026\\\\web\\\\node_modules\\\\next\\\\dist\\\\bin\\\\next start C:\\\\sgSHIOK2026\\\\tmp\\\\cached-release-comparison-ui-20260909-3\\\\web -p 4325 -H 127.0.0.1\"}]\r\nStopped only prior owned comparison-ui preview: 105332 + 92064. Kept data server 4321 and new preview 4327/4328.\r\n"
+}

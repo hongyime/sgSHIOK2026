@@ -1,0 +1,37 @@
+{
+  "root": "C:/sgSHIOK2026",
+  "command": "node C:/sgSHIOK2026/web/scripts/test-web.mjs lib/__tests__/comparison-link.test.ts --no-cache",
+  "exitCode": 0,
+  "signal": null,
+  "elapsedSeconds": 9.9550379,
+  "before": {
+    "web/lib/__tests__/comparison-link.test.ts": {
+      "bytes": 8592,
+      "sha256": "08644514ac30961184d36c7fe8203700a2f47196e938a52f40af98b188402790"
+    },
+    "web/lib/comparison-link.ts": {
+      "bytes": 2640,
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    "web/lib/comparison-state.ts": {
+      "bytes": 6888,
+      "sha256": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651"
+    }
+  },
+  "after": {
+    "web/lib/__tests__/comparison-link.test.ts": {
+      "bytes": 8592,
+      "sha256": "08644514ac30961184d36c7fe8203700a2f47196e938a52f40af98b188402790"
+    },
+    "web/lib/comparison-link.ts": {
+      "bytes": 2640,
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    "web/lib/comparison-state.ts": {
+      "bytes": 6888,
+      "sha256": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651"
+    }
+  },
+  "stdout": "stdout.txt",
+  "stderr": "stderr.txt"
+}

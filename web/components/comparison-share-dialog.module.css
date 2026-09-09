@@ -1,0 +1,112 @@
+.dialog {
+  box-sizing: border-box;
+  width: min(420px, calc(100% - 24px));
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 16px;
+  overflow: auto;
+  border: 1px solid #aebcb7;
+  border-radius: 8px;
+  background: #fff;
+  color: #243a34;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.dialog::backdrop {
+  background: rgb(0 0 0 / 35%);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.header h2 {
+  min-width: 0;
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.dialog p {
+  margin: 12px 0;
+  overflow-wrap: anywhere;
+}
+
+.dialog button {
+  box-sizing: border-box;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #aebcb7;
+  border-radius: 4px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+  letter-spacing: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.dialog .close {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-color: transparent;
+  font-size: 24px;
+}
+
+.dialog .copy {
+  background: #e5f1ed;
+  border-color: #5c8175;
+  color: #125b48;
+}
+
+.dialog button:disabled {
+  color: #69756f;
+  cursor: default;
+}
+
+.dialog button:focus-visible,
+.link:focus-visible {
+  outline: 2px solid #007a72;
+  outline-offset: 2px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.link {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px;
+  border: 1px solid #aebcb7;
+  border-radius: 4px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+  letter-spacing: 0;
+}
+
+.dialog .status {
+  min-height: 21px;
+  color: #52665e;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

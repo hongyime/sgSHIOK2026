@@ -2124,3 +2124,111 @@ Pre-commit preservation note: the working file contained130 CRLF sequences;
 Git's staged prefix was already byte-identical to HEAD (88added/0deleted lines).
 The working-prefix mismatch was line endings only, not altered findings.
 Final LF normalization and prefix checks are required before committing.
+
+## T11: Explicit shortlist sharing, 2026-09-09
+
+```text
+working_root=C:\sgSHIOK2026
+hostname=PRAWN-E14
+base=bd53b8b410af0f7084673432e4e407754f32c8b6
+git fetch origin=exit0
+HEAD and origin/main before change=bd53b8b410af0f7084673432e4e407754f32c8b6
+scope=frontend comparison URL/controller/dialog, tests, docs and fresh QA receipts
+parent=controller/page/integration/browser/docs; A=drawer/dialog; B=independent codec/controller tests; C=codec and read-only navigation review
+
+node qa/revamp-r1/published-options-20260909/check.mjs comparison-sharing-full-3 full
+ Test Files  53 passed (53)
+      Tests  1382 passed (1382)
+isolated_snapshot=C:\sgSHIOK2026\tmp\test-without-data-5dDhG6
+productionDataDirectoryAbsent=true
+guardProbePassed=true
+TypeScript --noEmit --incremental false=exit0
+repo_integrity=ok
+repo_integrity_exit=0
+git diff --check=exit0
+test_arithmetic=1269 + 26 link + 26 shared controller + 37 dialog + 9 drawer + 15 page = 1382
+file_arithmetic=50 + 3 = 53
+source_identities=13 current files match isolated tested source and built source
+protected_fixture_anchors=11 of11 rehashed, all match
+
+node qa/revamp-r1/cached-release-20260908/build-snapshot.mjs comparison-sharing-20260909-2
+build_exit=0
+build_id=Jlm6s3tx2ilhY-4awMRJN
+preview=http://127.0.0.1:4328/
+proxy_pid=98528
+next_port=4327
+next_pid=102292
+data_upstream=existing4321, read-only
+preview_API_requests=deliberately503; no live API calls occurred in acceptance
+
+node qa/revamp-r1/comparison-sharing-20260909/browser.mjs acceptance-4 Jlm6s3tx2ilhY-4awMRJN
+browser_exit=0
+browser_ok=true
+browser_checks=88
+captures=12
+viewports=1440x950,390x844,390x667,320x667
+capture_arithmetic=4 shared + 4 dialog + 4 normal = 12
+first_load_not_blank=true
+matching_current_route_features=present before and after every captured state
+URL_fragment_precedence=true
+prior_saved_shortlist_unchanged_until_Save=true
+forward_and_reverse_modal_Tab_wrap=true
+Escape_closes_only_dialog_and_restores_Share_focus=true
+clipboard_denial_manual_selection_and_explicit_success_feedback=true
+clipboard_test_transport=injected denial/success; no OS-clipboard claim
+Back_Forward_reopen_and_close_shared_view=true
+Use_saved_restores_prior_list=true
+explicit_Save_and_reload=true
+normal_search_and_result_width_match=true
+normal_SHIOK_then_search_then_result_top_left=true
+normal_About_data_bottom_right=true
+uncaught_browser_errors=0
+live_API_calls=0
+owned_browser_cleanup=closeSent:true,chromeExited:true
+
+raw_checks=qa/revamp-r1/published-options-20260909/comparison-sharing-full-3/checks.json
+raw_build=qa/revamp-r1/cached-release-20260908/comparison-sharing-20260909-2/build.json
+raw_browser=qa/revamp-r1/comparison-sharing-20260909/acceptance-4-1788919930393/browser.json
+handback=qa/revamp-r1/comparison-sharing-20260909/summary.json
+design=ARCHITECTURE-DECISIONS.md ADR-19; decisions.md dated T11 entry
+catalogue=S06-S07,C06-C09; retained T10 C01-C05/M03/M15
+
+PRESERVED FAILURES AND LIMITATIONS
+page-1=66pass/1fail; expectation wrongly treated identical published shortest/sheltered geometry as two display modes
+page-2=67pass; assert preserved route query and one actual line instead
+B_red=b-focused-1788916898990,51pass/1fail; already-local Save return expectation disagreed with specified idempotent true
+B_green=b-focused-1788917577564,52pass; no-write assertions unchanged
+full-1=1364pass/1fail; old initial-snapshot expectation omitted new shared:false field
+full-2=1365pass/53files before keyboard follow-up
+full-3=1382pass/53files after17 added dialog focus-boundary tests
+browser-1=CDP Runtime.evaluate timeout while awaiting map worker getData; failure capture contains map and selected route, not proof of blank-map causation
+browser-2=driver accessed documentElement before document creation; optional-root guard added
+browser-3=visible map and desktop screenshots passed, forward Tab left dialog controls at final button; no claim background was interactive
+browser-4=explicit wrap fixed that observed boundary; native modal/inert behavior retained
+browser_failures=all prior receipts and screenshots retained, none counted as final acceptance
+visual_inspection=all12 final captures inspected
+resize_limit=two390x844 captures include transient raster-tile blending; later same-width captures are clear
+small_screen_limit=667px shared comparison needs inner table scrolling; all metrics are not simultaneously visible
+performance_claim=none; headless functional checks are not representative phone or user acceptance
+T01_T02=remain PARTIAL; these captures do not close startup/legacy-upgrade/M12 work
+
+FINDINGS
+1. T11 links contain only chosen postals/category/active membership. Opening or editing one cannot silently replace saved homes.
+2. A native dialog alone did not satisfy our explicit keyboard-wrap check. The browser finding produced a real implementation and17 added regressions before landing.
+3. The three mistaken test expectations and two diagnostic failures are named and preserved, not silently reported as passes.
+4. The requested normal top-left equal-width stack and bottom-right About control are confirmed in the actual build; the basemap and current selected walk are visible.
+5. Shared short-screen comparison remains scroll-dependent, and transient raster blending during resize is not a fully settled screenshot or a latency measurement.
+DISAGREEMENTS
+1. OneMap/SLA credit is required attribution, not an optional legend; it remains visible. Official instruction checked at https://www.onemap.gov.sg/docs/maps/original.html.
+2. T11 completion is not an all-tasks, full-coverage, physical-phone, performance or production-release claim.
+
+pipeline_runs=0
+pipeline_cost=$0
+installations=0
+deployment_commands=0
+protected_payload_mutations=0
+weights_yaml_changes=0
+X_operations=0
+pre_append_evidence_bytes=133251
+pre_append_working_prefix_unchanged=true
+```

@@ -1,0 +1,50 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs",
+    "lib/__tests__/published-walk-page.test.tsx",
+    "--no-cache",
+    "--reporter=dot"
+  ],
+  "exitCode": 0,
+  "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n···································································\n\n Test Files  1 passed (1)\n      Tests  67 passed (67)\n   Start at  09:26:18\n   Duration  10.33s (transform 3.74s, setup 0ms, import 4.00s, tests 4.93s, environment 1ms)\n\n",
+  "stderr": "stderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > keeps published metrics/geometry on transport failure and resets without another request\nOneMap live route fetch failed; keeping the published walk: Error: Synthetic preview transport failure\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:876:51\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20\n\nstderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > keeps published metrics/geometry on invalid-json failure and resets without another request\nOneMap live route fetch failed; keeping the published walk: SyntaxError: Unexpected token 'o', \"not JSON\" is not valid JSON\n    at JSON.parse (<anonymous>)\n    at parseJSONFromBytes (node:internal/deps/undici/undici:4349:19)\n    at successSteps (node:internal/deps/undici/undici:6987:27)\n    at readAllBytes (node:internal/deps/undici/undici:5811:13)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n\nstderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > ignores late preview rejection after selecting published candidate C\nOneMap live route fetch failed; keeping the published walk: Error: Synthetic stale preview failure\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:943:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20\n\n",
+  "elapsedSeconds": 14.215,
+  "before": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "bb7ae9f623baae6c8a97530eff014aade72bf930d1fd800f252c795d64a993da"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "0c88c50ad1e9341228b6ae5bbf7fdbb5827c598b68841ce11a1e46828a26873a"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "sha256": "2751918f9c63dee05ff6f379f018a93f002f51953e8f42ea5b6eef34e464d213"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "bb7ae9f623baae6c8a97530eff014aade72bf930d1fd800f252c795d64a993da"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "0c88c50ad1e9341228b6ae5bbf7fdbb5827c598b68841ce11a1e46828a26873a"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "sha256": "2751918f9c63dee05ff6f379f018a93f002f51953e8f42ea5b6eef34e464d213"
+    }
+  ],
+  "identitiesStable": true
+}

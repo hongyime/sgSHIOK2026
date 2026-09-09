@@ -113,6 +113,8 @@ import { WalkSummary, walkMetrics } from '../../components/walk-summary';
 import { TransitStopPicker } from '../../components/transit-stop-picker';
 import { ExposureSectionExplorer } from '../../components/exposure-section-explorer';
 import { HomeComparison } from '../../components/home-comparison';
+import { ComparisonShareDialog } from '../../components/comparison-share-dialog';
+import { comparisonLinkFragment } from '../comparison-link';
 import { COMPARISON_STORAGE_KEY } from '../comparison-state';
 
 type Element = ReactElement<Record<string, unknown> & { children?: ReactNode }>;
@@ -145,6 +147,8 @@ let storageRead: ReturnType<typeof vi.fn>;
 let comparisonStored: string | null;
 let comparisonWrites: string[];
 let replaceState: ReturnType<typeof vi.fn>;
+let pushState: ReturnType<typeof vi.fn>;
+let navigationListeners: Map<string, Set<() => void>>;
 let sourceScore: ScoreRecord;
 let sourceGeometry: PostalGeom;
 let approvedPreviews: Array<{
@@ -353,10 +357,17 @@ beforeEach(() => {
   } }));
   url = new URL('https://example.test/');
   replaceState = vi.fn((_state, _title, next: string) => { url = new URL(next, url); });
+  pushState = vi.fn((_state, _title, next: string) => { url = new URL(next, url); });
+  navigationListeners = new Map();
   vi.stubGlobal('fetch', fetchSpy);
   vi.stubGlobal('window', {
     location: { get href() { return url.href; }, get search() { return url.search; }, get hash() { return url.hash; } },
-    history: { replaceState },
+    history: { replaceState, pushState },
+    addEventListener: (name: string, handler: () => void) => {
+      if (!navigationListeners.has(name)) navigationListeners.set(name, new Set());
+      navigationListeners.get(name)!.add(handler);
+    },
+    removeEventListener: (name: string, handler: () => void) => navigationListeners.get(name)?.delete(handler),
     localStorage: {
       getItem: (key: string) => key === COMPARISON_STORAGE_KEY ? comparisonStored : storageRead(key),
       setItem: vi.fn((key: string, value: string) => { if (key === COMPARISON_STORAGE_KEY) { comparisonStored = value; comparisonWrites.push(value); } }),
@@ -377,6 +388,200 @@ afterEach(() => {
     host.reset();
     vi.unstubAllGlobals();
   }
+});
+
+describe('Home shared comparison URL lifecycle', () => {
+  const view = () => child<ComponentProps<typeof HomeComparison>>(HomeComparison).props;
+  const state = (postals = [A], activePostal = postals[0], category: 'bus' | 'mrt_lrt' = 'bus') =>
+    ({ version: 1 as const, postals, activePostal, category });
+  const hash = (postals = [A], activePostal = postals[0]) => comparisonLinkFragment(state(postals, activePostal))!;
+  const navigate = async (next: string, event = 'popstate') => {
+    url = new URL(next, url);
+    navigationListeners.get(event)?.forEach(handler => handler());
+    render(); await settle();
+  };
+  const noView = () => expect(elements(tree).some(element => element.type === HomeComparison)).toBe(false);
+
+  it('gives a valid fragment precedence over saved state and postal query without saving or querying the ignored postal', async () => {
+    const saved = comparisonStored = JSON.stringify(state([B]));
+    mount(`?postal=${B}&stop=private${hash()}`); await settle();
+    expect(view().shared).toBe(true);
+    expect(view().state).toEqual(state());
+    expect(dependencies.fetchScoreForPostal.mock.calls).toEqual([[A]]);
+    expect(dependencies.fetchGeomForPostal.mock.calls).toEqual([[A]]);
+    expect(comparisonStored).toBe(saved);
+    expect(comparisonWrites).toEqual([]);
+    expect(url.search).toBe('');
+    expect(url.hash).toBe(hash());
+  });
+
+  it('rejects an invalid owned fragment without loading records or changing storage', async () => {
+    const saved = comparisonStored = JSON.stringify(state([B]));
+    mount(`?postal=${A}#compare=2`); await settle();
+    noView();
+    expect(nodeText(tree)).toContain('This comparison link is invalid. Your saved shortlist is unchanged.');
+    expect(dependencies.fetchScoreForPostal).not.toHaveBeenCalled();
+    expect(comparisonStored).toBe(saved);
+    await clickPageButton('Open saved comparison');
+    expect(view().state.postals).toEqual([B]);
+    expect(view().shared).toBe(false);
+    expect(url.hash).toBe('');
+    expect(comparisonWrites).toEqual([]);
+  });
+
+  it('keeps ordinary single-postal links with unrelated fragments working', async () => {
+    mount(`?postal=${A}&transit=mrt_lrt&stop=mrt:21624&route=shortest#walk`);
+    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry);
+    await settle();
+    noView();
+    expect(summary().option?.name).toBe('BAYFRONT MRT STATION Exit C');
+    expect(url.searchParams.get('route')).toBe('shortest');
+    // This published candidate has identical shortest/sheltered geometry, so one map line is intentional.
+    expect(map().routes).toHaveLength(1);
+  });
+
+  it('changes a shared category and active postal only in memory and the owned fragment', async () => {
+    const saved = comparisonStored = JSON.stringify(state([B]));
+    mount(hash([A, B])); await settle();
+    view().onCategory('mrt_lrt'); render();
+    view().onActivate(B); render(); await settle();
+    expect(view().state).toEqual(state([A, B], B, 'mrt_lrt'));
+    expect(url.hash).toBe(comparisonLinkFragment(view().state));
+    expect(comparisonStored).toBe(saved);
+    expect(comparisonWrites).toEqual([]);
+  });
+
+  it('copies only chosen comparison state, not the current query or other view fields', async () => {
+    comparisonStored = JSON.stringify(state());
+    mount('?debugMap=1&note=private'); await clickPageButton('Compare (1)');
+    view().onShare(); render();
+    const dialog = child<ComponentProps<typeof ComparisonShareDialog>>(ComparisonShareDialog).props;
+    expect(dialog.open).toBe(true);
+    expect(dialog.link).toBe(`https://example.test/${hash()}`);
+    expect(url.search).toBe('?debugMap=1&note=private');
+    expect(comparisonWrites).toEqual([]);
+    dialog.onClose(); render();
+    expect(view().state.postals).toEqual([A]);
+  });
+
+  it('saves an imported state only on explicit Save and strips the fragment', async () => {
+    comparisonStored = JSON.stringify(state([B]));
+    mount(hash()); await settle();
+    view().onSaveShared(); render(); await settle();
+    expect(view().shared).toBe(false);
+    expect(JSON.parse(comparisonStored!)).toEqual(state());
+    expect(comparisonWrites).toHaveLength(1);
+    expect(url.hash).toBe('');
+  });
+
+  it('retains the shared view, link and previous saved state on denied Save', async () => {
+    const saved = comparisonStored = JSON.stringify(state([B]));
+    mount(hash()); await settle();
+    vi.mocked(window.localStorage.setItem).mockImplementation(() => { throw Error('denied'); });
+    view().onSaveShared(); render(); await settle();
+    expect(view().shared).toBe(true);
+    expect(view().storageUnavailable).toBe(true);
+    expect(comparisonStored).toBe(saved);
+    expect(url.hash).toBe(hash());
+    view().onDiscardShared(); render(); await settle();
+    expect(view().state.postals).toEqual([B]);
+    expect(view().shared).toBe(false);
+    expect(url.hash).toBe('');
+  });
+
+  it('Close restores the local shortlist and creates a history entry whose Back target reopens the link', async () => {
+    const saved = comparisonStored = JSON.stringify(state([B]));
+    mount(hash()); await settle();
+    const sharedHref = url.href;
+    view().onClose(); render(); await settle();
+    noView(); expect(url.hash).toBe('');
+    expect(pushState).toHaveBeenCalledTimes(1);
+    await clickPageButton('Compare (1)');
+    expect(view().state.postals).toEqual([B]);
+    await navigate(sharedHref);
+    expect(view().state.postals).toEqual([A]);
+    expect(view().shared).toBe(true);
+    expect(comparisonStored).toBe(saved);
+    expect(comparisonWrites).toEqual([]);
+  });
+
+  it('Add closes for a postal search without losing or saving the ephemeral shared list', async () => {
+    const saved = comparisonStored = JSON.stringify(state([B]));
+    mount(hash()); await settle();
+    view().onAdd(); render(); await settle();
+    noView(); expect(url.hash).toBe('');
+    const submitted = submit(B);
+    scores.get(B)!.resolve(null); geometries.get(B)!.resolve(null);
+    await settle(); await submitted;
+    await clickPageButton('Add to comparison');
+    expect(view().state.postals).toEqual([A, B]);
+    expect(view().shared).toBe(true);
+    expect(comparisonStored).toBe(saved);
+    expect(comparisonWrites).toEqual([]);
+    view().onShare(); render();
+    expect(child<ComponentProps<typeof ComparisonShareDialog>>(ComparisonShareDialog).props.link)
+      .toBe(`https://example.test/${hash([A, B], B)}`);
+  });
+
+  it('clearing an imported list clears the map and fragment without clearing the saved list', async () => {
+    const saved = comparisonStored = JSON.stringify(state([B]));
+    mount(hash()); await settle();
+    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry); await settle();
+    expect(map().routes).toHaveLength(1);
+    view().onClear(); render(); await settle();
+    expect(view().state.postals).toEqual([]);
+    expect(map().routes).toEqual([]);
+    expect(url.hash).toBe('');
+    expect(comparisonStored).toBe(saved);
+  });
+
+  it('deduplicates the popstate/hashchange pair for one shared navigation', async () => {
+    mount(); await settle();
+    await navigate(hash());
+    await navigate(url.href, 'hashchange');
+    expect(dependencies.fetchScoreForPostal.mock.calls).toEqual([[A]]);
+    expect(dependencies.fetchGeomForPostal.mock.calls).toEqual([[A]]);
+  });
+
+  it('invalidates pending primary score and geometry before opening a different shared postal', async () => {
+    mount(); const submitted = submit(A);
+    await navigate(hash([B]));
+    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry);
+    await settle(); await submitted;
+    expect(view().state.postals).toEqual([B]);
+    expect(view().entries[B].status).toBe('loading');
+    expect(map().routes).toEqual([]);
+    expect(url.hash).toBe(hash([B]));
+    expect(elements(tree).some(element => element.type === WalkSummary)).toBe(false);
+  });
+
+  it('invalidates a shared load when navigating to an ordinary postal query', async () => {
+    mount(hash()); await settle();
+    await navigate(`?postal=${B}`);
+    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry);
+    scores.get(B)!.resolve(null); geometries.get(B)!.resolve(null); await settle();
+    noView(); expect(summary().postal).toBe(B);
+    expect(map().routes).toEqual([]);
+    expect(url.searchParams.get('postal')).toBe(B);
+  });
+
+  it('leaves neither a stale map nor an open share dialog after navigating out of a shared comparison', async () => {
+    mount(hash()); await settle();
+    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry); await settle();
+    view().onShare(); render();
+    await navigate('/');
+    noView(); expect(map().routes).toEqual([]);
+    expect(elements(tree).some(element => element.type === ComparisonShareDialog)).toBe(false);
+  });
+
+  it('removes both navigation listeners when Home unmounts', async () => {
+    mount(hash()); await settle();
+    expect(navigationListeners.get('popstate')?.size).toBe(1);
+    expect(navigationListeners.get('hashchange')?.size).toBe(1);
+    host.reset();
+    expect(navigationListeners.get('popstate')?.size).toBe(0);
+    expect(navigationListeners.get('hashchange')?.size).toBe(0);
+  });
 });
 
 describe('Home comparison through actual page handlers', () => {

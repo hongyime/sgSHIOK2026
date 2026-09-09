@@ -119,9 +119,25 @@
 }
 
 .command {
+  min-width: 44px;
   padding: 8px;
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+.sharedRow {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 12px;
+}
+
+.sharedRow > span {
+  min-width: 0;
+  margin-right: auto;
+  overflow-wrap: anywhere;
 }
 
 .storageNote,
@@ -233,4 +249,15 @@
 
 .metric {
   font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 360px) {
+  .toolbar {
+    padding-inline: 8px;
+    gap: 4px;
+  }
+
+  .commands {
+    gap: 2px;
+  }
 }

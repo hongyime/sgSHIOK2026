@@ -1,6 +1,6 @@
 import { resolveComparisonWalk, type ComparisonRow } from './comparison';
 import {
-  comparisonRequestMatches, emptyComparisonState, readComparisonState,
+  comparisonRequestMatches, decodeComparisonState, emptyComparisonState, encodeComparisonState, readComparisonState,
   transitionComparison, writeComparisonState, type ComparisonAction,
   type ComparisonRejection, type ComparisonRequest, type ComparisonState,
   type ComparisonStorageAccess,
@@ -26,6 +26,7 @@ export interface ComparisonSnapshot {
   state: ComparisonState;
   open: boolean;
   restored: boolean;
+  shared: boolean;
   storageUnavailable: boolean;
   entries: Readonly<Record<string, ComparisonEntry>>;
 }
@@ -43,9 +44,11 @@ export function createComparisonController(initialSource: ComparisonSource, stor
   let source = initialSource;
   let serial = 0;
   let snapshot: ComparisonSnapshot = {
-    state: emptyComparisonState(), open: false, restored: false,
+    state: emptyComparisonState(), open: false, restored: false, shared: false,
     storageUnavailable: false, entries: {},
   };
+  let localState = snapshot.state;
+  let localStorageUnavailable = false;
   const pending = new Map<string, PendingEntry>();
   const listeners = new Set<() => void>();
   const emit = () => listeners.forEach(listener => listener());
@@ -104,6 +107,8 @@ export function createComparisonController(initialSource: ComparisonSource, stor
     if (snapshot.restored) return;
     const result = readComparisonState(storage);
     snapshot = { ...snapshot, state: result.state, restored: true, storageUnavailable: result.status === 'unavailable' };
+    localState = result.state;
+    localStorageUnavailable = snapshot.storageUnavailable;
     emit();
   }
 
@@ -111,6 +116,38 @@ export function createComparisonController(initialSource: ComparisonSource, stor
     getSnapshot: () => snapshot,
     subscribe(listener: () => void) { listeners.add(listener); return () => { listeners.delete(listener); }; },
     restore,
+    loadShared(state: ComparisonState): boolean {
+      const encoded = encodeComparisonState(state);
+      const validated = encoded === null ? null : decodeComparisonState(encoded);
+      if (!validated || validated.postals.length === 0) return false;
+      restore();
+      pending.clear();
+      snapshot = { ...snapshot, state: validated, shared: true, open: true, entries: {} };
+      emit();
+      snapshot.state.postals.forEach(load);
+      return true;
+    },
+    saveShared(): boolean {
+      if (!snapshot.shared) return true;
+      if (writeComparisonState(storage, snapshot.state) !== 'saved') {
+        snapshot = { ...snapshot, storageUnavailable: true };
+        emit();
+        return false;
+      }
+      localState = snapshot.state;
+      localStorageUnavailable = false;
+      snapshot = { ...snapshot, shared: false, storageUnavailable: false };
+      emit();
+      return true;
+    },
+    discardShared() {
+      if (!snapshot.shared) return;
+      pending.clear();
+      snapshot = { ...snapshot, state: localState, shared: false,
+        storageUnavailable: localStorageUnavailable, entries: {} };
+      emit();
+      if (snapshot.open) snapshot.state.postals.forEach(load);
+    },
     dispatch(action: ComparisonAction): ComparisonRejection | null {
       restore();
       const previous = snapshot.state;
@@ -124,8 +161,12 @@ export function createComparisonController(initialSource: ComparisonSource, stor
           delete entries[postal];
         }
       }
+      if (!snapshot.shared) {
+        localState = result.state;
+        localStorageUnavailable = writeComparisonState(storage, result.state) !== 'saved';
+      }
       snapshot = { ...snapshot, state: result.state, entries,
-        storageUnavailable: writeComparisonState(storage, result.state) !== 'saved' };
+        storageUnavailable: snapshot.shared ? snapshot.storageUnavailable : localStorageUnavailable };
       emit();
       if (snapshot.open) snapshot.state.postals.forEach(postal => { if (!pending.has(postal)) load(postal); });
       return null;

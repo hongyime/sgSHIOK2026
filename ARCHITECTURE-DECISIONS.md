@@ -410,3 +410,46 @@ focus outside the removed controls.
 
 No share control is claimed in T10; T11 must implement explicit URL semantics.
 No data generation, scoring, deployment or external service is needed here.
+
+## ADR-19: Share an explicit fragment without replacing local homes (2026-09-09)
+
+T11 uses a versioned URL fragment with exactly compare, postals, transit and
+active, each appearing once. Version1 accepts one to three unique six-ASCII-digit
+postal strings, a common bus or mrt_lrt category, and an active list member.
+Preserve leading zeros and order. Reject empty lists, unknown versions/keys,
+duplicate keys, invalid membership, malformed percent escapes, control characters
+and fragments over512 characters. Unrelated anchors do not become comparisons.
+Use URLSearchParams and the existing whole-state validator, not partial repair.
+
+A new share link preserves only the HTTP(S) origin/path and the canonical
+fragment. Strip every query parameter and previous fragment; reject credentials,
+non-HTTP schemes and malformed base URLs. Never serialize report drafts, notes,
+metrics, request IDs, cached evidence or browsing history. Fragments avoid
+sending these postals in the HTTP document request, but are not encrypted or
+private: recipients, clipboard and browser history can see the selected postals.
+Do not claim that later artifact requests reveal no information about selection.
+
+A valid shared fragment takes precedence over the saved list and postal query.
+Opening or editing it is ephemeral and never writes the owned local-storage key.
+Keep the prior local/in-memory list separately. Only Save on this device replaces
+it; denied Save preserves both the shared view and the previous local list.
+Use saved restores the prior list without writing. Normal Close restores it
+while closing; Add temporarily closes for the existing postal search while
+retaining the shared list so another postal can be added before explicit Save.
+Ordinary local comparisons retain ADR-17's explicit-change autosave policy.
+
+Editing an imported fragment keeps its state canonical with replaceState.
+An empty shared list has no shareable fragment. Save and Use saved remove the
+fragment. Closing a shared view pushes a fragment-free entry so Back can reopen
+it; Add/search removes it without adding another history step. Initial import,
+hashchange and popstate use the same validation and invalidate prior request
+ownership before asynchronous score/geometry/preview responses can return.
+Deduplicate the paired popstate/hashchange events. Preserve existing single-postal
+query intent, including validated stop/category/route selections.
+
+Share opens a native modal with a visible postal disclosure and selectable link.
+Copy requires a separate explicit command; failure offers manual selection.
+Closing, replacing a link or reopening invalidates old clipboard feedback.
+Escape closes only the share dialog and focus returns to its invoking control.
+The map-first top-left inspector and bottom-right About data layout are unchanged.
+This is frontend-only: no accounts, database, new dependency, pipeline or deploy.

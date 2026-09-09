@@ -2789,3 +2789,35 @@ lost postal identity when the metrics scrolled. Visual review therefore led to
 sticky postal headings, compact postal map-selection buttons and an active-map
 postal label before landing. Functional assertions alone were not sufficient
 to accept the comparison layout.
+
+## 2026-09-09: Explicit sharing preserves the recipient's homes (T11, ADR-19)
+
+Share a minimal versioned fragment containing only the ordered postal list,
+common transit category and active postal. The link discloses selected postals
+before an explicit Copy command. Strip incidental queries and report/draft
+content; never represent fragments as encrypted or private links.
+
+Imported state wins over the ordinary postal query but remains ephemeral.
+Reading, opening, switching category, selecting, adding and removing imported
+homes never replace the recipient's local list. Save on this device is the
+explicit replacement action; failure keeps the shared state and old local list.
+Use saved restores that list. Close discards the imported draft; Add returns to
+the existing search without discarding it. Local comparisons retain their
+existing explicit-change persistence. No server or account is introduced.
+
+URL navigation uses one entry point for mount, hashchange and popstate. It
+invalidates prior primary and comparison requests before accepting deliveries;
+ordinary validated single-postal stop/category/route links remain supported.
+Required OneMap/SLA credit remains visible per the official OneMap example;
+it is attribution, not an optional legend. The approved top-left brand/search/
+equal-width-result stack and bottom-right About data are preserved.
+
+The combined fixture suite passes1382 tests across53 files with production-data
+access denied, installed TypeScript and repository integrity. The three red
+expectations retained in diagnostics concern identical shortest/sheltered
+geometry, idempotent already-local Save, and the new shared:false snapshot
+field; they were corrected explicitly rather than silently omitted. Chromium
+then showed Tab leaving the share dialog's controls at the final button.
+Explicit forward/reverse wrapping, preserving native modal semantics and
+non-Tab keys, now has17 additional handler regressions. Browser acceptance and
+build outcomes are recorded separately in the T11 handback.

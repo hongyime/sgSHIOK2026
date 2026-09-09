@@ -126,7 +126,7 @@ function mountNodes() {
   const root = elements(tree)[0];
   if (root.props.ref) root.props.ref.current = {
     querySelectorAll: () => [...mountedButtons.values()].filter(node => node.dataset.comparisonRemove !== undefined),
-    querySelector: () => mountedButtons.get("Close comparison"),
+    querySelector: (selector: string) => mountedButtons.get(selector.includes("Share comparison") ? "Share comparison" : "Close comparison"),
   };
 }
 
@@ -169,7 +169,8 @@ beforeEach(() => {
   vi.stubGlobal("localStorage", { getItem: storageRead, setItem: storageWrite });
   props = {
     state: { version: 1, postals: [realPostal], category: "bus", activePostal: realPostal },
-    entries: { [realPostal]: entry() }, storageUnavailable: false,
+    entries: { [realPostal]: entry() }, storageUnavailable: false, shared: false,
+    onSaveShared: vi.fn(), onDiscardShared: vi.fn(), onShare: vi.fn(),
     onCategory: vi.fn(), onActivate: vi.fn(), onRemove: vi.fn(), onRetry: vi.fn(),
     onClear: vi.fn(), onAdd: vi.fn(), onClose: vi.fn(),
   };
@@ -223,7 +224,7 @@ describe("T10 home comparison presentation", () => {
     expect(cells("Walk distance")).toEqual(["Unavailable", "81 m", "Unavailable"]);
     const headers = elements(tree).filter(node => node.type === "th" && node.props.scope === "col").slice(1).map(text);
     expect(headers.map(value => value.slice(0, 6))).toEqual([thirdPostal, realPostal, secondPostal]);
-    expect(button("Add another postal").props.disabled).toBe(true);
+    expect(button("Add postal").props.disabled).toBe(true);
     expect(text(tree)).not.toMatch(/winner|rank|best home|overall score/i);
   });
 
@@ -240,7 +241,7 @@ describe("T10 home comparison presentation", () => {
     expect(text(tree)).toContain("No homes added.");
     expect(elements(tree).some(node => node.type === "table")).toBe(false);
     expect(button("Clear list").props.disabled).toBe(true);
-    click("Add another postal"); click("Bus");
+    click("Add postal"); click("Bus");
     expect(props.onAdd).toHaveBeenCalledTimes(1);
     expect(props.onCategory).toHaveBeenCalledExactlyOnceWith("bus");
   });
@@ -317,10 +318,10 @@ describe("T10 home comparison presentation", () => {
 
   it("keeps the visible add command compact without losing its accessible name", () => {
     render();
-    const add = button("Add another postal");
-    expect(text(add)).toBe("Add postal");
-    expect(add.props.title).toBe("Add another postal");
-    click("Add another postal");
+    const add = button("Add postal");
+    expect(text(add)).toBe("Add");
+    expect(add.props.title).toBe("Add postal");
+    click("Add postal");
     expect(props.onAdd).toHaveBeenCalledTimes(1);
   });
 
@@ -423,7 +424,7 @@ describe("T10 home comparison presentation", () => {
     props.storageUnavailable = true;
     render();
     expect(text(tree)).toContain("Saved for this visit only.");
-    click("Add another postal"); click("Clear list");
+    click("Add postal"); click("Clear list");
     expect(props.onAdd).toHaveBeenCalledTimes(1); expect(props.onClear).toHaveBeenCalledTimes(1);
   });
 
@@ -448,7 +449,8 @@ describe("T10 home comparison presentation", () => {
     const before = structuredClone({ state: props.state, entries: props.entries });
     render(); render();
     expect({ state: props.state, entries: props.entries }).toEqual(before);
-    for (const handler of [props.onCategory, props.onActivate, props.onRemove, props.onRetry, props.onClear, props.onAdd, props.onClose]) {
+    for (const handler of [props.onCategory, props.onActivate, props.onRemove, props.onRetry, props.onClear, props.onAdd, props.onClose,
+      props.onShare, props.onSaveShared, props.onDiscardShared]) {
       expect(handler).not.toHaveBeenCalled();
     }
   });
@@ -466,6 +468,79 @@ describe("T10 home comparison presentation", () => {
     expect(css).toMatch(/\.tableViewport\s*\{[^}]*scroll-padding-inline-start:\s*112px;/);
     expect(css).toContain("min-height: 44px"); expect(css).toContain("white-space: normal");
     expect(css).not.toMatch(/font-size:\s*[^;]*(?:vw|vh)|letter-spacing:\s*-/);
+  });
+});
+
+describe("T11 comparison share commands", () => {
+  it.each(["Save shortlist on this device", "Use my saved shortlist"])("returns focused %s to Share when shared mode ends", name => {
+    props.shared = true; render();
+    focusDocument.activeElement = mountedButtons.get(name);
+    click(name);
+    expect(focusedByComponent).toEqual([]);
+    props.shared = false; render();
+    expect(focusedByComponent).toEqual(["Share comparison"]);
+  });
+
+  it("returns to Close if using the saved shortlist leaves no homes to share", () => {
+    props.shared = true; render();
+    focusDocument.activeElement = mountedButtons.get("Use my saved shortlist");
+    click("Use my saved shortlist");
+    props.shared = false; props.state = emptyComparisonState(); props.entries = {}; render();
+    expect(focusedByComponent).toEqual(["Close comparison"]);
+  });
+
+  it("does not steal outside focus when the shared action completes", () => {
+    props.shared = true; render();
+    focusDocument.activeElement = mountedButtons.get("Save shortlist on this device");
+    click("Save shortlist on this device");
+    const outside = {}; focusDocument.activeElement = outside;
+    props.shared = false; render();
+    expect(focusDocument.activeElement).toBe(outside); expect(focusedByComponent).toEqual([]);
+  });
+
+  it("offers compact Add, Share and Clear with full accessible command names", () => {
+    render();
+    expect(text(button("Add postal"))).toBe("Add");
+    expect(text(button("Share comparison"))).toBe("Share");
+    expect(text(button("Clear list"))).toBe("Clear");
+    expect(props.onShare).not.toHaveBeenCalled();
+    click("Share comparison");
+    expect(props.onShare).toHaveBeenCalledTimes(1);
+  });
+
+  it("disables sharing an empty list without disabling Add", () => {
+    props.state = emptyComparisonState(); props.entries = {};
+    render();
+    expect(button("Share comparison").props.disabled).toBe(true);
+    expect(button("Add postal").props.disabled).not.toBe(true);
+  });
+
+  it("keeps sharing available when the three-home limit disables Add", () => {
+    props.state = { ...props.state, postals: [realPostal, secondPostal, thirdPostal] };
+    render();
+    expect(button("Add postal").props.disabled).toBe(true);
+    click("Share comparison");
+    expect(props.onShare).toHaveBeenCalledTimes(1);
+  });
+
+  it("shows shared mode without claiming it has been saved or invoking either choice automatically", () => {
+    props.shared = true;
+    render();
+    expect(text(tree)).toContain("Shared shortlist");
+    expect(text(button("Save shortlist on this device"))).toBe("Save");
+    expect(text(button("Use my saved shortlist"))).toBe("Use saved");
+    expect(text(tree)).not.toContain("Shortlist saved");
+    expect(props.onSaveShared).not.toHaveBeenCalled();
+    expect(props.onDiscardShared).not.toHaveBeenCalled();
+    click("Save shortlist on this device"); click("Use my saved shortlist");
+    expect(props.onSaveShared).toHaveBeenCalledTimes(1);
+    expect(props.onDiscardShared).toHaveBeenCalledTimes(1);
+  });
+
+  it("does not render shared-save controls for an ordinary local shortlist", () => {
+    render();
+    expect(text(tree)).not.toContain("Shared shortlist");
+    expect(elements(tree).some(node => node.props["aria-label"] === "Save shortlist on this device")).toBe(false);
   });
 });
 

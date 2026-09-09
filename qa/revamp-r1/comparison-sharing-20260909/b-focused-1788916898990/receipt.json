@@ -1,0 +1,85 @@
+{
+  "root": "C:/sgSHIOK2026",
+  "command": "node C:/sgSHIOK2026/web/scripts/test-web.mjs lib/__tests__/comparison-link.test.ts lib/__tests__/comparison-shared-controller.test.ts --no-cache",
+  "exitCode": 1,
+  "signal": null,
+  "elapsedSeconds": 17.7057722,
+  "before": {
+    "web/lib/__tests__/comparison-link.test.ts": {
+      "bytes": 8592,
+      "sha256": "08644514ac30961184d36c7fe8203700a2f47196e938a52f40af98b188402790"
+    },
+    "web/lib/__tests__/comparison-shared-controller.test.ts": {
+      "bytes": 19402,
+      "sha256": "a70f95385c032846aaa351cd88abb8ae4975078c69a0007a1e937fdf4fc6e5a0"
+    },
+    "web/lib/comparison-link.ts": {
+      "bytes": 2640,
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    "web/lib/comparison-controller.ts": {
+      "bytes": 7470,
+      "sha256": "bb7ae9f623baae6c8a97530eff014aade72bf930d1fd800f252c795d64a993da"
+    },
+    "web/lib/comparison-state.ts": {
+      "bytes": 6888,
+      "sha256": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651"
+    },
+    "web/lib/comparison.ts": {
+      "bytes": 9560,
+      "sha256": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb"
+    },
+    "web/lib/walk-metrics.ts": {
+      "bytes": 5295,
+      "sha256": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f"
+    },
+    "web/lib/published-transit-options.ts": {
+      "bytes": 34110,
+      "sha256": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82"
+    },
+    "web/lib/published-transit-choices.ts": {
+      "bytes": 4074,
+      "sha256": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0"
+    }
+  },
+  "after": {
+    "web/lib/__tests__/comparison-link.test.ts": {
+      "bytes": 8592,
+      "sha256": "08644514ac30961184d36c7fe8203700a2f47196e938a52f40af98b188402790"
+    },
+    "web/lib/__tests__/comparison-shared-controller.test.ts": {
+      "bytes": 19402,
+      "sha256": "a70f95385c032846aaa351cd88abb8ae4975078c69a0007a1e937fdf4fc6e5a0"
+    },
+    "web/lib/comparison-link.ts": {
+      "bytes": 2640,
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    "web/lib/comparison-controller.ts": {
+      "bytes": 7470,
+      "sha256": "bb7ae9f623baae6c8a97530eff014aade72bf930d1fd800f252c795d64a993da"
+    },
+    "web/lib/comparison-state.ts": {
+      "bytes": 6888,
+      "sha256": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651"
+    },
+    "web/lib/comparison.ts": {
+      "bytes": 9560,
+      "sha256": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb"
+    },
+    "web/lib/walk-metrics.ts": {
+      "bytes": 5295,
+      "sha256": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f"
+    },
+    "web/lib/published-transit-options.ts": {
+      "bytes": 34110,
+      "sha256": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82"
+    },
+    "web/lib/published-transit-choices.ts": {
+      "bytes": 4074,
+      "sha256": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0"
+    }
+  },
+  "stdout": "stdout.txt",
+  "stderr": "stderr.txt"
+}

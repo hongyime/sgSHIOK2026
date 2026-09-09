@@ -97,7 +97,7 @@ function freeze(value: unknown): void {
 describe('T10 controller: restore and user-owned persistence', () => {
   it('creation has no storage or source side effects and returns a stable empty snapshot', () => {
     const value = setup(), snapshot = value.controller.getSnapshot();
-    expect(snapshot).toEqual({ state: emptyComparisonState(), open: false, restored: false, storageUnavailable: false, entries: {} });
+    expect(snapshot).toEqual({ state: emptyComparisonState(), open: false, restored: false, shared: false, storageUnavailable: false, entries: {} });
     expect(value.controller.getSnapshot()).toBe(snapshot);
     expect(value.target.getItem).not.toHaveBeenCalled();
     expect(value.target.setItem).not.toHaveBeenCalled();

@@ -64,9 +64,11 @@ import {
 } from "../lib/published-walk-selection";
 import type { PublishedTransitCategory } from "../lib/published-transit-options";
 import { createComparisonController } from "../lib/comparison-controller";
-import { MAX_COMPARISON_POSTALS } from "../lib/comparison-state";
+import { MAX_COMPARISON_POSTALS, type ComparisonAction } from "../lib/comparison-state";
+import { buildComparisonLink, comparisonLinkFragment, readComparisonLink } from "../lib/comparison-link";
 import { publishedOptionGeometry } from "../lib/published-walk-view";
 import { HomeComparison } from "../components/home-comparison";
+import { ComparisonShareDialog } from "../components/comparison-share-dialog";
 
 const EMPTY_TRANSIT_POIS: TransitPoiCollection = { type: "FeatureCollection", features: [] };
 
@@ -2015,6 +2017,33 @@ export default function Home() {
   const comparisonPanelRef = useRef<HTMLDivElement | null>(null);
   const dataDockRef = useRef<HTMLElement | null>(null);
   const searchInputRef = useRef<HTMLInputElement | null>(null);
+  const lastNavigationHref = useRef<string | null>(null);
+  const navigationHandler = useRef<() => void>(() => {});
+  const [shareOpen, setShareOpen] = useState(false);
+  const [comparisonLinkError, setComparisonLinkError] = useState<string | null>(null);
+  const syncWalkUrl = useCallback((path: string, postal: string, mode: TransitAccessMode, stop: string | null, route: RouteDisplayMode) => {
+    if (readComparisonLink(window.location.hash).kind === 'valid') return;
+    writeWalkUrl(path, postal, mode, stop, route);
+    lastNavigationHref.current = window.location.href;
+  }, []);
+  const stripComparisonFragment = (push = false) => {
+    if (readComparisonLink(window.location.hash).kind === 'none') return;
+    const url = new URL(window.location.href);
+    url.hash = '';
+    window.history[push ? 'pushState' : 'replaceState'](null, '', url.href);
+    lastNavigationHref.current = window.location.href;
+  };
+  const dispatchComparison = (action: ComparisonAction) => {
+    const reason = comparisonController.dispatch(action);
+    const current = comparisonController.getSnapshot();
+    if (current.shared && readComparisonLink(window.location.hash).kind === 'valid') {
+      const url = new URL(window.location.href);
+      url.hash = comparisonLinkFragment(current.state) ?? '';
+      window.history.replaceState(null, '', url.href);
+      lastNavigationHref.current = window.location.href;
+    }
+    return reason;
+  };
   useEffect(() => {
     const unsubscribe = comparisonController.subscribe(() => setComparison(comparisonController.getSnapshot()));
     comparisonController.restore();
@@ -2025,6 +2054,7 @@ export default function Home() {
     if (comparison.open) comparisonPanelRef.current?.querySelector<HTMLButtonElement>('[data-comparison-close]')?.focus({ preventScroll: true });
   }, [comparison.open]);
   const openComparison = () => {
+    setComparisonLinkError(null);
     setExposureSelection(null);
     setAboutDataOpen(false);
     const details = dataDockRef.current?.querySelector('details');
@@ -2032,7 +2062,12 @@ export default function Home() {
     comparisonController.setOpen(true);
   };
   const closeComparison = (search = false) => {
+    setShareOpen(false);
     comparisonController.setOpen(false);
+    if (comparisonController.getSnapshot().shared) {
+      stripComparisonFragment(!search);
+      if (!search) comparisonController.discardShared();
+    }
     (search ? searchInputRef.current : comparisonButtonRef.current)?.focus({ preventScroll: true });
   };
   const discardPendingUrlIntent = useCallback(() => {
@@ -2085,22 +2120,6 @@ export default function Home() {
       active = false;
     };
   }, [rankPanelOpen, primary?.result?.POSTAL, primary?.score?.subscores]);
-
-  // Capture the initial ?stop= from the URL. We consume it after the postal's
-  // candidates are known so we can validate the id against real POIs.
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const params = new URLSearchParams(window.location.search);
-    pendingUrlPostalRef.current = normalizePostal(params.get("postal") || "");
-    const initialStop = params.get("stop");
-    if (initialStop) pendingUrlStopIdRef.current = initialStop;
-    const initialTransit = params.get("transit");
-    if (initialTransit === "bus" || initialTransit === "mrt_lrt") pendingUrlTransitRef.current = initialTransit;
-    const initialRoute = params.get("route");
-    if (initialRoute === "shortest" || initialRoute === "both") pendingUrlRouteRef.current = initialRoute;
-    // Intentionally run only on mount; further URL changes come from our own writes.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const originLatLng = useMemo(() => resolveOriginLatLng(primary), [primary]);
   const mapTransitPois = routeTransitPois.features.length > 0 ? routeTransitPois : baseTransitPois;
@@ -2317,7 +2336,7 @@ export default function Home() {
 
   // Published choices resolve independently of optional POI loading.
   useEffect(() => {
-    if (!primary || loading) return;
+    if (!primary || loading || comparisonController.getSnapshot().shared) return;
     if (pendingUrlPostalRef.current !== primary.result.POSTAL) {
       discardPendingUrlIntent();
       return;
@@ -2334,7 +2353,7 @@ export default function Home() {
     }
     const pending = pendingUrlStopIdRef.current;
     if (!pending) {
-      if (pathname) writeWalkUrl(pathname, primary.result.POSTAL, nextMode, null, nextRoute);
+      if (pathname) syncWalkUrl(pathname, primary.result.POSTAL, nextMode, null, nextRoute);
       discardPendingUrlIntent(); return;
     }
     for (const category of ["bus", "mrt_lrt"] as const) {
@@ -2346,7 +2365,7 @@ export default function Home() {
         pendingUrlStopIdRef.current = null;
         pendingUrlTransitRef.current = null;
         pendingUrlPostalRef.current = null;
-        if (pathname) writeWalkUrl(pathname, primary.result.POSTAL, target.mode, target.stopId, nextRoute);
+        if (pathname) syncWalkUrl(pathname, primary.result.POSTAL, target.mode, target.stopId, nextRoute);
         return;
       }
     }
@@ -2356,14 +2375,14 @@ export default function Home() {
     if (category && (!pendingMode || category === pendingMode)) {
       setTransitMode(category);
       setChosenStopId(pending);
-      if (pathname) writeWalkUrl(pathname, primary.result.POSTAL, category, pending, nextRoute);
+      if (pathname) syncWalkUrl(pathname, primary.result.POSTAL, category, pending, nextRoute);
     } else {
-      if (pathname) writeWalkUrl(pathname, primary.result.POSTAL, nextMode, null, nextRoute);
+      if (pathname) syncWalkUrl(pathname, primary.result.POSTAL, nextMode, null, nextRoute);
     }
     pendingUrlStopIdRef.current = null;
     pendingUrlTransitRef.current = null;
     pendingUrlPostalRef.current = null;
-  }, [primary, loading, transitPoisReady, mapTransitPois, pathname, transitMode, routeMode, discardPendingUrlIntent]);
+  }, [primary, loading, transitPoisReady, mapTransitPois, pathname, transitMode, routeMode, discardPendingUrlIntent, comparisonController, syncWalkUrl]);
 
   const loadSelection = async (result: SearchResult, preserveInitialUrl = false) => {
     const postal = normalizePostal(result.POSTAL);
@@ -2372,6 +2391,9 @@ export default function Home() {
       return;
     }
     if (!preserveInitialUrl) discardPendingUrlIntent();
+    setShareOpen(false);
+    setComparisonLinkError(null);
+    stripComparisonFragment();
     comparisonController.setOpen(false);
     setExposureSelection(null);
     const requestId = loadSelectionRequestIdRef.current + 1;
@@ -2406,7 +2428,7 @@ export default function Home() {
       setFeedbackNote("");
       setCopyStatus("");
       if (!preserveInitialUrl && pathname) {
-        writeWalkUrl(pathname, postal, "best_transit", null, "shiokest");
+        syncWalkUrl(pathname, postal, "best_transit", null, "shiokest");
       }
       setRouteTransitPois({ type: "FeatureCollection", features: [] });
       const { geom, failed } = await geometry;
@@ -2443,13 +2465,70 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    const postal = normalizePostal(new URLSearchParams(window.location.search).get("postal") || "");
+  // A shared fragment is an explicit view, never an implicit write to a saved shortlist.
+  navigationHandler.current = () => {
+    if (lastNavigationHref.current === window.location.href) return;
+    lastNavigationHref.current = window.location.href;
+    loadSelectionRequestIdRef.current += 1;
+    discardPendingUrlIntent();
+    setLoading(false);
+    setError(null);
+    setComparisonLinkError(null);
+    setShareOpen(false);
+    setExposureSelection(null);
+    const link = readComparisonLink(window.location.hash);
+    if (link.kind === 'valid') {
+      setPrimary(null);
+      setChosenStopId(null);
+      setQuery('');
+      setResults([]);
+      setAboutDataOpen(false);
+      const details = dataDockRef.current?.querySelector('details');
+      if (details) details.open = false;
+      comparisonController.loadShared(link.state);
+      const canonical = buildComparisonLink(window.location.href, link.state);
+      if (canonical) window.history.replaceState(null, '', canonical);
+      lastNavigationHref.current = window.location.href;
+      preloadRouteMap();
+      return;
+    }
+    comparisonController.setOpen(false);
+    comparisonController.discardShared();
+    if (link.kind === 'invalid') {
+      setPrimary(null);
+      setChosenStopId(null);
+      setComparisonLinkError('This comparison link is invalid. Your saved shortlist is unchanged.');
+      return;
+    }
+    const params = new URLSearchParams(window.location.search);
+    const postal = normalizePostal(params.get('postal') || '');
+    pendingUrlPostalRef.current = postal;
+    pendingUrlStopIdRef.current = params.get('stop');
+    const mode = params.get('transit');
+    pendingUrlTransitRef.current = mode === 'bus' || mode === 'mrt_lrt' ? mode : null;
+    const route = params.get('route');
+    pendingUrlRouteRef.current = route === 'shortest' || route === 'both' ? route : null;
     if (postal) {
       setQuery(postal);
       void loadSelection({ POSTAL: postal, BUILDING: `Postal ${postal}`, ROAD_NAME: "", LATITUDE: "", LONGITUDE: "", SEARCHVAL: `S${postal}` }, true);
+    } else {
+      setPrimary(null);
+      setChosenStopId(null);
+      setQuery('');
+      setResults([]);
     }
-    return () => { loadSelectionRequestIdRef.current += 1; };
+  };
+  useEffect(() => {
+    const navigate = () => navigationHandler.current();
+    navigate();
+    window.addEventListener('popstate', navigate);
+    window.addEventListener('hashchange', navigate);
+    return () => {
+      window.removeEventListener('popstate', navigate);
+      window.removeEventListener('hashchange', navigate);
+      lastNavigationHref.current = null;
+      loadSelectionRequestIdRef.current += 1;
+    };
   }, []);
 
   const retryGeometry = async () => {
@@ -2467,9 +2546,9 @@ export default function Home() {
 
   const syncStopUrl = useCallback(
     (nextStopId: string | null, nextMode: TransitAccessMode = transitMode, nextRoute: RouteDisplayMode = routeMode) => {
-      if (pathname && primary?.result.POSTAL) writeWalkUrl(pathname, primary.result.POSTAL, nextMode, nextStopId, nextRoute);
+      if (pathname && primary?.result.POSTAL) syncWalkUrl(pathname, primary.result.POSTAL, nextMode, nextStopId, nextRoute);
     },
-    [pathname, primary?.result.POSTAL, transitMode, routeMode]
+    [pathname, primary?.result.POSTAL, transitMode, routeMode, syncWalkUrl]
   );
 
   const handleRouteModeChange = useCallback((mode: RouteDisplayMode) => {
@@ -2679,6 +2758,9 @@ export default function Home() {
         </div>}
         {!comparison.open && primary?.score?.paths && !primary.geom && !loading && !geometryError && <div className={styles.errorBox} role="status">No route geometry is published for this walk. Record evidence is still available.</div>}
         <SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted} />
+        {comparisonLinkError && <div className={styles.errorBox} role="status">{comparisonLinkError}
+          <button type="button" onClick={() => { stripComparisonFragment(); openComparison(); }}>Open saved comparison</button>
+        </div>}
         {error && pendingSelectionRef.current && <button type="button" onClick={() => loadSelection(pendingSelectionRef.current!)}>Retry selection</button>}
 
         {results.length > 0 && (
@@ -2708,7 +2790,7 @@ export default function Home() {
               disabled={!comparison.state.postals.includes(primary!.result.POSTAL) && comparison.state.postals.length >= MAX_COMPARISON_POSTALS}
               onClick={() => {
                 const postal = primary!.result.POSTAL;
-                const reason = comparisonController.dispatch({ type: comparison.state.postals.includes(postal) ? 'activate' : 'add', postal });
+                const reason = dispatchComparison({ type: comparison.state.postals.includes(postal) ? 'activate' : 'add', postal });
                 if (!reason) openComparison();
               }}>
               {comparison.state.postals.includes(primary!.result.POSTAL) ? 'View in comparison' : comparison.state.postals.length >= MAX_COMPARISON_POSTALS ? 'Comparison full (3)' : 'Add to comparison'}
@@ -2783,13 +2865,19 @@ export default function Home() {
         <div id="home-comparison-view" ref={comparisonPanelRef}>
           {comparison.open && <HomeComparison state={comparison.state} entries={comparison.entries}
             storageUnavailable={comparison.storageUnavailable}
-            onCategory={category => { comparisonController.dispatch({ type: 'category', category }); }}
-            onActivate={postal => { comparisonController.dispatch({ type: 'activate', postal }); }}
-            onRemove={postal => { comparisonController.dispatch({ type: 'remove', postal }); }}
+            shared={comparison.shared}
+            onShare={() => setShareOpen(true)}
+            onSaveShared={() => { if (comparisonController.saveShared()) stripComparisonFragment(); }}
+            onDiscardShared={() => { comparisonController.discardShared(); stripComparisonFragment(); }}
+            onCategory={category => dispatchComparison({ type: 'category', category })}
+            onActivate={postal => dispatchComparison({ type: 'activate', postal })}
+            onRemove={postal => dispatchComparison({ type: 'remove', postal })}
             onRetry={postal => comparisonController.retry(postal)}
-            onClear={() => { comparisonController.dispatch({ type: 'reset' }); }}
+            onClear={() => dispatchComparison({ type: 'reset' })}
             onAdd={() => closeComparison(true)} onClose={() => closeComparison()} />}
         </div>
+        {shareOpen && comparison.open && <ComparisonShareDialog open
+          link={buildComparisonLink(window.location.href, comparison.state)} onClose={() => setShareOpen(false)} />}
         <footer ref={dataDockRef} className={styles.dataDock} data-map-overlay="bottom" hidden={comparison.open}>
           <DataDetails manifest={manifest} onToggle={event => {
             setAboutDataOpen(event.currentTarget.open);

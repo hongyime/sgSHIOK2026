@@ -12,6 +12,10 @@ export interface HomeComparisonProps {
   state: ComparisonState;
   entries: Readonly<Record<string, ComparisonEntry>>;
   storageUnavailable: boolean;
+  shared: boolean;
+  onSaveShared: () => void;
+  onDiscardShared: () => void;
+  onShare: () => void;
   onCategory: (category: PublishedTransitCategory) => void;
   onActivate: (postal: string) => void;
   onRemove: (postal: string) => void;
@@ -58,11 +62,13 @@ function measurement(row: ComparisonRow | null, key: keyof WalkMetrics, loading:
 }
 
 export function HomeComparison({
-  state, entries, storageUnavailable, onCategory, onActivate, onRemove, onRetry, onClear, onAdd, onClose,
+  state, entries, storageUnavailable, shared, onSaveShared, onDiscardShared, onShare,
+  onCategory, onActivate, onRemove, onRetry, onClear, onAdd, onClose,
 }: HomeComparisonProps) {
   const postals = state.postals.slice(0, MAX_COMPARISON_POSTALS);
   const panel = useRef<HTMLElement | null>(null);
   const pendingFocus = useRef<{ button: HTMLButtonElement; postal: string | null; index: number } | null>(null);
+  const pendingSharedFocus = useRef<HTMLButtonElement | null>(null);
   const postalKey = postals.join("|");
 
   function rememberFocus(button: HTMLButtonElement, postal: string | null, index: number) {
@@ -83,6 +89,23 @@ export function HomeComparison({
       .find(button => button.dataset.comparisonRemove === nextPostal);
     (next ?? panel.current?.querySelector<HTMLButtonElement>("[data-comparison-close]"))?.focus();
   }, [postalKey]);
+
+  useLayoutEffect(() => {
+    if (shared || !pendingSharedFocus.current) return;
+    const previous = pendingSharedFocus.current;
+    pendingSharedFocus.current = null;
+    const document = previous.ownerDocument;
+    const active = document.activeElement;
+    if (active && active !== previous && active !== document.body && active !== document.documentElement) return;
+    const shareButton = panel.current?.querySelector<HTMLButtonElement>('[aria-label="Share comparison"]');
+    const target = shareButton && !shareButton.disabled ? shareButton : panel.current?.querySelector<HTMLButtonElement>("[data-comparison-close]");
+    target?.focus();
+  }, [shared]);
+
+  function sharedAction(button: HTMLButtonElement, action: () => void) {
+    pendingSharedFocus.current = button.ownerDocument.activeElement === button ? button : null;
+    action();
+  }
 
   const columns = postals.map(postal => {
     const entry = entries[postal]?.postal === postal ? entries[postal] : undefined;
@@ -124,14 +147,24 @@ export function HomeComparison({
         </div>
         <div className={styles.commands}>
           <button type="button" className={styles.command} onClick={onAdd}
-            aria-label="Add another postal" title="Add another postal"
-            disabled={postals.length === MAX_COMPARISON_POSTALS}>Add postal</button>
-          <button type="button" className={styles.command} disabled={postals.length === 0} onClick={event => {
+            aria-label="Add postal" title="Add postal"
+            disabled={postals.length === MAX_COMPARISON_POSTALS}>Add</button>
+          <button type="button" className={styles.command} onClick={onShare} aria-label="Share comparison"
+            title="Share comparison" disabled={postals.length === 0}>Share</button>
+          <button type="button" className={styles.command} aria-label="Clear list" title="Clear list"
+            disabled={postals.length === 0} onClick={event => {
             rememberFocus(event.currentTarget, null, 0);
             onClear();
-          }}>Clear list</button>
+          }}>Clear</button>
         </div>
       </div>
+      {shared && <div className={styles.sharedRow} role="group" aria-label="Shared shortlist">
+        <span>Shared shortlist</span>
+        <button type="button" className={styles.command} onClick={event => sharedAction(event.currentTarget, onSaveShared)}
+          aria-label="Save shortlist on this device" title="Save shortlist on this device">Save</button>
+        <button type="button" className={styles.command} onClick={event => sharedAction(event.currentTarget, onDiscardShared)}
+          aria-label="Use my saved shortlist" title="Use my saved shortlist">Use saved</button>
+      </div>}
       {storageUnavailable && <p className={styles.storageNote} role="status">Saved for this visit only.</p>}
       {columns.length === 0 ? (
         <p className={styles.empty}>No homes added.</p>

@@ -24,7 +24,7 @@ Historical handbacks below do not override the current backlog in this section.
 | P0.2 | DONE locally, revised by owner: SHIOK top left, search below, equal-width result below search; About data bottom right. | Narrow/mobile and desktop browser checks pass; stack measured as top padding on narrow screens and left padding on desktop. Required attribution remains visible. 242 isolated tests pass. Evidence: qa/revamp-r1/left-stack-20260908/summary.json. | Frontend, zero pipeline; no deployment invoked. |
 | P0.3 | PARTIAL: current preview/build identity is in STATE; same-build revisits and visited-walk outage recovery have evidence. Automatic old-release upgrade, physical-phone acceptance and representative latency remain open. | Stable documented preview; service-worker-enabled revisit/update smoke; stale assets, worker/CSP errors and retry surfaced. No blank screen accepted from route-only tests. | Frontend/operations, zero pipeline; production publish separately approved. |
 | P1.1 | DONE locally through T04-T07: bounded published choices, consistent selected metrics/geometry, and mapped exposed-section exploration. | Shortest shown and most-covered eligible published options, clear distance/coverage trade-offs, correct alternate metrics and explicit unavailable cases. Do not imply all stops were evaluated or fragments are complete logical gaps. | Frontend using existing artifacts; no new candidate computation or deployment. |
-| P1.2 | Home comparison is NOT built as designed. The existing planning-area ranking is not this feature. | Add/remove up to 3 chosen postals; same transit category; destination, distance, covered %, uncovered distance and longest gap; explicit missing data; local persistence; validated share URL. | Frontend, zero pipeline, no accounts/provider required. |
+| P1.2 | DONE locally through T08-T11: bounded comparison, persistence and explicit sharing. Physical-user acceptance and release remain separate. The planning-area ranking is not this feature. | Add/remove up to 3 chosen postals; same transit category; destination, distance, covered %, uncovered distance and longest gap; explicit missing data; local persistence; validated share URL. | Frontend, zero pipeline, no accounts/provider required. |
 | P1.3 | Reports are NOT a functioning service. Current tools can prepare/copy a draft, not durably submit it. | Concrete $0 storage/moderation proposal, retention/abuse policy, owner access; then two report types, bounded map location/segment, durable receipt, pending/accepted/rejected/duplicate states. | Proposal is free. Provider/infrastructure decision before submission implementation. No agency submission. |
 | P2.1 | Full walk coverage remains incomplete; score coverage and route coverage are different. | Read-only gap register by postal/transit category and cause: absent address, route disconnection, selection limit, missing geometry/export, missing score. Name affected inputs and existing evidence before proposing fixes. | Read-only analysis, zero scoring/export; do not rerun settled coordinate/provenance work. |
 | P2.2 | Resolve approved data gaps and source freshness, not an indiscriminate full rescore. | Versioned input/output plan, subset pilot with fixed/marginal cost, field comparisons, changed-record report, rollback and explicit release decision. | No processing authorized by this plan. Export/full rescore budget must be measured and approved. Never touch locked weights or mutate old payloads. |
@@ -193,13 +193,14 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: FREE. No expansion of candidate/scoring inputs.
 - Outcome 2026-09-09: pinned row/map resolver, bounded token-owning loader and explicit bottom comparison drawer are integrated. Independent review fixed an empty-reset storage write and shortest-only false map failure. Visual review added compact postal map-selection buttons, sticky headings and scroll padding for keyboard focus.1269/50 isolated tests, TypeScript/build/integrity/11anchors pass; final browser69 checks/11inspected captures at4sizes. One separate final-build cold start hit the existing map-startup timeout; it remains a T01/T02 finding, not erased by the later pass. C09 share-state agreement remains T11. Evidence: `qa/revamp-r1/comparison-ui-20260909/summary.json`.
 
-### [ ] T11: Share and restore a shortlist safely
-- Status: READY. Size: S. Parent: P1.2.
+### [x] T11: Share and restore a shortlist safely
+- Status: DONE (local explicit sharing; not production release or user acceptance). Size: S. Parent: P1.2.
 - Depends on: T10.
 - Scope: comparison state codec, existing URL handling in `web/app/page.tsx`, share controls/tests.
 - Do: validate/version an explicit share URL; define URL-vs-storage precedence; preserve ordinary single-postal links. Disclose that the link contains chosen postals; clipboard failure offers an accessible fallback.
 - Tests/done: S06-S07, C06-C09. Round-trip two/three postals/category; reject unknown, duplicate, oversized and malformed state; back/forward remains coherent. No private report, note, account token or history serialized; no automatic sharing.
 - Gate: FREE. No server-side saved homes.
+- Outcome 2026-09-09: strict versioned fragment, URL/local precedence, ephemeral shared edits, explicit Save/Use saved and independent stale-request invalidation. Native modal copy/fallback and explicit Tab wrapping preserve keyboard control.1382/53 isolated tests, TypeScript/build/integrity/11anchors pass. Final browser88 checks/12inspected captures at4sizes validates actual route visibility, storage/URL navigation, copy feedback and approved normal layout. Two390x844 resize captures contain transient raster blending; later captures are clear.667px shared tables require inner scrolling, not simultaneous display of all metrics. Initial harness failures and the real Tab-boundary failure remain recorded. Evidence: `qa/revamp-r1/comparison-sharing-20260909/summary.json`.
 
 ### [x] T12: Present a concrete $0 reporting proposal
 - Status: DONE (proposal only). Size: S. Parent: P1.3.
@@ -307,12 +308,13 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: FREE docs/read-only. No evidence copy, migration, deletion or automatic activation.
 
 ### [ ] T25: Run cross-feature accessibility and failure acceptance
-- Status: WAIT_DEPS. Size: M. Parent: P3.1.
+- Status: READY. Size: M. Parent: P3.1.
 - Depends on: T07, T11.
 - Scope: web regression/browser tests and existing acceptance catalogue; narrowly scoped fixes for observed blockers.
 - Do: keyboard-only, zoomed text, reduced motion, mobile viewport, failed storage/network and fast navigation across inspect/compare. Include reporting only after T18, not as a fake passing placeholder. Recheck the requested top-left stack, equal widths, About data and attribution.
 - Tests/done: S08, M03-M07/M14-M18, C01-C09; applicable F cases. No inaccessible controls, hidden current route, overlapping content or stale cross-feature state. Actual screenshot/count captures and exact failures/fixes recorded.
 - Gate: FREE browser work; physical device/user evidence belongs to T26.
+- T11 follow-up: keep shared short-screen table scrolling usable after the extra Save/Use saved row; verify zoomed text and settled resize captures rather than treating a current route-feature count as proof that raster transitions have finished. Reporting remains excluded until T18.
 
 ### [ ] T26: Owner/device and real-user task acceptance
 - Status: OWNER. Size: S. Parent: P3.1.

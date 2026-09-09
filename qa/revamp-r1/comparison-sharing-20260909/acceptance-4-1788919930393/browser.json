@@ -1,0 +1,6629 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "build": "Jlm6s3tx2ilhY-4awMRJN",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\comparison-sharing-20260909\\acceptance-4-1788919930393",
+  "profile": "C:\\sgSHIOK2026\\tmp\\sharing-browser-4N56M4",
+  "startedAt": "2026-09-09T02:12:10.402Z",
+  "runnerSha256": "0b319c5ac834438a87f02436764a1f66b0327be42be6be59acde01aad9ea978e",
+  "checks": [
+    {
+      "name": "expected served build",
+      "pass": true,
+      "detail": {
+        "build": "Jlm6s3tx2ilhY-4awMRJN",
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-comparison-sharing-20260909-2\\web",
+        "pid": 98528,
+        "nextPid": 102292,
+        "requests": []
+      }
+    },
+    {
+      "name": "first load not blank",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          844
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 423.765625,
+          "width": 390,
+          "height": 388.234375
+        },
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close comparison",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "fragment wins but saved list unchanged",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          844
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 423.765625,
+          "width": 390,
+          "height": 388.234375
+        },
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close comparison",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "actual HTML identifies build",
+      "pass": true
+    },
+    {
+      "name": "shared-1440x950 route current",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          1440,
+          950
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 484.46875,
+          "width": 1440,
+          "height": 433.53125
+        },
+        "dialog": null,
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close comparison",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "shared-1440x950 fits viewport",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          1440,
+          950
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 484.46875,
+          "width": 1440,
+          "height": 433.53125
+        },
+        "dialog": null,
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close comparison",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "shared-1440x950 attribution unobscured",
+      "pass": true,
+      "detail": {
+        "x": 1164,
+        "y": 922,
+        "width": 268,
+        "height": 24
+      }
+    },
+    {
+      "name": "reachable [aria-label=\"Share comparison\"]",
+      "pass": true,
+      "detail": {
+        "name": "Share comparison",
+        "hit": true,
+        "disabled": false,
+        "width": 51,
+        "height": 44
+      }
+    },
+    {
+      "name": "dialog-1440x950 route current",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          1440,
+          950
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 484.46875,
+          "width": 1440,
+          "height": 433.53125
+        },
+        "dialog": {
+          "x": 510,
+          "y": 334.5,
+          "width": 420,
+          "height": 281
+        },
+        "dialogText": "Share comparison×This link includes the selected postal codes.Comparison linkCopy link",
+        "link": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956",
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close share dialog",
+        "focusTag": "BUTTON",
+        "focusInDialog": true,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "dialog-1440x950 fits viewport",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          1440,
+          950
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 484.46875,
+          "width": 1440,
+          "height": 433.53125
+        },
+        "dialog": {
+          "x": 510,
+          "y": 334.5,
+          "width": 420,
+          "height": 281
+        },
+        "dialogText": "Share comparison×This link includes the selected postal codes.Comparison linkCopy link",
+        "link": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956",
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close share dialog",
+        "focusTag": "BUTTON",
+        "focusInDialog": true,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "dialog-1440x950 dialog bounded/focused",
+      "pass": true,
+      "detail": {
+        "x": 510,
+        "y": 334.5,
+        "width": 420,
+        "height": 281
+      }
+    },
+    {
+      "name": "modal keyboard trap 1440 0",
+      "pass": true,
+      "detail": {
+        "focus": null,
+        "tag": "INPUT"
+      }
+    },
+    {
+      "name": "modal keyboard trap 1440 1",
+      "pass": true,
+      "detail": {
+        "focus": "Copy link",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "modal keyboard trap 1440 2",
+      "pass": true,
+      "detail": {
+        "focus": "Close share dialog",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "modal keyboard trap 1440 3",
+      "pass": true,
+      "detail": {
+        "focus": null,
+        "tag": "INPUT"
+      }
+    },
+    {
+      "name": "modal keyboard trap 1440 4",
+      "pass": true,
+      "detail": {
+        "focus": "Copy link",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "modal keyboard trap 1440 5",
+      "pass": true,
+      "detail": {
+        "focus": "Close share dialog",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "modal keyboard trap 1440 6",
+      "pass": true,
+      "detail": {
+        "focus": null,
+        "tag": "INPUT"
+      }
+    },
+    {
+      "name": "modal reverse wrap 1440",
+      "pass": true,
+      "detail": {
+        "focus": "Copy link",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "Escape restores Share focus",
+      "pass": true,
+      "detail": "Share comparison"
+    },
+    {
+      "name": "shared-390x844 route current",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          844
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 423.765625,
+          "width": 390,
+          "height": 388.234375
+        },
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Share comparison",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "shared-390x844 fits viewport",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          844
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 423.765625,
+          "width": 390,
+          "height": 388.234375
+        },
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Share comparison",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "shared-390x844 attribution unobscured",
+      "pass": true,
+      "detail": {
+        "x": 114,
+        "y": 816,
+        "width": 268,
+        "height": 24
+      }
+    },
+    {
+      "name": "reachable [aria-label=\"Share comparison\"]",
+      "pass": true,
+      "detail": {
+        "name": "Share comparison",
+        "hit": true,
+        "disabled": false,
+        "width": 51,
+        "height": 44
+      }
+    },
+    {
+      "name": "dialog-390x844 route current",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          844
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 423.765625,
+          "width": 390,
+          "height": 388.234375
+        },
+        "dialog": {
+          "x": 17,
+          "y": 281.5,
+          "width": 356,
+          "height": 281
+        },
+        "dialogText": "Share comparison×This link includes the selected postal codes.Comparison linkCopy link",
+        "link": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956",
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close share dialog",
+        "focusTag": "BUTTON",
+        "focusInDialog": true,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "dialog-390x844 fits viewport",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          844
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 423.765625,
+          "width": 390,
+          "height": 388.234375
+        },
+        "dialog": {
+          "x": 17,
+          "y": 281.5,
+          "width": 356,
+          "height": 281
+        },
+        "dialogText": "Share comparison×This link includes the selected postal codes.Comparison linkCopy link",
+        "link": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956",
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close share dialog",
+        "focusTag": "BUTTON",
+        "focusInDialog": true,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "dialog-390x844 dialog bounded/focused",
+      "pass": true,
+      "detail": {
+        "x": 17,
+        "y": 281.5,
+        "width": 356,
+        "height": 281
+      }
+    },
+    {
+      "name": "modal keyboard trap 390 0",
+      "pass": true,
+      "detail": {
+        "focus": null,
+        "tag": "INPUT"
+      }
+    },
+    {
+      "name": "modal keyboard trap 390 1",
+      "pass": true,
+      "detail": {
+        "focus": "Copy link",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "modal keyboard trap 390 2",
+      "pass": true,
+      "detail": {
+        "focus": "Close share dialog",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "modal keyboard trap 390 3",
+      "pass": true,
+      "detail": {
+        "focus": null,
+        "tag": "INPUT"
+      }
+    },
+    {
+      "name": "modal keyboard trap 390 4",
+      "pass": true,
+      "detail": {
+        "focus": "Copy link",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "modal keyboard trap 390 5",
+      "pass": true,
+      "detail": {
+        "focus": "Close share dialog",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "modal keyboard trap 390 6",
+      "pass": true,
+      "detail": {
+        "focus": null,
+        "tag": "INPUT"
+      }
+    },
+    {
+      "name": "modal reverse wrap 390",
+      "pass": true,
+      "detail": {
+        "focus": "Copy link",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "Escape restores Share focus",
+      "pass": true,
+      "detail": "Share comparison"
+    },
+    {
+      "name": "shared-390x667 route current",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 328.1875,
+          "width": 390,
+          "height": 306.8125
+        },
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 114,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Share comparison",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "shared-390x667 fits viewport",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 328.1875,
+          "width": 390,
+          "height": 306.8125
+        },
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 114,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Share comparison",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "shared-390x667 attribution unobscured",
+      "pass": true,
+      "detail": {
+        "x": 114,
+        "y": 639,
+        "width": 268,
+        "height": 24
+      }
+    },
+    {
+      "name": "reachable [aria-label=\"Share comparison\"]",
+      "pass": true,
+      "detail": {
+        "name": "Share comparison",
+        "hit": true,
+        "disabled": false,
+        "width": 51,
+        "height": 44
+      }
+    },
+    {
+      "name": "dialog-390x667 route current",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 328.1875,
+          "width": 390,
+          "height": 306.8125
+        },
+        "dialog": {
+          "x": 17,
+          "y": 193,
+          "width": 356,
+          "height": 281
+        },
+        "dialogText": "Share comparison×This link includes the selected postal codes.Comparison linkCopy link",
+        "link": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956",
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 114,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close share dialog",
+        "focusTag": "BUTTON",
+        "focusInDialog": true,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "dialog-390x667 fits viewport",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 328.1875,
+          "width": 390,
+          "height": 306.8125
+        },
+        "dialog": {
+          "x": 17,
+          "y": 193,
+          "width": 356,
+          "height": 281
+        },
+        "dialogText": "Share comparison×This link includes the selected postal codes.Comparison linkCopy link",
+        "link": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956",
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 114,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close share dialog",
+        "focusTag": "BUTTON",
+        "focusInDialog": true,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "dialog-390x667 dialog bounded/focused",
+      "pass": true,
+      "detail": {
+        "x": 17,
+        "y": 193,
+        "width": 356,
+        "height": 281
+      }
+    },
+    {
+      "name": "modal keyboard trap 390 0",
+      "pass": true,
+      "detail": {
+        "focus": null,
+        "tag": "INPUT"
+      }
+    },
+    {
+      "name": "modal keyboard trap 390 1",
+      "pass": true,
+      "detail": {
+        "focus": "Copy link",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "modal keyboard trap 390 2",
+      "pass": true,
+      "detail": {
+        "focus": "Close share dialog",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "modal keyboard trap 390 3",
+      "pass": true,
+      "detail": {
+        "focus": null,
+        "tag": "INPUT"
+      }
+    },
+    {
+      "name": "modal keyboard trap 390 4",
+      "pass": true,
+      "detail": {
+        "focus": "Copy link",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "modal keyboard trap 390 5",
+      "pass": true,
+      "detail": {
+        "focus": "Close share dialog",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "modal keyboard trap 390 6",
+      "pass": true,
+      "detail": {
+        "focus": null,
+        "tag": "INPUT"
+      }
+    },
+    {
+      "name": "modal reverse wrap 390",
+      "pass": true,
+      "detail": {
+        "focus": "Copy link",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "Escape restores Share focus",
+      "pass": true,
+      "detail": "Share comparison"
+    },
+    {
+      "name": "shared-320x667 route current",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          320,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 328.1875,
+          "width": 320,
+          "height": 306.8125
+        },
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Share comparison",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "shared-320x667 fits viewport",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          320,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 328.1875,
+          "width": 320,
+          "height": 306.8125
+        },
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Share comparison",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "shared-320x667 attribution unobscured",
+      "pass": true,
+      "detail": {
+        "x": 44,
+        "y": 639,
+        "width": 268,
+        "height": 24
+      }
+    },
+    {
+      "name": "reachable [aria-label=\"Share comparison\"]",
+      "pass": true,
+      "detail": {
+        "name": "Share comparison",
+        "hit": true,
+        "disabled": false,
+        "width": 51,
+        "height": 44
+      }
+    },
+    {
+      "name": "dialog-320x667 route current",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          320,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 328.1875,
+          "width": 320,
+          "height": 306.8125
+        },
+        "dialog": {
+          "x": 17,
+          "y": 182.5,
+          "width": 286,
+          "height": 302
+        },
+        "dialogText": "Share comparison×This link includes the selected postal codes.Comparison linkCopy link",
+        "link": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956",
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close share dialog",
+        "focusTag": "BUTTON",
+        "focusInDialog": true,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "dialog-320x667 fits viewport",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          320,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 328.1875,
+          "width": 320,
+          "height": 306.8125
+        },
+        "dialog": {
+          "x": 17,
+          "y": 182.5,
+          "width": 286,
+          "height": 302
+        },
+        "dialogText": "Share comparison×This link includes the selected postal codes.Comparison linkCopy link",
+        "link": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956",
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close share dialog",
+        "focusTag": "BUTTON",
+        "focusInDialog": true,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "dialog-320x667 dialog bounded/focused",
+      "pass": true,
+      "detail": {
+        "x": 17,
+        "y": 182.5,
+        "width": 286,
+        "height": 302
+      }
+    },
+    {
+      "name": "modal keyboard trap 320 0",
+      "pass": true,
+      "detail": {
+        "focus": null,
+        "tag": "INPUT"
+      }
+    },
+    {
+      "name": "modal keyboard trap 320 1",
+      "pass": true,
+      "detail": {
+        "focus": "Copy link",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "modal keyboard trap 320 2",
+      "pass": true,
+      "detail": {
+        "focus": "Close share dialog",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "modal keyboard trap 320 3",
+      "pass": true,
+      "detail": {
+        "focus": null,
+        "tag": "INPUT"
+      }
+    },
+    {
+      "name": "modal keyboard trap 320 4",
+      "pass": true,
+      "detail": {
+        "focus": "Copy link",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "modal keyboard trap 320 5",
+      "pass": true,
+      "detail": {
+        "focus": "Close share dialog",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "modal keyboard trap 320 6",
+      "pass": true,
+      "detail": {
+        "focus": null,
+        "tag": "INPUT"
+      }
+    },
+    {
+      "name": "modal reverse wrap 320",
+      "pass": true,
+      "detail": {
+        "focus": "Copy link",
+        "tag": "BUTTON"
+      }
+    },
+    {
+      "name": "Escape restores Share focus",
+      "pass": true,
+      "detail": "Share comparison"
+    },
+    {
+      "name": "reachable [aria-label=\"Share comparison\"]",
+      "pass": true,
+      "detail": {
+        "name": "Share comparison",
+        "hit": true,
+        "disabled": false,
+        "width": 51,
+        "height": 44
+      }
+    },
+    {
+      "name": "link contains only minimal fragment state",
+      "pass": true,
+      "detail": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+    },
+    {
+      "name": "reachable dialog button:not([aria-label])",
+      "pass": true,
+      "detail": {
+        "name": "Copy link",
+        "hit": true,
+        "disabled": false,
+        "width": 83,
+        "height": 44
+      }
+    },
+    {
+      "name": "manual link selection",
+      "pass": true
+    },
+    {
+      "name": "reachable dialog button:not([aria-label])",
+      "pass": true,
+      "detail": {
+        "name": "Copy link",
+        "hit": true,
+        "disabled": false,
+        "width": 83,
+        "height": 44
+      }
+    },
+    {
+      "name": "copied exact link",
+      "pass": true
+    },
+    {
+      "name": "reachable [aria-label=\"Close comparison\"]",
+      "pass": true,
+      "detail": {
+        "name": "Close comparison",
+        "hit": true,
+        "disabled": false,
+        "width": 44,
+        "height": 44
+      }
+    },
+    {
+      "name": "reachable [aria-label=\"Use my saved shortlist\"]",
+      "pass": true,
+      "detail": {
+        "name": "Use my saved shortlist",
+        "hit": true,
+        "disabled": false,
+        "width": 78,
+        "height": 44
+      }
+    },
+    {
+      "name": "previous saved state remains intact",
+      "pass": true,
+      "detail": {
+        "version": 1,
+        "postals": [
+          "079908"
+        ],
+        "category": "bus",
+        "activePostal": "079908"
+      }
+    },
+    {
+      "name": "reachable [aria-label=\"Save shortlist on this device\"]",
+      "pass": true,
+      "detail": {
+        "name": "Save shortlist on this device",
+        "hit": true,
+        "disabled": false,
+        "width": 45,
+        "height": 44
+      }
+    },
+    {
+      "name": "saved category and active postal retained",
+      "pass": true,
+      "detail": {
+        "version": 1,
+        "postals": [
+          "018956",
+          "018990"
+        ],
+        "category": "bus",
+        "activePostal": "018956"
+      }
+    },
+    {
+      "name": "reachable [aria-label=\"Close comparison\"]",
+      "pass": true,
+      "detail": {
+        "name": "Close comparison",
+        "hit": true,
+        "disabled": false,
+        "width": 44,
+        "height": 44
+      }
+    },
+    {
+      "name": "reachable #postal-search-button",
+      "pass": true,
+      "detail": {
+        "name": "Search postal code",
+        "hit": true,
+        "disabled": false,
+        "width": 44,
+        "height": 44
+      }
+    },
+    {
+      "name": "search and result same width; About at bottom-right",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "open": false,
+        "routeKey": "7:shiokest:primary",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          320,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "018956",
+            "018990"
+          ],
+          "category": "bus",
+          "activePostal": "018956"
+        },
+        "columns": [],
+        "panel": null,
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 324
+        },
+        "about": {
+          "x": 210,
+          "y": 602,
+          "width": 98,
+          "height": 33
+        },
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "summary": "Postal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gap",
+        "focus": "Search postal code",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/?postal=018956"
+      }
+    },
+    {
+      "name": "approved normal layout 1440",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "open": false,
+        "routeKey": "7:shiokest:primary",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          1440,
+          950
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "018956",
+            "018990"
+          ],
+          "category": "bus",
+          "activePostal": "018956"
+        },
+        "columns": [],
+        "panel": null,
+        "dialog": null,
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32
+        },
+        "result": {
+          "x": 12,
+          "y": 108,
+          "width": 300,
+          "height": 437.34375
+        },
+        "about": {
+          "x": 1330,
+          "y": 885,
+          "width": 98,
+          "height": 33
+        },
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "summary": "Postal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gap",
+        "focus": "Search postal code",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/?postal=018956"
+      }
+    },
+    {
+      "name": "approved normal layout 390",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "open": false,
+        "routeKey": "7:shiokest:primary",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          844
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "018956",
+            "018990"
+          ],
+          "category": "bus",
+          "activePostal": "018956"
+        },
+        "columns": [],
+        "panel": null,
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327
+        },
+        "about": {
+          "x": 280,
+          "y": 779,
+          "width": 98,
+          "height": 33
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "summary": "Postal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gap",
+        "focus": "Search postal code",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/?postal=018956"
+      }
+    },
+    {
+      "name": "approved normal layout 390",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "open": false,
+        "routeKey": "7:shiokest:primary",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "018956",
+            "018990"
+          ],
+          "category": "bus",
+          "activePostal": "018956"
+        },
+        "columns": [],
+        "panel": null,
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327
+        },
+        "about": {
+          "x": 280,
+          "y": 602,
+          "width": 98,
+          "height": 33
+        },
+        "attribution": {
+          "x": 114,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "summary": "Postal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gap",
+        "focus": "Search postal code",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/?postal=018956"
+      }
+    },
+    {
+      "name": "approved normal layout 320",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "open": false,
+        "routeKey": "7:shiokest:primary",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          320,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "018956",
+            "018990"
+          ],
+          "category": "bus",
+          "activePostal": "018956"
+        },
+        "columns": [],
+        "panel": null,
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 324
+        },
+        "about": {
+          "x": 210,
+          "y": 602,
+          "width": 98,
+          "height": 33
+        },
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "summary": "Postal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gap",
+        "focus": "Search postal code",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/?postal=018956"
+      }
+    },
+    {
+      "name": "no uncaught browser errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "no live API calls",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "captures": [
+    {
+      "name": "shared-1440x950",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\comparison-sharing-20260909\\acceptance-4-1788919930393\\shared-1440x950.png",
+      "bytes": 257193,
+      "sha256": "7c4f82a6f75e9db106bdacd5c55e81412a83bbc9c2a3b30c530541c6935222fa",
+      "before": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          1440,
+          950
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 484.46875,
+          "width": 1440,
+          "height": 433.53125
+        },
+        "dialog": null,
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close comparison",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      },
+      "after": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          1440,
+          950
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 484.46875,
+          "width": 1440,
+          "height": 433.53125
+        },
+        "dialog": null,
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close comparison",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "dialog-1440x950",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\comparison-sharing-20260909\\acceptance-4-1788919930393\\dialog-1440x950.png",
+      "bytes": 214279,
+      "sha256": "d78d2cbb4a7d58ede59038e0cb66946441518a06e6214e034aefaddff1d76f41",
+      "before": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          1440,
+          950
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 484.46875,
+          "width": 1440,
+          "height": 433.53125
+        },
+        "dialog": {
+          "x": 510,
+          "y": 334.5,
+          "width": 420,
+          "height": 281
+        },
+        "dialogText": "Share comparison×This link includes the selected postal codes.Comparison linkCopy link",
+        "link": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956",
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close share dialog",
+        "focusTag": "BUTTON",
+        "focusInDialog": true,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      },
+      "after": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          1440,
+          950
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 484.46875,
+          "width": 1440,
+          "height": 433.53125
+        },
+        "dialog": {
+          "x": 510,
+          "y": 334.5,
+          "width": 420,
+          "height": 281
+        },
+        "dialogText": "Share comparison×This link includes the selected postal codes.Comparison linkCopy link",
+        "link": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956",
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close share dialog",
+        "focusTag": "BUTTON",
+        "focusInDialog": true,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "shared-390x844",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\comparison-sharing-20260909\\acceptance-4-1788919930393\\shared-390x844.png",
+      "bytes": 105682,
+      "sha256": "44c5c7f92bb1fd8984fd3f515520c7d2fc951253cabff980391444841414466d",
+      "before": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          844
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 423.765625,
+          "width": 390,
+          "height": 388.234375
+        },
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Share comparison",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      },
+      "after": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          844
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 423.765625,
+          "width": 390,
+          "height": 388.234375
+        },
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Share comparison",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "dialog-390x844",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\comparison-sharing-20260909\\acceptance-4-1788919930393\\dialog-390x844.png",
+      "bytes": 66928,
+      "sha256": "d4522a1d582ffc1ea442a0cbcdcf7808ad84fe75a0f0b93320e8d34f2ab02a4b",
+      "before": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          844
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 423.765625,
+          "width": 390,
+          "height": 388.234375
+        },
+        "dialog": {
+          "x": 17,
+          "y": 281.5,
+          "width": 356,
+          "height": 281
+        },
+        "dialogText": "Share comparison×This link includes the selected postal codes.Comparison linkCopy link",
+        "link": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956",
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close share dialog",
+        "focusTag": "BUTTON",
+        "focusInDialog": true,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      },
+      "after": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          844
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 423.765625,
+          "width": 390,
+          "height": 388.234375
+        },
+        "dialog": {
+          "x": 17,
+          "y": 281.5,
+          "width": 356,
+          "height": 281
+        },
+        "dialogText": "Share comparison×This link includes the selected postal codes.Comparison linkCopy link",
+        "link": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956",
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close share dialog",
+        "focusTag": "BUTTON",
+        "focusInDialog": true,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "shared-390x667",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\comparison-sharing-20260909\\acceptance-4-1788919930393\\shared-390x667.png",
+      "bytes": 76440,
+      "sha256": "158aee0d894832b4aee8b990f628dccfe53b3151ed8233eefe92edca73ed33e9",
+      "before": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 328.1875,
+          "width": 390,
+          "height": 306.8125
+        },
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 114,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Share comparison",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      },
+      "after": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 328.1875,
+          "width": 390,
+          "height": 306.8125
+        },
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 114,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Share comparison",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "dialog-390x667",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\comparison-sharing-20260909\\acceptance-4-1788919930393\\dialog-390x667.png",
+      "bytes": 46511,
+      "sha256": "529c1cdd88c552272f78d742659ebf36ae665fb7f46cd4b9827b83d3ba73d34d",
+      "before": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 328.1875,
+          "width": 390,
+          "height": 306.8125
+        },
+        "dialog": {
+          "x": 17,
+          "y": 193,
+          "width": 356,
+          "height": 281
+        },
+        "dialogText": "Share comparison×This link includes the selected postal codes.Comparison linkCopy link",
+        "link": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956",
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 114,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close share dialog",
+        "focusTag": "BUTTON",
+        "focusInDialog": true,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      },
+      "after": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 328.1875,
+          "width": 390,
+          "height": 306.8125
+        },
+        "dialog": {
+          "x": 17,
+          "y": 193,
+          "width": 356,
+          "height": 281
+        },
+        "dialogText": "Share comparison×This link includes the selected postal codes.Comparison linkCopy link",
+        "link": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956",
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 114,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close share dialog",
+        "focusTag": "BUTTON",
+        "focusInDialog": true,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "shared-320x667",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\comparison-sharing-20260909\\acceptance-4-1788919930393\\shared-320x667.png",
+      "bytes": 66642,
+      "sha256": "c2705c954bdf6b74e13d6dc608385de00097b85fa055f6624ef919990724010c",
+      "before": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          320,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 328.1875,
+          "width": 320,
+          "height": 306.8125
+        },
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Share comparison",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      },
+      "after": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          320,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 328.1875,
+          "width": 320,
+          "height": 306.8125
+        },
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Share comparison",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "dialog-320x667",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\comparison-sharing-20260909\\acceptance-4-1788919930393\\dialog-320x667.png",
+      "bytes": 39742,
+      "sha256": "d6e5dce6e6453ad96351a9fa3a3e69f4b5a40846c678fc27746b64b326b95391",
+      "before": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          320,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 328.1875,
+          "width": 320,
+          "height": 306.8125
+        },
+        "dialog": {
+          "x": 17,
+          "y": 182.5,
+          "width": 286,
+          "height": 302
+        },
+        "dialogText": "Share comparison×This link includes the selected postal codes.Comparison linkCopy link",
+        "link": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956",
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close share dialog",
+        "focusTag": "BUTTON",
+        "focusInDialog": true,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      },
+      "after": {
+        "status": "ready",
+        "shared": true,
+        "open": true,
+        "routeKey": "3:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          320,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "079908"
+        },
+        "columns": [
+          "018956",
+          "018990"
+        ],
+        "panel": {
+          "x": 0,
+          "y": 328.1875,
+          "width": 320,
+          "height": 306.8125
+        },
+        "dialog": {
+          "x": 17,
+          "y": 182.5,
+          "width": 286,
+          "height": 302
+        },
+        "dialogText": "Share comparison×This link includes the selected postal codes.Comparison linkCopy link",
+        "link": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956",
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": null,
+        "about": null,
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "focus": "Close share dialog",
+        "focusTag": "BUTTON",
+        "focusInDialog": true,
+        "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+      }
+    },
+    {
+      "name": "normal-1440x950",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\comparison-sharing-20260909\\acceptance-4-1788919930393\\normal-1440x950.png",
+      "bytes": 466618,
+      "sha256": "c9af2315f0b34d23160d1e43c9fa02e0b50ab5ccc8e0df8bb7487fbc2bf20a48",
+      "before": {
+        "status": "ready",
+        "open": false,
+        "routeKey": "7:shiokest:primary",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          1440,
+          950
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "018956",
+            "018990"
+          ],
+          "category": "bus",
+          "activePostal": "018956"
+        },
+        "columns": [],
+        "panel": null,
+        "dialog": null,
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32
+        },
+        "result": {
+          "x": 12,
+          "y": 108,
+          "width": 300,
+          "height": 437.34375
+        },
+        "about": {
+          "x": 1330,
+          "y": 885,
+          "width": 98,
+          "height": 33
+        },
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "summary": "Postal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gap",
+        "focus": "Search postal code",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/?postal=018956"
+      },
+      "after": {
+        "status": "ready",
+        "open": false,
+        "routeKey": "7:shiokest:primary",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          1440,
+          950
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "018956",
+            "018990"
+          ],
+          "category": "bus",
+          "activePostal": "018956"
+        },
+        "columns": [],
+        "panel": null,
+        "dialog": null,
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32
+        },
+        "result": {
+          "x": 12,
+          "y": 108,
+          "width": 300,
+          "height": 437.34375
+        },
+        "about": {
+          "x": 1330,
+          "y": 885,
+          "width": 98,
+          "height": 33
+        },
+        "attribution": {
+          "x": 1164,
+          "y": 922,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "summary": "Postal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gap",
+        "focus": "Search postal code",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/?postal=018956"
+      }
+    },
+    {
+      "name": "normal-390x844",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\comparison-sharing-20260909\\acceptance-4-1788919930393\\normal-390x844.png",
+      "bytes": 148030,
+      "sha256": "54d859c61e55e4b8157601f0af06d2a384152eb1288c6144818350f8971dd60c",
+      "before": {
+        "status": "ready",
+        "open": false,
+        "routeKey": "7:shiokest:primary",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          844
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "018956",
+            "018990"
+          ],
+          "category": "bus",
+          "activePostal": "018956"
+        },
+        "columns": [],
+        "panel": null,
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327
+        },
+        "about": {
+          "x": 280,
+          "y": 779,
+          "width": 98,
+          "height": 33
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "summary": "Postal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gap",
+        "focus": "Search postal code",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/?postal=018956"
+      },
+      "after": {
+        "status": "ready",
+        "open": false,
+        "routeKey": "7:shiokest:primary",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          844
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "018956",
+            "018990"
+          ],
+          "category": "bus",
+          "activePostal": "018956"
+        },
+        "columns": [],
+        "panel": null,
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327
+        },
+        "about": {
+          "x": 280,
+          "y": 779,
+          "width": 98,
+          "height": 33
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "summary": "Postal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gap",
+        "focus": "Search postal code",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/?postal=018956"
+      }
+    },
+    {
+      "name": "normal-390x667",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\comparison-sharing-20260909\\acceptance-4-1788919930393\\normal-390x667.png",
+      "bytes": 110996,
+      "sha256": "3d2d8f3fec851abc1a6a774448d959fc909103a39254448f3e6a837f3e95ee97",
+      "before": {
+        "status": "ready",
+        "open": false,
+        "routeKey": "7:shiokest:primary",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "018956",
+            "018990"
+          ],
+          "category": "bus",
+          "activePostal": "018956"
+        },
+        "columns": [],
+        "panel": null,
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327
+        },
+        "about": {
+          "x": 280,
+          "y": 602,
+          "width": 98,
+          "height": 33
+        },
+        "attribution": {
+          "x": 114,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "summary": "Postal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gap",
+        "focus": "Search postal code",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/?postal=018956"
+      },
+      "after": {
+        "status": "ready",
+        "open": false,
+        "routeKey": "7:shiokest:primary",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          390,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "018956",
+            "018990"
+          ],
+          "category": "bus",
+          "activePostal": "018956"
+        },
+        "columns": [],
+        "panel": null,
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327
+        },
+        "about": {
+          "x": 280,
+          "y": 602,
+          "width": 98,
+          "height": 33
+        },
+        "attribution": {
+          "x": 114,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "summary": "Postal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gap",
+        "focus": "Search postal code",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/?postal=018956"
+      }
+    },
+    {
+      "name": "normal-320x667",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\comparison-sharing-20260909\\acceptance-4-1788919930393\\normal-320x667.png",
+      "bytes": 81299,
+      "sha256": "073b981092cb95fcac09979e392049c88593aa49f9dbbe61a8832d6d1bd8fa3b",
+      "before": {
+        "status": "ready",
+        "open": false,
+        "routeKey": "7:shiokest:primary",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          320,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "018956",
+            "018990"
+          ],
+          "category": "bus",
+          "activePostal": "018956"
+        },
+        "columns": [],
+        "panel": null,
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 324
+        },
+        "about": {
+          "x": 210,
+          "y": 602,
+          "width": 98,
+          "height": 33
+        },
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "summary": "Postal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gap",
+        "focus": "Search postal code",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/?postal=018956"
+      },
+      "after": {
+        "status": "ready",
+        "open": false,
+        "routeKey": "7:shiokest:primary",
+        "featureCount": 4,
+        "routeSourcePresent": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          320,
+          667
+        ],
+        "saved": {
+          "version": 1,
+          "postals": [
+            "018956",
+            "018990"
+          ],
+          "category": "bus",
+          "activePostal": "018956"
+        },
+        "columns": [],
+        "panel": null,
+        "dialog": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875
+        },
+        "result": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 324
+        },
+        "about": {
+          "x": 210,
+          "y": 602,
+          "width": 98,
+          "height": 33
+        },
+        "attribution": {
+          "x": 44,
+          "y": 639,
+          "width": 268,
+          "height": 24
+        },
+        "overflow": false,
+        "summary": "Postal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gap",
+        "focus": "Search postal code",
+        "focusTag": "BUTTON",
+        "focusInDialog": false,
+        "url": "http://127.0.0.1:4328/?postal=018956"
+      }
+    }
+  ],
+  "network": [
+    {
+      "id": "FFB43A0A2642B0187E86487B9CF7A7B9",
+      "url": "http://127.0.0.1:4328/?postal=079908&debugMap=1",
+      "status": 200,
+      "type": "Document"
+    },
+    {
+      "id": "94872.2",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/2fo1wtz47iiu3.css",
+      "status": 200,
+      "type": "Stylesheet"
+    },
+    {
+      "id": "94872.4",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/2wu61p_p0hxro.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.7",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.3",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/3wkt3-74el481.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.8",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/1oaw9uq-pttep.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.9",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/1lms4egsmfgzl.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.6",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/0in607kxyceyg.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.5",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/11axl_urhtotz.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.10",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/1lk6eoelzg996.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.25",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/2rmzgxedjsyy1.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.23",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/3roubdj9k3mkj.css",
+      "status": 200,
+      "type": "Stylesheet"
+    },
+    {
+      "id": "94872.27",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.24",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/3eg31myv13__o.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.28",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.22",
+      "url": "http://127.0.0.1:4328/icon.svg",
+      "status": 200,
+      "type": "Other"
+    },
+    {
+      "id": "94872.30",
+      "url": "http://127.0.0.1:4328/icon.svg",
+      "status": 200,
+      "type": "Other"
+    },
+    {
+      "id": "94872.31",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.32",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.34",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.29",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/2sahbiybi_lxf.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.33",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.37",
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "status": 200,
+      "type": "Image"
+    },
+    {
+      "id": "94872.35",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.36",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.38",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.26",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/3_zdoql-8zsg0.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.39",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.40",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.41",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.42",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.43",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.44",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.45",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.46",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.47",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.48",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.49",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.50",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.51",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.52",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.53",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.54",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.57",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.58",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.59",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.60",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.61",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.62",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.63",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.64",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.65",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.66",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.67",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.68",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.69",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.70",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.71",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.72",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.73",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.74",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.75",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.76",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.77",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.78",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.79",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.80",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.81",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.82",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.83",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.84",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.85",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.86",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.87",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.88",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.89",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.90",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.91",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.92",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.93",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.94",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.95",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.96",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.97",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.101",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.98",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.99",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.100",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.102",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.103",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.104",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.105",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.106",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.107",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.108",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.109",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.110",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.111",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.115",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.116",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.117",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.118",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.112",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.113",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.114",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.119",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.120",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.121",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.122",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.123",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.124",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.125",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.126",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.127",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.128",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.129",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.130",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.131",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.132",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.133",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.134",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.135",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.136",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.137",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.138",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.139",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.140",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.141",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.142",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.143",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.144",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.145",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.146",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.147",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.148",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.149",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.150",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.151",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.152",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.153",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.155",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.156",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.154",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.157",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.158",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.159",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.160",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.161",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.162",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.163",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.164",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.165",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.166",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.167",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.168",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.169",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.170",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.171",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.172",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.173",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.174",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.175",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.176",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.177",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.178",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.179",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.180",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.181",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.182",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.183",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.184",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.185",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.186",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.187",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.188",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.189",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.190",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.192",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.191",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.193",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.194",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.195",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.196",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.197",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.198",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.199",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.200",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.201",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.202",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.203",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.204",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.205",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.206",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.207",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.208",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.209",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.210",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.211",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.212",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.213",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.214",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.215",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.216",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.217",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.218",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.219",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.220",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.221",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.222",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.223",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.224",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.225",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.226",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.227",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.228",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.229",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.230",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.231",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.232",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.233",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.234",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.235",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.236",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.237",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.238",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.239",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.240",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.241",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.242",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.243",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.244",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.245",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.246",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.247",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.248",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.249",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.250",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.251",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.252",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.253",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.254",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.255",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.260",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.261",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.262",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.264",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.265",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/geom/postal-index.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "A2E3163C44EE388BED8B63C42736042A",
+      "url": "http://127.0.0.1:4328/",
+      "status": 200,
+      "type": "Document"
+    },
+    {
+      "id": "94872.267",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/2fo1wtz47iiu3.css",
+      "status": 200,
+      "type": "Stylesheet"
+    },
+    {
+      "id": "94872.268",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/3wkt3-74el481.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.269",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/2wu61p_p0hxro.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.270",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/11axl_urhtotz.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.271",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/0in607kxyceyg.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.272",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.273",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/1oaw9uq-pttep.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.274",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/1lms4egsmfgzl.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.275",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/1lk6eoelzg996.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.288",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/3roubdj9k3mkj.css",
+      "status": 200,
+      "type": "Stylesheet"
+    },
+    {
+      "id": "94872.289",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/2sahbiybi_lxf.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.290",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/3eg31myv13__o.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.291",
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "status": 200,
+      "type": "Image"
+    },
+    {
+      "id": "94872.292",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/2rmzgxedjsyy1.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.293",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/3_zdoql-8zsg0.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "94872.287",
+      "url": "http://127.0.0.1:4328/icon.svg",
+      "status": 200,
+      "type": "Other"
+    },
+    {
+      "id": "94872.294",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.295",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.296",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.297",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.298",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.299",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.300",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.301",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.302",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.303",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.304",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.305",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.306",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.307",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.308",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.309",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.312",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.313",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.314",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.315",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.316",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.318",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.317",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.319",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.320",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.321",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.322",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.323",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.325",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.324",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.326",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.327",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.328",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.329",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.330",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.331",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.333",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.332",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.334",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.335",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.336",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.337",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.338",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.339",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.341",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.342",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.340",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.343",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.344",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.345",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.346",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.347",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.348",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.349",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.350",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.351",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.353",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.352",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.354",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.355",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.356",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.357",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.358",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.359",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.360",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.361",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.362",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.363",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.364",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.365",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.366",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.367",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.368",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.369",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.370",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.371",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.372",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.373",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.374",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.375",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.376",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.384",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.385",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.386",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.387",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.388",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.389",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.390",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.377",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.391",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.392",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.378",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.393",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.394",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.395",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.379",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.382",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.383",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.380",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.381",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.397",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.399",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.398",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.400",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.401",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.402",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.403",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.404",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.405",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.407",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.408",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.409",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.410",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.406",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.411",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.412",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.413",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.416",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.419",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.414",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.415",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.417",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.418",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.422",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.423",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.424",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.425",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.426",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.427",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.428",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.429",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.430",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.431",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.432",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.433",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.434",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.435",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.436",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.437",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.438",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.439",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.441",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.440",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.443",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.442",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.449",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.444",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.445",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.446",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.447",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.448",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.450",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.451",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.452",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.453",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.454",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.456",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.455",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.458",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.457",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.459",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.460",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.461",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.462",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.463",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.465",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.466",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.464",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.467",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.468",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.469",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.470",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.471",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.472",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.474",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.475",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.477",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.473",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.476",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.478",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.479",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.480",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.481",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.482",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.483",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.484",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.486",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.487",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.488",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.489",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.490",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.491",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.492",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.493",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.485",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.494",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.495",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.496",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.497",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.498",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.499",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.500",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.502",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.501",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.503",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.504",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.505",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.507",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.508",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.506",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.509",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.510",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.511",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.512",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.513",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.514",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.515",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.516",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.517",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.518",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.519",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.520",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.521",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.522",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.523",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "94872.524",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    }
+  ],
+  "errors": [],
+  "cleanup": {
+    "closeSent": true,
+    "chromeExited": true
+  },
+  "policy": "Real snapshot + immutable published data; functional Chrome/SwiftShader only. No performance, physical-phone, pipeline or deployment claim.",
+  "chromePid": 99144,
+  "lastSample": {
+    "name": "normal layout 320",
+    "value": {
+      "status": "ready",
+      "open": false,
+      "routeKey": "7:shiokest:primary",
+      "featureCount": 4,
+      "routeSourcePresent": true,
+      "moving": false,
+      "basemap": true,
+      "viewport": [
+        320,
+        667
+      ],
+      "saved": {
+        "version": 1,
+        "postals": [
+          "018956",
+          "018990"
+        ],
+        "category": "bus",
+        "activePostal": "018956"
+      },
+      "columns": [],
+      "panel": null,
+      "dialog": null,
+      "search": {
+        "x": 10,
+        "y": 54.6875,
+        "width": 300,
+        "height": 44
+      },
+      "logo": {
+        "x": 10,
+        "y": 10,
+        "width": 74,
+        "height": 36.6875
+      },
+      "result": {
+        "x": 10,
+        "y": 106.6875,
+        "width": 300,
+        "height": 324
+      },
+      "about": {
+        "x": 210,
+        "y": 602,
+        "width": 98,
+        "height": 33
+      },
+      "attribution": {
+        "x": 44,
+        "y": 639,
+        "width": 268,
+        "height": 24
+      },
+      "overflow": false,
+      "summary": "Postal 018956Walk to Bayfront Stn Exit B/MBS81 mWalk distance55%Covered37 mUncovered20 mLongest gap",
+      "focus": "Search postal code",
+      "focusTag": "BUTTON",
+      "focusInDialog": false,
+      "url": "http://127.0.0.1:4328/?postal=018956"
+    }
+  },
+  "document": {
+    "id": "FFB43A0A2642B0187E86487B9CF7A7B9",
+    "url": "http://127.0.0.1:4328/?postal=079908&debugMap=1",
+    "status": 200,
+    "type": "Document",
+    "sha256": "ad7f6a67511369a97dff7e6d66495a78bf8c777af85f9b2c6e4c0f9cfef04763",
+    "bytes": 13067
+  },
+  "stderr": "\r\nDevTools listening on ws://127.0.0.1:19969/devtools/browser/a0f43056-d313-42f8-8d22-d46379574648\r\n[99144:99004:0909/101310.793:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n[99144:99004:0909/101340.482:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n",
+  "finishedAt": "2026-09-09T02:13:58.326Z",
+  "ok": true
+}

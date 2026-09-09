@@ -1,0 +1,312 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "build": "9AschN5s3PKJD_e57CFWp",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\comparison-sharing-20260909\\acceptance-2-1788918835492",
+  "profile": "C:\\sgSHIOK2026\\tmp\\sharing-browser-GN6YKI",
+  "startedAt": "2026-09-09T01:53:55.495Z",
+  "runnerSha256": "17a8a1f5226d28e3967775a8015b61f4ddf9f380481342c92491c3433068e38a",
+  "checks": [
+    {
+      "name": "expected served build",
+      "pass": true,
+      "detail": {
+        "build": "9AschN5s3PKJD_e57CFWp",
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-comparison-sharing-20260909-1\\web",
+        "pid": 76164,
+        "nextPid": 102588,
+        "requests": [
+          {
+            "path": "/",
+            "status": 200,
+            "kind": "app",
+            "at": 1788918564310
+          },
+          {
+            "path": "/_next/static/chunks/1jj8xj2y4ndyb.css",
+            "status": 200,
+            "kind": "app",
+            "at": 1788918564907
+          },
+          {
+            "path": "/_next/static/chunks/3wkt3-74el481.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788918565202
+          },
+          {
+            "path": "/_next/static/chunks/2wu61p_p0hxro.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788918565270
+          },
+          {
+            "path": "/_next/static/chunks/11axl_urhtotz.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788918565316
+          },
+          {
+            "path": "/_next/static/chunks/0in607kxyceyg.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788918565353
+          },
+          {
+            "path": "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788918565489
+          },
+          {
+            "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788918565581
+          },
+          {
+            "path": "/_next/static/chunks/36sf44i_42qlw.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788918565786
+          },
+          {
+            "path": "/_next/static/chunks/10hr93vpe5c5e.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788918565837
+          },
+          {
+            "path": "/_next/static/chunks/43ds14dp6y0z4.css",
+            "status": 200,
+            "kind": "app",
+            "at": 1788918567515
+          },
+          {
+            "path": "/_next/static/chunks/36f7jfah16e1i.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788918567519
+          },
+          {
+            "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788918567521
+          },
+          {
+            "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788918567540
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+            "status": 404,
+            "kind": "data",
+            "at": 1788918568005
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+            "status": 200,
+            "kind": "data",
+            "at": 1788918568049
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+            "status": 200,
+            "kind": "data",
+            "at": 1788918568178
+          },
+          {
+            "path": "/_next/static/chunks/33xou_ua03_ic.js",
+            "status": 200,
+            "kind": "app",
+            "at": 1788918568526
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+            "status": 404,
+            "kind": "data",
+            "at": 1788918568773
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+            "status": 404,
+            "kind": "data",
+            "at": 1788918568774
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json.gz",
+            "status": 404,
+            "kind": "data",
+            "at": 1788918568860
+          },
+          {
+            "path": "/icon.svg",
+            "status": 200,
+            "kind": "app",
+            "at": 1788918569074
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+            "status": 200,
+            "kind": "data",
+            "at": 1788918569103
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json",
+            "status": 200,
+            "kind": "data",
+            "at": 1788918569125
+          },
+          {
+            "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+            "status": 200,
+            "kind": "data",
+            "at": 1788918569181
+          },
+          {
+            "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+            "status": 200,
+            "kind": "app",
+            "at": 1788918570102
+          },
+          {
+            "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+            "status": 200,
+            "kind": "app",
+            "at": 1788918572623
+          }
+        ]
+      }
+    }
+  ],
+  "captures": [],
+  "network": [
+    {
+      "id": "F9B5BF5D6E619981540547C9A0C43740",
+      "url": "http://127.0.0.1:4328/?postal=079908&debugMap=1",
+      "status": 200,
+      "type": "Document"
+    },
+    {
+      "id": "102116.2",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/1jj8xj2y4ndyb.css",
+      "status": 200,
+      "type": "Stylesheet"
+    },
+    {
+      "id": "102116.3",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/3wkt3-74el481.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "102116.4",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/2wu61p_p0hxro.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "102116.5",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/11axl_urhtotz.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "102116.9",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/36sf44i_42qlw.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "102116.7",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "102116.8",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/1oaw9uq-pttep.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "102116.6",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/0in607kxyceyg.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "102116.10",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/10hr93vpe5c5e.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "102116.26",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "102116.27",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "102116.24",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/2rmzgxedjsyy1.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "102116.22",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/43ds14dp6y0z4.css",
+      "status": 200,
+      "type": "Stylesheet"
+    },
+    {
+      "id": "102116.28",
+      "url": "http://127.0.0.1:4328/icon.svg",
+      "status": 200,
+      "type": "Other"
+    },
+    {
+      "id": "102116.30",
+      "url": "http://127.0.0.1:4328/icon.svg",
+      "status": 200,
+      "type": "Other"
+    },
+    {
+      "id": "102116.23",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/36f7jfah16e1i.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "102116.29",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/33xou_ua03_ic.js",
+      "status": 200,
+      "type": "Script"
+    }
+  ],
+  "errors": [],
+  "cleanup": {
+    "closeError": "CDP timeout: Browser.close",
+    "killSent": false,
+    "chromeExited": false
+  },
+  "policy": "Real snapshot + immutable published data; functional Chrome/SwiftShader only. No performance, physical-phone, pipeline or deployment claim.",
+  "chromePid": 85700,
+  "failure": "Error: TypeError: Cannot read properties of null (reading 'scrollWidth')\n    at facts (<anonymous>:15:39)\n    at <anonymous>:18:3\n    at call (file:///C:/sgSHIOK2026/qa/revamp-r1/comparison-sharing-20260909/browser.mjs:29:33)\n    at async waitFor (file:///C:/sgSHIOK2026/qa/revamp-r1/comparison-sharing-20260909/browser.mjs:52:33)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/comparison-sharing-20260909/browser.mjs:95:13",
+  "failureCapture": {
+    "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\comparison-sharing-20260909\\acceptance-2-1788918835492\\failure.png",
+    "sha256": "47fcdf7a1e704838f3999c2c8718c95dfd489faa995944c17389c93f51613867"
+  },
+  "stderr": "\r\nDevTools listening on ws://127.0.0.1:45646/devtools/browser/bb5ab287-2eb4-4026-9ce9-b2ce59599f72\r\n",
+  "finishedAt": "2026-09-09T01:55:07.088Z",
+  "ok": false
+}

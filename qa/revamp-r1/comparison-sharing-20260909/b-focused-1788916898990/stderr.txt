@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  lib/__tests__/comparison-shared-controller.test.ts > T11 shared controller: explicit save and in-memory local fallback > saving or discarding when not shared neither rewrites storage nor starts requests
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ lib/__tests__/comparison-shared-controller.test.ts:204:43
+    202|   it('saving or discarding when not shared neither rewrites storage no…
+    203|     const value = setup(); value.controller.restore(); const local = v…
+    204|     expect(value.controller.saveShared()).toBe(false);
+       |                                           ^
+    205|     value.controller.discardShared(); await flush();
+    206|     expect(value.controller.getSnapshot()).toEqual(local);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
