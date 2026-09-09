@@ -1,0 +1,39 @@
+{
+  "args": [
+    "--test",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\engine.test.mjs"
+  ],
+  "before": [
+    {
+      "name": "engine.mjs",
+      "sha256": "9515811acee42b7fc2ded9467de189bb21a9ff8ffa42ae180b6e7d06a0e05be6"
+    },
+    {
+      "name": "engine.test.mjs",
+      "sha256": "c691f90b1da6bc1543daa2c6ec8918e567b0f7771703e4152f03649d35a48781"
+    },
+    {
+      "name": "locators.mjs",
+      "sha256": "62cf8d51badf550894219a55bd64a95d0fabbefa3a7604f9d4b9c8e798802567"
+    }
+  ],
+  "after": [
+    {
+      "name": "engine.mjs",
+      "sha256": "9515811acee42b7fc2ded9467de189bb21a9ff8ffa42ae180b6e7d06a0e05be6"
+    },
+    {
+      "name": "engine.test.mjs",
+      "sha256": "c691f90b1da6bc1543daa2c6ec8918e567b0f7771703e4152f03649d35a48781"
+    },
+    {
+      "name": "locators.mjs",
+      "sha256": "62cf8d51badf550894219a55bd64a95d0fabbefa3a7604f9d4b9c8e798802567"
+    }
+  ],
+  "stable": true,
+  "exitCode": 0,
+  "stdout": "✔ pilot resolves browser winner, falls through geometry, and keeps lookup attempts (55.3795ms)\n✔ full and pilot choose identical score winners independent of processing order (20.7367ms)\n✔ missing score file is preserved, not rescued from another shard (6.2222ms)\n✔ mismatch is fatal without fallback or a fabricated coverage row (12.2898ms)\n✔ malformed whole shard is quarantined before claiming a later accessible record (6.2965ms)\n✔ duplicates and orphan rows are counted without replacing first row (13.602ms)\n✔ missing geometry prefix index does not mask full index and is cached (4.3172ms)\n✔ normalization and asynchronous output check cooperative budget (3.7953ms)\n✔ malformed metadata is not converted to absence: scores/index.json (3.4511ms)\n✔ malformed metadata is not converted to absence: geom/postal-index.json (2.6872ms)\n✔ pilot selection is distinct and stratified over shard sizes (14.5707ms)\n✔ pilot never fills with duplicate postals and reports a smaller finite universe (2.0419ms)\n✔ stale first fallback never rescues a row from a later declaring shard (3.894ms)\n✔ ordered score attempts retain prior misses before the current winner (3.2005ms)\n✔ geometry mismatch never emits an affected postal (3.1458ms)\n✔ sink rejection prevents further rows and keeps the rejection (3.5177ms)\n✔ budget rejection after first sink prevents the next row (3.1095ms)\nℹ tests 17\nℹ suites 0\nℹ pass 17\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 1744.6142\n",
+  "stderr": "",
+  "elapsedMs": 3015
+}

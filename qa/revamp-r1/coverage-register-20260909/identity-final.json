@@ -1,0 +1,2782 @@
+{
+  "base": "a26deb5c615d7b1a92892eefcba417e1d0ee0a8f",
+  "ok": true,
+  "checks": [
+    {
+      "name": "previous evidence is exact byte prefix",
+      "pass": true,
+      "details": {
+        "oldBytes": 181225,
+        "oldSha256": "46735ba39062a1d64fbf7aee0794862aca103fb632e5da308f99f694a7da44f2",
+        "newBytes": 187086,
+        "newSha256": "c6b0fc6544bd5cb57f85d33ba379a9a60a60b98118d017dd1e483a948f13f8eb"
+      }
+    },
+    {
+      "name": "full isolated suite and verification commands passed",
+      "pass": true
+    },
+    {
+      "name": "test count and file arithmetic",
+      "pass": true,
+      "details": {
+        "arithmetic": "1676 + 32 = 1708; 61 + 1 = 62 files"
+      }
+    },
+    {
+      "name": "production-data isolation",
+      "pass": true,
+      "details": {
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-ETJXTI",
+        "copiedFiles": 208,
+        "productionDataDirectoryAbsent": true,
+        "guardProbePassed": true,
+        "forbiddenPaths": [
+          "C:\\sgSHIOK2026\\web\\public\\data",
+          "C:\\sgSHIOK2026\\tmp\\test-without-data-ETJXTI\\web\\public\\data"
+        ],
+        "dependencies": "Existing node_modules linked; no installation",
+        "testArgs": [
+          "--reporter=dot"
+        ],
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "tested source exists: web/app/api/onemap-route/route.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/app/api/onemap-route/route.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/app/api/onemap-search/route.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/app/api/onemap-search/route.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/app/api/onemap.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/app/api/onemap.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/app/layout.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/app/layout.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/app/page.module.css",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/app/page.module.css",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/app/page.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/app/page.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/app/robots.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/app/robots.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/app/sitemap.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/app/sitemap.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/components/comparison-share-dialog.module.css",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/components/comparison-share-dialog.module.css",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/components/comparison-share-dialog.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/components/comparison-share-dialog.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/components/exposure-section-explorer.module.css",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/components/exposure-section-explorer.module.css",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/components/exposure-section-explorer.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/components/exposure-section-explorer.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/components/failure-diagnostics-control.module.css",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/components/failure-diagnostics-control.module.css",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/components/failure-diagnostics-control.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/components/failure-diagnostics-control.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/components/home-comparison.module.css",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/components/home-comparison.module.css",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/components/home-comparison.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/components/home-comparison.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/components/route-evidence-map.module.css",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/components/route-evidence-map.module.css",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/components/route-evidence-map.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/components/route-evidence-map.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/components/route-map-loader.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/components/route-map-loader.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/components/transit-stop-picker.module.css",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/components/transit-stop-picker.module.css",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/components/transit-stop-picker.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/components/transit-stop-picker.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/components/walk-summary.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/components/walk-summary.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/data-bundle.json",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/data-bundle.json",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/accessibility-render.test.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/accessibility-render.test.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/artifact-failure.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/artifact-failure.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/comparison-controller.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/comparison-controller.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/comparison-link.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/comparison-link.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/comparison-share-dialog.test.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/comparison-share-dialog.test.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/comparison-shared-controller.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/comparison-shared-controller.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/comparison-state.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/comparison-state.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/comparison.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/comparison.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/coverage-gap-register.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/coverage-gap-register.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/data-base.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/data-base.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/data-cache-recovery.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/data-cache-recovery.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/data-failure-diagnostics.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/data-failure-diagnostics.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/data-fetch-policy.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/data-fetch-policy.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/data.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/data.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/deployment.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/deployment.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/ensure-data-bundle.test.mjs",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/ensure-data-bundle.test.mjs",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/exposure-section-explorer.test.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/exposure-section-explorer.test.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/failure-diagnostics-control.test.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/failure-diagnostics-control.test.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/failure-diagnostics.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/failure-diagnostics.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/fixtures/published-data.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/fixtures/published-data.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/fixtures/published-options.json",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/fixtures/published-options.json",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/fixtures/published-options.provenance.json",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/fixtures/published-options.provenance.json",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/fixtures/published-walks.json",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/fixtures/published-walks.json",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/fixtures/published-walks.provenance.json",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/fixtures/published-walks.provenance.json",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/geom-promoted-shard.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/geom-promoted-shard.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/geometry-recovery.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/geometry-recovery.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/home-comparison.test.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/home-comparison.test.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/ignore-build.test.mjs",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/ignore-build.test.mjs",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/lamp-overlay.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/lamp-overlay.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/live-route-scoring.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/live-route-scoring.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/locked-score-availability.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/locked-score-availability.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/map-first-shell.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/map-first-shell.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/map-recovery-actions.test.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/map-recovery-actions.test.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/map-startup-import.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/map-startup-import.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/map-startup-stage.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/map-startup-stage.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/map-viewport.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/map-viewport.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/map-worker.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/map-worker.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/onemap-api-security.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/onemap-api-security.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/onemap-search.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/onemap-search.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/polyline.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/polyline.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/published-exposure-sections.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/published-exposure-sections.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/published-options-fixture.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/published-options-fixture.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/published-transit-choices.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/published-transit-choices.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/published-transit-options.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/published-transit-options.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/published-walk-page.test.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/published-walk-page.test.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/published-walk-selection.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/published-walk-selection.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/published-walk-view.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/published-walk-view.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/rank-payload.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/rank-payload.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/revamp-layout.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/revamp-layout.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/route-display.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/route-display.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/route-evidence-map-interaction.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/route-evidence-map-interaction.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/route-geojson.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/route-geojson.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/route-map-keyboard.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/route-map-keyboard.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/route-map-loader.test.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/route-map-loader.test.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/route-source-lifecycle.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/route-source-lifecycle.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/score-card-copy.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/score-card-copy.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/score-prefix-index.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/score-prefix-index.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/service-worker-behaviour.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/service-worker-behaviour.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/service-worker-registration.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/service-worker-registration.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/source-freshness.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/source-freshness.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/subscore-ranking.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/subscore-ranking.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/transit-popup.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/transit-popup.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/transit-shards.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/transit-shards.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/transit-stop-picker.test.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/transit-stop-picker.test.tsx",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/typescript-contract.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/typescript-contract.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/walk-real-records.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/walk-real-records.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/__tests__/walk-summary-options.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/__tests__/walk-summary-options.test.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/artifact-failure.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/artifact-failure.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/comparison-controller.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/comparison-controller.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/comparison-link.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/comparison-link.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/comparison-state.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/comparison-state.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/comparison.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/comparison.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/coverage-gap-register.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/coverage-gap-register.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/data.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/data.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/failure-diagnostics.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/failure-diagnostics.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/lamp-overlay.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/lamp-overlay.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/live-route-scoring.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/live-route-scoring.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/local-glyph-protocol.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/local-glyph-protocol.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/locked-score-availability.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/locked-score-availability.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/map-viewport.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/map-viewport.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/nearest-transit.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/nearest-transit.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/onemap-search.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/onemap-search.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/polyline.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/polyline.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/published-exposure-sections.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/published-exposure-sections.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/published-transit-choices.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/published-transit-choices.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/published-transit-options.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/published-transit-options.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/published-walk-selection.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/published-walk-selection.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/published-walk-view.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/published-walk-view.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/route-display.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/route-display.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/route-geojson.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/route-geojson.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/service-worker-cache.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/service-worker-cache.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/source-freshness.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/source-freshness.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/subscore-ranking.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/subscore-ranking.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/transit-popup.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/transit-popup.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/types.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/types.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/lib/walk-metrics.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/lib/walk-metrics.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/next-env.d.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/next-env.d.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/next.config.js",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/next.config.js",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/package-lock.json",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/package-lock.json",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/package.json",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/package.json",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/scripts/browser-smoke.mjs",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/scripts/browser-smoke.mjs",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/scripts/ensure-data-bundle.mjs",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/scripts/ensure-data-bundle.mjs",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/scripts/ignore-build.mjs",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/scripts/ignore-build.mjs",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/scripts/measure-lookup-transfer.mjs",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/scripts/measure-lookup-transfer.mjs",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/scripts/revamp-browser.mjs",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/scripts/revamp-browser.mjs",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/scripts/test-web.mjs",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/scripts/test-web.mjs",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/scripts/test-without-production-data.mjs",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/scripts/test-without-production-data.mjs",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/tsconfig.json",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/tsconfig.json",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/vercel.json",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/vercel.json",
+      "pass": true
+    },
+    {
+      "name": "tested source exists: web/vitest.config.ts",
+      "pass": true
+    },
+    {
+      "name": "tested source current: web/vitest.config.ts",
+      "pass": true
+    },
+    {
+      "name": "pilot stopped at full gate",
+      "pass": true
+    },
+    {
+      "name": "checksum manifest unchanged",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: manifest.json.gz",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: scores/index.json.gz",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: scores/prefix-index.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/postal-index.json.gz",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: scores/SEMBAWANG_PART_004.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: scores/SIMPANG.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: scores/BEDOK_PART_024.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: scores/BEDOK_PART_025.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: scores/BEDOK_PART_033.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: scores/BEDOK_PART_034.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: scores/TAMPINES_PART_001.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: scores/TAMPINES_PART_002.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/postal-prefix/768.json.gz",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/postal-prefix/465.json.gz",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526acc5b7fff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526aceca7fff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526aced87fff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526aceda7fff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/896526ac147ffff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/896526acec3ffff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526acecaffff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526acecb7fff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526aced9ffff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526ac336ffff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526aced97fff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526ac3b4ffff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/896526ac173ffff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/896526ac17bffff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/896526ac12bffff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/896526ac163ffff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/postal-prefix/466.json.gz",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/postal-prefix/486.json.gz",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/896526ac33bffff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526ac30effff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526ac30f7fff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526ac3087fff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/postal-prefix/487.json.gz",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526ac3097fff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526ac309ffff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526ac3727fff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526ac3737fff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526ac308ffff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/896526ac347ffff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/896526ac343ffff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526ac376ffff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/896526ac32bffff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526ac30cffff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526ac3767fff.json",
+      "pass": true
+    },
+    {
+      "name": "selected input unchanged: geom/h3/8a6526ac3747fff.json",
+      "pass": true
+    },
+    {
+      "name": "fixture anchor unchanged: web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "pass": true
+    },
+    {
+      "name": "fixture anchor unchanged: web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "pass": true
+    },
+    {
+      "name": "fixture anchor unchanged: web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "pass": true
+    },
+    {
+      "name": "fixture anchor unchanged: web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "pass": true
+    },
+    {
+      "name": "fixture anchor unchanged: web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "pass": true
+    },
+    {
+      "name": "fixture anchor unchanged: web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "pass": true
+    },
+    {
+      "name": "fixture anchor unchanged: web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "pass": true
+    },
+    {
+      "name": "fixture anchor unchanged: web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "pass": true
+    },
+    {
+      "name": "fixture anchor unchanged: web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "pass": true
+    },
+    {
+      "name": "fixture anchor unchanged: web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "pass": true
+    },
+    {
+      "name": "fixture anchor unchanged: web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "pass": true
+    },
+    {
+      "name": "pin unchanged",
+      "pass": true
+    },
+    {
+      "name": "audited scanner current: qa/revamp-r1/coverage-register-20260909/reader.mjs",
+      "pass": true
+    },
+    {
+      "name": "audited scanner current: qa/revamp-r1/coverage-register-20260909/engine.mjs",
+      "pass": true
+    },
+    {
+      "name": "audited scanner current: qa/revamp-r1/coverage-register-20260909/locators.mjs",
+      "pass": true
+    },
+    {
+      "name": "audited scanner current: qa/revamp-r1/coverage-register-20260909/projection.mjs",
+      "pass": true
+    },
+    {
+      "name": "audited scanner current: qa/revamp-r1/coverage-register-20260909/scan.mjs",
+      "pass": true
+    },
+    {
+      "name": "audited classifier current: web/lib/coverage-gap-register.ts",
+      "pass": true
+    },
+    {
+      "name": "audited classifier current: web/lib/published-transit-options.ts",
+      "pass": true
+    },
+    {
+      "name": "audited classifier current: web/lib/polyline.ts",
+      "pass": true
+    },
+    {
+      "name": "audited classifier current: web/lib/types.ts",
+      "pass": true
+    },
+    {
+      "name": "git diff --check",
+      "pass": true
+    },
+    {
+      "name": "git check-ignore -v qa/verification/REVAMP-R1-core-walk.md",
+      "pass": true
+    },
+    {
+      "name": "tracked changes narrowly scoped",
+      "pass": true
+    }
+  ],
+  "commands": [
+    {
+      "command": "git",
+      "args": [
+        "diff",
+        "--check"
+      ],
+      "stdout": "",
+      "stderr": "warning: in the working copy of 'decisions.md', CRLF will be replaced by LF the next time Git touches it\n",
+      "exitCode": 0
+    },
+    {
+      "command": "git",
+      "args": [
+        "check-ignore",
+        "-v",
+        "qa/verification/REVAMP-R1-core-walk.md"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "exitCode": 1
+    }
+  ],
+  "testedSourceIdentities": [
+    {
+      "path": "web/app/api/onemap-route/route.ts",
+      "currentSha256": "0a8885496fd124ae5807586597961eb826c36e813e488784db86b6b3c3197184",
+      "testedSha256": "0a8885496fd124ae5807586597961eb826c36e813e488784db86b6b3c3197184"
+    },
+    {
+      "path": "web/app/api/onemap-search/route.ts",
+      "currentSha256": "ce9b6557e4dc193a3f9dd477ed5c6dd3b52c48aa7cc66bf403d61029ed2526a5",
+      "testedSha256": "ce9b6557e4dc193a3f9dd477ed5c6dd3b52c48aa7cc66bf403d61029ed2526a5"
+    },
+    {
+      "path": "web/app/api/onemap.ts",
+      "currentSha256": "897129fc36ef7da8dec7f12008e06e4ae1181225ffc5b50518f05ba5d255bf98",
+      "testedSha256": "897129fc36ef7da8dec7f12008e06e4ae1181225ffc5b50518f05ba5d255bf98"
+    },
+    {
+      "path": "web/app/layout.tsx",
+      "currentSha256": "629503df867c00de8bac541deac30d6f16f5cd2800f4540422d407c318d21350",
+      "testedSha256": "629503df867c00de8bac541deac30d6f16f5cd2800f4540422d407c318d21350"
+    },
+    {
+      "path": "web/app/page.module.css",
+      "currentSha256": "90594191b9e7894e2165de26164cdd8d5630b821dd6a01ce682526d2ee00777b",
+      "testedSha256": "90594191b9e7894e2165de26164cdd8d5630b821dd6a01ce682526d2ee00777b"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "currentSha256": "7de9e69f3d1aea5555c8211393c50fce6963d5d08e3a6f83b05f6f04c784a6fe",
+      "testedSha256": "7de9e69f3d1aea5555c8211393c50fce6963d5d08e3a6f83b05f6f04c784a6fe"
+    },
+    {
+      "path": "web/app/robots.ts",
+      "currentSha256": "114d20450cca32f28485448c758c031fa7479b699ba8673e21d115875b66e078",
+      "testedSha256": "114d20450cca32f28485448c758c031fa7479b699ba8673e21d115875b66e078"
+    },
+    {
+      "path": "web/app/sitemap.ts",
+      "currentSha256": "e7ccaa26063b9f0dfce8eb2b7e7b7a7ed3a50681644c2baeb40cc6e348da7ea5",
+      "testedSha256": "e7ccaa26063b9f0dfce8eb2b7e7b7a7ed3a50681644c2baeb40cc6e348da7ea5"
+    },
+    {
+      "path": "web/components/comparison-share-dialog.module.css",
+      "currentSha256": "d3cf3adf495462302dce41ed3f33ead9bd7f2d0340b39de97e3f86a2809d7e04",
+      "testedSha256": "d3cf3adf495462302dce41ed3f33ead9bd7f2d0340b39de97e3f86a2809d7e04"
+    },
+    {
+      "path": "web/components/comparison-share-dialog.tsx",
+      "currentSha256": "c13424b420ca97473599301f832a811dc74d3e79b97f3ceecec1832026abf71b",
+      "testedSha256": "c13424b420ca97473599301f832a811dc74d3e79b97f3ceecec1832026abf71b"
+    },
+    {
+      "path": "web/components/exposure-section-explorer.module.css",
+      "currentSha256": "a3540b60e154b08b30e04035589b4728cd20a938b3684cefa652e80553294a5a",
+      "testedSha256": "a3540b60e154b08b30e04035589b4728cd20a938b3684cefa652e80553294a5a"
+    },
+    {
+      "path": "web/components/exposure-section-explorer.tsx",
+      "currentSha256": "ea7dda0c0ec66e33a4050e4ab1c8bd169bf2c419f54eeb6032cddeb1107458cd",
+      "testedSha256": "ea7dda0c0ec66e33a4050e4ab1c8bd169bf2c419f54eeb6032cddeb1107458cd"
+    },
+    {
+      "path": "web/components/failure-diagnostics-control.module.css",
+      "currentSha256": "9d7aaa37a75c122df1c99ef38295d1a8219a7413ba3ee3bc9e76d29dac83b802",
+      "testedSha256": "9d7aaa37a75c122df1c99ef38295d1a8219a7413ba3ee3bc9e76d29dac83b802"
+    },
+    {
+      "path": "web/components/failure-diagnostics-control.tsx",
+      "currentSha256": "87023b56eb9e9bae6303cfa78c973295f4fbc56c506bc3804e0a58e7945234b0",
+      "testedSha256": "87023b56eb9e9bae6303cfa78c973295f4fbc56c506bc3804e0a58e7945234b0"
+    },
+    {
+      "path": "web/components/home-comparison.module.css",
+      "currentSha256": "ef4559e8f1e671a3f95c9d440f39b30178b45c54840e8f1546bee0439d285773",
+      "testedSha256": "ef4559e8f1e671a3f95c9d440f39b30178b45c54840e8f1546bee0439d285773"
+    },
+    {
+      "path": "web/components/home-comparison.tsx",
+      "currentSha256": "6bd53c49f4686c0c8f9399389d2d22e1614b2092966ffd7089b83a59d2f72b4a",
+      "testedSha256": "6bd53c49f4686c0c8f9399389d2d22e1614b2092966ffd7089b83a59d2f72b4a"
+    },
+    {
+      "path": "web/components/route-evidence-map.module.css",
+      "currentSha256": "ab32c76913f123a9ad69f64cfac953d51387ce5de8b2c7af2da0711d76b566d0",
+      "testedSha256": "ab32c76913f123a9ad69f64cfac953d51387ce5de8b2c7af2da0711d76b566d0"
+    },
+    {
+      "path": "web/components/route-evidence-map.tsx",
+      "currentSha256": "7e492fa0753b6e59e000fddfafe4ef3ea92237b3996301aca141d3ab2b6c7dc0",
+      "testedSha256": "7e492fa0753b6e59e000fddfafe4ef3ea92237b3996301aca141d3ab2b6c7dc0"
+    },
+    {
+      "path": "web/components/route-map-loader.tsx",
+      "currentSha256": "4a9c4dba5e545a6b6f9bf9296a8a22eb7cfe29cee401c27c54d3c38fac32c93b",
+      "testedSha256": "4a9c4dba5e545a6b6f9bf9296a8a22eb7cfe29cee401c27c54d3c38fac32c93b"
+    },
+    {
+      "path": "web/components/transit-stop-picker.module.css",
+      "currentSha256": "aac04993ce4fae9e5b222a853bfd0f20e53197ae9bbffff3ca634596bcb7f974",
+      "testedSha256": "aac04993ce4fae9e5b222a853bfd0f20e53197ae9bbffff3ca634596bcb7f974"
+    },
+    {
+      "path": "web/components/transit-stop-picker.tsx",
+      "currentSha256": "7637b29f320581f6e04778984c3aefd33e55d31ee9f3e196fa608f5bd5e52143",
+      "testedSha256": "7637b29f320581f6e04778984c3aefd33e55d31ee9f3e196fa608f5bd5e52143"
+    },
+    {
+      "path": "web/components/walk-summary.tsx",
+      "currentSha256": "bf80c05b259e1c634bd3171eb1a6fe11198b4f3cca035175a45b55ef307a3e9f",
+      "testedSha256": "bf80c05b259e1c634bd3171eb1a6fe11198b4f3cca035175a45b55ef307a3e9f"
+    },
+    {
+      "path": "web/data-bundle.json",
+      "currentSha256": "d5ce7703d5ee6b39651947749f9bd2f4c6d642fe2af06e1d9324671ce8f009e8",
+      "testedSha256": "d5ce7703d5ee6b39651947749f9bd2f4c6d642fe2af06e1d9324671ce8f009e8"
+    },
+    {
+      "path": "web/lib/__tests__/accessibility-render.test.tsx",
+      "currentSha256": "cbd7ad9c2e40749961f0d8ba9b49e44fd7c63a2abb7b2da83d1b6f18c2c073c8",
+      "testedSha256": "cbd7ad9c2e40749961f0d8ba9b49e44fd7c63a2abb7b2da83d1b6f18c2c073c8"
+    },
+    {
+      "path": "web/lib/__tests__/artifact-failure.test.ts",
+      "currentSha256": "e1b80c6786e7f7ede3e3af8009e5a4455286b3289f040695ac577d5e6fb19487",
+      "testedSha256": "e1b80c6786e7f7ede3e3af8009e5a4455286b3289f040695ac577d5e6fb19487"
+    },
+    {
+      "path": "web/lib/__tests__/comparison-controller.test.ts",
+      "currentSha256": "b0c63bef195b319afb43aeb11d275f7d2468f829bb38974f539d2d2138d58e9a",
+      "testedSha256": "b0c63bef195b319afb43aeb11d275f7d2468f829bb38974f539d2d2138d58e9a"
+    },
+    {
+      "path": "web/lib/__tests__/comparison-link.test.ts",
+      "currentSha256": "08644514ac30961184d36c7fe8203700a2f47196e938a52f40af98b188402790",
+      "testedSha256": "08644514ac30961184d36c7fe8203700a2f47196e938a52f40af98b188402790"
+    },
+    {
+      "path": "web/lib/__tests__/comparison-share-dialog.test.tsx",
+      "currentSha256": "a859500d0ec694e467c0c4676854eb4512f611b00627ec419dd918597d198d6c",
+      "testedSha256": "a859500d0ec694e467c0c4676854eb4512f611b00627ec419dd918597d198d6c"
+    },
+    {
+      "path": "web/lib/__tests__/comparison-shared-controller.test.ts",
+      "currentSha256": "4b2cbbdfba2b8433a9212727f8ce77c957a35470f2cfa14c353277cab3cfc503",
+      "testedSha256": "4b2cbbdfba2b8433a9212727f8ce77c957a35470f2cfa14c353277cab3cfc503"
+    },
+    {
+      "path": "web/lib/__tests__/comparison-state.test.ts",
+      "currentSha256": "c2d8bbaf01ebc70df02b26a55ed61a46fafa9b1d4420312d11d5665aa48afbb8",
+      "testedSha256": "c2d8bbaf01ebc70df02b26a55ed61a46fafa9b1d4420312d11d5665aa48afbb8"
+    },
+    {
+      "path": "web/lib/__tests__/comparison.test.ts",
+      "currentSha256": "fb8ab02661fa1210c5c8987f1f655573fec90cfbdffbf293fdf66c1f0416a5f1",
+      "testedSha256": "fb8ab02661fa1210c5c8987f1f655573fec90cfbdffbf293fdf66c1f0416a5f1"
+    },
+    {
+      "path": "web/lib/__tests__/coverage-gap-register.test.ts",
+      "currentSha256": "182ea7b1a65dcd173e05ec507b6d7c42d3fa5920981208041ccbd4d470920db2",
+      "testedSha256": "182ea7b1a65dcd173e05ec507b6d7c42d3fa5920981208041ccbd4d470920db2"
+    },
+    {
+      "path": "web/lib/__tests__/data-base.test.ts",
+      "currentSha256": "741336b2f620f1567d7715270aa04245e0d0f57ab3436632d77a666e60ab1c02",
+      "testedSha256": "741336b2f620f1567d7715270aa04245e0d0f57ab3436632d77a666e60ab1c02"
+    },
+    {
+      "path": "web/lib/__tests__/data-cache-recovery.test.ts",
+      "currentSha256": "f6f8300f0217f927a720e64f1a3a17eb3d6bbc0ee28868ad428c377ee42b187f",
+      "testedSha256": "f6f8300f0217f927a720e64f1a3a17eb3d6bbc0ee28868ad428c377ee42b187f"
+    },
+    {
+      "path": "web/lib/__tests__/data-failure-diagnostics.test.ts",
+      "currentSha256": "a10d85b14a60e0ddbc9370181710d20165799812687e2cc97a9e704c33246265",
+      "testedSha256": "a10d85b14a60e0ddbc9370181710d20165799812687e2cc97a9e704c33246265"
+    },
+    {
+      "path": "web/lib/__tests__/data-fetch-policy.test.ts",
+      "currentSha256": "b65c4773c49fa2b94d2b86c896ce4141a9f82d113dc090abd4507eb33d812ea1",
+      "testedSha256": "b65c4773c49fa2b94d2b86c896ce4141a9f82d113dc090abd4507eb33d812ea1"
+    },
+    {
+      "path": "web/lib/__tests__/data.test.ts",
+      "currentSha256": "6d0b688fffe7ae02debb1fcc61e4c4b9745c1de68e556056e794070c1618e763",
+      "testedSha256": "6d0b688fffe7ae02debb1fcc61e4c4b9745c1de68e556056e794070c1618e763"
+    },
+    {
+      "path": "web/lib/__tests__/deployment.test.ts",
+      "currentSha256": "54b44ee6f6c6b37f2f5610e96b5ac3cf8c586027bf31b2772e03926ce9664537",
+      "testedSha256": "54b44ee6f6c6b37f2f5610e96b5ac3cf8c586027bf31b2772e03926ce9664537"
+    },
+    {
+      "path": "web/lib/__tests__/ensure-data-bundle.test.mjs",
+      "currentSha256": "4e5e8c4373e523ea3edcca0c66d2bf0e67f6b4314bf61430648bd277e58c555c",
+      "testedSha256": "4e5e8c4373e523ea3edcca0c66d2bf0e67f6b4314bf61430648bd277e58c555c"
+    },
+    {
+      "path": "web/lib/__tests__/exposure-section-explorer.test.tsx",
+      "currentSha256": "17615388d819cef0b3c8b43e6e03a39af54bdbaef280a64841994f3a878f7c71",
+      "testedSha256": "17615388d819cef0b3c8b43e6e03a39af54bdbaef280a64841994f3a878f7c71"
+    },
+    {
+      "path": "web/lib/__tests__/failure-diagnostics-control.test.tsx",
+      "currentSha256": "33a50d8a232d14b834969d930448e4817913f13e787a6cf2874b1c5c72b84ea4",
+      "testedSha256": "33a50d8a232d14b834969d930448e4817913f13e787a6cf2874b1c5c72b84ea4"
+    },
+    {
+      "path": "web/lib/__tests__/failure-diagnostics.test.ts",
+      "currentSha256": "32de671af613525520f5555af6ad7d3dd50e0662e34b6459fe058f60e9f0adb9",
+      "testedSha256": "32de671af613525520f5555af6ad7d3dd50e0662e34b6459fe058f60e9f0adb9"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-data.ts",
+      "currentSha256": "078361aabbb455955ad70e9cef10a22121fb69476481031cb118b7aee8b990be",
+      "testedSha256": "078361aabbb455955ad70e9cef10a22121fb69476481031cb118b7aee8b990be"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-options.json",
+      "currentSha256": "6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7",
+      "testedSha256": "6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-options.provenance.json",
+      "currentSha256": "8d0ac40ff2cc3616f2f41eec68b2712982859d301917373aa894ec49f37bf91a",
+      "testedSha256": "8d0ac40ff2cc3616f2f41eec68b2712982859d301917373aa894ec49f37bf91a"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-walks.json",
+      "currentSha256": "e29cc74ce7ec9f69b360e596a2ecd6b07e4cba453bb46b2cc091c9ff61036c86",
+      "testedSha256": "e29cc74ce7ec9f69b360e596a2ecd6b07e4cba453bb46b2cc091c9ff61036c86"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-walks.provenance.json",
+      "currentSha256": "485e9d62fe1488c5cbd8086cdc9a26efc7cb83ec4dc4770b58dddc387c47826d",
+      "testedSha256": "485e9d62fe1488c5cbd8086cdc9a26efc7cb83ec4dc4770b58dddc387c47826d"
+    },
+    {
+      "path": "web/lib/__tests__/geom-promoted-shard.test.ts",
+      "currentSha256": "afbbce3371614bd859684f186d0dd98216f7649ad8cd9a5d56fa941f76050c0d",
+      "testedSha256": "afbbce3371614bd859684f186d0dd98216f7649ad8cd9a5d56fa941f76050c0d"
+    },
+    {
+      "path": "web/lib/__tests__/geometry-recovery.test.ts",
+      "currentSha256": "7609499e054ac0110892542288c38d8d76e4aaedad1bef8f8bfa79d67679e8e4",
+      "testedSha256": "7609499e054ac0110892542288c38d8d76e4aaedad1bef8f8bfa79d67679e8e4"
+    },
+    {
+      "path": "web/lib/__tests__/home-comparison.test.tsx",
+      "currentSha256": "8bf831ae61313db72eb58add5b36eee5f785f632b31dbae92bff1d305c106e0c",
+      "testedSha256": "8bf831ae61313db72eb58add5b36eee5f785f632b31dbae92bff1d305c106e0c"
+    },
+    {
+      "path": "web/lib/__tests__/ignore-build.test.mjs",
+      "currentSha256": "a0f94ed9a81c5bb2da2bcb22d3864e3851e16ecdd450f9d880042d2198a20c55",
+      "testedSha256": "a0f94ed9a81c5bb2da2bcb22d3864e3851e16ecdd450f9d880042d2198a20c55"
+    },
+    {
+      "path": "web/lib/__tests__/lamp-overlay.test.ts",
+      "currentSha256": "4721ae09349fcbe885588385578198415ddbda952d659ec2287517a0a36d5b1e",
+      "testedSha256": "4721ae09349fcbe885588385578198415ddbda952d659ec2287517a0a36d5b1e"
+    },
+    {
+      "path": "web/lib/__tests__/live-route-scoring.test.ts",
+      "currentSha256": "70135b45edec85599df3b31652394f427976128c91eef586988ad4f0510c7284",
+      "testedSha256": "70135b45edec85599df3b31652394f427976128c91eef586988ad4f0510c7284"
+    },
+    {
+      "path": "web/lib/__tests__/locked-score-availability.test.ts",
+      "currentSha256": "1ebf79cabb1f31f486cce37d0e8252285f18cccbca8a7d5f467b4f72c6c7967e",
+      "testedSha256": "1ebf79cabb1f31f486cce37d0e8252285f18cccbca8a7d5f467b4f72c6c7967e"
+    },
+    {
+      "path": "web/lib/__tests__/map-first-shell.test.ts",
+      "currentSha256": "11050f4e65d7c081ec53a979fc683347181a611b44b0793fffbee6834f637613",
+      "testedSha256": "11050f4e65d7c081ec53a979fc683347181a611b44b0793fffbee6834f637613"
+    },
+    {
+      "path": "web/lib/__tests__/map-recovery-actions.test.tsx",
+      "currentSha256": "0a57110b9923681e76e04dbadc7534568168789b0435b72e7c0d6bbcd079e732",
+      "testedSha256": "0a57110b9923681e76e04dbadc7534568168789b0435b72e7c0d6bbcd079e732"
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-import.test.ts",
+      "currentSha256": "2fcaa4f52893993199402dbf914b72a668e4cc73857cdae5a4adc60f2ed9e165",
+      "testedSha256": "2fcaa4f52893993199402dbf914b72a668e4cc73857cdae5a4adc60f2ed9e165"
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-stage.test.ts",
+      "currentSha256": "6ef58ab39e9685719002114ff9233babb737380886445f70f88c24191560d093",
+      "testedSha256": "6ef58ab39e9685719002114ff9233babb737380886445f70f88c24191560d093"
+    },
+    {
+      "path": "web/lib/__tests__/map-viewport.test.ts",
+      "currentSha256": "28b270a28cad8d9429a6915d4fd1443e198ab817225adfabbce40ec4e06e2b56",
+      "testedSha256": "28b270a28cad8d9429a6915d4fd1443e198ab817225adfabbce40ec4e06e2b56"
+    },
+    {
+      "path": "web/lib/__tests__/map-worker.test.ts",
+      "currentSha256": "9d589c548c06e90a4530addb5f15bb691c5e352d5adc2c73672c8d14d2f7a29a",
+      "testedSha256": "9d589c548c06e90a4530addb5f15bb691c5e352d5adc2c73672c8d14d2f7a29a"
+    },
+    {
+      "path": "web/lib/__tests__/onemap-api-security.test.ts",
+      "currentSha256": "be7b8f13516e8813b3886c18d77b6934329a6123c18cf96f1ff94d75c3b8c5d0",
+      "testedSha256": "be7b8f13516e8813b3886c18d77b6934329a6123c18cf96f1ff94d75c3b8c5d0"
+    },
+    {
+      "path": "web/lib/__tests__/onemap-search.test.ts",
+      "currentSha256": "d4b2a218584763407356162680f939648096a4a0f3d470a2d15a4b5aec6be26c",
+      "testedSha256": "d4b2a218584763407356162680f939648096a4a0f3d470a2d15a4b5aec6be26c"
+    },
+    {
+      "path": "web/lib/__tests__/polyline.test.ts",
+      "currentSha256": "8c449899dabe2cdfd9dbab156bb059739976e1d677e96dc0a77debf0bf3741f6",
+      "testedSha256": "8c449899dabe2cdfd9dbab156bb059739976e1d677e96dc0a77debf0bf3741f6"
+    },
+    {
+      "path": "web/lib/__tests__/published-exposure-sections.test.ts",
+      "currentSha256": "cd0d6511922174d22d6415893a39d81d5af8c783c5857d9dd96d4e78cc08a298",
+      "testedSha256": "cd0d6511922174d22d6415893a39d81d5af8c783c5857d9dd96d4e78cc08a298"
+    },
+    {
+      "path": "web/lib/__tests__/published-options-fixture.test.ts",
+      "currentSha256": "9b33bffe9ba63063bbd64a6dfd716c761aaeff20f2b89dc22a16ee38a564f55a",
+      "testedSha256": "9b33bffe9ba63063bbd64a6dfd716c761aaeff20f2b89dc22a16ee38a564f55a"
+    },
+    {
+      "path": "web/lib/__tests__/published-transit-choices.test.ts",
+      "currentSha256": "6e7890504b25deb486c2eef84556d3639aebd14a00ed24a622272e324fed4095",
+      "testedSha256": "6e7890504b25deb486c2eef84556d3639aebd14a00ed24a622272e324fed4095"
+    },
+    {
+      "path": "web/lib/__tests__/published-transit-options.test.ts",
+      "currentSha256": "a701a1b913cfad5b37c7cf833e5c58f786ebfbe80dd2d8a4d292ef99b8b261e2",
+      "testedSha256": "a701a1b913cfad5b37c7cf833e5c58f786ebfbe80dd2d8a4d292ef99b8b261e2"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "currentSha256": "715d22d72f767d42cf313c586982fb37cd5d7ba9fdd888146077460a493b3217",
+      "testedSha256": "715d22d72f767d42cf313c586982fb37cd5d7ba9fdd888146077460a493b3217"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-selection.test.ts",
+      "currentSha256": "9942fe62a109c62190ea0a1084d23309dcb052b2a7a618ec68c7b4f86c25669a",
+      "testedSha256": "9942fe62a109c62190ea0a1084d23309dcb052b2a7a618ec68c7b4f86c25669a"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-view.test.ts",
+      "currentSha256": "cc828c29aa420f75227c1e7a60ab2cf1f29a19784fa076e1099275efb115de48",
+      "testedSha256": "cc828c29aa420f75227c1e7a60ab2cf1f29a19784fa076e1099275efb115de48"
+    },
+    {
+      "path": "web/lib/__tests__/rank-payload.test.ts",
+      "currentSha256": "611e7a69751489944084f62ba928000c51a4c725680df3a5bae3533ac366056b",
+      "testedSha256": "611e7a69751489944084f62ba928000c51a4c725680df3a5bae3533ac366056b"
+    },
+    {
+      "path": "web/lib/__tests__/revamp-layout.test.ts",
+      "currentSha256": "9e6613d07cbd93083541166605cc40eb82290790290f379b7058cea291868485",
+      "testedSha256": "9e6613d07cbd93083541166605cc40eb82290790290f379b7058cea291868485"
+    },
+    {
+      "path": "web/lib/__tests__/route-display.test.ts",
+      "currentSha256": "2c54d6d61a4d7ab9083ab9ac0cd1271300cf2b7eaf2d623627b251329c41d0a4",
+      "testedSha256": "2c54d6d61a4d7ab9083ab9ac0cd1271300cf2b7eaf2d623627b251329c41d0a4"
+    },
+    {
+      "path": "web/lib/__tests__/route-evidence-map-interaction.test.ts",
+      "currentSha256": "1576b6aebd5da2542a497519b72669fff08bbdc37ae35219c8e523ee79e93740",
+      "testedSha256": "1576b6aebd5da2542a497519b72669fff08bbdc37ae35219c8e523ee79e93740"
+    },
+    {
+      "path": "web/lib/__tests__/route-geojson.test.ts",
+      "currentSha256": "c19e3d9963fde623b3024fb3aacf0086f5bb9271ece1f85a9faa14865958314e",
+      "testedSha256": "c19e3d9963fde623b3024fb3aacf0086f5bb9271ece1f85a9faa14865958314e"
+    },
+    {
+      "path": "web/lib/__tests__/route-map-keyboard.test.ts",
+      "currentSha256": "685fa52e560de34b211357f2042dea60f538d8bae5e8e1e6f784147c1a880fa1",
+      "testedSha256": "685fa52e560de34b211357f2042dea60f538d8bae5e8e1e6f784147c1a880fa1"
+    },
+    {
+      "path": "web/lib/__tests__/route-map-loader.test.tsx",
+      "currentSha256": "d31f8ed81683c76f84698081513cdf3c0c1cfeb12d8484b64ac4a7e04241569c",
+      "testedSha256": "d31f8ed81683c76f84698081513cdf3c0c1cfeb12d8484b64ac4a7e04241569c"
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "currentSha256": "1106f3313d9c0050d5e706f05e8fd362f0c38f4a9c3346199a914310f8246e98",
+      "testedSha256": "1106f3313d9c0050d5e706f05e8fd362f0c38f4a9c3346199a914310f8246e98"
+    },
+    {
+      "path": "web/lib/__tests__/score-card-copy.test.ts",
+      "currentSha256": "c2ece5eab58b4427977c756038c1c9acfef16c442c71efd7ea13f56ce6f95775",
+      "testedSha256": "c2ece5eab58b4427977c756038c1c9acfef16c442c71efd7ea13f56ce6f95775"
+    },
+    {
+      "path": "web/lib/__tests__/score-prefix-index.test.ts",
+      "currentSha256": "2d4db8c99905b6f8c1fdbf60934b69e05bcaf5123f05681bc4fec9f4e46623eb",
+      "testedSha256": "2d4db8c99905b6f8c1fdbf60934b69e05bcaf5123f05681bc4fec9f4e46623eb"
+    },
+    {
+      "path": "web/lib/__tests__/service-worker-behaviour.test.ts",
+      "currentSha256": "4c87adc23468d3e651e18d62e963051ae9992707d4ac9cb2bc0f2ea856cd0841",
+      "testedSha256": "4c87adc23468d3e651e18d62e963051ae9992707d4ac9cb2bc0f2ea856cd0841"
+    },
+    {
+      "path": "web/lib/__tests__/service-worker-registration.test.ts",
+      "currentSha256": "f4535bf604766d3d3f4860dd3bed3913e9e3ef0bbe884adce527806a319f6627",
+      "testedSha256": "f4535bf604766d3d3f4860dd3bed3913e9e3ef0bbe884adce527806a319f6627"
+    },
+    {
+      "path": "web/lib/__tests__/source-freshness.test.ts",
+      "currentSha256": "98de88e223f9794029f003daa4c111a0bf5d0e8083c6db84fbdd3d95d2340f4e",
+      "testedSha256": "98de88e223f9794029f003daa4c111a0bf5d0e8083c6db84fbdd3d95d2340f4e"
+    },
+    {
+      "path": "web/lib/__tests__/subscore-ranking.test.ts",
+      "currentSha256": "aadb4288f1645ce037708fd94cc15b143e801496ca343cfed30fbbde5e6193a2",
+      "testedSha256": "aadb4288f1645ce037708fd94cc15b143e801496ca343cfed30fbbde5e6193a2"
+    },
+    {
+      "path": "web/lib/__tests__/transit-popup.test.ts",
+      "currentSha256": "975629f65aaba9ff4ebfeec730adda8c284ed02ca5db51ca0f2d77fafc67029a",
+      "testedSha256": "975629f65aaba9ff4ebfeec730adda8c284ed02ca5db51ca0f2d77fafc67029a"
+    },
+    {
+      "path": "web/lib/__tests__/transit-shards.test.ts",
+      "currentSha256": "50bad6bbe876f3629714d7a52304cd738521341e02f81d4ffe961d95397c4da4",
+      "testedSha256": "50bad6bbe876f3629714d7a52304cd738521341e02f81d4ffe961d95397c4da4"
+    },
+    {
+      "path": "web/lib/__tests__/transit-stop-picker.test.tsx",
+      "currentSha256": "f739563c641cd4d9a98434627d74ae15cd294a4bce48f61e16353dc552579ab8",
+      "testedSha256": "f739563c641cd4d9a98434627d74ae15cd294a4bce48f61e16353dc552579ab8"
+    },
+    {
+      "path": "web/lib/__tests__/typescript-contract.test.ts",
+      "currentSha256": "c7ea76a7e35962a4888deb4f49f58b40e87ea2c04a1f1a35494ec0adc31d4849",
+      "testedSha256": "c7ea76a7e35962a4888deb4f49f58b40e87ea2c04a1f1a35494ec0adc31d4849"
+    },
+    {
+      "path": "web/lib/__tests__/walk-real-records.test.ts",
+      "currentSha256": "5fffa159367aaafef5ce3a791e1546b86b280e12e6d6b4574221e5ace2bc537b",
+      "testedSha256": "5fffa159367aaafef5ce3a791e1546b86b280e12e6d6b4574221e5ace2bc537b"
+    },
+    {
+      "path": "web/lib/__tests__/walk-summary-options.test.ts",
+      "currentSha256": "b31d4067ff0070e688ad37ff52b346f3a77d43813b1d346621df4470bd246d4a",
+      "testedSha256": "b31d4067ff0070e688ad37ff52b346f3a77d43813b1d346621df4470bd246d4a"
+    },
+    {
+      "path": "web/lib/artifact-failure.ts",
+      "currentSha256": "3bf84004256bc6adedb15d985806a845296384a4cd6b77f95c0aad6e1663aeaf",
+      "testedSha256": "3bf84004256bc6adedb15d985806a845296384a4cd6b77f95c0aad6e1663aeaf"
+    },
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "currentSha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240",
+      "testedSha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "currentSha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7",
+      "testedSha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/lib/comparison-state.ts",
+      "currentSha256": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651",
+      "testedSha256": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651"
+    },
+    {
+      "path": "web/lib/comparison.ts",
+      "currentSha256": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb",
+      "testedSha256": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb"
+    },
+    {
+      "path": "web/lib/coverage-gap-register.ts",
+      "currentSha256": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878",
+      "testedSha256": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878"
+    },
+    {
+      "path": "web/lib/data.ts",
+      "currentSha256": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99",
+      "testedSha256": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99"
+    },
+    {
+      "path": "web/lib/failure-diagnostics.ts",
+      "currentSha256": "b4be16461d9e832bc41eddfea289dc5b8bffea4b9c01538b865590e7061b68b2",
+      "testedSha256": "b4be16461d9e832bc41eddfea289dc5b8bffea4b9c01538b865590e7061b68b2"
+    },
+    {
+      "path": "web/lib/lamp-overlay.ts",
+      "currentSha256": "717167658fa49110c04db6d82ccbdf1e3bf9efb77008fa5cfc2f425551dfe9df",
+      "testedSha256": "717167658fa49110c04db6d82ccbdf1e3bf9efb77008fa5cfc2f425551dfe9df"
+    },
+    {
+      "path": "web/lib/live-route-scoring.ts",
+      "currentSha256": "b69619c29758536d69954fbfca9335174819121e16c130ba3746a80e21242521",
+      "testedSha256": "b69619c29758536d69954fbfca9335174819121e16c130ba3746a80e21242521"
+    },
+    {
+      "path": "web/lib/local-glyph-protocol.ts",
+      "currentSha256": "b4b9a3220c1c10e2542c992bccc9aa41228d907fc02444ace84ce3e7446c5f71",
+      "testedSha256": "b4b9a3220c1c10e2542c992bccc9aa41228d907fc02444ace84ce3e7446c5f71"
+    },
+    {
+      "path": "web/lib/locked-score-availability.ts",
+      "currentSha256": "8e9adcd7e2b83d6a6d9fbc8c93442cc9a12e32caf2ac7643feaadf6d4ee7de0c",
+      "testedSha256": "8e9adcd7e2b83d6a6d9fbc8c93442cc9a12e32caf2ac7643feaadf6d4ee7de0c"
+    },
+    {
+      "path": "web/lib/map-viewport.ts",
+      "currentSha256": "49950f3193d01a2b2c9243c7d5c2e8341d2fa3ceb56ddf859ba6e9fc54d96d15",
+      "testedSha256": "49950f3193d01a2b2c9243c7d5c2e8341d2fa3ceb56ddf859ba6e9fc54d96d15"
+    },
+    {
+      "path": "web/lib/nearest-transit.ts",
+      "currentSha256": "df12643fdf9423b606680d88204980cbf180f563f2641332b4136a516abfc2ad",
+      "testedSha256": "df12643fdf9423b606680d88204980cbf180f563f2641332b4136a516abfc2ad"
+    },
+    {
+      "path": "web/lib/onemap-search.ts",
+      "currentSha256": "6aff99e5fed66948a90c12e711a7fb93d0e8a20697bf847f2c262d2b5c874757",
+      "testedSha256": "6aff99e5fed66948a90c12e711a7fb93d0e8a20697bf847f2c262d2b5c874757"
+    },
+    {
+      "path": "web/lib/polyline.ts",
+      "currentSha256": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e",
+      "testedSha256": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e"
+    },
+    {
+      "path": "web/lib/published-exposure-sections.ts",
+      "currentSha256": "f81f4d2b17acde090bb8cbcc9799cbccabce9bbfc34976a765015947ef3522cf",
+      "testedSha256": "f81f4d2b17acde090bb8cbcc9799cbccabce9bbfc34976a765015947ef3522cf"
+    },
+    {
+      "path": "web/lib/published-transit-choices.ts",
+      "currentSha256": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0",
+      "testedSha256": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0"
+    },
+    {
+      "path": "web/lib/published-transit-options.ts",
+      "currentSha256": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82",
+      "testedSha256": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82"
+    },
+    {
+      "path": "web/lib/published-walk-selection.ts",
+      "currentSha256": "b6403d266cacce74930dc5e98ac3b5f3e971227807b58e5f4f5e7f76783576d2",
+      "testedSha256": "b6403d266cacce74930dc5e98ac3b5f3e971227807b58e5f4f5e7f76783576d2"
+    },
+    {
+      "path": "web/lib/published-walk-view.ts",
+      "currentSha256": "f4969aea23227fefe9154848541ba3349c433a59fecf891d647d99c0312ff618",
+      "testedSha256": "f4969aea23227fefe9154848541ba3349c433a59fecf891d647d99c0312ff618"
+    },
+    {
+      "path": "web/lib/route-display.ts",
+      "currentSha256": "611d1a5d50deb74776f8c79dd67a0b4f48e0fb8647e4e3f5237d923403b4088d",
+      "testedSha256": "611d1a5d50deb74776f8c79dd67a0b4f48e0fb8647e4e3f5237d923403b4088d"
+    },
+    {
+      "path": "web/lib/route-geojson.ts",
+      "currentSha256": "3485e2692a46f92cdfbc7512a8ce95654656cd9beee7c1858ab230d373f60543",
+      "testedSha256": "3485e2692a46f92cdfbc7512a8ce95654656cd9beee7c1858ab230d373f60543"
+    },
+    {
+      "path": "web/lib/service-worker-cache.ts",
+      "currentSha256": "c2f9d464baf18d4404a68e55bee937cb9ad8bb0a8f90c011322fa6f701ea3a89",
+      "testedSha256": "c2f9d464baf18d4404a68e55bee937cb9ad8bb0a8f90c011322fa6f701ea3a89"
+    },
+    {
+      "path": "web/lib/source-freshness.ts",
+      "currentSha256": "4644ab5396eeef9e56046761c16b1bf0ea7d7137507a7a030cfe1644d132ceed",
+      "testedSha256": "4644ab5396eeef9e56046761c16b1bf0ea7d7137507a7a030cfe1644d132ceed"
+    },
+    {
+      "path": "web/lib/subscore-ranking.ts",
+      "currentSha256": "d8f3f9e6813ddc230af0cafd9eab414aec3e4fb87634447c4c815c50432e9b6a",
+      "testedSha256": "d8f3f9e6813ddc230af0cafd9eab414aec3e4fb87634447c4c815c50432e9b6a"
+    },
+    {
+      "path": "web/lib/transit-popup.ts",
+      "currentSha256": "b771d147079b4b5d6cf0b45530af8b0154f0dd8ddaca5fd6dadcd6fc517a6ade",
+      "testedSha256": "b771d147079b4b5d6cf0b45530af8b0154f0dd8ddaca5fd6dadcd6fc517a6ade"
+    },
+    {
+      "path": "web/lib/types.ts",
+      "currentSha256": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98",
+      "testedSha256": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98"
+    },
+    {
+      "path": "web/lib/walk-metrics.ts",
+      "currentSha256": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f",
+      "testedSha256": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f"
+    },
+    {
+      "path": "web/next-env.d.ts",
+      "currentSha256": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc",
+      "testedSha256": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc"
+    },
+    {
+      "path": "web/next.config.js",
+      "currentSha256": "9dabd78e5bf0154a2438234d3b14b850af6251c55b9480dc5db0f07bd63c87ab",
+      "testedSha256": "9dabd78e5bf0154a2438234d3b14b850af6251c55b9480dc5db0f07bd63c87ab"
+    },
+    {
+      "path": "web/package-lock.json",
+      "currentSha256": "04765d87615d6d3f835adcc311b0489665e82113744d1cf291836ef8ed3aeb4e",
+      "testedSha256": "04765d87615d6d3f835adcc311b0489665e82113744d1cf291836ef8ed3aeb4e"
+    },
+    {
+      "path": "web/package.json",
+      "currentSha256": "2a3d13156cece44b108e090d9069f36297d0c53fcb0e760f2138516a6d4b7ae9",
+      "testedSha256": "2a3d13156cece44b108e090d9069f36297d0c53fcb0e760f2138516a6d4b7ae9"
+    },
+    {
+      "path": "web/scripts/browser-smoke.mjs",
+      "currentSha256": "e7b2e794bddac3636fa68bb23a72b0556b2150cc10079dff974c108432862185",
+      "testedSha256": "e7b2e794bddac3636fa68bb23a72b0556b2150cc10079dff974c108432862185"
+    },
+    {
+      "path": "web/scripts/ensure-data-bundle.mjs",
+      "currentSha256": "637966de4f209fb88bd9323e99e32b62401f8fe7d2c3fc565a75f4390ed43477",
+      "testedSha256": "637966de4f209fb88bd9323e99e32b62401f8fe7d2c3fc565a75f4390ed43477"
+    },
+    {
+      "path": "web/scripts/ignore-build.mjs",
+      "currentSha256": "12c54471d0fa4a6626e06401659ce2aaa9c052ec5d94c900fd12ee1a4c911126",
+      "testedSha256": "12c54471d0fa4a6626e06401659ce2aaa9c052ec5d94c900fd12ee1a4c911126"
+    },
+    {
+      "path": "web/scripts/measure-lookup-transfer.mjs",
+      "currentSha256": "93aa67d7d8ed90cad5f18a56b4b28bfc5d9bdfe9acf9564da47cdf4e716c46fe",
+      "testedSha256": "93aa67d7d8ed90cad5f18a56b4b28bfc5d9bdfe9acf9564da47cdf4e716c46fe"
+    },
+    {
+      "path": "web/scripts/revamp-browser.mjs",
+      "currentSha256": "48dfb9172af03d4f7f7fa5e9df4dfb8495cfe8be673d5b81ed7e4c145ee75461",
+      "testedSha256": "48dfb9172af03d4f7f7fa5e9df4dfb8495cfe8be673d5b81ed7e4c145ee75461"
+    },
+    {
+      "path": "web/scripts/test-web.mjs",
+      "currentSha256": "acb616c59ceb37421101d88fb86116cf9155c657fa0bd9b756d25c2f84fccce6",
+      "testedSha256": "acb616c59ceb37421101d88fb86116cf9155c657fa0bd9b756d25c2f84fccce6"
+    },
+    {
+      "path": "web/scripts/test-without-production-data.mjs",
+      "currentSha256": "8b01e905acd876d79504fcb4b4639d7ba02141c3d5eb2c4b906477ce1a0e4b44",
+      "testedSha256": "8b01e905acd876d79504fcb4b4639d7ba02141c3d5eb2c4b906477ce1a0e4b44"
+    },
+    {
+      "path": "web/tsconfig.json",
+      "currentSha256": "e5020c21a4e117f0a789a28fc54838b21ab2e287f8c2fc0efab2c811839b4459",
+      "testedSha256": "e5020c21a4e117f0a789a28fc54838b21ab2e287f8c2fc0efab2c811839b4459"
+    },
+    {
+      "path": "web/vercel.json",
+      "currentSha256": "8fa6b3ece819b65ecfbce77f6062126f3bb6b8394e36819e916849fab11baff3",
+      "testedSha256": "8fa6b3ece819b65ecfbce77f6062126f3bb6b8394e36819e916849fab11baff3"
+    },
+    {
+      "path": "web/vitest.config.ts",
+      "currentSha256": "65efb23283a46aff714d0e7893d09e60fdd3c1c4ca631ebd6606b4131c757e10",
+      "testedSha256": "65efb23283a46aff714d0e7893d09e60fdd3c1c4ca631ebd6606b4131c757e10"
+    }
+  ],
+  "inputRecheck": {
+    "reads": 49,
+    "lookupCalls": 90,
+    "logicalReads": 49,
+    "cacheHits": 0,
+    "rawBytes": 89380523,
+    "decodedBytes": 94110680,
+    "missingGzipLookups": 41,
+    "logicalMissing": 0,
+    "maxObservedRssBytes": 176652288,
+    "timingsMs": {
+      "lookup": 103.9458999999963,
+      "read": 885.7983000000027,
+      "hash": 844.4307000000044,
+      "decode": 1045.2412000000033,
+      "parse": 1483.2229000000007
+    },
+    "cacheEntries": 0,
+    "cacheBytes": 0,
+    "cacheAccounting": "decoded-bytes-not-heap",
+    "missingGzipEncodings": [
+      "scores/prefix-index.json.gz",
+      "scores/SEMBAWANG_PART_004.json.gz",
+      "scores/SIMPANG.json.gz",
+      "scores/BEDOK_PART_024.json.gz",
+      "scores/BEDOK_PART_025.json.gz",
+      "scores/BEDOK_PART_033.json.gz",
+      "scores/BEDOK_PART_034.json.gz",
+      "scores/TAMPINES_PART_001.json.gz",
+      "scores/TAMPINES_PART_002.json.gz",
+      "geom/h3/8a6526acc5b7fff.json.gz",
+      "geom/h3/8a6526aceca7fff.json.gz",
+      "geom/h3/8a6526aced87fff.json.gz",
+      "geom/h3/8a6526aceda7fff.json.gz",
+      "geom/h3/896526ac147ffff.json.gz",
+      "geom/h3/896526acec3ffff.json.gz",
+      "geom/h3/8a6526acecaffff.json.gz",
+      "geom/h3/8a6526acecb7fff.json.gz",
+      "geom/h3/8a6526aced9ffff.json.gz",
+      "geom/h3/8a6526ac336ffff.json.gz",
+      "geom/h3/8a6526aced97fff.json.gz",
+      "geom/h3/8a6526ac3b4ffff.json.gz",
+      "geom/h3/896526ac173ffff.json.gz",
+      "geom/h3/896526ac17bffff.json.gz",
+      "geom/h3/896526ac12bffff.json.gz",
+      "geom/h3/896526ac163ffff.json.gz",
+      "geom/h3/896526ac33bffff.json.gz",
+      "geom/h3/8a6526ac30effff.json.gz",
+      "geom/h3/8a6526ac30f7fff.json.gz",
+      "geom/h3/8a6526ac3087fff.json.gz",
+      "geom/h3/8a6526ac3097fff.json.gz",
+      "geom/h3/8a6526ac309ffff.json.gz",
+      "geom/h3/8a6526ac3727fff.json.gz",
+      "geom/h3/8a6526ac3737fff.json.gz",
+      "geom/h3/8a6526ac308ffff.json.gz",
+      "geom/h3/896526ac347ffff.json.gz",
+      "geom/h3/896526ac343ffff.json.gz",
+      "geom/h3/8a6526ac376ffff.json.gz",
+      "geom/h3/896526ac32bffff.json.gz",
+      "geom/h3/8a6526ac30cffff.json.gz",
+      "geom/h3/8a6526ac3767fff.json.gz",
+      "geom/h3/8a6526ac3747fff.json.gz"
+    ],
+    "logicalMissingPaths": [],
+    "files": {
+      "manifest.json.gz": {
+        "physicalPath": "manifest.json.gz",
+        "expectedSha256": "4deba7215639f6ba8be7cd2e8d85f0dd0c35071942b93c1a5c1278e80b1bd642",
+        "sha256": "4deba7215639f6ba8be7cd2e8d85f0dd0c35071942b93c1a5c1278e80b1bd642",
+        "decodedSha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+        "verified": true,
+        "bytes": 3281,
+        "decodedBytes": 13626,
+        "readCount": 1,
+        "mtimeNs": "1787998298520942900"
+      },
+      "scores/index.json.gz": {
+        "physicalPath": "scores/index.json.gz",
+        "expectedSha256": "798feefeec2099bb04885d107fd0113c3c5b3df9b3bae09aa6913a73588bfffa",
+        "sha256": "798feefeec2099bb04885d107fd0113c3c5b3df9b3bae09aa6913a73588bfffa",
+        "decodedSha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+        "verified": true,
+        "bytes": 308035,
+        "decodedBytes": 1751005,
+        "readCount": 1,
+        "mtimeNs": "1787998299398036100"
+      },
+      "scores/prefix-index.json": {
+        "physicalPath": "scores/prefix-index.json",
+        "expectedSha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+        "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+        "decodedSha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+        "verified": true,
+        "bytes": 39674,
+        "decodedBytes": 39674,
+        "readCount": 1,
+        "mtimeNs": "1785936294000000000"
+      },
+      "geom/postal-index.json.gz": {
+        "physicalPath": "geom/postal-index.json.gz",
+        "expectedSha256": "2edaa5768f3aa7b6d8ec2217ce5b61117007d96bf815263edd3c58616f317a29",
+        "sha256": "2edaa5768f3aa7b6d8ec2217ce5b61117007d96bf815263edd3c58616f317a29",
+        "decodedSha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+        "verified": true,
+        "bytes": 347381,
+        "decodedBytes": 3538342,
+        "readCount": 1,
+        "mtimeNs": "1787998300936513800"
+      },
+      "scores/SEMBAWANG_PART_004.json": {
+        "physicalPath": "scores/SEMBAWANG_PART_004.json",
+        "expectedSha256": "1c89f361dc9346bdee76f403719c97a7e5bf6472bcea59dbe44015f619836018",
+        "sha256": "1c89f361dc9346bdee76f403719c97a7e5bf6472bcea59dbe44015f619836018",
+        "decodedSha256": "1c89f361dc9346bdee76f403719c97a7e5bf6472bcea59dbe44015f619836018",
+        "verified": true,
+        "bytes": 5238992,
+        "decodedBytes": 5238992,
+        "readCount": 1,
+        "mtimeNs": "1785936152000000000"
+      },
+      "scores/SIMPANG.json": {
+        "physicalPath": "scores/SIMPANG.json",
+        "expectedSha256": "ccc342cf2b84f2e4ef74b87c47fce3710698adb5ff8317dbf894e1029bd73305",
+        "sha256": "ccc342cf2b84f2e4ef74b87c47fce3710698adb5ff8317dbf894e1029bd73305",
+        "decodedSha256": "ccc342cf2b84f2e4ef74b87c47fce3710698adb5ff8317dbf894e1029bd73305",
+        "verified": true,
+        "bytes": 7388,
+        "decodedBytes": 7388,
+        "readCount": 1,
+        "mtimeNs": "1785936230000000000"
+      },
+      "scores/BEDOK_PART_024.json": {
+        "physicalPath": "scores/BEDOK_PART_024.json",
+        "expectedSha256": "8cc2a7afd13814f165ab7f6445d0345ec6766b62f23705415e667fc87902995b",
+        "sha256": "8cc2a7afd13814f165ab7f6445d0345ec6766b62f23705415e667fc87902995b",
+        "decodedSha256": "8cc2a7afd13814f165ab7f6445d0345ec6766b62f23705415e667fc87902995b",
+        "verified": true,
+        "bytes": 5233294,
+        "decodedBytes": 5233294,
+        "readCount": 1,
+        "mtimeNs": "1785935838000000000"
+      },
+      "scores/BEDOK_PART_025.json": {
+        "physicalPath": "scores/BEDOK_PART_025.json",
+        "expectedSha256": "3c7df97bd194e57b15c43a694acf10b0cc44e2c85de734834159e33ebfe345f5",
+        "sha256": "3c7df97bd194e57b15c43a694acf10b0cc44e2c85de734834159e33ebfe345f5",
+        "decodedSha256": "3c7df97bd194e57b15c43a694acf10b0cc44e2c85de734834159e33ebfe345f5",
+        "verified": true,
+        "bytes": 5235893,
+        "decodedBytes": 5235893,
+        "readCount": 1,
+        "mtimeNs": "1785935838000000000"
+      },
+      "scores/BEDOK_PART_033.json": {
+        "physicalPath": "scores/BEDOK_PART_033.json",
+        "expectedSha256": "e3d2c8bc000f6f111e9e2eeddab35977cc83ca9d3c5a226606c669c154c223b5",
+        "sha256": "e3d2c8bc000f6f111e9e2eeddab35977cc83ca9d3c5a226606c669c154c223b5",
+        "decodedSha256": "e3d2c8bc000f6f111e9e2eeddab35977cc83ca9d3c5a226606c669c154c223b5",
+        "verified": true,
+        "bytes": 5242034,
+        "decodedBytes": 5242034,
+        "readCount": 1,
+        "mtimeNs": "1785935838000000000"
+      },
+      "scores/BEDOK_PART_034.json": {
+        "physicalPath": "scores/BEDOK_PART_034.json",
+        "expectedSha256": "2ba25d7b7c03f4880294e61698c6ae4455236e96133e989a0e8b3afe7941f31e",
+        "sha256": "2ba25d7b7c03f4880294e61698c6ae4455236e96133e989a0e8b3afe7941f31e",
+        "decodedSha256": "2ba25d7b7c03f4880294e61698c6ae4455236e96133e989a0e8b3afe7941f31e",
+        "verified": true,
+        "bytes": 5241821,
+        "decodedBytes": 5241821,
+        "readCount": 1,
+        "mtimeNs": "1785935838000000000"
+      },
+      "scores/TAMPINES_PART_001.json": {
+        "physicalPath": "scores/TAMPINES_PART_001.json",
+        "expectedSha256": "f551e18a1e3a6f399052021a6217527dff62c25e8a6e75b8e832a432c4d78a3d",
+        "sha256": "f551e18a1e3a6f399052021a6217527dff62c25e8a6e75b8e832a432c4d78a3d",
+        "decodedSha256": "f551e18a1e3a6f399052021a6217527dff62c25e8a6e75b8e832a432c4d78a3d",
+        "verified": true,
+        "bytes": 5232974,
+        "decodedBytes": 5232974,
+        "readCount": 1,
+        "mtimeNs": "1785936248000000000"
+      },
+      "scores/TAMPINES_PART_002.json": {
+        "physicalPath": "scores/TAMPINES_PART_002.json",
+        "expectedSha256": "b94f41472feac7c8a2eeb12046b50f4c71b915033871564ea7d8917477aefa9c",
+        "sha256": "b94f41472feac7c8a2eeb12046b50f4c71b915033871564ea7d8917477aefa9c",
+        "decodedSha256": "b94f41472feac7c8a2eeb12046b50f4c71b915033871564ea7d8917477aefa9c",
+        "verified": true,
+        "bytes": 5242836,
+        "decodedBytes": 5242836,
+        "readCount": 1,
+        "mtimeNs": "1785936248000000000"
+      },
+      "geom/postal-prefix/768.json.gz": {
+        "physicalPath": "geom/postal-prefix/768.json.gz",
+        "expectedSha256": "bbd0dd3d3b1b5cd114ab6946a297742836029cd27adfd3b3047fc506afcd3457",
+        "sha256": "bbd0dd3d3b1b5cd114ab6946a297742836029cd27adfd3b3047fc506afcd3457",
+        "decodedSha256": "ccd8e75bb8b7ae430803a6bfa6dd9dea1d46844abe404b1effa72999a218f2b7",
+        "verified": true,
+        "bytes": 1513,
+        "decodedBytes": 14419,
+        "readCount": 1,
+        "mtimeNs": "1787998310289788000"
+      },
+      "geom/postal-prefix/465.json.gz": {
+        "physicalPath": "geom/postal-prefix/465.json.gz",
+        "expectedSha256": "7ba59c4fea82b12c929cc175711caedda6df3db2647eaab895f06c744aace3a3",
+        "sha256": "7ba59c4fea82b12c929cc175711caedda6df3db2647eaab895f06c744aace3a3",
+        "decodedSha256": "8a21d6951a3abaf1093be1f985d97dbe20e29529354ecdafb6673e6f37187206",
+        "verified": true,
+        "bytes": 1507,
+        "decodedBytes": 14959,
+        "readCount": 1,
+        "mtimeNs": "1787998306692245700"
+      },
+      "geom/h3/8a6526acc5b7fff.json": {
+        "physicalPath": "geom/h3/8a6526acc5b7fff.json",
+        "expectedSha256": "be116c362be9021067f1c4c5745c2e023150355eacd5274ab12dedadd1ce3443",
+        "sha256": "be116c362be9021067f1c4c5745c2e023150355eacd5274ab12dedadd1ce3443",
+        "decodedSha256": "be116c362be9021067f1c4c5745c2e023150355eacd5274ab12dedadd1ce3443",
+        "verified": true,
+        "bytes": 198516,
+        "decodedBytes": 198516,
+        "readCount": 1,
+        "mtimeNs": "1785938410000000000"
+      },
+      "geom/h3/8a6526aceca7fff.json": {
+        "physicalPath": "geom/h3/8a6526aceca7fff.json",
+        "expectedSha256": "885e05b1dfc38ac2bfdcf46a22f2922f95fccca1dd89848cec9fb7f986f8c715",
+        "sha256": "885e05b1dfc38ac2bfdcf46a22f2922f95fccca1dd89848cec9fb7f986f8c715",
+        "decodedSha256": "885e05b1dfc38ac2bfdcf46a22f2922f95fccca1dd89848cec9fb7f986f8c715",
+        "verified": true,
+        "bytes": 1183098,
+        "decodedBytes": 1183098,
+        "readCount": 1,
+        "mtimeNs": "1785938414000000000"
+      },
+      "geom/h3/8a6526aced87fff.json": {
+        "physicalPath": "geom/h3/8a6526aced87fff.json",
+        "expectedSha256": "eb6d81711fc64bd4234cd16c6d1b7833675c7ada4ce8907b6b78131405f38370",
+        "sha256": "eb6d81711fc64bd4234cd16c6d1b7833675c7ada4ce8907b6b78131405f38370",
+        "decodedSha256": "eb6d81711fc64bd4234cd16c6d1b7833675c7ada4ce8907b6b78131405f38370",
+        "verified": true,
+        "bytes": 560070,
+        "decodedBytes": 560070,
+        "readCount": 1,
+        "mtimeNs": "1785938414000000000"
+      },
+      "geom/h3/8a6526aceda7fff.json": {
+        "physicalPath": "geom/h3/8a6526aceda7fff.json",
+        "expectedSha256": "73075c402ab4efb6f256d86961e5f9c8edc12a90d4c801121b8ea6c764b8430a",
+        "sha256": "73075c402ab4efb6f256d86961e5f9c8edc12a90d4c801121b8ea6c764b8430a",
+        "decodedSha256": "73075c402ab4efb6f256d86961e5f9c8edc12a90d4c801121b8ea6c764b8430a",
+        "verified": true,
+        "bytes": 66187,
+        "decodedBytes": 66187,
+        "readCount": 1,
+        "mtimeNs": "1785938414000000000"
+      },
+      "geom/h3/896526ac147ffff.json": {
+        "physicalPath": "geom/h3/896526ac147ffff.json",
+        "expectedSha256": "264cc077753dd4ee3c9e4fdecdf75af637dcd490c558193c2ee1e323175f0e9f",
+        "sha256": "264cc077753dd4ee3c9e4fdecdf75af637dcd490c558193c2ee1e323175f0e9f",
+        "decodedSha256": "264cc077753dd4ee3c9e4fdecdf75af637dcd490c558193c2ee1e323175f0e9f",
+        "verified": true,
+        "bytes": 1811953,
+        "decodedBytes": 1811953,
+        "readCount": 1,
+        "mtimeNs": "1785938362000000000"
+      },
+      "geom/h3/896526acec3ffff.json": {
+        "physicalPath": "geom/h3/896526acec3ffff.json",
+        "expectedSha256": "69600ad6dd63899782c092269be243b52ac4b5b3f4ae8596fb8f7b09d590895f",
+        "sha256": "69600ad6dd63899782c092269be243b52ac4b5b3f4ae8596fb8f7b09d590895f",
+        "decodedSha256": "69600ad6dd63899782c092269be243b52ac4b5b3f4ae8596fb8f7b09d590895f",
+        "verified": true,
+        "bytes": 1699666,
+        "decodedBytes": 1699666,
+        "readCount": 1,
+        "mtimeNs": "1785938368000000000"
+      },
+      "geom/h3/8a6526acecaffff.json": {
+        "physicalPath": "geom/h3/8a6526acecaffff.json",
+        "expectedSha256": "e1235ef922fd2a922dddf9dc62b43f02029b475eee52fa4f3fe35f82a6e10944",
+        "sha256": "e1235ef922fd2a922dddf9dc62b43f02029b475eee52fa4f3fe35f82a6e10944",
+        "decodedSha256": "e1235ef922fd2a922dddf9dc62b43f02029b475eee52fa4f3fe35f82a6e10944",
+        "verified": true,
+        "bytes": 1275363,
+        "decodedBytes": 1275363,
+        "readCount": 1,
+        "mtimeNs": "1785938414000000000"
+      },
+      "geom/h3/8a6526acecb7fff.json": {
+        "physicalPath": "geom/h3/8a6526acecb7fff.json",
+        "expectedSha256": "a10036021b0edbfa87811e93de273ee5edb48de19db9ff7c46a530f73be5916d",
+        "sha256": "a10036021b0edbfa87811e93de273ee5edb48de19db9ff7c46a530f73be5916d",
+        "decodedSha256": "a10036021b0edbfa87811e93de273ee5edb48de19db9ff7c46a530f73be5916d",
+        "verified": true,
+        "bytes": 4061320,
+        "decodedBytes": 4061320,
+        "readCount": 1,
+        "mtimeNs": "1785938414000000000"
+      },
+      "geom/h3/8a6526aced9ffff.json": {
+        "physicalPath": "geom/h3/8a6526aced9ffff.json",
+        "expectedSha256": "3aaceed29af4f23886bd9a023ddac9408882ac93dddb1d36599fcee6cb3f4010",
+        "sha256": "3aaceed29af4f23886bd9a023ddac9408882ac93dddb1d36599fcee6cb3f4010",
+        "decodedSha256": "3aaceed29af4f23886bd9a023ddac9408882ac93dddb1d36599fcee6cb3f4010",
+        "verified": true,
+        "bytes": 2398864,
+        "decodedBytes": 2398864,
+        "readCount": 1,
+        "mtimeNs": "1785938414000000000"
+      },
+      "geom/h3/8a6526ac336ffff.json": {
+        "physicalPath": "geom/h3/8a6526ac336ffff.json",
+        "expectedSha256": "809041b7c1002bd4e5e65daeb790b36d0b8f6c03fa3dc41ce02db0444d888453",
+        "sha256": "809041b7c1002bd4e5e65daeb790b36d0b8f6c03fa3dc41ce02db0444d888453",
+        "decodedSha256": "809041b7c1002bd4e5e65daeb790b36d0b8f6c03fa3dc41ce02db0444d888453",
+        "verified": true,
+        "bytes": 1999588,
+        "decodedBytes": 1999588,
+        "readCount": 1,
+        "mtimeNs": "1785938402000000000"
+      },
+      "geom/h3/8a6526aced97fff.json": {
+        "physicalPath": "geom/h3/8a6526aced97fff.json",
+        "expectedSha256": "1549d99a0f176d0d1bf57d7fa21ed4518a042e5e6dd7d5559bd4ac52692b996d",
+        "sha256": "1549d99a0f176d0d1bf57d7fa21ed4518a042e5e6dd7d5559bd4ac52692b996d",
+        "decodedSha256": "1549d99a0f176d0d1bf57d7fa21ed4518a042e5e6dd7d5559bd4ac52692b996d",
+        "verified": true,
+        "bytes": 2132977,
+        "decodedBytes": 2132977,
+        "readCount": 1,
+        "mtimeNs": "1785938414000000000"
+      },
+      "geom/h3/8a6526ac3b4ffff.json": {
+        "physicalPath": "geom/h3/8a6526ac3b4ffff.json",
+        "expectedSha256": "66bf00dd3a1bcee9260595824d3971a01da9de44445a32d8736af2d621cf5c6f",
+        "sha256": "66bf00dd3a1bcee9260595824d3971a01da9de44445a32d8736af2d621cf5c6f",
+        "decodedSha256": "66bf00dd3a1bcee9260595824d3971a01da9de44445a32d8736af2d621cf5c6f",
+        "verified": true,
+        "bytes": 1557326,
+        "decodedBytes": 1557326,
+        "readCount": 1,
+        "mtimeNs": "1785938402000000000"
+      },
+      "geom/h3/896526ac173ffff.json": {
+        "physicalPath": "geom/h3/896526ac173ffff.json",
+        "expectedSha256": "b351d01deafdd5a57770031593884fc5d2e19abc08cefeae3429491b37500e3e",
+        "sha256": "b351d01deafdd5a57770031593884fc5d2e19abc08cefeae3429491b37500e3e",
+        "decodedSha256": "b351d01deafdd5a57770031593884fc5d2e19abc08cefeae3429491b37500e3e",
+        "verified": true,
+        "bytes": 1916859,
+        "decodedBytes": 1916859,
+        "readCount": 1,
+        "mtimeNs": "1785938362000000000"
+      },
+      "geom/h3/896526ac17bffff.json": {
+        "physicalPath": "geom/h3/896526ac17bffff.json",
+        "expectedSha256": "4f10d0c8c12065c45a5137563d161c51ea1f133af341eec3790264e6a5f3aa24",
+        "sha256": "4f10d0c8c12065c45a5137563d161c51ea1f133af341eec3790264e6a5f3aa24",
+        "decodedSha256": "4f10d0c8c12065c45a5137563d161c51ea1f133af341eec3790264e6a5f3aa24",
+        "verified": true,
+        "bytes": 2456583,
+        "decodedBytes": 2456583,
+        "readCount": 1,
+        "mtimeNs": "1785938362000000000"
+      },
+      "geom/h3/896526ac12bffff.json": {
+        "physicalPath": "geom/h3/896526ac12bffff.json",
+        "expectedSha256": "620c54b58ddac1e87b89beed3c175aa23e6da0d5fc898955570c01e5d9e4704a",
+        "sha256": "620c54b58ddac1e87b89beed3c175aa23e6da0d5fc898955570c01e5d9e4704a",
+        "decodedSha256": "620c54b58ddac1e87b89beed3c175aa23e6da0d5fc898955570c01e5d9e4704a",
+        "verified": true,
+        "bytes": 3439449,
+        "decodedBytes": 3439449,
+        "readCount": 1,
+        "mtimeNs": "1785938362000000000"
+      },
+      "geom/h3/896526ac163ffff.json": {
+        "physicalPath": "geom/h3/896526ac163ffff.json",
+        "expectedSha256": "80deb0bf602e57ad1c92ebc0ebadaaba96a9dee1b35c51e6779192d67a3f24a3",
+        "sha256": "80deb0bf602e57ad1c92ebc0ebadaaba96a9dee1b35c51e6779192d67a3f24a3",
+        "decodedSha256": "80deb0bf602e57ad1c92ebc0ebadaaba96a9dee1b35c51e6779192d67a3f24a3",
+        "verified": true,
+        "bytes": 2237590,
+        "decodedBytes": 2237590,
+        "readCount": 1,
+        "mtimeNs": "1785938362000000000"
+      },
+      "geom/postal-prefix/466.json.gz": {
+        "physicalPath": "geom/postal-prefix/466.json.gz",
+        "expectedSha256": "fe427dbfd1ee4574a8c023d07f77b1fc60b40a90eb87c36bf9df2568915a7810",
+        "sha256": "fe427dbfd1ee4574a8c023d07f77b1fc60b40a90eb87c36bf9df2568915a7810",
+        "decodedSha256": "4295baa4904c609ce48eb6b5b401a32db488617b1ddbce4b72ae2220cce3425b",
+        "verified": true,
+        "bytes": 2292,
+        "decodedBytes": 23302,
+        "readCount": 1,
+        "mtimeNs": "1787998306703302300"
+      },
+      "geom/postal-prefix/486.json.gz": {
+        "physicalPath": "geom/postal-prefix/486.json.gz",
+        "expectedSha256": "4ceeccb4c9153d2827acf64f3db8a49a45e8e6c44dfcefcb0bc273ff1a5bc3fc",
+        "sha256": "4ceeccb4c9153d2827acf64f3db8a49a45e8e6c44dfcefcb0bc273ff1a5bc3fc",
+        "decodedSha256": "773dd39c889ee42798a9990578feea08f4ea2643a61264bf4eb37bfa49cfb795",
+        "verified": true,
+        "bytes": 2428,
+        "decodedBytes": 24355,
+        "readCount": 1,
+        "mtimeNs": "1787998306856388900"
+      },
+      "geom/h3/896526ac33bffff.json": {
+        "physicalPath": "geom/h3/896526ac33bffff.json",
+        "expectedSha256": "70737ddea5c2e8cbb59e55eafdaf43ec3fc29b2f2d78b52c4d6c7fc022b63eab",
+        "sha256": "70737ddea5c2e8cbb59e55eafdaf43ec3fc29b2f2d78b52c4d6c7fc022b63eab",
+        "decodedSha256": "70737ddea5c2e8cbb59e55eafdaf43ec3fc29b2f2d78b52c4d6c7fc022b63eab",
+        "verified": true,
+        "bytes": 4073982,
+        "decodedBytes": 4073982,
+        "readCount": 1,
+        "mtimeNs": "1785938364000000000"
+      },
+      "geom/h3/8a6526ac30effff.json": {
+        "physicalPath": "geom/h3/8a6526ac30effff.json",
+        "expectedSha256": "629251fc47403b0ce1fe0ccdb9d0d91409575bea6e647495e7f5f9a48e667923",
+        "sha256": "629251fc47403b0ce1fe0ccdb9d0d91409575bea6e647495e7f5f9a48e667923",
+        "decodedSha256": "629251fc47403b0ce1fe0ccdb9d0d91409575bea6e647495e7f5f9a48e667923",
+        "verified": true,
+        "bytes": 329614,
+        "decodedBytes": 329614,
+        "readCount": 1,
+        "mtimeNs": "1785938402000000000"
+      },
+      "geom/h3/8a6526ac30f7fff.json": {
+        "physicalPath": "geom/h3/8a6526ac30f7fff.json",
+        "expectedSha256": "bb3c8ab13171d0905fdbc0b4113e91de594490816d5b66738696e762e4b82d92",
+        "sha256": "bb3c8ab13171d0905fdbc0b4113e91de594490816d5b66738696e762e4b82d92",
+        "decodedSha256": "bb3c8ab13171d0905fdbc0b4113e91de594490816d5b66738696e762e4b82d92",
+        "verified": true,
+        "bytes": 368776,
+        "decodedBytes": 368776,
+        "readCount": 1,
+        "mtimeNs": "1785938402000000000"
+      },
+      "geom/h3/8a6526ac3087fff.json": {
+        "physicalPath": "geom/h3/8a6526ac3087fff.json",
+        "expectedSha256": "b22369abffbffb82a99111a5bdd2dbde75c1ae922573ab44a7e91a04d6f3c061",
+        "sha256": "b22369abffbffb82a99111a5bdd2dbde75c1ae922573ab44a7e91a04d6f3c061",
+        "decodedSha256": "b22369abffbffb82a99111a5bdd2dbde75c1ae922573ab44a7e91a04d6f3c061",
+        "verified": true,
+        "bytes": 1100203,
+        "decodedBytes": 1100203,
+        "readCount": 1,
+        "mtimeNs": "1785938402000000000"
+      },
+      "geom/postal-prefix/487.json.gz": {
+        "physicalPath": "geom/postal-prefix/487.json.gz",
+        "expectedSha256": "047bdfa0ea35c218840649767634a7d4975c72852cad3eb893433cff16b84f5f",
+        "sha256": "047bdfa0ea35c218840649767634a7d4975c72852cad3eb893433cff16b84f5f",
+        "decodedSha256": "9e17470d4d381e47fd160161bbfdcdf49b6ecc858baa885ad80b32fb0fce33c5",
+        "verified": true,
+        "bytes": 1883,
+        "decodedBytes": 18469,
+        "readCount": 1,
+        "mtimeNs": "1787998306863183100"
+      },
+      "geom/h3/8a6526ac3097fff.json": {
+        "physicalPath": "geom/h3/8a6526ac3097fff.json",
+        "expectedSha256": "7d6fe62e450a338e285c11fedb3020378b71edacd77ce07ca21134da701fd107",
+        "sha256": "7d6fe62e450a338e285c11fedb3020378b71edacd77ce07ca21134da701fd107",
+        "decodedSha256": "7d6fe62e450a338e285c11fedb3020378b71edacd77ce07ca21134da701fd107",
+        "verified": true,
+        "bytes": 1324309,
+        "decodedBytes": 1324309,
+        "readCount": 1,
+        "mtimeNs": "1785938402000000000"
+      },
+      "geom/h3/8a6526ac309ffff.json": {
+        "physicalPath": "geom/h3/8a6526ac309ffff.json",
+        "expectedSha256": "b0dc8f398293d199d3a4b5fe84989bf3ef9d8203bd681e0a04c654039de3dbbd",
+        "sha256": "b0dc8f398293d199d3a4b5fe84989bf3ef9d8203bd681e0a04c654039de3dbbd",
+        "decodedSha256": "b0dc8f398293d199d3a4b5fe84989bf3ef9d8203bd681e0a04c654039de3dbbd",
+        "verified": true,
+        "bytes": 893160,
+        "decodedBytes": 893160,
+        "readCount": 1,
+        "mtimeNs": "1785938402000000000"
+      },
+      "geom/h3/8a6526ac3727fff.json": {
+        "physicalPath": "geom/h3/8a6526ac3727fff.json",
+        "expectedSha256": "295eca54927fad38d9eefb1b3725fe1fff87771e4e99ba038beb8f11fe2d1a3d",
+        "sha256": "295eca54927fad38d9eefb1b3725fe1fff87771e4e99ba038beb8f11fe2d1a3d",
+        "decodedSha256": "295eca54927fad38d9eefb1b3725fe1fff87771e4e99ba038beb8f11fe2d1a3d",
+        "verified": true,
+        "bytes": 1075702,
+        "decodedBytes": 1075702,
+        "readCount": 1,
+        "mtimeNs": "1785938402000000000"
+      },
+      "geom/h3/8a6526ac3737fff.json": {
+        "physicalPath": "geom/h3/8a6526ac3737fff.json",
+        "expectedSha256": "f231ed4d598cdb6d4f4fb8a1b8259a55ddefe452f4f627eb2b7aee89403b4819",
+        "sha256": "f231ed4d598cdb6d4f4fb8a1b8259a55ddefe452f4f627eb2b7aee89403b4819",
+        "decodedSha256": "f231ed4d598cdb6d4f4fb8a1b8259a55ddefe452f4f627eb2b7aee89403b4819",
+        "verified": true,
+        "bytes": 513193,
+        "decodedBytes": 513193,
+        "readCount": 1,
+        "mtimeNs": "1785938402000000000"
+      },
+      "geom/h3/8a6526ac308ffff.json": {
+        "physicalPath": "geom/h3/8a6526ac308ffff.json",
+        "expectedSha256": "2adf383f2eeb46b18ca15106945912022b961746c32ad9810f4b9c97b577a080",
+        "sha256": "2adf383f2eeb46b18ca15106945912022b961746c32ad9810f4b9c97b577a080",
+        "decodedSha256": "2adf383f2eeb46b18ca15106945912022b961746c32ad9810f4b9c97b577a080",
+        "verified": true,
+        "bytes": 1660699,
+        "decodedBytes": 1660699,
+        "readCount": 1,
+        "mtimeNs": "1785938402000000000"
+      },
+      "geom/h3/896526ac347ffff.json": {
+        "physicalPath": "geom/h3/896526ac347ffff.json",
+        "expectedSha256": "9d8e5cc3cf250941c3920db8a91a7358c5594cbcecbca3efcde9fec697044c61",
+        "sha256": "9d8e5cc3cf250941c3920db8a91a7358c5594cbcecbca3efcde9fec697044c61",
+        "decodedSha256": "9d8e5cc3cf250941c3920db8a91a7358c5594cbcecbca3efcde9fec697044c61",
+        "verified": true,
+        "bytes": 2822757,
+        "decodedBytes": 2822757,
+        "readCount": 1,
+        "mtimeNs": "1785938364000000000"
+      },
+      "geom/h3/896526ac343ffff.json": {
+        "physicalPath": "geom/h3/896526ac343ffff.json",
+        "expectedSha256": "87db9fd7a4b2a2096aa1dd005f10356e62583e9dfeace11d53f6b8e6d0ab76b6",
+        "sha256": "87db9fd7a4b2a2096aa1dd005f10356e62583e9dfeace11d53f6b8e6d0ab76b6",
+        "decodedSha256": "87db9fd7a4b2a2096aa1dd005f10356e62583e9dfeace11d53f6b8e6d0ab76b6",
+        "verified": true,
+        "bytes": 1076780,
+        "decodedBytes": 1076780,
+        "readCount": 1,
+        "mtimeNs": "1785938364000000000"
+      },
+      "geom/h3/8a6526ac376ffff.json": {
+        "physicalPath": "geom/h3/8a6526ac376ffff.json",
+        "expectedSha256": "e8c4b1a8df3260670ea2adf6cd4214cc603acdb1d9084963538c62cfcd0fc7f6",
+        "sha256": "e8c4b1a8df3260670ea2adf6cd4214cc603acdb1d9084963538c62cfcd0fc7f6",
+        "decodedSha256": "e8c4b1a8df3260670ea2adf6cd4214cc603acdb1d9084963538c62cfcd0fc7f6",
+        "verified": true,
+        "bytes": 2505792,
+        "decodedBytes": 2505792,
+        "readCount": 1,
+        "mtimeNs": "1785938402000000000"
+      },
+      "geom/h3/896526ac32bffff.json": {
+        "physicalPath": "geom/h3/896526ac32bffff.json",
+        "expectedSha256": "3e6f8167ac9c3b3c6daa9bc8bd9fe395f31d292d4e91eb2045c1db94fe2f925c",
+        "sha256": "3e6f8167ac9c3b3c6daa9bc8bd9fe395f31d292d4e91eb2045c1db94fe2f925c",
+        "decodedSha256": "3e6f8167ac9c3b3c6daa9bc8bd9fe395f31d292d4e91eb2045c1db94fe2f925c",
+        "verified": true,
+        "bytes": 988341,
+        "decodedBytes": 988341,
+        "readCount": 1,
+        "mtimeNs": "1785938364000000000"
+      },
+      "geom/h3/8a6526ac30cffff.json": {
+        "physicalPath": "geom/h3/8a6526ac30cffff.json",
+        "expectedSha256": "8da777e06b3723c08f36ff7677556f4d3f24acb4dd395cabe23170928a283c6b",
+        "sha256": "8da777e06b3723c08f36ff7677556f4d3f24acb4dd395cabe23170928a283c6b",
+        "decodedSha256": "8da777e06b3723c08f36ff7677556f4d3f24acb4dd395cabe23170928a283c6b",
+        "verified": true,
+        "bytes": 1310843,
+        "decodedBytes": 1310843,
+        "readCount": 1,
+        "mtimeNs": "1785938402000000000"
+      },
+      "geom/h3/8a6526ac3767fff.json": {
+        "physicalPath": "geom/h3/8a6526ac3767fff.json",
+        "expectedSha256": "ef10db2faf62c8203f0bab66e9e85b0d0c195b47a86229e2dd8f4f578f5c5e39",
+        "sha256": "ef10db2faf62c8203f0bab66e9e85b0d0c195b47a86229e2dd8f4f578f5c5e39",
+        "decodedSha256": "ef10db2faf62c8203f0bab66e9e85b0d0c195b47a86229e2dd8f4f578f5c5e39",
+        "verified": true,
+        "bytes": 2139600,
+        "decodedBytes": 2139600,
+        "readCount": 1,
+        "mtimeNs": "1785938402000000000"
+      },
+      "geom/h3/8a6526ac3747fff.json": {
+        "physicalPath": "geom/h3/8a6526ac3747fff.json",
+        "expectedSha256": "d1dd18593b1e23fe4f22ebd308a4063cf56c2a0880b891bf4ea0ce954545e5fb",
+        "sha256": "d1dd18593b1e23fe4f22ebd308a4063cf56c2a0880b891bf4ea0ce954545e5fb",
+        "decodedSha256": "d1dd18593b1e23fe4f22ebd308a4063cf56c2a0880b891bf4ea0ce954545e5fb",
+        "verified": true,
+        "bytes": 818137,
+        "decodedBytes": 818137,
+        "readCount": 1,
+        "mtimeNs": "1785938402000000000"
+      }
+    }
+  },
+  "fixtureAnchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "changedPaths": [
+    ".agents/STATE.md",
+    "PRODUCT-PLAN.md",
+    "decisions.md",
+    "qa/verification/REVAMP-R1-core-walk.md",
+    "web/lib/__tests__/coverage-gap-register.test.ts",
+    "web/lib/coverage-gap-register.ts"
+  ]
+}

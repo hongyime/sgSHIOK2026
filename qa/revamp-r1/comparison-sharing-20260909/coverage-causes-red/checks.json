@@ -1,0 +1,50 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs",
+    "lib/__tests__/coverage-gap-register.test.ts",
+    "--no-cache",
+    "--reporter=dot"
+  ],
+  "exitCode": 1,
+  "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n························xxxxxxxx\n\n Test Files  1 failed (1)\n      Tests  8 failed | 24 passed (32)\n   Start at  17:27:00\n   Duration  4.62s (transform 486ms, setup 0ms, import 668ms, tests 137ms, environment 1ms)\n\n",
+  "stderr": "\n⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯\n\n FAIL  lib/__tests__/coverage-gap-register.test.ts > read-only coverage gap classification > does not borrow cause claims from an invalid record {\"postal\":\"999999\"}\n FAIL  lib/__tests__/coverage-gap-register.test.ts > read-only coverage gap classification > does not borrow cause claims from an invalid record {\"state\":\"CORRUPT\"}\nAssertionError: expected 'explicit_recorded_reason' to be 'not_established' // Object.is equality\n\nExpected: \"not_established\"\nReceived: \"explicit_recorded_reason\"\n\n ❯ lib/__tests__/coverage-gap-register.test.ts:92:41\n     90|       }}});\n     91|       expect(result.scoreRecord).toBe('invalid');expect(result.reason)…\n     92|       expect(result.routeDisconnection).toBe('not_established');expect…\n       |                                         ^\n     93|       expect(result.trustRejection).toBe(false);expect(result.coordina…\n     94|       expect(result.completeLockedFields).toBe(false);\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯\n\n FAIL  lib/__tests__/coverage-gap-register.test.ts > read-only coverage gap classification > separates explicitly recorded missing coordinates from an absent address or geometry\nAssertionError: expected undefined to be 'explicit_recorded_coordinate_gap' // Object.is equality\n\n- Expected:\n\"explicit_recorded_coordinate_gap\"\n\n+ Received:\nundefined\n\n ❯ lib/__tests__/coverage-gap-register.test.ts:102:34\n    100|       provenance:{reason:'missing_coordinates_after_bounded_geocode',s…\n    101|     }});\n    102|     expect(result.coordinateGap).toBe('explicit_recorded_coordinate_ga…\n       |                                  ^\n    103|     expect(result.addressEvidence).toBe('published_index');expect(resu…\n    104|     expect(result.routeDisconnection).toBe('not_established');expect(r…\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯\n\n FAIL  lib/__tests__/coverage-gap-register.test.ts > read-only coverage gap classification > does not infer missing coordinates from incomplete or contradictory evidence {\"state\":\"NOT_YET_SCORED\",\"provenance\":{}}\n FAIL  lib/__tests__/coverage-gap-register.test.ts > read-only coverage gap classification > does not infer missing coordinates from incomplete or contradictory evidence {\"state\":\"NOT_YET_SCORED\",\"provenance\":{\"reason\":\"missing_coordinates_after_bounded_geocode\"}}\n FAIL  lib/__tests__/coverage-gap-register.test.ts > read-only coverage gap classification > does not infer missing coordinates from incomplete or contradictory evidence {\"state\":\"NOT_YET_SCORED\",\"provenance\":{\"source_status\":\"NEEDS_GEOCODE\"}}\n FAIL  lib/__tests__/coverage-gap-register.test.ts > read-only coverage gap classification > does not infer missing coordinates from incomplete or contradictory evidence {\"state\":\"NOT_YET_SCORED\",\"provenance\":{\"reason\":\"unscorable_source_status:UNKNOWN\",\"source_status\":\"UNKNOWN\"}}\n FAIL  lib/__tests__/coverage-gap-register.test.ts > read-only coverage gap classification > does not infer missing coordinates from incomplete or contradictory evidence {\"state\":\"SCORED\",\"provenance\":{\"reason\":\"missing_coordinates_after_bounded_geocode\",\"source_status\":\"NEEDS_GEOCODE\"}}\nAssertionError: expected undefined to be 'not_established' // Object.is equality\n\n- Expected:\n\"not_established\"\n\n+ Received:\nundefined\n\n ❯ lib/__tests__/coverage-gap-register.test.ts:113:124\n    111|     {state:'SCORED',provenance:{reason:'missing_coordinates_after_boun…\n    112|   ])('does not infer missing coordinates from incomplete or contradict…\n    113|     expect(coverageGapRow({...input,geometry:null,geometryLookup:'not_…\n       |                                                                                                                            ^\n    114|   });\n    115| });\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯\n\n",
+  "elapsedSeconds": 25.706,
+  "before": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "7de9e69f3d1aea5555c8211393c50fce6963d5d08e3a6f83b05f6f04c784a6fe"
+    },
+    {
+      "path": "web/lib/__tests__/coverage-gap-register.test.ts",
+      "sha256": "182ea7b1a65dcd173e05ec507b6d7c42d3fa5920981208041ccbd4d470920db2"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "7de9e69f3d1aea5555c8211393c50fce6963d5d08e3a6f83b05f6f04c784a6fe"
+    },
+    {
+      "path": "web/lib/__tests__/coverage-gap-register.test.ts",
+      "sha256": "182ea7b1a65dcd173e05ec507b6d7c42d3fa5920981208041ccbd4d470920db2"
+    }
+  ],
+  "identitiesStable": true
+}

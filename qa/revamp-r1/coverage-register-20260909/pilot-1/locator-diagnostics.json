@@ -1,0 +1,70 @@
+{
+  "declaredPostals": 124443,
+  "geometryIndexedPostals": 114140,
+  "scoreFiles": {
+    "SEMBAWANG_PART_004": {
+      "status": "present",
+      "rows": 518,
+      "distinct": 518,
+      "duplicates": [],
+      "invalid": [],
+      "orphans": []
+    },
+    "SIMPANG": {
+      "status": "present",
+      "rows": 2,
+      "distinct": 2,
+      "duplicates": [],
+      "invalid": [],
+      "orphans": []
+    },
+    "BEDOK_PART_024": {
+      "status": "present",
+      "rows": 404,
+      "distinct": 404,
+      "duplicates": [],
+      "invalid": [],
+      "orphans": []
+    },
+    "BEDOK_PART_025": {
+      "status": "present",
+      "rows": 481,
+      "distinct": 481,
+      "duplicates": [],
+      "invalid": [],
+      "orphans": []
+    },
+    "BEDOK_PART_033": {
+      "status": "present",
+      "rows": 491,
+      "distinct": 491,
+      "duplicates": [],
+      "invalid": [],
+      "orphans": []
+    },
+    "BEDOK_PART_034": {
+      "status": "present",
+      "rows": 473,
+      "distinct": 473,
+      "duplicates": [],
+      "invalid": [],
+      "orphans": []
+    },
+    "TAMPINES_PART_001": {
+      "status": "present",
+      "rows": 428,
+      "distinct": 428,
+      "duplicates": [],
+      "invalid": [],
+      "orphans": []
+    },
+    "TAMPINES_PART_002": {
+      "status": "present",
+      "rows": 409,
+      "distinct": 409,
+      "duplicates": [],
+      "invalid": [],
+      "orphans": []
+    }
+  }
+}

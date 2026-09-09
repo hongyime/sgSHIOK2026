@@ -1,0 +1,44 @@
+{
+  "label": "pilot-1",
+  "checks": [
+    {
+      "name": "completed measured scan",
+      "pass": true
+    },
+    {
+      "name": "compressed output hash and bytes",
+      "pass": true
+    },
+    {
+      "name": "raw output hash and bytes",
+      "pass": true
+    },
+    {
+      "name": "distinct row count reconciles",
+      "pass": true,
+      "details": {
+        "count": 200
+      }
+    },
+    {
+      "name": "selected postals exactly present",
+      "pass": true
+    },
+    {
+      "name": "state counts reproduce from output",
+      "pass": true,
+      "details": {
+        "NO_TRANSIT_IN_RANGE": 5,
+        "SCORED": 160,
+        "SCORED_PARTIAL": 35
+      }
+    },
+    {
+      "name": "every selected input hash verified",
+      "pass": true
+    }
+  ],
+  "ok": true,
+  "summarySha256": "b810b85f3fb1ec25492d173fea3c1e9a41b960a32ac5c47fbb34403e541b9f01",
+  "arithmetic": "5 + 160 + 35 = 200"
+}

@@ -1,0 +1,32 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "--test",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\locators.test.mjs"
+  ],
+  "before": [
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/locators.mjs",
+      "sha256": "62cf8d51badf550894219a55bd64a95d0fabbefa3a7604f9d4b9c8e798802567"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/locators.test.mjs",
+      "sha256": "cd439ce96f6f59b865d4057d5a1c5e880409a4fdbb436352496dbcd0b191756d"
+    }
+  ],
+  "after": [
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/locators.mjs",
+      "sha256": "62cf8d51badf550894219a55bd64a95d0fabbefa3a7604f9d4b9c8e798802567"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/locators.test.mjs",
+      "sha256": "cd439ce96f6f59b865d4057d5a1c5e880409a4fdbb436352496dbcd0b191756d"
+    }
+  ],
+  "identitiesStable": true,
+  "stdout": "✔ fallback declarations retain original insertion order, not alphabetical order (9.4378ms)\n✔ first record in first matching prefix shard wins (1.7892ms)\n✔ nonmatching prefix shard permits the next prefix shard (0.8023ms)\n✔ a missing score file stops lookup, rather than rescuing from a later shard (0.7742ms)\n✔ fallback skips previously inspected prefix shards (1.4529ms)\n✔ stale first fallback declaration does not permit a second declared shard (0.9234ms)\n✔ absent indexing stays not indexed, not proof of a missing address (0.6281ms)\n✔ uninspected score files are not called missing (1.7829ms)\n✔ invalid prefix paths are rejected (0.7996ms)\n✔ invalid address declarations are rejected (0.9796ms)\n✔ first-row locator distinguishes duplicates and malformed rows (0.8256ms)\n✔ malformed score shard is quarantined regardless of valid-row position [null,{\"postal\":\"018956\"}] (1.0178ms)\n✔ malformed score shard is quarantined regardless of valid-row position [{\"postal\":\"018956\"},null] (0.4224ms)\n✔ geometry prefix record takes priority over the full index (1.1591ms)\n✔ geometry missing prefix falls through to full postal index (0.9414ms)\n✔ geometry empty prefix falls through to full postal index (0.4112ms)\n✔ absent geometry index does not trigger coordinate rescue (0.4697ms)\n✔ indexed missing files differ from indexed absent records (0.8072ms)\n✔ mixed failed geometry attempts retain both concrete observations (0.7687ms)\n✔ geometry uses the first matching record only (0.4831ms)\n✔ malformed geometry indexes and payloads are rejected (0.7496ms)\n✔ malformed geometry shard is quarantined regardless of valid-row position [null,{\"postal\":\"018956\"}] (0.6535ms)\n✔ malformed geometry shard is quarantined regardless of valid-row position [{\"postal\":\"018956\"},null] (0.3678ms)\nℹ tests 23\nℹ suites 0\nℹ pass 23\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 351.0884\n",
+  "stderr": "",
+  "exitCode": 0,
+  "elapsedMs": 599
+}

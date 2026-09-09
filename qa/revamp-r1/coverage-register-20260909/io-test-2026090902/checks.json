@@ -1,0 +1,33 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "--test",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\reader.test.mjs"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "exitCode": 0,
+  "stdout": "✔ plain fallback is anchored and separates missing gzip from missing logical JSON (32.7888ms)\n✔ valid gzip is preferred over different plain content and hashes the physical compressed bytes (15.8092ms)\n✔ corrupt gzip stops without consulting valid plain JSON (20.4304ms)\n✔ a gzip candidate which is a directory is not ENOENT and cannot permit fallback (8.9773ms)\n✔ hash mismatch reports expected/actual before decode or JSON parse (13.613ms)\n✔ an unanchored compressed candidate blocks anchored plain fallback before reading (11.2837ms)\n✔ plain input with undefined anchor is not treated as verified (7.408ms)\n✔ plain input with not-a-hash anchor is not treated as verified (5.8612ms)\n✔ plain input with fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff anchor is not treated as verified (7.0322ms)\n✔ raw file cap stops before reading bytes (8.5618ms)\n✔ per-file decoded cap bounds plain input (11.9967ms)\n✔ per-file decoded cap bounds gzip expansion (17.987ms)\n✔ cumulative raw cap includes repeated uncached reads (19.2869ms)\n✔ cumulative decoded cap bounds the remaining plain output (16.2029ms)\n✔ cumulative decoded cap bounds the remaining gzip output (16.4959ms)\n✔ expired deadline stops before file reads (5.8684ms)\n✔ checkBudget enforces the live deadline after reader creation (7.2602ms)\n✔ RSS cap measures the actual Node process rather than estimating file size (7.3976ms)\n✔ rejects unsafe logical path \"../a.json\" (6.5863ms)\n✔ rejects unsafe logical path \"nested/../../a.json\" (6.1146ms)\n✔ rejects unsafe logical path \"/a.json\" (5.6795ms)\n✔ rejects unsafe logical path \"C:/a.json\" (6.6887ms)\n✔ rejects unsafe logical path \"nested\\\\a.json\" (5.7879ms)\n✔ rejects unsafe logical path \"./a.json\" (6.3279ms)\n✔ rejects unsafe logical path \"nested//a.json\" (7.6758ms)\n✔ rejects unsafe logical path \"a.json:stream\" (6.0884ms)\n✔ rejects unsafe logical path \"nested./a.json\" (6.7142ms)\n✔ rejects unsafe logical path \"nul.json\" (6.0405ms)\n✔ rejects unsafe logical path \"a\\u0000.json\" (5.7373ms)\n✔ bundle root outside the C repository is rejected before lookup (0.8976ms)\n✔ junction escape to a sibling fixture is rejected with no input read (9.0939ms)\n✔ internal junction is permitted but still needs an anchor for its physical relative name (22.8743ms)\n✔ decoded-byte LRU evicts the least recently used parsed entry (32.913ms)\n✔ an entry larger than the cache budget is never retained (14.4582ms)\n✔ cache hits do not consume raw/decoded cumulative budgets again (9.7239ms)\n✔ same-size content change invalidates cache and is rehashed against the original anchor (17.2782ms)\n✔ a newly appearing gzip cannot be hidden by a cached plain response (15.6937ms)\n✔ verified malformed JSON and malformed UTF-8 stop without caching (26.5417ms)\n✔ input fixture hashes and modification times remain unchanged; stats are detached (25.6177ms)\n✔ inspect chooses gzip metadata with optional plain size but reads and hashes neither file (18.1515ms)\n✔ inspect permits anchored gzip with absent plain sibling (12.4616ms)\n✔ inspect plain fallback and logical miss account for both encoding probes (9.1081ms)\n✔ lookupCalls includes physical misses, cache hits and metadata, not just physical reads (20.4053ms)\n✔ inspect checks the selected anchor and never falls back from an unanchored gzip (17.0655ms)\n✔ metadata-only inspection does not promise gzip validity or enforce a byte-read cap (8.7696ms)\n✔ metadata selection stops on non-ENOENT gzip failure instead of plain fallback (7.6872ms)\n✔ inspect rejects traversal and junction escape without input reads (10.0457ms)\n✔ internal junction metadata still uses the requested relative physical anchor (14.3701ms)\n✔ metadata inspection honors deadline and live RSS checks (6.8299ms)\n✔ gzip and plain manifest reads bind the same exact decoded bytes, not JSON reserialization (20.7908ms)\n✔ decoded hash remains available in the ledger on subsequent UTF-8 or JSON parse failure (27.9512ms)\n✔ decoded hashing and UTF-8 work contribute to decode timing, not the raw hash timing (12.0957ms)\n✔ metadata plus data reads preserve all fixture hashes and mtimes (40.3981ms)\nℹ tests 53\nℹ suites 0\nℹ pass 53\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 1223.2143\n",
+  "stderr": "",
+  "elapsedMs": 1529,
+  "before": [
+    {
+      "path": "reader.mjs",
+      "sha256": "6c0bfce4357bd99bc7afc15fcbd899654e1d12987ca24d7132fcefe8ff24649d"
+    },
+    {
+      "path": "reader.test.mjs",
+      "sha256": "f7f8a1e485ba381872f313bf6a0cc4ca86e8ba8323a923e99b9037f247a291d9"
+    }
+  ],
+  "after": [
+    {
+      "path": "reader.mjs",
+      "sha256": "6c0bfce4357bd99bc7afc15fcbd899654e1d12987ca24d7132fcefe8ff24649d"
+    },
+    {
+      "path": "reader.test.mjs",
+      "sha256": "f7f8a1e485ba381872f313bf6a0cc4ca86e8ba8323a923e99b9037f247a291d9"
+    }
+  ],
+  "identitiesStable": true
+}

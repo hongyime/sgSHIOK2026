@@ -1,0 +1,71 @@
+{
+  "source": {
+    "path": "qa/p19/universe_gap_measurement_summary_v2.json",
+    "sha256": "eb70e49827fd47f405d4141da65faf86b7c85bc8fbacceb21bfa1c06b055e349",
+    "bytes": 4408,
+    "capturedAt": "2026-08-28T21:15:15.685030+00:00"
+  },
+  "scope": "Existing dated source comparison, not a new national address inventory or live query",
+  "comparedUniverse": {
+    "path": "processed/postal_universe_candidate_full_registered_geocoded.parquet",
+    "rows": 124443,
+    "status_counts": {
+      "NEEDS_GEOCODE": 476,
+      "READY_TO_SCORE": 123967
+    },
+    "unique_postals": 124443
+  },
+  "hdb": {
+    "classification": "absent_in_compared_universe",
+    "postals": [
+      "521400",
+      "522400",
+      "523400",
+      "762936",
+      "763936",
+      "764936"
+    ],
+    "rowsWithPostal": 743,
+    "rowsWithoutReturnedPostal": 6,
+    "arithmetic": "749 - 743 = 6 rows without returned postal; 6 / 743 rows with postal missing from compared universe"
+  },
+  "mcst": {
+    "classification": "unverified_source_discrepancies_not_confirmed_missing_addresses",
+    "postals": [
+      "378720",
+      "935456"
+    ]
+  },
+  "osm": {
+    "classification": "non_authoritative_source_only_signals",
+    "postals": [
+      "110200",
+      "110201",
+      "110202",
+      "110203",
+      "110204",
+      "110205",
+      "111200",
+      "111201",
+      "111204",
+      "112200",
+      "112201",
+      "112204",
+      "289916",
+      "289917",
+      "289918",
+      "289919",
+      "289920",
+      "369552",
+      "519454",
+      "840838"
+    ]
+  },
+  "limits": [
+    "HDB Property Information has completion year but no postal code; this run geocodes each block/street through OneMap search and counts only rows with a six-digit returned postal.",
+    "BCA MCST constitution date is a proxy for private strata completion/onboarding, not a TOP date.",
+    "Overpass counts only OSM objects currently tagged with addr:postcode in Singapore, not an authoritative national address register."
+  ],
+  "arithmetic": "6 HDB + 2 unverified MCST + 20 OSM = 28 source signals, NOT 28 confirmed missing valid addresses. Do not add these to the published coverage denominator.",
+  "coordinateGapSeparation": "The 476 NEEDS_GEOCODE entries are present in the compared universe; they are not the missing-address source signals."
+}

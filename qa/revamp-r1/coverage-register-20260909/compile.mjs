@@ -1,0 +1,21 @@
+import { spawnSync } from 'node:child_process';
+import { mkdirSync, writeFileSync, readFileSync, readdirSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { resolve } from 'node:path';
+const root = 'C:\\sgSHIOK2026';
+if (process.cwd() !== root) throw Error('Wrong working root');
+const [label, extra] = process.argv.slice(2);
+if (extra || !/^[a-z0-9-]+$/.test(label || '')) throw Error('Fresh compile label required');
+const out = resolve(root, 'qa/revamp-r1/coverage-register-20260909', label);
+mkdirSync(out);
+const identities = () => ['coverage-gap-register.ts', 'published-transit-options.ts', 'polyline.ts', 'types.ts'].map(path => ({ path: 'web/lib/' + path, sha256: createHash('sha256').update(readFileSync(resolve(root, 'web/lib', path))).digest('hex') }));
+const sources = identities();
+const args = [resolve(root, 'web/node_modules/typescript/bin/tsc'), '--ignoreConfig', '--module', 'node16', '--target', 'es2022', '--moduleResolution', 'node16', '--skipLibCheck', '--outDir', resolve(out, 'compiled'), resolve(root, 'web/lib/coverage-gap-register.ts')];
+const started = Date.now();
+const result = spawnSync(process.execPath, args, { cwd: root, windowsHide: true, encoding: 'utf8' });
+const after=identities(),compiled=result.status===0?readdirSync(resolve(out,'compiled')).map(name=>{
+  const bytes=readFileSync(resolve(out,'compiled',name));return {name,bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')};
+}):[];
+const report = { args, sources, after, sourcesStable:JSON.stringify(sources)===JSON.stringify(after), compiled, exitCode: result.status, stdout: result.stdout, stderr: result.stderr, elapsedMs: Date.now() - started };
+writeFileSync(resolve(out, 'compile.json'), JSON.stringify(report, null, 2) + '\n', { flag: 'wx' });
+console.log(JSON.stringify(report)); process.exitCode = result.status === 0 && report.sourcesStable ? 0 : 1;

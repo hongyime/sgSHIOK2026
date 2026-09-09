@@ -1,0 +1,50 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.coverageGapRow = coverageGapRow;
+const published_transit_options_1 = require("./published-transit-options");
+const object = (value) => value !== null && typeof value === 'object' && !Array.isArray(value) ? value : null;
+const finite = (value) => typeof value === 'number' && Number.isFinite(value);
+const increment = (counts, key) => { counts[key] = (counts[key] ?? 0) + 1; };
+/** Read-only capabilities, using the same normalizer as the visible walk picker. */
+function coverageGapRow(input) {
+    const row = object(input.score), provenance = object(row?.provenance), subscores = object(row?.subscores);
+    const reason = typeof provenance?.reason === 'string' ? provenance.reason : null;
+    const state = typeof row?.state === 'string' ? row.state : null;
+    const knownStates = ['SCORED', 'SCORED_PARTIAL', 'NO_TRANSIT_IN_RANGE', 'NOT_YET_SCORED'];
+    const identity = row?.postal === input.postal;
+    const context = { bundle: input.bundle, postal: input.postal };
+    const categories = ['bus', 'mrt_lrt'].map(category => {
+        const normalized = (0, published_transit_options_1.normalizePublishedTransitOptions)({ ...context, category, score: input.score, geometry: input.geometry,
+            scoreContext: context, geometryContext: context });
+        const statuses = {}, classifications = {}, diagnostics = {};
+        for (const item of normalized.options) {
+            increment(statuses, item.status);
+            increment(classifications, item.classification);
+            for (const reason of item.diagnostics)
+                increment(diagnostics, reason);
+        }
+        for (const reason of normalized.diagnostics)
+            increment(diagnostics, reason);
+        for (const rejected of normalized.rejectedSources)
+            for (const reason of rejected.reasons)
+                increment(diagnostics, reason);
+        return { category, context: normalized.contextStatus, options: normalized.options.length,
+            retainable: normalized.options.filter(option => option.retainable).length,
+            extraCandidates: normalized.options.filter(option => option.sources.some(source => source.selectionRef.kind === 'candidate')).length,
+            statuses, classifications, diagnostics, rejectedSources: normalized.rejectedSources.length };
+    });
+    return {
+        postal: input.postal,
+        addressEvidence: input.indexed ? 'published_index' : 'outside_published_index_not_proof_of_missing_address',
+        scoreRecord: input.score == null ? 'missing' : identity && knownStates.includes(state ?? '') ? 'present' : 'invalid',
+        state,
+        completeLockedFields: !!identity && finite(row?.total) && ['access', 'bus', 'crossing', 'heat', 'rain'].every(key => finite(subscores?.[key])),
+        reason,
+        routeDisconnection: reason === 'transit_candidates_graph_disconnected' ? 'explicit_recorded_reason' : 'not_established',
+        // NO_TRANSIT_IN_RANGE also represents trust/availability rejection. It is not a measured distance.
+        rangeLimit: state === 'NO_TRANSIT_IN_RANGE' ? 'eligibility_state_distance_cause_not_established' : 'not_established',
+        trustRejection: reason === 'all_numeric_transit_candidates_rejected_by_bus_route_trust_gate',
+        geometryLookup: input.geometryLookup,
+        categories,
+    };
+}

@@ -1,0 +1,37 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "--test",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\projection.test.mjs"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "node": "v26.5.0",
+  "startedAt": "2026-09-09T09:57:47.197Z",
+  "elapsedMs": 2392.5887,
+  "before": {
+    "projection.mjs": {
+      "bytes": 5725,
+      "sha256": "3721ddb61d4711d9cc5d2f0081679d567e4ab19455f6ee124c8816ca8dc18934"
+    },
+    "projection.test.mjs": {
+      "bytes": 12639,
+      "sha256": "edfa418860a94565ee5e24325d399d34c5e14ed68e5fb2ac9571a80ab481dee8"
+    }
+  },
+  "after": {
+    "projection.mjs": {
+      "bytes": 5725,
+      "sha256": "3721ddb61d4711d9cc5d2f0081679d567e4ab19455f6ee124c8816ca8dc18934"
+    },
+    "projection.test.mjs": {
+      "bytes": 12639,
+      "sha256": "edfa418860a94565ee5e24325d399d34c5e14ed68e5fb2ac9571a80ab481dee8"
+    }
+  },
+  "sourcesUnchanged": true,
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "✔ separates fixed, byte, lookup, normalization and serialization arithmetic (25.5076ms)\n✔ explicitly labels estimate limits and caller-owned planned IO assumptions (3.1758ms)\n✔ nearest-rank p95 uses the 19th of 20 observations, not the maximum (2.1379ms)\n✔ rare outlier makes mean more conservative than p95 in both sample streams (3.3236ms)\n✔ single positive observation is usable without claiming statistical confidence (2.8511ms)\n✔ frozen inputs remain unchanged and sample order does not change estimates (2.9484ms)\n✔ fixed startup is added once even when record count increases one thousand fold (2.9463ms)\n✔ plannedRawBytes scales only its corresponding IO components (7.1804ms)\n✔ plannedDecodedBytes scales only its corresponding IO components (2.0391ms)\n✔ plannedReads scales only its corresponding IO components (2.469ms)\n✔ plain UTF-8 decode cost is retained without a gzip flag (1.4758ms)\n✔ zero fixed cost and no planned IO are valid for already in-memory planned work (1.4115ms)\n✔ exact inclusive buffered gate boundary passes, the next millisecond stops (1.4116ms)\n✔ unbuffered estimate fitting maxSeconds does not override a failed buffered gate (1.4507ms)\n✔ explicit caller budget changes only the gate and limit (0.8927ms)\n✔ invalid root input undefined is rejected (3.8462ms)\n✔ invalid root input null is rejected (0.6607ms)\n✔ invalid root input  is rejected (0.5652ms)\n✔ invalid root input 1 is rejected (0.619ms)\n✔ missing io is rejected instead of zero cost (1.1393ms)\n✔ missing io.timingsMs is rejected instead of zero cost (0.7436ms)\n✔ invalid finite/count values for fixedMs are rejected without coercion (4.0027ms)\n✔ invalid finite/count values for recordCount are rejected without coercion (1.6215ms)\n✔ invalid finite/count values for plannedRawBytes are rejected without coercion (1.4131ms)\n✔ invalid finite/count values for plannedDecodedBytes are rejected without coercion (2.3427ms)\n✔ invalid finite/count values for plannedReads are rejected without coercion (1.9579ms)\n✔ invalid finite/count values for maxSeconds are rejected without coercion (1.3124ms)\n✔ recordCount must be positive (0.8667ms)\n✔ maxSeconds must be positive (0.4864ms)\n✔ io.rawBytes is a required positive integer denominator (2.294ms)\n✔ io.decodedBytes is a required positive integer denominator (1.685ms)\n✔ io.reads is a required positive integer denominator (1.9262ms)\n✔ io.timingsMs.read must include positive measured time, including decode for plain JSON (2.4817ms)\n✔ io.timingsMs.hash must include positive measured time, including decode for plain JSON (1.4975ms)\n✔ io.timingsMs.decode must include positive measured time, including decode for plain JSON (1.5398ms)\n✔ io.timingsMs.parse must include positive measured time, including decode for plain JSON (1.8768ms)\n✔ io.timingsMs.lookup must include positive measured time, including decode for plain JSON (1.6581ms)\n✔ sampleNormalizationMs rejects missing, empty, sparse, non-finite and unmeasurable samples (3.1711ms)\n✔ sampleSerializationMs rejects missing, empty, sparse, non-finite and unmeasurable samples (2.6298ms)\n✔ rate overflow cannot produce a finite-looking gate (1.3664ms)\n✔ component sum overflow is rejected explicitly (2.0978ms)\n✔ buffer overflow and unsafe integer budgets are rejected (1.7863ms)\nℹ tests 42\nℹ suites 0\nℹ pass 42\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 1288.7582\n",
+  "stderr": ""
+}

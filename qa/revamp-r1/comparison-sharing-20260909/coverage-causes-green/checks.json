@@ -1,0 +1,50 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs",
+    "lib/__tests__/coverage-gap-register.test.ts",
+    "--no-cache",
+    "--reporter=dot"
+  ],
+  "exitCode": 0,
+  "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n································\n\n Test Files  1 passed (1)\n      Tests  32 passed (32)\n   Start at  17:29:45\n   Duration  2.96s (transform 815ms, setup 0ms, import 967ms, tests 296ms, environment 1ms)\n\n",
+  "stderr": "",
+  "elapsedSeconds": 11.831,
+  "before": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "7de9e69f3d1aea5555c8211393c50fce6963d5d08e3a6f83b05f6f04c784a6fe"
+    },
+    {
+      "path": "web/lib/__tests__/coverage-gap-register.test.ts",
+      "sha256": "182ea7b1a65dcd173e05ec507b6d7c42d3fa5920981208041ccbd4d470920db2"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "7de9e69f3d1aea5555c8211393c50fce6963d5d08e3a6f83b05f6f04c784a6fe"
+    },
+    {
+      "path": "web/lib/__tests__/coverage-gap-register.test.ts",
+      "sha256": "182ea7b1a65dcd173e05ec507b6d7c42d3fa5920981208041ccbd4d470920db2"
+    }
+  ],
+  "identitiesStable": true
+}

@@ -265,12 +265,25 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: T13-approved infrastructure only. Required before enabling reporting in production.
 
 ### [ ] T19: Build a read-only walk-coverage gap register
-- Status: READY. Size: M. Parent: P2.1.
+- Status: PARTIAL. Size: M. Parent: P2.1.
 - Depends on: none.
 - Scope: existing data/index readers and audit helpers; new analysis output only in a fresh approved QA directory.
 - Do: begin with index metadata and a small timed read pilot. Estimate scan cost before a broader pass. Classify missing address, geometry, candidate evidence, route disconnection, range limit and missing score separately; mark unknown rather than infer a cause from absence. Reuse settled evidence, not another provenance investigation.
 - Tests/done: W02-W04, O03/O10/O13. Fixture classifications and arithmetic reconcile with inspected sources. Output per-postal/category reasons, counts, unknowns, paths/identities and pilot/projection. Stop on mismatch, unsafe memory/IO behaviour or an unexpectedly unbounded read.
 - Gate: FREE read-only. No score/check/ingest/network/export command; no mutation of raw, processed or existing QA/public payloads.
+- Progress 2026-09-09: classifier reuses the visible walk normalizer, with 32 web
+  regressions; bounded reader/locator/engine/projection have 53+23+17+45=138
+  focused tests. Isolated web suite1708/62, TypeScript and integrity pass.
+  The 200-record read pilot took17.900648s including12.244282s fixed startup;
+  projected2537.710656s plus buffer requires3203s, above the900s full-scan gate.
+  No full pass ran. Sample160 scored+35 partial+5 range-limited=200;23 of35
+  partial records have a retainable published bus option. These are not national
+  coverage rates. All49 selected physical inputs hash-verified; output/count
+  reconciliation passes. No input mutation, pipeline, installation or deployment.
+  Evidence: `qa/revamp-r1/coverage-register-20260909/pilot-analysis.json` and
+  `pilot-1/summary.json`. A cheaper audited scan or a separately accepted larger
+  read-only wall budget is needed before the full register can be claimed done.
+  T20 remains dependent on the full register; T23/T24 are independently READY.
 
 ### [ ] T20: Propose the smallest useful data improvement
 - Status: WAIT_DEPS. Size: S. Parent: P2.2.

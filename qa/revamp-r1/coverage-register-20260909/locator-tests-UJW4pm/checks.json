@@ -1,0 +1,32 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "--test",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\locators.test.mjs"
+  ],
+  "before": [
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/locators.mjs",
+      "sha256": "ba1a3d30aa862c64d05ce38f6c4a9a090e794cde91e52e02e78b0f552c53f6f5"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/locators.test.mjs",
+      "sha256": "308dc8330159dd636aa0ff3e8b16e0d94abee612915ee4d4c3fa75226e3c9179"
+    }
+  ],
+  "after": [
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/locators.mjs",
+      "sha256": "ba1a3d30aa862c64d05ce38f6c4a9a090e794cde91e52e02e78b0f552c53f6f5"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/locators.test.mjs",
+      "sha256": "308dc8330159dd636aa0ff3e8b16e0d94abee612915ee4d4c3fa75226e3c9179"
+    }
+  ],
+  "identitiesStable": true,
+  "stdout": "✔ fallback declarations retain original insertion order, not alphabetical order (23.4967ms)\n✔ first record in first matching prefix shard wins (4.1832ms)\n✔ nonmatching prefix shard permits the next prefix shard (1.6213ms)\n✔ a missing score file stops lookup, rather than rescuing from a later shard (1.9839ms)\n✔ fallback skips previously inspected prefix shards (2.952ms)\n✔ stale first fallback declaration does not permit a second declared shard (2.041ms)\n✔ absent indexing stays not indexed, not proof of a missing address (1.3781ms)\n✔ uninspected score files are not called missing (3.8603ms)\n✔ invalid prefix paths are rejected (1.5514ms)\n✔ invalid address declarations are rejected (1.9492ms)\n✔ first-row locator distinguishes duplicates and malformed rows (1.9692ms)\n✔ geometry prefix record takes priority over the full index (3.1027ms)\n✔ geometry missing prefix falls through to full postal index (1.8095ms)\n✔ geometry empty prefix falls through to full postal index (0.8031ms)\n✔ absent geometry index does not trigger coordinate rescue (1.2697ms)\n✔ indexed missing files differ from indexed absent records (6.8921ms)\n✔ mixed failed geometry attempts retain both concrete observations (2.1091ms)\n✔ geometry uses the first matching record only (1.2152ms)\n✔ malformed geometry indexes and payloads are rejected (1.5383ms)\nℹ tests 19\nℹ suites 0\nℹ pass 19\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 932.8728\n",
+  "stderr": "",
+  "exitCode": 0,
+  "elapsedMs": 1645
+}

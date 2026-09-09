@@ -1,0 +1,38 @@
+{
+  "args": [
+    "C:\\sgSHIOK2026\\web\\node_modules\\typescript\\bin\\tsc",
+    "--ignoreConfig",
+    "--module",
+    "node16",
+    "--target",
+    "es2022",
+    "--moduleResolution",
+    "node16",
+    "--skipLibCheck",
+    "--outDir",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\compile-2\\compiled",
+    "C:\\sgSHIOK2026\\web\\lib\\coverage-gap-register.ts"
+  ],
+  "sources": [
+    {
+      "path": "web/lib/coverage-gap-register.ts",
+      "sha256": "3f3099ce717ab44f1a2c147cf5bf3f052035701606713eda29c6af1d1920bb93"
+    },
+    {
+      "path": "web/lib/published-transit-options.ts",
+      "sha256": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82"
+    },
+    {
+      "path": "web/lib/polyline.ts",
+      "sha256": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e"
+    },
+    {
+      "path": "web/lib/types.ts",
+      "sha256": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98"
+    }
+  ],
+  "exitCode": 0,
+  "stdout": "",
+  "stderr": "",
+  "elapsedMs": 2732
+}

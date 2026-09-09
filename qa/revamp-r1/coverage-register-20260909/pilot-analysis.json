@@ -1,0 +1,55 @@
+{
+  "summarySha256": "b810b85f3fb1ec25492d173fea3c1e9a41b960a32ac5c47fbb34403e541b9f01",
+  "scope": "200 size-stratified declared postals, not a representative population sample",
+  "byState": {
+    "NO_TRANSIT_IN_RANGE": {
+      "records": 5,
+      "completeLocked": 0,
+      "geometryPresent": 0,
+      "busRetainable": 0,
+      "railRetainable": 0,
+      "eitherRetainable": 0,
+      "neitherRetainable": 5
+    },
+    "SCORED": {
+      "records": 160,
+      "completeLocked": 160,
+      "geometryPresent": 160,
+      "busRetainable": 144,
+      "railRetainable": 151,
+      "eitherRetainable": 160,
+      "neitherRetainable": 0
+    },
+    "SCORED_PARTIAL": {
+      "records": 35,
+      "completeLocked": 0,
+      "geometryPresent": 35,
+      "busRetainable": 23,
+      "railRetainable": 0,
+      "eitherRetainable": 23,
+      "neitherRetainable": 12
+    }
+  },
+  "pilotSeconds": 17.900647799999998,
+  "fixedSeconds": 12.2442817,
+  "remainingPilotSeconds": 5.6563661,
+  "pilotArithmetic": "12.2442817 + 5.6563661 = 17.900647799999998 seconds",
+  "projectionSeconds": 2537.7106564682713,
+  "projectionArithmetic": "12.244282 + 96.360822 + 96.577265 + 122.846155 + 166.925986 + 412.291256 + 1221.557637 + 408.907254 = 2537.710656 seconds (display rounded)",
+  "budgetArithmetic": "ceil(2537.7106564682713 * 1.25 + 30) = 3203 seconds > 900 seconds; STOP",
+  "maxSampledRssBytes": 276738048,
+  "maxSampledRssMiB": 263.91796875,
+  "resourceUsageMaxRssKiB": 272244,
+  "successfullyHashedPhysicalFiles": 49,
+  "readOperations": 52,
+  "rawBytes": 99866640,
+  "decodedBytes": 104596797,
+  "outputCounts": "5 + 160 + 35 = 200",
+  "limits": [
+    "No full-universe scan ran. These counts cannot estimate a national missing-walk percentage.",
+    "The estimate uses p95/mean record costs, assumed rereads, and a current loaded host; it is not a representative user latency measurement.",
+    "Neither retainable option is not evidence that no physical bus/rail walk exists.",
+    "Geometry and per-category availability overlap; do not sum them as distinct addresses.",
+    "The output verifier checks identities/counts, not an independent reimplementation of routing or classification."
+  ]
+}

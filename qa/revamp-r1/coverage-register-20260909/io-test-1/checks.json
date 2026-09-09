@@ -1,0 +1,33 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "--test",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\reader.test.mjs"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "exitCode": 0,
+  "stdout": "✔ plain fallback is anchored and separates missing gzip from missing logical JSON (111.5207ms)\n✔ valid gzip is preferred over different plain content and hashes the physical compressed bytes (73.7848ms)\n✔ corrupt gzip stops without consulting valid plain JSON (57.6244ms)\n✔ a gzip candidate which is a directory is not ENOENT and cannot permit fallback (38.3197ms)\n✔ hash mismatch reports expected/actual before decode or JSON parse (37.7636ms)\n✔ an unanchored compressed candidate blocks anchored plain fallback before reading (54.3101ms)\n✔ plain input with undefined anchor is not treated as verified (15.0788ms)\n✔ plain input with not-a-hash anchor is not treated as verified (31.2082ms)\n✔ plain input with fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff anchor is not treated as verified (24.8321ms)\n✔ raw file cap stops before reading bytes (50.1906ms)\n✔ per-file decoded cap bounds plain input (144.8233ms)\n✔ per-file decoded cap bounds gzip expansion (32.7019ms)\n✔ cumulative raw cap includes repeated uncached reads (92.0238ms)\n✔ cumulative decoded cap bounds the remaining plain output (76.3786ms)\n✔ cumulative decoded cap bounds the remaining gzip output (73.1526ms)\n✔ expired deadline stops before file reads (28.2976ms)\n✔ checkBudget enforces the live deadline after reader creation (24.2372ms)\n✔ RSS cap measures the actual Node process rather than estimating file size (34.999ms)\n✔ rejects unsafe logical path \"../a.json\" (17.1723ms)\n✔ rejects unsafe logical path \"nested/../../a.json\" (50.7235ms)\n✔ rejects unsafe logical path \"/a.json\" (68.6021ms)\n✔ rejects unsafe logical path \"C:/a.json\" (40.7346ms)\n✔ rejects unsafe logical path \"nested\\\\a.json\" (27.0072ms)\n✔ rejects unsafe logical path \"./a.json\" (51.3011ms)\n✔ rejects unsafe logical path \"nested//a.json\" (18.1067ms)\n✔ rejects unsafe logical path \"a.json:stream\" (63.3845ms)\n✔ rejects unsafe logical path \"nested./a.json\" (52.0478ms)\n✔ rejects unsafe logical path \"nul.json\" (19.0916ms)\n✔ rejects unsafe logical path \"a\\u0000.json\" (39.8286ms)\n✔ bundle root outside the C repository is rejected before lookup (2.3975ms)\n✔ junction escape to a sibling fixture is rejected with no input read (74.787ms)\n✔ internal junction is permitted but still needs an anchor for its physical relative name (183.6701ms)\n✔ decoded-byte LRU evicts the least recently used parsed entry (211.6827ms)\n✔ an entry larger than the cache budget is never retained (103.2278ms)\n✔ cache hits do not consume raw/decoded cumulative budgets again (109.1042ms)\n✔ same-size content change invalidates cache and is rehashed against the original anchor (218.8713ms)\n✔ a newly appearing gzip cannot be hidden by a cached plain response (77.3039ms)\n✔ verified malformed JSON and malformed UTF-8 stop without caching (252.5752ms)\n✔ input fixture hashes and modification times remain unchanged; stats are detached (257.7164ms)\nℹ tests 39\nℹ suites 0\nℹ pass 39\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 4837.0183\n",
+  "stderr": "",
+  "elapsedMs": 6233,
+  "before": [
+    {
+      "path": "reader.mjs",
+      "sha256": "72c3de392b9b1a0f6539e50bad10cbfb90224067d7abc2985bbcfc98aa5d84f2"
+    },
+    {
+      "path": "reader.test.mjs",
+      "sha256": "f527e566c918503d2bd60f07d3bff5df9e890e39930894284494a5689ea652c9"
+    }
+  ],
+  "after": [
+    {
+      "path": "reader.mjs",
+      "sha256": "72c3de392b9b1a0f6539e50bad10cbfb90224067d7abc2985bbcfc98aa5d84f2"
+    },
+    {
+      "path": "reader.test.mjs",
+      "sha256": "f527e566c918503d2bd60f07d3bff5df9e890e39930894284494a5689ea652c9"
+    }
+  ],
+  "identitiesStable": true
+}

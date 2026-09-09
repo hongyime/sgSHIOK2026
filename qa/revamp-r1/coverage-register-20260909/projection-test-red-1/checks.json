@@ -1,0 +1,35 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "--test",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\projection.test.mjs"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "node": "v26.5.0",
+  "startedAt": "2026-09-09T09:56:18.732Z",
+  "elapsedMs": 992.8269,
+  "before": {
+    "projection.mjs": {
+      "missing": true
+    },
+    "projection.test.mjs": {
+      "bytes": 12639,
+      "sha256": "edfa418860a94565ee5e24325d399d34c5e14ed68e5fb2ac9571a80ab481dee8"
+    }
+  },
+  "after": {
+    "projection.mjs": {
+      "missing": true
+    },
+    "projection.test.mjs": {
+      "bytes": 12639,
+      "sha256": "edfa418860a94565ee5e24325d399d34c5e14ed68e5fb2ac9571a80ab481dee8"
+    }
+  },
+  "sourcesUnchanged": true,
+  "exitCode": 1,
+  "signal": null,
+  "error": null,
+  "stdout": "node:internal/modules/esm/resolve:272\n    throw new ERR_MODULE_NOT_FOUND(\n          ^\n\nError [ERR_MODULE_NOT_FOUND]: Cannot find module 'C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\projection.mjs' imported from C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\projection.test.mjs\n    at finalizeResolution (node:internal/modules/esm/resolve:272:11)\n    at moduleResolve (node:internal/modules/esm/resolve:879:10)\n    at defaultResolve (node:internal/modules/esm/resolve:1006:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56)\n    at #resolve (node:internal/modules/esm/loader:690:17)\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:610:35)\n    at node:internal/modules/esm/loader:639:32\n    at TracingChannel.tracePromise (node:diagnostics_channel:539:22) {\n  code: 'ERR_MODULE_NOT_FOUND',\n  url: 'file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/projection.mjs'\n}\n\nNode.js v26.5.0\n✖ C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\projection.test.mjs (450.4434ms)\nℹ tests 1\nℹ suites 0\nℹ pass 0\nℹ fail 1\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 512.2009\n\n✖ failing tests:\n\ntest at qa\\revamp-r1\\coverage-register-20260909\\projection.test.mjs:1:1\n✖ C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\projection.test.mjs (450.4434ms)\n  'test failed'\n",
+  "stderr": ""
+}

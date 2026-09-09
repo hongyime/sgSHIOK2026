@@ -1,0 +1,39 @@
+{
+  "args": [
+    "--test",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\engine.test.mjs"
+  ],
+  "before": [
+    {
+      "name": "engine.mjs",
+      "sha256": null
+    },
+    {
+      "name": "engine.test.mjs",
+      "sha256": "af75afc3fe5ba6fa4d80830a08f1587bb44dc6d405abd6797bd2b87ead84af73"
+    },
+    {
+      "name": "locators.mjs",
+      "sha256": "62cf8d51badf550894219a55bd64a95d0fabbefa3a7604f9d4b9c8e798802567"
+    }
+  ],
+  "after": [
+    {
+      "name": "engine.mjs",
+      "sha256": null
+    },
+    {
+      "name": "engine.test.mjs",
+      "sha256": "af75afc3fe5ba6fa4d80830a08f1587bb44dc6d405abd6797bd2b87ead84af73"
+    },
+    {
+      "name": "locators.mjs",
+      "sha256": "62cf8d51badf550894219a55bd64a95d0fabbefa3a7604f9d4b9c8e798802567"
+    }
+  ],
+  "stable": true,
+  "exitCode": 1,
+  "stdout": "node:internal/modules/esm/resolve:272\n    throw new ERR_MODULE_NOT_FOUND(\n          ^\n\nError [ERR_MODULE_NOT_FOUND]: Cannot find module 'C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\engine.mjs' imported from C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\engine.test.mjs\n    at finalizeResolution (node:internal/modules/esm/resolve:272:11)\n    at moduleResolve (node:internal/modules/esm/resolve:879:10)\n    at defaultResolve (node:internal/modules/esm/resolve:1006:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56)\n    at #resolve (node:internal/modules/esm/loader:690:17)\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:610:35)\n    at ModuleJob.syncLink (node:internal/modules/esm/module_job:277:33)\n    at ModuleJob.link (node:internal/modules/esm/module_job:389:17) {\n  code: 'ERR_MODULE_NOT_FOUND',\n  url: 'file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/engine.mjs'\n}\n\nNode.js v26.5.0\n✖ C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\engine.test.mjs (266.4935ms)\nℹ tests 1\nℹ suites 0\nℹ pass 0\nℹ fail 1\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 306.6042\n\n✖ failing tests:\n\ntest at qa\\revamp-r1\\coverage-register-20260909\\engine.test.mjs:1:1\n✖ C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\engine.test.mjs (266.4935ms)\n  'test failed'\n",
+  "stderr": "",
+  "elapsedMs": 630
+}

@@ -2990,3 +2990,35 @@ threshold. A known update date can still have unknown freshness, so those labels
 remain distinct. Supporting historical detail stays within a nested disclosure,
 not in the main map view. T23/T24 now cover the ongoing checking and ownership
 routine. Evidence: qa/revamp-r1/source-freshness-20260909/summary.json.
+
+## 2026-09-09: Audit walk capabilities separately from score completeness
+
+The read-only coverage register uses the same published-transit-options normalizer
+as the app, without computing scores or inventing routes. Keep address membership,
+score completeness, geometry lookup, retained bus/rail options, explicit coordinate
+gaps, recorded disconnection, recorded range limits and trust rejection separate.
+NO_TRANSIT_IN_RANGE alone does not establish a distance failure. A malformed or
+wrong-postal record cannot supply a causal explanation for another postal.
+
+Preserve browser prefix/declaration order and first matching rows. Quarantine
+malformed shards conservatively instead of skipping an invalid row to claim an
+accessible later record. A missing optional compressed encoding is different from
+a missing logical artifact; corrupt or hash-mismatched selected data always stops.
+Bound caches and IO, verify exact decoded manifest bytes, and retain ordered lookup
+attempts and input identities. Reader budgets are cooperative operation-boundary
+checks, not OS-level interruption guarantees.
+
+The 200-record size-stratified pilot is not a population estimate. Its 35 partial
+scores include 23 retainable bus options, so incomplete scores must not be called
+missing walks. Six dated HDB address discrepancies, two unverified MCST candidates
+and twenty non-authoritative OSM signals stay in a separate source register; they
+are not twenty-eight confirmed missing valid addresses and are not added to the
+published denominator. Existing NEEDS_GEOCODE rows are a separate coordinate gap.
+
+The pilot took 12.244282 seconds fixed plus 5.656366 seconds remaining work. Its
+component-based full-read estimate was 2537.710656 seconds, requiring 3203 seconds
+with the stated buffer, over the 900-second gate. No full scan ran. Keep T19 partial
+until a cheaper audited pass or a separately accepted larger read-only budget can
+produce the full register. Do not reuse this estimate for scoring, export or user
+latency; it measures this audit on this loaded host. T23/T24 can proceed separately.
+Evidence: qa/revamp-r1/coverage-register-20260909/pilot-analysis.json.

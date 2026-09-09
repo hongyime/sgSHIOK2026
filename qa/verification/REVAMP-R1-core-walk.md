@@ -2790,3 +2790,104 @@ receipts in `qa/revamp-r1/comparison-sharing-20260909/` and
 `qa/revamp-r1/published-options-20260909/`. Final metadata, source/test/build hashes,
 11 protected anchors, capture identities and append-only proof are in
 `qa/revamp-r1/source-freshness-20260909/identity-final.json`.
+
+## 2026-09-09: T19 bounded read-only coverage pilot and budget stop
+
+Scope: classify published postal-only lookups using the existing visible-walk
+normalizer, without calculating scores or rebuilding any input. This section
+appends to the prior evidence; it does not revise an earlier claim in place.
+
+Executed command receipts and complete stdout are committed under
+`qa/revamp-r1/coverage-register-20260909/`. Current core tests also appear in
+`qa/revamp-r1/comparison-sharing-20260909/coverage-causes-green/checks.json`;
+the isolated suite is in
+`qa/revamp-r1/published-options-20260909/coverage-full-1/checks.json`.
+
+```text
+working_root=C:\sgSHIOK2026
+hostname=Prawn-E14
+base=a26deb5c615d7b1a92892eefcba417e1d0ee0a8f
+node qa/revamp-r1/comparison-sharing-20260909/focused.mjs coverage-causes-green lib/__tests__/coverage-gap-register.test.ts
+core_tests=32 passed
+node qa/revamp-r1/coverage-register-20260909/test-locators.mjs
+locator_tests=23 passed
+node qa/revamp-r1/coverage-register-20260909/test-engine.mjs
+engine_tests=17 passed
+reader_tests=53 passed; io-test-2026090902/checks.json
+projection_tests=45 passed; projection-test-lookup-green-1/checks.json
+QA_test_arithmetic=53 + 23 + 17 + 45 = 138
+node qa/revamp-r1/published-options-20260909/check.mjs coverage-full-1 full
+Test Files  62 passed (62)
+Tests  1708 passed (1708)
+web_test_arithmetic=1676 + 32 = 1708; 61 + 1 = 62 files
+test_isolation=tmp/test-without-data-ETJXTI; copiedFiles=208
+productionDataDirectoryAbsent=true
+guardProbePassed=true
+TypeScript --noEmit --incremental false=exit0
+repo_integrity=ok
+protected_fixture_anchors=11 matched
+git diff --check=exit0
+node --check qa/revamp-r1/coverage-register-20260909/scan.mjs
+exit_code=0
+node --check qa/revamp-r1/coverage-register-20260909/verify-output.mjs
+exit_code=0
+node qa/revamp-r1/coverage-register-20260909/scan.mjs pilot pilot-1
+exit_code=0
+pilot_complete=true
+coverageComplete=false
+pilot_rows=200
+pilot_timing_seconds=12.2442817 fixed + 5.6301096 read pass + 0.0262565 remaining = 17.9006478
+sample_strata=2 SIMPANG + 99 BEDOK + 99 TAMPINES = 200
+sample_states=160 SCORED + 35 SCORED_PARTIAL + 5 NO_TRANSIT_IN_RANGE = 200
+sample_geometry=195 record_present + 5 not_indexed = 200
+sample_bus=167 with retainable option + 33 without = 200
+sample_rail=151 with retainable option + 49 without = 200
+sample_partial_bus=23 with retainable option + 12 without = 35
+sample_partial_geometry=35 present
+selected_input_reads=52 across 49 unique physical files
+selected_input_raw_bytes=99866640
+selected_input_decoded_bytes=104596797
+selected_input_hashes=49 verified
+max_operation_boundary_RSS_bytes=276738048
+max_operation_boundary_RSS_MiB=276738048 / 1048576 = 263.91796875
+process_resourceUsage_maxRSS_KiB=272244
+full_projection_seconds=12.244282 + 96.360822 + 96.577265 + 122.846155 + 166.925986 + 412.291256 + 1221.557637 + 408.907254 = 2537.710656 (display rounded)
+full_budget_seconds=ceil(2537.7106564682713 * 1.25 + 30) = 3203
+full_gate=STOP: 3203 > 900
+full_scan_executed=false
+node qa/revamp-r1/coverage-register-20260909/verify-output.mjs pilot-1
+output_checks=7 passed; output-verification-aFWYLC/verification.json
+node qa/revamp-r1/coverage-register-20260909/pilot-analysis.mjs
+analysis_receipt=pilot-analysis.json
+node qa/revamp-r1/coverage-register-20260909/source-signals.mjs
+source_signals=6 HDB + 2 unverified MCST + 20 non-authoritative OSM = 28 source signals, NOT 28 confirmed missing addresses
+source_signal_date=2026-08-28T21:15:15.685030+00:00
+FINDINGS
+1. In this sample, 23 of 35 partial-score records retain a published bus option. Missing full scores and missing inspectable walks must remain separate categories.
+2. Browser lookup order matters. Invalid rows, wrong-postal reasons and stale fallback declarations must not silently create usable records or causal claims in an audit.
+3. Review corrected exact decoded-manifest binding, encoding-probe units, confined metadata selection and partial-receipt finalization before the real pilot. All four fixes were explicitly accepted by the independent reviewer.
+4. The pilot passed, but its buffered full-scan projection exceeded the gate. T19 remains PARTIAL. No full-universe counts or absent-cause conclusions follow from the sample.
+5. Existing dated source discrepancies are separate from published records lacking coordinates; adding them would overstate missing-address coverage.
+DISAGREEMENTS
+1. A scored/partial/no-transit label alone does not prove which physical walking capability exists or why one is absent. Causes need explicit valid-record evidence; unknown remains unknown.
+2. This nonrandom size-stratified sample cannot establish national coverage rates or representative UI latency. The conservative audit estimate is not an export/rescore estimate.
+3. Output identity/count reconciliation is not independent routing reclassification. Only selected read inputs were hash-verified during the pilot, not every stat-inventoried artifact.
+pipeline_runs=0
+protected_payload_mutations=0
+installations=0
+deployment_commands=0
+full_python_suite_rerun=false
+new_browser_or_performance_claim=false
+goal_complete=false
+```
+
+Failed core, locator, IO, projection and module-load attempts remain in their
+original receipts. Only compile-3 is used by the scanner; earlier compiler attempts
+are retained as evidence, not approved executable inputs. The full isolated suite
+does not include the standalone Node QA cases; both counts are reported separately.
+
+The independent review accepted the actual pilot and its STOP gate, confirmed
+matching probe units and all count arithmetic, and explicitly required T19 to stay
+partial. New source freshness and maintenance work (T23/T24) can proceed without
+claiming that the full coverage register exists. Current local UI preview remains
+http://127.0.0.1:4334/; this audit introduced no new user-facing map change.

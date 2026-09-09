@@ -1,0 +1,14 @@
+import { spawnSync } from 'node:child_process';
+import { mkdtempSync,readFileSync,writeFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { createHash } from 'node:crypto';
+const root='C:\\sgSHIOK2026';
+if(process.cwd()!==root)throw Error('Wrong working root');
+const out=mkdtempSync(resolve(root,'qa/revamp-r1/coverage-register-20260909/locator-tests-'));
+const paths=['qa/revamp-r1/coverage-register-20260909/locators.mjs','qa/revamp-r1/coverage-register-20260909/locators.test.mjs'];
+const identities=()=>paths.map(path=>({path,sha256:createHash('sha256').update(readFileSync(resolve(root,path))).digest('hex')}));
+const before=identities(),args=['--test',resolve(root,paths[1])],started=Date.now();
+const result=spawnSync(process.execPath,args,{cwd:root,windowsHide:true,encoding:'utf8',timeout:60000});
+const after=identities(),report={command:process.execPath,args,before,after,identitiesStable:JSON.stringify(before)===JSON.stringify(after),stdout:result.stdout,stderr:result.stderr,exitCode:result.status,elapsedMs:Date.now()-started};
+writeFileSync(resolve(out,'checks.json'),JSON.stringify(report,null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify({out,...report}));process.exitCode=result.status===0&&report.identitiesStable?0:1;

@@ -1,0 +1,17 @@
+import { spawnSync } from 'node:child_process';
+import { mkdtempSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { createHash } from 'node:crypto';
+const root = 'C:\\sgSHIOK2026';
+if (process.cwd() !== root) throw Error('Wrong working root');
+const dir = resolve(root, 'qa/revamp-r1/coverage-register-20260909');
+const out = mkdtempSync(resolve(dir, 'engine-tests-'));
+const identities = () => ['engine.mjs', 'engine.test.mjs', 'locators.mjs'].map(name => ({ name, sha256: existsSync(resolve(dir, name)) ? createHash('sha256').update(readFileSync(resolve(dir, name))).digest('hex') : null }));
+const before = identities(), start = Date.now();
+const args = ['--test', resolve(dir, 'engine.test.mjs')];
+const result = spawnSync(process.execPath, args, { cwd: root, windowsHide: true, encoding: 'utf8', timeout: 60000 });
+const after = identities();
+const report = { args, before, after, stable: JSON.stringify(before) === JSON.stringify(after), exitCode: result.status, stdout: result.stdout, stderr: result.stderr, elapsedMs: Date.now() - start };
+writeFileSync(resolve(out, 'checks.json'), JSON.stringify(report, null, 2) + '\n', { flag: 'wx' });
+console.log(JSON.stringify({ out, ...report }));
+process.exitCode = result.status === 0 && report.stable ? 0 : 1;
