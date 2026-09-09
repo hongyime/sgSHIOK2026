@@ -1,0 +1,23 @@
+{
+    "current":  {
+                    "root":  "C:\\sgSHIOK2026",
+                    "pid":  100508,
+                    "active":  "A",
+                    "buildA":  "e8Hlhkml4c3i_uMGJdd3P",
+                    "buildB":  "h9AvuCJNjxEN6dn1GBsPA",
+                    "workerHashes":  {
+                                         "A":  "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+                                         "B":  "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+                                     },
+                    "sourceB":  "C:\\sgSHIOK2026\\tmp\\cached-release-map-download-20260909-1\\web",
+                    "requests":  [
+
+                                 ]
+                },
+    "existingPreviewsUntouched":  true,
+    "root":  "C:\\sgSHIOK2026",
+    "hostname":  "PRAWN-E14",
+    "stderr":  "C:\\sgSHIOK2026\\qa\\revamp-r1\\automatic-upgrade-20260909\\proxy.stderr.log",
+    "at":  "2026-09-09T05:10:37.9805505Z",
+    "stdout":  "C:\\sgSHIOK2026\\qa\\revamp-r1\\automatic-upgrade-20260909\\proxy.stdout.log"
+}

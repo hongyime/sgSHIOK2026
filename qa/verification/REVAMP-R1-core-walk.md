@@ -2432,3 +2432,75 @@ Additional independent-review qualification:
 ```text
 M07_scope=Existing handler tests cover in-page partial-map retry. Explicit Reload browser evidence is separate and is not an M07 browser pass.
 ```
+
+
+## 2026-09-09: Automatic Legacy Upgrade Acceptance
+
+Command: `node C:/sgSHIOK2026/qa/revamp-r1/automatic-upgrade-20260909/handback.mjs`
+
+```text
+working_root=C:\sgSHIOK2026
+hostname=PRAWN-E14
+base=c658c1ee98f68701bebe8336ec352e2a180e65f4
+summary_sha256=3e96dc77d0a583ee9458134005b863b0196881d5c598c64fc6d11db4ec221115
+browser_receipt=qa/revamp-r1/automatic-upgrade-20260909/observed-1-rOOKcg/browser.json
+browser_ok=true
+browser_checks=27 passed + 0 failed = 27
+captures=2 A + 2 B = 4; all inspected at390x844
+browser_elapsed_ms=69683; functional test only, not a latency benchmark
+{"name":"A-initial","requestId":"7280DAA58901B0ECCF35A4949396B58C","loaderId":"7280DAA58901B0ECCF35A4949396B58C","buildA":true,"buildB":false,"sha256":"4ad9e4f9b97117f3203bba69a950b0bcfcab96ad3805a6b56503550bbfec544b","fromServiceWorker":false,"fromDiskCache":false,"headers":{"cache-control":"public, max-age=604800, stale-while-revalidate=2592000","connection":"keep-alive","content-encoding":"gzip","content-security-policy":"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'","content-type":"text/html; charset=utf-8","date":"Wed, 09 Sep 2026 05:15:01 GMT","etag":"\"ngd0cj63yf9y0\"","keep-alive":"timeout=5","referrer-policy":"strict-origin-when-cross-origin","transfer-encoding":"chunked","vary":"rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding","x-content-type-options":"nosniff","x-nextjs-cache":"HIT","x-nextjs-prerender":"1, 1","x-nextjs-stale-time":"300","x-powered-by":"Next.js"}}
+{"name":"A-controlled-root","requestId":"B83A894B5B684328C04374488DB47D16","loaderId":"B83A894B5B684328C04374488DB47D16","buildA":true,"buildB":false,"sha256":"4ad9e4f9b97117f3203bba69a950b0bcfcab96ad3805a6b56503550bbfec544b","fromServiceWorker":true,"fromDiskCache":false,"headers":{"cache-control":"public, max-age=604800, stale-while-revalidate=2592000","connection":"keep-alive","content-encoding":"gzip","content-security-policy":"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'","content-type":"text/html; charset=utf-8","date":"Wed, 09 Sep 2026 05:15:11 GMT","etag":"\"ngd0cj63yf9y0\"","keep-alive":"timeout=5","referrer-policy":"strict-origin-when-cross-origin","transfer-encoding":"chunked","vary":"rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding","x-content-type-options":"nosniff","x-nextjs-cache":"HIT","x-nextjs-prerender":"1, 1","x-nextjs-stale-time":"300","x-powered-by":"Next.js"}}
+{"name":"first-returning-navigation","requestId":"BB210FDB07BEA20AB4F7CC499ADFCD48","loaderId":"BB210FDB07BEA20AB4F7CC499ADFCD48","buildA":true,"buildB":false,"sha256":"4ad9e4f9b97117f3203bba69a950b0bcfcab96ad3805a6b56503550bbfec544b","fromServiceWorker":true,"fromDiskCache":true,"headers":{"cache-control":"public, max-age=604800, stale-while-revalidate=2592000","content-encoding":"gzip","content-security-policy":"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'","content-type":"text/html; charset=utf-8","date":"Wed, 09 Sep 2026 05:15:11 GMT","etag":"\"ngd0cj63yf9y0\"","referrer-policy":"strict-origin-when-cross-origin","vary":"rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding","x-content-type-options":"nosniff","x-nextjs-cache":"HIT","x-nextjs-prerender":"1, 1","x-nextjs-stale-time":"300","x-powered-by":"Next.js"}}
+{"name":"B-ordinary-revisit","requestId":"E11D5C15B3ED3F015D21F54CD461E0F1","loaderId":"E11D5C15B3ED3F015D21F54CD461E0F1","buildA":false,"buildB":true,"sha256":"c1aff8f67417f346c4dcad6676b025738fe0a79d8744082975a701f6ab98b4f6","fromServiceWorker":true,"fromDiskCache":false,"headers":{"cache-control":"public, max-age=0, must-revalidate","connection":"keep-alive","content-encoding":"gzip","content-security-policy":"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'","content-type":"text/html; charset=utf-8","date":"Wed, 09 Sep 2026 05:15:17 GMT","etag":"\"6wlbyfanbsa2y\"","keep-alive":"timeout=5","referrer-policy":"strict-origin-when-cross-origin","transfer-encoding":"chunked","vary":"rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding","x-content-type-options":"nosniff","x-nextjs-cache":"HIT","x-nextjs-prerender":"1, 1","x-nextjs-stale-time":"300","x-powered-by":"Next.js"}}
+{"name":"B-plain-revisit","requestId":"6FECBE61A1DAB73EED1242497DD84A9D","loaderId":"6FECBE61A1DAB73EED1242497DD84A9D","buildA":false,"buildB":true,"sha256":"c1aff8f67417f346c4dcad6676b025738fe0a79d8744082975a701f6ab98b4f6","fromServiceWorker":true,"fromDiskCache":false,"headers":{"cache-control":"public, max-age=0, must-revalidate","connection":"keep-alive","content-encoding":"gzip","content-security-policy":"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'","content-type":"text/html; charset=utf-8","date":"Wed, 09 Sep 2026 05:15:24 GMT","etag":"\"6wlbyfanbsa2y\"","keep-alive":"timeout=5","referrer-policy":"strict-origin-when-cross-origin","transfer-encoding":"chunked","vary":"rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding","x-content-type-options":"nosniff","x-nextjs-cache":"HIT","x-nextjs-prerender":"1, 1","x-nextjs-stale-time":"300","x-powered-by":"Next.js"}}
+controller_observed_after_origin_switch_ms=1405
+cached_data_retained=6
+cached_A_JS_retained=12
+retained_data_plus_JS=6 + 12 = 18
+old_JS_origin404=12/12
+foreign_and_future_sentinels=2/2
+persisted_page_errors=0
+browser_cleanup_verified=true
+proxy_retirement_confirmed=true
+user_preview=http://127.0.0.1:4328/
+web_tests=1441
+web_test_files=56
+test_delta=1441 - 1441 = 0
+file_delta=56 - 56 = 0
+full_test_receipt=qa/revamp-r1/published-options-20260909/automatic-upgrade-full-1/checks.json
+exit=0 command=C:\Program Files\nodejs\node.exe C:/sgSHIOK2026/web/scripts/test-without-production-data.mjs --reporter=dot
+exit=0 command=C:\Program Files\nodejs\node.exe C:/sgSHIOK2026/web/node_modules/typescript/bin/tsc --project C:/sgSHIOK2026/web/tsconfig.json --noEmit --incremental false
+exit=0 command=python C:/sgSHIOK2026/scripts/check_repo_integrity.py
+exit=0 command=git diff --check
+build_reused=h9AvuCJNjxEN6dn1GBsPA
+built_source_matches=132/132
+protected_source_anchors=11/11
+review_qualification={
+  "reviewer": "Anscombe, independent read-only verification",
+  "acceptedScope": "Automatic local transition without harness-forced update; not browser-native-only causal attribution.",
+  "firstReturn": "A Document, HTTP-cache/SW flags; map still initializing before the next ordinary navigation.",
+  "remaining": "Retained old Document requesting an uncached lazy chunk, other browsers and actual deployment remain unproven. T01 is PARTIAL.",
+  "postRunGuardFinding": "Frozen executed runner reads pageErrors.length before awaiting the final sample. Its final persisted pageErrors array is empty, so independent receipt inspection supports this run. Current driver now checks after the await and again when finalizing; that later hardening was syntax-checked, not browser-rerun.",
+  "cleanup": "Immediate proxy retirement receipt briefly listed the terminated PID. A separate confirmation records zero live remaining processes and no HTTP listener; original receipt preserved.",
+  "next": "T03 is READY because its dependency is the landed typed failure/recovery interface, not every cache-upgrade scenario. Never export raw errors, paths, URLs, shard names or location data in diagnostics. Unknown build identity stays null."
+}
+FINDINGS
+1. Single same-origin/profile Chromium run passes 27/27 checks with HTTP cache and service worker enabled, without injected registration.update, forced update, clearing or bypass.
+2. The first returning Document remains build A and reports fromDiskCache plus fromServiceWorker. B controls the same page 1405 ms after switching the origin; the next ordinary navigation executes build B. Worker activation is not automatic page replacement.
+3. Six cached data URLs and twelve cached A JS URLs survive. All twelve A JS URLs return404 from B origin. Foreign and future cache sentinels survive. This proves retention, not a retained old tab requesting an uncached lazy chunk.
+4. Four screenshots inspected at390x844: A/B plain map and selected walk; both selected captures have four current-route features and matching before/after state. Approved left stack and compact bottom-right About data/required attribution are visible.
+5. Full isolated web suite remains1441 tests in56 files; TypeScript/integrity and11 protected source anchors pass. No representative timing, physical-device, other-browser or deployed-site claim.
+DISAGREEMENTS
+1. Do not close T01 solely from this pass: retained-old-Document uncached lazy-chunk behavior remains untested. M16 automatic local transition is now evidenced; M17 is partial.
+2. Do not keep T03 blocked by unrelated remaining cache-upgrade acceptance: its prerequisite is the already-landed typed startup/failure recovery. Build identity must remain explicitly unknown unless injected at compile time.
+pre_append_evidence_bytes=150739
+pre_append_evidence_sha256=79b1d8af65006bf238528ca265d2c6a4738ca9e2c27abb2937c63f669c98cebc
+pre_append_prefix_unchanged=true
+pipeline_runs=0
+pipeline_cost=$0
+installations=0
+deployment_commands=0
+protected_payload_mutations=0
+weights_yaml_changes=0
+X_operations=0
+```

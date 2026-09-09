@@ -2879,3 +2879,26 @@ Final results and limitations live in
 qa/revamp-r1/map-download-recovery-20260909/summary.json and the append-only
 REVAMP-R1 evidence. T01/T25 and release acceptance remain open until their broader
 criteria have actual evidence; no pipeline work or deployment is authorized here.
+
+## 2026-09-09: Qualify cache upgrades and unblock safe diagnostics
+
+The automatic local A-to-B browser test now passes without a harness-forced
+worker update. Its first returning Document is still A; the next normal
+navigation uses B after the pinned B worker takes control. Activation must not
+be described as replacing an already-open Document. Preserve the older failed
+observation and do not infer its cause from this later result.
+
+Keep T01 partial for retained-old-Document uncached lazy loading and the
+unverified deployment/other-browser cases. T03 may proceed because its actual
+dependency, typed map failure stages and explicit recovery, has landed.
+Diagnostics must use an allowlisted snapshot with no location, artifact path,
+raw exception, report draft or storage contents. Unknown build identity remains
+unknown; pinned bundle metadata is not evidence of a verified network manifest.
+Provide an explicit copy action and accessible manual fallback, not telemetry.
+
+The approved top-left SHIOK/search/equal-width result stack and bottom-right
+About data are unchanged and visible in the new screenshots. Required OneMap
+logo/attribution stays visible. Evidence and remaining limits:
+qa/revamp-r1/automatic-upgrade-20260909/summary.json,
+qa/revamp-r1/automatic-upgrade-20260909/review-qualification.json, and the
+append-only REVAMP-R1 verification file. No pipeline or deployment authorized.

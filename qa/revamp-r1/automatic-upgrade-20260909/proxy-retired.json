@@ -1,0 +1,2120 @@
+{
+    "at":  "2026-09-09T05:20:15.4674761Z",
+    "userPreview":  {
+                        "build":  "h9AvuCJNjxEN6dn1GBsPA",
+                        "snapshot":  "C:\\sgSHIOK2026\\tmp\\cached-release-map-download-20260909-1\\web",
+                        "pid":  104608,
+                        "nextPid":  83636,
+                        "requests":  [
+                                         {
+                                             "path":  "/",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927913952
+                                         },
+                                         {
+                                             "path":  "/",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927934907
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3-dbbfvnr92ef.css",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927935231
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3wkt3-74el481.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927935234
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/2wu61p_p0hxro.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927935254
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/11axl_urhtotz.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927935332
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927935405
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/0in607kxyceyg.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927935409
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/1oaw9uq-pttep.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927935419
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/10x92yuxi4v0u.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927935619
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/02krk9bsilu1q.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927935643
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3klctijgmeqo9.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927936893
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3j81ed9typkem.css",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927936944
+                                         },
+                                         {
+                                             "path":  "/sw.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927936970
+                                         },
+                                         {
+                                             "path":  "/icon.svg",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927937120
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/2rmzgxedjsyy1.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927968280
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3_zdoql-8zsg0.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927968433
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788927968654
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927968710
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788927968815
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927968853
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788927968959
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927968991
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927969069
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927970381
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927970392
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927970577
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927970582
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927970587
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788927970749
+                                         },
+                                         {
+                                             "path":  "/icon.svg",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927970813
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927970871
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/1guz71m0ch8y_.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927971766
+                                         },
+                                         {
+                                             "path":  "/",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927977177
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3-dbbfvnr92ef.css",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927977312
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3wkt3-74el481.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927977335
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/2wu61p_p0hxro.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927977530
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/11axl_urhtotz.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927977535
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/0in607kxyceyg.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927977784
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/10x92yuxi4v0u.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927977791
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927977814
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/1oaw9uq-pttep.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927977817
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/02krk9bsilu1q.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927977867
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3j81ed9typkem.css",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927978315
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/1guz71m0ch8y_.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927978385
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/2rmzgxedjsyy1.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927978442
+                                         },
+                                         {
+                                             "path":  "/icon.svg",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927978463
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3_zdoql-8zsg0.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927978467
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927978534
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788927978561
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788927978564
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927978591
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927978593
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788927978618
+                                         },
+                                         {
+                                             "path":  "/sw.js",
+                                             "status":  304,
+                                             "kind":  "app",
+                                             "at":  1788927978621
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927978644
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3klctijgmeqo9.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927978657
+                                         },
+                                         {
+                                             "path":  "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927979418
+                                         },
+                                         {
+                                             "path":  "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788927980023
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927982469
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927982471
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927982902
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927982904
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788927982951
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927982954
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788927982958
+                                         },
+                                         {
+                                             "path":  "/",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928008685
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3-dbbfvnr92ef.css",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928008841
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3wkt3-74el481.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928009220
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/2wu61p_p0hxro.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928009286
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/0in607kxyceyg.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928009467
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/11axl_urhtotz.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928009717
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/1oaw9uq-pttep.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928009881
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928010524
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/10x92yuxi4v0u.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928010714
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/02krk9bsilu1q.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928010730
+                                         },
+                                         {
+                                             "path":  "/icon.svg",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928011886
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3klctijgmeqo9.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928012127
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3j81ed9typkem.css",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928012148
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/1guz71m0ch8y_.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928012153
+                                         },
+                                         {
+                                             "path":  "/sw.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928012174
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/2rmzgxedjsyy1.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928012396
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788928013853
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928013870
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928013909
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788928013911
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788928013954
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928013967
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928014002
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928016051
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928016055
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928016221
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928016323
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928016326
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928016536
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788928016575
+                                         },
+                                         {
+                                             "path":  "/icon.svg",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928016614
+                                         },
+                                         {
+                                             "path":  "/",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928304249
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3wkt3-74el481.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928304573
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/2wu61p_p0hxro.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928304631
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3-dbbfvnr92ef.css",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928304635
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928304838
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/11axl_urhtotz.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928304917
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/0in607kxyceyg.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928305006
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/1oaw9uq-pttep.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928305060
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/10x92yuxi4v0u.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928305104
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/02krk9bsilu1q.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928305118
+                                         },
+                                         {
+                                             "path":  "/icon.svg",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928306943
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3klctijgmeqo9.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928307359
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3j81ed9typkem.css",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928307378
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/1guz71m0ch8y_.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928307380
+                                         },
+                                         {
+                                             "path":  "/sw.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928307422
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/2rmzgxedjsyy1.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928307520
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928313826
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788928313857
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788928313907
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928313939
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928313956
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788928313988
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928314028
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928315455
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928315468
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928315671
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928315693
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788928315715
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928315716
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928315721
+                                         },
+                                         {
+                                             "path":  "/icon.svg",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928315925
+                                         },
+                                         {
+                                             "path":  "/",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928711714
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3-dbbfvnr92ef.css",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928711937
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3wkt3-74el481.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928712313
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/0in607kxyceyg.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928712336
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/1oaw9uq-pttep.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928712485
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/2wu61p_p0hxro.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928712492
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/11axl_urhtotz.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928712497
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928712549
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/10x92yuxi4v0u.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928712895
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/02krk9bsilu1q.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928713292
+                                         },
+                                         {
+                                             "path":  "/icon.svg",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928715389
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3klctijgmeqo9.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928715510
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3j81ed9typkem.css",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928715518
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/1guz71m0ch8y_.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928715527
+                                         },
+                                         {
+                                             "path":  "/sw.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928715566
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/2rmzgxedjsyy1.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928715730
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788928719996
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928720002
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928720107
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788928720110
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788928720153
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928720175
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928720209
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928724631
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788928724915
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928724966
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928724975
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928724995
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928725071
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928725074
+                                         },
+                                         {
+                                             "path":  "/icon.svg",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928725169
+                                         },
+                                         {
+                                             "path":  "/",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928728826
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3-dbbfvnr92ef.css",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928728955
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3wkt3-74el481.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928729527
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/2wu61p_p0hxro.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928729541
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/11axl_urhtotz.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928729576
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/0in607kxyceyg.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928729593
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928729694
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/1oaw9uq-pttep.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928729698
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/10x92yuxi4v0u.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928729703
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/02krk9bsilu1q.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928729717
+                                         },
+                                         {
+                                             "path":  "/icon.svg",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928731200
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3klctijgmeqo9.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928731485
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3j81ed9typkem.css",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928731487
+                                         },
+                                         {
+                                             "path":  "/sw.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928731526
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/2rmzgxedjsyy1.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928734513
+                                         },
+                                         {
+                                             "path":  "/_next/static/chunks/3_zdoql-8zsg0.js",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928734529
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788928734790
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928734808
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928734833
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788928734853
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788928734871
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928734889
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928734913
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928736668
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928736692
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928736694
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928736741
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928736743
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+                                             "status":  200,
+                                             "kind":  "data",
+                                             "at":  1788928736778
+                                         },
+                                         {
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+                                             "status":  404,
+                                             "kind":  "data",
+                                             "at":  1788928736797
+                                         },
+                                         {
+                                             "path":  "/icon.svg",
+                                             "status":  200,
+                                             "kind":  "app",
+                                             "at":  1788928737065
+                                         }
+                                     ]
+                    },
+    "serverAfter":  {
+                        "root":  "C:\\sgSHIOK2026",
+                        "pid":  100508,
+                        "active":  "B",
+                        "buildA":  "e8Hlhkml4c3i_uMGJdd3P",
+                        "buildB":  "h9AvuCJNjxEN6dn1GBsPA",
+                        "workerHashes":  {
+                                             "A":  "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+                                             "B":  "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+                                         },
+                        "sourceB":  "C:\\sgSHIOK2026\\tmp\\cached-release-map-download-20260909-1\\web",
+                        "requests":  [
+                                         {
+                                             "sequence":  1,
+                                             "at":  "2026-09-09T05:15:01.335Z",
+                                             "method":  "GET",
+                                             "path":  "/?postal=018956",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "document",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  2,
+                                             "at":  "2026-09-09T05:15:01.491Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/3mic8ep312z99.css",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "style",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  3,
+                                             "at":  "2026-09-09T05:15:01.863Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/310vm2bl3xxpt.js",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "script",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  4,
+                                             "at":  "2026-09-09T05:15:01.871Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/0y-dctk-kmqss.js",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "script",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  5,
+                                             "at":  "2026-09-09T05:15:01.882Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/3g398rb4su43l.js",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "script",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  6,
+                                             "at":  "2026-09-09T05:15:02.081Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/08ttfj81-47mu.js",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "script",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  7,
+                                             "at":  "2026-09-09T05:15:02.098Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/3fntmmi971322.js",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "script",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  8,
+                                             "at":  "2026-09-09T05:15:02.112Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/2zaun8r9-gox7.js",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "script",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  9,
+                                             "at":  "2026-09-09T05:15:02.275Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "script",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  10,
+                                             "at":  "2026-09-09T05:15:02.837Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/27iodt6ap9svx.js",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "script",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  11,
+                                             "at":  "2026-09-09T05:15:03.268Z",
+                                             "method":  "GET",
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+                                             "active":  "A",
+                                             "status":  404,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  true,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  12,
+                                             "at":  "2026-09-09T05:15:03.272Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/0npwww6p9wx1o.js",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "script",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  13,
+                                             "at":  "2026-09-09T05:15:03.275Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/2_c6f5vawm6vi.css",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "style",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  14,
+                                             "at":  "2026-09-09T05:15:03.278Z",
+                                             "method":  "GET",
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  true,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  15,
+                                             "at":  "2026-09-09T05:15:03.304Z",
+                                             "method":  "GET",
+                                             "path":  "/icon.svg",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "image",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  16,
+                                             "at":  "2026-09-09T05:15:03.321Z",
+                                             "method":  "GET",
+                                             "path":  "/sw.js",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "serviceworker",
+                                             "serviceWorker":  "script",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "workerSha256":  "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390"
+                                         },
+                                         {
+                                             "sequence":  17,
+                                             "at":  "2026-09-09T05:15:03.325Z",
+                                             "method":  "GET",
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+                                             "active":  "A",
+                                             "status":  404,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  true,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  18,
+                                             "at":  "2026-09-09T05:15:03.352Z",
+                                             "method":  "GET",
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  true,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  19,
+                                             "at":  "2026-09-09T05:15:03.363Z",
+                                             "method":  "GET",
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  true,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  20,
+                                             "at":  "2026-09-09T05:15:03.374Z",
+                                             "method":  "GET",
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+                                             "active":  "A",
+                                             "status":  404,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  true,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  21,
+                                             "at":  "2026-09-09T05:15:03.375Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/39xhkg3l-se9r.js",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "script",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  22,
+                                             "at":  "2026-09-09T05:15:03.394Z",
+                                             "method":  "GET",
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  true,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  23,
+                                             "at":  "2026-09-09T05:15:03.486Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/0j6tjjnrv2h3w.js",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "script",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  24,
+                                             "at":  "2026-09-09T05:15:04.416Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/318x15h178iv-.js",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "script",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  25,
+                                             "at":  "2026-09-09T05:15:05.253Z",
+                                             "method":  "GET",
+                                             "path":  "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "worker",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  26,
+                                             "at":  "2026-09-09T05:15:05.679Z",
+                                             "method":  "GET",
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  true,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  27,
+                                             "at":  "2026-09-09T05:15:05.681Z",
+                                             "method":  "GET",
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  true,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  28,
+                                             "at":  "2026-09-09T05:15:05.682Z",
+                                             "method":  "GET",
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  true,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  29,
+                                             "at":  "2026-09-09T05:15:05.684Z",
+                                             "method":  "GET",
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  true,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  30,
+                                             "at":  "2026-09-09T05:15:05.686Z",
+                                             "method":  "GET",
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  true,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  31,
+                                             "at":  "2026-09-09T05:15:05.805Z",
+                                             "method":  "GET",
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  true,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  32,
+                                             "at":  "2026-09-09T05:15:05.806Z",
+                                             "method":  "GET",
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+                                             "active":  "A",
+                                             "status":  404,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  true,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  33,
+                                             "at":  "2026-09-09T05:15:05.843Z",
+                                             "method":  "GET",
+                                             "path":  "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "worker",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  34,
+                                             "at":  "2026-09-09T05:15:11.615Z",
+                                             "method":  "GET",
+                                             "path":  "/",
+                                             "active":  "A",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  35,
+                                             "at":  "2026-09-09T05:15:12.398Z",
+                                             "method":  "GET",
+                                             "path":  "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+                                             "active":  "A",
+                                             "status":  304,
+                                             "destination":  "worker",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  36,
+                                             "at":  "2026-09-09T05:15:12.555Z",
+                                             "method":  "GET",
+                                             "path":  "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+                                             "active":  "A",
+                                             "status":  304,
+                                             "destination":  "worker",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  false,
+                                             "activeAtStart":  "A"
+                                         },
+                                         {
+                                             "sequence":  37,
+                                             "at":  "2026-09-09T05:15:15.543Z",
+                                             "method":  "POST",
+                                             "path":  "/__qa/select/B",
+                                             "active":  "B",
+                                             "status":  204,
+                                             "userAgent":  "node",
+                                             "control":  true
+                                         },
+                                         {
+                                             "sequence":  38,
+                                             "at":  "2026-09-09T05:15:15.725Z",
+                                             "method":  "GET",
+                                             "path":  "/sw.js",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "serviceworker",
+                                             "serviceWorker":  "script",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "workerSha256":  "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+                                         },
+                                         {
+                                             "sequence":  39,
+                                             "at":  "2026-09-09T05:15:16.938Z",
+                                             "method":  "GET",
+                                             "path":  "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+                                             "active":  "B",
+                                             "status":  304,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  40,
+                                             "at":  "2026-09-09T05:15:17.074Z",
+                                             "method":  "GET",
+                                             "path":  "/?postal=018956",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  41,
+                                             "at":  "2026-09-09T05:15:17.150Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/3-dbbfvnr92ef.css",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  42,
+                                             "at":  "2026-09-09T05:15:17.321Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/3wkt3-74el481.js",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  43,
+                                             "at":  "2026-09-09T05:15:17.604Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/2wu61p_p0hxro.js",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  44,
+                                             "at":  "2026-09-09T05:15:17.620Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  45,
+                                             "at":  "2026-09-09T05:15:17.628Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/10x92yuxi4v0u.js",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  46,
+                                             "at":  "2026-09-09T05:15:17.727Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/0in607kxyceyg.js",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  47,
+                                             "at":  "2026-09-09T05:15:17.764Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/11axl_urhtotz.js",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  48,
+                                             "at":  "2026-09-09T05:15:18.092Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/1oaw9uq-pttep.js",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  49,
+                                             "at":  "2026-09-09T05:15:18.173Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/02krk9bsilu1q.js",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  50,
+                                             "at":  "2026-09-09T05:15:18.540Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/2rmzgxedjsyy1.js",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  51,
+                                             "at":  "2026-09-09T05:15:18.542Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/3j81ed9typkem.css",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  52,
+                                             "at":  "2026-09-09T05:15:18.565Z",
+                                             "method":  "GET",
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+                                             "active":  "B",
+                                             "status":  404,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  true,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  53,
+                                             "at":  "2026-09-09T05:15:18.567Z",
+                                             "method":  "GET",
+                                             "path":  "/sw.js",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "serviceworker",
+                                             "serviceWorker":  "script",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "workerSha256":  "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+                                         },
+                                         {
+                                             "sequence":  54,
+                                             "at":  "2026-09-09T05:15:18.660Z",
+                                             "method":  "GET",
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+                                             "active":  "B",
+                                             "status":  404,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  true,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  55,
+                                             "at":  "2026-09-09T05:15:18.726Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/3klctijgmeqo9.js",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  56,
+                                             "at":  "2026-09-09T05:15:18.744Z",
+                                             "method":  "GET",
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+                                             "active":  "B",
+                                             "status":  404,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  true,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  57,
+                                             "at":  "2026-09-09T05:15:18.800Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/1guz71m0ch8y_.js",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  58,
+                                             "at":  "2026-09-09T05:15:19.068Z",
+                                             "method":  "GET",
+                                             "path":  "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+                                             "active":  "B",
+                                             "status":  404,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4321,
+                                             "data":  true,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  59,
+                                             "at":  "2026-09-09T05:15:19.526Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/3_zdoql-8zsg0.js",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  60,
+                                             "at":  "2026-09-09T05:15:20.240Z",
+                                             "method":  "GET",
+                                             "path":  "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+                                             "active":  "B",
+                                             "status":  304,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  61,
+                                             "at":  "2026-09-09T05:15:24.498Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/310vm2bl3xxpt.js",
+                                             "active":  "B",
+                                             "status":  404,
+                                             "userAgent":  "node",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  62,
+                                             "at":  "2026-09-09T05:15:24.516Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/0y-dctk-kmqss.js",
+                                             "active":  "B",
+                                             "status":  404,
+                                             "userAgent":  "node",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  63,
+                                             "at":  "2026-09-09T05:15:24.528Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/3g398rb4su43l.js",
+                                             "active":  "B",
+                                             "status":  404,
+                                             "userAgent":  "node",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  64,
+                                             "at":  "2026-09-09T05:15:24.535Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+                                             "active":  "B",
+                                             "status":  404,
+                                             "userAgent":  "node",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  65,
+                                             "at":  "2026-09-09T05:15:24.544Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/3fntmmi971322.js",
+                                             "active":  "B",
+                                             "status":  404,
+                                             "userAgent":  "node",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  66,
+                                             "at":  "2026-09-09T05:15:24.552Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/2zaun8r9-gox7.js",
+                                             "active":  "B",
+                                             "status":  404,
+                                             "userAgent":  "node",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  67,
+                                             "at":  "2026-09-09T05:15:24.560Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/27iodt6ap9svx.js",
+                                             "active":  "B",
+                                             "status":  404,
+                                             "userAgent":  "node",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  68,
+                                             "at":  "2026-09-09T05:15:24.588Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/08ttfj81-47mu.js",
+                                             "active":  "B",
+                                             "status":  404,
+                                             "userAgent":  "node",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  69,
+                                             "at":  "2026-09-09T05:15:24.596Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/39xhkg3l-se9r.js",
+                                             "active":  "B",
+                                             "status":  404,
+                                             "userAgent":  "node",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  70,
+                                             "at":  "2026-09-09T05:15:24.606Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/0j6tjjnrv2h3w.js",
+                                             "active":  "B",
+                                             "status":  404,
+                                             "userAgent":  "node",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  71,
+                                             "at":  "2026-09-09T05:15:24.613Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/0npwww6p9wx1o.js",
+                                             "active":  "B",
+                                             "status":  404,
+                                             "userAgent":  "node",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  72,
+                                             "at":  "2026-09-09T05:15:24.620Z",
+                                             "method":  "GET",
+                                             "path":  "/_next/static/chunks/318x15h178iv-.js",
+                                             "active":  "B",
+                                             "status":  404,
+                                             "userAgent":  "node",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  73,
+                                             "at":  "2026-09-09T05:15:24.663Z",
+                                             "method":  "GET",
+                                             "path":  "/",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "empty",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "upstream":  4327,
+                                             "data":  false,
+                                             "activeAtStart":  "B"
+                                         },
+                                         {
+                                             "sequence":  74,
+                                             "at":  "2026-09-09T05:15:24.890Z",
+                                             "method":  "GET",
+                                             "path":  "/sw.js",
+                                             "active":  "B",
+                                             "status":  200,
+                                             "destination":  "serviceworker",
+                                             "serviceWorker":  "script",
+                                             "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+                                             "workerSha256":  "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+                                         }
+                                     ]
+                    },
+    "root":  "C:\\sgSHIOK2026",
+    "retired":  [
+                    {
+                        "ProcessId":  100508,
+                        "CommandLine":  "\"C:\\Program Files\\nodejs\\node.exe\" C:/sgSHIOK2026/qa/revamp-r1/automatic-upgrade-20260909/serve.mjs "
+                    }
+                ],
+    "remaining":  [
+                      {
+                          "Id":  100508
+                      }
+                  ]
+}

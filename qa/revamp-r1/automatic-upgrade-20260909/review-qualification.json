@@ -1,0 +1,9 @@
+{
+  "reviewer": "Anscombe, independent read-only verification",
+  "acceptedScope": "Automatic local transition without harness-forced update; not browser-native-only causal attribution.",
+  "firstReturn": "A Document, HTTP-cache/SW flags; map still initializing before the next ordinary navigation.",
+  "remaining": "Retained old Document requesting an uncached lazy chunk, other browsers and actual deployment remain unproven. T01 is PARTIAL.",
+  "postRunGuardFinding": "Frozen executed runner reads pageErrors.length before awaiting the final sample. Its final persisted pageErrors array is empty, so independent receipt inspection supports this run. Current driver now checks after the await and again when finalizing; that later hardening was syntax-checked, not browser-rerun.",
+  "cleanup": "Immediate proxy retirement receipt briefly listed the terminated PID. A separate confirmation records zero live remaining processes and no HTTP listener; original receipt preserved.",
+  "next": "T03 is READY because its dependency is the landed typed failure/recovery interface, not every cache-upgrade scenario. Never export raw errors, paths, URLs, shard names or location data in diagnostics. Unknown build identity stays null."
+}

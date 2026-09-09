@@ -1,0 +1,2117 @@
+{
+  "base": "c658c1ee98f68701bebe8336ec352e2a180e65f4",
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "at": "2026-09-09T05:22:48.817Z",
+  "scope": "QA acceptance and handoff only; no application source change, rebuild, deployment or pipeline action.",
+  "browser": {
+    "receipt": "qa/revamp-r1/automatic-upgrade-20260909/observed-1-rOOKcg/browser.json",
+    "sha256": "43a20ce8afc286e731e72ac0cd0f53f59fd0edf1030788d51afe37f1987d0f4e",
+    "ok": true,
+    "elapsedMs": 69683,
+    "checks": [
+      {
+        "name": "fresh proxy serves A",
+        "pass": true
+      },
+      {
+        "name": "A-initial Document HTTP200",
+        "pass": true,
+        "detail": {
+          "name": "A-initial",
+          "requestId": "7280DAA58901B0ECCF35A4949396B58C",
+          "loaderId": "7280DAA58901B0ECCF35A4949396B58C",
+          "url": "http://127.0.0.1:4330/?postal=018956",
+          "response": {
+            "url": "http://127.0.0.1:4330/?postal=018956",
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "cache-control": "public, max-age=604800, stale-while-revalidate=2592000",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+              "content-type": "text/html; charset=utf-8",
+              "date": "Wed, 09 Sep 2026 05:15:01 GMT",
+              "etag": "\"ngd0cj63yf9y0\"",
+              "keep-alive": "timeout=5",
+              "referrer-policy": "strict-origin-when-cross-origin",
+              "transfer-encoding": "chunked",
+              "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+              "x-content-type-options": "nosniff",
+              "x-nextjs-cache": "HIT",
+              "x-nextjs-prerender": "1, 1",
+              "x-nextjs-stale-time": "300",
+              "x-powered-by": "Next.js"
+            },
+            "mimeType": "text/html",
+            "charset": "utf-8",
+            "connectionReused": true,
+            "connectionId": 129,
+            "remoteIPAddress": "127.0.0.1",
+            "remotePort": 4330,
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "fromPrefetchCache": false,
+            "encodedDataLength": 943,
+            "timing": {
+              "requestTime": 1001598.548111,
+              "proxyStart": -1,
+              "proxyEnd": -1,
+              "dnsStart": -1,
+              "dnsEnd": -1,
+              "connectStart": -1,
+              "connectEnd": -1,
+              "sslStart": -1,
+              "sslEnd": -1,
+              "workerStart": -1,
+              "workerReady": -1,
+              "workerFetchStart": -1,
+              "workerRespondWithSettled": -1,
+              "sendStart": 17.964,
+              "sendEnd": 18.336,
+              "pushStart": 0,
+              "pushEnd": 0,
+              "receiveHeadersStart": 115.04,
+              "receiveHeadersEnd": 119.444
+            },
+            "responseTime": 1788930901340.469,
+            "protocol": "http/1.1",
+            "alternateProtocolUsage": "unspecifiedReason",
+            "securityState": "secure"
+          },
+          "sha256": "4ad9e4f9b97117f3203bba69a950b0bcfcab96ad3805a6b56503550bbfec544b",
+          "bytes": 12889,
+          "buildA": true,
+          "buildB": false
+        }
+      },
+      {
+        "name": "initial Document is build A only",
+        "pass": true
+      },
+      {
+        "name": "A-selected settled",
+        "pass": true,
+        "detail": {
+          "last": {
+            "url": "http://127.0.0.1:4330/?postal=018956",
+            "timeOrigin": 1788930901220.2,
+            "status": "ready",
+            "body": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+            "input": "018956",
+            "controller": "http://127.0.0.1:4330/sw.js",
+            "key": "2:shiokest:primary",
+            "features": 4,
+            "basemap": true,
+            "tiles": true,
+            "center": [
+              103.86003,
+              1.2836525539690342
+            ],
+            "moving": false,
+            "viewport": [
+              390,
+              844
+            ],
+            "controllerChanges": [
+              {
+                "at": 2397.8000000715256,
+                "url": "http://127.0.0.1:4330/sw.js"
+              }
+            ],
+            "unhandled": [],
+            "buildIds": []
+          },
+          "pendingData": []
+        }
+      },
+      {
+        "name": "A-selected matching screenshot facts",
+        "pass": true
+      },
+      {
+        "name": "A-controlled-root Document HTTP200",
+        "pass": true,
+        "detail": {
+          "name": "A-controlled-root",
+          "requestId": "B83A894B5B684328C04374488DB47D16",
+          "loaderId": "B83A894B5B684328C04374488DB47D16",
+          "url": "http://127.0.0.1:4330/",
+          "response": {
+            "url": "http://127.0.0.1:4330/",
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "cache-control": "public, max-age=604800, stale-while-revalidate=2592000",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+              "content-type": "text/html; charset=utf-8",
+              "date": "Wed, 09 Sep 2026 05:15:11 GMT",
+              "etag": "\"ngd0cj63yf9y0\"",
+              "keep-alive": "timeout=5",
+              "referrer-policy": "strict-origin-when-cross-origin",
+              "transfer-encoding": "chunked",
+              "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+              "x-content-type-options": "nosniff",
+              "x-nextjs-cache": "HIT",
+              "x-nextjs-prerender": "1, 1",
+              "x-nextjs-stale-time": "300",
+              "x-powered-by": "Next.js"
+            },
+            "mimeType": "text/html",
+            "charset": "utf-8",
+            "connectionReused": false,
+            "connectionId": 0,
+            "remoteIPAddress": "",
+            "remotePort": 0,
+            "fromDiskCache": false,
+            "fromServiceWorker": true,
+            "fromPrefetchCache": false,
+            "encodedDataLength": -1,
+            "timing": {
+              "requestTime": 1001608.909433,
+              "proxyStart": -1,
+              "proxyEnd": -1,
+              "dnsStart": -1,
+              "dnsEnd": -1,
+              "connectStart": -1,
+              "connectEnd": -1,
+              "sslStart": -1,
+              "sslEnd": -1,
+              "workerStart": -1,
+              "workerReady": -1,
+              "workerFetchStart": 1.601,
+              "workerRespondWithSettled": 54.77,
+              "sendStart": 1.601,
+              "sendEnd": 1.601,
+              "pushStart": 0,
+              "pushEnd": 0,
+              "receiveHeadersStart": 55.55,
+              "receiveHeadersEnd": 55.55
+            },
+            "serviceWorkerResponseSource": "network",
+            "responseTime": 1788930911618.002,
+            "protocol": "http/1.1",
+            "alternateProtocolUsage": "alternativeJobWonWithoutRace",
+            "securityState": "secure"
+          },
+          "sha256": "4ad9e4f9b97117f3203bba69a950b0bcfcab96ad3805a6b56503550bbfec544b",
+          "bytes": 12889,
+          "buildA": true,
+          "buildB": false
+        }
+      },
+      {
+        "name": "A-root settled",
+        "pass": true,
+        "detail": {
+          "last": {
+            "url": "http://127.0.0.1:4330/",
+            "timeOrigin": 1788930911584.1,
+            "status": "idle",
+            "body": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap waiting\n\nAbout data",
+            "input": "",
+            "controller": "http://127.0.0.1:4330/sw.js",
+            "key": "1:shiokest:",
+            "features": 0,
+            "basemap": true,
+            "tiles": true,
+            "center": [
+              103.851959,
+              1.29027
+            ],
+            "moving": false,
+            "viewport": [
+              390,
+              844
+            ],
+            "controllerChanges": [],
+            "unhandled": [],
+            "buildIds": []
+          },
+          "pendingData": []
+        }
+      },
+      {
+        "name": "A-root matching screenshot facts",
+        "pass": true
+      },
+      {
+        "name": "A controlled root is build A",
+        "pass": true,
+        "detail": {
+          "name": "A-controlled-root",
+          "requestId": "B83A894B5B684328C04374488DB47D16",
+          "loaderId": "B83A894B5B684328C04374488DB47D16",
+          "url": "http://127.0.0.1:4330/",
+          "response": {
+            "url": "http://127.0.0.1:4330/",
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "cache-control": "public, max-age=604800, stale-while-revalidate=2592000",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+              "content-type": "text/html; charset=utf-8",
+              "date": "Wed, 09 Sep 2026 05:15:11 GMT",
+              "etag": "\"ngd0cj63yf9y0\"",
+              "keep-alive": "timeout=5",
+              "referrer-policy": "strict-origin-when-cross-origin",
+              "transfer-encoding": "chunked",
+              "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+              "x-content-type-options": "nosniff",
+              "x-nextjs-cache": "HIT",
+              "x-nextjs-prerender": "1, 1",
+              "x-nextjs-stale-time": "300",
+              "x-powered-by": "Next.js"
+            },
+            "mimeType": "text/html",
+            "charset": "utf-8",
+            "connectionReused": false,
+            "connectionId": 0,
+            "remoteIPAddress": "",
+            "remotePort": 0,
+            "fromDiskCache": false,
+            "fromServiceWorker": true,
+            "fromPrefetchCache": false,
+            "encodedDataLength": -1,
+            "timing": {
+              "requestTime": 1001608.909433,
+              "proxyStart": -1,
+              "proxyEnd": -1,
+              "dnsStart": -1,
+              "dnsEnd": -1,
+              "connectStart": -1,
+              "connectEnd": -1,
+              "sslStart": -1,
+              "sslEnd": -1,
+              "workerStart": -1,
+              "workerReady": -1,
+              "workerFetchStart": 1.601,
+              "workerRespondWithSettled": 54.77,
+              "sendStart": 1.601,
+              "sendEnd": 1.601,
+              "pushStart": 0,
+              "pushEnd": 0,
+              "receiveHeadersStart": 55.55,
+              "receiveHeadersEnd": 55.55
+            },
+            "serviceWorkerResponseSource": "network",
+            "responseTime": 1788930911618.002,
+            "protocol": "http/1.1",
+            "alternateProtocolUsage": "alternativeJobWonWithoutRace",
+            "securityState": "secure"
+          },
+          "sha256": "4ad9e4f9b97117f3203bba69a950b0bcfcab96ad3805a6b56503550bbfec544b",
+          "bytes": 12889,
+          "buildA": true,
+          "buildB": false
+        }
+      },
+      {
+        "name": "A worker version observed before switch",
+        "pass": true
+      },
+      {
+        "name": "baseline contains cached data and JS chunks",
+        "pass": true
+      },
+      {
+        "name": "proxy switched to B",
+        "pass": true
+      },
+      {
+        "name": "first-returning-navigation Document HTTP200",
+        "pass": true,
+        "detail": {
+          "name": "first-returning-navigation",
+          "requestId": "BB210FDB07BEA20AB4F7CC499ADFCD48",
+          "loaderId": "BB210FDB07BEA20AB4F7CC499ADFCD48",
+          "url": "http://127.0.0.1:4330/",
+          "response": {
+            "url": "http://127.0.0.1:4330/",
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "cache-control": "public, max-age=604800, stale-while-revalidate=2592000",
+              "content-encoding": "gzip",
+              "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+              "content-type": "text/html; charset=utf-8",
+              "date": "Wed, 09 Sep 2026 05:15:11 GMT",
+              "etag": "\"ngd0cj63yf9y0\"",
+              "referrer-policy": "strict-origin-when-cross-origin",
+              "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+              "x-content-type-options": "nosniff",
+              "x-nextjs-cache": "HIT",
+              "x-nextjs-prerender": "1, 1",
+              "x-nextjs-stale-time": "300",
+              "x-powered-by": "Next.js"
+            },
+            "mimeType": "text/html",
+            "charset": "utf-8",
+            "connectionReused": false,
+            "connectionId": 0,
+            "remoteIPAddress": "",
+            "remotePort": 0,
+            "fromDiskCache": true,
+            "fromServiceWorker": true,
+            "fromPrefetchCache": false,
+            "encodedDataLength": 0,
+            "timing": {
+              "requestTime": 1001612.885368,
+              "proxyStart": -1,
+              "proxyEnd": -1,
+              "dnsStart": -1,
+              "dnsEnd": -1,
+              "connectStart": -1,
+              "connectEnd": -1,
+              "sslStart": -1,
+              "sslEnd": -1,
+              "workerStart": -1,
+              "workerReady": -1,
+              "workerFetchStart": 2.643,
+              "workerRespondWithSettled": 29.57,
+              "sendStart": 2.643,
+              "sendEnd": 2.643,
+              "pushStart": 0,
+              "pushEnd": 0,
+              "receiveHeadersStart": 30.202,
+              "receiveHeadersEnd": 30.202
+            },
+            "serviceWorkerResponseSource": "http-cache",
+            "responseTime": 1788930911618.002,
+            "protocol": "http/1.1",
+            "alternateProtocolUsage": "alternativeJobWonWithoutRace",
+            "securityState": "secure"
+          },
+          "sha256": "4ad9e4f9b97117f3203bba69a950b0bcfcab96ad3805a6b56503550bbfec544b",
+          "bytes": 12889,
+          "buildA": true,
+          "buildB": false
+        }
+      },
+      {
+        "name": "activated worker is correlated with pinned B bytes",
+        "pass": true,
+        "detail": {
+          "bResponseTimeMs": 1788930915728.154,
+          "responses": [
+            {
+              "sequence": 38,
+              "at": "2026-09-09T05:15:15.725Z",
+              "method": "GET",
+              "path": "/sw.js",
+              "active": "B",
+              "status": 200,
+              "destination": "serviceworker",
+              "serviceWorker": "script",
+              "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+              "workerSha256": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+            }
+          ]
+        }
+      },
+      {
+        "name": "no injected registration update was needed",
+        "pass": true
+      },
+      {
+        "name": "B-ordinary-revisit Document HTTP200",
+        "pass": true,
+        "detail": {
+          "name": "B-ordinary-revisit",
+          "requestId": "E11D5C15B3ED3F015D21F54CD461E0F1",
+          "loaderId": "E11D5C15B3ED3F015D21F54CD461E0F1",
+          "url": "http://127.0.0.1:4330/?postal=018956",
+          "response": {
+            "url": "http://127.0.0.1:4330/?postal=018956",
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "cache-control": "public, max-age=0, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+              "content-type": "text/html; charset=utf-8",
+              "date": "Wed, 09 Sep 2026 05:15:17 GMT",
+              "etag": "\"6wlbyfanbsa2y\"",
+              "keep-alive": "timeout=5",
+              "referrer-policy": "strict-origin-when-cross-origin",
+              "transfer-encoding": "chunked",
+              "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+              "x-content-type-options": "nosniff",
+              "x-nextjs-cache": "HIT",
+              "x-nextjs-prerender": "1, 1",
+              "x-nextjs-stale-time": "300",
+              "x-powered-by": "Next.js"
+            },
+            "mimeType": "text/html",
+            "charset": "utf-8",
+            "connectionReused": false,
+            "connectionId": 0,
+            "remoteIPAddress": "",
+            "remotePort": 0,
+            "fromDiskCache": false,
+            "fromServiceWorker": true,
+            "fromPrefetchCache": false,
+            "encodedDataLength": -1,
+            "timing": {
+              "requestTime": 1001614.325354,
+              "proxyStart": -1,
+              "proxyEnd": -1,
+              "dnsStart": -1,
+              "dnsEnd": -1,
+              "connectStart": -1,
+              "connectEnd": -1,
+              "sslStart": -1,
+              "sslEnd": -1,
+              "workerStart": -1,
+              "workerReady": -1,
+              "workerFetchStart": 15.589,
+              "workerRespondWithSettled": 79.703,
+              "sendStart": 15.589,
+              "sendEnd": 15.589,
+              "pushStart": 0,
+              "pushEnd": 0,
+              "receiveHeadersStart": 80.538,
+              "receiveHeadersEnd": 80.538
+            },
+            "serviceWorkerResponseSource": "network",
+            "responseTime": 1788930917077.627,
+            "protocol": "http/1.1",
+            "alternateProtocolUsage": "alternativeJobWonWithoutRace",
+            "securityState": "secure"
+          },
+          "sha256": "c1aff8f67417f346c4dcad6676b025738fe0a79d8744082975a701f6ab98b4f6",
+          "bytes": 13067,
+          "buildA": false,
+          "buildB": true
+        }
+      },
+      {
+        "name": "ordinary revisit executes B Document only",
+        "pass": true,
+        "detail": {
+          "name": "B-ordinary-revisit",
+          "requestId": "E11D5C15B3ED3F015D21F54CD461E0F1",
+          "loaderId": "E11D5C15B3ED3F015D21F54CD461E0F1",
+          "url": "http://127.0.0.1:4330/?postal=018956",
+          "response": {
+            "url": "http://127.0.0.1:4330/?postal=018956",
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "cache-control": "public, max-age=0, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+              "content-type": "text/html; charset=utf-8",
+              "date": "Wed, 09 Sep 2026 05:15:17 GMT",
+              "etag": "\"6wlbyfanbsa2y\"",
+              "keep-alive": "timeout=5",
+              "referrer-policy": "strict-origin-when-cross-origin",
+              "transfer-encoding": "chunked",
+              "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+              "x-content-type-options": "nosniff",
+              "x-nextjs-cache": "HIT",
+              "x-nextjs-prerender": "1, 1",
+              "x-nextjs-stale-time": "300",
+              "x-powered-by": "Next.js"
+            },
+            "mimeType": "text/html",
+            "charset": "utf-8",
+            "connectionReused": false,
+            "connectionId": 0,
+            "remoteIPAddress": "",
+            "remotePort": 0,
+            "fromDiskCache": false,
+            "fromServiceWorker": true,
+            "fromPrefetchCache": false,
+            "encodedDataLength": -1,
+            "timing": {
+              "requestTime": 1001614.325354,
+              "proxyStart": -1,
+              "proxyEnd": -1,
+              "dnsStart": -1,
+              "dnsEnd": -1,
+              "connectStart": -1,
+              "connectEnd": -1,
+              "sslStart": -1,
+              "sslEnd": -1,
+              "workerStart": -1,
+              "workerReady": -1,
+              "workerFetchStart": 15.589,
+              "workerRespondWithSettled": 79.703,
+              "sendStart": 15.589,
+              "sendEnd": 15.589,
+              "pushStart": 0,
+              "pushEnd": 0,
+              "receiveHeadersStart": 80.538,
+              "receiveHeadersEnd": 80.538
+            },
+            "serviceWorkerResponseSource": "network",
+            "responseTime": 1788930917077.627,
+            "protocol": "http/1.1",
+            "alternateProtocolUsage": "alternativeJobWonWithoutRace",
+            "securityState": "secure"
+          },
+          "sha256": "c1aff8f67417f346c4dcad6676b025738fe0a79d8744082975a701f6ab98b4f6",
+          "bytes": 13067,
+          "buildA": false,
+          "buildB": true
+        }
+      },
+      {
+        "name": "B-selected settled",
+        "pass": true,
+        "detail": {
+          "last": {
+            "url": "http://127.0.0.1:4330/?postal=018956",
+            "timeOrigin": 1788930917000.9,
+            "status": "ready",
+            "body": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nCompare\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAdd to comparison\nMapped exposed sections (3)\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nAbout data",
+            "input": "018956",
+            "controller": "http://127.0.0.1:4330/sw.js",
+            "key": "3:shiokest:primary",
+            "features": 4,
+            "basemap": true,
+            "tiles": true,
+            "center": [
+              103.86003,
+              1.284204529929795
+            ],
+            "moving": false,
+            "viewport": [
+              390,
+              844
+            ],
+            "controllerChanges": [],
+            "unhandled": [],
+            "buildIds": []
+          },
+          "pendingData": []
+        }
+      },
+      {
+        "name": "B-selected matching screenshot facts",
+        "pass": true
+      },
+      {
+        "name": "foreign and future sentinels survive",
+        "pass": true
+      },
+      {
+        "name": "versioned data and old cached assets retained",
+        "pass": true
+      },
+      {
+        "name": "B origin lacks an A chunk while cached A assets survive",
+        "pass": true
+      },
+      {
+        "name": "B-plain-revisit Document HTTP200",
+        "pass": true,
+        "detail": {
+          "name": "B-plain-revisit",
+          "requestId": "6FECBE61A1DAB73EED1242497DD84A9D",
+          "loaderId": "6FECBE61A1DAB73EED1242497DD84A9D",
+          "url": "http://127.0.0.1:4330/",
+          "response": {
+            "url": "http://127.0.0.1:4330/",
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "cache-control": "public, max-age=0, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "gzip",
+              "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+              "content-type": "text/html; charset=utf-8",
+              "date": "Wed, 09 Sep 2026 05:15:24 GMT",
+              "etag": "\"6wlbyfanbsa2y\"",
+              "keep-alive": "timeout=5",
+              "referrer-policy": "strict-origin-when-cross-origin",
+              "transfer-encoding": "chunked",
+              "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+              "x-content-type-options": "nosniff",
+              "x-nextjs-cache": "HIT",
+              "x-nextjs-prerender": "1, 1",
+              "x-nextjs-stale-time": "300",
+              "x-powered-by": "Next.js"
+            },
+            "mimeType": "text/html",
+            "charset": "utf-8",
+            "connectionReused": false,
+            "connectionId": 0,
+            "remoteIPAddress": "",
+            "remotePort": 0,
+            "fromDiskCache": false,
+            "fromServiceWorker": true,
+            "fromPrefetchCache": false,
+            "encodedDataLength": -1,
+            "timing": {
+              "requestTime": 1001621.964155,
+              "proxyStart": -1,
+              "proxyEnd": -1,
+              "dnsStart": -1,
+              "dnsEnd": -1,
+              "connectStart": -1,
+              "connectEnd": -1,
+              "sslStart": -1,
+              "sslEnd": -1,
+              "workerStart": -1,
+              "workerReady": -1,
+              "workerFetchStart": 1.551,
+              "workerRespondWithSettled": 35.18,
+              "sendStart": 1.551,
+              "sendEnd": 1.551,
+              "pushStart": 0,
+              "pushEnd": 0,
+              "receiveHeadersStart": 37.85,
+              "receiveHeadersEnd": 37.85
+            },
+            "serviceWorkerResponseSource": "network",
+            "responseTime": 1788930924667.121,
+            "protocol": "http/1.1",
+            "alternateProtocolUsage": "alternativeJobWonWithoutRace",
+            "securityState": "secure"
+          },
+          "sha256": "c1aff8f67417f346c4dcad6676b025738fe0a79d8744082975a701f6ab98b4f6",
+          "bytes": 13067,
+          "buildA": false,
+          "buildB": true
+        }
+      },
+      {
+        "name": "B-root settled",
+        "pass": true,
+        "detail": {
+          "last": {
+            "url": "http://127.0.0.1:4330/",
+            "timeOrigin": 1788930924638.8,
+            "status": "idle",
+            "body": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\nCompare\n\nMap waiting\n\nAbout data",
+            "input": "",
+            "controller": "http://127.0.0.1:4330/sw.js",
+            "key": "1:shiokest:",
+            "features": 0,
+            "basemap": true,
+            "tiles": true,
+            "center": [
+              103.851959,
+              1.29027
+            ],
+            "moving": false,
+            "viewport": [
+              390,
+              844
+            ],
+            "controllerChanges": [],
+            "unhandled": [],
+            "buildIds": []
+          },
+          "pendingData": []
+        }
+      },
+      {
+        "name": "B-root matching screenshot facts",
+        "pass": true
+      },
+      {
+        "name": "plain revisit executes B",
+        "pass": true
+      },
+      {
+        "name": "no uncaught exception or rejection across all Documents",
+        "pass": true,
+        "detail": []
+      }
+    ],
+    "captures": [
+      {
+        "name": "A-selected",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\automatic-upgrade-20260909\\observed-1-rOOKcg\\A-selected.png",
+        "sha256": "7e17f921d92cb9858083518aa4bbba757bad7f50aeb5dfd50688ab67da53f2f7",
+        "visuallyInspected": true,
+        "before": {
+          "url": "http://127.0.0.1:4330/?postal=018956",
+          "timeOrigin": 1788930901220.2,
+          "status": "ready",
+          "body": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+          "input": "018956",
+          "controller": "http://127.0.0.1:4330/sw.js",
+          "key": "2:shiokest:primary",
+          "features": 4,
+          "basemap": true,
+          "tiles": true,
+          "center": [
+            103.86003,
+            1.2836525539690342
+          ],
+          "moving": false,
+          "viewport": [
+            390,
+            844
+          ],
+          "controllerChanges": [
+            {
+              "at": 2397.8000000715256,
+              "url": "http://127.0.0.1:4330/sw.js"
+            }
+          ],
+          "unhandled": [],
+          "buildIds": []
+        },
+        "after": {
+          "url": "http://127.0.0.1:4330/?postal=018956",
+          "timeOrigin": 1788930901220.2,
+          "status": "ready",
+          "body": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+          "input": "018956",
+          "controller": "http://127.0.0.1:4330/sw.js",
+          "key": "2:shiokest:primary",
+          "features": 4,
+          "basemap": true,
+          "tiles": true,
+          "center": [
+            103.86003,
+            1.2836525539690342
+          ],
+          "moving": false,
+          "viewport": [
+            390,
+            844
+          ],
+          "controllerChanges": [
+            {
+              "at": 2397.8000000715256,
+              "url": "http://127.0.0.1:4330/sw.js"
+            }
+          ],
+          "unhandled": [],
+          "buildIds": []
+        }
+      },
+      {
+        "name": "A-root",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\automatic-upgrade-20260909\\observed-1-rOOKcg\\A-root.png",
+        "sha256": "b5d899df3c5888cdbce3c3cd60aa6e4ef9973c102eeef8a43cbbe5ee38ba949e",
+        "visuallyInspected": true,
+        "before": {
+          "url": "http://127.0.0.1:4330/",
+          "timeOrigin": 1788930911584.1,
+          "status": "idle",
+          "body": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap waiting\n\nAbout data",
+          "input": "",
+          "controller": "http://127.0.0.1:4330/sw.js",
+          "key": "1:shiokest:",
+          "features": 0,
+          "basemap": true,
+          "tiles": true,
+          "center": [
+            103.851959,
+            1.29027
+          ],
+          "moving": false,
+          "viewport": [
+            390,
+            844
+          ],
+          "controllerChanges": [],
+          "unhandled": [],
+          "buildIds": []
+        },
+        "after": {
+          "url": "http://127.0.0.1:4330/",
+          "timeOrigin": 1788930911584.1,
+          "status": "idle",
+          "body": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap waiting\n\nAbout data",
+          "input": "",
+          "controller": "http://127.0.0.1:4330/sw.js",
+          "key": "1:shiokest:",
+          "features": 0,
+          "basemap": true,
+          "tiles": true,
+          "center": [
+            103.851959,
+            1.29027
+          ],
+          "moving": false,
+          "viewport": [
+            390,
+            844
+          ],
+          "controllerChanges": [],
+          "unhandled": [],
+          "buildIds": []
+        }
+      },
+      {
+        "name": "B-selected",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\automatic-upgrade-20260909\\observed-1-rOOKcg\\B-selected.png",
+        "sha256": "5d54984e9a9c9d75a43da4acafb428b6635baaf23d6d816497c8396afcaf1a2b",
+        "visuallyInspected": true,
+        "before": {
+          "url": "http://127.0.0.1:4330/?postal=018956",
+          "timeOrigin": 1788930917000.9,
+          "status": "ready",
+          "body": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nCompare\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAdd to comparison\nMapped exposed sections (3)\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nAbout data",
+          "input": "018956",
+          "controller": "http://127.0.0.1:4330/sw.js",
+          "key": "3:shiokest:primary",
+          "features": 4,
+          "basemap": true,
+          "tiles": true,
+          "center": [
+            103.86003,
+            1.284204529929795
+          ],
+          "moving": false,
+          "viewport": [
+            390,
+            844
+          ],
+          "controllerChanges": [],
+          "unhandled": [],
+          "buildIds": []
+        },
+        "after": {
+          "url": "http://127.0.0.1:4330/?postal=018956",
+          "timeOrigin": 1788930917000.9,
+          "status": "ready",
+          "body": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nCompare\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAdd to comparison\nMapped exposed sections (3)\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nAbout data",
+          "input": "018956",
+          "controller": "http://127.0.0.1:4330/sw.js",
+          "key": "3:shiokest:primary",
+          "features": 4,
+          "basemap": true,
+          "tiles": true,
+          "center": [
+            103.86003,
+            1.284204529929795
+          ],
+          "moving": false,
+          "viewport": [
+            390,
+            844
+          ],
+          "controllerChanges": [],
+          "unhandled": [],
+          "buildIds": []
+        }
+      },
+      {
+        "name": "B-root",
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\automatic-upgrade-20260909\\observed-1-rOOKcg\\B-root.png",
+        "sha256": "74e0c79cce2ccdae305393a4f0ac9826dc3a60df6a402697187a7cd483753fc6",
+        "visuallyInspected": true,
+        "before": {
+          "url": "http://127.0.0.1:4330/",
+          "timeOrigin": 1788930924638.8,
+          "status": "idle",
+          "body": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\nCompare\n\nMap waiting\n\nAbout data",
+          "input": "",
+          "controller": "http://127.0.0.1:4330/sw.js",
+          "key": "1:shiokest:",
+          "features": 0,
+          "basemap": true,
+          "tiles": true,
+          "center": [
+            103.851959,
+            1.29027
+          ],
+          "moving": false,
+          "viewport": [
+            390,
+            844
+          ],
+          "controllerChanges": [],
+          "unhandled": [],
+          "buildIds": []
+        },
+        "after": {
+          "url": "http://127.0.0.1:4330/",
+          "timeOrigin": 1788930924638.8,
+          "status": "idle",
+          "body": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\nCompare\n\nMap waiting\n\nAbout data",
+          "input": "",
+          "controller": "http://127.0.0.1:4330/sw.js",
+          "key": "1:shiokest:",
+          "features": 0,
+          "basemap": true,
+          "tiles": true,
+          "center": [
+            103.851959,
+            1.29027
+          ],
+          "moving": false,
+          "viewport": [
+            390,
+            844
+          ],
+          "controllerChanges": [],
+          "unhandled": [],
+          "buildIds": []
+        }
+      }
+    ],
+    "runnerSha256": "0700bcc512b9b62249d4ba32a5998112f5b1b5ef160402bde45f82b11c47f28e",
+    "cleanupVerified": true,
+    "pageErrors": [],
+    "documents": [
+      {
+        "name": "A-initial",
+        "requestId": "7280DAA58901B0ECCF35A4949396B58C",
+        "loaderId": "7280DAA58901B0ECCF35A4949396B58C",
+        "buildA": true,
+        "buildB": false,
+        "sha256": "4ad9e4f9b97117f3203bba69a950b0bcfcab96ad3805a6b56503550bbfec544b",
+        "fromServiceWorker": false,
+        "fromDiskCache": false,
+        "headers": {
+          "cache-control": "public, max-age=604800, stale-while-revalidate=2592000",
+          "connection": "keep-alive",
+          "content-encoding": "gzip",
+          "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+          "content-type": "text/html; charset=utf-8",
+          "date": "Wed, 09 Sep 2026 05:15:01 GMT",
+          "etag": "\"ngd0cj63yf9y0\"",
+          "keep-alive": "timeout=5",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "transfer-encoding": "chunked",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+          "x-content-type-options": "nosniff",
+          "x-nextjs-cache": "HIT",
+          "x-nextjs-prerender": "1, 1",
+          "x-nextjs-stale-time": "300",
+          "x-powered-by": "Next.js"
+        }
+      },
+      {
+        "name": "A-controlled-root",
+        "requestId": "B83A894B5B684328C04374488DB47D16",
+        "loaderId": "B83A894B5B684328C04374488DB47D16",
+        "buildA": true,
+        "buildB": false,
+        "sha256": "4ad9e4f9b97117f3203bba69a950b0bcfcab96ad3805a6b56503550bbfec544b",
+        "fromServiceWorker": true,
+        "fromDiskCache": false,
+        "headers": {
+          "cache-control": "public, max-age=604800, stale-while-revalidate=2592000",
+          "connection": "keep-alive",
+          "content-encoding": "gzip",
+          "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+          "content-type": "text/html; charset=utf-8",
+          "date": "Wed, 09 Sep 2026 05:15:11 GMT",
+          "etag": "\"ngd0cj63yf9y0\"",
+          "keep-alive": "timeout=5",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "transfer-encoding": "chunked",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+          "x-content-type-options": "nosniff",
+          "x-nextjs-cache": "HIT",
+          "x-nextjs-prerender": "1, 1",
+          "x-nextjs-stale-time": "300",
+          "x-powered-by": "Next.js"
+        }
+      },
+      {
+        "name": "first-returning-navigation",
+        "requestId": "BB210FDB07BEA20AB4F7CC499ADFCD48",
+        "loaderId": "BB210FDB07BEA20AB4F7CC499ADFCD48",
+        "buildA": true,
+        "buildB": false,
+        "sha256": "4ad9e4f9b97117f3203bba69a950b0bcfcab96ad3805a6b56503550bbfec544b",
+        "fromServiceWorker": true,
+        "fromDiskCache": true,
+        "headers": {
+          "cache-control": "public, max-age=604800, stale-while-revalidate=2592000",
+          "content-encoding": "gzip",
+          "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+          "content-type": "text/html; charset=utf-8",
+          "date": "Wed, 09 Sep 2026 05:15:11 GMT",
+          "etag": "\"ngd0cj63yf9y0\"",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+          "x-content-type-options": "nosniff",
+          "x-nextjs-cache": "HIT",
+          "x-nextjs-prerender": "1, 1",
+          "x-nextjs-stale-time": "300",
+          "x-powered-by": "Next.js"
+        }
+      },
+      {
+        "name": "B-ordinary-revisit",
+        "requestId": "E11D5C15B3ED3F015D21F54CD461E0F1",
+        "loaderId": "E11D5C15B3ED3F015D21F54CD461E0F1",
+        "buildA": false,
+        "buildB": true,
+        "sha256": "c1aff8f67417f346c4dcad6676b025738fe0a79d8744082975a701f6ab98b4f6",
+        "fromServiceWorker": true,
+        "fromDiskCache": false,
+        "headers": {
+          "cache-control": "public, max-age=0, must-revalidate",
+          "connection": "keep-alive",
+          "content-encoding": "gzip",
+          "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+          "content-type": "text/html; charset=utf-8",
+          "date": "Wed, 09 Sep 2026 05:15:17 GMT",
+          "etag": "\"6wlbyfanbsa2y\"",
+          "keep-alive": "timeout=5",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "transfer-encoding": "chunked",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+          "x-content-type-options": "nosniff",
+          "x-nextjs-cache": "HIT",
+          "x-nextjs-prerender": "1, 1",
+          "x-nextjs-stale-time": "300",
+          "x-powered-by": "Next.js"
+        }
+      },
+      {
+        "name": "B-plain-revisit",
+        "requestId": "6FECBE61A1DAB73EED1242497DD84A9D",
+        "loaderId": "6FECBE61A1DAB73EED1242497DD84A9D",
+        "buildA": false,
+        "buildB": true,
+        "sha256": "c1aff8f67417f346c4dcad6676b025738fe0a79d8744082975a701f6ab98b4f6",
+        "fromServiceWorker": true,
+        "fromDiskCache": false,
+        "headers": {
+          "cache-control": "public, max-age=0, must-revalidate",
+          "connection": "keep-alive",
+          "content-encoding": "gzip",
+          "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+          "content-type": "text/html; charset=utf-8",
+          "date": "Wed, 09 Sep 2026 05:15:24 GMT",
+          "etag": "\"6wlbyfanbsa2y\"",
+          "keep-alive": "timeout=5",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "transfer-encoding": "chunked",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+          "x-content-type-options": "nosniff",
+          "x-nextjs-cache": "HIT",
+          "x-nextjs-prerender": "1, 1",
+          "x-nextjs-stale-time": "300",
+          "x-powered-by": "Next.js"
+        }
+      }
+    ],
+    "controller": {
+      "version": {
+        "versionId": "2",
+        "registrationId": "1",
+        "scriptURL": "http://127.0.0.1:4330/sw.js",
+        "runningStatus": "running",
+        "status": "activated",
+        "scriptLastModified": 0,
+        "scriptResponseTime": 1788930915.728154,
+        "controlledClients": [
+          "9B6FC84D6CAB449F2F79EA4B236946C8"
+        ],
+        "targetId": "F2BAEC8076DF8227B913E5D7C6D1AE66"
+      },
+      "sample": {
+        "url": "http://127.0.0.1:4330/",
+        "timeOrigin": 1788930915559.6,
+        "status": "initializing",
+        "body": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap loading\n\nAbout data",
+        "input": "",
+        "controller": "http://127.0.0.1:4330/sw.js",
+        "key": "1:shiokest:",
+        "features": 0,
+        "basemap": false,
+        "tiles": false,
+        "center": [
+          103.851959,
+          1.29027
+        ],
+        "moving": false,
+        "viewport": [
+          390,
+          844
+        ],
+        "controllerChanges": [
+          {
+            "at": 274.6999999284744,
+            "url": "http://127.0.0.1:4330/sw.js"
+          }
+        ],
+        "unhandled": [],
+        "buildIds": []
+      },
+      "elapsedMs": 1405
+    },
+    "workerHashes": {
+      "A": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+      "B": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+    },
+    "cachedDataA": [
+      "http://127.0.0.1:4330/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "http://127.0.0.1:4330/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "http://127.0.0.1:4330/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "http://127.0.0.1:4330/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "http://127.0.0.1:4330/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "http://127.0.0.1:4330/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz"
+    ],
+    "cachedChunksA": [
+      "http://127.0.0.1:4330/_next/static/chunks/310vm2bl3xxpt.js",
+      "http://127.0.0.1:4330/_next/static/chunks/0y-dctk-kmqss.js",
+      "http://127.0.0.1:4330/_next/static/chunks/3g398rb4su43l.js",
+      "http://127.0.0.1:4330/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+      "http://127.0.0.1:4330/_next/static/chunks/3fntmmi971322.js",
+      "http://127.0.0.1:4330/_next/static/chunks/2zaun8r9-gox7.js",
+      "http://127.0.0.1:4330/_next/static/chunks/27iodt6ap9svx.js",
+      "http://127.0.0.1:4330/_next/static/chunks/08ttfj81-47mu.js",
+      "http://127.0.0.1:4330/_next/static/chunks/39xhkg3l-se9r.js",
+      "http://127.0.0.1:4330/_next/static/chunks/0j6tjjnrv2h3w.js",
+      "http://127.0.0.1:4330/_next/static/chunks/0npwww6p9wx1o.js",
+      "http://127.0.0.1:4330/_next/static/chunks/318x15h178iv-.js"
+    ],
+    "retained": {
+      "names": [
+        "sgshiok-static-v1",
+        "other-app-v1",
+        "sgshiok-shell-v999",
+        "sgshiok-shell-v2"
+      ],
+      "sentinels": [
+        {
+          "name": "other-app-v1",
+          "body": "other-app-v1"
+        },
+        {
+          "name": "sgshiok-shell-v999",
+          "body": "sgshiok-shell-v999"
+        }
+      ],
+      "staticUrls": [
+        "http://127.0.0.1:4330/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "http://127.0.0.1:4330/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "http://127.0.0.1:4330/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "http://127.0.0.1:4330/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "http://127.0.0.1:4330/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "http://127.0.0.1:4330/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "http://127.0.0.1:4330/_next/static/chunks/3mic8ep312z99.css",
+        "http://127.0.0.1:4330/_next/static/chunks/310vm2bl3xxpt.js",
+        "http://127.0.0.1:4330/_next/static/chunks/0y-dctk-kmqss.js",
+        "http://127.0.0.1:4330/_next/static/chunks/3g398rb4su43l.js",
+        "http://127.0.0.1:4330/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+        "http://127.0.0.1:4330/_next/static/chunks/3fntmmi971322.js",
+        "http://127.0.0.1:4330/_next/static/chunks/2zaun8r9-gox7.js",
+        "http://127.0.0.1:4330/_next/static/chunks/27iodt6ap9svx.js",
+        "http://127.0.0.1:4330/_next/static/chunks/08ttfj81-47mu.js",
+        "http://127.0.0.1:4330/_next/static/chunks/2_c6f5vawm6vi.css",
+        "http://127.0.0.1:4330/_next/static/chunks/39xhkg3l-se9r.js",
+        "http://127.0.0.1:4330/_next/static/chunks/0j6tjjnrv2h3w.js",
+        "http://127.0.0.1:4330/_next/static/chunks/0npwww6p9wx1o.js",
+        "http://127.0.0.1:4330/_next/static/chunks/318x15h178iv-.js",
+        "http://127.0.0.1:4330/",
+        "http://127.0.0.1:4330/maplibre/6.1.0/maplibre-gl-worker.mjs",
+        "http://127.0.0.1:4330/_next/static/chunks/3-dbbfvnr92ef.css",
+        "http://127.0.0.1:4330/_next/static/chunks/3wkt3-74el481.js",
+        "http://127.0.0.1:4330/_next/static/chunks/2wu61p_p0hxro.js",
+        "http://127.0.0.1:4330/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+        "http://127.0.0.1:4330/_next/static/chunks/10x92yuxi4v0u.js",
+        "http://127.0.0.1:4330/_next/static/chunks/0in607kxyceyg.js",
+        "http://127.0.0.1:4330/_next/static/chunks/11axl_urhtotz.js",
+        "http://127.0.0.1:4330/_next/static/chunks/1oaw9uq-pttep.js",
+        "http://127.0.0.1:4330/_next/static/chunks/02krk9bsilu1q.js",
+        "http://127.0.0.1:4330/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "http://127.0.0.1:4330/_next/static/chunks/2rmzgxedjsyy1.js",
+        "http://127.0.0.1:4330/_next/static/chunks/3j81ed9typkem.css",
+        "http://127.0.0.1:4330/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "http://127.0.0.1:4330/_next/static/chunks/3klctijgmeqo9.js",
+        "http://127.0.0.1:4330/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "http://127.0.0.1:4330/_next/static/chunks/1guz71m0ch8y_.js",
+        "http://127.0.0.1:4330/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "http://127.0.0.1:4330/_next/static/chunks/3_zdoql-8zsg0.js",
+        "http://127.0.0.1:4330/maplibre/6.1.0/maplibre-gl-shared.mjs"
+      ]
+    },
+    "oldChunkOriginChecks": [
+      {
+        "url": "http://127.0.0.1:4330/_next/static/chunks/310vm2bl3xxpt.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4330/_next/static/chunks/0y-dctk-kmqss.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4330/_next/static/chunks/3g398rb4su43l.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4330/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4330/_next/static/chunks/3fntmmi971322.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4330/_next/static/chunks/2zaun8r9-gox7.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4330/_next/static/chunks/27iodt6ap9svx.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4330/_next/static/chunks/08ttfj81-47mu.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4330/_next/static/chunks/39xhkg3l-se9r.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4330/_next/static/chunks/0j6tjjnrv2h3w.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4330/_next/static/chunks/0npwww6p9wx1o.js",
+        "status": 404
+      },
+      {
+        "url": "http://127.0.0.1:4330/_next/static/chunks/318x15h178iv-.js",
+        "status": 404
+      }
+    ]
+  },
+  "tests": {
+    "receipt": "qa/revamp-r1/published-options-20260909/automatic-upgrade-full-1/checks.json",
+    "passed": 1441,
+    "files": 56,
+    "ok": true,
+    "commands": [
+      {
+        "command": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:/sgSHIOK2026/web/scripts/test-without-production-data.mjs",
+          "--reporter=dot"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:/sgSHIOK2026/web/node_modules/typescript/bin/tsc",
+          "--project",
+          "C:/sgSHIOK2026/web/tsconfig.json",
+          "--noEmit",
+          "--incremental",
+          "false"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": "python",
+        "args": [
+          "C:/sgSHIOK2026/scripts/check_repo_integrity.py"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": "git",
+        "args": [
+          "diff",
+          "--check"
+        ],
+        "exitCode": 0
+      }
+    ]
+  },
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "actual": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "actual": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "actual": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "actual": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "actual": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "actual": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "actual": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "actual": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "match": true
+    }
+  ],
+  "build": {
+    "receipt": "qa/revamp-r1/cached-release-20260908/map-download-20260909-1/build.json",
+    "reused": true,
+    "buildId": "h9AvuCJNjxEN6dn1GBsPA",
+    "sourceMatches": [
+      {
+        "path": "web/.gitignore",
+        "expected": "6fe16e5e5dad9408c6a9082604c816d8067641ae1b5e59aceb90eb51c1088c63",
+        "actual": "6fe16e5e5dad9408c6a9082604c816d8067641ae1b5e59aceb90eb51c1088c63"
+      },
+      {
+        "path": "web/.vercelignore",
+        "expected": "b3d8b2181a750cb269414b575e25bb4e1300d0c31f32b5930abf4d089f4d4ccc",
+        "actual": "b3d8b2181a750cb269414b575e25bb4e1300d0c31f32b5930abf4d089f4d4ccc"
+      },
+      {
+        "path": "web/app/api/onemap-route/route.ts",
+        "expected": "0a8885496fd124ae5807586597961eb826c36e813e488784db86b6b3c3197184",
+        "actual": "0a8885496fd124ae5807586597961eb826c36e813e488784db86b6b3c3197184"
+      },
+      {
+        "path": "web/app/api/onemap-search/route.ts",
+        "expected": "ce9b6557e4dc193a3f9dd477ed5c6dd3b52c48aa7cc66bf403d61029ed2526a5",
+        "actual": "ce9b6557e4dc193a3f9dd477ed5c6dd3b52c48aa7cc66bf403d61029ed2526a5"
+      },
+      {
+        "path": "web/app/api/onemap.ts",
+        "expected": "897129fc36ef7da8dec7f12008e06e4ae1181225ffc5b50518f05ba5d255bf98",
+        "actual": "897129fc36ef7da8dec7f12008e06e4ae1181225ffc5b50518f05ba5d255bf98"
+      },
+      {
+        "path": "web/app/icon.svg",
+        "expected": "c0bd7140b0fdf9ef8220017c4a07428301ab84e80c4090acd36da4c0da9d0dd2",
+        "actual": "c0bd7140b0fdf9ef8220017c4a07428301ab84e80c4090acd36da4c0da9d0dd2"
+      },
+      {
+        "path": "web/app/layout.tsx",
+        "expected": "629503df867c00de8bac541deac30d6f16f5cd2800f4540422d407c318d21350",
+        "actual": "629503df867c00de8bac541deac30d6f16f5cd2800f4540422d407c318d21350"
+      },
+      {
+        "path": "web/app/page.module.css",
+        "expected": "ef7bc2f738ff381e084678011c21ec2d2eded9178ffd85a689098be41c2b7471",
+        "actual": "ef7bc2f738ff381e084678011c21ec2d2eded9178ffd85a689098be41c2b7471"
+      },
+      {
+        "path": "web/app/page.tsx",
+        "expected": "89bc648010cd6c575c60a9dc980f6afc1f2fe188c3aab6322e17873ec122cdca",
+        "actual": "89bc648010cd6c575c60a9dc980f6afc1f2fe188c3aab6322e17873ec122cdca"
+      },
+      {
+        "path": "web/app/robots.ts",
+        "expected": "114d20450cca32f28485448c758c031fa7479b699ba8673e21d115875b66e078",
+        "actual": "114d20450cca32f28485448c758c031fa7479b699ba8673e21d115875b66e078"
+      },
+      {
+        "path": "web/app/sitemap.ts",
+        "expected": "e7ccaa26063b9f0dfce8eb2b7e7b7a7ed3a50681644c2baeb40cc6e348da7ea5",
+        "actual": "e7ccaa26063b9f0dfce8eb2b7e7b7a7ed3a50681644c2baeb40cc6e348da7ea5"
+      },
+      {
+        "path": "web/components/comparison-share-dialog.module.css",
+        "expected": "d3cf3adf495462302dce41ed3f33ead9bd7f2d0340b39de97e3f86a2809d7e04",
+        "actual": "d3cf3adf495462302dce41ed3f33ead9bd7f2d0340b39de97e3f86a2809d7e04"
+      },
+      {
+        "path": "web/components/comparison-share-dialog.tsx",
+        "expected": "c13424b420ca97473599301f832a811dc74d3e79b97f3ceecec1832026abf71b",
+        "actual": "c13424b420ca97473599301f832a811dc74d3e79b97f3ceecec1832026abf71b"
+      },
+      {
+        "path": "web/components/exposure-section-explorer.module.css",
+        "expected": "a3540b60e154b08b30e04035589b4728cd20a938b3684cefa652e80553294a5a",
+        "actual": "a3540b60e154b08b30e04035589b4728cd20a938b3684cefa652e80553294a5a"
+      },
+      {
+        "path": "web/components/exposure-section-explorer.tsx",
+        "expected": "ea7dda0c0ec66e33a4050e4ab1c8bd169bf2c419f54eeb6032cddeb1107458cd",
+        "actual": "ea7dda0c0ec66e33a4050e4ab1c8bd169bf2c419f54eeb6032cddeb1107458cd"
+      },
+      {
+        "path": "web/components/home-comparison.module.css",
+        "expected": "ef4559e8f1e671a3f95c9d440f39b30178b45c54840e8f1546bee0439d285773",
+        "actual": "ef4559e8f1e671a3f95c9d440f39b30178b45c54840e8f1546bee0439d285773"
+      },
+      {
+        "path": "web/components/home-comparison.tsx",
+        "expected": "ec3098c8da7404b1bfb42956ada147bc69508f6c1829246d5ce8c6d57f6fcedf",
+        "actual": "ec3098c8da7404b1bfb42956ada147bc69508f6c1829246d5ce8c6d57f6fcedf"
+      },
+      {
+        "path": "web/components/route-evidence-map.module.css",
+        "expected": "ab32c76913f123a9ad69f64cfac953d51387ce5de8b2c7af2da0711d76b566d0",
+        "actual": "ab32c76913f123a9ad69f64cfac953d51387ce5de8b2c7af2da0711d76b566d0"
+      },
+      {
+        "path": "web/components/route-evidence-map.tsx",
+        "expected": "dbba167f7df7fb975e50a521d32483f1da39f910b44bc6034f6f3c492b809f94",
+        "actual": "dbba167f7df7fb975e50a521d32483f1da39f910b44bc6034f6f3c492b809f94"
+      },
+      {
+        "path": "web/components/route-map-loader.tsx",
+        "expected": "4a9c4dba5e545a6b6f9bf9296a8a22eb7cfe29cee401c27c54d3c38fac32c93b",
+        "actual": "4a9c4dba5e545a6b6f9bf9296a8a22eb7cfe29cee401c27c54d3c38fac32c93b"
+      },
+      {
+        "path": "web/components/transit-stop-picker.module.css",
+        "expected": "aac04993ce4fae9e5b222a853bfd0f20e53197ae9bbffff3ca634596bcb7f974",
+        "actual": "aac04993ce4fae9e5b222a853bfd0f20e53197ae9bbffff3ca634596bcb7f974"
+      },
+      {
+        "path": "web/components/transit-stop-picker.tsx",
+        "expected": "7637b29f320581f6e04778984c3aefd33e55d31ee9f3e196fa608f5bd5e52143",
+        "actual": "7637b29f320581f6e04778984c3aefd33e55d31ee9f3e196fa608f5bd5e52143"
+      },
+      {
+        "path": "web/components/walk-summary.tsx",
+        "expected": "bf80c05b259e1c634bd3171eb1a6fe11198b4f3cca035175a45b55ef307a3e9f",
+        "actual": "bf80c05b259e1c634bd3171eb1a6fe11198b4f3cca035175a45b55ef307a3e9f"
+      },
+      {
+        "path": "web/data-bundle.json",
+        "expected": "d5ce7703d5ee6b39651947749f9bd2f4c6d642fe2af06e1d9324671ce8f009e8",
+        "actual": "d5ce7703d5ee6b39651947749f9bd2f4c6d642fe2af06e1d9324671ce8f009e8"
+      },
+      {
+        "path": "web/lib/__tests__/accessibility-render.test.tsx",
+        "expected": "046ba15ecba6266f98bfa8a05d66751aa026a871689183c9d039116a967219dd",
+        "actual": "046ba15ecba6266f98bfa8a05d66751aa026a871689183c9d039116a967219dd"
+      },
+      {
+        "path": "web/lib/__tests__/comparison-controller.test.ts",
+        "expected": "98128d5322a1fb0188de772acaa475ff875f6fc8c30e0fd4435e27974a8d4866",
+        "actual": "98128d5322a1fb0188de772acaa475ff875f6fc8c30e0fd4435e27974a8d4866"
+      },
+      {
+        "path": "web/lib/__tests__/comparison-link.test.ts",
+        "expected": "08644514ac30961184d36c7fe8203700a2f47196e938a52f40af98b188402790",
+        "actual": "08644514ac30961184d36c7fe8203700a2f47196e938a52f40af98b188402790"
+      },
+      {
+        "path": "web/lib/__tests__/comparison-share-dialog.test.tsx",
+        "expected": "a859500d0ec694e467c0c4676854eb4512f611b00627ec419dd918597d198d6c",
+        "actual": "a859500d0ec694e467c0c4676854eb4512f611b00627ec419dd918597d198d6c"
+      },
+      {
+        "path": "web/lib/__tests__/comparison-shared-controller.test.ts",
+        "expected": "4b2cbbdfba2b8433a9212727f8ce77c957a35470f2cfa14c353277cab3cfc503",
+        "actual": "4b2cbbdfba2b8433a9212727f8ce77c957a35470f2cfa14c353277cab3cfc503"
+      },
+      {
+        "path": "web/lib/__tests__/comparison-state.test.ts",
+        "expected": "c2d8bbaf01ebc70df02b26a55ed61a46fafa9b1d4420312d11d5665aa48afbb8",
+        "actual": "c2d8bbaf01ebc70df02b26a55ed61a46fafa9b1d4420312d11d5665aa48afbb8"
+      },
+      {
+        "path": "web/lib/__tests__/comparison.test.ts",
+        "expected": "fb8ab02661fa1210c5c8987f1f655573fec90cfbdffbf293fdf66c1f0416a5f1",
+        "actual": "fb8ab02661fa1210c5c8987f1f655573fec90cfbdffbf293fdf66c1f0416a5f1"
+      },
+      {
+        "path": "web/lib/__tests__/data-base.test.ts",
+        "expected": "741336b2f620f1567d7715270aa04245e0d0f57ab3436632d77a666e60ab1c02",
+        "actual": "741336b2f620f1567d7715270aa04245e0d0f57ab3436632d77a666e60ab1c02"
+      },
+      {
+        "path": "web/lib/__tests__/data-cache-recovery.test.ts",
+        "expected": "f6f8300f0217f927a720e64f1a3a17eb3d6bbc0ee28868ad428c377ee42b187f",
+        "actual": "f6f8300f0217f927a720e64f1a3a17eb3d6bbc0ee28868ad428c377ee42b187f"
+      },
+      {
+        "path": "web/lib/__tests__/data-fetch-policy.test.ts",
+        "expected": "b65c4773c49fa2b94d2b86c896ce4141a9f82d113dc090abd4507eb33d812ea1",
+        "actual": "b65c4773c49fa2b94d2b86c896ce4141a9f82d113dc090abd4507eb33d812ea1"
+      },
+      {
+        "path": "web/lib/__tests__/data.test.ts",
+        "expected": "6d0b688fffe7ae02debb1fcc61e4c4b9745c1de68e556056e794070c1618e763",
+        "actual": "6d0b688fffe7ae02debb1fcc61e4c4b9745c1de68e556056e794070c1618e763"
+      },
+      {
+        "path": "web/lib/__tests__/deployment.test.ts",
+        "expected": "54b44ee6f6c6b37f2f5610e96b5ac3cf8c586027bf31b2772e03926ce9664537",
+        "actual": "54b44ee6f6c6b37f2f5610e96b5ac3cf8c586027bf31b2772e03926ce9664537"
+      },
+      {
+        "path": "web/lib/__tests__/ensure-data-bundle.test.mjs",
+        "expected": "4e5e8c4373e523ea3edcca0c66d2bf0e67f6b4314bf61430648bd277e58c555c",
+        "actual": "4e5e8c4373e523ea3edcca0c66d2bf0e67f6b4314bf61430648bd277e58c555c"
+      },
+      {
+        "path": "web/lib/__tests__/exposure-section-explorer.test.tsx",
+        "expected": "17615388d819cef0b3c8b43e6e03a39af54bdbaef280a64841994f3a878f7c71",
+        "actual": "17615388d819cef0b3c8b43e6e03a39af54bdbaef280a64841994f3a878f7c71"
+      },
+      {
+        "path": "web/lib/__tests__/fixtures/published-data.ts",
+        "expected": "078361aabbb455955ad70e9cef10a22121fb69476481031cb118b7aee8b990be",
+        "actual": "078361aabbb455955ad70e9cef10a22121fb69476481031cb118b7aee8b990be"
+      },
+      {
+        "path": "web/lib/__tests__/fixtures/published-options.json",
+        "expected": "6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7",
+        "actual": "6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7"
+      },
+      {
+        "path": "web/lib/__tests__/fixtures/published-options.provenance.json",
+        "expected": "8d0ac40ff2cc3616f2f41eec68b2712982859d301917373aa894ec49f37bf91a",
+        "actual": "8d0ac40ff2cc3616f2f41eec68b2712982859d301917373aa894ec49f37bf91a"
+      },
+      {
+        "path": "web/lib/__tests__/fixtures/published-walks.json",
+        "expected": "e29cc74ce7ec9f69b360e596a2ecd6b07e4cba453bb46b2cc091c9ff61036c86",
+        "actual": "e29cc74ce7ec9f69b360e596a2ecd6b07e4cba453bb46b2cc091c9ff61036c86"
+      },
+      {
+        "path": "web/lib/__tests__/fixtures/published-walks.provenance.json",
+        "expected": "485e9d62fe1488c5cbd8086cdc9a26efc7cb83ec4dc4770b58dddc387c47826d",
+        "actual": "485e9d62fe1488c5cbd8086cdc9a26efc7cb83ec4dc4770b58dddc387c47826d"
+      },
+      {
+        "path": "web/lib/__tests__/geom-promoted-shard.test.ts",
+        "expected": "afbbce3371614bd859684f186d0dd98216f7649ad8cd9a5d56fa941f76050c0d",
+        "actual": "afbbce3371614bd859684f186d0dd98216f7649ad8cd9a5d56fa941f76050c0d"
+      },
+      {
+        "path": "web/lib/__tests__/geometry-recovery.test.ts",
+        "expected": "7609499e054ac0110892542288c38d8d76e4aaedad1bef8f8bfa79d67679e8e4",
+        "actual": "7609499e054ac0110892542288c38d8d76e4aaedad1bef8f8bfa79d67679e8e4"
+      },
+      {
+        "path": "web/lib/__tests__/home-comparison.test.tsx",
+        "expected": "fd713459c603ff1d904925230fc8c2a1555840fb8eba20ce40b39b25ccf7ada6",
+        "actual": "fd713459c603ff1d904925230fc8c2a1555840fb8eba20ce40b39b25ccf7ada6"
+      },
+      {
+        "path": "web/lib/__tests__/ignore-build.test.mjs",
+        "expected": "a0f94ed9a81c5bb2da2bcb22d3864e3851e16ecdd450f9d880042d2198a20c55",
+        "actual": "a0f94ed9a81c5bb2da2bcb22d3864e3851e16ecdd450f9d880042d2198a20c55"
+      },
+      {
+        "path": "web/lib/__tests__/lamp-overlay.test.ts",
+        "expected": "4721ae09349fcbe885588385578198415ddbda952d659ec2287517a0a36d5b1e",
+        "actual": "4721ae09349fcbe885588385578198415ddbda952d659ec2287517a0a36d5b1e"
+      },
+      {
+        "path": "web/lib/__tests__/live-route-scoring.test.ts",
+        "expected": "70135b45edec85599df3b31652394f427976128c91eef586988ad4f0510c7284",
+        "actual": "70135b45edec85599df3b31652394f427976128c91eef586988ad4f0510c7284"
+      },
+      {
+        "path": "web/lib/__tests__/locked-score-availability.test.ts",
+        "expected": "1ebf79cabb1f31f486cce37d0e8252285f18cccbca8a7d5f467b4f72c6c7967e",
+        "actual": "1ebf79cabb1f31f486cce37d0e8252285f18cccbca8a7d5f467b4f72c6c7967e"
+      },
+      {
+        "path": "web/lib/__tests__/map-first-shell.test.ts",
+        "expected": "ddd31e3d872e8a75157eeae25af9de2d2eb1bd2c4e9b01c0783857bbd7fa16b3",
+        "actual": "ddd31e3d872e8a75157eeae25af9de2d2eb1bd2c4e9b01c0783857bbd7fa16b3"
+      },
+      {
+        "path": "web/lib/__tests__/map-recovery-actions.test.tsx",
+        "expected": "0a57110b9923681e76e04dbadc7534568168789b0435b72e7c0d6bbcd079e732",
+        "actual": "0a57110b9923681e76e04dbadc7534568168789b0435b72e7c0d6bbcd079e732"
+      },
+      {
+        "path": "web/lib/__tests__/map-startup-import.test.ts",
+        "expected": "2fcaa4f52893993199402dbf914b72a668e4cc73857cdae5a4adc60f2ed9e165",
+        "actual": "2fcaa4f52893993199402dbf914b72a668e4cc73857cdae5a4adc60f2ed9e165"
+      },
+      {
+        "path": "web/lib/__tests__/map-startup-stage.test.ts",
+        "expected": "95f7ccd4b45dfcfad813aa530e9d5d6ea3b691b63b0a4381ae8a1847cc58bfec",
+        "actual": "95f7ccd4b45dfcfad813aa530e9d5d6ea3b691b63b0a4381ae8a1847cc58bfec"
+      },
+      {
+        "path": "web/lib/__tests__/map-viewport.test.ts",
+        "expected": "28b270a28cad8d9429a6915d4fd1443e198ab817225adfabbce40ec4e06e2b56",
+        "actual": "28b270a28cad8d9429a6915d4fd1443e198ab817225adfabbce40ec4e06e2b56"
+      },
+      {
+        "path": "web/lib/__tests__/map-worker.test.ts",
+        "expected": "9d589c548c06e90a4530addb5f15bb691c5e352d5adc2c73672c8d14d2f7a29a",
+        "actual": "9d589c548c06e90a4530addb5f15bb691c5e352d5adc2c73672c8d14d2f7a29a"
+      },
+      {
+        "path": "web/lib/__tests__/onemap-api-security.test.ts",
+        "expected": "be7b8f13516e8813b3886c18d77b6934329a6123c18cf96f1ff94d75c3b8c5d0",
+        "actual": "be7b8f13516e8813b3886c18d77b6934329a6123c18cf96f1ff94d75c3b8c5d0"
+      },
+      {
+        "path": "web/lib/__tests__/onemap-search.test.ts",
+        "expected": "d4b2a218584763407356162680f939648096a4a0f3d470a2d15a4b5aec6be26c",
+        "actual": "d4b2a218584763407356162680f939648096a4a0f3d470a2d15a4b5aec6be26c"
+      },
+      {
+        "path": "web/lib/__tests__/polyline.test.ts",
+        "expected": "8c449899dabe2cdfd9dbab156bb059739976e1d677e96dc0a77debf0bf3741f6",
+        "actual": "8c449899dabe2cdfd9dbab156bb059739976e1d677e96dc0a77debf0bf3741f6"
+      },
+      {
+        "path": "web/lib/__tests__/published-exposure-sections.test.ts",
+        "expected": "cd0d6511922174d22d6415893a39d81d5af8c783c5857d9dd96d4e78cc08a298",
+        "actual": "cd0d6511922174d22d6415893a39d81d5af8c783c5857d9dd96d4e78cc08a298"
+      },
+      {
+        "path": "web/lib/__tests__/published-options-fixture.test.ts",
+        "expected": "9b33bffe9ba63063bbd64a6dfd716c761aaeff20f2b89dc22a16ee38a564f55a",
+        "actual": "9b33bffe9ba63063bbd64a6dfd716c761aaeff20f2b89dc22a16ee38a564f55a"
+      },
+      {
+        "path": "web/lib/__tests__/published-transit-choices.test.ts",
+        "expected": "6e7890504b25deb486c2eef84556d3639aebd14a00ed24a622272e324fed4095",
+        "actual": "6e7890504b25deb486c2eef84556d3639aebd14a00ed24a622272e324fed4095"
+      },
+      {
+        "path": "web/lib/__tests__/published-transit-options.test.ts",
+        "expected": "a701a1b913cfad5b37c7cf833e5c58f786ebfbe80dd2d8a4d292ef99b8b261e2",
+        "actual": "a701a1b913cfad5b37c7cf833e5c58f786ebfbe80dd2d8a4d292ef99b8b261e2"
+      },
+      {
+        "path": "web/lib/__tests__/published-walk-page.test.tsx",
+        "expected": "da5dc4f7b436e8e18e7acdb3d0e7ba9675cf7cd8b6661cc060dae5d62ee6598d",
+        "actual": "da5dc4f7b436e8e18e7acdb3d0e7ba9675cf7cd8b6661cc060dae5d62ee6598d"
+      },
+      {
+        "path": "web/lib/__tests__/published-walk-selection.test.ts",
+        "expected": "9942fe62a109c62190ea0a1084d23309dcb052b2a7a618ec68c7b4f86c25669a",
+        "actual": "9942fe62a109c62190ea0a1084d23309dcb052b2a7a618ec68c7b4f86c25669a"
+      },
+      {
+        "path": "web/lib/__tests__/published-walk-view.test.ts",
+        "expected": "cc828c29aa420f75227c1e7a60ab2cf1f29a19784fa076e1099275efb115de48",
+        "actual": "cc828c29aa420f75227c1e7a60ab2cf1f29a19784fa076e1099275efb115de48"
+      },
+      {
+        "path": "web/lib/__tests__/rank-payload.test.ts",
+        "expected": "611e7a69751489944084f62ba928000c51a4c725680df3a5bae3533ac366056b",
+        "actual": "611e7a69751489944084f62ba928000c51a4c725680df3a5bae3533ac366056b"
+      },
+      {
+        "path": "web/lib/__tests__/revamp-layout.test.ts",
+        "expected": "9e6613d07cbd93083541166605cc40eb82290790290f379b7058cea291868485",
+        "actual": "9e6613d07cbd93083541166605cc40eb82290790290f379b7058cea291868485"
+      },
+      {
+        "path": "web/lib/__tests__/route-display.test.ts",
+        "expected": "2c54d6d61a4d7ab9083ab9ac0cd1271300cf2b7eaf2d623627b251329c41d0a4",
+        "actual": "2c54d6d61a4d7ab9083ab9ac0cd1271300cf2b7eaf2d623627b251329c41d0a4"
+      },
+      {
+        "path": "web/lib/__tests__/route-evidence-map-interaction.test.ts",
+        "expected": "1576b6aebd5da2542a497519b72669fff08bbdc37ae35219c8e523ee79e93740",
+        "actual": "1576b6aebd5da2542a497519b72669fff08bbdc37ae35219c8e523ee79e93740"
+      },
+      {
+        "path": "web/lib/__tests__/route-geojson.test.ts",
+        "expected": "c19e3d9963fde623b3024fb3aacf0086f5bb9271ece1f85a9faa14865958314e",
+        "actual": "c19e3d9963fde623b3024fb3aacf0086f5bb9271ece1f85a9faa14865958314e"
+      },
+      {
+        "path": "web/lib/__tests__/route-map-keyboard.test.ts",
+        "expected": "685fa52e560de34b211357f2042dea60f538d8bae5e8e1e6f784147c1a880fa1",
+        "actual": "685fa52e560de34b211357f2042dea60f538d8bae5e8e1e6f784147c1a880fa1"
+      },
+      {
+        "path": "web/lib/__tests__/route-map-loader.test.tsx",
+        "expected": "d31f8ed81683c76f84698081513cdf3c0c1cfeb12d8484b64ac4a7e04241569c",
+        "actual": "d31f8ed81683c76f84698081513cdf3c0c1cfeb12d8484b64ac4a7e04241569c"
+      },
+      {
+        "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+        "expected": "cd1fd8e4fa160b5c2591b683b34b04130259f200113c2de83c0ae052a567309c",
+        "actual": "cd1fd8e4fa160b5c2591b683b34b04130259f200113c2de83c0ae052a567309c"
+      },
+      {
+        "path": "web/lib/__tests__/score-card-copy.test.ts",
+        "expected": "0ec35f7d6a3a2f8e423ab69ae2885e01fab2496b89d867e0caa6672bfbe3602b",
+        "actual": "0ec35f7d6a3a2f8e423ab69ae2885e01fab2496b89d867e0caa6672bfbe3602b"
+      },
+      {
+        "path": "web/lib/__tests__/score-prefix-index.test.ts",
+        "expected": "2d4db8c99905b6f8c1fdbf60934b69e05bcaf5123f05681bc4fec9f4e46623eb",
+        "actual": "2d4db8c99905b6f8c1fdbf60934b69e05bcaf5123f05681bc4fec9f4e46623eb"
+      },
+      {
+        "path": "web/lib/__tests__/service-worker-behaviour.test.ts",
+        "expected": "4c87adc23468d3e651e18d62e963051ae9992707d4ac9cb2bc0f2ea856cd0841",
+        "actual": "4c87adc23468d3e651e18d62e963051ae9992707d4ac9cb2bc0f2ea856cd0841"
+      },
+      {
+        "path": "web/lib/__tests__/service-worker-registration.test.ts",
+        "expected": "f4535bf604766d3d3f4860dd3bed3913e9e3ef0bbe884adce527806a319f6627",
+        "actual": "f4535bf604766d3d3f4860dd3bed3913e9e3ef0bbe884adce527806a319f6627"
+      },
+      {
+        "path": "web/lib/__tests__/subscore-ranking.test.ts",
+        "expected": "aadb4288f1645ce037708fd94cc15b143e801496ca343cfed30fbbde5e6193a2",
+        "actual": "aadb4288f1645ce037708fd94cc15b143e801496ca343cfed30fbbde5e6193a2"
+      },
+      {
+        "path": "web/lib/__tests__/transit-popup.test.ts",
+        "expected": "975629f65aaba9ff4ebfeec730adda8c284ed02ca5db51ca0f2d77fafc67029a",
+        "actual": "975629f65aaba9ff4ebfeec730adda8c284ed02ca5db51ca0f2d77fafc67029a"
+      },
+      {
+        "path": "web/lib/__tests__/transit-shards.test.ts",
+        "expected": "50bad6bbe876f3629714d7a52304cd738521341e02f81d4ffe961d95397c4da4",
+        "actual": "50bad6bbe876f3629714d7a52304cd738521341e02f81d4ffe961d95397c4da4"
+      },
+      {
+        "path": "web/lib/__tests__/transit-stop-picker.test.tsx",
+        "expected": "f739563c641cd4d9a98434627d74ae15cd294a4bce48f61e16353dc552579ab8",
+        "actual": "f739563c641cd4d9a98434627d74ae15cd294a4bce48f61e16353dc552579ab8"
+      },
+      {
+        "path": "web/lib/__tests__/typescript-contract.test.ts",
+        "expected": "c7ea76a7e35962a4888deb4f49f58b40e87ea2c04a1f1a35494ec0adc31d4849",
+        "actual": "c7ea76a7e35962a4888deb4f49f58b40e87ea2c04a1f1a35494ec0adc31d4849"
+      },
+      {
+        "path": "web/lib/__tests__/walk-real-records.test.ts",
+        "expected": "5fffa159367aaafef5ce3a791e1546b86b280e12e6d6b4574221e5ace2bc537b",
+        "actual": "5fffa159367aaafef5ce3a791e1546b86b280e12e6d6b4574221e5ace2bc537b"
+      },
+      {
+        "path": "web/lib/__tests__/walk-summary-options.test.ts",
+        "expected": "b31d4067ff0070e688ad37ff52b346f3a77d43813b1d346621df4470bd246d4a",
+        "actual": "b31d4067ff0070e688ad37ff52b346f3a77d43813b1d346621df4470bd246d4a"
+      },
+      {
+        "path": "web/lib/comparison-controller.ts",
+        "expected": "bb7ae9f623baae6c8a97530eff014aade72bf930d1fd800f252c795d64a993da",
+        "actual": "bb7ae9f623baae6c8a97530eff014aade72bf930d1fd800f252c795d64a993da"
+      },
+      {
+        "path": "web/lib/comparison-link.ts",
+        "expected": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7",
+        "actual": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+      },
+      {
+        "path": "web/lib/comparison-state.ts",
+        "expected": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651",
+        "actual": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651"
+      },
+      {
+        "path": "web/lib/comparison.ts",
+        "expected": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb",
+        "actual": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb"
+      },
+      {
+        "path": "web/lib/data.ts",
+        "expected": "8c1dfaf0086b6038570b8e8b737b446928840babaf03c537161768f5f4f5841f",
+        "actual": "8c1dfaf0086b6038570b8e8b737b446928840babaf03c537161768f5f4f5841f"
+      },
+      {
+        "path": "web/lib/lamp-overlay.ts",
+        "expected": "717167658fa49110c04db6d82ccbdf1e3bf9efb77008fa5cfc2f425551dfe9df",
+        "actual": "717167658fa49110c04db6d82ccbdf1e3bf9efb77008fa5cfc2f425551dfe9df"
+      },
+      {
+        "path": "web/lib/live-route-scoring.ts",
+        "expected": "b69619c29758536d69954fbfca9335174819121e16c130ba3746a80e21242521",
+        "actual": "b69619c29758536d69954fbfca9335174819121e16c130ba3746a80e21242521"
+      },
+      {
+        "path": "web/lib/local-glyph-protocol.ts",
+        "expected": "b4b9a3220c1c10e2542c992bccc9aa41228d907fc02444ace84ce3e7446c5f71",
+        "actual": "b4b9a3220c1c10e2542c992bccc9aa41228d907fc02444ace84ce3e7446c5f71"
+      },
+      {
+        "path": "web/lib/locked-score-availability.ts",
+        "expected": "8e9adcd7e2b83d6a6d9fbc8c93442cc9a12e32caf2ac7643feaadf6d4ee7de0c",
+        "actual": "8e9adcd7e2b83d6a6d9fbc8c93442cc9a12e32caf2ac7643feaadf6d4ee7de0c"
+      },
+      {
+        "path": "web/lib/map-viewport.ts",
+        "expected": "49950f3193d01a2b2c9243c7d5c2e8341d2fa3ceb56ddf859ba6e9fc54d96d15",
+        "actual": "49950f3193d01a2b2c9243c7d5c2e8341d2fa3ceb56ddf859ba6e9fc54d96d15"
+      },
+      {
+        "path": "web/lib/nearest-transit.ts",
+        "expected": "df12643fdf9423b606680d88204980cbf180f563f2641332b4136a516abfc2ad",
+        "actual": "df12643fdf9423b606680d88204980cbf180f563f2641332b4136a516abfc2ad"
+      },
+      {
+        "path": "web/lib/onemap-search.ts",
+        "expected": "6aff99e5fed66948a90c12e711a7fb93d0e8a20697bf847f2c262d2b5c874757",
+        "actual": "6aff99e5fed66948a90c12e711a7fb93d0e8a20697bf847f2c262d2b5c874757"
+      },
+      {
+        "path": "web/lib/polyline.ts",
+        "expected": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e",
+        "actual": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e"
+      },
+      {
+        "path": "web/lib/published-exposure-sections.ts",
+        "expected": "f81f4d2b17acde090bb8cbcc9799cbccabce9bbfc34976a765015947ef3522cf",
+        "actual": "f81f4d2b17acde090bb8cbcc9799cbccabce9bbfc34976a765015947ef3522cf"
+      },
+      {
+        "path": "web/lib/published-transit-choices.ts",
+        "expected": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0",
+        "actual": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0"
+      },
+      {
+        "path": "web/lib/published-transit-options.ts",
+        "expected": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82",
+        "actual": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82"
+      },
+      {
+        "path": "web/lib/published-walk-selection.ts",
+        "expected": "b6403d266cacce74930dc5e98ac3b5f3e971227807b58e5f4f5e7f76783576d2",
+        "actual": "b6403d266cacce74930dc5e98ac3b5f3e971227807b58e5f4f5e7f76783576d2"
+      },
+      {
+        "path": "web/lib/published-walk-view.ts",
+        "expected": "f4969aea23227fefe9154848541ba3349c433a59fecf891d647d99c0312ff618",
+        "actual": "f4969aea23227fefe9154848541ba3349c433a59fecf891d647d99c0312ff618"
+      },
+      {
+        "path": "web/lib/route-display.ts",
+        "expected": "611d1a5d50deb74776f8c79dd67a0b4f48e0fb8647e4e3f5237d923403b4088d",
+        "actual": "611d1a5d50deb74776f8c79dd67a0b4f48e0fb8647e4e3f5237d923403b4088d"
+      },
+      {
+        "path": "web/lib/route-geojson.ts",
+        "expected": "3485e2692a46f92cdfbc7512a8ce95654656cd9beee7c1858ab230d373f60543",
+        "actual": "3485e2692a46f92cdfbc7512a8ce95654656cd9beee7c1858ab230d373f60543"
+      },
+      {
+        "path": "web/lib/service-worker-cache.ts",
+        "expected": "c2f9d464baf18d4404a68e55bee937cb9ad8bb0a8f90c011322fa6f701ea3a89",
+        "actual": "c2f9d464baf18d4404a68e55bee937cb9ad8bb0a8f90c011322fa6f701ea3a89"
+      },
+      {
+        "path": "web/lib/subscore-ranking.ts",
+        "expected": "d8f3f9e6813ddc230af0cafd9eab414aec3e4fb87634447c4c815c50432e9b6a",
+        "actual": "d8f3f9e6813ddc230af0cafd9eab414aec3e4fb87634447c4c815c50432e9b6a"
+      },
+      {
+        "path": "web/lib/transit-popup.ts",
+        "expected": "b771d147079b4b5d6cf0b45530af8b0154f0dd8ddaca5fd6dadcd6fc517a6ade",
+        "actual": "b771d147079b4b5d6cf0b45530af8b0154f0dd8ddaca5fd6dadcd6fc517a6ade"
+      },
+      {
+        "path": "web/lib/types.ts",
+        "expected": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98",
+        "actual": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98"
+      },
+      {
+        "path": "web/lib/walk-metrics.ts",
+        "expected": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f",
+        "actual": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f"
+      },
+      {
+        "path": "web/next-env.d.ts",
+        "expected": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc",
+        "actual": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc"
+      },
+      {
+        "path": "web/next.config.js",
+        "expected": "9dabd78e5bf0154a2438234d3b14b850af6251c55b9480dc5db0f07bd63c87ab",
+        "actual": "9dabd78e5bf0154a2438234d3b14b850af6251c55b9480dc5db0f07bd63c87ab"
+      },
+      {
+        "path": "web/package-lock.json",
+        "expected": "04765d87615d6d3f835adcc311b0489665e82113744d1cf291836ef8ed3aeb4e",
+        "actual": "04765d87615d6d3f835adcc311b0489665e82113744d1cf291836ef8ed3aeb4e"
+      },
+      {
+        "path": "web/package.json",
+        "expected": "2a3d13156cece44b108e090d9069f36297d0c53fcb0e760f2138516a6d4b7ae9",
+        "actual": "2a3d13156cece44b108e090d9069f36297d0c53fcb0e760f2138516a6d4b7ae9"
+      },
+      {
+        "path": "web/public/maplibre/6.1.0/LICENSE.txt",
+        "expected": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2",
+        "actual": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2"
+      },
+      {
+        "path": "web/public/maplibre/6.1.0/maplibre-gl-shared.mjs",
+        "expected": "ce66c617187b6956d878d3961aceeb7c335eec3f76ee8d80737a917d8e989860",
+        "actual": "ce66c617187b6956d878d3961aceeb7c335eec3f76ee8d80737a917d8e989860"
+      },
+      {
+        "path": "web/public/maplibre/6.1.0/maplibre-gl-worker.mjs",
+        "expected": "5a77b4637ea5ae64f0b1f208e4b1f4d9c681e2575d96e592f2074925597224c6",
+        "actual": "5a77b4637ea5ae64f0b1f208e4b1f4d9c681e2575d96e592f2074925597224c6"
+      },
+      {
+        "path": "web/public/site.webmanifest",
+        "expected": "e0ace347324935ce0e1904ff7c4a1f638a36d9d23bac6422659d683edbf46517",
+        "actual": "e0ace347324935ce0e1904ff7c4a1f638a36d9d23bac6422659d683edbf46517"
+      },
+      {
+        "path": "web/public/sw.js",
+        "expected": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc",
+        "actual": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+      },
+      {
+        "path": "web/scripts/browser-smoke.mjs",
+        "expected": "e7b2e794bddac3636fa68bb23a72b0556b2150cc10079dff974c108432862185",
+        "actual": "e7b2e794bddac3636fa68bb23a72b0556b2150cc10079dff974c108432862185"
+      },
+      {
+        "path": "web/scripts/deny-production-data.cjs",
+        "expected": "0d6a0c3db6f777cc87ecc1d753cbc07205f492acc29d5a8661bc87471794bfe4",
+        "actual": "0d6a0c3db6f777cc87ecc1d753cbc07205f492acc29d5a8661bc87471794bfe4"
+      },
+      {
+        "path": "web/scripts/ensure-data-bundle.mjs",
+        "expected": "637966de4f209fb88bd9323e99e32b62401f8fe7d2c3fc565a75f4390ed43477",
+        "actual": "637966de4f209fb88bd9323e99e32b62401f8fe7d2c3fc565a75f4390ed43477"
+      },
+      {
+        "path": "web/scripts/extract-walk-test-fixtures.py",
+        "expected": "4e56b76670514fca404e987a0cb14b0cc490b87e3193eab1de451d0792750616",
+        "actual": "4e56b76670514fca404e987a0cb14b0cc490b87e3193eab1de451d0792750616"
+      },
+      {
+        "path": "web/scripts/ignore-build.mjs",
+        "expected": "12c54471d0fa4a6626e06401659ce2aaa9c052ec5d94c900fd12ee1a4c911126",
+        "actual": "12c54471d0fa4a6626e06401659ce2aaa9c052ec5d94c900fd12ee1a4c911126"
+      },
+      {
+        "path": "web/scripts/measure-lookup-transfer.mjs",
+        "expected": "93aa67d7d8ed90cad5f18a56b4b28bfc5d9bdfe9acf9564da47cdf4e716c46fe",
+        "actual": "93aa67d7d8ed90cad5f18a56b4b28bfc5d9bdfe9acf9564da47cdf4e716c46fe"
+      },
+      {
+        "path": "web/scripts/revamp-browser.mjs",
+        "expected": "48dfb9172af03d4f7f7fa5e9df4dfb8495cfe8be673d5b81ed7e4c145ee75461",
+        "actual": "48dfb9172af03d4f7f7fa5e9df4dfb8495cfe8be673d5b81ed7e4c145ee75461"
+      },
+      {
+        "path": "web/scripts/test-web.mjs",
+        "expected": "acb616c59ceb37421101d88fb86116cf9155c657fa0bd9b756d25c2f84fccce6",
+        "actual": "acb616c59ceb37421101d88fb86116cf9155c657fa0bd9b756d25c2f84fccce6"
+      },
+      {
+        "path": "web/scripts/test-without-production-data.mjs",
+        "expected": "8b01e905acd876d79504fcb4b4639d7ba02141c3d5eb2c4b906477ce1a0e4b44",
+        "actual": "8b01e905acd876d79504fcb4b4639d7ba02141c3d5eb2c4b906477ce1a0e4b44"
+      },
+      {
+        "path": "web/section10-presentation-proposal.md",
+        "expected": "28eafa24a80eaf70b903295600f9f334e410869e9068d7e908154588cbedf3fc",
+        "actual": "28eafa24a80eaf70b903295600f9f334e410869e9068d7e908154588cbedf3fc"
+      },
+      {
+        "path": "web/tsconfig.json",
+        "expected": "e5020c21a4e117f0a789a28fc54838b21ab2e287f8c2fc0efab2c811839b4459",
+        "actual": "e5020c21a4e117f0a789a28fc54838b21ab2e287f8c2fc0efab2c811839b4459"
+      },
+      {
+        "path": "web/vercel.json",
+        "expected": "8fa6b3ece819b65ecfbce77f6062126f3bb6b8394e36819e916849fab11baff3",
+        "actual": "8fa6b3ece819b65ecfbce77f6062126f3bb6b8394e36819e916849fab11baff3"
+      },
+      {
+        "path": "web/vitest.config.ts",
+        "expected": "65efb23283a46aff714d0e7893d09e60fdd3c1c4ca631ebd6606b4131c757e10",
+        "actual": "65efb23283a46aff714d0e7893d09e60fdd3c1c4ca631ebd6606b4131c757e10"
+      }
+    ]
+  },
+  "evidencePrefix": {
+    "bytes": 150739,
+    "sha256": "79b1d8af65006bf238528ca265d2c6a4738ca9e2c27abb2937c63f669c98cebc",
+    "unchanged": true
+  },
+  "review": {
+    "historical": "A corrected the old root-cache explanation: string cache key resolves to zero freshness; inner fetch may reuse HTTP cache. Old fromServiceWorker alone did not prove CacheStorage behavior.",
+    "driver": "C found five pre-run blockers: unbound Document receipt, uncorrelated worker version, lost earlier exceptions, unbounded per-chunk probes, vacuous data retention. Parent corrected all before the single run.",
+    "documentBinding": "Exact navigation loaderId/frameId and successful body completion; no failed download counted complete.",
+    "workerBinding": "Activated version controls actual page target; scriptResponseTime correlates with proxy response carrying pinned B SHA256 and Service-Worker: script.",
+    "preservedFailures": "Earlier acceptance-6 90-second failure remains unchanged. No claim about why that earlier observation differs."
+  },
+  "findings": [
+    "Single same-origin/profile Chromium run passes 27/27 checks with HTTP cache and service worker enabled, without injected registration.update, forced update, clearing or bypass.",
+    "The first returning Document remains build A and reports fromDiskCache plus fromServiceWorker. B controls the same page 1405 ms after switching the origin; the next ordinary navigation executes build B. Worker activation is not automatic page replacement.",
+    "Six cached data URLs and twelve cached A JS URLs survive. All twelve A JS URLs return404 from B origin. Foreign and future cache sentinels survive. This proves retention, not a retained old tab requesting an uncached lazy chunk.",
+    "Four screenshots inspected at390x844: A/B plain map and selected walk; both selected captures have four current-route features and matching before/after state. Approved left stack and compact bottom-right About data/required attribution are visible.",
+    "Full isolated web suite remains1441 tests in56 files; TypeScript/integrity and11 protected source anchors pass. No representative timing, physical-device, other-browser or deployed-site claim."
+  ],
+  "disagreements": [
+    "Do not close T01 solely from this pass: retained-old-Document uncached lazy-chunk behavior remains untested. M16 automatic local transition is now evidenced; M17 is partial.",
+    "Do not keep T03 blocked by unrelated remaining cache-upgrade acceptance: its prerequisite is the already-landed typed startup/failure recovery. Build identity must remain explicitly unknown unless injected at compile time."
+  ],
+  "next": "T03 privacy-safe failure-only diagnostics, then retained-old-tab missing lazy-chunk acceptance and remaining T25 focus/zoom cases. Owner gates remain unchanged.",
+  "retiredProxyPid": 100508,
+  "retirementConfirmed": {
+    "remaining": [],
+    "ok": true,
+    "proxyResponding": false,
+    "retiredPid": 100508,
+    "at": "2026-09-09T05:22:45.0774578Z",
+    "root": "C:\\sgSHIOK2026",
+    "probeError": "Unable to connect to the remote server",
+    "previousImmediateCount": 1
+  },
+  "userPreview": "http://127.0.0.1:4328/",
+  "operations": {
+    "pipelineRuns": 0,
+    "installations": 0,
+    "deploymentCommands": 0,
+    "protectedPayloadMutations": 0,
+    "XOperations": 0
+  }
+}
