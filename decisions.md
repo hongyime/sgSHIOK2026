@@ -2917,3 +2917,35 @@ never run data-preparation hooks. Installation approval has been requested, not
 assumed; no dependency or deployment was changed. Independent free frontend
 work may continue while that owner gate is pending. Raw triage output:
 qa/revamp-r1/security-triage-20260909/source-corrected.json.
+
+## 2026-09-09: Make failure diagnostics useful without collecting location
+
+Show Copy diagnostics only for a current map, score or geometry failure. Use a
+small allowlisted snapshot: stage, reason, coarse artifact role, HTTP status,
+elapsed time and its basis, plus explicitly known build/bundle identity. Do not
+copy postal codes, shard paths, URLs, raw exceptions, geometry, saved homes,
+report drafts, tokens or browser identity. Send no telemetry. A pinned bundle
+name is configuration, not a verified downloaded manifest; an uninjected build
+identifier and a custom data base remain unknown.
+
+Retain the original thrown value and existing cache-only fallback behavior.
+Timing is optional and must not break a successful read. Missing optional
+geometry (404) remains missing evidence; transport/decode failures retain their
+type rather than masquerading as absent geometry. A map-instance engine error
+must not be downgraded by a later tile error or route probe without recovery.
+
+Selection and retry ownership reject obsolete diagnostics and late geometry
+results. A diagnostic context change can repaint/recheck an unchanged route,
+but must not refit the camera or rewrite its sources. Hidden primary geometry
+completion must not disturb a displayed comparison.
+
+Copy requires activation. Clipboard failure offers a labelled read-only field,
+Select and Hide; Hide invalidates pending feedback and restores focus without
+overriding newer user focus. An operating-system clipboard write already in
+flight cannot be cancelled; stale success/failure feedback can and must be
+discarded. Keep manual controls mounted across snapshot replacement until
+explicit Hide. Whole-overlay focus recovery remains part of T25 acceptance.
+
+Verification and its limits are recorded under
+qa/revamp-r1/failure-diagnostics-20260909/ and the append-only REVAMP-R1 evidence.
+This does not authorize deployment, dependency installation or pipeline work.

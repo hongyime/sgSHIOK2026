@@ -172,6 +172,14 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("om_logo.png");
   });
 
+  it("groups failure actions in the error panel without putting them in the assertive announcement", () => {
+    const actions = <button type="button">Retry selection</button>;
+    const html = renderToStaticMarkup(<SearchFeedback results={[]} loading={false} error="Data unavailable">{actions}</SearchFeedback>);
+    expect(html).toMatch(/<div class="[^"]*errorBox[^"]*"><span role="alert" aria-live="assertive">Data unavailable<\/span><button type="button">Retry selection<\/button><\/div>/);
+    const ready = renderToStaticMarkup(<SearchFeedback results={[]} loading={false} error={null}>{actions}</SearchFeedback>);
+    expect(ready).not.toContain("Retry selection");
+  });
+
   it("renders search result announcements and assertive error alerts", () => {
     const resultsHtml = renderToStaticMarkup(
       <SearchFeedback results={[selection.result]} loading={false} error={null} />

@@ -1,0 +1,2311 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\failure-diagnostics-20260909\\accepted-1-KEGzaW",
+  "build": "sOERPhx4qiqThocBbk1Y_",
+  "label": "accepted-1",
+  "startedAt": "2026-09-09T06:58:22.279Z",
+  "runner": {
+    "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\failure-diagnostics-20260909\\accepted-1-KEGzaW\\runner.mjs",
+    "bytes": 57193,
+    "sha256": "311c825aff62009ab84217113b39f27fde70ffe52890c9b89da52b157696d272"
+  },
+  "limits": {
+    "overallMs": 600000,
+    "cleanupReserveMs": 90000,
+    "chromeStartupMs": 40000,
+    "cdpMs": 45000,
+    "appWaitMs": 90000
+  },
+  "policy": "One owned Chrome, separate fresh contexts; server-only geometry/score/worker503 faults. Network.setBypassServiceWorker=true and Network.setCacheDisabled=true. QA SW adapter suppresses registration; NO SW upgrade/cache-recovery coverage. QA clipboard adapter rejects without calling native clipboard. API requests are blocked before the server and fail acceptance. No installs, pipeline, deployment or protected-data writes. Raw errors/URLs/postal exist only in QA receipts; copied diagnostics are independently allowlisted. Page-target network plus attached-worker observations are not complete worker/network accounting or performance measurements.",
+  "interventions": {
+    "bypassServiceWorker": true,
+    "cacheDisabled": true,
+    "suppressServiceWorkerRegistration": true,
+    "rejectClipboardWithoutNativeWrite": true
+  },
+  "checks": [
+    {
+      "name": "preview expected build, fresh clear mode and concrete process identities",
+      "pass": true,
+      "detail": {
+        "build": "sOERPhx4qiqThocBbk1Y_",
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-failure-diagnostics-20260909-1\\web",
+        "pid": 93892,
+        "nextPid": 102876,
+        "mode": "clear",
+        "requests": [
+          {
+            "path": "/",
+            "status": 200,
+            "kind": "app",
+            "mode": "clear",
+            "at": 1788936433202
+          }
+        ]
+      }
+    },
+    {
+      "name": "exactly one preview web build root",
+      "pass": true,
+      "detail": [
+        "C:\\sgSHIOK2026\\tmp\\cached-release-failure-diagnostics-20260909-1\\web"
+      ]
+    },
+    {
+      "name": "snapshot BUILD_ID matches",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "snapshot has a safe pinned bundle identifier",
+      "pass": true,
+      "detail": "generated_20260805_prefer_scored_routed"
+    },
+    {
+      "name": "geometry main Document HTTP200",
+      "pass": true,
+      "detail": {
+        "requestId": "47EDED48D657DF3256169378487DB386",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "timestamp": 1007813.47947,
+        "type": "Document",
+        "response": {
+          "url": "http://127.0.0.1:4332/?debugMap=1",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "cache-control": "public, max-age=0, must-revalidate",
+            "connection": "keep-alive",
+            "content-encoding": "gzip",
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "content-type": "text/html; charset=utf-8",
+            "date": "Wed, 09 Sep 2026 06:58:36 GMT",
+            "etag": "\"erhm57nxp4a2y\"",
+            "keep-alive": "timeout=5",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "transfer-encoding": "chunked",
+            "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+            "x-content-type-options": "nosniff",
+            "x-nextjs-cache": "HIT",
+            "x-nextjs-prerender": "1, 1",
+            "x-nextjs-stale-time": "300",
+            "x-powered-by": "Next.js"
+          },
+          "mimeType": "text/html",
+          "charset": "utf-8",
+          "connectionReused": true,
+          "connectionId": 281,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 4332,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 923,
+          "timing": {
+            "requestTime": 1007813.290045,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": -1,
+            "dnsEnd": -1,
+            "connectStart": -1,
+            "connectEnd": -1,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 46.434,
+            "sendEnd": 47.242,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 179.309,
+            "receiveHeadersEnd": 179.761
+          },
+          "responseTime": 1788937116146.673,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "4252D7693856E4FA496B420858F1C6A5"
+      }
+    },
+    {
+      "name": "geometry live main frame matches Document loader",
+      "pass": true,
+      "detail": {
+        "id": "4252D7693856E4FA496B420858F1C6A5",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "url": "http://127.0.0.1:4332/?debugMap=1",
+        "domainAndRegistry": "",
+        "securityOrigin": "http://127.0.0.1:4332",
+        "securityOriginDetails": {
+          "isLocalhost": true
+        },
+        "mimeType": "text/html",
+        "adFrameStatus": {
+          "adFrameType": "none"
+        },
+        "secureContextType": "SecureLocalhost",
+        "crossOriginIsolatedContextType": "NotIsolated",
+        "gatedAPIFeatures": []
+      }
+    },
+    {
+      "name": "geometry actual main HTML contains expected build",
+      "pass": true,
+      "detail": {
+        "requestId": "47EDED48D657DF3256169378487DB386",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "timeOrigin": 1788937115933,
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\failure-diagnostics-20260909\\accepted-1-KEGzaW\\geometry-document-0.html",
+        "url": "http://127.0.0.1:4332/?debugMap=1",
+        "bytes": 13067,
+        "sha256": "7466f39dea09ca7aff71aa3ea196ae96330ade2981d3c6d9a1fde1af23af328c",
+        "expectedBuildPresent": true,
+        "buildExcerpt": "\\\"p\\\":\\\"$undefined\\\",\\\"d\\\":\\\"$undefined\\\",\\\"b\\\":\\\"sOERPhx4qiqThocBbk1Y_\\\"}\\n\"])</script><script>self.__next_f.push([1,\"6:"
+      }
+    },
+    {
+      "name": "geometry persistent event binding acknowledged this main Document",
+      "pass": true,
+      "detail": {
+        "requestId": "47EDED48D657DF3256169378487DB386",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "timeOrigin": 1788937115933,
+        "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\failure-diagnostics-20260909\\accepted-1-KEGzaW\\geometry-document-0.html",
+        "url": "http://127.0.0.1:4332/?debugMap=1",
+        "bytes": 13067,
+        "sha256": "7466f39dea09ca7aff71aa3ea196ae96330ade2981d3c6d9a1fde1af23af328c",
+        "expectedBuildPresent": true,
+        "buildExcerpt": "\\\"p\\\":\\\"$undefined\\\",\\\"d\\\":\\\"$undefined\\\",\\\"b\\\":\\\"sOERPhx4qiqThocBbk1Y_\\\"}\\n\"])</script><script>self.__next_f.push([1,\"6:"
+      }
+    },
+    {
+      "name": "unexpected-failure belongs to verified main Document",
+      "pass": false,
+      "detail": {
+        "id": "4252D7693856E4FA496B420858F1C6A5",
+        "loaderId": "04959B4A029C2464B8147F79F996D844",
+        "url": "http://127.0.0.1:4332/?",
+        "domainAndRegistry": "",
+        "securityOrigin": "http://127.0.0.1:4332",
+        "securityOriginDetails": {
+          "isLocalhost": true
+        },
+        "mimeType": "text/html",
+        "adFrameStatus": {
+          "adFrameType": "none"
+        },
+        "secureContextType": "SecureLocalhost",
+        "crossOriginIsolatedContextType": "NotIsolated",
+        "gatedAPIFeatures": []
+      }
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "geometry",
+      "browserContextId": "97DCAEC1341A3B84F36478D2F6B7CC41",
+      "freshContext": true,
+      "samples": [
+        {
+          "name": "search usable",
+          "at": 1788937117053,
+          "value": {
+            "url": "http://127.0.0.1:4332/?debugMap=1",
+            "timeOrigin": 1788937115933,
+            "viewport": [
+              390,
+              844
+            ],
+            "shell": true,
+            "input": "",
+            "inputUsable": true,
+            "submitUsable": true,
+            "mapStatus": "idle",
+            "mapStage": null,
+            "mapReason": null,
+            "summary": {
+              "postal": null,
+              "metrics": {},
+              "metricVisible": {},
+              "metricBounds": {},
+              "rect": null,
+              "clipped": null,
+              "ancestors": []
+            },
+            "alerts": [],
+            "geometryMessage": false,
+            "retryGeometry": {
+              "present": false,
+              "visible": false,
+              "hit": false,
+              "disabled": null,
+              "focused": false,
+              "rect": null
+            },
+            "retrySelection": {
+              "present": false,
+              "visible": false,
+              "hit": false,
+              "disabled": null,
+              "focused": false,
+              "rect": null
+            },
+            "reload": {
+              "present": false,
+              "visible": false,
+              "hit": false,
+              "disabled": null,
+              "focused": false,
+              "rect": null
+            },
+            "diagnostics": [],
+            "qa": {
+              "stages": [
+                {
+                  "status": "idle",
+                  "stage": null,
+                  "reason": null,
+                  "at": 300.1999999284744
+                }
+              ],
+              "unhandled": [],
+              "clipboardCalls": [],
+              "swCalls": [],
+              "overflow": false,
+              "installed": true
+            },
+            "mapPresent": false,
+            "routeKey": null,
+            "featureCount": 0,
+            "routeIds": [],
+            "basemap": false,
+            "tilesLoaded": false,
+            "moving": null,
+            "mapProbeError": null,
+            "documentWidth": 390
+          }
+        },
+        {
+          "name": "unexpected-failure before",
+          "at": 1788937118204,
+          "value": {
+            "url": "http://127.0.0.1:4332/?",
+            "timeOrigin": 1788937117564.9,
+            "viewport": [
+              390,
+              844
+            ],
+            "shell": true,
+            "input": "",
+            "inputUsable": true,
+            "submitUsable": true,
+            "mapStatus": "idle",
+            "mapStage": null,
+            "mapReason": null,
+            "summary": {
+              "postal": null,
+              "metrics": {},
+              "metricVisible": {},
+              "metricBounds": {},
+              "rect": null,
+              "clipped": null,
+              "ancestors": []
+            },
+            "alerts": [],
+            "geometryMessage": false,
+            "retryGeometry": {
+              "present": false,
+              "visible": false,
+              "hit": false,
+              "disabled": null,
+              "focused": false,
+              "rect": null
+            },
+            "retrySelection": {
+              "present": false,
+              "visible": false,
+              "hit": false,
+              "disabled": null,
+              "focused": false,
+              "rect": null
+            },
+            "reload": {
+              "present": false,
+              "visible": false,
+              "hit": false,
+              "disabled": null,
+              "focused": false,
+              "rect": null
+            },
+            "diagnostics": [],
+            "qa": {
+              "stages": [
+                {
+                  "status": "idle",
+                  "stage": null,
+                  "reason": null,
+                  "at": 493.10000002384186
+                }
+              ],
+              "unhandled": [],
+              "clipboardCalls": [],
+              "swCalls": [],
+              "overflow": false,
+              "installed": true
+            },
+            "mapPresent": false,
+            "routeKey": null,
+            "featureCount": 0,
+            "routeIds": [],
+            "basemap": false,
+            "tilesLoaded": false,
+            "moving": null,
+            "mapProbeError": null,
+            "documentWidth": 390
+          }
+        }
+      ],
+      "documents": [
+        {
+          "requestId": "47EDED48D657DF3256169378487DB386",
+          "frameId": "4252D7693856E4FA496B420858F1C6A5",
+          "loaderId": "47EDED48D657DF3256169378487DB386",
+          "timeOrigin": 1788937115933,
+          "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\failure-diagnostics-20260909\\accepted-1-KEGzaW\\geometry-document-0.html",
+          "url": "http://127.0.0.1:4332/?debugMap=1",
+          "bytes": 13067,
+          "sha256": "7466f39dea09ca7aff71aa3ea196ae96330ade2981d3c6d9a1fde1af23af328c",
+          "expectedBuildPresent": true,
+          "buildExcerpt": "\\\"p\\\":\\\"$undefined\\\",\\\"d\\\":\\\"$undefined\\\",\\\"b\\\":\\\"sOERPhx4qiqThocBbk1Y_\\\"}\\n\"])</script><script>self.__next_f.push([1,\"6:"
+        }
+      ],
+      "actions": [],
+      "blockedApis": [],
+      "startedAt": "2026-09-09T06:58:33.185Z",
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "targetId": "4252D7693856E4FA496B420858F1C6A5"
+    }
+  ],
+  "network": [
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937115978,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "47EDED48D657DF3256169378487DB386",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "documentURL": "http://127.0.0.1:4332/?debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:4332/?debugMap=1",
+          "method": "GET",
+          "headers": {
+            "Upgrade-Insecure-Requests": "1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\""
+          },
+          "mixedContentType": "none",
+          "initialPriority": "VeryHigh",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 1007813.26103,
+        "wallTime": 1788937115.938415,
+        "initiator": {
+          "type": "other"
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Document",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937116209,
+      "phase": "fault",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "47EDED48D657DF3256169378487DB386",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "timestamp": 1007813.47947,
+        "type": "Document",
+        "response": {
+          "url": "http://127.0.0.1:4332/?debugMap=1",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "cache-control": "public, max-age=0, must-revalidate",
+            "connection": "keep-alive",
+            "content-encoding": "gzip",
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "content-type": "text/html; charset=utf-8",
+            "date": "Wed, 09 Sep 2026 06:58:36 GMT",
+            "etag": "\"erhm57nxp4a2y\"",
+            "keep-alive": "timeout=5",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "transfer-encoding": "chunked",
+            "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+            "x-content-type-options": "nosniff",
+            "x-nextjs-cache": "HIT",
+            "x-nextjs-prerender": "1, 1",
+            "x-nextjs-stale-time": "300",
+            "x-powered-by": "Next.js"
+          },
+          "mimeType": "text/html",
+          "charset": "utf-8",
+          "connectionReused": true,
+          "connectionId": 281,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 4332,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 923,
+          "timing": {
+            "requestTime": 1007813.290045,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": -1,
+            "dnsEnd": -1,
+            "connectStart": -1,
+            "connectEnd": -1,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 46.434,
+            "sendEnd": 47.242,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 179.309,
+            "receiveHeadersEnd": 179.761
+          },
+          "responseTime": 1788937116146.673,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "4252D7693856E4FA496B420858F1C6A5"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937116277,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "99376.2",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "documentURL": "http://127.0.0.1:4332/?debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/02i9kg6cb183_.css",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:4332/?debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "VeryHigh",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 1007813.509623,
+        "wallTime": 1788937116.187234,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:4332/?debugMap=1",
+          "lineNumber": 0,
+          "columnNumber": 291
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Stylesheet",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "Blocking"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937116279,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "99376.3",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "documentURL": "http://127.0.0.1:4332/?debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/3wkt3-74el481.js",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:4332/?debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isLinkPreload": true,
+          "isSameSite": true
+        },
+        "timestamp": 1007813.511558,
+        "wallTime": 1788937116.189014,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:4332/?debugMap=1",
+          "lineNumber": 0,
+          "columnNumber": 389
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "NonBlocking"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937116284,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "99376.4",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "documentURL": "http://127.0.0.1:4332/?debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/2wu61p_p0hxro.js",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:4332/?debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 1007813.512147,
+        "wallTime": 1788937116.189613,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:4332/?debugMap=1",
+          "lineNumber": 0,
+          "columnNumber": 450
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937116286,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "99376.5",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "documentURL": "http://127.0.0.1:4332/?debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/11axl_urhtotz.js",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:4332/?debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 1007813.51257,
+        "wallTime": 1788937116.189955,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:4332/?debugMap=1",
+          "lineNumber": 0,
+          "columnNumber": 520
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937116289,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "99376.6",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "documentURL": "http://127.0.0.1:4332/?debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/0in607kxyceyg.js",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:4332/?debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 1007813.51427,
+        "wallTime": 1788937116.191713,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:4332/?debugMap=1",
+          "lineNumber": 0,
+          "columnNumber": 590
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937116304,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "99376.7",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "documentURL": "http://127.0.0.1:4332/?debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:4332/?debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 1007813.514848,
+        "wallTime": 1788937116.192234,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:4332/?debugMap=1",
+          "lineNumber": 0,
+          "columnNumber": 670
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937116308,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "99376.8",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "documentURL": "http://127.0.0.1:4332/?debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/1oaw9uq-pttep.js",
+          "method": "GET",
+          "headers": {
+            "Origin": "http://127.0.0.1:4332",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:4332/?debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 1007813.515251,
+        "wallTime": 1788937116.192686,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:4332/?debugMap=1",
+          "lineNumber": 0,
+          "columnNumber": 755
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937116312,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "99376.9",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "documentURL": "http://127.0.0.1:4332/?debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/1cz5edo_nvsq-.js",
+          "method": "GET",
+          "headers": {
+            "Origin": "http://127.0.0.1:4332",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:4332/?debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 1007813.515789,
+        "wallTime": 1788937116.193236,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:4332/?debugMap=1",
+          "lineNumber": 0,
+          "columnNumber": 840
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937116314,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "99376.10",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "documentURL": "http://127.0.0.1:4332/?debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/0muarhv1iin7n.js",
+          "method": "GET",
+          "headers": {
+            "Origin": "http://127.0.0.1:4332",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:4332/?debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 1007813.516375,
+        "wallTime": 1788937116.193779,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:4332/?debugMap=1",
+          "lineNumber": 0,
+          "columnNumber": 925
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937116322,
+      "phase": "fault",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "47EDED48D657DF3256169378487DB386",
+        "timestamp": 1007813.473582,
+        "encodedDataLength": 5206
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937116710,
+      "phase": "fault",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "99376.2",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "timestamp": 1007813.998377,
+        "type": "Stylesheet",
+        "response": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/02i9kg6cb183_.css",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "transfer-encoding": "chunked",
+            "x-robots-tag": "noindex, nofollow, noarchive",
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "cache-control": "public, max-age=31536000, immutable",
+            "content-encoding": "gzip",
+            "etag": "W/\"a61f-1a084ea6e53\"",
+            "connection": "keep-alive",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "accept-ranges": "bytes",
+            "keep-alive": "timeout=5",
+            "date": "Wed, 09 Sep 2026 06:58:36 GMT",
+            "last-modified": "Wed, 09 Sep 2026 06:45:51 GMT",
+            "content-type": "text/css; charset=UTF-8",
+            "vary": "Accept-Encoding"
+          },
+          "mimeType": "text/css",
+          "charset": "utf-8",
+          "connectionReused": true,
+          "connectionId": 281,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 4332,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 863,
+          "timing": {
+            "requestTime": 1007813.553452,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": -1,
+            "dnsEnd": -1,
+            "connectStart": -1,
+            "connectEnd": -1,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 61.181,
+            "sendEnd": 61.963,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 437.731,
+            "receiveHeadersEnd": 438.085
+          },
+          "responseTime": 1788937116668.502,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "4252D7693856E4FA496B420858F1C6A5"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937117066,
+      "phase": "fault",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "99376.2",
+        "timestamp": 1007814.346432,
+        "encodedDataLength": 8227
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937117472,
+      "phase": "fault",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "99376.3",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "timestamp": 1007814.747424,
+        "type": "Script",
+        "response": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/3wkt3-74el481.js",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "transfer-encoding": "chunked",
+            "x-robots-tag": "noindex, nofollow, noarchive",
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "cache-control": "public, max-age=31536000, immutable",
+            "content-encoding": "gzip",
+            "etag": "W/\"14f4-1a084ea6e5f\"",
+            "connection": "keep-alive",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "accept-ranges": "bytes",
+            "keep-alive": "timeout=5",
+            "date": "Wed, 09 Sep 2026 06:58:37 GMT",
+            "last-modified": "Wed, 09 Sep 2026 06:45:51 GMT",
+            "content-type": "application/javascript; charset=UTF-8",
+            "vary": "Accept-Encoding"
+          },
+          "mimeType": "application/javascript",
+          "charset": "utf-8",
+          "connectionReused": false,
+          "connectionId": 323,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 4332,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 877,
+          "timing": {
+            "requestTime": 1007813.564734,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": 7.699,
+            "dnsEnd": 7.777,
+            "connectStart": 7.777,
+            "connectEnd": 50.952,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 58.117,
+            "sendEnd": 59.047,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 864.908,
+            "receiveHeadersEnd": 865.331
+          },
+          "responseTime": 1788937117106.961,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "4252D7693856E4FA496B420858F1C6A5"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937117474,
+      "phase": "fault",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "99376.3",
+        "timestamp": 1007814.59191,
+        "encodedDataLength": 2864
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937117507,
+      "phase": "fault",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "99376.4",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "timestamp": 1007814.810026,
+        "type": "Script",
+        "response": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/2wu61p_p0hxro.js",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "transfer-encoding": "chunked",
+            "x-robots-tag": "noindex, nofollow, noarchive",
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "cache-control": "public, max-age=31536000, immutable",
+            "content-encoding": "gzip",
+            "etag": "W/\"7ec9-1a084ea6e30\"",
+            "connection": "keep-alive",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "accept-ranges": "bytes",
+            "keep-alive": "timeout=5",
+            "date": "Wed, 09 Sep 2026 06:58:37 GMT",
+            "last-modified": "Wed, 09 Sep 2026 06:45:51 GMT",
+            "content-type": "application/javascript; charset=UTF-8",
+            "vary": "Accept-Encoding"
+          },
+          "mimeType": "application/javascript",
+          "charset": "utf-8",
+          "connectionReused": false,
+          "connectionId": 328,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 4332,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 877,
+          "timing": {
+            "requestTime": 1007813.565716,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": 11.601,
+            "dnsEnd": 11.648,
+            "connectStart": 11.648,
+            "connectEnd": 53.404,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 58.896,
+            "sendEnd": 59.801,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 1007.124,
+            "receiveHeadersEnd": 1007.517
+          },
+          "responseTime": 1788937117250.159,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "4252D7693856E4FA496B420858F1C6A5"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937117518,
+      "phase": "fault",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "99376.4",
+        "timestamp": 1007814.668242,
+        "encodedDataLength": 9474
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937117632,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "04959B4A029C2464B8147F79F996D844",
+        "loaderId": "04959B4A029C2464B8147F79F996D844",
+        "documentURL": "http://127.0.0.1:4332/?",
+        "request": {
+          "url": "http://127.0.0.1:4332/?",
+          "method": "GET",
+          "headers": {
+            "Referer": "http://127.0.0.1:4332/?debugMap=1",
+            "Upgrade-Insecure-Requests": "1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\""
+          },
+          "mixedContentType": "none",
+          "initialPriority": "VeryHigh",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 1007814.920376,
+        "wallTime": 1788937117.597765,
+        "initiator": {
+          "type": "other"
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Document",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": true
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937117637,
+      "phase": "fault",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "99376.7",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "timestamp": 1007814.943345,
+        "type": "Script",
+        "response": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "transfer-encoding": "chunked",
+            "x-robots-tag": "noindex, nofollow, noarchive",
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "cache-control": "public, max-age=31536000, immutable",
+            "content-encoding": "gzip",
+            "etag": "W/\"25b4-1a084ea6f07\"",
+            "connection": "keep-alive",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "accept-ranges": "bytes",
+            "keep-alive": "timeout=5",
+            "date": "Wed, 09 Sep 2026 06:58:37 GMT",
+            "last-modified": "Wed, 09 Sep 2026 06:45:51 GMT",
+            "content-type": "application/javascript; charset=UTF-8",
+            "vary": "Accept-Encoding"
+          },
+          "mimeType": "application/javascript",
+          "charset": "utf-8",
+          "connectionReused": false,
+          "connectionId": 338,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 4332,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 877,
+          "timing": {
+            "requestTime": 1007813.569162,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": 74.412,
+            "dnsEnd": 74.46,
+            "connectStart": 74.46,
+            "connectEnd": 159.372,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 161.103,
+            "sendEnd": 161.699,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 1094.312,
+            "receiveHeadersEnd": 1094.634
+          },
+          "responseTime": 1788937117340.793,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "4252D7693856E4FA496B420858F1C6A5"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937117643,
+      "phase": "fault",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "99376.7",
+        "timestamp": 1007814.938762,
+        "encodedDataLength": 4725
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937117875,
+      "phase": "fault",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "99376.8",
+        "loaderId": "47EDED48D657DF3256169378487DB386",
+        "timestamp": 1007815.174718,
+        "type": "Script",
+        "response": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/1oaw9uq-pttep.js",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "transfer-encoding": "chunked",
+            "x-robots-tag": "noindex, nofollow, noarchive",
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "cache-control": "public, max-age=31536000, immutable",
+            "content-encoding": "gzip",
+            "etag": "W/\"3830-1a084ea6e4a\"",
+            "connection": "keep-alive",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "accept-ranges": "bytes",
+            "keep-alive": "timeout=5",
+            "date": "Wed, 09 Sep 2026 06:58:37 GMT",
+            "last-modified": "Wed, 09 Sep 2026 06:45:51 GMT",
+            "content-type": "application/javascript; charset=UTF-8",
+            "vary": "Accept-Encoding"
+          },
+          "mimeType": "application/javascript",
+          "charset": "utf-8",
+          "connectionReused": true,
+          "connectionId": 281,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 4332,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 877,
+          "timing": {
+            "requestTime": 1007814.347149,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": -1,
+            "dnsEnd": -1,
+            "connectStart": -1,
+            "connectEnd": -1,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 2.269,
+            "sendEnd": 2.908,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 706.876,
+            "receiveHeadersEnd": 707.22
+          },
+          "responseTime": 1788937117731.343,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "4252D7693856E4FA496B420858F1C6A5"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937117880,
+      "phase": "fault",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "99376.8",
+        "timestamp": 1007815.170825,
+        "encodedDataLength": 4552
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937118006,
+      "phase": "fault",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "04959B4A029C2464B8147F79F996D844",
+        "loaderId": "04959B4A029C2464B8147F79F996D844",
+        "timestamp": 1007815.263613,
+        "type": "Document",
+        "response": {
+          "url": "http://127.0.0.1:4332/?",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "cache-control": "public, max-age=0, must-revalidate",
+            "connection": "keep-alive",
+            "content-encoding": "gzip",
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "content-type": "text/html; charset=utf-8",
+            "date": "Wed, 09 Sep 2026 06:58:37 GMT",
+            "etag": "\"erhm57nxp4a2y\"",
+            "keep-alive": "timeout=5",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "transfer-encoding": "chunked",
+            "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+            "x-content-type-options": "nosniff",
+            "x-nextjs-cache": "HIT",
+            "x-nextjs-prerender": "1, 1",
+            "x-nextjs-stale-time": "300",
+            "x-powered-by": "Next.js"
+          },
+          "mimeType": "text/html",
+          "charset": "utf-8",
+          "connectionReused": true,
+          "connectionId": 338,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 4332,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 923,
+          "timing": {
+            "requestTime": 1007814.929956,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": -1,
+            "dnsEnd": -1,
+            "connectStart": -1,
+            "connectEnd": -1,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 9.645,
+            "sendEnd": 10.079,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 326.796,
+            "receiveHeadersEnd": 327.172
+          },
+          "responseTime": 1788937117934.071,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "4252D7693856E4FA496B420858F1C6A5"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937118116,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "99376.23",
+        "loaderId": "04959B4A029C2464B8147F79F996D844",
+        "documentURL": "http://127.0.0.1:4332/?",
+        "request": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/02i9kg6cb183_.css",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:4332/?",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "VeryHigh",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 1007815.368673,
+        "wallTime": 1788937118.04612,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:4332/?",
+          "lineNumber": 0,
+          "columnNumber": 291
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Stylesheet",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "Blocking"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937118117,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "99376.24",
+        "loaderId": "04959B4A029C2464B8147F79F996D844",
+        "documentURL": "http://127.0.0.1:4332/?",
+        "request": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/3wkt3-74el481.js",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:4332/?",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isLinkPreload": true,
+          "isSameSite": true
+        },
+        "timestamp": 1007815.369841,
+        "wallTime": 1788937118.04728,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:4332/?",
+          "lineNumber": 0,
+          "columnNumber": 389
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "NonBlocking"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937118119,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "99376.25",
+        "loaderId": "04959B4A029C2464B8147F79F996D844",
+        "documentURL": "http://127.0.0.1:4332/?",
+        "request": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/2wu61p_p0hxro.js",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:4332/?",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 1007815.370307,
+        "wallTime": 1788937118.047707,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:4332/?",
+          "lineNumber": 0,
+          "columnNumber": 450
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937118120,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "99376.26",
+        "loaderId": "04959B4A029C2464B8147F79F996D844",
+        "documentURL": "http://127.0.0.1:4332/?",
+        "request": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/11axl_urhtotz.js",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:4332/?",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 1007815.370636,
+        "wallTime": 1788937118.048066,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:4332/?",
+          "lineNumber": 0,
+          "columnNumber": 520
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937118124,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "99376.27",
+        "loaderId": "04959B4A029C2464B8147F79F996D844",
+        "documentURL": "http://127.0.0.1:4332/?",
+        "request": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/0in607kxyceyg.js",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:4332/?",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 1007815.371023,
+        "wallTime": 1788937118.048395,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:4332/?",
+          "lineNumber": 0,
+          "columnNumber": 590
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937118128,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "99376.28",
+        "loaderId": "04959B4A029C2464B8147F79F996D844",
+        "documentURL": "http://127.0.0.1:4332/?",
+        "request": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:4332/?",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 1007815.371281,
+        "wallTime": 1788937118.04865,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:4332/?",
+          "lineNumber": 0,
+          "columnNumber": 670
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937118129,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "99376.29",
+        "loaderId": "04959B4A029C2464B8147F79F996D844",
+        "documentURL": "http://127.0.0.1:4332/?",
+        "request": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/1oaw9uq-pttep.js",
+          "method": "GET",
+          "headers": {
+            "Origin": "http://127.0.0.1:4332",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:4332/?",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 1007815.371625,
+        "wallTime": 1788937118.049012,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:4332/?",
+          "lineNumber": 0,
+          "columnNumber": 755
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937118198,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "99376.30",
+        "loaderId": "04959B4A029C2464B8147F79F996D844",
+        "documentURL": "http://127.0.0.1:4332/?",
+        "request": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/1cz5edo_nvsq-.js",
+          "method": "GET",
+          "headers": {
+            "Origin": "http://127.0.0.1:4332",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:4332/?",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 1007815.371935,
+        "wallTime": 1788937118.049316,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:4332/?",
+          "lineNumber": 0,
+          "columnNumber": 840
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937118200,
+      "phase": "fault",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "99376.31",
+        "loaderId": "04959B4A029C2464B8147F79F996D844",
+        "documentURL": "http://127.0.0.1:4332/?",
+        "request": {
+          "url": "http://127.0.0.1:4332/_next/static/chunks/0muarhv1iin7n.js",
+          "method": "GET",
+          "headers": {
+            "Origin": "http://127.0.0.1:4332",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:4332/?",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 1007815.37222,
+        "wallTime": 1788937118.049604,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:4332/?",
+          "lineNumber": 0,
+          "columnNumber": 925
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      }
+    },
+    {
+      "scenario": "geometry",
+      "worker": false,
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937118206,
+      "phase": "fault",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "04959B4A029C2464B8147F79F996D844",
+        "timestamp": 1007815.446419,
+        "encodedDataLength": 5206
+      }
+    }
+  ],
+  "errors": [],
+  "pageEvents": [
+    {
+      "scenario": "geometry",
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937116321,
+      "phase": "fault",
+      "executionContextId": 2,
+      "frameId": "4252D7693856E4FA496B420858F1C6A5",
+      "payload": {
+        "kind": "document-start",
+        "documentUrl": "http://127.0.0.1:4332/?debugMap=1",
+        "timeOrigin": 1788937115933,
+        "at": 275.39999997615814
+      }
+    },
+    {
+      "scenario": "geometry",
+      "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+      "receivedAt": 1788937118020,
+      "phase": "fault",
+      "executionContextId": 3,
+      "frameId": "4252D7693856E4FA496B420858F1C6A5",
+      "payload": {
+        "kind": "document-start",
+        "documentUrl": "http://127.0.0.1:4332/?",
+        "timeOrigin": 1788937117564.9,
+        "at": 408.60000002384186
+      }
+    }
+  ],
+  "asyncErrors": [],
+  "targets": [],
+  "faults": [
+    {
+      "mode": "geometry",
+      "at": 1788937112826,
+      "before": {
+        "build": "sOERPhx4qiqThocBbk1Y_",
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-failure-diagnostics-20260909-1\\web",
+        "pid": 93892,
+        "nextPid": 102876,
+        "mode": "clear",
+        "requests": [
+          {
+            "path": "/",
+            "status": 200,
+            "kind": "app",
+            "mode": "clear",
+            "at": 1788936433202
+          }
+        ]
+      },
+      "result": {
+        "mode": "geometry"
+      },
+      "after": {
+        "build": "sOERPhx4qiqThocBbk1Y_",
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-failure-diagnostics-20260909-1\\web",
+        "pid": 93892,
+        "nextPid": 102876,
+        "mode": "geometry",
+        "requests": [
+          {
+            "path": "/",
+            "status": 200,
+            "kind": "app",
+            "mode": "clear",
+            "at": 1788936433202
+          }
+        ]
+      }
+    },
+    {
+      "mode": "clear",
+      "at": 1788937118311,
+      "before": {
+        "build": "sOERPhx4qiqThocBbk1Y_",
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-failure-diagnostics-20260909-1\\web",
+        "pid": 93892,
+        "nextPid": 102876,
+        "mode": "geometry",
+        "requests": [
+          {
+            "path": "/",
+            "status": 200,
+            "kind": "app",
+            "mode": "clear",
+            "at": 1788936433202
+          },
+          {
+            "path": "/",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937116142
+          },
+          {
+            "path": "/_next/static/chunks/02i9kg6cb183_.css",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937116664
+          },
+          {
+            "path": "/_next/static/chunks/3wkt3-74el481.js",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937117104
+          },
+          {
+            "path": "/_next/static/chunks/2wu61p_p0hxro.js",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937117247
+          },
+          {
+            "path": "/_next/static/chunks/11axl_urhtotz.js",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937117332
+          },
+          {
+            "path": "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937117338
+          },
+          {
+            "path": "/_next/static/chunks/0in607kxyceyg.js",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937117340
+          },
+          {
+            "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937117723
+          },
+          {
+            "path": "/",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937117931
+          },
+          {
+            "path": "/_next/static/chunks/1cz5edo_nvsq-.js",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937118035
+          },
+          {
+            "path": "/_next/static/chunks/0muarhv1iin7n.js",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937118245
+          }
+        ]
+      },
+      "result": {
+        "mode": "clear"
+      },
+      "after": {
+        "build": "sOERPhx4qiqThocBbk1Y_",
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-failure-diagnostics-20260909-1\\web",
+        "pid": 93892,
+        "nextPid": 102876,
+        "mode": "clear",
+        "requests": [
+          {
+            "path": "/",
+            "status": 200,
+            "kind": "app",
+            "mode": "clear",
+            "at": 1788936433202
+          },
+          {
+            "path": "/",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937116142
+          },
+          {
+            "path": "/_next/static/chunks/02i9kg6cb183_.css",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937116664
+          },
+          {
+            "path": "/_next/static/chunks/3wkt3-74el481.js",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937117104
+          },
+          {
+            "path": "/_next/static/chunks/2wu61p_p0hxro.js",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937117247
+          },
+          {
+            "path": "/_next/static/chunks/11axl_urhtotz.js",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937117332
+          },
+          {
+            "path": "/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937117338
+          },
+          {
+            "path": "/_next/static/chunks/0in607kxyceyg.js",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937117340
+          },
+          {
+            "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937117723
+          },
+          {
+            "path": "/",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937117931
+          },
+          {
+            "path": "/_next/static/chunks/1cz5edo_nvsq-.js",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937118035
+          },
+          {
+            "path": "/_next/static/chunks/0muarhv1iin7n.js",
+            "status": 200,
+            "kind": "app",
+            "mode": "geometry",
+            "at": 1788937118245
+          }
+        ]
+      }
+    }
+  ],
+  "captures": [],
+  "overflow": [],
+  "cleanup": {
+    "faultCleared": true,
+    "closeSent": true,
+    "spawnExited": false,
+    "processAudit": {
+      "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\failure-diagnostics-browser-DwKbex'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $owned=@(Owned); $before=@($owned | Select-Object ProcessId,Name,CommandLine); foreach($item in $owned){ $live=Get-Process -Id $item.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){ Stop-Process -Id $item.ProcessId -Force -ErrorAction SilentlyContinue } }; $end=[DateTime]::UtcNow.AddSeconds(25); do { $remaining=@(Owned | Where-Object { $live=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $live -and -not $live.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 500 } while([DateTime]::UtcNow -lt $end); @{before=$before; remaining=@($remaining | Select-Object ProcessId,Name,CommandLine); check='Exact fresh profile in CIM command line plus live Get-Process; no directory deletion'} | ConvertTo-Json -Depth 4 -Compress",
+      "exitCode": 0,
+      "stdout": "{\"before\":[{\"ProcessId\":108652,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:/Program Files/Google/Chrome/Application/chrome.exe\\\" --headless=new --no-first-run --no-sandbox --use-angle=swiftshader --enable-unsafe-swiftshader --disable-default-apps --disable-background-networking --disable-component-update --disable-sync --no-default-browser-check --remote-debugging-port=0 --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\failure-diagnostics-browser-DwKbex about:blank\"},{\"ProcessId\":84940,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=crashpad-handler --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\failure-diagnostics-browser-DwKbex /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\\\sgSHIOK2026\\\\tmp\\\\failure-diagnostics-browser-DwKbex\\\\Crashpad --metrics-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\failure-diagnostics-browser-DwKbex --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=152.0.7977.83 --initial-client-data=0x130,0x134,0x138,0x12c,0x13c,0x7fff48c67e60,0x7fff48c67e70,0x7fff48c67e80\"}],\"remaining\":[],\"check\":\"Exact fresh profile in CIM command line plus live Get-Process; no directory deletion\"}\r\n",
+      "stderr": "",
+      "error": null
+    },
+    "verified": true
+  },
+  "preview": {
+    "build": "sOERPhx4qiqThocBbk1Y_",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-failure-diagnostics-20260909-1\\web",
+    "pid": 93892,
+    "nextPid": 102876,
+    "mode": "clear",
+    "requests": [
+      {
+        "path": "/",
+        "status": 200,
+        "kind": "app",
+        "mode": "clear",
+        "at": 1788936433202
+      }
+    ]
+  },
+  "snapshot": {
+    "web": "C:\\sgSHIOK2026\\tmp\\cached-release-failure-diagnostics-20260909-1\\web",
+    "bundle": "generated_20260805_prefer_scored_routed",
+    "bundleConfigSha256": "d5ce7703d5ee6b39651947749f9bd2f4c6d642fe2af06e1d9324671ce8f009e8"
+  },
+  "publicBuildExpectation": "app_build_id=null: no explicitly injected public app build ID is supplied to this acceptance. The Next BUILD_ID is verified separately, never substituted into copied diagnostics.",
+  "profile": "C:\\sgSHIOK2026\\tmp\\failure-diagnostics-browser-DwKbex",
+  "chromeArgs": [
+    "--headless=new",
+    "--no-first-run",
+    "--no-sandbox",
+    "--use-angle=swiftshader",
+    "--enable-unsafe-swiftshader",
+    "--disable-default-apps",
+    "--disable-background-networking",
+    "--disable-component-update",
+    "--disable-sync",
+    "--no-default-browser-check",
+    "--remote-debugging-port=0",
+    "--user-data-dir=C:\\sgSHIOK2026\\tmp\\failure-diagnostics-browser-DwKbex",
+    "about:blank"
+  ],
+  "chromePid": 108652,
+  "browserEndpoint": "ws://127.0.0.1:23218/devtools/browser/10a37c17-2221-4fa4-aca1-aa1d46a3663d",
+  "lastSample": {
+    "name": "unexpected-failure before",
+    "scenario": "geometry",
+    "value": {
+      "url": "http://127.0.0.1:4332/?",
+      "timeOrigin": 1788937117564.9,
+      "viewport": [
+        390,
+        844
+      ],
+      "shell": true,
+      "input": "",
+      "inputUsable": true,
+      "submitUsable": true,
+      "mapStatus": "idle",
+      "mapStage": null,
+      "mapReason": null,
+      "summary": {
+        "postal": null,
+        "metrics": {},
+        "metricVisible": {},
+        "metricBounds": {},
+        "rect": null,
+        "clipped": null,
+        "ancestors": []
+      },
+      "alerts": [],
+      "geometryMessage": false,
+      "retryGeometry": {
+        "present": false,
+        "visible": false,
+        "hit": false,
+        "disabled": null,
+        "focused": false,
+        "rect": null
+      },
+      "retrySelection": {
+        "present": false,
+        "visible": false,
+        "hit": false,
+        "disabled": null,
+        "focused": false,
+        "rect": null
+      },
+      "reload": {
+        "present": false,
+        "visible": false,
+        "hit": false,
+        "disabled": null,
+        "focused": false,
+        "rect": null
+      },
+      "diagnostics": [],
+      "qa": {
+        "stages": [
+          {
+            "status": "idle",
+            "stage": null,
+            "reason": null,
+            "at": 493.10000002384186
+          }
+        ],
+        "unhandled": [],
+        "clipboardCalls": [],
+        "swCalls": [],
+        "overflow": false,
+        "installed": true
+      },
+      "mapPresent": false,
+      "routeKey": null,
+      "featureCount": 0,
+      "routeIds": [],
+      "basemap": false,
+      "tilesLoaded": false,
+      "moving": null,
+      "mapProbeError": null,
+      "documentWidth": 390
+    }
+  },
+  "failure": "Error: TypeError: Cannot read properties of null (reading 'textContent')\n    at facts (<anonymous>:93:36)\n    at <anonymous>:99:3\n    at call (file:///C:/sgSHIOK2026/qa/revamp-r1/failure-diagnostics-20260909/browser.mjs:172:40)\n    at async sample (file:///C:/sgSHIOK2026/qa/revamp-r1/failure-diagnostics-20260909/browser.mjs:386:17)\n    at async waitFor (file:///C:/sgSHIOK2026/qa/revamp-r1/failure-diagnostics-20260909/browser.mjs:397:19)\n    at async runScenario (file:///C:/sgSHIOK2026/qa/revamp-r1/failure-diagnostics-20260909/browser.mjs:724:19)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/failure-diagnostics-20260909/browser.mjs:782:5",
+  "failureCaptureError": "Error: Acceptance failed: unexpected-failure belongs to verified main Document\n    at check (file:///C:/sgSHIOK2026/qa/revamp-r1/failure-diagnostics-20260909/browser.mjs:124:20)\n    at capture (file:///C:/sgSHIOK2026/qa/revamp-r1/failure-diagnostics-20260909/browser.mjs:436:3)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/failure-diagnostics-20260909/browser.mjs:795:7",
+  "errorLedger": {
+    "page": [
+      {
+        "name": "geometry",
+        "final": null
+      }
+    ],
+    "persistentPageEvents": [
+      {
+        "scenario": "geometry",
+        "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+        "receivedAt": 1788937116321,
+        "phase": "fault",
+        "executionContextId": 2,
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "payload": {
+          "kind": "document-start",
+          "documentUrl": "http://127.0.0.1:4332/?debugMap=1",
+          "timeOrigin": 1788937115933,
+          "at": 275.39999997615814
+        }
+      },
+      {
+        "scenario": "geometry",
+        "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+        "receivedAt": 1788937118020,
+        "phase": "fault",
+        "executionContextId": 3,
+        "frameId": "4252D7693856E4FA496B420858F1C6A5",
+        "payload": {
+          "kind": "document-start",
+          "documentUrl": "http://127.0.0.1:4332/?",
+          "timeOrigin": 1788937117564.9,
+          "at": 408.60000002384186
+        }
+      }
+    ],
+    "raw": [],
+    "async": [],
+    "transport": null,
+    "asynchronousFailure": null,
+    "classified": [
+      {
+        "event": {
+          "scenario": "geometry",
+          "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+          "receivedAt": 1788937116321,
+          "phase": "fault",
+          "executionContextId": 2,
+          "frameId": "4252D7693856E4FA496B420858F1C6A5",
+          "payload": {
+            "kind": "document-start",
+            "documentUrl": "http://127.0.0.1:4332/?debugMap=1",
+            "timeOrigin": 1788937115933,
+            "at": 275.39999997615814
+          }
+        },
+        "disposition": "informational",
+        "reason": "Document binding receipt"
+      },
+      {
+        "event": {
+          "scenario": "geometry",
+          "sessionId": "7C926F5949E59C32DFAAC555B04C5903",
+          "receivedAt": 1788937118020,
+          "phase": "fault",
+          "executionContextId": 3,
+          "frameId": "4252D7693856E4FA496B420858F1C6A5",
+          "payload": {
+            "kind": "document-start",
+            "documentUrl": "http://127.0.0.1:4332/?",
+            "timeOrigin": 1788937117564.9,
+            "at": 408.60000002384186
+          }
+        },
+        "disposition": "informational",
+        "reason": "Document binding receipt"
+      }
+    ],
+    "unexpected": []
+  },
+  "stderr": "\r\nDevTools listening on ws://127.0.0.1:23218/devtools/browser/10a37c17-2221-4fa4-aca1-aa1d46a3663d\r\n",
+  "finishedAt": "2026-09-09T06:59:15.683Z",
+  "elapsedMs": 53404,
+  "ok": false
+}

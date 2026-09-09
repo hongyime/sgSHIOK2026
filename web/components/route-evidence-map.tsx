@@ -52,6 +52,8 @@ export interface RouteMapIssue {
   reason: "timeout" | "rejected" | "error";
   /** Elapsed since this map attempt, or since the selected-route visibility probe for its timeout. */
   elapsedMs?: number;
+  /** Internal owner for selected-route probes only; never part of copied diagnostics. */
+  selectionContext?: object;
 }
 
 type MapStartupStage = Extract<RouteMapIssue["stage"], "library-download" | "glyph-setup" | "map-construction" | "map-startup">;
@@ -1205,6 +1207,7 @@ export function RouteEvidenceMap({
   focusedExposureGap: requestedExposureGap = null,
   mappedExposureContextKey = null,
   onStatusChange,
+  diagnosticContext,
   retryKey = 0,
 }: {
   routes: RouteMapItem[];
@@ -1222,6 +1225,7 @@ export function RouteEvidenceMap({
   /** Current normalized explorer context; required for mapped-section focus only. */
   mappedExposureContextKey?: string | null;
   onStatusChange?: (status: RouteMapLoadStatus, message?: string, recovery?: RouteMapRecovery, issue?: RouteMapIssue) => void;
+  diagnosticContext?: object;
   retryKey?: number;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -1233,6 +1237,9 @@ export function RouteEvidenceMap({
   const lampTileCacheRef = useRef<Map<string, LampTilePayload | null>>(new Map());
   const lampRequestIdRef = useRef(0);
   const onStatusChangeRef = useRef(onStatusChange);
+  const diagnosticContextRef = useRef(diagnosticContext);
+  // Invalidate old probes during render, before passive-effect cleanup can run.
+  diagnosticContextRef.current = diagnosticContext;
 
   function reportMapStatus(fallback: RouteMapLoadStatus) {
     const problem = mapProblemRef.current;
@@ -1430,6 +1437,11 @@ export function RouteEvidenceMap({
         const tileFailure = (event as { sourceId?: string }).sourceId === "onemap";
         if (!initialLoadComplete && !tileFailure) {
           failStartup("error");
+          return;
+        }
+        // Later events cannot resolve an existing map-instance failure.
+        if (mapProblemRef.current?.status === "error") {
+          reportMapStatus("error");
           return;
         }
         const status = tileFailure ? "partial" : "error";
@@ -1641,14 +1653,7 @@ export function RouteEvidenceMap({
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !loaded || !viewport.width) return;
-    cancelProbeRef.current?.();
-    routeVisibleRef.current = false;
-    if (!routeData.bounds) {
-      // No selected walk is a normal basemap state, not missing route evidence.
-      reportMapStatus("idle");
-      return;
-    }
-    reportMapStatus("initializing");
+    if (!routeData.bounds) return;
     // One fit for a selection or measured layout change, never from render/idle/tile events.
     if (focusedExposureGap?.kind === "mapped-section") {
       const sectionBounds = boundsFor(focusedExposureGap.points.map(([lat, lon]): LngLat => [lon, lat]));
@@ -1659,24 +1664,50 @@ export function RouteEvidenceMap({
     } else {
       fitRouteBounds(map, routeData.bounds, viewport.padding);
     }
+  }, [loaded, sourceGeneration, routeKey, viewport, focusedExposureGap]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !loaded || !viewport.width) return;
+    cancelProbeRef.current?.();
+    routeVisibleRef.current = false;
+    if (!routeData.bounds) {
+      // No selected walk is a normal basemap state, not missing route evidence.
+      reportMapStatus("idle");
+      return;
+    }
+    reportMapStatus("initializing");
     const probeStartedAt = performance.now();
+    const probeContext = diagnosticContext;
     const cancel = watchSelectedRoute(map, {
       key: routeKey, layers: ["shiokest-route-line", "shortest-route-line"],
       box: usableMapBox(viewport.width, viewport.height, viewport.padding),
       ready: () => {
+        if (diagnosticContextRef.current !== probeContext) return;
         routeVisibleRef.current = true;
         reportMapStatus("ready");
       },
-      timeout: () => onStatusChangeRef.current?.("error", "The selected walk is not visible. Retry the map.", undefined,
-        { stage: "route-render", reason: "timeout", elapsedMs: Math.max(0, Math.round(performance.now() - probeStartedAt)) }),
+      timeout: () => {
+        if (diagnosticContextRef.current !== probeContext) return;
+        // Keep global failure ownership instead of replacing it with a route probe.
+        if (mapProblemRef.current?.status === "error") {
+          reportMapStatus("error");
+          return;
+        }
+        onStatusChangeRef.current?.("error", "The selected walk is not visible. Retry the map.", undefined,
+          { stage: "route-render", reason: "timeout", elapsedMs: Math.max(0, Math.round(performance.now() - probeStartedAt)),
+            ...(probeContext ? { selectionContext: probeContext } : {}) });
+      },
     });
     cancelProbeRef.current = cancel;
+    // Context-only invalidation needs a visibility sample, never another camera fit.
+    map.triggerRepaint();
     const onGesture = (event: { originalEvent?: unknown }) => {
       if (event.originalEvent) cancel(); // Intentional pan-away is never a fetch failure.
     };
     map.on("movestart", onGesture);
     return () => { cancel(); map.off("movestart", onGesture); };
-  }, [loaded, sourceGeneration, routeKey, viewport, focusedExposureGap]);
+  }, [loaded, sourceGeneration, routeKey, viewport, focusedExposureGap, diagnosticContext]);
 
   useEffect(() => {
     if (retryKey === handledRetryKeyRef.current) return;

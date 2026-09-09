@@ -7,6 +7,7 @@ import type { ScoreRecord, PostalGeom, Manifest, TransitPoiCollection } from "./
 import type { RankableScoreRecord } from "./subscore-ranking";
 import { gridDisk, latLngToCell } from "h3-js";
 import { decodePolyline } from "./polyline";
+import { recordArtifactFailure, type ArtifactFailure } from "./artifact-failure";
 
 export const DEFAULT_DATA_BASE = `/data/${dataBundle.bundle}/`;
 export const PINNED_DATA_MANIFEST: Manifest = {
@@ -62,20 +63,88 @@ function compressedOnlyArtifact(path: string): boolean {
   return /^transit\/h3\/[^/]+\.json$/.test(path);
 }
 
-async function decodeJsonResponse<T>(res: Response, path: string): Promise<T> {
-  const contentEncoding = res.headers?.get("content-encoding") ?? "";
-  if (path.endsWith(".gz") && !contentEncoding.toLowerCase().includes("gzip")) {
-    if (!res.body || typeof DecompressionStream === "undefined") {
-      throw new Error(`gzip data fetch is unsupported for ${path}`);
-    }
-    const stream = res.body.pipeThrough(new DecompressionStream("gzip"));
-    return new Response(stream).json() as Promise<T>;
+function artifactRole(path: string): ArtifactFailure["artifactRole"] {
+  const plainPath = path.endsWith(".gz") ? path.slice(0, -3) : path;
+  if (plainPath === "manifest.json") return "manifest";
+  if (plainPath === "scores/index.json" || plainPath === "scores/prefix-index.json") return "score-index";
+  if (plainPath === "geom/index.json" || plainPath === "geom/postal-index.json"
+    || /^geom\/postal-prefix\/\d{3}\.json$/.test(plainPath)) return "geometry-index";
+  if (/^scores\/[\w-]+\.json$/.test(plainPath)) return "score-shard";
+  if (/^geom\/h3\/[\w-]+\.json$/.test(plainPath)) return "geometry-shard";
+  if (plainPath === "transit/pois.json" || /^transit\/h3\/[\w-]+\.json$/.test(plainPath)) return "transit";
+  return "unknown";
+}
+
+function isAbortError(error: unknown): boolean {
+  try {
+    return error instanceof Error && error.name === "AbortError";
+  } catch {
+    return false;
   }
-  return res.json() as Promise<T>;
+}
+
+function monotonicNow(): number | null {
+  try {
+    const value = performance.now();
+    return typeof value === "number" && Number.isFinite(value) && value >= 0 ? value : null;
+  } catch {
+    return null;
+  }
+}
+
+function recordFailure(
+  error: unknown, path: string, stage: ArtifactFailure["stage"], reason: ArtifactFailure["reason"],
+  httpStatus: number | null, startedAt: number | null,
+): void {
+  try {
+    if (isAbortError(error)) return;
+    const finishedAt = monotonicNow();
+    recordArtifactFailure(error, {
+      stage, reason, artifactRole: artifactRole(path), httpStatus,
+      elapsedMs: startedAt !== null && finishedAt !== null ? Math.max(0, finishedAt - startedAt) : null,
+    });
+  } catch {
+    // Diagnostics must never replace the operation's original rejection.
+  }
+}
+
+async function fetchArtifactResponse(path: string, startedAt: number | null): Promise<Response> {
+  try {
+    return await fetch(dataUrl(path), DATA_FETCH_OPTIONS);
+  } catch (error) {
+    recordFailure(error, path, "artifact-fetch", "network", null, startedAt);
+    throw error;
+  }
+}
+
+async function decodeJsonResponse<T>(res: Response, path: string): Promise<T> {
+  const startedAt = monotonicNow();
+  let reason: ArtifactFailure["reason"] = "error";
+  try {
+    const contentEncoding = res.headers?.get("content-encoding") ?? "";
+    if (path.endsWith(".gz") && !contentEncoding.toLowerCase().includes("gzip")) {
+      if (!res.body) {
+        throw new Error(`gzip data fetch is unsupported for ${path}`);
+      }
+      if (typeof DecompressionStream === "undefined") {
+        reason = "unsupported";
+        throw new Error(`gzip data fetch is unsupported for ${path}`);
+      }
+      const stream = res.body.pipeThrough(new DecompressionStream("gzip"));
+      return await new Response(stream).json() as T;
+    }
+    return await res.json() as T;
+  } catch (error) {
+    recordFailure(error, path, "artifact-decode", reason, res.status, startedAt);
+    throw error;
+  }
 }
 
 class ArtifactFetchError extends Error {
-  constructor(path: string, public status: number) { super(`${path} fetch failed: ${status}`); }
+  constructor(path: string, public status: number, startedAt: number | null) {
+    super(`${path} fetch failed: ${status}`);
+    recordFailure(this, path, "artifact-fetch", "http", status, startedAt);
+  }
 }
 
 async function cachedPlainResponse(path: string, failure: unknown): Promise<Response> {
@@ -105,26 +174,30 @@ async function fetchJson<T>(path: string): Promise<T> {
   const request = (async () => {
     if (hasCompressedArtifact(path)) {
       const gzPath = `${path}.gz`;
+      const startedAt = monotonicNow();
       let gzRes: Response;
       try {
-        gzRes = await fetch(dataUrl(gzPath), DATA_FETCH_OPTIONS);
+        gzRes = await fetchArtifactResponse(gzPath, startedAt);
       } catch (failure) {
-        if (failure instanceof Error && failure.name === "AbortError") throw failure;
+        if (isAbortError(failure)) throw failure;
         return decodeJsonResponse<T>(await cachedPlainResponse(path, failure), path);
       }
       if (gzRes.ok) return decodeJsonResponse<T>(gzRes, gzPath);
       if (gzRes.status >= 500 && gzRes.status <= 599) {
-        const failure = new ArtifactFetchError(gzPath, gzRes.status);
+        const failure = new ArtifactFetchError(gzPath, gzRes.status, startedAt);
         return decodeJsonResponse<T>(await cachedPlainResponse(path, failure), path);
       }
-      if (gzRes.status !== 404) throw new ArtifactFetchError(gzPath, gzRes.status);
+      if (gzRes.status !== 404) throw new ArtifactFetchError(gzPath, gzRes.status, startedAt);
       if (compressedOnlyArtifact(path)) {
-        throw new Error(`${gzPath} fetch failed: ${gzRes.status}`);
+        const failure = new Error(`${gzPath} fetch failed: ${gzRes.status}`);
+        recordFailure(failure, gzPath, "artifact-fetch", "http", gzRes.status, startedAt);
+        throw failure;
       }
     }
 
-    const res = await fetch(dataUrl(path), DATA_FETCH_OPTIONS);
-    if (!res.ok) throw new ArtifactFetchError(path, res.status);
+    const startedAt = monotonicNow();
+    const res = await fetchArtifactResponse(path, startedAt);
+    if (!res.ok) throw new ArtifactFetchError(path, res.status, startedAt);
     return decodeJsonResponse<T>(res, path);
   })();
   _jsonInFlight.set(path, request);

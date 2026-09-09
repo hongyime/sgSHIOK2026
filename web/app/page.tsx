@@ -32,6 +32,9 @@ import type {
   RouteMapIssue,
 } from "../components/route-evidence-map";
 import { RouteMapLoader as RouteEvidenceMap, preloadRouteMap } from "../components/route-map-loader";
+import { FailureDiagnosticsControl } from "../components/failure-diagnostics-control";
+import { serializeFailureDiagnostics } from "../lib/failure-diagnostics";
+import { getArtifactFailure, type ArtifactFailure } from "../lib/artifact-failure";
 import {
   deriveNearestTransitCandidates,
   haversineMeters,
@@ -492,11 +495,13 @@ export function SearchFeedback({
   loading,
   error,
   searched = false,
+  children,
 }: {
   results: SearchResult[];
   loading: boolean;
   error: string | null;
   searched?: boolean;
+  children?: React.ReactNode;
 }) {
   const status = searchResultsAnnouncement(results, loading, error, searched);
   const showNoResults = searched && !loading && !error && results.length === 0;
@@ -512,8 +517,9 @@ export function SearchFeedback({
         </div>
       )}
       {error && (
-        <div className={styles.errorBox} role="alert" aria-live="assertive">
-          {error}
+        <div className={styles.errorBox}>
+          <span role="alert" aria-live="assertive">{error}</span>
+          {children}
         </div>
       )}
     </>
@@ -1966,6 +1972,10 @@ export default function Home() {
   const [mapRecovery, setMapRecovery] = useState<RouteMapRecovery | null>(null);
   const [mapLoadError, setMapLoadError] = useState<string | null>(null);
   const [mapIssue, setMapIssue] = useState<RouteMapIssue | null>(null);
+  const [mapDiagnostic, setMapDiagnostic] = useState<{ value: string; key: number; instance: number; retry: number; context?: object } | null>(null);
+  const diagnosticSerial = useRef(0);
+  const [selectionFailure, setSelectionFailure] = useState<{ value: string; request: number; key: number } | null>(null);
+  const [geometryFailure, setGeometryFailure] = useState<{ value: string; request: number; attempt: number } | null>(null);
   const [feedbackPoints, setFeedbackPoints] = useState<FeedbackPoint[]>([]);
   const [feedbackSegmentLabels, setFeedbackSegmentLabels] = useState<FeedbackSegmentLabel[]>([]);
   const [feedbackNote, setFeedbackNote] = useState("");
@@ -1994,6 +2004,11 @@ export default function Home() {
   const [mapInstanceKey, setMapInstanceKey] = useState(0);
   const [previewRetryKey, setPreviewRetryKey] = useState(0);
   const [geometryError, setGeometryError] = useState(false);
+  const geometryAttemptRef = useRef(0);
+  const currentMapInstance = useRef(mapInstanceKey);
+  currentMapInstance.current = mapInstanceKey;
+  const currentMapRetry = useRef(mapRetryKey);
+  currentMapRetry.current = mapRetryKey;
   const pendingSelectionRef = useRef<SearchResult | null>(null);
   // Pending stop id from ?stop= URL param — applied once the postal's candidates load.
   const pendingUrlStopIdRef = useRef<string | null>(null);
@@ -2328,7 +2343,23 @@ export default function Home() {
     setExposureSelection(sectionKey === null ? null : { contextKey: exposureModel.contextKey, sectionKey });
   };
   const showDetailOverlay = Boolean(primary);
-  const visibleMapStatus = mapStatusLabel(mapLoadStatus, mapLoadError);
+  const diagnosticContext = useMemo(() => ({}), [
+    comparison.open,
+    comparison.open ? comparedEntry : activeSelection,
+    comparison.open ? comparison.state.activePostal : loadSelectionRequestIdRef.current,
+    comparison.open ? comparison.state.category : transitMode,
+    comparison.open ? null : geometryAttemptRef.current,
+    comparison.open ? null : chosenStopId,
+    comparison.open ? 'shiokest' : mapRouteMode,
+    mapRetryKey,
+  ]);
+  const currentDiagnosticContext = useRef(diagnosticContext);
+  currentDiagnosticContext.current = diagnosticContext;
+  const staleMapProbe = mapIssue?.selectionContext && mapIssue.selectionContext !== diagnosticContext;
+  const effectiveMapStatus = staleMapProbe ? 'initializing' : mapLoadStatus;
+  const visibleMapStatus = mapStatusLabel(effectiveMapStatus, staleMapProbe ? null : mapLoadError);
+  const visibleMapDiagnostic = mapDiagnostic && mapDiagnostic.instance === mapInstanceKey && mapDiagnostic.retry === mapRetryKey
+    && (!mapDiagnostic.context || mapDiagnostic.context === diagnosticContext) ? mapDiagnostic : null;
 
   // Published choices resolve independently of optional POI loading.
   useEffect(() => {
@@ -2383,6 +2414,8 @@ export default function Home() {
   const loadSelection = async (result: SearchResult, preserveInitialUrl = false) => {
     const postal = normalizePostal(result.POSTAL);
     if (!postal) {
+      setSelectionFailure(null);
+      pendingSelectionRef.current = null;
       setError("This OneMap match has no 6-digit postal code. Choose another match or enter the postal code directly.");
       return;
     }
@@ -2394,20 +2427,30 @@ export default function Home() {
     setExposureSelection(null);
     const requestId = loadSelectionRequestIdRef.current + 1;
     loadSelectionRequestIdRef.current = requestId;
+    const geometryAttempt = ++geometryAttemptRef.current;
     preloadRouteMap();
     requestServiceWorkerCache();
     setLoading(true);
     setError(null);
+    setSelectionFailure(null);
+    setGeometryFailure(null);
     pendingSelectionRef.current = result;
     setGeometryError(false);
+    let failedArea: 'manifest-data' | 'score-data' | null = null;
+    const operationFailed = (area: 'manifest-data' | 'score-data') => (error: unknown): never => {
+      failedArea ??= area;
+      throw error;
+    };
     try {
       const lat = Number.parseFloat(result.LATITUDE);
       const lng = Number.parseFloat(result.LONGITUDE);
       // Text and geometry are independent. A geometry failure must not hide valid record evidence.
       const geometry = fetchGeomForPostal(postal, Number.isFinite(lat) ? lat : undefined, Number.isFinite(lng) ? lng : undefined)
-        .then(geom => ({ geom, failed: false }), () => ({ geom: null, failed: true }));
+        .then(geom => ({ geom, failed: false, failure: null as ArtifactFailure | null }),
+          error => ({ geom: null, failed: true, failure: getArtifactFailure(error) }));
       const [loadedManifest, score] = await Promise.all([
-        manifest ? Promise.resolve(manifest) : fetchManifest(), fetchScoreForPostal(postal),
+        manifest ? Promise.resolve(manifest) : fetchManifest().catch(operationFailed('manifest-data')),
+        fetchScoreForPostal(postal).catch(operationFailed('score-data')),
       ]);
       if (requestId !== loadSelectionRequestIdRef.current) return;
       setPrimary({ result: { ...result, POSTAL: postal }, score, geom: null });
@@ -2427,9 +2470,14 @@ export default function Home() {
         syncWalkUrl(pathname, postal, "best_transit", null, "shiokest");
       }
       setRouteTransitPois({ type: "FeatureCollection", features: [] });
-      const { geom, failed } = await geometry;
+      const { geom, failed, failure } = await geometry;
       if (requestId !== loadSelectionRequestIdRef.current) return;
+      if (geometryAttempt !== geometryAttemptRef.current) return;
       setGeometryError(failed);
+      setGeometryFailure(failed ? {
+        value: serializeFailureDiagnostics({ area: 'geometry-data', status: 'error', artifactFailure: failure }, DATA_BASE),
+        request: requestId, attempt: geometryAttempt,
+      } : null);
       if (requestId !== loadSelectionRequestIdRef.current) return;
       setManifest(loadedManifest);
       setPrimary({ result: { ...result, POSTAL: postal }, score, geom });
@@ -2452,7 +2500,13 @@ export default function Home() {
         });
     } catch (err) {
       if (requestId === loadSelectionRequestIdRef.current) {
-        setError(err instanceof Error ? err.message : "Failed to load shelter-map data.");
+        const failure = getArtifactFailure(err);
+        setError("Shelter-map data could not load. Try this postal code again.");
+        setSelectionFailure({
+          value: serializeFailureDiagnostics({ area: failedArea ?? 'selection-data',
+            status: 'error', artifactFailure: failure }, DATA_BASE),
+          request: requestId, key: ++diagnosticSerial.current,
+        });
       }
     } finally {
       if (requestId === loadSelectionRequestIdRef.current) {
@@ -2466,9 +2520,13 @@ export default function Home() {
     if (lastNavigationHref.current === window.location.href) return;
     lastNavigationHref.current = window.location.href;
     loadSelectionRequestIdRef.current += 1;
+    geometryAttemptRef.current += 1;
     discardPendingUrlIntent();
     setLoading(false);
     setError(null);
+    setSelectionFailure(null);
+    setGeometryError(false);
+    setGeometryFailure(null);
     setComparisonLinkError(null);
     setShareOpen(false);
     setExposureSelection(null);
@@ -2530,13 +2588,20 @@ export default function Home() {
   const retryGeometry = async () => {
     if (!primary) return;
     const requestId = loadSelectionRequestIdRef.current;
+    const postal = primary.result.POSTAL;
+    const attempt = ++geometryAttemptRef.current;
     setGeometryError(false);
+    setGeometryFailure(null);
     try {
-      const geom = await fetchGeomForPostal(primary.result.POSTAL);
-      if (requestId !== loadSelectionRequestIdRef.current) return;
-      setPrimary(current => current ? { ...current, geom } : current);
-    } catch {
-      if (requestId === loadSelectionRequestIdRef.current) setGeometryError(true);
+      const geom = await fetchGeomForPostal(postal);
+      if (requestId !== loadSelectionRequestIdRef.current || attempt !== geometryAttemptRef.current) return;
+      setPrimary(current => current?.result.POSTAL === postal ? { ...current, geom } : current);
+    } catch (error) {
+      if (requestId === loadSelectionRequestIdRef.current && attempt === geometryAttemptRef.current) {
+        setGeometryError(true);
+        setGeometryFailure({ value: serializeFailureDiagnostics({ area: 'geometry-data', status: 'error',
+          artifactFailure: getArtifactFailure(error) }, DATA_BASE), request: requestId, attempt });
+      }
     }
   };
 
@@ -2609,7 +2674,8 @@ export default function Home() {
 
   const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!query.trim()) { setError("Enter a 6-digit Singapore postal code."); return; }
+    setSelectionFailure(null);
+    if (!query.trim()) { pendingSelectionRef.current = null; setError("Enter a 6-digit Singapore postal code."); return; }
     preloadRouteMap();
     requestServiceWorkerCache();
 
@@ -2629,6 +2695,7 @@ export default function Home() {
 
     setResults([]);
     setSearchAttempted(true);
+    pendingSelectionRef.current = null;
     setError("Enter a 6-digit Singapore postal code.");
   };
 
@@ -2657,11 +2724,18 @@ export default function Home() {
   };
 
   const handleMapStatusChange = useCallback((status: MapLoadStatus, message?: string, recovery?: RouteMapRecovery, issue?: RouteMapIssue) => {
+    if (currentMapInstance.current !== mapInstanceKey || currentMapRetry.current !== mapRetryKey) return;
+    if (issue?.selectionContext && issue.selectionContext !== currentDiagnosticContext.current) return;
     setMapLoadStatus(status);
     setMapLoadError(message ?? null);
     setMapRecovery(recovery ?? null);
     setMapIssue(issue ?? null);
-  }, []);
+    if (status !== 'error' && status !== 'partial') { setMapDiagnostic(null); return; }
+    const value = serializeFailureDiagnostics({ area: 'map', status, mapIssue: issue }, DATA_BASE);
+    const next = { value, key: ++diagnosticSerial.current, instance: mapInstanceKey, retry: mapRetryKey, context: issue?.selectionContext };
+    setMapDiagnostic(current => current && current.value === value && current.instance === next.instance
+      && current.retry === next.retry && current.context === next.context ? current : next);
+  }, [mapInstanceKey, mapRetryKey]);
 
   const copyFeedback = async () => {
     const payload = buildFeedbackPayload({
@@ -2681,7 +2755,7 @@ export default function Home() {
   };
 
   return (
-    <main className={styles.appShell} data-map-status={mapLoadStatus} data-map-stage={mapIssue?.stage} data-map-failure={mapIssue?.reason}
+    <main className={styles.appShell} data-map-status={effectiveMapStatus} data-map-stage={staleMapProbe ? undefined : mapIssue?.stage} data-map-failure={staleMapProbe ? undefined : mapIssue?.reason}
       data-comparison-open={comparison.open || undefined}
       onKeyDown={event => { if (event.key === 'Escape' && comparison.open) { event.preventDefault(); closeComparison(); } }}>
         <RouteEvidenceMap
@@ -2698,6 +2772,7 @@ export default function Home() {
           focusedExposureGap={comparison.open ? null : focusedExposureGap}
           mappedExposureContextKey={comparison.open ? null : exposureModel.contextKey}
           onStatusChange={handleMapStatusChange}
+          diagnosticContext={diagnosticContext}
           retryKey={mapRetryKey}
         />
       <div className={styles.searchStack} data-map-overlay="top-left">
@@ -2739,7 +2814,7 @@ export default function Home() {
         </div>
 
         <p className={styles.srOnly} role="status" aria-live="polite">{visibleMapStatus}</p>
-        {(mapLoadStatus === "partial" || mapLoadStatus === "error") && <div className={styles.errorBox} role="status">
+        {(effectiveMapStatus === "partial" || effectiveMapStatus === "error") && <div className={styles.errorBox} role="status">
           {visibleMapStatus} <button type="button" onClick={() => {
             if (mapRecovery === "reload") {
               const hasDraft = feedbackPoints.length > 0 || feedbackNote.trim().length > 0;
@@ -2747,19 +2822,26 @@ export default function Home() {
             } else if (mapLoadStatus === "partial") setMapRetryKey(key => key + 1);
             else setMapInstanceKey(key => key + 1);
           }}>{mapRecovery === "reload" ? "Reload page" : "Retry map"}</button>
+          {visibleMapDiagnostic && <FailureDiagnosticsControl value={visibleMapDiagnostic.value} snapshotKey={visibleMapDiagnostic.key} />}
         </div>}
-        {!comparison.open && geometryError && <div className={styles.errorBox} role="status">Walk geometry could not load. Your record is still available. <button type="button" onClick={retryGeometry}>Retry geometry</button></div>}
+        {!comparison.open && geometryError && <div className={styles.errorBox} role="status">Walk geometry could not load. Your record is still available. <button type="button" onClick={retryGeometry}>Retry geometry</button>
+          {geometryFailure && geometryFailure.request === loadSelectionRequestIdRef.current && geometryFailure.attempt === geometryAttemptRef.current
+            && <FailureDiagnosticsControl value={geometryFailure.value} snapshotKey={'geometry:' + geometryFailure.attempt} />}
+        </div>}
         {!comparison.open && chosenStopId && !selectedPublishedOption && !liveRouteCache[chosenStopId] && <div className={styles.errorBox} role="status">
           {liveRoutePreviewStatuses[chosenStopId] === "unavailable" ? "Walking preview unavailable. Published walk shown." : "Loading walking preview. Published walk shown."}
           {liveRoutePreviewStatuses[chosenStopId] === "unavailable" && <button type="button" onClick={() => setPreviewRetryKey(key => key + 1)}>Retry preview</button>}
           <button type="button" onClick={() => handleStopSelect(null)}>Keep published walk</button>
         </div>}
         {!comparison.open && primary?.score?.paths && !primary.geom && !loading && !geometryError && <div className={styles.errorBox} role="status">No route geometry is published for this walk. Record evidence is still available.</div>}
-        <SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted} />
+        <SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted}>
+        {!comparison.open && error && selectionFailure?.request === loadSelectionRequestIdRef.current
+          && <FailureDiagnosticsControl value={selectionFailure.value} snapshotKey={'selection:' + selectionFailure.key} />}
+        {error && pendingSelectionRef.current && <button type="button" onClick={() => loadSelection(pendingSelectionRef.current!)}>Retry selection</button>}
+        </SearchFeedback>
         {comparisonLinkError && <div className={styles.errorBox} role="status">{comparisonLinkError}
           <button type="button" onClick={() => { stripComparisonFragment(); openComparison(); }}>Open saved comparison</button>
         </div>}
-        {error && pendingSelectionRef.current && <button type="button" onClick={() => loadSelection(pendingSelectionRef.current!)}>Retry selection</button>}
 
         {results.length > 0 && (
           <div className={styles.resultList} aria-label="Search results">
@@ -2862,6 +2944,7 @@ export default function Home() {
 
         <div id="home-comparison-view" ref={comparisonPanelRef}>
           {comparison.open && <HomeComparison state={comparison.state} entries={comparison.entries}
+            diagnosticDataBase={DATA_BASE}
             storageUnavailable={comparison.storageUnavailable}
             shared={comparison.shared}
             onShare={() => setShareOpen(true)}

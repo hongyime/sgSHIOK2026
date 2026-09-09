@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createComparisonController } from '../comparison-controller';
+import { recordArtifactFailure, type ArtifactFailure } from '../artifact-failure';
 import { COMPARISON_STORAGE_KEY, emptyComparisonState, type ComparisonState } from '../comparison-state';
 import type { PostalGeom, ScoreRecord } from '../types';
 import fixture from './fixtures/published-options.json';
@@ -200,7 +201,7 @@ describe('T10 controller: independent score and geometry delivery', () => {
     const value = setup([first, second]); await open(value);
     expect(value.source.score.mock.calls).toEqual([[first], [second]]);
     expect(value.source.geometry.mock.calls).toEqual([[first], [second]]);
-    expect(entry(value.controller)).toEqual({ postal: first, status: 'loading', geometryStatus: 'loading', row: null, option: null });
+    expect(entry(value.controller)).toEqual({ postal: first, requestKey: 1, status: 'loading', geometryStatus: 'loading', row: null, option: null });
     expect(entry(value.controller, second).status).toBe('loading');
     expect(value.target.setItem).not.toHaveBeenCalled();
   });
@@ -477,5 +478,116 @@ describe('T10 controller: source-pinned comparison evidence and subscriptions', 
     const count = listener.mock.calls.length; unsubscribe(); unsubscribe();
     value.controller.setOpen(false); await flush();
     expect(listener).toHaveBeenCalledTimes(count);
+  });
+});
+
+describe('T03 comparison failure ownership', () => {
+  const scoreFailure: ArtifactFailure = {
+    stage: 'artifact-fetch', reason: 'http', artifactRole: 'score-shard', httpStatus: 503, elapsedMs: 24,
+  };
+  const geometryFailure: ArtifactFailure = {
+    stage: 'artifact-decode', reason: 'error', artifactRole: 'geometry-shard', httpStatus: null, elapsedMs: 9,
+  };
+  function tagged(failure: ArtifactFailure): Error {
+    const error = new Error('PRIVATE: request URL, resident note and token must never escape');
+    recordArtifactFailure(error, failure);
+    return error;
+  }
+
+  it('publishes only typed metadata for independently failing score and geometry requests', async () => {
+    const value = setup(); await open(value);
+    const key = entry(value.controller).requestKey;
+    expect(Number.isSafeInteger(key) && key > 0).toBe(true);
+    request(value.scores).reject(tagged(scoreFailure)); await flush();
+    expect(entry(value.controller)).toMatchObject({ requestKey: key, status: 'error', scoreFailure, geometryStatus: 'loading' });
+    expect(entry(value.controller)).not.toHaveProperty('geometryFailure');
+    request(value.geometries).reject(tagged(geometryFailure)); await flush();
+    expect(entry(value.controller)).toMatchObject({ requestKey: key, scoreFailure, geometryFailure, geometryStatus: 'error' });
+    expect(JSON.stringify(entry(value.controller))).not.toContain('PRIVATE');
+    expect(value.target.setItem).not.toHaveBeenCalled();
+  });
+
+  it('uses unknown metadata for untagged failures without reading exception properties', async () => {
+    const value = setup(); await open(value);
+    const error = new Error('PRIVATE');
+    Object.defineProperty(error, 'message', { get() { throw new Error('Do not inspect exception properties'); } });
+    request(value.scores).reject(error);
+    request(value.geometries).reject(error); await flush();
+    expect(entry(value.controller)).toMatchObject({ status: 'error', geometryStatus: 'error', scoreFailure: null, geometryFailure: null });
+    expect(JSON.stringify(entry(value.controller))).not.toContain('PRIVATE');
+  });
+
+  it('preserves geometry failure metadata and score values when score resolves later', async () => {
+    const value = setup(); await open(value);
+    request(value.geometries).reject(tagged(geometryFailure)); await flush();
+    const key = entry(value.controller).requestKey;
+    request(value.scores).resolve(score()); await flush();
+    expect(entry(value.controller)).toMatchObject({ requestKey: key, status: 'ready', geometryStatus: 'error', geometryFailure,
+      row: { metrics: busMetrics } });
+    expect(entry(value.controller)).not.toHaveProperty('scoreFailure');
+  });
+
+  it('does not attach failure metadata to a successfully resolved unpublished record', async () => {
+    const value = setup(); await open(value);
+    request(value.scores).resolve(null); request(value.geometries).resolve(null); await flush();
+    expect(entry(value.controller)).toMatchObject({ status: 'ready', geometryStatus: 'ready' });
+    expect(entry(value.controller)).not.toHaveProperty('scoreFailure');
+    expect(entry(value.controller)).not.toHaveProperty('geometryFailure');
+  });
+
+  const transitions = ['retry', 'category ABA', 'remove/re-add', 'close/reopen', 'source replacement', 'shared replacement'] as const;
+  async function replace(value: ReturnType<typeof setup>, transition: typeof transitions[number]) {
+    let next: Pick<ReturnType<typeof setup>, 'scores' | 'geometries'> = value;
+    if (transition === 'retry') value.controller.retry(first);
+    if (transition === 'category ABA') {
+      value.controller.dispatch({ type: 'category', category: 'mrt_lrt' }); await flush();
+      value.controller.dispatch({ type: 'category', category: 'bus' });
+    }
+    if (transition === 'remove/re-add') {
+      value.controller.dispatch({ type: 'remove', postal: first });
+      expect(value.controller.getSnapshot().entries[first]).toBeUndefined();
+      value.controller.dispatch({ type: 'add', postal: first });
+    }
+    if (transition === 'close/reopen') {
+      value.controller.setOpen(false);
+      expect(value.controller.getSnapshot().entries).toEqual({});
+      value.controller.setOpen(true);
+    }
+    if (transition === 'source replacement') {
+      const replacement = harness(bundle + '-replacement');
+      next = replacement; value.controller.setSource(replacement.source);
+    }
+    if (transition === 'shared replacement') value.controller.loadShared(persisted());
+    await flush();
+    return next;
+  }
+
+  it.each(transitions)('%s clears prior metadata immediately and changes the request key', async transition => {
+    const value = setup(); await open(value);
+    request(value.scores).reject(tagged(scoreFailure)); request(value.geometries).reject(tagged(geometryFailure)); await flush();
+    const oldKey = entry(value.controller).requestKey;
+    const next = await replace(value, transition);
+    expect(entry(value.controller).requestKey).toBeGreaterThan(oldKey);
+    expect(entry(value.controller)).toMatchObject({ status: 'loading', geometryStatus: 'loading' });
+    expect(entry(value.controller)).not.toHaveProperty('scoreFailure');
+    expect(entry(value.controller)).not.toHaveProperty('geometryFailure');
+    next.scores.at(-1)!.resolve(score()); next.geometries.at(-1)!.resolve(geometry()); await flush();
+    expect(entry(value.controller)).toMatchObject({ status: 'ready', geometryStatus: 'ready' });
+    expect(entry(value.controller)).not.toHaveProperty('scoreFailure');
+    expect(entry(value.controller)).not.toHaveProperty('geometryFailure');
+  });
+
+  it.each(transitions)('%s rejects stale failure metadata without overwriting the current failure', async transition => {
+    const value = setup(); await open(value);
+    const oldScore = request(value.scores), oldGeometry = request(value.geometries);
+    const oldKey = entry(value.controller).requestKey;
+    const next = await replace(value, transition);
+    next.scores.at(-1)!.resolve(score()); next.geometries.at(-1)!.reject(tagged(geometryFailure)); await flush();
+    const accepted = entry(value.controller);
+    expect(accepted.requestKey).toBeGreaterThan(oldKey);
+    oldScore.reject(tagged(scoreFailure)); oldGeometry.reject(tagged(scoreFailure)); await flush();
+    expect(entry(value.controller)).toBe(accepted);
+    expect(accepted.geometryFailure).toEqual(geometryFailure);
+    expect(accepted).not.toHaveProperty('scoreFailure');
   });
 });

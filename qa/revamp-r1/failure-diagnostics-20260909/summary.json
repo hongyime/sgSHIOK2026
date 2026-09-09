@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-09",
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "base": "74a79017aa715e7f09c3cb431e4657f59044e8b0",
+  "task": "T03 privacy-safe failure diagnostics",
+  "implementation": [
+    "Allowlisted current failure snapshot with stage/reason/coarse artifact role/status/timing basis; no location, URL, raw exception, draft, storage or browser identity.",
+    "Unknown app build remains null; pinned bundle configuration is explicitly not a downloaded/verified manifest.",
+    "WeakMap transport/decode metadata preserves original exception identity, abort behavior, successful reads and existing cache-only fallback.",
+    "Selection/retry ownership rejects stale diagnostics and geometry; map-global engine errors cannot be downgraded by later tile/probe errors.",
+    "Diagnostic context changes do not refit an unchanged route or rewrite sources; hidden primary completion does not affect comparison.",
+    "Copy only on activation, accessible readonly manual fallback, Select/Hide, stale feedback guard and bounded controls. Final score actions are inside the error panel but outside the assertive live span."
+  ],
+  "tests": {
+    "final": "qa/revamp-r1/published-options-20260909/failure-diagnostics-full-6/checks.json",
+    "snapshot": "tmp/test-without-data-X7C7CQ",
+    "passed": 1607,
+    "files": 60,
+    "skipped": 0,
+    "arithmetic": "1441 + 20 artifact metadata + 50 reader failures + 37 copy controls + 18 serialization + 25 comparison + 10 page ownership + 5 map lifecycle + 1 accessibility = 1607; 56 + 4 new test files = 60",
+    "isolation": "204 tracked/staged source files copied without production data; installed dependencies linked. Filesystem guard denies original and absent snapshot production-data paths.",
+    "typescript": "--noEmit --incremental false passed",
+    "integrity": "repo_integrity=ok; exit0",
+    "protectedFixtureAnchors": 11,
+    "sourceAudit": "qa/revamp-r1/failure-diagnostics-20260909/identity-final.json",
+    "limits": "Web suite executed. Python repository-integrity check executed; Python scoring suite not rerun for this frontend-only change."
+  },
+  "browser": {
+    "final": "qa/revamp-r1/failure-diagnostics-20260909/accepted-6-WbuBLX/browser.json",
+    "buildReceipt": "qa/revamp-r1/cached-release-20260908/failure-diagnostics-20260909-3/build.json",
+    "buildId": "zXWH1w55JpwXIVpwqOzTO",
+    "assertions": 98,
+    "captures": 9,
+    "elapsedMs": 148800,
+    "cleanupVerified": true,
+    "preview": "http://127.0.0.1:4332/",
+    "proxyPid": 114008,
+    "nextPid": 108348,
+    "viewports": ["1440x950", "390x844", "390x667", "320x667"],
+    "workerProof": "CDP request plus completed exact HTTP503 on the same QA server during the scenario; no claim of a CDP worker response that was not observed.",
+    "limits": "One published postal in installed emulated Chrome/SwiftShader. Service worker and HTTP cache bypassed; QA clipboard rejects instead of invoking native OS write. Not native clipboard-success, upgrade, physical device, complete worker traffic or representative performance acceptance. Comparison diagnostics have separate executed component/controller tests, not a new comparison browser scenario."
+  },
+  "preservedAttempts": [
+    {"path": "accepted-1-KEGzaW/browser.json", "ok": false, "finding": "SSR form submitted before hydration; second Document lost the postal. T30 remains open. Harness now waits for hydration only for this diagnostics scope."},
+    {"path": "accepted-2-S1poUy/browser.json", "ok": false, "finding": "Expanded manual controls clipped metrics on mobile. Fixed compact layout and bounded manual-only stack expansion."},
+    {"path": "accepted-3-z1nVLB/browser.json", "ok": false, "finding": "Capture bracket crossed tile-loading transition. Added explicit tile-ready wait; no application success claimed for failed receipt."},
+    {"path": "accepted-4-71h6fe/browser.json", "ok": false, "finding": "Initial worker CDP response unavailable despite request/server fault. Added completed server response receipt rather than fabricating a response event."},
+    {"path": "accepted-5-JmihIL/browser.json", "ok": true, "finding": "98 checks/nine captures on build2. Later score-panel grouping is validated by accepted6, not retroactively attributed to this run."},
+    {"path": "accepted-6-WbuBLX/browser.json", "ok": true, "finding": "Final build3 and score-panel grouping accepted."}
+  ],
+  "reviews": "qa/revamp-r1/failure-diagnostics-20260909/reviews.json",
+  "FINDINGS": [
+    "Corrected real clock-read interference with successful artifact requests, map-error severity downgrade, stale selection/retry ownership and mobile manual-copy clipping. The new diagnostics report only supported failure facts.",
+    "Final recovery captures retain four current-route features and all four metrics; protected fixture source hashes remain unchanged. Optional missing transit shards remain separately classified as missing optional data, not disguised as successful requests.",
+    "An early search can lose the postal before hydration. This is a product bug, not fixed by waiting in the diagnostics harness; T30 is next.",
+    "The separate MapLibre security/install gate, remaining T01/T25 acceptance, service backend, compute and deployment gates are not cleared by T03."
+  ],
+  "DISAGREEMENTS": [
+    "Passing component tests or fewer source writes alone does not demonstrate a faster map; no latency improvement is claimed.",
+    "A pinned bundle identifier is not proof of fetched manifest identity, and a missing injected app-build ID must remain unknown rather than invented."
+  ],
+  "protectedPayloadMutations": 0,
+  "pipelineRuns": 0,
+  "installations": 0,
+  "deploymentCommands": 0,
+  "goalComplete": false,
+  "next": "T30 native pre-hydration postal search, then startable T19 coverage and T22 freshness work; owner gates remain separate."
+}

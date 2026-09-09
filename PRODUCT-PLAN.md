@@ -124,14 +124,15 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Progress 2026-09-09: that reader fix is implemented and independently reviewed. 318 isolated tests/35 files, TypeScript/build/integrity and 11 source anchors pass. Browser transport recovers cached score/geometry after gzip503. Final online mobile view has four selected features. Origin-outage map is not accepted: proxy records the excluded MapLibre worker returning503, and final capture exhausted its deadline. Address worker availability and pre-load error recovery under T01; no measured speedup or M12 acceptance is claimed. Evidence: `qa/revamp-r1/data-cache-recovery-20260909/summary.json`.
 - Follow-up 2026-09-09: worker caching now passes the visited-walk origin-outage case. Both modules are in CacheStorage; four rendered features and all four metrics survive, with inspected byte-identical screenshots. 333 tests/35 files and actual immutable module headers pass. This supersedes only the outage failure above, not automatic legacy-upgrade, pre-load failure or M12 acceptance. Evidence: `qa/revamp-r1/worker-cache-20260909/summary.json`.
 
-### [ ] T03: Give failures a useful, privacy-safe diagnostic
-- Status: READY. Size: S. Parent: P0.3.
+### [x] T03: Give failures a useful, privacy-safe diagnostic
+- Status: DONE (failure snapshot, recovery ownership, manual fallback; not all T25/browser-platform acceptance). Size: S. Parent: P0.3.
 - Depends on: T01's landed typed startup/failure and recovery interfaces, not completion of every cache-upgrade acceptance case.
 - Design review 2026-09-09: use one allowlisted failure snapshot, not an event history. Never include postal/shard names, URLs, raw messages/stacks, geometry, report drafts, storage or user-agent. Keep app-build ID null until explicitly injected at compile time; pinned bundle ID is not a downloaded/verified manifest and custom data-base overrides make it unknown. Preserve map-global failures across selection changes; reject stale selection/retry completions. Copy only on activation with an accessible manual fallback and stale-copy feedback guard. No telemetry upload.
 - Scope: `web/app/page.tsx`, map adapter, artifact readers, new small diagnostic helper/tests only if existing helpers cannot serve it.
 - Do: verify loading/error stages and retry first. Add explicit Copy diagnostics to failure details where needed: build/artifact version, failed stage, sanitized error/status and timings. No successful-load banner, constant progress prose or remote analytics.
 - Tests/done: M04-M07/M18. Offline, missing worker, tile failure and geometry failure identify the right stage; useful result remains. Copied data excludes query strings, postal history, report notes, tokens and credentials. Retry cannot restore stale selection.
 - Gate: FREE. No telemetry provider or hidden upload.
+- Accepted 2026-09-09: final build zXWH1w55JpwXIVpwqOzTO, 1607 tests/60 files isolated from production data, TypeScript and integrity; 98 browser assertions and nine captures cover geometry/score/worker download failures, safe explicit copying and recovery. Browser clipboard is deliberately denied, SW/cache bypassed, one published postal/emulated viewports. Native successful clipboard, full-overlay focus, cache upgrades and representative latency are not established by this receipt. Earlier clipped controls, clock interference and failure-severity regression were corrected, not silently discarded. Evidence: `qa/revamp-r1/failure-diagnostics-20260909/summary.json`. Next free work is T30.
 
 ### [x] T04: Define the usable published transit-option contract
 - Status: DONE (normalizer contract, not picker integration). Size: M (contract plus shared validation). Parent: P1.1.
@@ -355,6 +356,14 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Current observation: attributionControl is false and attribution is a static local constant. This is not a complete exploitability assessment and does not close the upstream advisory.
 - Gate: owner approval for dependency installation; zero pipeline. No deployment included. Other independent free frontend tasks may proceed.
 - Evidence: qa/revamp-r1/security-triage-20260909/source-corrected.json; the earlier guessed-path rg failure remains in checks.json. Owner has been asked; no installation is authorized or executed.
+
+### [ ] T30: Preserve postal search before hydration
+- Status: READY. Size: S. Parent: P0.3. Prioritize before the remaining read-only coverage/freshness work.
+- Evidence: T03 browser attempt `qa/revamp-r1/failure-diagnostics-20260909/accepted-1-KEGzaW/browser.json` submitted the usable server-rendered form before React attached its handler. A second Document navigated to `/?`; the unnamed input's postal was lost. The diagnostic harness now waits for hydration, which is not an application fix.
+- Scope: `web/app/page.tsx`, server-rendered form tests and a fresh bounded browser case. Preserve the approved layout, postal-only validation and existing hydrated search.
+- Do: provide a native GET fallback that retains the postal in the supported URL, or another equally reliable progressive-enhancement path. Do not hide the problem behind a longer arbitrary browser delay or claim that waiting fixes real early interaction.
+- Tests/done: submit Enter and the search button while application scripts are held; the postal survives and the matching record loads after release. Invalid postal input remains rejected; hydrated search does not add full-page reloads or API fan-out. Recheck a normal shared-postal arrival.
+- Gate: FREE; no pipeline, dependency installation, protected-payload mutation or deployment.
 
 ### Release and continuation rules
 - Core walk can be released after T01 and T04-T07 plus its own applicable T25-T28

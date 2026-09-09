@@ -1,0 +1,59 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs",
+    "lib/__tests__/accessibility-render.test.tsx",
+    "lib/__tests__/published-walk-page.test.tsx",
+    "--no-cache",
+    "--reporter=dot"
+  ],
+  "exitCode": 0,
+  "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n··························································································································\n\n Test Files  2 passed (2)\n      Tests  122 passed (122)\n   Start at  15:26:18\n   Duration  16.15s (transform 3.38s, setup 0ms, import 4.83s, tests 8.88s, environment 2ms)\n\n",
+  "stderr": "stderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > keeps published metrics/geometry on transport failure and resets without another request\nOneMap live route fetch failed; keeping the published walk: Error: Synthetic preview transport failure\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1032:51\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20\n\nstderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > keeps published metrics/geometry on invalid-json failure and resets without another request\nOneMap live route fetch failed; keeping the published walk: SyntaxError: Unexpected token 'o', \"not JSON\" is not valid JSON\n    at JSON.parse (<anonymous>)\n    at parseJSONFromBytes (node:internal/deps/undici/undici:4349:19)\n    at successSteps (node:internal/deps/undici/undici:6987:27)\n    at readAllBytes (node:internal/deps/undici/undici:5811:13)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n\nstderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > ignores late preview rejection after selecting published candidate C\nOneMap live route fetch failed; keeping the published walk: Error: Synthetic stale preview failure\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1099:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20\n\n",
+  "elapsedSeconds": 19.558,
+  "before": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "bc78fb2e960e2f6e7655bc51cd4babd5c5d1027cea13ecdb79797f5375c50c56"
+    },
+    {
+      "path": "web/lib/__tests__/accessibility-render.test.tsx",
+      "sha256": "8252e4f30e99444d58d59cfff1a02d26a87617989b7a9a9dd7be49fa04427a74"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "sha256": "dac99b64a90ea468e7cb1311a6d5a3f608c868b526a72908e2c3f0f1084e0b46"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "bc78fb2e960e2f6e7655bc51cd4babd5c5d1027cea13ecdb79797f5375c50c56"
+    },
+    {
+      "path": "web/lib/__tests__/accessibility-render.test.tsx",
+      "sha256": "8252e4f30e99444d58d59cfff1a02d26a87617989b7a9a9dd7be49fa04427a74"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "sha256": "dac99b64a90ea468e7cb1311a6d5a3f608c868b526a72908e2c3f0f1084e0b46"
+    }
+  ],
+  "identitiesStable": true
+}

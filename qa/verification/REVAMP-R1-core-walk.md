@@ -2547,3 +2547,62 @@ pipeline_runs=0
 deployment_commands=0
 protected_payload_mutations=0
 ```
+
+## 2026-09-09: T03 failure diagnostics, final acceptance
+
+```text
+working_root=C:\sgSHIOK2026
+hostname=Prawn-E14
+base=74a79017aa715e7f09c3cb431e4657f59044e8b0
+summary=qa/revamp-r1/failure-diagnostics-20260909/summary.json
+reviews=qa/revamp-r1/failure-diagnostics-20260909/reviews.json
+identity_audit=qa/revamp-r1/failure-diagnostics-20260909/identity-final.json
+build_command=node C:/sgSHIOK2026/qa/revamp-r1/cached-release-20260908/build-snapshot.mjs failure-diagnostics-20260909-3
+build_receipt=qa/revamp-r1/cached-release-20260908/failure-diagnostics-20260909-3/build.json
+build_id=zXWH1w55JpwXIVpwqOzTO
+build_exit=0
+test_command=node C:/sgSHIOK2026/qa/revamp-r1/published-options-20260909/check.mjs failure-diagnostics-full-6 full
+test_receipt=qa/revamp-r1/published-options-20260909/failure-diagnostics-full-6/checks.json
+test_snapshot=tmp/test-without-data-X7C7CQ
+ Test Files  60 passed (60)
+      Tests  1607 passed (1607)
+test_arithmetic=1441+20 artifact metadata+50 reader failures+37 copy controls+18 serialization+25 comparison+10 page ownership+5 map lifecycle+1 accessibility=1607
+file_arithmetic=56+4 new test files=60
+isolation=204 tracked/staged source files copied; production data absent; guard denies original and snapshot payload paths; no dependency installation
+typescript_exit=0
+repo_integrity=ok
+repo_integrity_exit=0
+protected_fixture_anchor_count=11
+browser_command=node C:/sgSHIOK2026/qa/revamp-r1/failure-diagnostics-20260909/browser.mjs accepted-6 zXWH1w55JpwXIVpwqOzTO
+browser_receipt=qa/revamp-r1/failure-diagnostics-20260909/accepted-6-WbuBLX/browser.json
+browser_checks=98 passed
+browser_captures=9
+browser_elapsed_ms=148800
+browser_cleanup_verified=true
+preview=http://127.0.0.1:4332/
+preview_proxy_pid=114008
+preview_next_pid=108348
+browser_scope=one published postal; emulated1440x950,390x844,390x667,320x667; actual read-only local data and basemap; geometry/score/worker download503 faults
+browser_limits=SW and HTTP cache bypassed; clipboard intentionally rejects without native OS write; no physical-device, native clipboard-success, cache-upgrade or representative performance claim
+worker_evidence=CDP request plus exact same-server completed503 during scenario; no unobserved CDP response is claimed
+comparison_scope=executed controller/component tests, no additional comparison browser run
+preserved_failures=initial-focused; full1 old copy assertion; clock red; severity red; browser attempts1-4
+browser1_correction=SSR form submitted before hydration and lost the postal. Harness hydration wait is only a diagnostic-test precondition; application bug remains T30.
+browser2_correction=manual fallback clipped mobile metrics. Compact controls and manual-only stack expansion corrected the defect.
+browser3_correction=capture crossed a tile-loading transition; now waits for loaded tiles rather than presenting an unstable capture as acceptance.
+browser4_correction=worker CDP response was unavailable; added server response-finish evidence and retained precise evidence limits.
+browser5_scope=98checks and9captures passed on build2; later score-panel grouping belongs to build3/browser6, not this earlier receipt.
+optional_transit404=existing reader returns null for missing optional transit shards; recorded separately, never classified as a successful data request
+FINDINGS
+1. Corrected clock-read interference with successful artifact reads, map-failure severity downgrade, stale selection/retry ownership and mobile manual-copy clipping. Copy diagnostics uses an allowlisted current snapshot and sends no telemetry.
+2. Final recovery captures preserve four selected-route features and all four metrics. Failure controls remain inside their panel and usable at320px; app-build identity remains null when uninjected, and bundle identity is explicitly pinned configuration.
+3. Pre-hydration postal loss is a real remaining bug; T30 is the next free task. Waiting for hydration in this T03 harness does not fix it.
+4. This frontend change does not clear the separate MapLibre security/install, remaining cache/focus, backend, compute or deployment gates. Full goal remains active.
+DISAGREEMENTS
+1. Component tests and fewer source writes alone do not prove a faster map; no speedup is claimed.
+2. A pinned bundle name is not fetched-manifest verification. Unknown identities must remain unknown rather than invented.
+pipeline_runs=0
+installations=0
+deployment_commands=0
+protected_payload_mutations=0
+```

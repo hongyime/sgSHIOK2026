@@ -7,6 +7,7 @@ import {
 } from './comparison-state';
 import type { PublishedTransitOption } from './published-transit-options';
 import type { PostalGeom, ScoreRecord } from './types';
+import { getArtifactFailure, type ArtifactFailure } from './artifact-failure';
 
 export interface ComparisonSource {
   bundle: string;
@@ -16,8 +17,11 @@ export interface ComparisonSource {
 
 export interface ComparisonEntry {
   postal: string;
+  requestKey: number;
   status: 'loading' | 'ready' | 'error';
   geometryStatus: 'loading' | 'ready' | 'error';
+  scoreFailure?: ArtifactFailure | null;
+  geometryFailure?: ArtifactFailure | null;
   row: ComparisonRow | null;
   option: PublishedTransitOption | null;
 }
@@ -37,6 +41,8 @@ interface PendingEntry {
   geometry: PostalGeom | null;
   scoreStatus: ComparisonEntry['status'];
   geometryStatus: ComparisonEntry['geometryStatus'];
+  scoreFailure?: ArtifactFailure | null;
+  geometryFailure?: ArtifactFailure | null;
 }
 
 /** Owns request lifetimes; transport caching remains in the existing static-data reader. */
@@ -66,7 +72,11 @@ export function createComparisonController(initialSource: ComparisonSource, stor
       geometryContext: { bundle, postal: entry.geometry?.postal ?? postal },
     }) : { row: null, option: null };
     snapshot = { ...snapshot, entries: { ...snapshot.entries, [postal]: {
-      postal, status: entry.scoreStatus, geometryStatus: entry.geometryStatus, ...walk,
+      postal, requestKey: entry.token.requestId,
+      status: entry.scoreStatus, geometryStatus: entry.geometryStatus,
+      ...(entry.scoreStatus === 'error' ? { scoreFailure: entry.scoreFailure ?? null } : {}),
+      ...(entry.geometryStatus === 'error' ? { geometryFailure: entry.geometryFailure ?? null } : {}),
+      ...walk,
     } } };
     emit();
   }
@@ -86,9 +96,10 @@ export function createComparisonController(initialSource: ComparisonSource, stor
       entry.score = score;
       entry.scoreStatus = 'ready';
       publish(entry);
-    }).catch(() => {
+    }).catch(error => {
       if (!current(entry)) return;
       entry.scoreStatus = 'error';
+      entry.scoreFailure = getArtifactFailure(error);
       publish(entry);
     });
     void Promise.resolve().then(() => current(entry) ? transport.geometry(postal) : null).then(geometry => {
@@ -96,9 +107,10 @@ export function createComparisonController(initialSource: ComparisonSource, stor
       entry.geometry = geometry;
       entry.geometryStatus = 'ready';
       publish(entry);
-    }).catch(() => {
+    }).catch(error => {
       if (!current(entry)) return;
       entry.geometryStatus = 'error';
+      entry.geometryFailure = getArtifactFailure(error);
       publish(entry);
     });
   }

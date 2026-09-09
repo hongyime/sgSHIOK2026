@@ -1,0 +1,137 @@
+{
+  "startedAt": "2026-09-09T07:21:53.879Z",
+  "mode": "full",
+  "inputs": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "actual": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "actual": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "actual": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "actual": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "actual": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "actual": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "actual": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "actual": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "match": true
+    }
+  ],
+  "commands": [
+    {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:/sgSHIOK2026/web/scripts/test-without-production-data.mjs",
+        "--reporter=dot"
+      ],
+      "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/tmp/test-without-data-fXbQ1s/web\n\n······································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································\n\n Test Files  60 passed (60)\n      Tests  1606 passed (1606)\n   Start at  15:22:01\n   Duration  77.63s (transform 6.75s, setup 0ms, import 13.23s, tests 29.08s, environment 22ms)\n\n{\n  \"snapshot\": \"C:\\\\sgSHIOK2026\\\\tmp\\\\test-without-data-fXbQ1s\",\n  \"copiedFiles\": 204,\n  \"productionDataDirectoryAbsent\": true,\n  \"guardProbePassed\": true,\n  \"forbiddenPaths\": [\n    \"C:\\\\sgSHIOK2026\\\\web\\\\public\\\\data\",\n    \"C:\\\\sgSHIOK2026\\\\tmp\\\\test-without-data-fXbQ1s\\\\web\\\\public\\\\data\"\n  ],\n  \"dependencies\": \"Existing node_modules linked; no installation\",\n  \"testArgs\": [\n    \"--reporter=dot\"\n  ],\n  \"exitCode\": 0\n}\n",
+      "stderr": "stderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > keeps published metrics/geometry on transport failure and resets without another request\nOneMap live route fetch failed; keeping the published walk: Error: Synthetic preview transport failure\n    at C:/sgSHIOK2026/tmp/test-without-data-fXbQ1s/web/lib/__tests__/published-walk-page.test.tsx:1032:51\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20\n\nstderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > keeps published metrics/geometry on invalid-json failure and resets without another request\nOneMap live route fetch failed; keeping the published walk: SyntaxError: Unexpected token 'o', \"not JSON\" is not valid JSON\n    at JSON.parse (<anonymous>)\n    at parseJSONFromBytes (node:internal/deps/undici/undici:4349:19)\n    at successSteps (node:internal/deps/undici/undici:6987:27)\n    at readAllBytes (node:internal/deps/undici/undici:5811:13)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n\nstderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > ignores late preview rejection after selecting published candidate C\nOneMap live route fetch failed; keeping the published walk: Error: Synthetic stale preview failure\n    at C:/sgSHIOK2026/tmp/test-without-data-fXbQ1s/web/lib/__tests__/published-walk-page.test.tsx:1099:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > marks successful OneMap search proxy responses cacheable\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\nstderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route\nOneMap credentials not set; proceeding with unauthenticated search.\n\n",
+      "exitCode": 0,
+      "elapsedSeconds": 85.134
+    },
+    {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:/sgSHIOK2026/web/node_modules/typescript/bin/tsc",
+        "--project",
+        "C:/sgSHIOK2026/web/tsconfig.json",
+        "--noEmit",
+        "--incremental",
+        "false"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "exitCode": 0,
+      "elapsedSeconds": 1.951
+    },
+    {
+      "command": "python",
+      "args": [
+        "C:/sgSHIOK2026/scripts/check_repo_integrity.py"
+      ],
+      "stdout": "repo_integrity=ok\r\n",
+      "stderr": "",
+      "exitCode": 0,
+      "elapsedSeconds": 0.781
+    },
+    {
+      "command": "git",
+      "args": [
+        "diff",
+        "--check"
+      ],
+      "stdout": "",
+      "stderr": "warning: in the working copy of 'decisions.md', CRLF will be replaced by LF the next time Git touches it\n",
+      "exitCode": 0,
+      "elapsedSeconds": 0.263
+    }
+  ],
+  "pipelineRuns": 0,
+  "installations": 0,
+  "deploymentCommands": 0,
+  "finishedAt": "2026-09-09T07:23:22.422Z",
+  "ok": true
+}

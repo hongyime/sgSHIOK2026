@@ -1,0 +1,50 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs",
+    "lib/__tests__/route-source-lifecycle.test.ts",
+    "--no-cache",
+    "--reporter=dot"
+  ],
+  "exitCode": 0,
+  "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n···········································\n\n Test Files  1 passed (1)\n      Tests  43 passed (43)\n   Start at  14:38:09\n   Duration  9.06s (transform 3.33s, setup 0ms, import 4.09s, tests 1.98s, environment 1ms)\n\n",
+  "stderr": "",
+  "elapsedSeconds": 18.569,
+  "before": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "ee8ecfe858c2deea2f89b5197cb95547e882d09419bb10c4631bc90cad85cdda"
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "sha256": "1106f3313d9c0050d5e706f05e8fd362f0c38f4a9c3346199a914310f8246e98"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "ee8ecfe858c2deea2f89b5197cb95547e882d09419bb10c4631bc90cad85cdda"
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "sha256": "1106f3313d9c0050d5e706f05e8fd362f0c38f4a9c3346199a914310f8246e98"
+    }
+  ],
+  "identitiesStable": true
+}

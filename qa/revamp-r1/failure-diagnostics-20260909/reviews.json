@@ -1,0 +1,58 @@
+{
+  "base": "74a79017aa715e7f09c3cb431e4657f59044e8b0",
+  "scope": "T03 changes in the working tree; parent is the only committer",
+  "reviews": [
+    {
+      "reviewer": "Parfit",
+      "finding": "Unprotected initial diagnostic clock reads could prevent a successful fetch or cached fallback.",
+      "disposition": "Guarded nullable monotonic reads retain stage and status while setting unavailable elapsed time to null. Original rejection, abort and successful-response behavior are preserved.",
+      "red": "qa/revamp-r1/comparison-sharing-20260909/failure-clock-red/checks.json",
+      "green": "qa/revamp-r1/comparison-sharing-20260909/failure-clock-green/checks.json",
+      "testArithmetic": "42 previous reader cases + 8 new cases = 50; two previous assertions strengthened. Red 40 passed + 10 failed = 50; green 50 passed."
+    },
+    {
+      "reviewer": "Anscombe",
+      "finding": "A later basemap tile error or selected-route timeout could overwrite a map-instance engine error and offer the wrong recovery.",
+      "disposition": "Preserve the higher-severity global failure until explicit recovery; new selection/probe ownership cannot relabel it as a tile-only issue.",
+      "red": "qa/revamp-r1/comparison-sharing-20260909/diagnostic-severity-red/checks.json",
+      "green": "qa/revamp-r1/comparison-sharing-20260909/diagnostic-severity-green/checks.json",
+      "testArithmetic": "41 lifecycle cases + 2 new severity cases = 43; red 41 passed + 2 failed = 43; green 43 passed."
+    },
+    {
+      "reviewer": "Parfit",
+      "finding": "Earlier manual-fallback controls disappeared on snapshot replacement, losing focus.",
+      "disposition": "Raman retained the mounted manual controls, updates their value to the current snapshot, invalidates old feedback, and added explicit Hide with bounded textarea sizing and guarded focus restoration.",
+      "testEvidence": "Final full isolated suite includes 37 FailureDiagnosticsControl cases, including the compact manual-state controls.",
+      "limit": "Native browser focus and visual usability still require the separate browser receipt. Whole-overlay removal belongs to remaining T25 acceptance."
+    },
+    {
+      "reviewer": "Anscombe",
+      "finding": "Hidden primary geometry completion could change comparison diagnostic context and refit an unchanged displayed comparison route.",
+      "disposition": "Page context depends on the displayed selection only. Diagnostic probing is separate from camera fitting; context-only changes repaint but do not refit or rewrite sources.",
+      "testEvidence": "The final page regression and route-source lifecycle regressions execute in the isolated full suite."
+    },
+    {
+      "reviewer": "Anscombe",
+      "finding": "The initial browser driver did not fail on all unexpected runtime errors, lost page rejection history on reload, and allowed clipped recovery metrics.",
+      "disposition": "Persistent CDP binding events survive Document changes; strict exception/error classification gates acceptance; healthy captures require visible metrics and usable search. Parent added executable classifier checks. Optional gzip404 is allowed only with same-Document plain JSON200; optional transit shard404 remains explicitly recorded as missing optional data, never represented as a successful request. Worker download uses CDP request observation plus a completed same-server503 receipt, not an invented CDP response.",
+      "reviewedReceipt": "qa/revamp-r1/failure-diagnostics-20260909/accepted-5-JmihIL/browser.json",
+      "reviewedOutcome": "No blocker for bounded T03 acceptance: 98 checks, nine inspected screenshots with matching hashes, verified cleanup. Parent subsequently grouped score failure controls inside the existing error panel; that later refinement requires a new build/browser receipt.",
+      "limits": "One postal, emulated Chrome viewports, clipboard intentionally denied, service-worker/cache bypass. No native clipboard success, upgrade, performance or physical-device claim. Comparison diagnostics are separately test-backed."
+    }
+  ],
+  "finalIndependentAcceptance": {
+    "reviewer": "Anscombe",
+    "receipt": "qa/revamp-r1/failure-diagnostics-20260909/accepted-6-WbuBLX/browser.json",
+    "result": "Accepted bounded T03 browser scope, no blocker. Final score panel contains all actions; geometry manual320 retains four metrics; five recovery captures retain four current-route features. Four Documents match build/frame/binding identities; zero unexpected errors.",
+    "hashArithmetic": "1 runner + 9 PNGs + 4 HTML files = 14 matching hashes; current and build3 page.tsx hashes match",
+    "limits": "SW/cache bypass; clipboard denied; worker request+server-finish proof. No native clipboard success, performance or physical-device claim. Parent owns full6/140-source audit."
+  },
+  "initialParentFailure": {
+    "receipt": "qa/revamp-r1/failure-diagnostics-20260909/initial-focused.json",
+    "explanation": "Two hook-host test setup/assertion failures: the default bus has no distinct Shortest option, and SearchFeedback child text is not rendered by the Home-only host. Corrected setup and assertions; not represented as two application fixes."
+  },
+  "firstFullFailure": {
+    "receipt": "qa/revamp-r1/published-options-20260909/failure-diagnostics-full-1/checks.json",
+    "explanation": "An existing score-card-copy source assertion expected the old failure sentence. It was updated to the fixed privacy-safe selection error text already asserted behaviorally by the page tests."
+  }
+}

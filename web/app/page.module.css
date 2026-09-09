@@ -28,6 +28,10 @@
   min-height: 0;
 }
 
+.searchStack:has([data-failure-diagnostics-manual]) {
+  max-height: calc(100dvh - 100px);
+}
+
 .searchOverlayWithResult {
   left: 16px;
   top: 16px;

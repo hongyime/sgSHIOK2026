@@ -1,0 +1,50 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs",
+    "lib/__tests__/data-failure-diagnostics.test.ts",
+    "--no-cache",
+    "--reporter=dot"
+  ],
+  "exitCode": 0,
+  "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n··················································\n\n Test Files  1 passed (1)\n      Tests  50 passed (50)\n   Start at  14:37:38\n   Duration  4.83s (transform 1.40s, setup 0ms, import 1.38s, tests 1.34s, environment 1ms)\n\n",
+  "stderr": "",
+  "elapsedSeconds": 9.931,
+  "before": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "ee8ecfe858c2deea2f89b5197cb95547e882d09419bb10c4631bc90cad85cdda"
+    },
+    {
+      "path": "web/lib/__tests__/data-failure-diagnostics.test.ts",
+      "sha256": "a10d85b14a60e0ddbc9370181710d20165799812687e2cc97a9e704c33246265"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "ee8ecfe858c2deea2f89b5197cb95547e882d09419bb10c4631bc90cad85cdda"
+    },
+    {
+      "path": "web/lib/__tests__/data-failure-diagnostics.test.ts",
+      "sha256": "a10d85b14a60e0ddbc9370181710d20165799812687e2cc97a9e704c33246265"
+    }
+  ],
+  "identitiesStable": true
+}

@@ -297,7 +297,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("OneMap address search failed. Try a 6-digit postal code or search again.");
     expect(source).not.toContain("Failed to search OneMap address.");
     expect(source).not.toContain("Failed to search postal location.");
-    expect(source).toContain("Failed to load shelter-map data.");
+    expect(source).toContain("Shelter-map data could not load. Try this postal code again.");
     expect(source).not.toContain("Failed to load score data.");
     expect(source).not.toContain("Singapore walk-to-transit comfort");
     expect(source).toContain(

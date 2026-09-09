@@ -6,6 +6,8 @@ import type { ComparisonRow } from "../lib/comparison";
 import { MAX_COMPARISON_POSTALS, type ComparisonState } from "../lib/comparison-state";
 import type { PublishedTransitCategory } from "../lib/published-transit-options";
 import type { WalkMetrics } from "../lib/walk-metrics";
+import { serializeFailureDiagnostics } from "../lib/failure-diagnostics";
+import { FailureDiagnosticsControl } from "./failure-diagnostics-control";
 import styles from "./home-comparison.module.css";
 
 export interface HomeComparisonProps {
@@ -13,6 +15,7 @@ export interface HomeComparisonProps {
   entries: Readonly<Record<string, ComparisonEntry>>;
   storageUnavailable: boolean;
   shared: boolean;
+  diagnosticDataBase?: string;
   onSaveShared: () => void;
   onDiscardShared: () => void;
   onShare: () => void;
@@ -62,7 +65,7 @@ function measurement(row: ComparisonRow | null, key: keyof WalkMetrics, loading:
 }
 
 export function HomeComparison({
-  state, entries, storageUnavailable, shared, onSaveShared, onDiscardShared, onShare,
+  state, entries, storageUnavailable, shared, diagnosticDataBase = "", onSaveShared, onDiscardShared, onShare,
   onCategory, onActivate, onRemove, onRetry, onClear, onAdd, onClose,
 }: HomeComparisonProps) {
   const postals = state.postals.slice(0, MAX_COMPARISON_POSTALS);
@@ -203,6 +206,20 @@ export function HomeComparison({
                   <td key={postal} data-active={postal === state.activePostal || undefined}>
                     <span className={styles.destination}>{!entry || entry.status === "loading" ? "Loading..." : row?.destination || "Unavailable"}</span>
                     <p className={styles.entryStatus} role="status">{entryStatus(entry, row)}</p>
+                    {entry?.status === "error" && <div role="group" aria-label="Walk data failure">
+                      <FailureDiagnosticsControl
+                        value={serializeFailureDiagnostics({ area: "score-data", status: "error", artifactFailure: entry.scoreFailure }, diagnosticDataBase)}
+                        snapshotKey={`${entry.requestKey}:score`}
+                      />
+                    </div>}
+                    {entry?.geometryStatus === "error" && <div role="group" aria-label="Map data failure">
+                      {(entry.status !== "ready" || !row || row.availability === "unavailable") &&
+                        <p className={styles.entryStatus} role="status">Map unavailable.</p>}
+                      <FailureDiagnosticsControl
+                        value={serializeFailureDiagnostics({ area: "geometry-data", status: "error", artifactFailure: entry.geometryFailure }, diagnosticDataBase)}
+                        snapshotKey={`${entry.requestKey}:geometry`}
+                      />
+                    </div>}
                     {(entry?.status === "error" || entry?.geometryStatus === "error") && (
                       <button type="button" className={styles.command} aria-label={`Retry postal ${postal}`}
                         onClick={() => onRetry(postal)}>{entry.status === "error" ? "Retry" : "Retry map"}</button>

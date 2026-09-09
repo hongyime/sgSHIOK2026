@@ -115,6 +115,8 @@ import { TransitStopPicker } from '../../components/transit-stop-picker';
 import { ExposureSectionExplorer } from '../../components/exposure-section-explorer';
 import { HomeComparison } from '../../components/home-comparison';
 import { ComparisonShareDialog } from '../../components/comparison-share-dialog';
+import { FailureDiagnosticsControl } from '../../components/failure-diagnostics-control';
+import { recordArtifactFailure } from '../artifact-failure';
 import { comparisonLinkFragment } from '../comparison-link';
 import { COMPARISON_STORAGE_KEY } from '../comparison-state';
 import { requestServiceWorkerCache } from '../service-worker-cache';
@@ -237,6 +239,145 @@ function render() {
   }
   throw new Error('Home effects did not settle within 40 renders');
 }
+
+const diagnostics = () => elements(tree).filter(element => element.type === FailureDiagnosticsControl)
+  .map(element => element.props as unknown as ComponentProps<typeof FailureDiagnosticsControl>);
+
+describe('T03 page diagnostic ownership', () => {
+  it('shows no diagnostics on success and preserves a global map failure across category changes', async () => {
+    await loadA();
+    expect(diagnostics()).toEqual([]);
+    map().onStatusChange!('error', 'The map library could not load.', 'reload',
+      { stage: 'library-download', reason: 'rejected', elapsedMs: 20 });
+    render();
+    expect(diagnostics()).toHaveLength(1);
+    const failure = diagnostics()[0];
+    expect(JSON.parse(failure.value)).toMatchObject({ area: 'map', stage: 'library-download', reason: 'rejected' });
+    expect(failure.value).not.toContain(A);
+    await setMode('mrt_lrt');
+    expect(diagnostics()).toEqual([failure]);
+    map().onStatusChange!('error', 'The map library could not load.', 'reload',
+      { stage: 'library-download', reason: 'rejected', elapsedMs: 20 });
+    render();
+    expect(diagnostics()).toEqual([failure]);
+  });
+
+  it('keeps a terminal outer render failure global instead of falsely recovering on route change', async () => {
+    await loadA();
+    map().onStatusChange!('error', 'The map could not be displayed.', 'reload', { stage: 'route-render', reason: 'error' });
+    render();
+    const failure = diagnostics()[0];
+    await setMode('mrt_lrt');
+    await setRouteMode('shortest');
+    expect(diagnostics()).toEqual([failure]);
+    expect(nodeText(tree)).toContain('Reload page');
+  });
+
+  it('rejects a prior selected-route probe across a category ABA and clears the old snapshot synchronously', async () => {
+    await loadA();
+    const before = map();
+    const issue = { stage: 'route-render' as const, reason: 'timeout' as const, elapsedMs: 200,
+      selectionContext: before.diagnosticContext };
+    before.onStatusChange!('error', 'The selected walk is not visible.', undefined, issue);
+    render();
+    expect(diagnostics()).toHaveLength(1);
+    await setMode('mrt_lrt');
+    expect(diagnostics()).toEqual([]);
+    await setMode('best_transit');
+    expect(map().diagnosticContext).not.toBe(before.diagnosticContext);
+    before.onStatusChange!('error', 'Old A error', undefined, issue);
+    render();
+    expect(diagnostics()).toEqual([]);
+    expect(nodeText(tree)).not.toContain('Old A error');
+  });
+
+  it('rejects callbacks from a retired map instance after Retry map', async () => {
+    await loadA();
+    const before = map();
+    before.onStatusChange!('error', 'Synthetic render failure', undefined, { stage: 'route-render', reason: 'error' });
+    render();
+    await clickPageButton('Retry map');
+    expect(diagnostics()).toEqual([]);
+    before.onStatusChange!('error', 'Retired instance error', undefined, { stage: 'map-startup', reason: 'error' });
+    render();
+    expect(diagnostics()).toEqual([]);
+    expect(nodeText(tree)).not.toContain('Retired instance error');
+  });
+
+  it('copies geometry role/status but never the artifact path or thrown message', async () => {
+    mount('?postal=' + A);
+    const error = Error('geom/private/' + A + '?token=secret');
+    recordArtifactFailure(error, { stage: 'artifact-fetch', reason: 'http', artifactRole: 'geometry-shard', httpStatus: 503, elapsedMs: 10 });
+    scores.get(A)!.resolve(sourceScore);
+    geometries.get(A)!.reject(error);
+    await settle();
+    expect(diagnostics()).toHaveLength(1);
+    expect(JSON.parse(diagnostics()[0].value)).toMatchObject({ area: 'geometry-data', stage: 'artifact-fetch', http_status: 503 });
+    expect(diagnostics()[0].value).not.toMatch(/secret|private|018956/);
+    expect(nodeText(tree)).not.toContain('token=');
+    expect(summary()).toBeDefined();
+  });
+
+  it('replaces raw selection errors with fixed copy and rejects an older postal failure', async () => {
+    mount('?postal=' + A);
+    void submit(B);
+    scores.get(A)!.reject(Error('A-private-token'));
+    scores.get(B)!.reject(Error('B-private-token'));
+    await settle();
+    const errorView = elements(tree).find(element => typeof element.props.error === 'string' && typeof element.props.searched === 'boolean')!;
+    expect(errorView.props.error).toBe('Shelter-map data could not load. Try this postal code again.');
+    expect(errorView.props.error).not.toContain('private-token');
+    expect(diagnostics()).toHaveLength(1);
+    expect(JSON.parse(diagnostics()[0].value)).toMatchObject({ area: 'score-data', stage: 'unknown', reason: 'unknown' });
+    expect(diagnostics()[0].value).not.toMatch(/018956|079908|private-token/);
+  });
+
+  it('does not let a superseded same-postal geometry retry replace a newer success', async () => {
+    mount('?postal=' + A);
+    scores.get(A)!.resolve(sourceScore);
+    geometries.get(A)!.reject(Error('initial geometry failed'));
+    await settle();
+    const retry = elements(tree).find(element => element.type === 'button' && nodeText(element) === 'Retry geometry')!;
+    expect(retry).toBeDefined();
+    const first = deferred<PostalGeom | null>(), second = deferred<PostalGeom | null>();
+    dependencies.fetchGeomForPostal.mockImplementationOnce(() => first.promise).mockImplementationOnce(() => second.promise);
+    const pendingFirst = (retry.props.onClick as () => Promise<void>)();
+    const pendingSecond = (retry.props.onClick as () => Promise<void>)();
+    render();
+    second.resolve(sourceGeometry);
+    await pendingSecond; await settle();
+    const recovered = clone(map().routes);
+    first.reject(Error('obsolete retry'));
+    await pendingFirst; await settle();
+    expect(map().routes).toEqual(recovered);
+    expect(diagnostics()).toEqual([]);
+    expect(nodeText(tree)).not.toContain('Walk geometry could not load');
+  });
+
+  it('does not attach a previous network diagnostic or retry to input-validation feedback', async () => {
+    mount('?postal=' + A);
+    scores.get(A)!.reject(Error('old data failure'));
+    await settle();
+    expect(diagnostics()).toHaveLength(1);
+    await submit('');
+    await settle();
+    expect(diagnostics()).toEqual([]);
+    expect(nodeText(tree)).not.toContain('Retry selection');
+  });
+
+  it('clears failed geometry and its diagnostic when navigating to the plain map', async () => {
+    mount('?postal=' + A);
+    scores.get(A)!.resolve(sourceScore);
+    geometries.get(A)!.reject(Error('geometry failed'));
+    await settle();
+    expect(diagnostics()).toHaveLength(1);
+    url = new URL('https://example.test/');
+    for (const listener of navigationListeners.get('popstate') ?? []) listener();
+    render(); await settle();
+    expect(diagnostics()).toEqual([]);
+    expect(nodeText(tree)).not.toContain('Walk geometry could not load');
+  });
+});
 async function settle() {
   // Includes Promise.all, geometry continuation, POI continuation and effect rerenders.
   for (let turn = 0; turn < 30; turn++) {
@@ -1379,5 +1520,53 @@ describe('Home full walk-URL serialization races', () => {
     expect(map().mode).toBe('shiokest');
     expect(map().chosenStopId).not.toBe(previewStopId);
     expect(storageRead).not.toHaveBeenCalled();
+  });
+});
+
+describe('T03 displayed comparison diagnostic context', () => {
+  it('keeps the comparison context and route identities when hidden primary geometry completes', async () => {
+    const view = () => child<ComponentProps<typeof HomeComparison>>(HomeComparison).props;
+    comparisonStored = JSON.stringify({ version: 1, postals: [A], category: 'bus', activePostal: A });
+    mount();
+    const primaryLoad = submit(A);
+    scores.get(A)!.resolve(sourceScore);
+    await settle();
+    expect(summary().postal).toBe(A);
+    expect(map().routes).toEqual([]);
+    expect(dependencies.fetchGeomForPostal).toHaveBeenCalledTimes(1);
+
+    // Complete only the comparison request; the primary request stays pending.
+    dependencies.fetchGeomForPostal.mockImplementationOnce(() => Promise.resolve(sourceGeometry));
+    await clickPageButton('Compare (1)');
+    expect(dependencies.fetchGeomForPostal).toHaveBeenCalledTimes(2);
+    expect(view().entries[A]).toMatchObject({ status: 'ready', geometryStatus: 'ready' });
+    expect(view().entries[A].row?.metrics).toEqual({ distance: 81.2, coverage: 55, uncovered: 36.5, longest: 20.2 });
+    expect(map().routes).toHaveLength(1);
+    expect(map().routes[0].id).toBe(`comparison:${A}`);
+    expect(map().routes[0].geom.sheltered_parts).toEqual(originalGeometry.route_options.bus.sheltered_parts);
+    const displayed = map();
+    const entry = view().entries[A];
+    expect(displayed.diagnosticContext).toBeDefined();
+
+    geometries.get(A)!.resolve(sourceGeometry);
+    await primaryLoad;
+    await settle();
+    expect(view().state).toMatchObject({ category: 'bus', activePostal: A });
+    expect(view().entries[A]).toBe(entry);
+    expect(map().routes).toBe(displayed.routes);
+    expect(map().diagnosticContext).toBe(displayed.diagnosticContext);
+    expect(map().mode).toBe(displayed.mode);
+    expect(diagnostics()).toEqual([]);
+
+    // Closing proves the hidden delivery was accepted, not ignored to preserve identity.
+    view().onClose();
+    render();
+    await settle();
+    expect(summary().postal).toBe(A);
+    expect(map().routes).toHaveLength(1);
+    expect(map().routes[0].geom.postal).toBe(A);
+    expect(map().routes[0].geom.sheltered_parts).toEqual(originalGeometry.sheltered_parts);
+    expect(map().diagnosticContext).not.toBe(displayed.diagnosticContext);
+    expect(dependencies.fetchGeomForPostal).toHaveBeenCalledTimes(2);
   });
 });

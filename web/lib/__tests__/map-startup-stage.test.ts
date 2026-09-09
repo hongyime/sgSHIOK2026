@@ -61,7 +61,7 @@ function fakeMap() {
     getSource: (id: string) => sources.get(id), getLayer: (id: string) => layers.get(id),
     addSource(id: string, spec: any) { sources.set(id, { ...spec, setData: vi.fn() }); },
     addLayer(spec: any) { layers.set(spec.id, spec); },
-    moveLayer: vi.fn(), setLayoutProperty: vi.fn(), setFilter: vi.fn(), resize: vi.fn(), fitBounds: vi.fn(), easeTo: vi.fn(),
+    moveLayer: vi.fn(), setLayoutProperty: vi.fn(), setFilter: vi.fn(), resize: vi.fn(), fitBounds: vi.fn(), easeTo: vi.fn(), triggerRepaint: vi.fn(),
     isMoving: () => false, queryRenderedFeatures: () => [],
     remove: vi.fn(() => handlers.clear()),
   };

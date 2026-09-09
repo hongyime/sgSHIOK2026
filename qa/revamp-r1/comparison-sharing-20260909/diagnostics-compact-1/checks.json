@@ -1,0 +1,59 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs",
+    "lib/__tests__/failure-diagnostics-control.test.tsx",
+    "lib/__tests__/map-first-shell.test.ts",
+    "--no-cache",
+    "--reporter=dot"
+  ],
+  "exitCode": 0,
+  "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n········································\n\n Test Files  2 passed (2)\n      Tests  40 passed (40)\n   Start at  15:04:05\n   Duration  8.14s (transform 3.26s, setup 0ms, import 4.36s, tests 1.01s, environment 2ms)\n\n",
+  "stderr": "",
+  "elapsedSeconds": 13.25,
+  "before": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "ee8ecfe858c2deea2f89b5197cb95547e882d09419bb10c4631bc90cad85cdda"
+    },
+    {
+      "path": "web/lib/__tests__/failure-diagnostics-control.test.tsx",
+      "sha256": "1346947f989666cb6e3ccc633ec6c9a7f6d1a21f1d3c6cfa2e2a86d7e58efa17"
+    },
+    {
+      "path": "web/lib/__tests__/map-first-shell.test.ts",
+      "sha256": "ddd31e3d872e8a75157eeae25af9de2d2eb1bd2c4e9b01c0783857bbd7fa16b3"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "ee8ecfe858c2deea2f89b5197cb95547e882d09419bb10c4631bc90cad85cdda"
+    },
+    {
+      "path": "web/lib/__tests__/failure-diagnostics-control.test.tsx",
+      "sha256": "1346947f989666cb6e3ccc633ec6c9a7f6d1a21f1d3c6cfa2e2a86d7e58efa17"
+    },
+    {
+      "path": "web/lib/__tests__/map-first-shell.test.ts",
+      "sha256": "ddd31e3d872e8a75157eeae25af9de2d2eb1bd2c4e9b01c0783857bbd7fa16b3"
+    }
+  ],
+  "identitiesStable": true
+}

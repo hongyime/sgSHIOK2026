@@ -1,0 +1,86 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs",
+    "lib/__tests__/failure-diagnostics.test.ts",
+    "lib/__tests__/published-walk-page.test.tsx",
+    "lib/__tests__/route-map-loader.test.tsx",
+    "lib/__tests__/map-startup-stage.test.ts",
+    "lib/__tests__/route-source-lifecycle.test.ts",
+    "--no-cache",
+    "--reporter=dot"
+  ],
+  "exitCode": 0,
+  "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n·····················································································································································································\n\n Test Files  5 passed (5)\n      Tests  181 passed (181)\n   Start at  14:05:04\n   Duration  30.78s (transform 9.63s, setup 0ms, import 11.53s, tests 9.56s, environment 19ms)\n\n",
+  "stderr": "stderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > keeps published metrics/geometry on transport failure and resets without another request\nOneMap live route fetch failed; keeping the published walk: Error: Synthetic preview transport failure\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1021:51\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20\n\nstderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > keeps published metrics/geometry on invalid-json failure and resets without another request\nOneMap live route fetch failed; keeping the published walk: SyntaxError: Unexpected token 'o', \"not JSON\" is not valid JSON\n    at JSON.parse (<anonymous>)\n    at parseJSONFromBytes (node:internal/deps/undici/undici:4349:19)\n    at successSteps (node:internal/deps/undici/undici:6987:27)\n    at readAllBytes (node:internal/deps/undici/undici:5811:13)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n\nstderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > ignores late preview rejection after selecting published candidate C\nOneMap live route fetch failed; keeping the published walk: Error: Synthetic stale preview failure\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1088:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20\n\n",
+  "elapsedSeconds": 49.23,
+  "before": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "05dff3ac7277df5c0f6793afe9c0c6dc92b23df38c5a7a6ed451473d2fed4ced"
+    },
+    {
+      "path": "web/lib/__tests__/failure-diagnostics.test.ts",
+      "sha256": "656fda69c356c5ecd71be77ab985695f519d161120ba016a3efaf93100bb82b1"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "sha256": "be0316e20a5d6d3ae5575fb857e68982d8b8024c9708804f4ab03274d77b6275"
+    },
+    {
+      "path": "web/lib/__tests__/route-map-loader.test.tsx",
+      "sha256": "d31f8ed81683c76f84698081513cdf3c0c1cfeb12d8484b64ac4a7e04241569c"
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-stage.test.ts",
+      "sha256": "95f7ccd4b45dfcfad813aa530e9d5d6ea3b691b63b0a4381ae8a1847cc58bfec"
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "sha256": "cd1fd8e4fa160b5c2591b683b34b04130259f200113c2de83c0ae052a567309c"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "05dff3ac7277df5c0f6793afe9c0c6dc92b23df38c5a7a6ed451473d2fed4ced"
+    },
+    {
+      "path": "web/lib/__tests__/failure-diagnostics.test.ts",
+      "sha256": "656fda69c356c5ecd71be77ab985695f519d161120ba016a3efaf93100bb82b1"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "sha256": "be0316e20a5d6d3ae5575fb857e68982d8b8024c9708804f4ab03274d77b6275"
+    },
+    {
+      "path": "web/lib/__tests__/route-map-loader.test.tsx",
+      "sha256": "d31f8ed81683c76f84698081513cdf3c0c1cfeb12d8484b64ac4a7e04241569c"
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-stage.test.ts",
+      "sha256": "95f7ccd4b45dfcfad813aa530e9d5d6ea3b691b63b0a4381ae8a1847cc58bfec"
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "sha256": "cd1fd8e4fa160b5c2591b683b34b04130259f200113c2de83c0ae052a567309c"
+    }
+  ],
+  "identitiesStable": true
+}

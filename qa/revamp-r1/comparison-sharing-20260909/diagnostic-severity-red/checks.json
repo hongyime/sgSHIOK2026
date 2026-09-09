@@ -1,0 +1,50 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs",
+    "lib/__tests__/route-source-lifecycle.test.ts",
+    "--no-cache",
+    "--reporter=dot"
+  ],
+  "exitCode": 1,
+  "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n·······································xx··\n\n Test Files  1 failed (1)\n      Tests  2 failed | 41 passed (43)\n   Start at  14:37:19\n   Duration  3.19s (transform 1.20s, setup 0ms, import 1.49s, tests 747ms, environment 1ms)\n\n",
+  "stderr": "\n⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯\n\n FAIL  lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > retains the original engine error and remount status across tile errors and selection changes until explicit remount\nAssertionError: expected last \"vi.fn()\" call to have been called with [ 'error', …(3) ]\n\n- Expected\n+ Received\n\n  [\n-   \"error\",\n-   \"The map could not render. Walk evidence is still available.\",\n+   \"partial\",\n+   \"Some basemap tiles could not load. Walk evidence is still available.\",\n    undefined,\n    {\n-     \"elapsedMs\": 10,\n+     \"elapsedMs\": 20,\n      \"reason\": \"error\",\n-     \"stage\": \"route-render\",\n+     \"stage\": \"basemap-tiles\",\n    },\n  ]\n\n ❯ lib/__tests__/route-source-lifecycle.test.ts:542:20\n    540|     vi.advanceTimersByTime(10);\n    541|     map.emit('error', { sourceId: 'onemap' });\n    542|     expect(status).toHaveBeenLastCalledWith(...original);\n       |                    ^\n    543|     expect(status.mock.calls.at(-1)![3]).toBe(original[3]);\n    544|     render({ routes: [{ ...props.routes[0], id: 'replacement-selection…\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯\n\n FAIL  lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > does not replace a global engine error with a context-only visibility timeout or refit the camera\nAssertionError: expected last \"vi.fn()\" call to have been called with [ 'error', …(3) ]\n\n- Expected\n+ Received\n\n  [\n    \"error\",\n-   \"The map could not render. Walk evidence is still available.\",\n+   \"The selected walk is not visible. Retry the map.\",\n    undefined,\n    {\n-     \"elapsedMs\": 0,\n-     \"reason\": \"error\",\n+     \"elapsedMs\": 15000,\n+     \"reason\": \"timeout\",\n+     \"selectionContext\": {},\n      \"stage\": \"route-render\",\n    },\n  ]\n\n ❯ lib/__tests__/route-source-lifecycle.test.ts:578:20\n    576|     status.mockClear();\n    577|     vi.advanceTimersByTime(15_000);\n    578|     expect(status).toHaveBeenLastCalledWith(...original);\n       |                    ^\n    579|     expect(status.mock.calls.at(-1)![3]).toBe(original[3]);\n    580|     expect(status.mock.calls.at(-1)![3]).not.toHaveProperty('selection…\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯\n\n",
+  "elapsedSeconds": 7.31,
+  "before": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "ee8ecfe858c2deea2f89b5197cb95547e882d09419bb10c4631bc90cad85cdda"
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "sha256": "1106f3313d9c0050d5e706f05e8fd362f0c38f4a9c3346199a914310f8246e98"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "ee8ecfe858c2deea2f89b5197cb95547e882d09419bb10c4631bc90cad85cdda"
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "sha256": "1106f3313d9c0050d5e706f05e8fd362f0c38f4a9c3346199a914310f8246e98"
+    }
+  ],
+  "identitiesStable": true
+}

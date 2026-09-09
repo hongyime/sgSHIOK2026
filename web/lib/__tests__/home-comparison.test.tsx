@@ -4,6 +4,8 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { HomeComparison, type HomeComparisonProps } from "../../components/home-comparison";
+import { FailureDiagnosticsControl, type FailureDiagnosticsControlProps } from "../../components/failure-diagnostics-control";
+import type { ArtifactFailure } from "../artifact-failure";
 import { resolveComparisonWalk } from "../comparison";
 import type { ComparisonEntry } from "../comparison-controller";
 import { emptyComparisonState, transitionComparison } from "../comparison-state";
@@ -90,7 +92,7 @@ function entry(postal = realPostal, category: PublishedTransitCategory = "bus", 
     geometry: postal === realPostal && withGeometry ? structuredClone(fixture["geom/h3/886520db39fffff.json"][0]) : null,
     scoreContext: { bundle, postal }, geometryContext: { bundle, postal },
   };
-  return { postal, status: "ready", geometryStatus: "ready", ...resolveComparisonWalk(source) };
+  return { postal, requestKey: 1, status: "ready", geometryStatus: "ready", ...resolveComparisonWalk(source) };
 }
 
 let props: HomeComparisonProps;
@@ -648,5 +650,106 @@ describe("T10 comparison removal focus ownership", () => {
     render();
     expect(focusDocument.activeElement).toBe(outside);
     expect(focusedByComponent).toEqual([]);
+  });
+});
+
+describe("T03 comparison diagnostic wiring", () => {
+  const scoreFailure: ArtifactFailure = {
+    stage: "artifact-fetch", reason: "http", artifactRole: "score-shard", httpStatus: 503, elapsedMs: 24,
+  };
+  const geometryFailure: ArtifactFailure = {
+    stage: "artifact-decode", reason: "error", artifactRole: "geometry-shard", httpStatus: null, elapsedMs: 9,
+  };
+  function diagnostics(): FailureDiagnosticsControlProps[] {
+    return elements(tree).flatMap(node => node.type === FailureDiagnosticsControl &&
+      React.isValidElement<FailureDiagnosticsControlProps>(node) ? [node.props] : []);
+  }
+
+  it("passes only each failing column's typed data to its role-specific control", () => {
+    props.diagnosticDataBase = `/data/${bundle}/`;
+    props.state = { ...props.state, postals: [realPostal, secondPostal] };
+    props.entries = {
+      [realPostal]: { ...entry(), requestKey: 7, geometryStatus: "error", geometryFailure },
+      [secondPostal]: { ...entry(secondPostal), requestKey: 8, status: "error", scoreFailure },
+    };
+    render();
+    const controls = diagnostics();
+    expect(controls.map(control => control.snapshotKey)).toEqual(["7:geometry", "8:score"]);
+    expect(JSON.parse(controls[0].value)).toMatchObject({ area: "geometry-data", status: "error", stage: "artifact-decode",
+      reason: "error", artifact_role: "geometry-shard", http_status: null, elapsed_ms: 9, artifact_bundle_id: bundle });
+    expect(JSON.parse(controls[1].value)).toMatchObject({ area: "score-data", status: "error", stage: "artifact-fetch",
+      reason: "http", artifact_role: "score-shard", http_status: 503, elapsed_ms: 24, artifact_bundle_id: bundle });
+    expect(cells("Walk distance")).toEqual(["81 m", "Unavailable"]);
+    for (const control of controls) {
+      expect(control.value).not.toContain(realPostal);
+      expect(control.value).not.toContain(secondPostal);
+      expect(control.value).not.toContain("Bayfront");
+      expect(control.value).not.toContain("requestKey");
+    }
+  });
+
+  it("keeps simultaneous score and geometry errors distinct beside their actual messages", () => {
+    props.entries = { [realPostal]: { ...entry(), requestKey: 11, status: "error", geometryStatus: "error", scoreFailure, geometryFailure } };
+    render();
+    expect(text(tree)).toContain("Could not load this walk.");
+    expect(text(tree)).toContain("Map unavailable.");
+    expect(diagnostics().map(control => control.snapshotKey)).toEqual(["11:score", "11:geometry"]);
+    for (const label of ["Walk data failure", "Map data failure"]) {
+      const group = elements(tree).find(node => node.props.role === "group" && node.props["aria-label"] === label);
+      expect(group).toBeDefined();
+      expect(elements(group).filter(node => node.type === FailureDiagnosticsControl)).toHaveLength(1);
+    }
+  });
+
+  it("uses unknown failure and bundle identity when optional metadata and data base are absent", () => {
+    props.entries = { [realPostal]: { ...entry(), status: "error" } };
+    render();
+    expect(diagnostics()).toHaveLength(1);
+    expect(JSON.parse(diagnostics()[0].value)).toMatchObject({ area: "score-data", stage: "unknown", reason: "unknown",
+      artifact_role: null, http_status: null, elapsed_ms: null, artifact_bundle_id: null, artifact_identity_source: "unavailable" });
+  });
+
+  it.each(["loading", "ready"] as const)("does not expose stale metadata on %s entries", status => {
+    props.entries = { [realPostal]: { ...entry(), status, geometryStatus: status, scoreFailure, geometryFailure } };
+    render();
+    expect(diagnostics()).toEqual([]);
+  });
+
+  it("does not turn unpublished drawing or unavailable metrics into a transport diagnostic", () => {
+    props.entries = { [realPostal]: entry(realPostal, "bus", false) };
+    render();
+    expect(text(tree)).toContain("Route drawing unavailable.");
+    expect(diagnostics()).toEqual([]);
+    props.entries = { [realPostal]: { ...entry(), row: { ...entry().row!, availability: "unavailable", reason: "metrics_unavailable" } } };
+    render();
+    expect(diagnostics()).toEqual([]);
+  });
+
+  it("drops controls during retry and changes ownership even when the next error payload is identical", () => {
+    props.entries = { [realPostal]: { ...entry(), requestKey: 17, status: "error", scoreFailure } };
+    render();
+    const previous = diagnostics()[0];
+    props.entries = { [realPostal]: { ...entry(), requestKey: 18, status: "loading", geometryStatus: "loading" } };
+    render(); expect(diagnostics()).toEqual([]);
+    props.entries = { [realPostal]: { ...entry(), requestKey: 18, status: "error", scoreFailure } };
+    render();
+    expect(diagnostics()[0].value).toBe(previous.value);
+    expect(diagnostics()[0].snapshotKey).not.toBe(previous.snapshotKey);
+  });
+
+  it("does not render failures from a removed or foreign-identity entry", () => {
+    props.entries = { [realPostal]: { ...entry(), postal: secondPostal, status: "error", scoreFailure } };
+    render(); expect(diagnostics()).toEqual([]);
+    props.entries = { [realPostal]: { ...entry(), status: "error", scoreFailure } };
+    props.state = emptyComparisonState();
+    render(); expect(diagnostics()).toEqual([]);
+  });
+
+  it("gives a geometry fetch failure an explicit message even when no comparison row is usable", () => {
+    props.entries = { [realPostal]: { ...entry(), row: null, option: null, geometryStatus: "error", geometryFailure } };
+    render();
+    expect(text(tree)).toContain("Walk evidence unavailable.");
+    expect(text(tree)).toContain("Map unavailable.");
+    expect(diagnostics().map(control => control.snapshotKey)).toEqual(["1:geometry"]);
   });
 });

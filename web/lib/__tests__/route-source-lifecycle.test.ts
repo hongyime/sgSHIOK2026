@@ -68,7 +68,7 @@ function fakeMap() {
     addLayer(spec: any) { layers.set(spec.id, spec); },
     getZoom: () => 16, getCanvas: () => ({ style: { cursor: '' }, setAttribute: vi.fn() }),
     getBounds: () => ({ getWest: () => 103.8, getEast: () => 103.9, getSouth: () => 1.2, getNorth: () => 1.4 }),
-    moveLayer: vi.fn(), setLayoutProperty: vi.fn(), setFilter: vi.fn(), resize: vi.fn(), fitBounds: vi.fn(), easeTo: vi.fn(),
+    moveLayer: vi.fn(), setLayoutProperty: vi.fn(), setFilter: vi.fn(), resize: vi.fn(), fitBounds: vi.fn(), easeTo: vi.fn(), triggerRepaint: vi.fn(),
     isMoving: () => false, isSourceLoaded: () => true,
     queryRenderedFeatures: () => rendered,
     render(data = sources.get('shiokest-route').data.features) { rendered = data; map.emit('render'); },
@@ -447,6 +447,40 @@ describe('M05/M10/M11: source ownership in the executed map component', () => {
     expect(routeWrites()).toHaveLength(4);
     for (const id of routeIds) expect(map.sources.get(id).data.features).toEqual([]);
   });
+
+  it.each(['ready', 'timeout'] as const)('rejects an old diagnostic probe %s before effect cleanup', async completion => {
+    const oldContext = {};
+    props = { ...props, diagnosticContext: oldContext };
+    await mount();
+    const status = props.onStatusChange as ReturnType<typeof vi.fn>;
+    status.mockClear();
+    props = { ...props, diagnosticContext: {} };
+    hooks.begin();
+    RouteEvidenceMap(props);
+    if (completion === 'ready') map.render();
+    else vi.advanceTimersByTime(15_000);
+    expect(status).not.toHaveBeenCalled();
+    render();
+    status.mockClear();
+    vi.advanceTimersByTime(15_000);
+    expect(status).toHaveBeenLastCalledWith('error', 'The selected walk is not visible. Retry the map.', undefined,
+      expect.objectContaining({ stage: 'route-render', reason: 'timeout', selectionContext: props.diagnosticContext }));
+    expect(status.mock.calls.at(-1)![3].selectionContext).not.toBe(oldContext);
+  });
+
+  it('restarts diagnostic ownership without rewriting sources or refitting an unchanged route', async () => {
+    props = { ...props, diagnosticContext: {} };
+    await mount();
+    map.writes.length = 0;
+    map.fitBounds.mockClear();
+    map.easeTo.mockClear();
+    map.triggerRepaint.mockClear();
+    render({ diagnosticContext: {} });
+    expect(map.writes).toEqual([]);
+    expect(map.fitBounds).not.toHaveBeenCalled();
+    expect(map.easeTo).not.toHaveBeenCalled();
+    expect(map.triggerRepaint).toHaveBeenCalledTimes(1);
+  });
   it('propagates changed geometry with the same route identity', async () => {
     await mount();
     const previous = structuredClone(map.sources.get('shiokest-route').data);
@@ -490,6 +524,62 @@ describe('M05/M10/M11: source ownership in the executed map component', () => {
     expect(map.handlers.get('sourcedata')?.size).toBe(0);
     hooks.unmount(); expect(map.handlers.size).toBe(0);
   });
+
+  it('retains the original engine error and remount status across tile errors and selection changes until explicit remount', async () => {
+    props = { ...props, diagnosticContext: {} };
+    await mount(); map.render();
+    const status = props.onStatusChange as ReturnType<typeof vi.fn>;
+    const failedMap = map;
+    const lateError = [...failedMap.handlers.get('error')!][0];
+    vi.advanceTimersByTime(10);
+    map.emit('error', { sourceId: 'shiokest-route' });
+    const original = status.mock.calls.at(-1)!;
+    expect(original).toEqual(['error', 'The map could not render. Walk evidence is still available.', undefined,
+      { stage: 'route-render', reason: 'error', elapsedMs: 10 }]);
+
+    vi.advanceTimersByTime(10);
+    map.emit('error', { sourceId: 'onemap' });
+    expect(status).toHaveBeenLastCalledWith(...original);
+    expect(status.mock.calls.at(-1)![3]).toBe(original[3]);
+    render({ routes: [{ ...props.routes[0], id: 'replacement-selection' }], diagnosticContext: {} });
+    map.render();
+    expect(status).toHaveBeenLastCalledWith(...original);
+    expect(status.mock.calls.at(-1)![3]).toBe(original[3]);
+    expect(status.mock.calls.at(-1)![3]).not.toHaveProperty('selectionContext');
+    expect(failedMap.getSource('onemap').setTiles).not.toHaveBeenCalled();
+
+    // An error with no reload override requests the page's map-instance remount.
+    hooks.unmount(); hooks.reset();
+    map = fakeMap(); lib.instance = map;
+    await mount(); map.render();
+    expect(failedMap.remove).toHaveBeenCalledTimes(1);
+    expect(lib.construct).toHaveBeenCalledTimes(2);
+    expect(status).toHaveBeenLastCalledWith('ready', undefined);
+    status.mockClear();
+    lateError({ sourceId: 'onemap' });
+    expect(status).not.toHaveBeenCalled();
+  });
+
+  it('does not replace a global engine error with a context-only visibility timeout or refit the camera', async () => {
+    props = { ...props, diagnosticContext: {} };
+    await mount(); map.render();
+    const status = props.onStatusChange as ReturnType<typeof vi.fn>;
+    map.emit('error', { sourceId: 'shiokest-route' });
+    const original = status.mock.calls.at(-1)!;
+    map.writes.length = 0;
+    map.fitBounds.mockClear(); map.easeTo.mockClear(); map.triggerRepaint.mockClear();
+    render({ diagnosticContext: {} });
+    expect(map.writes).toEqual([]);
+    expect(map.fitBounds).not.toHaveBeenCalled();
+    expect(map.easeTo).not.toHaveBeenCalled();
+    expect(map.triggerRepaint).toHaveBeenCalledTimes(1);
+    status.mockClear();
+    vi.advanceTimersByTime(15_000);
+    expect(status).toHaveBeenLastCalledWith(...original);
+    expect(status.mock.calls.at(-1)![3]).toBe(original[3]);
+    expect(status.mock.calls.at(-1)![3]).not.toHaveProperty('selectionContext');
+  });
+
   it('gesture cancellation cannot time out or refit on a later optional update', async () => {
     await mount(); map.fitBounds.mockClear();
     const status = props.onStatusChange as ReturnType<typeof vi.fn>; status.mockClear();
