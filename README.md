@@ -70,12 +70,16 @@ that the local lamp overlay artifact is present and internally consistent. Do
 not rebuild, overwrite, or mutate existing public data directories to repair a
 missing artifact; copy or create only a new versioned artifact after owner
 approval.
-Deploy production with `.\scripts\deploy-production.bat -ConfirmProduction`, not
-raw `vercel deploy`. The script validates the selected bundle, stages only
-`web/` plus that bundle, then deploys with `--archive=tgz --scope
-theprawnvercel --project sgshiok` so Vercel does not upload `raw/`,
-`processed/`, `qa/`, or historical public-data bundles. Set `VERCEL_SCOPE` or
-`VERCEL_PROJECT` only when intentionally targeting a different Vercel project.
+**Release safety hold (T31): do not execute the existing deploy/publish/activation
+helpers under the protected-artifact rules.** The normal deploy path can install
+dependencies and invoke `npm run build`, whose data-preparation step writes missing
+derived files into the existing bundle or restores/downloads inputs. Staging copies
+the working web tree rather than an exact committed inventory, omits the separate
+lamp overlay and recompresses selected files. The data-release helper deploys before
+its final preflight and pointer commit. A failing command therefore does not prove
+production stayed unchanged. Use the maintenance runbook below for inspection and
+rollback planning; repair and test the immutable staging path before T27/T28.
+Neither a main push nor a plan-only command is permission to publish.
 If Vercel Hobby Edge Requests hit quota, first check whether production is
 serving current `main`; automatic Git deployments are intentionally disabled in
 `web/vercel.json`, so committed cache and crawler reductions do not affect live
@@ -89,34 +93,24 @@ If a replacement night lighting overlay is approved, run
 or another new numeric version path; the builder refuses non-empty output
 directories, and `lamp_posts_v1/` remains the published artifact until a later
 release decision points the site elsewhere.
-For a zero-mutation source-age check, run
-`uv run python run.py check --freshness-only`; it reads `raw/manifest.json` and
-`pipeline/config/sources.yaml` only, does not probe upstream APIs, and reports
-current, stale, manual, unknown-policy, and unknown-age sources; grouped action summaries include
-source names such as `traffic_signals (Traffic Signals)`, and manifest-only sources missing
-from `sources.yaml` are reported as unknown-policy instead of being omitted. Current/stale
-lines plus the oldest-current summary include days until stale or days past stale so operators do not
-need to cross-reference `sources.yaml`. Production readiness also exposes the
-nearest current source to stale and stale sources with days past stale as
-structured fields for downstream planning; stale sources are ordered by days
-past stale and the most-overdue stale source is exposed separately. The source
-policy covers every source currently recorded in `raw/manifest.json`, including
-the ACRA, other-UEN, and June 2020 OneMap-derived postal-universe inputs. If stale sources appear, report them
-and plan a versioned refresh; do not mutate frozen v1 in place. NParks Leaf Area Index can appear in
+For routine checks use the standalone **Bounded Source Metadata Monitor (Local)**
+below. The standing prohibition on `run.py check` includes its freshness and
+discovery variants; do not use a pipeline entry point for maintenance. Source
+update, local check and release dates are different facts. If stale sources appear,
+report them and propose a separately approved versioned refresh; do not mutate
+frozen v1 in place. NParks Leaf Area Index can appear in
 freshness as a tracked reference table, and the published legacy bundle may
 carry it as a non-score reference source hash, but it is not route geometry,
 shade-proxy geometry, or score evidence; future score provenance excludes it.
-The current unknown-age source is the Overture Maps Addresses Singapore
-candidate, because the cached manifest has no timestamp for that candidate
-archive.
+Unknown publisher dates stay unknown. The local monitor also leaves unsupported
+and manual sources explicit, rather than treating them as successfully checked.
 LTA geospatial listings such as Covered Linkway use a quarterly cadence with a
 120-day stale threshold, so a current local freshness result does not prove no
 newer upstream release exists. A 28 Aug 2026 discovery-only DataMall check
 found Covered Linkway, bridge/underpass, and Traffic Signals URLs still match
-frozen v1. To rerun that discovery-only check without downloading payloads or
-writing the manifest, run
-`uv run python run.py check --geospatial-discovery-only`; changed discovery URLs
-require a new numbered input version, not an in-place repair.
+frozen v1. That is historical evidence, not current verification. The standalone
+monitor now has a bounded listing adapter; missing credentials stay explicit and
+listing changes never trigger a payload download or in-place repair.
 
 Before any full geocode, scoring, or release batch, run both
 `uv run python run.py readiness` and `uv run python run.py batch-plan`. The
@@ -248,6 +242,126 @@ Documented endpoints: [data.gov.sg metadata API](https://guide.data.gov.sg/devel
 and [DataMall API guide](https://datamall.lta.gov.sg/content/dam/datamall/datasets/LTA_DataMall_API_User_Guide.pdf).
 Evidence and limitations: `qa/verification/REVAMP-R1-core-walk.md`, task T23 in
 `PRODUCT-PLAN.md`, and the monitor receipts under `qa/revamp-r1/source-monitor-20260909/`.
+
+## Maintenance And Recovery
+
+This is T24's operating proposal, not activation of monitoring, reporting, backup
+or deployment. The project owner is accountable for release and privacy decisions;
+an agent can execute approved checks but cannot become the permanent operator.
+
+### Ownership And Cadence
+
+| Routine | Proposed cadence | Agent action | Owner action and fallback |
+| --- | --- | --- | --- |
+| Source metadata | Tuesday 09:43 UTC / 17:43 SGT | Run the bounded local monitor; retain verified state and every outcome. | Review the receipt that day. T23 schedule/delivery is unapproved; no unattended check is promised. Missing receipt is unknown, not success. |
+| Resident reports, only after T13-T18 | Tuesday and Friday 18:00 SGT; privacy/abuse incidents promptly when noticed | After approval, inspect the private queue, retention and quotas using least privilege. | Name moderator and absence cover before enabling intake. Close intake if nobody can maintain review/cleanup; no public issue containing resident notes. |
+| Release | Each candidate, then first-day error/quota review after an approved publish | Assemble exact identities, tests, unresolved gates and rollback target. | Approve the exact candidate and target. A failed stage stops further action; inspect actual remote state before retry or rollback. |
+| Capacity and recoverability | First Saturday monthly, and before input changes or releases | Inspect bounded metadata/receipts; propose backup scope and record gaps. | Check free-plan usage, own private backup destination/keys, and separately approve a restore drill. No existing backup is assumed. |
+
+No response-time SLA or activated calendar job is established by this table. Keep
+maintenance receipts linked from `.agents/STATE.md` and durable decisions here or
+in `decisions.md`; never place secrets or resident report content in public Git.
+
+### Identify What Is Actually Running
+
+Start every session by asserting `C:\sgSHIOK2026`, reading STATE and inspecting
+Git status/HEAD. X: is not a working root. The default artifact is named by
+`web/data-bundle.json`; `NEXT_PUBLIC_DATA_BASE` can override it in a built frontend.
+Record the actual requested data base as well as the configured default.
+
+The 2026-09-10 inspection found all 142 source hashes still matching the validated
+local snapshot `Hb1o7rptP9IxSDBxSb8ID`. Its build and browser evidence are in
+`qa/revamp-r1/source-freshness-20260909/summary.json`. This does **not** identify
+production. A separate read captured live HTML and the pinned remote manifest in
+`qa/revamp-r1/maintenance-20260910/`: the manifest SHA256 matches local
+`7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e`.
+That compares this manifest only, not every deployed shard or the running browser.
+
+Before release, obtain the actual production deployment ID, commit/staged-source
+ledger, domains, build ID, worker identity, requested artifact and prior eligible
+deployment from Vercel and browser receipts. Production deployment ID/source commit
+remain unverified in this inspection. Git auto-deploy is disabled in checked-in
+`web/vercel.json`; do not assume dashboard settings or remote code match local HEAD.
+
+### Failure And Rollback Rules
+
+- Monitor exit 1 retains unavailable, stale, manual/unsupported and missing-secret
+  distinctions; only a verified terminal receipt authorizes previous-state reuse.
+  Exit 2 or an input mismatch stops use of that input. Diagnose read-only; do not
+  rebuild, normalize or overwrite it. Preserve cooldowns and failed receipts.
+- Validation failure before publication must leave the live pointer alone (O06).
+  Current release helpers do not establish that invariant for all stages: T31 must
+  fix staging/build side effects and move local validation before external changes.
+  `-ConfirmProduction`, activation, preflight and publish are not inspection modes.
+- For deployment failure (O07), record the named stage and remote deployment status.
+  `--no-wait` success is not READY. Stop if remote state is unknown; do not blindly
+  resubmit. A successful manifest request alone does not prove frontend readiness.
+- Plan rollback to an identified previous immutable production deployment, never
+  by moving data directories, resetting the working root or just reverting Git.
+  On Hobby, Instant Rollback is limited to the immediately previous deployment.
+  It reuses old build configuration, and changes production auto-assignment.
+  Confirm target eligibility/configuration before owner-approved execution.
+  [Vercel rollback documentation](https://vercel.com/docs/instant-rollback).
+- After any approved release or rollback, test fresh, returning and retained-tab
+  clients with current route and artifact identities. A hosting rollback does not
+  roll browser caches back. Current `sw.js` claims clients immediately and preserves
+  immutable asset caches. Do not delete unrelated caches or call a local preview an
+  exercised production rollback. O08 and T01's old-tab acceptance remain release gates.
+- Current MapLibre security disposition (T29), client upgrade acceptance and T31
+  staging repairs precede release. No install, deployment or rollback ran in T24.
+
+### Free-Cap And Report Operations
+
+Before release, record the current account's plan, billing period, Edge Requests,
+transfer, function use and headroom. Proposed internal thresholds are 80% for owner
+review and 95% to hold optional releases/checks; these are not provider guarantees
+or automatic shutdowns. Project protection/pausing changes availability and remains
+an owner decision. Never upgrade a plan or accept paid overages automatically.
+Check [Vercel's current usage policy](https://vercel.com/docs/limits/fair-use-guidelines),
+including Hobby's non-commercial restriction, instead of relying on old quota figures.
+
+Reports are still drafts, not a live moderation service. T13 must explicitly
+approve the provider (including any change to the current no-Cloudflare policy),
+owner access, privacy, caps and absence cover before T14-T18. The reviewed proposal
+is `qa/revamp-r1/report-service-proposal-20260908.json`; its application caps are
+100 new reports/day, five per short-lived IP bucket/day, 500 pending and 5,000
+retained, all proposed rather than implemented. Provider quotas are shared and
+must be rechecked at activation. Quota exhaustion means honest unavailability,
+not paid scaling or a false receipt. Moderation acceptance never edits map truth.
+
+The proposal expires content at the earlier of 90 days from receipt or 30 days
+after resolution, with daily cleanup. Cleanup outages and recovery copies can
+extend physical retention. Keep deletion evidence independent of restored snapshots;
+apply expiry/deletion before reopening access. Credential/MFA/payment-method setup
+and moderator/backup-key custody require the owner; never request secrets in chat.
+
+### Preserve And Recover Local Payloads
+
+The named-path inspection confirms `.env`, `processed/`, `web/public/data/`, P8,
+P10 and eight P11 `d_*` directories exist with no tracked files beneath those
+directories. `raw/`, `data/` and `qa/releases/` have some tracked metadata (1, 1
+and 56 paths respectively), not proof that Git contains their payloads.
+`checksums.json` itself is tracked; that does not back up the files it describes.
+P6, P7 and P9's named evidence directories are absent locally and untracked.
+No other drive was searched. This is presence/index evidence, not a new recursive
+inventory, capacity estimate, complete hash audit or independent-backup verification.
+
+Before any backup: the owner must select an existing private destination with
+adequate capacity, encryption/key custody and a retention/loss-window policy.
+Propose an additive snapshot, including untracked payloads, local Git evidence and
+private configuration. Inventory before excluding rebuildable dependencies; do not
+silently omit `tmp/`, logs or QA references. Protect `.env` separately from public
+evidence. Do not sync deletions, prune old versions or mutate the only source copy.
+Prefer one verified snapshot before an approved input change and monthly thereafter;
+missed snapshots increase the recovery gap. This policy is not an executed backup.
+
+An owner-approved drill restores into a **new** isolated destination, leaves the
+working root/old payloads untouched, compares expected paths/sizes/hashes, then uses
+non-writing checks with existing dependencies. Hash mismatch stops the drill; it
+does not authorize regeneration. Keep an explicit manifest of successes, missing
+paths, errors and elapsed time. For future private reports, use the separately
+approved encrypted backup and deletion-ledger rules; never put reports into this
+public QA tree. No data copy, migration, backup or restore was performed in T24.
 
 ## License And Attribution
 

@@ -1,0 +1,133 @@
+{
+  "base": "9224210cf13a7e541e5a9c76c7af1d77fb02322c",
+  "checks": {
+    "correctRoot": true,
+    "exactMetadataAnchorsUnchanged": true,
+    "snapshotScopeStillMatches": true,
+    "remoteReceiptsComplete": true,
+    "manifestMatchesPinned": true,
+    "noUnverifiedProductionIdentityClaim": true,
+    "planOnlyActuallyExecuted": true,
+    "automaticGitDeployDisabledInRepo": true,
+    "noPipelineCheckRecommendation": true,
+    "explicitUnsafeReleaseHold": true,
+    "ownershipAndGateDiscoverable": true,
+    "noBackupClaim": true,
+    "privateEnvNotRead": true,
+    "oldEvidenceUnchanged": true,
+    "repoIntegrity": true,
+    "diffWhitespace": true
+  },
+  "checksPassed": 16,
+  "checksTotal": 16,
+  "scope": "Documentation/receipt checks, not new browser, pipeline, full project-suite, backup or production acceptance.",
+  "configurationInterpretation": {
+    "field": "inspection.json:automaticGitDeploy",
+    "value": false,
+    "source": "web/vercel.json checked-in setting only",
+    "remoteConfiguration": "unverified"
+  },
+  "commands": [
+    {
+      "command": "python -B scripts/check_repo_integrity.py",
+      "exitCode": 0,
+      "stdout": "repo_integrity=ok\r\n",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "warning: in the working copy of 'decisions.md', CRLF will be replaced by LF the next time Git touches it\n"
+    }
+  ],
+  "evidence": {
+    "path": "qa/verification/REVAMP-R1-core-walk.md",
+    "previousBytes": 203983,
+    "previousSha256": "f621549beb861749d86b0db6426571cbe6ed73a2f5e1755dc77ff2dd0d1a8a6f",
+    "bytes": 209435,
+    "sha256": "ceb42a0d4e78d31279b48d4f9e30cfdd86e982d3b94742504ae973f75b6c6e37"
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 25450,
+      "sha256": "c040746aafaea5b75d915ed8fe54fcb89d692f57a1c6d605f2b19663ca0d22dd"
+    },
+    {
+      "path": "PRODUCT-PLAN.md",
+      "bytes": 71818,
+      "sha256": "fa36387ebc224bd74174cbde7d1f94a9ec8955f1265a4902f4fb9314913ee514"
+    },
+    {
+      "path": "decisions.md",
+      "bytes": 437955,
+      "sha256": "ce6244f20c6634163394dadd6b20008303c7d347a470c48979ec8422f0a61ce3"
+    },
+    {
+      "path": ".agents/STATE.md",
+      "bytes": 6416,
+      "sha256": "7ff8b6b8597694f1249ae5a8c3deec727b5d74635ff977fe10a676158a61adbe"
+    },
+    {
+      "path": "scripts/deploy-production.ps1",
+      "bytes": 2223,
+      "sha256": "7ea0a74561a253c7e45cdfd0ab85e0cca7e4481a1877e39661ebd1a11424bb04"
+    },
+    {
+      "path": "scripts/release-data-bundle.ps1",
+      "bytes": 4759,
+      "sha256": "c765bc34f9cdd7fbf1675f6bf5cd4b9c78cade97765a05bbcaa4cb249360d7f4"
+    },
+    {
+      "path": "scripts/activate-data-bundle.ps1",
+      "bytes": 3546,
+      "sha256": "84c7cafa9488ffc26b6e18e2c00cf1815bc6da3aaffadefb16e5386f8d78221c"
+    },
+    {
+      "path": "pipeline/publish.py",
+      "bytes": 11233,
+      "sha256": "8e92cf20712225307cb378b6aabf28fbc3752e050eff12d726a63d36ef90182f"
+    },
+    {
+      "path": "web/scripts/ensure-data-bundle.mjs",
+      "bytes": 8528,
+      "sha256": "637966de4f209fb88bd9323e99e32b62401f8fe7d2c3fc565a75f4390ed43477"
+    },
+    {
+      "path": "web/package.json",
+      "bytes": 863,
+      "sha256": "2a3d13156cece44b108e090d9069f36297d0c53fcb0e760f2138516a6d4b7ae9"
+    },
+    {
+      "path": "web/lib/data.ts",
+      "bytes": 18277,
+      "sha256": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99"
+    },
+    {
+      "path": "web/lib/lamp-overlay.ts",
+      "bytes": 5758,
+      "sha256": "717167658fa49110c04db6d82ccbdf1e3bf9efb77008fa5cfc2f425551dfe9df"
+    },
+    {
+      "path": "web/public/sw.js",
+      "bytes": 5476,
+      "sha256": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+    },
+    {
+      "path": "qa/SHIOK-acceptance-tests.md",
+      "bytes": 10210,
+      "sha256": "7fa4e96a6c887e6d8e5d6c08c4d3f39aaf0f7de8ef868895e4c981a02e3b2dcc"
+    }
+  ],
+  "FINDINGS": [
+    "Runbook assigns proposed ownership/cadences and explicit operational approval boundaries.",
+    "Deploy preparation can write protected data and omit the lamp overlay; T31 repair precedes release.",
+    "Live manifest matches pinned local metadata; production commit and complete shard/browser verification are not established.",
+    "Git metadata coverage is not payload backup. Named P6/P7/P9 evidence directories remain absent; no copy or restore ran."
+  ],
+  "DISAGREEMENTS": [
+    "Confirmed deploy helpers are not presently a safe unchanged-artifact path.",
+    "A local build or one manifest match cannot establish production deployment identity or rollback success."
+  ]
+}

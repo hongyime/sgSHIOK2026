@@ -3109,3 +3109,43 @@ approved scheduled runner, durable external state and actual notice delivery are
 verified. Do not silently interpret routine read-only approval as approval for
 that external activation. Evidence: qa/revamp-r1/source-monitor-20260909/
 review-fixes-green-2/checks.json and live-review-1/command.json.
+
+## 2026-09-10: Maintenance ownership and immutable release preparation
+
+README's Maintenance And Recovery section is the shared operating proposal.
+The project owner remains accountable; an invoked agent is not permanent
+operational staffing. Proposed cadence is Tuesday 17:43 SGT source checks,
+Tuesday/Friday 18:00 SGT private moderation only after T13-T18, candidate/first-day
+release review and monthly capacity/backup review. No scheduler, moderator SLA,
+credential, external notice or backup destination is activated by this decision.
+
+Retain verified monitor state and honest failures; failed or unknown observations
+never make old payloads current. Before enabling reports, the owner must approve
+provider/privacy/caps/moderator/absence cover, key custody and retention including
+recovery-copy residue. The existing no-Cloudflare policy remains until explicit
+T13 approval; the provider proposal does not override it. No resident content or
+private backup belongs in public Git. Unattended operation remains T23/T13 gated.
+
+A clone is not a payload backup. The bounded named-path inspection found P6/P7/P9
+absent, while P8/P10/eight P11 d_* directories and public/processed payload roots
+exist with no tracked contents. Some raw/data/release metadata is tracked, so do
+not label those whole trees either fully backed up or wholly untracked. Back up
+additively only to an owner-approved private destination; restore into a new
+isolated destination, never over this working root. No copy or restore ran.
+
+Release review found the current helper chain can write missing derived files
+inside protected data via npm build, stage untracked web files, omit the lamp
+overlay and recompress data. The data-release helper deploys before final preflight
+and pointer commit; a command failure need not mean production stayed unchanged.
+Put that execution path on hold. T31 must fix/test preparation using synthetic
+fixtures before T27/T28; no actual pipeline, staging of real payloads or deploy is
+approved. The safe no-confirmation plan branch alone was exercised, returning
+plan_only=true and deploy=not_started.
+
+Local snapshot identity, live HTML identity, production deployment/source identity
+and artifact identity remain separate. The bounded live manifest read matched the
+pinned hash but did not validate all shards or production commit. Plan rollback
+to a verified eligible previous deployment, not a Git reset/data move; account
+for build-time configuration and retained browser caches. Current Vercel Hobby
+rollback restrictions are linked in README; recheck eligibility before approval.
+No real rollback is claimed. Evidence: qa/revamp-r1/maintenance-20260910/inspection.json.

@@ -366,13 +366,28 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   Source Metadata Monitor (Local). Evidence: same directory's live-review-1 and
   review-fixes-summary.json; complete local report under qa/source-monitor/live-review-1.
 
-### [ ] T24: Make maintenance ownership and recovery explicit
-- Status: READY. Size: S. Parent: P2.3.
+### [x] T24: Make maintenance ownership and recovery explicit
+- Status: DONE as a reviewed operating proposal, not activated operations or exercised recovery. Size: S. Parent: P2.3.
 - Depends on: T22.
 - Scope: existing operational docs/decisions and tracked scripts inventory, read-only metadata.
 - Do: propose concrete source-check, report-review and release-review cadence; name owner actions, failures, fallback and free-cap checks. Record which payloads remain untracked/irreplaceable and a non-destructive backup/recovery proposal. Separate agent-runnable checks from physical backup and credential actions.
 - Tests/done: O06-O11. A new session can identify the current frontend/artifact, find its validation and stage a rollback plan without moving live data. Reporting cadence must reconcile with T13 before reporting release. No backup or restore claimed unless exercised under its own approval.
 - Gate: FREE docs/read-only. No evidence copy, migration, deletion or automatic activation.
+- Progress 2026-09-10: README names proposed owners/cadences, monitor/report
+  failure handling, free-cap review, protected-payload backup and isolated recovery.
+  Named-path/index inspection finds P6/P7/P9 absent, P8/P10 and eight P11 d_* paths
+  present/untracked; no recursive payload scan or X access. Four metadata hashes
+  remained unchanged. One bounded live HTML/manifest read matches the pinned
+  manifest, not all shards or the production commit.142 local source hashes match
+  the prior validated snapshot. Plan-only deploy returned deploy=not_started.
+  Evidence: qa/revamp-r1/maintenance-20260910/inspection.json.
+- Review found existing deploy helpers can prepare data in protected directories,
+  omit the lamp overlay, stage untracked web files and deploy before final preflight.
+  README's normal deployment recommendation is on hold; T31 owns fixture-tested
+  repair. T24 does not claim actual monitoring, moderation, backup or rollback.
+- Final independent review accepts the runbook and receipt scope. Verification:
+  qa/revamp-r1/maintenance-20260910/verification.json; checked-in Git deploy policy
+  is distinguished from unverified remote configuration. T31 is the next safe task.
 
 ### [ ] T25: Run cross-feature accessibility and failure acceptance
 - Status: PARTIAL. Size: M. Parent: P3.1.
@@ -396,7 +411,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T27: Prepare a bounded frontend release candidate
 - Status: WAIT_DEPS. Size: M. Parent: P3.2.
-- Depends on: T01, T07, T11, T25, T29 security disposition.
+- Depends on: T01, T07, T11, T25, T29 security disposition, T31 immutable staging.
 - Scope: existing deployment/readiness scripts, release tests and handback; no invocation of activation/deploy/data preparation.
 - Do: name exact commit, current unchanged artifact, deploy-trigger configuration, test evidence and rollback. Include only complete features; reporting additionally needs T18 and approved operational ownership. Review request/caching/free-tier exposure using current limits before recommending release. Inspect script side effects rather than trust names.
 - Tests/done: O05-O08/O10, M16-M17. Legacy provenance vs genuine defect remains distinguished; staged build works with current data; cache-upgrade and rollback procedures are specific; no protected write in dry validation. Outstanding owner/user decisions are explicit.
@@ -427,6 +442,14 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Tests/done: submit Enter and the search button while application scripts are held; the postal survives and the matching record loads after release. Invalid postal input remains rejected; hydrated search does not add full-page reloads or API fan-out. Recheck a normal shared-postal arrival.
 - Gate: FREE; no pipeline, dependency installation, protected-payload mutation or deployment.
 - Accepted 2026-09-09: 1607+22=1629 isolated web tests/60 files, TypeScript/integrity and direct build pass. Real application scripts held through native Enter and button submissions; the postal-only GET survives. A third scenario types before hydration and submits after it without a new input/change event. Hydrated searches switch to a different real record without reload/API/POST. Final browser passes61checks/5captures after an explicit map idle capture barrier; the first run's mid-fade screenshot is preserved and not final visual evidence. `qa/revamp-r1/native-postal-20260909/summary.json`. This does not establish physical-keyboard/device or representative latency performance. Next startable work: T19/T22.
+
+### [ ] T31: Make release preparation immutable before any deployment
+- Status: READY for fixture-only implementation. Size: M. Parent: P3.2.
+- Trigger: T24 found deploy-production -> publish -> npm build invokes data preparation in the existing bundle; staging includes untracked web children, omits lamp overlay and recompresses selected JSON. The release helper deploys before activation/final preflight and uses no-wait deployment.
+- Scope: narrowly scoped release/staging helpers and synthetic fixture tests. No production invocation, real-payload staging/copy, dependency installation or workflow activation.
+- Do: provide explicit non-mutating preparation, validate all approved artifacts and exact source inventory before external action, preserve existing compressed bytes and include the required overlay. Reject missing derived files rather than generating/restoring/downloading them. Separate preparation, approved deployment, ready-state verification and pointer activation; distinguish failure before versus after external changes. Never auto-commit ignore rewrites or claim no-wait means READY.
+- Tests/done: O06-O08/O10-O11 contracts on synthetic fixtures; no protected writes, no implicit install/fetch, injected failures leave pre-deploy pointers unchanged, staging excludes secrets/untracked source, both artifacts and byte identities are represented, async/error states are truthful. Real build/deployment/cache/rollback acceptance stays T27/T28, not passed by fixtures.
+- Gate: FREE fixture/source work only. Any actual data copy, install, deployment or activation requires its existing specific approval. No pipeline execution.
 
 ### Release and continuation rules
 - Core walk can be released after T01 and T04-T07 plus its own applicable T25-T28

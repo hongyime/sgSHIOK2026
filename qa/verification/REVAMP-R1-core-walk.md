@@ -3191,3 +3191,110 @@ previous-state validation, limits, failure handling and still-gated cadence.
    write/sync completed. Publish only after successful state/report verification.
 2. A successful metadata response does not certify frozen dataset freshness or
    changed payload bytes. Routine read-only approval is not external activation.
+
+## T24 maintenance ownership and recovery proposal, 2026-09-10
+
+Base 9224210. This is documentation and bounded read-only inspection, not a backup,
+restore, release, pipeline run or activated service. Earlier evidence stays intact.
+README now names proposed owner/agent actions, cadence, incident/failure handling,
+free-cap review, private payload preservation and non-destructive recovery.
+
+```text
+node qa/revamp-r1/maintenance-20260910/inspect.mjs
+working_root=C:\sgSHIOK2026
+hostname=Prawn-E14
+inventory_scope=named-path presence and Git-index membership; no recursive payload scan
+X_access=false
+env_content_read=false
+raw_tracked_paths=1
+data_tracked_paths=1
+qa_releases_tracked_paths=56
+checksums_json_tracked_paths=1
+p6_named_directory_present=false
+p7_named_directory_present=false
+p9_named_directory_present=false
+p8_named_directory_present=true
+p10_named_directory_present=true
+p11_d_directories_present=8
+local_build_source_hashes_checked=142
+local_build_source_hashes_matching=142
+local_build_id=Hb1o7rptP9IxSDBxSb8ID
+production_deployment_id=unverified
+automatic_git_deploy_in_checked_in_config=false
+protected_metadata_before_after_equal=true
+powershell.exe -NoProfile -File C:\sgSHIOK2026\scripts\deploy-production.ps1
+plan_only=true
+deploy=not_started
+reason=confirm_production_not_set
+deploy_path=staged_web_plus_selected_bundle
+vercel_scope=theprawnvercel
+vercel_project=sgshiok
+plan_exit_code=0
+live_document_status=200
+live_document_bytes=12827
+live_document_sha256=047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636
+live_manifest_status=200
+live_manifest_bytes=13626
+live_manifest_sha256=7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e
+local_manifest_sha256=7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e
+live_requests=2
+retries=0
+redirects_followed=0
+scripts_or_assets_loaded=false
+pipeline_runs=0
+dataset_copies=0
+installations=0
+deployments=0
+backup_or_restore_exercised=false
+```
+
+The command receipt includes full plan stdout/stderr, four exact before/after
+metadata hashes, all named paths and tracked counts, the 142 source identities,
+bounded request timings and saved response paths. Both remote bodies are retained
+in the new QA directory. Arithmetic: 12827 HTML + 13626 manifest = 26453 bytes
+saved; 966 + 290 = 1256 ms for these two request observations, not a browser loading
+benchmark. No scripts, workers, tiles or records were requested. The manifest
+comparison does not verify every deployed shard, running browser, production
+source commit or deployment ID. Matching 142 snapshot files does not prove the
+current web tree has no additional files. Four unchanged metadata anchors do not
+constitute a new full payload hash audit. P6/P7/P9 absence is local named-path
+evidence, not a new search of other machines or proof of independent backup.
+
+Independent release-script review found the normal helper chain is incompatible
+with the current protected-artifact rules. Parent confirmed the paths directly:
+deploy-production.ps1 invokes dependency setup and publish; publish.py invokes
+npm run build; web/scripts/ensure-data-bundle.mjs can write derived shards within
+the existing bundle, restore a cache or download it. The staging code copies
+working web children, omits the separate lamp overlay and recompresses selected
+JSON. release-data-bundle.ps1 deploys before final preflight and pointer commit;
+activation compares count/date, not manifest hashes, and rewrites ignore files.
+These are code-path findings, not intentionally executed destructive experiments.
+Only the inspected no-confirmation plan branch above ran.
+
+README's old deploy recommendation is replaced by an explicit safety hold. Its
+old run.py check variants are no longer recommended for routine maintenance.
+T31 records fixture-only release-preparation repairs; T27/T28 keep actual staging,
+deployment, async readiness, worker/cache and rollback acceptance separately gated.
+The documented Vercel rollback constraints were checked against official docs on
+2026-09-10; no dashboard action or rollback occurred. Reporting cadence/retention
+remains conditional on the existing T13 proposal and does not override provider,
+privacy, moderator, credential or backup approval requirements.
+
+### FINDINGS
+1. The runbook now distinguishes agents performing bounded checks from the owner
+   accepting operational responsibility, credentials, private backups and release.
+2. Existing release helpers have real data-mutation/staging/ordering hazards.
+   Do not execute their confirmed path under the current protection rules; T31
+   is a new independent fixture-only repair task, not deployment permission.
+3. The live pinned manifest still matches its local identity. Current production
+   deployment/source commit and complete shard/browser behavior remain unverified.
+4. Local existence and Git membership are now explicit: some metadata is tracked,
+   but major payload roots and surviving P8/P10/P11 evidence are not Git backups.
+   P6/P7/P9 remain absent at their named paths; no copy, backup or restore is claimed.
+
+### DISAGREEMENTS
+1. The old README recommendation to use normal deployment as the safe unchanged-
+   artifact path is unsupported by its code. Plan-only inspection is safe; that
+   does not establish safety of confirmed deployment.
+2. Local HEAD, one manifest hash and a passing local build are not production
+   identity, complete payload verification or an exercised rollback.
