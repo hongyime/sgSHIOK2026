@@ -1,0 +1,660 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\cross-feature-20260909\\treatment-4-1788924034815",
+  "profile": "C:\\sgSHIOK2026\\tmp\\cross-feature-browser-WsObpS",
+  "build": "SVecGwN37beSg--Bqaksv",
+  "startedAt": "2026-09-09T03:20:34.819Z",
+  "runnerSha256": "0d73eb71020bb4f75709c5e1e8e78640e6e107bdc4d9de9b1a12a80e4b5b53fa",
+  "checks": [],
+  "captures": [],
+  "samples": [],
+  "errors": [],
+  "network": [
+    {
+      "id": "4868C38C104F05E65AD99F7675D115F0",
+      "url": "http://127.0.0.1:4328/?debugMap=1",
+      "status": 200,
+      "type": "Document"
+    },
+    {
+      "id": "99948.2",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/11tb-gx8zy4q_.css",
+      "status": 200,
+      "type": "Stylesheet"
+    },
+    {
+      "id": "99948.7",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/turbopack-33v2s10r63r3c.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "99948.3",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/3wkt3-74el481.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "99948.8",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/1oaw9uq-pttep.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "99948.9",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/0ftto0krbmyv1.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "99948.6",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/2t6y5xexk1e6y.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "99948.5",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/3rbzro06i8dd3.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "99948.4",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/22e2v4r0ll28f.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "99948.10",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/3j2t7pp_9euam.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "99948.23",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/1cd3upb9qn11p.css",
+      "status": 200,
+      "type": "Stylesheet"
+    },
+    {
+      "id": "99948.22",
+      "url": "http://127.0.0.1:4328/icon.svg",
+      "status": 200,
+      "type": "Other"
+    },
+    {
+      "id": "99948.24",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/0at71artbnxfz.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "99948.25",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/0gc5hoz1u4dff.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "99948.26",
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "status": 200,
+      "type": "Image"
+    },
+    {
+      "id": "99948.27",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/2rmzgxedjsyy1.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "99948.28",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/3_zdoql-8zsg0.js",
+      "status": 200,
+      "type": "Script"
+    }
+  ],
+  "cleanup": {
+    "closeSent": true,
+    "killSent": true,
+    "chromeExited": false,
+    "processAudit": {
+      "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\cross-feature-browser-WsObpS'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $owned=@(Owned); $before=@($owned | Select-Object ProcessId,Name,CommandLine); foreach($p in $owned){ Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue }; $until=[DateTime]::UtcNow.AddSeconds(25); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 500 } while([DateTime]::UtcNow -lt $until); @{before=$before; remaining=@($remaining | Select-Object ProcessId,Name,CommandLine); check='CIM profile identity plus live Get-Process HasExited after bounded exit grace'} | ConvertTo-Json -Depth 4 -Compress",
+      "exitCode": 0,
+      "stdout": "{\"before\":[{\"ProcessId\":103648,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:/Program Files/Google/Chrome/Application/chrome.exe\\\" --headless=new --no-first-run --no-sandbox --use-angle=swiftshader --enable-unsafe-swiftshader --remote-debugging-port=0 --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-WsObpS about:blank\"},{\"ProcessId\":98380,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=crashpad-handler --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-WsObpS /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-WsObpS\\\\Crashpad --metrics-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-WsObpS --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=152.0.7977.83 --initial-client-data=0x12c,0x130,0x134,0xfc,0x138,0x7fff428d7e60,0x7fff428d7e70,0x7fff428d7e80\"},{\"ProcessId\":101572,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=gpu-process --no-sandbox --headless=new --use-angle=swiftshader --enable-unsafe-swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-WsObpS\\\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1872,i,17278838475483293350,9801680488866761506,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1908,i,13178149917905004306,9505234609423719216,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1868 /prefetch:2\"},{\"ProcessId\":102968,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --use-angle=swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-WsObpS\\\" --no-pre-read-main-dll --field-trial-handle=1872,i,17278838475483293350,9801680488866761506,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1908,i,13178149917905004306,9505234609423719216,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2084 /prefetch:11\"},{\"ProcessId\":103192,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --use-angle=swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-WsObpS\\\" --no-pre-read-main-dll --field-trial-handle=1872,i,17278838475483293350,9801680488866761506,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1908,i,13178149917905004306,9505234609423719216,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2352 /prefetch:13\"},{\"ProcessId\":106316,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-WsObpS\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=994745250390 --field-trial-handle=1872,i,17278838475483293350,9801680488866761506,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1908,i,13178149917905004306,9505234609423719216,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3344 /prefetch:1\"},{\"ProcessId\":99948,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-WsObpS\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=994745418235 --field-trial-handle=1872,i,17278838475483293350,9801680488866761506,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1908,i,13178149917905004306,9505234609423719216,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3656 /prefetch:1\"},{\"ProcessId\":83060,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-WsObpS\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=994745548237 --field-trial-handle=1872,i,17278838475483293350,9801680488866761506,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1908,i,13178149917905004306,9505234609423719216,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=3812 /prefetch:1\"},{\"ProcessId\":107248,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-WsObpS\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=21 --launch-time-ticks=994810995989 --field-trial-handle=1872,i,17278838475483293350,9801680488866761506,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1908,i,13178149917905004306,9505234609423719216,4 --trace-process-track-uuid=3190709005989750323 --mojo-platform-channel-handle=5548 /prefetch:1\"},{\"ProcessId\":10392,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=unzip.mojom.Unzipper --lang=en-US --service-sandbox-type=service --no-sandbox --use-angle=swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-WsObpS\\\" --no-pre-read-main-dll --field-trial-handle=1872,i,17278838475483293350,9801680488866761506,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1908,i,13178149917905004306,9505234609423719216,4 --trace-process-track-uuid=3190709007863834021 --mojo-platform-channel-handle=6372 /prefetch:14\"},{\"ProcessId\":90708,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-WsObpS\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=27 --launch-time-ticks=994901220478 --field-trial-handle=1872,i,17278838475483293350,9801680488866761506,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1908,i,13178149917905004306,9505234609423719216,4 --trace-process-track-uuid=3190709011612001417 --mojo-platform-channel-handle=6488 /prefetch:1\"}],\"remaining\":[],\"check\":\"CIM profile identity plus live Get-Process HasExited after bounded exit grace\"}\r\n",
+      "stderr": ""
+    },
+    "verified": true
+  },
+  "policy": "Functional Chromium/SwiftShader; CSS viewport emulation and separately labelled computed-font doubling, not physical-device or representative latency evidence. No API, pipeline, installation or deployment.",
+  "preview": {
+    "build": "SVecGwN37beSg--Bqaksv",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-cross-feature-20260909-2\\web",
+    "pid": 100888,
+    "nextPid": 104764,
+    "requests": [
+      {
+        "path": "/",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922948468
+      },
+      {
+        "path": "/_next/static/chunks/11tb-gx8zy4q_.css",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922950716
+      },
+      {
+        "path": "/_next/static/chunks/3wkt3-74el481.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922950728
+      },
+      {
+        "path": "/_next/static/chunks/22e2v4r0ll28f.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922951574
+      },
+      {
+        "path": "/_next/static/chunks/3rbzro06i8dd3.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922951703
+      },
+      {
+        "path": "/_next/static/chunks/turbopack-33v2s10r63r3c.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922951715
+      },
+      {
+        "path": "/_next/static/chunks/2t6y5xexk1e6y.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922951856
+      },
+      {
+        "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922952797
+      },
+      {
+        "path": "/_next/static/chunks/0ftto0krbmyv1.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922952802
+      },
+      {
+        "path": "/_next/static/chunks/3j2t7pp_9euam.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922953605
+      },
+      {
+        "path": "/_next/static/chunks/0at71artbnxfz.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922961315
+      },
+      {
+        "path": "/_next/static/chunks/1cd3upb9qn11p.css",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922961483
+      },
+      {
+        "path": "/_next/static/chunks/0gc5hoz1u4dff.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922961500
+      },
+      {
+        "path": "/icon.svg",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922962291
+      },
+      {
+        "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922976425
+      },
+      {
+        "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922976972
+      },
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922981225
+      },
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922983528
+      },
+      {
+        "path": "/sw.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923009881
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+        "status": 404,
+        "kind": "data",
+        "at": 1788923010094
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923010134
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923010273
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+        "status": 404,
+        "kind": "data",
+        "at": 1788923010699
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+        "status": 404,
+        "kind": "data",
+        "at": 1788923010701
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923010737
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923010740
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923012886
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923012887
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923012940
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923012951
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923013015
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+        "status": 404,
+        "kind": "data",
+        "at": 1788923013022
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923013025
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json.gz",
+        "status": 404,
+        "kind": "data",
+        "at": 1788923023221
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923023264
+      },
+      {
+        "path": "/sw.js",
+        "status": 304,
+        "kind": "app",
+        "at": 1788923034444
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923084640
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-index.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923084823
+      },
+      {
+        "path": "/",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923367832
+      },
+      {
+        "path": "/_next/static/chunks/11tb-gx8zy4q_.css",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923369273
+      },
+      {
+        "path": "/_next/static/chunks/3wkt3-74el481.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923369299
+      },
+      {
+        "path": "/_next/static/chunks/22e2v4r0ll28f.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923369301
+      },
+      {
+        "path": "/_next/static/chunks/turbopack-33v2s10r63r3c.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923369304
+      },
+      {
+        "path": "/_next/static/chunks/2t6y5xexk1e6y.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923369305
+      },
+      {
+        "path": "/_next/static/chunks/3rbzro06i8dd3.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923369307
+      },
+      {
+        "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923369313
+      },
+      {
+        "path": "/_next/static/chunks/0ftto0krbmyv1.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923369376
+      },
+      {
+        "path": "/_next/static/chunks/3j2t7pp_9euam.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923369398
+      },
+      {
+        "path": "/icon.svg",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923369834
+      },
+      {
+        "path": "/_next/static/chunks/0at71artbnxfz.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923369856
+      },
+      {
+        "path": "/_next/static/chunks/1cd3upb9qn11p.css",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923369857
+      },
+      {
+        "path": "/_next/static/chunks/0gc5hoz1u4dff.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923369861
+      },
+      {
+        "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923369946
+      },
+      {
+        "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923369954
+      },
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923377839
+      },
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923377959
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+        "status": 404,
+        "kind": "data",
+        "at": 1788923387098
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923387103
+      },
+      {
+        "path": "/sw.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923387115
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923387126
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+        "status": 404,
+        "kind": "data",
+        "at": 1788923388864
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+        "status": 404,
+        "kind": "data",
+        "at": 1788923388866
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923388965
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923388966
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923390801
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923390815
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923390828
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923390830
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923390846
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923390847
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+        "status": 404,
+        "kind": "data",
+        "at": 1788923390888
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json.gz",
+        "status": 404,
+        "kind": "data",
+        "at": 1788923405678
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923406720
+      },
+      {
+        "path": "/sw.js",
+        "status": 304,
+        "kind": "app",
+        "at": 1788923424815
+      }
+    ]
+  },
+  "chromePid": 103648,
+  "lastSample": {
+    "name": "plain map before postal",
+    "value": {
+      "status": "mounting",
+      "viewport": [
+        390,
+        844
+      ],
+      "routeKey": "1:shiokest:",
+      "featureCount": 0,
+      "basemap": false,
+      "panel": null,
+      "table": null,
+      "heading": null,
+      "finalRow": null,
+      "search": {
+        "x": 10,
+        "y": 54.6875,
+        "width": 300,
+        "height": 44,
+        "bottom": 98.6875,
+        "right": 310
+      },
+      "logo": {
+        "x": 10,
+        "y": 10,
+        "width": 74,
+        "height": 36.6875,
+        "bottom": 46.6875,
+        "right": 84
+      },
+      "result": null,
+      "about": {
+        "x": 280,
+        "y": 779,
+        "width": 98,
+        "height": 33,
+        "bottom": 812,
+        "right": 378
+      },
+      "attribution": {
+        "x": 114,
+        "y": 816,
+        "width": 268,
+        "height": 24,
+        "bottom": 840,
+        "right": 382
+      },
+      "overflow": false,
+      "focus": {
+        "tag": "BODY",
+        "label": null,
+        "role": null,
+        "className": "",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "bottom": 844,
+          "right": 390
+        }
+      },
+      "canvas": null,
+      "saved": null,
+      "reduced": true,
+      "url": "http://127.0.0.1:4328/?debugMap=1"
+    }
+  },
+  "failure": "Error: CDP timeout: Runtime.evaluate\n    at Timeout._onTimeout (file:///C:/sgSHIOK2026/qa/revamp-r1/cross-feature-20260909/browser.mjs:23:74)\n    at listOnTimeout (node:internal/timers:635:17)\n    at process.processTimers (node:internal/timers:571:7)",
+  "failureCapture": {
+    "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\cross-feature-20260909\\treatment-4-1788924034815\\failure.png",
+    "sha256": "06ec79d07760d8841346be17bf6be4a3db5755161dfb6d34cf634732727fe433"
+  },
+  "stderr": "\r\nDevTools listening on ws://127.0.0.1:11039/devtools/browser/94c599d6-848a-4759-83c9-3871e395d527\r\n[103648:107204:0909/112146.477:ERROR:components\\webapps\\browser\\web_contents\\web_app_url_loader.cc:180] Error loading about:blank page took too long to load.\r\n[103648:103248:0909/112148.201:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[103648:103248:0909/112148.202:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[103648:103248:0909/112148.202:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[103648:107204:0909/112248.274:ERROR:components\\webapps\\browser\\web_contents\\web_app_url_loader.cc:180] Error loading about:blank page took too long to load.\r\n[103648:103248:0909/112248.502:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n[103648:107204:0909/112324.210:ERROR:chrome\\browser\\web_applications\\externally_managed_app_manager.cc:680] https://docs.google.com/spreadsheets/installwebapp?usp=chrome_default from install source 1 failed to install with reason 21\r\n",
+  "finishedAt": "2026-09-09T03:23:44.213Z",
+  "ok": false
+}

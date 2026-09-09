@@ -74,6 +74,7 @@ function incompleteMap() {
       handlers.set(event, listeners);
       return map;
     },
+    getCanvas: () => ({ setAttribute: vi.fn() }),
     remove: vi.fn(() => handlers.clear()),
   };
   return map;

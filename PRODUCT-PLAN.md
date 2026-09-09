@@ -308,13 +308,16 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: FREE docs/read-only. No evidence copy, migration, deletion or automatic activation.
 
 ### [ ] T25: Run cross-feature accessibility and failure acceptance
-- Status: READY. Size: M. Parent: P3.1.
+- Status: PARTIAL. Size: M. Parent: P3.1.
 - Depends on: T07, T11.
 - Scope: web regression/browser tests and existing acceptance catalogue; narrowly scoped fixes for observed blockers.
 - Do: keyboard-only, zoomed text, reduced motion, mobile viewport, failed storage/network and fast navigation across inspect/compare. Include reporting only after T18, not as a fake passing placeholder. Recheck the requested top-left stack, equal widths, About data and attribution.
 - Tests/done: S08, M03-M07/M14-M18, C01-C09; applicable F cases. No inaccessible controls, hidden current route, overlapping content or stale cross-feature state. Actual screenshot/count captures and exact failures/fixes recorded.
 - Gate: FREE browser work; physical device/user evidence belongs to T26.
 - T11 follow-up: keep shared short-screen table scrolling usable after the extra Save/Use saved row; verify zoomed text and settled resize captures rather than treating a current route-feature count as proof that raster transitions have finished. Reporting remains excluded until T18.
+- Completed slice: removed the inert outer map Tab stop; current accessible name/description and focus ring now belong to MapLibre's keyboard canvas. One comparison scroll owner fixes the measured zero-height table at enlarged text, retains the46dvh cap and sticky postal identity, and keeps horizontal commands reachable. Full isolated suite1389/54, TypeScript/integrity/11anchors pass; seven source hashes match test and build snapshots.
+- Browser boundary: treatment1 has42 passing checks,18 visually inspected captures and one failed client-border assertion. Its corrected replay is not passed. Later startup/automation attempts failed; treatment4's actual screenshot shows the app's map-startup error and no basemap. Do not describe this as merely a harness failure or claim release readiness. Evidence: qa/revamp-r1/cross-feature-20260909/summary.json; old red receipts remain.
+- Next: prioritize T01 startup/outer-chunk recovery and T03 safe diagnostics, then finish M17/M18, scroll-related Retry/Save/storage-failure focus and the complete cross-feature replay. Native zoom, assistive technology, physical devices and representative performance remain separate. No more repeated browser launches without a new diagnostic purpose.
 
 ### [ ] T26: Owner/device and real-user task acceptance
 - Status: OWNER. Size: S. Parent: P3.1.

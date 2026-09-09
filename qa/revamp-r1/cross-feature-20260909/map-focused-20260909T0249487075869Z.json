@@ -1,0 +1,148 @@
+{
+  "task": "T25 map canvas accessibility: authorized mock extensions and focused verification",
+  "working_root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "command": "node C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs lib/__tests__/route-source-lifecycle.test.ts lib/__tests__/map-startup-import.test.ts lib/__tests__/route-map-keyboard.test.ts --no-cache --reporter=verbose",
+  "test_paths": [
+    "lib/__tests__/route-source-lifecycle.test.ts",
+    "lib/__tests__/route-map-keyboard.test.ts",
+    "lib/__tests__/map-startup-import.test.ts"
+  ],
+  "executed_passed_counts": {
+    "lib/__tests__/route-source-lifecycle.test.ts": 38,
+    "lib/__tests__/route-map-keyboard.test.ts": 6,
+    "lib/__tests__/map-startup-import.test.ts": 5
+  },
+  "test_total": 49,
+  "arithmetic": "38 + 6 + 5 = 49",
+  "exit_code": 0,
+  "raw_command_output": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > times out a silent startup with a selected walk=true 112ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > times out a silent startup with a selected walk=false 10ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > does not mistake style.load for completed startup 37ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > cancels the startup deadline on load but waits for current route rendering 34ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > makes a pre-load worker failure terminal and ignores late events 42ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > retains a map that reaches load after a recoverable tile failure 59ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > keeps the startup deadline active after a tile failure that never settles 30ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > retries a pre-load tile failure using a fresh attempt before the deadline 54ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > reports startup failure even if teardown throws and never repeats that teardown 69ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > supports effect cleanup/setup replay with retained refs and a single owned map 21ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > reports a rejected constructor once without leaving a startup timer 6ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > unmounts during import without constructing a map or reporting a late failure 24ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > isolates attempt ownership across remounts without claiming a real worker pool reset 40ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > draws the exact validated line and fits its bounds with measured padding, then clear restores the walk 72ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > equivalent focus objects and optional renders do not rewrite sources or snap back after a gesture 48ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: context 34ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: missing-context 23ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: shortest 19ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: no-route 31ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: other-geometry 30ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: other-base 17ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: foreign-points 16ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: foreign-encoding 13ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: length 18ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: nan 28ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: degenerate 23ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > allows sheltered focus in both mode and clears it when switching to shortest only 13ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > keeps mapped focus on surviving sheltered pieces when shortest is partial and the option is not retainable 19ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > restores current line focus after style recreation without mutating readonly points 32ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > keeps the basemap usable with no selected walk instead of reporting missing geometry 15ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > publishes all sources initially, then optional POIs/feedback/lamps do not rewrite or refit the route 56ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > gap focus/clear writes only the highlight and retains intentional camera movement 35ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > replaces routes, rejects old callbacks/features, and clears all route-owned sources 29ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > propagates changed geometry with the same route identity 22ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > republishes current data after style recreation and keeps one readiness listener 46ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > retry recovers a missing source, retains useful data on tile failure, and cleans up 25ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > gesture cancellation cannot time out or refit on a later optional update 48ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > repeated recovery replaces listeners and detached callbacks stay inert after unmount 32ms\n \u2713 lib/__tests__/route-map-keyboard.test.ts > T25: keyboard focus belongs to the MapLibre canvas > does not add a dead outer Tab stop or image semantics around the interactive canvas 46ms\n \u2713 lib/__tests__/route-map-keyboard.test.ts > T25: keyboard focus belongs to the MapLibre canvas > labels and describes the real focus target before the first load event 31ms\n \u2713 lib/__tests__/route-map-keyboard.test.ts > T25: keyboard focus belongs to the MapLibre canvas > updates selection and mode metadata without reconstructing the map 28ms\n \u2713 lib/__tests__/route-map-keyboard.test.ts > T25: keyboard focus belongs to the MapLibre canvas > uses current metadata when selection changes before async construction completes 27ms\n \u2713 lib/__tests__/route-map-keyboard.test.ts > T25: keyboard focus belongs to the MapLibre canvas > removes stale walk labeling when the selected route is cleared 31ms\n \u2713 lib/__tests__/route-map-keyboard.test.ts > T25: keyboard focus belongs to the MapLibre canvas > labels a replacement canvas after pre-load retry without mutating the retired canvas 54ms\n \u2713 lib/__tests__/map-startup-import.test.ts > map startup with a controlled pending module import > times out before import resolves and never constructs from the late resolution 222ms\n \u2713 lib/__tests__/map-startup-import.test.ts > map startup with a controlled pending module import > does not report a second error when the import rejects after the deadline 36ms\n \u2713 lib/__tests__/map-startup-import.test.ts > map startup with a controlled pending module import > reports import rejection once and cancels the outstanding startup deadline 31ms\n \u2713 lib/__tests__/map-startup-import.test.ts > map startup with a controlled pending module import > only the current attempt owns the resolved map after fresh remount 31ms\n \u2713 lib/__tests__/map-startup-import.test.ts > map startup with a controlled pending module import > only the current attempt owns the resolved map after retained-ref effect replay 32ms\n\n Test Files  3 passed (3)\n      Tests  49 passed (49)\n   Start at  10:50:14\n   Duration  9.24s (transform 2.40s, setup 0ms, import 2.99s, tests 1.90s, environment 2ms)\n\n",
+  "raw_output_note": "Exact concatenation of exec_command/write_stdin output chunks; the tool returns one combined stdout/stderr stream.",
+  "output_chunks": [
+    {
+      "chunk_id": "c5aa4a",
+      "wall_time_seconds": 10.0178204,
+      "session_id": 74092,
+      "original_token_count": 9,
+      "output": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n"
+    },
+    {
+      "chunk_id": "2d494f",
+      "wall_time_seconds": 3.9857939,
+      "exit_code": 0,
+      "original_token_count": 2306,
+      "output": " \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > times out a silent startup with a selected walk=true 112ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > times out a silent startup with a selected walk=false 10ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > does not mistake style.load for completed startup 37ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > cancels the startup deadline on load but waits for current route rendering 34ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > makes a pre-load worker failure terminal and ignores late events 42ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > retains a map that reaches load after a recoverable tile failure 59ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > keeps the startup deadline active after a tile failure that never settles 30ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > retries a pre-load tile failure using a fresh attempt before the deadline 54ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > reports startup failure even if teardown throws and never repeats that teardown 69ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > supports effect cleanup/setup replay with retained refs and a single owned map 21ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > reports a rejected constructor once without leaving a startup timer 6ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > unmounts during import without constructing a map or reporting a late failure 24ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M01/M08/M11: bounded map startup in the executed component > isolates attempt ownership across remounts without claiming a real worker pool reset 40ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > draws the exact validated line and fits its bounds with measured padding, then clear restores the walk 72ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > equivalent focus objects and optional renders do not rewrite sources or snap back after a gesture 48ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: context 34ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: missing-context 23ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: shortest 19ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: no-route 31ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: other-geometry 30ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: other-base 17ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: foreign-points 16ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: foreign-encoding 13ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: length 18ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: nan 28ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > rejects stale/foreign mapped focus: degenerate 23ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > allows sheltered focus in both mode and clears it when switching to shortest only 13ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > keeps mapped focus on surviving sheltered pieces when shortest is partial and the option is not retainable 19ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > T07 mapped-section focus in the executed map component > restores current line focus after style recreation without mutating readonly points 32ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > keeps the basemap usable with no selected walk instead of reporting missing geometry 15ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > publishes all sources initially, then optional POIs/feedback/lamps do not rewrite or refit the route 56ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > gap focus/clear writes only the highlight and retains intentional camera movement 35ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > replaces routes, rejects old callbacks/features, and clears all route-owned sources 29ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > propagates changed geometry with the same route identity 22ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > republishes current data after style recreation and keeps one readiness listener 46ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > retry recovers a missing source, retains useful data on tile failure, and cleans up 25ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > gesture cancellation cannot time out or refit on a later optional update 48ms\n \u2713 lib/__tests__/route-source-lifecycle.test.ts > M05/M10/M11: source ownership in the executed map component > repeated recovery replaces listeners and detached callbacks stay inert after unmount 32ms\n \u2713 lib/__tests__/route-map-keyboard.test.ts > T25: keyboard focus belongs to the MapLibre canvas > does not add a dead outer Tab stop or image semantics around the interactive canvas 46ms\n \u2713 lib/__tests__/route-map-keyboard.test.ts > T25: keyboard focus belongs to the MapLibre canvas > labels and describes the real focus target before the first load event 31ms\n \u2713 lib/__tests__/route-map-keyboard.test.ts > T25: keyboard focus belongs to the MapLibre canvas > updates selection and mode metadata without reconstructing the map 28ms\n \u2713 lib/__tests__/route-map-keyboard.test.ts > T25: keyboard focus belongs to the MapLibre canvas > uses current metadata when selection changes before async construction completes 27ms\n \u2713 lib/__tests__/route-map-keyboard.test.ts > T25: keyboard focus belongs to the MapLibre canvas > removes stale walk labeling when the selected route is cleared 31ms\n \u2713 lib/__tests__/route-map-keyboard.test.ts > T25: keyboard focus belongs to the MapLibre canvas > labels a replacement canvas after pre-load retry without mutating the retired canvas 54ms\n \u2713 lib/__tests__/map-startup-import.test.ts > map startup with a controlled pending module import > times out before import resolves and never constructs from the late resolution 222ms\n \u2713 lib/__tests__/map-startup-import.test.ts > map startup with a controlled pending module import > does not report a second error when the import rejects after the deadline 36ms\n \u2713 lib/__tests__/map-startup-import.test.ts > map startup with a controlled pending module import > reports import rejection once and cancels the outstanding startup deadline 31ms\n \u2713 lib/__tests__/map-startup-import.test.ts > map startup with a controlled pending module import > only the current attempt owns the resolved map after fresh remount 31ms\n \u2713 lib/__tests__/map-startup-import.test.ts > map startup with a controlled pending module import > only the current attempt owns the resolved map after retained-ref effect replay 32ms\n\n Test Files  3 passed (3)\n      Tests  49 passed (49)\n   Start at  10:50:14\n   Duration  9.24s (transform 2.40s, setup 0ms, import 2.99s, tests 1.90s, environment 2ms)\n\n"
+    }
+  ],
+  "source_before": {
+    "timestamp": "2026-09-09T02:49:48.7075869Z",
+    "root": "C:\\sgSHIOK2026",
+    "hostname": "PRAWN-E14",
+    "files": [
+      {
+        "path": "web/components/route-evidence-map.tsx",
+        "sha256": "dd0858b4e0aea39efc41bb6516270558bb2e8e388372d5e754943ba3bfbbc810",
+        "bytes": 58726
+      },
+      {
+        "path": "web/components/route-evidence-map.module.css",
+        "sha256": "ab32c76913f123a9ad69f64cfac953d51387ce5de8b2c7af2da0711d76b566d0",
+        "bytes": 4383
+      },
+      {
+        "path": "web/lib/__tests__/route-map-keyboard.test.ts",
+        "sha256": "46d0e5d5c35876cd3400bf58beb6fb802701d554c54e584653686bb102b1662c",
+        "bytes": 8357
+      },
+      {
+        "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+        "sha256": "331da5598e45e84d58f220f96ebcb8104ab6a92ee1189c3852fcc7b5df6e822d",
+        "bytes": 29369
+      },
+      {
+        "path": "web/lib/__tests__/map-startup-import.test.ts",
+        "sha256": "59d21a2e84c99a08662f17171e54968d9bc36298f56c337e647831cc31bc78ed",
+        "bytes": 7950
+      }
+    ]
+  },
+  "source_after": {
+    "timestamp": "2026-09-09T02:51:27.8938318Z",
+    "root": "C:\\sgSHIOK2026",
+    "hostname": "PRAWN-E14",
+    "files": [
+      {
+        "path": "web/components/route-evidence-map.tsx",
+        "sha256": "dd0858b4e0aea39efc41bb6516270558bb2e8e388372d5e754943ba3bfbbc810",
+        "bytes": 58726
+      },
+      {
+        "path": "web/components/route-evidence-map.module.css",
+        "sha256": "ab32c76913f123a9ad69f64cfac953d51387ce5de8b2c7af2da0711d76b566d0",
+        "bytes": 4383
+      },
+      {
+        "path": "web/lib/__tests__/route-map-keyboard.test.ts",
+        "sha256": "46d0e5d5c35876cd3400bf58beb6fb802701d554c54e584653686bb102b1662c",
+        "bytes": 8357
+      },
+      {
+        "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+        "sha256": "81b8bc2376c7f177376a8d82dd1a42c7e441f2919dd2d417afbb02192541330e",
+        "bytes": 29392
+      },
+      {
+        "path": "web/lib/__tests__/map-startup-import.test.ts",
+        "sha256": "cb7a69901223d980a30f75a7eb64765f0c30f30c38cff2c1e6a3fc1a51ed31ac",
+        "bytes": 8000
+      }
+    ]
+  },
+  "hash_changes": [
+    {
+      "path": "web/components/route-evidence-map.tsx",
+      "before": "dd0858b4e0aea39efc41bb6516270558bb2e8e388372d5e754943ba3bfbbc810",
+      "after": "dd0858b4e0aea39efc41bb6516270558bb2e8e388372d5e754943ba3bfbbc810",
+      "changed": false
+    },
+    {
+      "path": "web/components/route-evidence-map.module.css",
+      "before": "ab32c76913f123a9ad69f64cfac953d51387ce5de8b2c7af2da0711d76b566d0",
+      "after": "ab32c76913f123a9ad69f64cfac953d51387ce5de8b2c7af2da0711d76b566d0",
+      "changed": false
+    },
+    {
+      "path": "web/lib/__tests__/route-map-keyboard.test.ts",
+      "before": "46d0e5d5c35876cd3400bf58beb6fb802701d554c54e584653686bb102b1662c",
+      "after": "46d0e5d5c35876cd3400bf58beb6fb802701d554c54e584653686bb102b1662c",
+      "changed": false
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "before": "331da5598e45e84d58f220f96ebcb8104ab6a92ee1189c3852fcc7b5df6e822d",
+      "after": "81b8bc2376c7f177376a8d82dd1a42c7e441f2919dd2d417afbb02192541330e",
+      "changed": true
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-import.test.ts",
+      "before": "59d21a2e84c99a08662f17171e54968d9bc36298f56c337e647831cc31bc78ed",
+      "after": "cb7a69901223d980a30f75a7eb64765f0c30f30c38cff2c1e6a3fc1a51ed31ac",
+      "changed": true
+    }
+  ],
+  "mock_edits": [
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "change": "Add setAttribute: vi.fn() to the existing getCanvas result; existing assertions/test cases unchanged."
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-import.test.ts",
+      "change": "Add getCanvas returning setAttribute: vi.fn(); existing assertions/test cases unchanged."
+    }
+  ],
+  "limits": [
+    "Deterministic hook/canvas doubles, not browser DOM/WebGL acceptance.",
+    "No full suite, build, deployment, installation, pipeline operation, X access, staging or commit in this verification.",
+    "Runtime/CSS/new keyboard regression were already treated before these before hashes; only the two authorized existing mock files changed during this run."
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs",
+    "lib/__tests__/home-comparison.test.tsx",
+    "lib/__tests__/route-map-keyboard.test.ts",
+    "lib/__tests__/route-source-lifecycle.test.ts",
+    "lib/__tests__/map-startup-import.test.ts",
+    "--no-cache",
+    "--reporter=dot"
+  ],
+  "exitCode": 0,
+  "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n········································································································\n\n Test Files  4 passed (4)\n      Tests  104 passed (104)\n   Start at  10:54:25\n   Duration  20.34s (transform 7.17s, setup 0ms, import 8.44s, tests 4.47s, environment 8ms)\n\n",
+  "stderr": "",
+  "elapsedSeconds": 43.731,
+  "before": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "bb7ae9f623baae6c8a97530eff014aade72bf930d1fd800f252c795d64a993da"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "c94567285b7da77d8f3edf73ed8250b55089a485e82f6ba6a068b63095570a60"
+    },
+    {
+      "path": "web/lib/__tests__/home-comparison.test.tsx",
+      "sha256": "fd713459c603ff1d904925230fc8c2a1555840fb8eba20ce40b39b25ccf7ada6"
+    },
+    {
+      "path": "web/lib/__tests__/route-map-keyboard.test.ts",
+      "sha256": "46d0e5d5c35876cd3400bf58beb6fb802701d554c54e584653686bb102b1662c"
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "sha256": "81b8bc2376c7f177376a8d82dd1a42c7e441f2919dd2d417afbb02192541330e"
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-import.test.ts",
+      "sha256": "cb7a69901223d980a30f75a7eb64765f0c30f30c38cff2c1e6a3fc1a51ed31ac"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "bb7ae9f623baae6c8a97530eff014aade72bf930d1fd800f252c795d64a993da"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "c94567285b7da77d8f3edf73ed8250b55089a485e82f6ba6a068b63095570a60"
+    },
+    {
+      "path": "web/lib/__tests__/home-comparison.test.tsx",
+      "sha256": "fd713459c603ff1d904925230fc8c2a1555840fb8eba20ce40b39b25ccf7ada6"
+    },
+    {
+      "path": "web/lib/__tests__/route-map-keyboard.test.ts",
+      "sha256": "46d0e5d5c35876cd3400bf58beb6fb802701d554c54e584653686bb102b1662c"
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "sha256": "81b8bc2376c7f177376a8d82dd1a42c7e441f2919dd2d417afbb02192541330e"
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-import.test.ts",
+      "sha256": "cb7a69901223d980a30f75a7eb64765f0c30f30c38cff2c1e6a3fc1a51ed31ac"
+    }
+  ],
+  "identitiesStable": true
+}

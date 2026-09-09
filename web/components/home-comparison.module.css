@@ -12,6 +12,8 @@
   max-height: 46dvh;
   padding-bottom: env(safe-area-inset-bottom, 0px);
   overflow: auto;
+  overscroll-behavior: contain;
+  scroll-padding-inline-start: 112px;
   border-top: 1px solid #aebcb7;
   background: #fff;
   color: #243a34;
@@ -22,11 +24,23 @@
 
 .header {
   display: flex;
+  flex-wrap: wrap;
   flex-shrink: 0;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
   padding: 4px 12px;
+}
+
+.header,
+.toolbar,
+.sharedRow,
+.storageNote,
+.empty {
+  position: sticky;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .header h2 {
@@ -105,7 +119,7 @@
 }
 
 .panel button:focus-visible,
-.tableViewport:focus-visible {
+.panel:has(.tableViewport:focus-visible) {
   outline: 2px solid #007a72;
   outline-offset: -3px;
 }
@@ -127,6 +141,7 @@
 
 .sharedRow {
   display: flex;
+  flex-wrap: wrap;
   flex-shrink: 0;
   align-items: center;
   gap: 8px;
@@ -154,11 +169,13 @@
 }
 
 .tableViewport {
+  flex: 0 0 auto;
   min-width: 0;
-  min-height: 0;
-  overflow: auto;
-  overscroll-behavior: contain;
-  scroll-padding-inline-start: 112px;
+  overflow: visible;
+}
+
+.tableViewport:focus-visible {
+  outline: none;
 }
 
 .table {

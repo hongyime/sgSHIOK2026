@@ -2821,3 +2821,31 @@ then showed Tab leaving the share dialog's controls at the final button.
 Explicit forward/reverse wrapping, preserving native modal semantics and
 non-Tab keys, now has17 additional handler regressions. Browser acceptance and
 build outcomes are recorded separately in the T11 handback.
+
+## 2026-09-09: Keep comparison usable at enlarged text (T25 partial)
+
+The keyboard interaction target is MapLibre's canvas, not a second focusable
+image wrapper. Apply the current walk's accessible name and description to that
+canvas, including before first load and after replacement. Keep native keyboard
+handling, visible focus and reduced-motion behavior without restoring the visible
+zoom/reset controls the owner rejected.
+
+The comparison drawer keeps its 46dvh limit, 44px controls and sticky postal
+identity. It now has one scroll owner, with horizontally pinned commands, rather
+than fixed control rows shrinking a nested table viewport to zero. Header and
+shared controls can wrap at enlarged text. Vertical scrolling can move commands
+offscreen; keyboard focus must bring them back, not reserve all the usable height.
+
+Browser baseline measured a zero-height table at doubled comparison text.
+Treatment1 demonstrated usable scrolling and map keyboard interaction, but did
+not pass every assertion. Its rightmost-cell boundary check omitted the 1px panel
+border; corrected replay remains unpassed. The final attempted replay captured
+the real app's map-startup error with no basemap. Passing 1,389 fixture tests and
+source review does not override that failure. T25 stays PARTIAL and release is
+not recommended. Finish T01/T03 startup recovery/diagnostics before further
+acceptance; do not substitute repeated browser launches or expensive processing.
+
+Evidence is qa/revamp-r1/cross-feature-20260909/summary.json and the appended
+REVAMP-R1 verification section. All old attempts remain, including automation
+timeouts and the explicit app failure. No pipeline, dependency installation,
+protected-payload mutation, X operation or deployment was performed.

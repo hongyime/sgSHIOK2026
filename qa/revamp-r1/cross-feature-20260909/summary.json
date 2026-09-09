@@ -1,0 +1,219 @@
+{
+  "task": "T25",
+  "status": "PARTIAL",
+  "date": "2026-09-09T03:30:46.468Z",
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "0e2d08cfdde0fcbde41368b215d5479b571e19df",
+  "sources": [
+    {
+      "path": "web/components/home-comparison.module.css",
+      "bytes": 4171,
+      "sha256": "ef4559e8f1e671a3f95c9d440f39b30178b45c54840e8f1546bee0439d285773",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/components/route-evidence-map.module.css",
+      "bytes": 4383,
+      "sha256": "ab32c76913f123a9ad69f64cfac953d51387ce5de8b2c7af2da0711d76b566d0",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/components/route-evidence-map.tsx",
+      "bytes": 58726,
+      "sha256": "dd0858b4e0aea39efc41bb6516270558bb2e8e388372d5e754943ba3bfbbc810",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/home-comparison.test.tsx",
+      "bytes": 30788,
+      "sha256": "fd713459c603ff1d904925230fc8c2a1555840fb8eba20ce40b39b25ccf7ada6",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-import.test.ts",
+      "bytes": 8000,
+      "sha256": "cb7a69901223d980a30f75a7eb64765f0c30f30c38cff2c1e6a3fc1a51ed31ac",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/route-map-keyboard.test.ts",
+      "bytes": 8357,
+      "sha256": "46d0e5d5c35876cd3400bf58beb6fb802701d554c54e584653686bb102b1662c",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "bytes": 29392,
+      "sha256": "81b8bc2376c7f177376a8d82dd1a42c7e441f2919dd2d417afbb02192541330e",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    }
+  ],
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "match": true
+    }
+  ],
+  "validation": {
+    "tests": 1389,
+    "files": 54,
+    "arithmetic": "1382 + 6 map keyboard + 1 structural comparison regression = 1389; 53 + 1 file = 54",
+    "focused": "104 tests / 4 files; 55 comparison + 38 lifecycle + 5 startup + 6 keyboard = 104",
+    "checksPath": "qa/revamp-r1/published-options-20260909/cross-feature-full-1/checks.json",
+    "buildPath": "qa/revamp-r1/cached-release-20260908/cross-feature-20260909-2/build.json",
+    "browserPath": "qa/revamp-r1/cross-feature-20260909/treatment-1-1788922922479/browser.json",
+    "buildId": "SVecGwN37beSg--Bqaksv",
+    "browserChecks": 43,
+    "captures": 18,
+    "checksOk": true,
+    "browserOk": false,
+    "lastBrowserPath": "qa/revamp-r1/cross-feature-20260909/treatment-4-1788924034815/browser.json",
+    "lastBrowserOk": false,
+    "isolatedSnapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-4jaCzh",
+    "browserReceiptSha256": "508657fcce86de6e91661d259837d81f1f35d1bcb3ad0db42b472cbfb3ec2444",
+    "buildReceiptSha256": "54a25cd6029aff0611eff8b63aa5b5957fed653887e74b13753358b180c1d00c",
+    "checksReceiptSha256": "70ffdd3a26eec50428e2bb39a8c288b8d75e6c7b04bdbac0c5073de8ae0ed1b6",
+    "primaryRunnerWasLaterRevised": true,
+    "lastRunnerMatches": true,
+    "testRunnerWarning": "Vitest exit0 emitted Timeout terminating forks worker for transit-stop-picker.test.tsx. The post-run process query for this exact isolated snapshot returned no processes; all1389 assertions passed."
+  },
+  "evidencePrefix": {
+    "bytes": 139093,
+    "sha256": "e2ae5d0647bd9b16ec0cbf768b4ee76ce7f43356d09f66ecf19580ae20ea4baa",
+    "workingUnchanged": true
+  },
+  "executedScope": [
+    "Native Tab to labelled map canvas; ArrowRight panning and visible focus.",
+    "Application fitBounds duration0 with reduced-motion emulation.",
+    "Plain home, typed postal and shared comparison; actual Document bytes identify tested build.",
+    "Four standard viewport layouts plus720x475 CSS/DPR2 reflow and panel-descendant font doubling at320x667.",
+    "Treatment1: settled raster/route captures, comparison End scrolling, three-column horizontal keyboard scrolling, eight pinned commands, inactive rightmost removal and clear/Escape focus. Rightmost metric border-bound assertion failed and its corrected replay remains unpassed."
+  ],
+  "visualInspection": {
+    "primaryCaptures": 18,
+    "allPrimaryInspected": true,
+    "latestFailureInspected": true,
+    "finding": "Treatment1 shows nonblank maps/current routes, preserved normal stack, and usable table scrolling at reflow/enlarged text. Postal headings remain visible while controls scroll vertically away. Latest treatment4 failure.png shows the application Map failed / map did not start / Reload page state with no basemap. It is not accepted as merely a harness failure."
+  },
+  "pending": [
+    "M17 automatic legacy service-worker upgrade and outer lazy-component download recovery (T01).",
+    "M18 sanitized Copy diagnostics (T03).",
+    "Body Retry and Save/Use saved focus after scrolling, browser storage-denied message, complete cross-feature network-failure/revisit acceptance.",
+    "Corrected rightmost-cell assertion and the final complete browser replay. Latest startup failure takes priority over release.",
+    "Native browser zoom, physical touch devices, assistive-technology announcements, intended-user sessions and representative performance/M12.",
+    "Reporting acceptance only after approved T13 service and T18 implementation. No report placeholders counted as passes."
+  ],
+  "retainedAttempts": [
+    {
+      "path": "qa/revamp-r1/cross-feature-20260909/baseline-1-1788921686887/browser.json",
+      "finding": "Dead outer map focus and missing canvas description confirmed; subsequent typed-search timeout was harness Enter without text, not a demonstrated app search defect."
+    },
+    {
+      "path": "qa/revamp-r1/cross-feature-20260909/baseline-2-1788922004975/browser.json",
+      "finding": "27 passes + 5 failures =32 checks. Double-font table clientHeight0. Reflow table72px against61px sticky heading. Old reflow final-row PASS used displaced thead rectangle and is rejected."
+    },
+    {
+      "path": "qa/revamp-r1/cross-feature-20260909/treatment-1-1788922922479/browser.json",
+      "finding": "42 passes + 1 failure =43 checks. Border-client coordinate error caused rightmost metric failure; driver now includes clientTop/clientLeft. Immediate post-stop CIM snapshot did not establish cleanup; receipt remains unsuccessful."
+    },
+    {
+      "path": "qa/revamp-r1/cross-feature-20260909/treatment-2-1788923363928/browser.json",
+      "finding": "10 passes before60s resize settle timeout during concurrent full suite. Last sample had ready route/tiles; prior driver did not retain intermediate settle signatures, so cause is unresolved, not labelled hardware-only. Cleanup verified. Final replay serialized after full suite adds traces without extending60s gate."
+    },
+    {
+      "path": "qa/revamp-r1/cross-feature-20260909/treatment-3-1788923797553/browser.json",
+      "finding": "Owned browser did not reach its debugging endpoint within40s; empty stderr, zero checks/captures, cleanup verified. Subsequent host snapshot was1309912KiB free of16545324KiB total; not a causal attribution. One final bounded launch was attempted after inspecting this receipt, not an unbounded retry loop."
+    },
+    {
+      "path": "qa/revamp-r1/cross-feature-20260909/treatment-4-1788924034815/browser.json",
+      "finding": "45s Runtime.evaluate timeout; last sampled map status mounting. Failure screenshot subsequently shows explicit map startup deadline/reload error with blank basemap. Browser stderr also reports about:blank timeout and failed default web-app setup; causation unresolved. Cleanup verified. No more browser launches this turn."
+    }
+  ],
+  "findings": [
+    "The duplicate outer map focus stop was inert; canvas metadata and focus styling now belong to the actual keyboard target.",
+    "The shared comparison collapsed to a zero-height table at enlarged text. One panel scroll owner retains the46dvh cap, sticky postal identity, horizontally pinned commands and44px controls.",
+    "Full suite has1389 passing tests in54 files; treatment1 screenshots and executed checks cover the repaired paths, but no complete final browser pass is claimed.",
+    "The latest actual screenshot shows a map startup failure. Release remains blocked; neither source review nor passing unit tests can overrule it.",
+    "T25 remains partial. Passing this bounded slice does not resolve cache upgrades, diagnostics, all failure combinations, user acceptance or release."
+  ],
+  "disagreements": [
+    "Required OneMap/SLA credit is attribution, not an optional legend, and remains visible.",
+    "Headless CSS reflow/text stress and functional route counts are not native-phone or representative performance evidence."
+  ],
+  "pipelineRuns": 0,
+  "pipelineCost": 0,
+  "installations": 0,
+  "deploymentCommands": 0,
+  "protectedPayloadMutations": 0,
+  "XOperations": 0
+}

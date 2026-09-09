@@ -1,0 +1,3164 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\cross-feature-20260909\\treatment-2-1788923363928",
+  "profile": "C:\\sgSHIOK2026\\tmp\\cross-feature-browser-UBCAA9",
+  "build": "SVecGwN37beSg--Bqaksv",
+  "startedAt": "2026-09-09T03:09:23.938Z",
+  "runnerSha256": "dbd184274268860fc5b4a3c6d776110e4ea38713bc2c3dd548ef6f53e089146b",
+  "checks": [
+    {
+      "name": "plain-390x844 settled map",
+      "pass": true,
+      "detail": {
+        "status": "idle",
+        "viewport": [
+          390,
+          844
+        ],
+        "routeKey": "1:shiokest:",
+        "featureCount": 0,
+        "moving": false,
+        "tilesLoaded": true,
+        "basemap": true,
+        "center": [
+          103.851959,
+          1.29027
+        ],
+        "zoom": 11.6,
+        "panel": null,
+        "table": null,
+        "heading": null,
+        "finalRow": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "bottom": 98.6875,
+          "right": 310
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "bottom": 46.6875,
+          "right": 84
+        },
+        "result": null,
+        "about": {
+          "x": 280,
+          "y": 779,
+          "width": 98,
+          "height": 33,
+          "bottom": 812,
+          "right": 378
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24,
+          "bottom": 840,
+          "right": 382
+        },
+        "overflow": false,
+        "focus": {
+          "tag": "BODY",
+          "label": null,
+          "role": null,
+          "className": "",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844,
+            "bottom": 844,
+            "right": 390
+          }
+        },
+        "canvas": {
+          "tabindex": 0,
+          "label": "Singapore shelter route map",
+          "describedBy": "route-map-summary",
+          "outline": "rgb(23, 33, 31) none 3px"
+        },
+        "saved": null,
+        "reduced": true,
+        "url": "http://127.0.0.1:4328/?debugMap=1"
+      }
+    },
+    {
+      "name": "actual HTML identifies expected build",
+      "pass": true
+    },
+    {
+      "name": "Tab reaches native map canvas",
+      "pass": true,
+      "detail": [
+        {
+          "tag": "CANVAS",
+          "label": "Singapore shelter route map",
+          "role": "region",
+          "className": "maplibregl-canvas",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844,
+            "bottom": 844,
+            "right": 390
+          }
+        }
+      ]
+    },
+    {
+      "name": "canvas keyboard pans",
+      "pass": true,
+      "detail": {
+        "before": {
+          "status": "idle",
+          "viewport": [
+            390,
+            844
+          ],
+          "routeKey": "1:shiokest:",
+          "featureCount": 0,
+          "moving": false,
+          "tilesLoaded": true,
+          "basemap": true,
+          "center": [
+            103.851959,
+            1.29027
+          ],
+          "zoom": 11.6,
+          "panel": null,
+          "table": null,
+          "heading": null,
+          "finalRow": null,
+          "search": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44,
+            "bottom": 98.6875,
+            "right": 310
+          },
+          "logo": {
+            "x": 10,
+            "y": 10,
+            "width": 74,
+            "height": 36.6875,
+            "bottom": 46.6875,
+            "right": 84
+          },
+          "result": null,
+          "about": {
+            "x": 280,
+            "y": 779,
+            "width": 98,
+            "height": 33,
+            "bottom": 812,
+            "right": 378
+          },
+          "attribution": {
+            "x": 114,
+            "y": 816,
+            "width": 268,
+            "height": 24,
+            "bottom": 840,
+            "right": 382
+          },
+          "overflow": false,
+          "focus": {
+            "tag": "CANVAS",
+            "label": "Singapore shelter route map",
+            "role": "region",
+            "className": "maplibregl-canvas",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 390,
+              "height": 844,
+              "bottom": 844,
+              "right": 390
+            }
+          },
+          "canvas": {
+            "tabindex": 0,
+            "label": "Singapore shelter route map",
+            "describedBy": "route-map-summary",
+            "outline": "rgb(0, 118, 111) solid 3px"
+          },
+          "saved": null,
+          "reduced": true,
+          "url": "http://127.0.0.1:4328/?debugMap=1"
+        },
+        "after": {
+          "status": "idle",
+          "viewport": [
+            390,
+            844
+          ],
+          "routeKey": "1:shiokest:",
+          "featureCount": 0,
+          "moving": false,
+          "tilesLoaded": true,
+          "basemap": true,
+          "center": [
+            103.87460985448593,
+            1.2902699999999925
+          ],
+          "zoom": 11.6,
+          "panel": null,
+          "table": null,
+          "heading": null,
+          "finalRow": null,
+          "search": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44,
+            "bottom": 98.6875,
+            "right": 310
+          },
+          "logo": {
+            "x": 10,
+            "y": 10,
+            "width": 74,
+            "height": 36.6875,
+            "bottom": 46.6875,
+            "right": 84
+          },
+          "result": null,
+          "about": {
+            "x": 280,
+            "y": 779,
+            "width": 98,
+            "height": 33,
+            "bottom": 812,
+            "right": 378
+          },
+          "attribution": {
+            "x": 114,
+            "y": 816,
+            "width": 268,
+            "height": 24,
+            "bottom": 840,
+            "right": 382
+          },
+          "overflow": false,
+          "focus": {
+            "tag": "CANVAS",
+            "label": "Singapore shelter route map",
+            "role": "region",
+            "className": "maplibregl-canvas",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 390,
+              "height": 844,
+              "bottom": 844,
+              "right": 390
+            }
+          },
+          "canvas": {
+            "tabindex": 0,
+            "label": "Singapore shelter route map",
+            "describedBy": "route-map-summary",
+            "outline": "rgb(0, 118, 111) solid 3px"
+          },
+          "saved": null,
+          "reduced": true,
+          "url": "http://127.0.0.1:4328/?debugMap=1"
+        }
+      }
+    },
+    {
+      "name": "keyboard target describes selected evidence",
+      "pass": true,
+      "detail": {
+        "tabindex": 0,
+        "label": "Singapore shelter route map",
+        "describedBy": "route-map-summary",
+        "outline": "rgb(0, 118, 111) solid 3px"
+      }
+    },
+    {
+      "name": "map-keyboard-focus settled map",
+      "pass": true,
+      "detail": {
+        "status": "idle",
+        "viewport": [
+          390,
+          844
+        ],
+        "routeKey": "1:shiokest:",
+        "featureCount": 0,
+        "moving": false,
+        "tilesLoaded": true,
+        "basemap": true,
+        "center": [
+          103.87460985448593,
+          1.2902699999999925
+        ],
+        "zoom": 11.6,
+        "panel": null,
+        "table": null,
+        "heading": null,
+        "finalRow": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "bottom": 98.6875,
+          "right": 310
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "bottom": 46.6875,
+          "right": 84
+        },
+        "result": null,
+        "about": {
+          "x": 280,
+          "y": 779,
+          "width": 98,
+          "height": 33,
+          "bottom": 812,
+          "right": 378
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24,
+          "bottom": 840,
+          "right": 382
+        },
+        "overflow": false,
+        "focus": {
+          "tag": "CANVAS",
+          "label": "Singapore shelter route map",
+          "role": "region",
+          "className": "maplibregl-canvas",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844,
+            "bottom": 844,
+            "right": 390
+          }
+        },
+        "canvas": {
+          "tabindex": 0,
+          "label": "Singapore shelter route map",
+          "describedBy": "route-map-summary",
+          "outline": "rgb(0, 118, 111) solid 3px"
+        },
+        "saved": null,
+        "reduced": true,
+        "url": "http://127.0.0.1:4328/?debugMap=1"
+      }
+    },
+    {
+      "name": "canvas has visible focus outline",
+      "pass": true,
+      "detail": {
+        "tabindex": 0,
+        "label": "Singapore shelter route map",
+        "describedBy": "route-map-summary",
+        "outline": "rgb(0, 118, 111) solid 3px"
+      }
+    },
+    {
+      "name": "inspect-reduced-motion settled map",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "viewport": [
+          390,
+          844
+        ],
+        "routeKey": "3:shiokest:primary",
+        "featureCount": 4,
+        "moving": false,
+        "tilesLoaded": true,
+        "basemap": true,
+        "center": [
+          103.86003,
+          1.284204529929795
+        ],
+        "zoom": 16.6,
+        "panel": null,
+        "table": null,
+        "heading": null,
+        "finalRow": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "bottom": 98.6875,
+          "right": 310
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "bottom": 46.6875,
+          "right": 84
+        },
+        "result": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327,
+          "bottom": 433.6875,
+          "right": 310
+        },
+        "about": {
+          "x": 280,
+          "y": 779,
+          "width": 98,
+          "height": 33,
+          "bottom": 812,
+          "right": 378
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24,
+          "bottom": 840,
+          "right": 382
+        },
+        "overflow": false,
+        "focus": {
+          "tag": "INPUT",
+          "label": "Enter 6-digit Singapore postal code",
+          "role": null,
+          "className": "",
+          "rect": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44,
+            "bottom": 98.6875,
+            "right": 310
+          }
+        },
+        "canvas": {
+          "tabindex": 0,
+          "label": "Shelter-map view for Postal 018956, showing sheltered walk",
+          "describedBy": "route-map-summary",
+          "outline": "rgb(23, 33, 31) none 3px"
+        },
+        "saved": null,
+        "reduced": true,
+        "url": "http://127.0.0.1:4328/?debugMap=1&postal=018956"
+      }
+    },
+    {
+      "name": "approved SHIOK/search/result stack and bottom-right About",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "viewport": [
+          390,
+          844
+        ],
+        "routeKey": "3:shiokest:primary",
+        "featureCount": 4,
+        "moving": false,
+        "tilesLoaded": true,
+        "basemap": true,
+        "center": [
+          103.86003,
+          1.284204529929795
+        ],
+        "zoom": 16.6,
+        "panel": null,
+        "table": null,
+        "heading": null,
+        "finalRow": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "bottom": 98.6875,
+          "right": 310
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "bottom": 46.6875,
+          "right": 84
+        },
+        "result": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327,
+          "bottom": 433.6875,
+          "right": 310
+        },
+        "about": {
+          "x": 280,
+          "y": 779,
+          "width": 98,
+          "height": 33,
+          "bottom": 812,
+          "right": 378
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24,
+          "bottom": 840,
+          "right": 382
+        },
+        "overflow": false,
+        "focus": {
+          "tag": "INPUT",
+          "label": "Enter 6-digit Singapore postal code",
+          "role": null,
+          "className": "",
+          "rect": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44,
+            "bottom": 98.6875,
+            "right": 310
+          }
+        },
+        "canvas": {
+          "tabindex": 0,
+          "label": "Shelter-map view for Postal 018956, showing sheltered walk",
+          "describedBy": "route-map-summary",
+          "outline": "rgb(23, 33, 31) none 3px"
+        },
+        "saved": null,
+        "reduced": true,
+        "url": "http://127.0.0.1:4328/?debugMap=1&postal=018956"
+      }
+    },
+    {
+      "name": "application fit uses reduced motion",
+      "pass": true,
+      "detail": [
+        {
+          "name": "fitBounds",
+          "options": {
+            "padding": {
+              "top": 110.6875,
+              "right": 12,
+              "bottom": 77,
+              "left": 12
+            },
+            "duration": 0,
+            "maxZoom": 16.6
+          }
+        },
+        {
+          "name": "fitBounds",
+          "options": {
+            "padding": {
+              "top": 445.6875,
+              "right": 12,
+              "bottom": 77,
+              "left": 12
+            },
+            "duration": 0,
+            "maxZoom": 16.6
+          }
+        }
+      ]
+    }
+  ],
+  "captures": [
+    {
+      "name": "plain-390x844",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\cross-feature-20260909\\treatment-2-1788923363928\\plain-390x844.png",
+      "bytes": 197281,
+      "sha256": "74e0c79cce2ccdae305393a4f0ac9826dc3a60df6a402697187a7cd483753fc6",
+      "before": {
+        "status": "idle",
+        "viewport": [
+          390,
+          844
+        ],
+        "routeKey": "1:shiokest:",
+        "featureCount": 0,
+        "moving": false,
+        "tilesLoaded": true,
+        "basemap": true,
+        "center": [
+          103.851959,
+          1.29027
+        ],
+        "zoom": 11.6,
+        "panel": null,
+        "table": null,
+        "heading": null,
+        "finalRow": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "bottom": 98.6875,
+          "right": 310
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "bottom": 46.6875,
+          "right": 84
+        },
+        "result": null,
+        "about": {
+          "x": 280,
+          "y": 779,
+          "width": 98,
+          "height": 33,
+          "bottom": 812,
+          "right": 378
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24,
+          "bottom": 840,
+          "right": 382
+        },
+        "overflow": false,
+        "focus": {
+          "tag": "BODY",
+          "label": null,
+          "role": null,
+          "className": "",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844,
+            "bottom": 844,
+            "right": 390
+          }
+        },
+        "canvas": {
+          "tabindex": 0,
+          "label": "Singapore shelter route map",
+          "describedBy": "route-map-summary",
+          "outline": "rgb(23, 33, 31) none 3px"
+        },
+        "saved": null,
+        "reduced": true,
+        "url": "http://127.0.0.1:4328/?debugMap=1"
+      },
+      "after": {
+        "status": "idle",
+        "viewport": [
+          390,
+          844
+        ],
+        "routeKey": "1:shiokest:",
+        "featureCount": 0,
+        "moving": false,
+        "tilesLoaded": true,
+        "basemap": true,
+        "center": [
+          103.851959,
+          1.29027
+        ],
+        "zoom": 11.6,
+        "panel": null,
+        "table": null,
+        "heading": null,
+        "finalRow": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "bottom": 98.6875,
+          "right": 310
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "bottom": 46.6875,
+          "right": 84
+        },
+        "result": null,
+        "about": {
+          "x": 280,
+          "y": 779,
+          "width": 98,
+          "height": 33,
+          "bottom": 812,
+          "right": 378
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24,
+          "bottom": 840,
+          "right": 382
+        },
+        "overflow": false,
+        "focus": {
+          "tag": "BODY",
+          "label": null,
+          "role": null,
+          "className": "",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844,
+            "bottom": 844,
+            "right": 390
+          }
+        },
+        "canvas": {
+          "tabindex": 0,
+          "label": "Singapore shelter route map",
+          "describedBy": "route-map-summary",
+          "outline": "rgb(23, 33, 31) none 3px"
+        },
+        "saved": null,
+        "reduced": true,
+        "url": "http://127.0.0.1:4328/?debugMap=1"
+      }
+    },
+    {
+      "name": "map-keyboard-focus",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\cross-feature-20260909\\treatment-2-1788923363928\\map-keyboard-focus.png",
+      "bytes": 167343,
+      "sha256": "5a1645f4e009f8dafd5e6c67e766802b864536cf2b7a97ac4eebae9a4eb48d19",
+      "before": {
+        "status": "idle",
+        "viewport": [
+          390,
+          844
+        ],
+        "routeKey": "1:shiokest:",
+        "featureCount": 0,
+        "moving": false,
+        "tilesLoaded": true,
+        "basemap": true,
+        "center": [
+          103.87460985448593,
+          1.2902699999999925
+        ],
+        "zoom": 11.6,
+        "panel": null,
+        "table": null,
+        "heading": null,
+        "finalRow": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "bottom": 98.6875,
+          "right": 310
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "bottom": 46.6875,
+          "right": 84
+        },
+        "result": null,
+        "about": {
+          "x": 280,
+          "y": 779,
+          "width": 98,
+          "height": 33,
+          "bottom": 812,
+          "right": 378
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24,
+          "bottom": 840,
+          "right": 382
+        },
+        "overflow": false,
+        "focus": {
+          "tag": "CANVAS",
+          "label": "Singapore shelter route map",
+          "role": "region",
+          "className": "maplibregl-canvas",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844,
+            "bottom": 844,
+            "right": 390
+          }
+        },
+        "canvas": {
+          "tabindex": 0,
+          "label": "Singapore shelter route map",
+          "describedBy": "route-map-summary",
+          "outline": "rgb(0, 118, 111) solid 3px"
+        },
+        "saved": null,
+        "reduced": true,
+        "url": "http://127.0.0.1:4328/?debugMap=1"
+      },
+      "after": {
+        "status": "idle",
+        "viewport": [
+          390,
+          844
+        ],
+        "routeKey": "1:shiokest:",
+        "featureCount": 0,
+        "moving": false,
+        "tilesLoaded": true,
+        "basemap": true,
+        "center": [
+          103.87460985448593,
+          1.2902699999999925
+        ],
+        "zoom": 11.6,
+        "panel": null,
+        "table": null,
+        "heading": null,
+        "finalRow": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "bottom": 98.6875,
+          "right": 310
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "bottom": 46.6875,
+          "right": 84
+        },
+        "result": null,
+        "about": {
+          "x": 280,
+          "y": 779,
+          "width": 98,
+          "height": 33,
+          "bottom": 812,
+          "right": 378
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24,
+          "bottom": 840,
+          "right": 382
+        },
+        "overflow": false,
+        "focus": {
+          "tag": "CANVAS",
+          "label": "Singapore shelter route map",
+          "role": "region",
+          "className": "maplibregl-canvas",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 844,
+            "bottom": 844,
+            "right": 390
+          }
+        },
+        "canvas": {
+          "tabindex": 0,
+          "label": "Singapore shelter route map",
+          "describedBy": "route-map-summary",
+          "outline": "rgb(0, 118, 111) solid 3px"
+        },
+        "saved": null,
+        "reduced": true,
+        "url": "http://127.0.0.1:4328/?debugMap=1"
+      }
+    },
+    {
+      "name": "inspect-reduced-motion",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\cross-feature-20260909\\treatment-2-1788923363928\\inspect-reduced-motion.png",
+      "bytes": 144988,
+      "sha256": "84b9a0de313d1bb9244a0bf754937983a0bf3d268258d94fba5866ea67eecbfa",
+      "before": {
+        "status": "ready",
+        "viewport": [
+          390,
+          844
+        ],
+        "routeKey": "3:shiokest:primary",
+        "featureCount": 4,
+        "moving": false,
+        "tilesLoaded": true,
+        "basemap": true,
+        "center": [
+          103.86003,
+          1.284204529929795
+        ],
+        "zoom": 16.6,
+        "panel": null,
+        "table": null,
+        "heading": null,
+        "finalRow": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "bottom": 98.6875,
+          "right": 310
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "bottom": 46.6875,
+          "right": 84
+        },
+        "result": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327,
+          "bottom": 433.6875,
+          "right": 310
+        },
+        "about": {
+          "x": 280,
+          "y": 779,
+          "width": 98,
+          "height": 33,
+          "bottom": 812,
+          "right": 378
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24,
+          "bottom": 840,
+          "right": 382
+        },
+        "overflow": false,
+        "focus": {
+          "tag": "INPUT",
+          "label": "Enter 6-digit Singapore postal code",
+          "role": null,
+          "className": "",
+          "rect": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44,
+            "bottom": 98.6875,
+            "right": 310
+          }
+        },
+        "canvas": {
+          "tabindex": 0,
+          "label": "Shelter-map view for Postal 018956, showing sheltered walk",
+          "describedBy": "route-map-summary",
+          "outline": "rgb(23, 33, 31) none 3px"
+        },
+        "saved": null,
+        "reduced": true,
+        "url": "http://127.0.0.1:4328/?debugMap=1&postal=018956"
+      },
+      "after": {
+        "status": "ready",
+        "viewport": [
+          390,
+          844
+        ],
+        "routeKey": "3:shiokest:primary",
+        "featureCount": 4,
+        "moving": false,
+        "tilesLoaded": true,
+        "basemap": true,
+        "center": [
+          103.86003,
+          1.284204529929795
+        ],
+        "zoom": 16.6,
+        "panel": null,
+        "table": null,
+        "heading": null,
+        "finalRow": null,
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "bottom": 98.6875,
+          "right": 310
+        },
+        "logo": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "bottom": 46.6875,
+          "right": 84
+        },
+        "result": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327,
+          "bottom": 433.6875,
+          "right": 310
+        },
+        "about": {
+          "x": 280,
+          "y": 779,
+          "width": 98,
+          "height": 33,
+          "bottom": 812,
+          "right": 378
+        },
+        "attribution": {
+          "x": 114,
+          "y": 816,
+          "width": 268,
+          "height": 24,
+          "bottom": 840,
+          "right": 382
+        },
+        "overflow": false,
+        "focus": {
+          "tag": "INPUT",
+          "label": "Enter 6-digit Singapore postal code",
+          "role": null,
+          "className": "",
+          "rect": {
+            "x": 10,
+            "y": 54.6875,
+            "width": 300,
+            "height": 44,
+            "bottom": 98.6875,
+            "right": 310
+          }
+        },
+        "canvas": {
+          "tabindex": 0,
+          "label": "Shelter-map view for Postal 018956, showing sheltered walk",
+          "describedBy": "route-map-summary",
+          "outline": "rgb(23, 33, 31) none 3px"
+        },
+        "saved": null,
+        "reduced": true,
+        "url": "http://127.0.0.1:4328/?debugMap=1&postal=018956"
+      }
+    }
+  ],
+  "samples": [],
+  "errors": [],
+  "network": [
+    {
+      "id": "0620BAFE89441D1E9CB95A22D3BE8DCB",
+      "url": "http://127.0.0.1:4328/?debugMap=1",
+      "status": 200,
+      "type": "Document"
+    },
+    {
+      "id": "91472.2",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/11tb-gx8zy4q_.css",
+      "status": 200,
+      "type": "Stylesheet"
+    },
+    {
+      "id": "91472.3",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/3wkt3-74el481.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "91472.4",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/22e2v4r0ll28f.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "91472.7",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/turbopack-33v2s10r63r3c.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "91472.6",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/2t6y5xexk1e6y.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "91472.8",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/1oaw9uq-pttep.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "91472.9",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/0ftto0krbmyv1.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "91472.5",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/3rbzro06i8dd3.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "91472.10",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/3j2t7pp_9euam.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "91472.22",
+      "url": "http://127.0.0.1:4328/icon.svg",
+      "status": 200,
+      "type": "Other"
+    },
+    {
+      "id": "91472.23",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/1cd3upb9qn11p.css",
+      "status": 200,
+      "type": "Stylesheet"
+    },
+    {
+      "id": "91472.24",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/0at71artbnxfz.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "91472.25",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/0gc5hoz1u4dff.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "91472.27",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/2rmzgxedjsyy1.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "91472.26",
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "status": 200,
+      "type": "Image"
+    },
+    {
+      "id": "91472.28",
+      "url": "http://127.0.0.1:4328/_next/static/chunks/3_zdoql-8zsg0.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "91472.35",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.36",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.32",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.34",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.33",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.31",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.44",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.43",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.42",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.41",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.40",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.39",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.38",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.37",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.46",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.45",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.47",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.48",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.49",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.50",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.51",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.52",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.53",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.54",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.55",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.56",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.57",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.58",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.59",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.62",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.60",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.61",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.63",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.64",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.65",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.66",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.67",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.68",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.69",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.70",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.71",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.72",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.73",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.74",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.75",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.76",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.77",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.78",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.80",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.79",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.81",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12921/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.82",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12921/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.83",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12921/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.84",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12921/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.85",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12921/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.86",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12921/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.87",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12921/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.88",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12921/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.89",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12921/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.90",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12921/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.92",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.91",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.93",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.95",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.96",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.97",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.98",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.101",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.102",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.103",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.104",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.107",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.105",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.106",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.115",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.116",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.117",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.118",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.119",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.120",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.124",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.125",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.126",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.127",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.128",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.121",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.122",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.123",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.129",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.130",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.131",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.132",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.133",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.134",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.135",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.136",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.137",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.138",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.139",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.140",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.141",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.142",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.143",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.144",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.145",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.146",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.147",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.148",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.149",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.150",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.151",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.152",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.153",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.154",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.155",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.156",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.157",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.158",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.159",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.160",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.178",
+      "url": "http://127.0.0.1:4328/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.162",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.163",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.164",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.165",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.166",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.167",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.168",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.169",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.170",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.171",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.172",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.173",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.174",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.175",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.176",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.177",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.180",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.181",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.182",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.183",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.184",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.185",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.186",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.187",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.188",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.189",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.190",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.191",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.192",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.193",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.194",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.195",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.196",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.197",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.198",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.199",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.200",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.201",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.202",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.203",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.204",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.205",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.206",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.207",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.208",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.209",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.210",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.211",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.212",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.213",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.214",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.215",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.216",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.217",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.218",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.219",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.220",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.221",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.222",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.223",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.224",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.225",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.226",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.227",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.228",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.229",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.230",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.231",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.232",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.233",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.234",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.235",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.236",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.237",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.238",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.239",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.240",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.241",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.242",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.243",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.244",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.245",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.246",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.247",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.248",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.249",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.250",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.251",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.252",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.253",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.254",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.255",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.256",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.257",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.258",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.259",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.260",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.261",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.262",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.263",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.264",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.265",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.266",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.267",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.268",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.269",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.270",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.271",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.272",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.273",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.274",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.275",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.276",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.277",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.278",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.279",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.280",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.281",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.282",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.283",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.284",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.285",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.286",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.287",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.288",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.289",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.290",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.291",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.292",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.293",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.294",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.295",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.296",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.297",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "91472.298",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    }
+  ],
+  "cleanup": {
+    "closeSent": true,
+    "killSent": true,
+    "chromeExited": false,
+    "processAudit": {
+      "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\cross-feature-browser-UBCAA9'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $owned=@(Owned); $before=@($owned | Select-Object ProcessId,Name,CommandLine); foreach($p in $owned){ Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue }; $until=[DateTime]::UtcNow.AddSeconds(25); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 500 } while([DateTime]::UtcNow -lt $until); @{before=$before; remaining=@($remaining | Select-Object ProcessId,Name,CommandLine); check='CIM profile identity plus live Get-Process HasExited after bounded exit grace'} | ConvertTo-Json -Depth 4 -Compress",
+      "exitCode": 0,
+      "stdout": "{\"before\":[{\"ProcessId\":91588,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:/Program Files/Google/Chrome/Application/chrome.exe\\\" --headless=new --no-first-run --no-sandbox --use-angle=swiftshader --enable-unsafe-swiftshader --remote-debugging-port=0 --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-UBCAA9 about:blank\"},{\"ProcessId\":104816,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=crashpad-handler --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-UBCAA9 /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-UBCAA9\\\\Crashpad --metrics-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-UBCAA9 --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=152.0.7977.83 --initial-client-data=0x12c,0x130,0x134,0xfc,0x138,0x7fff428d7e60,0x7fff428d7e70,0x7fff428d7e80\"},{\"ProcessId\":100772,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=gpu-process --no-sandbox --headless=new --use-angle=swiftshader --enable-unsafe-swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-UBCAA9\\\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1880,i,12929877014349136578,14701565563610201638,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1884,i,4148475572890484899,4959496095456360047,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1872 /prefetch:2\"},{\"ProcessId\":99640,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --use-angle=swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-UBCAA9\\\" --no-pre-read-main-dll --field-trial-handle=1880,i,12929877014349136578,14701565563610201638,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1884,i,4148475572890484899,4959496095456360047,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2180 /prefetch:11\"},{\"ProcessId\":103236,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --use-angle=swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-UBCAA9\\\" --no-pre-read-main-dll --field-trial-handle=1880,i,12929877014349136578,14701565563610201638,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1884,i,4148475572890484899,4959496095456360047,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2380 /prefetch:13\"},{\"ProcessId\":5656,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-UBCAA9\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=994064260872 --field-trial-handle=1880,i,12929877014349136578,14701565563610201638,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1884,i,4148475572890484899,4959496095456360047,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3240 /prefetch:1\"},{\"ProcessId\":91472,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-UBCAA9\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=994064425407 --field-trial-handle=1880,i,12929877014349136578,14701565563610201638,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1884,i,4148475572890484899,4959496095456360047,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3696 /prefetch:1\"},{\"ProcessId\":106020,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=quarantine.mojom.Quarantine --lang=en-US --service-sandbox-type=none --no-sandbox --use-angle=swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-UBCAA9\\\" --no-pre-read-main-dll --field-trial-handle=1880,i,12929877014349136578,14701565563610201638,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1884,i,4148475572890484899,4959496095456360047,4 --trace-process-track-uuid=3190709031289880246 --mojo-platform-channel-handle=6500 /prefetch:14\"},{\"ProcessId\":106188,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=unzip.mojom.Unzipper --lang=en-US --service-sandbox-type=service --no-sandbox --use-angle=swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\cross-feature-browser-UBCAA9\\\" --no-pre-read-main-dll --field-trial-handle=1880,i,12929877014349136578,14701565563610201638,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1884,i,4148475572890484899,4959496095456360047,4 --trace-process-track-uuid=3190709032226922095 --mojo-platform-channel-handle=5976 /prefetch:14\"}],\"remaining\":[],\"check\":\"CIM profile identity plus live Get-Process HasExited after bounded exit grace\"}\r\n",
+      "stderr": ""
+    },
+    "verified": true
+  },
+  "policy": "Functional Chromium/SwiftShader; CSS viewport emulation and separately labelled computed-font doubling, not physical-device or representative latency evidence. No API, pipeline, installation or deployment.",
+  "preview": {
+    "build": "SVecGwN37beSg--Bqaksv",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-cross-feature-20260909-2\\web",
+    "pid": 100888,
+    "nextPid": 104764,
+    "requests": [
+      {
+        "path": "/",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922948468
+      },
+      {
+        "path": "/_next/static/chunks/11tb-gx8zy4q_.css",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922950716
+      },
+      {
+        "path": "/_next/static/chunks/3wkt3-74el481.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922950728
+      },
+      {
+        "path": "/_next/static/chunks/22e2v4r0ll28f.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922951574
+      },
+      {
+        "path": "/_next/static/chunks/3rbzro06i8dd3.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922951703
+      },
+      {
+        "path": "/_next/static/chunks/turbopack-33v2s10r63r3c.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922951715
+      },
+      {
+        "path": "/_next/static/chunks/2t6y5xexk1e6y.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922951856
+      },
+      {
+        "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922952797
+      },
+      {
+        "path": "/_next/static/chunks/0ftto0krbmyv1.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922952802
+      },
+      {
+        "path": "/_next/static/chunks/3j2t7pp_9euam.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922953605
+      },
+      {
+        "path": "/_next/static/chunks/0at71artbnxfz.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922961315
+      },
+      {
+        "path": "/_next/static/chunks/1cd3upb9qn11p.css",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922961483
+      },
+      {
+        "path": "/_next/static/chunks/0gc5hoz1u4dff.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922961500
+      },
+      {
+        "path": "/icon.svg",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922962291
+      },
+      {
+        "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922976425
+      },
+      {
+        "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922976972
+      },
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922981225
+      },
+      {
+        "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+        "status": 200,
+        "kind": "app",
+        "at": 1788922983528
+      },
+      {
+        "path": "/sw.js",
+        "status": 200,
+        "kind": "app",
+        "at": 1788923009881
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+        "status": 404,
+        "kind": "data",
+        "at": 1788923010094
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923010134
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923010273
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+        "status": 404,
+        "kind": "data",
+        "at": 1788923010699
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+        "status": 404,
+        "kind": "data",
+        "at": 1788923010701
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923010737
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923010740
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923012886
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923012887
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923012940
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923012951
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923013015
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+        "status": 404,
+        "kind": "data",
+        "at": 1788923013022
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923013025
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json.gz",
+        "status": 404,
+        "kind": "data",
+        "at": 1788923023221
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923023264
+      },
+      {
+        "path": "/sw.js",
+        "status": 304,
+        "kind": "app",
+        "at": 1788923034444
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923084640
+      },
+      {
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-index.json.gz",
+        "status": 200,
+        "kind": "data",
+        "at": 1788923084823
+      }
+    ]
+  },
+  "chromePid": 91588,
+  "lastSample": {
+    "name": "viewport",
+    "value": {
+      "status": "ready",
+      "viewport": [
+        1440,
+        950
+      ],
+      "routeKey": "5:shiokest:comparison:018956",
+      "featureCount": 4,
+      "moving": false,
+      "tilesLoaded": false,
+      "basemap": false,
+      "center": [
+        103.85892577084377,
+        1.2812528061348587
+      ],
+      "zoom": 16.6,
+      "panel": {
+        "x": 0,
+        "y": 484.46875,
+        "width": 1440,
+        "height": 433.53125,
+        "bottom": 918,
+        "right": 1440
+      },
+      "table": {
+        "x": 0,
+        "y": 631.46875,
+        "width": 1440,
+        "height": 286.53125,
+        "bottom": 918,
+        "right": 1440
+      },
+      "tableClientHeight": 287,
+      "tableScrollHeight": 287,
+      "tableScrollTop": 0,
+      "panelScrollTop": 0,
+      "panelScrollLeft": 0,
+      "panelScrollHeight": 433,
+      "panelClientHeight": 433,
+      "heading": {
+        "x": 0,
+        "y": 660.265625,
+        "width": 112,
+        "height": 61,
+        "bottom": 721.265625,
+        "right": 112
+      },
+      "finalRow": {
+        "x": 0,
+        "y": 882.8125,
+        "width": 1440,
+        "height": 35.1875,
+        "bottom": 918,
+        "right": 1440
+      },
+      "search": {
+        "x": 12,
+        "y": 56,
+        "width": 300,
+        "height": 44,
+        "bottom": 100,
+        "right": 312
+      },
+      "logo": {
+        "x": 12,
+        "y": 14,
+        "width": 91,
+        "height": 32,
+        "bottom": 46,
+        "right": 103
+      },
+      "result": null,
+      "about": null,
+      "attribution": {
+        "x": 1164,
+        "y": 922,
+        "width": 268,
+        "height": 24,
+        "bottom": 946,
+        "right": 1432
+      },
+      "overflow": false,
+      "focus": {
+        "tag": "BUTTON",
+        "label": "Close comparison",
+        "role": null,
+        "className": "home-comparison-module__RYXewG__iconButton",
+        "rect": {
+          "x": 1384,
+          "y": 489.46875,
+          "width": 44,
+          "height": 44,
+          "bottom": 533.46875,
+          "right": 1428
+        }
+      },
+      "canvas": {
+        "tabindex": 0,
+        "label": "Shelter-map view for Postal 018956, showing sheltered walk",
+        "describedBy": "route-map-summary",
+        "outline": "rgb(23, 33, 31) none 3px"
+      },
+      "shared": true,
+      "text": "Compare homesMap: 018956×MRT/LRTBusAddShareClearShared shortlistSaveUse savedPublished default sheltered walksPostal code018956×018990×DestinationBayfront Stn Exit B/MBSMarina Bay StnStraight-line estimate; no verified walk.Walk distance81 mUnavailableCovered55%UnavailableUncovered37 mUnavailableLongest gap20 mUnavailable",
+      "saved": "{\"version\":1,\"postals\":[\"079908\"],\"category\":\"bus\",\"activePostal\":\"079908\"}",
+      "reduced": true,
+      "url": "http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956"
+    }
+  },
+  "document": {
+    "id": "0620BAFE89441D1E9CB95A22D3BE8DCB",
+    "url": "http://127.0.0.1:4328/?debugMap=1",
+    "status": 200,
+    "type": "Document",
+    "sha256": "3644d7befb5006a6e382d36cdde414a7c7afc9a0520221522c849ae702304ef0",
+    "bytes": 13067
+  },
+  "mapTargets": [
+    {
+      "tag": "CANVAS",
+      "tabindex": 0,
+      "role": "region",
+      "label": "Singapore shelter route map"
+    }
+  ],
+  "mapTabSequence": [
+    {
+      "tag": "CANVAS",
+      "label": "Singapore shelter route map",
+      "role": "region",
+      "className": "maplibregl-canvas",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "bottom": 844,
+        "right": 390
+      }
+    }
+  ],
+  "camera": [
+    {
+      "name": "fitBounds",
+      "options": {
+        "padding": {
+          "top": 110.6875,
+          "right": 12,
+          "bottom": 77,
+          "left": 12
+        },
+        "duration": 0,
+        "maxZoom": 16.6
+      }
+    },
+    {
+      "name": "fitBounds",
+      "options": {
+        "padding": {
+          "top": 445.6875,
+          "right": 12,
+          "bottom": 77,
+          "left": 12
+        },
+        "duration": 0,
+        "maxZoom": 16.6
+      }
+    }
+  ],
+  "failure": "Error: Raster/layout did not settle: resize {\"status\":\"ready\",\"viewport\":[1440,950],\"routeKey\":\"5:shiokest:comparison:018956\",\"featureCount\":4,\"moving\":false,\"tilesLoaded\":true,\"basemap\":true,\"center\":[103.85892577084377,1.2812528061348587],\"zoom\":16.6,\"panel\":{\"x\":0,\"y\":484.46875,\"width\":1440,\"height\":433.53125,\"bottom\":918,\"right\":1440},\"table\":{\"x\":0,\"y\":631.46875,\"width\":1440,\"height\":286.53125,\"bottom\":918,\"right\":1440},\"tableClientHeight\":287,\"tableScrollHeight\":287,\"tableScrollTop\":0,\"panelScrollTop\":0,\"panelScrollLeft\":0,\"panelScrollHeight\":433,\"panelClientHeight\":433,\"heading\":{\"x\":0,\"y\":660.265625,\"width\":112,\"height\":61,\"bottom\":721.265625,\"right\":112},\"finalRow\":{\"x\":0,\"y\":882.8125,\"width\":1440,\"height\":35.1875,\"bottom\":918,\"right\":1440},\"search\":{\"x\":12,\"y\":56,\"width\":300,\"height\":44,\"bottom\":100,\"right\":312},\"logo\":{\"x\":12,\"y\":14,\"width\":91,\"height\":32,\"bottom\":46,\"right\":103},\"result\":null,\"about\":null,\"attribution\":{\"x\":1164,\"y\":922,\"width\":268,\"height\":24,\"bottom\":946,\"right\":1432},\"overflow\":false,\"focus\":{\"tag\":\"BUTTON\",\"label\":\"Close comparison\",\"role\":null,\"className\":\"home-comparison-module__RYXewG__iconButton\",\"rect\":{\"x\":1384,\"y\":489.46875,\"width\":44,\"height\":44,\"bottom\":533.46875,\"right\":1428}},\"canvas\":{\"tabindex\":0,\"label\":\"Shelter-map view for Postal 018956, showing sheltered walk\",\"describedBy\":\"route-map-summary\",\"outline\":\"rgb(23, 33, 31) none 3px\"},\"shared\":true,\"text\":\"Compare homesMap: 018956×MRT/LRTBusAddShareClearShared shortlistSaveUse savedPublished default sheltered walksPostal code018956×018990×DestinationBayfront Stn Exit B/MBSMarina Bay StnStraight-line estimate; no verified walk.Walk distance81 mUnavailableCovered55%UnavailableUncovered37 mUnavailableLongest gap20 mUnavailable\",\"saved\":\"{\\\"version\\\":1,\\\"postals\\\":[\\\"079908\\\"],\\\"category\\\":\\\"bus\\\",\\\"activePostal\\\":\\\"079908\\\"}\",\"reduced\":true,\"url\":\"http://127.0.0.1:4328/#compare=1&postals=018956%2C018990&transit=bus&active=018956\"}\n    at settle (file:///C:/sgSHIOK2026/qa/revamp-r1/cross-feature-20260909/browser.mjs:86:9)\n    at async viewport (file:///C:/sgSHIOK2026/qa/revamp-r1/cross-feature-20260909/browser.mjs:96:79)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/cross-feature-20260909/browser.mjs:155:5",
+  "failureCapture": {
+    "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\cross-feature-20260909\\treatment-2-1788923363928\\failure.png",
+    "sha256": "ac90bfa6d467f116867ec1637df443d4f5cce4d836bafa838812aaa11545bf45"
+  },
+  "stderr": "\r\nDevTools listening on ws://127.0.0.1:59576/devtools/browser/51d44104-5060-4313-937a-4553cd807111\r\n[91588:76980:0909/110952.465:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[91588:76980:0909/110952.465:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[91588:76980:0909/110952.467:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[91588:76980:0909/110952.476:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:702]   Error code: 401  Error message: Authentication Failed: wrong_secret\r\n[91588:76980:0909/110952.476:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:704] Failed to log in to GCM, resetting connection.\r\n[91588:76980:0909/111017.072:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n[91588:80608:0909/111040.963:ERROR:components\\webapps\\browser\\web_contents\\web_app_url_loader.cc:180] Error loading about:blank page took too long to load.\r\n[91588:76980:0909/111102.930:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n",
+  "finishedAt": "2026-09-09T03:12:22.984Z",
+  "ok": false
+}

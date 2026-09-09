@@ -1,0 +1,22 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "at": "2026-09-09T03:00:42.9379454Z",
+  "retired": [
+    {
+      "ProcessId": 98528,
+      "Name": "node.exe",
+      "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:/sgSHIOK2026/qa/revamp-r1/comparison-sharing-20260909/serve.mjs comparison-sharing-20260909-2"
+    },
+    {
+      "ProcessId": 102292,
+      "Name": "node.exe",
+      "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:\\sgSHIOK2026\\web\\node_modules\\next\\dist\\bin\\next start C:\\sgSHIOK2026\\tmp\\cached-release-comparison-sharing-20260909-2\\web -p 4327 -H 127.0.0.1"
+    }
+  ],
+  "build": "SVecGwN37beSg--Bqaksv",
+  "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-cross-feature-20260909-2\\web",
+  "pid": 100888,
+  "nextPid": 104764,
+  "preview": "http://127.0.0.1:4328/",
+  "dataServerUntouched": "localhost:4321"
+}

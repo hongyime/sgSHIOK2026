@@ -2232,3 +2232,136 @@ X_operations=0
 pre_append_evidence_bytes=133251
 pre_append_working_prefix_unchanged=true
 ```
+
+## 2026-09-09: T25 map keyboard and comparison scrolling, PARTIAL
+
+```text
+working_root=C:\sgSHIOK2026
+hostname=PRAWN-E14
+base=0e2d08cfdde0fcbde41368b215d5479b571e19df
+task_status=PARTIAL
+summary=qa/revamp-r1/cross-feature-20260909/summary.json
+summary_sha256=5071fb2ac06fb09b4d68fdd1b9fd343e28fb473e6c841a137ac168149f476a65
+
+node qa/revamp-r1/comparison-sharing-20260909/focused.mjs cross-feature-focused-1 lib/__tests__/home-comparison.test.tsx lib/__tests__/route-map-keyboard.test.ts lib/__tests__/route-source-lifecycle.test.ts lib/__tests__/map-startup-import.test.ts
+ Test Files  4 passed (4)
+      Tests  104 passed (104)
+focused_arithmetic=55 comparison + 38 lifecycle + 5 startup + 6 keyboard = 104
+
+node qa/revamp-r1/published-options-20260909/check.mjs cross-feature-full-1 full
+ Test Files  54 passed (54)
+      Tests  1389 passed (1389)
+test_arithmetic=1382 + 6 keyboard + 1 structural comparison regression = 1389
+file_arithmetic=53 + 1 = 54
+isolated_snapshot=C:\sgSHIOK2026\tmp\test-without-data-4jaCzh
+copiedFiles=193
+productionDataDirectoryAbsent=true
+guardProbePassed=true
+exitCode=0
+typescript_exitCode=0
+repo_integrity=ok
+integrity_exitCode=0
+git_diff_check_exitCode=0
+source_anchors_matched=11
+current_source_hashes_match_test_and_build=7
+[vitest-pool]: Timeout terminating forks worker for test files C:/sgSHIOK2026/tmp/test-without-data-4jaCzh/web/lib/__tests__/transit-stop-picker.test.tsx.
+post_run_query_for_node_processes_with_test-without-data-4jaCzh_in_command_line=(no output)
+post_run_process_query_exitCode=0
+
+build1=Y4ABW6wJ1UzMWd4EjqAQF
+build1_exitCode=0
+build1_not_used_for_acceptance=header/shared-row wrapping changed after snapshot capture
+build2=SVecGwN37beSg--Bqaksv
+build2_exitCode=0
+build2=qa/revamp-r1/cached-release-20260908/cross-feature-20260909-2/build.json
+preview=http://127.0.0.1:4328/
+preview_proxy_pid=100888
+preview_next_pid=104764
+preview_receipt=qa/revamp-r1/cross-feature-20260909/preview-2.json
+retired_previous_owned_preview_pids=98528,102292
+protected_data_server_4321_untouched=true
+
+baseline1=qa/revamp-r1/cross-feature-20260909/baseline-1-1788921686887/browser.json
+baseline1_dead_outer_map_keyboard_target=FAIL
+baseline1_canvas_keyboard_pan=PASS
+baseline1_canvas_describedby=FAIL
+baseline1_later_search_timeout=diagnostic Enter omitted text; corrected, not an app search regression
+baseline2=qa/revamp-r1/cross-feature-20260909/baseline-2-1788922004975/browser.json
+baseline2_checks=27 passed + 5 failed = 32
+baseline2_reflow_table_client_height=72
+baseline2_sticky_heading_height=61
+baseline2_doubled_text_table_client_height=0
+baseline2_reflow_final_row_PASS_REJECTED=driver measured displaced thead, not the sticky th
+
+treatment1=qa/revamp-r1/cross-feature-20260909/treatment-1-1788922922479/browser.json
+treatment1_checks=42 passed + 1 failed = 43
+treatment1_captures=18
+treatment1_all18_captures_visually_inspected=true
+treatment1_actual_document_build_identified=true
+treatment1_map_native_Tab_arrow_pan_name_description_focus=PASS
+treatment1_reduced_motion_fitBounds_duration_zero=PASS
+treatment1_top_left_stack_equal_width_result_bottom_right_About=PASS
+treatment1_four_standard_viewports_and_current_routes=PASS
+treatment1_enlarged_text_table_and_End_scroll=PASS
+treatment1_keyboard_horizontal_scroll_eight_pinned_commands=PASS
+treatment1_inactive_rightmost_removal_clear_Escape_focus=PASS
+treatment1_rightmost_metric_boundary=FAIL
+treatment1_boundary_driver_error=omitted clientTop/clientLeft; 1px top border was excluded
+treatment1_corrected_boundary_replay=NOT PASSED
+treatment1_immediate_CIM_cleanup_snapshot=not sufficient; unsuccessful receipt retained
+
+treatment2=qa/revamp-r1/cross-feature-20260909/treatment-2-1788923363928/browser.json
+treatment2=10 checks passed before 60s resize-settle timeout
+treatment2_last_sample=ready/current route/tiles loaded; intermediate settle traces were absent
+treatment2_cause=unresolved; concurrent full suite does not establish hardware-only causation
+treatment2_cleanup_verified=true
+treatment3=qa/revamp-r1/cross-feature-20260909/treatment-3-1788923797553/browser.json
+treatment3=browser debugging endpoint absent within40s; zero checks/captures, empty stderr
+treatment3_cleanup_verified=true
+subsequent_host_snapshot_free_KiB=1309912
+subsequent_host_snapshot_total_KiB=16545324
+treatment4=qa/revamp-r1/cross-feature-20260909/treatment-4-1788924034815/browser.json
+treatment4=45s Runtime.evaluate timeout; last sampled map status mounting
+treatment4_failure_png=actual app Map failed / map did not start / Reload page, with no basemap
+treatment4_failure_png_visually_inspected=true
+treatment4_browser_stderr=about:blank timeout and failed default web-app setup also present; cause unresolved
+treatment4_cleanup_verified=true
+treatment4_post_run_profile_process_query=(no output)
+last_driver_archived_by_matching_receipt_hash=qa/revamp-r1/cross-feature-20260909/driver-at-treatment-4.mjs
+no_further_browser_launches_this_turn=true
+complete_final_browser_acceptance=false
+release_ready=false
+
+source_review_A=map keyboard fix and49 focused tests, raw receipt retained
+source_review_B=no additional CSS blocker; scroll-focus/storage/failure acceptance remains conditional
+source_review_C=no blocking source defect in seven changed web files; not browser approval
+pending=T01 outer chunk/startup recovery and automatic legacy upgrade; T03/M18 diagnostics; remaining T25 failure/scroll-focus/revisit cases
+owner_gates=T13 reports service, T21 compute, T26 real device/users/M12, T28 deployment
+
+git_fetch_origin_exitCode=0
+HEAD=0e2d08cfdde0fcbde41368b215d5479b571e19df
+origin/main=0e2d08cfdde0fcbde41368b215d5479b571e19df
+git_pull_ff_only=refused because configured pull.rebase=true and scoped changes were uncommitted
+git_-c_pull.rebase=false_pull_--ff-only=Already up to date.
+no_stash_or_history_rewrite=true
+
+FINDINGS
+1. The duplicate outer map focus stop was inert; the actual canvas now owns current labels, description and visible keyboard focus.
+2. Enlarged shared-comparison text collapsed the nested table to zero height. One scrolling panel fixes it without expanding map coverage or reducing controls.
+3. All1389 tests pass, but the latest actual screenshot still shows map startup failure. Release is blocked; test counts and source review do not override that evidence.
+4. T25 remains PARTIAL. Startup, automatic cache upgrade, diagnostics and remaining failure/focus cases must be completed; reporting/user/deployment gates remain explicit.
+DISAGREEMENTS
+1. Required OneMap/SLA credit is attribution, not an optional legend. The official source again requires both logo and attribution: https://www.onemap.gov.sg/docs/maps/original.html.
+2. Emulated CSS reflow and doubled panel fonts are not native browser zoom, physical-device acceptance or representative speed evidence. No such claim is made.
+
+pipeline_runs=0
+pipeline_cost=$0
+dependency_installations=0
+deployment_commands=0
+protected_payload_mutations=0
+weights_yaml_changes=0
+X_operations=0
+pre_append_evidence_bytes=139093
+pre_append_evidence_sha256=e2ae5d0647bd9b16ec0cbf768b4ee76ce7f43356d09f66ecf19580ae20ea4baa
+pre_append_working_prefix_unchanged=true
+```

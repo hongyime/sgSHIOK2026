@@ -66,7 +66,7 @@ function fakeMap() {
     getSource: (id: string) => sources.get(id), getLayer: (id: string) => layers.get(id),
     addSource(id: string, spec: any) { sources.set(id, { data: spec.data, setData(data: any) { writes.push({ id, data }); this.data = data; } }); },
     addLayer(spec: any) { layers.set(spec.id, spec); },
-    getZoom: () => 16, getCanvas: () => ({ style: { cursor: '' } }),
+    getZoom: () => 16, getCanvas: () => ({ style: { cursor: '' }, setAttribute: vi.fn() }),
     getBounds: () => ({ getWest: () => 103.8, getEast: () => 103.9, getSouth: () => 1.2, getNorth: () => 1.4 }),
     moveLayer: vi.fn(), setLayoutProperty: vi.fn(), setFilter: vi.fn(), resize: vi.fn(), fitBounds: vi.fn(), easeTo: vi.fn(),
     isMoving: () => false, isSourceLoaded: () => true,

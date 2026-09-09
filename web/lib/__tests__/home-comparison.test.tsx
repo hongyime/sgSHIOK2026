@@ -465,9 +465,18 @@ describe("T10 home comparison presentation", () => {
     expect(css).toMatch(/\.panel\s*\{[^}]*bottom:\s*32px/);
     expect(css).toMatch(/\.table thead th\s*\{[^}]*position:\s*sticky;[^}]*top:\s*0;[^}]*z-index:\s*2;/);
     expect(css).toMatch(/\.table thead th:first-child\s*\{[^}]*z-index:\s*3;/);
-    expect(css).toMatch(/\.tableViewport\s*\{[^}]*scroll-padding-inline-start:\s*112px;/);
+    expect(css).toMatch(/\.panel\s*\{[^}]*scroll-padding-inline-start:\s*112px;/);
     expect(css).toContain("min-height: 44px"); expect(css).toContain("white-space: normal");
     expect(css).not.toMatch(/font-size:\s*[^;]*(?:vw|vh)|letter-spacing:\s*-/);
+  });
+
+  it("keeps one scroll owner so enlarged comparison controls cannot collapse the table", () => {
+    const css = readFileSync(resolve(process.cwd(), "components/home-comparison.module.css"), "utf8");
+    expect(css).toMatch(/\.panel\s*\{[^}]*overflow:\s*auto;[^}]*overscroll-behavior:\s*contain;/);
+    expect(css).toMatch(/\.tableViewport\s*\{[^}]*flex:\s*0 0 auto;[^}]*overflow:\s*visible;/);
+    expect(css).toContain(".panel:has(.tableViewport:focus-visible)");
+    // Structural guard only: browser receipts establish scroll, focus and pixel acceptance.
+    expect(css).toMatch(/\.header,\s*\.toolbar,\s*\.sharedRow,\s*\.storageNote,\s*\.empty\s*\{[^}]*position:\s*sticky;[^}]*left:\s*0;/);
   });
 });
 

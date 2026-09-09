@@ -1253,6 +1253,7 @@ export function RouteEvidenceMap({
   const transitPoiData = useMemo(() => transitPoiCollection(transitPois), [transitPois]);
   const feedbackData = useMemo(() => feedbackCollections(feedbackPoints), [feedbackPoints]);
   const accessibleLabel = useMemo(() => mapAriaLabel(routes, mode), [routes, mode]);
+  const accessibleLabelRef = useRef(accessibleLabel);
   const accessibleSummary = useMemo(
     () => mapTextSummary(routes, mode, routeData, transitPoiData, lampOverlayStatus, lampData, focusedExposureGap),
     [routes, mode, routeData, transitPoiData, lampOverlayStatus, lampData, focusedExposureGap]
@@ -1261,6 +1262,11 @@ export function RouteEvidenceMap({
     lampOverlayStatus,
     lampData.features.length
   );
+
+  useEffect(() => {
+    accessibleLabelRef.current = accessibleLabel;
+    mapRef.current?.getCanvas().setAttribute("aria-label", accessibleLabel);
+  }, [accessibleLabel]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -1367,6 +1373,10 @@ export function RouteEvidenceMap({
         attributionControl: false,
       });
       ownedMap = mapRef.current;
+      // MapLibre's canvas, not its outer container, owns native keyboard input.
+      const canvas = ownedMap.getCanvas();
+      canvas.setAttribute("aria-label", accessibleLabelRef.current);
+      canvas.setAttribute("aria-describedby", "route-map-summary");
       if (typeof window !== "undefined") {
         (window as unknown as { __shiokRouteMap?: maplibregl.Map }).__shiokRouteMap = mapRef.current;
       }
@@ -1742,10 +1752,6 @@ export function RouteEvidenceMap({
     <div className={styles.mapShell}>
       <div
         ref={containerRef}
-        aria-describedby="route-map-summary"
-        aria-label={accessibleLabel}
-        role="img"
-        tabIndex={0}
         className={styles.mapCanvas}
       />
       <div
