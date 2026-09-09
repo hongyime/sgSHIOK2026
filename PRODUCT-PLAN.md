@@ -288,16 +288,25 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Tests/done: O03-O06/O10-O11 and approved field-comparison criteria. New version validates, old hashes remain identical and unexpected score changes stop the job. Pilot failure or budget stop is a valid outcome, not permission to retry with a larger run.
 - Gate: NOT AUTHORIZED. No pipeline action until explicit job/budget approval. Not a blocker for a frontend-only release.
 
-### [ ] T22: Separate source, check and release freshness
-- Status: READY. Size: S. Parent: P2.3.
+### [x] T22: Separate source, check and release freshness
+- Status: DONE. Size: S. Parent: P2.3.
 - Depends on: none.
 - Scope: DataDetails in `web/app/page.tsx`, source metadata readers/tests; no frozen manifest edits.
 - Do: define typed source-updated, last-checked and release dates with unknown/stale states. Present concise facts inside About data; retain supporting records without flooding the main map. Identify what static snapshots currently exist instead of implying live monitoring.
 - Tests/done: O01-O02. Checking an old source today does not make its data current; unknown date stays unknown; timezone/format handling is tested. Display-only changes cannot alter scores or protected manifests.
 - Gate: FREE. No source download, re-ingest or automatic refresh.
+- Accepted 2026-09-09: typed historical publisher/check/generated/publication dates,
+  explicit unknowns and calendar precision; collapsed About data remains map-first.
+  The three recorded source hashes match frozen manifest metadata. A known update
+  with unknown freshness now says Freshness unknown, not Update date unknown.
+  1629 + 43 helper cases + 4 rendered cases = 1676 isolated tests; 60 + 1 = 61 files.
+  TypeScript, direct build, integrity and 11 anchors pass. Browser38 checks/7 inspected
+  captures cover actual build HTML, three viewport sizes, visible dates/source rows
+  and bounded disclosure scrolling. No live source check, pipeline or deployment.
+  Evidence: `qa/revamp-r1/source-freshness-20260909/summary.json`.
 
 ### [ ] T23: Establish a bounded metadata-check routine
-- Status: WAIT_DEPS. Size: M. Parent: P2.3.
+- Status: READY. Size: M. Parent: P2.3.
 - Depends on: T22.
 - Scope: inspect existing freshness/check automation, then a narrowly scoped read-only checker and workflow only if needed; runbook/fixtures.
 - Do: choose a documented cadence and inspect source metadata, not datasets. Deduplicate notices, handle rate limits and errors, record successful/failed checks and give the owner an actionable failure notice. No automatic processing or blanket workflow rewrite.
@@ -305,7 +314,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: FREE within existing account/source limits. New secrets/accounts, external writes or alert-provider setup require specific approval; never call run.py check/ingest/network.
 
 ### [ ] T24: Make maintenance ownership and recovery explicit
-- Status: WAIT_DEPS. Size: S. Parent: P2.3.
+- Status: READY. Size: S. Parent: P2.3.
 - Depends on: T22.
 - Scope: existing operational docs/decisions and tracked scripts inventory, read-only metadata.
 - Do: propose concrete source-check, report-review and release-review cadence; name owner actions, failures, fallback and free-cap checks. Record which payloads remain untracked/irreplaceable and a non-destructive backup/recovery proposal. Separate agent-runnable checks from physical backup and credential actions.

@@ -2969,3 +2969,24 @@ event. A different real record makes the hydrated-submit check sensitive to a
 dropped event. A map loaded flag is not proof that raster fading has finished;
 final visual captures wait for the map idle event, without claiming performance
 improvement. Evidence: qa/revamp-r1/native-postal-20260909/summary.json.
+
+## 2026-09-09: Keep source age separate from checking and publication
+
+About data distinguishes the bundle data reference, bundle generation, publication,
+and the last recorded source-age check. Source detail uses recorded publisher
+update dates, not download dates. Checking an old source again does not make it
+current. The historical manifest-only check is labelled as such, not live
+monitoring; generation is not evidence of a deployment timestamp.
+
+The existing frozen bundle has no recorded publication timestamp. Bus Stops has
+no recorded publisher update timestamp. Both remain Unknown. The three displayed
+source records are bound to this bundle and matching metadata hashes; a different
+bundle does not inherit this snapshot. This is not a new source fetch or refresh.
+
+Calendar-only dates retain their precision. Timestamp comparisons require explicit
+zones and are displayed in Singapore time. Month-only/invalid dates stay unknown;
+do not invent the first day of a month or a midnight boundary for an exact age
+threshold. A known update date can still have unknown freshness, so those labels
+remain distinct. Supporting historical detail stays within a nested disclosure,
+not in the main map view. T23/T24 now cover the ongoing checking and ownership
+routine. Evidence: qa/revamp-r1/source-freshness-20260909/summary.json.

@@ -10,6 +10,7 @@ vi.mock("next/navigation", () => ({
 
 import Home, {
   ScoreCard,
+  DataDetails,
   SearchFeedback,
   formatFeedbackTraceCount,
   formatDataDate,
@@ -25,6 +26,7 @@ import Home, {
 } from "../../app/page";
 import { RouteEvidenceMap } from "../../components/route-evidence-map";
 import type { ScoreRecord, TransitPoiCollection } from "../types";
+import * as freshnessHelpers from "../source-freshness";
 
 const emptyTransitPois: TransitPoiCollection = {
   type: "FeatureCollection",
@@ -222,7 +224,9 @@ describe("rendered accessibility output", () => {
     const html = renderToStaticMarkup(<Home />);
 
     expect(html).toContain("About data");
-    expect(html).toContain("Shelter-map evidence as of 2 Aug 2026. Some newer addresses and some locked scores are not in this release.");
+    expect(html).toContain("Bundle data reference:");
+    expect(html).toContain("2 Aug 2026, 05:49 SGT");
+    expect(html).toContain("Some newer addresses and some locked scores are not in this release.");
     expect(html).not.toContain("Data limits: June 2020 addresses; roughly 1 in 4 lack full locked scores");
     expect(html).not.toContain("Data limits: frozen v1 addresses; roughly 1 in 4 lack full locked scores");
     expect(html).not.toContain("Data limits: frozen v1 addresses; incomplete locked scores");
@@ -259,6 +263,54 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("16 Aug 2026 public-source sample");
     expect(html).not.toContain("20 Aug 2026 OSM addr:postcode coverage cross-check");
   });
+
+  it("separates recorded source updates, static check, bundle generation and unknown publication", () => {
+    const manifest = { data_as_of: "2026-08-01T21:49:20.977890+00:00",
+      generated_at: "2026-08-05T14:00:15.974693+00:00", provenance: {} };
+    const before = JSON.stringify(manifest);
+    const html = renderToStaticMarkup(<DataDetails manifest={manifest} />);
+    expect(html).toContain("Bundle data reference:");
+    expect(html).toContain("2 Aug 2026, 05:49 SGT");
+    expect(html).toContain("Bundle generated:");
+    expect(html).toContain("5 Aug 2026, 22:00 SGT");
+    expect(html).toMatch(/Publication date:<\/strong> Unknown/);
+    expect(html).toContain("Last recorded source-age check:");
+    expect(html).toContain("30 Aug 2026, 01:23 SGT");
+    expect(html).toContain("Static manifest-only check, not live monitoring.");
+    expect(html).toContain("Covered Linkway");
+    expect(html).toContain("6 Mar 2026, 16:24 SGT");
+    expect(html).toContain("Stale at that check");
+    expect(html).toContain("MRT/LRT exits");
+    expect(html).toContain("Within threshold at that check");
+    expect(html).toMatch(/Bus Stops[\s\S]*?Unknown/);
+    expect(html).toContain("Checking a source does not update its data.");
+    expect(html).not.toMatch(/<details[^>]* open/);
+    expect(html).toContain("ATTRIBUTION.md");
+    expect(html).toContain("ODbL");
+    expect(JSON.stringify(manifest)).toBe(before);
+  });
+
+  it("keeps a known publisher date distinct from unknown freshness", () => {
+    const actual = freshnessHelpers.sourceFreshnessAtCheck;
+    const mock = vi.spyOn(freshnessHelpers, 'sourceFreshnessAtCheck').mockImplementation(record => ({
+      ...actual(record), status: 'unknown',
+    }));
+    try {
+      const html = renderToStaticMarkup(<DataDetails manifest={null} />);
+      expect(html).toMatch(/Covered Linkway:[\s\S]*?6 Mar 2026, 16:24 SGT<\/time>\. Freshness unknown\./);
+      expect(html).toMatch(/Bus Stops: Unknown\. Update date unknown\./);
+    } finally { mock.mockRestore(); }
+  });
+
+  it.each([null, { data_as_of: "2026-02-30", generated_at: "2026-08-05T14:00:00", provenance: {} }])(
+    "does not replace missing or invalid bundle dates with check dates: %j", manifest => {
+      const html = renderToStaticMarkup(<DataDetails manifest={manifest} />);
+      expect(html).toMatch(/Bundle data reference:<\/strong> Unknown/);
+      expect(html).toMatch(/Bundle generated:<\/strong> Unknown/);
+      expect(html).toMatch(/Publication date:<\/strong> Unknown/);
+      expect(html).not.toContain("Invalid Date");
+    },
+  );
 
   it("introduces the shelter-map panel before search", () => {
     const html = renderScoreCard({

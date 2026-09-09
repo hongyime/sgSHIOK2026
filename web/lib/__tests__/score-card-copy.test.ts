@@ -300,9 +300,8 @@ describe("score card copy", () => {
     expect(source).toContain("Shelter-map data could not load. Try this postal code again.");
     expect(source).not.toContain("Failed to load score data.");
     expect(source).not.toContain("Singapore walk-to-transit comfort");
-    expect(source).toContain(
-      "Shelter-map evidence as of {formatDataDate(manifest)}. Some newer addresses and some locked scores are not in this release."
-    );
+    expect(source).toContain("Bundle data reference:");
+    expect(source).toContain("Some newer addresses and some locked scores are not in this release.");
     expect(source).not.toContain(
       "Shelter-map evidence as of {formatDataDate(manifest)}; published data built {formatGeneratedDate(manifest)}"
     );

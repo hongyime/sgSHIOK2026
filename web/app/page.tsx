@@ -73,6 +73,7 @@ import { buildComparisonLink, comparisonLinkFragment, readComparisonLink } from 
 import { publishedOptionGeometry } from "../lib/published-walk-view";
 import { HomeComparison } from "../components/home-comparison";
 import { ComparisonShareDialog } from "../components/comparison-share-dialog";
+import { parseFreshnessDate, sourceFreshnessAtCheck, RECORDED_SOURCE_FRESHNESS } from "../lib/source-freshness";
 
 const EMPTY_TRANSIT_POIS: TransitPoiCollection = { type: "FeatureCollection", features: [] };
 
@@ -1908,32 +1909,51 @@ function Metric({ label, value }: { label: string; value: string }) {
 }
 
 export function DataDetails({ manifest, onToggle }: { manifest: Manifest | null; onToggle?: React.ToggleEventHandler<HTMLDetailsElement> }) {
+  const snapshot = DATA_BASE === `/data/${RECORDED_SOURCE_FRESHNESS.bundle}/` ? RECORDED_SOURCE_FRESHNESS : null;
+  const date = (value: unknown) => {
+    const parsed = parseFreshnessDate(value);
+    return parsed ? <time dateTime={parsed.iso}>{parsed.label}</time> : 'Unknown';
+  };
   return (
         <details className={styles.dataLimits} onToggle={onToggle}>
           <summary>About data</summary>
           <div className={styles.dataBody}>
           <p>
-            Shelter-map evidence as of {formatDataDate(manifest)}. Some newer addresses and some locked scores are not in this release.
+            <strong>Bundle data reference:</strong> {date(manifest?.data_as_of)}
           </p>
+          <p><strong>Bundle generated:</strong> {date(manifest?.generated_at)}</p>
+          <p><strong>Publication date:</strong> {date(snapshot?.releasedAt)}</p>
+          <p><strong>Last recorded source-age check:</strong> {date(snapshot?.checkedAt)}</p>
+          {snapshot && <p>Static manifest-only check, not live monitoring. Checking a source does not update its data.</p>}
+          <p>Some newer addresses and some locked scores are not in this release.</p>
           <p>
             Address list: June 2020 OneMap-derived postal scrape; newer developments may be missing.
           </p>
+          <details className={styles.freshnessDetails}>
+            <summary>Source freshness detail</summary>
+            {snapshot && <>
+              <p>Recorded publisher update dates:</p>
+              <ul>
+                {snapshot.sources.map(source => {
+                  const freshness = sourceFreshnessAtCheck({ ...source, checkedAt: snapshot.checkedAt });
+                  const status = freshness.status === 'stale' ? 'Stale at that check'
+                    : freshness.status === 'within-threshold-at-check' ? 'Within threshold at that check'
+                    : freshness.updatedAt ? 'Freshness unknown' : 'Update date unknown';
+                  return <li key={source.id}>{source.label}: {date(source.updatedAt)}. {status}.</li>;
+                })}
+              </ul>
+              <p>Fetch dates are not publisher update dates. The historical age report below may use fetch dates when update dates are missing.</p>
+              <p>{DATA_FRESHNESS_SUMMARY_COPY}</p>
+              <p>{DATA_FRESHNESS_DETAIL_COPY}</p>
+              <p>{COVERED_LINKWAY_FRESHNESS_COPY}</p>
+            </>}
           <p>
             {RECENT_PUBLIC_SOURCE_SAMPLE_LABEL}: {RECENT_PUBLIC_SOURCE_GAP_COPY}.
           </p>
           <p>
             {OSM_ADDR_POSTCODE_COVERAGE_COPY}
           </p>
-          <p>
-            {DATA_FRESHNESS_SUMMARY_COPY}
-          </p>
-          <details className={styles.freshnessDetails}>
-            <summary>Source freshness detail</summary>
-            <p>{DATA_FRESHNESS_DETAIL_COPY}</p>
           </details>
-          <p>
-            {COVERED_LINKWAY_FRESHNESS_COPY}
-          </p>
           <p>
             {LEAF_AREA_INDEX_REFERENCE_COPY}
           </p>

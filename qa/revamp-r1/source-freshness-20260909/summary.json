@@ -1,0 +1,50 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "base": "b8bccceb97adeb38ec461086799eea5001af7eb1",
+  "task": "T22: Separate source, check and release freshness",
+  "sourceFiles": ["web/lib/source-freshness.ts", "web/lib/__tests__/source-freshness.test.ts", "web/app/page.tsx", "web/lib/__tests__/accessibility-render.test.tsx", "web/lib/__tests__/score-card-copy.test.ts"],
+  "scope": "DataDetails and one page import only; historical publisher/check/generated/publication dates, explicit unknowns and precision. Supporting prior copy is nested. No pipeline/scoring or layout source change.",
+  "tests": {
+    "initialRed": "qa/revamp-r1/comparison-sharing-20260909/freshness-red/checks.json",
+    "initialGreen": "qa/revamp-r1/comparison-sharing-20260909/freshness-green/checks.json",
+    "precisionRed": "qa/revamp-r1/comparison-sharing-20260909/freshness-precision-red/checks.json",
+    "precisionGreen": "qa/revamp-r1/comparison-sharing-20260909/freshness-green-2/checks.json",
+    "reviewRed": "qa/revamp-r1/comparison-sharing-20260909/freshness-copy-red/checks.json",
+    "finalFocused": "qa/revamp-r1/comparison-sharing-20260909/freshness-copy-green/checks.json",
+    "fullBeforeReviewFix": "qa/revamp-r1/published-options-20260909/freshness-full-1/checks.json",
+    "finalFull": "qa/revamp-r1/published-options-20260909/freshness-full-2/checks.json",
+    "result": "1676/1676,61 files,zero skips; TypeScript --noEmit --incremental false and repo_integrity=ok exit0",
+    "arithmetic": "1629 existing + 43 helper cases + 4 rendered cases = 1676; 60 + 1 file = 61; final focused69 existing + 43 helper + 4 rendered = 116/4",
+    "isolation": "tmp/test-without-data-AkCZgE/isolation.json; production payload absent and original/copied paths denied; existing dependencies linked, no installation"
+  },
+  "metadata": "qa/revamp-r1/source-freshness-20260909/metadata.json",
+  "build": {"receipt": "qa/revamp-r1/cached-release-20260908/source-freshness-20260909-1/build.json", "id": "Hb1o7rptP9IxSDBxSb8ID", "exitCode": 0, "pipelineHooksBypassed": true},
+  "browser": {
+    "receipt": "qa/revamp-r1/source-freshness-20260909/browser-JZIDgw/browser.json",
+    "checks": 38, "captures": 7, "elapsedSeconds": 70.336,
+    "arithmetic": "1 closed desktop + 3 viewports * 2 disclosures = 7 captures; 1 preview + 2 closed-state + 1 Document + 3*(5 date-state + 6 source-state) + 1 error/request guard = 38 checks",
+    "viewports": ["1440x950", "390x844", "320x667"],
+    "actualDocumentBuildVerified": true, "cleanupVerified": true,
+    "limits": "Installed Chrome/SwiftShader, cache/SW bypass. No physical-device, SW-upgrade, performance, live-source or deployment claim. Forbidden external requests are not universally intercepted; local APIs are disabled at the preview proxy and request receipts are checked."
+  },
+  "audit": "qa/revamp-r1/source-freshness-20260909/identity-final.json",
+  "auditResult": "142 current/tested/built source identities,11 protected anchors,7capture hashes,actualDocument and177002-byte evidence prefix match",
+  "review": {
+    "implementation": "A/Parfit implemented scoped source/tests, no commits.",
+    "source": "C/Anscombe independently verified frozen source/date mappings; parent fixed the known-date/unknown-freshness copy contradiction and added month-only limitation regression. C accepted corrections.",
+    "browser": "C/Anscombe independently inspected all7screenshots and verified8artifact hashes/sizes including actualHTML. Accepted bounded visual verification; no blockers.",
+    "qaCorrections": "Before first browser execution, added handshake/remaining-budget bounds, visible date-row containment and final error-ledger checks. No browser rerun was required."
+  },
+  "preview": {"url": "http://127.0.0.1:4334/", "proxyPid": 108688, "nextPid": 100616, "apis": "disabled; read-only data proxy to4321"},
+  "FINDINGS": [
+    "Source update, check time, bundle generation and actual publication are distinct. Unknown publisher/publication dates remain unknown.",
+    "Known update date does not imply known freshness. The independently identified copy edge case was fixed with an executed failing-then-passing rendered test.",
+    "The dates and three metadata hashes agree with frozen records, but this is a historical snapshot rather than a live refresh or proof of current shelter coverage.",
+    "All added facts are inside About data and supporting historical copy is nested; the map-first shell remains unchanged."
+  ],
+  "DISAGREEMENTS": ["A recent check does not make an old source current; fetch time is not a publisher update.", "This acceptance does not establish live-source monitoring, physical-device behavior or representative performance."],
+  "pipelineRuns": 0, "protectedPayloadMutations": 0, "installations": 0, "deploymentCommands": 0,
+  "next": "T19 bounded read-only coverage register; preserved uncommitted core needs validity/coordinate cause fixes before timed pilot. T23/T24 are now READY.",
+  "goalComplete": false
+}

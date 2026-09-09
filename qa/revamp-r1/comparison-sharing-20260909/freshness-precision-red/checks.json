@@ -1,0 +1,50 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs",
+    "lib/__tests__/source-freshness.test.ts",
+    "--no-cache",
+    "--reporter=dot"
+  ],
+  "exitCode": 1,
+  "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n·····································xx···\n\n Test Files  1 failed (1)\n      Tests  2 failed | 40 passed (42)\n   Start at  16:21:55\n   Duration  1.95s (transform 259ms, setup 0ms, import 366ms, tests 428ms, environment 1ms)\n\n",
+  "stderr": "\n⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯\n\n FAIL  lib/__tests__/source-freshness.test.ts > source age is not check recency > does not invent midnight precision for an exact freshness threshold: {\"updatedAt\":\"2026-07-01\",\"checkedAt\":\"2026-07-31T00:00:00Z\"}\n FAIL  lib/__tests__/source-freshness.test.ts > source age is not check recency > does not invent midnight precision for an exact freshness threshold: {\"updatedAt\":\"2026-07-01T00:00:00Z\",\"checkedAt\":\"2026-07-31\"}\nAssertionError: expected 'within-threshold-at-check' to be 'unknown' // Object.is equality\n\nExpected: \"unknown\"\nReceived: \"within-threshold-at-check\"\n\n ❯ lib/__tests__/source-freshness.test.ts:82:27\n     80|     expect(result.updatedAt).not.toBeNull();\n     81|     expect(result.checkedAt).not.toBeNull();\n     82|     expect(result.status).toBe('unknown');\n       |                           ^\n     83|   });\n     84|\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯\n\n",
+  "elapsedSeconds": 6.553,
+  "before": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "46526e84bc880707a2a4e0e557011c723ce9424acb67fd3d9217e2b44e85e100"
+    },
+    {
+      "path": "web/lib/__tests__/source-freshness.test.ts",
+      "sha256": "84db5531bf52cedd7d564f6f6db8261d33a3a065269e591244554748f8191755"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "46526e84bc880707a2a4e0e557011c723ce9424acb67fd3d9217e2b44e85e100"
+    },
+    {
+      "path": "web/lib/__tests__/source-freshness.test.ts",
+      "sha256": "84db5531bf52cedd7d564f6f6db8261d33a3a065269e591244554748f8191755"
+    }
+  ],
+  "identitiesStable": true
+}

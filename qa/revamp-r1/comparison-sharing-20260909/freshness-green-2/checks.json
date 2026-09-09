@@ -1,0 +1,77 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs",
+    "lib/__tests__/source-freshness.test.ts",
+    "lib/__tests__/accessibility-render.test.tsx",
+    "lib/__tests__/score-card-copy.test.ts",
+    "lib/__tests__/map-first-shell.test.ts",
+    "--no-cache",
+    "--reporter=dot"
+  ],
+  "exitCode": 0,
+  "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n··················································································································\n\n Test Files  4 passed (4)\n      Tests  114 passed (114)\n   Start at  16:23:03\n   Duration  17.54s (transform 5.26s, setup 0ms, import 7.16s, tests 3.38s, environment 3ms)\n\n",
+  "stderr": "",
+  "elapsedSeconds": 35.836,
+  "before": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "46526e84bc880707a2a4e0e557011c723ce9424acb67fd3d9217e2b44e85e100"
+    },
+    {
+      "path": "web/lib/__tests__/source-freshness.test.ts",
+      "sha256": "84db5531bf52cedd7d564f6f6db8261d33a3a065269e591244554748f8191755"
+    },
+    {
+      "path": "web/lib/__tests__/accessibility-render.test.tsx",
+      "sha256": "fceb0709e3c7306a2f9373d992c2db6f7e915672706553f0e1ba159ee7e59142"
+    },
+    {
+      "path": "web/lib/__tests__/score-card-copy.test.ts",
+      "sha256": "c2ece5eab58b4427977c756038c1c9acfef16c442c71efd7ea13f56ce6f95775"
+    },
+    {
+      "path": "web/lib/__tests__/map-first-shell.test.ts",
+      "sha256": "11050f4e65d7c081ec53a979fc683347181a611b44b0793fffbee6834f637613"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "46526e84bc880707a2a4e0e557011c723ce9424acb67fd3d9217e2b44e85e100"
+    },
+    {
+      "path": "web/lib/__tests__/source-freshness.test.ts",
+      "sha256": "84db5531bf52cedd7d564f6f6db8261d33a3a065269e591244554748f8191755"
+    },
+    {
+      "path": "web/lib/__tests__/accessibility-render.test.tsx",
+      "sha256": "fceb0709e3c7306a2f9373d992c2db6f7e915672706553f0e1ba159ee7e59142"
+    },
+    {
+      "path": "web/lib/__tests__/score-card-copy.test.ts",
+      "sha256": "c2ece5eab58b4427977c756038c1c9acfef16c442c71efd7ea13f56ce6f95775"
+    },
+    {
+      "path": "web/lib/__tests__/map-first-shell.test.ts",
+      "sha256": "11050f4e65d7c081ec53a979fc683347181a611b44b0793fffbee6834f637613"
+    }
+  ],
+  "identitiesStable": true
+}

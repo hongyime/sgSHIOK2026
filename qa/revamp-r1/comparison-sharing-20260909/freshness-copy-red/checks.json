@@ -1,0 +1,59 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\scripts\\test-web.mjs",
+    "lib/__tests__/accessibility-render.test.tsx",
+    "lib/__tests__/source-freshness.test.ts",
+    "--no-cache",
+    "--reporter=dot"
+  ],
+  "exitCode": 1,
+  "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n······x··················································································\n\n Test Files  1 failed | 1 passed (2)\n      Tests  1 failed | 88 passed (89)\n   Start at  16:56:11\n   Duration  11.44s (transform 4.13s, setup 0ms, import 5.03s, tests 3.44s, environment 1ms)\n\n",
+  "stderr": "\n⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯\n\n FAIL  lib/__tests__/accessibility-render.test.tsx > rendered accessibility output > keeps a known publisher date distinct from unknown freshness\nAssertionError: expected '<details class=\"_dataLimits_00c8fe\"><…' to match /Covered Li…/time>\\. Freshness unknown\\.\n\n- Expected:\n/Covered Linkway:[\\s\\S]*?6 Mar 2026, 16:24 SGT<\\/time>\\. Freshness unknown\\./\n\n+ Received:\n\"<details class=\\\"_dataLimits_00c8fe\\\"><summary>About data</summary><div class=\\\"_dataBody_00c8fe\\\"><p><strong>Bundle data reference:</strong> Unknown</p><p><strong>Bundle generated:</strong> Unknown</p><p><strong>Publication date:</strong> Unknown</p><p><strong>Last recorded source-age check:</strong> <time dateTime=\\\"2026-08-29T17:23:22.780Z\\\">30 Aug 2026, 01:23 SGT</time></p><p>Static manifest-only check, not live monitoring. Checking a source does not update its data.</p><p>Some newer addresses and some locked scores are not in this release.</p><p>Address list: June 2020 OneMap-derived postal scrape; newer developments may be missing.</p><details class=\\\"_freshnessDetails_00c8fe\\\"><summary>Source freshness detail</summary><p>Recorded publisher update dates:</p><ul><li>Covered Linkway: <time dateTime=\\\"2026-03-06T08:24:22.000Z\\\">6 Mar 2026, 16:24 SGT</time>. Update date unknown.</li><li>MRT/LRT exits: <time dateTime=\\\"2026-07-19T02:06:46.000Z\\\">19 Jul 2026, 10:06 SGT</time>. Update date unknown.</li><li>Bus Stops: Unknown. Update date unknown.</li></ul><p>Fetch dates are not publisher update dates. The historical age report below may use fetch dates when update dates are missing.</p><p>Source-age snapshot: 29 Aug 2026 17:23 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh.</p><p>At the 29 Aug 2026 source-age check, Bus Stops, Bus Services, and Bus Routes were the nearest current sources to their stale threshold, and HDB Existing Building was the oldest current item. Freshness may have changed since that snapshot; source refreshes use new dated input versions instead of changing published data in place. The source inventory covers address, transport, shelter, greenery, boundary, and lighting references, including the June 2020 OneMap-derived address seed. Stale sources are ordered by days past their freshness threshold: Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Traffic Signals, Pedestrian Overhead Bridge / Underpass, Covered Linkway, NParks Heritage Trees, NParks Nature Ways, and NParks Leaf Area Index.</p><p>Covered Linkway follows a quarterly 120-day freshness threshold; published data uses the Mar 2026 LTA geospatial listing. A 28 Aug 2026 source-listing check found the covered-linkway, bridge/underpass, and traffic-signal listings still matched the published data; stale source data still requires a new dated input version before any refresh.</p><p>P19 v2 28 Aug 2026 public-source sample: 6 coordinate-backed HDB missing rows (SUN PLAZA SPRING and YISHUN BEACON, three postals each) plus 2 unverified MCST address candidates (CANAAN and MYRA) out of 976 sampled 2021-2026 public-source rows with postals: 0.61% confirmed, or 0.82% including address-quality warnings. This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list.</p><p>28 Aug 2026 OSM addr:postcode coverage cross-check: 25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 June 2020 address-list postcodes, with 20 valid OSM-only postcodes. OSM remains geometry evidence, not the address registry.</p></details><p>NParks Leaf Area Index is a freshness-only reference table here; walk heat evidence uses shelter plus sparse walk-adjacent greenery geometry, not LAI or measured temperature.</p><p>Sources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address registry (© OpenStreetMap contributors, <a href=\\\"https://opendatacommons.org/licenses/odbl/1-0/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">ODbL</a>). <a href=\\\"https://github.com/hongyime/sgSHIOK2026/blob/main/ATTRIBUTION.md\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">ATTRIBUTION.md</a></p><p>Heat estimate: shelter plus sparse nearby greenery, not measured temperature</p></div></details>\"\n\n ❯ lib/__tests__/accessibility-render.test.tsx:300:20\n    298|     try {\n    299|       const html = renderToStaticMarkup(<DataDetails manifest={null} /…\n    300|       expect(html).toMatch(/Covered Linkway:[\\s\\S]*?6 Mar 2026, 16:24 …\n       |                    ^\n    301|       expect(html).toMatch(/Bus Stops: Unknown\\. Update date unknown\\.…\n    302|     } finally { mock.mockRestore(); }\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯\n\n",
+  "elapsedSeconds": 16.812,
+  "before": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "46526e84bc880707a2a4e0e557011c723ce9424acb67fd3d9217e2b44e85e100"
+    },
+    {
+      "path": "web/lib/__tests__/accessibility-render.test.tsx",
+      "sha256": "cbd7ad9c2e40749961f0d8ba9b49e44fd7c63a2abb7b2da83d1b6f18c2c073c8"
+    },
+    {
+      "path": "web/lib/__tests__/source-freshness.test.ts",
+      "sha256": "98de88e223f9794029f003daa4c111a0bf5d0e8083c6db84fbdd3d95d2340f4e"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "46526e84bc880707a2a4e0e557011c723ce9424acb67fd3d9217e2b44e85e100"
+    },
+    {
+      "path": "web/lib/__tests__/accessibility-render.test.tsx",
+      "sha256": "cbd7ad9c2e40749961f0d8ba9b49e44fd7c63a2abb7b2da83d1b6f18c2c073c8"
+    },
+    {
+      "path": "web/lib/__tests__/source-freshness.test.ts",
+      "sha256": "98de88e223f9794029f003daa4c111a0bf5d0e8083c6db84fbdd3d95d2340f4e"
+    }
+  ],
+  "identitiesStable": true
+}

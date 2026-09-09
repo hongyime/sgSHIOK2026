@@ -2719,3 +2719,74 @@ https://www.onemap.gov.sg/docs/maps/original.html on 2026-09-09.
 Receipt and screenshot hashes, explicit bottom-gap and legend assertions, snapshot
 identities and append-only evidence proof are in
 `qa/revamp-r1/layout-confirmation-20260909/audit.json`.
+
+## T22 Source, Check and Publication Dates, 2026-09-09
+
+```text
+root=C:\sgSHIOK2026
+hostname=Prawn-E14
+base=b8bccceb97adeb38ec461086799eea5001af7eb1
+task=T22
+implementation_scope=source-freshness helper/tests,DataDetails/import,two existing rendered/copy test files
+node qa/revamp-r1/source-freshness-20260909/metadata.mjs
+metadata_ok=true
+recorded_source_hash_matches=3 of 3 against raw and frozen bundle metadata
+bundle_manifest_sha256=7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e
+check=2026-08-29T17:23:22.780137+00:00=30 Aug 2026,01:23 SGT
+source_statuses=Covered Linkway stale at that check; MRT/LRT exits within threshold at that check; Bus Stops publisher date unknown
+publication_timestamp=unknown
+metadata_cli_warning=Node reparsed the TS helper as ESM; no package-type change required
+node qa/revamp-r1/comparison-sharing-20260909/focused.mjs freshness-copy-red lib/__tests__/accessibility-render.test.tsx lib/__tests__/source-freshness.test.ts
+Tests  1 failed | 88 passed (89)
+red_reason=known publisher date incorrectly labelled Update date unknown when freshness was unknown
+node qa/revamp-r1/comparison-sharing-20260909/focused.mjs freshness-copy-green lib/__tests__/accessibility-render.test.tsx lib/__tests__/source-freshness.test.ts lib/__tests__/score-card-copy.test.ts lib/__tests__/map-first-shell.test.ts
+Test Files  4 passed (4)
+Tests  116 passed (116)
+focused_arithmetic=69 existing + 43 helper + 4 rendered = 116
+node qa/revamp-r1/published-options-20260909/check.mjs freshness-full-2 full
+Test Files  61 passed (61)
+Tests  1676 passed (1676)
+full_arithmetic=1629 + 43 helper + 4 rendered = 1676; 60 + 1 test file = 61
+test_isolation=tmp/test-without-data-AkCZgE; productionDataDirectoryAbsent=true; guardProbePassed=true; exitCode=0
+TypeScript --noEmit --incremental false=exit0
+repo_integrity=ok
+git diff --check=exit0
+node qa/revamp-r1/cached-release-20260908/build-snapshot.mjs source-freshness-20260909-1
+build_exit_code=0
+build_id=Hb1o7rptP9IxSDBxSb8ID
+node qa/revamp-r1/source-freshness-20260909/browser.mjs
+browser_receipt=qa/revamp-r1/source-freshness-20260909/browser-JZIDgw/browser.json
+browser_checks=1 preview + 2 closed-state + 1 actual-Document + 3*(5 date-state + 6 source-state) + 1 no-errors/no-data-reads = 38
+captures=1 closed desktop + 3 viewports * 2 disclosures = 7
+viewports=1440x950,390x844,320x667
+browser_elapsed_seconds=70.336
+actual_document_build_matches=true
+owned_browser_cleanup_verified=true
+date_rows_visible=true
+source_rows_visible=true
+parent_inspected_captures=7
+preview=http://127.0.0.1:4334/
+preview_proxy_pid=108688
+preview_next_pid=100616
+FINDINGS
+1. Source update, recorded check, bundle generation and publication are different facts. Bus publisher date and bundle publication remain unknown; fetch time is not substituted.
+2. Independent review caught a known-date/unknown-freshness copy contradiction. The failing rendered regression reproduced it; the final version uses Freshness unknown when the update date exists.
+3. Month-only dates stay unknown and calendar-only dates retain precision. Old sources do not become current merely because a check happened later.
+4. All new facts stay inside About data; supporting historical copy is nested. The approved map-first layout and attribution remain intact.
+DISAGREEMENTS
+1. This is not a new source-age check, new data release or proof the physical shelter network is current. It renders the recorded snapshot truthfully.
+2. Browser checks establish this disclosure on the installed desktop browser with emulated viewport sizes, not representative performance, native mobile or service-worker acceptance.
+pipeline_runs=0
+protected_payload_mutations=0
+installations=0
+deployment_commands=0
+full_python_suite_rerun=false
+goal_complete=false
+```
+
+Earlier failed source-helper/calendar-precision attempts and the first full pass
+(1674 tests before the two review additions) remain under the named freshness
+receipts in `qa/revamp-r1/comparison-sharing-20260909/` and
+`qa/revamp-r1/published-options-20260909/`. Final metadata, source/test/build hashes,
+11 protected anchors, capture identities and append-only proof are in
+`qa/revamp-r1/source-freshness-20260909/identity-final.json`.

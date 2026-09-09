@@ -1,0 +1,110 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "mode": "Read frozen metadata only; no live source check, source refresh or processing.",
+  "files": [
+    {
+      "path": "raw/manifest.json",
+      "bytes": 11616,
+      "sha256": "ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a"
+    },
+    {
+      "path": "web/data-bundle.json",
+      "bytes": 360,
+      "sha256": "d5ce7703d5ee6b39651947749f9bd2f4c6d642fe2af06e1d9324671ce8f009e8"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "qa/verification/P1023-browser-source-age-snapshot.md",
+      "bytes": 5619,
+      "sha256": "160b437300c9e2473da5257d3c76d30ee7d0904ccc8f1c9020b82366cfa319bf"
+    },
+    {
+      "path": "web/lib/source-freshness.ts",
+      "bytes": 4477,
+      "sha256": "4644ab5396eeef9e56046761c16b1bf0ea7d7137507a7a030cfe1644d132ceed"
+    }
+  ],
+  "sources": [
+    {
+      "id": "covered_linkway",
+      "sourceHash": "d943fe2a992ad50c449c40484e0c642da480598b17f6008907c7b253d87b19ee",
+      "rawDeclaredHash": "d943fe2a992ad50c449c40484e0c642da480598b17f6008907c7b253d87b19ee",
+      "bundleDeclaredHash": "d943fe2a992ad50c449c40484e0c642da480598b17f6008907c7b253d87b19ee",
+      "recordedLastModified": "Fri, 06 Mar 2026 08:24:22 GMT",
+      "updatedAt": {
+        "iso": "2026-03-06T08:24:22.000Z",
+        "label": "6 Mar 2026, 16:24 SGT",
+        "milliseconds": 1772785462000,
+        "precision": "instant"
+      },
+      "recordedFetchedAt": "2026-08-25T12:34:12.393459+00:00",
+      "fetchedAt": "2026-08-25T12:34:12.393459+00:00",
+      "updateMatches": true,
+      "fetchMatches": true,
+      "staleAfterDays": 120,
+      "statusAtRecordedCheck": "stale"
+    },
+    {
+      "id": "mrt_lrt_exits",
+      "sourceHash": "a7eaa90f30991dc0ac4aa970d704123ce3ec9e60c82b42c32a32e74be7dc0327",
+      "rawDeclaredHash": "a7eaa90f30991dc0ac4aa970d704123ce3ec9e60c82b42c32a32e74be7dc0327",
+      "bundleDeclaredHash": "a7eaa90f30991dc0ac4aa970d704123ce3ec9e60c82b42c32a32e74be7dc0327",
+      "recordedLastModified": "Sun, 19 Jul 2026 02:06:46 GMT",
+      "updatedAt": {
+        "iso": "2026-07-19T02:06:46.000Z",
+        "label": "19 Jul 2026, 10:06 SGT",
+        "milliseconds": 1784426806000,
+        "precision": "instant"
+      },
+      "recordedFetchedAt": "2026-07-26T14:37:41.957656+00:00",
+      "fetchedAt": "2026-07-26T14:37:41.957656+00:00",
+      "updateMatches": true,
+      "fetchMatches": true,
+      "staleAfterDays": 120,
+      "statusAtRecordedCheck": "within-threshold-at-check"
+    },
+    {
+      "id": "bus_stops",
+      "sourceHash": "0362ab970c661de6b322a3372c9ab980faf49805921891a7a1da260687a16a4a",
+      "rawDeclaredHash": "0362ab970c661de6b322a3372c9ab980faf49805921891a7a1da260687a16a4a",
+      "bundleDeclaredHash": "0362ab970c661de6b322a3372c9ab980faf49805921891a7a1da260687a16a4a",
+      "recordedLastModified": null,
+      "updatedAt": null,
+      "recordedFetchedAt": "2026-07-31T03:51:10.200150+00:00",
+      "fetchedAt": "2026-07-31T03:51:10.200150+00:00",
+      "updateMatches": true,
+      "fetchMatches": true,
+      "staleAfterDays": 30,
+      "statusAtRecordedCheck": "unknown"
+    }
+  ],
+  "dates": {
+    "dataReference": {
+      "iso": "2026-08-01T21:49:20.977Z",
+      "label": "2 Aug 2026, 05:49 SGT",
+      "milliseconds": 1785620960977,
+      "precision": "instant"
+    },
+    "generated": {
+      "iso": "2026-08-05T14:00:15.974Z",
+      "label": "5 Aug 2026, 22:00 SGT",
+      "milliseconds": 1785938415974,
+      "precision": "instant"
+    },
+    "publication": null,
+    "checked": {
+      "iso": "2026-08-29T17:23:22.780Z",
+      "label": "30 Aug 2026, 01:23 SGT",
+      "milliseconds": 1788024202780,
+      "precision": "instant"
+    }
+  },
+  "checkReceiptContainsExactInstant": true,
+  "pinnedManifestMatches": true,
+  "ok": true
+}
