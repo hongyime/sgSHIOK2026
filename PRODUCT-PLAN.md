@@ -333,7 +333,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T27: Prepare a bounded frontend release candidate
 - Status: WAIT_DEPS. Size: M. Parent: P3.2.
-- Depends on: T01, T07, T11, T25.
+- Depends on: T01, T07, T11, T25, T29 security disposition.
 - Scope: existing deployment/readiness scripts, release tests and handback; no invocation of activation/deploy/data preparation.
 - Do: name exact commit, current unchanged artifact, deploy-trigger configuration, test evidence and rollback. Include only complete features; reporting additionally needs T18 and approved operational ownership. Review request/caching/free-tier exposure using current limits before recommending release. Inspect script side effects rather than trust names.
 - Tests/done: O05-O08/O10, M16-M17. Legacy provenance vs genuine defect remains distinguished; staged build works with current data; cache-upgrade and rollback procedures are specific; no protected write in dry validation. Outstanding owner/user decisions are explicit.
@@ -346,6 +346,15 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Do: obtain release approval including T26 results or an explicit limited-release exception. Deploy once, verify fresh/returning users, selected route, URLs, enabled features and request behaviour; record deployment identity. On failure stop at the named stage and follow only the approved rollback.
 - Tests/done: O06-O08, M16-M17, applicable S/C/F smoke tests. Remote app actually matches the approved commit/artifact, not merely a successful push. Errors are visible and the prior release remains recoverable. Set the next maintenance review from T24.
 - Gate: OWNER deployment approval. No export/rescore, existing payload overwrite or new provider implicit.
+
+### [ ] T29: Resolve the MapLibre security advisory before deployment
+- Status: OWNER for dependency installation approval; read-only triage complete. Size: S.
+- Trigger: GitHub alerts26/27 are one critical advisory, GHSA-jrc7-96c5-q579, in the direct runtime maplibre-gl6.1.0 dependency. The publisher identifies6.4.1 as patched.
+- Scope: after approval, package/lock, new versioned worker/shared modules and license, module URL, caching/header/identity tests. Preserve6.1.0 assets for retained clients and all protected payloads. Do not hand-patch minified vendor files.
+- Do: inspect install hooks; install the exact patched dependency with no data-preparation hook. Prove package-to-worker byte identity, map startup/selected-route/retained-client behavior, TypeScript/build and isolated web tests. Review source-attribution and popup HTML input boundaries with hostile fixtures; do not infer safety from passing functional tests.
+- Current observation: attributionControl is false and attribution is a static local constant. This is not a complete exploitability assessment and does not close the upstream advisory.
+- Gate: owner approval for dependency installation; zero pipeline. No deployment included. Other independent free frontend tasks may proceed.
+- Evidence: qa/revamp-r1/security-triage-20260909/source-corrected.json; the earlier guessed-path rg failure remains in checks.json. Owner has been asked; no installation is authorized or executed.
 
 ### Release and continuation rules
 - Core walk can be released after T01 and T04-T07 plus its own applicable T25-T28

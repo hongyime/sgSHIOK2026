@@ -2902,3 +2902,18 @@ logo/attribution stays visible. Evidence and remaining limits:
 qa/revamp-r1/automatic-upgrade-20260909/summary.json,
 qa/revamp-r1/automatic-upgrade-20260909/review-qualification.json, and the
 append-only REVAMP-R1 verification file. No pipeline or deployment authorized.
+
+## 2026-09-09: Record MapLibre advisory as a release gate
+
+The push of321a855 exposed two open GitHub alerts for one upstream critical
+MapLibre advisory, GHSA-jrc7-96c5-q579. The pinned version is6.1.0; the publisher
+identifies6.4.1 as patched. The current native attribution control is disabled
+and the app uses fixed local credit, but this is not proof that every attack
+path is excluded. Passing functional tests does not settle this security issue.
+
+T29 records the required dependency, matching versioned worker assets and cache
+regressions before deployment. Preserve old assets for retained clients and
+never run data-preparation hooks. Installation approval has been requested, not
+assumed; no dependency or deployment was changed. Independent free frontend
+work may continue while that owner gate is pending. Raw triage output:
+qa/revamp-r1/security-triage-20260909/source-corrected.json.

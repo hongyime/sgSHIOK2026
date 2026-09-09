@@ -1,0 +1,43 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "at": "2026-09-09T05:33:18.623Z",
+  "commands": [
+    {
+      "command": "gh",
+      "args": [
+        "api",
+        "repos/hongyime/sgSHIOK2026/dependabot/alerts?state=open&per_page=100",
+        "--jq",
+        "[.[] | select(.security_advisory.severity == \"critical\") | {number,state,dependency,ghsa_id:.security_advisory.ghsa_id,html_url:.html_url,range:.security_vulnerability.vulnerable_version_range,patched:.security_vulnerability.first_patched_version}]"
+      ],
+      "stdout": "[{\"dependency\":{\"manifest_path\":\"web/package-lock.json\",\"package\":{\"ecosystem\":\"npm\",\"name\":\"maplibre-gl\"},\"relationship\":\"direct\",\"scope\":\"runtime\"},\"ghsa_id\":\"GHSA-jrc7-96c5-q579\",\"html_url\":\"https://github.com/hongyime/sgSHIOK2026/security/dependabot/27\",\"number\":27,\"patched\":{\"identifier\":\"6.4.1\"},\"range\":\"\\u003c= 6.4.0\",\"state\":\"open\"},{\"dependency\":{\"manifest_path\":\"web/package.json\",\"package\":{\"ecosystem\":\"npm\",\"name\":\"maplibre-gl\"},\"relationship\":\"direct\",\"scope\":\"runtime\"},\"ghsa_id\":\"GHSA-jrc7-96c5-q579\",\"html_url\":\"https://github.com/hongyime/sgSHIOK2026/security/dependabot/26\",\"number\":26,\"patched\":{\"identifier\":\"6.4.1\"},\"range\":\"\\u003c= 6.4.0\",\"state\":\"open\"}]\n",
+      "stderr": "",
+      "exitCode": 0
+    },
+    {
+      "command": "rg",
+      "args": [
+        "-n",
+        "maplibre-gl|setHTML|setDOMContent|AttributionControl|attributionControl|ONE_MAP_ATTRIBUTION",
+        "web/components",
+        "web/lib/transit-poi.ts",
+        "web/package.json"
+      ],
+      "stdout": "web/package.json:17:    \"maplibre-gl\": \"6.1.0\",\nweb/components\\route-map-loader.tsx:30:  await Promise.allSettled([import(\"./route-evidence-map\"), import(\"maplibre-gl\")]);\nweb/components\\route-evidence-map.tsx:4:import type * as maplibregl from \"maplibre-gl\";\nweb/components\\route-evidence-map.tsx:5:import type { StyleSpecification } from \"maplibre-gl\";\nweb/components\\route-evidence-map.tsx:72:const ONE_MAP_ATTRIBUTION =\nweb/components\\route-evidence-map.tsx:86:      attribution: ONE_MAP_ATTRIBUTION,\nweb/components\\route-evidence-map.tsx:120:type MapLibreModule = typeof import(\"maplibre-gl\");\nweb/components\\route-evidence-map.tsx:943:type PopupConstructor = typeof import(\"maplibre-gl\").Popup;\nweb/components\\route-evidence-map.tsx:974:        .setHTML(transitPoiPopupHtml(properties))\nweb/components\\route-evidence-map.tsx:1379:      const maplibre = await import(\"maplibre-gl\");\nweb/components\\route-evidence-map.tsx:1384:      maplibre.setWorkerUrl(\"/maplibre/6.1.0/maplibre-gl-worker.mjs\");\nweb/components\\route-evidence-map.tsx:1401:        attributionControl: false,\nweb/components\\route-evidence-map.tsx:1791:        dangerouslySetInnerHTML={{ __html: ONE_MAP_ATTRIBUTION }}\n",
+      "stderr": "rg: web/lib/transit-poi.ts: The system cannot find the file specified. (os error 2)\n",
+      "exitCode": 2
+    }
+  ],
+  "pinnedVersion": "6.1.0",
+  "advisory": "https://github.com/maplibre/maplibre-gl-js/security/advisories/GHSA-jrc7-96c5-q579",
+  "findings": [
+    "GitHub reports two open critical alerts for one MapLibre advisory, against package.json and package-lock.json. This is one affected dependency, not two distinct vulnerabilities.",
+    "MapLibre6.1.0 is pinned; the publisher identifies6.4.1 as patched. Current map uses attributionControl:false and a fixed local attribution constant. This scoped inspection is not an exploit demonstration or a complete proof of non-reachability.",
+    "Upgrade must also update the pinned worker/shared module URLs, their integrity tests and immutable caching rules. Keep old versioned assets for retained clients; no protected data changes."
+  ],
+  "disagreements": [
+    "Passing functional tests does not clear a dependency advisory. Treat remediation as a pre-deployment owner gate; no install or deploy has been performed."
+  ],
+  "ownerQuestion": "Approve MapLibre6.4.1 and matching worker asset installation, with zero pipeline or deployment work?"
+}

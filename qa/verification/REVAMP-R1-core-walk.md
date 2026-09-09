@@ -2504,3 +2504,46 @@ protected_payload_mutations=0
 weights_yaml_changes=0
 X_operations=0
 ```
+
+
+## 2026-09-09: Post-Push Dependency Alert Triage
+
+Command: `node C:/sgSHIOK2026/qa/revamp-r1/security-triage-20260909/handback.mjs`
+
+```text
+working_root=C:\sgSHIOK2026
+hostname=PRAWN-E14
+command=gh api repos/hongyime/sgSHIOK2026/dependabot/alerts?state=open&per_page=100 --jq [.[] | select(.security_advisory.severity == "critical") | {number,state,dependency,ghsa_id:.security_advisory.ghsa_id,html_url:.html_url,range:.security_vulnerability.vulnerable_version_range,patched:.security_vulnerability.first_patched_version}]
+[{"dependency":{"manifest_path":"web/package-lock.json","package":{"ecosystem":"npm","name":"maplibre-gl"},"relationship":"direct","scope":"runtime"},"ghsa_id":"GHSA-jrc7-96c5-q579","html_url":"https://github.com/hongyime/sgSHIOK2026/security/dependabot/27","number":27,"patched":{"identifier":"6.4.1"},"range":"\u003c= 6.4.0","state":"open"},{"dependency":{"manifest_path":"web/package.json","package":{"ecosystem":"npm","name":"maplibre-gl"},"relationship":"direct","scope":"runtime"},"ghsa_id":"GHSA-jrc7-96c5-q579","html_url":"https://github.com/hongyime/sgSHIOK2026/security/dependabot/26","number":26,"patched":{"identifier":"6.4.1"},"range":"\u003c= 6.4.0","state":"open"}]
+exit=0
+command=rg -n maplibre-gl|setHTML|setDOMContent|AttributionControl|attributionControl|ONE_MAP_ATTRIBUTION web/components web/lib/transit-popup.ts web/package.json
+web/package.json:17:    "maplibre-gl": "6.1.0",
+web/components\route-map-loader.tsx:30:  await Promise.allSettled([import("./route-evidence-map"), import("maplibre-gl")]);
+web/components\route-evidence-map.tsx:4:import type * as maplibregl from "maplibre-gl";
+web/components\route-evidence-map.tsx:5:import type { StyleSpecification } from "maplibre-gl";
+web/components\route-evidence-map.tsx:72:const ONE_MAP_ATTRIBUTION =
+web/components\route-evidence-map.tsx:86:      attribution: ONE_MAP_ATTRIBUTION,
+web/components\route-evidence-map.tsx:120:type MapLibreModule = typeof import("maplibre-gl");
+web/components\route-evidence-map.tsx:943:type PopupConstructor = typeof import("maplibre-gl").Popup;
+web/components\route-evidence-map.tsx:974:        .setHTML(transitPoiPopupHtml(properties))
+web/components\route-evidence-map.tsx:1379:      const maplibre = await import("maplibre-gl");
+web/components\route-evidence-map.tsx:1384:      maplibre.setWorkerUrl("/maplibre/6.1.0/maplibre-gl-worker.mjs");
+web/components\route-evidence-map.tsx:1401:        attributionControl: false,
+web/components\route-evidence-map.tsx:1791:        dangerouslySetInnerHTML={{ __html: ONE_MAP_ATTRIBUTION }}
+exit=0
+advisory=https://github.com/maplibre/maplibre-gl-js/security/advisories/GHSA-jrc7-96c5-q579
+pinned_version=6.1.0
+alert_arithmetic=2 manifest alerts, 1 unique advisory, 1 affected direct dependency
+correction=checks.json retains the first rg error for a nonexistent guessed transit-poi.ts path; this follow-up uses the actual imported transit-popup.ts. No source-scan success is claimed for the earlier command.
+FINDINGS
+1. GitHub reports two open critical alerts for one MapLibre advisory, against package.json and package-lock.json. This is one affected dependency, not two distinct vulnerabilities.
+2. MapLibre6.1.0 is pinned; the publisher identifies6.4.1 as patched. Current map uses attributionControl:false and a fixed local attribution constant. This scoped inspection is not an exploit demonstration or a complete proof of non-reachability.
+3. Upgrade must also update the pinned worker/shared module URLs, their integrity tests and immutable caching rules. Keep old versioned assets for retained clients; no protected data changes.
+DISAGREEMENTS
+1. Passing functional tests does not clear a dependency advisory. Treat remediation as a pre-deployment owner gate; no install or deploy has been performed.
+owner_question=Approve MapLibre6.4.1 and matching worker asset installation, with zero pipeline or deployment work?
+installations=0
+pipeline_runs=0
+deployment_commands=0
+protected_payload_mutations=0
+```
