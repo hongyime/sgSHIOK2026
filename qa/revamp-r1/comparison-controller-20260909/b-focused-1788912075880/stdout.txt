@@ -1,0 +1,9 @@
+
+ RUN  v4.1.10 C:/sgSHIOK2026/web
+
+
+ Test Files  1 passed (1)
+      Tests  42 passed (42)
+   Start at  08:01:29
+   Duration  5.38s (transform 1.65s, setup 0ms, import 2.02s, tests 673ms, environment 1ms)
+

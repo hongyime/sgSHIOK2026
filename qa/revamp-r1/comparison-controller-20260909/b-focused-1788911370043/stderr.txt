@@ -1,0 +1,28 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  lib/__tests__/comparison-controller.test.ts > T10 controller: restore and user-owned persistence > accepted no-op activation/category and empty reset do not write storage
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "shiok:comparison:v1",
+      "{"version":1,"postals":[],"category":"bus","activePostal":null}",
+    ]
+
+
+Number of calls: 1
+
+ ❯ lib/__tests__/comparison-controller.test.ts:177:38
+    175|     const empty = setup([]); empty.controller.restore();
+    176|     expect(empty.controller.dispatch({ type: 'reset' })).toBeNull();
+    177|     expect(empty.target.setItem).not.toHaveBeenCalled();
+       |                                      ^
+    178|   });
+    179|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

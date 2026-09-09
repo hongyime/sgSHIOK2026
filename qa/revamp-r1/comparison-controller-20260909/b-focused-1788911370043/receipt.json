@@ -1,0 +1,69 @@
+{
+  "root": "C:/sgSHIOK2026",
+  "command": "node C:/sgSHIOK2026/web/scripts/test-web.mjs lib/__tests__/comparison-controller.test.ts --no-cache",
+  "exitCode": 1,
+  "signal": null,
+  "elapsedSeconds": 6.0701177,
+  "before": {
+    "web/lib/__tests__/comparison-controller.test.ts": {
+      "bytes": 28042,
+      "sha256": "532c0a6530c48a5718a102296659165c8b4e712c3ff89fad4459af8224e15598"
+    },
+    "web/lib/comparison-controller.ts": {
+      "bytes": 5778,
+      "sha256": "8389b34f5d7e7bcd999e10d6d4e8e4073106bf809faa5cc49c887f1a553166f4"
+    },
+    "web/lib/comparison.ts": {
+      "bytes": 9560,
+      "sha256": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb"
+    },
+    "web/lib/comparison-state.ts": {
+      "bytes": 6888,
+      "sha256": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651"
+    },
+    "web/lib/walk-metrics.ts": {
+      "bytes": 5295,
+      "sha256": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f"
+    },
+    "web/lib/published-transit-options.ts": {
+      "bytes": 34110,
+      "sha256": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82"
+    },
+    "web/lib/published-transit-choices.ts": {
+      "bytes": 4074,
+      "sha256": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0"
+    }
+  },
+  "after": {
+    "web/lib/__tests__/comparison-controller.test.ts": {
+      "bytes": 28042,
+      "sha256": "532c0a6530c48a5718a102296659165c8b4e712c3ff89fad4459af8224e15598"
+    },
+    "web/lib/comparison-controller.ts": {
+      "bytes": 5778,
+      "sha256": "8389b34f5d7e7bcd999e10d6d4e8e4073106bf809faa5cc49c887f1a553166f4"
+    },
+    "web/lib/comparison.ts": {
+      "bytes": 9560,
+      "sha256": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb"
+    },
+    "web/lib/comparison-state.ts": {
+      "bytes": 6888,
+      "sha256": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651"
+    },
+    "web/lib/walk-metrics.ts": {
+      "bytes": 5295,
+      "sha256": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f"
+    },
+    "web/lib/published-transit-options.ts": {
+      "bytes": 34110,
+      "sha256": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82"
+    },
+    "web/lib/published-transit-choices.ts": {
+      "bytes": 4074,
+      "sha256": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0"
+    }
+  },
+  "stdout": "stdout.txt",
+  "stderr": "stderr.txt"
+}

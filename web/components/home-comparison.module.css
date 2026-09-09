@@ -1,0 +1,236 @@
+.panel {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 32px;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-height: 46vh;
+  max-height: 46dvh;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  overflow: auto;
+  border-top: 1px solid #aebcb7;
+  background: #fff;
+  color: #243a34;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 12px;
+}
+
+.header h2 {
+  min-width: 0;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.mapContext {
+  flex-shrink: 0;
+  color: #52665e;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.toolbar,
+.commands {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  min-width: 0;
+}
+
+.toolbar {
+  flex-shrink: 0;
+  justify-content: space-between;
+  padding: 0 12px 4px;
+}
+
+.categories {
+  display: flex;
+  flex-shrink: 0;
+  border: 1px solid #aebcb7;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.panel button {
+  box-sizing: border-box;
+  min-height: 44px;
+  max-width: 100%;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: 1.4;
+  letter-spacing: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.categories button {
+  padding: 8px 12px;
+  border-radius: 0;
+}
+
+.panel button[aria-pressed="true"] {
+  background: #e5f1ed;
+  color: #125b48;
+  border-color: #5c8175;
+}
+
+.panel button:hover:not(:disabled) {
+  background: #f0f5f2;
+}
+
+.panel button:disabled {
+  color: #69756f;
+  cursor: default;
+}
+
+.panel button:focus-visible,
+.tableViewport:focus-visible {
+  outline: 2px solid #007a72;
+  outline-offset: -3px;
+}
+
+.panel .iconButton {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  padding: 0;
+  font-size: 24px;
+}
+
+.command {
+  padding: 8px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.storageNote,
+.empty {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 4px 12px 12px;
+  color: #52665e;
+  overflow-wrap: anywhere;
+}
+
+.storageNote {
+  font-size: 12px;
+}
+
+.tableViewport {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scroll-padding-inline-start: 112px;
+}
+
+.table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+}
+
+.caption {
+  padding: 4px 12px 8px;
+  color: #52665e;
+  text-align: left;
+  font-size: 12px;
+}
+
+.labelColumn {
+  width: 112px;
+}
+
+.table th,
+.table td {
+  padding: 8px 12px;
+  border-top: 1px solid #d6dedb;
+  border-right: 1px solid #e7ece9;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.table th {
+  font-weight: 600;
+}
+
+.table tr > :first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: #f4f7f5;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #fff;
+}
+
+.table thead th:first-child {
+  z-index: 3;
+  background: #fff;
+}
+
+.table [data-active="true"] {
+  background: #f3f9f7;
+}
+
+.postalHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.mapButton {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 4px;
+  text-align: left;
+}
+
+.destination {
+  display: block;
+  min-width: 0;
+}
+
+.entryStatus {
+  margin: 4px 0 0;
+  font-size: 12px;
+  font-weight: 400;
+  color: #52665e;
+}
+
+.entryStatus:empty {
+  display: none;
+}
+
+.metric {
+  font-variant-numeric: tabular-nums;
+}

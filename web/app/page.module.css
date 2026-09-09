@@ -1587,6 +1587,10 @@ button.gapItem:hover,
 }
 
 .searchToolbar { display: grid; grid-template-columns: minmax(0,1fr); gap: 8px; }
+.compareCommand { pointer-events: auto; margin-left: auto; min-height: 36px; padding: 6px 9px; border: 1px solid #cddad4; border-radius: 6px; background: #fff; color: #244a42; font: inherit; font-size: 12px; cursor: pointer; }
+.addComparison { align-self: stretch; min-height: 36px; margin-top: 10px; padding: 7px 10px; border: 1px solid #cddad4; border-radius: 6px; background: #fff; color: #244a42; font: inherit; font-size: 12px; cursor: pointer; }
+.compareCommand:focus-visible, .addComparison:focus-visible { outline: 3px solid #147ca3; outline-offset: 2px; }
+.addComparison:disabled { color: #62736d; cursor: default; }
 .searchGlyph { width: 13px; height: 13px; border: 2px solid currentColor; border-radius: 50%; position: relative; }
 .searchGlyph::after { content: ""; position: absolute; width: 7px; height: 2px; right: -6px; bottom: -3px; background: currentColor; transform: rotate(45deg); }
 .searchSpinner { width: 18px; height: 18px; border: 2px solid #b4c6c0; border-top-color: #008f86; border-radius: 50%; animation: searchSpin 1s linear infinite; }

@@ -112,6 +112,8 @@ import Home, { DataDetails, ScoreCard } from '../../app/page';
 import { WalkSummary, walkMetrics } from '../../components/walk-summary';
 import { TransitStopPicker } from '../../components/transit-stop-picker';
 import { ExposureSectionExplorer } from '../../components/exposure-section-explorer';
+import { HomeComparison } from '../../components/home-comparison';
+import { COMPARISON_STORAGE_KEY } from '../comparison-state';
 
 type Element = ReactElement<Record<string, unknown> & { children?: ReactNode }>;
 type MapProps = ComponentProps<typeof RouteEvidenceMap>;
@@ -140,6 +142,8 @@ let tree: ReactNode;
 let url: URL;
 let fetchSpy: ReturnType<typeof vi.fn>;
 let storageRead: ReturnType<typeof vi.fn>;
+let comparisonStored: string | null;
+let comparisonWrites: string[];
 let replaceState: ReturnType<typeof vi.fn>;
 let sourceScore: ScoreRecord;
 let sourceGeometry: PostalGeom;
@@ -314,6 +318,8 @@ function assertCoherent(name: string, distance: number, covered: number, encoded
 beforeEach(() => {
   host.reset();
   vi.clearAllMocks();
+  comparisonStored = null;
+  comparisonWrites = [];
   scores = new Map([A, B].map(postal => [postal, deferred<ScoreRecord | null>()]));
   geometries = new Map([A, B].map(postal => [postal, deferred<PostalGeom | null>()]));
   poiGate = deferred<TransitPoiCollection>();
@@ -342,7 +348,7 @@ beforeEach(() => {
     return approved.response.promise;
   });
   // An available valid persisted preview must not override published evidence.
-  storageRead = vi.fn(() => JSON.stringify({ cached_at: Date.now(), payload: {
+  storageRead = vi.fn((_key?: string) => JSON.stringify({ cached_at: Date.now(), payload: {
     ok: true, route_geometry: originalGeometry.shortest, total_distance_m: 9999,
   } }));
   url = new URL('https://example.test/');
@@ -351,7 +357,11 @@ beforeEach(() => {
   vi.stubGlobal('window', {
     location: { get href() { return url.href; }, get search() { return url.search; }, get hash() { return url.hash; } },
     history: { replaceState },
-    localStorage: { getItem: storageRead, setItem: vi.fn(), removeItem: vi.fn(), key: vi.fn(), length: 0 },
+    localStorage: {
+      getItem: (key: string) => key === COMPARISON_STORAGE_KEY ? comparisonStored : storageRead(key),
+      setItem: vi.fn((key: string, value: string) => { if (key === COMPARISON_STORAGE_KEY) { comparisonStored = value; comparisonWrites.push(value); } }),
+      removeItem: vi.fn(), key: vi.fn(), length: 0,
+    },
   });
 });
 afterEach(() => {
@@ -367,6 +377,102 @@ afterEach(() => {
     host.reset();
     vi.unstubAllGlobals();
   }
+});
+
+describe('Home comparison through actual page handlers', () => {
+  const view = () => child<ComponentProps<typeof HomeComparison>>(HomeComparison).props;
+  const restoreList = (postals: string[], activePostal = postals[0]) => {
+    comparisonStored = JSON.stringify({ version: 1, postals, category: 'bus', activePostal });
+  };
+  it('restores a closed shortlist without loading its records or writing storage', async () => {
+    restoreList([A, B]);
+    mount(); await settle();
+    expect(nodeText(tree)).toContain('Compare (2)');
+    expect(dependencies.fetchScoreForPostal).not.toHaveBeenCalled();
+    expect(dependencies.fetchGeomForPostal).not.toHaveBeenCalled();
+    expect(comparisonWrites).toEqual([]);
+    expect(map().routes).toEqual([]);
+  });
+  it('maps the common category default, not the candidate inspected before adding', async () => {
+    await loadA();
+    await setMode('mrt_lrt');
+    await choose('mrt:21624');
+    const inspected = clone(map().routes);
+    await clickPageButton('Add to comparison');
+    expect(view().state).toMatchObject({ postals: [A], category: 'mrt_lrt', activePostal: A });
+    expect(view().entries[A].row?.destination).toBe('BAYFRONT MRT STATION Exit E');
+    expect(map().routes[0].geom.sheltered_parts).toEqual(originalGeometry.route_options.mrt_lrt.sheltered_parts);
+    expect(map().routes).not.toEqual(inspected);
+    expect(map().onSelectTransitStop).toBeUndefined();
+    expect(map().transitPois.features).toEqual([]);
+    expect(map().focusedExposureGap).toBeNull();
+    expect(map().feedbackEnabled).toBe(false);
+    view().onClose(); render(); await settle();
+    expect(map().routes).toEqual(inspected);
+    expect(summary().option?.name).toBe('BAYFRONT MRT STATION Exit C');
+  });
+  it('keeps inactive completed evidence from replacing a pending active column on the map', async () => {
+    restoreList([A, B], B);
+    mount(); await clickPageButton('Compare (2)');
+    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry);
+    await settle();
+    expect(view().entries[A].status).toBe('ready');
+    expect(view().entries[B].status).toBe('loading');
+    expect(map().routes).toEqual([]);
+    view().onActivate(A); render(); await settle();
+    expect(map().routes[0].geom.postal).toBe(A);
+    expect(map().routes[0].geom.sheltered_parts).toEqual(originalGeometry.route_options.bus.sheltered_parts);
+    scores.get(B)!.reject(Error('isolated score failure')); geometries.get(B)!.resolve(null);
+    await settle();
+    expect(view().entries[B].status).toBe('error');
+    expect(map().routes[0].geom.postal).toBe(A);
+  });
+  it('keeps score measurements with failed geometry and removes the previous column route', async () => {
+    restoreList([A]); mount(); await clickPageButton('Compare (1)');
+    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.reject(Error('geometry unavailable'));
+    await settle();
+    expect(view().entries[A].row?.metrics).toMatchObject({ distance: 81.2, coverage: 55, longest: 20.2 });
+    expect(view().entries[A].geometryStatus).toBe('error');
+    expect(map().routes).toEqual([]);
+  });
+  it.each(['missing', 'invalid'] as const)('does not send shortest-only geometry to the sheltered map when sheltered parts are %s', async failure => {
+    const geometry = clone(originalGeometry) as unknown as PostalGeom;
+    const declared = geometry.route_options!.bus!;
+    if (failure === 'missing') {
+      delete declared.sheltered;
+      delete declared.sheltered_parts;
+    } else declared.sheltered_parts = ['_'];
+    restoreList([A]); mount(); await clickPageButton('Compare (1)');
+    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(geometry);
+    await settle();
+    expect(view().entries[A].option?.selectedSource.selectionRef).toEqual({ kind: 'category_default', category: 'bus' });
+    expect(view().entries[A].option?.geometry.shortest.status).toBe('complete');
+    expect(view().entries[A].option?.geometry.sheltered.parts).toEqual([]);
+    expect(view().entries[A].row?.metrics).toEqual({ distance: 81.2, coverage: 55, uncovered: 36.5, longest: 20.2 });
+    expect(map().routes).toEqual([]);
+  });
+  it('new postal search closes comparison and keeps its saved shortlist', async () => {
+    restoreList([A]); mount(); await clickPageButton('Compare (1)');
+    const saved = comparisonStored;
+    const submitted = submit(B);
+    expect(elements(tree).some(element => element.type === HomeComparison)).toBe(false);
+    scores.get(B)!.resolve(null); geometries.get(B)!.resolve(null);
+    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry);
+    await settle(); await submitted;
+    expect(comparisonStored).toBe(saved);
+    expect(map().routes).toEqual([]);
+    expect(summary().postal).toBe(B);
+  });
+  it('clearing the shortlist clears only comparison state and its route', async () => {
+    await loadA(); await clickPageButton('Add to comparison');
+    view().onClear(); render(); await settle();
+    expect(view().state.postals).toEqual([]);
+    expect(map().routes).toEqual([]);
+    expect(JSON.parse(comparisonStored!).postals).toEqual([]);
+    view().onClose(); render(); await settle();
+    expect(summary().postal).toBe(A);
+    expect(map().routes[0].geom.postal).toBe(A);
+  });
 });
 
 describe('Home published-walk integration through actual handlers', () => {

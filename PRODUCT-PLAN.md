@@ -184,16 +184,17 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: FREE. Local only; no account or provider.
 - Outcome 2026-09-09: strict versioned three-postal state, immutable transitions, owned-key storage adapters and delivery guard pass45 independent tests;1109+45=1154/48 isolated tests, TypeScript/integrity/11anchors pass. Sparse-array encoding and truthy-open defects were reproduced then fixed. No runtime/UI import changed. T10 must actually restore before writing, invalidate fresh tokens on lifecycle changes, suppress closed-view reads and gate active map ownership; helper tests do not establish that integration. Evidence: `qa/revamp-r1/comparison-state-20260909/summary.json`.
 
-### [ ] T10: Ship home comparison in the map-first UI
-- Status: READY. Size: M. Parent: P1.2.
+### [x] T10: Ship home comparison in the map-first UI
+- Status: DONE (local comparison; sharing and production release remain separate). Size: M. Parent: P1.2.
 - Depends on: T09.
 - Scope: proposed `web/components/home-comparison.tsx` and CSS, `web/app/page.tsx`, comparison browser/component tests.
 - Do: contextual Add to comparison, explicit add/remove, common category and aligned evidence rows; focus one compared walk on the map without losing the shortlist. Use a compact accessible comparison view, not permanent cards covering the map. Keep the planning-area ranking secondary and distinct.
 - Tests/done: C01-C04/C09, M03/M15. Two/three columns align, mobile can inspect every value and return to the route, partial failure affects only its column, and closed comparison triggers no shortlist data reads. No fabricated total ranking.
 - Gate: FREE. No expansion of candidate/scoring inputs.
+- Outcome 2026-09-09: pinned row/map resolver, bounded token-owning loader and explicit bottom comparison drawer are integrated. Independent review fixed an empty-reset storage write and shortest-only false map failure. Visual review added compact postal map-selection buttons, sticky headings and scroll padding for keyboard focus.1269/50 isolated tests, TypeScript/build/integrity/11anchors pass; final browser69 checks/11inspected captures at4sizes. One separate final-build cold start hit the existing map-startup timeout; it remains a T01/T02 finding, not erased by the later pass. C09 share-state agreement remains T11. Evidence: `qa/revamp-r1/comparison-ui-20260909/summary.json`.
 
 ### [ ] T11: Share and restore a shortlist safely
-- Status: WAIT_DEPS. Size: S. Parent: P1.2.
+- Status: READY. Size: S. Parent: P1.2.
 - Depends on: T10.
 - Scope: comparison state codec, existing URL handling in `web/app/page.tsx`, share controls/tests.
 - Do: validate/version an explicit share URL; define URL-vs-storage precedence; preserve ordinary single-postal links. Disclose that the link contains chosen postals; clipboard failure offers an accessible fallback.

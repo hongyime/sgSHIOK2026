@@ -2760,3 +2760,32 @@ columns may receive their own results; map updates additionally require active
 ownership. Restore storage before user-action persistence. No actual shortlist
 UI or loader is claimed yet. Evidence:
 qa/revamp-r1/comparison-state-20260909/summary.json.
+
+## 2026-09-09: Map-first home comparison (T10, ADR-18)
+
+Comparison is an explicit bottom drawer for up to three locally saved postals,
+one common transit category and four aligned published-walk measurements.
+It compares declared default sheltered walks, not whichever candidate happened
+to be inspected when a postal was added. The row and active map option now share
+the exact pinned-source resolution. Missing information remains unavailable;
+there is no new score, ranking or inferred winner.
+
+The loader uses existing immutable-data readers and independent score/geometry
+completion with fresh current-context request tokens. Closed comparison starts
+no shortlist reads and accepts no late results. Storage restores before writes;
+only explicit changes affect the owned local key. Search, reporting drafts and
+other cache keys are independent. Geometry failure preserves valid metrics.
+
+Independent review caught two defects before landing: a reset of an already
+empty shortlist wrote unnecessarily, and shortest-only geometry was submitted
+to the sheltered map, creating a false visibility failure. Empty reset is now
+a no-op; the map requires surviving sheltered parts, with partial drawings
+labelled and missing drawings left clear. Regression failures are preserved in
+qa/revamp-r1/comparison-controller-20260909 and
+qa/revamp-r1/comparison-ui-20260909/shortest-only-red.
+
+The first complete browser pass was functionally green, but its 320px captures
+lost postal identity when the metrics scrolled. Visual review therefore led to
+sticky postal headings, compact postal map-selection buttons and an active-map
+postal label before landing. Functional assertions alone were not sufficient
+to accept the comparison layout.

@@ -1,0 +1,2413 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "build": "qLeerEGKVTE8MarTdKRsn",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\comparison-ui-20260909\\acceptance-1-1788912595828",
+  "profile": "C:\\sgSHIOK2026\\tmp\\comparison-browser-pwZ9UT",
+  "startedAt": "2026-09-09T00:09:55.844Z",
+  "checks": [
+    {
+      "name": "expected served build",
+      "pass": true,
+      "detail": {
+        "build": "qLeerEGKVTE8MarTdKRsn",
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-comparison-ui-20260909-1\\web",
+        "pid": 66944,
+        "nextPid": 100640,
+        "requests": []
+      }
+    },
+    {
+      "name": "actual HTML identifies build",
+      "pass": true
+    },
+    {
+      "name": "reachable control: Add to comparison",
+      "pass": true,
+      "detail": {
+        "text": "Add to comparison",
+        "disabled": false,
+        "hit": true
+      }
+    },
+    {
+      "name": "opening focuses close command",
+      "pass": true,
+      "detail": "Close comparison"
+    },
+    {
+      "name": "reachable control: Bus",
+      "pass": true,
+      "detail": {
+        "text": "Bus",
+        "disabled": false,
+        "hit": true
+      }
+    },
+    {
+      "name": "four real default metrics",
+      "pass": true,
+      "detail": [
+        [
+          "Destination",
+          "Bayfront Stn Exit B/MBS"
+        ],
+        [
+          "Walk distance",
+          "81 m"
+        ],
+        [
+          "Covered",
+          "55%"
+        ],
+        [
+          "Uncovered",
+          "37 m"
+        ],
+        [
+          "Longest gap",
+          "20 m"
+        ]
+      ]
+    },
+    {
+      "name": "reachable control: Add another postal",
+      "pass": true,
+      "detail": {
+        "text": "Add another postal",
+        "disabled": false,
+        "hit": true
+      }
+    },
+    {
+      "name": "reachable control: ",
+      "pass": true,
+      "detail": {
+        "text": "",
+        "disabled": false,
+        "hit": true
+      }
+    },
+    {
+      "name": "reachable control: Add to comparison",
+      "pass": true,
+      "detail": {
+        "text": "Add to comparison",
+        "disabled": false,
+        "hit": true
+      }
+    },
+    {
+      "name": "unrouted column does not become zero-valued walk",
+      "pass": true,
+      "detail": [
+        [
+          "Destination",
+          "Bayfront Stn Exit B/MBS",
+          "Marina Bay StnStraight-line estimate; no verified walk."
+        ],
+        [
+          "Walk distance",
+          "81 m",
+          "Unavailable"
+        ],
+        [
+          "Covered",
+          "55%",
+          "Unavailable"
+        ],
+        [
+          "Uncovered",
+          "37 m",
+          "Unavailable"
+        ],
+        [
+          "Longest gap",
+          "20 m",
+          "Unavailable"
+        ]
+      ]
+    },
+    {
+      "name": "reachable control: Add another postal",
+      "pass": true,
+      "detail": {
+        "text": "Add another postal",
+        "disabled": false,
+        "hit": true
+      }
+    },
+    {
+      "name": "reachable control: ",
+      "pass": true,
+      "detail": {
+        "text": "",
+        "disabled": false,
+        "hit": true
+      }
+    },
+    {
+      "name": "reachable control: Add to comparison",
+      "pass": true,
+      "detail": {
+        "text": "Add to comparison",
+        "disabled": false,
+        "hit": true
+      }
+    },
+    {
+      "name": "reachable control: Show on map",
+      "pass": true,
+      "detail": {
+        "text": "Show on map",
+        "disabled": false,
+        "hit": true
+      }
+    },
+    {
+      "name": "comparison-top-1440x950 current route visible during capture",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "open": true,
+        "routeKey": "20:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeCount": 4,
+        "routeFits": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          1440,
+          950
+        ],
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 477.53125,
+          "left": 324
+        },
+        "saved": {
+          "version": 1,
+          "postals": [
+            "018956",
+            "018990",
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "018956"
+        },
+        "columns": [
+          "018956",
+          "018990",
+          "079908"
+        ],
+        "rows": [
+          [
+            "Destination",
+            "Bayfront Stn Exit B/MBS",
+            "Marina Bay StnStraight-line estimate; no verified walk.",
+            "UnavailableNo published walk for this category."
+          ],
+          [
+            "Walk distance",
+            "81 m",
+            "Unavailable",
+            "Unavailable"
+          ],
+          [
+            "Covered",
+            "55%",
+            "Unavailable",
+            "Unavailable"
+          ],
+          [
+            "Uncovered",
+            "37 m",
+            "Unavailable",
+            "Unavailable"
+          ],
+          [
+            "Longest gap",
+            "20 m",
+            "Unavailable",
+            "Unavailable"
+          ]
+        ],
+        "panel": {
+          "x": 0,
+          "y": 484.46875,
+          "width": 1440,
+          "height": 433.53125
+        },
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32
+        },
+        "overflow": false,
+        "focus": "Show postal 018956 on map",
+        "focusId": "",
+        "attribution": null,
+        "aboutVisible": false,
+        "url": "http://127.0.0.1:4326/?postal=079908"
+      }
+    },
+    {
+      "name": "comparison-top-1440x950 no page overflow",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "open": true,
+        "routeKey": "20:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeCount": 4,
+        "routeFits": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          1440,
+          950
+        ],
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 477.53125,
+          "left": 324
+        },
+        "saved": {
+          "version": 1,
+          "postals": [
+            "018956",
+            "018990",
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "018956"
+        },
+        "columns": [
+          "018956",
+          "018990",
+          "079908"
+        ],
+        "rows": [
+          [
+            "Destination",
+            "Bayfront Stn Exit B/MBS",
+            "Marina Bay StnStraight-line estimate; no verified walk.",
+            "UnavailableNo published walk for this category."
+          ],
+          [
+            "Walk distance",
+            "81 m",
+            "Unavailable",
+            "Unavailable"
+          ],
+          [
+            "Covered",
+            "55%",
+            "Unavailable",
+            "Unavailable"
+          ],
+          [
+            "Uncovered",
+            "37 m",
+            "Unavailable",
+            "Unavailable"
+          ],
+          [
+            "Longest gap",
+            "20 m",
+            "Unavailable",
+            "Unavailable"
+          ]
+        ],
+        "panel": {
+          "x": 0,
+          "y": 484.46875,
+          "width": 1440,
+          "height": 433.53125
+        },
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32
+        },
+        "overflow": false,
+        "focus": "Show postal 018956 on map",
+        "focusId": "",
+        "attribution": null,
+        "aboutVisible": false,
+        "url": "http://127.0.0.1:4326/?postal=079908"
+      }
+    },
+    {
+      "name": "comparison-top-1440x950 attribution remains unobscured",
+      "pass": false,
+      "detail": {
+        "status": "ready",
+        "open": true,
+        "routeKey": "20:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeCount": 4,
+        "routeFits": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          1440,
+          950
+        ],
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 477.53125,
+          "left": 324
+        },
+        "saved": {
+          "version": 1,
+          "postals": [
+            "018956",
+            "018990",
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "018956"
+        },
+        "columns": [
+          "018956",
+          "018990",
+          "079908"
+        ],
+        "rows": [
+          [
+            "Destination",
+            "Bayfront Stn Exit B/MBS",
+            "Marina Bay StnStraight-line estimate; no verified walk.",
+            "UnavailableNo published walk for this category."
+          ],
+          [
+            "Walk distance",
+            "81 m",
+            "Unavailable",
+            "Unavailable"
+          ],
+          [
+            "Covered",
+            "55%",
+            "Unavailable",
+            "Unavailable"
+          ],
+          [
+            "Uncovered",
+            "37 m",
+            "Unavailable",
+            "Unavailable"
+          ],
+          [
+            "Longest gap",
+            "20 m",
+            "Unavailable",
+            "Unavailable"
+          ]
+        ],
+        "panel": {
+          "x": 0,
+          "y": 484.46875,
+          "width": 1440,
+          "height": 433.53125
+        },
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32
+        },
+        "overflow": false,
+        "focus": "Show postal 018956 on map",
+        "focusId": "",
+        "attribution": null,
+        "aboutVisible": false,
+        "url": "http://127.0.0.1:4326/?postal=079908"
+      }
+    }
+  ],
+  "captures": [
+    {
+      "name": "comparison-top-1440x950",
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\comparison-ui-20260909\\acceptance-1-1788912595828\\comparison-top-1440x950.png",
+      "bytes": 257529,
+      "sha256": "f1472d42d406be7e30123b5e6107a38b9e2d53980be71a73d88aec94987def13",
+      "before": {
+        "status": "ready",
+        "open": true,
+        "routeKey": "20:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeCount": 4,
+        "routeFits": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          1440,
+          950
+        ],
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 477.53125,
+          "left": 324
+        },
+        "saved": {
+          "version": 1,
+          "postals": [
+            "018956",
+            "018990",
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "018956"
+        },
+        "columns": [
+          "018956",
+          "018990",
+          "079908"
+        ],
+        "rows": [
+          [
+            "Destination",
+            "Bayfront Stn Exit B/MBS",
+            "Marina Bay StnStraight-line estimate; no verified walk.",
+            "UnavailableNo published walk for this category."
+          ],
+          [
+            "Walk distance",
+            "81 m",
+            "Unavailable",
+            "Unavailable"
+          ],
+          [
+            "Covered",
+            "55%",
+            "Unavailable",
+            "Unavailable"
+          ],
+          [
+            "Uncovered",
+            "37 m",
+            "Unavailable",
+            "Unavailable"
+          ],
+          [
+            "Longest gap",
+            "20 m",
+            "Unavailable",
+            "Unavailable"
+          ]
+        ],
+        "panel": {
+          "x": 0,
+          "y": 484.46875,
+          "width": 1440,
+          "height": 433.53125
+        },
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32
+        },
+        "overflow": false,
+        "focus": "Show postal 018956 on map",
+        "focusId": "",
+        "attribution": null,
+        "aboutVisible": false,
+        "url": "http://127.0.0.1:4326/?postal=079908"
+      },
+      "after": {
+        "status": "ready",
+        "open": true,
+        "routeKey": "20:shiokest:comparison:018956",
+        "featureCount": 4,
+        "routeCount": 4,
+        "routeFits": true,
+        "moving": false,
+        "basemap": true,
+        "viewport": [
+          1440,
+          950
+        ],
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 477.53125,
+          "left": 324
+        },
+        "saved": {
+          "version": 1,
+          "postals": [
+            "018956",
+            "018990",
+            "079908"
+          ],
+          "category": "bus",
+          "activePostal": "018956"
+        },
+        "columns": [
+          "018956",
+          "018990",
+          "079908"
+        ],
+        "rows": [
+          [
+            "Destination",
+            "Bayfront Stn Exit B/MBS",
+            "Marina Bay StnStraight-line estimate; no verified walk.",
+            "UnavailableNo published walk for this category."
+          ],
+          [
+            "Walk distance",
+            "81 m",
+            "Unavailable",
+            "Unavailable"
+          ],
+          [
+            "Covered",
+            "55%",
+            "Unavailable",
+            "Unavailable"
+          ],
+          [
+            "Uncovered",
+            "37 m",
+            "Unavailable",
+            "Unavailable"
+          ],
+          [
+            "Longest gap",
+            "20 m",
+            "Unavailable",
+            "Unavailable"
+          ]
+        ],
+        "panel": {
+          "x": 0,
+          "y": 484.46875,
+          "width": 1440,
+          "height": 433.53125
+        },
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44
+        },
+        "logo": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32
+        },
+        "overflow": false,
+        "focus": "Show postal 018956 on map",
+        "focusId": "",
+        "attribution": null,
+        "aboutVisible": false,
+        "url": "http://127.0.0.1:4326/?postal=079908"
+      }
+    }
+  ],
+  "network": [
+    {
+      "id": "11620F09299E3C56C0779379D6A1F328",
+      "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+      "status": 200,
+      "type": "Document"
+    },
+    {
+      "id": "78040.2",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/3sbx0si_kx2do.css",
+      "status": 200,
+      "type": "Stylesheet"
+    },
+    {
+      "id": "78040.3",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/3wkt3-74el481.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "78040.7",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/turbopack-3fv-zacd-eut-.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "78040.4",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/2wu61p_p0hxro.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "78040.6",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/0in607kxyceyg.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "78040.5",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/11axl_urhtotz.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "78040.8",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/1oaw9uq-pttep.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "78040.9",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/2c6sev3ghmapz.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "78040.10",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/1eu_wu-qjo9yg.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "78040.23",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/3r4945_r5qti7.css",
+      "status": 200,
+      "type": "Stylesheet"
+    },
+    {
+      "id": "78040.22",
+      "url": "http://127.0.0.1:4326/icon.svg",
+      "status": 200,
+      "type": "Other"
+    },
+    {
+      "id": "78040.25",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/2rmzgxedjsyy1.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "78040.24",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/0pd0j0id__xty.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "78040.29",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/44ufbry4ozj-3.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "78040.30",
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "status": 200,
+      "type": "Image"
+    },
+    {
+      "id": "78040.28",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.27",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.34",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.32",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.36",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.38",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.40",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.26",
+      "url": "http://127.0.0.1:4326/_next/static/chunks/3_zdoql-8zsg0.js",
+      "status": 200,
+      "type": "Script"
+    },
+    {
+      "id": "78040.43",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.44",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.45",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.46",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.47",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.48",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.49",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.50",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.55",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.56",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.57",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.58",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8132.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.51",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.52",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.53",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8133.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.54",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.62",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.63",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.68",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.64",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.65",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.67",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.66",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.76",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.77",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.78",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.79",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8134.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.80",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.81",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.82",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8131.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.83",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.84",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.85",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.86",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.87",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8135.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.88",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.89",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.90",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.91",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.92",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8130.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.93",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.94",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.95",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8136.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.96",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.97",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.98",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.99",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.100",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8129.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.101",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.102",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.103",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.104",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8137.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.105",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.106",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.107",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.108",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.109",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8128.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.110",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.111",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.112",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.113",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.114",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.115",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.116",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.117",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.119",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.120",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.121",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.122",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.123",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.118",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.124",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.125",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.126",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.127",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.128",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.129",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.130",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.131",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.132",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.135",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.136",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.137",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.138",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.139",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.133",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.134",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.140",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.141",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.142",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.143",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.144",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260270.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.145",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.146",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.147",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.148",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.149",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.150",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.151",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.152",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.153",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.154",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260269.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.155",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.156",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.157",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.158",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.159",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.160",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.165",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.166",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.167",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.168",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.169",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.161",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.162",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.163",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.164",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.170",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260271.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.171",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.172",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.174",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.175",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.176",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.178",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.179",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.180",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.181",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.182",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.183",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.186",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.188",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.185",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.187",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.184",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.190",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.189",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.191",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.193",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.194",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.192",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.195",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.196",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.197",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.198",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.199",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.200",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.201",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.202",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.203",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.205",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.207",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520d86dfffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.208",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db11fffff.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.209",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db17fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.210",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db1dfffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.211",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/h3/886520db33fffff.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.217",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.219",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/geom/postal-index.json.gz",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.221",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.222",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.223",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.224",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.225",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.226",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.227",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.228",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.229",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.230",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.231",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.232",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.233",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.236",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.234",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.235",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.239",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.237",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.238",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.240",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.242",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.241",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.243",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.244",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.245",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.246",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.248",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.249",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.250",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.251",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.252",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.253",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.247",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.254",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.255",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.256",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.257",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.258",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.259",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.260",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/pois.json.gz",
+      "status": 404,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.262",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.263",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.264",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.265",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.266",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.267",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.269",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.270",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.271",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.272",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.273",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.268",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.274",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.275",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.276",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.277",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.279",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.281",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.282",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.283",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.284",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.285",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.278",
+      "url": "http://127.0.0.1:4326/data/generated_20260805_prefer_scored_routed/transit/pois.json",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.286",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.287",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.288",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.289",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.291",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.292",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.290",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.293",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.295",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.294",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.296",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.297",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.298",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.299",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.300",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.301",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.306",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260277.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.307",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260278.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.304",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.305",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.303",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.302",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.308",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260276.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.309",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260279.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.310",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260275.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.311",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260280.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.312",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260274.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.314",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260273.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.316",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260272.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.313",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260281.png",
+      "status": 200,
+      "type": "Fetch"
+    },
+    {
+      "id": "78040.315",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260282.png",
+      "status": 200,
+      "type": "Fetch"
+    }
+  ],
+  "errors": [],
+  "cleanup": {
+    "closeSent": true,
+    "killSent": true,
+    "chromeExited": true
+  },
+  "policy": "Actual snapshot + immutable data. Functional headless Chrome/SwiftShader, not representative performance or a physical-device claim. Zero installs/pipeline/deployment.",
+  "chromePid": 94152,
+  "lastSample": {
+    "name": "resized current route",
+    "value": {
+      "status": "ready",
+      "open": true,
+      "routeKey": "20:shiokest:comparison:018956",
+      "featureCount": 4,
+      "routeCount": 4,
+      "routeFits": true,
+      "moving": false,
+      "basemap": false,
+      "viewport": [
+        1440,
+        950
+      ],
+      "padding": {
+        "top": 12,
+        "right": 12,
+        "bottom": 477.53125,
+        "left": 324
+      },
+      "saved": {
+        "version": 1,
+        "postals": [
+          "018956",
+          "018990",
+          "079908"
+        ],
+        "category": "bus",
+        "activePostal": "018956"
+      },
+      "columns": [
+        "018956",
+        "018990",
+        "079908"
+      ],
+      "rows": [
+        [
+          "Destination",
+          "Bayfront Stn Exit B/MBS",
+          "Marina Bay StnStraight-line estimate; no verified walk.",
+          "UnavailableNo published walk for this category."
+        ],
+        [
+          "Walk distance",
+          "81 m",
+          "Unavailable",
+          "Unavailable"
+        ],
+        [
+          "Covered",
+          "55%",
+          "Unavailable",
+          "Unavailable"
+        ],
+        [
+          "Uncovered",
+          "37 m",
+          "Unavailable",
+          "Unavailable"
+        ],
+        [
+          "Longest gap",
+          "20 m",
+          "Unavailable",
+          "Unavailable"
+        ]
+      ],
+      "panel": {
+        "x": 0,
+        "y": 484.46875,
+        "width": 1440,
+        "height": 433.53125
+      },
+      "search": {
+        "x": 12,
+        "y": 56,
+        "width": 300,
+        "height": 44
+      },
+      "logo": {
+        "x": 12,
+        "y": 14,
+        "width": 91,
+        "height": 32
+      },
+      "overflow": false,
+      "focus": "Show postal 018956 on map",
+      "focusId": "",
+      "attribution": null,
+      "aboutVisible": false,
+      "url": "http://127.0.0.1:4326/?postal=079908"
+    }
+  },
+  "document": {
+    "id": "11620F09299E3C56C0779379D6A1F328",
+    "url": "http://127.0.0.1:4326/?postal=018956&transit=bus",
+    "status": 200,
+    "type": "Document",
+    "sha256": "29e2d97851bd8412fe9fc2e60ffd86f0a88864c7ca80c4ec8bdddefc4f3f5a15",
+    "bytes": 13067
+  },
+  "failure": "Error: comparison-top-1440x950 attribution remains unobscured\n    at check (file:///C:/sgSHIOK2026/qa/revamp-r1/comparison-ui-20260909/browser.mjs:19:155)\n    at capture (file:///C:/sgSHIOK2026/qa/revamp-r1/comparison-ui-20260909/browser.mjs:81:3)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/comparison-ui-20260909/browser.mjs:120:5",
+  "failureCapture": {
+    "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\comparison-ui-20260909\\acceptance-1-1788912595828\\failure.png",
+    "sha256": "f1472d42d406be7e30123b5e6107a38b9e2d53980be71a73d88aec94987def13"
+  },
+  "stderr": "\r\nDevTools listening on ws://127.0.0.1:23299/devtools/browser/ae45f4bf-de70-447c-99c8-e60e7955a2f1\r\n",
+  "finishedAt": "2026-09-09T00:10:51.914Z",
+  "ok": false
+}

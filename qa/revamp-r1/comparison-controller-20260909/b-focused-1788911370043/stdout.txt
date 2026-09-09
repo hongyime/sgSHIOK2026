@@ -1,0 +1,11 @@
+
+ RUN  v4.1.10 C:/sgSHIOK2026/web
+
+ ❯ lib/__tests__/comparison-controller.test.ts (42 tests | 1 failed) 337ms
+     × accepted no-op activation/category and empty reset do not write storage 26ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 41 passed (42)
+   Start at  07:49:33
+   Duration  1.98s (transform 535ms, setup 0ms, import 680ms, tests 337ms, environment 1ms)
+

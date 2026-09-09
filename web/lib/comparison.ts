@@ -83,8 +83,10 @@ function comparisonMetricConflicts(input: PublishedTransitNormalizationInput, gr
   });
 }
 
-/** Project one postal's declared default, not its ranked or currently inspected alternative. */
-export function buildComparisonRow(input: PublishedTransitNormalizationInput): ComparisonRow {
+/** Resolve one declared walk once so comparison text and map use the same source. */
+export function resolveComparisonWalk(input: PublishedTransitNormalizationInput): {
+  row: ComparisonRow; option: PublishedTransitOption | null;
+} {
   const pool = normalizePublishedTransitOptions(input);
   const score = object(input.score);
   const categories = object(score?.route_options);
@@ -161,7 +163,7 @@ export function buildComparisonRow(input: PublishedTransitNormalizationInput): C
     provenanceRefs.push(`route_options.${input.category}.provenance`);
   }
   const gaps = resolved?.gaps.sheltered.logical;
-  return {
+  const row: ComparisonRow = {
     policy: 'category_default_sheltered_v1',
     routeVariant: 'sheltered',
     bundle: input.bundle,
@@ -189,4 +191,13 @@ export function buildComparisonRow(input: PublishedTransitNormalizationInput): C
       provenanceRefs,
     },
   };
+  return {
+    row,
+    option: row.availability !== 'unavailable' && isPublishedRoute(resolved) ? resolved : null,
+  };
+}
+
+/** Project one postal's declared default, not its ranked or currently inspected alternative. */
+export function buildComparisonRow(input: PublishedTransitNormalizationInput): ComparisonRow {
+  return resolveComparisonWalk(input).row;
 }

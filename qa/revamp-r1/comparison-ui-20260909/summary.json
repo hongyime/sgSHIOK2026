@@ -1,0 +1,204 @@
+{
+  "task": "T10",
+  "date": "2026-09-09T00:48:14.463Z",
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "da256cc9ed1453afa6b4a3166f4ef21ab7b636e0",
+  "status": "complete_local_comparison_ui_not_sharing_or_deployment",
+  "sources": [
+    {
+      "path": "web/app/page.module.css",
+      "bytes": 29383,
+      "sha256": "ef7bc2f738ff381e084678011c21ec2d2eded9178ffd85a689098be41c2b7471",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/app/page.tsx",
+      "bytes": 117195,
+      "sha256": "84fae99711a144cd030596cec64d129b03b4272d47242c50edbb94d46d251749",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/components/home-comparison.module.css",
+      "bytes": 3585,
+      "sha256": "3909eed9d784c29794169faf18e57ef294310999f6b350dbb5359f4387bcfbf6",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/components/home-comparison.tsx",
+      "bytes": 10064,
+      "sha256": "bacb00669b720d2be3df3e09f87de4459bd72edaeffb1c56b7b65b4c98826694",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/comparison-controller.test.ts",
+      "bytes": 28042,
+      "sha256": "532c0a6530c48a5718a102296659165c8b4e712c3ff89fad4459af8224e15598",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/comparison.test.ts",
+      "bytes": 29968,
+      "sha256": "fb8ab02661fa1210c5c8987f1f655573fec90cfbdffbf293fdf66c1f0416a5f1",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/home-comparison.test.tsx",
+      "bytes": 26611,
+      "sha256": "362ed66cd39f6eb2d36e4abfd06ff01e170e064920957b0b2c0e4b86b8c4273e",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "bytes": 55590,
+      "sha256": "eb00189f77ea740746d67b2340535d6bbffadaf224e5dd9be552c3c14ec79e34",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "bytes": 5840,
+      "sha256": "8726bb8d753c06ebaf086329980c2caf7d5c06bb0cdd390c0a9cd39c8574512d",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    },
+    {
+      "path": "web/lib/comparison.ts",
+      "bytes": 9560,
+      "sha256": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb",
+      "matchesTestedSnapshot": true,
+      "matchesBuiltSource": true
+    }
+  ],
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "match": true
+    }
+  ],
+  "validation": {
+    "tests": 1269,
+    "files": 50,
+    "arithmetic": "1154 + 20 resolver + 42 controller + 45 component + 8 page = 1269; 48 + 2 files = 50",
+    "targetedCoverage": "64 resolver + 42 controller + 45 component + 52 page = 203 within the full suite",
+    "checksPath": "qa/revamp-r1/published-options-20260909/comparison-ui-full-4/checks.json",
+    "buildPath": "qa/revamp-r1/cached-release-20260908/comparison-ui-20260909-3/build.json",
+    "browserPath": "qa/revamp-r1/comparison-ui-20260909/acceptance-5-1788914494260/browser.json",
+    "buildId": "B7CuLoe32qeH9ivDljFps",
+    "browserChecks": 69,
+    "captures": 11,
+    "browserAbsent": true,
+    "parentVisualInspection": "All11 final captures inspected:desktop/top/metrics and mobile/top/metrics/last-column. Route, headings, active-map postal and attribution remain visible; bounded table scrolling is intentional."
+  },
+  "corrections": [
+    "Initial parent page run:49/50; new test incorrectly expected flattened top-level bus geometry instead of the pinned category bus parts. Test corrected to original fixture route_options.bus.sheltered_parts.",
+    "Independent controller run:41/42. Already-empty reset caused an unnecessary owned-key write; same42 tests pass after semantic no-op guard. Both raw receipts preserved.",
+    "Independent source review found shortest-only geometry sent to sheltered-only map. Two new page regressions fail in shortest-only-red (193pass/2fail), then same195 focused tests pass in shortest-only-green after requiring ready geometry and surviving sheltered parts.",
+    "comparison-ui-full-1:1180/48 passed before new component/controller files were included in tracked-source copy; full-2:1261/50 then passed. The final receipt selected above additionally covers the visual-review polish.",
+    "acceptance-1 stopped on a QA selector for the unused default MapLibre attribution control. The screenshot showed custom OneMap attribution unobscured; the harness now inspects the actual attribution element.",
+    "acceptance-2 passed48 checks/8 captures. Visual review then found mobile vertical scrolling lost postal headings. Compact postal map-select buttons, sticky headers and an active-map postal label were added.",
+    "acceptance-3 passed all11 screenshot checks then exposed keyboard focus hidden behind sticky row labels after horizontal scrolling. Matching112px inline scroll padding fixes the obscured removal control.",
+    "acceptance-4 hit the existing map startup timeout while valid walk text loaded. This is retained as an unresolved T01/T02 reliability finding. Final harness permits at most one explicit existing Reload page action and records it, never extends the timeout or retries in a loop. Final startupRecovery field below states whether used.",
+    "Some Chrome processes did not exit inside the short cleanup grace period; later explicit process inspection found the old90148/91716 browser profiles absent. Final browser absence is checked independently below.",
+    "After final browser capture, retired owned QA preview4323/4324 processes97404/100712 were command-line-verified as startup-20260909-3 and stopped. Current4325/4326 and read-only data upstream4321 remained untouched. No performance attribution follows from this cleanup."
+  ],
+  "catalogue": {
+    "C01/C03/C04": "Real fixture contracts and component/page handlers; actual browser adds three postals, switches category, compares four nullable measurements and selects one mapped walk.",
+    "C02": "Bounded reducer/controller tests; UI disables fourth-add and redirects an existing postal to its column. No silent replacement.",
+    "C05/C06": "Owned-key controller restoration/failures and browser reload. Closed restoration starts no shortlist reads; controller explicitly tests denied, corrupt and obsolete storage.",
+    "C09": "Remove updates visible/local state and focus; share-state agreement is intentionally not claimed until T11.",
+    "M03/M15": "Actual viewport screenshots/current-route counts, measured overlay fit and unobscured attribution; no representative-phone performance claim."
+  },
+  "findings": [
+    "Home comparison is now a local explicit map-first workflow:up to3 postals, one category, real destinations and4 nullable metrics, one active mapped walk.",
+    "ADR-16 source pinning is shared by row and map. No inspected alternate, shortest route, missing field or unavailable record is silently substituted or ranked as zero.",
+    "Independent review caught and fixed redundant empty-reset writes and a shortest-only false map visibility failure. Red receipts remain intact.",
+    "Stale success/error/geometry delivery is guarded across remove/re-add, category ABA, retry, close/reopen and source replacement. Inactive columns cannot move the map.",
+    "Protected data remains read-only; all11 recorded anchors match and tested/built source hashes agree. Pipeline, installations and deployment remain zero.",
+    "One final-build cold start hit the existing map-startup timeout although score text loaded. A later functional comparison pass does not erase that reliability failure or close T01/T02."
+  ],
+  "disagreements": [
+    "Pure state predicates were not enough to claim asynchronous UI safety; T10 adds the actual token-owning loader and page/browser evidence.",
+    "A valid shortest geometry is not evidence that the sheltered comparison route can be drawn. Valid metrics survive that missing capability without a false map failure.",
+    "Comparison UI completion is not shortlist-sharing, representative performance, physical-user acceptance or production release; those remain separate tickets/gates."
+  ],
+  "limitations": [
+    "Headless Chrome with SwiftShader is functional viewport evidence, not representative mobile performance.",
+    "T11 sharing and T25 cross-feature accessibility remain. T13 reporting,T21 compute,T26 owner/device/M12,T28 deployment need their explicit gates.",
+    "No new pipeline artifact, live preview request, provider provisioning, install, deployment command or X operation."
+  ],
+  "pipelineRuns": 0,
+  "pipelineCost": 0,
+  "installations": 0,
+  "deploymentCommands": 0,
+  "startupRecovery": null
+}

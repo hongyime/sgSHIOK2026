@@ -1,0 +1,85 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:/sgSHIOK2026/web/scripts/test-web.mjs",
+    "lib/__tests__/comparison.test.ts",
+    "lib/__tests__/comparison-controller.test.ts",
+    "lib/__tests__/published-walk-page.test.tsx",
+    "lib/__tests__/home-comparison.test.tsx",
+    "--no-cache",
+    "--reporter=dot"
+  ],
+  "exitCode": 1,
+  "stdout": "\n RUN  v4.1.10 C:/sgSHIOK2026/web\n\n····xx·····························································································································································································\n\n Test Files  1 failed | 3 passed (4)\n      Tests  2 failed | 193 passed (195)\n   Start at  08:02:07\n   Duration  12.71s (transform 2.24s, setup 0ms, import 2.97s, tests 5.18s, environment 2ms)\n\n",
+  "stderr": "stderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > keeps published metrics/geometry on transport failure and resets without another request\nOneMap live route fetch failed; keeping the published walk: Error: Synthetic preview transport failure\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:671:51\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20\n\nstderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > keeps published metrics/geometry on invalid-json failure and resets without another request\nOneMap live route fetch failed; keeping the published walk: SyntaxError: Unexpected token 'o', \"not JSON\" is not valid JSON\n    at JSON.parse (<anonymous>)\n    at parseJSONFromBytes (node:internal/deps/undici/undici:4349:19)\n    at successSteps (node:internal/deps/undici/undici:6987:27)\n    at readAllBytes (node:internal/deps/undici/undici:5811:13)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n\nstderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > ignores late preview rejection after selecting published candidate C\nOneMap live route fetch failed; keeping the published walk: Error: Synthetic stale preview failure\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:738:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20\n\n\n⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯\n\n FAIL  lib/__tests__/published-walk-page.test.tsx > Home comparison through actual page handlers > does not send shortest-only geometry to the sheltered map when sheltered parts are missing\n FAIL  lib/__tests__/published-walk-page.test.tsx > Home comparison through actual page handlers > does not send shortest-only geometry to the sheltered map when sheltered parts are invalid\nAssertionError: expected [ { id: 'comparison:018956', …(3) } ] to deeply equal []\n\n- Expected\n+ Received\n\n- []\n+ [\n+   {\n+     \"color\": \"#008f86\",\n+     \"geom\": {\n+       \"exposure_gaps\": [],\n+       \"postal\": \"018956\",\n+       \"sheltered\": \"\",\n+       \"sheltered_parts\": [],\n+       \"shortest\": \"\",\n+       \"shortest_parts\": [\n+         \"ooyFed|xRST\",\n+         \"cpyFoc|xRm@_@UKO?\",\n+         \"wryF{d|xR@R\",\n+       ],\n+     },\n+     \"id\": \"comparison:018956\",\n+     \"label\": \"Postal 018956\",\n+   },\n+ ]\n\n ❯ lib/__tests__/published-walk-page.test.tsx:452:26\n    450|     expect(view().entries[A].option?.geometry.sheltered.parts).toEqual…\n    451|     expect(view().entries[A].row?.metrics).toEqual({ distance: 81.2, c…\n    452|     expect(map().routes).toEqual([]);\n       |                          ^\n    453|   });\n    454|   it('new postal search closes comparison and keeps its saved shortlis…\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯\n\n",
+  "elapsedSeconds": 16.473,
+  "before": [
+    {
+      "path": "web/lib/comparison.ts",
+      "sha256": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb"
+    },
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "8726bb8d753c06ebaf086329980c2caf7d5c06bb0cdd390c0a9cd39c8574512d"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "5448bc70b46797032251f75d142e6ab7274c817a13f12b678654aabe9e9fcf0d"
+    },
+    {
+      "path": "web/components/home-comparison.tsx",
+      "sha256": "673b05a91af65328c11a0aeb5e51925954ebfb0012953d58838e218dde610a1e"
+    },
+    {
+      "path": "web/lib/__tests__/comparison.test.ts",
+      "sha256": "fb8ab02661fa1210c5c8987f1f655573fec90cfbdffbf293fdf66c1f0416a5f1"
+    },
+    {
+      "path": "web/lib/__tests__/comparison-controller.test.ts",
+      "sha256": "532c0a6530c48a5718a102296659165c8b4e712c3ff89fad4459af8224e15598"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "sha256": "eb00189f77ea740746d67b2340535d6bbffadaf224e5dd9be552c3c14ec79e34"
+    },
+    {
+      "path": "web/lib/__tests__/home-comparison.test.tsx",
+      "sha256": "81832fb635fe5e3044a19492916d23c9c6621947b2cc877f3c65d62e94442133"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/comparison.ts",
+      "sha256": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb"
+    },
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "8726bb8d753c06ebaf086329980c2caf7d5c06bb0cdd390c0a9cd39c8574512d"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "5448bc70b46797032251f75d142e6ab7274c817a13f12b678654aabe9e9fcf0d"
+    },
+    {
+      "path": "web/components/home-comparison.tsx",
+      "sha256": "673b05a91af65328c11a0aeb5e51925954ebfb0012953d58838e218dde610a1e"
+    },
+    {
+      "path": "web/lib/__tests__/comparison.test.ts",
+      "sha256": "fb8ab02661fa1210c5c8987f1f655573fec90cfbdffbf293fdf66c1f0416a5f1"
+    },
+    {
+      "path": "web/lib/__tests__/comparison-controller.test.ts",
+      "sha256": "532c0a6530c48a5718a102296659165c8b4e712c3ff89fad4459af8224e15598"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "sha256": "eb00189f77ea740746d67b2340535d6bbffadaf224e5dd9be552c3c14ec79e34"
+    },
+    {
+      "path": "web/lib/__tests__/home-comparison.test.tsx",
+      "sha256": "81832fb635fe5e3044a19492916d23c9c6621947b2cc877f3c65d62e94442133"
+    }
+  ],
+  "identitiesStable": true
+}

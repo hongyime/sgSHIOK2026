@@ -6,7 +6,7 @@ import {
   type PublishedTransitNormalizationResult,
 } from '../published-transit-options';
 import fixture from './fixtures/published-options.json';
-import { buildComparisonRow } from '../comparison';
+import { buildComparisonRow, resolveComparisonWalk } from '../comparison';
 import { walkMetrics } from '../../components/walk-summary';
 
 vi.mock('node:fs', () => { throw new Error('Comparison must not read files'); });
@@ -45,7 +45,25 @@ function row(value: PublishedTransitNormalizationInput) {
   const before = structuredClone(value);
   freeze(value);
   const result = buildComparisonRow(value);
+  expect(resolveComparisonWalk(value).row).toEqual(result);
   expect(value).toEqual(before);
+  return result;
+}
+function resolvedWalk(value: PublishedTransitNormalizationInput) {
+  const before = structuredClone(value);
+  freeze(value);
+  const result = resolveComparisonWalk(value);
+  expect(result.row).toEqual(buildComparisonRow(value));
+  expect(value).toEqual(before);
+  if (result.option) {
+    expect(result.option.classification).toBe('routed');
+    expect(result.option.selectedSource.selectionRef).toEqual(result.row.selectionRef);
+    expect(result.option.key).toBe(result.row.optionKey);
+    expect(result.option.name).toBe(result.row.destination);
+    expect(walkMetrics(null, false, result.option)).toEqual(result.row.metrics);
+  } else {
+    expect(result.row.availability).toBe('unavailable');
+  }
   return result;
 }
 function declared(value: PublishedTransitNormalizationInput) {
@@ -88,6 +106,119 @@ const incompleteLogicalGaps: { name: string; value: unknown; expected: Metrics }
 
 beforeEach(() => {
   vi.stubGlobal('fetch', vi.fn(() => { throw new Error('Comparison must not fetch'); }));
+});
+
+describe('T10 comparison walk resolves the same declared source for row and map', () => {
+  it.each(['bus', 'mrt_lrt'] as const)('exposes the real %s declared default without selecting a ranked candidate', category => {
+    const value = input(category);
+    const original = score(value).route_options[category];
+    const originalGeometry = geometry(value).route_options[category];
+    const result = resolvedWalk(value);
+    expect(result.row.availability).toBe('available');
+    expect(result.option?.selectedSource.raw).toBe(original);
+    expect(result.option?.selectedSource.rawGeometry).toBe(originalGeometry);
+    expect(result.option?.selectedSource.selectionRef).toEqual({ kind: 'category_default', category });
+  });
+
+  it.each([false, true])('pins missing-geometry default even when the group selected a healthier alternate; candidate=%s', promoteCandidate => {
+    const value = withoutCategoryGeometry(promoteCandidate);
+    expect(declared(value).selectedSource.selectionRef.kind).toBe(promoteCandidate ? 'candidate' : 'top_default');
+    const original = score(value).route_options.bus;
+    const result = resolvedWalk(value);
+    expect(result.row).toMatchObject({ availability: 'partial', reason: 'geometry_incomplete', metrics: busMetrics });
+    expect(result.option?.selectedSource.raw).toBe(original);
+    expect(result.option?.selectedSource.selectionRef).toEqual({ kind: 'category_default', category: 'bus' });
+    expect(result.option?.geometry.sheltered).toMatchObject({ status: 'missing', parts: [] });
+    expect(result.option?.gaps.sheltered.logical.longest_m).toMatchObject({ status: 'valid', value: 20.2 });
+  });
+
+  it('retains only the declared default\'s surviving partial geometry, not an intact alias', () => {
+    const value = input();
+    const route = geometry(value).route_options.bus;
+    const surviving = route.sheltered_parts[0];
+    route.sheltered_parts = [surviving, '_'];
+    expect(declared(value).selectedSource.selectionRef.kind).toBe('top_default');
+    const result = resolvedWalk(value);
+    expect(result.row).toMatchObject({ availability: 'partial', reason: 'geometry_incomplete', metrics: busMetrics });
+    expect(result.option?.selectedSource.rawGeometry).toBe(route);
+    expect(result.option?.geometry.sheltered.status).toBe('partial');
+    expect(result.option?.geometry.sheltered.parts.map(part => part.encoded)).toEqual([surviving]);
+  });
+
+  it('keeps invalid drawing evidence explicit without borrowing a healthy alias\'s geometry', () => {
+    const value = input();
+    geometry(value).route_options.bus.sheltered_parts = ['_'];
+    const result = resolvedWalk(value);
+    expect(result.row).toMatchObject({ availability: 'partial', reason: 'geometry_incomplete', metrics: busMetrics });
+    expect(result.option?.selectedSource.selectionRef).toEqual({ kind: 'category_default', category: 'bus' });
+    expect(result.option?.geometry.sheltered).toMatchObject({ status: 'invalid', parts: [] });
+  });
+
+  it.each([false, true])('never exposes a conflicting option; partial geometry=%s', partial => {
+    const value = input();
+    score(value).route_options.bus.paths.sheltered_m += 1;
+    if (partial) {
+      const route = geometry(value).route_options.bus;
+      route.sheltered_parts = [route.sheltered_parts[0], '_'];
+    }
+    const result = resolvedWalk(value);
+    expect(result.row).toMatchObject({ availability: 'unavailable', reason: 'evidence_conflict', metrics: emptyMetrics });
+    expect(result.option).toBeNull();
+    expect(result.row.evidence.optionStatus).toBe(partial ? 'geometry_partial' : 'evidence_conflict');
+  });
+
+  it.each(unavailableDeclarations)('does not expose an option for $name', ({ mutate }) => {
+    const value = input(); mutate(value);
+    expect(resolvedWalk(value).option).toBeNull();
+  });
+
+  it('returns null for the real direct-unrouted bus record', () => {
+    const result = resolvedWalk(input('bus', '018990'));
+    expect(result.row.reason).toBe('default_unrouted');
+    expect(result.option).toBeNull();
+  });
+
+  it('returns null for a missing MRT default even when real MRT candidates survive', () => {
+    const value = withoutCategoryDeclaration('mrt_lrt');
+    expect(pool(value).options.some(option => option.category === 'mrt_lrt' && option.retainable)).toBe(true);
+    const result = resolvedWalk(value);
+    expect(result.row.reason).toBe('default_missing');
+    expect(result.option).toBeNull();
+  });
+
+  it.each(['context', 'preview', 'metrics'] as const)('does not expose valid-looking geometry after %s makes the row unavailable', cause => {
+    const value = input('mrt_lrt');
+    if (cause === 'context') value.geometryContext.bundle = 'other-bundle';
+    if (cause === 'preview') score(value).provenance = { source: 'live_onemap_preview', authoritative_score: false };
+    if (cause === 'metrics') {
+      const source = score(value).route_options.mrt_lrt;
+      delete source.paths.sheltered_m;
+      delete source.paths.covered_ratio;
+      source.exposure_gaps = null;
+    }
+    const result = resolvedWalk(value);
+    expect(result.row.availability).toBe('unavailable');
+    expect(result.option).toBeNull();
+  });
+
+  it('keeps a partial-measurement default available without filling gaps from another source', () => {
+    const value = input();
+    score(value).route_options.bus.exposure_gaps = null;
+    const result = resolvedWalk(value);
+    expect(result.row).toMatchObject({ availability: 'partial', reason: 'metrics_incomplete',
+      metrics: { ...busMetrics, uncovered: null, longest: null } });
+    expect(result.option?.gaps.sheltered.logical.status).toBe('missing');
+    expect(result.option?.geometry.sheltered.status).toBe('complete');
+  });
+
+  it('exposes the same-category top default only when no category default is declared', () => {
+    const value = withoutCategoryDeclaration('bus');
+    const result = resolvedWalk(value);
+    expect(result.row.availability).toBe('available');
+    expect(result.option?.selectedSource.selectionRef).toEqual({ kind: 'top_default' });
+    expect(result.option?.selectedSource.raw).toBe(value.score);
+    expect(result.option?.selectedSource.rawGeometry).toBe(value.geometry);
+  });
 });
 afterEach(() => {
   expect(fetch).not.toHaveBeenCalled();

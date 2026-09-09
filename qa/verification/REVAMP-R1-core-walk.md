@@ -2031,3 +2031,96 @@ DISAGREEMENTS
 
 Pipeline runs=0; pipeline cost=$0; installations=0; deployment commands=0.
 Protected inputs/outputs, weights.yaml and X: remain unmodified.
+
+## T10 home comparison, 2026-09-09 (new append-only section)
+
+Working root C:\sgSHIOK2026; hostname Prawn-E14. Base da256cc9ed1453afa6b4a3166f4ef21ab7b636e0.
+Machine handback: qa/revamp-r1/comparison-ui-20260909/summary.json
+sha256 4b41e1e2087111ff7d3012df3a3c7fb91fed54ab1dc9956a2322bb9b68afd1e0
+
+Final command receipts:
+node qa/revamp-r1/published-options-20260909/check.mjs comparison-ui-full-4 full
+Test Files  50 passed (50)
+     Tests  1269 passed (1269)
+TypeScript --noEmit --incremental false: exit0
+python scripts/check_repo_integrity.py: repo_integrity=ok, exit0
+git diff --check: exit0
+Arithmetic:1154 +20 resolver +42 controller +45 component +8 page =1269;
+48 +2 new test files =50. The four targeted files contribute64+42+45+52=203
+checks within the full suite. This is not a claim of a separate203-test run.
+
+node qa/revamp-r1/cached-release-20260908/build-snapshot.mjs comparison-ui-20260909-3
+exit0; buildId B7CuLoe32qeH9ivDljFps
+node qa/revamp-r1/comparison-ui-20260909/browser.mjs acceptance-5 B7CuLoe32qeH9ivDljFps
+ok=true; checks=69; captures=11
+Browser receipt:comparison-ui-20260909/acceptance-5-1788914494260/browser.json.
+All11 final screenshots were inspected:1440x950,390x844,390x667,320x667,
+including horizontal inspection of the last column on each mobile size.
+Matching current-route features were visible during captures; sticky postal
+headings, active-map postal, search, measurements and attribution fit.
+The final run did not need the optional single explicit Reload page recovery.
+Its short Chrome cleanup grace period expired, but the finalizer independently
+confirmed that the owned browser process was absent before acceptance.
+
+node qa/revamp-r1/comparison-ui-20260909/finalize.mjs acceptance-5-1788914494260 comparison-ui-20260909-3 comparison-ui-full-4
+sources=10; anchors=11; tests=1269; files=50; browserChecks=69; captures=11;
+browserAbsent=true. All10 changed web files match the isolated tested snapshot
+and built-source hashes. All11 source anchors were rehashed and still match.
+Current preview:http://127.0.0.1:4326/; QA proxy105332, Next4325/PID92064.
+After capture, retired owned4323/4324 preview processes97404/100712 were verified
+as startup-20260909-3 and stopped. Current4325/4326 and4321data stayed untouched.
+
+Preserved failures and corrections:
+- Independent controller41/42 exposed redundant empty-reset storage writes;
+  unchanged42tests passed after the semantic no-op guard. Both B receipts remain
+  under qa/revamp-r1/comparison-controller-20260909/.
+- Independent source review found shortest-only geometry could trigger a false
+  sheltered-map visibility error. shortest-only-red records193pass/2fail;
+  shortest-only-green records195pass after requiring surviving sheltered parts.
+- Initial new page expectation used flattened top-level bus geometry instead
+  of actual declared-category parts:49/50. The test was corrected to the fixture's
+  route_options.bus.sheltered_parts, not by weakening source pinning.
+- Browser1 queried a nonexistent default attribution control; the screenshot
+  already showed custom attribution. The harness selector was corrected.
+- Browser2 passed48checks/8captures, but visual review found mobile postal
+  headings scrolled away. Compact postal map buttons and sticky headings fixed
+  this before landing. Browser3 then exposed focus behind the sticky label
+  column;112px inline scroll padding fixed that reachable-control failure.
+- Browser4 on the final build hit the existing map-startup timeout while valid
+  walk text loaded. It is preserved, not converted to a pass or blamed solely
+  on hardware. T01/T02 remain PARTIAL; the later functional pass does not close
+  startup reliability or establish representative performance.
+
+Catalogue:C01/C03/C04 have fixture/component/page and three-postal browser
+evidence; C02 bounds have controller/component coverage and disabled fourth-add
+browser proof; C05 reload is exercised. C06 is controller/storage coverage.
+C09 covers remove/local UI here, not sharing until T11. M03/M15 cover resized
+route fit, unobscured attribution and native keyboard focus in the recorded
+viewports. This is not physical-device or real-user acceptance.
+
+FINDINGS
+1. Local home comparison is now usable:three postals, one category, aligned
+   destinations/four nullable metrics, one active mapped published walk.
+2. Rows and maps use the same declared default source. Unavailable values are
+   not zero rankings; missing sheltered geometry cannot borrow shortest paths.
+3. Review caught and fixed redundant storage writes, shortest-only false map
+   failure, lost mobile column identity and obscured keyboard focus.
+4. Stale score, geometry and error delivery is guarded across removal/re-add,
+   category ABA, retry, closure and source replacement. Closed comparison starts
+   no shortlist reads; storage failures do not disable normal search.
+5. One final-build cold start failed the existing startup watchdog. Reliability
+   and representative latency remain open despite the later69-check pass.
+DISAGREEMENTS
+1. Passing component tests did not establish usable mobile comparison. Actual
+   screenshots and focus interaction revealed additional fixes needed.
+2. A valid shortest line cannot satisfy a sheltered-only comparison map.
+3. T10 completion is not sharing, physical-user acceptance, deployment or a
+   declaration that all remaining PRODUCT-PLAN tasks are complete.
+
+Pipeline runs=0; pipeline cost=$0; installations=0; deployment commands=0.
+No protected-payload mutation, weights.yaml change or X: operation.
+
+Pre-commit preservation note: the working file contained130 CRLF sequences;
+Git's staged prefix was already byte-identical to HEAD (88added/0deleted lines).
+The working-prefix mismatch was line endings only, not altered findings.
+Final LF normalization and prefix checks are required before committing.

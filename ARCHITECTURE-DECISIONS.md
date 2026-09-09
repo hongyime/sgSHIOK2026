@@ -367,3 +367,46 @@ the postal to remain the active column and ADR-16's pinned default source.
 Closed comparison starts no reads and accepts no old completions. Ordinary
 postal search must remain independent of storage or comparison-load failures.
 T10/T11 still own browser integration, accessible controls and explicit sharing.
+
+## ADR-18: Open comparison owns a bounded drawer and one mapped walk (2026-09-09)
+
+T10 adds an explicit Compare command and a contextual Add to comparison action.
+The normal map-first inspector retains its top-left stack. Opening comparison
+replaces the inspector with a bottom drawer, capped at three postal columns,
+and hides the unrelated primary walk's controls. The map remains visible above
+the drawer and required attribution remains below it. A native table aligns
+destination and four measurements; its own scroll area contains overflow on
+small screens. Show on map selects one column, never an overall winner.
+Postal headings are the accessible map-selection buttons and stay pinned while
+the measurements scroll. A compact Map: postal indicator names the active drawn
+column even when another column is being inspected horizontally. Do not add a
+second permanent card or repeat a map-selection row beneath each postal.
+
+The common category always uses ADR-16's declared default sheltered walk,
+regardless of the inspector's selected candidate or variant. The row and map
+are returned by one pinned-source resolver. Shortest-only geometry cannot be
+sent to a sheltered-only map: require surviving sheltered parts, otherwise keep
+valid measurements and leave the route clear. Partial sheltered parts may be
+shown with an explicit partial-drawing status, not joined into a complete walk.
+
+A local controller owns subscriptions, restoration and transient request IDs.
+Existing static readers remain responsible for transport caching. Score and
+geometry settle independently; a geometry failure must not hide score evidence.
+Every completion and rejection checks its current bundle/postal/category/token.
+Removal, retry, category changes, closure and source replacement invalidate old
+ownership synchronously. Source replacement replaces transport functions as well
+as bundle identity. Inactive listed columns may finish; only the active column
+supplies the map. No automatic retry, background shortlist load or live routing.
+
+Restore once before user-action writes, never autosave an empty mount. Denied
+storage leaves an in-memory shortlist and a session-only notice. Duplicate,
+invalid, limit and semantically empty reset actions do not write. Only the owned
+shortlist key changes. Closing and reloading preserve the list but not open UI
+or request tokens. Ordinary search closes comparison and restores the inspector;
+Add another postal returns focus to the same postal input, not a second search.
+Removing a focused column moves focus to a remaining removal control or Close;
+Close returns focus to Compare. New automatic focus must not steal deliberate
+focus outside the removed controls.
+
+No share control is claimed in T10; T11 must implement explicit URL semantics.
+No data generation, scoring, deployment or external service is needed here.

@@ -63,6 +63,12 @@ import {
   type PublishedWalkSelection,
 } from "../lib/published-walk-selection";
 import type { PublishedTransitCategory } from "../lib/published-transit-options";
+import { createComparisonController } from "../lib/comparison-controller";
+import { MAX_COMPARISON_POSTALS } from "../lib/comparison-state";
+import { publishedOptionGeometry } from "../lib/published-walk-view";
+import { HomeComparison } from "../components/home-comparison";
+
+const EMPTY_TRANSIT_POIS: TransitPoiCollection = { type: "FeatureCollection", features: [] };
 
 const RouteEvidenceMap = dynamic(
   () => import("../components/route-evidence-map").then((module) => module.RouteEvidenceMap),
@@ -2001,6 +2007,34 @@ export default function Home() {
   const pendingUrlRouteRef = useRef<RouteDisplayMode | null>(null);
   const pendingUrlPostalRef = useRef<string | null>(null);
   const [transitPoisReady, setTransitPoisReady] = useState(false);
+  const [comparisonController] = useState(() => createComparisonController({
+    bundle: DATA_BASE, score: fetchScoreForPostal, geometry: fetchGeomForPostal,
+  }, () => window.localStorage));
+  const [comparison, setComparison] = useState(comparisonController.getSnapshot);
+  const comparisonButtonRef = useRef<HTMLButtonElement | null>(null);
+  const comparisonPanelRef = useRef<HTMLDivElement | null>(null);
+  const dataDockRef = useRef<HTMLElement | null>(null);
+  const searchInputRef = useRef<HTMLInputElement | null>(null);
+  useEffect(() => {
+    const unsubscribe = comparisonController.subscribe(() => setComparison(comparisonController.getSnapshot()));
+    comparisonController.restore();
+    setComparison(comparisonController.getSnapshot());
+    return () => { unsubscribe(); comparisonController.setOpen(false); };
+  }, [comparisonController]);
+  useEffect(() => {
+    if (comparison.open) comparisonPanelRef.current?.querySelector<HTMLButtonElement>('[data-comparison-close]')?.focus({ preventScroll: true });
+  }, [comparison.open]);
+  const openComparison = () => {
+    setExposureSelection(null);
+    setAboutDataOpen(false);
+    const details = dataDockRef.current?.querySelector('details');
+    if (details) details.open = false;
+    comparisonController.setOpen(true);
+  };
+  const closeComparison = (search = false) => {
+    comparisonController.setOpen(false);
+    (search ? searchInputRef.current : comparisonButtonRef.current)?.focus({ preventScroll: true });
+  };
   const discardPendingUrlIntent = useCallback(() => {
     pendingUrlStopIdRef.current = null;
     pendingUrlTransitRef.current = null;
@@ -2247,6 +2281,13 @@ export default function Home() {
   );
 
   const mapRoutes = useMemo(() => buildRouteItems(activeSelection), [activeSelection]);
+  const comparedEntry = comparison.state.activePostal ? comparison.entries[comparison.state.activePostal] : null;
+  const comparedRoutes = useMemo<RouteMapItem[]>(() => {
+    if (!comparison.open || !comparedEntry?.option || comparedEntry.status !== 'ready'
+      || comparedEntry.geometryStatus !== 'ready' || comparedEntry.option.geometry.sheltered.parts.length === 0) return [];
+    const geom = publishedOptionGeometry(comparedEntry.postal, comparedEntry.option);
+    return geom ? [{ id: `comparison:${comparedEntry.postal}`, label: `Postal ${comparedEntry.postal}`, geom, color: '#008f86' }] : [];
+  }, [comparison.open, comparedEntry]);
   const sameSelectedRoute = activeSelection?.publishedOption
     ? activeSelection.publishedOption.geometry.shortest.signature !== null
       && activeSelection.publishedOption.geometry.shortest.signature === activeSelection.publishedOption.geometry.sheltered.signature
@@ -2331,6 +2372,7 @@ export default function Home() {
       return;
     }
     if (!preserveInitialUrl) discardPendingUrlIntent();
+    comparisonController.setOpen(false);
     setExposureSelection(null);
     const requestId = loadSelectionRequestIdRef.current + 1;
     loadSelectionRequestIdRef.current = requestId;
@@ -2563,20 +2605,21 @@ export default function Home() {
   };
 
   return (
-    <main className={styles.appShell} data-map-status={mapLoadStatus}>
+    <main className={styles.appShell} data-map-status={mapLoadStatus} data-comparison-open={comparison.open || undefined}
+      onKeyDown={event => { if (event.key === 'Escape' && comparison.open) { event.preventDefault(); closeComparison(); } }}>
         <RouteEvidenceMap
           key={mapInstanceKey}
-          routes={mapRoutes}
-          mode={mapRouteMode}
-          transitPois={mapTransitPois}
-          feedbackEnabled={feedbackEnabled}
-          feedbackPoints={feedbackPoints}
+          routes={comparison.open ? comparedRoutes : mapRoutes}
+          mode={comparison.open ? 'shiokest' : mapRouteMode}
+          transitPois={comparison.open ? EMPTY_TRANSIT_POIS : mapTransitPois}
+          feedbackEnabled={!comparison.open && feedbackEnabled}
+          feedbackPoints={comparison.open ? [] : feedbackPoints}
           onFeedbackPoint={addFeedbackPoint}
-          onSelectTransitStop={handleStopSelect}
-          chosenStopId={chosenStopId ?? bestCandidateId}
-          showLampOverlay={lampOverlayEnabled}
-          focusedExposureGap={focusedExposureGap}
-          mappedExposureContextKey={exposureModel.contextKey}
+          onSelectTransitStop={comparison.open ? undefined : handleStopSelect}
+          chosenStopId={comparison.open ? null : chosenStopId ?? bestCandidateId}
+          showLampOverlay={!comparison.open && lampOverlayEnabled}
+          focusedExposureGap={comparison.open ? null : focusedExposureGap}
+          mappedExposureContextKey={comparison.open ? null : exposureModel.contextKey}
           onStatusChange={handleMapStatusChange}
           retryKey={mapRetryKey}
         />
@@ -2589,10 +2632,15 @@ export default function Home() {
         <div className={styles.searchToolbar}>
         <div className={styles.identityRow}>
           <h1 className={styles.identityBrand} aria-label="S.H.I.O.K. Shelter Map">SHIOK<span aria-hidden="true">.</span></h1>
+          <button ref={comparisonButtonRef} type="button" className={styles.compareCommand}
+            aria-expanded={comparison.open} aria-controls="home-comparison-view" onClick={() => comparison.open ? closeComparison() : openComparison()}>
+            Compare{comparison.state.postals.length > 0 ? ` (${comparison.state.postals.length})` : ''}
+          </button>
         </div>
         <form onSubmit={handleSearch} className={styles.searchForm} aria-busy={loading}>
           <input
             id="postal-search-input"
+            ref={searchInputRef}
             type="text"
             inputMode="numeric"
             autoComplete="postal-code"
@@ -2623,13 +2671,13 @@ export default function Home() {
             else setMapInstanceKey(key => key + 1);
           }}>{mapRecovery === "reload" ? "Reload page" : "Retry map"}</button>
         </div>}
-        {geometryError && <div className={styles.errorBox} role="status">Walk geometry could not load. Your record is still available. <button type="button" onClick={retryGeometry}>Retry geometry</button></div>}
-        {chosenStopId && !selectedPublishedOption && !liveRouteCache[chosenStopId] && <div className={styles.errorBox} role="status">
+        {!comparison.open && geometryError && <div className={styles.errorBox} role="status">Walk geometry could not load. Your record is still available. <button type="button" onClick={retryGeometry}>Retry geometry</button></div>}
+        {!comparison.open && chosenStopId && !selectedPublishedOption && !liveRouteCache[chosenStopId] && <div className={styles.errorBox} role="status">
           {liveRoutePreviewStatuses[chosenStopId] === "unavailable" ? "Walking preview unavailable. Published walk shown." : "Loading walking preview. Published walk shown."}
           {liveRoutePreviewStatuses[chosenStopId] === "unavailable" && <button type="button" onClick={() => setPreviewRetryKey(key => key + 1)}>Retry preview</button>}
           <button type="button" onClick={() => handleStopSelect(null)}>Keep published walk</button>
         </div>}
-        {primary?.score?.paths && !primary.geom && !loading && !geometryError && <div className={styles.errorBox} role="status">No route geometry is published for this walk. Record evidence is still available.</div>}
+        {!comparison.open && primary?.score?.paths && !primary.geom && !loading && !geometryError && <div className={styles.errorBox} role="status">No route geometry is published for this walk. Record evidence is still available.</div>}
         <SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted} />
         {error && pendingSelectionRef.current && <button type="button" onClick={() => loadSelection(pendingSelectionRef.current!)}>Retry selection</button>}
 
@@ -2649,13 +2697,22 @@ export default function Home() {
 
       </section>
 
-        {showDetailOverlay && !aboutDataOpen && (
+        {showDetailOverlay && !aboutDataOpen && !comparison.open && (
           <aside ref={panelRef} className={`${styles.resultPanel} ${sheetExpanded ? styles.sheetExpanded : ""}`}>
             <button ref={walkDetailsButtonRef} type="button" className={styles.sheetToggle} aria-expanded={sheetExpanded}
               aria-controls="walk-details" onClick={() => setSheetExpanded(value => !value)}>
               {sheetExpanded ? "Collapse walk details" : "Walk details"}
             </button>
             <WalkSummary postal={primary!.result.POSTAL} score={activeSelection?.score ?? null} option={activeSelection?.publishedOption} shortest={mapRouteMode === "shortest" && !sameSelectedRoute} />
+            <button type="button" className={styles.addComparison}
+              disabled={!comparison.state.postals.includes(primary!.result.POSTAL) && comparison.state.postals.length >= MAX_COMPARISON_POSTALS}
+              onClick={() => {
+                const postal = primary!.result.POSTAL;
+                const reason = comparisonController.dispatch({ type: comparison.state.postals.includes(postal) ? 'activate' : 'add', postal });
+                if (!reason) openComparison();
+              }}>
+              {comparison.state.postals.includes(primary!.result.POSTAL) ? 'View in comparison' : comparison.state.postals.length >= MAX_COMPARISON_POSTALS ? 'Comparison full (3)' : 'Add to comparison'}
+            </button>
             <ExposureSectionExplorer model={exposureModel} selectedKey={focusedExposureGap?.key ?? null}
               onSelect={handleExposureSelection} mode={mapRouteMode} onFocusedRemoval={restoreWalkControlFocus} />
             {primary?.score && <TransitModeControl score={primary.score} mode={transitMode} setMode={handleTransitModeChange} />}
@@ -2723,7 +2780,17 @@ export default function Home() {
         )}
       </div>
 
-        <footer className={styles.dataDock} data-map-overlay="bottom">
+        <div id="home-comparison-view" ref={comparisonPanelRef}>
+          {comparison.open && <HomeComparison state={comparison.state} entries={comparison.entries}
+            storageUnavailable={comparison.storageUnavailable}
+            onCategory={category => { comparisonController.dispatch({ type: 'category', category }); }}
+            onActivate={postal => { comparisonController.dispatch({ type: 'activate', postal }); }}
+            onRemove={postal => { comparisonController.dispatch({ type: 'remove', postal }); }}
+            onRetry={postal => comparisonController.retry(postal)}
+            onClear={() => { comparisonController.dispatch({ type: 'reset' }); }}
+            onAdd={() => closeComparison(true)} onClose={() => closeComparison()} />}
+        </div>
+        <footer ref={dataDockRef} className={styles.dataDock} data-map-overlay="bottom" hidden={comparison.open}>
           <DataDetails manifest={manifest} onToggle={event => {
             setAboutDataOpen(event.currentTarget.open);
             if (event.currentTarget.open) setExposureSelection(null);
