@@ -3437,3 +3437,103 @@ timeout or an acceptance tolerance for published data.
 2. Neither a whole-turn zero-pipeline claim nor an all-project-tests-passed claim is
    supported. The evidence establishes the selected 202 checks and records the two
    unintended synthetic exports. The overall product backlog remains incomplete.
+
+## T25: Comparison Retry and Scrolled Failure Acceptance, 2026-09-10
+
+Working root: C:\sgSHIOK2026
+Hostname: Prawn-E14
+Base: d7e5019e94ff662766f0adfd742b1262c5f93938
+Release-test follow-up: 4a39db7 (separate coherent change).
+New receipts: qa/revamp-r1/cross-feature-20260910/
+
+Commands and complete stdout/stderr are retained in the named receipts. Prior
+evidence, including failed browser runs, is not rewritten or reclassified.
+
+```text
+node C:\sgSHIOK2026\qa\revamp-r1\cross-feature-20260910\check.mjs full-1
+ Test Files  1 failed | 61 passed (62)
+      Tests  3 failed | 1714 passed (1717)
+```
+
+full-1-sZi0oH/checks.json preserves the three deployment.test.ts failures.
+They expected the retired release/install/activation behavior. The correction
+requires plan-only/refusal behavior, existing dependencies, guard existence and
+an early confirmation return before invocation. No operational script was
+changed to satisfy obsolete tests. Independent review caught and corrected the
+initial positional assertion that could pass when the guard was absent.
+
+```text
+node C:\sgSHIOK2026\qa\revamp-r1\cross-feature-20260910\check.mjs full-3
+ Test Files  62 passed (62)
+      Tests  1717 passed (1717)
+repo_integrity=ok
+```
+
+full-3-gPN3NJ/checks.json: full isolated web suite, installed TypeScript noEmit,
+repository integrity and diff check all exit0; all11 fixture-source anchors
+match before and after. No skips. Production-data access is denied in the
+isolated test checkout. The Retry change adds8 cases. Agent A's focused final
+73-case result and the preceding red/setup-error history are in agent-a.json;
+the excerpts are not claimed to be complete Vitest failure stdout. Full2 and
+build1 passed but preceded the final deployment-test strengthening; finalfull3
+and build2, not those intermediate results, establish current source identity.
+
+```text
+node C:\sgSHIOK2026\qa\revamp-r1\cached-release-20260908\build-snapshot.mjs cross-feature-focus-20260910-2
+{"snapshot":"C:\\sgSHIOK2026\\tmp\\cached-release-cross-feature-focus-20260910-2","exitCode":0,"buildId":"lcoYvon9S455KiFb_Oc8K"}
+node C:\sgSHIOK2026\qa\revamp-r1\cross-feature-20260910\browser.mjs treatment-1 cross-feature-focus-20260910-2 4342
+{"out":"C:\\sgSHIOK2026\\qa\\revamp-r1\\cross-feature-20260910\\treatment-1-XZGUst","ok":true,"checks":48,"captures":9,"cleanupVerified":true}
+node C:\sgSHIOK2026\qa\revamp-r1\cross-feature-20260910\verify.mjs full-3-gPN3NJ treatment-1-XZGUst cross-feature-focus-20260910-2
+{"ok":true,"tests":[" Test Files  62 passed (62)","      Tests  1717 passed (1717)"],"sources":144,"captures":9,"browserChecks":48,"evidence":{"baseBytes":218381,"baseSha256":"dca40232cb761b933acdfad99b9a848b1fe7f4ffccf45bf5357a701912786c18","currentBytes":218381,"prefixUnchanged":true}}
+```
+
+The verifier output above precedes this append. The original218381-byte prefix
+is preserved; summary.json also records actual HTML identity and screenshot
+hashes. Final tests/build/current working source match on144 files. The9 actual
+images were inspected by the parent: plain320, scrolled diagnostics, recovered
+Retry, denied Save, comparison1440x950/390x844/390x667/320x667, and narrow keyboard
+table end. The map is nonblank with the current four rendered route features
+in selected views; the plain view deliberately has no selected route. The
+same Document/current A route survives Retry while the unverified B option
+remains unverified. Native Tab/Enter reach the controls and final metrics.
+
+The browser runner pre-blocks disallowed methods, API calls and destinations;
+the only external allowlist is the observed OneMap tile/logo paths. Clipboard
+and storage denial are confined to the fresh QA browser. The geometry503 and
+held retry are synthetic transport faults against a read-only published shard.
+The manual payload names geometry-data/artifact-fetch/geometry-shard/http503,
+matches the intercepted clipboard payload, and excludes postals and URLs.
+Its app_build_id remains explicitly null; the actual HTML separately pins the
+tested build. These diagnostics do not invent recorded build provenance.
+
+Baseline2 reproduced the real BODY-focus failure. Its later recovery timeout
+was a bad harness expectation: 018990 has an unverified straight-line bus
+option, not a verified drawable walk. Neither that mistake nor the import-time
+cleanup helper error is hidden. bootstrap-failures.json and the baseline receipt
+remain. Both owned browser profiles have verified cleanup; other apps and
+existing previews were not stopped. No pipeline, installation or deployment
+ran in this continuation. The earlier T31 synthetic export incident remains
+recorded above and is not reclassified as zero cost.
+
+### FINDINGS
+
+1. Keyboard Retry lost focus to BODY. It now transfers focus synchronously to
+   the same postal's stable named heading, with a visible outline, without
+   changing active map selection or reclaiming later focus.
+2. Three stale web release tests escaped T31's scoped Python verification.
+   They now enforce the approved policy rather than resurrect installation or
+   data-pointer mutation. The final full web suite passes1717/62.
+3. Failed Save preserves the exact shared URL and previous saved value; successful
+   Save and Use saved preserve reachable focus. Diagnostics and narrow keyboard
+   scrolling passed with real browser captures and unchanged source anchors.
+
+### DISAGREEMENTS
+
+1. These48 browser checks do not close all T25 or M17. Retained-old-tab recovery,
+   the remaining cross-feature fast-navigation/reduced-motion/enlarged-text
+   replay, native zoom, physical users/devices and representative performance
+   remain distinct requirements. No all-project Python-suite or release claim.
+2. Source review completed, but the independent reviewer's final visual audit
+   could not run because its usage limit was reached. reviewer-terminal.json
+   preserves that outcome. Final screenshot/receipt review is parent-only,
+   not independent final acceptance.

@@ -110,6 +110,17 @@ export function HomeComparison({
     action();
   }
 
+  function retryAction(event: React.MouseEvent<HTMLButtonElement>, postal: string) {
+    const button = event.currentTarget;
+    if (event.detail === 0 && button.isConnected && button.ownerDocument.activeElement === button && panel.current?.contains(button)) {
+      const heading = Array.from(panel.current.querySelectorAll<HTMLElement>("[data-comparison-heading]"))
+        .find(node => node.dataset.comparisonHeading === postal);
+      // Retry removes its button. Transfer keyboard focus before loading, with no deferred reclaim.
+      if (heading?.isConnected) heading.focus();
+    }
+    onRetry(postal);
+  }
+
   const columns = postals.map(postal => {
     const entry = entries[postal]?.postal === postal ? entries[postal] : undefined;
     const row = entry?.status === "ready" && entry.row?.postal === postal && entry.row.category === state.category
@@ -180,7 +191,8 @@ export function HomeComparison({
               <tr>
                 <th scope="col">Postal code</th>
                 {columns.map(({ postal, canShowMap }, index) => (
-                  <th key={postal} scope="col" data-active={postal === state.activePostal || undefined}>
+                  <th key={postal} scope="col" data-active={postal === state.activePostal || undefined}
+                    tabIndex={-1} data-comparison-heading={postal} aria-label={`Postal ${postal} comparison column`}>
                     <div className={styles.postalHeading}>
                       <button type="button" className={styles.mapButton} aria-label={`Show postal ${postal} on map`}
                         title={`Show postal ${postal} on map`} aria-pressed={postal === state.activePostal}
@@ -222,7 +234,7 @@ export function HomeComparison({
                     </div>}
                     {(entry?.status === "error" || entry?.geometryStatus === "error") && (
                       <button type="button" className={styles.command} aria-label={`Retry postal ${postal}`}
-                        onClick={() => onRetry(postal)}>{entry.status === "error" ? "Retry" : "Retry map"}</button>
+                        onClick={event => retryAction(event, postal)}>{entry.status === "error" ? "Retry" : "Retry map"}</button>
                     )}
                   </td>
                 ))}

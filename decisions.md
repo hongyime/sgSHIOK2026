@@ -3193,3 +3193,22 @@ https://vercel.com/docs/cli/global-options,
 https://github.com/vercel/vercel/blob/main/packages/cli/src/commands/inspect/index.ts,
 https://vercel.com/docs/rest-api/projects/find-a-project-by-id-or-name,
 https://github.com/vercel/sdk/blob/main/src/models/filterprojectenvsop.ts.
+
+## 2026-09-10: Preserve Comparison Context During Keyboard Retry
+
+T25 browser acceptance reproduced keyboard focus falling to BODY when Retry
+replaced its button with a loading state. Before invoking Retry, move focus to
+the same postal's named column heading only for a connected, currently focused
+keyboard-activated button. The heading stays out of sequential Tab order and is
+not a destructive command. Do not change the selected map postal, steal mouse
+focus, or schedule a delayed focus reclaim after another action or navigation.
+
+A successful geometry retry proves transport recovery, not route validity. The
+published unverified straight-line option remains unverified with its map button
+disabled; another column's valid route and measurements remain visible. Browser
+acceptance now explicitly distinguishes these states.
+
+The full web suite also caught three stale release-script assertions after T31.
+Tests must enforce the current no-install and retired-data-activation policy,
+including guard existence and its early return, rather than require reinstating
+the unsafe old behavior. See qa/revamp-r1/cross-feature-20260910/summary.json.

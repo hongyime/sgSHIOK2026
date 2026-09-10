@@ -1,0 +1,9 @@
+{
+  "browserPlugin": {"isError": true, "text": "failed to write kernel assets: The system cannot find the path specified. (os error 3)"},
+  "firstRunnerCommand": "node C:\\sgSHIOK2026\\qa\\revamp-r1\\cross-feature-20260910\\browser.mjs baseline-1",
+  "exitCode": 1,
+  "stdout": "",
+  "errorMessage": "Error: Wrong receipt",
+  "errorSource": "qa/revamp-r1/layout-confirmation-20260909/cleanup.mjs:18",
+  "classification": "Import-time CLI guard fired before runner initialization or browser creation. No browser observation. Existing helper and prior evidence preserved; new helper has no import-time CLI entry point."
+}

@@ -45,7 +45,7 @@ vi.mock("react", async original => {
 type Element = ReactElement<{
   children?: ReactNode;
   ref?: { current: unknown };
-  onClick?: (event: { currentTarget: FocusButton }) => void;
+  onClick?: (event: { currentTarget: FocusButton; detail: number }) => void;
   onKeyDown?: (event: { key: string; stopPropagation: () => void }) => void;
   disabled?: boolean;
   type?: string;
@@ -59,6 +59,7 @@ type Element = ReactElement<{
   "data-comparison-close"?: boolean;
   "data-comparison-panel"?: boolean;
   "data-comparison-remove"?: string;
+  "data-comparison-heading"?: string;
   "data-map-overlay"?: string;
 }>;
 
@@ -102,32 +103,50 @@ let storageWrite: ReturnType<typeof vi.fn>;
 let tree: ReactNode;
 type FocusButton = {
   ownerDocument: typeof focusDocument;
-  dataset: { comparisonRemove?: string };
+  dataset: { comparisonRemove?: string; comparisonHeading?: string };
+  isConnected: boolean;
   disabled: boolean;
   focus: ReturnType<typeof vi.fn>;
 };
 let focusDocument: { activeElement: unknown; body: object; documentElement: object };
 let mountedButtons: Map<string, FocusButton>;
+let mountedHeadings: Map<string, FocusButton>;
 let focusedByComponent: string[];
 
 function mountNodes() {
   const previous = mountedButtons;
+  const previousHeadings = mountedHeadings;
   mountedButtons = new Map();
+  mountedHeadings = new Map();
   for (const element of elements(tree).filter(node => node.type === "button")) {
     const name = element.props["aria-label"] ?? text(element);
     const node = previous.get(name) ?? {
-      ownerDocument: focusDocument, dataset: {}, disabled: false,
+      ownerDocument: focusDocument, dataset: {}, disabled: false, isConnected: true,
       focus: vi.fn(() => { focusDocument.activeElement = mountedButtons.get(name); focusedByComponent.push(name); }),
     };
     node.disabled = element.props.disabled === true;
     node.dataset = { comparisonRemove: element.props["data-comparison-remove"] };
     mountedButtons.set(name, node);
   }
-  if ([...previous.values()].includes(focusDocument.activeElement as FocusButton) &&
-      ![...mountedButtons.values()].includes(focusDocument.activeElement as FocusButton)) focusDocument.activeElement = focusDocument.body;
+  for (const element of elements(tree).filter(node => node.type === "th" && node.props["data-comparison-heading"])) {
+    const postal = element.props["data-comparison-heading"]!;
+    const name = element.props["aria-label"]!;
+    const node = previousHeadings.get(postal) ?? {
+      ownerDocument: focusDocument, dataset: { comparisonHeading: postal }, disabled: false, isConnected: true,
+      focus: vi.fn(() => { focusDocument.activeElement = mountedHeadings.get(postal); focusedByComponent.push(name); }),
+    };
+    mountedHeadings.set(postal, node);
+  }
+  const currentNodes = [...mountedButtons.values(), ...mountedHeadings.values()];
+  for (const node of [...previous.values(), ...previousHeadings.values()]) {
+    node.isConnected = currentNodes.includes(node);
+    if (!node.isConnected && focusDocument.activeElement === node) focusDocument.activeElement = focusDocument.body;
+  }
   const root = elements(tree)[0];
   if (root.props.ref) root.props.ref.current = {
-    querySelectorAll: () => [...mountedButtons.values()].filter(node => node.dataset.comparisonRemove !== undefined),
+    contains: (node: FocusButton) => currentNodes.includes(node),
+    querySelectorAll: (selector: string) => selector === "[data-comparison-heading]" ? [...mountedHeadings.values()]
+      : [...mountedButtons.values()].filter(node => node.dataset.comparisonRemove !== undefined),
     querySelector: (selector: string) => mountedButtons.get(selector.includes("Share comparison") ? "Share comparison" : "Close comparison"),
   };
 }
@@ -148,10 +167,10 @@ function button(name: string): Element {
   return found!;
 }
 
-function click(name: string) {
+function click(name: string, detail = 0) {
   const target = button(name);
   expect(target.props.disabled).not.toBe(true);
-  target.props.onClick!({ currentTarget: mountedButtons.get(name)! });
+  target.props.onClick!({ currentTarget: mountedButtons.get(name)!, detail });
 }
 
 function cells(label: string): string[] {
@@ -164,7 +183,7 @@ function cells(label: string): string[] {
 beforeEach(() => {
   host.reset();
   focusDocument = { activeElement: null, body: {}, documentElement: {} };
-  mountedButtons = new Map(); focusedByComponent = [];
+  mountedButtons = new Map(); mountedHeadings = new Map(); focusedByComponent = [];
   fetchSpy = vi.fn(() => { throw new Error("Comparison presentation must not fetch"); });
   storageRead = vi.fn(); storageWrite = vi.fn();
   vi.stubGlobal("fetch", fetchSpy);
@@ -650,6 +669,148 @@ describe("T10 comparison removal focus ownership", () => {
     render();
     expect(focusDocument.activeElement).toBe(outside);
     expect(focusedByComponent).toEqual([]);
+  });
+});
+
+describe("T25 comparison retry focus", () => {
+  const retryName = `Retry postal ${realPostal}`;
+  const headingName = `Postal ${realPostal} comparison column`;
+
+  beforeEach(() => {
+    props.state = { ...props.state, postals: [realPostal, secondPostal] };
+    props.entries = { [realPostal]: { ...entry(), geometryStatus: "error" }, [secondPostal]: entry(secondPostal) };
+  });
+
+  function loading() {
+    props.entries = { ...props.entries, [realPostal]: {
+      ...entry(), requestKey: 2, status: "loading", geometryStatus: "loading", row: null, option: null,
+    } };
+    render();
+  }
+
+  it.each(["score", "geometry"] as const)("keeps keyboard %s Retry focus on its named column throughout loading and recovery", failure => {
+    props.entries = { ...props.entries, [realPostal]: {
+      ...entry(), status: failure === "score" ? "error" : "ready", geometryStatus: failure === "geometry" ? "error" : "ready",
+    } };
+    props.onRetry = vi.fn(loading);
+    render();
+    focusDocument.activeElement = mountedButtons.get(retryName);
+    click(retryName);
+    expect(props.onRetry).toHaveBeenCalledExactlyOnceWith(realPostal);
+    expect(focusedByComponent).toEqual([headingName]);
+    const heading = mountedHeadings.get(realPostal);
+    expect(heading).toBeDefined();
+    expect(focusDocument.activeElement).toBe(heading);
+    expect(mountedButtons.has(retryName)).toBe(false);
+    expect(cells("Walk distance")[0]).toBe("Loading...");
+    props.entries = { ...props.entries, [realPostal]: { ...entry(), requestKey: 2 } };
+    render();
+    expect(mountedHeadings.get(realPostal)).toBe(heading);
+    expect(focusDocument.activeElement).toBe(heading);
+    expect(focusedByComponent).toEqual([headingName]);
+  });
+
+  it("keeps inactive 018990 Retry focus in its own column while 018956 remains mapped", () => {
+    props.entries = { [realPostal]: entry(), [secondPostal]: { ...entry(secondPostal), geometryStatus: "error" } };
+    const activeEntry = props.entries[realPostal];
+    props.onRetry = vi.fn((postal: string) => {
+      props.entries = { ...props.entries, [postal]: {
+        ...props.entries[postal], requestKey: 2, status: "loading", geometryStatus: "loading", row: null, option: null,
+      } };
+      render();
+    });
+    render();
+    const inactiveRetry = `Retry postal ${secondPostal}`;
+    focusDocument.activeElement = mountedButtons.get(inactiveRetry);
+    click(inactiveRetry);
+    expect(props.onRetry).toHaveBeenCalledExactlyOnceWith(secondPostal);
+    const heading = mountedHeadings.get(secondPostal);
+    expect(heading).toBeDefined();
+    expect(focusDocument.activeElement).toBe(heading);
+    expect(focusedByComponent).toEqual([`Postal ${secondPostal} comparison column`]);
+    expect(props.state.activePostal).toBe(realPostal);
+    expect(props.entries[realPostal]).toBe(activeEntry);
+    expect(cells("Walk distance")).toEqual(["81 m", "Loading..."]);
+    expect(text(elements(tree).find(node => node.type === "header"))).toContain(`Map: ${realPostal}`);
+    expect(props.onActivate).not.toHaveBeenCalled();
+    expect(props.onRemove).not.toHaveBeenCalled();
+    props.entries = { ...props.entries, [secondPostal]: { ...entry(secondPostal), requestKey: 2 } };
+    render();
+    expect(focusDocument.activeElement).toBe(heading);
+    expect(props.entries[realPostal]).toBe(activeEntry);
+    expect(focusedByComponent).toEqual([`Postal ${secondPostal} comparison column`]);
+  });
+
+  it("uses a named noninteractive column header outside sequential Tab order", () => {
+    render();
+    const heading = elements(tree).find(node => node.props["data-comparison-heading"] === realPostal);
+    expect(heading?.type).toBe("th");
+    expect(heading?.props).toMatchObject({ scope: "col", tabIndex: -1, "aria-label": headingName });
+    expect(heading?.props.onClick).toBeUndefined();
+  });
+
+  it("does not redirect mouse Retry even when its button has focus", () => {
+    props.onRetry = vi.fn(loading);
+    render();
+    focusDocument.activeElement = mountedButtons.get(retryName);
+    click(retryName, 1);
+    expect(props.onRetry).toHaveBeenCalledExactlyOnceWith(realPostal);
+    expect(focusedByComponent).toEqual([]);
+  });
+
+  it("does not move another control's focus for an unfocused keyboard-style activation", () => {
+    props.onRetry = vi.fn(loading);
+    render();
+    const outside = {};
+    focusDocument.activeElement = outside;
+    click(retryName);
+    expect(focusDocument.activeElement).toBe(outside);
+    expect(focusedByComponent).toEqual([]);
+  });
+
+  it("does not reclaim deliberate focus during loading or a later failure", () => {
+    render();
+    focusDocument.activeElement = mountedButtons.get(retryName);
+    click(retryName);
+    expect(focusedByComponent).toEqual([headingName]);
+    const outside = {};
+    focusDocument.activeElement = outside;
+    loading();
+    props.entries = { ...props.entries, [realPostal]: { ...entry(), requestKey: 2, geometryStatus: "error" } };
+    render();
+    expect(focusDocument.activeElement).toBe(outside);
+    expect(focusedByComponent).toEqual([headingName]);
+  });
+
+  it("does not focus a new column through a Retry handler retained after removal", () => {
+    render();
+    const staleHandler = button(retryName).props.onClick!;
+    const staleButton = mountedButtons.get(retryName)!;
+    props.state = transitionComparison(props.state, { type: "remove", postal: realPostal }).state;
+    render();
+    props.state = transitionComparison(props.state, { type: "add", postal: realPostal }).state;
+    render();
+    focusDocument.activeElement = staleButton;
+    staleHandler({ currentTarget: staleButton, detail: 0 });
+    expect(staleButton.isConnected).toBe(false);
+    expect(focusedByComponent).toEqual([]);
+  });
+
+  it("does not schedule focus after Retry navigates out of the comparison", () => {
+    const outside = {};
+    props.onRetry = vi.fn(() => {
+      focusDocument.activeElement = outside;
+      props.state = emptyComparisonState(); props.entries = {};
+      render();
+    });
+    render();
+    focusDocument.activeElement = mountedButtons.get(retryName);
+    click(retryName);
+    expect(focusDocument.activeElement).toBe(outside);
+    expect(focusedByComponent).toEqual([headingName]);
+    render();
+    expect(focusDocument.activeElement).toBe(outside);
+    expect(focusedByComponent).toEqual([headingName]);
   });
 });
 
