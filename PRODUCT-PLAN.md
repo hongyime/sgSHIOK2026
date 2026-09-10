@@ -477,6 +477,8 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Protocol incident: two legacy one-record synthetic export setup calls survived an incomplete parent edit and ran under repo/tmp. Removed the suffix, added pre-run and runtime guards, preserved manifests/failed receipts, and made no whole-turn pipeline-zero claim. Final1's startup-timing assumption and final2's immediate-exit assumption failed; corrected bounded cleanup fixtures pass. Evidence: `qa/revamp-r1/release-staging-20260910/summary.json`, `review.json`, and append-only verification log. Next free work is the remaining T25 cross-feature acceptance; T29/T27/T28 gates remain.
 
 ### Release and continuation rules
+
+Completion gate2026-09-10: BLOCKED, not complete. The same host-headroom blocker persisted across3goal turns; latest944.76171875MiB free remains below1024MiB after verified-obsolete QA servers were retired.14tasks are marked done and17remain open. No additional browser/pilot/build repetition is authorized merely to obtain a pass under unchanged pressure. Resume bounded T01/T02/T25/T29 browser checks and T19 pilot after headroom changes; retain separate T13 reporting decisions, T21 job approval, T23 activation, T26 physical participation and T28 deployment gates. Subagent review remains unavailable until its recorded quota reset. This status is not a reduced definition of the product goal.
 - Core walk can be released after T01 and T04-T07 plus its own applicable T25-T28
   checks; it does not need to wait for comparison, reports or a rescore. Run the
   release checks for that smaller scope and explicitly exclude unbuilt features.
