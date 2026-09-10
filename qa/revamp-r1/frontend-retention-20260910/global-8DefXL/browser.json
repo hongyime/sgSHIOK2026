@@ -1,0 +1,558 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\frontend-retention-20260910\\global-8DefXL",
+  "profile": "C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-zdbbKv",
+  "origin": "http://127.0.0.1:4346",
+  "startedAt": "2026-09-10T05:41:49.277Z",
+  "setup": "Fresh current-build worker-controlled profile. QA-only fault route deliberately throws a client effect; no production exception injection, cache clearing or SW bypass.",
+  "checks": [
+    {
+      "name": "fresh proxy begins at A",
+      "pass": true
+    },
+    {
+      "name": "switch to current build",
+      "pass": true
+    }
+  ],
+  "captures": [],
+  "samples": [],
+  "requests": [
+    {
+      "at": 1789018913879,
+      "id": "38C411377AFC948B66B381A2C09DDA27",
+      "url": "http://127.0.0.1:4346/__qa/seed",
+      "method": "GET",
+      "type": "Document"
+    },
+    {
+      "at": 1789018914365,
+      "id": "96508.2",
+      "url": "http://127.0.0.1:4346/favicon.ico",
+      "method": "GET",
+      "type": "Other"
+    },
+    {
+      "at": 1789018914506,
+      "id": "180DBEB061C54E5DD84A9A79CE6801A0",
+      "url": "http://127.0.0.1:4346/qa-global-fault?postal=018956",
+      "method": "GET",
+      "type": "Document"
+    },
+    {
+      "at": 1789018914860,
+      "id": "96508.5",
+      "url": "http://127.0.0.1:4346/_next/static/chunks/1bidz_3pqoxaj.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789018914860,
+      "id": "96508.6",
+      "url": "http://127.0.0.1:4346/_next/static/chunks/2ksf-gmko5a0h.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789018914861,
+      "id": "96508.7",
+      "url": "http://127.0.0.1:4346/_next/static/chunks/1bcry7qyno8a7.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789018914862,
+      "id": "96508.8",
+      "url": "http://127.0.0.1:4346/_next/static/chunks/turbopack-0ye4nq35e38nw.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789018914862,
+      "id": "96508.9",
+      "url": "http://127.0.0.1:4346/_next/static/chunks/1oaw9uq-pttep.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789018914863,
+      "id": "96508.10",
+      "url": "http://127.0.0.1:4346/_next/static/chunks/23b6wy7ztubyl.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789018914864,
+      "id": "96508.11",
+      "url": "http://127.0.0.1:4346/_next/static/chunks/06y9qu8i_rm2c.js",
+      "method": "GET",
+      "type": "Script"
+    }
+  ],
+  "responses": [
+    {
+      "at": 1789018914233,
+      "id": "38C411377AFC948B66B381A2C09DDA27",
+      "url": "http://127.0.0.1:4346/__qa/seed",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789018914702,
+      "id": "96508.2",
+      "url": "http://127.0.0.1:4346/favicon.ico",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789018914816,
+      "id": "180DBEB061C54E5DD84A9A79CE6801A0",
+      "url": "http://127.0.0.1:4346/qa-global-fault?postal=018956",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    }
+  ],
+  "completed": [
+    "38C411377AFC948B66B381A2C09DDA27",
+    "96508.2",
+    "180DBEB061C54E5DD84A9A79CE6801A0"
+  ],
+  "documents": [
+    {
+      "at": 1789018914233,
+      "id": "38C411377AFC948B66B381A2C09DDA27",
+      "url": "http://127.0.0.1:4346/__qa/seed",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789018914816,
+      "id": "180DBEB061C54E5DD84A9A79CE6801A0",
+      "url": "http://127.0.0.1:4346/qa-global-fault?postal=018956",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    }
+  ],
+  "versions": [
+    {
+      "at": 1789018913830,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "598E194F0ED28EAA29992C31E71B7C74"
+        }
+      ]
+    },
+    {
+      "at": 1789018914313,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "starting",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "598E194F0ED28EAA29992C31E71B7C74"
+        }
+      ]
+    },
+    {
+      "at": 1789018914315,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "running",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "598E194F0ED28EAA29992C31E71B7C74"
+        }
+      ]
+    },
+    {
+      "at": 1789018914333,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4346/sw.js",
+          "runningStatus": "stopped",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789018914443,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4346/sw.js",
+          "runningStatus": "stopped",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789018914.385308,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789018914445,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4346/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789018914.385308,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789018914447,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4346/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789018914.385308,
+          "controlledClients": [],
+          "targetId": "718A842039DA6B537B6E3A66EDB196A1"
+        }
+      ]
+    },
+    {
+      "at": 1789018914477,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4346/sw.js",
+          "runningStatus": "starting",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789018914.385308,
+          "controlledClients": [],
+          "targetId": "718A842039DA6B537B6E3A66EDB196A1"
+        }
+      ]
+    },
+    {
+      "at": 1789018914478,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4346/sw.js",
+          "runningStatus": "running",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789018914.385308,
+          "controlledClients": [],
+          "targetId": "718A842039DA6B537B6E3A66EDB196A1"
+        }
+      ]
+    },
+    {
+      "at": 1789018914483,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4346/sw.js",
+          "runningStatus": "running",
+          "status": "installed",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789018914.385308,
+          "controlledClients": [],
+          "targetId": "718A842039DA6B537B6E3A66EDB196A1"
+        }
+      ]
+    },
+    {
+      "at": 1789018914483,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4346/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789018914.385308,
+          "controlledClients": [],
+          "targetId": "718A842039DA6B537B6E3A66EDB196A1"
+        }
+      ]
+    },
+    {
+      "at": 1789018914485,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4346/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789018914.385308,
+          "controlledClients": [
+            "A63276DBA0496DF9B1D69FC1E42D219B"
+          ],
+          "targetId": "718A842039DA6B537B6E3A66EDB196A1"
+        }
+      ]
+    },
+    {
+      "at": 1789018914485,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4346/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789018914.385308,
+          "controlledClients": [
+            "A63276DBA0496DF9B1D69FC1E42D219B"
+          ],
+          "targetId": "718A842039DA6B537B6E3A66EDB196A1"
+        }
+      ]
+    },
+    {
+      "at": 1789018914512,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4346/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789018914.385308,
+          "controlledClients": [
+            "A63276DBA0496DF9B1D69FC1E42D219B"
+          ],
+          "targetId": "718A842039DA6B537B6E3A66EDB196A1"
+        }
+      ]
+    },
+    {
+      "at": 1789018914864,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4346/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789018914.385308,
+          "controlledClients": [],
+          "targetId": "718A842039DA6B537B6E3A66EDB196A1"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "denied": [],
+  "proxy": {
+    "root": "C:\\sgSHIOK2026",
+    "directory": "C:\\sgSHIOK2026\\qa\\revamp-r1\\frontend-retention-20260910\\proxy-3",
+    "pid": 112492,
+    "origin": "http://127.0.0.1:4346",
+    "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+    "buildB": "ZHqFMae_a9ROgk43z7fv8",
+    "workerHashes": {
+      "A": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+      "B": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+    },
+    "target": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+    "targetBytes": 39556,
+    "targetSha256": "4a1b7cf727bfc2157e11185a0fe88af518733a56f34601833c75fccad34df11b",
+    "sourceB": "C:\\sgSHIOK2026\\tmp\\frontend-retention-build-2",
+    "active": "A"
+  },
+  "chromePid": 113060,
+  "lastSample": {
+    "name": "current worker controller",
+    "value": "http://127.0.0.1:4346/sw.js"
+  },
+  "targetId": "A63276DBA0496DF9B1D69FC1E42D219B",
+  "error": "Error: TypeError: Cannot read properties of null (reading 'innerText')\n    at facts (<anonymous>:4:88)\n    at <anonymous>:13:3\n    at evaluate (file:///C:/sgSHIOK2026/qa/revamp-r1/frontend-retention-20260910/global-browser.mjs:37:33)\n    at async until (file:///C:/sgSHIOK2026/qa/revamp-r1/frontend-retention-20260910/global-browser.mjs:42:38)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/frontend-retention-20260910/global-browser.mjs:132:16",
+  "exitCode": 1,
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-zdbbKv'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": 0,
+    "stdout": "{\"before\":[{\"ProcessId\":113060,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:/Program Files/Google/Chrome/Application/chrome.exe\\\" --headless=new --no-first-run --no-sandbox --use-angle=swiftshader --enable-unsafe-swiftshader --disable-background-networking --disable-component-update --disable-sync --remote-debugging-port=0 --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-zdbbKv about:blank\"},{\"ProcessId\":104996,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=crashpad-handler --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-zdbbKv /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-zdbbKv\\\\Crashpad --metrics-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-zdbbKv --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=152.0.7977.83 --initial-client-data=0x124,0x128,0x12c,0xfc,0x130,0x7fff42ac7e60,0x7fff42ac7e70,0x7fff42ac7e80\"},{\"ProcessId\":110552,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=gpu-process --no-sandbox --headless=new --use-angle=swiftshader --enable-unsafe-swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-zdbbKv\\\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1760,i,2399920157899144213,8888624144871846114,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1764,i,9955034086507809066,7846356073909727113,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1756 /prefetch:2\"},{\"ProcessId\":112848,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --use-angle=swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-zdbbKv\\\" --no-pre-read-main-dll --field-trial-handle=1760,i,2399920157899144213,8888624144871846114,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1764,i,9955034086507809066,7846356073909727113,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2052 /prefetch:11\"},{\"ProcessId\":114564,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --use-angle=swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-zdbbKv\\\" --no-pre-read-main-dll --field-trial-handle=1760,i,2399920157899144213,8888624144871846114,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1764,i,9955034086507809066,7846356073909727113,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2348 /prefetch:13\"},{\"ProcessId\":86524,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-zdbbKv\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=1089610296905 --field-trial-handle=1760,i,2399920157899144213,8888624144871846114,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1764,i,9955034086507809066,7846356073909727113,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3144 /prefetch:1\"},{\"ProcessId\":96508,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-zdbbKv\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=1089610446031 --field-trial-handle=1760,i,2399920157899144213,8888624144871846114,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1764,i,9955034086507809066,7846356073909727113,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3608 /prefetch:1\"},{\"ProcessId\":11000,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-zdbbKv\\\" --extension-process --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=1089610754430 --field-trial-handle=1760,i,2399920157899144213,8888624144871846114,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1764,i,9955034086507809066,7846356073909727113,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=4032 /prefetch:9\"}],\"remaining\":[]}\r\n",
+    "stderr": "",
+    "verified": true
+  },
+  "proxyFinal": {
+    "root": "C:\\sgSHIOK2026",
+    "directory": "C:\\sgSHIOK2026\\qa\\revamp-r1\\frontend-retention-20260910\\proxy-3",
+    "pid": 112492,
+    "origin": "http://127.0.0.1:4346",
+    "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+    "buildB": "ZHqFMae_a9ROgk43z7fv8",
+    "workerHashes": {
+      "A": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+      "B": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+    },
+    "target": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+    "targetBytes": 39556,
+    "targetSha256": "4a1b7cf727bfc2157e11185a0fe88af518733a56f34601833c75fccad34df11b",
+    "sourceB": "C:\\sgSHIOK2026\\tmp\\frontend-retention-build-2",
+    "active": "B",
+    "requests": [
+      {
+        "at": "2026-09-10T05:41:53.859Z",
+        "method": "POST",
+        "path": "/__qa/switch",
+        "active": "B",
+        "status": 204,
+        "control": true
+      },
+      {
+        "at": "2026-09-10T05:41:54.179Z",
+        "method": "GET",
+        "path": "/__qa/seed",
+        "active": "B",
+        "status": 200,
+        "fixture": true
+      },
+      {
+        "at": "2026-09-10T05:41:54.383Z",
+        "method": "GET",
+        "path": "/sw.js",
+        "active": "B",
+        "status": 200,
+        "serviceWorker": "script",
+        "workerSha256": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+      },
+      {
+        "at": "2026-09-10T05:41:54.677Z",
+        "method": "GET",
+        "path": "/favicon.ico",
+        "active": "B",
+        "status": 200,
+        "upstream": 4345,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T05:41:54.790Z",
+        "method": "GET",
+        "path": "/qa-global-fault?postal=018956",
+        "active": "B",
+        "status": 200,
+        "upstream": 4345,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T05:41:54.910Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/1bidz_3pqoxaj.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4345,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T05:41:54.914Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/2ksf-gmko5a0h.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4345,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T05:41:55.041Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/1bcry7qyno8a7.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4345,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T05:41:55.054Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/23b6wy7ztubyl.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4345,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T05:41:55.057Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4345,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T05:41:55.059Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/turbopack-0ye4nq35e38nw.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4345,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T05:41:55.120Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/06y9qu8i_rm2c.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4345,
+        "data": false,
+        "activeAtStart": "B"
+      }
+    ]
+  },
+  "proxyStopStatus": 204,
+  "finishedAt": "2026-09-10T05:42:02.757Z",
+  "elapsedSeconds": 13.481
+}

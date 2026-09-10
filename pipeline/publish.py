@@ -144,13 +144,17 @@ def deploy_compressed_json_only(relative_path: Path) -> bool:
     )
 
 
-def prepare_vercel_source(web_dir: Path, data_dir: Path, *, revision: str) -> dict[str, Any]:
+def prepare_vercel_source(web_dir: Path, data_dir: Path, *, revision: str,
+                          previous_frontends: list[tuple[Path, str]] | None = None) -> dict[str, Any]:
     from scripts.release_staging import prepare_release_stage
 
+    if not previous_frontends:
+        raise ValueError("previous frontend archive and manifest SHA256 required; use --previous-frontend PATH SHA256 after release-identity/security review")
     stage = PROJECT_ROOT / "tmp" / f"vercel_source_{uuid4().hex}"
     return prepare_release_stage(
         PROJECT_ROOT, data_dir, stage_dir=stage,
         overlay_dir=web_dir / "public/data" / OVERLAY_BUNDLE, revision=revision,
+        previous_frontends=previous_frontends,
     )
 
 
@@ -208,6 +212,7 @@ def verify_pinned_stage(report: dict[str, Any], name: str, stage: Path) -> None:
 def publish_preflight(
     input_dir: Path | None = None, web_dir: Path = WEB_DIR, *,
     run_external_checks: bool = False, confirm_preparation: bool = False,
+    previous_frontends: list[tuple[Path, str]] | None = None,
 ) -> tuple[bool, dict[str, Any]]:
     report = report_base("preflight")
     if run_external_checks and not confirm_preparation:
@@ -226,7 +231,8 @@ def publish_preflight(
         report["failed_step"] = "dependencies"
         check_build_dependencies(web_dir)
         report["failed_step"] = "staging"
-        prepared = prepare_vercel_source(web_dir, selection["data"], revision=selection["revision"])
+        prepared = prepare_vercel_source(web_dir, selection["data"], revision=selection["revision"],
+                                         previous_frontends=previous_frontends)
         stage = Path(prepared["stageRoot"])
         ledger_hash = prepared["releaseManifestSha256"]
         if not isinstance(ledger_hash, str) or not re.fullmatch(r"[a-f0-9]{64}", ledger_hash):
@@ -255,7 +261,7 @@ def publish_preflight(
         )))
         report["failed_step"] = "next_build"
         require_check(report, "next_build", command_status(run_command(
-            [command_name("node"), str(web_dir / "node_modules/next/dist/bin/next"), "build"],
+            [command_name("node"), str(stage / "web/scripts/build-next-release.mjs"), "build"],
             cwd=stage / "web", timeout=1800,
         )))
         report["failed_step"] = "post_build_identity"
@@ -357,6 +363,7 @@ def remote_configuration(bundle: str, cwd: Path, project_id: str, team_id: str) 
 
 def publish_production(
     input_dir: Path | None, web_dir: Path, confirm: bool,
+    *, previous_frontends: list[tuple[Path, str]] | None = None,
 ) -> tuple[bool, dict[str, Any]]:
     if not confirm:
         report = report_base("production")
@@ -372,6 +379,7 @@ def publish_production(
         return False, preliminary
     ok, report = publish_preflight(
         input_dir=input_dir, web_dir=web_dir, run_external_checks=True, confirm_preparation=True,
+        previous_frontends=previous_frontends,
     )
     report["mode"] = "production"
     report["checks"].update(preliminary["checks"])
@@ -422,6 +430,8 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Plan, prepare, or explicitly deploy a committed frontend with unchanged artifacts.")
     parser.add_argument("--input", type=Path)
     parser.add_argument("--web-dir", type=Path, default=WEB_DIR)
+    parser.add_argument("--previous-frontend", nargs=2, action="append", metavar=("PATH", "SHA256"),
+                        help="Explicit reviewed runtime archive and its pinned manifest hash; at most two builds.")
     modes = parser.add_mutually_exclusive_group()
     modes.add_argument("--prepare", action="store_true")
     modes.add_argument("--deploy", action="store_true")
@@ -436,11 +446,13 @@ def main() -> int:
     if args.confirm_preparation and not args.prepare:
         parser.error("--confirm-preparation requires --prepare")
     if args.deploy:
-        ok, report = publish_production(args.input, args.web_dir, args.confirm_production)
+        ok, report = publish_production(args.input, args.web_dir, args.confirm_production,
+                                       previous_frontends=[(Path(path), pin) for path, pin in args.previous_frontend or []])
     else:
         ok, report = publish_preflight(
             args.input, args.web_dir, run_external_checks=args.prepare,
             confirm_preparation=args.confirm_preparation,
+            previous_frontends=[(Path(path), pin) for path, pin in args.previous_frontend or []],
         )
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0 if ok else 1

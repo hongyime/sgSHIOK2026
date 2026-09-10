@@ -84,6 +84,36 @@ deployment. No local installation or package data-preparation hook is invoked.
 Real artifact copying/building remains separately gated; passing fixtures is not
 approval to run it. Missing local dependencies or symlink privilege stops preparation.
 
+**Previous frontend assets are now an explicit preparation input.** A returning
+tab can request an old map module that it never cached; retaining the service-worker
+cache alone does not supply it. Capture an explicitly identified existing build
+with `python -B -m scripts.frontend_archive --build-web-root ABS_BUILD_WEB_ROOT
+--output ABS_NEW_ARCHIVE --expected-build-id REVIEWED_ID --maplibre-version VERSION`.
+Use absolute paths under this repository. Capture reads only `.next/static/` and
+the named `public/maplibre/VERSION/` runtime, preserves its licence, omits source
+maps, and does not copy data or server files. It does not prove that the build was
+deployed; review that identity and old-runtime security before approving retention.
+
+After separate preparation approval, the canonical entry is
+`python -B -m pipeline.publish --prepare --confirm-preparation --previous-frontend
+ABS_ARCHIVE MANIFEST_SHA256`. Repeat the archive pair at most twice. Archives must
+be under repository `tmp/` or `qa/frontend-assets/`; never discover them implicitly.
+The older PowerShell helpers do not forward archive selections and therefore
+cannot complete confirmed preparation. Their plan-only behavior is unchanged.
+Production submission through the canonical entry additionally requires the
+existing `--deploy --confirm-production` gate, with the same archive selection.
+These command descriptions are not approval to execute preparation or submission.
+
+The limit is two selected builds, 5,000 files per archive and 64 MiB across archive
+inputs (counting duplicate input bytes). Staging deduplicates identical URLs;
+same-URL/different-byte or case-alias conflicts block. Current-build files take
+precedence; missing old URLs use Next fallback rewrites into a reserved retained
+namespace. The installed-Next build wrapper verifies retained bytes before and
+after compilation and rejects new-output collisions; the provider uses the same
+wrapper. This is bounded compatibility for selected builds, not indefinite support
+for every old tab. Removing a generation is an explicit future release decision,
+not an automatic purge or a forced navigation that discards drafts.
+
 An approved deployment additionally requires reviewed `VERCEL_PROJECT_ID` and
 `VERCEL_ORG_ID`, authentication and readable project configuration. Exact project/team
 IDs, project name, root `web`, Next framework, default output directory and relevant

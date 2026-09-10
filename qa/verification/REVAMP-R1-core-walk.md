@@ -3647,3 +3647,93 @@ spawn attempt and no independent final-image acceptance claim.
 3. Local A plus the pinned old worker are controlled fixtures, not newly proven
    production identity. No automatic timing, other-browser, physical-device,
    representative-performance or independent-review claim follows.
+
+
+## 2026-09-10: T01 Pinned Frontend Retention and Global Reload
+
+Fresh work after ad3e99a. No existing evidence above this section changed.
+Full receipts, commands, failures and image hashes: qa/revamp-r1/frontend-retention-20260910/summary.json.
+The following is command output from the summary projection, not full product acceptance.
+
+```json
+{
+  "base": "ad3e99a885e592baa805d45c3f954651d339e39c",
+  "receipt_ok": true,
+  "productAcceptance": false,
+  "web": {
+    "path": "qa/revamp-r1/frontend-retention-20260910/web-full-2/checks.json",
+    "ok": true,
+    "counts": [
+      "Test Files  64 passed (64)",
+      "Tests  1744 passed (1744)"
+    ],
+    "sourceCount": 149
+  },
+  "python": "25 retention + 75 publish + 8 README + (15 + 38 + 5) staging = 166 targeted tests; not the full Python suite",
+  "web_arithmetic": "1717 previous + 23 retention + 4 global error = 1744 tests; 62 + 2 = 64 files",
+  "archive_arithmetic": "26 static files + 3 MapLibre files = 29; 5282351 + (5984 + 479327 + 19108) = 5786770 bytes",
+  "build": "ZHqFMae_a9ROgk43z7fv8",
+  "browser": [
+    {
+      "path": "qa/revamp-r1/frontend-retention-20260910/observed-8p1Ofj/browser.json",
+      "exitCode": 1,
+      "checks": 15,
+      "error": "Error: ordinary navigation to B timeout: {\"url\":\"http://127.0.0.1:4346/?debugMap=1&postal=018956\",\"timeOrigin\":1789018466128.4,\"text\":\" \\nOneMap\\n © contributors | \\nSingapore Land Authority\\n\\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\\n\\nSHIOK.\\nCompare\\n\\nMap failed: The map did not finish starting. Reload the page to try again. Walk evidence is still available.\\n\\nMap failed: The map did not finish starting. Reload the page to try again. Walk evidence is still available. Reload page\\nCopy diagnostics\\n\\nWalk details\\nPostal 018956\\n\\nWalk to\\nBayfront Stn Exit B/MBS\\n\\n81 m\\nWalk distance\\n55%\\nCovered\\n37 m\\nUncovered\\n20 m\\nLongest gap\\nAdd to comparison\\nMapped exposed sections (3)\\nPublished walk\\ndisplayed walk\\nMRT/LRT exits\\npublished walk\\nBus stops\\npublished walk\\nAbout data\",\"status\":\"error\",\"controller\":\"http://127.0.0.1:4346/sw.js\",\"controls\":[{\"label\":\"Compare\",\"disabled\":false},{\"label\":\"Search postal code\",\"disabled\":false},{\"label\":\"Reload page\",\"disabled\":false},{\"label\":\"Copy diagnostics\",\"disabled\":false},{\"label\":\"Walk details\",\"disabled\":false},{\"label\":\"Add to comparison\",\"disabled\":false},{\"label\":\"Section 116 m\",\"disabled\":false},{\"label\":\"Section 211 m\",\"disabled\":false},{\"label\":\"Section 39 m\",\"disabled\":false},{\"label\":\"Published walkdisplayed walk\",\"disabled\":false},{\"label\":\"MRT/LRT exitspublished walk\",\"disabled\":false},{\"label\":\"Bus stopspublished walk\",\"disabled\":false},{\"label\":\"Night lighting\",\"disabled\":false},{\"label\":\"Report missing shelter\",\"disabled\":false},{\"label\":\"Copy correction report\",\"disabled\":true},{\"label\":\"Show comparison\",\"disabled\":false}],\"routeKey\":\"3:shiokest:primary\",\"featureCount\":0,\"renderedKeys\":[],\"basemap\":false,\"overflow\":false,\"viewport\":[1440,950]}\n    at until (file:///C:/sgSHIOK2026/qa/revamp-r1/frontend-retention-20260910/browser.mjs:43:9)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/frontend-retention-20260910/browser.mjs:190:17",
+      "captures": 5,
+      "cleanup": true,
+      "proxyStopped": true
+    },
+    {
+      "path": "qa/revamp-r1/frontend-retention-20260910/global-8DefXL/browser.json",
+      "exitCode": 1,
+      "checks": 2,
+      "error": "Error: TypeError: Cannot read properties of null (reading 'innerText')\n    at facts (<anonymous>:4:88)\n    at <anonymous>:13:3\n    at evaluate (file:///C:/sgSHIOK2026/qa/revamp-r1/frontend-retention-20260910/global-browser.mjs:37:33)\n    at async until (file:///C:/sgSHIOK2026/qa/revamp-r1/frontend-retention-20260910/global-browser.mjs:42:38)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/frontend-retention-20260910/global-browser.mjs:132:16",
+      "captures": 0,
+      "cleanup": true,
+      "proxyStopped": true
+    },
+    {
+      "path": "qa/revamp-r1/frontend-retention-20260910/global-PrIbto/browser.json",
+      "exitCode": 0,
+      "checks": 7,
+      "captures": 4,
+      "cleanup": true,
+      "proxyStopped": true
+    }
+  ],
+  "evidencePrefix": {
+    "path": "qa/verification/REVAMP-R1-core-walk.md",
+    "bytes": 230067,
+    "sha256": "0637d609541585cca56c4d32001a18273751950489129b1ce87107f77ef6fe3d",
+    "unchanged": true
+  },
+  "findings": [
+    "Pinned bounded frontend retention is implemented in preparation and guarded local/provider builds. Same-URL different bytes, linked/unlisted paths and pin changes block; current assets win and old misses fall back. No automatic archive discovery or forced navigation.",
+    "Controlled retained A remained the same Document/postal after B worker activation and actual old-module200; bytes match the 39556-byte pin and all four viewport captures show four current route features. This fixes the specific previously reproduced uncached old-chunk404 case.",
+    "The same run later failed ordinary navigation to B with map-startup timeout, while useful walk text remained. Browser exit1 stays recorded: 15 passed checks followed by a timeout, not full upgrade acceptance. OneMap responses continued; 15 stale CDP interception errors also limit causal attribution. Hardware-only causation is not established.",
+    "A separate QA-only fault-route test passes7 checks: real global fallback, native Reload preserving query/hash, no reload loop, narrow/desktop fit. It does not retrofit legacy A or prove new-B map startup.",
+    "Final isolated web1744/64, targeted Python166, TypeScript, guarded build and integrity pass. Initial fixture/runtime gaps, bounded test timeouts and harness failures are preserved. No full-project Python-suite or latency claim.",
+    "Archive capture is29 files totaling5786770bytes, frontend only. Real deployment identity and old-runtime security remain unverified; current MapLibre advisory/installation and T27/T28 gates remain. No installs, protected-data mutation, pipeline execution, real artifact staging or deployment in this turn."
+  ],
+  "disagreements": [
+    "A passing retained-tab slice cannot close T01 when the subsequent current-build navigation timed out. Keep T01 PARTIAL and retain the failure instead of rerunning merely for a pass.",
+    "Captured local build identity plus byte hashes are not production identity or security approval. Retention is selected-generation compatibility, not indefinite old-tab support. The global error test uses a declared QA-only route.",
+    "Both data-cache sentinels and sampled body preservation were previously established, but this retained run stopped before its final cache comparison. Do not carry that claim into this run."
+  ]
+}
+```
+
+### FINDINGS
+
+1. Pinned bounded frontend retention is implemented in preparation and guarded local/provider builds. Same-URL different bytes, linked/unlisted paths and pin changes block; current assets win and old misses fall back. No automatic archive discovery or forced navigation.
+2. Controlled retained A remained the same Document/postal after B worker activation and actual old-module200; bytes match the 39556-byte pin and all four viewport captures show four current route features. This fixes the specific previously reproduced uncached old-chunk404 case.
+3. The same run later failed ordinary navigation to B with map-startup timeout, while useful walk text remained. Browser exit1 stays recorded: 15 passed checks followed by a timeout, not full upgrade acceptance. OneMap responses continued; 15 stale CDP interception errors also limit causal attribution. Hardware-only causation is not established.
+4. A separate QA-only fault-route test passes7 checks: real global fallback, native Reload preserving query/hash, no reload loop, narrow/desktop fit. It does not retrofit legacy A or prove new-B map startup.
+5. Final isolated web1744/64, targeted Python166, TypeScript, guarded build and integrity pass. Initial fixture/runtime gaps, bounded test timeouts and harness failures are preserved. No full-project Python-suite or latency claim.
+6. Archive capture is29 files totaling5786770bytes, frontend only. Real deployment identity and old-runtime security remain unverified; current MapLibre advisory/installation and T27/T28 gates remain. No installs, protected-data mutation, pipeline execution, real artifact staging or deployment in this turn.
+
+### DISAGREEMENTS
+
+1. A passing retained-tab slice cannot close T01 when the subsequent current-build navigation timed out. Keep T01 PARTIAL and retain the failure instead of rerunning merely for a pass.
+2. Captured local build identity plus byte hashes are not production identity or security approval. Retention is selected-generation compatibility, not indefinite old-tab support. The global error test uses a declared QA-only route.
+3. Both data-cache sentinels and sampled body preservation were previously established, but this retained run stopped before its final cache comparison. Do not carry that claim into this run.

@@ -1,0 +1,17 @@
+import { spawnSync } from 'node:child_process';
+import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { createHash } from 'node:crypto';
+const root='C:\\sgSHIOK2026';if(process.cwd()!==root)throw Error('Wrong working root');
+const [label,...input]=process.argv.slice(2),at=input.indexOf('--match');
+const names=at<0?input:input.slice(0,at),filter=at<0?null:input[at+1];
+if(!/^[a-z0-9-]+$/.test(label??'')||names.some(n=>!/^tests\/test_[a-z_]+\.py$/.test(n))||(at>=0&&(input.length!==at+2||!/^[a-zA-Z0-9_ ()]+$/.test(filter??''))))throw Error('Invalid receipt/target');
+const out=resolve(root,'qa/revamp-r1/frontend-retention-20260910',label);if(existsSync(out))throw Error('Preserve receipt');mkdirSync(out,{recursive:true});
+const files=['scripts/release_staging.py','scripts/frontend_archive.py','pipeline/publish.py','tests/test_frontend_retention.py','tests/test_release_staging.py','tests/test_publish.py','web/next.config.js','web/scripts/frontend-retention.mjs','web/scripts/build-next-release.mjs'];
+const identities=()=>files.map(path=>({path,sha256:createHash('sha256').update(readFileSync(resolve(root,path))).digest('hex')}));
+const before=identities(),args=['-B','-m','pytest','-q',...(names.length?names:['tests/test_frontend_retention.py']),'--noconftest','-p','no:cacheprovider','-o','addopts=','--basetemp',resolve(root,'tmp','frontend-retention-'+label)];
+if(filter)args.push('-k',filter);
+writeFileSync(resolve(out,'runner.mjs'),readFileSync(new URL(import.meta.url)),{flag:'wx'});
+const start=Date.now(),r=spawnSync(resolve(root,'.venv/Scripts/python.exe'),args,{cwd:root,encoding:'utf8',windowsHide:true,timeout:420000,maxBuffer:32*1024*1024,env:{...process.env,PYTEST_DISABLE_PLUGIN_AUTOLOAD:'1',PYTHONDONTWRITEBYTECODE:'1',PYTEST_ADDOPTS:''}});
+const after=identities(),report={root,hostname:process.env.COMPUTERNAME,args,before,after,stable:JSON.stringify(before)===JSON.stringify(after),exitCode:r.status,signal:r.signal,error:r.error?.message,stdout:r.stdout,stderr:r.stderr,elapsedSeconds:(Date.now()-start)/1000};
+writeFileSync(resolve(out,'checks.json'),JSON.stringify(report,null,2)+'\n',{flag:'wx'});console.log(r.stdout);console.log(r.stderr);console.log(JSON.stringify({out,exitCode:r.status,stable:report.stable,elapsedSeconds:report.elapsedSeconds}));process.exitCode=r.status??1;

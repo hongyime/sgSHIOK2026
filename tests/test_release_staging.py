@@ -89,6 +89,8 @@ def template_repository(tmp_path_factory):
     git(root, "init", "-q")
     put(root, "web/app/page.tsx", b"export default function Page() { return null; }\n")
     put(root, "web/next.config.js", b"module.exports = {};\n")
+    put(root, "web/scripts/build-next-release.mjs", b"// Fixture only; never executed.\n")
+    put(root, "web/scripts/frontend-retention.mjs", b"// Fixture only; never executed.\n")
     put(root, "web/next-env.d.ts", b'/// <reference types="next" />\nimport "./.next/dev/types/routes.d.ts";\nimport "./.next/dev/types/root-params.d.ts";\n')
     put_json(root, "web/tsconfig.json", {"compilerOptions": {"strict": True}}, compressed=False)
     put_json(root, "web/package.json", {"scripts": {"build": "node scripts/ensure-data-bundle.mjs && next build",
@@ -179,7 +181,7 @@ def test_derived_remote_config_does_not_execute_package_hooks(staging, repositor
     before = (root / "web/vercel.json").read_bytes()
     result = prepare(staging, repository)
     config = json.loads((Path(result["webRoot"]) / "vercel.json").read_bytes())
-    assert config["buildCommand"] == "node node_modules/next/dist/bin/next build"
+    assert config["buildCommand"] == "node scripts/build-next-release.mjs build"
     assert config["installCommand"] == "npm ci --ignore-scripts --no-audit --no-fund"
     assert config["framework"] == "nextjs"
     assert config["outputDirectory"] is None

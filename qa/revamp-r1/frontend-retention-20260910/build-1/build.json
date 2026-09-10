@@ -1,0 +1,30 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\frontend-retention-20260910\\build-1",
+  "snapshot": "C:\\sgSHIOK2026\\tmp\\frontend-retention-build-1",
+  "archive": "C:\\sgSHIOK2026\\tmp\\frontend-retention-archive-build-1",
+  "startedAt": "2026-09-10T05:14:59.619Z",
+  "protectedDataAbsent": true,
+  "dependencyInstall": false,
+  "deploymentIdentityVerified": false,
+  "sources": [],
+  "derivatives": [],
+  "captureCommand": [
+    "-B",
+    "-m",
+    "scripts.frontend_archive",
+    "--build-web-root",
+    "C:\\sgSHIOK2026\\web",
+    "--output",
+    "C:\\sgSHIOK2026\\tmp\\frontend-retention-archive-build-1",
+    "--expected-build-id",
+    "e8Hlhkml4c3i_uMGJdd3P",
+    "--maplibre-version",
+    "6.1.0"
+  ],
+  "exitCode": 1,
+  "error": "Error: Command failed: C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe -B -m scripts.frontend_archive --build-web-root C:\\sgSHIOK2026\\web --output C:\\sgSHIOK2026\\tmp\\frontend-retention-archive-build-1 --expected-build-id e8Hlhkml4c3i_uMGJdd3P --maplibre-version 6.1.0\n    at genericNodeError (node:internal/errors:999:15)\n    at wrappedFn (node:internal/errors:544:14)\n    at checkExecSyncError (node:child_process:942:11)\n    at execFileSync (node:child_process:978:15)\n    at file:///C:/sgSHIOK2026/qa/revamp-r1/frontend-retention-20260910/build.mjs:35:15\n    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)\n    at async node:internal/modules/esm/loader:650:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)",
+  "finishedAt": "2026-09-10T05:15:36.570Z",
+  "sourceStable": true
+}

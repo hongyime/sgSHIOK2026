@@ -41,6 +41,16 @@ const nextConfig = {
           destination: "/site.webmanifest",
         },
       ],
+      fallback: [
+        {
+          source: "/_next/static/:path*",
+          destination: "/_retained/_next/static/:path*",
+        },
+        {
+          source: "/maplibre/:version/:path*",
+          destination: "/_retained/maplibre/:version/:path*",
+        },
+      ],
     };
   },
   async headers() {
@@ -96,6 +106,14 @@ const nextConfig = {
             key: "X-Robots-Tag",
             value: "noindex, nofollow, noarchive",
           },
+        ],
+      },
+      {
+        source: "/_retained/:path*",
+        headers: [
+          ...securityHeaders,
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+          { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
         ],
       },
       {

@@ -419,10 +419,32 @@ def test_staging_adapters_forward_the_pinned_revision_overlay_and_creation_hash(
         return {"status": "verified_not_deployed", "releaseManifestSha256": "1" * 64}
     monkeypatch.setattr(release_staging, "prepare_release_stage", prepare)
     monkeypatch.setattr(release_staging, "verify_release_stage", verify)
-    result = publish.prepare_vercel_source(web, data, revision="a" * 40)
+    selected = [(root / "tmp/previous-frontend", "b" * 64)]
+    result = publish.prepare_vercel_source(web, data, revision="a" * 40, previous_frontends=selected)
     assert called["repo"] == root and called["main"] == data
     assert called["revision"] == "a" * 40 and called["overlay_dir"] == data.parent / "lamp_posts_v1"
+    assert called["previous_frontends"] == selected
     assert publish.verify_stage(Path(result["stageRoot"]), result["releaseManifestSha256"])["ok"]
+
+
+def test_real_preparation_adapter_requires_previous_assets_before_any_copy(release, monkeypatch):
+    from scripts import release_staging
+    _, web, data = release
+    monkeypatch.setattr(release_staging, "prepare_release_stage", lambda *a, **kw: pytest.fail("copy"))
+    with pytest.raises(ValueError, match="previous frontend archive"):
+        publish.prepare_vercel_source(web, data, revision="a" * 40)
+
+
+def test_preflight_forwards_explicit_previous_frontend_selection(prepared, monkeypatch):
+    _, web, data, stage, _, _ = prepared
+    selected = [(stage.parent / "old", "b" * 64)]
+    def prepare(*args, **kwargs):
+        assert kwargs["previous_frontends"] == selected
+        return {"stageRoot": str(stage), "releaseManifestSha256": "1" * 64}
+    monkeypatch.setattr(publish, "prepare_vercel_source", prepare)
+    ok, _ = publish.publish_preflight(data, web, run_external_checks=True, confirm_preparation=True,
+                                      previous_frontends=selected)
+    assert ok
 
 
 @pytest.mark.parametrize("envelope", [

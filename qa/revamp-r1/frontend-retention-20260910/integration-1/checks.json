@@ -1,0 +1,79 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "args": [
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_frontend_retention.py",
+    "tests/test_release_staging.py",
+    "tests/test_publish.py",
+    "--noconftest",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "addopts=",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\frontend-retention-integration-1"
+  ],
+  "before": [
+    {
+      "path": "scripts/release_staging.py",
+      "sha256": "daedca413c38d558a31caaa0a345dc7ca52ec838e27125537ce5323f30d2352a"
+    },
+    {
+      "path": "pipeline/publish.py",
+      "sha256": "bc4d27f0c6122007b7f63397a046f0fd4ef787c89aa25655483870608c0acb93"
+    },
+    {
+      "path": "tests/test_frontend_retention.py",
+      "sha256": "06d096284b533d254834d8205ac0ce9cafa5370d7de8f11cf984a8610f57abe9"
+    },
+    {
+      "path": "tests/test_release_staging.py",
+      "sha256": "6842be5353f95aa1ea501105966dc96b4a96345c8ba2d40425d55d4c69dc900e"
+    },
+    {
+      "path": "tests/test_publish.py",
+      "sha256": "1f255ab7051a6c503874c1e7611b3dae82f06c0dba6885593e695169792762b8"
+    },
+    {
+      "path": "web/next.config.js",
+      "sha256": "6eb919b0860e95239810da56b2dcdee06e1516047b2bc38a458166869ac11037"
+    }
+  ],
+  "after": [
+    {
+      "path": "scripts/release_staging.py",
+      "sha256": "daedca413c38d558a31caaa0a345dc7ca52ec838e27125537ce5323f30d2352a"
+    },
+    {
+      "path": "pipeline/publish.py",
+      "sha256": "bc4d27f0c6122007b7f63397a046f0fd4ef787c89aa25655483870608c0acb93"
+    },
+    {
+      "path": "tests/test_frontend_retention.py",
+      "sha256": "06d096284b533d254834d8205ac0ce9cafa5370d7de8f11cf984a8610f57abe9"
+    },
+    {
+      "path": "tests/test_release_staging.py",
+      "sha256": "6842be5353f95aa1ea501105966dc96b4a96345c8ba2d40425d55d4c69dc900e"
+    },
+    {
+      "path": "tests/test_publish.py",
+      "sha256": "1f255ab7051a6c503874c1e7611b3dae82f06c0dba6885593e695169792762b8"
+    },
+    {
+      "path": "web/next.config.js",
+      "sha256": "6eb919b0860e95239810da56b2dcdee06e1516047b2bc38a458166869ac11037"
+    }
+  ],
+  "stable": true,
+  "exitCode": null,
+  "signal": "SIGTERM",
+  "error": "spawnSync C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe ETIMEDOUT",
+  "stdout": "........................................................................ [ 46%]\r\n.....",
+  "stderr": "",
+  "elapsedSeconds": 420.055
+}

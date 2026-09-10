@@ -1,0 +1,1111 @@
+diff --git a/.agents/STATE.md b/.agents/STATE.md
+index 9056a52..7ea8bb0 100644
+--- a/.agents/STATE.md
++++ b/.agents/STATE.md
+@@ -1,11 +1,12 @@
+ # Current State
+ 
+ Date: 2026-09-10
++Current checkpoint after ad3e99a: T01 bounded frontend-retention capture/staging/fallback/build guards and URL-preserving global error implemented; final1744web/64files +166targeted Python, TypeScript/build/integrity pass.149websources match tested/built bytes;11anchors unchanged.29runtime files=5786770bytes; no data copied. Evidence qa/revamp-r1/frontend-retention-20260910/summary.json. Source changes/evidence being committed and pushed; never rerun existing receipt labels.
+ Working root: `C:\sgSHIOK2026`
+ Machine: `Prawn-E14`
+ Startup guard: assert cwd is exactly `C:\sgSHIOK2026`; abort otherwise. All writes use absolute C: repository paths. X: is a cold mirror, never a session root.
+-Current task: T01/M17 retained-legacy rehearsal from c2276dd now proves2failures: actual uncached old map-chunk404 replaces walk view with global error; fallback Reload drops postal.18pass+2fail=20browser checks,7parent-inspected captures. Separate native re-search restores4features at4sizes; not upgrade acceptance.102focused isolated tests/3files and integrity pass;144websources/11anchors unchanged. No app edits/build/install/pipeline/deploy. Evidence qa/revamp-r1/retained-tab-20260910/summary.json. Five owned browsers/proxies stopped; prior setup/partial failures preserved. T01 remains PARTIAL; current preview4342 unchanged.
+-Next FREE: fixture-tested bounded previous-frontend-asset retention with hash-conflict rejection; future global fallback should preserve postal/share URL, without claiming it fixes already-loaded legacy code. Verify actual prior release identity before real staging. Remaining T25 fast-navigation/reduced-motion/enlarged-text replay also open. T29/T27/T28 OWNER gates unchanged. Peer review unavailable after recorded subagent quota; do not respawn repeatedly or claim independent final images. Overall goal incomplete.
++Current task: retained-A uncached module now200 through actual B fallback/SW with exact hash, same Document/postal and4features at4sizes. Browser observed-8p1Ofj then times out on ordinary B startup; exit1,15checks before timeout. T01 stays PARTIAL. Separate global-PrIbto passes7checks: full URL survives native Reload, no loop;9images parent-inspected across both runs. No successful new-B-route screenshot in this turn. Prior failed/setup runs and test timeouts remain preserved, not passes.
++Next FREE: instrument current-B first startup across navigation, including worker/style/tile timing and failure screenshot before teardown; one diagnosis, not repeated runs seeking a pass. Remaining T25 fast-navigation/reduced-motion/enlarged-text replay open. T29/T27/T28 OWNER gates unchanged; actual old-release identity/security must be reviewed before real staging. Peer quota already recorded; no repeated spawn/independent-review claim. Overall goal incomplete. Owned QA4345/4346 and3browsers stopped; existing preview4342 unchanged, not rebuilt for this change.
+ Evidence: qa/verification/REVAMP-R1-core-walk.md (append-only corrections and catalogue mapping).
+ Machine-readable handback:qa/revamp-r1/coverage-register-20260909/pilot-analysis.json,pilot-1/summary.json and identity-final.json. T22 source-freshness summary/metadata/browser-JZIDgw retain actual HTML and7screenshots. T30/native-postal and T03/failure-diagnostics prior receipts remain; all historical failures preserved.
+ Current preview:http://127.0.0.1:4342/; QA proxy93392,Next4341/PID103880,buildlcoYvon9S455KiFb_Oc8K from cross-feature-focus-20260910-2. Previous4334/4333 and other previews unchanged; original4321 supplies protected data read-only. Local QA APIs deliberately503; no deployment. Both new QA browser profiles cleaned up and exit verified.
+diff --git a/PRODUCT-PLAN.md b/PRODUCT-PLAN.md
+index 33718cf..de89a68 100644
+--- a/PRODUCT-PLAN.md
++++ b/PRODUCT-PLAN.md
+@@ -114,6 +114,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
+ - Automatic-upgrade follow-up 2026-09-09: one same-origin/profile Chromium run with pinned A/B workers and cache enabled passes27/27 checks. First return remains A; the pinned B worker controls that page after1.405s, then ordinary navigation loads B-only HTML with four current route features. Four captures inspected.6 cached data and12 old JS entries plus both sentinels survive; B origin returns404 for all12 old JS URLs.1441/56 isolated tests, TypeScript/integrity and11anchors pass. T01 remains PARTIAL: first-return A map did not finish before navigation, retained-old-tab uncached lazy loading and deployed/other-browser scope are not proven. Evidence: `qa/revamp-r1/automatic-upgrade-20260909/summary.json` and `review-qualification.json`.
+ - Retained-tab follow-up 2026-09-10: M17 is now a demonstrated FAIL in a controlled local legacy-A/current-B rehearsal, not an untested assumption. An exact never-requested/cached A map chunk first reaches B after worker activation and returns real404 through the SW. A loses its walk view to the global fallback; that fallback's empty GET Reload drops the postal. Final browser18pass+2fail=20checks;7captures parent-inspected. Separate native re-search restores4features at4sizes, not preserved-selection recovery. Both sentinels and4sampled cached data bodies survive.102focused tests/3files and integrity pass;144websource/11anchor identities unchanged. No app edits, build, install, pipeline or deploy. Evidence: `qa/revamp-r1/retained-tab-20260910/summary.json`; prior setup/partial failures preserved.
+ - Next FREE implementation: design fixture-tested retention of verified previous immutable frontend chunks in release preparation, rejecting same-path/different-byte conflicts and bounding retained generations/bytes. Identify the actual previous release before any real staging. A future global fallback should preserve postal/share URL on Reload, but cannot repair already-loaded legacy code. Do not force worker-driven navigation that could discard report drafts. Keep T01/T27 gated until the retained-tab case is accepted; local A is not newly proven production identity. No repeated browser run merely to seek a pass.
++- Retention implementation 2026-09-10: pinned archive capture/staging, fallback-only old URLs and pre/post-build conflict guards landed with166 targeted Python tests and1744/64 isolated web tests, TypeScript/build/integrity.29 captured runtime files=5786770bytes; no data copied. Retained A keeps the exact Document/postal and4features at4sizes, but the later B navigation hits map-startup timeout: browserexit1,15 checks passed before timeout, not fullM17. Separate global-error fixture passes7checks and preserves query/hash on native Reload.9captures parent-inspected; peer quota prevents independent acceptance. All failed attempts retained. T01 stays PARTIAL; next free diagnostic needs current-B worker/style/tile lifecycle and failure capture, not blind repetition. Real old-release identity/security, T25 and T27/T28 remain gated. Evidence: `qa/revamp-r1/frontend-retention-20260910/summary.json`.
+ 
+ ### [ ] T02: Reduce the next measured loading bottleneck
+ - Status: PARTIAL. Size: M. Parent: P0.3.
+diff --git a/README.md b/README.md
+index 150e71e..c59e2c5 100644
+--- a/README.md
++++ b/README.md
+@@ -84,6 +84,36 @@ deployment. No local installation or package data-preparation hook is invoked.
+ Real artifact copying/building remains separately gated; passing fixtures is not
+ approval to run it. Missing local dependencies or symlink privilege stops preparation.
+ 
++**Previous frontend assets are now an explicit preparation input.** A returning
++tab can request an old map module that it never cached; retaining the service-worker
++cache alone does not supply it. Capture an explicitly identified existing build
++with `python -B -m scripts.frontend_archive --build-web-root ABS_BUILD_WEB_ROOT
++--output ABS_NEW_ARCHIVE --expected-build-id REVIEWED_ID --maplibre-version VERSION`.
++Use absolute paths under this repository. Capture reads only `.next/static/` and
++the named `public/maplibre/VERSION/` runtime, preserves its licence, omits source
++maps, and does not copy data or server files. It does not prove that the build was
++deployed; review that identity and old-runtime security before approving retention.
++
++After separate preparation approval, the canonical entry is
++`python -B -m pipeline.publish --prepare --confirm-preparation --previous-frontend
++ABS_ARCHIVE MANIFEST_SHA256`. Repeat the archive pair at most twice. Archives must
++be under repository `tmp/` or `qa/frontend-assets/`; never discover them implicitly.
++The older PowerShell helpers do not forward archive selections and therefore
++cannot complete confirmed preparation. Their plan-only behavior is unchanged.
++Production submission through the canonical entry additionally requires the
++existing `--deploy --confirm-production` gate, with the same archive selection.
++These command descriptions are not approval to execute preparation or submission.
++
++The limit is two selected builds, 5,000 files per archive and 64 MiB across archive
++inputs (counting duplicate input bytes). Staging deduplicates identical URLs;
++same-URL/different-byte or case-alias conflicts block. Current-build files take
++precedence; missing old URLs use Next fallback rewrites into a reserved retained
++namespace. The installed-Next build wrapper verifies retained bytes before and
++after compilation and rejects new-output collisions; the provider uses the same
++wrapper. This is bounded compatibility for selected builds, not indefinite support
++for every old tab. Removing a generation is an explicit future release decision,
++not an automatic purge or a forced navigation that discards drafts.
++
+ An approved deployment additionally requires reviewed `VERCEL_PROJECT_ID` and
+ `VERCEL_ORG_ID`, authentication and readable project configuration. Exact project/team
+ IDs, project name, root `web`, Next framework, default output directory and relevant
+diff --git a/decisions.md b/decisions.md
+index bcd31f6..4c0df49 100644
+--- a/decisions.md
++++ b/decisions.md
+@@ -3235,3 +3235,38 @@ full current postal/share URL, without treating that as a legacy-client fix.
+ T01 remains PARTIAL. This test used controlled local A/B builds and an explicit
+ worker update, not a newly verified live deployment or automatic-update timing.
+ Evidence: qa/revamp-r1/retained-tab-20260910/summary.json.
++
++## 2026-09-10: Pin Bounded Previous Frontend Assets, Not Old Data
++
++An open Document may request a lazy module that its service worker never cached.
++Release preparation therefore requires an explicit reviewed previous-frontend
++archive and its manifest SHA256. Capture only named existing static/runtime files,
++including ESM modules and their licence; never discover builds, copy score data,
++or infer that a local build was deployed. At most two builds and 64 MiB of archive
++input bytes are accepted. Inventory, path, link, byte and hash checks fail closed.
++Current-output URL conflicts also fail; a clean dependency audit cannot implicitly
++approve a retained old runtime with an outstanding security advisory.
++
++Serve old files only through fallback rewrites after current filesystem lookup.
++This ordering follows the Next rewrites contract and was exercised against the
++actual local Next server, including no-store404s for unknown old URLs:
++https://nextjs.org/docs/app/api-reference/config/next-config-js/rewrites
++Both local and provider builds use the same guarded direct-Next wrapper. The old
++PowerShell wrappers remain plan-only in practice until archive forwarding exists;
++the documented canonical Python entry accepts the explicit selection. Real source
++identity, staging, provider configuration and deployment remain separately gated.
++
++The controlled retained-A slice now passes: the original uncached old map module
++returns200 with identical bytes through B's worker, and the same Document/postal
++renders four selected features at four viewports. The later navigation to current
++B timed out during map startup, with walk text preserved. Do not call that whole
++run a pass, infer hardware-only causation, or close T01. The next diagnostic must
++capture worker/style/tile progress and the actual failure screen before teardown.
++
++The future global fallback uses an explicit native location.reload button, not
++an empty GET form. A separate QA-only fault route proves full query/hash retention
++and no reload loop. It cannot change already-loaded A code. No worker-forced
++navigation or automatic archive eviction is implemented; either could discard a
++draft or strand an older tab. Two retained generations are bounded compatibility,
++not indefinite support. Findings, failed attempts, nine inspected captures and
++current limits: qa/revamp-r1/frontend-retention-20260910/summary.json.
+diff --git a/pipeline/publish.py b/pipeline/publish.py
+index d24fab9..333324e 100644
+--- a/pipeline/publish.py
++++ b/pipeline/publish.py
+@@ -144,13 +144,17 @@ def deploy_compressed_json_only(relative_path: Path) -> bool:
+     )
+ 
+ 
+-def prepare_vercel_source(web_dir: Path, data_dir: Path, *, revision: str) -> dict[str, Any]:
++def prepare_vercel_source(web_dir: Path, data_dir: Path, *, revision: str,
++                          previous_frontends: list[tuple[Path, str]] | None = None) -> dict[str, Any]:
+     from scripts.release_staging import prepare_release_stage
+ 
++    if not previous_frontends:
++        raise ValueError("previous frontend archive and manifest SHA256 required; use --previous-frontend PATH SHA256 after release-identity/security review")
+     stage = PROJECT_ROOT / "tmp" / f"vercel_source_{uuid4().hex}"
+     return prepare_release_stage(
+         PROJECT_ROOT, data_dir, stage_dir=stage,
+         overlay_dir=web_dir / "public/data" / OVERLAY_BUNDLE, revision=revision,
++        previous_frontends=previous_frontends,
+     )
+ 
+ 
+@@ -208,6 +212,7 @@ def verify_pinned_stage(report: dict[str, Any], name: str, stage: Path) -> None:
+ def publish_preflight(
+     input_dir: Path | None = None, web_dir: Path = WEB_DIR, *,
+     run_external_checks: bool = False, confirm_preparation: bool = False,
++    previous_frontends: list[tuple[Path, str]] | None = None,
+ ) -> tuple[bool, dict[str, Any]]:
+     report = report_base("preflight")
+     if run_external_checks and not confirm_preparation:
+@@ -226,7 +231,8 @@ def publish_preflight(
+         report["failed_step"] = "dependencies"
+         check_build_dependencies(web_dir)
+         report["failed_step"] = "staging"
+-        prepared = prepare_vercel_source(web_dir, selection["data"], revision=selection["revision"])
++        prepared = prepare_vercel_source(web_dir, selection["data"], revision=selection["revision"],
++                                         previous_frontends=previous_frontends)
+         stage = Path(prepared["stageRoot"])
+         ledger_hash = prepared["releaseManifestSha256"]
+         if not isinstance(ledger_hash, str) or not re.fullmatch(r"[a-f0-9]{64}", ledger_hash):
+@@ -255,7 +261,7 @@ def publish_preflight(
+         )))
+         report["failed_step"] = "next_build"
+         require_check(report, "next_build", command_status(run_command(
+-            [command_name("node"), str(web_dir / "node_modules/next/dist/bin/next"), "build"],
++            [command_name("node"), str(stage / "web/scripts/build-next-release.mjs"), "build"],
+             cwd=stage / "web", timeout=1800,
+         )))
+         report["failed_step"] = "post_build_identity"
+@@ -357,6 +363,7 @@ def remote_configuration(bundle: str, cwd: Path, project_id: str, team_id: str)
+ 
+ def publish_production(
+     input_dir: Path | None, web_dir: Path, confirm: bool,
++    *, previous_frontends: list[tuple[Path, str]] | None = None,
+ ) -> tuple[bool, dict[str, Any]]:
+     if not confirm:
+         report = report_base("production")
+@@ -372,6 +379,7 @@ def publish_production(
+         return False, preliminary
+     ok, report = publish_preflight(
+         input_dir=input_dir, web_dir=web_dir, run_external_checks=True, confirm_preparation=True,
++        previous_frontends=previous_frontends,
+     )
+     report["mode"] = "production"
+     report["checks"].update(preliminary["checks"])
+@@ -422,6 +430,8 @@ def main() -> int:
+     parser = argparse.ArgumentParser(description="Plan, prepare, or explicitly deploy a committed frontend with unchanged artifacts.")
+     parser.add_argument("--input", type=Path)
+     parser.add_argument("--web-dir", type=Path, default=WEB_DIR)
++    parser.add_argument("--previous-frontend", nargs=2, action="append", metavar=("PATH", "SHA256"),
++                        help="Explicit reviewed runtime archive and its pinned manifest hash; at most two builds.")
+     modes = parser.add_mutually_exclusive_group()
+     modes.add_argument("--prepare", action="store_true")
+     modes.add_argument("--deploy", action="store_true")
+@@ -436,11 +446,13 @@ def main() -> int:
+     if args.confirm_preparation and not args.prepare:
+         parser.error("--confirm-preparation requires --prepare")
+     if args.deploy:
+-        ok, report = publish_production(args.input, args.web_dir, args.confirm_production)
++        ok, report = publish_production(args.input, args.web_dir, args.confirm_production,
++                                       previous_frontends=[(Path(path), pin) for path, pin in args.previous_frontend or []])
+     else:
+         ok, report = publish_preflight(
+             args.input, args.web_dir, run_external_checks=args.prepare,
+             confirm_preparation=args.confirm_preparation,
++            previous_frontends=[(Path(path), pin) for path, pin in args.previous_frontend or []],
+         )
+     print(json.dumps(report, indent=2, sort_keys=True))
+     return 0 if ok else 1
+diff --git a/scripts/frontend_archive.py b/scripts/frontend_archive.py
+new file mode 100644
+index 0000000..1f612c7
+--- /dev/null
++++ b/scripts/frontend_archive.py
+@@ -0,0 +1,32 @@
++"""Explicit capture of already-built frontend bytes, never a build or data export."""
++
++import argparse
++import json
++from pathlib import Path
++
++from scripts.release_staging import capture_frontend_archive
++
++
++def main() -> int:
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("--build-web-root", type=Path, required=True)
++    parser.add_argument("--output", type=Path, required=True)
++    parser.add_argument("--expected-build-id", required=True)
++    parser.add_argument("--maplibre-version", action="append", required=True)
++    args = parser.parse_args()
++    root = Path(__file__).resolve().parents[1]
++    if Path.cwd() != root:
++        parser.error("run from the canonical repository root")
++    try:
++        report = capture_frontend_archive(root, args.build_web_root, args.output,
++                                          expected_build_id=args.expected_build_id,
++                                          maplibre_versions=args.maplibre_version)
++    except (ValueError, OSError) as error:
++        print(json.dumps({"ok": False, "error": str(error)}))
++        return 1
++    print(json.dumps({"ok": True, **report}, indent=2))
++    return 0
++
++
++if __name__ == "__main__":
++    raise SystemExit(main())
+diff --git a/scripts/release_staging.py b/scripts/release_staging.py
+index c32dc87..9df9b30 100644
+--- a/scripts/release_staging.py
++++ b/scripts/release_staging.py
+@@ -23,7 +23,10 @@ MAX_JSON_BYTES = 64 * 1024 * 1024
+ MAX_SOURCE_BYTES = 32 * 1024 * 1024
+ MAX_TOTAL_SOURCE_BYTES = 64 * 1024 * 1024
+ MAX_FILES = 20000
+-BUILD_COMMAND = "node node_modules/next/dist/bin/next build"
++MAX_FRONTEND_BYTES = 64 * 1024 * 1024
++MAX_FRONTEND_FILES = 5000
++MAX_FRONTEND_GENERATIONS = 2
++BUILD_COMMAND = "node scripts/build-next-release.mjs build"
+ INSTALL_COMMAND = "npm ci --ignore-scripts --no-audit --no-fund"
+ GENERATED_FILES = {"web/next-env.d.ts", "web/tsconfig.tsbuildinfo"}
+ GENERATED_TREES = {"web/.next", "web/node_modules"}
+@@ -183,6 +186,8 @@ def _source_inventory(root: Path, revision: str) -> list[dict]:
+         info, name = raw.split(b"\t", 1)
+         mode, kind, oid, size = info.decode().split()
+         path = _relative(name.decode("utf-8")).as_posix()
++        if path == "web/frontend-retention.json" or path.startswith("web/public/_retained/"):
++            raise ReleaseStagingError("RESERVED_RETENTION_SOURCE", path)
+         if not path.startswith("web/") or mode not in {"100644", "100755"} or kind != "blob" or _private(path):
+             raise ReleaseStagingError("UNSAFE_SOURCE", path)
+         if path.lower() in names:
+@@ -422,16 +427,174 @@ def _json_content(value: dict) -> bytes:
+     return (json.dumps(value, sort_keys=True, indent=2, allow_nan=False) + "\n").encode()
+ 
+ 
++def _frontend_asset_path(value: str) -> str:
++    name = _relative(value).as_posix()
++    static = name.startswith("_next/static/") and Path(name).suffix in {
++        ".js", ".mjs", ".css", ".woff", ".woff2", ".ttf", ".otf", ".png", ".jpg", ".jpeg", ".svg", ".webp", ".avif", ".ico",
++    }
++    worker = re.fullmatch(r"maplibre/\d+\.\d+\.\d+/(?:[A-Za-z0-9_-]+/)*[A-Za-z0-9_.-]+\.(?:mjs|js)", name)
++    license_file = re.fullmatch(r"maplibre/\d+\.\d+\.\d+/LICENSE\.txt", name)
++    if not re.fullmatch(r"[A-Za-z0-9_./-]+", name) or not (static or worker or license_file):
++        raise ReleaseStagingError("UNSAFE_FRONTEND_ASSET", name)
++    return name
++
++
++def read_frontend_archives(repo_root: Path, selected: list[tuple[Path, str]]) -> list[dict]:
++    """Read explicitly pinned runtime archives, not discover or approve releases."""
++    root = _absolute(repo_root)
++    if not isinstance(selected, (list, tuple)) or len(selected) > MAX_FRONTEND_GENERATIONS:
++        raise ReleaseStagingError("FRONTEND_GENERATION_LIMIT", root)
++    results, build_ids, shared, total = [], set(), {}, 0
++    for item in selected:
++        if not isinstance(item, (tuple, list)) or len(item) != 2:
++            raise ReleaseStagingError("INVALID_FRONTEND_SELECTION", root)
++        directory, pin = item
++        directory = _absolute(directory)
++        if not any(directory.is_relative_to(base) and directory != base for base in (root / "tmp", root / "qa/frontend-assets")):
++            raise ReleaseStagingError("UNSAFE_FRONTEND_ARCHIVE", directory)
++        if not isinstance(pin, str) or not re.fullmatch(r"[a-f0-9]{64}", pin):
++            raise ReleaseStagingError("INVALID_FRONTEND_MANIFEST_SHA256", directory)
++        manifest_path = directory / "frontend-assets.json"
++        info = _plain(manifest_path)
++        if not stat.S_ISREG(info.st_mode) or not 0 < info.st_size <= 2 * 1024 * 1024:
++            raise ReleaseStagingError("FRONTEND_MANIFEST_SIZE_LIMIT", manifest_path)
++        content = manifest_path.read_bytes()
++        identity = {"bytes": len(content), "sha256": hashlib.sha256(content).hexdigest()}
++        _same(manifest_path, identity, _hash_file(manifest_path))
++        if identity["sha256"] != pin:
++            raise ReleaseStagingError("FRONTEND_MANIFEST_HASH_MISMATCH", manifest_path, expected=pin, actual=identity["sha256"])
++        def unique(pairs: list[tuple[str, Any]]) -> dict:
++            value = {}
++            for key, entry in pairs:
++                if key in value:
++                    raise ReleaseStagingError("FRONTEND_MANIFEST_DUPLICATE_KEY", manifest_path)
++                value[key] = entry
++            return value
++        try:
++            manifest = json.loads(content.decode("utf-8"), object_pairs_hook=unique)
++        except (ValueError, RecursionError) as error:
++            raise ReleaseStagingError("INVALID_FRONTEND_MANIFEST", manifest_path) from error
++        if (not isinstance(manifest, dict) or set(manifest) != {"schemaVersion", "buildId", "files"}
++                or type(manifest["schemaVersion"]) is not int or manifest["schemaVersion"] != 1
++                or not isinstance(manifest["buildId"], str) or not re.fullmatch(r"[A-Za-z0-9_-]{1,128}", manifest["buildId"])
++                or not isinstance(manifest["files"], list) or not 0 < len(manifest["files"]) <= MAX_FRONTEND_FILES):
++            raise ReleaseStagingError("INVALID_FRONTEND_MANIFEST", manifest_path)
++        build_id = manifest["buildId"]
++        if build_id in build_ids:
++            raise ReleaseStagingError("FRONTEND_BUILD_DUPLICATE", build_id)
++        build_ids.add(build_id)
++        files, names = [], set()
++        for entry in manifest["files"]:
++            if (not isinstance(entry, dict) or set(entry) != {"path", "bytes", "sha256"}
++                    or type(entry["bytes"]) is not int or entry["bytes"] < 0
++                    or not isinstance(entry["sha256"], str) or not re.fullmatch(r"[a-f0-9]{64}", entry["sha256"])):
++                raise ReleaseStagingError("INVALID_FRONTEND_MANIFEST", manifest_path)
++            name = _frontend_asset_path(entry["path"])
++            if name.lower() in names:
++                raise ReleaseStagingError("FRONTEND_ASSET_CONFLICT", name)
++            names.add(name.lower())
++            prior = shared.get(name.lower())
++            if prior is not None and prior != entry:
++                raise ReleaseStagingError("FRONTEND_ASSET_CONFLICT", name)
++            shared[name.lower()] = entry
++            total += entry["bytes"]
++            if total > MAX_FRONTEND_BYTES:
++                raise ReleaseStagingError("FRONTEND_TOTAL_SIZE_LIMIT", directory)
++            files.append(entry)
++        assets = directory / "assets"
++        if _files(assets) != sorted(entry["path"] for entry in files):
++            raise ReleaseStagingError("FRONTEND_INVENTORY_MISMATCH", assets)
++        for entry in files:
++            path = assets / entry["path"]
++            _same(path, entry, {"bytes": _plain(path).st_size, "sha256": entry["sha256"]})
++            _same(path, entry, _hash_file(path))
++        results.append({"archiveRoot": str(directory), "manifestSha256": pin, "buildId": build_id,
++                        "files": sorted(files, key=lambda entry: entry["path"])})
++    return results
++
++
++def capture_frontend_archive(repo_root: Path, build_web_root: Path, output_dir: Path, *,
++                             expected_build_id: str, maplibre_versions: list[str]) -> dict:
++    """Capture named existing build/runtime bytes; this does not prove deployment identity."""
++    root, source, output = _absolute(repo_root), _absolute(build_web_root), _absolute(output_dir)
++    _inside(source, root)
++    if source != root / "web" and not source.is_relative_to(root / "tmp"):
++        raise ReleaseStagingError("UNSAFE_FRONTEND_BUILD", source)
++    if not any(output.is_relative_to(base) and output != base for base in (root / "tmp", root / "qa/frontend-assets")):
++        raise ReleaseStagingError("UNSAFE_FRONTEND_ARCHIVE", output)
++    if output.is_relative_to(source) or source.is_relative_to(output):
++        raise ReleaseStagingError("UNSAFE_FRONTEND_ARCHIVE", output)
++    if _plain(output, missing=True) is not None:
++        raise ReleaseStagingError("DESTINATION_EXISTS", output)
++    if (not isinstance(maplibre_versions, list) or not 0 < len(maplibre_versions) <= 2
++            or any(not isinstance(v, str) or not re.fullmatch(r"\d+\.\d+\.\d+", v) for v in maplibre_versions)
++            or len(set(maplibre_versions)) != len(maplibre_versions)):
++        raise ReleaseStagingError("INVALID_FRONTEND_RUNTIME_VERSIONS", source)
++    build_path = source / ".next/BUILD_ID"
++    if _plain(build_path).st_size > 256:
++        raise ReleaseStagingError("INVALID_FRONTEND_BUILD_ID", build_path)
++    build_bytes = build_path.read_bytes()
++    build_id = build_bytes.decode("utf-8").strip()
++    if not re.fullmatch(r"[A-Za-z0-9_-]{1,128}", build_id) or build_id != expected_build_id:
++        raise ReleaseStagingError("FRONTEND_BUILD_ID_MISMATCH", build_path, expected=expected_build_id, actual=build_id)
++    directories = [(source / ".next/static", "_next/static")]
++    directories += [(source / "public/maplibre" / version, f"maplibre/{version}") for version in maplibre_versions]
++    entries, inputs, omitted, inventories, total = [], {}, [], [], 0
++    for directory, prefix in directories:
++        names = _files(directory)
++        inventories.append((directory, names))
++        if not names:
++            raise ReleaseStagingError("EMPTY_FRONTEND_RUNTIME", directory)
++        for name in names:
++            path = directory / name
++            if name.endswith(".map"):
++                omitted.append(f"{prefix}/{name}")
++                continue
++            relative = _frontend_asset_path(f"{prefix}/{name}")
++            total += _plain(path).st_size
++            if total > MAX_FRONTEND_BYTES or len(entries) >= MAX_FRONTEND_FILES:
++                raise ReleaseStagingError("FRONTEND_TOTAL_SIZE_LIMIT", source)
++            entry = {"path": relative, **_hash_file(path)}
++            entries.append(entry)
++            inputs[relative] = path
++    if not any(entry["path"].startswith("_next/static/") for entry in entries):
++        raise ReleaseStagingError("EMPTY_FRONTEND_RUNTIME", source)
++    _mkdir(output.parent)
++    output.mkdir()
++    for entry in entries:
++        copied = _hash_file(inputs[entry["path"]], output / "assets" / entry["path"])
++        _same(entry["path"], entry, copied)
++    for directory, names in inventories:
++        if _files(directory) != names:
++            raise ReleaseStagingError("FRONTEND_INVENTORY_MISMATCH", directory)
++    if build_path.read_bytes() != build_bytes:
++        raise ReleaseStagingError("FRONTEND_BUILD_ID_MISMATCH", build_path)
++    for entry in entries:
++        _same(entry["path"], entry, _hash_file(inputs[entry["path"]]))
++    identity = _write_new(output / "frontend-assets.json", _json_content({"schemaVersion": 1, "buildId": build_id,
++                           "files": sorted(entries, key=lambda entry: entry["path"])}))
++    verified = read_frontend_archives(root, [(output, identity["sha256"])])
++    return {"archiveRoot": str(output), "manifestSha256": identity["sha256"], "buildId": build_id,
++            "files": len(verified[0]["files"]), "bytes": total, "omittedSourceMaps": omitted,
++            "deploymentIdentityVerified": False}
++
++
+ def prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, overlay_dir: Path,
+-                          revision: str = "HEAD") -> dict:
++                          revision: str = "HEAD", previous_frontends: list[tuple[Path, str]] | None = None) -> dict:
+     root, stage = _paths(repo_root, stage_dir, data_dir, overlay_dir)
+     if _plain(stage, missing=True) is not None:
+         raise ReleaseStagingError("DESTINATION_EXISTS", stage)
+     head = _revision(root, "HEAD")
+     pinned = head if revision == "HEAD" else _revision(root, revision)
+     sources = _source_inventory(root, pinned)
++    frontends = read_frontend_archives(root, previous_frontends or [])
++    for frontend in frontends:
++        archive = Path(frontend["archiveRoot"])
++        if stage.is_relative_to(archive) or archive.is_relative_to(stage):
++            raise ReleaseStagingError("UNSAFE_FRONTEND_ARCHIVE", archive)
+     source_names = {entry["path"] for entry in sources}
+-    for required in ("web/package.json", "web/package-lock.json", "web/next.config.js", "web/data-bundle.json"):
++    for required in ("web/package.json", "web/package-lock.json", "web/next.config.js", "web/data-bundle.json",
++                     "web/scripts/build-next-release.mjs", "web/scripts/frontend-retention.mjs"):
+         if required not in source_names:
+             raise ReleaseStagingError("MISSING_REQUIRED_SOURCE", required)
+     _mkdir(stage.parent)
+@@ -448,6 +611,21 @@ def prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, o
+         else:
+             identity = _write_new(stage / entry["path"], content)
+             files.append({"path": entry["path"], "origin": "git", **identity})
++    retained = {}
++    for frontend in frontends:
++        for entry in frontend["files"]:
++            relative = entry["path"]
++            current = stage / "web/public" / relative
++            if current.exists():
++                if _hash_file(current) != {key: entry[key] for key in ("bytes", "sha256")}:
++                    raise ReleaseStagingError("FRONTEND_ASSET_CONFLICT", relative)
++            if relative in retained:
++                continue
++            destination = f"web/public/_retained/{relative}"
++            copied = _hash_file(Path(frontend["archiveRoot"]) / "assets" / relative, stage / destination)
++            _same(destination, entry, copied)
++            retained[relative] = entry
++            files.append({"path": destination, "origin": "previous-frontend", **copied})
+     for artifact in artifacts:
+         origin = root / "web/public/data" / artifact["directory"]
+         for entry in artifact["inputs"]:
+@@ -481,7 +659,11 @@ def prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, o
+     derived = [("web/vercel.json", _json_content(config), "direct-next-and-ignore-install-hooks"),
+                ("web/data-bundle.json", _json_content(pointer), "selected-manifest-pointer"),
+                ("web/.vercelignore", ignore, "stage-only-allowlist"),
+-               (".vercelignore", ignore, "stage-only-allowlist")]
++               (".vercelignore", ignore, "stage-only-allowlist"),
++               ("web/frontend-retention.json", _json_content({"schemaVersion": 1,
++                    "buildIds": [frontend["buildId"] for frontend in frontends],
++                    "totalBytes": sum(entry["bytes"] for entry in retained.values()),
++                    "files": sorted(retained.values(), key=lambda entry: entry["path"])}), "pinned-previous-frontend-assets")]
+     if "web/next-env.d.ts" in controls:
+         production_types = controls["web/next-env.d.ts"].replace(b'"./.next/dev/types/', b'"./.next/types/')
+         derived.append(("web/next-env.d.ts", production_types, "production-next-type-imports"))
+@@ -492,6 +674,7 @@ def prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, o
+     report = {"schemaVersion": 1, "status": "prepared_not_built", "repoRoot": str(root), "stageRoot": str(stage),
+               "webRoot": str(stage / "web"), "sourceRevision": pinned, "headAtStart": head,
+               "sourceFiles": sources, "files": sorted(files, key=lambda entry: entry["path"]), "artifacts": artifacts,
++              "previousFrontends": frontends,
+               "buildPolicy": {"command": BUILD_COMMAND, "installCommand": INSTALL_COMMAND, "executed": False,
+                               "localDependencies": str(root / "web/node_modules"),
+                               "generatedFiles": sorted(GENERATED_FILES), "generatedFilesUntrackedOnly": True,
+@@ -516,6 +699,10 @@ def _verify_inputs(root: Path, report: dict) -> None:
+     for entry in report["sourceFiles"]:
+         content = blobs.pop(entry["path"])
+         _same(entry["path"], entry, {"bytes": len(content), "sha256": hashlib.sha256(content).hexdigest()})
++    expected_frontends = report.get("previousFrontends", [])
++    actual_frontends = read_frontend_archives(root, [(Path(item["archiveRoot"]), item["manifestSha256"]) for item in expected_frontends])
++    if actual_frontends != expected_frontends:
++        raise ReleaseStagingError("FRONTEND_INVENTORY_MISMATCH", root)
+     for artifact in report["artifacts"]:
+         origin = root / "web/public/data" / artifact["directory"]
+         _paths(root, Path(report["stageRoot"]), origin)
+diff --git a/tests/test_frontend_retention.py b/tests/test_frontend_retention.py
+new file mode 100644
+index 0000000..d7d0f1b
+--- /dev/null
++++ b/tests/test_frontend_retention.py
+@@ -0,0 +1,174 @@
++"""Literal frontend archives only; no build, export, input repair or network."""
++
++import hashlib
++import json
++from pathlib import Path
++
++import pytest
++
++from scripts import release_staging as staging
++from tests.test_release_staging import (
++    git, prepare, put, repository, snapshot, template_repository,
++)
++
++
++def archive(root, name="a", files=None, build_id=None):
++    directory = root / "tmp" / "frontend-fixtures" / name
++    files = files or {"_next/static/chunks/old-map.js": b"old map bytes",
++                      "maplibre/6.1.0/worker.js": b"old worker bytes"}
++    entries = []
++    for path, content in files.items():
++        put(directory, "assets/" + path, content)
++        entries.append({"path": path, "bytes": len(content), "sha256": hashlib.sha256(content).hexdigest()})
++    manifest = {"schemaVersion": 1, "buildId": build_id or "build-" + name, "files": entries}
++    content = (json.dumps(manifest, sort_keys=True) + "\n").encode()
++    put(directory, "frontend-assets.json", content)
++    return directory, hashlib.sha256(content).hexdigest()
++
++
++def selected_prepare(repository, selected):
++    return prepare(staging, repository, previous_frontends=selected)
++
++
++def test_retains_verified_archives_without_changing_source_or_data(repository):
++    root, _, _ = repository
++    selected = archive(root)
++    before = snapshot(root / "web")
++    result = selected_prepare(repository, [selected])
++    stage = Path(result["stageRoot"])
++    assert (stage / "web/public/_retained/_next/static/chunks/old-map.js").read_bytes() == b"old map bytes"
++    assert (stage / "web/public/_retained/maplibre/6.1.0/worker.js").read_bytes() == b"old worker bytes"
++    assert snapshot(root / "web") == before
++    assert result["previousFrontends"][0]["manifestSha256"] == selected[1]
++    assert result["previousFrontends"][0]["buildId"] == "build-a"
++    policy = json.loads((stage / "web/frontend-retention.json").read_bytes())
++    assert policy["buildIds"] == ["build-a"]
++    assert policy["totalBytes"] == len(b"old map bytes") + len(b"old worker bytes")
++    assert {entry["path"] for entry in policy["files"]} == {"_next/static/chunks/old-map.js", "maplibre/6.1.0/worker.js"}
++    assert staging.verify_release_stage(root, stage, expected_manifest_sha256=result["releaseManifestSha256"])["status"] == "verified_not_deployed"
++
++
++def test_deduplicates_identical_shared_urls_across_two_explicit_builds(repository):
++    root, _, _ = repository
++    first, second = archive(root, "a"), archive(root, "b")
++    result = selected_prepare(repository, [first, second])
++    policy = json.loads((Path(result["webRoot"]) / "frontend-retention.json").read_bytes())
++    assert policy["buildIds"] == ["build-a", "build-b"]
++    assert len(policy["files"]) == 2
++
++
++def test_same_url_different_bytes_is_a_block_not_last_write_wins(repository):
++    root, _, _ = repository
++    a = archive(root, "a", {"_next/static/chunks/shared.js": b"a"})
++    b = archive(root, "b", {"_next/static/chunks/shared.js": b"b"})
++    with pytest.raises(staging.ReleaseStagingError, match="FRONTEND_ASSET_CONFLICT"):
++        selected_prepare(repository, [a, b])
++    assert not (root / "tmp/stage").exists()
++
++
++@pytest.mark.parametrize("kind", ["hash", "payload", "unlisted", "missing", "duplicate-build", "case-collision", "too-many", "too-large"])
++def test_invalid_retention_stops_before_stage_creation(repository, monkeypatch, kind):
++    root, _, _ = repository
++    path, pin = archive(root)
++    selected = [(path, pin)]
++    expected = {"hash": "FRONTEND_MANIFEST_HASH_MISMATCH", "payload": "INPUT_CHANGED",
++                "unlisted": "FRONTEND_INVENTORY_MISMATCH", "missing": "FRONTEND_INVENTORY_MISMATCH",
++                "duplicate-build": "FRONTEND_BUILD_DUPLICATE", "case-collision": "FRONTEND_ASSET_CONFLICT",
++                "too-many": "FRONTEND_GENERATION_LIMIT", "too-large": "FRONTEND_TOTAL_SIZE_LIMIT"}[kind]
++    if kind == "hash": selected = [(path, "0" * 64)]
++    if kind == "payload": put(path, "assets/_next/static/chunks/old-map.js", b"changed")
++    if kind == "unlisted": put(path, "assets/_next/static/chunks/extra.js", b"extra")
++    if kind == "missing": (path / "assets/_next/static/chunks/old-map.js").unlink()
++    if kind == "duplicate-build": selected.append(archive(root, "b", build_id="build-a"))
++    if kind == "case-collision": selected.append(archive(root, "b", {"_next/static/chunks/OLD-MAP.js": b"old map bytes"}))
++    if kind == "too-many": selected.extend([archive(root, "b"), archive(root, "c")])
++    if kind == "too-large": monkeypatch.setattr(staging, "MAX_FRONTEND_BYTES", 1)
++    with pytest.raises(staging.ReleaseStagingError, match=expected):
++        selected_prepare(repository, selected)
++    assert not (root / "tmp/stage").exists()
++
++
++@pytest.mark.parametrize("path", ["../private.js", "_next/static/chunks/../private.js", "_next/static/private.html",
++                                  "_next/static/private.js.map", "api/private.js", "data/private.js",
++                                  "maplibre/latest/worker.js", "_next/static/chunks/a%2fb.js"])
++def test_archive_metadata_cannot_escape_or_publish_unapproved_file_types(repository, path):
++    root, _, _ = repository
++    directory, _ = archive(root)
++    content = json.dumps({"schemaVersion": 1, "buildId": "build-a", "files": [{"path": path, "bytes": 1, "sha256": "0" * 64}]}).encode()
++    put(directory, "frontend-assets.json", content)
++    with pytest.raises(staging.ReleaseStagingError, match="UNSAFE_PATH|UNSAFE_FRONTEND_ASSET"):
++        selected_prepare(repository, [(directory, hashlib.sha256(content).hexdigest())])
++    assert not (root / "tmp/stage").exists()
++
++
++def test_changed_archive_after_prepare_is_caught_by_pinned_stage_verification(repository):
++    root, _, _ = repository
++    selected = archive(root)
++    result = selected_prepare(repository, [selected])
++    put(selected[0], "assets/_next/static/chunks/old-map.js", b"mutated")
++    with pytest.raises(staging.ReleaseStagingError, match="INPUT_CHANGED"):
++        staging.verify_release_stage(root, Path(result["stageRoot"]), expected_manifest_sha256=result["releaseManifestSha256"])
++
++
++def test_same_version_current_public_worker_cannot_differ(repository):
++    root, _, _ = repository
++    put(root, "web/public/maplibre/6.1.0/worker.js", b"new conflicting bytes")
++    git(root, "add", "web")
++    git(root, "commit", "-qm", "test: conflicting worker")
++    with pytest.raises(staging.ReleaseStagingError, match="FRONTEND_ASSET_CONFLICT"):
++        selected_prepare(repository, [archive(root)])
++
++
++def test_retention_namespace_cannot_be_populated_by_tracked_source(repository):
++    root, _, _ = repository
++    put(root, "web/public/_retained/private.js", b"not an archive")
++    git(root, "add", "web")
++    git(root, "commit", "-qm", "test: reserved namespace")
++    with pytest.raises(staging.ReleaseStagingError, match="RESERVED_RETENTION_SOURCE"):
++        selected_prepare(repository, [archive(root)])
++
++
++def compiled_fixture(root):
++    source = root / "tmp/compiled/web"
++    put(source, ".next/BUILD_ID", b"reviewed-build-a\n")
++    put(source, ".next/static/chunks/map.mjs", b"old map")
++    put(source, ".next/static/chunks/map.js.map", b"private source map")
++    put(source, "public/maplibre/6.1.0/maplibre-gl-shared.mjs", b"old library")
++    put(source, "public/maplibre/6.1.0/maplibre-gl-worker.mjs", b"old worker")
++    put(source, "public/maplibre/6.1.0/LICENSE.txt", b"license")
++    put(source, "public/data/never-read/private.json", b"protected stand-in")
++    put(source, ".next/server/private.js", b"server code not a browser runtime")
++    return source
++
++
++def test_capture_is_bounded_runtime_copy_not_data_or_server_export(repository):
++    root, _, _ = repository
++    source = compiled_fixture(root)
++    before = snapshot(source)
++    result = staging.capture_frontend_archive(root, source, root / "tmp/captured",
++        expected_build_id="reviewed-build-a", maplibre_versions=["6.1.0"])
++    assert result["files"] == 4 and result["bytes"] == 7 + 11 + 10 + 7
++    assert result["omittedSourceMaps"] == ["_next/static/chunks/map.js.map"]
++    assert result["deploymentIdentityVerified"] is False
++    assert snapshot(source) == before
++    selected_prepare(repository, [(Path(result["archiveRoot"]), result["manifestSha256"])])
++
++
++def test_capture_wrong_build_stops_before_creating_archive(repository):
++    root, _, _ = repository
++    source = compiled_fixture(root)
++    with pytest.raises(staging.ReleaseStagingError, match="FRONTEND_BUILD_ID_MISMATCH"):
++        staging.capture_frontend_archive(root, source, root / "tmp/captured",
++            expected_build_id="different", maplibre_versions=["6.1.0"])
++    assert not (root / "tmp/captured").exists()
++
++
++def test_capture_never_overwrites_existing_destination(repository):
++    root, _, _ = repository
++    source = compiled_fixture(root)
++    output = root / "tmp/captured"
++    put(output, "sentinel", b"keep")
++    with pytest.raises(staging.ReleaseStagingError, match="DESTINATION_EXISTS"):
++        staging.capture_frontend_archive(root, source, output,
++            expected_build_id="reviewed-build-a", maplibre_versions=["6.1.0"])
++    assert snapshot(output) == {"sentinel": hashlib.sha256(b"keep").hexdigest()}
+diff --git a/tests/test_publish.py b/tests/test_publish.py
+index 96c312d..5e6a635 100644
+--- a/tests/test_publish.py
++++ b/tests/test_publish.py
+@@ -419,12 +419,34 @@ def test_staging_adapters_forward_the_pinned_revision_overlay_and_creation_hash(
+         return {"status": "verified_not_deployed", "releaseManifestSha256": "1" * 64}
+     monkeypatch.setattr(release_staging, "prepare_release_stage", prepare)
+     monkeypatch.setattr(release_staging, "verify_release_stage", verify)
+-    result = publish.prepare_vercel_source(web, data, revision="a" * 40)
++    selected = [(root / "tmp/previous-frontend", "b" * 64)]
++    result = publish.prepare_vercel_source(web, data, revision="a" * 40, previous_frontends=selected)
+     assert called["repo"] == root and called["main"] == data
+     assert called["revision"] == "a" * 40 and called["overlay_dir"] == data.parent / "lamp_posts_v1"
++    assert called["previous_frontends"] == selected
+     assert publish.verify_stage(Path(result["stageRoot"]), result["releaseManifestSha256"])["ok"]
+ 
+ 
++def test_real_preparation_adapter_requires_previous_assets_before_any_copy(release, monkeypatch):
++    from scripts import release_staging
++    _, web, data = release
++    monkeypatch.setattr(release_staging, "prepare_release_stage", lambda *a, **kw: pytest.fail("copy"))
++    with pytest.raises(ValueError, match="previous frontend archive"):
++        publish.prepare_vercel_source(web, data, revision="a" * 40)
++
++
++def test_preflight_forwards_explicit_previous_frontend_selection(prepared, monkeypatch):
++    _, web, data, stage, _, _ = prepared
++    selected = [(stage.parent / "old", "b" * 64)]
++    def prepare(*args, **kwargs):
++        assert kwargs["previous_frontends"] == selected
++        return {"stageRoot": str(stage), "releaseManifestSha256": "1" * 64}
++    monkeypatch.setattr(publish, "prepare_vercel_source", prepare)
++    ok, _ = publish.publish_preflight(data, web, run_external_checks=True, confirm_preparation=True,
++                                      previous_frontends=selected)
++    assert ok
++
++
+ @pytest.mark.parametrize("envelope", [
+     {"envs": [], "pagination": {"next": 123}}, {"envs": [], "pagination": {}},
+     {"envs": [], "pagination": None}, {"envs": [], "hiddenProductionEnvCount": 1},
+diff --git a/tests/test_release_staging.py b/tests/test_release_staging.py
+index 6df1fbc..49430c6 100644
+--- a/tests/test_release_staging.py
++++ b/tests/test_release_staging.py
+@@ -89,6 +89,8 @@ def template_repository(tmp_path_factory):
+     git(root, "init", "-q")
+     put(root, "web/app/page.tsx", b"export default function Page() { return null; }\n")
+     put(root, "web/next.config.js", b"module.exports = {};\n")
++    put(root, "web/scripts/build-next-release.mjs", b"// Fixture only; never executed.\n")
++    put(root, "web/scripts/frontend-retention.mjs", b"// Fixture only; never executed.\n")
+     put(root, "web/next-env.d.ts", b'/// <reference types="next" />\nimport "./.next/dev/types/routes.d.ts";\nimport "./.next/dev/types/root-params.d.ts";\n')
+     put_json(root, "web/tsconfig.json", {"compilerOptions": {"strict": True}}, compressed=False)
+     put_json(root, "web/package.json", {"scripts": {"build": "node scripts/ensure-data-bundle.mjs && next build",
+@@ -179,7 +181,7 @@ def test_derived_remote_config_does_not_execute_package_hooks(staging, repositor
+     before = (root / "web/vercel.json").read_bytes()
+     result = prepare(staging, repository)
+     config = json.loads((Path(result["webRoot"]) / "vercel.json").read_bytes())
+-    assert config["buildCommand"] == "node node_modules/next/dist/bin/next build"
++    assert config["buildCommand"] == "node scripts/build-next-release.mjs build"
+     assert config["installCommand"] == "npm ci --ignore-scripts --no-audit --no-fund"
+     assert config["framework"] == "nextjs"
+     assert config["outputDirectory"] is None
+diff --git a/web/app/global-error.tsx b/web/app/global-error.tsx
+new file mode 100644
+index 0000000..c8fe18c
+--- /dev/null
++++ b/web/app/global-error.tsx
+@@ -0,0 +1,18 @@
++"use client";
++
++export default function GlobalError() {
++  return (
++    <html lang="en">
++      <head><title>SHIOK | Page unavailable</title></head>
++      <body style={{ margin: 0, minHeight: "100svh", display: "grid", placeItems: "center", padding: 24, boxSizing: "border-box", background: "#f8faf9", color: "#182b28", fontFamily: "system-ui, sans-serif", letterSpacing: 0 }}>
++        <main style={{ width: "100%", maxWidth: 360 }}>
++          <h1 style={{ margin: "0 0 12px", fontSize: 22 }}>SHIOK couldn&apos;t load</h1>
++          <p style={{ margin: "0 0 24px", fontSize: 16, lineHeight: 1.5 }}>Reload the page to try again.</p>
++          <button type="button" onClick={() => window.location.reload()} style={{ padding: "12px 18px", border: "1px solid #006e64", borderRadius: 6, background: "#007e72", color: "#ffffff", font: "inherit", cursor: "pointer", minHeight: 44 }}>
++            Reload page
++          </button>
++        </main>
++      </body>
++    </html>
++  );
++}
+diff --git a/web/lib/__tests__/frontend-retention.test.ts b/web/lib/__tests__/frontend-retention.test.ts
+new file mode 100644
+index 0000000..d7f2449
+--- /dev/null
++++ b/web/lib/__tests__/frontend-retention.test.ts
+@@ -0,0 +1,135 @@
++import { createHash } from 'node:crypto';
++import { createRequire } from 'node:module';
++import { mkdirSync, mkdtempSync, readFileSync, symlinkSync, writeFileSync } from 'node:fs';
++import { dirname, join, resolve } from 'node:path';
++import { verifyFrontendRetention } from '../../scripts/frontend-retention.mjs';
++import { buildFrontendRelease } from '../../scripts/build-next-release.mjs';
++
++const hash = (bytes: string) => createHash('sha256').update(bytes).digest('hex');
++const nextConfig = createRequire(import.meta.url)('../../next.config.js');
++const put = (root: string, path: string, bytes: string) => {
++  mkdirSync(dirname(join(root,path)),{recursive:true}); writeFileSync(join(root,path),bytes);
++};
++function fixture() {
++  const parent = resolve(process.cwd(),'../tmp'); mkdirSync(parent,{recursive:true});
++  const root = mkdtempSync(join(parent,'frontend-retention-'));
++  const files = [['_next/static/chunks/old.js','old code'],['maplibre/6.1.0/worker.js','old worker']].map(([path, bytes]) => {
++    put(root,'public/_retained/'+path,bytes); return {path,bytes:Buffer.byteLength(bytes),sha256:hash(bytes)};
++  });
++  const policy = {schemaVersion:1,buildIds:['build-a'],totalBytes:files.reduce((sum,f)=>sum+f.bytes,0),files};
++  put(root,'frontend-retention.json',JSON.stringify(policy));
++  return {root,policy};
++}
++function build(root: string) {
++  put(root,'.next/BUILD_ID','build-b'); put(root,'.next/static/chunks/new.js','new code'); return {status:0};
++}
++
++describe('retained frontend release contract', () => {
++  it('retains actual ESM runtime filenames and the accompanying license', () => {
++    const {root,policy} = fixture();
++    for (const path of ['_next/static/media/maplibre-gl.hash.mjs','maplibre/6.1.0/maplibre-gl-worker.mjs','maplibre/6.1.0/LICENSE.txt']) {
++      const bytes = 'fixture';
++      put(root,'public/_retained/'+path,bytes);
++      policy.files.push({path,bytes:bytes.length,sha256:hash(bytes)});
++      policy.totalBytes += bytes.length;
++    }
++    put(root,'frontend-retention.json',JSON.stringify(policy));
++    expect(buildFrontendRelease(root,()=>build(root)).retention.files).toBe(5);
++  });
++
++  it('resolves missing old URLs only after the current filesystem', async () => {
++    const rules = await nextConfig.rewrites();
++    expect(rules.fallback).toEqual([
++      {source:'/_next/static/:path*',destination:'/_retained/_next/static/:path*'},
++      {source:'/maplibre/:version/:path*',destination:'/_retained/maplibre/:version/:path*'},
++    ]);
++    expect(rules.beforeFiles.some((r: {source:string})=>r.source.startsWith('/_next') || r.source.startsWith('/maplibre'))).toBe(false);
++    expect(rules.fallback.every((r: {destination:string})=>r.destination.startsWith('/_retained/'))).toBe(true);
++  });
++
++  it('keeps the retained static namespace immutable and noindex', async () => {
++    const headers = (await nextConfig.headers()).find((r: {source:string})=>r.source==='/_retained/:path*').headers;
++    expect(headers).toContainEqual({key:'Cache-Control',value:'public, max-age=31536000, immutable'});
++    expect(headers).toContainEqual({key:'X-Content-Type-Options',value:'nosniff'});
++    expect(headers).toContainEqual({key:'X-Robots-Tag',value:'noindex, nofollow, noarchive'});
++  });
++
++  it('checks archives before building and compares new output afterwards', () => {
++    const {root} = fixture(), run = vi.fn(()=>build(root));
++    const before = readFileSync(join(root,'frontend-retention.json'));
++    expect(buildFrontendRelease(root,run)).toMatchObject({built:true,retention:{buildId:'build-b',files:2,bytes:18}});
++    expect(run).toHaveBeenCalledOnce();
++    expect(readFileSync(join(root,'frontend-retention.json'))).toEqual(before);
++  });
++
++  it('does not build if a retained file changes', () => {
++    const {root} = fixture(), run = vi.fn(); put(root,'public/_retained/_next/static/chunks/old.js','wrong');
++    expect(()=>buildFrontendRelease(root,run)).toThrow('RETENTION_ASSET_CHANGED'); expect(run).not.toHaveBeenCalled();
++  });
++
++  it('does not pretend a failed compiler completed a release', () => {
++    const {root} = fixture(); expect(()=>buildFrontendRelease(root,()=>({status:1}))).toThrow('DIRECT_NEXT_BUILD_FAILED');
++  });
++
++  it('blocks current generated chunks with a conflicting old URL', () => {
++    const {root} = fixture();
++    expect(()=>buildFrontendRelease(root,()=>{build(root);put(root,'.next/static/chunks/old.js','different');return {status:0};})).toThrow('RETENTION_ASSET_CONFLICT');
++  });
++
++  it('allows identical shared chunks', () => {
++    const {root} = fixture();
++    expect(buildFrontendRelease(root,()=>{build(root);put(root,'.next/static/chunks/old.js','old code');return {status:0};}).built).toBe(true);
++  });
++
++  it('blocks a changed same-version worker', () => {
++    const {root} = fixture(); build(root); put(root,'public/maplibre/6.1.0/worker.js','changed');
++    expect(()=>verifyFrontendRetention(root,{requireBuild:true})).toThrow('RETENTION_ASSET_CONFLICT');
++  });
++
++  it('keeps a previous worker even when the new build has another version', () => {
++    const {root} = fixture(); build(root); put(root,'public/maplibre/6.4.1/worker.js','future worker fixture');
++    expect(verifyFrontendRetention(root,{requireBuild:true}).files).toBe(2);
++  });
++
++  it('rejects case aliases in the current public worker tree', () => {
++    const {root} = fixture(); build(root); put(root,'public/maplibre/6.1.0/WORKER.js','old worker');
++    expect(()=>verifyFrontendRetention(root,{requireBuild:true})).toThrow('RETENTION_ASSET_CONFLICT');
++  });
++
++  it('requires a completed build identity', () => {
++    const {root} = fixture(); expect(()=>verifyFrontendRetention(root,{requireBuild:true})).toThrow();
++  });
++
++  it('rejects new unlisted assets', () => {
++    const {root} = fixture(); put(root,'public/_retained/extra.js','unlisted');
++    expect(()=>verifyFrontendRetention(root)).toThrow('RETENTION_INVENTORY_MISMATCH');
++  });
++
++  it('rejects linked directories', () => {
++    const {root} = fixture(), target = join(root,'other');mkdirSync(target);
++    symlinkSync(target,join(root,'public/_retained/link'),'junction');
++    expect(()=>verifyFrontendRetention(root)).toThrow('RETENTION_LINKED_PATH');
++  });
++
++  it('rejects metadata rewritten during the build', () => {
++    const {root,policy} = fixture();
++    expect(()=>buildFrontendRelease(root,()=>{build(root);put(root,'frontend-retention.json',JSON.stringify({...policy,buildIds:['changed']}));return {status:0};})).toThrow('RETENTION_MANIFEST_CHANGED_DURING_BUILD');
++  });
++
++  it.each(['../private.js','_next/static/private.html','_next/static/source.js.map','api/private.js','maplibre/latest/worker.js','_next/static/a%2fb.js'])('rejects unsafe runtime path %s', path => {
++    const {root,policy} = fixture();policy.files[0].path=path;put(root,'frontend-retention.json',JSON.stringify(policy));
++    expect(()=>verifyFrontendRetention(root)).toThrow(/RETENTION_UNSAFE_/);
++  });
++
++  it('rejects duplicate case-folded URLs', () => {
++    const {root,policy} = fixture();policy.files.push({...policy.files[0],path:policy.files[0].path.replace('old.js','OLD.js')});policy.totalBytes+=policy.files[0].bytes;
++    put(root,'frontend-retention.json',JSON.stringify(policy));expect(()=>verifyFrontendRetention(root)).toThrow('RETENTION_ASSET_CONFLICT');
++  });
++
++  it('rejects excessive generations or false totals', () => {
++    const {root,policy} = fixture();policy.buildIds.push('b','c');put(root,'frontend-retention.json',JSON.stringify(policy));
++    expect(()=>verifyFrontendRetention(root)).toThrow('RETENTION_MANIFEST_INVALID');
++    policy.buildIds=['a'];policy.totalBytes++;put(root,'frontend-retention.json',JSON.stringify(policy));
++    expect(()=>verifyFrontendRetention(root)).toThrow('RETENTION_MANIFEST_INVALID');
++  });
++});
+diff --git a/web/lib/__tests__/global-error.test.tsx b/web/lib/__tests__/global-error.test.tsx
+new file mode 100644
+index 0000000..35748bf
+--- /dev/null
++++ b/web/lib/__tests__/global-error.test.tsx
+@@ -0,0 +1,36 @@
++import { Children, isValidElement, type ReactElement, type ReactNode } from 'react';
++import { renderToStaticMarkup } from 'react-dom/server';
++import GlobalError from '../../app/global-error';
++
++function button(node: ReactNode): ReactElement<{onClick: () => void; type: string}> | undefined {
++  if (!isValidElement<{children?: ReactNode}>(node)) return undefined;
++  if (node.type === 'button') return node as ReactElement<{onClick: () => void; type: string}>;
++  for (const child of Children.toArray(node.props.children)) {
++    const found = button(child); if (found) return found;
++  }
++  return undefined;
++}
++
++describe('global error recovery', () => {
++  afterEach(() => vi.unstubAllGlobals());
++
++  it('renders an independent accessible document, not a GET form that drops the query', () => {
++    const html = renderToStaticMarkup(<GlobalError />);
++    expect(html).toContain('<html lang="en">');
++    expect(html).toContain('<main');
++    expect(html).toContain('Reload page');
++    expect(html).toContain('type="button"');
++    expect(html).not.toContain('<form');
++    expect(html).not.toContain('setTimeout');
++  });
++
++  it.each(['/?postal=018956','/?postal=018956#compare=018956,018990','/?debugMap=1#postal=018956'])('explicit reload preserves %s', path => {
++    const location = Object.freeze({href:'https://example.invalid'+path,reload:vi.fn()});
++    vi.stubGlobal('window',{location});
++    const element = GlobalError();
++    expect(location.reload).not.toHaveBeenCalled();
++    button(element)!.props.onClick();
++    expect(location.reload).toHaveBeenCalledExactlyOnceWith();
++    expect(location.href).toBe('https://example.invalid'+path);
++  });
++});
+diff --git a/web/next.config.js b/web/next.config.js
+index 2b990ef..9f2a4cb 100644
+--- a/web/next.config.js
++++ b/web/next.config.js
+@@ -41,6 +41,16 @@ const nextConfig = {
+           destination: "/site.webmanifest",
+         },
+       ],
++      fallback: [
++        {
++          source: "/_next/static/:path*",
++          destination: "/_retained/_next/static/:path*",
++        },
++        {
++          source: "/maplibre/:version/:path*",
++          destination: "/_retained/maplibre/:version/:path*",
++        },
++      ],
+     };
+   },
+   async headers() {
+@@ -98,6 +108,14 @@ const nextConfig = {
+           },
+         ],
+       },
++      {
++        source: "/_retained/:path*",
++        headers: [
++          ...securityHeaders,
++          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
++          { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
++        ],
++      },
+       {
+         source: "/maplibre/6.1.0/:path*",
+         headers: [
+diff --git a/web/scripts/build-next-release.mjs b/web/scripts/build-next-release.mjs
+new file mode 100644
+index 0000000..f734ec2
+--- /dev/null
++++ b/web/scripts/build-next-release.mjs
+@@ -0,0 +1,21 @@
++import { spawnSync } from 'node:child_process';
++import { dirname, resolve } from 'node:path';
++import { fileURLToPath } from 'node:url';
++import { verifyFrontendRetention } from './frontend-retention.mjs';
++
++/** @param {string} webRoot @param {() => {status: number | null, error?: Error}} [runBuild] */
++export function buildFrontendRelease(webRoot, runBuild = () => spawnSync(process.execPath,
++  [resolve(webRoot, 'node_modules/next/dist/bin/next'), 'build'],
++  { cwd: webRoot, stdio: 'inherit', windowsHide: true })) {
++  const before = verifyFrontendRetention(webRoot);
++  const result = runBuild();
++  if (result.error || result.status !== 0) throw Error('DIRECT_NEXT_BUILD_FAILED');
++  const after = verifyFrontendRetention(webRoot, { requireBuild: true });
++  if (before.manifestSha256 !== after.manifestSha256) throw Error('RETENTION_MANIFEST_CHANGED_DURING_BUILD');
++  return { built: true, retention: after };
++}
++
++if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
++  if (process.argv.length !== 3 || process.argv[2] !== 'build') throw Error('Explicit build command required');
++  console.log(JSON.stringify(buildFrontendRelease(dirname(dirname(fileURLToPath(import.meta.url))))));
++}
+diff --git a/web/scripts/frontend-retention.mjs b/web/scripts/frontend-retention.mjs
+new file mode 100644
+index 0000000..1ecaa9f
+--- /dev/null
++++ b/web/scripts/frontend-retention.mjs
+@@ -0,0 +1,94 @@
++import { createHash } from 'node:crypto';
++import { lstatSync, readdirSync, readFileSync } from 'node:fs';
++import { dirname, isAbsolute, join, relative, resolve, sep } from 'node:path';
++
++const MAX_FILES = 5000;
++const MAX_BYTES = 64 * 1024 * 1024;
++const sha = bytes => createHash('sha256').update(bytes).digest('hex');
++const fail = code => { throw Error(code); };
++
++function plain(path, missing = false) {
++  if (!isAbsolute(path)) fail('RETENTION_UNSAFE_PATH');
++  const parent = dirname(path);
++  if (parent !== path && !plain(parent, missing)) return null;
++  let info;
++  try { info = lstatSync(path); } catch (e) { if (missing && e.code === 'ENOENT') return null; throw e; }
++  if (info.isSymbolicLink() || (!info.isFile() && !info.isDirectory())) fail('RETENTION_LINKED_PATH');
++  return info;
++}
++
++function assetPath(name) {
++  if (typeof name !== 'string' || !/^[A-Za-z0-9_./-]+$/.test(name) || name.split('/').some(p => !p || p === '.' || p === '..' || p.endsWith('.') || /^(con|prn|aux|nul|com[1-9]|lpt[1-9])(\.|$)/i.test(p))) fail('RETENTION_UNSAFE_PATH');
++  const staticAsset = /^_next\/static\/.+\.(mjs|js|css|woff2?|ttf|otf|png|jpe?g|svg|webp|avif|ico)$/.test(name);
++  const worker = /^maplibre\/\d+\.\d+\.\d+\/(?:[A-Za-z0-9_-]+\/)*[A-Za-z0-9_.-]+\.(mjs|js)$/.test(name);
++  const license = /^maplibre\/\d+\.\d+\.\d+\/LICENSE\.txt$/.test(name);
++  if (!staticAsset && !worker && !license) fail('RETENTION_UNSAFE_ASSET');
++  return name;
++}
++
++function inventory(root, optional = false) {
++  if (!plain(root, optional)) return [];
++  const found = [], pending = [root], names = new Set();
++  while (pending.length) {
++    const directory = pending.pop();
++    for (const child of readdirSync(directory)) {
++      const file = join(directory, child), name = relative(root, file).split(sep).join('/');
++      if (names.has(name.toLowerCase())) fail('RETENTION_CASE_COLLISION');
++      names.add(name.toLowerCase());
++      if (names.size > MAX_FILES) fail('RETENTION_INVENTORY_LIMIT');
++      const info = plain(file);
++      if (info.isDirectory()) pending.push(file); else found.push(name);
++    }
++  }
++  return found;
++}
++
++function identity(path, expectedBytes) {
++  const info = plain(path);
++  if (!info.isFile() || info.size !== expectedBytes || info.size > MAX_BYTES) fail('RETENTION_ASSET_CHANGED');
++  const bytes = readFileSync(path);
++  if (bytes.length !== expectedBytes) fail('RETENTION_ASSET_CHANGED');
++  return sha(bytes);
++}
++
++/** @param {string} webRoot @param {{requireBuild?: boolean}} [options] */
++export function verifyFrontendRetention(webRoot, { requireBuild = false } = {}) {
++  if (!isAbsolute(webRoot) || resolve(webRoot) !== webRoot) fail('RETENTION_UNSAFE_ROOT');
++  const manifestPath = join(webRoot, 'frontend-retention.json'), info = plain(manifestPath);
++  if (!info.isFile() || info.size > 2 * 1024 * 1024) fail('RETENTION_MANIFEST_LIMIT');
++  const bytes = readFileSync(manifestPath), manifestSha256 = sha(bytes), policy = JSON.parse(bytes.toString('utf8'));
++  if (!policy || policy.schemaVersion !== 1 || !Array.isArray(policy.buildIds) || policy.buildIds.length > 2 ||
++      policy.buildIds.some(v => typeof v !== 'string' || !/^[A-Za-z0-9_-]{1,128}$/.test(v)) || new Set(policy.buildIds).size !== policy.buildIds.length ||
++      !Array.isArray(policy.files) || policy.files.length > MAX_FILES || !Number.isSafeInteger(policy.totalBytes) || policy.totalBytes < 0 || policy.totalBytes > MAX_BYTES) fail('RETENTION_MANIFEST_INVALID');
++  const expected = new Map(), folded = new Set(); let total = 0;
++  for (const entry of policy.files) {
++    if (!entry || !Number.isSafeInteger(entry.bytes) || entry.bytes < 0 || !/^[a-f0-9]{64}$/.test(entry.sha256)) fail('RETENTION_MANIFEST_INVALID');
++    const name = assetPath(entry.path);
++    if (folded.has(name.toLowerCase())) fail('RETENTION_ASSET_CONFLICT');
++    expected.set(name, entry); folded.add(name.toLowerCase()); total += entry.bytes;
++    if (total > MAX_BYTES) fail('RETENTION_TOTAL_SIZE_LIMIT');
++  }
++  if (total !== policy.totalBytes || (!!policy.files.length !== !!policy.buildIds.length)) fail('RETENTION_MANIFEST_INVALID');
++  const retained = join(webRoot, 'public/_retained'), actual = inventory(retained, expected.size === 0);
++  if (actual.length !== expected.size || actual.some(name => !expected.has(name))) fail('RETENTION_INVENTORY_MISMATCH');
++  for (const [name, entry] of expected) if (identity(join(retained, name), entry.bytes) !== entry.sha256) fail('RETENTION_ASSET_CHANGED');
++  let buildId = null;
++  if (requireBuild) {
++    const buildPath = join(webRoot, '.next/BUILD_ID');
++    if (plain(buildPath).size > 256) fail('RETENTION_BUILD_INVALID');
++    buildId = readFileSync(buildPath, 'utf8').trim();
++    if (!/^[A-Za-z0-9_-]{1,128}$/.test(buildId)) fail('RETENTION_BUILD_INVALID');
++    // Match case-insensitively even on Linux; Windows must reject the same release.
++    const current = new Map();
++    for (const name of inventory(join(webRoot, '.next/static'))) current.set(('_next/static/' + name).toLowerCase(), { name: '_next/static/' + name, path: join(webRoot, '.next/static', name) });
++    for (const name of inventory(join(webRoot, 'public/maplibre'), true)) current.set(('maplibre/' + name).toLowerCase(), { name: 'maplibre/' + name, path: join(webRoot, 'public/maplibre', name) });
++    for (const [name, entry] of expected) {
++      const existing = current.get(name.toLowerCase());
++      if (existing && existing.name !== name) fail('RETENTION_ASSET_CONFLICT');
++      const candidate = existing?.path;
++      const info = candidate ? plain(candidate, true) : null;
++      if (info && (info.size !== entry.bytes || identity(candidate, entry.bytes) !== entry.sha256)) fail('RETENTION_ASSET_CONFLICT');
++    }
++  }
++  return { manifestSha256, buildId, retainedBuildIds: policy.buildIds, files: expected.size, bytes: total };
++}

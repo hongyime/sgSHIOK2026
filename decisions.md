@@ -3235,3 +3235,38 @@ full current postal/share URL, without treating that as a legacy-client fix.
 T01 remains PARTIAL. This test used controlled local A/B builds and an explicit
 worker update, not a newly verified live deployment or automatic-update timing.
 Evidence: qa/revamp-r1/retained-tab-20260910/summary.json.
+
+## 2026-09-10: Pin Bounded Previous Frontend Assets, Not Old Data
+
+An open Document may request a lazy module that its service worker never cached.
+Release preparation therefore requires an explicit reviewed previous-frontend
+archive and its manifest SHA256. Capture only named existing static/runtime files,
+including ESM modules and their licence; never discover builds, copy score data,
+or infer that a local build was deployed. At most two builds and 64 MiB of archive
+input bytes are accepted. Inventory, path, link, byte and hash checks fail closed.
+Current-output URL conflicts also fail; a clean dependency audit cannot implicitly
+approve a retained old runtime with an outstanding security advisory.
+
+Serve old files only through fallback rewrites after current filesystem lookup.
+This ordering follows the Next rewrites contract and was exercised against the
+actual local Next server, including no-store404s for unknown old URLs:
+https://nextjs.org/docs/app/api-reference/config/next-config-js/rewrites
+Both local and provider builds use the same guarded direct-Next wrapper. The old
+PowerShell wrappers remain plan-only in practice until archive forwarding exists;
+the documented canonical Python entry accepts the explicit selection. Real source
+identity, staging, provider configuration and deployment remain separately gated.
+
+The controlled retained-A slice now passes: the original uncached old map module
+returns200 with identical bytes through B's worker, and the same Document/postal
+renders four selected features at four viewports. The later navigation to current
+B timed out during map startup, with walk text preserved. Do not call that whole
+run a pass, infer hardware-only causation, or close T01. The next diagnostic must
+capture worker/style/tile progress and the actual failure screen before teardown.
+
+The future global fallback uses an explicit native location.reload button, not
+an empty GET form. A separate QA-only fault route proves full query/hash retention
+and no reload loop. It cannot change already-loaded A code. No worker-forced
+navigation or automatic archive eviction is implemented; either could discard a
+draft or strand an older tab. Two retained generations are bounded compatibility,
+not indefinite support. Findings, failed attempts, nine inspected captures and
+current limits: qa/revamp-r1/frontend-retention-20260910/summary.json.

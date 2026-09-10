@@ -1,0 +1,608 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "directory": "C:\\sgSHIOK2026\\qa\\revamp-r1\\frontend-retention-20260910\\proxy-2",
+  "pid": 114432,
+  "origin": "http://127.0.0.1:4346",
+  "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+  "buildB": "ZHqFMae_a9ROgk43z7fv8",
+  "workerHashes": {
+    "A": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+    "B": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+  },
+  "target": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+  "targetBytes": 39556,
+  "targetSha256": "4a1b7cf727bfc2157e11185a0fe88af518733a56f34601833c75fccad34df11b",
+  "sourceB": "C:\\sgSHIOK2026\\tmp\\frontend-retention-build-2",
+  "active": "B",
+  "requests": [
+    {
+      "at": "2026-09-10T05:33:10.608Z",
+      "method": "GET",
+      "path": "/__qa/seed",
+      "active": "A",
+      "status": 200,
+      "fixture": true
+    },
+    {
+      "at": "2026-09-10T05:33:10.960Z",
+      "method": "GET",
+      "path": "/sw.js",
+      "active": "A",
+      "status": 200,
+      "serviceWorker": "script",
+      "workerSha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390"
+    },
+    {
+      "at": "2026-09-10T05:33:12.366Z",
+      "method": "GET",
+      "path": "/favicon.ico",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:12.565Z",
+      "method": "GET",
+      "path": "/",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:12.734Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3mic8ep312z99.css",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:12.738Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/310vm2bl3xxpt.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:12.979Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/0y-dctk-kmqss.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:12.983Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/08ttfj81-47mu.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:13.837Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:13.838Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3g398rb4su43l.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:13.885Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/27iodt6ap9svx.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:13.917Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3fntmmi971322.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:13.953Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2zaun8r9-gox7.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:19.477Z",
+      "method": "GET",
+      "path": "/icon.svg",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:19.644Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2_c6f5vawm6vi.css",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:19.725Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/0npwww6p9wx1o.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:19.824Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/318x15h178iv-.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:19.857Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:19.896Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/39xhkg3l-se9r.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:19.899Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "active": "A",
+      "status": 404,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:19.927Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "active": "A",
+      "status": 404,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:20.006Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:20.007Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:20.053Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "active": "A",
+      "status": 404,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:20.077Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:20.824Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:20.826Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:20.835Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:20.837Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:20.841Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "active": "A",
+      "status": 404,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:20.843Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:20.846Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T05:33:21.542Z",
+      "method": "POST",
+      "path": "/__qa/switch",
+      "active": "B",
+      "status": 204,
+      "control": true
+    },
+    {
+      "at": "2026-09-10T05:33:21.564Z",
+      "method": "GET",
+      "path": "/sw.js",
+      "active": "B",
+      "status": 200,
+      "serviceWorker": "script",
+      "workerSha256": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+    },
+    {
+      "at": "2026-09-10T05:33:23.371Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+      "active": "B",
+      "status": 200,
+      "upstream": 4345,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:33:23.733Z",
+      "method": "GET",
+      "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+      "active": "B",
+      "status": 200,
+      "upstream": 4345,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:33:24.105Z",
+      "method": "GET",
+      "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+      "active": "B",
+      "status": 200,
+      "upstream": 4345,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:33:58.180Z",
+      "method": "GET",
+      "path": "/sw.js",
+      "active": "B",
+      "status": 200,
+      "serviceWorker": "script",
+      "workerSha256": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+    },
+    {
+      "at": "2026-09-10T05:34:29.706Z",
+      "method": "GET",
+      "path": "/?debugMap=1&postal=018956",
+      "active": "B",
+      "status": 200,
+      "upstream": 4345,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:34:29.938Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2uhq1dhpun6i0.css",
+      "active": "B",
+      "status": 200,
+      "upstream": 4345,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:34:29.961Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1bidz_3pqoxaj.js",
+      "active": "B",
+      "status": 200,
+      "upstream": 4345,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:34:30.855Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+      "active": "B",
+      "status": 200,
+      "upstream": 4345,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:34:30.858Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2ksf-gmko5a0h.js",
+      "active": "B",
+      "status": 200,
+      "upstream": 4345,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:34:30.862Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/turbopack-0ye4nq35e38nw.js",
+      "active": "B",
+      "status": 200,
+      "upstream": 4345,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:34:30.865Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2tt0yz2c_tvfb.js",
+      "active": "B",
+      "status": 200,
+      "upstream": 4345,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:34:30.902Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1bcry7qyno8a7.js",
+      "active": "B",
+      "status": 200,
+      "upstream": 4345,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:34:31.279Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3thvw71299o_s.js",
+      "active": "B",
+      "status": 200,
+      "upstream": 4345,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:34:31.695Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/06y9qu8i_rm2c.js",
+      "active": "B",
+      "status": 200,
+      "upstream": 4345,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:34:33.401Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+      "active": "B",
+      "status": 200,
+      "upstream": 4345,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:34:33.407Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2uwd0awg0-lb0.css",
+      "active": "B",
+      "status": 200,
+      "upstream": 4345,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:34:33.471Z",
+      "method": "GET",
+      "path": "/sw.js",
+      "active": "B",
+      "status": 200,
+      "serviceWorker": "script",
+      "workerSha256": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+    },
+    {
+      "at": "2026-09-10T05:34:33.496Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/026ha4e9_lua_.js",
+      "active": "B",
+      "status": 200,
+      "upstream": 4345,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:34:33.608Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "active": "B",
+      "status": 404,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:34:33.664Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+      "active": "B",
+      "status": 200,
+      "upstream": 4345,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:34:33.872Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "active": "B",
+      "status": 404,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:34:33.897Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "active": "B",
+      "status": 404,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:34:33.921Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1fcce36k0urib.js",
+      "active": "B",
+      "status": 200,
+      "upstream": 4345,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:34:34.655Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "active": "B",
+      "status": 404,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-10T05:35:16.443Z",
+      "method": "GET",
+      "path": "/sw.js",
+      "active": "B",
+      "status": 200,
+      "serviceWorker": "script",
+      "workerSha256": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+    },
+    {
+      "at": "2026-09-10T05:36:42.187Z",
+      "method": "POST",
+      "path": "/__qa/stop",
+      "active": "B",
+      "status": 204,
+      "control": true
+    }
+  ]
+}

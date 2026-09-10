@@ -1,0 +1,76 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "args": [
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_frontend_retention.py",
+    "--noconftest",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "addopts=",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\frontend-retention-green-1"
+  ],
+  "before": [
+    {
+      "path": "scripts/release_staging.py",
+      "sha256": "c4b2ef85e798666238f446f4c9cb17f9ee57251a478296793ec240b6c87a9b7e"
+    },
+    {
+      "path": "pipeline/publish.py",
+      "sha256": "c13aaa8bd1dd98ba5be3b81c881b8c54ad5c62e42235c0bc88340c26cbe05ca5"
+    },
+    {
+      "path": "tests/test_frontend_retention.py",
+      "sha256": "06d096284b533d254834d8205ac0ce9cafa5370d7de8f11cf984a8610f57abe9"
+    },
+    {
+      "path": "tests/test_release_staging.py",
+      "sha256": "12a532182925e91f9819cde1380ece9727da6efecfb7e1f89d74e16f3cf529d4"
+    },
+    {
+      "path": "tests/test_publish.py",
+      "sha256": "688ba79f7de86d163571e11b77ce7f8c0cecdbafd8fc0046b2adfba942a686d4"
+    },
+    {
+      "path": "web/next.config.js",
+      "sha256": "9dabd78e5bf0154a2438234d3b14b850af6251c55b9480dc5db0f07bd63c87ab"
+    }
+  ],
+  "after": [
+    {
+      "path": "scripts/release_staging.py",
+      "sha256": "c4b2ef85e798666238f446f4c9cb17f9ee57251a478296793ec240b6c87a9b7e"
+    },
+    {
+      "path": "pipeline/publish.py",
+      "sha256": "c13aaa8bd1dd98ba5be3b81c881b8c54ad5c62e42235c0bc88340c26cbe05ca5"
+    },
+    {
+      "path": "tests/test_frontend_retention.py",
+      "sha256": "06d096284b533d254834d8205ac0ce9cafa5370d7de8f11cf984a8610f57abe9"
+    },
+    {
+      "path": "tests/test_release_staging.py",
+      "sha256": "12a532182925e91f9819cde1380ece9727da6efecfb7e1f89d74e16f3cf529d4"
+    },
+    {
+      "path": "tests/test_publish.py",
+      "sha256": "688ba79f7de86d163571e11b77ce7f8c0cecdbafd8fc0046b2adfba942a686d4"
+    },
+    {
+      "path": "web/next.config.js",
+      "sha256": "9dabd78e5bf0154a2438234d3b14b850af6251c55b9480dc5db0f07bd63c87ab"
+    }
+  ],
+  "stable": true,
+  "exitCode": 0,
+  "signal": null,
+  "stdout": "......................                                                   [100%]\r\n22 passed in 75.57s (0:01:15)\r\n",
+  "stderr": "",
+  "elapsedSeconds": 89.901
+}

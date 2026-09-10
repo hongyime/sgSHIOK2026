@@ -23,7 +23,10 @@ MAX_JSON_BYTES = 64 * 1024 * 1024
 MAX_SOURCE_BYTES = 32 * 1024 * 1024
 MAX_TOTAL_SOURCE_BYTES = 64 * 1024 * 1024
 MAX_FILES = 20000
-BUILD_COMMAND = "node node_modules/next/dist/bin/next build"
+MAX_FRONTEND_BYTES = 64 * 1024 * 1024
+MAX_FRONTEND_FILES = 5000
+MAX_FRONTEND_GENERATIONS = 2
+BUILD_COMMAND = "node scripts/build-next-release.mjs build"
 INSTALL_COMMAND = "npm ci --ignore-scripts --no-audit --no-fund"
 GENERATED_FILES = {"web/next-env.d.ts", "web/tsconfig.tsbuildinfo"}
 GENERATED_TREES = {"web/.next", "web/node_modules"}
@@ -183,6 +186,8 @@ def _source_inventory(root: Path, revision: str) -> list[dict]:
         info, name = raw.split(b"\t", 1)
         mode, kind, oid, size = info.decode().split()
         path = _relative(name.decode("utf-8")).as_posix()
+        if path == "web/frontend-retention.json" or path.startswith("web/public/_retained/"):
+            raise ReleaseStagingError("RESERVED_RETENTION_SOURCE", path)
         if not path.startswith("web/") or mode not in {"100644", "100755"} or kind != "blob" or _private(path):
             raise ReleaseStagingError("UNSAFE_SOURCE", path)
         if path.lower() in names:
@@ -422,16 +427,174 @@ def _json_content(value: dict) -> bytes:
     return (json.dumps(value, sort_keys=True, indent=2, allow_nan=False) + "\n").encode()
 
 
+def _frontend_asset_path(value: str) -> str:
+    name = _relative(value).as_posix()
+    static = name.startswith("_next/static/") and Path(name).suffix in {
+        ".js", ".mjs", ".css", ".woff", ".woff2", ".ttf", ".otf", ".png", ".jpg", ".jpeg", ".svg", ".webp", ".avif", ".ico",
+    }
+    worker = re.fullmatch(r"maplibre/\d+\.\d+\.\d+/(?:[A-Za-z0-9_-]+/)*[A-Za-z0-9_.-]+\.(?:mjs|js)", name)
+    license_file = re.fullmatch(r"maplibre/\d+\.\d+\.\d+/LICENSE\.txt", name)
+    if not re.fullmatch(r"[A-Za-z0-9_./-]+", name) or not (static or worker or license_file):
+        raise ReleaseStagingError("UNSAFE_FRONTEND_ASSET", name)
+    return name
+
+
+def read_frontend_archives(repo_root: Path, selected: list[tuple[Path, str]]) -> list[dict]:
+    """Read explicitly pinned runtime archives, not discover or approve releases."""
+    root = _absolute(repo_root)
+    if not isinstance(selected, (list, tuple)) or len(selected) > MAX_FRONTEND_GENERATIONS:
+        raise ReleaseStagingError("FRONTEND_GENERATION_LIMIT", root)
+    results, build_ids, shared, total = [], set(), {}, 0
+    for item in selected:
+        if not isinstance(item, (tuple, list)) or len(item) != 2:
+            raise ReleaseStagingError("INVALID_FRONTEND_SELECTION", root)
+        directory, pin = item
+        directory = _absolute(directory)
+        if not any(directory.is_relative_to(base) and directory != base for base in (root / "tmp", root / "qa/frontend-assets")):
+            raise ReleaseStagingError("UNSAFE_FRONTEND_ARCHIVE", directory)
+        if not isinstance(pin, str) or not re.fullmatch(r"[a-f0-9]{64}", pin):
+            raise ReleaseStagingError("INVALID_FRONTEND_MANIFEST_SHA256", directory)
+        manifest_path = directory / "frontend-assets.json"
+        info = _plain(manifest_path)
+        if not stat.S_ISREG(info.st_mode) or not 0 < info.st_size <= 2 * 1024 * 1024:
+            raise ReleaseStagingError("FRONTEND_MANIFEST_SIZE_LIMIT", manifest_path)
+        content = manifest_path.read_bytes()
+        identity = {"bytes": len(content), "sha256": hashlib.sha256(content).hexdigest()}
+        _same(manifest_path, identity, _hash_file(manifest_path))
+        if identity["sha256"] != pin:
+            raise ReleaseStagingError("FRONTEND_MANIFEST_HASH_MISMATCH", manifest_path, expected=pin, actual=identity["sha256"])
+        def unique(pairs: list[tuple[str, Any]]) -> dict:
+            value = {}
+            for key, entry in pairs:
+                if key in value:
+                    raise ReleaseStagingError("FRONTEND_MANIFEST_DUPLICATE_KEY", manifest_path)
+                value[key] = entry
+            return value
+        try:
+            manifest = json.loads(content.decode("utf-8"), object_pairs_hook=unique)
+        except (ValueError, RecursionError) as error:
+            raise ReleaseStagingError("INVALID_FRONTEND_MANIFEST", manifest_path) from error
+        if (not isinstance(manifest, dict) or set(manifest) != {"schemaVersion", "buildId", "files"}
+                or type(manifest["schemaVersion"]) is not int or manifest["schemaVersion"] != 1
+                or not isinstance(manifest["buildId"], str) or not re.fullmatch(r"[A-Za-z0-9_-]{1,128}", manifest["buildId"])
+                or not isinstance(manifest["files"], list) or not 0 < len(manifest["files"]) <= MAX_FRONTEND_FILES):
+            raise ReleaseStagingError("INVALID_FRONTEND_MANIFEST", manifest_path)
+        build_id = manifest["buildId"]
+        if build_id in build_ids:
+            raise ReleaseStagingError("FRONTEND_BUILD_DUPLICATE", build_id)
+        build_ids.add(build_id)
+        files, names = [], set()
+        for entry in manifest["files"]:
+            if (not isinstance(entry, dict) or set(entry) != {"path", "bytes", "sha256"}
+                    or type(entry["bytes"]) is not int or entry["bytes"] < 0
+                    or not isinstance(entry["sha256"], str) or not re.fullmatch(r"[a-f0-9]{64}", entry["sha256"])):
+                raise ReleaseStagingError("INVALID_FRONTEND_MANIFEST", manifest_path)
+            name = _frontend_asset_path(entry["path"])
+            if name.lower() in names:
+                raise ReleaseStagingError("FRONTEND_ASSET_CONFLICT", name)
+            names.add(name.lower())
+            prior = shared.get(name.lower())
+            if prior is not None and prior != entry:
+                raise ReleaseStagingError("FRONTEND_ASSET_CONFLICT", name)
+            shared[name.lower()] = entry
+            total += entry["bytes"]
+            if total > MAX_FRONTEND_BYTES:
+                raise ReleaseStagingError("FRONTEND_TOTAL_SIZE_LIMIT", directory)
+            files.append(entry)
+        assets = directory / "assets"
+        if _files(assets) != sorted(entry["path"] for entry in files):
+            raise ReleaseStagingError("FRONTEND_INVENTORY_MISMATCH", assets)
+        for entry in files:
+            path = assets / entry["path"]
+            _same(path, entry, {"bytes": _plain(path).st_size, "sha256": entry["sha256"]})
+            _same(path, entry, _hash_file(path))
+        results.append({"archiveRoot": str(directory), "manifestSha256": pin, "buildId": build_id,
+                        "files": sorted(files, key=lambda entry: entry["path"])})
+    return results
+
+
+def capture_frontend_archive(repo_root: Path, build_web_root: Path, output_dir: Path, *,
+                             expected_build_id: str, maplibre_versions: list[str]) -> dict:
+    """Capture named existing build/runtime bytes; this does not prove deployment identity."""
+    root, source, output = _absolute(repo_root), _absolute(build_web_root), _absolute(output_dir)
+    _inside(source, root)
+    if source != root / "web" and not source.is_relative_to(root / "tmp"):
+        raise ReleaseStagingError("UNSAFE_FRONTEND_BUILD", source)
+    if not any(output.is_relative_to(base) and output != base for base in (root / "tmp", root / "qa/frontend-assets")):
+        raise ReleaseStagingError("UNSAFE_FRONTEND_ARCHIVE", output)
+    if output.is_relative_to(source) or source.is_relative_to(output):
+        raise ReleaseStagingError("UNSAFE_FRONTEND_ARCHIVE", output)
+    if _plain(output, missing=True) is not None:
+        raise ReleaseStagingError("DESTINATION_EXISTS", output)
+    if (not isinstance(maplibre_versions, list) or not 0 < len(maplibre_versions) <= 2
+            or any(not isinstance(v, str) or not re.fullmatch(r"\d+\.\d+\.\d+", v) for v in maplibre_versions)
+            or len(set(maplibre_versions)) != len(maplibre_versions)):
+        raise ReleaseStagingError("INVALID_FRONTEND_RUNTIME_VERSIONS", source)
+    build_path = source / ".next/BUILD_ID"
+    if _plain(build_path).st_size > 256:
+        raise ReleaseStagingError("INVALID_FRONTEND_BUILD_ID", build_path)
+    build_bytes = build_path.read_bytes()
+    build_id = build_bytes.decode("utf-8").strip()
+    if not re.fullmatch(r"[A-Za-z0-9_-]{1,128}", build_id) or build_id != expected_build_id:
+        raise ReleaseStagingError("FRONTEND_BUILD_ID_MISMATCH", build_path, expected=expected_build_id, actual=build_id)
+    directories = [(source / ".next/static", "_next/static")]
+    directories += [(source / "public/maplibre" / version, f"maplibre/{version}") for version in maplibre_versions]
+    entries, inputs, omitted, inventories, total = [], {}, [], [], 0
+    for directory, prefix in directories:
+        names = _files(directory)
+        inventories.append((directory, names))
+        if not names:
+            raise ReleaseStagingError("EMPTY_FRONTEND_RUNTIME", directory)
+        for name in names:
+            path = directory / name
+            if name.endswith(".map"):
+                omitted.append(f"{prefix}/{name}")
+                continue
+            relative = _frontend_asset_path(f"{prefix}/{name}")
+            total += _plain(path).st_size
+            if total > MAX_FRONTEND_BYTES or len(entries) >= MAX_FRONTEND_FILES:
+                raise ReleaseStagingError("FRONTEND_TOTAL_SIZE_LIMIT", source)
+            entry = {"path": relative, **_hash_file(path)}
+            entries.append(entry)
+            inputs[relative] = path
+    if not any(entry["path"].startswith("_next/static/") for entry in entries):
+        raise ReleaseStagingError("EMPTY_FRONTEND_RUNTIME", source)
+    _mkdir(output.parent)
+    output.mkdir()
+    for entry in entries:
+        copied = _hash_file(inputs[entry["path"]], output / "assets" / entry["path"])
+        _same(entry["path"], entry, copied)
+    for directory, names in inventories:
+        if _files(directory) != names:
+            raise ReleaseStagingError("FRONTEND_INVENTORY_MISMATCH", directory)
+    if build_path.read_bytes() != build_bytes:
+        raise ReleaseStagingError("FRONTEND_BUILD_ID_MISMATCH", build_path)
+    for entry in entries:
+        _same(entry["path"], entry, _hash_file(inputs[entry["path"]]))
+    identity = _write_new(output / "frontend-assets.json", _json_content({"schemaVersion": 1, "buildId": build_id,
+                           "files": sorted(entries, key=lambda entry: entry["path"])}))
+    verified = read_frontend_archives(root, [(output, identity["sha256"])])
+    return {"archiveRoot": str(output), "manifestSha256": identity["sha256"], "buildId": build_id,
+            "files": len(verified[0]["files"]), "bytes": total, "omittedSourceMaps": omitted,
+            "deploymentIdentityVerified": False}
+
+
 def prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, overlay_dir: Path,
-                          revision: str = "HEAD") -> dict:
+                          revision: str = "HEAD", previous_frontends: list[tuple[Path, str]] | None = None) -> dict:
     root, stage = _paths(repo_root, stage_dir, data_dir, overlay_dir)
     if _plain(stage, missing=True) is not None:
         raise ReleaseStagingError("DESTINATION_EXISTS", stage)
     head = _revision(root, "HEAD")
     pinned = head if revision == "HEAD" else _revision(root, revision)
     sources = _source_inventory(root, pinned)
+    frontends = read_frontend_archives(root, previous_frontends or [])
+    for frontend in frontends:
+        archive = Path(frontend["archiveRoot"])
+        if stage.is_relative_to(archive) or archive.is_relative_to(stage):
+            raise ReleaseStagingError("UNSAFE_FRONTEND_ARCHIVE", archive)
     source_names = {entry["path"] for entry in sources}
-    for required in ("web/package.json", "web/package-lock.json", "web/next.config.js", "web/data-bundle.json"):
+    for required in ("web/package.json", "web/package-lock.json", "web/next.config.js", "web/data-bundle.json",
+                     "web/scripts/build-next-release.mjs", "web/scripts/frontend-retention.mjs"):
         if required not in source_names:
             raise ReleaseStagingError("MISSING_REQUIRED_SOURCE", required)
     _mkdir(stage.parent)
@@ -448,6 +611,21 @@ def prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, o
         else:
             identity = _write_new(stage / entry["path"], content)
             files.append({"path": entry["path"], "origin": "git", **identity})
+    retained = {}
+    for frontend in frontends:
+        for entry in frontend["files"]:
+            relative = entry["path"]
+            current = stage / "web/public" / relative
+            if current.exists():
+                if _hash_file(current) != {key: entry[key] for key in ("bytes", "sha256")}:
+                    raise ReleaseStagingError("FRONTEND_ASSET_CONFLICT", relative)
+            if relative in retained:
+                continue
+            destination = f"web/public/_retained/{relative}"
+            copied = _hash_file(Path(frontend["archiveRoot"]) / "assets" / relative, stage / destination)
+            _same(destination, entry, copied)
+            retained[relative] = entry
+            files.append({"path": destination, "origin": "previous-frontend", **copied})
     for artifact in artifacts:
         origin = root / "web/public/data" / artifact["directory"]
         for entry in artifact["inputs"]:
@@ -481,7 +659,11 @@ def prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, o
     derived = [("web/vercel.json", _json_content(config), "direct-next-and-ignore-install-hooks"),
                ("web/data-bundle.json", _json_content(pointer), "selected-manifest-pointer"),
                ("web/.vercelignore", ignore, "stage-only-allowlist"),
-               (".vercelignore", ignore, "stage-only-allowlist")]
+               (".vercelignore", ignore, "stage-only-allowlist"),
+               ("web/frontend-retention.json", _json_content({"schemaVersion": 1,
+                    "buildIds": [frontend["buildId"] for frontend in frontends],
+                    "totalBytes": sum(entry["bytes"] for entry in retained.values()),
+                    "files": sorted(retained.values(), key=lambda entry: entry["path"])}), "pinned-previous-frontend-assets")]
     if "web/next-env.d.ts" in controls:
         production_types = controls["web/next-env.d.ts"].replace(b'"./.next/dev/types/', b'"./.next/types/')
         derived.append(("web/next-env.d.ts", production_types, "production-next-type-imports"))
@@ -492,6 +674,7 @@ def prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, o
     report = {"schemaVersion": 1, "status": "prepared_not_built", "repoRoot": str(root), "stageRoot": str(stage),
               "webRoot": str(stage / "web"), "sourceRevision": pinned, "headAtStart": head,
               "sourceFiles": sources, "files": sorted(files, key=lambda entry: entry["path"]), "artifacts": artifacts,
+              "previousFrontends": frontends,
               "buildPolicy": {"command": BUILD_COMMAND, "installCommand": INSTALL_COMMAND, "executed": False,
                               "localDependencies": str(root / "web/node_modules"),
                               "generatedFiles": sorted(GENERATED_FILES), "generatedFilesUntrackedOnly": True,
@@ -516,6 +699,10 @@ def _verify_inputs(root: Path, report: dict) -> None:
     for entry in report["sourceFiles"]:
         content = blobs.pop(entry["path"])
         _same(entry["path"], entry, {"bytes": len(content), "sha256": hashlib.sha256(content).hexdigest()})
+    expected_frontends = report.get("previousFrontends", [])
+    actual_frontends = read_frontend_archives(root, [(Path(item["archiveRoot"]), item["manifestSha256"]) for item in expected_frontends])
+    if actual_frontends != expected_frontends:
+        raise ReleaseStagingError("FRONTEND_INVENTORY_MISMATCH", root)
     for artifact in report["artifacts"]:
         origin = root / "web/public/data" / artifact["directory"]
         _paths(root, Path(report["stageRoot"]), origin)

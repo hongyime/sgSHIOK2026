@@ -1,0 +1,2074 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "ad3e99a885e592baa805d45c3f954651d339e39c",
+  "commands": [
+    {
+      "exe": "git",
+      "args": [
+        "diff",
+        "ad3e99a885e592baa805d45c3f954651d339e39c",
+        "--",
+        "pipeline/config/weights.yaml",
+        "raw",
+        "processed",
+        "web/public/data",
+        "checksums.json",
+        "qa/releases",
+        "qa/p6_*",
+        "qa/p7_*",
+        "qa/p8_*",
+        "qa/p9_*",
+        "qa/p10_*",
+        "qa/p11/d_*"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "exe": "git",
+      "args": [
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "exe": "git",
+      "args": [
+        "check-ignore",
+        "-v",
+        "qa/verification/REVAMP-R1-core-walk.md"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "exe": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-B",
+        "C:\\sgSHIOK2026\\scripts\\check_repo_integrity.py"
+      ],
+      "exitCode": 0,
+      "stdout": "repo_integrity=ok\r\n",
+      "stderr": ""
+    }
+  ],
+  "web": {
+    "path": "qa/revamp-r1/frontend-retention-20260910/web-full-2/checks.json",
+    "ok": true,
+    "counts": [
+      "Test Files  64 passed (64)",
+      "Tests  1744 passed (1744)"
+    ],
+    "sourceCount": 149
+  },
+  "sources": [
+    {
+      "path": "web/.gitignore",
+      "sha256": "6fe16e5e5dad9408c6a9082604c816d8067641ae1b5e59aceb90eb51c1088c63",
+      "current": "6fe16e5e5dad9408c6a9082604c816d8067641ae1b5e59aceb90eb51c1088c63",
+      "built": "6fe16e5e5dad9408c6a9082604c816d8067641ae1b5e59aceb90eb51c1088c63"
+    },
+    {
+      "path": "web/.vercelignore",
+      "sha256": "b3d8b2181a750cb269414b575e25bb4e1300d0c31f32b5930abf4d089f4d4ccc",
+      "current": "b3d8b2181a750cb269414b575e25bb4e1300d0c31f32b5930abf4d089f4d4ccc",
+      "built": "b3d8b2181a750cb269414b575e25bb4e1300d0c31f32b5930abf4d089f4d4ccc"
+    },
+    {
+      "path": "web/app/api/onemap-route/route.ts",
+      "sha256": "0a8885496fd124ae5807586597961eb826c36e813e488784db86b6b3c3197184",
+      "current": "0a8885496fd124ae5807586597961eb826c36e813e488784db86b6b3c3197184",
+      "built": "0a8885496fd124ae5807586597961eb826c36e813e488784db86b6b3c3197184"
+    },
+    {
+      "path": "web/app/api/onemap-search/route.ts",
+      "sha256": "ce9b6557e4dc193a3f9dd477ed5c6dd3b52c48aa7cc66bf403d61029ed2526a5",
+      "current": "ce9b6557e4dc193a3f9dd477ed5c6dd3b52c48aa7cc66bf403d61029ed2526a5",
+      "built": "ce9b6557e4dc193a3f9dd477ed5c6dd3b52c48aa7cc66bf403d61029ed2526a5"
+    },
+    {
+      "path": "web/app/api/onemap.ts",
+      "sha256": "897129fc36ef7da8dec7f12008e06e4ae1181225ffc5b50518f05ba5d255bf98",
+      "current": "897129fc36ef7da8dec7f12008e06e4ae1181225ffc5b50518f05ba5d255bf98",
+      "built": "897129fc36ef7da8dec7f12008e06e4ae1181225ffc5b50518f05ba5d255bf98"
+    },
+    {
+      "path": "web/app/global-error.tsx",
+      "sha256": "e6b738234f7025de84b7245067bc38cd99c33f0379f0a7d07048815346bd15d9",
+      "current": "e6b738234f7025de84b7245067bc38cd99c33f0379f0a7d07048815346bd15d9",
+      "built": "e6b738234f7025de84b7245067bc38cd99c33f0379f0a7d07048815346bd15d9"
+    },
+    {
+      "path": "web/app/icon.svg",
+      "sha256": "c0bd7140b0fdf9ef8220017c4a07428301ab84e80c4090acd36da4c0da9d0dd2",
+      "current": "c0bd7140b0fdf9ef8220017c4a07428301ab84e80c4090acd36da4c0da9d0dd2",
+      "built": "c0bd7140b0fdf9ef8220017c4a07428301ab84e80c4090acd36da4c0da9d0dd2"
+    },
+    {
+      "path": "web/app/layout.tsx",
+      "sha256": "629503df867c00de8bac541deac30d6f16f5cd2800f4540422d407c318d21350",
+      "current": "629503df867c00de8bac541deac30d6f16f5cd2800f4540422d407c318d21350",
+      "built": "629503df867c00de8bac541deac30d6f16f5cd2800f4540422d407c318d21350"
+    },
+    {
+      "path": "web/app/page.module.css",
+      "sha256": "90594191b9e7894e2165de26164cdd8d5630b821dd6a01ce682526d2ee00777b",
+      "current": "90594191b9e7894e2165de26164cdd8d5630b821dd6a01ce682526d2ee00777b",
+      "built": "90594191b9e7894e2165de26164cdd8d5630b821dd6a01ce682526d2ee00777b"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "7de9e69f3d1aea5555c8211393c50fce6963d5d08e3a6f83b05f6f04c784a6fe",
+      "current": "7de9e69f3d1aea5555c8211393c50fce6963d5d08e3a6f83b05f6f04c784a6fe",
+      "built": "7de9e69f3d1aea5555c8211393c50fce6963d5d08e3a6f83b05f6f04c784a6fe"
+    },
+    {
+      "path": "web/app/robots.ts",
+      "sha256": "114d20450cca32f28485448c758c031fa7479b699ba8673e21d115875b66e078",
+      "current": "114d20450cca32f28485448c758c031fa7479b699ba8673e21d115875b66e078",
+      "built": "114d20450cca32f28485448c758c031fa7479b699ba8673e21d115875b66e078"
+    },
+    {
+      "path": "web/app/sitemap.ts",
+      "sha256": "e7ccaa26063b9f0dfce8eb2b7e7b7a7ed3a50681644c2baeb40cc6e348da7ea5",
+      "current": "e7ccaa26063b9f0dfce8eb2b7e7b7a7ed3a50681644c2baeb40cc6e348da7ea5",
+      "built": "e7ccaa26063b9f0dfce8eb2b7e7b7a7ed3a50681644c2baeb40cc6e348da7ea5"
+    },
+    {
+      "path": "web/components/comparison-share-dialog.module.css",
+      "sha256": "d3cf3adf495462302dce41ed3f33ead9bd7f2d0340b39de97e3f86a2809d7e04",
+      "current": "d3cf3adf495462302dce41ed3f33ead9bd7f2d0340b39de97e3f86a2809d7e04",
+      "built": "d3cf3adf495462302dce41ed3f33ead9bd7f2d0340b39de97e3f86a2809d7e04"
+    },
+    {
+      "path": "web/components/comparison-share-dialog.tsx",
+      "sha256": "c13424b420ca97473599301f832a811dc74d3e79b97f3ceecec1832026abf71b",
+      "current": "c13424b420ca97473599301f832a811dc74d3e79b97f3ceecec1832026abf71b",
+      "built": "c13424b420ca97473599301f832a811dc74d3e79b97f3ceecec1832026abf71b"
+    },
+    {
+      "path": "web/components/exposure-section-explorer.module.css",
+      "sha256": "a3540b60e154b08b30e04035589b4728cd20a938b3684cefa652e80553294a5a",
+      "current": "a3540b60e154b08b30e04035589b4728cd20a938b3684cefa652e80553294a5a",
+      "built": "a3540b60e154b08b30e04035589b4728cd20a938b3684cefa652e80553294a5a"
+    },
+    {
+      "path": "web/components/exposure-section-explorer.tsx",
+      "sha256": "ea7dda0c0ec66e33a4050e4ab1c8bd169bf2c419f54eeb6032cddeb1107458cd",
+      "current": "ea7dda0c0ec66e33a4050e4ab1c8bd169bf2c419f54eeb6032cddeb1107458cd",
+      "built": "ea7dda0c0ec66e33a4050e4ab1c8bd169bf2c419f54eeb6032cddeb1107458cd"
+    },
+    {
+      "path": "web/components/failure-diagnostics-control.module.css",
+      "sha256": "9d7aaa37a75c122df1c99ef38295d1a8219a7413ba3ee3bc9e76d29dac83b802",
+      "current": "9d7aaa37a75c122df1c99ef38295d1a8219a7413ba3ee3bc9e76d29dac83b802",
+      "built": "9d7aaa37a75c122df1c99ef38295d1a8219a7413ba3ee3bc9e76d29dac83b802"
+    },
+    {
+      "path": "web/components/failure-diagnostics-control.tsx",
+      "sha256": "87023b56eb9e9bae6303cfa78c973295f4fbc56c506bc3804e0a58e7945234b0",
+      "current": "87023b56eb9e9bae6303cfa78c973295f4fbc56c506bc3804e0a58e7945234b0",
+      "built": "87023b56eb9e9bae6303cfa78c973295f4fbc56c506bc3804e0a58e7945234b0"
+    },
+    {
+      "path": "web/components/home-comparison.module.css",
+      "sha256": "ef4559e8f1e671a3f95c9d440f39b30178b45c54840e8f1546bee0439d285773",
+      "current": "ef4559e8f1e671a3f95c9d440f39b30178b45c54840e8f1546bee0439d285773",
+      "built": "ef4559e8f1e671a3f95c9d440f39b30178b45c54840e8f1546bee0439d285773"
+    },
+    {
+      "path": "web/components/home-comparison.tsx",
+      "sha256": "115bd6eb50de80817468e1d2f98d7def3640036ab823c6212ba2c3cdca2d0ab8",
+      "current": "115bd6eb50de80817468e1d2f98d7def3640036ab823c6212ba2c3cdca2d0ab8",
+      "built": "115bd6eb50de80817468e1d2f98d7def3640036ab823c6212ba2c3cdca2d0ab8"
+    },
+    {
+      "path": "web/components/route-evidence-map.module.css",
+      "sha256": "ab32c76913f123a9ad69f64cfac953d51387ce5de8b2c7af2da0711d76b566d0",
+      "current": "ab32c76913f123a9ad69f64cfac953d51387ce5de8b2c7af2da0711d76b566d0",
+      "built": "ab32c76913f123a9ad69f64cfac953d51387ce5de8b2c7af2da0711d76b566d0"
+    },
+    {
+      "path": "web/components/route-evidence-map.tsx",
+      "sha256": "7e492fa0753b6e59e000fddfafe4ef3ea92237b3996301aca141d3ab2b6c7dc0",
+      "current": "7e492fa0753b6e59e000fddfafe4ef3ea92237b3996301aca141d3ab2b6c7dc0",
+      "built": "7e492fa0753b6e59e000fddfafe4ef3ea92237b3996301aca141d3ab2b6c7dc0"
+    },
+    {
+      "path": "web/components/route-map-loader.tsx",
+      "sha256": "4a9c4dba5e545a6b6f9bf9296a8a22eb7cfe29cee401c27c54d3c38fac32c93b",
+      "current": "4a9c4dba5e545a6b6f9bf9296a8a22eb7cfe29cee401c27c54d3c38fac32c93b",
+      "built": "4a9c4dba5e545a6b6f9bf9296a8a22eb7cfe29cee401c27c54d3c38fac32c93b"
+    },
+    {
+      "path": "web/components/transit-stop-picker.module.css",
+      "sha256": "aac04993ce4fae9e5b222a853bfd0f20e53197ae9bbffff3ca634596bcb7f974",
+      "current": "aac04993ce4fae9e5b222a853bfd0f20e53197ae9bbffff3ca634596bcb7f974",
+      "built": "aac04993ce4fae9e5b222a853bfd0f20e53197ae9bbffff3ca634596bcb7f974"
+    },
+    {
+      "path": "web/components/transit-stop-picker.tsx",
+      "sha256": "7637b29f320581f6e04778984c3aefd33e55d31ee9f3e196fa608f5bd5e52143",
+      "current": "7637b29f320581f6e04778984c3aefd33e55d31ee9f3e196fa608f5bd5e52143",
+      "built": "7637b29f320581f6e04778984c3aefd33e55d31ee9f3e196fa608f5bd5e52143"
+    },
+    {
+      "path": "web/components/walk-summary.tsx",
+      "sha256": "bf80c05b259e1c634bd3171eb1a6fe11198b4f3cca035175a45b55ef307a3e9f",
+      "current": "bf80c05b259e1c634bd3171eb1a6fe11198b4f3cca035175a45b55ef307a3e9f",
+      "built": "bf80c05b259e1c634bd3171eb1a6fe11198b4f3cca035175a45b55ef307a3e9f"
+    },
+    {
+      "path": "web/data-bundle.json",
+      "sha256": "d5ce7703d5ee6b39651947749f9bd2f4c6d642fe2af06e1d9324671ce8f009e8",
+      "current": "d5ce7703d5ee6b39651947749f9bd2f4c6d642fe2af06e1d9324671ce8f009e8",
+      "built": "d5ce7703d5ee6b39651947749f9bd2f4c6d642fe2af06e1d9324671ce8f009e8"
+    },
+    {
+      "path": "web/lib/__tests__/accessibility-render.test.tsx",
+      "sha256": "cbd7ad9c2e40749961f0d8ba9b49e44fd7c63a2abb7b2da83d1b6f18c2c073c8",
+      "current": "cbd7ad9c2e40749961f0d8ba9b49e44fd7c63a2abb7b2da83d1b6f18c2c073c8",
+      "built": "cbd7ad9c2e40749961f0d8ba9b49e44fd7c63a2abb7b2da83d1b6f18c2c073c8"
+    },
+    {
+      "path": "web/lib/__tests__/artifact-failure.test.ts",
+      "sha256": "e1b80c6786e7f7ede3e3af8009e5a4455286b3289f040695ac577d5e6fb19487",
+      "current": "e1b80c6786e7f7ede3e3af8009e5a4455286b3289f040695ac577d5e6fb19487",
+      "built": "e1b80c6786e7f7ede3e3af8009e5a4455286b3289f040695ac577d5e6fb19487"
+    },
+    {
+      "path": "web/lib/__tests__/comparison-controller.test.ts",
+      "sha256": "b0c63bef195b319afb43aeb11d275f7d2468f829bb38974f539d2d2138d58e9a",
+      "current": "b0c63bef195b319afb43aeb11d275f7d2468f829bb38974f539d2d2138d58e9a",
+      "built": "b0c63bef195b319afb43aeb11d275f7d2468f829bb38974f539d2d2138d58e9a"
+    },
+    {
+      "path": "web/lib/__tests__/comparison-link.test.ts",
+      "sha256": "08644514ac30961184d36c7fe8203700a2f47196e938a52f40af98b188402790",
+      "current": "08644514ac30961184d36c7fe8203700a2f47196e938a52f40af98b188402790",
+      "built": "08644514ac30961184d36c7fe8203700a2f47196e938a52f40af98b188402790"
+    },
+    {
+      "path": "web/lib/__tests__/comparison-share-dialog.test.tsx",
+      "sha256": "a859500d0ec694e467c0c4676854eb4512f611b00627ec419dd918597d198d6c",
+      "current": "a859500d0ec694e467c0c4676854eb4512f611b00627ec419dd918597d198d6c",
+      "built": "a859500d0ec694e467c0c4676854eb4512f611b00627ec419dd918597d198d6c"
+    },
+    {
+      "path": "web/lib/__tests__/comparison-shared-controller.test.ts",
+      "sha256": "4b2cbbdfba2b8433a9212727f8ce77c957a35470f2cfa14c353277cab3cfc503",
+      "current": "4b2cbbdfba2b8433a9212727f8ce77c957a35470f2cfa14c353277cab3cfc503",
+      "built": "4b2cbbdfba2b8433a9212727f8ce77c957a35470f2cfa14c353277cab3cfc503"
+    },
+    {
+      "path": "web/lib/__tests__/comparison-state.test.ts",
+      "sha256": "c2d8bbaf01ebc70df02b26a55ed61a46fafa9b1d4420312d11d5665aa48afbb8",
+      "current": "c2d8bbaf01ebc70df02b26a55ed61a46fafa9b1d4420312d11d5665aa48afbb8",
+      "built": "c2d8bbaf01ebc70df02b26a55ed61a46fafa9b1d4420312d11d5665aa48afbb8"
+    },
+    {
+      "path": "web/lib/__tests__/comparison.test.ts",
+      "sha256": "fb8ab02661fa1210c5c8987f1f655573fec90cfbdffbf293fdf66c1f0416a5f1",
+      "current": "fb8ab02661fa1210c5c8987f1f655573fec90cfbdffbf293fdf66c1f0416a5f1",
+      "built": "fb8ab02661fa1210c5c8987f1f655573fec90cfbdffbf293fdf66c1f0416a5f1"
+    },
+    {
+      "path": "web/lib/__tests__/coverage-gap-register.test.ts",
+      "sha256": "182ea7b1a65dcd173e05ec507b6d7c42d3fa5920981208041ccbd4d470920db2",
+      "current": "182ea7b1a65dcd173e05ec507b6d7c42d3fa5920981208041ccbd4d470920db2",
+      "built": "182ea7b1a65dcd173e05ec507b6d7c42d3fa5920981208041ccbd4d470920db2"
+    },
+    {
+      "path": "web/lib/__tests__/data-base.test.ts",
+      "sha256": "741336b2f620f1567d7715270aa04245e0d0f57ab3436632d77a666e60ab1c02",
+      "current": "741336b2f620f1567d7715270aa04245e0d0f57ab3436632d77a666e60ab1c02",
+      "built": "741336b2f620f1567d7715270aa04245e0d0f57ab3436632d77a666e60ab1c02"
+    },
+    {
+      "path": "web/lib/__tests__/data-cache-recovery.test.ts",
+      "sha256": "f6f8300f0217f927a720e64f1a3a17eb3d6bbc0ee28868ad428c377ee42b187f",
+      "current": "f6f8300f0217f927a720e64f1a3a17eb3d6bbc0ee28868ad428c377ee42b187f",
+      "built": "f6f8300f0217f927a720e64f1a3a17eb3d6bbc0ee28868ad428c377ee42b187f"
+    },
+    {
+      "path": "web/lib/__tests__/data-failure-diagnostics.test.ts",
+      "sha256": "a10d85b14a60e0ddbc9370181710d20165799812687e2cc97a9e704c33246265",
+      "current": "a10d85b14a60e0ddbc9370181710d20165799812687e2cc97a9e704c33246265",
+      "built": "a10d85b14a60e0ddbc9370181710d20165799812687e2cc97a9e704c33246265"
+    },
+    {
+      "path": "web/lib/__tests__/data-fetch-policy.test.ts",
+      "sha256": "b65c4773c49fa2b94d2b86c896ce4141a9f82d113dc090abd4507eb33d812ea1",
+      "current": "b65c4773c49fa2b94d2b86c896ce4141a9f82d113dc090abd4507eb33d812ea1",
+      "built": "b65c4773c49fa2b94d2b86c896ce4141a9f82d113dc090abd4507eb33d812ea1"
+    },
+    {
+      "path": "web/lib/__tests__/data.test.ts",
+      "sha256": "6d0b688fffe7ae02debb1fcc61e4c4b9745c1de68e556056e794070c1618e763",
+      "current": "6d0b688fffe7ae02debb1fcc61e4c4b9745c1de68e556056e794070c1618e763",
+      "built": "6d0b688fffe7ae02debb1fcc61e4c4b9745c1de68e556056e794070c1618e763"
+    },
+    {
+      "path": "web/lib/__tests__/deployment.test.ts",
+      "sha256": "c37761ba1862d0ad5fe35e2f499deae281c59ca17574168c51a84cc141831e78",
+      "current": "c37761ba1862d0ad5fe35e2f499deae281c59ca17574168c51a84cc141831e78",
+      "built": "c37761ba1862d0ad5fe35e2f499deae281c59ca17574168c51a84cc141831e78"
+    },
+    {
+      "path": "web/lib/__tests__/ensure-data-bundle.test.mjs",
+      "sha256": "4e5e8c4373e523ea3edcca0c66d2bf0e67f6b4314bf61430648bd277e58c555c",
+      "current": "4e5e8c4373e523ea3edcca0c66d2bf0e67f6b4314bf61430648bd277e58c555c",
+      "built": "4e5e8c4373e523ea3edcca0c66d2bf0e67f6b4314bf61430648bd277e58c555c"
+    },
+    {
+      "path": "web/lib/__tests__/exposure-section-explorer.test.tsx",
+      "sha256": "17615388d819cef0b3c8b43e6e03a39af54bdbaef280a64841994f3a878f7c71",
+      "current": "17615388d819cef0b3c8b43e6e03a39af54bdbaef280a64841994f3a878f7c71",
+      "built": "17615388d819cef0b3c8b43e6e03a39af54bdbaef280a64841994f3a878f7c71"
+    },
+    {
+      "path": "web/lib/__tests__/failure-diagnostics-control.test.tsx",
+      "sha256": "33a50d8a232d14b834969d930448e4817913f13e787a6cf2874b1c5c72b84ea4",
+      "current": "33a50d8a232d14b834969d930448e4817913f13e787a6cf2874b1c5c72b84ea4",
+      "built": "33a50d8a232d14b834969d930448e4817913f13e787a6cf2874b1c5c72b84ea4"
+    },
+    {
+      "path": "web/lib/__tests__/failure-diagnostics.test.ts",
+      "sha256": "32de671af613525520f5555af6ad7d3dd50e0662e34b6459fe058f60e9f0adb9",
+      "current": "32de671af613525520f5555af6ad7d3dd50e0662e34b6459fe058f60e9f0adb9",
+      "built": "32de671af613525520f5555af6ad7d3dd50e0662e34b6459fe058f60e9f0adb9"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-data.ts",
+      "sha256": "078361aabbb455955ad70e9cef10a22121fb69476481031cb118b7aee8b990be",
+      "current": "078361aabbb455955ad70e9cef10a22121fb69476481031cb118b7aee8b990be",
+      "built": "078361aabbb455955ad70e9cef10a22121fb69476481031cb118b7aee8b990be"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-options.json",
+      "sha256": "6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7",
+      "current": "6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7",
+      "built": "6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-options.provenance.json",
+      "sha256": "8d0ac40ff2cc3616f2f41eec68b2712982859d301917373aa894ec49f37bf91a",
+      "current": "8d0ac40ff2cc3616f2f41eec68b2712982859d301917373aa894ec49f37bf91a",
+      "built": "8d0ac40ff2cc3616f2f41eec68b2712982859d301917373aa894ec49f37bf91a"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-walks.json",
+      "sha256": "e29cc74ce7ec9f69b360e596a2ecd6b07e4cba453bb46b2cc091c9ff61036c86",
+      "current": "e29cc74ce7ec9f69b360e596a2ecd6b07e4cba453bb46b2cc091c9ff61036c86",
+      "built": "e29cc74ce7ec9f69b360e596a2ecd6b07e4cba453bb46b2cc091c9ff61036c86"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-walks.provenance.json",
+      "sha256": "485e9d62fe1488c5cbd8086cdc9a26efc7cb83ec4dc4770b58dddc387c47826d",
+      "current": "485e9d62fe1488c5cbd8086cdc9a26efc7cb83ec4dc4770b58dddc387c47826d",
+      "built": "485e9d62fe1488c5cbd8086cdc9a26efc7cb83ec4dc4770b58dddc387c47826d"
+    },
+    {
+      "path": "web/lib/__tests__/frontend-retention.test.ts",
+      "sha256": "0c6ea5ec349080249c6f51ae647db4410f0d3df669d5b8f5d8c6e6c1dae772e9",
+      "current": "0c6ea5ec349080249c6f51ae647db4410f0d3df669d5b8f5d8c6e6c1dae772e9",
+      "built": "0c6ea5ec349080249c6f51ae647db4410f0d3df669d5b8f5d8c6e6c1dae772e9"
+    },
+    {
+      "path": "web/lib/__tests__/geom-promoted-shard.test.ts",
+      "sha256": "afbbce3371614bd859684f186d0dd98216f7649ad8cd9a5d56fa941f76050c0d",
+      "current": "afbbce3371614bd859684f186d0dd98216f7649ad8cd9a5d56fa941f76050c0d",
+      "built": "afbbce3371614bd859684f186d0dd98216f7649ad8cd9a5d56fa941f76050c0d"
+    },
+    {
+      "path": "web/lib/__tests__/geometry-recovery.test.ts",
+      "sha256": "7609499e054ac0110892542288c38d8d76e4aaedad1bef8f8bfa79d67679e8e4",
+      "current": "7609499e054ac0110892542288c38d8d76e4aaedad1bef8f8bfa79d67679e8e4",
+      "built": "7609499e054ac0110892542288c38d8d76e4aaedad1bef8f8bfa79d67679e8e4"
+    },
+    {
+      "path": "web/lib/__tests__/global-error.test.tsx",
+      "sha256": "be3a87a92862d20d3f4fab18ec1710152cde8f28afa50b7a19f29448d7b95460",
+      "current": "be3a87a92862d20d3f4fab18ec1710152cde8f28afa50b7a19f29448d7b95460",
+      "built": "be3a87a92862d20d3f4fab18ec1710152cde8f28afa50b7a19f29448d7b95460"
+    },
+    {
+      "path": "web/lib/__tests__/home-comparison.test.tsx",
+      "sha256": "319490d1298a675626699e35c827d4185c12a81baee88b4c20b3dba36167d360",
+      "current": "319490d1298a675626699e35c827d4185c12a81baee88b4c20b3dba36167d360",
+      "built": "319490d1298a675626699e35c827d4185c12a81baee88b4c20b3dba36167d360"
+    },
+    {
+      "path": "web/lib/__tests__/ignore-build.test.mjs",
+      "sha256": "a0f94ed9a81c5bb2da2bcb22d3864e3851e16ecdd450f9d880042d2198a20c55",
+      "current": "a0f94ed9a81c5bb2da2bcb22d3864e3851e16ecdd450f9d880042d2198a20c55",
+      "built": "a0f94ed9a81c5bb2da2bcb22d3864e3851e16ecdd450f9d880042d2198a20c55"
+    },
+    {
+      "path": "web/lib/__tests__/lamp-overlay.test.ts",
+      "sha256": "4721ae09349fcbe885588385578198415ddbda952d659ec2287517a0a36d5b1e",
+      "current": "4721ae09349fcbe885588385578198415ddbda952d659ec2287517a0a36d5b1e",
+      "built": "4721ae09349fcbe885588385578198415ddbda952d659ec2287517a0a36d5b1e"
+    },
+    {
+      "path": "web/lib/__tests__/live-route-scoring.test.ts",
+      "sha256": "70135b45edec85599df3b31652394f427976128c91eef586988ad4f0510c7284",
+      "current": "70135b45edec85599df3b31652394f427976128c91eef586988ad4f0510c7284",
+      "built": "70135b45edec85599df3b31652394f427976128c91eef586988ad4f0510c7284"
+    },
+    {
+      "path": "web/lib/__tests__/locked-score-availability.test.ts",
+      "sha256": "1ebf79cabb1f31f486cce37d0e8252285f18cccbca8a7d5f467b4f72c6c7967e",
+      "current": "1ebf79cabb1f31f486cce37d0e8252285f18cccbca8a7d5f467b4f72c6c7967e",
+      "built": "1ebf79cabb1f31f486cce37d0e8252285f18cccbca8a7d5f467b4f72c6c7967e"
+    },
+    {
+      "path": "web/lib/__tests__/map-first-shell.test.ts",
+      "sha256": "11050f4e65d7c081ec53a979fc683347181a611b44b0793fffbee6834f637613",
+      "current": "11050f4e65d7c081ec53a979fc683347181a611b44b0793fffbee6834f637613",
+      "built": "11050f4e65d7c081ec53a979fc683347181a611b44b0793fffbee6834f637613"
+    },
+    {
+      "path": "web/lib/__tests__/map-recovery-actions.test.tsx",
+      "sha256": "0a57110b9923681e76e04dbadc7534568168789b0435b72e7c0d6bbcd079e732",
+      "current": "0a57110b9923681e76e04dbadc7534568168789b0435b72e7c0d6bbcd079e732",
+      "built": "0a57110b9923681e76e04dbadc7534568168789b0435b72e7c0d6bbcd079e732"
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-import.test.ts",
+      "sha256": "2fcaa4f52893993199402dbf914b72a668e4cc73857cdae5a4adc60f2ed9e165",
+      "current": "2fcaa4f52893993199402dbf914b72a668e4cc73857cdae5a4adc60f2ed9e165",
+      "built": "2fcaa4f52893993199402dbf914b72a668e4cc73857cdae5a4adc60f2ed9e165"
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-stage.test.ts",
+      "sha256": "6ef58ab39e9685719002114ff9233babb737380886445f70f88c24191560d093",
+      "current": "6ef58ab39e9685719002114ff9233babb737380886445f70f88c24191560d093",
+      "built": "6ef58ab39e9685719002114ff9233babb737380886445f70f88c24191560d093"
+    },
+    {
+      "path": "web/lib/__tests__/map-viewport.test.ts",
+      "sha256": "28b270a28cad8d9429a6915d4fd1443e198ab817225adfabbce40ec4e06e2b56",
+      "current": "28b270a28cad8d9429a6915d4fd1443e198ab817225adfabbce40ec4e06e2b56",
+      "built": "28b270a28cad8d9429a6915d4fd1443e198ab817225adfabbce40ec4e06e2b56"
+    },
+    {
+      "path": "web/lib/__tests__/map-worker.test.ts",
+      "sha256": "9d589c548c06e90a4530addb5f15bb691c5e352d5adc2c73672c8d14d2f7a29a",
+      "current": "9d589c548c06e90a4530addb5f15bb691c5e352d5adc2c73672c8d14d2f7a29a",
+      "built": "9d589c548c06e90a4530addb5f15bb691c5e352d5adc2c73672c8d14d2f7a29a"
+    },
+    {
+      "path": "web/lib/__tests__/onemap-api-security.test.ts",
+      "sha256": "be7b8f13516e8813b3886c18d77b6934329a6123c18cf96f1ff94d75c3b8c5d0",
+      "current": "be7b8f13516e8813b3886c18d77b6934329a6123c18cf96f1ff94d75c3b8c5d0",
+      "built": "be7b8f13516e8813b3886c18d77b6934329a6123c18cf96f1ff94d75c3b8c5d0"
+    },
+    {
+      "path": "web/lib/__tests__/onemap-search.test.ts",
+      "sha256": "d4b2a218584763407356162680f939648096a4a0f3d470a2d15a4b5aec6be26c",
+      "current": "d4b2a218584763407356162680f939648096a4a0f3d470a2d15a4b5aec6be26c",
+      "built": "d4b2a218584763407356162680f939648096a4a0f3d470a2d15a4b5aec6be26c"
+    },
+    {
+      "path": "web/lib/__tests__/polyline.test.ts",
+      "sha256": "8c449899dabe2cdfd9dbab156bb059739976e1d677e96dc0a77debf0bf3741f6",
+      "current": "8c449899dabe2cdfd9dbab156bb059739976e1d677e96dc0a77debf0bf3741f6",
+      "built": "8c449899dabe2cdfd9dbab156bb059739976e1d677e96dc0a77debf0bf3741f6"
+    },
+    {
+      "path": "web/lib/__tests__/published-exposure-sections.test.ts",
+      "sha256": "cd0d6511922174d22d6415893a39d81d5af8c783c5857d9dd96d4e78cc08a298",
+      "current": "cd0d6511922174d22d6415893a39d81d5af8c783c5857d9dd96d4e78cc08a298",
+      "built": "cd0d6511922174d22d6415893a39d81d5af8c783c5857d9dd96d4e78cc08a298"
+    },
+    {
+      "path": "web/lib/__tests__/published-options-fixture.test.ts",
+      "sha256": "9b33bffe9ba63063bbd64a6dfd716c761aaeff20f2b89dc22a16ee38a564f55a",
+      "current": "9b33bffe9ba63063bbd64a6dfd716c761aaeff20f2b89dc22a16ee38a564f55a",
+      "built": "9b33bffe9ba63063bbd64a6dfd716c761aaeff20f2b89dc22a16ee38a564f55a"
+    },
+    {
+      "path": "web/lib/__tests__/published-transit-choices.test.ts",
+      "sha256": "6e7890504b25deb486c2eef84556d3639aebd14a00ed24a622272e324fed4095",
+      "current": "6e7890504b25deb486c2eef84556d3639aebd14a00ed24a622272e324fed4095",
+      "built": "6e7890504b25deb486c2eef84556d3639aebd14a00ed24a622272e324fed4095"
+    },
+    {
+      "path": "web/lib/__tests__/published-transit-options.test.ts",
+      "sha256": "a701a1b913cfad5b37c7cf833e5c58f786ebfbe80dd2d8a4d292ef99b8b261e2",
+      "current": "a701a1b913cfad5b37c7cf833e5c58f786ebfbe80dd2d8a4d292ef99b8b261e2",
+      "built": "a701a1b913cfad5b37c7cf833e5c58f786ebfbe80dd2d8a4d292ef99b8b261e2"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "sha256": "715d22d72f767d42cf313c586982fb37cd5d7ba9fdd888146077460a493b3217",
+      "current": "715d22d72f767d42cf313c586982fb37cd5d7ba9fdd888146077460a493b3217",
+      "built": "715d22d72f767d42cf313c586982fb37cd5d7ba9fdd888146077460a493b3217"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-selection.test.ts",
+      "sha256": "9942fe62a109c62190ea0a1084d23309dcb052b2a7a618ec68c7b4f86c25669a",
+      "current": "9942fe62a109c62190ea0a1084d23309dcb052b2a7a618ec68c7b4f86c25669a",
+      "built": "9942fe62a109c62190ea0a1084d23309dcb052b2a7a618ec68c7b4f86c25669a"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-view.test.ts",
+      "sha256": "cc828c29aa420f75227c1e7a60ab2cf1f29a19784fa076e1099275efb115de48",
+      "current": "cc828c29aa420f75227c1e7a60ab2cf1f29a19784fa076e1099275efb115de48",
+      "built": "cc828c29aa420f75227c1e7a60ab2cf1f29a19784fa076e1099275efb115de48"
+    },
+    {
+      "path": "web/lib/__tests__/rank-payload.test.ts",
+      "sha256": "611e7a69751489944084f62ba928000c51a4c725680df3a5bae3533ac366056b",
+      "current": "611e7a69751489944084f62ba928000c51a4c725680df3a5bae3533ac366056b",
+      "built": "611e7a69751489944084f62ba928000c51a4c725680df3a5bae3533ac366056b"
+    },
+    {
+      "path": "web/lib/__tests__/revamp-layout.test.ts",
+      "sha256": "9e6613d07cbd93083541166605cc40eb82290790290f379b7058cea291868485",
+      "current": "9e6613d07cbd93083541166605cc40eb82290790290f379b7058cea291868485",
+      "built": "9e6613d07cbd93083541166605cc40eb82290790290f379b7058cea291868485"
+    },
+    {
+      "path": "web/lib/__tests__/route-display.test.ts",
+      "sha256": "2c54d6d61a4d7ab9083ab9ac0cd1271300cf2b7eaf2d623627b251329c41d0a4",
+      "current": "2c54d6d61a4d7ab9083ab9ac0cd1271300cf2b7eaf2d623627b251329c41d0a4",
+      "built": "2c54d6d61a4d7ab9083ab9ac0cd1271300cf2b7eaf2d623627b251329c41d0a4"
+    },
+    {
+      "path": "web/lib/__tests__/route-evidence-map-interaction.test.ts",
+      "sha256": "1576b6aebd5da2542a497519b72669fff08bbdc37ae35219c8e523ee79e93740",
+      "current": "1576b6aebd5da2542a497519b72669fff08bbdc37ae35219c8e523ee79e93740",
+      "built": "1576b6aebd5da2542a497519b72669fff08bbdc37ae35219c8e523ee79e93740"
+    },
+    {
+      "path": "web/lib/__tests__/route-geojson.test.ts",
+      "sha256": "c19e3d9963fde623b3024fb3aacf0086f5bb9271ece1f85a9faa14865958314e",
+      "current": "c19e3d9963fde623b3024fb3aacf0086f5bb9271ece1f85a9faa14865958314e",
+      "built": "c19e3d9963fde623b3024fb3aacf0086f5bb9271ece1f85a9faa14865958314e"
+    },
+    {
+      "path": "web/lib/__tests__/route-map-keyboard.test.ts",
+      "sha256": "685fa52e560de34b211357f2042dea60f538d8bae5e8e1e6f784147c1a880fa1",
+      "current": "685fa52e560de34b211357f2042dea60f538d8bae5e8e1e6f784147c1a880fa1",
+      "built": "685fa52e560de34b211357f2042dea60f538d8bae5e8e1e6f784147c1a880fa1"
+    },
+    {
+      "path": "web/lib/__tests__/route-map-loader.test.tsx",
+      "sha256": "d31f8ed81683c76f84698081513cdf3c0c1cfeb12d8484b64ac4a7e04241569c",
+      "current": "d31f8ed81683c76f84698081513cdf3c0c1cfeb12d8484b64ac4a7e04241569c",
+      "built": "d31f8ed81683c76f84698081513cdf3c0c1cfeb12d8484b64ac4a7e04241569c"
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "sha256": "1106f3313d9c0050d5e706f05e8fd362f0c38f4a9c3346199a914310f8246e98",
+      "current": "1106f3313d9c0050d5e706f05e8fd362f0c38f4a9c3346199a914310f8246e98",
+      "built": "1106f3313d9c0050d5e706f05e8fd362f0c38f4a9c3346199a914310f8246e98"
+    },
+    {
+      "path": "web/lib/__tests__/score-card-copy.test.ts",
+      "sha256": "c2ece5eab58b4427977c756038c1c9acfef16c442c71efd7ea13f56ce6f95775",
+      "current": "c2ece5eab58b4427977c756038c1c9acfef16c442c71efd7ea13f56ce6f95775",
+      "built": "c2ece5eab58b4427977c756038c1c9acfef16c442c71efd7ea13f56ce6f95775"
+    },
+    {
+      "path": "web/lib/__tests__/score-prefix-index.test.ts",
+      "sha256": "2d4db8c99905b6f8c1fdbf60934b69e05bcaf5123f05681bc4fec9f4e46623eb",
+      "current": "2d4db8c99905b6f8c1fdbf60934b69e05bcaf5123f05681bc4fec9f4e46623eb",
+      "built": "2d4db8c99905b6f8c1fdbf60934b69e05bcaf5123f05681bc4fec9f4e46623eb"
+    },
+    {
+      "path": "web/lib/__tests__/service-worker-behaviour.test.ts",
+      "sha256": "4c87adc23468d3e651e18d62e963051ae9992707d4ac9cb2bc0f2ea856cd0841",
+      "current": "4c87adc23468d3e651e18d62e963051ae9992707d4ac9cb2bc0f2ea856cd0841",
+      "built": "4c87adc23468d3e651e18d62e963051ae9992707d4ac9cb2bc0f2ea856cd0841"
+    },
+    {
+      "path": "web/lib/__tests__/service-worker-registration.test.ts",
+      "sha256": "f4535bf604766d3d3f4860dd3bed3913e9e3ef0bbe884adce527806a319f6627",
+      "current": "f4535bf604766d3d3f4860dd3bed3913e9e3ef0bbe884adce527806a319f6627",
+      "built": "f4535bf604766d3d3f4860dd3bed3913e9e3ef0bbe884adce527806a319f6627"
+    },
+    {
+      "path": "web/lib/__tests__/source-freshness.test.ts",
+      "sha256": "98de88e223f9794029f003daa4c111a0bf5d0e8083c6db84fbdd3d95d2340f4e",
+      "current": "98de88e223f9794029f003daa4c111a0bf5d0e8083c6db84fbdd3d95d2340f4e",
+      "built": "98de88e223f9794029f003daa4c111a0bf5d0e8083c6db84fbdd3d95d2340f4e"
+    },
+    {
+      "path": "web/lib/__tests__/subscore-ranking.test.ts",
+      "sha256": "aadb4288f1645ce037708fd94cc15b143e801496ca343cfed30fbbde5e6193a2",
+      "current": "aadb4288f1645ce037708fd94cc15b143e801496ca343cfed30fbbde5e6193a2",
+      "built": "aadb4288f1645ce037708fd94cc15b143e801496ca343cfed30fbbde5e6193a2"
+    },
+    {
+      "path": "web/lib/__tests__/transit-popup.test.ts",
+      "sha256": "975629f65aaba9ff4ebfeec730adda8c284ed02ca5db51ca0f2d77fafc67029a",
+      "current": "975629f65aaba9ff4ebfeec730adda8c284ed02ca5db51ca0f2d77fafc67029a",
+      "built": "975629f65aaba9ff4ebfeec730adda8c284ed02ca5db51ca0f2d77fafc67029a"
+    },
+    {
+      "path": "web/lib/__tests__/transit-shards.test.ts",
+      "sha256": "50bad6bbe876f3629714d7a52304cd738521341e02f81d4ffe961d95397c4da4",
+      "current": "50bad6bbe876f3629714d7a52304cd738521341e02f81d4ffe961d95397c4da4",
+      "built": "50bad6bbe876f3629714d7a52304cd738521341e02f81d4ffe961d95397c4da4"
+    },
+    {
+      "path": "web/lib/__tests__/transit-stop-picker.test.tsx",
+      "sha256": "f739563c641cd4d9a98434627d74ae15cd294a4bce48f61e16353dc552579ab8",
+      "current": "f739563c641cd4d9a98434627d74ae15cd294a4bce48f61e16353dc552579ab8",
+      "built": "f739563c641cd4d9a98434627d74ae15cd294a4bce48f61e16353dc552579ab8"
+    },
+    {
+      "path": "web/lib/__tests__/typescript-contract.test.ts",
+      "sha256": "c7ea76a7e35962a4888deb4f49f58b40e87ea2c04a1f1a35494ec0adc31d4849",
+      "current": "c7ea76a7e35962a4888deb4f49f58b40e87ea2c04a1f1a35494ec0adc31d4849",
+      "built": "c7ea76a7e35962a4888deb4f49f58b40e87ea2c04a1f1a35494ec0adc31d4849"
+    },
+    {
+      "path": "web/lib/__tests__/walk-real-records.test.ts",
+      "sha256": "5fffa159367aaafef5ce3a791e1546b86b280e12e6d6b4574221e5ace2bc537b",
+      "current": "5fffa159367aaafef5ce3a791e1546b86b280e12e6d6b4574221e5ace2bc537b",
+      "built": "5fffa159367aaafef5ce3a791e1546b86b280e12e6d6b4574221e5ace2bc537b"
+    },
+    {
+      "path": "web/lib/__tests__/walk-summary-options.test.ts",
+      "sha256": "b31d4067ff0070e688ad37ff52b346f3a77d43813b1d346621df4470bd246d4a",
+      "current": "b31d4067ff0070e688ad37ff52b346f3a77d43813b1d346621df4470bd246d4a",
+      "built": "b31d4067ff0070e688ad37ff52b346f3a77d43813b1d346621df4470bd246d4a"
+    },
+    {
+      "path": "web/lib/artifact-failure.ts",
+      "sha256": "3bf84004256bc6adedb15d985806a845296384a4cd6b77f95c0aad6e1663aeaf",
+      "current": "3bf84004256bc6adedb15d985806a845296384a4cd6b77f95c0aad6e1663aeaf",
+      "built": "3bf84004256bc6adedb15d985806a845296384a4cd6b77f95c0aad6e1663aeaf"
+    },
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240",
+      "current": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240",
+      "built": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7",
+      "current": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7",
+      "built": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/lib/comparison-state.ts",
+      "sha256": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651",
+      "current": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651",
+      "built": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651"
+    },
+    {
+      "path": "web/lib/comparison.ts",
+      "sha256": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb",
+      "current": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb",
+      "built": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb"
+    },
+    {
+      "path": "web/lib/coverage-gap-register.ts",
+      "sha256": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878",
+      "current": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878",
+      "built": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878"
+    },
+    {
+      "path": "web/lib/data.ts",
+      "sha256": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99",
+      "current": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99",
+      "built": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99"
+    },
+    {
+      "path": "web/lib/failure-diagnostics.ts",
+      "sha256": "b4be16461d9e832bc41eddfea289dc5b8bffea4b9c01538b865590e7061b68b2",
+      "current": "b4be16461d9e832bc41eddfea289dc5b8bffea4b9c01538b865590e7061b68b2",
+      "built": "b4be16461d9e832bc41eddfea289dc5b8bffea4b9c01538b865590e7061b68b2"
+    },
+    {
+      "path": "web/lib/lamp-overlay.ts",
+      "sha256": "717167658fa49110c04db6d82ccbdf1e3bf9efb77008fa5cfc2f425551dfe9df",
+      "current": "717167658fa49110c04db6d82ccbdf1e3bf9efb77008fa5cfc2f425551dfe9df",
+      "built": "717167658fa49110c04db6d82ccbdf1e3bf9efb77008fa5cfc2f425551dfe9df"
+    },
+    {
+      "path": "web/lib/live-route-scoring.ts",
+      "sha256": "b69619c29758536d69954fbfca9335174819121e16c130ba3746a80e21242521",
+      "current": "b69619c29758536d69954fbfca9335174819121e16c130ba3746a80e21242521",
+      "built": "b69619c29758536d69954fbfca9335174819121e16c130ba3746a80e21242521"
+    },
+    {
+      "path": "web/lib/local-glyph-protocol.ts",
+      "sha256": "b4b9a3220c1c10e2542c992bccc9aa41228d907fc02444ace84ce3e7446c5f71",
+      "current": "b4b9a3220c1c10e2542c992bccc9aa41228d907fc02444ace84ce3e7446c5f71",
+      "built": "b4b9a3220c1c10e2542c992bccc9aa41228d907fc02444ace84ce3e7446c5f71"
+    },
+    {
+      "path": "web/lib/locked-score-availability.ts",
+      "sha256": "8e9adcd7e2b83d6a6d9fbc8c93442cc9a12e32caf2ac7643feaadf6d4ee7de0c",
+      "current": "8e9adcd7e2b83d6a6d9fbc8c93442cc9a12e32caf2ac7643feaadf6d4ee7de0c",
+      "built": "8e9adcd7e2b83d6a6d9fbc8c93442cc9a12e32caf2ac7643feaadf6d4ee7de0c"
+    },
+    {
+      "path": "web/lib/map-viewport.ts",
+      "sha256": "49950f3193d01a2b2c9243c7d5c2e8341d2fa3ceb56ddf859ba6e9fc54d96d15",
+      "current": "49950f3193d01a2b2c9243c7d5c2e8341d2fa3ceb56ddf859ba6e9fc54d96d15",
+      "built": "49950f3193d01a2b2c9243c7d5c2e8341d2fa3ceb56ddf859ba6e9fc54d96d15"
+    },
+    {
+      "path": "web/lib/nearest-transit.ts",
+      "sha256": "df12643fdf9423b606680d88204980cbf180f563f2641332b4136a516abfc2ad",
+      "current": "df12643fdf9423b606680d88204980cbf180f563f2641332b4136a516abfc2ad",
+      "built": "df12643fdf9423b606680d88204980cbf180f563f2641332b4136a516abfc2ad"
+    },
+    {
+      "path": "web/lib/onemap-search.ts",
+      "sha256": "6aff99e5fed66948a90c12e711a7fb93d0e8a20697bf847f2c262d2b5c874757",
+      "current": "6aff99e5fed66948a90c12e711a7fb93d0e8a20697bf847f2c262d2b5c874757",
+      "built": "6aff99e5fed66948a90c12e711a7fb93d0e8a20697bf847f2c262d2b5c874757"
+    },
+    {
+      "path": "web/lib/polyline.ts",
+      "sha256": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e",
+      "current": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e",
+      "built": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e"
+    },
+    {
+      "path": "web/lib/published-exposure-sections.ts",
+      "sha256": "f81f4d2b17acde090bb8cbcc9799cbccabce9bbfc34976a765015947ef3522cf",
+      "current": "f81f4d2b17acde090bb8cbcc9799cbccabce9bbfc34976a765015947ef3522cf",
+      "built": "f81f4d2b17acde090bb8cbcc9799cbccabce9bbfc34976a765015947ef3522cf"
+    },
+    {
+      "path": "web/lib/published-transit-choices.ts",
+      "sha256": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0",
+      "current": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0",
+      "built": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0"
+    },
+    {
+      "path": "web/lib/published-transit-options.ts",
+      "sha256": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82",
+      "current": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82",
+      "built": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82"
+    },
+    {
+      "path": "web/lib/published-walk-selection.ts",
+      "sha256": "b6403d266cacce74930dc5e98ac3b5f3e971227807b58e5f4f5e7f76783576d2",
+      "current": "b6403d266cacce74930dc5e98ac3b5f3e971227807b58e5f4f5e7f76783576d2",
+      "built": "b6403d266cacce74930dc5e98ac3b5f3e971227807b58e5f4f5e7f76783576d2"
+    },
+    {
+      "path": "web/lib/published-walk-view.ts",
+      "sha256": "f4969aea23227fefe9154848541ba3349c433a59fecf891d647d99c0312ff618",
+      "current": "f4969aea23227fefe9154848541ba3349c433a59fecf891d647d99c0312ff618",
+      "built": "f4969aea23227fefe9154848541ba3349c433a59fecf891d647d99c0312ff618"
+    },
+    {
+      "path": "web/lib/route-display.ts",
+      "sha256": "611d1a5d50deb74776f8c79dd67a0b4f48e0fb8647e4e3f5237d923403b4088d",
+      "current": "611d1a5d50deb74776f8c79dd67a0b4f48e0fb8647e4e3f5237d923403b4088d",
+      "built": "611d1a5d50deb74776f8c79dd67a0b4f48e0fb8647e4e3f5237d923403b4088d"
+    },
+    {
+      "path": "web/lib/route-geojson.ts",
+      "sha256": "3485e2692a46f92cdfbc7512a8ce95654656cd9beee7c1858ab230d373f60543",
+      "current": "3485e2692a46f92cdfbc7512a8ce95654656cd9beee7c1858ab230d373f60543",
+      "built": "3485e2692a46f92cdfbc7512a8ce95654656cd9beee7c1858ab230d373f60543"
+    },
+    {
+      "path": "web/lib/service-worker-cache.ts",
+      "sha256": "c2f9d464baf18d4404a68e55bee937cb9ad8bb0a8f90c011322fa6f701ea3a89",
+      "current": "c2f9d464baf18d4404a68e55bee937cb9ad8bb0a8f90c011322fa6f701ea3a89",
+      "built": "c2f9d464baf18d4404a68e55bee937cb9ad8bb0a8f90c011322fa6f701ea3a89"
+    },
+    {
+      "path": "web/lib/source-freshness.ts",
+      "sha256": "4644ab5396eeef9e56046761c16b1bf0ea7d7137507a7a030cfe1644d132ceed",
+      "current": "4644ab5396eeef9e56046761c16b1bf0ea7d7137507a7a030cfe1644d132ceed",
+      "built": "4644ab5396eeef9e56046761c16b1bf0ea7d7137507a7a030cfe1644d132ceed"
+    },
+    {
+      "path": "web/lib/subscore-ranking.ts",
+      "sha256": "d8f3f9e6813ddc230af0cafd9eab414aec3e4fb87634447c4c815c50432e9b6a",
+      "current": "d8f3f9e6813ddc230af0cafd9eab414aec3e4fb87634447c4c815c50432e9b6a",
+      "built": "d8f3f9e6813ddc230af0cafd9eab414aec3e4fb87634447c4c815c50432e9b6a"
+    },
+    {
+      "path": "web/lib/transit-popup.ts",
+      "sha256": "b771d147079b4b5d6cf0b45530af8b0154f0dd8ddaca5fd6dadcd6fc517a6ade",
+      "current": "b771d147079b4b5d6cf0b45530af8b0154f0dd8ddaca5fd6dadcd6fc517a6ade",
+      "built": "b771d147079b4b5d6cf0b45530af8b0154f0dd8ddaca5fd6dadcd6fc517a6ade"
+    },
+    {
+      "path": "web/lib/types.ts",
+      "sha256": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98",
+      "current": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98",
+      "built": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98"
+    },
+    {
+      "path": "web/lib/walk-metrics.ts",
+      "sha256": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f",
+      "current": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f",
+      "built": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f"
+    },
+    {
+      "path": "web/next-env.d.ts",
+      "sha256": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc",
+      "current": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc",
+      "built": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc"
+    },
+    {
+      "path": "web/next.config.js",
+      "sha256": "6eb919b0860e95239810da56b2dcdee06e1516047b2bc38a458166869ac11037",
+      "current": "6eb919b0860e95239810da56b2dcdee06e1516047b2bc38a458166869ac11037",
+      "built": "6eb919b0860e95239810da56b2dcdee06e1516047b2bc38a458166869ac11037"
+    },
+    {
+      "path": "web/package-lock.json",
+      "sha256": "04765d87615d6d3f835adcc311b0489665e82113744d1cf291836ef8ed3aeb4e",
+      "current": "04765d87615d6d3f835adcc311b0489665e82113744d1cf291836ef8ed3aeb4e",
+      "built": "04765d87615d6d3f835adcc311b0489665e82113744d1cf291836ef8ed3aeb4e"
+    },
+    {
+      "path": "web/package.json",
+      "sha256": "2a3d13156cece44b108e090d9069f36297d0c53fcb0e760f2138516a6d4b7ae9",
+      "current": "2a3d13156cece44b108e090d9069f36297d0c53fcb0e760f2138516a6d4b7ae9",
+      "built": "2a3d13156cece44b108e090d9069f36297d0c53fcb0e760f2138516a6d4b7ae9"
+    },
+    {
+      "path": "web/public/maplibre/6.1.0/LICENSE.txt",
+      "sha256": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2",
+      "current": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2",
+      "built": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2"
+    },
+    {
+      "path": "web/public/maplibre/6.1.0/maplibre-gl-shared.mjs",
+      "sha256": "ce66c617187b6956d878d3961aceeb7c335eec3f76ee8d80737a917d8e989860",
+      "current": "ce66c617187b6956d878d3961aceeb7c335eec3f76ee8d80737a917d8e989860",
+      "built": "ce66c617187b6956d878d3961aceeb7c335eec3f76ee8d80737a917d8e989860"
+    },
+    {
+      "path": "web/public/maplibre/6.1.0/maplibre-gl-worker.mjs",
+      "sha256": "5a77b4637ea5ae64f0b1f208e4b1f4d9c681e2575d96e592f2074925597224c6",
+      "current": "5a77b4637ea5ae64f0b1f208e4b1f4d9c681e2575d96e592f2074925597224c6",
+      "built": "5a77b4637ea5ae64f0b1f208e4b1f4d9c681e2575d96e592f2074925597224c6"
+    },
+    {
+      "path": "web/public/site.webmanifest",
+      "sha256": "e0ace347324935ce0e1904ff7c4a1f638a36d9d23bac6422659d683edbf46517",
+      "current": "e0ace347324935ce0e1904ff7c4a1f638a36d9d23bac6422659d683edbf46517",
+      "built": "e0ace347324935ce0e1904ff7c4a1f638a36d9d23bac6422659d683edbf46517"
+    },
+    {
+      "path": "web/public/sw.js",
+      "sha256": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc",
+      "current": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc",
+      "built": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+    },
+    {
+      "path": "web/scripts/browser-smoke.mjs",
+      "sha256": "e7b2e794bddac3636fa68bb23a72b0556b2150cc10079dff974c108432862185",
+      "current": "e7b2e794bddac3636fa68bb23a72b0556b2150cc10079dff974c108432862185",
+      "built": "e7b2e794bddac3636fa68bb23a72b0556b2150cc10079dff974c108432862185"
+    },
+    {
+      "path": "web/scripts/build-next-release.mjs",
+      "sha256": "99cd179a9eb1f6402ed2f9930ef329f23c0c515e3ce3a60649c920b97c99b58b",
+      "current": "99cd179a9eb1f6402ed2f9930ef329f23c0c515e3ce3a60649c920b97c99b58b",
+      "built": "99cd179a9eb1f6402ed2f9930ef329f23c0c515e3ce3a60649c920b97c99b58b"
+    },
+    {
+      "path": "web/scripts/deny-production-data.cjs",
+      "sha256": "0d6a0c3db6f777cc87ecc1d753cbc07205f492acc29d5a8661bc87471794bfe4",
+      "current": "0d6a0c3db6f777cc87ecc1d753cbc07205f492acc29d5a8661bc87471794bfe4",
+      "built": "0d6a0c3db6f777cc87ecc1d753cbc07205f492acc29d5a8661bc87471794bfe4"
+    },
+    {
+      "path": "web/scripts/ensure-data-bundle.mjs",
+      "sha256": "637966de4f209fb88bd9323e99e32b62401f8fe7d2c3fc565a75f4390ed43477",
+      "current": "637966de4f209fb88bd9323e99e32b62401f8fe7d2c3fc565a75f4390ed43477",
+      "built": "637966de4f209fb88bd9323e99e32b62401f8fe7d2c3fc565a75f4390ed43477"
+    },
+    {
+      "path": "web/scripts/extract-walk-test-fixtures.py",
+      "sha256": "4e56b76670514fca404e987a0cb14b0cc490b87e3193eab1de451d0792750616",
+      "current": "4e56b76670514fca404e987a0cb14b0cc490b87e3193eab1de451d0792750616",
+      "built": "4e56b76670514fca404e987a0cb14b0cc490b87e3193eab1de451d0792750616"
+    },
+    {
+      "path": "web/scripts/frontend-retention.mjs",
+      "sha256": "9dc2537d456866620760979ceb5998fa3eac97dc1188fab74ede0bc3501fd7c1",
+      "current": "9dc2537d456866620760979ceb5998fa3eac97dc1188fab74ede0bc3501fd7c1",
+      "built": "9dc2537d456866620760979ceb5998fa3eac97dc1188fab74ede0bc3501fd7c1"
+    },
+    {
+      "path": "web/scripts/ignore-build.mjs",
+      "sha256": "12c54471d0fa4a6626e06401659ce2aaa9c052ec5d94c900fd12ee1a4c911126",
+      "current": "12c54471d0fa4a6626e06401659ce2aaa9c052ec5d94c900fd12ee1a4c911126",
+      "built": "12c54471d0fa4a6626e06401659ce2aaa9c052ec5d94c900fd12ee1a4c911126"
+    },
+    {
+      "path": "web/scripts/measure-lookup-transfer.mjs",
+      "sha256": "93aa67d7d8ed90cad5f18a56b4b28bfc5d9bdfe9acf9564da47cdf4e716c46fe",
+      "current": "93aa67d7d8ed90cad5f18a56b4b28bfc5d9bdfe9acf9564da47cdf4e716c46fe",
+      "built": "93aa67d7d8ed90cad5f18a56b4b28bfc5d9bdfe9acf9564da47cdf4e716c46fe"
+    },
+    {
+      "path": "web/scripts/revamp-browser.mjs",
+      "sha256": "48dfb9172af03d4f7f7fa5e9df4dfb8495cfe8be673d5b81ed7e4c145ee75461",
+      "current": "48dfb9172af03d4f7f7fa5e9df4dfb8495cfe8be673d5b81ed7e4c145ee75461",
+      "built": "48dfb9172af03d4f7f7fa5e9df4dfb8495cfe8be673d5b81ed7e4c145ee75461"
+    },
+    {
+      "path": "web/scripts/test-web.mjs",
+      "sha256": "acb616c59ceb37421101d88fb86116cf9155c657fa0bd9b756d25c2f84fccce6",
+      "current": "acb616c59ceb37421101d88fb86116cf9155c657fa0bd9b756d25c2f84fccce6",
+      "built": "acb616c59ceb37421101d88fb86116cf9155c657fa0bd9b756d25c2f84fccce6"
+    },
+    {
+      "path": "web/scripts/test-without-production-data.mjs",
+      "sha256": "8b01e905acd876d79504fcb4b4639d7ba02141c3d5eb2c4b906477ce1a0e4b44",
+      "current": "8b01e905acd876d79504fcb4b4639d7ba02141c3d5eb2c4b906477ce1a0e4b44",
+      "built": "8b01e905acd876d79504fcb4b4639d7ba02141c3d5eb2c4b906477ce1a0e4b44"
+    },
+    {
+      "path": "web/section10-presentation-proposal.md",
+      "sha256": "28eafa24a80eaf70b903295600f9f334e410869e9068d7e908154588cbedf3fc",
+      "current": "28eafa24a80eaf70b903295600f9f334e410869e9068d7e908154588cbedf3fc",
+      "built": "28eafa24a80eaf70b903295600f9f334e410869e9068d7e908154588cbedf3fc"
+    },
+    {
+      "path": "web/tsconfig.json",
+      "sha256": "e5020c21a4e117f0a789a28fc54838b21ab2e287f8c2fc0efab2c811839b4459",
+      "current": "e5020c21a4e117f0a789a28fc54838b21ab2e287f8c2fc0efab2c811839b4459",
+      "built": "e5020c21a4e117f0a789a28fc54838b21ab2e287f8c2fc0efab2c811839b4459"
+    },
+    {
+      "path": "web/vercel.json",
+      "sha256": "8fa6b3ece819b65ecfbce77f6062126f3bb6b8394e36819e916849fab11baff3",
+      "current": "8fa6b3ece819b65ecfbce77f6062126f3bb6b8394e36819e916849fab11baff3",
+      "built": "8fa6b3ece819b65ecfbce77f6062126f3bb6b8394e36819e916849fab11baff3"
+    },
+    {
+      "path": "web/vitest.config.ts",
+      "sha256": "65efb23283a46aff714d0e7893d09e60fdd3c1c4ca631ebd6606b4131c757e10",
+      "current": "65efb23283a46aff714d0e7893d09e60fdd3c1c4ca631ebd6606b4131c757e10",
+      "built": "65efb23283a46aff714d0e7893d09e60fdd3c1c4ca631ebd6606b4131c757e10"
+    }
+  ],
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "actual": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "current": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "current": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "actual": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "current": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "current": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "actual": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "current": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "current": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "actual": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "current": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "actual": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "current": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "actual": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "current": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "actual": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "current": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "actual": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "current": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "python": [
+    {
+      "path": "qa/revamp-r1/frontend-retention-20260910/retention-final-2/checks.json",
+      "exitCode": 0,
+      "stable": true,
+      "stdout": "........................................................................ [ 66%]\r\n....................................                                     [100%]\r\n108 passed in 159.04s (0:02:39)\r\n",
+      "elapsedSeconds": 165.79,
+      "sourcesCurrent": true
+    },
+    {
+      "path": "qa/revamp-r1/frontend-retention-20260910/staging-final-c/checks.json",
+      "exitCode": 0,
+      "stable": true,
+      "stdout": "...............                                                          [100%]\r\n15 passed, 43 deselected in 148.19s (0:02:28)\r\n",
+      "elapsedSeconds": 151.246,
+      "sourcesCurrent": true
+    },
+    {
+      "path": "qa/revamp-r1/frontend-retention-20260910/staging-final-d/checks.json",
+      "exitCode": 0,
+      "stable": true,
+      "stdout": "......................................                                   [100%]\r\n38 passed, 20 deselected in 332.05s (0:05:32)\r\n",
+      "elapsedSeconds": 336.798,
+      "sourcesCurrent": true
+    },
+    {
+      "path": "qa/revamp-r1/frontend-retention-20260910/staging-final-e/checks.json",
+      "exitCode": 0,
+      "stable": true,
+      "stdout": ".....                                                                    [100%]\r\n5 passed, 53 deselected in 81.37s (0:01:21)\r\n",
+      "elapsedSeconds": 95.281,
+      "sourcesCurrent": true
+    }
+  ],
+  "pythonArithmetic": "25 retention + 75 publish + 8 README + (15 + 38 + 5) staging = 166 targeted tests; not the full Python suite",
+  "webArithmetic": "1717 previous + 23 retention + 4 global error = 1744 tests; 62 + 2 = 64 files",
+  "build": {
+    "path": "qa/revamp-r1/frontend-retention-20260910/build-2/build.json",
+    "exitCode": 0,
+    "sourceStable": true,
+    "buildId": "ZHqFMae_a9ROgk43z7fv8",
+    "derivatives": [
+      {
+        "path": "web/next.config.js",
+        "content": "const config=require('./next.qa-base.cjs');\nmodule.exports={...config,turbopack:{...config.turbopack,root:\"C:\\\\sgSHIOK2026\"}};\n",
+        "sha256": "cc188e7ccb06e0083f3f58ff0a4d5bac625994cbe54d12e2faff1b96ee6a3c6b"
+      },
+      {
+        "path": "web/app/qa-global-fault/page.tsx",
+        "content": "\"use client\";\nimport {useEffect} from \"react\";\nexport default function Fault(){useEffect(()=>{throw new Error(\"QA fixture: global boundary\")},[]);return <p>QA fixture pending</p>;}\n",
+        "sha256": "48567b0b0f4eafad9e30c08e1617cb6162233a07a89138a98396f0d9d207daf7"
+      }
+    ],
+    "archive": {
+      "ok": true,
+      "archiveRoot": "C:\\sgSHIOK2026\\tmp\\frontend-retention-archive-build-2",
+      "manifestSha256": "eb4eba48cdb6b97eeaaae16bb25ae173ce23a40fa9d803a4549be816e193a7b1",
+      "buildId": "e8Hlhkml4c3i_uMGJdd3P",
+      "files": 29,
+      "bytes": 5786770,
+      "omittedSourceMaps": [],
+      "deploymentIdentityVerified": false
+    },
+    "scope": "Fresh frontend-only QA snapshot, existing dependencies; no production data copied. QA-only fault route/config are explicit derivatives."
+  },
+  "http": {
+    "root": "C:\\sgSHIOK2026",
+    "hostname": "PRAWN-E14",
+    "buildId": "ZHqFMae_a9ROgk43z7fv8",
+    "results": [
+      {
+        "path": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "cache-control": "public, max-age=31536000, immutable",
+          "connection": "keep-alive",
+          "content-encoding": "gzip",
+          "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+          "content-type": "application/javascript; charset=UTF-8",
+          "date": "Thu, 10 Sep 2026 05:35:01 GMT",
+          "etag": "W/\"9a84-1a089c372e5\"",
+          "keep-alive": "timeout=5",
+          "last-modified": "Thu, 10 Sep 2026 05:21:22 GMT",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "transfer-encoding": "chunked",
+          "vary": "Accept-Encoding",
+          "x-content-type-options": "nosniff",
+          "x-robots-tag": "noindex, nofollow, noarchive"
+        },
+        "bytes": 39556,
+        "sha256": "4a1b7cf727bfc2157e11185a0fe88af518733a56f34601833c75fccad34df11b",
+        "expectedSha256": "4a1b7cf727bfc2157e11185a0fe88af518733a56f34601833c75fccad34df11b",
+        "ok": true
+      },
+      {
+        "path": "/_next/static/qa-missing.js",
+        "status": 404,
+        "headers": {
+          "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+          "connection": "keep-alive",
+          "content-encoding": "gzip",
+          "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+          "content-type": "text/html; charset=utf-8",
+          "date": "Thu, 10 Sep 2026 05:35:05 GMT",
+          "etag": "\"n8unoxixl57kk\"",
+          "keep-alive": "timeout=5",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "transfer-encoding": "chunked",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+          "x-content-type-options": "nosniff",
+          "x-nextjs-cache": "HIT",
+          "x-nextjs-prerender": "1, 1",
+          "x-nextjs-stale-time": "300",
+          "x-powered-by": "Next.js",
+          "x-robots-tag": "noindex, nofollow, noarchive"
+        },
+        "bytes": 9812,
+        "sha256": "4360f74792249fe9cb855734afc845e0eecf6e292f60274d76d5e330ecf74091",
+        "expectedSha256": null,
+        "ok": true
+      },
+      {
+        "path": "/_retained/_next/static/qa-missing.js",
+        "status": 404,
+        "headers": {
+          "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+          "connection": "keep-alive",
+          "content-encoding": "gzip",
+          "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+          "content-type": "text/html; charset=utf-8",
+          "date": "Thu, 10 Sep 2026 05:35:06 GMT",
+          "etag": "\"n8unoxixl57kk\"",
+          "keep-alive": "timeout=5",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "transfer-encoding": "chunked",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+          "x-content-type-options": "nosniff",
+          "x-nextjs-cache": "HIT",
+          "x-nextjs-prerender": "1, 1",
+          "x-nextjs-stale-time": "300",
+          "x-powered-by": "Next.js",
+          "x-robots-tag": "noindex, nofollow, noarchive"
+        },
+        "bytes": 9812,
+        "sha256": "4360f74792249fe9cb855734afc845e0eecf6e292f60274d76d5e330ecf74091",
+        "expectedSha256": null,
+        "ok": true
+      },
+      {
+        "path": "/maplibre/0.0.0/qa-missing.mjs",
+        "status": 404,
+        "headers": {
+          "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+          "connection": "keep-alive",
+          "content-encoding": "gzip",
+          "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+          "content-type": "text/html; charset=utf-8",
+          "date": "Thu, 10 Sep 2026 05:35:06 GMT",
+          "etag": "\"n8unoxixl57kk\"",
+          "keep-alive": "timeout=5",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "transfer-encoding": "chunked",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+          "x-content-type-options": "nosniff",
+          "x-nextjs-cache": "HIT",
+          "x-nextjs-prerender": "1, 1",
+          "x-nextjs-stale-time": "300",
+          "x-powered-by": "Next.js"
+        },
+        "bytes": 9812,
+        "sha256": "4360f74792249fe9cb855734afc845e0eecf6e292f60274d76d5e330ecf74091",
+        "expectedSha256": null,
+        "ok": true
+      }
+    ],
+    "ok": true
+  },
+  "browser": [
+    {
+      "path": "qa/revamp-r1/frontend-retention-20260910/observed-8p1Ofj/browser.json",
+      "exitCode": 1,
+      "checks": [
+        {
+          "name": "fresh proxy begins at A",
+          "pass": true
+        },
+        {
+          "name": "legacy activated worker version observed",
+          "pass": true
+        },
+        {
+          "name": "retained Document is actual A HTML",
+          "pass": true
+        },
+        {
+          "name": "target not requested or cached before switch",
+          "pass": true
+        },
+        {
+          "name": "real versioned data cached before switch",
+          "pass": true
+        },
+        {
+          "name": "switch B accepted",
+          "pass": true
+        },
+        {
+          "name": "exact B worker served",
+          "pass": true
+        },
+        {
+          "name": "same Document before first target request",
+          "pass": true
+        },
+        {
+          "name": "old module request reached actual B origin200",
+          "pass": true,
+          "detail": [
+            {
+              "at": "2026-09-10T05:33:23.371Z",
+              "method": "GET",
+              "path": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+              "active": "B",
+              "status": 200,
+              "upstream": 4345,
+              "data": false,
+              "activeAtStart": "B"
+            }
+          ]
+        },
+        {
+          "name": "retained module response passed through service worker",
+          "pass": true
+        },
+        {
+          "name": "actual old module bytes match archive pin",
+          "pass": true,
+          "detail": {
+            "bytes": 39556,
+            "sha256": "4a1b7cf727bfc2157e11185a0fe88af518733a56f34601833c75fccad34df11b"
+          }
+        },
+        {
+          "name": "same retained Document and selected route 390x844",
+          "pass": true,
+          "detail": {
+            "url": "http://127.0.0.1:4346/?debugMap=1&postal=018956",
+            "timeOrigin": 1789018391495.9,
+            "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+            "status": "ready",
+            "controller": "http://127.0.0.1:4346/sw.js",
+            "controllerChanges": 1,
+            "held": [
+              {
+                "url": "http://127.0.0.1:4346/_next/static/chunks/0j6tjjnrv2h3w.js",
+                "at": 8111.799999952316,
+                "connected": false
+              }
+            ],
+            "released": [
+              {
+                "url": "http://127.0.0.1:4346/_next/static/chunks/0j6tjjnrv2h3w.js",
+                "at": 11847.599999904633,
+                "connectedBefore": false
+              }
+            ],
+            "marker": 1789018391495.9,
+            "controls": [
+              {
+                "label": "Search postal code",
+                "disabled": false
+              },
+              {
+                "label": "Walk details",
+                "disabled": false
+              },
+              {
+                "label": "Night lighting",
+                "disabled": false
+              },
+              {
+                "label": "Report missing shelter",
+                "disabled": false
+              },
+              {
+                "label": "Copy correction report",
+                "disabled": true
+              },
+              {
+                "label": "Published walkdisplayed walk",
+                "disabled": false
+              },
+              {
+                "label": "MRT/LRT exitspublished walk",
+                "disabled": false
+              },
+              {
+                "label": "Bus stopspublished walk",
+                "disabled": false
+              },
+              {
+                "label": "Show comparison",
+                "disabled": false
+              },
+              {
+                "label": "Report missing shelter",
+                "disabled": false
+              },
+              {
+                "label": "Focus on map for Longest short exposed stretch at map coordinate 1.28314, 103.86011",
+                "disabled": false
+              },
+              {
+                "label": "Focus on map for Gap 2 short exposed stretch at map coordinate 1.28269, 103.85998",
+                "disabled": false
+              }
+            ],
+            "routeKey": "1:shiokest:primary",
+            "featureCount": 4,
+            "renderedKeys": [
+              "1:shiokest:primary"
+            ],
+            "basemap": true,
+            "tiles": true,
+            "moving": false,
+            "overflow": false,
+            "viewport": [
+              390,
+              844
+            ]
+          }
+        },
+        {
+          "name": "same retained Document and selected route 390x667",
+          "pass": true,
+          "detail": {
+            "url": "http://127.0.0.1:4346/?debugMap=1&postal=018956",
+            "timeOrigin": 1789018391495.9,
+            "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+            "status": "ready",
+            "controller": "http://127.0.0.1:4346/sw.js",
+            "controllerChanges": 1,
+            "held": [
+              {
+                "url": "http://127.0.0.1:4346/_next/static/chunks/0j6tjjnrv2h3w.js",
+                "at": 8111.799999952316,
+                "connected": false
+              }
+            ],
+            "released": [
+              {
+                "url": "http://127.0.0.1:4346/_next/static/chunks/0j6tjjnrv2h3w.js",
+                "at": 11847.599999904633,
+                "connectedBefore": false
+              }
+            ],
+            "marker": 1789018391495.9,
+            "controls": [
+              {
+                "label": "Search postal code",
+                "disabled": false
+              },
+              {
+                "label": "Walk details",
+                "disabled": false
+              },
+              {
+                "label": "Night lighting",
+                "disabled": false
+              },
+              {
+                "label": "Report missing shelter",
+                "disabled": false
+              },
+              {
+                "label": "Copy correction report",
+                "disabled": true
+              },
+              {
+                "label": "Published walkdisplayed walk",
+                "disabled": false
+              },
+              {
+                "label": "MRT/LRT exitspublished walk",
+                "disabled": false
+              },
+              {
+                "label": "Bus stopspublished walk",
+                "disabled": false
+              },
+              {
+                "label": "Show comparison",
+                "disabled": false
+              },
+              {
+                "label": "Report missing shelter",
+                "disabled": false
+              },
+              {
+                "label": "Focus on map for Longest short exposed stretch at map coordinate 1.28314, 103.86011",
+                "disabled": false
+              },
+              {
+                "label": "Focus on map for Gap 2 short exposed stretch at map coordinate 1.28269, 103.85998",
+                "disabled": false
+              }
+            ],
+            "routeKey": "1:shiokest:primary",
+            "featureCount": 4,
+            "renderedKeys": [
+              "1:shiokest:primary"
+            ],
+            "basemap": true,
+            "tiles": true,
+            "moving": false,
+            "overflow": false,
+            "viewport": [
+              390,
+              667
+            ]
+          }
+        },
+        {
+          "name": "same retained Document and selected route 320x667",
+          "pass": true,
+          "detail": {
+            "url": "http://127.0.0.1:4346/?debugMap=1&postal=018956",
+            "timeOrigin": 1789018391495.9,
+            "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+            "status": "ready",
+            "controller": "http://127.0.0.1:4346/sw.js",
+            "controllerChanges": 1,
+            "held": [
+              {
+                "url": "http://127.0.0.1:4346/_next/static/chunks/0j6tjjnrv2h3w.js",
+                "at": 8111.799999952316,
+                "connected": false
+              }
+            ],
+            "released": [
+              {
+                "url": "http://127.0.0.1:4346/_next/static/chunks/0j6tjjnrv2h3w.js",
+                "at": 11847.599999904633,
+                "connectedBefore": false
+              }
+            ],
+            "marker": 1789018391495.9,
+            "controls": [
+              {
+                "label": "Search postal code",
+                "disabled": false
+              },
+              {
+                "label": "Walk details",
+                "disabled": false
+              },
+              {
+                "label": "Night lighting",
+                "disabled": false
+              },
+              {
+                "label": "Report missing shelter",
+                "disabled": false
+              },
+              {
+                "label": "Copy correction report",
+                "disabled": true
+              },
+              {
+                "label": "Published walkdisplayed walk",
+                "disabled": false
+              },
+              {
+                "label": "MRT/LRT exitspublished walk",
+                "disabled": false
+              },
+              {
+                "label": "Bus stopspublished walk",
+                "disabled": false
+              },
+              {
+                "label": "Show comparison",
+                "disabled": false
+              },
+              {
+                "label": "Report missing shelter",
+                "disabled": false
+              },
+              {
+                "label": "Focus on map for Longest short exposed stretch at map coordinate 1.28314, 103.86011",
+                "disabled": false
+              },
+              {
+                "label": "Focus on map for Gap 2 short exposed stretch at map coordinate 1.28269, 103.85998",
+                "disabled": false
+              }
+            ],
+            "routeKey": "1:shiokest:primary",
+            "featureCount": 4,
+            "renderedKeys": [
+              "1:shiokest:primary"
+            ],
+            "basemap": true,
+            "tiles": true,
+            "moving": false,
+            "overflow": false,
+            "viewport": [
+              320,
+              667
+            ]
+          }
+        },
+        {
+          "name": "same retained Document and selected route 1440x950",
+          "pass": true,
+          "detail": {
+            "url": "http://127.0.0.1:4346/?debugMap=1&postal=018956",
+            "timeOrigin": 1789018391495.9,
+            "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+            "status": "ready",
+            "controller": "http://127.0.0.1:4346/sw.js",
+            "controllerChanges": 1,
+            "held": [
+              {
+                "url": "http://127.0.0.1:4346/_next/static/chunks/0j6tjjnrv2h3w.js",
+                "at": 8111.799999952316,
+                "connected": false
+              }
+            ],
+            "released": [
+              {
+                "url": "http://127.0.0.1:4346/_next/static/chunks/0j6tjjnrv2h3w.js",
+                "at": 11847.599999904633,
+                "connectedBefore": false
+              }
+            ],
+            "marker": 1789018391495.9,
+            "controls": [
+              {
+                "label": "Search postal code",
+                "disabled": false
+              },
+              {
+                "label": "Walk details",
+                "disabled": false
+              },
+              {
+                "label": "Night lighting",
+                "disabled": false
+              },
+              {
+                "label": "Report missing shelter",
+                "disabled": false
+              },
+              {
+                "label": "Copy correction report",
+                "disabled": true
+              },
+              {
+                "label": "Published walkdisplayed walk",
+                "disabled": false
+              },
+              {
+                "label": "MRT/LRT exitspublished walk",
+                "disabled": false
+              },
+              {
+                "label": "Bus stopspublished walk",
+                "disabled": false
+              },
+              {
+                "label": "Show comparison",
+                "disabled": false
+              },
+              {
+                "label": "Report missing shelter",
+                "disabled": false
+              },
+              {
+                "label": "Focus on map for Longest short exposed stretch at map coordinate 1.28314, 103.86011",
+                "disabled": false
+              },
+              {
+                "label": "Focus on map for Gap 2 short exposed stretch at map coordinate 1.28269, 103.85998",
+                "disabled": false
+              }
+            ],
+            "routeKey": "1:shiokest:primary",
+            "featureCount": 4,
+            "renderedKeys": [
+              "1:shiokest:primary"
+            ],
+            "basemap": true,
+            "tiles": true,
+            "moving": false,
+            "overflow": false,
+            "viewport": [
+              1440,
+              950
+            ]
+          }
+        }
+      ],
+      "errors": [
+        {
+          "harness": "Invalid InterceptionId."
+        },
+        {
+          "harness": "Invalid InterceptionId."
+        },
+        {
+          "harness": "Invalid InterceptionId."
+        },
+        {
+          "harness": "Invalid InterceptionId."
+        },
+        {
+          "harness": "Invalid InterceptionId."
+        },
+        {
+          "harness": "Invalid InterceptionId."
+        },
+        {
+          "harness": "Invalid InterceptionId."
+        },
+        {
+          "harness": "Invalid InterceptionId."
+        },
+        {
+          "harness": "Invalid InterceptionId."
+        },
+        {
+          "harness": "Invalid InterceptionId."
+        },
+        {
+          "harness": "Invalid InterceptionId."
+        },
+        {
+          "harness": "Invalid InterceptionId."
+        },
+        {
+          "harness": "Invalid InterceptionId."
+        },
+        {
+          "harness": "Invalid InterceptionId."
+        },
+        {
+          "harness": "Invalid InterceptionId."
+        }
+      ],
+      "error": "Error: ordinary navigation to B timeout: {\"url\":\"http://127.0.0.1:4346/?debugMap=1&postal=018956\",\"timeOrigin\":1789018466128.4,\"text\":\" \\nOneMap\\n © contributors | \\nSingapore Land Authority\\n\\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\\n\\nSHIOK.\\nCompare\\n\\nMap failed: The map did not finish starting. Reload the page to try again. Walk evidence is still available.\\n\\nMap failed: The map did not finish starting. Reload the page to try again. Walk evidence is still available. Reload page\\nCopy diagnostics\\n\\nWalk details\\nPostal 018956\\n\\nWalk to\\nBayfront Stn Exit B/MBS\\n\\n81 m\\nWalk distance\\n55%\\nCovered\\n37 m\\nUncovered\\n20 m\\nLongest gap\\nAdd to comparison\\nMapped exposed sections (3)\\nPublished walk\\ndisplayed walk\\nMRT/LRT exits\\npublished walk\\nBus stops\\npublished walk\\nAbout data\",\"status\":\"error\",\"controller\":\"http://127.0.0.1:4346/sw.js\",\"controls\":[{\"label\":\"Compare\",\"disabled\":false},{\"label\":\"Search postal code\",\"disabled\":false},{\"label\":\"Reload page\",\"disabled\":false},{\"label\":\"Copy diagnostics\",\"disabled\":false},{\"label\":\"Walk details\",\"disabled\":false},{\"label\":\"Add to comparison\",\"disabled\":false},{\"label\":\"Section 116 m\",\"disabled\":false},{\"label\":\"Section 211 m\",\"disabled\":false},{\"label\":\"Section 39 m\",\"disabled\":false},{\"label\":\"Published walkdisplayed walk\",\"disabled\":false},{\"label\":\"MRT/LRT exitspublished walk\",\"disabled\":false},{\"label\":\"Bus stopspublished walk\",\"disabled\":false},{\"label\":\"Night lighting\",\"disabled\":false},{\"label\":\"Report missing shelter\",\"disabled\":false},{\"label\":\"Copy correction report\",\"disabled\":true},{\"label\":\"Show comparison\",\"disabled\":false}],\"routeKey\":\"3:shiokest:primary\",\"featureCount\":0,\"renderedKeys\":[],\"basemap\":false,\"overflow\":false,\"viewport\":[1440,950]}\n    at until (file:///C:/sgSHIOK2026/qa/revamp-r1/frontend-retention-20260910/browser.mjs:43:9)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/frontend-retention-20260910/browser.mjs:190:17",
+      "elapsedSeconds": 218.804,
+      "cleanup": true,
+      "proxyStopped": true,
+      "captures": [
+        {
+          "name": "retained-A-pending",
+          "expected": "9829c1cb6350f4b245852a39e911074bbf1607f3a9a60bf69e3cc8a5e34582a6",
+          "current": "9829c1cb6350f4b245852a39e911074bbf1607f3a9a60bf69e3cc8a5e34582a6",
+          "before": 0,
+          "after": 0
+        },
+        {
+          "name": "retained-A-on-B-390x844",
+          "expected": "7e17f921d92cb9858083518aa4bbba757bad7f50aeb5dfd50688ab67da53f2f7",
+          "current": "7e17f921d92cb9858083518aa4bbba757bad7f50aeb5dfd50688ab67da53f2f7",
+          "before": 4,
+          "after": 4
+        },
+        {
+          "name": "retained-A-on-B-390x667",
+          "expected": "9678eb486a3c17a4dabc7b53fcc1538cea14c30a6766f196ac3947903ab32c95",
+          "current": "9678eb486a3c17a4dabc7b53fcc1538cea14c30a6766f196ac3947903ab32c95",
+          "before": 4,
+          "after": 4
+        },
+        {
+          "name": "retained-A-on-B-320x667",
+          "expected": "df1ae71266f273705ec8f2eaa2ea0a2a8c593a6a87baa242dc26bf37a964216b",
+          "current": "df1ae71266f273705ec8f2eaa2ea0a2a8c593a6a87baa242dc26bf37a964216b",
+          "before": 4,
+          "after": 4
+        },
+        {
+          "name": "retained-A-on-B-1440x950",
+          "expected": "0f530f2bbd5131b2cb3ff42691b81aaecc2c3c205d7771400ac04826e13b032d",
+          "current": "0f530f2bbd5131b2cb3ff42691b81aaecc2c3c205d7771400ac04826e13b032d",
+          "before": 4,
+          "after": 4
+        }
+      ],
+      "lastSample": {
+        "name": "ordinary navigation to B",
+        "value": {
+          "url": "http://127.0.0.1:4346/?debugMap=1&postal=018956",
+          "timeOrigin": 1789018466128.4,
+          "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nCompare\n\nMap failed: The map did not finish starting. Reload the page to try again. Walk evidence is still available.\n\nMap failed: The map did not finish starting. Reload the page to try again. Walk evidence is still available. Reload page\nCopy diagnostics\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAdd to comparison\nMapped exposed sections (3)\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nAbout data",
+          "status": "error",
+          "controller": "http://127.0.0.1:4346/sw.js",
+          "controls": [
+            {
+              "label": "Compare",
+              "disabled": false
+            },
+            {
+              "label": "Search postal code",
+              "disabled": false
+            },
+            {
+              "label": "Reload page",
+              "disabled": false
+            },
+            {
+              "label": "Copy diagnostics",
+              "disabled": false
+            },
+            {
+              "label": "Walk details",
+              "disabled": false
+            },
+            {
+              "label": "Add to comparison",
+              "disabled": false
+            },
+            {
+              "label": "Section 116 m",
+              "disabled": false
+            },
+            {
+              "label": "Section 211 m",
+              "disabled": false
+            },
+            {
+              "label": "Section 39 m",
+              "disabled": false
+            },
+            {
+              "label": "Published walkdisplayed walk",
+              "disabled": false
+            },
+            {
+              "label": "MRT/LRT exitspublished walk",
+              "disabled": false
+            },
+            {
+              "label": "Bus stopspublished walk",
+              "disabled": false
+            },
+            {
+              "label": "Night lighting",
+              "disabled": false
+            },
+            {
+              "label": "Report missing shelter",
+              "disabled": false
+            },
+            {
+              "label": "Copy correction report",
+              "disabled": true
+            },
+            {
+              "label": "Show comparison",
+              "disabled": false
+            }
+          ],
+          "routeKey": "3:shiokest:primary",
+          "featureCount": 0,
+          "renderedKeys": [],
+          "basemap": false,
+          "overflow": false,
+          "viewport": [
+            1440,
+            950
+          ]
+        }
+      }
+    },
+    {
+      "path": "qa/revamp-r1/frontend-retention-20260910/global-8DefXL/browser.json",
+      "exitCode": 1,
+      "checks": [
+        {
+          "name": "fresh proxy begins at A",
+          "pass": true
+        },
+        {
+          "name": "switch to current build",
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "error": "Error: TypeError: Cannot read properties of null (reading 'innerText')\n    at facts (<anonymous>:4:88)\n    at <anonymous>:13:3\n    at evaluate (file:///C:/sgSHIOK2026/qa/revamp-r1/frontend-retention-20260910/global-browser.mjs:37:33)\n    at async until (file:///C:/sgSHIOK2026/qa/revamp-r1/frontend-retention-20260910/global-browser.mjs:42:38)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/frontend-retention-20260910/global-browser.mjs:132:16",
+      "elapsedSeconds": 13.481,
+      "cleanup": true,
+      "proxyStopped": true,
+      "captures": [],
+      "lastSample": {
+        "name": "current worker controller",
+        "value": "http://127.0.0.1:4346/sw.js"
+      }
+    },
+    {
+      "path": "qa/revamp-r1/frontend-retention-20260910/global-PrIbto/browser.json",
+      "exitCode": 0,
+      "checks": [
+        {
+          "name": "fresh proxy begins at A",
+          "pass": true
+        },
+        {
+          "name": "switch to current build",
+          "pass": true
+        },
+        {
+          "name": "global controls fit 320x667",
+          "pass": true,
+          "detail": {
+            "url": "http://127.0.0.1:4346/qa-global-fault?postal=018956#compare=018956,018990",
+            "timeOrigin": 1789019085961.4,
+            "text": "SHIOK couldn't load\n\nReload the page to try again.\n\nReload page",
+            "controller": "http://127.0.0.1:4346/sw.js",
+            "controls": [
+              {
+                "label": "Reload page",
+                "disabled": false
+              }
+            ],
+            "featureCount": 0,
+            "renderedKeys": [],
+            "basemap": false,
+            "overflow": false,
+            "viewport": [
+              320,
+              667
+            ]
+          }
+        },
+        {
+          "name": "global controls fit 1440x950",
+          "pass": true,
+          "detail": {
+            "url": "http://127.0.0.1:4346/qa-global-fault?postal=018956#compare=018956,018990",
+            "timeOrigin": 1789019085961.4,
+            "text": "SHIOK couldn't load\n\nReload the page to try again.\n\nReload page",
+            "controller": "http://127.0.0.1:4346/sw.js",
+            "controls": [
+              {
+                "label": "Reload page",
+                "disabled": false
+              }
+            ],
+            "featureCount": 0,
+            "renderedKeys": [],
+            "basemap": false,
+            "overflow": false,
+            "viewport": [
+              1440,
+              950
+            ]
+          }
+        },
+        {
+          "name": "native Reload preserves exact postal and share URL",
+          "pass": true,
+          "detail": {
+            "before": "http://127.0.0.1:4346/qa-global-fault?postal=018956#compare=018956,018990",
+            "after": "http://127.0.0.1:4346/qa-global-fault?postal=018956#compare=018956,018990"
+          }
+        },
+        {
+          "name": "no automatic reload loop",
+          "pass": true
+        },
+        {
+          "name": "no denied browser traffic",
+          "pass": true,
+          "detail": []
+        }
+      ],
+      "errors": [],
+      "elapsedSeconds": 27.94,
+      "cleanup": true,
+      "proxyStopped": true,
+      "captures": [
+        {
+          "name": "global-error-390x844",
+          "expected": "632645fad8f6c5685856b1ba9bce9fc85072c9418e9ac8852e107e10ac4fb148",
+          "current": "632645fad8f6c5685856b1ba9bce9fc85072c9418e9ac8852e107e10ac4fb148",
+          "before": 0,
+          "after": 0
+        },
+        {
+          "name": "global-error-320x667",
+          "expected": "71f5e2451016d4d66da77ef1482b63b03ad68518fb78645fb78d03a86883c5d6",
+          "current": "71f5e2451016d4d66da77ef1482b63b03ad68518fb78645fb78d03a86883c5d6",
+          "before": 0,
+          "after": 0
+        },
+        {
+          "name": "global-error-1440x950",
+          "expected": "3bbdd6d4f6119534ae19d7ae4e8c93e503d08fb85422888040cbb0632577eddf",
+          "current": "3bbdd6d4f6119534ae19d7ae4e8c93e503d08fb85422888040cbb0632577eddf",
+          "before": 0,
+          "after": 0
+        },
+        {
+          "name": "global-error-after-native-reload",
+          "expected": "3bbdd6d4f6119534ae19d7ae4e8c93e503d08fb85422888040cbb0632577eddf",
+          "current": "3bbdd6d4f6119534ae19d7ae4e8c93e503d08fb85422888040cbb0632577eddf",
+          "before": 0,
+          "after": 0
+        }
+      ],
+      "lastSample": {
+        "name": "native Reload result",
+        "value": {
+          "url": "http://127.0.0.1:4346/qa-global-fault?postal=018956#compare=018956,018990",
+          "timeOrigin": 1789019088415.8,
+          "text": "SHIOK couldn't load\n\nReload the page to try again.\n\nReload page",
+          "controller": "http://127.0.0.1:4346/sw.js",
+          "controls": [
+            {
+              "label": "Reload page",
+              "disabled": false
+            }
+          ],
+          "featureCount": 0,
+          "renderedKeys": [],
+          "basemap": false,
+          "overflow": false,
+          "viewport": [
+            1440,
+            950
+          ]
+        }
+      },
+      "outcome": "Actual global error native Reload preserves full URL; not a route/upgrade acceptance run"
+    }
+  ],
+  "visualInspection": {
+    "reviewer": "parent",
+    "independent": false,
+    "count": 9,
+    "result": "Five retained-tab captures: intentionally deferred blank map with useful metrics, then four visible selected-route captures at 390x844/390x667/320x667/1440x950. Four global-error captures show readable recovery controls at three viewports and after native Reload. No successful new-B-route capture in this turn.",
+    "limitation": "Subagent quota previously recorded; no repeated spawn and no independent visual acceptance claim"
+  },
+  "failedAttempts": {
+    "python": [
+      {
+        "name": "integration-1",
+        "exitCode": null,
+        "signal": "SIGTERM",
+        "error": "spawnSync C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe ETIMEDOUT",
+        "elapsedSeconds": 420.055,
+        "stdout": "........................................................................ [ 46%]\r\n....."
+      },
+      {
+        "name": "staging-final-b",
+        "exitCode": null,
+        "signal": "SIGTERM",
+        "error": "spawnSync C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe ETIMEDOUT",
+        "elapsedSeconds": 420.258,
+        "stdout": ".................................................."
+      }
+    ],
+    "firstBuild": {
+      "root": "C:\\sgSHIOK2026",
+      "hostname": "PRAWN-E14",
+      "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\frontend-retention-20260910\\build-1",
+      "snapshot": "C:\\sgSHIOK2026\\tmp\\frontend-retention-build-1",
+      "archive": "C:\\sgSHIOK2026\\tmp\\frontend-retention-archive-build-1",
+      "startedAt": "2026-09-10T05:14:59.619Z",
+      "protectedDataAbsent": true,
+      "dependencyInstall": false,
+      "deploymentIdentityVerified": false,
+      "sources": [],
+      "derivatives": [],
+      "captureCommand": [
+        "-B",
+        "-m",
+        "scripts.frontend_archive",
+        "--build-web-root",
+        "C:\\sgSHIOK2026\\web",
+        "--output",
+        "C:\\sgSHIOK2026\\tmp\\frontend-retention-archive-build-1",
+        "--expected-build-id",
+        "e8Hlhkml4c3i_uMGJdd3P",
+        "--maplibre-version",
+        "6.1.0"
+      ],
+      "exitCode": 1,
+      "error": "Error: Command failed: C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe -B -m scripts.frontend_archive --build-web-root C:\\sgSHIOK2026\\web --output C:\\sgSHIOK2026\\tmp\\frontend-retention-archive-build-1 --expected-build-id e8Hlhkml4c3i_uMGJdd3P --maplibre-version 6.1.0\n    at genericNodeError (node:internal/errors:999:15)\n    at wrappedFn (node:internal/errors:544:14)\n    at checkExecSyncError (node:child_process:942:11)\n    at execFileSync (node:child_process:978:15)\n    at file:///C:/sgSHIOK2026/qa/revamp-r1/frontend-retention-20260910/build.mjs:35:15\n    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)\n    at async node:internal/modules/esm/loader:650:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)",
+      "finishedAt": "2026-09-10T05:15:36.570Z",
+      "sourceStable": true
+    },
+    "captureCorrection": "Initial capture omitted support for actual .mjs runtimes/LICENSE.txt. Build-1 stopped before archive creation/compilation. Its wrapper failed to retain child stdout; original detailed error is unavailable. Inspected paths and code establish the allowlist gap; final fixture/capture/build succeed. Build-2 wrapper preserves future child failures.",
+    "firstProxy": "proxy-1 reached ECONNREFUSED on4345 before the launcher completed. No browser started. Its early exception was printed to the tool but not persisted by that script.",
+    "launcher": "Owned PowerShell113276 stalled in Get-NetTCPConnection before creating logs/server. Exact PID/path/starttime13:26:15.644918+08:00 checked; stopped only that launcher. Direct Next startup then succeeded. No existing listener or other app was stopped.",
+    "globalHarness": "global-8DefXL polled document.body before navigation created it and exited1. Null-safe DOM sampling fixed in the new helper only; subsequent global-PrIbto passed. Original runner/receipt unchanged."
+  },
+  "findings": [
+    "Pinned bounded frontend retention is implemented in preparation and guarded local/provider builds. Same-URL different bytes, linked/unlisted paths and pin changes block; current assets win and old misses fall back. No automatic archive discovery or forced navigation.",
+    "Controlled retained A remained the same Document/postal after B worker activation and actual old-module200; bytes match the 39556-byte pin and all four viewport captures show four current route features. This fixes the specific previously reproduced uncached old-chunk404 case.",
+    "The same run later failed ordinary navigation to B with map-startup timeout, while useful walk text remained. Browser exit1 stays recorded: 15 passed checks followed by a timeout, not full upgrade acceptance. OneMap responses continued; 15 stale CDP interception errors also limit causal attribution. Hardware-only causation is not established.",
+    "A separate QA-only fault-route test passes7 checks: real global fallback, native Reload preserving query/hash, no reload loop, narrow/desktop fit. It does not retrofit legacy A or prove new-B map startup.",
+    "Final isolated web1744/64, targeted Python166, TypeScript, guarded build and integrity pass. Initial fixture/runtime gaps, bounded test timeouts and harness failures are preserved. No full-project Python-suite or latency claim.",
+    "Archive capture is29 files totaling5786770bytes, frontend only. Real deployment identity and old-runtime security remain unverified; current MapLibre advisory/installation and T27/T28 gates remain. No installs, protected-data mutation, pipeline execution, real artifact staging or deployment in this turn."
+  ],
+  "disagreements": [
+    "A passing retained-tab slice cannot close T01 when the subsequent current-build navigation timed out. Keep T01 PARTIAL and retain the failure instead of rerunning merely for a pass.",
+    "Captured local build identity plus byte hashes are not production identity or security approval. Retention is selected-generation compatibility, not indefinite old-tab support. The global error test uses a declared QA-only route.",
+    "Both data-cache sentinels and sampled body preservation were previously established, but this retained run stopped before its final cache comparison. Do not carry that claim into this run."
+  ],
+  "next": [
+    "T01: instrument the first current-build startup across navigation, including worker/style/tile lifecycle and recovery; avoid blind repetition or changing timeouts without evidence",
+    "T25: bounded fast navigation/reduced motion/enlarged text acceptance remains FREE",
+    "T29 security disposition then T27 real release identity/preparation and T28 deployment require their owner gates; no repeated determinism work"
+  ],
+  "evidencePrefix": {
+    "path": "qa/verification/REVAMP-R1-core-walk.md",
+    "bytes": 230067,
+    "sha256": "0637d609541585cca56c4d32001a18273751950489129b1ce87107f77ef6fe3d",
+    "unchanged": true
+  },
+  "protectedTrackedDiff": "",
+  "ownedHelpersStopped": {
+    "ports": [
+      4345,
+      4346
+    ],
+    "probe": "ECONNREFUSED",
+    "nextPid": 104776,
+    "identityVerifiedBeforeStop": true,
+    "browsers": true
+  },
+  "ok": true,
+  "okMeaning": "Implementation/test/source/cleanup receipt valid, NOT full T01 or release acceptance",
+  "productAcceptance": false,
+  "finishedAt": "2026-09-10T05:50:14.399Z"
+}
