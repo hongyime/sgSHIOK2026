@@ -1,0 +1,20 @@
+{
+  "command": "git show --format=fuller --name-status --no-renames 05effee; git push origin main",
+  "observedChunks": [
+    {
+      "chunk_id": "970528",
+      "wall_time_seconds": 5.010583,
+      "session_id": 27520,
+      "original_token_count": 421,
+      "output": "commit 05effeebb718c1649751b2c4c0aecdcb681b20b2\nAuthor:     dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>\nAuthorDate: Thu Sep 10 08:04:30 2026 +0000\nCommit:     GitHub <noreply@github.com>\nCommitDate: Thu Sep 10 08:04:30 2026 +0000\n\n    chore(deps): bump the npm_and_yarn group across 1 directory with 2 updates (#32)\n    \n    Bumps the npm_and_yarn group with 2 updates in the /web directory: [maplibre-gl](https://github.com/maplibre/maplibre-gl-js) and [@vitest/mocker](https://github.com/vitest-dev/vitest/tree/HEAD/packages/mocker).\n    \n    \n    Updates `maplibre-gl` from 6.1.0 to 6.4.1\n    - [Release notes](https://github.com/maplibre/maplibre-gl-js/releases)\n    - [Changelog](https://github.com/maplibre/maplibre-gl-js/blob/main/CHANGELOG.md)\n    - [Commits](https://github.com/maplibre/maplibre-gl-js/compare/v6.1.0...v6.4.1)\n    \n    Updates `@vitest/mocker` from 4.1.10 to 4.1.11\n    - [Release notes](https://github.com/vitest-dev/vitest/releases)\n    - [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n    - [Commits](https://github.com/vitest-dev/vitest/commits/v4.1.11/packages/mocker)\n    \n    ---\n    updated-dependencies:\n    - dependency-name: maplibre-gl\n      dependency-version: 6.4.1\n      dependency-type: direct:production\n      dependency-group: npm_and_yarn\n    - dependency-name: \"@vitest/mocker\"\n      dependency-version: 4.1.11\n      dependency-type: indirect\n      dependency-group: npm_and_yarn\n    ...\n    \n    Signed-off-by: dependabot[bot] <support@github.com>\n    Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>\n\nM\tweb/package-lock.json\nM\tweb/package.json\n"
+    },
+    {
+      "chunk_id": "0e9a8a",
+      "wall_time_seconds": 0.000007,
+      "exit_code": 1,
+      "original_token_count": 113,
+      "output": "To https://github.com/hongyime/sgSHIOK2026.git\n ! [rejected]        main -> main (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/hongyime/sgSHIOK2026.git'\nhint: Updates were rejected because the tip of your current branch is behind\nhint: its remote counterpart. If you want to integrate the remote changes,\nhint: use 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\n"
+    }
+  ],
+  "note": "Raw tool receipts. No retry until the two remote dependency commits are enumerated and integrated without rewriting history."
+}

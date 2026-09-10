@@ -3319,3 +3319,19 @@ so it cannot establish a clean transport audit. Do not weaken the gate or repeat
 the replay without a specific diagnostic correction. CSS text/reflow stress is
 not native zoom, a phone benchmark or release approval. No scoring or data change.
 Evidence: qa/revamp-r1/cross-feature-motion-20260910/summary.json.
+
+## 2026-09-10: Dependency Auto-Merge Does Not Validate a Vendored Worker
+
+Final fetch discovered Dependabot05effee and85d4c9e, both changing only the web
+package manifest and lock. Preserve these remote commits through an ordinary
+merge, never a force push or history rewrite. The local T25 test/build receipts
+remain attributable to a325f16 and its installed dependencies, not the merged lock.
+
+The new lock declares MapLibre6.4.1, Next16.3.3 and Vitest4.1.11 while installed
+versions are6.1.0,16.3.0 and4.1.10. The static worker URL and byte-identity test
+still explicitly require6.1.0. A clean install therefore needs coordinated
+worker assets, cache-policy references, tests and a fresh build. The bot's package
+bump alone does not establish runtime compatibility or release approval. Do not
+install, silently roll back the bot, or deploy as part of merging this checkpoint.
+T29 remains an owner-bounded release blocker. No pipeline work is needed.
+Evidence: qa/revamp-r1/cross-feature-motion-20260910/remote-advance.json.

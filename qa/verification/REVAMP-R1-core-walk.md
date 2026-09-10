@@ -3924,3 +3924,94 @@ Command: `node qa/revamp-r1/cross-feature-motion-20260910/audit.mjs`
 1. Passing functional captures do not make a failing browser audit pass. T25 remains PARTIAL until request interception is correlated and a bounded clean audit is obtained; preserve every original result.
 2. CSS reflow and computed-font doubling are not native browser zoom, assistive technology, real-phone evidence or representative latency. The cache/SW-bypassed replay is not retained-old-tab M17 acceptance.
 3. Subagent quota remains exhausted from the previous attempt. Source and image review are parent-only, not independent acceptance.
+
+## 2026-09-10: Integration Boundary After Remote Dependency Updates
+
+The local fix commit is `a325f1644c34a65910bf346c9e9b9ab11232fe68`.
+The first push was rejected, not retried unchanged. Both new remote commits are
+preserved in a normal merge. Their full touched-file lists and raw Git stdout,
+installed/locked versions and post-merge integrity output are recorded below.
+Earlier1765-test and browser/build claims remain pre-merge results, not validation
+of the newer dependency declarations. No install or deployment was performed.
+
+```json
+{
+  "root": "C:\\sgSHIOK2026",
+  "headBeforeMergeCommit": "a325f1644c34a65910bf346c9e9b9ab11232fe68",
+  "remoteHead": "85d4c9eda0db10442aa2e29a22cb1bb098963ac3",
+  "mergeHead": "85d4c9eda0db10442aa2e29a22cb1bb098963ac3",
+  "commits": [
+    {
+      "sha": "05effeebb718c1649751b2c4c0aecdcb681b20b2",
+      "stdout": "commit 05effeebb718c1649751b2c4c0aecdcb681b20b2\nAuthor:     dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>\nAuthorDate: Thu Sep 10 08:04:30 2026 +0000\nCommit:     GitHub <noreply@github.com>\nCommitDate: Thu Sep 10 08:04:30 2026 +0000\n\n    chore(deps): bump the npm_and_yarn group across 1 directory with 2 updates (#32)\n    \n    Bumps the npm_and_yarn group with 2 updates in the /web directory: [maplibre-gl](https://github.com/maplibre/maplibre-gl-js) and [@vitest/mocker](https://github.com/vitest-dev/vitest/tree/HEAD/packages/mocker).\n    \n    \n    Updates `maplibre-gl` from 6.1.0 to 6.4.1\n    - [Release notes](https://github.com/maplibre/maplibre-gl-js/releases)\n    - [Changelog](https://github.com/maplibre/maplibre-gl-js/blob/main/CHANGELOG.md)\n    - [Commits](https://github.com/maplibre/maplibre-gl-js/compare/v6.1.0...v6.4.1)\n    \n    Updates `@vitest/mocker` from 4.1.10 to 4.1.11\n    - [Release notes](https://github.com/vitest-dev/vitest/releases)\n    - [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n    - [Commits](https://github.com/vitest-dev/vitest/commits/v4.1.11/packages/mocker)\n    \n    ---\n    updated-dependencies:\n    - dependency-name: maplibre-gl\n      dependency-version: 6.4.1\n      dependency-type: direct:production\n      dependency-group: npm_and_yarn\n    - dependency-name: \"@vitest/mocker\"\n      dependency-version: 4.1.11\n      dependency-type: indirect\n      dependency-group: npm_and_yarn\n    ...\n    \n    Signed-off-by: dependabot[bot] <support@github.com>\n    Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>\n\nM\tweb/package-lock.json\nM\tweb/package.json\n"
+    },
+    {
+      "sha": "85d4c9eda0db10442aa2e29a22cb1bb098963ac3",
+      "stdout": "commit 85d4c9eda0db10442aa2e29a22cb1bb098963ac3\nAuthor:     dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>\nAuthorDate: Thu Sep 10 08:06:32 2026 +0000\nCommit:     GitHub <noreply@github.com>\nCommitDate: Thu Sep 10 08:06:32 2026 +0000\n\n    chore(deps): bump the npm_and_yarn group across 1 directory with 2 updates (#33)\n    \n    Bumps the npm_and_yarn group with 2 updates in the /web directory: [next](https://github.com/vercel/next.js) and [sharp](https://github.com/lovell/sharp).\n    \n    \n    Updates `next` from 16.3.0 to 16.3.3\n    - [Release notes](https://github.com/vercel/next.js/releases)\n    - [Commits](https://github.com/vercel/next.js/compare/v16.3.0...v16.3.3)\n    \n    Updates `sharp` from 0.35.3 to 0.35.4\n    - [Release notes](https://github.com/lovell/sharp/releases)\n    - [Commits](https://github.com/lovell/sharp/compare/v0.35.3...v0.35.4)\n    \n    ---\n    updated-dependencies:\n    - dependency-name: next\n      dependency-version: 16.3.3\n      dependency-type: direct:production\n      dependency-group: npm_and_yarn\n    - dependency-name: sharp\n      dependency-version: 0.35.4\n      dependency-type: indirect\n      dependency-group: npm_and_yarn\n    ...\n    \n    Signed-off-by: dependabot[bot] <support@github.com>\n    Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>\n\nM\tweb/package-lock.json\nM\tweb/package.json\n"
+    }
+  ],
+  "changedSinceValidation": [
+    "web/package-lock.json",
+    "web/package.json"
+  ],
+  "installed": [
+    {
+      "name": "maplibre-gl",
+      "locked": "6.4.1",
+      "installed": "6.1.0"
+    },
+    {
+      "name": "next",
+      "locked": "16.3.3",
+      "installed": "16.3.0"
+    },
+    {
+      "name": "vitest",
+      "locked": "4.1.11",
+      "installed": "4.1.10"
+    },
+    {
+      "name": "@vitest/mocker",
+      "locked": "4.1.11",
+      "installed": "4.1.10"
+    },
+    {
+      "name": "sharp",
+      "locked": "0.35.4",
+      "installed": "0.35.3"
+    }
+  ],
+  "workerReference": [
+    {
+      "line": 1417,
+      "text": "      maplibre.setWorkerUrl(\"/maplibre/6.1.0/maplibre-gl-worker.mjs\");"
+    }
+  ],
+  "workerTest": "import { readFileSync } from 'node:fs';\nimport { createHash } from 'node:crypto';\nimport { describe, it, expect } from 'vitest';\nimport maplibrePackage from 'maplibre-gl/package.json';\n\ndescribe('local MapLibre module worker', () => {\n  it('serves the exact installed worker/shared module and license without changing CSP', () => {\n    const hash = (path: string) => createHash('sha256').update(readFileSync(path)).digest('hex');\n    expect(maplibrePackage.version).toBe('6.1.0');\n    for (const file of ['maplibre-gl-worker.mjs','maplibre-gl-shared.mjs']) {\n      expect(hash(`public/maplibre/6.1.0/${file}`)).toBe(hash(`node_modules/maplibre-gl/dist/${file}`));\n    }\n    expect(hash('public/maplibre/6.1.0/LICENSE.txt')).toBe(hash('node_modules/maplibre-gl/LICENSE.txt'));\n  });\n});\n",
+  "integrity": {
+    "exitCode": 0,
+    "stdout": "repo_integrity=ok\r\n",
+    "stderr": ""
+  },
+  "findings": [
+    "The final fetch detected two remote commits while the local tree had been validated at its pinned base; first push was rejected non-fast-forward. Both bot commits modify only web/package.json and web/package-lock.json.",
+    "Normal no-rewrite merge preserves the remote commits and the local fix commit. No dependency installation, worker replacement or deployment is performed.",
+    "MapLibre is now locked6.4.1 but installed package and static worker are6.1.0. Next is locked16.3.3 but installed16.3.0. The old full test/build receipts cannot certify this merged dependency state.",
+    "map-worker.test.ts intentionally asserts installed6.1.0 and exact vendored bytes. A clean new dependency install will require coordinated worker, cache-policy, tests and build validation, not just a package bump."
+  ],
+  "disagreements": [
+    "Do not treat bot auto-merge as owner approval to install/deploy or as proof that the matching worker was updated. T29 remains a release blocker; the current preview is the earlier tested build, not this new dependency state."
+  ]
+}
+```
+
+### FINDINGS
+
+1. The final fetch detected two remote commits while the local tree had been validated at its pinned base; first push was rejected non-fast-forward. Both bot commits modify only web/package.json and web/package-lock.json.
+2. Normal no-rewrite merge preserves the remote commits and the local fix commit. No dependency installation, worker replacement or deployment is performed.
+3. MapLibre is now locked6.4.1 but installed package and static worker are6.1.0. Next is locked16.3.3 but installed16.3.0. The old full test/build receipts cannot certify this merged dependency state.
+4. map-worker.test.ts intentionally asserts installed6.1.0 and exact vendored bytes. A clean new dependency install will require coordinated worker, cache-policy, tests and build validation, not just a package bump.
+
+### DISAGREEMENTS
+
+1. Do not treat bot auto-merge as owner approval to install/deploy or as proof that the matching worker was updated. T29 remains a release blocker; the current preview is the earlier tested build, not this new dependency state.
