@@ -1,0 +1,54 @@
+{
+  "startedAt": "2026-09-10T14:53:39.385Z",
+  "root": "C:\\sgSHIOK2026",
+  "host": "Prawn-E14",
+  "freeMiBBefore": 1026.7265625,
+  "commands": [
+    {
+      "args": [
+        "stop-owned-next.ps1"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"waited\":true,\"gone\":true,\"before\":{\"creationDate\":\"\\/Date(1789027171493)\\/\",\"workingSetBytes\":2523136,\"pid\":93692,\"privateBytes\":88014848,\"commandLine\":\"\\\"C:\\\\Program Files\\\\nodejs\\\\node.exe\\\" C:\\\\sgSHIOK2026\\\\web\\\\node_modules\\\\next\\\\dist\\\\bin\\\\next start C:\\\\sgSHIOK2026\\\\tmp\\\\cached-release-cross-feature-motion-20260910-2\\\\web --hostname 127.0.0.1 --port 4353\"}}\r\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "exact captured old/preserved live handles"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"preservedCount\":3,\"oldCount\":0,\"oldAlive\":[null],\"preserved\":[97544,98236,108948]}\r\n",
+      "stderr": ""
+    }
+  ],
+  "before": {
+    "old": {
+      "root": "C:\\sgSHIOK2026",
+      "directory": "C:\\sgSHIOK2026\\qa\\revamp-r1\\cross-feature-motion-20260910\\preview-2",
+      "pid": 105140,
+      "origin": "http://127.0.0.1:4354",
+      "buildB": "jNTP8fdVgYwcHrBSMHG0l",
+      "sourceB": "C:\\sgSHIOK2026\\tmp\\cached-release-cross-feature-motion-20260910-2",
+      "active": "B"
+    },
+    "oldRequestCount": 197,
+    "current": {
+      "buildId": "sou6pZfEMMmsCl52vdXg4",
+      "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-worker-alignment-20260910",
+      "pid": 98236
+    },
+    "currentProxySha256": "ccffc0cb6afd10dbbe15240dea59d19b6c050fffe838f9a320431efb3daaec1a"
+  },
+  "proxyStopStatus": 204,
+  "currentAfter": {
+    "buildId": "sou6pZfEMMmsCl52vdXg4",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-worker-alignment-20260910",
+    "pid": 98236
+  },
+  "dataAfter": {
+    "status": 200
+  },
+  "ok": true,
+  "finishedAt": "2026-09-10T14:53:50.334Z",
+  "freeMiBAfter": 643.55078125
+}

@@ -4340,3 +4340,43 @@ Exit0. source-anchors.json includes compiled snippets and five-capture inspectio
 
 1. The first sampled hotspot does not justify declaring visibility queries the bottleneck. The directly timed follow-up contradicts that diagnosis for its observed run. A throttling patch or longer application deadline would be unsupported by this evidence.
 2. Neither one successful mobile capture nor a low-memory stop proves hardware-only causation or map reliability. Keep the earlier failure visible and perform the remaining bounded viewport/retained-client checks only with headroom.
+
+## 2026-09-10: Retire Obsolete QA Preview Processes
+
+Basea2772eb; C:\sgSHIOK2026; Prawn-E14. Previous goal turn made progress through a committed diagnosis; this continuation revalidated the full31-task plan and current resource gate. Startup observation:
+
+```text
+{"freeMiB":1022.046875,"host":"Prawn-E14","at":"2026-09-10T14:42:09.955Z"}
+```
+
+Rather than immediately repeating a browser run or asking the owner to close unrelated apps, inspected the two explicitly obsolete QA listeners4353/4354. Recorded proxy identity matched build jNTP8fdVgYwcHrBSMHG0l and PID105140. Process command lines and creation times matched the prior QA launch; Next PID93692 was bound to the matching old snapshot. Current4362 proxy source routes only to4361 and data4321; its sha256 is recorded in result.json. Both live current/proxy identities matched the worker-alignment receipt. Initial lookup guessed a nonexistent serve.mjs under worker-alignment and an overly broad rg result was truncated; narrowed explicit preview.mjs/serve-2.mjs reads supplied the actual dependency proof. No guessed path was used for a write or termination.
+
+Executed node C:\sgSHIOK2026\qa\revamp-r1\preview-retirement-20260910\retire.mjs at exit0. The old proxy's nonce-protected local stop returned204 and wrote a new terminal receipt, preserving197recorded requests. The Next process was stopped only after exact PID/command/creation-time checks. Its wait reportedtrue/gone:true. Final live-handle output:
+
+```text
+{"preservedCount":3,"oldCount":0,"oldAlive":[null],"preserved":[97544,98236,108948]}
+```
+
+The oldAlive:[null] shape is PowerShell's serialization of the empty collection's Id property, not one remaining process; oldCount is0. Preserved IDs are data4321, current proxy4362 and Next4361. Current build remains sou6pZfEMMmsCl52vdXg4, unchanged before/after, and the data manifest endpoint returned200 after cleanup. This HTTP status is an availability check, not a new input-hash verification. Raw process output and command metadata are retained in preview-retirement-20260910/result.json.
+
+Observed retired resident bytes:2523136 +8396800 =10919936B;10919936/1048576 =10.4140625MiB. Observed private bytes:88014848 +64643072 =152657920B;152657920/1048576 =145.5859375MiB. These are earlier process snapshots, not measured released physical memory. Free RAM at retirement start1026.7265625MiB and finish643.55078125MiB:643.55078125 -1026.7265625 =-383.17578125MiB. Host activity is uncontrolled; do not infer that stopping the servers caused this change. The post-cleanup value is below1024MiB, so no browser or data pilot was launched and there was no retry.
+
+### FINDINGS
+
+1. Two obsolete, owned QA servers were still live. They are now terminal; the current preview and data server remain available. Snapshot/evidence files were not removed or rewritten; the proxy terminal file is newly created.
+2. This cleanup does not resolve the resource gate. Browser/coverage work remains blocked by insufficient headroom; no further safe independent implementation was identified in the current31-task plan. Reporting/service ownership, monitoring activation, physical acceptance, data jobs and deployment retain their separate recorded gates. Subagent quota remains unavailable, not bypassed.
+3. No application/pipeline/config/data change or new test-suite result is claimed. The unchanged application retains its previously executed1785web tests/65files plus42guard tests. Overall completion is not established.
+
+### DISAGREEMENTS
+
+1. Asking the owner to free memory before checking our own explicitly obsolete QA processes was premature. That check and cleanup were ours to do; they did not require a new approval ceremony.
+2. Retiring this small resident footprint does not explain or fix the intermittent renderer stall. Do not turn successful process cleanup into a map-reliability claim.
+
+Post-edit checks, exit0 (the plan counts are its recorded status labels, not a new completion audit of every DONE item):
+
+```text
+{"appendOnly":true,"tasks":31,"done":14,"open":["T01","T02","T13","T14","T15","T16","T17","T18","T19","T20","T21","T23","T25","T26","T27","T28","T29"],"residentMiB":10.4140625,"privateMiB":145.5859375}
+repo_integrity=ok
+```
+
+14marked done +17open =31tasks. git diff --check passed; tracked application/pipeline/raw/processed/checksums diff was empty. git fetch origin main completed; HEAD and origin/main both remained a2772eb73b3609ce0b7779073a5093775c1a076f before this commit. No existing verification prefix changed.

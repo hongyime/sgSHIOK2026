@@ -3524,3 +3524,21 @@ host has headroom. No pipeline or deployment is part of this diagnostic work.
 
 Evidence: qa/revamp-r1/map-stall-20260910/analysis.json, source-anchors.json,
 terminal-observations.json and the append-only REVAMP-R1-core-walk log.
+
+## 2026-09-10: Retire Verified-Obsolete QA Servers
+
+When a newer QA preview supersedes a test server, check the live process against
+its recorded command, creation time and build identity. Check the current proxy's
+upstream dependencies before stopping anything. Prefer an authenticated local QA
+shutdown where available, retain its terminal receipt, and verify actual process
+exit plus continued health of the retained preview/data endpoints. Never infer
+ownership from a port alone, stop unrelated apps, or delete snapshots/evidence.
+
+Applied to obsolete4353/4354 only; current4361/4362 and data4321 remain live. The
+old pair's observed resident footprint was10.4140625MiB, not enough to justify
+attributing the host pressure to it. Free RAM after retirement was643.55078125MiB,
+still below the1024MiB browser/pilot gate. No new run or application fix follows
+from this cleanup. Older previews of uncertain current purpose remain untouched.
+
+Evidence: qa/revamp-r1/preview-retirement-20260910/result.json; graceful terminal
+receipt at qa/revamp-r1/cross-feature-motion-20260910/preview-2/proxy-terminal.json.
