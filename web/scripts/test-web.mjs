@@ -1,8 +1,17 @@
 import { spawnSync } from "node:child_process";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { reportInstalledDependencies } from "./check-installed-dependencies.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+if (!reportInstalledDependencies(root).ok) process.exit(1);
+
+const contracts = spawnSync(process.execPath, ["--test", resolve(root, "scripts/__tests__/installed-dependencies.test.mjs")], {
+  cwd: root, stdio: "inherit", windowsHide: true,
+});
+if (contracts.error) console.error(contracts.error);
+if (contracts.status !== 0) process.exit(contracts.status ?? 1);
+
 const vitestBin = resolve(
   root,
   "node_modules",

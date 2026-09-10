@@ -2,6 +2,7 @@ import { spawnSync } from 'node:child_process';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { verifyFrontendRetention } from './frontend-retention.mjs';
+import { reportInstalledDependencies } from './check-installed-dependencies.mjs';
 
 /** @param {string} webRoot @param {() => {status: number | null, error?: Error}} [runBuild] */
 export function buildFrontendRelease(webRoot, runBuild = () => spawnSync(process.execPath,
@@ -17,5 +18,7 @@ export function buildFrontendRelease(webRoot, runBuild = () => spawnSync(process
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   if (process.argv.length !== 3 || process.argv[2] !== 'build') throw Error('Explicit build command required');
-  console.log(JSON.stringify(buildFrontendRelease(dirname(dirname(fileURLToPath(import.meta.url))))));
+  const webRoot = dirname(dirname(fileURLToPath(import.meta.url)));
+  if (!reportInstalledDependencies(webRoot).ok) process.exit(1);
+  console.log(JSON.stringify(buildFrontendRelease(webRoot)));
 }

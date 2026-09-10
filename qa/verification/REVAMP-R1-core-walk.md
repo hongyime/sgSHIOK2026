@@ -4015,3 +4015,60 @@ of the newer dependency declarations. No install or deployment was performed.
 ### DISAGREEMENTS
 
 1. Do not treat bot auto-merge as owner approval to install/deploy or as proof that the matching worker was updated. T29 remains a release blocker; the current preview is the earlier tested build, not this new dependency state.
+
+## 2026-09-10: Direct Installed-Dependency Validation Guard
+
+Base:15a32e2a53ad0f42aa2d58af83b22b92ec749001. All original evidence above this
+section is preserved. Commands, stdout/stderr, exit codes, exact source hashes
+and11 protected anchor hashes are in
+`qa/revamp-r1/dependency-alignment-20260910/*/command.json`; final source/prefix
+verification is in that directory's `summary.json`, produced by `audit.mjs`.
+
+Final native contract output from `final-contracts-2/command.json`:
+
+```text
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 27972.9353
+```
+
+Actual test entry (`actual-2`), release CLI (`release-refusal-1`) and QA snapshot
+entry (`qa-build-refusal-1`) each exit1 with no stdout and this stderr:
+
+```text
+installed_dependencies=failed
+{"signal":"installed_version_mismatch","name":"maplibre-gl","locked":"6.4.1","installed":"6.1.0"}
+{"signal":"installed_version_mismatch","name":"next","locked":"16.3.3","installed":"16.3.0"}
+{"signal":"installed_version_mismatch","name":"vitest","locked":"4.1.11","installed":"4.1.10"}
+```
+
+QA refusal produced neither of its two fresh build-output paths. The installed
+TypeScript no-emit check (`types-1`) exits0 with empty stdout/stderr. Integrity
+(`integrity-1`) exits0 with this stdout and empty stderr:
+
+```text
+repo_integrity=ok
+```
+
+### FINDINGS
+
+1. The original red fixtures reproduced a false-green test path and build preparation reached despite stale dependencies. Both entry points now refuse first; the direct release CLI and QA snapshot builder also refuse before work.
+2. All42 dependency-free contracts pass. They cover runtime/dev versions, lock-root agreement, metadata failures, unsafe names, scoped packages and ordered native-suite execution. No real pipeline, Next build or dependency installation ran in these fixtures.
+3. Two inherited native-test harness failures were found and corrected explicitly: NODE_TEST_CONTEXT made a child native suite silently skip, and null dependency metadata was treated as omitted. Red/green/null-red receipts remain preserved, not replaced.
+4. The new guard covers direct dependency versions only, not transitive contents, security, package bytes or worker identity. Its native contracts run separately before Vitest; the exact native file is excluded from Vitest discovery, not skipped by the test command.
+5. Three actual installed versions still differ from the lock. The prior1765/64 result is pre-merge evidence, not a current full-suite pass. TypeScript and integrity pass, and11 checked protected anchors remain unchanged. No new browser or release acceptance is claimed.
+6. Parent source review only; subagent quota remains exhausted. Existing preview and browser receipts remain unchanged. Dependency/worker alignment is awaiting the installation decision; CDP request/cancellation diagnostics remain the next independent free task.
+
+### DISAGREEMENTS
+
+1. Do not bypass the dependency refusal to obtain a green suite count: old-library tests and installed TypeScript cannot certify the new lock or its vendored worker. No pipeline, installation, deployment or complete-goal claim is made by this checkpoint.
+
+Clarification to finding3: the NODE_TEST_CONTEXT fixture problem and null-metadata
+guard bug were introduced during this guard implementation, not inherited from
+the existing application. The pre-existing defect was accepting stale installed
+dependencies. Both new defects were caught by stronger contracts before landing.

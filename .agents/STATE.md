@@ -4,7 +4,7 @@ Date: 2026-09-10
 Working root: C:\sgSHIOK2026
 Machine: Prawn-E14
 Startup: assert cwd equals C:\sgSHIOK2026; abort otherwise. Every write uses an absolute C: path. X: is a cold mirror, never a session root.
-Current work: a325f16 contains T25 fixes/evidence from b7196b6. Final fetch discovered bot commits05effee and85d4c9e; first push rejected. Normal merge in progress, no conflicts/history rewrite.
+Current base main15a32e2 is pushed; dependency merge completed. Completed: direct installed-version guard on test/package-build/release-CLI/QA-snapshot entry points.42native contracts pass; actual test/release/QA correctly refuse3version mismatches before work. Installed TS/integrity pass; no new full-suite/build claim. Evidence qa/revamp-r1/dependency-alignment-20260910/summary.json. No install performed; installation question pending.
 Implemented: current visibility ownership rejects three stale-ready races before effect cleanup. Measured table focus scrolling reveals controls hidden by the sticky label without changing selection.
 Validation at a325f16 before dependency merge:1755+3+7=1765 isolated web tests/64files,TS/build/integrity passed;149sources/11anchors matched. Merged package.json/lock now differ: this is NOT validation of new dependency state. Post-merge integrity alone passes.
 Browser: acceptance-6-DYmh0w completes52functional checks/14captures, but exit1 at final audit on5 CDP Invalid InterceptionId faults.0recorded runtime exceptions/denied requests does not prove clean transport; faults lack cancellation correlation. Do not relabel PASS.

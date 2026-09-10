@@ -2,9 +2,11 @@ import { execFileSync, spawn } from 'node:child_process';
 import { copyFileSync, existsSync, mkdirSync, readFileSync, symlinkSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { dirname, resolve } from 'node:path';
+import { reportInstalledDependencies } from '../../../web/scripts/check-installed-dependencies.mjs';
 
 const root = 'C:\\sgSHIOK2026';
 if (process.cwd() !== root) throw Error('Wrong working root');
+if (!reportInstalledDependencies(resolve(root, 'web')).ok) process.exit(1);
 const name = process.argv[2];
 if (!/^[a-z0-9-]+$/.test(name || '')) throw Error('Fresh build name required');
 const snapshot = resolve(root, 'tmp', 'cached-release-' + name);

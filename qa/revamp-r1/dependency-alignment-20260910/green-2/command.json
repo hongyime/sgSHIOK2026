@@ -1,0 +1,151 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "15a32e2a53ad0f42aa2d58af83b22b92ec749001",
+  "mode": "contracts",
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "--test",
+    "C:\\sgSHIOK2026\\web\\scripts\\__tests__\\installed-dependencies.test.mjs"
+  ],
+  "exitCode": 0,
+  "stdout": "✔ test entry refuses the real MapLibre 6.4.1 lock versus 6.1.0 install shape before Vitest (1790.3741ms)\n✔ matching versions may launch the test entry (1507.8275ms)\n✔ build entry refuses stale dependencies before even the preparation double (756.4132ms)\n✔ matching build reaches only the refusing preparation double, never Next (968.3191ms)\n✔ reports exact resolved versions for runtime and development dependencies (46.1054ms)\n✔ development dependency drift also fails (69.4096ms)\n✔ a manifest edit without matching lock-root metadata is not accepted (88.1328ms)\n✔ refuses invalid JSON in package.json (61.6866ms)\n✔ refuses null in package.json (38.2113ms)\n✔ refuses [] in package.json (40.9812ms)\n✔ refuses invalid JSON in package-lock.json (60.0172ms)\n✔ refuses null in package-lock.json (38.1479ms)\n✔ refuses [] in package-lock.json (44.1711ms)\n✔ refuses invalid JSON in node_modules/maplibre-gl/package.json (50.2726ms)\n✔ refuses null in node_modules/maplibre-gl/package.json (45.153ms)\n✔ refuses [] in node_modules/maplibre-gl/package.json (38.7208ms)\n✔ refuses malformed dependencies (70.0643ms)\n✔ refuses malformed devDependencies (97.5829ms)\n✔ unsupported lock format 1 fails closed (67.9913ms)\n✔ unsupported lock format 4 fails closed (69.4585ms)\n✔ unsupported lock format \"3\" fails closed (53.7453ms)\n✔ unsupported lock format null fails closed (53.2436ms)\n✔ lock v2 resolved-package metadata is supported (63.8586ms)\n✔ refuses unresolved lock entry null (110.4773ms)\n✔ refuses unresolved lock entry {} (73.8187ms)\n✔ refuses unresolved lock entry {\"link\":true,\"version\":\"6.4.1\"} (90.6957ms)\n✔ refuses unresolved lock entry {\"version\":\"\"} (78.9265ms)\n✔ missing installed package is reported without loading or executing it (92.1522ms)\n✔ refuses unsafe dependency name ../escape (88.149ms)\n✔ refuses unsafe dependency name @scope/../../escape (78.5218ms)\n✔ refuses unsafe dependency name C:\\escape (125.2346ms)\n✔ refuses unsafe dependency name /escape (78.296ms)\n✔ refuses unsafe dependency name @scope\\escape (62.2485ms)\n✔ refuses unsafe dependency name .hidden (61.9939ms)\n✔ scoped packages and a dependency listed in both sections are checked once (116.8806ms)\n✔ empty dependency metadata cannot authorize a vacuous success (88.4552ms)\n✔ package executable exports are never imported by the version check (83.9351ms)\nℹ tests 37\nℹ suites 0\nℹ pass 37\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 8075.1104\n",
+  "stderr": "",
+  "sources": [
+    {
+      "path": "web/package.json",
+      "sha256": "5b733157903afa386ed3830af127ca9f145b6ef8d4b7194c941c3e5a55287b7b"
+    },
+    {
+      "path": "web/package-lock.json",
+      "sha256": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590"
+    },
+    {
+      "path": "web/scripts/test-web.mjs",
+      "sha256": "2d222bff18b41ca26db430a0fc352ae30f66a1b7fca00de8844206eb107cbb5e"
+    },
+    {
+      "path": "web/scripts/__tests__/installed-dependencies.test.mjs",
+      "sha256": "50286371de16031612c41a587ad52f22e3c2539608fe59a28dc517d97eb9b13c"
+    },
+    {
+      "path": "web/scripts/check-installed-dependencies.mjs",
+      "sha256": "ab464507e7cfa38f400c19a550a26b0135efe68093984fb527c0024727af967d"
+    }
+  ],
+  "anchorsBefore": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "actual": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "actual": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "actual": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "actual": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "actual": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "actual": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "actual": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "actual": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "anchorsAfter": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "actual": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "actual": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "actual": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "actual": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "actual": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "actual": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "actual": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "actual": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "unchanged": true
+}

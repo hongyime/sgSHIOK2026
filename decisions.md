@@ -3335,3 +3335,28 @@ bump alone does not establish runtime compatibility or release approval. Do not
 install, silently roll back the bot, or deploy as part of merging this checkpoint.
 T29 remains an owner-bounded release blocker. No pipeline work is needed.
 Evidence: qa/revamp-r1/cross-feature-motion-20260910/remote-advance.json.
+
+## 2026-09-10: Refuse Validation Against Stale Installed Dependencies
+
+After a bot advances the lock, test success against older installed libraries is
+not validation of the merged dependency state. The supported test, package-build,
+release CLI and local QA snapshot entry points now require direct runtime and
+development package versions to equal their resolved lock entries. Check before
+test execution, data preparation, retention checks or snapshot creation. Parse
+metadata without importing dependency code. Invalid or missing metadata fails
+with a named signal. Lock formats2/3 are supported; other formats fail closed.
+
+Keep the guard dependency-free so it can be tested while installation is gated.
+Its42 native node:test contracts run before Vitest when versions align, and are
+excluded only from Vitest discovery, not from the test command. Package/build
+fixtures use refusing preparation/retention doubles, never real pipeline work.
+The exported low-level buildFrontendRelease retention helper is unchanged; its
+CLI performs the version check. Deliberate direct Next/Vitest invocations are not
+intercepted. This is neither a transitive dependency nor a byte-integrity audit.
+
+The real installation currently fails on MapLibre, Next and Vitest. Keep that
+refusal visible. Prior1765/64 results remain pre-merge evidence; installed
+TypeScript success does not certify the new lock or old vendored worker.
+Installation, worker/cache alignment and new build/browser validation are still
+required before release. No dependency installation or deployment is authorized
+by this tooling change. Evidence: qa/revamp-r1/dependency-alignment-20260910/summary.json.

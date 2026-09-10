@@ -1,0 +1,183 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "15a32e2a53ad0f42aa2d58af83b22b92ec749001",
+  "receiptAudit": [
+    {
+      "label": "final-contracts-2",
+      "exitCode": 0,
+      "matchingSources": 8,
+      "matchingProtectedAnchors": 11
+    },
+    {
+      "label": "actual-2",
+      "exitCode": 1,
+      "matchingSources": 8,
+      "matchingProtectedAnchors": 11
+    },
+    {
+      "label": "qa-build-refusal-1",
+      "exitCode": 1,
+      "matchingSources": 8,
+      "matchingProtectedAnchors": 11
+    },
+    {
+      "label": "release-refusal-1",
+      "exitCode": 1,
+      "matchingSources": 8,
+      "matchingProtectedAnchors": 11
+    },
+    {
+      "label": "types-1",
+      "exitCode": 0,
+      "matchingSources": 8,
+      "matchingProtectedAnchors": 11
+    },
+    {
+      "label": "integrity-1",
+      "exitCode": 0,
+      "matchingSources": 8,
+      "matchingProtectedAnchors": 11
+    }
+  ],
+  "contracts": {
+    "passed": 42,
+    "failed": 0,
+    "skipped": 0,
+    "framework": "node:test"
+  },
+  "attempts": [
+    {
+      "label": "red-1",
+      "mode": "contracts",
+      "exitCode": 1,
+      "counts": [
+        "ℹ tests 4",
+        "ℹ pass 2",
+        "ℹ fail 2",
+        "ℹ skipped 0"
+      ]
+    },
+    {
+      "label": "green-1",
+      "mode": "contracts",
+      "exitCode": 0,
+      "counts": [
+        "ℹ tests 4",
+        "ℹ pass 4",
+        "ℹ fail 0",
+        "ℹ skipped 0"
+      ]
+    },
+    {
+      "label": "green-2",
+      "mode": "contracts",
+      "exitCode": 0,
+      "counts": [
+        "ℹ tests 37",
+        "ℹ pass 37",
+        "ℹ fail 0",
+        "ℹ skipped 0"
+      ]
+    },
+    {
+      "label": "green-3",
+      "mode": "contracts",
+      "exitCode": 1,
+      "counts": [
+        "ℹ tests 38",
+        "ℹ pass 36",
+        "ℹ fail 2",
+        "ℹ skipped 0"
+      ]
+    },
+    {
+      "label": "null-red-1",
+      "mode": "contracts",
+      "exitCode": 1,
+      "counts": [
+        "ℹ tests 40",
+        "ℹ pass 38",
+        "ℹ fail 2",
+        "ℹ skipped 0"
+      ]
+    },
+    {
+      "label": "final-contracts-1",
+      "mode": "contracts",
+      "exitCode": 0,
+      "counts": [
+        "ℹ tests 40",
+        "ℹ pass 40",
+        "ℹ fail 0",
+        "ℹ skipped 0"
+      ]
+    },
+    {
+      "label": "final-contracts-2",
+      "mode": "contracts",
+      "exitCode": 0,
+      "counts": [
+        "ℹ tests 42",
+        "ℹ pass 42",
+        "ℹ fail 0",
+        "ℹ skipped 0"
+      ]
+    },
+    {
+      "label": "actual-1",
+      "mode": "actual",
+      "exitCode": 1,
+      "counts": []
+    },
+    {
+      "label": "actual-2",
+      "mode": "actual",
+      "exitCode": 1,
+      "counts": []
+    },
+    {
+      "label": "qa-build-refusal-1",
+      "mode": "qa-build",
+      "exitCode": 1,
+      "counts": []
+    },
+    {
+      "label": "release-refusal-1",
+      "mode": "release",
+      "exitCode": 1,
+      "counts": []
+    },
+    {
+      "label": "types-1",
+      "mode": "types",
+      "exitCode": 0,
+      "counts": []
+    },
+    {
+      "label": "integrity-1",
+      "mode": "integrity",
+      "exitCode": 0,
+      "counts": []
+    }
+  ],
+  "lockUnchangedSha256": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590",
+  "buildCommand": "node scripts/check-installed-dependencies.mjs && node scripts/ensure-data-bundle.mjs && next build",
+  "evidence": {
+    "path": "qa/verification/REVAMP-R1-core-walk.md",
+    "originalBytes": 259988,
+    "originalSha256": "d1c6460d4e39b4b6b13597bf88fe832d1359631dbbc19f01d367d37c64dab485",
+    "originalPrefixUnchanged": true,
+    "appendedBytes": 3507
+  },
+  "findings": [
+    "Three direct installed versions differ from the merged lock; previous 1765/64 web validation belongs to the pre-merge dependency state.",
+    "Test, package build, direct release CLI and QA snapshot entry points now check direct installed versions before their work. This is not a transitive or file-integrity audit.",
+    "42 dependency-free contracts pass. Real test/release/QA entry points refuse with the exact three mismatch signals. QA refusal creates neither snapshot nor build output. Installed TypeScript and repository integrity pass.",
+    "Preserved red receipts expose the original false-green path, inherited NODE_TEST_CONTEXT hiding a child native suite, and explicit null metadata being mistaken for omitted sections. These defects were corrected and tested.",
+    "Source review is parent-only because peer quota is exhausted. No new browser acceptance, dependency install, real build, deployment, pipeline run or protected-data write is claimed. Existing preview is unchanged."
+  ],
+  "disagreements": [
+    "Passing TypeScript or old-library tests cannot certify the new lock or its worker. Do not bypass the refusal to obtain a green full-suite count. Dependency/worker alignment still needs the pending installation decision."
+  ]
+}
