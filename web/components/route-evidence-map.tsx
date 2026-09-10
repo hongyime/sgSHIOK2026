@@ -104,6 +104,19 @@ const ONE_MAP_STYLE: StyleSpecification = {
   ],
 };
 
+// Remote raster requests must not gate the renderer's first load/worker check.
+const RENDERER_STYLE: StyleSpecification = {
+  version: 8,
+  glyphs: ONE_MAP_STYLE.glyphs,
+  sources: {},
+  layers: [ONE_MAP_STYLE.layers[0]],
+};
+
+function ensureBasemap(map: maplibregl.Map) {
+  if (!map.getSource("onemap")) map.addSource("onemap", ONE_MAP_STYLE.sources.onemap);
+  if (!map.getLayer("onemap")) map.addLayer(ONE_MAP_STYLE.layers[1], "lamp-post-dots");
+}
+
 interface PointFeature {
   type: "Feature";
   geometry: {
@@ -1248,6 +1261,7 @@ export function RouteEvidenceMap({
   }
 
   const routeVisibleRef = useRef(false);
+  const mapAttemptStartedAtRef = useRef(0);
   const [loaded, setLoaded] = useState(false);
   const [startupAttempt, setStartupAttempt] = useState(0);
   const handledRetryKeyRef = useRef(retryKey);
@@ -1264,6 +1278,8 @@ export function RouteEvidenceMap({
     }
     return data;
   }, [routeKey]);
+  const hasSelectedRouteRef = useRef(false);
+  hasSelectedRouteRef.current = routeData.bounds !== null;
   const focusSignature = JSON.stringify(requestedExposureGap?.kind === "mapped-section"
     ? [requestedExposureGap.kind, requestedExposureGap.key, requestedExposureGap.contextKey,
       requestedExposureGap.encoded, requestedExposureGap.lengthM, requestedExposureGap.points]
@@ -1346,6 +1362,7 @@ export function RouteEvidenceMap({
     let ownedMap: maplibregl.Map | null = null;
     let stage: MapStartupStage = "library-download";
     const startedAt = performance.now();
+    mapAttemptStartedAtRef.current = startedAt;
     const elapsedMs = () => Math.max(0, Math.round(performance.now() - startedAt));
     mapProblemRef.current = null;
 
@@ -1397,7 +1414,7 @@ export function RouteEvidenceMap({
       stage = "map-construction";
       mapRef.current = new maplibre.Map({
         container: containerRef.current,
-        style: ONE_MAP_STYLE,
+        style: RENDERER_STYLE,
         center: [103.851959, 1.29027],
         zoom: 11.6,
         minZoom: 10,
@@ -1419,6 +1436,7 @@ export function RouteEvidenceMap({
       mapRef.current.on("load", () => {
         if (!active || !mapRef.current) return;
         ensureRouteLayers(mapRef.current);
+        ensureBasemap(mapRef.current);
         bindPoiInteractions(mapRef.current, maplibre.Popup);
         initialLoadComplete = true;
         clearTimeout(startupTimer);
@@ -1430,6 +1448,7 @@ export function RouteEvidenceMap({
         cancelProbeRef.current?.();
         routeVisibleRef.current = false;
         ensureRouteLayers(mapRef.current);
+        if (initialLoadComplete) ensureBasemap(mapRef.current);
         setSourceGeneration(generation => generation + 1);
       });
       mapRef.current.on("error", (event) => {
@@ -1448,6 +1467,8 @@ export function RouteEvidenceMap({
         const message = tileFailure ? "Some basemap tiles could not load. Walk evidence is still available." : "The map could not render. Walk evidence is still available.";
         const issue: RouteMapIssue = { stage: tileFailure ? "basemap-tiles" : "route-render", reason: "error", elapsedMs: elapsedMs() };
         mapProblemRef.current = { status, message, issue };
+        // A tile event must not downgrade a missing selected-route failure.
+        if (tileFailure && initialLoadComplete && hasSelectedRouteRef.current && !routeVisibleRef.current) return;
         onStatusChangeRef.current?.(status, message, undefined, issue);
       });
     }
@@ -1472,6 +1493,40 @@ export function RouteEvidenceMap({
       setLoaded(false);
     };
   }, [startupAttempt]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !loaded) return;
+    const source = map.getSource("onemap");
+    if (!source) return;
+    let active = true;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const current = () => active && mapRef.current === map && map.getSource("onemap") === source;
+    const canReport = () => !hasSelectedRouteRef.current || routeVisibleRef.current;
+    const settled = () => {
+      if (!current() || !map.isSourceLoaded("onemap")) return;
+      clearTimeout(timer);
+      const problem = mapProblemRef.current;
+      // Failed tiles can also count as settled. Only auto-recover a transport timeout;
+      // explicit tile errors retain Retry, and unrelated failures keep their owner.
+      if (problem?.issue.stage !== "basemap-tiles" || problem.issue.reason !== "timeout") return;
+      mapProblemRef.current = null;
+      if (canReport()) reportMapStatus(routeVisibleRef.current ? "ready" : "idle");
+    };
+    map.on("sourcedata", settled);
+    if (!map.isSourceLoaded("onemap")) {
+      timer = setTimeout(() => {
+        if (!current() || map.isSourceLoaded("onemap") || mapProblemRef.current) return;
+        const message = "The basemap is taking longer to load. Walk evidence is still available.";
+        const issue: RouteMapIssue = { stage: "basemap-tiles", reason: "timeout",
+          elapsedMs: Math.max(0, Math.round(performance.now() - mapAttemptStartedAtRef.current)) };
+        mapProblemRef.current = { status: "partial", message, issue };
+        if (canReport()) reportMapStatus("partial");
+      }, MAP_START_TIMEOUT_MS);
+    }
+    settled();
+    return () => { active = false; clearTimeout(timer); map.off("sourcedata", settled); };
+  }, [loaded, sourceGeneration]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -1726,15 +1781,6 @@ export function RouteEvidenceMap({
     onStatusChangeRef.current?.("initializing");
     const source = map.getSource("onemap") as maplibregl.RasterTileSource | undefined;
     source?.setTiles(["https://www.onemap.gov.sg/maps/tiles/Grey_HD/{z}/{x}/{y}.png"]);
-    let active = true;
-    const settled = () => {
-      if (!active || !map.isSourceLoaded("onemap")) return;
-      active = false;
-      map.off("sourcedata", settled);
-      if (routeVisibleRef.current && !mapProblemRef.current) onStatusChangeRef.current?.("ready");
-    };
-    map.on("sourcedata", settled);
-    return () => { active = false; map.off("sourcedata", settled); };
   }, [loaded, retryKey]);
 
   const onSelectTransitStopRef = useRef(onSelectTransitStop);

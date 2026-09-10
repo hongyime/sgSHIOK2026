@@ -1,0 +1,537 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "directory": "C:\\sgSHIOK2026\\qa\\revamp-r1\\basemap-startup-20260910\\treatment-proxy-2",
+  "pid": 111444,
+  "origin": "http://127.0.0.1:4350",
+  "buildB": "VcGMlZervnPm_ijAjrBL7",
+  "buildA": "ZHqFMae_a9ROgk43z7fv8",
+  "sourceB": "C:\\sgSHIOK2026\\tmp\\cached-release-basemap-startup-20260910-1",
+  "active": "B",
+  "requests": [
+    {
+      "at": "2026-09-10T06:45:28.420Z",
+      "method": "GET",
+      "path": "/favicon.ico",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:28.434Z",
+      "method": "GET",
+      "path": "/sw.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:29.852Z",
+      "method": "GET",
+      "path": "/?debugMap=1&postal=018956",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:30.561Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/43_9sqcg-ka5x.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:30.572Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2ybpj2di00jwo.css",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:30.840Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1bidz_3pqoxaj.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:30.929Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/turbopack-3e969-0v645bd.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:30.932Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1bcry7qyno8a7.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:30.949Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:30.958Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1wiarugfy1gqn.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:31.165Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2yt45fq8qj5vq.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:31.258Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/26tvb3_6x1fjr.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:32.979Z",
+      "method": "GET",
+      "path": "/icon.svg",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:33.253Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3_q9aqd1xjkqn.css",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:33.281Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:33.286Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/39c59mdel937x.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:33.288Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:33.475Z",
+      "method": "GET",
+      "path": "/sw.js",
+      "upstream": 4349,
+      "status": 304
+    },
+    {
+      "at": "2026-09-10T06:45:33.558Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:33.572Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T06:45:33.666Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3kme4980qjy6g.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:33.673Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T06:45:33.683Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:33.776Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T06:45:33.787Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:33.827Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:35.186Z",
+      "method": "GET",
+      "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:35.611Z",
+      "method": "GET",
+      "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:37.259Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:37.300Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:37.371Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:37.374Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:37.382Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T06:45:37.397Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:45:37.402Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:46:08.173Z",
+      "method": "GET",
+      "path": "/sw.js",
+      "upstream": 4349,
+      "status": 304
+    },
+    {
+      "at": "2026-09-10T06:47:27.894Z",
+      "method": "GET",
+      "path": "/?debugMap=1",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:28.092Z",
+      "method": "GET",
+      "path": "/sw.js",
+      "upstream": 4349,
+      "status": 304
+    },
+    {
+      "at": "2026-09-10T06:47:31.822Z",
+      "method": "GET",
+      "path": "/?debugMap=1&postal=018956",
+      "upstream": 4349,
+      "status": 304
+    },
+    {
+      "at": "2026-09-10T06:47:32.072Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T06:47:32.092Z",
+      "method": "GET",
+      "path": "/sw.js",
+      "upstream": 4349,
+      "status": 304
+    },
+    {
+      "at": "2026-09-10T06:47:32.108Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T06:47:32.373Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T06:47:32.603Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T06:47:39.658Z",
+      "method": "GET",
+      "path": "/?debugMap=1&postal=018956",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:39.786Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2ybpj2di00jwo.css",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:39.813Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1bidz_3pqoxaj.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:39.814Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/43_9sqcg-ka5x.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:39.825Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1bcry7qyno8a7.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:39.838Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/turbopack-3e969-0v645bd.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:39.839Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:39.907Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1wiarugfy1gqn.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:39.971Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/26tvb3_6x1fjr.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:39.982Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2yt45fq8qj5vq.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:40.332Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:40.339Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3_q9aqd1xjkqn.css",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:40.342Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/39c59mdel937x.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:40.346Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:40.349Z",
+      "method": "GET",
+      "path": "/sw.js",
+      "upstream": 4349,
+      "status": 304
+    },
+    {
+      "at": "2026-09-10T06:47:40.351Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:40.398Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T06:47:40.412Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T06:47:40.435Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:40.442Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:40.475Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3kme4980qjy6g.js",
+      "upstream": 4349,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:40.477Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T06:47:40.513Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:41.874Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:41.875Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:41.921Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:41.924Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:41.938Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T06:47:41.954Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:47:41.956Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T06:48:12.037Z",
+      "method": "GET",
+      "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+      "upstream": 4349,
+      "status": 200
+    }
+  ]
+}

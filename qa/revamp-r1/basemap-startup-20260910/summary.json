@@ -1,0 +1,58 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "base": "38022b4df2482142d19570e93aa6e4daaffb1f8e",
+  "task": "T01: renderer startup independent of OneMap transport",
+  "status": "Implemented and functionally validated; overall goal remains incomplete",
+  "implementation": [
+    "web/components/route-evidence-map.tsx",
+    "web/lib/__tests__/route-source-lifecycle.test.ts",
+    "web/lib/__tests__/map-startup-stage.test.ts"
+  ],
+  "tests": {
+    "red": "5 failed + 45 passed = 50",
+    "firstGreen": "1 failed + 88 passed = 89; obsolete duplicate-ready retry assertion corrected",
+    "focused": "93 passed / 5 files",
+    "full": "1744 previous + 11 added = 1755 passed / 64 files",
+    "typeScript": "exit 0, noEmit incremental false",
+    "build": "VcGMlZervnPm_ijAjrBL7, exit 0; fresh snapshot, existing dependencies, no protected data",
+    "integrity": "repo_integrity=ok, exit 0",
+    "sourceIdentity": "149 current/tested/built sources match",
+    "protectedAnchors": "11 unchanged"
+  },
+  "evidence": {
+    "audit": "qa/revamp-r1/basemap-startup-20260910/audit.json",
+    "red": "qa/revamp-r1/basemap-startup-20260910/red-1/checks.json",
+    "focused": "qa/revamp-r1/basemap-startup-20260910/green-2/checks.json",
+    "full": "qa/revamp-r1/basemap-startup-20260910/full-1/checks.json",
+    "build": "qa/revamp-r1/cached-release-20260908/basemap-startup-20260910-1/build.json"
+  },
+  "browser": {
+    "baseline": "baseline-pVxA4P, exit1, 6 checks, 2 captures; held16 real raster requests, no load, map removed",
+    "firstTreatment": "treatment-AEyTq8, exit1, 4 checks, 3 captures; route survival passed, initial-null/teardown assertion wrong",
+    "accepted": "treatment-b6ZKon, exit0, 14 checks, 9 captures; pending tiles, timeout, real recovery, four viewports, ordinary empty/selected navigation, held-worker failure",
+    "screenshots": "2 baseline + 3 first treatment + 9 accepted = 14 parent-inspected",
+    "cleanup": "All three browser profiles and three running QA proxies stopped and verified. Baseline Next112148 identity verified then stopped. No unrelated app/older preview stopped.",
+    "preview": "http://127.0.0.1:4350/; Next4349 PID106916; read-only proxy4350 PID111960; exact treatment build. Protected data served read-only via existing4321. API writes blocked, no deployment."
+  },
+  "findings": [
+    "OneMap raster transport was incorrectly a dependency of the first renderer load. Pending rasters blocked selected-route submission and caused the existing startup timer to remove the map even after local source workers responded.",
+    "The renderer now loads its local sources before attaching unchanged OneMap tiles beneath every overlay. Tile delay has its own bounded partial state; it cannot remove the renderer or masquerade as a missing-route/generic-renderer fix.",
+    "Browser evidence shows four current route features before any held tile is released and after the basemap deadline. Real tile recovery preserves the same Document and selection. Four viewport captures and ordinary empty/selected navigation pass.",
+    "Worker transport is independently held on a new cache/SW-bypassed Document: the original startup failure still removes the unusable renderer and preserves walk text. Style.load alone is not accepted as renderer readiness.",
+    "1755/64 isolated web tests, 93 focused tests, TypeScript, fresh frontend build and repository integrity pass. Eleven regression cases added; one old test expectation corrected for removal of duplicate ready callbacks. All149 source identities and11 protected anchors match.",
+    "Failed diagnostic attempts are retained. Baseline inspected the wrong private GeoJSON field; first treatment counted an initial null reference as teardown. Neither entire failed run is relabeled PASS. Corrected helper uses public serialize().data and post-creation event ordering.",
+    "No pipeline execution, installations, protected-payload mutation, external activation or deployment. The T01 startup slice is locally accepted; retained-A with this change, T25 cross-feature completion, dependency security, real-release identity and owner release gates remain."
+  ],
+  "disagreements": [
+    "A controlled transport test proves this dependency defect, not that every slow map is caused by OneMap or that representative latency improved.",
+    "A passing current-build replay is not a fresh full old-tab upgrade rehearsal or a deployed-browser guarantee. Keep those boundaries explicit.",
+    "Peer quota previously exhausted; these source and image reviews are parent-only, not independent subagent acceptance."
+  ],
+  "next": [
+    "T25 bounded fast-navigation/reduced-motion/enlarged-text replay against this exact source build.",
+    "Resolve MapLibre dependency/security and actual retained-release identity before real release preparation; no dependency install or deployment performed in this step."
+  ],
+  "pipelineRuns": 0,
+  "pipelineCost": 0
+}

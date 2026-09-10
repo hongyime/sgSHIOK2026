@@ -1,0 +1,5628 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\basemap-startup-20260910\\treatment-AEyTq8",
+  "profile": "C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-YWZqx9",
+  "origin": "http://127.0.0.1:4350",
+  "startedAt": "2026-09-10T06:41:58.240Z",
+  "setup": "Fresh treatment worker-controlled profile. Hold actual OneMap requests, then release unchanged. Later hold worker module on a new Document. No synthetic tile bytes or app state mutation. Read-only observer uses public source.serialize().data.",
+  "checks": [
+    {
+      "name": "fresh proxy serves treatment",
+      "pass": true
+    },
+    {
+      "name": "current route renders while tiles are held",
+      "pass": true,
+      "detail": {
+        "url": "http://127.0.0.1:4350/?debugMap=1&postal=018956",
+        "timeOrigin": 1789022523046.5,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nCompare\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAdd to comparison\nMapped exposed sections (3)\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nAbout data",
+        "status": "ready",
+        "controller": "http://127.0.0.1:4350/sw.js",
+        "controls": [
+          {
+            "label": "Compare",
+            "disabled": false
+          },
+          {
+            "label": "Search postal code",
+            "disabled": false
+          },
+          {
+            "label": "Walk details",
+            "disabled": false
+          },
+          {
+            "label": "Add to comparison",
+            "disabled": false
+          },
+          {
+            "label": "Section 116 m",
+            "disabled": false
+          },
+          {
+            "label": "Section 211 m",
+            "disabled": false
+          },
+          {
+            "label": "Section 39 m",
+            "disabled": false
+          },
+          {
+            "label": "Published walkdisplayed walk",
+            "disabled": false
+          },
+          {
+            "label": "MRT/LRT exitspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Bus stopspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Night lighting",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Copy correction report",
+            "disabled": true
+          },
+          {
+            "label": "Show comparison",
+            "disabled": false
+          }
+        ],
+        "routeKey": "3:shiokest:primary",
+        "featureCount": 4,
+        "renderedKeys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": false,
+        "tiles": false,
+        "moving": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    },
+    {
+      "name": "tile timeout keeps current route and renderer",
+      "pass": true,
+      "detail": {
+        "url": "http://127.0.0.1:4350/?debugMap=1&postal=018956",
+        "timeOrigin": 1789022523046.5,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nCompare\n\nThe basemap is taking longer to load. Walk evidence is still available.\n\nThe basemap is taking longer to load. Walk evidence is still available. Retry map\nCopy diagnostics\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAdd to comparison\nMapped exposed sections (3)\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nAbout data",
+        "status": "partial",
+        "controller": "http://127.0.0.1:4350/sw.js",
+        "controls": [
+          {
+            "label": "Compare",
+            "disabled": false
+          },
+          {
+            "label": "Search postal code",
+            "disabled": false
+          },
+          {
+            "label": "Retry map",
+            "disabled": false
+          },
+          {
+            "label": "Copy diagnostics",
+            "disabled": false
+          },
+          {
+            "label": "Walk details",
+            "disabled": false
+          },
+          {
+            "label": "Add to comparison",
+            "disabled": false
+          },
+          {
+            "label": "Section 116 m",
+            "disabled": false
+          },
+          {
+            "label": "Section 211 m",
+            "disabled": false
+          },
+          {
+            "label": "Section 39 m",
+            "disabled": false
+          },
+          {
+            "label": "Published walkdisplayed walk",
+            "disabled": false
+          },
+          {
+            "label": "MRT/LRT exitspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Bus stopspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Night lighting",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Copy correction report",
+            "disabled": true
+          },
+          {
+            "label": "Show comparison",
+            "disabled": false
+          }
+        ],
+        "routeKey": "3:shiokest:primary",
+        "featureCount": 4,
+        "renderedKeys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": false,
+        "tiles": false,
+        "moving": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    },
+    {
+      "name": "actual local load fired with remote tiles held",
+      "pass": false,
+      "detail": [
+        {
+          "event": "map-ref-cleared",
+          "at": 2016.9000000953674,
+          "timeOrigin": 1789022523046.5
+        },
+        {
+          "event": "map-published",
+          "at": 2990.600000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": null
+        },
+        {
+          "event": "style.load",
+          "at": 3007.2999999523163,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": null
+        },
+        {
+          "event": "sourcedata",
+          "at": 3189.4000000953674,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "transit-pois",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 3189.4000000953674,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "shortest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 3189.4000000953674,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "shiokest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 3189.4000000953674,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "exposure-gaps",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 3189.5,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "active-exposure-gap",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 3189.5,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "transit-node",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 3189.5,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "feedback-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 3189.7000000476837,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "feedback-points",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "render",
+          "at": 3642.600000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "count": 1
+        },
+        {
+          "event": "render",
+          "at": 3664.9000000953674,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "count": 2
+        },
+        {
+          "event": "sourcedata",
+          "at": 4091.2000000476837,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "lamp-posts",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 4091.5,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "lamp-posts",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 4092,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "transit-pois",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4092,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "transit-pois",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4092.2000000476837,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "shortest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4092.2000000476837,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "shortest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4092.4000000953674,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "shiokest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4092.4000000953674,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "shiokest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4092.7000000476837,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "exposure-gaps",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4092.7000000476837,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "exposure-gaps",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4092.9000000953674,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "active-exposure-gap",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4092.9000000953674,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "active-exposure-gap",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4093,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "transit-node",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4093.100000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "transit-node",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4093.2999999523163,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "feedback-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4093.2999999523163,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "feedback-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4093.4000000953674,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "feedback-points",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4093.5,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "feedback-points",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4096.5,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "lamp-posts",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "render",
+          "at": 4111.400000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "count": 3
+        },
+        {
+          "event": "sourcedata",
+          "at": 4135.100000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "transit-pois",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4136,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "transit-pois",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4136.400000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "transit-pois",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4136.700000047684,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "transit-pois",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 4137,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "shortest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4137.200000047684,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "shortest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4137.400000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "shortest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4137.400000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "shortest-route",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 4137.700000047684,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "shiokest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4138.100000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "shiokest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4138.299999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "shiokest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4138.600000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "shiokest-route",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 4138.700000047684,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "exposure-gaps",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4138.900000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "exposure-gaps",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4139.100000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "exposure-gaps",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4139.200000047684,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "exposure-gaps",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 4139.400000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "active-exposure-gap",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4139.700000047684,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "active-exposure-gap",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4139.799999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "active-exposure-gap",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4140,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "active-exposure-gap",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 4140.200000047684,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "transit-node",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4140.799999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "transit-node",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4141.100000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "transit-node",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4141.400000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "transit-node",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 4141.600000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "feedback-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4141.799999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "feedback-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4141.900000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "feedback-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4142.100000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "feedback-route",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 4142.299999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "feedback-points",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4142.400000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "feedback-points",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4142.5,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "feedback-points",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4142.700000047684,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "feedback-points",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "render",
+          "at": 4258.600000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "count": 4
+        },
+        {
+          "event": "load",
+          "at": 4258.700000047684,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0
+        },
+        {
+          "event": "sourcedata",
+          "at": 4271.600000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "onemap",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "render",
+          "at": 4277.5,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "count": 5
+        },
+        {
+          "event": "sourcedata",
+          "at": 4289.299999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "onemap",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4289.5,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 0,
+          "sourceId": "onemap",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4407.200000047684,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "shortest-route",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 4408,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "shortest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4410,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "shiokest-route",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 4410.799999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "shiokest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4411.5,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "exposure-gaps",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 4412,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "exposure-gaps",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4412.5,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "transit-node",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 4413.100000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "transit-node",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4413.799999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "active-exposure-gap",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 4414.299999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "active-exposure-gap",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4414.700000047684,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "transit-pois",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4415.100000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "transit-pois",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4415.600000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "feedback-route",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 4416,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "feedback-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4416.400000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "feedback-points",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 4417.100000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "feedback-points",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 4417.600000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "lamp-posts",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 4417.700000047684,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "lamp-posts",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 5445.100000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "shortest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5451.299999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "shiokest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5532.400000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "exposure-gaps",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5533.700000047684,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "transit-node",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5534.100000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "active-exposure-gap",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5535.900000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "transit-pois",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5536.200000047684,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "feedback-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5536.299999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "feedback-points",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5536.5,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "lamp-posts",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5536.700000047684,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "lamp-posts",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5544.400000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "shortest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5544.600000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "shortest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5544.799999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "shortest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5545,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "shortest-route",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 5546.299999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "shiokest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5547.600000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "shiokest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5548.400000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "shiokest-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5549.100000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "shiokest-route",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 5549.799999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "exposure-gaps",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5550.5,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "exposure-gaps",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5550.900000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "exposure-gaps",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5551.900000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "exposure-gaps",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 5562.900000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "active-exposure-gap",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5563.100000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "active-exposure-gap",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5563.299999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "active-exposure-gap",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5564.900000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "active-exposure-gap",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 5566,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "transit-node",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5566.299999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "transit-node",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5575,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "transit-node",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5575.5,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "transit-node",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 5575.700000047684,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "feedback-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5575.900000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "feedback-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5576.100000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "feedback-route",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5576.299999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "feedback-route",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 5576.400000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "feedback-points",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5576.600000143051,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "feedback-points",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5576.799999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "feedback-points",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5576.900000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "feedback-points",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 5826,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "transit-pois",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5826.299999952316,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "lamp-posts",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 5826.400000095367,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "lamp-posts",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 5832.5,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "transit-pois",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5835.200000047684,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "transit-pois",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5837,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "transit-pois",
+          "isSourceLoaded": false
+        },
+        {
+          "event": "sourcedata",
+          "at": 5838,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "transit-pois",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 43912.40000009537,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "lamp-posts",
+          "isSourceLoaded": true
+        },
+        {
+          "event": "sourcedata",
+          "at": 43912.700000047684,
+          "timeOrigin": 1789022523046.5,
+          "routeFeatures": 4,
+          "sourceId": "lamp-posts",
+          "isSourceLoaded": true
+        }
+      ]
+    }
+  ],
+  "captures": [
+    {
+      "name": "route-before-basemap-390x844",
+      "bytes": 33030,
+      "sha256": "279f26a3cbcd9249c11855efb736b9d31e4cdb849b070c62e8c35cedb8aff1eb",
+      "before": {
+        "url": "http://127.0.0.1:4350/?debugMap=1&postal=018956",
+        "timeOrigin": 1789022523046.5,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nCompare\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAdd to comparison\nMapped exposed sections (3)\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nAbout data",
+        "status": "ready",
+        "controller": "http://127.0.0.1:4350/sw.js",
+        "controls": [
+          {
+            "label": "Compare",
+            "disabled": false
+          },
+          {
+            "label": "Search postal code",
+            "disabled": false
+          },
+          {
+            "label": "Walk details",
+            "disabled": false
+          },
+          {
+            "label": "Add to comparison",
+            "disabled": false
+          },
+          {
+            "label": "Section 116 m",
+            "disabled": false
+          },
+          {
+            "label": "Section 211 m",
+            "disabled": false
+          },
+          {
+            "label": "Section 39 m",
+            "disabled": false
+          },
+          {
+            "label": "Published walkdisplayed walk",
+            "disabled": false
+          },
+          {
+            "label": "MRT/LRT exitspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Bus stopspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Night lighting",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Copy correction report",
+            "disabled": true
+          },
+          {
+            "label": "Show comparison",
+            "disabled": false
+          }
+        ],
+        "routeKey": "3:shiokest:primary",
+        "featureCount": 4,
+        "renderedKeys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": false,
+        "tiles": false,
+        "moving": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "after": {
+        "url": "http://127.0.0.1:4350/?debugMap=1&postal=018956",
+        "timeOrigin": 1789022523046.5,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nCompare\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAdd to comparison\nMapped exposed sections (3)\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nAbout data",
+        "status": "ready",
+        "controller": "http://127.0.0.1:4350/sw.js",
+        "controls": [
+          {
+            "label": "Compare",
+            "disabled": false
+          },
+          {
+            "label": "Search postal code",
+            "disabled": false
+          },
+          {
+            "label": "Walk details",
+            "disabled": false
+          },
+          {
+            "label": "Add to comparison",
+            "disabled": false
+          },
+          {
+            "label": "Section 116 m",
+            "disabled": false
+          },
+          {
+            "label": "Section 211 m",
+            "disabled": false
+          },
+          {
+            "label": "Section 39 m",
+            "disabled": false
+          },
+          {
+            "label": "Published walkdisplayed walk",
+            "disabled": false
+          },
+          {
+            "label": "MRT/LRT exitspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Bus stopspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Night lighting",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Copy correction report",
+            "disabled": true
+          },
+          {
+            "label": "Show comparison",
+            "disabled": false
+          }
+        ],
+        "routeKey": "3:shiokest:primary",
+        "featureCount": 4,
+        "renderedKeys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": false,
+        "tiles": false,
+        "moving": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    },
+    {
+      "name": "basemap-timeout-route-survives-390x844",
+      "bytes": 36337,
+      "sha256": "0d7b4f9e15dd10f7fa139c44d04b54d11c0f3194dee9dee16bdbb16a3ba55742",
+      "before": {
+        "url": "http://127.0.0.1:4350/?debugMap=1&postal=018956",
+        "timeOrigin": 1789022523046.5,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nCompare\n\nThe basemap is taking longer to load. Walk evidence is still available.\n\nThe basemap is taking longer to load. Walk evidence is still available. Retry map\nCopy diagnostics\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAdd to comparison\nMapped exposed sections (3)\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nAbout data",
+        "status": "partial",
+        "controller": "http://127.0.0.1:4350/sw.js",
+        "controls": [
+          {
+            "label": "Compare",
+            "disabled": false
+          },
+          {
+            "label": "Search postal code",
+            "disabled": false
+          },
+          {
+            "label": "Retry map",
+            "disabled": false
+          },
+          {
+            "label": "Copy diagnostics",
+            "disabled": false
+          },
+          {
+            "label": "Walk details",
+            "disabled": false
+          },
+          {
+            "label": "Add to comparison",
+            "disabled": false
+          },
+          {
+            "label": "Section 116 m",
+            "disabled": false
+          },
+          {
+            "label": "Section 211 m",
+            "disabled": false
+          },
+          {
+            "label": "Section 39 m",
+            "disabled": false
+          },
+          {
+            "label": "Published walkdisplayed walk",
+            "disabled": false
+          },
+          {
+            "label": "MRT/LRT exitspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Bus stopspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Night lighting",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Copy correction report",
+            "disabled": true
+          },
+          {
+            "label": "Show comparison",
+            "disabled": false
+          }
+        ],
+        "routeKey": "3:shiokest:primary",
+        "featureCount": 4,
+        "renderedKeys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": false,
+        "tiles": false,
+        "moving": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "after": {
+        "url": "http://127.0.0.1:4350/?debugMap=1&postal=018956",
+        "timeOrigin": 1789022523046.5,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nCompare\n\nThe basemap is taking longer to load. Walk evidence is still available.\n\nThe basemap is taking longer to load. Walk evidence is still available. Retry map\nCopy diagnostics\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAdd to comparison\nMapped exposed sections (3)\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nAbout data",
+        "status": "partial",
+        "controller": "http://127.0.0.1:4350/sw.js",
+        "controls": [
+          {
+            "label": "Compare",
+            "disabled": false
+          },
+          {
+            "label": "Search postal code",
+            "disabled": false
+          },
+          {
+            "label": "Retry map",
+            "disabled": false
+          },
+          {
+            "label": "Copy diagnostics",
+            "disabled": false
+          },
+          {
+            "label": "Walk details",
+            "disabled": false
+          },
+          {
+            "label": "Add to comparison",
+            "disabled": false
+          },
+          {
+            "label": "Section 116 m",
+            "disabled": false
+          },
+          {
+            "label": "Section 211 m",
+            "disabled": false
+          },
+          {
+            "label": "Section 39 m",
+            "disabled": false
+          },
+          {
+            "label": "Published walkdisplayed walk",
+            "disabled": false
+          },
+          {
+            "label": "MRT/LRT exitspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Bus stopspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Night lighting",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Copy correction report",
+            "disabled": true
+          },
+          {
+            "label": "Show comparison",
+            "disabled": false
+          }
+        ],
+        "routeKey": "3:shiokest:primary",
+        "featureCount": 4,
+        "renderedKeys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": false,
+        "tiles": false,
+        "moving": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    },
+    {
+      "name": "failure",
+      "bytes": 36337,
+      "sha256": "0d7b4f9e15dd10f7fa139c44d04b54d11c0f3194dee9dee16bdbb16a3ba55742",
+      "before": {
+        "url": "http://127.0.0.1:4350/?debugMap=1&postal=018956",
+        "timeOrigin": 1789022523046.5,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nCompare\n\nThe basemap is taking longer to load. Walk evidence is still available.\n\nThe basemap is taking longer to load. Walk evidence is still available. Retry map\nCopy diagnostics\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAdd to comparison\nMapped exposed sections (3)\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nAbout data",
+        "status": "partial",
+        "controller": "http://127.0.0.1:4350/sw.js",
+        "controls": [
+          {
+            "label": "Compare",
+            "disabled": false
+          },
+          {
+            "label": "Search postal code",
+            "disabled": false
+          },
+          {
+            "label": "Retry map",
+            "disabled": false
+          },
+          {
+            "label": "Copy diagnostics",
+            "disabled": false
+          },
+          {
+            "label": "Walk details",
+            "disabled": false
+          },
+          {
+            "label": "Add to comparison",
+            "disabled": false
+          },
+          {
+            "label": "Section 116 m",
+            "disabled": false
+          },
+          {
+            "label": "Section 211 m",
+            "disabled": false
+          },
+          {
+            "label": "Section 39 m",
+            "disabled": false
+          },
+          {
+            "label": "Published walkdisplayed walk",
+            "disabled": false
+          },
+          {
+            "label": "MRT/LRT exitspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Bus stopspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Night lighting",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Copy correction report",
+            "disabled": true
+          },
+          {
+            "label": "Show comparison",
+            "disabled": false
+          }
+        ],
+        "routeKey": "3:shiokest:primary",
+        "featureCount": 4,
+        "renderedKeys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": false,
+        "tiles": false,
+        "moving": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "after": {
+        "url": "http://127.0.0.1:4350/?debugMap=1&postal=018956",
+        "timeOrigin": 1789022523046.5,
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nCompare\n\nThe basemap is taking longer to load. Walk evidence is still available.\n\nThe basemap is taking longer to load. Walk evidence is still available. Retry map\nCopy diagnostics\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAdd to comparison\nMapped exposed sections (3)\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nAbout data",
+        "status": "partial",
+        "controller": "http://127.0.0.1:4350/sw.js",
+        "controls": [
+          {
+            "label": "Compare",
+            "disabled": false
+          },
+          {
+            "label": "Search postal code",
+            "disabled": false
+          },
+          {
+            "label": "Retry map",
+            "disabled": false
+          },
+          {
+            "label": "Copy diagnostics",
+            "disabled": false
+          },
+          {
+            "label": "Walk details",
+            "disabled": false
+          },
+          {
+            "label": "Add to comparison",
+            "disabled": false
+          },
+          {
+            "label": "Section 116 m",
+            "disabled": false
+          },
+          {
+            "label": "Section 211 m",
+            "disabled": false
+          },
+          {
+            "label": "Section 39 m",
+            "disabled": false
+          },
+          {
+            "label": "Published walkdisplayed walk",
+            "disabled": false
+          },
+          {
+            "label": "MRT/LRT exitspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Bus stopspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Night lighting",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Copy correction report",
+            "disabled": true
+          },
+          {
+            "label": "Show comparison",
+            "disabled": false
+          }
+        ],
+        "routeKey": "3:shiokest:primary",
+        "featureCount": 4,
+        "renderedKeys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": false,
+        "tiles": false,
+        "moving": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    }
+  ],
+  "samples": [],
+  "requests": [
+    {
+      "at": 1789022522540,
+      "id": "1151E7DFA336B2833C0E57F5C9544851",
+      "url": "http://127.0.0.1:4350/__qa/seed",
+      "method": "GET",
+      "type": "Document"
+    },
+    {
+      "at": 1789022522635,
+      "id": "88520.2",
+      "url": "http://127.0.0.1:4350/favicon.ico",
+      "method": "GET",
+      "type": "Other"
+    },
+    {
+      "at": 1789022523050,
+      "id": "B71CE1AF533CDEC48B60630AA61A388F",
+      "url": "http://127.0.0.1:4350/?debugMap=1&postal=018956",
+      "method": "GET",
+      "type": "Document"
+    },
+    {
+      "at": 1789022523391,
+      "id": "88520.6",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/2ybpj2di00jwo.css",
+      "method": "GET",
+      "type": "Stylesheet"
+    },
+    {
+      "at": 1789022523393,
+      "id": "88520.7",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/1bidz_3pqoxaj.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789022523394,
+      "id": "88520.8",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/43_9sqcg-ka5x.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789022523395,
+      "id": "88520.9",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/1bcry7qyno8a7.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789022523395,
+      "id": "88520.10",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/turbopack-3e969-0v645bd.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789022523401,
+      "id": "88520.11",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/1oaw9uq-pttep.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789022523402,
+      "id": "88520.12",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/1wiarugfy1gqn.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789022523403,
+      "id": "88520.13",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/26tvb3_6x1fjr.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789022523407,
+      "id": "88520.14",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/2yt45fq8qj5vq.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789022524551,
+      "id": "88520.35",
+      "url": "http://127.0.0.1:4350/icon.svg",
+      "method": "GET",
+      "type": "Other"
+    },
+    {
+      "at": 1789022524787,
+      "id": "88520.37",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/3_q9aqd1xjkqn.css",
+      "method": "GET",
+      "type": "Stylesheet"
+    },
+    {
+      "at": 1789022524811,
+      "id": "88520.38",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/39c59mdel937x.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789022524825,
+      "id": "88520.39",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/2rmzgxedjsyy1.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789022524839,
+      "id": "88520.40",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/3_zdoql-8zsg0.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789022524856,
+      "id": "88520.41",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022524859,
+      "id": "88520.42",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022524859,
+      "id": "88520.44",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/3kme4980qjy6g.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789022525063,
+      "id": "88520.51",
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "method": "GET",
+      "type": "Image"
+    },
+    {
+      "at": 1789022525109,
+      "id": "88520.52",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022525126,
+      "id": "88520.53",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022525215,
+      "id": "88520.56",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022525234,
+      "id": "88520.57",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022525311,
+      "id": "88520.60",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022526039,
+      "id": "2C073D46920E8B2C2FBE158B68767F31",
+      "url": "http://127.0.0.1:4350/maplibre/6.1.0/maplibre-gl-worker.mjs",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789022526929,
+      "id": "88520.66",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022526931,
+      "id": "88520.67",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022526934,
+      "id": "88520.68",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022526935,
+      "id": "88520.69",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022526936,
+      "id": "88520.70",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022526937,
+      "id": "88520.71",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022526938,
+      "id": "88520.72",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527492,
+      "id": "88520.80",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8133.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527492,
+      "id": "88520.81",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8132.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527493,
+      "id": "88520.82",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8133.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527493,
+      "id": "88520.83",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8133.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527494,
+      "id": "88520.84",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8132.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527495,
+      "id": "88520.85",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8134.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527495,
+      "id": "88520.86",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8132.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527496,
+      "id": "88520.87",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8134.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527497,
+      "id": "88520.88",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8134.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527513,
+      "id": "88520.89",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8131.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527529,
+      "id": "88520.90",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8133.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527535,
+      "id": "88520.91",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8131.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527535,
+      "id": "88520.92",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8132.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527536,
+      "id": "88520.93",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8131.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527536,
+      "id": "88520.94",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8133.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527537,
+      "id": "88520.95",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8132.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527615,
+      "id": "88520.96",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260273.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527615,
+      "id": "88520.97",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260273.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527617,
+      "id": "88520.98",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260274.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527624,
+      "id": "88520.99",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260274.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527625,
+      "id": "88520.100",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260272.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527625,
+      "id": "88520.101",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260272.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527626,
+      "id": "88520.102",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260273.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527627,
+      "id": "88520.103",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260273.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527628,
+      "id": "88520.104",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260274.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527628,
+      "id": "88520.105",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260272.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527630,
+      "id": "88520.106",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260274.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527631,
+      "id": "88520.107",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260275.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527631,
+      "id": "88520.108",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260272.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527661,
+      "id": "88520.109",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260275.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527662,
+      "id": "88520.110",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260271.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789022527662,
+      "id": "88520.111",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260271.png",
+      "method": "GET",
+      "type": "Fetch"
+    }
+  ],
+  "responses": [
+    {
+      "at": 1789022522567,
+      "id": "1151E7DFA336B2833C0E57F5C9544851",
+      "url": "http://127.0.0.1:4350/__qa/seed",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022522948,
+      "id": "88520.2",
+      "url": "http://127.0.0.1:4350/favicon.ico",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022523086,
+      "id": "B71CE1AF533CDEC48B60630AA61A388F",
+      "url": "http://127.0.0.1:4350/?debugMap=1&postal=018956",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022523521,
+      "id": "88520.6",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/2ybpj2di00jwo.css",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022523612,
+      "id": "88520.7",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/1bidz_3pqoxaj.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022523615,
+      "id": "88520.10",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/turbopack-3e969-0v645bd.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022523617,
+      "id": "88520.11",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/1oaw9uq-pttep.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022523620,
+      "id": "88520.8",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/43_9sqcg-ka5x.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022524323,
+      "id": "88520.9",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/1bcry7qyno8a7.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022524331,
+      "id": "88520.12",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/1wiarugfy1gqn.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022524334,
+      "id": "88520.14",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/2yt45fq8qj5vq.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022524337,
+      "id": "88520.13",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/26tvb3_6x1fjr.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022524715,
+      "id": "88520.35",
+      "url": "http://127.0.0.1:4350/icon.svg",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022524865,
+      "id": "88520.37",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/3_q9aqd1xjkqn.css",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022525001,
+      "id": "88520.39",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/2rmzgxedjsyy1.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022525002,
+      "id": "88520.38",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/39c59mdel937x.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022525049,
+      "id": "88520.44",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/3kme4980qjy6g.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022525108,
+      "id": "88520.42",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022525122,
+      "id": "88520.41",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022525130,
+      "id": "88520.51",
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022525215,
+      "id": "88520.53",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 404,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022525220,
+      "id": "88520.52",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022525310,
+      "id": "88520.57",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "status": 404,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022525344,
+      "id": "88520.40",
+      "url": "http://127.0.0.1:4350/_next/static/chunks/3_zdoql-8zsg0.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022526220,
+      "id": "88520.56",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022526220,
+      "id": "88520.60",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022527085,
+      "id": "88520.66",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022527111,
+      "id": "88520.67",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022527114,
+      "id": "88520.72",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "status": 404,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022527115,
+      "id": "88520.69",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022527115,
+      "id": "88520.70",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022527116,
+      "id": "88520.68",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022527116,
+      "id": "88520.71",
+      "url": "http://127.0.0.1:4350/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    }
+  ],
+  "completed": [
+    "1151E7DFA336B2833C0E57F5C9544851",
+    "88520.2",
+    "B71CE1AF533CDEC48B60630AA61A388F",
+    "88520.6",
+    "88520.7",
+    "88520.10",
+    "88520.11",
+    "88520.8",
+    "88520.9",
+    "88520.12",
+    "88520.14",
+    "88520.13",
+    "88520.35",
+    "88520.37",
+    "88520.39",
+    "88520.38",
+    "88520.44",
+    "88520.41",
+    "88520.51",
+    "88520.52",
+    "88520.40",
+    "88520.56",
+    "88520.60",
+    "88520.66",
+    "88520.67",
+    "88520.69",
+    "88520.70",
+    "88520.68",
+    "88520.71"
+  ],
+  "documents": [
+    {
+      "at": 1789022522567,
+      "id": "1151E7DFA336B2833C0E57F5C9544851",
+      "url": "http://127.0.0.1:4350/__qa/seed",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789022523086,
+      "id": "B71CE1AF533CDEC48B60630AA61A388F",
+      "url": "http://127.0.0.1:4350/?debugMap=1&postal=018956",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    }
+  ],
+  "versions": [
+    {
+      "at": 1789022522459,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "8E5446EFC6F996206E2FC7ECA318A64D"
+        }
+      ]
+    },
+    {
+      "at": 1789022522520,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "starting",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "8E5446EFC6F996206E2FC7ECA318A64D"
+        }
+      ]
+    },
+    {
+      "at": 1789022522521,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "running",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "8E5446EFC6F996206E2FC7ECA318A64D"
+        }
+      ]
+    },
+    {
+      "at": 1789022522607,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "running",
+          "status": "installed",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "8E5446EFC6F996206E2FC7ECA318A64D"
+        }
+      ]
+    },
+    {
+      "at": 1789022522608,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "8E5446EFC6F996206E2FC7ECA318A64D"
+        }
+      ]
+    },
+    {
+      "at": 1789022522609,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "8E5446EFC6F996206E2FC7ECA318A64D"
+        }
+      ]
+    },
+    {
+      "at": 1789022522650,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4350/sw.js",
+          "runningStatus": "stopped",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789022522946,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4350/sw.js",
+          "runningStatus": "stopped",
+          "status": "new",
+          "scriptLastModified": 1788887299,
+          "scriptResponseTime": 1789022522.938365,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789022522950,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4350/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 1788887299,
+          "scriptResponseTime": 1789022522.938365,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789022522950,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4350/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 1788887299,
+          "scriptResponseTime": 1789022522.938365,
+          "controlledClients": [],
+          "targetId": "D35CAF5D3FDDD9CC2D5E25F828A39F7B"
+        }
+      ]
+    },
+    {
+      "at": 1789022523004,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4350/sw.js",
+          "runningStatus": "starting",
+          "status": "installing",
+          "scriptLastModified": 1788887299,
+          "scriptResponseTime": 1789022522.938365,
+          "controlledClients": [],
+          "targetId": "D35CAF5D3FDDD9CC2D5E25F828A39F7B"
+        }
+      ]
+    },
+    {
+      "at": 1789022523008,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4350/sw.js",
+          "runningStatus": "running",
+          "status": "installing",
+          "scriptLastModified": 1788887299,
+          "scriptResponseTime": 1789022522.938365,
+          "controlledClients": [],
+          "targetId": "D35CAF5D3FDDD9CC2D5E25F828A39F7B"
+        }
+      ]
+    },
+    {
+      "at": 1789022523009,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4350/sw.js",
+          "runningStatus": "running",
+          "status": "installed",
+          "scriptLastModified": 1788887299,
+          "scriptResponseTime": 1789022522.938365,
+          "controlledClients": [],
+          "targetId": "D35CAF5D3FDDD9CC2D5E25F828A39F7B"
+        }
+      ]
+    },
+    {
+      "at": 1789022523010,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4350/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 1788887299,
+          "scriptResponseTime": 1789022522.938365,
+          "controlledClients": [],
+          "targetId": "D35CAF5D3FDDD9CC2D5E25F828A39F7B"
+        }
+      ]
+    },
+    {
+      "at": 1789022523015,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4350/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 1788887299,
+          "scriptResponseTime": 1789022522.938365,
+          "controlledClients": [
+            "181BB3CE7D5C8E2EFAA49819C05813CC"
+          ],
+          "targetId": "D35CAF5D3FDDD9CC2D5E25F828A39F7B"
+        }
+      ]
+    },
+    {
+      "at": 1789022523015,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4350/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 1788887299,
+          "scriptResponseTime": 1789022522.938365,
+          "controlledClients": [
+            "181BB3CE7D5C8E2EFAA49819C05813CC"
+          ],
+          "targetId": "D35CAF5D3FDDD9CC2D5E25F828A39F7B"
+        }
+      ]
+    },
+    {
+      "at": 1789022523055,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4350/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 1788887299,
+          "scriptResponseTime": 1789022522.938365,
+          "controlledClients": [
+            "181BB3CE7D5C8E2EFAA49819C05813CC"
+          ],
+          "targetId": "D35CAF5D3FDDD9CC2D5E25F828A39F7B"
+        }
+      ]
+    },
+    {
+      "at": 1789022523409,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4350/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 1788887299,
+          "scriptResponseTime": 1789022522.938365,
+          "controlledClients": [],
+          "targetId": "D35CAF5D3FDDD9CC2D5E25F828A39F7B"
+        }
+      ]
+    },
+    {
+      "at": 1789022526040,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4350/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 1788887299,
+          "scriptResponseTime": 1789022522.938365,
+          "controlledClients": [],
+          "targetId": "D35CAF5D3FDDD9CC2D5E25F828A39F7B"
+        }
+      ]
+    },
+    {
+      "at": 1789022559760,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4350/sw.js",
+          "runningStatus": "stopping",
+          "status": "activated",
+          "scriptLastModified": 1788887299,
+          "scriptResponseTime": 1789022522.938365,
+          "controlledClients": [],
+          "targetId": "D35CAF5D3FDDD9CC2D5E25F828A39F7B"
+        }
+      ]
+    },
+    {
+      "at": 1789022559776,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "stopping",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "8E5446EFC6F996206E2FC7ECA318A64D"
+        }
+      ]
+    },
+    {
+      "at": 1789022566875,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4350/sw.js",
+          "runningStatus": "stopped",
+          "status": "activated",
+          "scriptLastModified": 1788887299,
+          "scriptResponseTime": 1789022522.938365,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789022566879,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "stopped",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": []
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "denied": [],
+  "heldTiles": [
+    {
+      "requestId": "interception-job-4.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8133.png",
+      "at": 1789022527439
+    },
+    {
+      "requestId": "interception-job-5.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8132.png",
+      "at": 1789022527441
+    },
+    {
+      "requestId": "interception-job-6.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8133.png",
+      "at": 1789022527442
+    },
+    {
+      "requestId": "interception-job-7.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8133.png",
+      "at": 1789022527487
+    },
+    {
+      "requestId": "interception-job-8.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8132.png",
+      "at": 1789022527490
+    },
+    {
+      "requestId": "interception-job-9.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8134.png",
+      "at": 1789022527490
+    },
+    {
+      "requestId": "interception-job-10.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8132.png",
+      "at": 1789022527491
+    },
+    {
+      "requestId": "interception-job-11.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8134.png",
+      "at": 1789022527491
+    },
+    {
+      "requestId": "interception-job-12.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8134.png",
+      "at": 1789022527542
+    },
+    {
+      "requestId": "interception-job-13.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8131.png",
+      "at": 1789022527543
+    },
+    {
+      "requestId": "interception-job-14.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8133.png",
+      "at": 1789022527544
+    },
+    {
+      "requestId": "interception-job-15.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8131.png",
+      "at": 1789022527545
+    },
+    {
+      "requestId": "interception-job-16.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8132.png",
+      "at": 1789022527545
+    },
+    {
+      "requestId": "interception-job-17.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8131.png",
+      "at": 1789022527547
+    },
+    {
+      "requestId": "interception-job-18.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8133.png",
+      "at": 1789022527547
+    },
+    {
+      "requestId": "interception-job-19.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8132.png",
+      "at": 1789022527548
+    },
+    {
+      "requestId": "interception-job-20.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260273.png",
+      "at": 1789022527705
+    },
+    {
+      "requestId": "interception-job-21.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260273.png",
+      "at": 1789022527717
+    },
+    {
+      "requestId": "interception-job-22.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260274.png",
+      "at": 1789022527733
+    },
+    {
+      "requestId": "interception-job-23.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260274.png",
+      "at": 1789022527733
+    },
+    {
+      "requestId": "interception-job-24.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260272.png",
+      "at": 1789022527733
+    },
+    {
+      "requestId": "interception-job-25.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260272.png",
+      "at": 1789022527738
+    },
+    {
+      "requestId": "interception-job-26.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260273.png",
+      "at": 1789022527739
+    },
+    {
+      "requestId": "interception-job-27.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260273.png",
+      "at": 1789022527740
+    },
+    {
+      "requestId": "interception-job-28.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260274.png",
+      "at": 1789022527740
+    },
+    {
+      "requestId": "interception-job-29.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260272.png",
+      "at": 1789022527740
+    },
+    {
+      "requestId": "interception-job-30.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260274.png",
+      "at": 1789022527741
+    },
+    {
+      "requestId": "interception-job-31.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260275.png",
+      "at": 1789022527741
+    },
+    {
+      "requestId": "interception-job-32.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260272.png",
+      "at": 1789022527742
+    },
+    {
+      "requestId": "interception-job-33.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260275.png",
+      "at": 1789022527742
+    },
+    {
+      "requestId": "interception-job-34.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260271.png",
+      "at": 1789022527743
+    },
+    {
+      "requestId": "interception-job-35.0",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260271.png",
+      "at": 1789022527743
+    }
+  ],
+  "proxy": {
+    "root": "C:\\sgSHIOK2026",
+    "directory": "C:\\sgSHIOK2026\\qa\\revamp-r1\\basemap-startup-20260910\\treatment-proxy-1",
+    "pid": 98444,
+    "origin": "http://127.0.0.1:4350",
+    "buildB": "VcGMlZervnPm_ijAjrBL7",
+    "buildA": "ZHqFMae_a9ROgk43z7fv8",
+    "sourceB": "C:\\sgSHIOK2026\\tmp\\cached-release-basemap-startup-20260910-1",
+    "active": "B"
+  },
+  "chromePid": 107552,
+  "lastSample": {
+    "name": "separate basemap timeout",
+    "value": {
+      "url": "http://127.0.0.1:4350/?debugMap=1&postal=018956",
+      "timeOrigin": 1789022523046.5,
+      "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nCompare\n\nThe basemap is taking longer to load. Walk evidence is still available.\n\nThe basemap is taking longer to load. Walk evidence is still available. Retry map\nCopy diagnostics\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAdd to comparison\nMapped exposed sections (3)\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nAbout data",
+      "status": "partial",
+      "controller": "http://127.0.0.1:4350/sw.js",
+      "controls": [
+        {
+          "label": "Compare",
+          "disabled": false
+        },
+        {
+          "label": "Search postal code",
+          "disabled": false
+        },
+        {
+          "label": "Retry map",
+          "disabled": false
+        },
+        {
+          "label": "Copy diagnostics",
+          "disabled": false
+        },
+        {
+          "label": "Walk details",
+          "disabled": false
+        },
+        {
+          "label": "Add to comparison",
+          "disabled": false
+        },
+        {
+          "label": "Section 116 m",
+          "disabled": false
+        },
+        {
+          "label": "Section 211 m",
+          "disabled": false
+        },
+        {
+          "label": "Section 39 m",
+          "disabled": false
+        },
+        {
+          "label": "Published walkdisplayed walk",
+          "disabled": false
+        },
+        {
+          "label": "MRT/LRT exitspublished walk",
+          "disabled": false
+        },
+        {
+          "label": "Bus stopspublished walk",
+          "disabled": false
+        },
+        {
+          "label": "Night lighting",
+          "disabled": false
+        },
+        {
+          "label": "Report missing shelter",
+          "disabled": false
+        },
+        {
+          "label": "Copy correction report",
+          "disabled": true
+        },
+        {
+          "label": "Show comparison",
+          "disabled": false
+        }
+      ],
+      "routeKey": "3:shiokest:primary",
+      "featureCount": 4,
+      "renderedKeys": [
+        "3:shiokest:primary"
+      ],
+      "basemap": false,
+      "tiles": false,
+      "moving": false,
+      "overflow": false,
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  },
+  "targetId": "181BB3CE7D5C8E2EFAA49819C05813CC",
+  "mapEventsBeforeRelease": [
+    {
+      "event": "map-ref-cleared",
+      "at": 2016.9000000953674,
+      "timeOrigin": 1789022523046.5
+    },
+    {
+      "event": "map-published",
+      "at": 2990.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": null
+    },
+    {
+      "event": "style.load",
+      "at": 3007.2999999523163,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": null
+    },
+    {
+      "event": "sourcedata",
+      "at": 3189.4000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 3189.4000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 3189.4000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 3189.4000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 3189.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 3189.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 3189.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 3189.7000000476837,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "render",
+      "at": 3642.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "count": 1
+    },
+    {
+      "event": "render",
+      "at": 3664.9000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "count": 2
+    },
+    {
+      "event": "sourcedata",
+      "at": 4091.2000000476837,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4091.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092.2000000476837,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092.2000000476837,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092.4000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092.4000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092.7000000476837,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092.7000000476837,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092.9000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092.9000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4093,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4093.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4093.2999999523163,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4093.2999999523163,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4093.4000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4093.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4096.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "render",
+      "at": 4111.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "count": 3
+    },
+    {
+      "event": "sourcedata",
+      "at": 4135.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4136,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4136.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4136.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4137,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4137.200000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4137.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4137.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4137.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4138.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4138.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4138.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4138.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4138.900000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4139.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4139.200000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4139.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4139.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4139.799999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4140,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4140.200000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4140.799999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4141.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4141.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-node",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4141.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4141.799999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4141.900000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4142.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4142.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4142.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4142.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4142.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "render",
+      "at": 4258.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "count": 4
+    },
+    {
+      "event": "load",
+      "at": 4258.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0
+    },
+    {
+      "event": "sourcedata",
+      "at": 4271.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "onemap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "render",
+      "at": 4277.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "count": 5
+    },
+    {
+      "event": "sourcedata",
+      "at": 4289.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "onemap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4289.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "onemap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4407.200000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4408,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4410,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4410.799999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4411.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4412,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4412.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-node",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4413.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4413.799999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4414.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4414.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4415.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4415.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4416,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4416.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4417.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4417.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4417.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5445.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5451.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5532.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5533.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5534.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5535.900000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5536.200000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5536.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5536.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5536.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5544.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5544.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5544.799999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5545,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5546.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5547.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5548.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5549.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5549.799999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5550.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5550.900000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5551.900000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5562.900000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5563.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5563.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5564.900000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5566,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5566.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5575,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5575.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-node",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5575.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5575.900000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5576.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5576.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5576.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5576.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5576.799999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5576.900000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5826,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5826.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5826.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5832.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5835.200000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5837,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5838,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 43912.40000009537,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 43912.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": true
+    }
+  ],
+  "error": "Error: actual local load fired with remote tiles held\n    at check (file:///C:/sgSHIOK2026/qa/revamp-r1/basemap-startup-20260910/treatment-browser.mjs:26:29)\n    at file:///C:/sgSHIOK2026/qa/revamp-r1/basemap-startup-20260910/treatment-browser.mjs:160:3",
+  "exitCode": 1,
+  "mapEvents": [
+    {
+      "event": "map-ref-cleared",
+      "at": 2016.9000000953674,
+      "timeOrigin": 1789022523046.5
+    },
+    {
+      "event": "map-published",
+      "at": 2990.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": null
+    },
+    {
+      "event": "style.load",
+      "at": 3007.2999999523163,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": null
+    },
+    {
+      "event": "sourcedata",
+      "at": 3189.4000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 3189.4000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 3189.4000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 3189.4000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 3189.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 3189.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 3189.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 3189.7000000476837,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "render",
+      "at": 3642.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "count": 1
+    },
+    {
+      "event": "render",
+      "at": 3664.9000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "count": 2
+    },
+    {
+      "event": "sourcedata",
+      "at": 4091.2000000476837,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4091.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092.2000000476837,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092.2000000476837,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092.4000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092.4000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092.7000000476837,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092.7000000476837,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092.9000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4092.9000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4093,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4093.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4093.2999999523163,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4093.2999999523163,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4093.4000000953674,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4093.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4096.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "render",
+      "at": 4111.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "count": 3
+    },
+    {
+      "event": "sourcedata",
+      "at": 4135.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4136,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4136.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4136.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4137,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4137.200000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4137.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4137.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4137.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4138.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4138.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4138.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4138.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4138.900000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4139.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4139.200000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4139.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4139.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4139.799999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4140,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4140.200000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4140.799999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4141.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4141.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "transit-node",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4141.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4141.799999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4141.900000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4142.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4142.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4142.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4142.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4142.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "render",
+      "at": 4258.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "count": 4
+    },
+    {
+      "event": "load",
+      "at": 4258.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0
+    },
+    {
+      "event": "sourcedata",
+      "at": 4271.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "onemap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "render",
+      "at": 4277.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "count": 5
+    },
+    {
+      "event": "sourcedata",
+      "at": 4289.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "onemap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4289.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 0,
+      "sourceId": "onemap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4407.200000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4408,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4410,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4410.799999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4411.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4412,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4412.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-node",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4413.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4413.799999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4414.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4414.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4415.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4415.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4416,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4416.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4417.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 4417.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 4417.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5445.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5451.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5532.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5533.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5534.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5535.900000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5536.200000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5536.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5536.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5536.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5544.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5544.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5544.799999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5545,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shortest-route",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5546.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5547.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5548.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5549.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "shiokest-route",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5549.799999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5550.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5550.900000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5551.900000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "exposure-gaps",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5562.900000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5563.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5563.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5564.900000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "active-exposure-gap",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5566,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5566.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5575,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-node",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5575.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-node",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5575.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5575.900000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5576.100000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5576.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-route",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5576.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5576.600000143051,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5576.799999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5576.900000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "feedback-points",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5826,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5826.299999952316,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5826.400000095367,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 5832.5,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5835.200000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5837,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": false
+    },
+    {
+      "event": "sourcedata",
+      "at": 5838,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "transit-pois",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 43912.40000009537,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": true
+    },
+    {
+      "event": "sourcedata",
+      "at": 43912.700000047684,
+      "timeOrigin": 1789022523046.5,
+      "routeFeatures": 4,
+      "sourceId": "lamp-posts",
+      "isSourceLoaded": true
+    }
+  ],
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-YWZqx9'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": 0,
+    "stdout": "{\"before\":[{\"ProcessId\":107552,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:/Program Files/Google/Chrome/Application/chrome.exe\\\" --headless=new --no-first-run --no-sandbox --use-angle=swiftshader --enable-unsafe-swiftshader --disable-background-networking --disable-component-update --disable-sync --remote-debugging-port=0 --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-YWZqx9 about:blank\"},{\"ProcessId\":115364,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=crashpad-handler --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-YWZqx9 /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-YWZqx9\\\\Crashpad --metrics-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-YWZqx9 --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=152.0.7977.83 --initial-client-data=0x120,0x124,0x128,0xfc,0x12c,0x7fff401f7e60,0x7fff401f7e70,0x7fff401f7e80\"},{\"ProcessId\":110720,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --use-angle=swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-YWZqx9\\\" --no-pre-read-main-dll --field-trial-handle=1748,i,10683802513978194235,9706606638841934101,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1752,i,15226542391367453462,3748663925117280734,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2020 /prefetch:11\"},{\"ProcessId\":96804,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-YWZqx9\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=1093218784375 --field-trial-handle=1748,i,10683802513978194235,9706606638841934101,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1752,i,15226542391367453462,3748663925117280734,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3224 /prefetch:1\"},{\"ProcessId\":88520,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-YWZqx9\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=1093218955405 --field-trial-handle=1748,i,10683802513978194235,9706606638841934101,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1752,i,15226542391367453462,3748663925117280734,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3600 /prefetch:1\"},{\"ProcessId\":480,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-YWZqx9\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=1093219049716 --field-trial-handle=1748,i,10683802513978194235,9706606638841934101,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1752,i,15226542391367453462,3748663925117280734,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=3736 /prefetch:1\"},{\"ProcessId\":107288,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-YWZqx9\\\" --extension-process --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=1093219294551 --field-trial-handle=1748,i,10683802513978194235,9706606638841934101,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1752,i,15226542391367453462,3748663925117280734,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=4060 /prefetch:9\"},{\"ProcessId\":99660,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-YWZqx9\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=14 --launch-time-ticks=1093249933082 --field-trial-handle=1748,i,10683802513978194235,9706606638841934101,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1752,i,15226542391367453462,3748663925117280734,4 --trace-process-track-uuid=3190708999430457380 --mojo-platform-channel-handle=6080 /prefetch:1\"}],\"remaining\":[]}\r\n",
+    "stderr": "",
+    "verified": true
+  },
+  "proxyFinal": {
+    "root": "C:\\sgSHIOK2026",
+    "directory": "C:\\sgSHIOK2026\\qa\\revamp-r1\\basemap-startup-20260910\\treatment-proxy-1",
+    "pid": 98444,
+    "origin": "http://127.0.0.1:4350",
+    "buildB": "VcGMlZervnPm_ijAjrBL7",
+    "buildA": "ZHqFMae_a9ROgk43z7fv8",
+    "sourceB": "C:\\sgSHIOK2026\\tmp\\cached-release-basemap-startup-20260910-1",
+    "active": "B",
+    "requests": [
+      {
+        "at": "2026-09-10T06:42:02.924Z",
+        "method": "GET",
+        "path": "/favicon.ico",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:02.936Z",
+        "method": "GET",
+        "path": "/sw.js",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:03.074Z",
+        "method": "GET",
+        "path": "/?debugMap=1&postal=018956",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:03.461Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/2ybpj2di00jwo.css",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:03.467Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/1bidz_3pqoxaj.js",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:03.488Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/43_9sqcg-ka5x.js",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:03.493Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/turbopack-3e969-0v645bd.js",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:03.500Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/1bcry7qyno8a7.js",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:03.502Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:03.712Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/1wiarugfy1gqn.js",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:03.713Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/26tvb3_6x1fjr.js",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:03.726Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/2yt45fq8qj5vq.js",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:04.577Z",
+        "method": "GET",
+        "path": "/icon.svg",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:04.821Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/3_q9aqd1xjkqn.css",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:04.900Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:04.903Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/39c59mdel937x.js",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:04.908Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:04.922Z",
+        "method": "GET",
+        "path": "/sw.js",
+        "upstream": 4349,
+        "status": 304
+      },
+      {
+        "at": "2026-09-10T06:42:04.926Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/3kme4980qjy6g.js",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:05.096Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+        "upstream": 4321,
+        "status": 404
+      },
+      {
+        "at": "2026-09-10T06:42:05.107Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "upstream": 4321,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:05.191Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+        "upstream": 4321,
+        "status": 404
+      },
+      {
+        "at": "2026-09-10T06:42:05.196Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "upstream": 4321,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:05.289Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+        "upstream": 4321,
+        "status": 404
+      },
+      {
+        "at": "2026-09-10T06:42:05.298Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "upstream": 4321,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:05.414Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "upstream": 4321,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:06.097Z",
+        "method": "GET",
+        "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:06.746Z",
+        "method": "GET",
+        "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+        "upstream": 4349,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:06.945Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "upstream": 4321,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:06.973Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "upstream": 4321,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:06.984Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+        "upstream": 4321,
+        "status": 404
+      },
+      {
+        "at": "2026-09-10T06:42:07.001Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "upstream": 4321,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:07.003Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "upstream": 4321,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:07.004Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "upstream": 4321,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:07.005Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "upstream": 4321,
+        "status": 200
+      },
+      {
+        "at": "2026-09-10T06:42:47.073Z",
+        "method": "GET",
+        "path": "/sw.js",
+        "upstream": 4349,
+        "status": 304
+      }
+    ]
+  },
+  "proxyStopStatus": 204,
+  "finishedAt": "2026-09-10T06:43:11.107Z",
+  "elapsedSeconds": 72.867
+}

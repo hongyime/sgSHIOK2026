@@ -3270,3 +3270,27 @@ navigation or automatic archive eviction is implemented; either could discard a
 draft or strand an older tab. Two retained generations are bounded compatibility,
 not indefinite support. Findings, failed attempts, nine inspected captures and
 current limits: qa/revamp-r1/frontend-retention-20260910/summary.json.
+
+## 2026-09-10: Keep Route Rendering Independent of Basemap Transport
+
+MapLibre's first load waits for its initial sources. Our selected route waited
+for that load, so pending OneMap rasters could consume the startup deadline and
+remove a renderer whose local GeoJSON workers had already responded. A controlled
+baseline held only real raster requests and reproduced this failure.
+
+Initialize the renderer with the local background and overlay sources, retain the
+actual load/worker gate, then attach the unchanged OneMap raster below every
+overlay. Do not treat style.load alone as renderer readiness. Keep the existing
+startup failure/reload and current-selection visibility tests. A separate bounded
+basemap deadline reports partial availability without removing the map. Real tile
+completion may clear only that timeout; settled failed tiles, missing routes and
+generic renderer errors are not automatic success. Source replacement, retry and
+cleanup invalidate old basemap callbacks. Basemap completion itself does not write
+route sources or refit the camera.
+
+The corrected browser replay proves route survival, real tile recovery, ordinary
+navigation and retained worker failure detection at this local build. It is not
+a phone benchmark, a new retained-A upgrade test or release approval. Existing
+OneMap attribution, tile source, score data and locked scoring remain unchanged.
+Tests use existing dependencies and isolated frontend source, never pipeline work.
+Evidence: qa/revamp-r1/basemap-startup-20260910/summary.json.

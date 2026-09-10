@@ -3737,3 +3737,69 @@ The following is command output from the summary projection, not full product ac
 1. A passing retained-tab slice cannot close T01 when the subsequent current-build navigation timed out. Keep T01 PARTIAL and retain the failure instead of rerunning merely for a pass.
 2. Captured local build identity plus byte hashes are not production identity or security approval. Retention is selected-generation compatibility, not indefinite old-tab support. The global error test uses a declared QA-only route.
 3. Both data-cache sentinels and sampled body preservation were previously established, but this retained run stopped before its final cache comparison. Do not carry that claim into this run.
+
+
+## 2026-09-10 T01: Basemap-Independent Renderer Startup
+
+New evidence only; all prior attempts and findings above remain unchanged.
+Source, browser and image review is parent-only: the peer quota is exhausted.
+No dependency installation, scoring/export, protected-payload write or deployment.
+
+```text
+working_root=C:\sgSHIOK2026
+hostname=Prawn-E14
+base=38022b4df2482142d19570e93aa6e4daaffb1f8e
+focused: 93 passed / 5 files
+full: 1744 + 11 = 1755 passed / 64 files
+TypeScript: exit 0
+build: VcGMlZervnPm_ijAjrBL7, exit 0
+repo_integrity=ok
+repo_integrity_exit=0
+current_tested_built_web_sources=149
+protected_anchor_matches=11
+baseline: exit 1; 6 checks; 2 captures; partial diagnostic error preserved
+first_treatment: exit 1; 4 checks; 3 captures; initial-null assertion error preserved
+corrected_treatment: exit 0; 14 checks; 9 captures
+parent_inspected_images=2 + 3 + 9 = 14
+browser_profiles_cleaned=3
+qa_proxies_stopped=3
+old_evidence_prefix_bytes=239331
+old_evidence_prefix_sha256=cf8c9dd818bbb7ae4baca4a730723b9981ce87f159c83e2c686742ea5451b610
+implementation_diff_bytes=17589
+implementation_diff_lines=319
+implementation_diff_sha256=16a4eafe0e86ed825097d3344059d93f38f045c09601702f261eb45778792290
+pipeline_runs=0
+```
+
+Exact commands/stdout/stderr, source/anchor hashes and all fourteen image hashes
+are committed under `qa/revamp-r1/basemap-startup-20260910/`, especially
+`audit.json`, `full-1/checks.json`, the three browser receipts and `summary.json`.
+The direct installed-Next build receipt is at
+`qa/revamp-r1/cached-release-20260908/basemap-startup-20260910-1/build.json`.
+It uses a declared QA-only compiler root and omits protected data. It does not
+claim actual release staging or replace the prior guarded-retention build proof.
+
+The baseline's private `_data.features` read was wrong: installed MapLibre stores
+object GeoJSON under `_data.geojson`. Null observations do not prove zero features.
+Its actual style/source events, missing load event and teardown screen do prove
+the startup failure. Treatment observes public `serialize().data`. Its first
+attempt incorrectly counted the initial null publication before map construction
+as teardown. The new runner checks ordering after construction; original receipts
+and runner copies are untouched. The successful held-worker case intentionally
+bypasses service worker and HTTP caches to isolate real worker transport.
+
+### FINDINGS
+
+1. OneMap raster transport was incorrectly a dependency of the first renderer load. Pending rasters blocked selected-route submission and caused the existing startup timer to remove the map even after local source workers responded.
+2. The renderer now loads its local sources before attaching unchanged OneMap tiles beneath every overlay. Tile delay has its own bounded partial state; it cannot remove the renderer or masquerade as a missing-route/generic-renderer fix.
+3. Browser evidence shows four current route features before any held tile is released and after the basemap deadline. Real tile recovery preserves the same Document and selection. Four viewport captures and ordinary empty/selected navigation pass.
+4. Worker transport is independently held on a new cache/SW-bypassed Document: the original startup failure still removes the unusable renderer and preserves walk text. Style.load alone is not accepted as renderer readiness.
+5. 1755/64 isolated web tests, 93 focused tests, TypeScript, fresh frontend build and repository integrity pass. Eleven regression cases added; one old test expectation corrected for removal of duplicate ready callbacks. All149 source identities and11 protected anchors match.
+6. Failed diagnostic attempts are retained. Baseline inspected the wrong private GeoJSON field; first treatment counted an initial null reference as teardown. Neither entire failed run is relabeled PASS. Corrected helper uses public serialize().data and post-creation event ordering.
+7. No pipeline execution, installations, protected-payload mutation, external activation or deployment. The T01 startup slice is locally accepted; retained-A with this change, T25 cross-feature completion, dependency security, real-release identity and owner release gates remain.
+
+### DISAGREEMENTS
+
+1. A controlled transport test proves this dependency defect, not that every slow map is caused by OneMap or that representative latency improved.
+2. A passing current-build replay is not a fresh full old-tab upgrade rehearsal or a deployed-browser guarantee. Keep those boundaries explicit.
+3. Peer quota previously exhausted; these source and image reviews are parent-only, not independent subagent acceptance.

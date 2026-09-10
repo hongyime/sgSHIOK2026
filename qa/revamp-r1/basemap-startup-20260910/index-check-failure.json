@@ -1,0 +1,7 @@
+{
+  "command": "node C:\\sgSHIOK2026\\qa\\revamp-r1\\basemap-startup-20260910\\index-check.mjs",
+  "exitCode": 1,
+  "error": "Error: Indexed source not tested: web/lib/__tests__/accessibility-render.test.tsx",
+  "receiptWritten": false,
+  "note": "Original helper preserved. Follow-up checks exact CRLF-to-LF normalization for every differing source without rewriting any source. No pipeline input is involved."
+}

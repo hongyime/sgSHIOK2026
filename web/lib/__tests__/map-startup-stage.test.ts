@@ -59,6 +59,7 @@ function fakeMap() {
     emit(event: string, value = {}) { [...(handlers.get(event) ?? [])].forEach(listener => listener(value)); },
     getCanvas: () => canvas, getZoom: () => 16,
     getSource: (id: string) => sources.get(id), getLayer: (id: string) => layers.get(id),
+    isSourceLoaded: () => true,
     addSource(id: string, spec: any) { sources.set(id, { ...spec, setData: vi.fn() }); },
     addLayer(spec: any) { layers.set(spec.id, spec); },
     moveLayer: vi.fn(), setLayoutProperty: vi.fn(), setFilter: vi.fn(), resize: vi.fn(), fitBounds: vi.fn(), easeTo: vi.fn(), triggerRepaint: vi.fn(),

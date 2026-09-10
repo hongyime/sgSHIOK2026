@@ -1,0 +1,3 @@
+
+DevTools listening on ws://127.0.0.1:17297/devtools/browser/4bb0830e-0dbe-4583-aa73-73f4a173072e
+[107552:106432:0910/144249.171:ERROR:chrome\browser\web_applications\externally_managed_app_manager.cc:680] https://docs.google.com/document/installwebapp?usp=chrome_default from install source 1 failed to install with reason 21

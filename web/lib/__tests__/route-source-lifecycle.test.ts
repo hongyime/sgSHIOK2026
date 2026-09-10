@@ -47,7 +47,7 @@ const hooks = vi.hoisted(() => {
 });
 vi.mock('react', async original => ({ ...await original<typeof import('react')>(), ...hooks }));
 const lib = vi.hoisted(() => ({ instance: null as any, manifest: vi.fn(), construct: vi.fn() }));
-vi.mock('maplibre-gl', () => ({ Map: class { constructor() { lib.construct(); return lib.instance; } }, Popup: class {}, setWorkerUrl: vi.fn(), addProtocol: vi.fn() }));
+vi.mock('maplibre-gl', () => ({ Map: class { constructor(options: unknown) { lib.construct(options); return lib.instance; } }, Popup: class {}, setWorkerUrl: vi.fn(), addProtocol: vi.fn() }));
 vi.mock('../lamp-overlay', async original => ({ ...await original<typeof import('../lamp-overlay')>(), fetchLampOverlayManifest: lib.manifest }));
 import { RouteEvidenceMap } from '../../components/route-evidence-map';
 
@@ -59,17 +59,17 @@ function fakeMap() {
   const writes: { id: string; data: any }[] = [];
   let rendered: any[] = [];
   const map = {
-    sources, layers, handlers, writes,
+    sources, layers, handlers, writes, basemapLoaded: true, layerInsertions: [] as {id:string; before?:string}[],
     on(event: string, ...args: any[]) { const key = args.length === 2 ? `${event}:${args[0]}` : event; const set = handlers.get(key) ?? new Set(); set.add(args.at(-1)); handlers.set(key, set); return map; },
     off(event: string, fn: (...args: any[]) => void) { handlers.get(event)?.delete(fn); return map; },
     emit(event: string, data = {}) { [...(handlers.get(event) ?? [])].forEach(fn => fn(data)); },
     getSource: (id: string) => sources.get(id), getLayer: (id: string) => layers.get(id),
-    addSource(id: string, spec: any) { sources.set(id, { data: spec.data, setData(data: any) { writes.push({ id, data }); this.data = data; } }); },
-    addLayer(spec: any) { layers.set(spec.id, spec); },
+    addSource(id: string, spec: any) { sources.set(id, { ...spec, data: spec.data, setTiles: vi.fn(), setData(data: any) { writes.push({ id, data }); this.data = data; } }); },
+    addLayer(spec: any, before?:string) { layers.set(spec.id, spec); map.layerInsertions.push({id:spec.id,before}); },
     getZoom: () => 16, getCanvas: () => ({ style: { cursor: '' }, setAttribute: vi.fn() }),
     getBounds: () => ({ getWest: () => 103.8, getEast: () => 103.9, getSouth: () => 1.2, getNorth: () => 1.4 }),
     moveLayer: vi.fn(), setLayoutProperty: vi.fn(), setFilter: vi.fn(), resize: vi.fn(), fitBounds: vi.fn(), easeTo: vi.fn(), triggerRepaint: vi.fn(),
-    isMoving: () => false, isSourceLoaded: () => true,
+    isMoving: () => false, isSourceLoaded: (id:string) => id==='onemap' ? map.basemapLoaded : true,
     queryRenderedFeatures: () => rendered,
     render(data = sources.get('shiokest-route').data.features) { rendered = data; map.emit('render'); },
     remove: vi.fn(() => handlers.clear()),
@@ -128,6 +128,120 @@ beforeEach(() => {
   props = { routes: [{ id: '018956', label: 'Published fixture', color: '#008f86', geom }], mode: 'shiokest', onStatusChange: vi.fn() };
 });
 afterEach(() => { hooks.unmount(); vi.useRealTimers(); vi.unstubAllGlobals(); });
+
+describe('renderer startup is independent of basemap transport', () => {
+  it('does not put remote rasters in the initial renderer load dependency', async () => {
+    await start();
+    const style=lib.construct.mock.calls[0][0].style;
+    expect(style.sources).toEqual({});
+    expect(style.layers.map((layer:any)=>layer.id)).toEqual(['background']);
+    expect(style.glyphs).toBe('glyphs://{fontstack}/{range}');
+  });
+
+  it('attaches the exact basemap beneath every overlay only after renderer load', async () => {
+    map.sources.delete('onemap');
+    await start(); map.emit('style.load'); render();
+    expect(map.getSource('onemap')).toBeUndefined();
+    expect(routeWrites()).toHaveLength(0);
+    map.emit('load'); render();
+    expect(map.getSource('onemap')).toMatchObject({type:'raster',tileSize:128,
+      tiles:['https://www.onemap.gov.sg/maps/tiles/Grey_HD/{z}/{x}/{y}.png']});
+    expect(map.layerInsertions.filter(item=>item.id==='onemap')).toEqual([{id:'onemap',before:'lamp-post-dots'}]);
+    expect(routeWrites().map(write=>write.id)).toEqual(routeIds);
+  });
+
+  it('keeps the selected route on a slow basemap and recovers only that issue', async () => {
+    map.basemapLoaded=false;
+    await mount();map.render();
+    vi.advanceTimersByTime(30_000);
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('partial',expect.any(String),undefined,
+      {stage:'basemap-tiles',reason:'timeout',elapsedMs:30_000});
+    expect(map.remove).not.toHaveBeenCalled();
+    const writes=routeWrites().length,fits=map.fitBounds.mock.calls.length;
+    map.basemapLoaded=true;map.emit('sourcedata',{sourceId:'onemap'});
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('ready',undefined);
+    expect(routeWrites()).toHaveLength(writes);expect(map.fitBounds).toHaveBeenCalledTimes(fits);
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('a late basemap cannot downgrade or repair a missing selected route', async () => {
+    map.basemapLoaded=false;await mount();
+    vi.advanceTimersByTime(15_000);
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('error','The selected walk is not visible. Retry the map.',undefined,expect.any(Object));
+    const status=props.onStatusChange as ReturnType<typeof vi.fn>;status.mockClear();
+    vi.advanceTimersByTime(15_000);
+    map.basemapLoaded=true;map.emit('sourcedata',{sourceId:'onemap'});
+    expect(status).not.toHaveBeenCalled();
+  });
+
+  it('times out an unselected basemap without destroying the usable renderer', async () => {
+    props.routes=[];map.basemapLoaded=false;await mount();
+    vi.advanceTimersByTime(30_000);
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('partial',expect.any(String),undefined,expect.objectContaining({stage:'basemap-tiles',reason:'timeout'}));
+    expect(map.remove).not.toHaveBeenCalled();
+    map.basemapLoaded=true;map.emit('sourcedata',{sourceId:'onemap'});
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('idle',undefined);
+  });
+
+  it('preserves a rendering error when basemap data finishes later', async () => {
+    map.basemapLoaded=false;await mount();map.render();
+    map.emit('error',{sourceId:'worker'});
+    const status=props.onStatusChange as ReturnType<typeof vi.fn>;status.mockClear();
+    vi.advanceTimersByTime(30_000);map.basemapLoaded=true;map.emit('sourcedata',{sourceId:'onemap'});
+    expect(status).not.toHaveBeenCalled();
+  });
+
+  it('restores basemap ordering after style recreation without duplicating sources', async () => {
+    await mount();map.render();
+    map.sources.clear();map.layers.clear();map.layerInsertions.length=0;
+    map.emit('style.load');render();
+    expect(map.getSource('onemap')).toMatchObject({type:'raster'});
+    expect(map.layerInsertions.filter(item=>item.id==='onemap')).toEqual([{id:'onemap',before:'lamp-post-dots'}]);
+    map.emit('style.load');render();
+    expect(map.layerInsertions.filter(item=>item.id==='onemap')).toHaveLength(1);
+  });
+
+  it('uses the current selection when a basemap started without a walk', async () => {
+    const routes=props.routes;
+    props.routes=[];map.basemapLoaded=false;await mount();
+    render({routes});vi.advanceTimersByTime(15_000);
+    const status=props.onStatusChange as ReturnType<typeof vi.fn>;status.mockClear();
+    vi.advanceTimersByTime(15_000);
+    map.emit('error',{sourceId:'onemap'});
+    map.basemapLoaded=true;map.emit('sourcedata',{sourceId:'onemap'});
+    expect(status).not.toHaveBeenCalled();
+  });
+
+  it('does not mistake settled failed tiles for automatic recovery', async () => {
+    map.basemapLoaded=false;await mount();map.render();
+    map.emit('error',{sourceId:'onemap'});
+    const status=props.onStatusChange as ReturnType<typeof vi.fn>;status.mockClear();
+    map.basemapLoaded=true;map.emit('sourcedata',{sourceId:'onemap'});
+    vi.advanceTimersByTime(30_000);
+    expect(status).not.toHaveBeenCalled();
+    render({retryKey:1});map.render();
+    expect(status).toHaveBeenLastCalledWith('ready',undefined);
+  });
+
+  it('ignores an old source callback before replacement effects have cleaned up', async () => {
+    map.basemapLoaded=false;await mount();map.render();vi.advanceTimersByTime(30_000);
+    const oldSettled=[...map.handlers.get('sourcedata')!][0];
+    map.sources.clear();map.layers.clear();map.emit('style.load');
+    map.basemapLoaded=true;
+    const status=props.onStatusChange as ReturnType<typeof vi.fn>;status.mockClear();
+    oldSettled();expect(status).not.toHaveBeenCalled();
+    render();map.render();expect(status).toHaveBeenLastCalledWith('ready',undefined);
+  });
+
+  it('cancels basemap deadlines and callbacks when the component unmounts', async () => {
+    map.basemapLoaded=false;await mount();map.render();
+    const oldSettled=[...map.handlers.get('sourcedata')!][0];
+    hooks.unmount();
+    const status=props.onStatusChange as ReturnType<typeof vi.fn>;status.mockClear();
+    map.basemapLoaded=true;oldSettled();vi.advanceTimersByTime(60_000);
+    expect(status).not.toHaveBeenCalled();expect(vi.getTimerCount()).toBe(0);
+  });
+});
 
 describe('M01/M08/M11: bounded map startup in the executed component', () => {
   it.each([true, false])('times out a silent startup with a selected walk=%s', async selected => {
@@ -520,8 +634,8 @@ describe('M05/M10/M11: source ownership in the executed map component', () => {
     expect(map.sources.get('onemap').setTiles).toHaveBeenCalledTimes(1);
     map.render(); map.emit('sourcedata');
     expect(props.onStatusChange).toHaveBeenCalledWith('ready', undefined);
-    expect(props.onStatusChange).toHaveBeenLastCalledWith('ready');
-    expect(map.handlers.get('sourcedata')?.size).toBe(0);
+    expect(props.onStatusChange).toHaveBeenLastCalledWith('ready', undefined);
+    expect(map.handlers.get('sourcedata')?.size).toBe(1);
     hooks.unmount(); expect(map.handlers.size).toBe(0);
   });
 
