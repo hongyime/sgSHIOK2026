@@ -1,0 +1,2347 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "Prawn-E14",
+  "profile": "C:\\sgSHIOK2026\\tmp\\map-stall-browser-dP4VRO",
+  "startedAt": "2026-09-10T14:09:04.736Z",
+  "boundaries": [
+    {
+      "method": "Runtime.enable",
+      "at": 6279.3246,
+      "finished": 6682.0656
+    },
+    {
+      "method": "Page.enable",
+      "at": 6682.1887,
+      "finished": 6715.155599999999
+    },
+    {
+      "method": "Network.enable",
+      "at": 6715.2076,
+      "finished": 6758.006799999999
+    },
+    {
+      "method": "Inspector.enable",
+      "at": 6758.1006,
+      "finished": 6784.7275
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 6785.1693,
+      "params": {
+        "expression": "40 + 2",
+        "uniqueContextId": "5107865560968168269.8638576751869619162",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 6820.900199999999
+    },
+    {
+      "name": "blank-page responsiveness",
+      "started": 6785.1104,
+      "finished": 6820.9558,
+      "value": 42
+    },
+    {
+      "method": "Runtime.addBinding",
+      "at": 6823.4716,
+      "finished": 6850.1131
+    },
+    {
+      "method": "Page.addScriptToEvaluateOnNewDocument",
+      "at": 6850.1903999999995,
+      "finished": 6887.58
+    },
+    {
+      "method": "Profiler.enable",
+      "at": 6887.6395999999995,
+      "finished": 6942.384
+    },
+    {
+      "method": "Profiler.start",
+      "at": 6942.4675,
+      "finished": 7006.5473999999995
+    },
+    {
+      "method": "Emulation.setDeviceMetricsOverride",
+      "at": 7006.643599999999,
+      "finished": 7036.0581999999995
+    },
+    {
+      "method": "Page.navigate",
+      "at": 7036.130499999999,
+      "finished": 7274.7567
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 7795.2005,
+      "params": {
+        "expression": "document.readyState",
+        "uniqueContextId": "-3295277252875294962.6316396038481858467",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 8509.776399999999
+    },
+    {
+      "name": "new-context DOM responsiveness",
+      "started": 7795.1812,
+      "finished": 8509.9784,
+      "value": "interactive"
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 8570.5093,
+      "params": {
+        "expression": "({state:document.readyState,map:!!window.__shiokRouteMap,status:document.querySelector(\"main\")?.dataset.mapStatus})",
+        "uniqueContextId": "-3295277252875294962.6316396038481858467",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 10023.482899999999
+    },
+    {
+      "name": "cheap DOM/map handle",
+      "started": 8570.4213,
+      "finished": 10026.062399999999,
+      "value": {
+        "state": "interactive",
+        "map": false,
+        "status": "idle"
+      }
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 10543.5923,
+      "params": {
+        "expression": "({state:document.readyState,map:!!window.__shiokRouteMap,status:document.querySelector(\"main\")?.dataset.mapStatus})",
+        "uniqueContextId": "-3295277252875294962.6316396038481858467",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 11787.7012
+    },
+    {
+      "name": "cheap DOM/map handle",
+      "started": 10543.549799999999,
+      "finished": 11787.9784,
+      "value": {
+        "state": "complete",
+        "map": false,
+        "status": "mounting"
+      }
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 12321.9149,
+      "params": {
+        "expression": "({state:document.readyState,map:!!window.__shiokRouteMap,status:document.querySelector(\"main\")?.dataset.mapStatus})",
+        "uniqueContextId": "-3295277252875294962.6316396038481858467",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 13309.7148
+    },
+    {
+      "name": "cheap DOM/map handle",
+      "started": 12321.8877,
+      "finished": 13318.1173,
+      "value": {
+        "state": "complete",
+        "map": true,
+        "status": "initializing"
+      }
+    },
+    {
+      "method": "Page.captureScreenshot",
+      "at": 13332.1929,
+      "finished": 16480.4367
+    },
+    {
+      "method": "Page.captureScreenshot",
+      "at": 76589.7543,
+      "finished": 78510.13919999999
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 78652.9565,
+      "params": {
+        "expression": "document.body.innerText.slice(0,1200)",
+        "uniqueContextId": "-3295277252875294962.6316396038481858467",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 78719.3715
+    },
+    {
+      "name": "visible text query",
+      "started": 78652.8297,
+      "finished": 78719.52979999999,
+      "value": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nCompare\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAdd to comparison\nMapped exposed sections (3)\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nAbout data"
+    },
+    {
+      "method": "Page.captureScreenshot",
+      "at": 78766.9194,
+      "finished": 80323.3726
+    }
+  ],
+  "events": [
+    {
+      "method": "Runtime.executionContextCreated",
+      "at": 6655.492399999999,
+      "context": {
+        "id": 1,
+        "origin": "://",
+        "name": "",
+        "uniqueId": "5107865560968168269.8638576751869619162",
+        "auxData": {
+          "isDefault": true,
+          "type": "default",
+          "frameId": "1B8A113244B42F94C2551D2BAE464A9C"
+        }
+      }
+    },
+    {
+      "method": "Runtime.executionContextsCleared",
+      "at": 7316.3195
+    },
+    {
+      "method": "Runtime.executionContextsCleared",
+      "at": 7344.3331
+    },
+    {
+      "method": "Runtime.executionContextCreated",
+      "at": 7544.8083,
+      "context": {
+        "id": 2,
+        "origin": "http://127.0.0.1:4362",
+        "name": "",
+        "uniqueId": "-3295277252875294962.6316396038481858467",
+        "auxData": {
+          "isDefault": true,
+          "type": "default",
+          "frameId": "1B8A113244B42F94C2551D2BAE464A9C"
+        }
+      }
+    },
+    {
+      "method": "Page.domContentEventFired",
+      "at": 8279.2516,
+      "params": {
+        "timestamp": 1120049.76005
+      }
+    },
+    {
+      "method": "Page.loadEventFired",
+      "at": 10429.664499999999,
+      "params": {
+        "timestamp": 1120051.095482
+      }
+    }
+  ],
+  "responses": [
+    {
+      "at": 7272.521699999999,
+      "url": "http://127.0.0.1:4362/?postal=018956&debugMap=1",
+      "status": 200
+    },
+    {
+      "at": 7907.0143,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/3vlrbw6gc84l7.css",
+      "status": 200
+    },
+    {
+      "at": 8279.8746,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1bidz_3pqoxaj.js",
+      "status": 200
+    },
+    {
+      "at": 8952.3824,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/17f1081s5yhzn.js",
+      "status": 200
+    },
+    {
+      "at": 9380.8418,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/turbopack-0xfj_5xwh9c0_.js",
+      "status": 200
+    },
+    {
+      "at": 9483.4942,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1oaw9uq-pttep.js",
+      "status": 200
+    },
+    {
+      "at": 9550.4915,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/2dn31qlrcaugz.js",
+      "status": 200
+    },
+    {
+      "at": 9627.8715,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1c6j_lnxj8czm.js",
+      "status": 200
+    },
+    {
+      "at": 9680.0087,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+      "status": 200
+    },
+    {
+      "at": 10068.692799999999,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/2xkd3da992cyi.js",
+      "status": 200
+    },
+    {
+      "at": 10910.6556,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/3041ut-1olh-5.css",
+      "status": 200
+    },
+    {
+      "at": 11079.1214,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/20zjq-ak3jpeu.js",
+      "status": 200
+    },
+    {
+      "at": 11136.2418,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/3u4fr6aw4uicq.js",
+      "status": 200
+    },
+    {
+      "at": 11203.364899999999,
+      "url": "http://127.0.0.1:4362/icon.svg",
+      "status": 200
+    },
+    {
+      "at": 11337.3855,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1zyj6upfpdkbv.js",
+      "status": 200
+    },
+    {
+      "at": 11627.1688,
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "status": 200
+    },
+    {
+      "at": 11857.7987,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404
+    },
+    {
+      "at": 11918.8779,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200
+    },
+    {
+      "at": 11962.0273,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+      "status": 200
+    },
+    {
+      "at": 12607.193299999999,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "status": 200
+    },
+    {
+      "at": 13285.3586,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 404
+    },
+    {
+      "at": 13401.1161,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "status": 404
+    },
+    {
+      "at": 13536.493,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "status": 200
+    },
+    {
+      "at": 13629.613299999999,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "status": 200
+    },
+    {
+      "at": 19231.545299999998,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8133.png",
+      "status": 200
+    },
+    {
+      "at": 19265.4585,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8132.png",
+      "status": 200
+    },
+    {
+      "at": 19714.678799999998,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8133.png",
+      "status": 200
+    },
+    {
+      "at": 19972.4467,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8133.png",
+      "status": 200
+    },
+    {
+      "at": 19985.8761,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8132.png",
+      "status": 200
+    },
+    {
+      "at": 20002.0197,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8134.png",
+      "status": 200
+    },
+    {
+      "at": 20015.4737,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8132.png",
+      "status": 200
+    },
+    {
+      "at": 20476.9787,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8134.png",
+      "status": 200
+    },
+    {
+      "at": 20529.4274,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8134.png",
+      "status": 200
+    },
+    {
+      "at": 20547.5477,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8131.png",
+      "status": 200
+    },
+    {
+      "at": 20555.0966,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8133.png",
+      "status": 200
+    },
+    {
+      "at": 20566.7713,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8131.png",
+      "status": 200
+    },
+    {
+      "at": 20577.0554,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8133.png",
+      "status": 200
+    },
+    {
+      "at": 20587.464799999998,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8132.png",
+      "status": 200
+    },
+    {
+      "at": 20596.6126,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8132.png",
+      "status": 200
+    },
+    {
+      "at": 20601.3008,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8131.png",
+      "status": 200
+    },
+    {
+      "at": 20677.9176,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8135.png",
+      "status": 200
+    },
+    {
+      "at": 21053.4297,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "status": 200
+    },
+    {
+      "at": 21290.5795,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "status": 200
+    },
+    {
+      "at": 21579.046599999998,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260275.png",
+      "status": 200
+    },
+    {
+      "at": 21586.9827,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260275.png",
+      "status": 200
+    },
+    {
+      "at": 21607.9968,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260274.png",
+      "status": 200
+    },
+    {
+      "at": 21620.821,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260274.png",
+      "status": 200
+    },
+    {
+      "at": 21628.6562,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260276.png",
+      "status": 200
+    },
+    {
+      "at": 21634.6447,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260276.png",
+      "status": 200
+    },
+    {
+      "at": 21888.093,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260275.png",
+      "status": 200
+    },
+    {
+      "at": 21898.2525,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260274.png",
+      "status": 200
+    },
+    {
+      "at": 21909.1037,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260275.png",
+      "status": 200
+    },
+    {
+      "at": 21916.0937,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260276.png",
+      "status": 200
+    },
+    {
+      "at": 21930.3013,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260274.png",
+      "status": 200
+    },
+    {
+      "at": 21945.6189,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260273.png",
+      "status": 200
+    },
+    {
+      "at": 21966.094399999998,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260276.png",
+      "status": 200
+    },
+    {
+      "at": 22001.5365,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260277.png",
+      "status": 200
+    },
+    {
+      "at": 22019.0706,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260273.png",
+      "status": 200
+    },
+    {
+      "at": 22026.231,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260273.png",
+      "status": 200
+    },
+    {
+      "at": 22041.0033,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "status": 404
+    },
+    {
+      "at": 22343.2961,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "status": 200
+    },
+    {
+      "at": 22377.1685,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "status": 200
+    },
+    {
+      "at": 22390.5176,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "status": 200
+    },
+    {
+      "at": 22980.0918,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "status": 200
+    },
+    {
+      "at": 23662.9006,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260277.png",
+      "status": 200
+    },
+    {
+      "at": 23677.7278,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260275.png",
+      "status": 200
+    },
+    {
+      "at": 23699.976,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260273.png",
+      "status": 200
+    },
+    {
+      "at": 23707.8456,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260274.png",
+      "status": 200
+    },
+    {
+      "at": 23708.4843,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260277.png",
+      "status": 200
+    },
+    {
+      "at": 23716.5275,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260276.png",
+      "status": 200
+    },
+    {
+      "at": 23729.2244,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260277.png",
+      "status": 200
+    },
+    {
+      "at": 23738.5182,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260272.png",
+      "status": 200
+    },
+    {
+      "at": 23747.7569,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260272.png",
+      "status": 200
+    },
+    {
+      "at": 23752.0096,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260273.png",
+      "status": 200
+    },
+    {
+      "at": 23759.9922,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260272.png",
+      "status": 200
+    },
+    {
+      "at": 23764.4425,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260277.png",
+      "status": 200
+    },
+    {
+      "at": 23778.4775,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260272.png",
+      "status": 200
+    },
+    {
+      "at": 23789.481,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260272.png",
+      "status": 200
+    },
+    {
+      "at": 23807.6544,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260271.png",
+      "status": 200
+    },
+    {
+      "at": 23810.9847,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260271.png",
+      "status": 200
+    },
+    {
+      "at": 26361.421299999998,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260271.png",
+      "status": 200
+    },
+    {
+      "at": 26375.7908,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260271.png",
+      "status": 200
+    },
+    {
+      "at": 26888.7271,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260271.png",
+      "status": 200
+    },
+    {
+      "at": 26936.7772,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260270.png",
+      "status": 200
+    },
+    {
+      "at": 26958.0439,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260270.png",
+      "status": 200
+    },
+    {
+      "at": 26975.2879,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260270.png",
+      "status": 200
+    },
+    {
+      "at": 26987.5675,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260270.png",
+      "status": 200
+    },
+    {
+      "at": 27322.4028,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260270.png",
+      "status": 200
+    },
+    {
+      "at": 27422.5621,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260269.png",
+      "status": 200
+    },
+    {
+      "at": 27423.0388,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260269.png",
+      "status": 200
+    },
+    {
+      "at": 27450.9115,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260269.png",
+      "status": 200
+    },
+    {
+      "at": 27493.4863,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260269.png",
+      "status": 200
+    },
+    {
+      "at": 27511.8844,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260269.png",
+      "status": 200
+    }
+  ],
+  "errors": [],
+  "captures": [
+    {
+      "name": "before-map-inspection-390x844",
+      "at": 16520.2288
+    },
+    {
+      "name": "after-passive-observation-390x844",
+      "at": 78565.1537
+    },
+    {
+      "name": "after-map-inspection-390x844",
+      "at": 80390.9193
+    }
+  ],
+  "trace": [
+    {
+      "at": 253.40000009536743,
+      "kind": "map-status",
+      "status": "idle"
+    },
+    {
+      "at": 3118.7000000476837,
+      "kind": "route-debug",
+      "value": {
+        "routeKey": "1:shiokest:",
+        "padding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "mode": "shiokest",
+        "routeCount": 0,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 0,
+          "exposure": 0,
+          "transit": 0,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Singapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops."
+      }
+    },
+    {
+      "at": 3135.5,
+      "kind": "map-status",
+      "status": "mounting"
+    },
+    {
+      "at": 4561.799999952316,
+      "kind": "map-attached"
+    },
+    {
+      "at": 4735.200000047684,
+      "kind": "map-status",
+      "status": "initializing"
+    },
+    {
+      "at": 4778.400000095367,
+      "kind": "createProgram:start"
+    },
+    {
+      "at": 4779.799999952316,
+      "kind": "createProgram:end",
+      "milliseconds": 1.3999998569488525
+    },
+    {
+      "at": 4780.799999952316,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 4781,
+      "kind": "compileShader:end",
+      "milliseconds": 0.20000004768371582
+    },
+    {
+      "at": 4786.400000095367,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 4786.599999904633,
+      "kind": "compileShader:end",
+      "milliseconds": 0.2999999523162842
+    },
+    {
+      "at": 4791.299999952316,
+      "kind": "linkProgram:start"
+    },
+    {
+      "at": 4791.599999904633,
+      "kind": "linkProgram:end",
+      "milliseconds": 0.2999999523162842
+    },
+    {
+      "at": 4824.200000047684,
+      "kind": "createProgram:start"
+    },
+    {
+      "at": 4824.400000095367,
+      "kind": "createProgram:end",
+      "milliseconds": 0.09999990463256836
+    },
+    {
+      "at": 4824.799999952316,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 4824.900000095367,
+      "kind": "compileShader:end",
+      "milliseconds": 0.10000014305114746
+    },
+    {
+      "at": 4842,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 4842.200000047684,
+      "kind": "compileShader:end",
+      "milliseconds": 0.20000004768371582
+    },
+    {
+      "at": 4845.200000047684,
+      "kind": "linkProgram:start"
+    },
+    {
+      "at": 4845.599999904633,
+      "kind": "linkProgram:end",
+      "milliseconds": 0.2999999523162842
+    },
+    {
+      "at": 4878.700000047684,
+      "kind": "createProgram:start"
+    },
+    {
+      "at": 4878.799999952316,
+      "kind": "createProgram:end",
+      "milliseconds": 0.09999990463256836
+    },
+    {
+      "at": 4879.200000047684,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 4879.200000047684,
+      "kind": "compileShader:end",
+      "milliseconds": 0
+    },
+    {
+      "at": 4896.5,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 4897.5,
+      "kind": "compileShader:end",
+      "milliseconds": 1.0999999046325684
+    },
+    {
+      "at": 4900.799999952316,
+      "kind": "linkProgram:start"
+    },
+    {
+      "at": 4901,
+      "kind": "linkProgram:end",
+      "milliseconds": 0.20000004768371582
+    },
+    {
+      "at": 6833.799999952316,
+      "kind": "route-debug",
+      "value": {
+        "routeKey": "1:shiokest:",
+        "padding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "mode": "shiokest",
+        "routeCount": 0,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 0,
+          "exposure": 0,
+          "transit": 0,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Singapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops."
+      }
+    },
+    {
+      "at": 6960.200000047684,
+      "kind": "route-debug",
+      "value": {
+        "routeKey": "1:shiokest:",
+        "padding": {
+          "top": 110.6875,
+          "right": 12,
+          "bottom": 77,
+          "left": 12
+        },
+        "mode": "shiokest",
+        "routeCount": 0,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 0,
+          "exposure": 0,
+          "transit": 0,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Singapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops."
+      }
+    },
+    {
+      "at": 6972.099999904633,
+      "kind": "map-status",
+      "status": "idle"
+    },
+    {
+      "at": 7490,
+      "kind": "createProgram:start"
+    },
+    {
+      "at": 7490.200000047684,
+      "kind": "createProgram:end",
+      "milliseconds": 0.20000004768371582
+    },
+    {
+      "at": 7490.900000095367,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 7491,
+      "kind": "compileShader:end",
+      "milliseconds": 0.09999990463256836
+    },
+    {
+      "at": 7507.5,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 7507.700000047684,
+      "kind": "compileShader:end",
+      "milliseconds": 0.20000004768371582
+    },
+    {
+      "at": 7511.700000047684,
+      "kind": "linkProgram:start"
+    },
+    {
+      "at": 7511.799999952316,
+      "kind": "linkProgram:end",
+      "milliseconds": 0.09999990463256836
+    },
+    {
+      "at": 7844.299999952316,
+      "kind": "route-debug",
+      "value": {
+        "routeKey": "2:shiokest:primary",
+        "padding": {
+          "top": 110.6875,
+          "right": 12,
+          "bottom": 77,
+          "left": 12
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 0 MRT or LRT stations, 0 exits, and 0 bus stops."
+      }
+    },
+    {
+      "at": 7947,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            110.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "2:shiokest:primary"
+    },
+    {
+      "at": 7970.200000047684,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 23.299999952316284,
+      "count": 0,
+      "keys": []
+    },
+    {
+      "at": 8061.299999952316,
+      "kind": "map-status",
+      "status": "initializing"
+    },
+    {
+      "at": 8108.5,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            110.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "2:shiokest:primary"
+    },
+    {
+      "at": 8110.700000047684,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 2.0999999046325684,
+      "count": 0,
+      "keys": []
+    },
+    {
+      "at": 8113.799999952316,
+      "kind": "route-debug",
+      "value": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 445.6875,
+          "right": 12,
+          "bottom": 77,
+          "left": 12
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 0 MRT or LRT stations, 0 exits, and 0 bus stops."
+      }
+    },
+    {
+      "at": 8158,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 8160,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 2,
+      "count": 0,
+      "keys": []
+    },
+    {
+      "at": 8304,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 8308.200000047684,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 4.299999952316284,
+      "count": 0,
+      "keys": []
+    },
+    {
+      "at": 8458.200000047684,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 8459.099999904633,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 0.8999998569488525,
+      "count": 0,
+      "keys": []
+    },
+    {
+      "at": 8539,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 8541.299999952316,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 2.299999952316284,
+      "count": 0,
+      "keys": []
+    },
+    {
+      "at": 8622.400000095367,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 8623.299999952316,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1,
+      "count": 0,
+      "keys": []
+    },
+    {
+      "at": 8668.099999904633,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 8668.799999952316,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 0.7999999523162842,
+      "count": 0,
+      "keys": []
+    },
+    {
+      "at": 8732.400000095367,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 8733.299999952316,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1,
+      "count": 0,
+      "keys": []
+    },
+    {
+      "at": 8760.900000095367,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 8763,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 2.0999999046325684,
+      "count": 0,
+      "keys": []
+    },
+    {
+      "at": 9037.299999952316,
+      "kind": "createProgram:start"
+    },
+    {
+      "at": 9037.400000095367,
+      "kind": "createProgram:end",
+      "milliseconds": 0.10000014305114746
+    },
+    {
+      "at": 9038.599999904633,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 9038.700000047684,
+      "kind": "compileShader:end",
+      "milliseconds": 0.10000014305114746
+    },
+    {
+      "at": 9046,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 9046.099999904633,
+      "kind": "compileShader:end",
+      "milliseconds": 0.09999990463256836
+    },
+    {
+      "at": 9058.099999904633,
+      "kind": "linkProgram:start"
+    },
+    {
+      "at": 9058.200000047684,
+      "kind": "linkProgram:end",
+      "milliseconds": 0
+    },
+    {
+      "at": 9135.700000047684,
+      "kind": "createProgram:start"
+    },
+    {
+      "at": 9135.900000095367,
+      "kind": "createProgram:end",
+      "milliseconds": 0.20000004768371582
+    },
+    {
+      "at": 9136.200000047684,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 9137.299999952316,
+      "kind": "compileShader:end",
+      "milliseconds": 1.0999999046325684
+    },
+    {
+      "at": 9169.900000095367,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 9170.200000047684,
+      "kind": "compileShader:end",
+      "milliseconds": 0.2999999523162842
+    },
+    {
+      "at": 9193.299999952316,
+      "kind": "linkProgram:start"
+    },
+    {
+      "at": 9193.5,
+      "kind": "linkProgram:end",
+      "milliseconds": 0.20000004768371582
+    },
+    {
+      "at": 9316.299999952316,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 9336.700000047684,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 20.40000009536743,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 9375.099999904633,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 9377.599999904633,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 2.5,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 9450.299999952316,
+      "kind": "createProgram:start"
+    },
+    {
+      "at": 9450.599999904633,
+      "kind": "createProgram:end",
+      "milliseconds": 0.2999999523162842
+    },
+    {
+      "at": 9451.099999904633,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 9451.200000047684,
+      "kind": "compileShader:end",
+      "milliseconds": 0.10000014305114746
+    },
+    {
+      "at": 9459.900000095367,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 9460.200000047684,
+      "kind": "compileShader:end",
+      "milliseconds": 0.2999999523162842
+    },
+    {
+      "at": 9466.700000047684,
+      "kind": "linkProgram:start"
+    },
+    {
+      "at": 9466.799999952316,
+      "kind": "linkProgram:end",
+      "milliseconds": 0.09999990463256836
+    },
+    {
+      "at": 9577.900000095367,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 9581.599999904633,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 3.5,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 9601.5,
+      "kind": "route-debug",
+      "value": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 445.6875,
+          "right": 12,
+          "bottom": 77,
+          "left": 12
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops."
+      }
+    },
+    {
+      "at": 9653.400000095367,
+      "kind": "createProgram:start"
+    },
+    {
+      "at": 9653.5,
+      "kind": "createProgram:end",
+      "milliseconds": 0.09999990463256836
+    },
+    {
+      "at": 9653.799999952316,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 9653.900000095367,
+      "kind": "compileShader:end",
+      "milliseconds": 0.10000014305114746
+    },
+    {
+      "at": 9657,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 9657.099999904633,
+      "kind": "compileShader:end",
+      "milliseconds": 0.09999990463256836
+    },
+    {
+      "at": 9662.200000047684,
+      "kind": "linkProgram:start"
+    },
+    {
+      "at": 9662.400000095367,
+      "kind": "linkProgram:end",
+      "milliseconds": 0.20000004768371582
+    },
+    {
+      "at": 9701.299999952316,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 9704.799999952316,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 3.5,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 9734.299999952316,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 9738.200000047684,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 3.9000000953674316,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 9860.299999952316,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 9862.099999904633,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1.8999998569488525,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 9897.700000047684,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 9898.799999952316,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1.0999999046325684,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 9928.799999952316,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 9933.599999904633,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 4.8999998569488525,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 9944.900000095367,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 9946.900000095367,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 2,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 9970.299999952316,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 9971.700000047684,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1.4000000953674316,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 10027.900000095367,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 10029.200000047684,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1.1999998092651367,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 10045.400000095367,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 10056,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 10.599999904632568,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 10084.299999952316,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 10086.099999904633,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1.7999999523162842,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 10122.5,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 10124.099999904633,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1.6999998092651367,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 10147.799999952316,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 10149.400000095367,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1.6000001430511475,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 10190.099999904633,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 10191.799999952316,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1.7000000476837158,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 10228.5,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 10229.599999904633,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1.0999999046325684,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 10262.5,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 10263.700000047684,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1.2000000476837158,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 10286,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 10287.200000047684,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1.2000000476837158,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 10335.299999952316,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 10338.200000047684,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 2.9000000953674316,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 10353,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 10355.299999952316,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 2.299999952316284,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 10403.299999952316,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 10404.799999952316,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1.4000000953674316,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 10419.900000095367,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 10422.099999904633,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 2.1999998092651367,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 11776.200000047684,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 11777.400000095367,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1.2000000476837158,
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ]
+    },
+    {
+      "at": 11847.599999904633,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 11851.700000047684,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 4.1000001430511475,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    },
+    {
+      "at": 11880.200000047684,
+      "kind": "map-status",
+      "status": "ready"
+    },
+    {
+      "at": 12213,
+      "kind": "createProgram:start"
+    },
+    {
+      "at": 12213.099999904633,
+      "kind": "createProgram:end",
+      "milliseconds": 0.09999990463256836
+    },
+    {
+      "at": 12213.5,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 12213.5,
+      "kind": "compileShader:end",
+      "milliseconds": 0
+    },
+    {
+      "at": 12219.299999952316,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 12219.5,
+      "kind": "compileShader:end",
+      "milliseconds": 0.20000004768371582
+    },
+    {
+      "at": 12229.099999904633,
+      "kind": "linkProgram:start"
+    },
+    {
+      "at": 12229.200000047684,
+      "kind": "linkProgram:end",
+      "milliseconds": 0.10000014305114746
+    }
+  ],
+  "availableMiB": 1231.59375,
+  "http": {
+    "status": 200,
+    "bytes": 14192,
+    "milliseconds": 601.846,
+    "correctBuild": true
+  },
+  "chromePid": 108668
+}

@@ -1,0 +1,12 @@
+{
+  "scope": "Parent-observed command output; preserves initial failed cleanup results",
+  "probe1FollowupStdout": "{\"capturedIds\":[109680,107680,89552,107320,99020,98708,115428],\"capturedProcessCountStillAlive\":0,\"alive\":[]}",
+  "probe2Followup": {"observedAt":"2026-09-10T22:14:40.0311833+08:00","profile":"C:\\sgSHIOK2026\\tmp\\map-stall-browser-dP4VRO","liveCount":0,"live":[]},
+  "probe3Command": "node C:\\sgSHIOK2026\\qa\\revamp-r1\\map-stall-20260910\\probe.mjs probe-3 --viewports",
+  "probe3ExitCode": 1,
+  "probe3Gate": "Browser headroom gate: less than 1024 MiB free",
+  "probe3ExactFreeMiB": null,
+  "probe3BrowserLaunched": false,
+  "probe3Retried": false,
+  "limitations": "Probe1 follow-up captured PID handles; probe2 follow-up checked exact owned-profile command lines plus live process handles. These are later observations, not edits to initial cleanup results. Revised cleanup-live.ps1 was not reached by probe3 and is not claimed browser-validated."
+}

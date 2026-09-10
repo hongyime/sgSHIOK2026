@@ -3503,3 +3503,24 @@ already-open old clients are not upgraded by this local work.
 Evidence: qa/revamp-r1/worker-alignment-20260910/summary.json and cleanup-final/.
 References: https://docs.npmjs.com/cli/v11/commands/npm-ci/ and
 https://github.com/maplibre/maplibre-gl-js/security/advisories/GHSA-jrc7-96c5-q579.
+
+## 2026-09-10: Do Not Patch Map Readiness From CPU Samples Alone
+
+The current build produced both a failed mobile startup and a successful mobile
+observation without an application change. The failed probe stalled before its
+own rendered-feature query. Its CPU profile samples included shader/program
+construction and the application's readiness watcher, but the separately timed
+probe measured35 visibility queries at121.1ms combined (maximum23.3ms). It
+rejected24 stale-key results before finding four current-key route features.
+That is not evidence for throttling queries or weakening selection ownership.
+Keep the existing readiness contract and timeout; no performance fix is claimed.
+
+The successful390x844 capture verifies one observed state, not reliability or a
+speed improvement. A further viewport run stopped before browser launch when
+free RAM fell below1024MiB; exact free RAM was not emitted. Do not retry under
+the same pressure, kill unrelated applications, or equate headroom with a proven
+hardware-only cause. Resume bounded viewport/retained-client checks when the
+host has headroom. No pipeline or deployment is part of this diagnostic work.
+
+Evidence: qa/revamp-r1/map-stall-20260910/analysis.json, source-anchors.json,
+terminal-observations.json and the append-only REVAMP-R1-core-walk log.

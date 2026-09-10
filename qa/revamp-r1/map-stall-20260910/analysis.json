@@ -1,0 +1,2130 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "base": "373c73fb6fafc148cc69af2b380ce325a2d43ae6",
+  "applicationChanged": false,
+  "profiles": [
+    {
+      "path": "probe-1/page.cpuprofile",
+      "bytes": 491039,
+      "sha256": "96e90545190c40e6a09426a490e8d45431962ed330eaa3529f9ff5285cbdaf68",
+      "seconds": 48.360172,
+      "samples": 19839,
+      "top": [
+        {
+          "count": 8264,
+          "samplePercent": 41.65532536922224,
+          "stack": [
+            {
+              "functionName": "fB",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 799,
+              "columnNumber": 106910
+            },
+            {
+              "functionName": "useProgram",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 17880
+            },
+            {
+              "functionName": "m5",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 801,
+              "columnNumber": 45014
+            },
+            {
+              "functionName": "line",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 801,
+              "columnNumber": 62928
+            },
+            {
+              "functionName": "renderLayer",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 15524
+            },
+            {
+              "functionName": "render",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 10425
+            },
+            {
+              "functionName": "_render",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 125450
+            },
+            {
+              "functionName": "",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 128958
+            },
+            {
+              "functionName": "",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 1,
+              "columnNumber": 254623
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 4380,
+          "samplePercent": 22.077725691819143,
+          "stack": [
+            {
+              "functionName": "readDouble",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 1,
+              "columnNumber": 147642
+            },
+            {
+              "functionName": "",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 1,
+              "columnNumber": 120118
+            },
+            {
+              "functionName": "l7",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 1,
+              "columnNumber": 119783
+            },
+            {
+              "functionName": "he",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 1,
+              "columnNumber": 120791
+            },
+            {
+              "functionName": "loadVTLayers",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 1,
+              "columnNumber": 249392
+            },
+            {
+              "functionName": "query",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 1,
+              "columnNumber": 249643
+            },
+            {
+              "functionName": "queryRenderedFeatures",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 1,
+              "columnNumber": 321548
+            },
+            {
+              "functionName": "",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 799,
+              "columnNumber": 95800
+            },
+            {
+              "functionName": "queryRenderedFeatures",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 799,
+              "columnNumber": 95060
+            },
+            {
+              "functionName": "queryRenderedFeatures",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 112366
+            },
+            {
+              "functionName": "a",
+              "scriptId": "21",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/3u4fr6aw4uicq.js",
+              "lineNumber": 0,
+              "columnNumber": 42865
+            },
+            {
+              "functionName": "fire",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 0,
+              "columnNumber": 19356
+            },
+            {
+              "functionName": "_render",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 125450
+            },
+            {
+              "functionName": "",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 128958
+            },
+            {
+              "functionName": "",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 1,
+              "columnNumber": 254623
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 4290,
+          "samplePercent": 21.624073794042037,
+          "stack": [
+            {
+              "functionName": "appendChild",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            },
+            {
+              "functionName": "iR",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 107161
+            },
+            {
+              "functionName": "us",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 122153
+            },
+            {
+              "functionName": "uu",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 117458
+            },
+            {
+              "functionName": "uo",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 116971
+            },
+            {
+              "functionName": "uu",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 117458
+            },
+            {
+              "functionName": "uo",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 116971
+            },
+            {
+              "functionName": "uu",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 117458
+            },
+            {
+              "functionName": "uo",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 116971
+            },
+            {
+              "functionName": "uu",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 117458
+            },
+            {
+              "functionName": "uo",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 116971
+            },
+            {
+              "functionName": "uu",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 117458
+            },
+            {
+              "functionName": "uo",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 116971
+            },
+            {
+              "functionName": "uu",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 117458
+            },
+            {
+              "functionName": "uo",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 116971
+            },
+            {
+              "functionName": "uu",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 117458
+            },
+            {
+              "functionName": "uo",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 116971
+            },
+            {
+              "functionName": "uu",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 117458
+            },
+            {
+              "functionName": "uo",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 116971
+            },
+            {
+              "functionName": "uu",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 117458
+            }
+          ]
+        },
+        {
+          "count": 1280,
+          "samplePercent": 6.451938101718836,
+          "stack": [
+            {
+              "functionName": "(idle)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 332,
+          "samplePercent": 1.6734714451333232,
+          "stack": [
+            {
+              "functionName": "(program)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 331,
+          "samplePercent": 1.6684308684913554,
+          "stack": [
+            {
+              "functionName": "draw",
+              "scriptId": "21",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/3u4fr6aw4uicq.js",
+              "lineNumber": 0,
+              "columnNumber": 2070
+            },
+            {
+              "functionName": "",
+              "scriptId": "21",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/3u4fr6aw4uicq.js",
+              "lineNumber": 0,
+              "columnNumber": 9435
+            },
+            {
+              "functionName": "S",
+              "scriptId": "21",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/3u4fr6aw4uicq.js",
+              "lineNumber": 0,
+              "columnNumber": 9261
+            },
+            {
+              "functionName": "tZ",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 0,
+              "columnNumber": 16980
+            },
+            {
+              "functionName": "pn",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 1,
+              "columnNumber": 268876
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 82,
+          "samplePercent": 0.413327284641363,
+          "stack": [
+            {
+              "functionName": "(garbage collector)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 43,
+          "samplePercent": 0.21674479560461718,
+          "stack": [
+            {
+              "functionName": "N",
+              "scriptId": "12",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/turbopack-0xfj_5xwh9c0_.js",
+              "lineNumber": 0,
+              "columnNumber": 5889
+            },
+            {
+              "functionName": "K",
+              "scriptId": "12",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/turbopack-0xfj_5xwh9c0_.js",
+              "lineNumber": 0,
+              "columnNumber": 5793
+            },
+            {
+              "functionName": "g",
+              "scriptId": "12",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/turbopack-0xfj_5xwh9c0_.js",
+              "lineNumber": 0,
+              "columnNumber": 2845
+            },
+            {
+              "functionName": "",
+              "scriptId": "15",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/2dn31qlrcaugz.js",
+              "lineNumber": 0,
+              "columnNumber": 1161
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 33,
+          "samplePercent": 0.16633902918493876,
+          "stack": [
+            {
+              "functionName": "fB",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 799,
+              "columnNumber": 106910
+            },
+            {
+              "functionName": "useProgram",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 17880
+            },
+            {
+              "functionName": "_a",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 801,
+              "columnNumber": 51949
+            },
+            {
+              "functionName": "raster",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 801,
+              "columnNumber": 66366
+            },
+            {
+              "functionName": "renderLayer",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 15524
+            },
+            {
+              "functionName": "render",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 10425
+            },
+            {
+              "functionName": "_render",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 125450
+            },
+            {
+              "functionName": "",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 128958
+            },
+            {
+              "functionName": "",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 1,
+              "columnNumber": 254623
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 30,
+          "samplePercent": 0.15121729925903524,
+          "stack": [
+            {
+              "functionName": "_containerDimensions",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 122838
+            },
+            {
+              "functionName": "_resizeInternal",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 106099
+            },
+            {
+              "functionName": "resize",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 105823
+            },
+            {
+              "functionName": "ek",
+              "scriptId": "21",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/3u4fr6aw4uicq.js",
+              "lineNumber": 0,
+              "columnNumber": 25931
+            },
+            {
+              "functionName": "",
+              "scriptId": "21",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/3u4fr6aw4uicq.js",
+              "lineNumber": 0,
+              "columnNumber": 41784
+            },
+            {
+              "functionName": "iw",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 101576
+            },
+            {
+              "functionName": "ug",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 125690
+            },
+            {
+              "functionName": "uh",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 125438
+            },
+            {
+              "functionName": "ug",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 125690
+            },
+            {
+              "functionName": "uh",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 125438
+            },
+            {
+              "functionName": "ug",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 125690
+            },
+            {
+              "functionName": "uh",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 125438
+            },
+            {
+              "functionName": "ug",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 125690
+            },
+            {
+              "functionName": "uh",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 125438
+            },
+            {
+              "functionName": "ug",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 125690
+            },
+            {
+              "functionName": "uh",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 125438
+            },
+            {
+              "functionName": "ug",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 125690
+            },
+            {
+              "functionName": "uh",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 125438
+            },
+            {
+              "functionName": "ug",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 125690
+            },
+            {
+              "functionName": "uh",
+              "scriptId": "16",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 125438
+            }
+          ]
+        },
+        {
+          "count": 29,
+          "samplePercent": 0.1461767226170674,
+          "stack": [
+            {
+              "functionName": "tS",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 0,
+              "columnNumber": 13672
+            },
+            {
+              "functionName": "F",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 1,
+              "columnNumber": 258286
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 20,
+          "samplePercent": 0.10081153283935682,
+          "stack": [
+            {
+              "functionName": "",
+              "scriptId": "21",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/3u4fr6aw4uicq.js",
+              "lineNumber": 0,
+              "columnNumber": 41100
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "probe-2/page.cpuprofile",
+      "bytes": 411476,
+      "sha256": "889917b86db88b0d509870bd3b65259d647f6867e21395f576f53e08f7478ec6",
+      "seconds": 73.20806,
+      "samples": 13934,
+      "top": [
+        {
+          "count": 12227,
+          "samplePercent": 87.7493899813406,
+          "stack": [
+            {
+              "functionName": "(idle)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 353,
+          "samplePercent": 2.5333716090139227,
+          "stack": [
+            {
+              "functionName": "(program)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 227,
+          "samplePercent": 1.6291086550882732,
+          "stack": [
+            {
+              "functionName": "draw",
+              "scriptId": "22",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/3u4fr6aw4uicq.js",
+              "lineNumber": 0,
+              "columnNumber": 2070
+            },
+            {
+              "functionName": "",
+              "scriptId": "22",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/3u4fr6aw4uicq.js",
+              "lineNumber": 0,
+              "columnNumber": 9435
+            },
+            {
+              "functionName": "S",
+              "scriptId": "22",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/3u4fr6aw4uicq.js",
+              "lineNumber": 0,
+              "columnNumber": 9261
+            },
+            {
+              "functionName": "tZ",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 0,
+              "columnNumber": 16980
+            },
+            {
+              "functionName": "pn",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 1,
+              "columnNumber": 268876
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 133,
+          "samplePercent": 0.9544997846992966,
+          "stack": [
+            {
+              "functionName": "(garbage collector)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 66,
+          "samplePercent": 0.4736615472943878,
+          "stack": [
+            {
+              "functionName": "e3",
+              "scriptId": "18",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/2xkd3da992cyi.js",
+              "lineNumber": 0,
+              "columnNumber": 265990
+            },
+            {
+              "functionName": "a",
+              "scriptId": "18",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/2xkd3da992cyi.js",
+              "lineNumber": 0,
+              "columnNumber": 302377
+            },
+            {
+              "functionName": "tW",
+              "scriptId": "18",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/2xkd3da992cyi.js",
+              "lineNumber": 0,
+              "columnNumber": 302309
+            },
+            {
+              "functionName": "aS",
+              "scriptId": "14",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 62314
+            },
+            {
+              "functionName": "o1",
+              "scriptId": "14",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 82712
+            },
+            {
+              "functionName": "id",
+              "scriptId": "14",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 92139
+            },
+            {
+              "functionName": "sh",
+              "scriptId": "14",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 137802
+            },
+            {
+              "functionName": "",
+              "scriptId": "14",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 131901
+            },
+            {
+              "functionName": "sr",
+              "scriptId": "14",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 131791
+            },
+            {
+              "functionName": "sq",
+              "scriptId": "14",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 30,
+              "columnNumber": 159137
+            },
+            {
+              "functionName": "O",
+              "scriptId": "14",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+              "lineNumber": 0,
+              "columnNumber": 3114
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 42,
+          "samplePercent": 0.30142098464188316,
+          "stack": [
+            {
+              "functionName": "N",
+              "scriptId": "15",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/turbopack-0xfj_5xwh9c0_.js",
+              "lineNumber": 0,
+              "columnNumber": 5889
+            },
+            {
+              "functionName": "K",
+              "scriptId": "15",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/turbopack-0xfj_5xwh9c0_.js",
+              "lineNumber": 0,
+              "columnNumber": 5793
+            },
+            {
+              "functionName": "g",
+              "scriptId": "15",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/turbopack-0xfj_5xwh9c0_.js",
+              "lineNumber": 0,
+              "columnNumber": 2845
+            },
+            {
+              "functionName": "",
+              "scriptId": "17",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/2dn31qlrcaugz.js",
+              "lineNumber": 0,
+              "columnNumber": 1161
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 37,
+          "samplePercent": 0.26553753408927805,
+          "stack": [
+            {
+              "functionName": "fB",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 799,
+              "columnNumber": 106910
+            },
+            {
+              "functionName": "useProgram",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 17880
+            },
+            {
+              "functionName": "m5",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 801,
+              "columnNumber": 45014
+            },
+            {
+              "functionName": "line",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 801,
+              "columnNumber": 62928
+            },
+            {
+              "functionName": "renderLayer",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 15524
+            },
+            {
+              "functionName": "render",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 10425
+            },
+            {
+              "functionName": "_render",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 125450
+            },
+            {
+              "functionName": "",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 128958
+            },
+            {
+              "functionName": "",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 1,
+              "columnNumber": 254623
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 34,
+          "samplePercent": 0.24400746375771495,
+          "stack": [
+            {
+              "functionName": "",
+              "scriptId": "22",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/3u4fr6aw4uicq.js",
+              "lineNumber": 0,
+              "columnNumber": 41100
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 20,
+          "samplePercent": 0.14353380221042056,
+          "stack": [
+            {
+              "functionName": "fB",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 799,
+              "columnNumber": 106910
+            },
+            {
+              "functionName": "useProgram",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 17880
+            },
+            {
+              "functionName": "sky",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 801,
+              "columnNumber": 67915
+            },
+            {
+              "functionName": "render",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 10425
+            },
+            {
+              "functionName": "_render",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 125450
+            },
+            {
+              "functionName": "",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 128958
+            },
+            {
+              "functionName": "",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 1,
+              "columnNumber": 254623
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 19,
+          "samplePercent": 0.13635711209989954,
+          "stack": [
+            {
+              "functionName": "N",
+              "scriptId": "15",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/turbopack-0xfj_5xwh9c0_.js",
+              "lineNumber": 0,
+              "columnNumber": 5889
+            },
+            {
+              "functionName": "K",
+              "scriptId": "15",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/turbopack-0xfj_5xwh9c0_.js",
+              "lineNumber": 0,
+              "columnNumber": 5793
+            },
+            {
+              "functionName": "i.r",
+              "scriptId": "15",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/turbopack-0xfj_5xwh9c0_.js",
+              "lineNumber": 0,
+              "columnNumber": 3344
+            },
+            {
+              "functionName": "d",
+              "scriptId": "12",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/17f1081s5yhzn.js",
+              "lineNumber": 1,
+              "columnNumber": 75314
+            },
+            {
+              "functionName": "L",
+              "scriptId": "12",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/17f1081s5yhzn.js",
+              "lineNumber": 1,
+              "columnNumber": 78874
+            },
+            {
+              "functionName": "U",
+              "scriptId": "12",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/17f1081s5yhzn.js",
+              "lineNumber": 1,
+              "columnNumber": 77703
+            },
+            {
+              "functionName": "",
+              "scriptId": "12",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/17f1081s5yhzn.js",
+              "lineNumber": 1,
+              "columnNumber": 90368
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 19,
+          "samplePercent": 0.13635711209989954,
+          "stack": [
+            {
+              "functionName": "_setupPainter",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 124668
+            },
+            {
+              "functionName": "g_",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 803,
+              "columnNumber": 96677
+            },
+            {
+              "functionName": "",
+              "scriptId": "22",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/3u4fr6aw4uicq.js",
+              "lineNumber": 0,
+              "columnNumber": 34133
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        },
+        {
+          "count": 18,
+          "samplePercent": 0.12918042198937849,
+          "stack": [
+            {
+              "functionName": "tS",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 0,
+              "columnNumber": 13672
+            },
+            {
+              "functionName": "F",
+              "scriptId": "23",
+              "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+              "lineNumber": 1,
+              "columnNumber": 258286
+            },
+            {
+              "functionName": "(root)",
+              "scriptId": "0",
+              "url": "",
+              "lineNumber": -1,
+              "columnNumber": -1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "trace": {
+    "queries": [
+      {
+        "start": 7947,
+        "end": 7970.200000047684,
+        "milliseconds": 23.299999952316284,
+        "expectedKey": "2:shiokest:primary",
+        "keys": [],
+        "count": 0,
+        "current": false
+      },
+      {
+        "start": 8108.5,
+        "end": 8110.700000047684,
+        "milliseconds": 2.0999999046325684,
+        "expectedKey": "2:shiokest:primary",
+        "keys": [],
+        "count": 0,
+        "current": false
+      },
+      {
+        "start": 8158,
+        "end": 8160,
+        "milliseconds": 2,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [],
+        "count": 0,
+        "current": false
+      },
+      {
+        "start": 8304,
+        "end": 8308.200000047684,
+        "milliseconds": 4.299999952316284,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [],
+        "count": 0,
+        "current": false
+      },
+      {
+        "start": 8458.200000047684,
+        "end": 8459.099999904633,
+        "milliseconds": 0.8999998569488525,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [],
+        "count": 0,
+        "current": false
+      },
+      {
+        "start": 8539,
+        "end": 8541.299999952316,
+        "milliseconds": 2.299999952316284,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [],
+        "count": 0,
+        "current": false
+      },
+      {
+        "start": 8622.400000095367,
+        "end": 8623.299999952316,
+        "milliseconds": 1,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [],
+        "count": 0,
+        "current": false
+      },
+      {
+        "start": 8668.099999904633,
+        "end": 8668.799999952316,
+        "milliseconds": 0.7999999523162842,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [],
+        "count": 0,
+        "current": false
+      },
+      {
+        "start": 8732.400000095367,
+        "end": 8733.299999952316,
+        "milliseconds": 1,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [],
+        "count": 0,
+        "current": false
+      },
+      {
+        "start": 8760.900000095367,
+        "end": 8763,
+        "milliseconds": 2.0999999046325684,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [],
+        "count": 0,
+        "current": false
+      },
+      {
+        "start": 9316.299999952316,
+        "end": 9336.700000047684,
+        "milliseconds": 20.40000009536743,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 9375.099999904633,
+        "end": 9377.599999904633,
+        "milliseconds": 2.5,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 9577.900000095367,
+        "end": 9581.599999904633,
+        "milliseconds": 3.5,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 9701.299999952316,
+        "end": 9704.799999952316,
+        "milliseconds": 3.5,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 9734.299999952316,
+        "end": 9738.200000047684,
+        "milliseconds": 3.9000000953674316,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 9860.299999952316,
+        "end": 9862.099999904633,
+        "milliseconds": 1.8999998569488525,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 9897.700000047684,
+        "end": 9898.799999952316,
+        "milliseconds": 1.0999999046325684,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 9928.799999952316,
+        "end": 9933.599999904633,
+        "milliseconds": 4.8999998569488525,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 9944.900000095367,
+        "end": 9946.900000095367,
+        "milliseconds": 2,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 9970.299999952316,
+        "end": 9971.700000047684,
+        "milliseconds": 1.4000000953674316,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 10027.900000095367,
+        "end": 10029.200000047684,
+        "milliseconds": 1.1999998092651367,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 10045.400000095367,
+        "end": 10056,
+        "milliseconds": 10.599999904632568,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 10084.299999952316,
+        "end": 10086.099999904633,
+        "milliseconds": 1.7999999523162842,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 10122.5,
+        "end": 10124.099999904633,
+        "milliseconds": 1.6999998092651367,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 10147.799999952316,
+        "end": 10149.400000095367,
+        "milliseconds": 1.6000001430511475,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 10190.099999904633,
+        "end": 10191.799999952316,
+        "milliseconds": 1.7000000476837158,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 10228.5,
+        "end": 10229.599999904633,
+        "milliseconds": 1.0999999046325684,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 10262.5,
+        "end": 10263.700000047684,
+        "milliseconds": 1.2000000476837158,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 10286,
+        "end": 10287.200000047684,
+        "milliseconds": 1.2000000476837158,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 10335.299999952316,
+        "end": 10338.200000047684,
+        "milliseconds": 2.9000000953674316,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 10353,
+        "end": 10355.299999952316,
+        "milliseconds": 2.299999952316284,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 10403.299999952316,
+        "end": 10404.799999952316,
+        "milliseconds": 1.4000000953674316,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 10419.900000095367,
+        "end": 10422.099999904633,
+        "milliseconds": 2.1999998092651367,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 11776.200000047684,
+        "end": 11777.400000095367,
+        "milliseconds": 1.2000000476837158,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "2:shiokest:primary"
+        ],
+        "count": 4,
+        "current": false
+      },
+      {
+        "start": 11847.599999904633,
+        "end": 11851.700000047684,
+        "milliseconds": 4.1000001430511475,
+        "expectedKey": "3:shiokest:primary",
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "count": 4,
+        "current": true
+      }
+    ],
+    "queryCount": 35,
+    "queryMilliseconds": 121.09999918937683,
+    "maxQueryMilliseconds": 23.299999952316284,
+    "staleNonemptyQueries": 24,
+    "emptyQueries": 10,
+    "currentQueries": 1,
+    "status": [
+      {
+        "at": 253.40000009536743,
+        "kind": "map-status",
+        "status": "idle"
+      },
+      {
+        "at": 3135.5,
+        "kind": "map-status",
+        "status": "mounting"
+      },
+      {
+        "at": 4735.200000047684,
+        "kind": "map-status",
+        "status": "initializing"
+      },
+      {
+        "at": 6972.099999904633,
+        "kind": "map-status",
+        "status": "idle"
+      },
+      {
+        "at": 8061.299999952316,
+        "kind": "map-status",
+        "status": "initializing"
+      },
+      {
+        "at": 11880.200000047684,
+        "kind": "map-status",
+        "status": "ready"
+      }
+    ],
+    "keys": [
+      {
+        "at": 3118.7000000476837,
+        "kind": "route-debug",
+        "value": {
+          "routeKey": "1:shiokest:",
+          "padding": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "mode": "shiokest",
+          "routeCount": 0,
+          "sourceFeatureCounts": {
+            "shortest": 0,
+            "shiokest": 0,
+            "exposure": 0,
+            "transit": 0,
+            "activeGap": 0,
+            "lamp": 0
+          },
+          "lampStatus": "off",
+          "summary": "Singapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops."
+        }
+      },
+      {
+        "at": 6833.799999952316,
+        "kind": "route-debug",
+        "value": {
+          "routeKey": "1:shiokest:",
+          "padding": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "mode": "shiokest",
+          "routeCount": 0,
+          "sourceFeatureCounts": {
+            "shortest": 0,
+            "shiokest": 0,
+            "exposure": 0,
+            "transit": 0,
+            "activeGap": 0,
+            "lamp": 0
+          },
+          "lampStatus": "off",
+          "summary": "Singapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops."
+        }
+      },
+      {
+        "at": 6960.200000047684,
+        "kind": "route-debug",
+        "value": {
+          "routeKey": "1:shiokest:",
+          "padding": {
+            "top": 110.6875,
+            "right": 12,
+            "bottom": 77,
+            "left": 12
+          },
+          "mode": "shiokest",
+          "routeCount": 0,
+          "sourceFeatureCounts": {
+            "shortest": 0,
+            "shiokest": 0,
+            "exposure": 0,
+            "transit": 0,
+            "activeGap": 0,
+            "lamp": 0
+          },
+          "lampStatus": "off",
+          "summary": "Singapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops."
+        }
+      },
+      {
+        "at": 7844.299999952316,
+        "kind": "route-debug",
+        "value": {
+          "routeKey": "2:shiokest:primary",
+          "padding": {
+            "top": 110.6875,
+            "right": 12,
+            "bottom": 77,
+            "left": 12
+          },
+          "mode": "shiokest",
+          "routeCount": 1,
+          "sourceFeatureCounts": {
+            "shortest": 0,
+            "shiokest": 4,
+            "exposure": 3,
+            "transit": 1,
+            "activeGap": 0,
+            "lamp": 0
+          },
+          "lampStatus": "off",
+          "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 0 MRT or LRT stations, 0 exits, and 0 bus stops."
+        }
+      },
+      {
+        "at": 8113.799999952316,
+        "kind": "route-debug",
+        "value": {
+          "routeKey": "3:shiokest:primary",
+          "padding": {
+            "top": 445.6875,
+            "right": 12,
+            "bottom": 77,
+            "left": 12
+          },
+          "mode": "shiokest",
+          "routeCount": 1,
+          "sourceFeatureCounts": {
+            "shortest": 0,
+            "shiokest": 4,
+            "exposure": 3,
+            "transit": 1,
+            "activeGap": 0,
+            "lamp": 0
+          },
+          "lampStatus": "off",
+          "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 0 MRT or LRT stations, 0 exits, and 0 bus stops."
+        }
+      },
+      {
+        "at": 9601.5,
+        "kind": "route-debug",
+        "value": {
+          "routeKey": "3:shiokest:primary",
+          "padding": {
+            "top": 445.6875,
+            "right": 12,
+            "bottom": 77,
+            "left": 12
+          },
+          "mode": "shiokest",
+          "routeCount": 1,
+          "sourceFeatureCounts": {
+            "shortest": 0,
+            "shiokest": 4,
+            "exposure": 3,
+            "transit": 1,
+            "activeGap": 0,
+            "lamp": 0
+          },
+          "lampStatus": "off",
+          "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops."
+        }
+      }
+    ],
+    "gl": [
+      {
+        "at": 4779.799999952316,
+        "kind": "createProgram:end",
+        "milliseconds": 1.3999998569488525
+      },
+      {
+        "at": 4781,
+        "kind": "compileShader:end",
+        "milliseconds": 0.20000004768371582
+      },
+      {
+        "at": 4786.599999904633,
+        "kind": "compileShader:end",
+        "milliseconds": 0.2999999523162842
+      },
+      {
+        "at": 4791.599999904633,
+        "kind": "linkProgram:end",
+        "milliseconds": 0.2999999523162842
+      },
+      {
+        "at": 4824.400000095367,
+        "kind": "createProgram:end",
+        "milliseconds": 0.09999990463256836
+      },
+      {
+        "at": 4824.900000095367,
+        "kind": "compileShader:end",
+        "milliseconds": 0.10000014305114746
+      },
+      {
+        "at": 4842.200000047684,
+        "kind": "compileShader:end",
+        "milliseconds": 0.20000004768371582
+      },
+      {
+        "at": 4845.599999904633,
+        "kind": "linkProgram:end",
+        "milliseconds": 0.2999999523162842
+      },
+      {
+        "at": 4878.799999952316,
+        "kind": "createProgram:end",
+        "milliseconds": 0.09999990463256836
+      },
+      {
+        "at": 4879.200000047684,
+        "kind": "compileShader:end",
+        "milliseconds": 0
+      },
+      {
+        "at": 4897.5,
+        "kind": "compileShader:end",
+        "milliseconds": 1.0999999046325684
+      },
+      {
+        "at": 4901,
+        "kind": "linkProgram:end",
+        "milliseconds": 0.20000004768371582
+      },
+      {
+        "at": 7490.200000047684,
+        "kind": "createProgram:end",
+        "milliseconds": 0.20000004768371582
+      },
+      {
+        "at": 7491,
+        "kind": "compileShader:end",
+        "milliseconds": 0.09999990463256836
+      },
+      {
+        "at": 7507.700000047684,
+        "kind": "compileShader:end",
+        "milliseconds": 0.20000004768371582
+      },
+      {
+        "at": 7511.799999952316,
+        "kind": "linkProgram:end",
+        "milliseconds": 0.09999990463256836
+      },
+      {
+        "at": 9037.400000095367,
+        "kind": "createProgram:end",
+        "milliseconds": 0.10000014305114746
+      },
+      {
+        "at": 9038.700000047684,
+        "kind": "compileShader:end",
+        "milliseconds": 0.10000014305114746
+      },
+      {
+        "at": 9046.099999904633,
+        "kind": "compileShader:end",
+        "milliseconds": 0.09999990463256836
+      },
+      {
+        "at": 9058.200000047684,
+        "kind": "linkProgram:end",
+        "milliseconds": 0
+      },
+      {
+        "at": 9135.900000095367,
+        "kind": "createProgram:end",
+        "milliseconds": 0.20000004768371582
+      },
+      {
+        "at": 9137.299999952316,
+        "kind": "compileShader:end",
+        "milliseconds": 1.0999999046325684
+      },
+      {
+        "at": 9170.200000047684,
+        "kind": "compileShader:end",
+        "milliseconds": 0.2999999523162842
+      },
+      {
+        "at": 9193.5,
+        "kind": "linkProgram:end",
+        "milliseconds": 0.20000004768371582
+      },
+      {
+        "at": 9450.599999904633,
+        "kind": "createProgram:end",
+        "milliseconds": 0.2999999523162842
+      },
+      {
+        "at": 9451.200000047684,
+        "kind": "compileShader:end",
+        "milliseconds": 0.10000014305114746
+      },
+      {
+        "at": 9460.200000047684,
+        "kind": "compileShader:end",
+        "milliseconds": 0.2999999523162842
+      },
+      {
+        "at": 9466.799999952316,
+        "kind": "linkProgram:end",
+        "milliseconds": 0.09999990463256836
+      },
+      {
+        "at": 9653.5,
+        "kind": "createProgram:end",
+        "milliseconds": 0.09999990463256836
+      },
+      {
+        "at": 9653.900000095367,
+        "kind": "compileShader:end",
+        "milliseconds": 0.10000014305114746
+      },
+      {
+        "at": 9657.099999904633,
+        "kind": "compileShader:end",
+        "milliseconds": 0.09999990463256836
+      },
+      {
+        "at": 9662.400000095367,
+        "kind": "linkProgram:end",
+        "milliseconds": 0.20000004768371582
+      },
+      {
+        "at": 12213.099999904633,
+        "kind": "createProgram:end",
+        "milliseconds": 0.09999990463256836
+      },
+      {
+        "at": 12213.5,
+        "kind": "compileShader:end",
+        "milliseconds": 0
+      },
+      {
+        "at": 12219.5,
+        "kind": "compileShader:end",
+        "milliseconds": 0.20000004768371582
+      },
+      {
+        "at": 12229.200000047684,
+        "kind": "linkProgram:end",
+        "milliseconds": 0.10000014305114746
+      }
+    ]
+  },
+  "probe1": {
+    "ok": false,
+    "failure": "Error: CDP timeout: Runtime.evaluate\n    at Timeout._onTimeout (file:///C:/sgSHIOK2026/qa/revamp-r1/map-stall-20260910/probe.mjs:25:121)\n    at listOnTimeout (node:internal/timers:635:17)\n    at process.processTimers (node:internal/timers:571:7)",
+    "captures": [
+      {
+        "name": "before-map-inspection-390x844",
+        "at": 11968.0012
+      },
+      {
+        "name": "failure",
+        "at": 54337.0001
+      }
+    ],
+    "availableMiB": 1388.28125,
+    "availableMiBAfter": 831.6015625
+  },
+  "probe2": {
+    "ok": false,
+    "captures": [
+      {
+        "name": "before-map-inspection-390x844",
+        "at": 16520.2288
+      },
+      {
+        "name": "after-passive-observation-390x844",
+        "at": 78565.1537
+      },
+      {
+        "name": "after-map-inspection-390x844",
+        "at": 80390.9193
+      }
+    ],
+    "availableMiB": 1231.59375,
+    "availableMiBAfter": 1084.35546875,
+    "text": {
+      "name": "visible text query",
+      "started": 78652.8297,
+      "finished": 78719.52979999999,
+      "value": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nCompare\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAdd to comparison\nMapped exposed sections (3)\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nAbout data"
+    }
+  },
+  "captureIdentities": [
+    {
+      "path": "probe-1/before-map-inspection-390x844.png",
+      "bytes": 11468,
+      "sha256": "30cb02c10f08106dbbc53a26687ef4224cbedc6ccdb93e46b0dc2331608ed169"
+    },
+    {
+      "path": "probe-1/failure.png",
+      "bytes": 81884,
+      "sha256": "82524b3f4310213952a4000b4d292eb21526407f9f3659fb6e82049293afe947"
+    },
+    {
+      "path": "probe-2/before-map-inspection-390x844.png",
+      "bytes": 11468,
+      "sha256": "30cb02c10f08106dbbc53a26687ef4224cbedc6ccdb93e46b0dc2331608ed169"
+    },
+    {
+      "path": "probe-2/after-passive-observation-390x844.png",
+      "bytes": 144271,
+      "sha256": "453fda6fffb1a55337d2b4b42cade7b4287f20730db58b341fa3b6fa226c570f"
+    },
+    {
+      "path": "probe-2/after-map-inspection-390x844.png",
+      "bytes": 144271,
+      "sha256": "453fda6fffb1a55337d2b4b42cade7b4287f20730db58b341fa3b6fa226c570f"
+    }
+  ],
+  "findings": [
+    "Probe1 failed before the QA feature query. Its negative screenshot shows a route and a selected-walk-not-visible error; screenshot alone does not prove the current render key.",
+    "Probe1 CPU sample hotspots include shader/program construction, the application visibility watcher query and React DOM insertion. Sample shares are not wall-time attribution or proof of a bottleneck.",
+    "Probe2 observed current-key rendered features and ready status without an application edit. All 35 timed queries completed; 10 were empty, 24 returned stale-key features and one returned the current key. This does not reproduce a slow-query bottleneck.",
+    "Probe2 observation succeeded but its process-cleanup deadline failed, so the runner result remains false. Later read-only ownership check found zero live processes. No original result is rewritten.",
+    "Probe3 stopped before creating its output directory or launching Chrome because free RAM was below1024MiB. Exact free value was not emitted. Four-viewport acceptance remains open.",
+    "No application timeout, query sampling policy or source geometry was changed. No speedup or hardware-only cause is established."
+  ],
+  "disagreements": [
+    "A sampled hotspot is not enough evidence to throttle the readiness query: a directly timed run measured121.1ms combined, with correct rejection of stale keys.",
+    "A successful mobile observation does not supersede the earlier failure or establish reliable startup across viewports and host conditions."
+  ],
+  "verification": {
+    "applicationSuite": "Prior unchanged application:1785tests/65files, plus42native guard cases; worker-alignment-20260910/summary.json. Not rerun in this diagnostic-only continuation.",
+    "pipelineRuns": 0,
+    "deployments": 0,
+    "independentReview": "Unavailable: peer quota exhausted until2026-09-15 09:34; parent only."
+  }
+}

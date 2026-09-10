@@ -1,0 +1,37 @@
+{
+  "buildId": "sou6pZfEMMmsCl52vdXg4",
+  "sourceCount": 156,
+  "sourcesMatch": true,
+  "frames": [
+    {
+      "name": "29ddgwgt55efo.js",
+      "zeroBasedLine": 799,
+      "zeroBasedColumn": 106910,
+      "bytes": 974586,
+      "sha256": "d9b64c2499b558304fa4a40ef1fe8b37f6f8f737840adc677e85353741cb788d",
+      "excerpt": "split(\" \");i.push(t.pop())}return i}var fB=class{constructor(t,i,r,a,n,s,o,l,h=[]){let u=t.gl;this.program=u.createProgram();let c=fF(i.staticAttributes),p=r?r.getBinderAttributes():[],d=c.concat(p),f=dX.prelude.staticUniforms?fF(dX.prelude.staticUniforms):[],m=o.staticUniforms?fF(o.staticUniforms):[],_=i.staticUniforms?fF(i.staticUniforms):[],g=r?r.getBinderUniforms():[],y=f.concat(m).concat(_).concat(g),v=[];for(let t of y)v.includes(t)||v.push(t);let x=r?r.defines():[];x.unshift(\"#version 300 es\"),n&&x.push(\"#define OVERDRAW_INSPECTOR;\"),s&&x.push(\"#define TERRAIN3D;\"),l&&x.push(l),h&&x.push(...h);let b=x.concat(dX.prelude.fragmentSource,o.fragmentSource,i.fragmentSource).join(`\n`),w=x.concat(dX.prelude.vertexSource,o.vertexSource,i.vertexSource).join(`\n`),T=u.createShader(u.FRAGMENT_SHADER);if(u.isContextLost()){this.failedToCreate=!0;return}if(u.shaderSource(T,b),u.compileShader(T),!u.getShaderParameter(T,u.COMPILE_STATUS))throw Error(`Could not compile fragment shader: ${u.getShaderInfoLog(T)}`);u.attachShader(this.program,T);let S=u.createShader(u.VERTEX_SHADER);if(u.isContextLost()){this.failedToCreate=!0;return}if(u.shaderSource(S,w)"
+    },
+    {
+      "name": "29ddgwgt55efo.js",
+      "zeroBasedLine": 1,
+      "zeroBasedColumn": 147642,
+      "bytes": 974586,
+      "sha256": "d9b64c2499b558304fa4a40ef1fe8b37f6f8f737840adc677e85353741cb788d",
+      "excerpt": "View.getFloat32(this.pos,!0);return this.pos+=4,t}readDouble(){let t=this.dataView.getFloat64(this.pos,!0);return this.pos+=8,t}readVarint(t){let i=this.buf,r=i[this.pos++];if(r<128)return r;let a=127&r,n;return a|=(127&(n=i[this.pos++]))<<7,n<128||(a|=(127&(n=i[this.pos++]))<<14,n<128)||(a|=(127&(n=i[this.pos++]))<<21,n<128)?a:function(t,i,r){let a=r.buf,n,s;if(n=(112&(s=a[r.pos++]))>>4,s<128||(n|=(127&(s=a[r.pos++]))<<3,s<128)||(n|=(127&(s=a[r.pos++]))<<10,s<128)||(n|=(127&(s=a[r.pos++]))<<17,s<128)||(n|=(127&(s=a[r.pos++]))<<24,s<128)||(n|=(1&(s=a[r.pos++]))<<31,s<128)){var o,l;return o=t,l=n,i?0x100000000*l+(o>>>0):(l>>>0)*0x100000000+(o>>>0)}throw Error(\"Expected varint not more than 10 bytes\")}(a|=(15&(n=i[this.pos]))<<28,t,this)}readSVarint(){let t=this.readVarint();return t%2==1?-((t+1)/2):t/2}readBoolean(){return!!this.readVarint()}readString(){let t=this.readVarint()+this.pos,i=this.pos;return this.pos=t,t-i>=12&&hO?hO.decode(this.buf.subarray(i,t)):function(t,i,r){let a=\"\",n=i;for(;n<r;){let i,s,o,l=t[n],h=null,u=l>239?4:l>223?3:l>191?2:1;if(n+u>r)break;1===u?l<128&&(h=l):2===u?(192&(i=t[n+1]))==128&&(h=(31&l)<<6|63&i)<=127&&(h=nul"
+    },
+    {
+      "name": "3u4fr6aw4uicq.js",
+      "zeroBasedLine": 0,
+      "zeroBasedColumn": 42865,
+      "bytes": 45055,
+      "sha256": "fbd48aea7ef6afa0959ba67bb771fdc957a98671a418e658390ca3edb4d2cf24",
+      "excerpt": ",o=!0,n=()=>{o&&(o=!1,clearTimeout(s),l.off(\"render\",a))},a=()=>{!o||l.isMoving()||l.queryRenderedFeatures(i.box,{layers:i.layers}).some(e=>e.properties.render_key===i.key)&&(n(),i.ready())},s=setTimeout(()=>{o&&(n(),i.timeout())},i.timeoutMs??15e3),l.on(\"render\",a),n);S.current=c,l.triggerRepaint();let p=e=>{e.originalEvent&&c()};return l.on(\"movestart\",p),()=>{c(),l.off(\"movestart\",p)}},[Z,en,eF,L,eA,_,eC]),(0,r.useEffect)(()=>{if(k===ei.current)return;if(ei.current=k,!Z)return void ee(e=>e+1);let e=M.current;if(!e)return;R.current=null,S.current?.(),N.current=!1,ey(e),ea(e=>e+1),T.current?.(\"initializing\");let t=e.getSource(\"onemap\");t?.setTiles([\"https://www.onemap.gov.sg/maps/tiles/Grey_HD/{z}/{x}/{y}.png\"])},[Z,k]);let eD=(0,r.useRef)(m);return(0,r.useEffect)(()=>{eD.current=m},[m]),(0,r.useEffect)(()=>{T.current=x},[x]),(0,r.useEffect)(()=>{let e=M.current;if(!e||!Z)return;e.getCanvas().style.cursor=f?\"crosshair\":\"\";let t=t=>{if(f){h&&h({lng:Number(t.lngLat.lng.toFixed(7)),lat:Number(t.lngLat.lat.toFixed(7))});return}let r=eD.current;if(!r)return;let i=el.filter(t=>e.getLayer(t));if(0===i.length)return;let o=e.queryRenderedFeatures(t.p"
+    }
+  ],
+  "sourceNote": "Profile frame locations identify minified compiled expressions, not precise wall-time causes. The watcher is visible in the third excerpt; its source is web/lib/map-viewport.ts.",
+  "manualCaptureReview": {
+    "count": 5,
+    "reviewer": "parent",
+    "result": "Probe1 error despite visible route and blurry raster; probe2 loading frame then two consistent ready-route frames at390x844. No four-viewport acceptance."
+  }
+}

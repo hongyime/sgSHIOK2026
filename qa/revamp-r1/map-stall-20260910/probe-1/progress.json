@@ -1,0 +1,866 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "Prawn-E14",
+  "profile": "C:\\sgSHIOK2026\\tmp\\map-stall-browser-cZHGyb",
+  "startedAt": "2026-09-10T13:43:02.998Z",
+  "boundaries": [
+    {
+      "method": "Runtime.enable",
+      "at": 6163.798699999999,
+      "finished": 6333.909
+    },
+    {
+      "method": "Page.enable",
+      "at": 6334.0605,
+      "finished": 6353.1651999999995
+    },
+    {
+      "method": "Network.enable",
+      "at": 6353.2152,
+      "finished": 6371.0486
+    },
+    {
+      "method": "Inspector.enable",
+      "at": 6371.1332999999995,
+      "finished": 6382.6082
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 6382.9972,
+      "params": {
+        "expression": "40 + 2",
+        "uniqueContextId": "-3987612256535053680.1695239433318569200",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 6391.844999999999
+    },
+    {
+      "name": "blank-page responsiveness",
+      "started": 6382.9387,
+      "finished": 6391.9223,
+      "value": 42
+    },
+    {
+      "method": "Profiler.enable",
+      "at": 6398.031599999999,
+      "finished": 6432.0922
+    },
+    {
+      "method": "Profiler.start",
+      "at": 6432.2667,
+      "finished": 6455.4554
+    },
+    {
+      "method": "Emulation.setDeviceMetricsOverride",
+      "at": 6455.533399999999,
+      "finished": 6471.3299
+    },
+    {
+      "method": "Page.navigate",
+      "at": 6471.3976999999995,
+      "finished": 6595.1395
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 7099.2087,
+      "params": {
+        "expression": "document.readyState",
+        "uniqueContextId": "-3424508456935877215.-1883607188074393270",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 7126.5167
+    },
+    {
+      "name": "new-context DOM responsiveness",
+      "started": 7098.8511,
+      "finished": 7126.5727,
+      "value": "interactive"
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 7128.879199999999,
+      "params": {
+        "expression": "({state:document.readyState,map:!!window.__shiokRouteMap,status:document.querySelector(\"main\")?.dataset.mapStatus})",
+        "uniqueContextId": "-3424508456935877215.-1883607188074393270",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 7152.5311
+    },
+    {
+      "name": "cheap DOM/map handle",
+      "started": 7128.8481,
+      "finished": 7152.5851999999995,
+      "value": {
+        "state": "interactive",
+        "map": false,
+        "status": "idle"
+      }
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 7694.7038,
+      "params": {
+        "expression": "({state:document.readyState,map:!!window.__shiokRouteMap,status:document.querySelector(\"main\")?.dataset.mapStatus})",
+        "uniqueContextId": "-3424508456935877215.-1883607188074393270",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 7864.831499999999
+    },
+    {
+      "name": "cheap DOM/map handle",
+      "started": 7694.473199999999,
+      "finished": 7865.0263,
+      "value": {
+        "state": "interactive",
+        "map": false,
+        "status": "idle"
+      }
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 8485.8559,
+      "params": {
+        "expression": "({state:document.readyState,map:!!window.__shiokRouteMap,status:document.querySelector(\"main\")?.dataset.mapStatus})",
+        "uniqueContextId": "-3424508456935877215.-1883607188074393270",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 8963.7109
+    },
+    {
+      "name": "cheap DOM/map handle",
+      "started": 8485.824900000001,
+      "finished": 8973.5331,
+      "value": {
+        "state": "complete",
+        "map": false,
+        "status": "idle"
+      }
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 9532.865,
+      "params": {
+        "expression": "({state:document.readyState,map:!!window.__shiokRouteMap,status:document.querySelector(\"main\")?.dataset.mapStatus})",
+        "uniqueContextId": "-3424508456935877215.-1883607188074393270",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 10128.6
+    },
+    {
+      "name": "cheap DOM/map handle",
+      "started": 9532.8405,
+      "finished": 10128.788100000002,
+      "value": {
+        "state": "complete",
+        "map": false,
+        "status": "idle"
+      }
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 10646.2594,
+      "params": {
+        "expression": "({state:document.readyState,map:!!window.__shiokRouteMap,status:document.querySelector(\"main\")?.dataset.mapStatus})",
+        "uniqueContextId": "-3424508456935877215.-1883607188074393270",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 10674.1038
+    },
+    {
+      "name": "cheap DOM/map handle",
+      "started": 10646.2286,
+      "finished": 10674.1841,
+      "value": {
+        "state": "complete",
+        "map": false,
+        "status": "mounting"
+      }
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 11197.4919,
+      "params": {
+        "expression": "({state:document.readyState,map:!!window.__shiokRouteMap,status:document.querySelector(\"main\")?.dataset.mapStatus})",
+        "uniqueContextId": "-3424508456935877215.-1883607188074393270",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 11450.814
+    },
+    {
+      "name": "cheap DOM/map handle",
+      "started": 11197.4634,
+      "finished": 11450.8911,
+      "value": {
+        "state": "complete",
+        "map": true,
+        "status": "initializing"
+      }
+    },
+    {
+      "method": "Page.captureScreenshot",
+      "at": 11483.6054,
+      "finished": 11962.252900000001
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 11980.427300000001,
+      "params": {
+        "expression": "window.__shiokRouteMap.isStyleLoaded()",
+        "uniqueContextId": "-3424508456935877215.-1883607188074393270",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 12017.689900000001
+    },
+    {
+      "name": "style readiness",
+      "started": 11980.3822,
+      "finished": 12017.7847,
+      "value": false
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 12545.0511,
+      "params": {
+        "expression": "window.__shiokRouteMap.isStyleLoaded()",
+        "uniqueContextId": "-3424508456935877215.-1883607188074393270",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 13435.681400000001
+    },
+    {
+      "name": "style readiness",
+      "started": 12544.9883,
+      "finished": 13435.850600000002,
+      "value": false
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 14003.957400000001,
+      "params": {
+        "expression": "window.__shiokRouteMap.isStyleLoaded()",
+        "uniqueContextId": "-3424508456935877215.-1883607188074393270",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 24340.959899999998
+    },
+    {
+      "name": "style readiness",
+      "started": 14003.934200000002,
+      "finished": 24341.0465,
+      "value": false
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 24846.0402,
+      "params": {
+        "expression": "window.__shiokRouteMap.isStyleLoaded()",
+        "uniqueContextId": "-3424508456935877215.-1883607188074393270",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "timeout": true,
+      "finished": 39849.616
+    },
+    {
+      "method": "Page.captureScreenshot",
+      "at": 39855.5605,
+      "finished": 54330.0249
+    },
+    {
+      "method": "Profiler.stop",
+      "at": 54342.6018,
+      "finished": 55523.953799999996
+    },
+    {
+      "method": "Browser.close",
+      "at": 55559.273,
+      "timeout": true,
+      "finished": 65566.80750000001
+    }
+  ],
+  "events": [
+    {
+      "method": "Runtime.executionContextCreated",
+      "at": 6324.0772,
+      "context": {
+        "id": 1,
+        "origin": "://",
+        "name": "",
+        "uniqueId": "-3987612256535053680.1695239433318569200",
+        "auxData": {
+          "isDefault": true,
+          "type": "default",
+          "frameId": "91E0A60B9AF734360112CAE554C51854"
+        }
+      }
+    },
+    {
+      "method": "Runtime.executionContextsCleared",
+      "at": 6606.5777
+    },
+    {
+      "method": "Runtime.executionContextsCleared",
+      "at": 6629.782
+    },
+    {
+      "method": "Runtime.executionContextCreated",
+      "at": 6666.4132,
+      "context": {
+        "id": 2,
+        "origin": "http://127.0.0.1:4362",
+        "name": "",
+        "uniqueId": "-3424508456935877215.-1883607188074393270",
+        "auxData": {
+          "isDefault": true,
+          "type": "default",
+          "frameId": "91E0A60B9AF734360112CAE554C51854"
+        }
+      }
+    },
+    {
+      "method": "Page.domContentEventFired",
+      "at": 6903.7202,
+      "params": {
+        "timestamp": 1118487.123748
+      }
+    },
+    {
+      "method": "Page.loadEventFired",
+      "at": 8950.3474,
+      "params": {
+        "timestamp": 1118488.751966
+      }
+    }
+  ],
+  "responses": [
+    {
+      "at": 6593.6042,
+      "url": "http://127.0.0.1:4362/?postal=018956&debugMap=1",
+      "status": 200
+    },
+    {
+      "at": 6767.3722,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/3vlrbw6gc84l7.css",
+      "status": 200
+    },
+    {
+      "at": 7183.1206999999995,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/turbopack-0xfj_5xwh9c0_.js",
+      "status": 200
+    },
+    {
+      "at": 7217.5054,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1bidz_3pqoxaj.js",
+      "status": 200
+    },
+    {
+      "at": 7545.157999999999,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/2dn31qlrcaugz.js",
+      "status": 200
+    },
+    {
+      "at": 7569.2910999999995,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/17f1081s5yhzn.js",
+      "status": 200
+    },
+    {
+      "at": 7755.8378,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1c6j_lnxj8czm.js",
+      "status": 200
+    },
+    {
+      "at": 7997.597999999999,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+      "status": 200
+    },
+    {
+      "at": 8662.2918,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1oaw9uq-pttep.js",
+      "status": 200
+    },
+    {
+      "at": 8766.6049,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/2xkd3da992cyi.js",
+      "status": 200
+    },
+    {
+      "at": 9482.463600000001,
+      "url": "http://127.0.0.1:4362/icon.svg",
+      "status": 200
+    },
+    {
+      "at": 9734.6758,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/3041ut-1olh-5.css",
+      "status": 200
+    },
+    {
+      "at": 9864.7423,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/20zjq-ak3jpeu.js",
+      "status": 200
+    },
+    {
+      "at": 9987.9789,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/3u4fr6aw4uicq.js",
+      "status": 200
+    },
+    {
+      "at": 10062.739500000001,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1zyj6upfpdkbv.js",
+      "status": 200
+    },
+    {
+      "at": 10188.2121,
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "status": 200
+    },
+    {
+      "at": 10479.6684,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404
+    },
+    {
+      "at": 10567.8736,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200
+    },
+    {
+      "at": 10912.467200000001,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+      "status": 200
+    },
+    {
+      "at": 11447.4367,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "status": 200
+    },
+    {
+      "at": 11448.107800000002,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 404
+    },
+    {
+      "at": 11688.376600000001,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "status": 200
+    },
+    {
+      "at": 11893.905,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "status": 404
+    },
+    {
+      "at": 12001.2191,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "status": 200
+    },
+    {
+      "at": 13577.7428,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8133.png",
+      "status": 200
+    },
+    {
+      "at": 13747.1025,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8132.png",
+      "status": 200
+    },
+    {
+      "at": 13748.8547,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8134.png",
+      "status": 200
+    },
+    {
+      "at": 13750.155700000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8133.png",
+      "status": 200
+    },
+    {
+      "at": 13752.7684,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8132.png",
+      "status": 200
+    },
+    {
+      "at": 13809.0257,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8134.png",
+      "status": 200
+    },
+    {
+      "at": 13815.2762,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8132.png",
+      "status": 200
+    },
+    {
+      "at": 13836.284000000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8133.png",
+      "status": 200
+    },
+    {
+      "at": 13970.6116,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8133.png",
+      "status": 200
+    },
+    {
+      "at": 14123.3035,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8133.png",
+      "status": 200
+    },
+    {
+      "at": 14264.1162,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8132.png",
+      "status": 200
+    },
+    {
+      "at": 14309.6187,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8131.png",
+      "status": 200
+    },
+    {
+      "at": 14336.132000000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8134.png",
+      "status": 200
+    },
+    {
+      "at": 14590.8222,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8131.png",
+      "status": 200
+    },
+    {
+      "at": 14603.0517,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8132.png",
+      "status": 200
+    },
+    {
+      "at": 14611.083200000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8131.png",
+      "status": 200
+    },
+    {
+      "at": 14855.731800000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8135.png",
+      "status": 200
+    },
+    {
+      "at": 14861.8184,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8134.png",
+      "status": 200
+    },
+    {
+      "at": 15243.970500000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8135.png",
+      "status": 200
+    },
+    {
+      "at": 15251.507500000002,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8134.png",
+      "status": 200
+    },
+    {
+      "at": 15254.3214,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8135.png",
+      "status": 200
+    },
+    {
+      "at": 15258.494700000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8131.png",
+      "status": 200
+    },
+    {
+      "at": 15273.014700000002,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8131.png",
+      "status": 200
+    },
+    {
+      "at": 15285.1864,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8130.png",
+      "status": 200
+    },
+    {
+      "at": 15297.289900000002,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8130.png",
+      "status": 200
+    },
+    {
+      "at": 15338.803600000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8135.png",
+      "status": 200
+    },
+    {
+      "at": 15472.275800000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8130.png",
+      "status": 200
+    },
+    {
+      "at": 15507.985400000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8135.png",
+      "status": 200
+    },
+    {
+      "at": 15512.951500000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8136.png",
+      "status": 200
+    },
+    {
+      "at": 15516.337000000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8136.png",
+      "status": 200
+    },
+    {
+      "at": 15518.1527,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8130.png",
+      "status": 200
+    },
+    {
+      "at": 15521.4752,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8136.png",
+      "status": 200
+    },
+    {
+      "at": 15524.641500000002,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8130.png",
+      "status": 200
+    },
+    {
+      "at": 15534.4053,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8136.png",
+      "status": 200
+    },
+    {
+      "at": 15535.3516,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8129.png",
+      "status": 200
+    },
+    {
+      "at": 15541.2188,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8136.png",
+      "status": 200
+    },
+    {
+      "at": 15612.569000000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8129.png",
+      "status": 200
+    },
+    {
+      "at": 15832.0714,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8129.png",
+      "status": 200
+    },
+    {
+      "at": 15862.216100000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8137.png",
+      "status": 200
+    },
+    {
+      "at": 15888.6991,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8129.png",
+      "status": 200
+    },
+    {
+      "at": 15910.802000000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8129.png",
+      "status": 200
+    },
+    {
+      "at": 15946.2671,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8137.png",
+      "status": 200
+    },
+    {
+      "at": 15958.873300000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8137.png",
+      "status": 200
+    },
+    {
+      "at": 15970.633200000002,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8137.png",
+      "status": 200
+    },
+    {
+      "at": 16008.233000000002,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8137.png",
+      "status": 200
+    },
+    {
+      "at": 16013.745,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8128.png",
+      "status": 200
+    },
+    {
+      "at": 16030.0322,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8128.png",
+      "status": 200
+    },
+    {
+      "at": 16042.0378,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8128.png",
+      "status": 200
+    },
+    {
+      "at": 16051.583,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8128.png",
+      "status": 200
+    },
+    {
+      "at": 16053.618199999999,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8128.png",
+      "status": 200
+    },
+    {
+      "at": 24347.496,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "status": 200
+    },
+    {
+      "at": 24368.9079,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "status": 200
+    },
+    {
+      "at": 24380.0146,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "status": 200
+    },
+    {
+      "at": 24442.313299999998,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "status": 200
+    },
+    {
+      "at": 24471.4531,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "status": 404
+    },
+    {
+      "at": 24503.4369,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "status": 200
+    },
+    {
+      "at": 24504.277299999998,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "status": 200
+    },
+    {
+      "at": 24845.8655,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260275.png",
+      "status": 200
+    },
+    {
+      "at": 24851.3651,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260275.png",
+      "status": 200
+    },
+    {
+      "at": 24854.619899999998,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260274.png",
+      "status": 200
+    },
+    {
+      "at": 53259.8307,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260274.png",
+      "status": 200
+    },
+    {
+      "at": 53260.8764,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260276.png",
+      "status": 200
+    },
+    {
+      "at": 53261.4762,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260276.png",
+      "status": 200
+    },
+    {
+      "at": 53316.1211,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260275.png",
+      "status": 200
+    },
+    {
+      "at": 53338.5637,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260274.png",
+      "status": 200
+    },
+    {
+      "at": 53648.307,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260275.png",
+      "status": 200
+    },
+    {
+      "at": 53649.429899999996,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260276.png",
+      "status": 200
+    },
+    {
+      "at": 53650.1135,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260274.png",
+      "status": 200
+    },
+    {
+      "at": 53651.06,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260273.png",
+      "status": 200
+    },
+    {
+      "at": 53706.5135,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260273.png",
+      "status": 200
+    },
+    {
+      "at": 53726.1019,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260276.png",
+      "status": 200
+    },
+    {
+      "at": 53727.045,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260277.png",
+      "status": 200
+    },
+    {
+      "at": 53727.886099999996,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260273.png",
+      "status": 200
+    }
+  ],
+  "errors": [],
+  "captures": [
+    {
+      "name": "before-map-inspection-390x844",
+      "at": 11968.0012
+    },
+    {
+      "name": "failure",
+      "at": 54337.0001
+    }
+  ],
+  "availableMiB": 1388.28125,
+  "http": {
+    "status": 200,
+    "bytes": 14192,
+    "milliseconds": 638.4965000000001,
+    "correctBuild": true
+  },
+  "chromePid": 109680,
+  "ok": false,
+  "failure": "Error: CDP timeout: Runtime.evaluate\n    at Timeout._onTimeout (file:///C:/sgSHIOK2026/qa/revamp-r1/map-stall-20260910/probe.mjs:25:121)\n    at listOnTimeout (node:internal/timers:635:17)\n    at process.processTimers (node:internal/timers:571:7)"
+}

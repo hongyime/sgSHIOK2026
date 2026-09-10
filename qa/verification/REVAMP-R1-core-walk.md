@@ -4297,3 +4297,46 @@ TypeScript exit0; integrity exit0; npm audit exit0 with0known vulnerabilities. N
 
 1. A passing build and unit suite do not establish that the map renders correctly. T25/T29 visual acceptance remains open; do not present the current preview as visually verified.
 2. Neither hardware-only nor software-renderer-only causation explains the observed browser timeout yet. The next step is diagnosis of the page/diagnostic stall, not another unchanged acceptance loop or relaxed application timeout.
+
+## 2026-09-10: Browser Stall Diagnosis, Initial Contract
+
+Base373c73f. Expected: the current local build responds to browser inspection and renders the selected walk. Observed: combined Runtime.evaluate facts timed out in worker-alignment browser attempts3/4. Attempt3 recorded180responses and16cancellations; attempt4 recorded2responses and0cancellations. Neither recorded an app runtime exception. The combined function queries rendered features, tile state, DOM geometry and innerText, so its timeout does not identify which boundary stalled.
+
+Current read-only HTTP check: Next4361 returned200,14192B,correct build in637.9897ms; proxy4362 returned the same status/size/build in113.6538ms. This weakens current server-unavailability as the explanation; it does not reproduce the earlier browser timing. Hypotheses remain unconfirmed: navigation-context loss, main-thread/host starvation, or expensive combined inspection. A diagnostic-only probe will record blank-page evaluation, navigation/context events, simple DOM state, independent map queries and a screenshot before expensive feature inspection. No application fix is authorized by this evidence alone; existing user authorization covers diagnosis and a supported repair without another approval round. CPU profiles/stack evidence may be collected on the owned QA page if a boundary stalls. No pipeline, deployment or protected-data mutation.
+
+## 2026-09-10: Browser Stall Diagnosis, Results and Headroom Gate
+
+Root C:\sgSHIOK2026; host PRAWN-E14; base373c73f. Application code is unchanged in this continuation. Current preview4362 serves build sou6pZfEMMmsCl52vdXg4. Source anchoring below checks all156 build sources against the current tree. Five screenshots were inspected by the parent; subagent quota still prevents independent review. Browser-plugin bootstrap remains unavailable (os error3 from the previous attempt), so these are explicitly owned Chrome/CDP observations, not plugin acceptance.
+
+Commands: node qa/revamp-r1/map-stall-20260910/probe.mjs probe-1; then probe-2 after adding per-query/GL timing; then probe-3 --viewports after making a bounded four-size check. Each launched probe archives its runner; probe2 additionally archives its injected instrumentation. Probe1/2 raw reports, screenshots and CPU profiles are retained. Probe3's headroom check runs before directory creation or Chrome launch. Its command exited1 with Browser headroom gate: less than1024MiB free. Exact free RAM was not emitted and is not reconstructed from an earlier sample. There was no retry.
+
+Reproduction analysis command and stdout:
+
+```text
+node C:\sgSHIOK2026\qa\revamp-r1\map-stall-20260910\analyze.mjs
+{"profiles":[{"seconds":48.360172,"samples":19839},{"seconds":73.20806,"samples":13934}],"queryCount":35,"queryMilliseconds":121.09999918937683,"maxQueryMilliseconds":23.299999952316284,"empty":10,"stale":24,"current":1,"assertions":"passed"}
+C:\sgSHIOK2026\.venv\Scripts\python.exe -B C:\sgSHIOK2026\scripts\check_repo_integrity.py
+repo_integrity=ok
+```
+
+Both commands exited0. Analysis uses exclusive output creation; preserve its recorded analysis.json rather than overwriting it on a rerun. 10empty+24stale+1current=35queries. The final current query returned4features. Raw trace timestamps and arguments are in probe-2/result.json; summary computations and CPU stacks in analysis.json. CPU sample shares do not establish wall-time causation. Probe1 sampled fB shader/program construction8264/19839=41.6553%, readDouble under the app watcher4380/19839=22.0777%, native appendChild4290/19839=21.6241%. Probe2 sampled idle12227/13934=87.7494%; this is not a controlled performance comparison.
+
+```text
+node C:\sgSHIOK2026\qa\revamp-r1\map-stall-20260910\source-anchors.mjs
+{"buildId":"sou6pZfEMMmsCl52vdXg4","sourceCount":156,"sourcesMatch":true,"frames":[{"name":"29ddgwgt55efo.js","zeroBasedLine":799,"zeroBasedColumn":106910,"bytes":974586,"sha256":"d9b64c2499b558304fa4a40ef1fe8b37f6f8f737840adc677e85353741cb788d"},{"name":"29ddgwgt55efo.js","zeroBasedLine":1,"zeroBasedColumn":147642,"bytes":974586,"sha256":"d9b64c2499b558304fa4a40ef1fe8b37f6f8f737840adc677e85353741cb788d"},{"name":"3u4fr6aw4uicq.js","zeroBasedLine":0,"zeroBasedColumn":42865,"bytes":45055,"sha256":"fbd48aea7ef6afa0959ba67bb771fdc957a98671a418e658390ca3edb4d2cf24"}]}
+```
+
+Exit0. source-anchors.json includes compiled snippets and five-capture inspection disposition. Prior1785web tests/65files plus42guard tests, TypeScript and build remain validation of the unchanged application; they were not rerun merely for these diagnostic artifacts. No new application test count or browser speed claim is made.
+
+### FINDINGS
+
+1. Probe1 reproduces a real visible-state inconsistency: a route is drawn while the page says the selected walk is not visible, with blurry basemap tiles. It fails before the QA feature query. Pixels alone do not establish that the drawn route has the current key; no false acceptance is claimed.
+2. Probe2 reaches ready with four current-key features and a clear basemap. Its35app queries total121.1ms; the stale-key guard correctly rejects24nonempty old responses. SHIOK/search/results align on the left and About data is bottom right in the390x844 capture. This single observation does not close four-viewport or retained-client acceptance.
+3. Both runners retain failed cleanup receipts. Probe1's immediate CIM read still listed5PIDs; later live-handle checks found all7captured PIDs gone. Probe2's5second process-exit wait failed; later exact-profile/live-handle query at22:14:40+08:00 found zero live processes. These later observations do not rewrite the earlier failures. Revised cleanup-live.ps1 was not reached by the gated probe3 and is not claimed browser-tested.
+4. Probe3 stops before launch at the1024MiB headroom gate. Further browser acceptance and T19 profiling stay gated; no unrelated process was stopped, no speculative query/timeout patch landed, and no pipeline/data preparation/deployment ran.
+5. Evidence, STATE, decisions and PRODUCT-PLAN record the remaining work. The overall goal is incomplete. An initial documentation patch was rejected atomically for an empty hunk; its corrected submission succeeded and changed no existing evidence lines.
+
+### DISAGREEMENTS
+
+1. The first sampled hotspot does not justify declaring visibility queries the bottleneck. The directly timed follow-up contradicts that diagnosis for its observed run. A throttling patch or longer application deadline would be unsupported by this evidence.
+2. Neither one successful mobile capture nor a low-memory stop proves hardware-only causation or map reliability. Keep the earlier failure visible and perform the remaining bounded viewport/retained-client checks only with headroom.
