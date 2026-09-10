@@ -1,0 +1,5 @@
+{
+  "reason": "Completed failed browser receipt and verified Chrome cleanup; Node helper kept its execution session open. Stop only this exact owned helper, preserving the failed result.",
+  "script": "$p=Get-CimInstance Win32_Process -Filter 'ProcessId = 4528'\nif ($p) {\n  if ($p.Name -ne 'node.exe' -or $p.CommandLine -notmatch 'C:\\\\sgSHIOK2026\\\\qa\\\\revamp-r1\\\\cross-feature-motion-20260910\\\\browser-5.mjs acceptance-6 cross-feature-motion-20260910-2 4354') { throw 'Unexpected process owner' }\n  $before=$p | Select-Object ProcessId,CreationDate,CommandLine\n  Stop-Process -Id $p.ProcessId -ErrorAction Stop\n  $gone=$null -eq (Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue)\n  if (!$gone) { throw 'Owned process still alive' }\n  [pscustomobject]@{ before=$before; stoppedAfterFinalReceipt=$true; gone=$gone } | ConvertTo-Json -Depth 4\n} else { [pscustomobject]@{ alreadyExited=$true; gone=$true } | ConvertTo-Json }",
+  "stdout": "{\r\n    \"alreadyExited\":  true,\r\n    \"gone\":  true\r\n}\r\n"
+}

@@ -47,6 +47,7 @@ type Element = ReactElement<{
   ref?: { current: unknown };
   onClick?: (event: { currentTarget: FocusButton; detail: number }) => void;
   onKeyDown?: (event: { key: string; stopPropagation: () => void }) => void;
+  onFocusCapture?: (event: { target: HTMLElement }) => void;
   disabled?: boolean;
   type?: string;
   title?: string;
@@ -205,6 +206,51 @@ afterEach(() => {
 });
 
 describe("T10 home comparison presentation", () => {
+  it.each([
+    { name: "left-hidden postal from the browser failure", left: 51, right: 154, sticky: 112, scroll: 73, expected: 8 },
+    { name: "right-clipped control", left: 318, right: 421, sticky: 112, scroll: 0, expected: 50 },
+    { name: "already visible control", left: 150, right: 253, sticky: 112, scroll: 73, expected: 73 },
+    { name: "enlarged sticky heading", left: 120, right: 223, sticky: 150, scroll: 73, expected: 39 },
+  ])("reveals $name without changing focus or the selected walk", ({ left, right, sticky, scroll, expected }) => {
+    render();
+    const root = elements(tree)[0];
+    const target = {
+      isConnected: true, closest: vi.fn(() => ({})),
+      getBoundingClientRect: () => ({ left, right }), focus: vi.fn(),
+    };
+    focusDocument.activeElement = target;
+    const scroller = {
+      scrollLeft: scroll, clientLeft: 0, clientWidth: 375,
+      contains: (node: unknown) => node === target,
+      getBoundingClientRect: () => ({ left: 0 }),
+      querySelector: () => ({ getBoundingClientRect: () => ({ right: sticky }) }),
+    };
+    root.props.ref!.current = scroller;
+    root.props.onFocusCapture?.({ target: target as unknown as HTMLElement });
+    expect(scroller.scrollLeft).toBe(expected);
+    expect(focusDocument.activeElement).toBe(target);
+    expect(target.focus).not.toHaveBeenCalled();
+    expect(props.onActivate).not.toHaveBeenCalled();
+  });
+
+  it.each(["toolbar", "detached", "outside"])("does not scroll for a %s focus target", kind => {
+    render();
+    const root = elements(tree)[0];
+    const target = {
+      isConnected: kind !== "detached", closest: () => kind === "toolbar" ? null : {},
+      getBoundingClientRect: vi.fn(() => ({ left: 0, right: 100 })),
+    };
+    const scroller = {
+      scrollLeft: 73, contains: () => kind !== "outside",
+      getBoundingClientRect: vi.fn(() => ({ left: 0 })),
+    };
+    root.props.ref!.current = scroller;
+    root.props.onFocusCapture?.({ target: target as unknown as HTMLElement });
+    expect(scroller.scrollLeft).toBe(73);
+    expect(scroller.getBoundingClientRect).not.toHaveBeenCalled();
+    expect(target.getBoundingClientRect).not.toHaveBeenCalled();
+  });
+
   it("exposes parent focus targets and a bottom map overlay without becoming a modal", () => {
     render();
     const root = elements(tree)[0];

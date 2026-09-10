@@ -3294,3 +3294,28 @@ a phone benchmark, a new retained-A upgrade test or release approval. Existing
 OneMap attribution, tile source, score data and locked scoring remain unchanged.
 Tests use existing dependencies and isolated frontend source, never pipeline work.
 Evidence: qa/revamp-r1/basemap-startup-20260910/summary.json.
+
+## 2026-09-10: Current Visibility Ownership and Sticky-Column Focus
+
+Map readiness belongs to the current route, diagnostic context, viewport, gap
+focus and renderer generation. A visibility result from the previous render must
+not authorize ready during the interval before passive-effect cleanup. Capture a
+visibility owner, invalidate it during render and require that owner in both the
+route probe and basemap-completion paths. This is a conservative readiness guard,
+not a new reason to submit GeoJSON or move the camera.
+
+Comparison keyboard focus must be visible beyond the measured sticky label
+column. Native scrolling and CSS scroll padding alone failed in Chromium: the
+focused postal button was behind the label. On table focus, adjust only the
+comparison panel's horizontal scroll using actual client and sticky bounds.
+Do not change selection, synthesize a click or reclaim focus later. Ignore
+detached, outside and toolbar targets. Existing Retry focus ownership is retained.
+
+The full isolated suite passes1765/64. The final local browser replay completes
+52 functional checks but fails its last audit on five CDP Invalid InterceptionId
+command faults. Keep that run failed. It contains no recorded application
+exceptions or denied requests, but lacks request-ID/cancellation correlation,
+so it cannot establish a clean transport audit. Do not weaken the gate or repeat
+the replay without a specific diagnostic correction. CSS text/reflow stress is
+not native zoom, a phone benchmark or release approval. No scoring or data change.
+Evidence: qa/revamp-r1/cross-feature-motion-20260910/summary.json.

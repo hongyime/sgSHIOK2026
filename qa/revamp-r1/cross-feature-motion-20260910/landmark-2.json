@@ -1,0 +1,1912 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "postal": "049213",
+  "area": "DOWNTOWN_CORE_PART_001",
+  "shard": "896520db333ffff",
+  "score": {
+    "best_node": {
+      "exit": "Exit A",
+      "name": "RAFFLES PLACE MRT STATION Exit A",
+      "routed_m": 586.1,
+      "snap_distance_m": 4.3,
+      "station": "RAFFLES PLACE MRT STATION",
+      "straight_line_m": 380.6,
+      "type": "mrt_lrt_exit"
+    },
+    "candidates": [
+      {
+        "direct_distance_m": 104.9,
+        "geometry_ref": "049213_bus:03011",
+        "node_id": "bus:03011",
+        "node_name": "Fullerton Sq",
+        "node_type": "bus_stop",
+        "paths": {
+          "covered_ratio": null,
+          "detour_pct": 0,
+          "shade_ratio": null,
+          "sheltered_m": 104.9,
+          "shortest_m": 104.9
+        },
+        "route_trust": "direct_bus_fallback_unrouted",
+        "routing_type": "direct_bus_fallback_unrouted",
+        "state": "SCORED_PARTIAL"
+      },
+      {
+        "direct_distance_m": 244.9,
+        "geometry_ref": "049213_bus:03019",
+        "node_id": "bus:03019",
+        "node_name": "OUE Bayfront",
+        "node_type": "bus_stop",
+        "paths": {
+          "covered_ratio": 0.237,
+          "detour_pct": 0.9,
+          "shade_ratio": 0,
+          "sheltered_m": 311.8,
+          "shortest_m": 308.9
+        },
+        "route_trust": "graph_routed_bus_stop",
+        "routing_type": "sheltered",
+        "state": "SCORED"
+      },
+      {
+        "direct_distance_m": 302.8,
+        "geometry_ref": "049213_mrt:21524",
+        "node_id": "mrt:21524",
+        "node_name": "RAFFLES PLACE MRT STATION Exit H",
+        "node_type": "mrt_lrt_exit",
+        "paths": {
+          "covered_ratio": 0.446,
+          "detour_pct": 0.3,
+          "shade_ratio": 0,
+          "sheltered_m": 998.1,
+          "shortest_m": 994.8
+        },
+        "route_trust": "graph_routed_mrt_lrt_exit",
+        "routing_type": "sheltered",
+        "state": "SCORED"
+      },
+      {
+        "direct_distance_m": 327.4,
+        "geometry_ref": "049213_mrt:21527",
+        "node_id": "mrt:21527",
+        "node_name": "RAFFLES PLACE MRT STATION Exit G",
+        "node_type": "mrt_lrt_exit",
+        "paths": {
+          "covered_ratio": 0.047,
+          "detour_pct": 1.4,
+          "shade_ratio": 0.086,
+          "sheltered_m": 511.7,
+          "shortest_m": 504.8
+        },
+        "route_trust": "graph_routed_mrt_lrt_exit",
+        "routing_type": "sheltered",
+        "state": "SCORED"
+      },
+      {
+        "direct_distance_m": 347.5,
+        "geometry_ref": "049213_mrt:21526",
+        "node_id": "mrt:21526",
+        "node_name": "RAFFLES PLACE MRT STATION Exit B",
+        "node_type": "mrt_lrt_exit",
+        "paths": {
+          "covered_ratio": 0.406,
+          "detour_pct": 0.4,
+          "shade_ratio": 0,
+          "sheltered_m": 930.3,
+          "shortest_m": 926.9
+        },
+        "route_trust": "graph_routed_mrt_lrt_exit",
+        "routing_type": "sheltered",
+        "state": "SCORED"
+      }
+    ],
+    "data_as_of": "2026-08-01T21:49:20.977890+00:00",
+    "exposure_gaps": [
+      {
+        "label": "exposed gap near 1.28557, 103.85377",
+        "len_m": 177.9,
+        "location": {
+          "lat": 1.285572,
+          "lon": 103.853768
+        }
+      },
+      {
+        "label": "exposed gap near 1.28417, 103.85329",
+        "len_m": 37.2,
+        "location": {
+          "lat": 1.284165,
+          "lon": 103.853293
+        }
+      },
+      {
+        "label": "exposed gap near 1.28376, 103.85298",
+        "len_m": 93.8,
+        "location": {
+          "lat": 1.283764,
+          "lon": 103.852981
+        }
+      },
+      {
+        "label": "exposed gap near 1.28388, 103.85266",
+        "len_m": 22.4,
+        "location": {
+          "lat": 1.283875,
+          "lon": 103.852655
+        }
+      },
+      {
+        "label": "exposed gap near 1.28435, 103.85154",
+        "len_m": 69.5,
+        "location": {
+          "lat": 1.284353,
+          "lon": 103.851539
+        }
+      }
+    ],
+    "paths": {
+      "bus_stop_access_connector_m": 0,
+      "covered_m": 246.5,
+      "covered_ratio": 0.381,
+      "destination_snap_connector_m": 4.3,
+      "detour_pct": 10.4,
+      "endpoint_snap_connector_m": 34.3,
+      "heat_comfort_m": 279.1,
+      "heat_comfort_ratio": 0.431,
+      "mrt_lrt_exit_access_connector_m": 0,
+      "origin_snap_connector_m": 29.9,
+      "routing_type": "sheltered",
+      "shade_m": 65.1,
+      "shade_ratio": 0.101,
+      "sheltered_m": 647.3,
+      "shortest_covered_ratio": 0,
+      "shortest_m": 586.1,
+      "shortest_shade_ratio": 0.235
+    },
+    "postal": "049213",
+    "provenance": {
+      "bus_connectivity": {
+        "expected_wait_min": 0.594,
+        "nearest_routed_m": 210,
+        "routed_stop_count": 1,
+        "service_count": 10,
+        "straight_line_stop_count": 2
+      },
+      "candidate_selection": {
+        "node_set_eligible_count": 11,
+        "reason": "excluded_graph_routed_bus_candidates_beyond_routed_cap_from_default_choice",
+        "selected_total_rank": 2,
+        "skipped_ineligible_count": 1
+      },
+      "direct_bus_fallback": {
+        "best_expected_wait_min": 0.594,
+        "candidate_count": 1,
+        "coordinate_tolerance_m": 5,
+        "detour_ratio_threshold": 3,
+        "geometry": "straight_line_origin_to_bus_stop_not_pedestrian_route",
+        "min_extra_m_threshold": 100,
+        "min_missing_m_threshold": 50,
+        "nearest_direct_m": 104.9,
+        "nearest_graph_routed_m": 131.7,
+        "radius_m": 300,
+        "reason": "dominant_unrouted_bus_endpoint_and_access_connectors",
+        "reason_counts": {
+          "dominant_unrouted_bus_endpoint_and_access_connectors": 1
+        },
+        "selection_radius_m": 305,
+        "shortcut_ratio_threshold": 0.5,
+        "untrusted_subscores": [
+          "rain",
+          "heat",
+          "crossing"
+        ]
+      },
+      "manifest": "raw/manifest.json",
+      "origin_snap_distance_m": 29.9,
+      "postal_universe": "processed\\score_batches\\full_rescore_20260804_205430\\partitions\\part04_of04.parquet",
+      "routing": {
+        "detour_budget": 1.25,
+        "network": "processed\\network_island.parquet",
+        "shelter_lambda": 2
+      },
+      "routing_diagnostics": {
+        "candidate_destination_nodes": 12,
+        "candidate_scores": 12,
+        "nearest_routed_m": 210,
+        "route_results": 12,
+        "routes_within_access_range": 12
+      },
+      "scoring_fingerprints": {
+        "pipeline\\config\\params.yaml": "a05e9e9aac805de4a12217214ee574f6dc8813054d2fa8993a73e7d649bb1ce1",
+        "pipeline\\config\\weights.yaml": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+        "pipeline\\routing.py": "8fb450690bf9d024b9c43dd02476a7d4e73805cd3b59b6ecbc2022dcc1a69e7c",
+        "pipeline\\scoring.py": "255b4a225a625848e150673b01bccfbc679eea668a254667a9b01c2179bf610c",
+        "pipeline\\scoring_integration.py": "a7b4a8cbaefb4731e6711ffb8595e3241de654032e887691eef7bc91f5b975ae"
+      },
+      "source_hashes": {
+        "bus_routes": "a52a1503aa2d68a0a9e59703ea96a9c0e6cff1720e10d0479384c6f97a88f829",
+        "bus_services": "2d2b12b89ed2b2314be7d1ac2738afbdcd2af10a07a7cb6db1fb890d56348e2f",
+        "bus_stops": "0362ab970c661de6b322a3372c9ab980faf49805921891a7a1da260687a16a4a",
+        "covered_linkway": "d943fe2a992ad50c449c40484e0c642da480598b17f6008907c7b253d87b19ee",
+        "leaf_area_index": "26281dbacf4d8707df48d40b83060c65bf81c3f1a39ff81aebaefb8fd628c899",
+        "mrt_lrt_exits": "a7eaa90f30991dc0ac4aa970d704123ce3ec9e60c82b42c32a32e74be7dc0327",
+        "nparks_heritage_road_green_buffers": "87238ae673f898a30b1fcbf5b5527625b4c49c7aa1769567adb92b93b9b685b5",
+        "nparks_heritage_trees": "7f9a1b6413735824704993994b5491c30dcb9d1b746e80a5c17a6f59629d835f",
+        "nparks_nature_ways": "9b4e0e1e9d868cc9bff468e1b3028214707f2a41661bc8f279c61e88094f2d11",
+        "nparks_park_connector_loop": "83c1838bea9ee355d2ba52c2060eb185612dd0e2e3fdb113aff9cdd6e5c27efd",
+        "nparks_tracks": "2df9d9170d716ceefc2e82aa8889a21a27a3a086996bf330a6ab6b21cb1f0627",
+        "osm_extract": "0cd4f995c2ab6b38b2985ba9417861e93dc1f58c8ffae06c3deecc37f259128d",
+        "overhead_bridge_underpass": "bfa4a0a08a32c72a1ca35aad30e89f940a59ef6fdc137ddf8135a50760d7d444",
+        "traffic_signals": "942ff2506603f431f0782a3acdc70fec75d4b15c73b54f1a983c804c60d818af"
+      },
+      "subscore_status": {
+        "access": "real_routed_shortest_distance",
+        "bus": "real",
+        "crossing": "real_traffic_signals_with_grade_separated_exemption",
+        "heat": "provisional_covered_plus_nparks_shade_proxy_heat_only",
+        "rain": "real_routed_covered_length_ratio"
+      },
+      "transit_node_set": {
+        "bus_stop_candidate_radius_m": 300,
+        "bus_stop_candidate_selection_radius_m": 305,
+        "bus_stop_candidate_tolerance_m": 5,
+        "bus_stop_candidates_direct": 2,
+        "mrt_lrt_exit_candidates": 10
+      },
+      "untrusted_bus_routes": {
+        "access_connector_trust_max_m": 40,
+        "access_connector_trust_min_ratio": 0.2,
+        "candidate_count": 1,
+        "endpoint_snap_guard_min_m": 25,
+        "endpoint_snap_guard_min_ratio": 0.6,
+        "examples": [
+          {
+            "bus_stop_code": "03011",
+            "direct_m": 104.9,
+            "name": "Fullerton Sq",
+            "routed_m": 131.7,
+            "routing_type": "sheltered_with_bus_stop_access_connector"
+          }
+        ],
+        "policy": "skipped_from_routed_scoring; long-detour bus candidates may still use partial direct fallback",
+        "reason_counts": {
+          "dominant_unrouted_bus_endpoint_and_access_connectors": 1
+        },
+        "road_centerline_guard_max_pedestrian_m": 25,
+        "road_centerline_guard_min_m": 50,
+        "road_centerline_guard_min_ratio": 0.5
+      }
+    },
+    "route_options": {
+      "best_transit": {
+        "best_node": {
+          "exit": "Exit A",
+          "name": "RAFFLES PLACE MRT STATION Exit A",
+          "routed_m": 586.1,
+          "snap_distance_m": 4.3,
+          "station": "RAFFLES PLACE MRT STATION",
+          "straight_line_m": 380.6,
+          "type": "mrt_lrt_exit"
+        },
+        "exposure_gaps": [
+          {
+            "label": "exposed gap near 1.28557, 103.85377",
+            "len_m": 177.9,
+            "location": {
+              "lat": 1.285572,
+              "lon": 103.853768
+            }
+          },
+          {
+            "label": "exposed gap near 1.28417, 103.85329",
+            "len_m": 37.2,
+            "location": {
+              "lat": 1.284165,
+              "lon": 103.853293
+            }
+          },
+          {
+            "label": "exposed gap near 1.28376, 103.85298",
+            "len_m": 93.8,
+            "location": {
+              "lat": 1.283764,
+              "lon": 103.852981
+            }
+          },
+          {
+            "label": "exposed gap near 1.28388, 103.85266",
+            "len_m": 22.4,
+            "location": {
+              "lat": 1.283875,
+              "lon": 103.852655
+            }
+          },
+          {
+            "label": "exposed gap near 1.28435, 103.85154",
+            "len_m": 69.5,
+            "location": {
+              "lat": 1.284353,
+              "lon": 103.851539
+            }
+          }
+        ],
+        "paths": {
+          "bus_stop_access_connector_m": 0,
+          "covered_m": 246.5,
+          "covered_ratio": 0.381,
+          "destination_snap_connector_m": 4.3,
+          "detour_pct": 10.4,
+          "endpoint_snap_connector_m": 34.3,
+          "heat_comfort_m": 279.1,
+          "heat_comfort_ratio": 0.431,
+          "mrt_lrt_exit_access_connector_m": 0,
+          "origin_snap_connector_m": 29.9,
+          "routing_type": "sheltered",
+          "shade_m": 65.1,
+          "shade_ratio": 0.101,
+          "sheltered_m": 647.3,
+          "shortest_covered_ratio": 0,
+          "shortest_m": 586.1,
+          "shortest_shade_ratio": 0.235
+        },
+        "state": "SCORED",
+        "subscores": {
+          "access": 72.1,
+          "bus": 100,
+          "crossing": 100,
+          "heat": 43.1,
+          "rain": 38.1
+        },
+        "total": 66.2
+      },
+      "bus": {
+        "best_node": {
+          "exit": "03011",
+          "name": "Fullerton Sq",
+          "routed_m": null,
+          "snap_distance_m": 7.9,
+          "station": "Fullerton Sq",
+          "straight_line_m": 104.9,
+          "type": "bus_stop"
+        },
+        "exposure_gaps": [],
+        "paths": {
+          "detour_pct": 0,
+          "routing_type": "direct_bus_fallback_unrouted",
+          "sheltered_m": 104.9,
+          "shortest_m": 104.9
+        },
+        "state": "SCORED_PARTIAL",
+        "subscores": {
+          "access": 100,
+          "bus": 100,
+          "crossing": null,
+          "heat": null,
+          "rain": null
+        },
+        "total": 55
+      },
+      "mrt_lrt": {
+        "best_node": {
+          "exit": "Exit A",
+          "name": "RAFFLES PLACE MRT STATION Exit A",
+          "routed_m": 586.1,
+          "snap_distance_m": 4.3,
+          "station": "RAFFLES PLACE MRT STATION",
+          "straight_line_m": 380.6,
+          "type": "mrt_lrt_exit"
+        },
+        "exposure_gaps": [
+          {
+            "label": "exposed gap near 1.28557, 103.85377",
+            "len_m": 177.9,
+            "location": {
+              "lat": 1.285572,
+              "lon": 103.853768
+            }
+          },
+          {
+            "label": "exposed gap near 1.28417, 103.85329",
+            "len_m": 37.2,
+            "location": {
+              "lat": 1.284165,
+              "lon": 103.853293
+            }
+          },
+          {
+            "label": "exposed gap near 1.28376, 103.85298",
+            "len_m": 93.8,
+            "location": {
+              "lat": 1.283764,
+              "lon": 103.852981
+            }
+          },
+          {
+            "label": "exposed gap near 1.28388, 103.85266",
+            "len_m": 22.4,
+            "location": {
+              "lat": 1.283875,
+              "lon": 103.852655
+            }
+          },
+          {
+            "label": "exposed gap near 1.28435, 103.85154",
+            "len_m": 69.5,
+            "location": {
+              "lat": 1.284353,
+              "lon": 103.851539
+            }
+          }
+        ],
+        "paths": {
+          "bus_stop_access_connector_m": 0,
+          "covered_m": 246.5,
+          "covered_ratio": 0.381,
+          "destination_snap_connector_m": 4.3,
+          "detour_pct": 10.4,
+          "endpoint_snap_connector_m": 34.3,
+          "heat_comfort_m": 279.1,
+          "heat_comfort_ratio": 0.431,
+          "mrt_lrt_exit_access_connector_m": 0,
+          "origin_snap_connector_m": 29.9,
+          "routing_type": "sheltered",
+          "shade_m": 65.1,
+          "shade_ratio": 0.101,
+          "sheltered_m": 647.3,
+          "shortest_covered_ratio": 0,
+          "shortest_m": 586.1,
+          "shortest_shade_ratio": 0.235
+        },
+        "state": "SCORED",
+        "subscores": {
+          "access": 72.1,
+          "bus": 100,
+          "crossing": 100,
+          "heat": 43.1,
+          "rain": 38.1
+        },
+        "total": 66.2
+      }
+    },
+    "state": "SCORED",
+    "subscores": {
+      "access": 72.1,
+      "bus": 100,
+      "crossing": 100,
+      "heat": 43.1,
+      "rain": 38.1
+    },
+    "total": 66.2
+  },
+  "receipts": [
+    {
+      "path": "scores/index.json",
+      "bytes": 1751005,
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "geom/postal-index.json",
+      "bytes": 3538342,
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "geom/h3/896520db333ffff.json",
+      "bytes": 296957,
+      "expected": "e51c209684538d0c951dab8eda271f48497d493b836154fec47a63beb2397583",
+      "actual": "e51c209684538d0c951dab8eda271f48497d493b836154fec47a63beb2397583"
+    }
+  ],
+  "geometry": {
+    "candidates": {
+      "bus:03011": {
+        "exposure_gaps": [],
+        "route_segments": {
+          "sheltered": [
+            {
+              "confidence": "partial_unrouted",
+              "geom": "sezFs_{xRnBvC",
+              "is_covered": false,
+              "len_m": 104.9,
+              "part_index": 0,
+              "source_class": "direct_unrouted_bus",
+              "source_layer": "direct_bus_fallback",
+              "source_summary": "direct_unrouted_bus:1",
+              "synth_class": "unrouted_straight_line"
+            }
+          ],
+          "shortest": [
+            {
+              "confidence": "partial_unrouted",
+              "geom": "sezFs_{xRnBvC",
+              "is_covered": false,
+              "len_m": 104.9,
+              "part_index": 0,
+              "source_class": "direct_unrouted_bus",
+              "source_layer": "direct_bus_fallback",
+              "source_summary": "direct_unrouted_bus:1",
+              "synth_class": "unrouted_straight_line"
+            }
+          ]
+        },
+        "sheltered": "sezFs_{xRnBvC",
+        "shortest": "sezFs_{xRnBvC"
+      },
+      "bus:03019": {
+        "exposure_gaps": [
+          {
+            "geom": "_ezFa~zxRlBb@dBf@B@@DZH",
+            "label": "exposed gap",
+            "len_m": 147.2,
+            "part_index": 0
+          },
+          {
+            "geom": "sezFs_{xRRp@",
+            "label": "exposed gap",
+            "len_m": 29.9,
+            "part_index": 1
+          },
+          {
+            "geom": "gyyFoyzxRIP",
+            "label": "exposed gap",
+            "len_m": 11.9,
+            "part_index": 0
+          },
+          {
+            "geom": "qyyF}zzxRFJDRPJB@Y?",
+            "label": "exposed gap",
+            "len_m": 48.1,
+            "part_index": 1
+          }
+        ],
+        "route_segments": {
+          "sheltered": [
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "sezFs_{xRRp@",
+              "is_covered": false,
+              "len_m": 29.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR"
+            },
+            {
+              "geom": "_ezFa~zxRlBb@dBf@B@@DZH",
+              "is_covered": false,
+              "len_m": 147.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:5"
+            },
+            {
+              "confidence": "source_polygon_match",
+              "geom": "i}yFc{zxRDB",
+              "is_covered": true,
+              "len_m": 4.6,
+              "part_index": 0,
+              "source_class": "osm_covered",
+              "source_layer": "osm_explicit_shelter",
+              "source_summary": "osm_covered:1"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "c}yF_{zxRVFxAB?I",
+              "is_covered": true,
+              "len_m": 69.2,
+              "part_index": 0,
+              "source_class": "osm_covered",
+              "source_layer": "osm_native_covered",
+              "source_summary": "osm_covered:3"
+            },
+            {
+              "geom": "qyyF}zzxRFJDRPJB@Y?",
+              "is_covered": false,
+              "len_m": 48.2,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:5"
+            },
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "gyyFoyzxRIP",
+              "is_covered": false,
+              "len_m": 11.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "destination_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "DESTINATION_GRAPH_SNAP_CONNECTOR"
+            }
+          ],
+          "shortest": [
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "sezFs_{xRRp@",
+              "is_covered": false,
+              "len_m": 29.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR"
+            },
+            {
+              "geom": "_ezFa~zxRlBb@dBf@B@JK@@BBTH@?PFxAHFJDRPJB@Y?",
+              "is_covered": false,
+              "len_m": 267,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:15"
+            },
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "gyyFoyzxRIP",
+              "is_covered": false,
+              "len_m": 11.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "destination_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "DESTINATION_GRAPH_SNAP_CONNECTOR"
+            }
+          ]
+        },
+        "sheltered": "gyyFoyzxRIPmJcDlBb@dBf@B@@DZHDBVFxAB?IFJDRPJB@Y?kKcERp@",
+        "sheltered_parts": [
+          "gyyFoyzxRIP",
+          "_ezFa~zxRlBb@dBf@B@@DZHDBVFxAB?IFJDRPJB@Y?",
+          "sezFs_{xRRp@"
+        ],
+        "shortest": "gyyFoyzxRIPmJcDlBb@dBf@B@JK@@BBTH@?PFxAHFJDRPJB@Y?kKcERp@",
+        "shortest_parts": [
+          "gyyFoyzxRIP",
+          "_ezFa~zxRlBb@dBf@B@JK@@BBTH@?PFxAHFJDRPJB@Y?",
+          "sezFs_{xRRp@"
+        ]
+      },
+      "mrt:21524": {
+        "exposure_gaps": [
+          {
+            "geom": "_ezFa~zxRlBb@dBf@B@@DZH",
+            "label": "exposed gap",
+            "len_m": 147.2,
+            "part_index": 0
+          },
+          {
+            "geom": "sezFs_{xRRp@",
+            "label": "exposed gap",
+            "len_m": 29.9,
+            "part_index": 1
+          },
+          {
+            "geom": "qyyF}zzxRFJDRPJB@B?",
+            "label": "exposed gap",
+            "len_m": 37.2
+          },
+          {
+            "geom": "cwyFmyzxR@?N@TGFBGV",
+            "label": "exposed gap",
+            "len_m": 42.8
+          },
+          {
+            "geom": "ivyFowzxRp@N`@LVFd@TZRd@VLHJFj@d@NJHFJFGNB@i@fAFBINGC",
+            "label": "exposed gap",
+            "len_m": 287.5
+          },
+          {
+            "geom": "m_zFoozxRMC",
+            "label": "exposed gap",
+            "len_m": 8
+          }
+        ],
+        "route_segments": {
+          "sheltered": [
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "sezFs_{xRRp@",
+              "is_covered": false,
+              "len_m": 29.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR"
+            },
+            {
+              "geom": "_ezFa~zxRlBb@dBf@B@@DZH",
+              "is_covered": false,
+              "len_m": 147.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:5"
+            },
+            {
+              "confidence": "source_polygon_match",
+              "geom": "i}yFc{zxRDB",
+              "is_covered": true,
+              "len_m": 4.6,
+              "part_index": 0,
+              "source_class": "osm_covered",
+              "source_layer": "osm_explicit_shelter",
+              "source_summary": "osm_covered:1"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "c}yF_{zxRVFxAB?I",
+              "is_covered": true,
+              "len_m": 69.2,
+              "part_index": 0,
+              "source_class": "osm_covered",
+              "source_layer": "osm_native_covered",
+              "source_summary": "osm_covered:3"
+            },
+            {
+              "geom": "qyyF}zzxRFJDRPJB@B?",
+              "is_covered": false,
+              "len_m": 37.2,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:5"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "ixyFoyzxRd@@",
+              "is_covered": true,
+              "len_m": 20.9,
+              "part_index": 0,
+              "source_class": "bridge_underpass",
+              "source_layer": "osm_native_covered",
+              "source_summary": "bridge_underpass:1"
+            },
+            {
+              "geom": "cwyFmyzxR@?N@TGFBGV",
+              "is_covered": false,
+              "len_m": 42.8,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:5"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "{uyFwxzxRGXEL",
+              "is_covered": true,
+              "len_m": 22.6,
+              "part_index": 0,
+              "source_class": "osm_covered",
+              "source_layer": "osm_native_covered",
+              "source_summary": "osm_covered:2"
+            },
+            {
+              "geom": "ivyFowzxRp@N`@LVFd@TZRd@VLHJFj@d@NJHFJFGNB@i@fAFBINGC",
+              "is_covered": false,
+              "len_m": 287.5,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:18"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "anyFinzxREFCHCL_@[YAWAwDMa@AiAEMAa@A}AIYA",
+              "is_covered": true,
+              "len_m": 327.6,
+              "part_index": 0,
+              "source_class": "bridge_underpass",
+              "source_layer": "osm_native_covered",
+              "source_summary": "bridge_underpass:13"
+            },
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "m_zFoozxRMC",
+              "is_covered": false,
+              "len_m": 8,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "destination_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "DESTINATION_GRAPH_SNAP_CONNECTOR"
+            }
+          ],
+          "shortest": [
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "sezFs_{xRRp@",
+              "is_covered": false,
+              "len_m": 29.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR"
+            },
+            {
+              "geom": "_ezFa~zxRlBb@dBf@B@JK@@BBTH@?PFxAHFJDRPJB@B?",
+              "is_covered": false,
+              "len_m": 256,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:15"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "ixyFoyzxRd@@",
+              "is_covered": true,
+              "len_m": 20.9,
+              "part_index": 0,
+              "source_class": "bridge_underpass",
+              "source_layer": "osm_native_covered",
+              "source_summary": "bridge_underpass:1"
+            },
+            {
+              "geom": "cwyFmyzxR@?N@TGFBGV",
+              "is_covered": false,
+              "len_m": 42.8,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:5"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "{uyFwxzxRGX",
+              "is_covered": true,
+              "len_m": 14.8,
+              "part_index": 0,
+              "source_class": "osm_covered",
+              "source_layer": "osm_native_covered",
+              "source_summary": "osm_covered:1"
+            },
+            {
+              "geom": "cvyF}wzxRhAT`Bp@NNTPNLJHEDj@d@NJHFJFGNB@i@fAFBINGC",
+              "is_covered": false,
+              "len_m": 294.8,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:17"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "anyFinzxREFCHCL_@[YAWAwDMa@AiAEMAa@A}AIYA",
+              "is_covered": true,
+              "len_m": 327.6,
+              "part_index": 0,
+              "source_class": "bridge_underpass",
+              "source_layer": "osm_native_covered",
+              "source_summary": "bridge_underpass:13"
+            },
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "m_zFoozxRMC",
+              "is_covered": false,
+              "len_m": 8,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "destination_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "DESTINATION_GRAPH_SNAP_CONNECTOR"
+            }
+          ]
+        },
+        "sheltered": "m_zFoozxRMCcDmMlBb@dBf@B@@DZHDBVFxAB?IFJDRPJB@B?d@@@?N@TGFBGVGXELp@N`@LVFd@TZRd@VLHJFj@d@NJHFJFGNB@i@fAFBINGCEFCHCL_@[YAWAwDMa@AiAEMAa@A}AIYAeEcORp@",
+        "sheltered_parts": [
+          "m_zFoozxRMC",
+          "_ezFa~zxRlBb@dBf@B@@DZHDBVFxAB?IFJDRPJB@B?d@@@?N@TGFBGVGXELp@N`@LVFd@TZRd@VLHJFj@d@NJHFJFGNB@i@fAFBINGCEFCHCL_@[YAWAwDMa@AiAEMAa@A}AIYA",
+          "sezFs_{xRRp@"
+        ],
+        "shortest": "m_zFoozxRMCcDmMlBb@dBf@B@JK@@BBTH@?PFxAHFJDRPJB@B?d@@@?N@TGFBGVGXhAT`Bp@NNTPNLJHEDj@d@NJHFJFGNB@i@fAFBINGCEFCHCL_@[YAWAwDMa@AiAEMAa@A}AIYAeEcORp@",
+        "shortest_parts": [
+          "m_zFoozxRMC",
+          "_ezFa~zxRlBb@dBf@B@JK@@BBTH@?PFxAHFJDRPJB@B?d@@@?N@TGFBGVGXhAT`Bp@NNTPNLJHEDj@d@NJHFJFGNB@i@fAFBINGCEFCHCL_@[YAWAwDMa@AiAEMAa@A}AIYA",
+          "sezFs_{xRRp@"
+        ]
+      },
+      "mrt:21526": {
+        "exposure_gaps": [
+          {
+            "geom": "_ezFa~zxRlBb@dBf@B@@DZH",
+            "label": "exposed gap",
+            "len_m": 147.2,
+            "part_index": 0
+          },
+          {
+            "geom": "sezFs_{xRRp@",
+            "label": "exposed gap",
+            "len_m": 29.9,
+            "part_index": 1
+          },
+          {
+            "geom": "qyyF}zzxRFJDRPJB@B?",
+            "label": "exposed gap",
+            "len_m": 37.2
+          },
+          {
+            "geom": "cwyFmyzxR@?N@TGFBGV",
+            "label": "exposed gap",
+            "len_m": 42.8
+          },
+          {
+            "geom": "ivyFowzxRp@N`@LVFd@TZRd@VLHJFj@d@NJHFJFGNB@i@fAFBINGC",
+            "label": "exposed gap",
+            "len_m": 287.5
+          },
+          {
+            "geom": "u{yFcozxRCJ",
+            "label": "exposed gap",
+            "len_m": 7.4
+          }
+        ],
+        "route_segments": {
+          "sheltered": [
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "sezFs_{xRRp@",
+              "is_covered": false,
+              "len_m": 29.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR"
+            },
+            {
+              "geom": "_ezFa~zxRlBb@dBf@B@@DZH",
+              "is_covered": false,
+              "len_m": 147.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:5"
+            },
+            {
+              "confidence": "source_polygon_match",
+              "geom": "i}yFc{zxRDB",
+              "is_covered": true,
+              "len_m": 4.6,
+              "part_index": 0,
+              "source_class": "osm_covered",
+              "source_layer": "osm_explicit_shelter",
+              "source_summary": "osm_covered:1"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "c}yF_{zxRVFxAB?I",
+              "is_covered": true,
+              "len_m": 69.2,
+              "part_index": 0,
+              "source_class": "osm_covered",
+              "source_layer": "osm_native_covered",
+              "source_summary": "osm_covered:3"
+            },
+            {
+              "geom": "qyyF}zzxRFJDRPJB@B?",
+              "is_covered": false,
+              "len_m": 37.2,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:5"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "ixyFoyzxRd@@",
+              "is_covered": true,
+              "len_m": 20.9,
+              "part_index": 0,
+              "source_class": "bridge_underpass",
+              "source_layer": "osm_native_covered",
+              "source_summary": "bridge_underpass:1"
+            },
+            {
+              "geom": "cwyFmyzxR@?N@TGFBGV",
+              "is_covered": false,
+              "len_m": 42.8,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:5"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "{uyFwxzxRGXEL",
+              "is_covered": true,
+              "len_m": 22.6,
+              "part_index": 0,
+              "source_class": "osm_covered",
+              "source_layer": "osm_native_covered",
+              "source_summary": "osm_covered:2"
+            },
+            {
+              "geom": "ivyFowzxRp@N`@LVFd@TZRd@VLHJFj@d@NJHFJFGNB@i@fAFBINGC",
+              "is_covered": false,
+              "len_m": 287.5,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:18"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "anyFinzxREFCHCL_@[YAWAwDMa@AiAEMAa@A",
+              "is_covered": true,
+              "len_m": 260.2,
+              "part_index": 0,
+              "source_class": "bridge_underpass",
+              "source_layer": "osm_native_covered",
+              "source_summary": "bridge_underpass:11"
+            },
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "u{yFcozxRCJ",
+              "is_covered": false,
+              "len_m": 7.4,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "destination_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "DESTINATION_GRAPH_SNAP_CONNECTOR"
+            }
+          ],
+          "shortest": [
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "sezFs_{xRRp@",
+              "is_covered": false,
+              "len_m": 29.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR"
+            },
+            {
+              "geom": "_ezFa~zxRlBb@dBf@B@JK@@BBTH@?PFxAHFJDRPJB@B?",
+              "is_covered": false,
+              "len_m": 256,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:15"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "ixyFoyzxRd@@",
+              "is_covered": true,
+              "len_m": 20.9,
+              "part_index": 0,
+              "source_class": "bridge_underpass",
+              "source_layer": "osm_native_covered",
+              "source_summary": "bridge_underpass:1"
+            },
+            {
+              "geom": "cwyFmyzxR@?N@TGFBGV",
+              "is_covered": false,
+              "len_m": 42.8,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:5"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "{uyFwxzxRGX",
+              "is_covered": true,
+              "len_m": 14.8,
+              "part_index": 0,
+              "source_class": "osm_covered",
+              "source_layer": "osm_native_covered",
+              "source_summary": "osm_covered:1"
+            },
+            {
+              "geom": "cvyF}wzxRhAT`Bp@NNTPNLJHEDj@d@NJHFJFGNB@i@fAFBINGC",
+              "is_covered": false,
+              "len_m": 294.8,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:17"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "anyFinzxREFCHCL_@[YAWAwDMa@AiAEMAa@A",
+              "is_covered": true,
+              "len_m": 260.2,
+              "part_index": 0,
+              "source_class": "bridge_underpass",
+              "source_layer": "osm_native_covered",
+              "source_summary": "bridge_underpass:11"
+            },
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "u{yFcozxRCJ",
+              "is_covered": false,
+              "len_m": 7.4,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "destination_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "DESTINATION_GRAPH_SNAP_CONNECTOR"
+            }
+          ]
+        },
+        "sheltered": "u{yFcozxRCJeHiNlBb@dBf@B@@DZHDBVFxAB?IFJDRPJB@B?d@@@?N@TGFBGVGXELp@N`@LVFd@TZRd@VLHJFj@d@NJHFJFGNB@i@fAFBINGCEFCHCL_@[YAWAwDMa@AiAEMAa@A}HoORp@",
+        "sheltered_parts": [
+          "u{yFcozxRCJ",
+          "_ezFa~zxRlBb@dBf@B@@DZHDBVFxAB?IFJDRPJB@B?d@@@?N@TGFBGVGXELp@N`@LVFd@TZRd@VLHJFj@d@NJHFJFGNB@i@fAFBINGCEFCHCL_@[YAWAwDMa@AiAEMAa@A",
+          "sezFs_{xRRp@"
+        ],
+        "shortest": "u{yFcozxRCJeHiNlBb@dBf@B@JK@@BBTH@?PFxAHFJDRPJB@B?d@@@?N@TGFBGVGXhAT`Bp@NNTPNLJHEDj@d@NJHFJFGNB@i@fAFBINGCEFCHCL_@[YAWAwDMa@AiAEMAa@A}HoORp@",
+        "shortest_parts": [
+          "u{yFcozxRCJ",
+          "_ezFa~zxRlBb@dBf@B@JK@@BBTH@?PFxAHFJDRPJB@B?d@@@?N@TGFBGVGXhAT`Bp@NNTPNLJHEDj@d@NJHFJFGNB@i@fAFBINGCEFCHCL_@[YAWAwDMa@AiAEMAa@A",
+          "sezFs_{xRRp@"
+        ]
+      },
+      "mrt:21527": {
+        "exposure_gaps": [
+          {
+            "geom": "_ezFa~zxRgASCBABKNWZEFGFH@B@NBZFJ@f@J`B^j@PCjAF@\\DENCJCRK`@@HBLP^CX",
+            "label": "exposed gap",
+            "len_m": 394.8,
+            "part_index": 0
+          },
+          {
+            "geom": "sezFs_{xRRp@",
+            "label": "exposed gap",
+            "len_m": 29.9,
+            "part_index": 1
+          },
+          {
+            "geom": "_~yFwnzxRK?",
+            "label": "exposed gap",
+            "len_m": 6.5,
+            "part_index": 0
+          },
+          {
+            "geom": "u_zFcqzxRTFBFXn@@J",
+            "label": "exposed gap",
+            "len_m": 55.4,
+            "part_index": 1
+          }
+        ],
+        "route_segments": {
+          "sheltered": [
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "sezFs_{xRRp@",
+              "is_covered": false,
+              "len_m": 29.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR"
+            },
+            {
+              "geom": "_ezFa~zxRgASCBABKNWZEFGFH@B@NBZFJ@f@J`B^j@PCjAF@\\DENCJCRK`@@HBLP^CX",
+              "is_covered": false,
+              "len_m": 395.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:26"
+            },
+            {
+              "confidence": "source_polygon_match",
+              "geom": "g`zFirzxRPd@",
+              "is_covered": true,
+              "len_m": 23.9,
+              "part_index": 0,
+              "source_class": "osm_covered",
+              "source_layer": "osm_building_roof",
+              "source_summary": "osm_covered:1"
+            },
+            {
+              "geom": "u_zFcqzxRTFBFXn@@J",
+              "is_covered": false,
+              "len_m": 55.5,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:4"
+            },
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "_~yFwnzxRK?",
+              "is_covered": false,
+              "len_m": 6.5,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "destination_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "DESTINATION_GRAPH_SNAP_CONNECTOR"
+            }
+          ],
+          "shortest": [
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "sezFs_{xRRp@",
+              "is_covered": false,
+              "len_m": 29.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR"
+            },
+            {
+              "geom": "_ezFa~zxRgASCBABKNWZEFGFH@B@NBZFJ@f@J`B^j@PCjAF@\\DENCJCRK`@@HBLP^HTXp@BFXn@@J",
+              "is_covered": false,
+              "len_m": 468.4,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:30"
+            },
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "_~yFwnzxRK?",
+              "is_covered": false,
+              "len_m": 6.5,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "destination_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "DESTINATION_GRAPH_SNAP_CONNECTOR"
+            }
+          ]
+        },
+        "sheltered": "_~yFwnzxRK?sEiNgASCBABKNWZEFGFH@B@NBZFJ@f@J`B^j@PCjAF@\\DENCJCRK`@@HBLP^CXPd@TFBFXn@@JsF{ORp@",
+        "sheltered_parts": [
+          "_~yFwnzxRK?",
+          "_ezFa~zxRgASCBABKNWZEFGFH@B@NBZFJ@f@J`B^j@PCjAF@\\DENCJCRK`@@HBLP^CXPd@TFBFXn@@J",
+          "sezFs_{xRRp@"
+        ],
+        "shortest": "_~yFwnzxRK?sEiNgASCBABKNWZEFGFH@B@NBZFJ@f@J`B^j@PCjAF@\\DENCJCRK`@@HBLP^HTXp@BFXn@@JsF{ORp@",
+        "shortest_parts": [
+          "_~yFwnzxRK?",
+          "_ezFa~zxRgASCBABKNWZEFGFH@B@NBZFJ@f@J`B^j@PCjAF@\\DENCJCRK`@@HBLP^HTXp@BFXn@@J",
+          "sezFs_{xRRp@"
+        ]
+      }
+    },
+    "exposure_gaps": [
+      {
+        "geom": "_ezFa~zxRlBb@dBf@B@@DZH",
+        "label": "exposed gap near 1.28557, 103.85377",
+        "len_m": 147.2,
+        "part_index": 0
+      },
+      {
+        "geom": "sezFs_{xRRp@",
+        "label": "exposed gap near 1.28557, 103.85377",
+        "len_m": 29.9,
+        "part_index": 1
+      },
+      {
+        "geom": "qyyF}zzxRFJDRPJB@B?",
+        "label": "exposed gap near 1.28417, 103.85329",
+        "len_m": 37.2
+      },
+      {
+        "geom": "cwyFmyzxR@?N@TGGXa@~A",
+        "label": "exposed gap near 1.28376, 103.85298",
+        "len_m": 93.8
+      },
+      {
+        "geom": "svyF}uzxR]IAF",
+        "label": "exposed gap near 1.28388, 103.85266",
+        "len_m": 22.4
+      },
+      {
+        "geom": "}xyFunzxRBD",
+        "label": "exposed gap near 1.28435, 103.85154",
+        "len_m": 4.3,
+        "part_index": 0
+      },
+      {
+        "geom": "kzyFepzxR?BI?CXAL|@B",
+        "label": "exposed gap near 1.28435, 103.85154",
+        "len_m": 65,
+        "part_index": 1
+      }
+    ],
+    "postal": "049213",
+    "route_options": {
+      "best_transit": {
+        "exposure_gaps": [
+          {
+            "geom": "_ezFa~zxRlBb@dBf@B@@DZH",
+            "label": "exposed gap near 1.28557, 103.85377",
+            "len_m": 147.2,
+            "part_index": 0
+          },
+          {
+            "geom": "sezFs_{xRRp@",
+            "label": "exposed gap near 1.28557, 103.85377",
+            "len_m": 29.9,
+            "part_index": 1
+          },
+          {
+            "geom": "qyyF}zzxRFJDRPJB@B?",
+            "label": "exposed gap near 1.28417, 103.85329",
+            "len_m": 37.2
+          },
+          {
+            "geom": "cwyFmyzxR@?N@TGGXa@~A",
+            "label": "exposed gap near 1.28376, 103.85298",
+            "len_m": 93.8
+          },
+          {
+            "geom": "svyF}uzxR]IAF",
+            "label": "exposed gap near 1.28388, 103.85266",
+            "len_m": 22.4
+          },
+          {
+            "geom": "}xyFunzxRBD",
+            "label": "exposed gap near 1.28435, 103.85154",
+            "len_m": 4.3,
+            "part_index": 0
+          },
+          {
+            "geom": "kzyFepzxR?BI?CXAL|@B",
+            "label": "exposed gap near 1.28435, 103.85154",
+            "len_m": 65,
+            "part_index": 1
+          }
+        ],
+        "route_segments": {
+          "sheltered": [
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "sezFs_{xRRp@",
+              "is_covered": false,
+              "len_m": 29.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR"
+            },
+            {
+              "geom": "_ezFa~zxRlBb@dBf@B@@DZH",
+              "is_covered": false,
+              "len_m": 147.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:5"
+            },
+            {
+              "confidence": "source_polygon_match",
+              "geom": "i}yFc{zxRDB",
+              "is_covered": true,
+              "len_m": 4.6,
+              "part_index": 0,
+              "source_class": "osm_covered",
+              "source_layer": "osm_explicit_shelter",
+              "source_summary": "osm_covered:1"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "c}yF_{zxRVFxAB?I",
+              "is_covered": true,
+              "len_m": 69.2,
+              "part_index": 0,
+              "source_class": "osm_covered",
+              "source_layer": "osm_native_covered",
+              "source_summary": "osm_covered:3"
+            },
+            {
+              "geom": "qyyF}zzxRFJDRPJB@B?",
+              "is_covered": false,
+              "len_m": 37.2,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:5"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "ixyFoyzxRd@@",
+              "is_covered": true,
+              "len_m": 20.9,
+              "part_index": 0,
+              "source_class": "bridge_underpass",
+              "source_layer": "osm_native_covered",
+              "source_summary": "bridge_underpass:1"
+            },
+            {
+              "geom": "cwyFmyzxR@?N@TGGXa@~A",
+              "is_covered": false,
+              "len_m": 93.8,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:5"
+            },
+            {
+              "confidence": "source_polygon_match",
+              "geom": "ewyFyuzxRLBBG",
+              "is_covered": true,
+              "len_m": 12.6,
+              "part_index": 0,
+              "source_class": "bridge_underpass",
+              "source_layer": "overhead_bridge_underpass",
+              "source_summary": "bridge_underpass:2"
+            },
+            {
+              "geom": "svyF}uzxR]IAF",
+              "is_covered": false,
+              "len_m": 22.4,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:2"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "swyF_vzxRWhAk@METMfB",
+              "is_covered": true,
+              "len_m": 139.3,
+              "part_index": 0,
+              "source_class": "osm_covered",
+              "source_layer": "osm_native_covered",
+              "source_summary": "osm_covered:4"
+            },
+            {
+              "geom": "kzyFepzxR?BI?CXAL|@B",
+              "is_covered": false,
+              "len_m": 65.1,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:5"
+            },
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "}xyFunzxRBD",
+              "is_covered": false,
+              "len_m": 4.3,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "destination_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "DESTINATION_GRAPH_SNAP_CONNECTOR"
+            }
+          ],
+          "shortest": [
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "sezFs_{xRRp@",
+              "is_covered": false,
+              "len_m": 29.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR"
+            },
+            {
+              "geom": "_ezFa~zxRgASCBABKNWZEFGFH@B@NBZFJ@f@J`B^j@PCjAF@\\DENCJHBEPADCPFJZbAZ~@j@FP^BAp@DAL|@B",
+              "is_covered": false,
+              "len_m": 551.8,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:33"
+            },
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "}xyFunzxRBD",
+              "is_covered": false,
+              "len_m": 4.3,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "destination_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "DESTINATION_GRAPH_SNAP_CONNECTOR"
+            }
+          ]
+        },
+        "sheltered": "}xyFunzxRBDeKqNlBb@dBf@B@@DZHDBVFxAB?IFJDRPJB@B?d@@@?N@TGGXa@~ALBBG]IAFWhAk@METMfB?BI?CXAL|@BuK}ORp@",
+        "sheltered_parts": [
+          "}xyFunzxRBD",
+          "_ezFa~zxRlBb@dBf@B@@DZHDBVFxAB?IFJDRPJB@B?d@@@?N@TGGXa@~ALBBG]IAFWhAk@METMfB?BI?CXAL|@B",
+          "sezFs_{xRRp@"
+        ],
+        "shortest": "}xyFunzxRBDeKqNgASCBABKNWZEFGFH@B@NBZFJ@f@J`B^j@PCjAF@\\DENCJHBEPADCPFJZbAZ~@j@FP^BAp@DAL|@BuK}ORp@",
+        "shortest_parts": [
+          "}xyFunzxRBD",
+          "_ezFa~zxRgASCBABKNWZEFGFH@B@NBZFJ@f@J`B^j@PCjAF@\\DENCJHBEPADCPFJZbAZ~@j@FP^BAp@DAL|@B",
+          "sezFs_{xRRp@"
+        ]
+      },
+      "bus": {
+        "exposure_gaps": [],
+        "route_segments": {
+          "sheltered": [
+            {
+              "confidence": "partial_unrouted",
+              "geom": "sezFs_{xRnBvC",
+              "is_covered": false,
+              "len_m": 104.9,
+              "part_index": 0,
+              "source_class": "direct_unrouted_bus",
+              "source_layer": "direct_bus_fallback",
+              "source_summary": "direct_unrouted_bus:1",
+              "synth_class": "unrouted_straight_line"
+            }
+          ],
+          "shortest": [
+            {
+              "confidence": "partial_unrouted",
+              "geom": "sezFs_{xRnBvC",
+              "is_covered": false,
+              "len_m": 104.9,
+              "part_index": 0,
+              "source_class": "direct_unrouted_bus",
+              "source_layer": "direct_bus_fallback",
+              "source_summary": "direct_unrouted_bus:1",
+              "synth_class": "unrouted_straight_line"
+            }
+          ]
+        },
+        "sheltered": "sezFs_{xRnBvC",
+        "shortest": "sezFs_{xRnBvC"
+      },
+      "mrt_lrt": {
+        "exposure_gaps": [
+          {
+            "geom": "_ezFa~zxRlBb@dBf@B@@DZH",
+            "label": "exposed gap near 1.28557, 103.85377",
+            "len_m": 147.2,
+            "part_index": 0
+          },
+          {
+            "geom": "sezFs_{xRRp@",
+            "label": "exposed gap near 1.28557, 103.85377",
+            "len_m": 29.9,
+            "part_index": 1
+          },
+          {
+            "geom": "qyyF}zzxRFJDRPJB@B?",
+            "label": "exposed gap near 1.28417, 103.85329",
+            "len_m": 37.2
+          },
+          {
+            "geom": "cwyFmyzxR@?N@TGGXa@~A",
+            "label": "exposed gap near 1.28376, 103.85298",
+            "len_m": 93.8
+          },
+          {
+            "geom": "svyF}uzxR]IAF",
+            "label": "exposed gap near 1.28388, 103.85266",
+            "len_m": 22.4
+          },
+          {
+            "geom": "}xyFunzxRBD",
+            "label": "exposed gap near 1.28435, 103.85154",
+            "len_m": 4.3,
+            "part_index": 0
+          },
+          {
+            "geom": "kzyFepzxR?BI?CXAL|@B",
+            "label": "exposed gap near 1.28435, 103.85154",
+            "len_m": 65,
+            "part_index": 1
+          }
+        ],
+        "route_segments": {
+          "sheltered": [
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "sezFs_{xRRp@",
+              "is_covered": false,
+              "len_m": 29.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR"
+            },
+            {
+              "geom": "_ezFa~zxRlBb@dBf@B@@DZH",
+              "is_covered": false,
+              "len_m": 147.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:5"
+            },
+            {
+              "confidence": "source_polygon_match",
+              "geom": "i}yFc{zxRDB",
+              "is_covered": true,
+              "len_m": 4.6,
+              "part_index": 0,
+              "source_class": "osm_covered",
+              "source_layer": "osm_explicit_shelter",
+              "source_summary": "osm_covered:1"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "c}yF_{zxRVFxAB?I",
+              "is_covered": true,
+              "len_m": 69.2,
+              "part_index": 0,
+              "source_class": "osm_covered",
+              "source_layer": "osm_native_covered",
+              "source_summary": "osm_covered:3"
+            },
+            {
+              "geom": "qyyF}zzxRFJDRPJB@B?",
+              "is_covered": false,
+              "len_m": 37.2,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:5"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "ixyFoyzxRd@@",
+              "is_covered": true,
+              "len_m": 20.9,
+              "part_index": 0,
+              "source_class": "bridge_underpass",
+              "source_layer": "osm_native_covered",
+              "source_summary": "bridge_underpass:1"
+            },
+            {
+              "geom": "cwyFmyzxR@?N@TGGXa@~A",
+              "is_covered": false,
+              "len_m": 93.8,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:5"
+            },
+            {
+              "confidence": "source_polygon_match",
+              "geom": "ewyFyuzxRLBBG",
+              "is_covered": true,
+              "len_m": 12.6,
+              "part_index": 0,
+              "source_class": "bridge_underpass",
+              "source_layer": "overhead_bridge_underpass",
+              "source_summary": "bridge_underpass:2"
+            },
+            {
+              "geom": "svyF}uzxR]IAF",
+              "is_covered": false,
+              "len_m": 22.4,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:2"
+            },
+            {
+              "confidence": "osm_tag",
+              "geom": "swyF_vzxRWhAk@METMfB",
+              "is_covered": true,
+              "len_m": 139.3,
+              "part_index": 0,
+              "source_class": "osm_covered",
+              "source_layer": "osm_native_covered",
+              "source_summary": "osm_covered:4"
+            },
+            {
+              "geom": "kzyFepzxR?BI?CXAL|@B",
+              "is_covered": false,
+              "len_m": 65.1,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:5"
+            },
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "}xyFunzxRBD",
+              "is_covered": false,
+              "len_m": 4.3,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "destination_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "DESTINATION_GRAPH_SNAP_CONNECTOR"
+            }
+          ],
+          "shortest": [
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "sezFs_{xRRp@",
+              "is_covered": false,
+              "len_m": 29.9,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR"
+            },
+            {
+              "geom": "_ezFa~zxRgASCBABKNWZEFGFH@B@NBZFJ@f@J`B^j@PCjAF@\\DENCJHBEPADCPFJZbAZ~@j@FP^BAp@DAL|@B",
+              "is_covered": false,
+              "len_m": 551.8,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_summary": "exposed:33"
+            },
+            {
+              "confidence": "inferred_endpoint_snap",
+              "geom": "}xyFunzxRBD",
+              "is_covered": false,
+              "len_m": 4.3,
+              "part_index": 0,
+              "source_class": "exposed",
+              "source_layer": "destination_graph_snap_connector",
+              "source_summary": "exposed:1",
+              "synth_class": "DESTINATION_GRAPH_SNAP_CONNECTOR"
+            }
+          ]
+        },
+        "sheltered": "}xyFunzxRBDeKqNlBb@dBf@B@@DZHDBVFxAB?IFJDRPJB@B?d@@@?N@TGGXa@~ALBBG]IAFWhAk@METMfB?BI?CXAL|@BuK}ORp@",
+        "sheltered_parts": [
+          "}xyFunzxRBD",
+          "_ezFa~zxRlBb@dBf@B@@DZHDBVFxAB?IFJDRPJB@B?d@@@?N@TGGXa@~ALBBG]IAFWhAk@METMfB?BI?CXAL|@B",
+          "sezFs_{xRRp@"
+        ],
+        "shortest": "}xyFunzxRBDeKqNgASCBABKNWZEFGFH@B@NBZFJ@f@J`B^j@PCjAF@\\DENCJHBEPADCPFJZbAZ~@j@FP^BAp@DAL|@BuK}ORp@",
+        "shortest_parts": [
+          "}xyFunzxRBD",
+          "_ezFa~zxRgASCBABKNWZEFGFH@B@NBZFJ@f@J`B^j@PCjAF@\\DENCJHBEPADCPFJZbAZ~@j@FP^BAp@DAL|@B",
+          "sezFs_{xRRp@"
+        ]
+      }
+    },
+    "route_segments": {
+      "sheltered": [
+        {
+          "confidence": "inferred_endpoint_snap",
+          "geom": "sezFs_{xRRp@",
+          "is_covered": false,
+          "len_m": 29.9,
+          "part_index": 0,
+          "source_class": "exposed",
+          "source_layer": "origin_graph_snap_connector",
+          "source_summary": "exposed:1",
+          "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR"
+        },
+        {
+          "geom": "_ezFa~zxRlBb@dBf@B@@DZH",
+          "is_covered": false,
+          "len_m": 147.9,
+          "part_index": 0,
+          "source_class": "exposed",
+          "source_summary": "exposed:5"
+        },
+        {
+          "confidence": "source_polygon_match",
+          "geom": "i}yFc{zxRDB",
+          "is_covered": true,
+          "len_m": 4.6,
+          "part_index": 0,
+          "source_class": "osm_covered",
+          "source_layer": "osm_explicit_shelter",
+          "source_summary": "osm_covered:1"
+        },
+        {
+          "confidence": "osm_tag",
+          "geom": "c}yF_{zxRVFxAB?I",
+          "is_covered": true,
+          "len_m": 69.2,
+          "part_index": 0,
+          "source_class": "osm_covered",
+          "source_layer": "osm_native_covered",
+          "source_summary": "osm_covered:3"
+        },
+        {
+          "geom": "qyyF}zzxRFJDRPJB@B?",
+          "is_covered": false,
+          "len_m": 37.2,
+          "part_index": 0,
+          "source_class": "exposed",
+          "source_summary": "exposed:5"
+        },
+        {
+          "confidence": "osm_tag",
+          "geom": "ixyFoyzxRd@@",
+          "is_covered": true,
+          "len_m": 20.9,
+          "part_index": 0,
+          "source_class": "bridge_underpass",
+          "source_layer": "osm_native_covered",
+          "source_summary": "bridge_underpass:1"
+        },
+        {
+          "geom": "cwyFmyzxR@?N@TGGXa@~A",
+          "is_covered": false,
+          "len_m": 93.8,
+          "part_index": 0,
+          "source_class": "exposed",
+          "source_summary": "exposed:5"
+        },
+        {
+          "confidence": "source_polygon_match",
+          "geom": "ewyFyuzxRLBBG",
+          "is_covered": true,
+          "len_m": 12.6,
+          "part_index": 0,
+          "source_class": "bridge_underpass",
+          "source_layer": "overhead_bridge_underpass",
+          "source_summary": "bridge_underpass:2"
+        },
+        {
+          "geom": "svyF}uzxR]IAF",
+          "is_covered": false,
+          "len_m": 22.4,
+          "part_index": 0,
+          "source_class": "exposed",
+          "source_summary": "exposed:2"
+        },
+        {
+          "confidence": "osm_tag",
+          "geom": "swyF_vzxRWhAk@METMfB",
+          "is_covered": true,
+          "len_m": 139.3,
+          "part_index": 0,
+          "source_class": "osm_covered",
+          "source_layer": "osm_native_covered",
+          "source_summary": "osm_covered:4"
+        },
+        {
+          "geom": "kzyFepzxR?BI?CXAL|@B",
+          "is_covered": false,
+          "len_m": 65.1,
+          "part_index": 0,
+          "source_class": "exposed",
+          "source_summary": "exposed:5"
+        },
+        {
+          "confidence": "inferred_endpoint_snap",
+          "geom": "}xyFunzxRBD",
+          "is_covered": false,
+          "len_m": 4.3,
+          "part_index": 0,
+          "source_class": "exposed",
+          "source_layer": "destination_graph_snap_connector",
+          "source_summary": "exposed:1",
+          "synth_class": "DESTINATION_GRAPH_SNAP_CONNECTOR"
+        }
+      ],
+      "shortest": [
+        {
+          "confidence": "inferred_endpoint_snap",
+          "geom": "sezFs_{xRRp@",
+          "is_covered": false,
+          "len_m": 29.9,
+          "part_index": 0,
+          "source_class": "exposed",
+          "source_layer": "origin_graph_snap_connector",
+          "source_summary": "exposed:1",
+          "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR"
+        },
+        {
+          "geom": "_ezFa~zxRgASCBABKNWZEFGFH@B@NBZFJ@f@J`B^j@PCjAF@\\DENCJHBEPADCPFJZbAZ~@j@FP^BAp@DAL|@B",
+          "is_covered": false,
+          "len_m": 551.8,
+          "part_index": 0,
+          "source_class": "exposed",
+          "source_summary": "exposed:33"
+        },
+        {
+          "confidence": "inferred_endpoint_snap",
+          "geom": "}xyFunzxRBD",
+          "is_covered": false,
+          "len_m": 4.3,
+          "part_index": 0,
+          "source_class": "exposed",
+          "source_layer": "destination_graph_snap_connector",
+          "source_summary": "exposed:1",
+          "synth_class": "DESTINATION_GRAPH_SNAP_CONNECTOR"
+        }
+      ]
+    },
+    "sheltered": "}xyFunzxRBDeKqNlBb@dBf@B@@DZHDBVFxAB?IFJDRPJB@B?d@@@?N@TGGXa@~ALBBG]IAFWhAk@METMfB?BI?CXAL|@BuK}ORp@",
+    "sheltered_parts": [
+      "}xyFunzxRBD",
+      "_ezFa~zxRlBb@dBf@B@@DZHDBVFxAB?IFJDRPJB@B?d@@@?N@TGGXa@~ALBBG]IAFWhAk@METMfB?BI?CXAL|@B",
+      "sezFs_{xRRp@"
+    ],
+    "shortest": "}xyFunzxRBDeKqNgASCBABKNWZEFGFH@B@NBZFJ@f@J`B^j@PCjAF@\\DENCJHBEPADCPFJZbAZ~@j@FP^BAp@DAL|@BuK}ORp@",
+    "shortest_parts": [
+      "}xyFunzxRBD",
+      "_ezFa~zxRgASCBABKNWZEFGFH@B@NBZFJ@f@J`B^j@PCjAF@\\DENCJHBEPADCPFJZbAZ~@j@FP^BAp@DAL|@B",
+      "sezFs_{xRRp@"
+    ]
+  }
+}

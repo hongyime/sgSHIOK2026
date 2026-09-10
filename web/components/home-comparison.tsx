@@ -121,6 +121,21 @@ export function HomeComparison({
     onRetry(postal);
   }
 
+  function revealTableFocus(event: React.FocusEvent<HTMLElement>) {
+    const scroller = panel.current;
+    const target = event.target;
+    if (!scroller || !target.isConnected || !scroller.contains(target)
+      || !target.closest("td, [data-comparison-heading]")) return;
+    const bounds = scroller.getBoundingClientRect();
+    const sticky = scroller.querySelector("thead th:first-child")?.getBoundingClientRect();
+    const left = Math.max(bounds.left + scroller.clientLeft, sticky?.right ?? bounds.left) + 4;
+    const right = bounds.left + scroller.clientLeft + scroller.clientWidth - 4;
+    const focused = target.getBoundingClientRect();
+    // Native focus scrolling does not account for the sticky row-label column.
+    const delta = focused.left < left ? focused.left - left : Math.max(0, focused.right - right);
+    if (delta) scroller.scrollLeft = Math.max(0, scroller.scrollLeft + delta);
+  }
+
   const columns = postals.map(postal => {
     const entry = entries[postal]?.postal === postal ? entries[postal] : undefined;
     const row = entry?.status === "ready" && entry.row?.postal === postal && entry.row.category === state.category
@@ -140,6 +155,7 @@ export function HomeComparison({
       tabIndex={-1}
       data-comparison-panel
       data-map-overlay="bottom"
+      onFocusCapture={revealTableFocus}
       onKeyDown={event => {
         if (event.key !== "Escape") return;
         event.stopPropagation();

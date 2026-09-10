@@ -243,6 +243,37 @@ describe('renderer startup is independent of basemap transport', () => {
   });
 });
 
+describe('T25: selection changes before passive effects have flushed', () => {
+  function renderWithoutEffects(update: Partial<Props>) {
+    props={...props,...update};
+    hooks.begin();
+    const tree=RouteEvidenceMap(props);
+    tree.props.children[0].props.ref.current=container;
+  }
+
+  it.each(['route', 'context'])('basemap recovery cannot publish stale readiness after a %s change', async change => {
+    map.basemapLoaded=false;await mount();map.render();vi.advanceTimersByTime(30_000);
+    const status=props.onStatusChange as ReturnType<typeof vi.fn>;status.mockClear();
+    renderWithoutEffects(change==='route'
+      ? {routes:props.routes.map(route=>({...route,id:'replacement'}))}
+      : {diagnosticContext:{selection:'replacement'}});
+    map.basemapLoaded=true;map.emit('sourcedata',{sourceId:'onemap'});
+    expect(status).not.toHaveBeenCalled();
+    render();map.render();
+    expect(status).toHaveBeenLastCalledWith('ready',undefined);
+  });
+
+  it('an old render callback cannot prove a replacement with the same diagnostic context', async () => {
+    await mount();
+    const status=props.onStatusChange as ReturnType<typeof vi.fn>;status.mockClear();
+    renderWithoutEffects({routes:props.routes.map(route=>({...route,id:'replacement'}))});
+    map.render();
+    expect(status).not.toHaveBeenCalled();
+    render();map.render();
+    expect(status).toHaveBeenLastCalledWith('ready',undefined);
+  });
+});
+
 describe('M01/M08/M11: bounded map startup in the executed component', () => {
   it.each([true, false])('times out a silent startup with a selected walk=%s', async selected => {
     if (!selected) props = { ...props, routes: [] };

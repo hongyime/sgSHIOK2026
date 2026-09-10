@@ -1289,6 +1289,15 @@ export function RouteEvidenceMap({
     () => currentExposureFocus(requestedExposureGap, mappedExposureContextKey, routes, mode),
     [focusSignature, mappedExposureContextKey, routeKey]
   );
+  // Invalidate readiness during render, before the previous probe effect cleans up.
+  const visibilityOwner = useMemo(() => ({}),
+    [loaded, sourceGeneration, routeKey, viewport, focusedExposureGap, diagnosticContext]);
+  const currentVisibilityOwnerRef = useRef(visibilityOwner);
+  const visibleOwnerRef = useRef<object | null>(null);
+  currentVisibilityOwnerRef.current = visibilityOwner;
+  function currentRouteIsVisible() {
+    return routeVisibleRef.current && visibleOwnerRef.current === currentVisibilityOwnerRef.current;
+  }
   const activeGapData = useMemo(
     () => activeExposureGapCollection(focusedExposureGap),
     [focusedExposureGap]
@@ -1468,7 +1477,7 @@ export function RouteEvidenceMap({
         const issue: RouteMapIssue = { stage: tileFailure ? "basemap-tiles" : "route-render", reason: "error", elapsedMs: elapsedMs() };
         mapProblemRef.current = { status, message, issue };
         // A tile event must not downgrade a missing selected-route failure.
-        if (tileFailure && initialLoadComplete && hasSelectedRouteRef.current && !routeVisibleRef.current) return;
+        if (tileFailure && initialLoadComplete && hasSelectedRouteRef.current && !currentRouteIsVisible()) return;
         onStatusChangeRef.current?.(status, message, undefined, issue);
       });
     }
@@ -1502,7 +1511,7 @@ export function RouteEvidenceMap({
     let active = true;
     let timer: ReturnType<typeof setTimeout> | undefined;
     const current = () => active && mapRef.current === map && map.getSource("onemap") === source;
-    const canReport = () => !hasSelectedRouteRef.current || routeVisibleRef.current;
+    const canReport = () => !hasSelectedRouteRef.current || currentRouteIsVisible();
     const settled = () => {
       if (!current() || !map.isSourceLoaded("onemap")) return;
       clearTimeout(timer);
@@ -1511,7 +1520,7 @@ export function RouteEvidenceMap({
       // explicit tile errors retain Retry, and unrelated failures keep their owner.
       if (problem?.issue.stage !== "basemap-tiles" || problem.issue.reason !== "timeout") return;
       mapProblemRef.current = null;
-      if (canReport()) reportMapStatus(routeVisibleRef.current ? "ready" : "idle");
+      if (canReport()) reportMapStatus(currentRouteIsVisible() ? "ready" : "idle");
     };
     map.on("sourcedata", settled);
     if (!map.isSourceLoaded("onemap")) {
@@ -1738,12 +1747,13 @@ export function RouteEvidenceMap({
       key: routeKey, layers: ["shiokest-route-line", "shortest-route-line"],
       box: usableMapBox(viewport.width, viewport.height, viewport.padding),
       ready: () => {
-        if (diagnosticContextRef.current !== probeContext) return;
+        if (diagnosticContextRef.current !== probeContext || currentVisibilityOwnerRef.current !== visibilityOwner) return;
+        visibleOwnerRef.current = visibilityOwner;
         routeVisibleRef.current = true;
         reportMapStatus("ready");
       },
       timeout: () => {
-        if (diagnosticContextRef.current !== probeContext) return;
+        if (diagnosticContextRef.current !== probeContext || currentVisibilityOwnerRef.current !== visibilityOwner) return;
         // Keep global failure ownership instead of replacing it with a route probe.
         if (mapProblemRef.current?.status === "error") {
           reportMapStatus("error");
@@ -1762,7 +1772,7 @@ export function RouteEvidenceMap({
     };
     map.on("movestart", onGesture);
     return () => { cancel(); map.off("movestart", onGesture); };
-  }, [loaded, sourceGeneration, routeKey, viewport, focusedExposureGap, diagnosticContext]);
+  }, [loaded, sourceGeneration, routeKey, viewport, focusedExposureGap, diagnosticContext, visibilityOwner]);
 
   useEffect(() => {
     if (retryKey === handledRetryKeyRef.current) return;

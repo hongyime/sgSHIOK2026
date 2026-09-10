@@ -1,0 +1,212 @@
+diff --git a/web/components/home-comparison.tsx b/web/components/home-comparison.tsx
+index 4776eaf..524e438 100644
+--- a/web/components/home-comparison.tsx
++++ b/web/components/home-comparison.tsx
+@@ -121,6 +121,21 @@ export function HomeComparison({
+     onRetry(postal);
+   }
+ 
++  function revealTableFocus(event: React.FocusEvent<HTMLElement>) {
++    const scroller = panel.current;
++    const target = event.target;
++    if (!scroller || !target.isConnected || !scroller.contains(target)
++      || !target.closest("td, [data-comparison-heading]")) return;
++    const bounds = scroller.getBoundingClientRect();
++    const sticky = scroller.querySelector("thead th:first-child")?.getBoundingClientRect();
++    const left = Math.max(bounds.left + scroller.clientLeft, sticky?.right ?? bounds.left) + 4;
++    const right = bounds.left + scroller.clientLeft + scroller.clientWidth - 4;
++    const focused = target.getBoundingClientRect();
++    // Native focus scrolling does not account for the sticky row-label column.
++    const delta = focused.left < left ? focused.left - left : Math.max(0, focused.right - right);
++    if (delta) scroller.scrollLeft = Math.max(0, scroller.scrollLeft + delta);
++  }
++
+   const columns = postals.map(postal => {
+     const entry = entries[postal]?.postal === postal ? entries[postal] : undefined;
+     const row = entry?.status === "ready" && entry.row?.postal === postal && entry.row.category === state.category
+@@ -140,6 +155,7 @@ export function HomeComparison({
+       tabIndex={-1}
+       data-comparison-panel
+       data-map-overlay="bottom"
++      onFocusCapture={revealTableFocus}
+       onKeyDown={event => {
+         if (event.key !== "Escape") return;
+         event.stopPropagation();
+diff --git a/web/components/route-evidence-map.tsx b/web/components/route-evidence-map.tsx
+index d6c14e6..9299c60 100644
+--- a/web/components/route-evidence-map.tsx
++++ b/web/components/route-evidence-map.tsx
+@@ -1289,6 +1289,15 @@ export function RouteEvidenceMap({
+     () => currentExposureFocus(requestedExposureGap, mappedExposureContextKey, routes, mode),
+     [focusSignature, mappedExposureContextKey, routeKey]
+   );
++  // Invalidate readiness during render, before the previous probe effect cleans up.
++  const visibilityOwner = useMemo(() => ({}),
++    [loaded, sourceGeneration, routeKey, viewport, focusedExposureGap, diagnosticContext]);
++  const currentVisibilityOwnerRef = useRef(visibilityOwner);
++  const visibleOwnerRef = useRef<object | null>(null);
++  currentVisibilityOwnerRef.current = visibilityOwner;
++  function currentRouteIsVisible() {
++    return routeVisibleRef.current && visibleOwnerRef.current === currentVisibilityOwnerRef.current;
++  }
+   const activeGapData = useMemo(
+     () => activeExposureGapCollection(focusedExposureGap),
+     [focusedExposureGap]
+@@ -1468,7 +1477,7 @@ export function RouteEvidenceMap({
+         const issue: RouteMapIssue = { stage: tileFailure ? "basemap-tiles" : "route-render", reason: "error", elapsedMs: elapsedMs() };
+         mapProblemRef.current = { status, message, issue };
+         // A tile event must not downgrade a missing selected-route failure.
+-        if (tileFailure && initialLoadComplete && hasSelectedRouteRef.current && !routeVisibleRef.current) return;
++        if (tileFailure && initialLoadComplete && hasSelectedRouteRef.current && !currentRouteIsVisible()) return;
+         onStatusChangeRef.current?.(status, message, undefined, issue);
+       });
+     }
+@@ -1502,7 +1511,7 @@ export function RouteEvidenceMap({
+     let active = true;
+     let timer: ReturnType<typeof setTimeout> | undefined;
+     const current = () => active && mapRef.current === map && map.getSource("onemap") === source;
+-    const canReport = () => !hasSelectedRouteRef.current || routeVisibleRef.current;
++    const canReport = () => !hasSelectedRouteRef.current || currentRouteIsVisible();
+     const settled = () => {
+       if (!current() || !map.isSourceLoaded("onemap")) return;
+       clearTimeout(timer);
+@@ -1511,7 +1520,7 @@ export function RouteEvidenceMap({
+       // explicit tile errors retain Retry, and unrelated failures keep their owner.
+       if (problem?.issue.stage !== "basemap-tiles" || problem.issue.reason !== "timeout") return;
+       mapProblemRef.current = null;
+-      if (canReport()) reportMapStatus(routeVisibleRef.current ? "ready" : "idle");
++      if (canReport()) reportMapStatus(currentRouteIsVisible() ? "ready" : "idle");
+     };
+     map.on("sourcedata", settled);
+     if (!map.isSourceLoaded("onemap")) {
+@@ -1738,12 +1747,13 @@ export function RouteEvidenceMap({
+       key: routeKey, layers: ["shiokest-route-line", "shortest-route-line"],
+       box: usableMapBox(viewport.width, viewport.height, viewport.padding),
+       ready: () => {
+-        if (diagnosticContextRef.current !== probeContext) return;
++        if (diagnosticContextRef.current !== probeContext || currentVisibilityOwnerRef.current !== visibilityOwner) return;
++        visibleOwnerRef.current = visibilityOwner;
+         routeVisibleRef.current = true;
+         reportMapStatus("ready");
+       },
+       timeout: () => {
+-        if (diagnosticContextRef.current !== probeContext) return;
++        if (diagnosticContextRef.current !== probeContext || currentVisibilityOwnerRef.current !== visibilityOwner) return;
+         // Keep global failure ownership instead of replacing it with a route probe.
+         if (mapProblemRef.current?.status === "error") {
+           reportMapStatus("error");
+@@ -1762,7 +1772,7 @@ export function RouteEvidenceMap({
+     };
+     map.on("movestart", onGesture);
+     return () => { cancel(); map.off("movestart", onGesture); };
+-  }, [loaded, sourceGeneration, routeKey, viewport, focusedExposureGap, diagnosticContext]);
++  }, [loaded, sourceGeneration, routeKey, viewport, focusedExposureGap, diagnosticContext, visibilityOwner]);
+ 
+   useEffect(() => {
+     if (retryKey === handledRetryKeyRef.current) return;
+diff --git a/web/lib/__tests__/home-comparison.test.tsx b/web/lib/__tests__/home-comparison.test.tsx
+index 515f562..691101b 100644
+--- a/web/lib/__tests__/home-comparison.test.tsx
++++ b/web/lib/__tests__/home-comparison.test.tsx
+@@ -47,6 +47,7 @@ type Element = ReactElement<{
+   ref?: { current: unknown };
+   onClick?: (event: { currentTarget: FocusButton; detail: number }) => void;
+   onKeyDown?: (event: { key: string; stopPropagation: () => void }) => void;
++  onFocusCapture?: (event: { target: HTMLElement }) => void;
+   disabled?: boolean;
+   type?: string;
+   title?: string;
+@@ -205,6 +206,51 @@ afterEach(() => {
+ });
+ 
+ describe("T10 home comparison presentation", () => {
++  it.each([
++    { name: "left-hidden postal from the browser failure", left: 51, right: 154, sticky: 112, scroll: 73, expected: 8 },
++    { name: "right-clipped control", left: 318, right: 421, sticky: 112, scroll: 0, expected: 50 },
++    { name: "already visible control", left: 150, right: 253, sticky: 112, scroll: 73, expected: 73 },
++    { name: "enlarged sticky heading", left: 120, right: 223, sticky: 150, scroll: 73, expected: 39 },
++  ])("reveals $name without changing focus or the selected walk", ({ left, right, sticky, scroll, expected }) => {
++    render();
++    const root = elements(tree)[0];
++    const target = {
++      isConnected: true, closest: vi.fn(() => ({})),
++      getBoundingClientRect: () => ({ left, right }), focus: vi.fn(),
++    };
++    focusDocument.activeElement = target;
++    const scroller = {
++      scrollLeft: scroll, clientLeft: 0, clientWidth: 375,
++      contains: (node: unknown) => node === target,
++      getBoundingClientRect: () => ({ left: 0 }),
++      querySelector: () => ({ getBoundingClientRect: () => ({ right: sticky }) }),
++    };
++    root.props.ref!.current = scroller;
++    root.props.onFocusCapture?.({ target: target as unknown as HTMLElement });
++    expect(scroller.scrollLeft).toBe(expected);
++    expect(focusDocument.activeElement).toBe(target);
++    expect(target.focus).not.toHaveBeenCalled();
++    expect(props.onActivate).not.toHaveBeenCalled();
++  });
++
++  it.each(["toolbar", "detached", "outside"])("does not scroll for a %s focus target", kind => {
++    render();
++    const root = elements(tree)[0];
++    const target = {
++      isConnected: kind !== "detached", closest: () => kind === "toolbar" ? null : {},
++      getBoundingClientRect: vi.fn(() => ({ left: 0, right: 100 })),
++    };
++    const scroller = {
++      scrollLeft: 73, contains: () => kind !== "outside",
++      getBoundingClientRect: vi.fn(() => ({ left: 0 })),
++    };
++    root.props.ref!.current = scroller;
++    root.props.onFocusCapture?.({ target: target as unknown as HTMLElement });
++    expect(scroller.scrollLeft).toBe(73);
++    expect(scroller.getBoundingClientRect).not.toHaveBeenCalled();
++    expect(target.getBoundingClientRect).not.toHaveBeenCalled();
++  });
++
+   it("exposes parent focus targets and a bottom map overlay without becoming a modal", () => {
+     render();
+     const root = elements(tree)[0];
+diff --git a/web/lib/__tests__/route-source-lifecycle.test.ts b/web/lib/__tests__/route-source-lifecycle.test.ts
+index 44cc755..fbd7cee 100644
+--- a/web/lib/__tests__/route-source-lifecycle.test.ts
++++ b/web/lib/__tests__/route-source-lifecycle.test.ts
+@@ -243,6 +243,37 @@ describe('renderer startup is independent of basemap transport', () => {
+   });
+ });
+ 
++describe('T25: selection changes before passive effects have flushed', () => {
++  function renderWithoutEffects(update: Partial<Props>) {
++    props={...props,...update};
++    hooks.begin();
++    const tree=RouteEvidenceMap(props);
++    tree.props.children[0].props.ref.current=container;
++  }
++
++  it.each(['route', 'context'])('basemap recovery cannot publish stale readiness after a %s change', async change => {
++    map.basemapLoaded=false;await mount();map.render();vi.advanceTimersByTime(30_000);
++    const status=props.onStatusChange as ReturnType<typeof vi.fn>;status.mockClear();
++    renderWithoutEffects(change==='route'
++      ? {routes:props.routes.map(route=>({...route,id:'replacement'}))}
++      : {diagnosticContext:{selection:'replacement'}});
++    map.basemapLoaded=true;map.emit('sourcedata',{sourceId:'onemap'});
++    expect(status).not.toHaveBeenCalled();
++    render();map.render();
++    expect(status).toHaveBeenLastCalledWith('ready',undefined);
++  });
++
++  it('an old render callback cannot prove a replacement with the same diagnostic context', async () => {
++    await mount();
++    const status=props.onStatusChange as ReturnType<typeof vi.fn>;status.mockClear();
++    renderWithoutEffects({routes:props.routes.map(route=>({...route,id:'replacement'}))});
++    map.render();
++    expect(status).not.toHaveBeenCalled();
++    render();map.render();
++    expect(status).toHaveBeenLastCalledWith('ready',undefined);
++  });
++});
++
+ describe('M01/M08/M11: bounded map startup in the executed component', () => {
+   it.each([true, false])('times out a silent startup with a selected walk=%s', async selected => {
+     if (!selected) props = { ...props, routes: [] };

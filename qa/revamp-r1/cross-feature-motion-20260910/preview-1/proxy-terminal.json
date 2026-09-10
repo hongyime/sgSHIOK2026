@@ -1,0 +1,536 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "directory": "C:\\sgSHIOK2026\\qa\\revamp-r1\\cross-feature-motion-20260910\\preview-1",
+  "pid": 115356,
+  "origin": "http://127.0.0.1:4352",
+  "buildB": "U7gw5oevzyMB6cfPpbGMQ",
+  "sourceB": "C:\\sgSHIOK2026\\tmp\\cached-release-cross-feature-motion-20260910-1",
+  "active": "B",
+  "requests": [
+    {
+      "at": "2026-09-10T07:28:50.986Z",
+      "method": "GET",
+      "path": "/?debugMap=1",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:51.128Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/299h_v6zv2qi1.css",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:51.299Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1bidz_3pqoxaj.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:51.301Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/43_9sqcg-ka5x.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:51.525Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1bcry7qyno8a7.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:51.528Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/turbopack-3e969-0v645bd.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:51.533Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:51.537Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2topae5201y5y.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:51.572Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1b5o6dbsknxoj.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:51.859Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3mv3xle9x_d7q.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:52.898Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/21s-hwbsd-s4g.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:53.000Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1zitl0bm9s2iw.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:53.001Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2t8u4206t9e32.css",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:53.002Z",
+      "method": "GET",
+      "path": "/sw.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:53.285Z",
+      "method": "GET",
+      "path": "/icon.svg",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:53.466Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:53.473Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:54.850Z",
+      "method": "GET",
+      "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:55.220Z",
+      "method": "GET",
+      "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:59.049Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T07:28:59.080Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:59.111Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:59.129Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T07:28:59.153Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T07:28:59.183Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:28:59.201Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:29:00.163Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:29:00.244Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:29:01.147Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:29:01.219Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:29:01.286Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T07:29:01.287Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:29:01.326Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:29:06.132Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:29:06.426Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-index.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:29:09.843Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T07:29:10.070Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:21.753Z",
+      "method": "GET",
+      "path": "/?debugMap=1",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:23.190Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/299h_v6zv2qi1.css",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:23.318Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1bidz_3pqoxaj.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:23.767Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1bcry7qyno8a7.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:23.769Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/turbopack-3e969-0v645bd.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:23.863Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/43_9sqcg-ka5x.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:23.997Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:24.133Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2topae5201y5y.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:24.472Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1b5o6dbsknxoj.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:25.069Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3mv3xle9x_d7q.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:27.042Z",
+      "method": "GET",
+      "path": "/sw.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:29.447Z",
+      "method": "GET",
+      "path": "/icon.svg",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:29.620Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2t8u4206t9e32.css",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:29.751Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/21s-hwbsd-s4g.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:29.869Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/1zitl0bm9s2iw.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:31.975Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:32.032Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:34.339Z",
+      "method": "GET",
+      "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:34.741Z",
+      "method": "GET",
+      "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+      "upstream": 4351,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:45.792Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T07:38:45.797Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:45.846Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:45.872Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T07:38:45.884Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T07:38:45.904Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:45.918Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:49.708Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:49.711Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:49.758Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:49.759Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:49.771Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T07:38:49.777Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:38:49.780Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:39:31.900Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/049.json.gz",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:39:34.221Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T07:39:34.235Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/896520db333ffff.json.gz",
+      "upstream": 4321,
+      "status": 404
+    },
+    {
+      "at": "2026-09-10T07:39:34.305Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json",
+      "upstream": 4321,
+      "status": 200
+    },
+    {
+      "at": "2026-09-10T07:39:34.673Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/896520db333ffff.json",
+      "upstream": 4321,
+      "status": 200
+    }
+  ]
+}

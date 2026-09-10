@@ -3803,3 +3803,124 @@ bypasses service worker and HTTP caches to isolate real worker transport.
 1. A controlled transport test proves this dependency defect, not that every slow map is caused by OneMap or that representative latency improved.
 2. A passing current-build replay is not a fresh full old-tab upgrade rehearsal or a deployed-browser guarantee. Keep those boundaries explicit.
 3. Peer quota previously exhausted; these source and image reviews are parent-only, not independent subagent acceptance.
+
+## 2026-09-10: T25 Current-Selection Readiness and Visible Keyboard Focus
+
+Command: `node qa/revamp-r1/cross-feature-motion-20260910/audit.mjs`
+
+```json
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "b7196b6683ab333ab4bb3eb4f88a65021516c3bf",
+  "task": "T25 selection-readiness and sticky-column focus repair",
+  "status": "Progress; browser audit and overall goal incomplete",
+  "implementation": [
+    "web/components/route-evidence-map.tsx",
+    "web/components/home-comparison.tsx",
+    "web/lib/__tests__/route-source-lifecycle.test.ts",
+    "web/lib/__tests__/home-comparison.test.tsx"
+  ],
+  "tests": {
+    "redRace": "3failed+54passed=57",
+    "greenRace": "96passed/5files",
+    "redFocus": "3failed+77passed=80",
+    "greenFocus": "137passed/2files; third supplied filename matched no file, not a third passing file",
+    "full": "1755+3+7=1765passed/64files",
+    "typeScript": 0,
+    "integrity": 0,
+    "build": "jNTP8fdVgYwcHrBSMHG0l"
+  },
+  "browser": {
+    "run": "qa/revamp-r1/cross-feature-motion-20260910/acceptance-6-DYmh0w/browser.json",
+    "passedFunctionalChecks": 52,
+    "totalChecks": 53,
+    "ok": false,
+    "captures": 14,
+    "failureCapture": 1,
+    "interceptionFaults": [
+      {
+        "fault": "Invalid InterceptionId."
+      },
+      {
+        "fault": "Invalid InterceptionId."
+      },
+      {
+        "fault": "Invalid InterceptionId."
+      },
+      {
+        "fault": "Invalid InterceptionId."
+      },
+      {
+        "fault": "Invalid InterceptionId."
+      }
+    ],
+    "runtimeExceptions": 0,
+    "deniedRequests": 0,
+    "cameraFits": 18,
+    "reducedMotionFits": true,
+    "imageArithmetic": "5+5+1+5+12+15=43",
+    "uniqueImages": 19,
+    "review": "Parent inspection, with exact-byte duplicates linked in audit.json"
+  },
+  "identities": {
+    "sources": 149,
+    "anchors": 11,
+    "landmarkBytes": "1751005+5236013+3538342+296957=10822317",
+    "evidencePrefix": {
+      "path": "qa/verification/REVAMP-R1-core-walk.md",
+      "bytes": 243954,
+      "sha256": "643064bbe71c2807efa15ae1d859d0ccd5765b7753f9fe00395d66a2aea53089",
+      "preserved": true
+    }
+  },
+  "evidence": {
+    "audit": "qa/revamp-r1/cross-feature-motion-20260910/audit.json",
+    "full": "qa/revamp-r1/cross-feature-motion-20260910/full-1/checks.json",
+    "diff": {
+      "path": "qa/revamp-r1/cross-feature-motion-20260910/implementation.diff",
+      "sha256": "7ac904f63bae0ddc86aa252784430be9b6e7a971249c55d792b1c40773b8821c",
+      "bytes": 11077,
+      "lines": 212
+    }
+  },
+  "findings": [
+    "Three executed races let old route visibility authorize ready after selection/layout changed but before passive-effect cleanup. Current visibility ownership now invalidates both old route probes and late basemap completion.",
+    "Keyboard focus could land beneath the sticky comparison label: the real postal button at x51..154 was obscured by the column ending x112. Measured focus scrolling reveals the same target without changing selection or reclaiming focus. Browser selection in both directions now passes.",
+    "1755 previous +3 stale-ready cases +7 focus cases =1765 tests across64files pass in the full isolated web suite. TypeScript, fresh Next build and repository integrity pass; all149 current/tested/built web sources and11 protected anchors match.",
+    "The final browser run executes52 passing functional checks,14 captures, and all18 recorded route fits use duration0 under reduced motion. Four viewports, text doubling, reflow, current route identity, keyboard navigation, shared-close/plain home and About data pass. The final audit fails on5 CDP Invalid InterceptionId command faults: the run remains exit1, not a clean browser pass.",
+    "The browser receipt records0 Runtime.exceptionThrown entries and0 denied requests, but interception faults lack request-ID/cancellation correlation. Their cause is unresolved; they are not silently ignored, treated as application exceptions, or used to claim clean transport.",
+    "Unavailable fixture postals, wrong H3 path, initial-document null access, a post-idle source transition and a wrong shared-close expectation are preserved separately from the real keyboard defect. Shared navigation intentionally clears the single-postal inspector (page.tsx2554-2555); closing does not resurrect it.",
+    "No pipeline, installs, input regeneration, protected-payload writes or deployment. Current preview4354 uses build jNTP8fdVgYwcHrBSMHG0l; obsolete owned4351/4352 stopped, older previews untouched. Existing verification prefix is preserved."
+  ],
+  "disagreements": [
+    "Passing functional captures do not make a failing browser audit pass. T25 remains PARTIAL until request interception is correlated and a bounded clean audit is obtained; preserve every original result.",
+    "CSS reflow and computed-font doubling are not native browser zoom, assistive technology, real-phone evidence or representative latency. The cache/SW-bypassed replay is not retained-old-tab M17 acceptance.",
+    "Subagent quota remains exhausted from the previous attempt. Source and image review are parent-only, not independent acceptance."
+  ],
+  "next": [
+    "Correlate CDP Fetch errors with Network request cancellation before another bounded clean audit; do not rerun simply for PASS.",
+    "Retained-old-tab M17 with latest build remains open.",
+    "T29 dependency/security and T27/T28 real release gates remain owner-bounded; no automatic activation."
+  ],
+  "pipelineRuns": 0,
+  "pipelineCost": 0,
+  "preview": "http://127.0.0.1:4354/"
+}
+```
+
+### FINDINGS
+
+1. Three executed races let old route visibility authorize ready after selection/layout changed but before passive-effect cleanup. Current visibility ownership now invalidates both old route probes and late basemap completion.
+2. Keyboard focus could land beneath the sticky comparison label: the real postal button at x51..154 was obscured by the column ending x112. Measured focus scrolling reveals the same target without changing selection or reclaiming focus. Browser selection in both directions now passes.
+3. 1755 previous +3 stale-ready cases +7 focus cases =1765 tests across64files pass in the full isolated web suite. TypeScript, fresh Next build and repository integrity pass; all149 current/tested/built web sources and11 protected anchors match.
+4. The final browser run executes52 passing functional checks,14 captures, and all18 recorded route fits use duration0 under reduced motion. Four viewports, text doubling, reflow, current route identity, keyboard navigation, shared-close/plain home and About data pass. The final audit fails on5 CDP Invalid InterceptionId command faults: the run remains exit1, not a clean browser pass.
+5. The browser receipt records0 Runtime.exceptionThrown entries and0 denied requests, but interception faults lack request-ID/cancellation correlation. Their cause is unresolved; they are not silently ignored, treated as application exceptions, or used to claim clean transport.
+6. Unavailable fixture postals, wrong H3 path, initial-document null access, a post-idle source transition and a wrong shared-close expectation are preserved separately from the real keyboard defect. Shared navigation intentionally clears the single-postal inspector (page.tsx2554-2555); closing does not resurrect it.
+7. No pipeline, installs, input regeneration, protected-payload writes or deployment. Current preview4354 uses build jNTP8fdVgYwcHrBSMHG0l; obsolete owned4351/4352 stopped, older previews untouched. Existing verification prefix is preserved.
+
+### DISAGREEMENTS
+
+1. Passing functional captures do not make a failing browser audit pass. T25 remains PARTIAL until request interception is correlated and a bounded clean audit is obtained; preserve every original result.
+2. CSS reflow and computed-font doubling are not native browser zoom, assistive technology, real-phone evidence or representative latency. The cache/SW-bypassed replay is not retained-old-tab M17 acceptance.
+3. Subagent quota remains exhausted from the previous attempt. Source and image review are parent-only, not independent acceptance.
