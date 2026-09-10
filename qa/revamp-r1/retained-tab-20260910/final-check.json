@@ -1,0 +1,10 @@
+{
+  "root": "C:/sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "prefixBytes": 224352,
+  "prefixUnchanged": true,
+  "prefixSha256": "f5e09517529b959c99e15349b1454610552a5cff67ad270105302a973be7da00",
+  "newBytes": 230067,
+  "appDiff": "",
+  "head": "c2276dd4aaa3f65e677932d0831d02103dedfdda"
+}

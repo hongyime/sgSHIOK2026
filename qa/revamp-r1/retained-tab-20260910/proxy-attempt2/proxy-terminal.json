@@ -1,0 +1,344 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "directory": "C:\\sgSHIOK2026\\qa\\revamp-r1\\retained-tab-20260910\\proxy-attempt2",
+  "pid": 112256,
+  "origin": "http://127.0.0.1:4344",
+  "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+  "buildB": "lcoYvon9S455KiFb_Oc8K",
+  "workerHashes": {
+    "A": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+    "B": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+  },
+  "target": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+  "targetBytes": 39556,
+  "targetSha256": "4a1b7cf727bfc2157e11185a0fe88af518733a56f34601833c75fccad34df11b",
+  "sourceB": "C:\\sgSHIOK2026\\tmp\\cached-release-cross-feature-focus-20260910-2",
+  "active": "A",
+  "requests": [
+    {
+      "at": "2026-09-10T03:49:34.296Z",
+      "method": "GET",
+      "path": "/__qa/seed",
+      "active": "A",
+      "status": 200,
+      "fixture": true
+    },
+    {
+      "at": "2026-09-10T03:49:34.588Z",
+      "method": "GET",
+      "path": "/sw.js",
+      "active": "A",
+      "status": 200,
+      "serviceWorker": "script",
+      "workerSha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390"
+    },
+    {
+      "at": "2026-09-10T03:49:34.645Z",
+      "method": "GET",
+      "path": "/favicon.ico",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:34.895Z",
+      "method": "GET",
+      "path": "/",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:35.045Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3mic8ep312z99.css",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:35.049Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/310vm2bl3xxpt.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:35.132Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/0y-dctk-kmqss.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:35.135Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/08ttfj81-47mu.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:35.219Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3g398rb4su43l.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:35.285Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:35.287Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3fntmmi971322.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:35.325Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2zaun8r9-gox7.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:35.335Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/27iodt6ap9svx.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:35.934Z",
+      "method": "GET",
+      "path": "/icon.svg",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:36.081Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/0npwww6p9wx1o.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:36.083Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2_c6f5vawm6vi.css",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:36.123Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:36.125Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "active": "A",
+      "status": 404,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:36.127Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/318x15h178iv-.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:36.128Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/39xhkg3l-se9r.js",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": false,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:36.245Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "active": "A",
+      "status": 404,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:36.253Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:36.303Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "active": "A",
+      "status": 404,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:36.314Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:36.335Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:38.888Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:38.890Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:38.898Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:38.899Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:38.900Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:38.902Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:39.039Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "active": "A",
+      "status": 404,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-10T03:49:45.902Z",
+      "method": "POST",
+      "path": "/__qa/stop",
+      "active": "A",
+      "status": 204,
+      "control": true
+    }
+  ]
+}

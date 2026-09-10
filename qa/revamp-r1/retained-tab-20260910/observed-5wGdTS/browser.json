@@ -1,0 +1,814 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\retained-tab-20260910\\observed-5wGdTS",
+  "profile": "C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-GpGn4S",
+  "origin": "http://127.0.0.1:4344",
+  "startedAt": "2026-09-10T03:42:38.245Z",
+  "setup": "Controlled worker registration/update; only the exact legacy map script insertion is deferred. No cache clearing, SW bypass, response substitution or application-state rewrite.",
+  "checks": [
+    {
+      "name": "fresh proxy begins at A",
+      "pass": true
+    },
+    {
+      "name": "legacy activated worker version observed",
+      "pass": true
+    }
+  ],
+  "captures": [],
+  "samples": [],
+  "requests": [
+    {
+      "at": 1789011767015,
+      "id": "1DD3B1D2DFBCDFAE8684542BC83DFD32",
+      "url": "http://127.0.0.1:4344/__qa/seed",
+      "method": "GET",
+      "type": "Document"
+    },
+    {
+      "at": 1789011767227,
+      "id": "113632.2",
+      "url": "http://127.0.0.1:4344/favicon.ico",
+      "method": "GET",
+      "type": "Other"
+    },
+    {
+      "at": 1789011767780,
+      "id": "12DAF1F28B55BBE89EFBC8A251A276D7",
+      "url": "http://127.0.0.1:4344/?debugMap=1",
+      "method": "GET",
+      "type": "Document"
+    },
+    {
+      "at": 1789011770538,
+      "id": "113632.6",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3mic8ep312z99.css",
+      "method": "GET",
+      "type": "Stylesheet"
+    },
+    {
+      "at": 1789011770542,
+      "id": "113632.7",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/310vm2bl3xxpt.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789011770544,
+      "id": "113632.8",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0y-dctk-kmqss.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789011770549,
+      "id": "113632.9",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/08ttfj81-47mu.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789011770550,
+      "id": "113632.10",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3g398rb4su43l.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789011770555,
+      "id": "113632.11",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789011770556,
+      "id": "113632.12",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3fntmmi971322.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789011770557,
+      "id": "113632.13",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/2zaun8r9-gox7.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789011770558,
+      "id": "113632.14",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/27iodt6ap9svx.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789011771936,
+      "id": "113632.35",
+      "url": "http://127.0.0.1:4344/icon.svg",
+      "method": "GET",
+      "type": "Other"
+    },
+    {
+      "at": 1789011772192,
+      "id": "113632.37",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/2_c6f5vawm6vi.css",
+      "method": "GET",
+      "type": "Stylesheet"
+    },
+    {
+      "at": 1789011772195,
+      "id": "113632.38",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/39xhkg3l-se9r.js",
+      "method": "GET",
+      "type": "Script"
+    }
+  ],
+  "responses": [
+    {
+      "at": 1789011767099,
+      "id": "1DD3B1D2DFBCDFAE8684542BC83DFD32",
+      "url": "http://127.0.0.1:4344/__qa/seed",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789011770243,
+      "id": "113632.2",
+      "url": "http://127.0.0.1:4344/favicon.ico",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789011770452,
+      "id": "12DAF1F28B55BBE89EFBC8A251A276D7",
+      "url": "http://127.0.0.1:4344/?debugMap=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789011770845,
+      "id": "113632.7",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/310vm2bl3xxpt.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789011770966,
+      "id": "113632.6",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3mic8ep312z99.css",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789011771059,
+      "id": "113632.8",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0y-dctk-kmqss.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789011771191,
+      "id": "113632.10",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3g398rb4su43l.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789011771252,
+      "id": "113632.11",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789011771387,
+      "id": "113632.12",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3fntmmi971322.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789011771463,
+      "id": "113632.13",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/2zaun8r9-gox7.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789011771585,
+      "id": "113632.9",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/08ttfj81-47mu.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789011771790,
+      "id": "113632.14",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/27iodt6ap9svx.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789011772111,
+      "id": "113632.35",
+      "url": "http://127.0.0.1:4344/icon.svg",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789011772215,
+      "id": "113632.38",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/39xhkg3l-se9r.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789011772222,
+      "id": "113632.37",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/2_c6f5vawm6vi.css",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    }
+  ],
+  "completed": [
+    "1DD3B1D2DFBCDFAE8684542BC83DFD32",
+    "113632.2",
+    "12DAF1F28B55BBE89EFBC8A251A276D7",
+    "113632.7",
+    "113632.6",
+    "113632.8",
+    "113632.10",
+    "113632.11",
+    "113632.12",
+    "113632.13",
+    "113632.9",
+    "113632.14",
+    "113632.35",
+    "113632.38",
+    "113632.37"
+  ],
+  "documents": [
+    {
+      "at": 1789011767099,
+      "id": "1DD3B1D2DFBCDFAE8684542BC83DFD32",
+      "url": "http://127.0.0.1:4344/__qa/seed",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789011770452,
+      "id": "12DAF1F28B55BBE89EFBC8A251A276D7",
+      "url": "http://127.0.0.1:4344/?debugMap=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    }
+  ],
+  "versions": [
+    {
+      "at": 1789011766922,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "635B89E5D49DC9B2A32096ABE2124CA5"
+        }
+      ]
+    },
+    {
+      "at": 1789011767245,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopped",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789011767400,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopped",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789011767.384019,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789011767401,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789011767.384019,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789011767402,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789011767.384019,
+          "controlledClients": [],
+          "targetId": "67E65F25BB12F50C8F733F06F2CFADA2"
+        }
+      ]
+    },
+    {
+      "at": 1789011767513,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "starting",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789011767.384019,
+          "controlledClients": [],
+          "targetId": "67E65F25BB12F50C8F733F06F2CFADA2"
+        }
+      ]
+    },
+    {
+      "at": 1789011767517,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789011767.384019,
+          "controlledClients": [],
+          "targetId": "67E65F25BB12F50C8F733F06F2CFADA2"
+        }
+      ]
+    },
+    {
+      "at": 1789011767524,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "installed",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789011767.384019,
+          "controlledClients": [],
+          "targetId": "67E65F25BB12F50C8F733F06F2CFADA2"
+        }
+      ]
+    },
+    {
+      "at": 1789011767525,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789011767.384019,
+          "controlledClients": [],
+          "targetId": "67E65F25BB12F50C8F733F06F2CFADA2"
+        }
+      ]
+    },
+    {
+      "at": 1789011767535,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789011767.384019,
+          "controlledClients": [
+            "AC4C01B5FF2933CA75BE5EC2280C59BA"
+          ],
+          "targetId": "67E65F25BB12F50C8F733F06F2CFADA2"
+        }
+      ]
+    },
+    {
+      "at": 1789011767536,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789011767.384019,
+          "controlledClients": [
+            "AC4C01B5FF2933CA75BE5EC2280C59BA"
+          ],
+          "targetId": "67E65F25BB12F50C8F733F06F2CFADA2"
+        }
+      ]
+    },
+    {
+      "at": 1789011767786,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789011767.384019,
+          "controlledClients": [
+            "AC4C01B5FF2933CA75BE5EC2280C59BA"
+          ],
+          "targetId": "67E65F25BB12F50C8F733F06F2CFADA2"
+        }
+      ]
+    },
+    {
+      "at": 1789011770560,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789011767.384019,
+          "controlledClients": [],
+          "targetId": "67E65F25BB12F50C8F733F06F2CFADA2"
+        }
+      ]
+    },
+    {
+      "at": 1789011795821,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "stopping",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "635B89E5D49DC9B2A32096ABE2124CA5"
+        }
+      ]
+    },
+    {
+      "at": 1789011795982,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "stopped",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789011802237,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopping",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789011767.384019,
+          "controlledClients": [],
+          "targetId": "67E65F25BB12F50C8F733F06F2CFADA2"
+        }
+      ]
+    },
+    {
+      "at": 1789011802291,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopped",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789011767.384019,
+          "controlledClients": []
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "denied": [],
+  "proxy": {
+    "root": "C:\\sgSHIOK2026",
+    "pid": 99928,
+    "origin": "http://127.0.0.1:4344",
+    "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+    "buildB": "lcoYvon9S455KiFb_Oc8K",
+    "workerHashes": {
+      "A": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+      "B": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+    },
+    "target": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+    "targetBytes": 39556,
+    "targetSha256": "4a1b7cf727bfc2157e11185a0fe88af518733a56f34601833c75fccad34df11b",
+    "sourceB": "C:\\sgSHIOK2026\\tmp\\cached-release-cross-feature-focus-20260910-2",
+    "active": "A"
+  },
+  "chromePid": 86788,
+  "lastSample": {
+    "name": "A walk text and exact deferred chunk",
+    "value": {
+      "url": "http://127.0.0.1:4344/?debugMap=1#postal=018956",
+      "timeOrigin": 1789011767775.7,
+      "text": "SHIOK.\n\nMap waiting\n\nAbout data",
+      "status": "idle",
+      "controller": "http://127.0.0.1:4344/sw.js",
+      "controllerChanges": 0,
+      "held": [
+        {
+          "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+          "at": 4393.700000047684,
+          "connected": false
+        }
+      ],
+      "released": [],
+      "marker": 1789011767775.7,
+      "controls": [
+        {
+          "label": "Search postal code",
+          "disabled": false
+        }
+      ],
+      "featureCount": 0,
+      "renderedKeys": [],
+      "basemap": false,
+      "overflow": false,
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  },
+  "targetId": "AC4C01B5FF2933CA75BE5EC2280C59BA",
+  "legacyVersions": [
+    "0",
+    "1"
+  ],
+  "error": "Error: A walk text and exact deferred chunk timeout: {\"url\":\"http://127.0.0.1:4344/?debugMap=1#postal=018956\",\"timeOrigin\":1789011767775.7,\"text\":\"SHIOK.\\n\\nMap waiting\\n\\nAbout data\",\"status\":\"idle\",\"controller\":\"http://127.0.0.1:4344/sw.js\",\"controllerChanges\":0,\"held\":[{\"url\":\"http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js\",\"at\":4393.700000047684,\"connected\":false}],\"released\":[],\"marker\":1789011767775.7,\"controls\":[{\"label\":\"Search postal code\",\"disabled\":false}],\"featureCount\":0,\"renderedKeys\":[],\"basemap\":false,\"overflow\":false,\"viewport\":[390,844]}\n    at until (file:///C:/sgSHIOK2026/qa/revamp-r1/retained-tab-20260910/browser.mjs:43:9)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/retained-tab-20260910/browser.mjs:149:20",
+  "exitCode": 1,
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-GpGn4S'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": 0,
+    "stdout": "{\"before\":[{\"ProcessId\":86788,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:/Program Files/Google/Chrome/Application/chrome.exe\\\" --headless=new --no-first-run --no-sandbox --use-angle=swiftshader --enable-unsafe-swiftshader --disable-background-networking --disable-component-update --disable-sync --remote-debugging-port=0 --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GpGn4S about:blank\"},{\"ProcessId\":100980,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=crashpad-handler --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GpGn4S /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GpGn4S\\\\Crashpad --metrics-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GpGn4S --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=152.0.7977.83 --initial-client-data=0x120,0x124,0x128,0xfc,0x12c,0x7fff48067e60,0x7fff48067e70,0x7fff48067e80\"},{\"ProcessId\":104224,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --use-angle=swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GpGn4S\\\" --no-pre-read-main-dll --field-trial-handle=1892,i,6990256954375518903,15475887863920659667,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1896,i,16783282519865990516,4857817669779355089,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2196 /prefetch:11\"},{\"ProcessId\":90384,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GpGn4S\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=1082461116282 --field-trial-handle=1892,i,6990256954375518903,15475887863920659667,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1896,i,16783282519865990516,4857817669779355089,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3188 /prefetch:1\"},{\"ProcessId\":113632,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GpGn4S\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=1082461355769 --field-trial-handle=1892,i,6990256954375518903,15475887863920659667,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1896,i,16783282519865990516,4857817669779355089,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3184 /prefetch:1\"}],\"remaining\":[]}\r\n",
+    "stderr": "",
+    "verified": true
+  },
+  "proxyFinal": {
+    "root": "C:\\sgSHIOK2026",
+    "pid": 99928,
+    "origin": "http://127.0.0.1:4344",
+    "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+    "buildB": "lcoYvon9S455KiFb_Oc8K",
+    "workerHashes": {
+      "A": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+      "B": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+    },
+    "target": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+    "targetBytes": 39556,
+    "targetSha256": "4a1b7cf727bfc2157e11185a0fe88af518733a56f34601833c75fccad34df11b",
+    "sourceB": "C:\\sgSHIOK2026\\tmp\\cached-release-cross-feature-focus-20260910-2",
+    "active": "A",
+    "requests": [
+      {
+        "at": "2026-09-10T03:42:47.060Z",
+        "method": "GET",
+        "path": "/__qa/seed",
+        "active": "A",
+        "status": 200,
+        "fixture": true
+      },
+      {
+        "at": "2026-09-10T03:42:47.382Z",
+        "method": "GET",
+        "path": "/sw.js",
+        "active": "A",
+        "status": 200,
+        "serviceWorker": "script",
+        "workerSha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390"
+      },
+      {
+        "at": "2026-09-10T03:42:49.752Z",
+        "method": "GET",
+        "path": "/favicon.ico",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:42:50.154Z",
+        "method": "GET",
+        "path": "/",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:42:50.787Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/310vm2bl3xxpt.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:42:50.801Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/3mic8ep312z99.css",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:42:50.998Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/0y-dctk-kmqss.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:42:51.004Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/3g398rb4su43l.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:42:51.209Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:42:51.338Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/3fntmmi971322.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:42:51.342Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/08ttfj81-47mu.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:42:51.416Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/2zaun8r9-gox7.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:42:51.448Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/27iodt6ap9svx.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:42:51.962Z",
+        "method": "GET",
+        "path": "/icon.svg",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:42:52.186Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/39xhkg3l-se9r.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:42:52.190Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/2_c6f5vawm6vi.css",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:42:53.686Z",
+        "method": "GET",
+        "path": "/sw.js",
+        "active": "A",
+        "status": 200,
+        "serviceWorker": "script",
+        "workerSha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390"
+      }
+    ]
+  },
+  "proxyStopStatus": 204,
+  "finishedAt": "2026-09-10T03:44:41.909Z",
+  "elapsedSeconds": 123.664
+}

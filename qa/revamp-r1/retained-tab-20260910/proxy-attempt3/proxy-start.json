@@ -1,0 +1,16 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "directory": "C:\\sgSHIOK2026\\qa\\revamp-r1\\retained-tab-20260910\\proxy-attempt3",
+  "pid": 112892,
+  "origin": "http://127.0.0.1:4344",
+  "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+  "buildB": "lcoYvon9S455KiFb_Oc8K",
+  "workerHashes": {
+    "A": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+    "B": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+  },
+  "target": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+  "targetBytes": 39556,
+  "targetSha256": "4a1b7cf727bfc2157e11185a0fe88af518733a56f34601833c75fccad34df11b",
+  "sourceB": "C:\\sgSHIOK2026\\tmp\\cached-release-cross-feature-focus-20260910-2"
+}

@@ -1,0 +1,3654 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\retained-tab-20260910\\observed-CiZFDn",
+  "profile": "C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-jGu1CI",
+  "origin": "http://127.0.0.1:4344",
+  "startedAt": "2026-09-10T03:53:11.038Z",
+  "setup": "Controlled worker registration/update; only the exact legacy map script insertion is deferred. No cache clearing, SW bypass, response substitution or application-state rewrite.",
+  "checks": [
+    {
+      "name": "fresh proxy begins at A",
+      "pass": true
+    },
+    {
+      "name": "legacy activated worker version observed",
+      "pass": true
+    },
+    {
+      "name": "retained Document is actual A HTML",
+      "pass": true
+    },
+    {
+      "name": "target not requested or cached before switch",
+      "pass": true
+    },
+    {
+      "name": "real versioned data cached before switch",
+      "pass": true
+    },
+    {
+      "name": "switch B accepted",
+      "pass": true
+    },
+    {
+      "name": "exact B worker served",
+      "pass": true
+    },
+    {
+      "name": "same Document before first target request",
+      "pass": true
+    },
+    {
+      "name": "old module first request reached actual B origin404",
+      "pass": true,
+      "detail": [
+        {
+          "at": "2026-09-10T03:53:25.560Z",
+          "method": "GET",
+          "path": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+          "active": "B",
+          "status": 404,
+          "upstream": 4341,
+          "data": false,
+          "activeAtStart": "B"
+        },
+        {
+          "at": "2026-09-10T03:53:26.029Z",
+          "method": "GET",
+          "path": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+          "active": "B",
+          "status": 404,
+          "upstream": 4341,
+          "data": false,
+          "activeAtStart": "B"
+        }
+      ]
+    },
+    {
+      "name": "missing module response passed through service worker",
+      "pass": true
+    },
+    {
+      "name": "retained old tab offers usable recovery or safely upgrades",
+      "pass": false,
+      "detail": {
+        "usefulWalkDetails": false,
+        "explicitReload": true,
+        "automaticNewDocument": false
+      }
+    }
+  ],
+  "captures": [
+    {
+      "name": "retained-A-pending",
+      "bytes": 14227,
+      "sha256": "9829c1cb6350f4b245852a39e911074bbf1607f3a9a60bf69e3cc8a5e34582a6",
+      "before": {
+        "url": "http://127.0.0.1:4344/?debugMap=1&postal=018956",
+        "timeOrigin": 1789012396857.5,
+        "text": "SHIOK.\n\nMap waiting\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "status": "idle",
+        "controller": "http://127.0.0.1:4344/sw.js",
+        "controllerChanges": 0,
+        "held": [
+          {
+            "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+            "at": 2405.100000143051,
+            "connected": false
+          }
+        ],
+        "released": [],
+        "marker": 1789012396857.5,
+        "controls": [
+          {
+            "label": "Search postal code",
+            "disabled": false
+          },
+          {
+            "label": "Walk details",
+            "disabled": false
+          },
+          {
+            "label": "Night lighting",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Copy correction report",
+            "disabled": true
+          },
+          {
+            "label": "Published walkdisplayed walk",
+            "disabled": false
+          },
+          {
+            "label": "MRT/LRT exitspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Bus stopspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Show comparison",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Focus on map for Longest short exposed stretch at map coordinate 1.28314, 103.86011",
+            "disabled": false
+          },
+          {
+            "label": "Focus on map for Gap 2 short exposed stretch at map coordinate 1.28269, 103.85998",
+            "disabled": false
+          }
+        ],
+        "featureCount": 0,
+        "renderedKeys": [],
+        "basemap": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "after": {
+        "url": "http://127.0.0.1:4344/?debugMap=1&postal=018956",
+        "timeOrigin": 1789012396857.5,
+        "text": "SHIOK.\n\nMap waiting\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "status": "idle",
+        "controller": "http://127.0.0.1:4344/sw.js",
+        "controllerChanges": 0,
+        "held": [
+          {
+            "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+            "at": 2405.100000143051,
+            "connected": false
+          }
+        ],
+        "released": [],
+        "marker": 1789012396857.5,
+        "controls": [
+          {
+            "label": "Search postal code",
+            "disabled": false
+          },
+          {
+            "label": "Walk details",
+            "disabled": false
+          },
+          {
+            "label": "Night lighting",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Copy correction report",
+            "disabled": true
+          },
+          {
+            "label": "Published walkdisplayed walk",
+            "disabled": false
+          },
+          {
+            "label": "MRT/LRT exitspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Bus stopspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Show comparison",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Focus on map for Longest short exposed stretch at map coordinate 1.28314, 103.86011",
+            "disabled": false
+          },
+          {
+            "label": "Focus on map for Gap 2 short exposed stretch at map coordinate 1.28269, 103.85998",
+            "disabled": false
+          }
+        ],
+        "featureCount": 0,
+        "renderedKeys": [],
+        "basemap": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    },
+    {
+      "name": "retained-A-terminal",
+      "bytes": 5071,
+      "sha256": "a5ff3eca7341cffc50e7b65f4ca070c6ff9a6a631da0bcf48073988335580c7e",
+      "before": {
+        "url": "http://127.0.0.1:4344/?debugMap=1&postal=018956",
+        "timeOrigin": 1789012396857.5,
+        "text": "This page couldn’t load\n\nReload to try again, or go back.\n\nReload\nBack",
+        "controller": "http://127.0.0.1:4344/sw.js",
+        "controllerChanges": 1,
+        "held": [
+          {
+            "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+            "at": 2405.100000143051,
+            "connected": false
+          }
+        ],
+        "released": [
+          {
+            "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+            "at": 8673.200000047684,
+            "connectedBefore": false
+          }
+        ],
+        "marker": 1789012396857.5,
+        "controls": [
+          {
+            "label": "Reload",
+            "disabled": false
+          },
+          {
+            "label": "Back",
+            "disabled": false
+          }
+        ],
+        "featureCount": 0,
+        "renderedKeys": [],
+        "basemap": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "after": {
+        "url": "http://127.0.0.1:4344/?debugMap=1&postal=018956",
+        "timeOrigin": 1789012396857.5,
+        "text": "This page couldn’t load\n\nReload to try again, or go back.\n\nReload\nBack",
+        "controller": "http://127.0.0.1:4344/sw.js",
+        "controllerChanges": 1,
+        "held": [
+          {
+            "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+            "at": 2405.100000143051,
+            "connected": false
+          }
+        ],
+        "released": [
+          {
+            "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+            "at": 8673.200000047684,
+            "connectedBefore": false
+          }
+        ],
+        "marker": 1789012396857.5,
+        "controls": [
+          {
+            "label": "Reload",
+            "disabled": false
+          },
+          {
+            "label": "Back",
+            "disabled": false
+          }
+        ],
+        "featureCount": 0,
+        "renderedKeys": [],
+        "basemap": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    }
+  ],
+  "samples": [
+    {
+      "name": "retained-A",
+      "facts": {
+        "url": "http://127.0.0.1:4344/?debugMap=1&postal=018956",
+        "timeOrigin": 1789012396857.5,
+        "text": "SHIOK.\n\nMap waiting\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "status": "idle",
+        "controller": "http://127.0.0.1:4344/sw.js",
+        "controllerChanges": 0,
+        "held": [
+          {
+            "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+            "at": 2405.100000143051,
+            "connected": false
+          }
+        ],
+        "released": [],
+        "marker": 1789012396857.5,
+        "controls": [
+          {
+            "label": "Search postal code",
+            "disabled": false
+          },
+          {
+            "label": "Walk details",
+            "disabled": false
+          },
+          {
+            "label": "Night lighting",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Copy correction report",
+            "disabled": true
+          },
+          {
+            "label": "Published walkdisplayed walk",
+            "disabled": false
+          },
+          {
+            "label": "MRT/LRT exitspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Bus stopspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Show comparison",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Focus on map for Longest short exposed stretch at map coordinate 1.28314, 103.86011",
+            "disabled": false
+          },
+          {
+            "label": "Focus on map for Gap 2 short exposed stretch at map coordinate 1.28269, 103.85998",
+            "disabled": false
+          }
+        ],
+        "featureCount": 0,
+        "renderedKeys": [],
+        "basemap": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    },
+    {
+      "name": "B-controls-retained-A",
+      "facts": {
+        "url": "http://127.0.0.1:4344/?debugMap=1&postal=018956",
+        "timeOrigin": 1789012396857.5,
+        "text": "SHIOK.\n\nMap waiting\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "status": "idle",
+        "controller": "http://127.0.0.1:4344/sw.js",
+        "controllerChanges": 1,
+        "held": [
+          {
+            "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+            "at": 2405.100000143051,
+            "connected": false
+          }
+        ],
+        "released": [],
+        "marker": 1789012396857.5,
+        "controls": [
+          {
+            "label": "Search postal code",
+            "disabled": false
+          },
+          {
+            "label": "Walk details",
+            "disabled": false
+          },
+          {
+            "label": "Night lighting",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Copy correction report",
+            "disabled": true
+          },
+          {
+            "label": "Published walkdisplayed walk",
+            "disabled": false
+          },
+          {
+            "label": "MRT/LRT exitspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Bus stopspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Show comparison",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Focus on map for Longest short exposed stretch at map coordinate 1.28314, 103.86011",
+            "disabled": false
+          },
+          {
+            "label": "Focus on map for Gap 2 short exposed stretch at map coordinate 1.28269, 103.85998",
+            "disabled": false
+          }
+        ],
+        "featureCount": 0,
+        "renderedKeys": [],
+        "basemap": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    },
+    {
+      "name": "old-tab-terminal",
+      "facts": {
+        "url": "http://127.0.0.1:4344/?debugMap=1&postal=018956",
+        "timeOrigin": 1789012396857.5,
+        "text": "This page couldn’t load\n\nReload to try again, or go back.\n\nReload\nBack",
+        "controller": "http://127.0.0.1:4344/sw.js",
+        "controllerChanges": 1,
+        "held": [
+          {
+            "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+            "at": 2405.100000143051,
+            "connected": false
+          }
+        ],
+        "released": [
+          {
+            "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+            "at": 8673.200000047684,
+            "connectedBefore": false
+          }
+        ],
+        "marker": 1789012396857.5,
+        "controls": [
+          {
+            "label": "Reload",
+            "disabled": false
+          },
+          {
+            "label": "Back",
+            "disabled": false
+          }
+        ],
+        "featureCount": 0,
+        "renderedKeys": [],
+        "basemap": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    }
+  ],
+  "requests": [
+    {
+      "at": 1789012396333,
+      "id": "5A30DA012A1B1C94C290335BF60F916C",
+      "url": "http://127.0.0.1:4344/__qa/seed",
+      "method": "GET",
+      "type": "Document"
+    },
+    {
+      "at": 1789012396444,
+      "id": "82812.2",
+      "url": "http://127.0.0.1:4344/favicon.ico",
+      "method": "GET",
+      "type": "Other"
+    },
+    {
+      "at": 1789012396862,
+      "id": "F336C90779C4A824DB0FD35E611DCF4E",
+      "url": "http://127.0.0.1:4344/?debugMap=1&postal=018956",
+      "method": "GET",
+      "type": "Document"
+    },
+    {
+      "at": 1789012397458,
+      "id": "82812.6",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3mic8ep312z99.css",
+      "method": "GET",
+      "type": "Stylesheet"
+    },
+    {
+      "at": 1789012397466,
+      "id": "82812.7",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/310vm2bl3xxpt.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012397467,
+      "id": "82812.8",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0y-dctk-kmqss.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012397468,
+      "id": "82812.9",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/08ttfj81-47mu.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012397469,
+      "id": "82812.10",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3g398rb4su43l.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012397470,
+      "id": "82812.11",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012397470,
+      "id": "82812.12",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3fntmmi971322.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012397473,
+      "id": "82812.13",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/2zaun8r9-gox7.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012397474,
+      "id": "82812.14",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/27iodt6ap9svx.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012399115,
+      "id": "82812.35",
+      "url": "http://127.0.0.1:4344/icon.svg",
+      "method": "GET",
+      "type": "Other"
+    },
+    {
+      "at": 1789012399310,
+      "id": "82812.37",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/2_c6f5vawm6vi.css",
+      "method": "GET",
+      "type": "Stylesheet"
+    },
+    {
+      "at": 1789012399311,
+      "id": "82812.38",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0npwww6p9wx1o.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012399314,
+      "id": "82812.40",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/318x15h178iv-.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012399316,
+      "id": "82812.43",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012399321,
+      "id": "82812.45",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012399346,
+      "id": "82812.47",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/39xhkg3l-se9r.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012399352,
+      "id": "82812.49",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012399543,
+      "id": "82812.51",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012399659,
+      "id": "82812.53",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012399679,
+      "id": "82812.55",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012399781,
+      "id": "82812.57",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012403342,
+      "id": "82812.59",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012403345,
+      "id": "82812.60",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012403346,
+      "id": "82812.61",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012403346,
+      "id": "82812.62",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012403348,
+      "id": "82812.63",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012403354,
+      "id": "82812.64",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012403356,
+      "id": "82812.65",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012405537,
+      "id": "82812.74",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012406018,
+      "id": "82812.76",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012406838,
+      "id": "2C2987E3C7BB6DC1088110F018666209",
+      "url": "http://127.0.0.1:4344/?",
+      "method": "GET",
+      "type": "Document"
+    },
+    {
+      "at": 1789012407401,
+      "id": "82812.80",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0_37s5sg_tb1s.css",
+      "method": "GET",
+      "type": "Stylesheet"
+    },
+    {
+      "at": 1789012407402,
+      "id": "82812.81",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3wkt3-74el481.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012407403,
+      "id": "82812.82",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/2wu61p_p0hxro.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012407403,
+      "id": "82812.83",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/15vjcp-pci5lb.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012407404,
+      "id": "82812.84",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0in607kxyceyg.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012407405,
+      "id": "82812.85",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/turbopack-2klqy1zmb2z0s.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012407406,
+      "id": "82812.86",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/1oaw9uq-pttep.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012407406,
+      "id": "82812.87",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/01p3774-hxyfp.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012407408,
+      "id": "82812.88",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/2hq1v3tic__6o.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012408876,
+      "id": "82812.109",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0lf8gkhkp2sor.css",
+      "method": "GET",
+      "type": "Stylesheet"
+    },
+    {
+      "at": 1789012408877,
+      "id": "82812.110",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0-tm02sd_jhoi.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012408880,
+      "id": "82812.111",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/06qhs089ha5t_.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012408964,
+      "id": "82812.115",
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "method": "GET",
+      "type": "Image"
+    },
+    {
+      "at": 1789012408977,
+      "id": "82812.116",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/2rmzgxedjsyy1.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012408978,
+      "id": "82812.117",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3_zdoql-8zsg0.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012409861,
+      "id": "E7D03548BA76590F6B8F7E4B6AC1ABC5",
+      "url": "http://127.0.0.1:4344/maplibre/6.1.0/maplibre-gl-worker.mjs",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012410206,
+      "id": "82812.121",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8133.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012410207,
+      "id": "82812.122",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8132.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012410208,
+      "id": "82812.123",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8133.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012410213,
+      "id": "82812.124",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8133.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012410215,
+      "id": "82812.125",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8132.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012410216,
+      "id": "82812.126",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8134.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012410218,
+      "id": "82812.127",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8132.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012410218,
+      "id": "82812.128",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8134.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012410219,
+      "id": "82812.129",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8134.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012410221,
+      "id": "82812.130",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8131.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012410222,
+      "id": "82812.131",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8133.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012410222,
+      "id": "82812.132",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8131.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012410223,
+      "id": "82812.133",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8132.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012410224,
+      "id": "82812.134",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8131.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012410226,
+      "id": "82812.135",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8133.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012410227,
+      "id": "82812.136",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8132.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012412693,
+      "id": "82812.140",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8135.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012412876,
+      "id": "82812.141",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8134.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012412954,
+      "id": "82812.142",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8135.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012413370,
+      "id": "82812.143",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8134.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012413522,
+      "id": "82812.144",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8135.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012413744,
+      "id": "82812.145",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8131.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012413750,
+      "id": "82812.146",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8131.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012413754,
+      "id": "82812.147",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8130.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012414176,
+      "id": "82812.148",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8130.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012414828,
+      "id": "82812.149",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8135.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012415492,
+      "id": "82812.150",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8130.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012416068,
+      "id": "82812.151",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8135.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012417433,
+      "id": "82812.152",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8136.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012418466,
+      "id": "82812.153",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8136.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012419275,
+      "id": "82812.154",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8130.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012419661,
+      "id": "82812.155",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8136.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012420535,
+      "id": "82812.156",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8130.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012421674,
+      "id": "82812.157",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8136.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012422698,
+      "id": "82812.158",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8129.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012424536,
+      "id": "82812.159",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8136.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012424763,
+      "id": "82812.160",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8129.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012426059,
+      "id": "82812.161",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8129.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012426232,
+      "id": "82812.162",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8137.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012426603,
+      "id": "82812.163",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8129.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012427144,
+      "id": "82812.164",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8129.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012427153,
+      "id": "82812.165",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8137.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012427550,
+      "id": "82812.166",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8137.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012427568,
+      "id": "82812.167",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8137.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012428968,
+      "id": "82812.168",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8137.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012430415,
+      "id": "82812.169",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8128.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012431467,
+      "id": "82812.170",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8128.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012432440,
+      "id": "82812.171",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8128.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012433840,
+      "id": "82812.172",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8128.png",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012435083,
+      "id": "82812.173",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8128.png",
+      "method": "GET",
+      "type": "Fetch"
+    }
+  ],
+  "responses": [
+    {
+      "at": 1789012396355,
+      "id": "5A30DA012A1B1C94C290335BF60F916C",
+      "url": "http://127.0.0.1:4344/__qa/seed",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012396780,
+      "id": "82812.2",
+      "url": "http://127.0.0.1:4344/favicon.ico",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012396925,
+      "id": "F336C90779C4A824DB0FD35E611DCF4E",
+      "url": "http://127.0.0.1:4344/?debugMap=1&postal=018956",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012398332,
+      "id": "82812.6",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3mic8ep312z99.css",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012398470,
+      "id": "82812.7",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/310vm2bl3xxpt.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012398471,
+      "id": "82812.8",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0y-dctk-kmqss.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012398632,
+      "id": "82812.9",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/08ttfj81-47mu.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012398688,
+      "id": "82812.11",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012398784,
+      "id": "82812.10",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3g398rb4su43l.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012398956,
+      "id": "82812.14",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/27iodt6ap9svx.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012398962,
+      "id": "82812.12",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3fntmmi971322.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012398964,
+      "id": "82812.13",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/2zaun8r9-gox7.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012399242,
+      "id": "82812.35",
+      "url": "http://127.0.0.1:4344/icon.svg",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012399347,
+      "id": "82812.38",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0npwww6p9wx1o.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012399351,
+      "id": "82812.45",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012399414,
+      "id": "82812.37",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/2_c6f5vawm6vi.css",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012399542,
+      "id": "82812.43",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012399543,
+      "id": "82812.47",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/39xhkg3l-se9r.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012399658,
+      "id": "82812.51",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 404,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012399677,
+      "id": "82812.49",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012399781,
+      "id": "82812.55",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "status": 404,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012399946,
+      "id": "82812.53",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012400683,
+      "id": "82812.40",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/318x15h178iv-.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012403133,
+      "id": "82812.57",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012403665,
+      "id": "82812.60",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012403667,
+      "id": "82812.59",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012403671,
+      "id": "82812.61",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012403673,
+      "id": "82812.62",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012403674,
+      "id": "82812.65",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "status": 404,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012403675,
+      "id": "82812.63",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012403675,
+      "id": "82812.64",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012405577,
+      "id": "82812.74",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+      "status": 404,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012406041,
+      "id": "82812.76",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+      "status": 404,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012407355,
+      "id": "2C2987E3C7BB6DC1088110F018666209",
+      "url": "http://127.0.0.1:4344/?",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012407655,
+      "id": "82812.81",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3wkt3-74el481.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012407661,
+      "id": "82812.80",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0_37s5sg_tb1s.css",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012407827,
+      "id": "82812.82",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/2wu61p_p0hxro.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012407880,
+      "id": "82812.85",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/turbopack-2klqy1zmb2z0s.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012407951,
+      "id": "82812.84",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0in607kxyceyg.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012407981,
+      "id": "82812.86",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/1oaw9uq-pttep.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012408064,
+      "id": "82812.87",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/01p3774-hxyfp.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012408066,
+      "id": "82812.83",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/15vjcp-pci5lb.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012408581,
+      "id": "82812.88",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/2hq1v3tic__6o.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012408888,
+      "id": "82812.109",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0lf8gkhkp2sor.css",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012408903,
+      "id": "82812.110",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0-tm02sd_jhoi.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012408943,
+      "id": "82812.111",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/06qhs089ha5t_.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012409091,
+      "id": "82812.115",
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012409093,
+      "id": "82812.116",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/2rmzgxedjsyy1.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012409447,
+      "id": "82812.117",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3_zdoql-8zsg0.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012411382,
+      "id": "82812.121",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8133.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012411383,
+      "id": "82812.122",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8132.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012412230,
+      "id": "82812.123",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8133.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012412257,
+      "id": "82812.124",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8133.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012412395,
+      "id": "82812.125",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8132.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012412493,
+      "id": "82812.126",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8134.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012413740,
+      "id": "82812.127",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8132.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012413743,
+      "id": "82812.128",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8134.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012413744,
+      "id": "82812.129",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8134.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012413745,
+      "id": "82812.130",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8131.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012415408,
+      "id": "82812.131",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8133.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012415883,
+      "id": "82812.132",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8131.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012417227,
+      "id": "82812.133",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8132.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012418056,
+      "id": "82812.134",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8131.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012418869,
+      "id": "82812.135",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8133.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012418947,
+      "id": "82812.136",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8132.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012420380,
+      "id": "82812.140",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8135.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012421553,
+      "id": "82812.141",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8134.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012422529,
+      "id": "82812.142",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8135.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012423585,
+      "id": "82812.143",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8134.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012423757,
+      "id": "82812.144",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8135.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012424212,
+      "id": "82812.145",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8131.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012424802,
+      "id": "82812.146",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8131.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012425320,
+      "id": "82812.147",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8130.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012427141,
+      "id": "82812.148",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8130.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012427150,
+      "id": "82812.149",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8135.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012427546,
+      "id": "82812.150",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8130.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012427563,
+      "id": "82812.151",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8135.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012428745,
+      "id": "82812.152",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8136.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012430046,
+      "id": "82812.153",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8136.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012431292,
+      "id": "82812.154",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8130.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012432299,
+      "id": "82812.155",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8136.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012433417,
+      "id": "82812.156",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8130.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012434993,
+      "id": "82812.157",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8136.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012435776,
+      "id": "82812.158",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8129.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012436440,
+      "id": "82812.159",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8136.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012436777,
+      "id": "82812.160",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8129.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012436991,
+      "id": "82812.161",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8129.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012437303,
+      "id": "82812.162",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8137.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012437811,
+      "id": "82812.163",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8129.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012437892,
+      "id": "82812.164",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8129.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012438842,
+      "id": "82812.165",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8137.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012439045,
+      "id": "82812.166",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8137.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012439423,
+      "id": "82812.167",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8137.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012440749,
+      "id": "82812.168",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8137.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012441304,
+      "id": "82812.169",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8128.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012441312,
+      "id": "82812.170",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8128.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012441317,
+      "id": "82812.171",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8128.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012442037,
+      "id": "82812.172",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8128.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012442044,
+      "id": "82812.173",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8128.png",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    }
+  ],
+  "completed": [
+    "5A30DA012A1B1C94C290335BF60F916C",
+    "82812.2",
+    "82812.6",
+    "F336C90779C4A824DB0FD35E611DCF4E",
+    "82812.7",
+    "82812.8",
+    "82812.9",
+    "82812.11",
+    "82812.10",
+    "82812.14",
+    "82812.12",
+    "82812.13",
+    "82812.35",
+    "82812.38",
+    "82812.37",
+    "82812.43",
+    "82812.47",
+    "82812.49",
+    "82812.53",
+    "82812.40",
+    "82812.57",
+    "82812.60",
+    "82812.59",
+    "82812.61",
+    "82812.62",
+    "82812.63",
+    "82812.64",
+    "2C2987E3C7BB6DC1088110F018666209",
+    "82812.81",
+    "82812.80",
+    "82812.82",
+    "82812.85",
+    "82812.84",
+    "82812.86",
+    "82812.87",
+    "82812.83",
+    "82812.88",
+    "82812.109",
+    "82812.110",
+    "82812.111",
+    "82812.115",
+    "82812.116",
+    "82812.117",
+    "82812.121",
+    "82812.122",
+    "82812.123",
+    "82812.124",
+    "82812.125",
+    "82812.126",
+    "82812.127",
+    "82812.128",
+    "82812.129",
+    "82812.130",
+    "82812.131",
+    "82812.132",
+    "82812.133",
+    "82812.134",
+    "82812.135",
+    "82812.136",
+    "82812.140",
+    "82812.141",
+    "82812.142",
+    "82812.143",
+    "82812.144",
+    "82812.145",
+    "82812.146",
+    "82812.147",
+    "82812.148",
+    "82812.149",
+    "82812.150",
+    "82812.151",
+    "82812.152",
+    "82812.153",
+    "82812.154",
+    "82812.155",
+    "82812.156",
+    "82812.157",
+    "82812.158",
+    "82812.159",
+    "82812.160",
+    "82812.161",
+    "82812.162",
+    "82812.163",
+    "82812.164",
+    "82812.165",
+    "82812.166",
+    "82812.167",
+    "82812.168",
+    "82812.169",
+    "82812.170",
+    "82812.171",
+    "82812.172",
+    "82812.173"
+  ],
+  "documents": [
+    {
+      "at": 1789012396355,
+      "id": "5A30DA012A1B1C94C290335BF60F916C",
+      "url": "http://127.0.0.1:4344/__qa/seed",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012396925,
+      "id": "F336C90779C4A824DB0FD35E611DCF4E",
+      "url": "http://127.0.0.1:4344/?debugMap=1&postal=018956",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false,
+      "file": "document-1.html",
+      "bytes": 12889,
+      "bodySha256": "4ad9e4f9b97117f3203bba69a950b0bcfcab96ad3805a6b56503550bbfec544b",
+      "containsA": true,
+      "containsB": false
+    },
+    {
+      "at": 1789012407355,
+      "id": "2C2987E3C7BB6DC1088110F018666209",
+      "url": "http://127.0.0.1:4344/?",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    }
+  ],
+  "versions": [
+    {
+      "at": 1789012396303,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "running",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "B5CDF967854FC0BF340B151E677592E1"
+        }
+      ]
+    },
+    {
+      "at": 1789012396306,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "running",
+          "status": "installed",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "B5CDF967854FC0BF340B151E677592E1"
+        }
+      ]
+    },
+    {
+      "at": 1789012396307,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "B5CDF967854FC0BF340B151E677592E1"
+        }
+      ]
+    },
+    {
+      "at": 1789012396314,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "B5CDF967854FC0BF340B151E677592E1"
+        }
+      ]
+    },
+    {
+      "at": 1789012396488,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopped",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789012396699,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopped",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012396.684277,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789012396700,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012396.684277,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789012396700,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012396.684277,
+          "controlledClients": [],
+          "targetId": "7B368AD11B2E019E5D585DFA129D163B"
+        }
+      ]
+    },
+    {
+      "at": 1789012396748,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "starting",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012396.684277,
+          "controlledClients": [],
+          "targetId": "7B368AD11B2E019E5D585DFA129D163B"
+        }
+      ]
+    },
+    {
+      "at": 1789012396749,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012396.684277,
+          "controlledClients": [],
+          "targetId": "7B368AD11B2E019E5D585DFA129D163B"
+        }
+      ]
+    },
+    {
+      "at": 1789012396752,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "installed",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012396.684277,
+          "controlledClients": [],
+          "targetId": "7B368AD11B2E019E5D585DFA129D163B"
+        }
+      ]
+    },
+    {
+      "at": 1789012396753,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012396.684277,
+          "controlledClients": [],
+          "targetId": "7B368AD11B2E019E5D585DFA129D163B"
+        }
+      ]
+    },
+    {
+      "at": 1789012396755,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012396.684277,
+          "controlledClients": [
+            "FD1AFA35F46F4D5B67A69DDCB6BFF6F8"
+          ],
+          "targetId": "7B368AD11B2E019E5D585DFA129D163B"
+        }
+      ]
+    },
+    {
+      "at": 1789012396756,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012396.684277,
+          "controlledClients": [
+            "FD1AFA35F46F4D5B67A69DDCB6BFF6F8"
+          ],
+          "targetId": "7B368AD11B2E019E5D585DFA129D163B"
+        }
+      ]
+    },
+    {
+      "at": 1789012396871,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012396.684277,
+          "controlledClients": [
+            "FD1AFA35F46F4D5B67A69DDCB6BFF6F8"
+          ],
+          "targetId": "7B368AD11B2E019E5D585DFA129D163B"
+        }
+      ]
+    },
+    {
+      "at": 1789012397479,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012396.684277,
+          "controlledClients": [],
+          "targetId": "7B368AD11B2E019E5D585DFA129D163B"
+        }
+      ]
+    },
+    {
+      "at": 1789012404285,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopped",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789012404285,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789012404286,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "B5417A2AC692F68ED4DB5E045F6389E3"
+        }
+      ]
+    },
+    {
+      "at": 1789012404356,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012404.262141,
+          "controlledClients": [],
+          "targetId": "B5417A2AC692F68ED4DB5E045F6389E3"
+        }
+      ]
+    },
+    {
+      "at": 1789012404368,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "starting",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012404.262141,
+          "controlledClients": [],
+          "targetId": "B5417A2AC692F68ED4DB5E045F6389E3"
+        }
+      ]
+    },
+    {
+      "at": 1789012404369,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012404.262141,
+          "controlledClients": [],
+          "targetId": "B5417A2AC692F68ED4DB5E045F6389E3"
+        }
+      ]
+    },
+    {
+      "at": 1789012404373,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "installed",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012404.262141,
+          "controlledClients": [],
+          "targetId": "B5417A2AC692F68ED4DB5E045F6389E3"
+        }
+      ]
+    },
+    {
+      "at": 1789012404374,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopping",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012396.684277,
+          "controlledClients": [],
+          "targetId": "7B368AD11B2E019E5D585DFA129D163B"
+        }
+      ]
+    },
+    {
+      "at": 1789012404394,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopped",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012396.684277,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789012404395,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopped",
+          "status": "redundant",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012396.684277,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789012404396,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012404.262141,
+          "controlledClients": [],
+          "targetId": "B5417A2AC692F68ED4DB5E045F6389E3"
+        }
+      ]
+    },
+    {
+      "at": 1789012404396,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012404.262141,
+          "controlledClients": [],
+          "targetId": "B5417A2AC692F68ED4DB5E045F6389E3"
+        }
+      ]
+    },
+    {
+      "at": 1789012404397,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012404.262141,
+          "controlledClients": [
+            "FD1AFA35F46F4D5B67A69DDCB6BFF6F8"
+          ],
+          "targetId": "B5417A2AC692F68ED4DB5E045F6389E3"
+        }
+      ]
+    },
+    {
+      "at": 1789012404400,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012404.262141,
+          "controlledClients": [
+            "FD1AFA35F46F4D5B67A69DDCB6BFF6F8"
+          ],
+          "targetId": "B5417A2AC692F68ED4DB5E045F6389E3"
+        }
+      ]
+    },
+    {
+      "at": 1789012405399,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012404.262141,
+          "controlledClients": [
+            "FD1AFA35F46F4D5B67A69DDCB6BFF6F8"
+          ],
+          "targetId": "B5417A2AC692F68ED4DB5E045F6389E3"
+        }
+      ]
+    },
+    {
+      "at": 1789012406859,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012404.262141,
+          "controlledClients": [
+            "FD1AFA35F46F4D5B67A69DDCB6BFF6F8"
+          ],
+          "targetId": "B5417A2AC692F68ED4DB5E045F6389E3"
+        }
+      ]
+    },
+    {
+      "at": 1789012407418,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012404.262141,
+          "controlledClients": [],
+          "targetId": "B5417A2AC692F68ED4DB5E045F6389E3"
+        }
+      ]
+    },
+    {
+      "at": 1789012409862,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012404.262141,
+          "controlledClients": [],
+          "targetId": "B5417A2AC692F68ED4DB5E045F6389E3"
+        }
+      ]
+    },
+    {
+      "at": 1789012441529,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "stopping",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "B5CDF967854FC0BF340B151E677592E1"
+        }
+      ]
+    },
+    {
+      "at": 1789012442051,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "stopped",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789012451787,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopping",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012404.262141,
+          "controlledClients": [],
+          "targetId": "B5417A2AC692F68ED4DB5E045F6389E3"
+        }
+      ]
+    },
+    {
+      "at": 1789012452048,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopped",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012404.262141,
+          "controlledClients": []
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "exceptionId": 1,
+      "text": "Uncaught (in promise)",
+      "lineNumber": 0,
+      "columnNumber": 4964,
+      "scriptId": "18",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+      "stackTrace": {
+        "callFrames": [
+          {
+            "functionName": "",
+            "scriptId": "18",
+            "url": "http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+            "lineNumber": 0,
+            "columnNumber": 4964
+          }
+        ]
+      },
+      "exception": {
+        "type": "object",
+        "subtype": "error",
+        "className": "Error",
+        "description": "ChunkLoadError: Failed to load chunk /_next/static/chunks/0j6tjjnrv2h3w.js from module 25432\n    at http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js:1:4965",
+        "objectId": "391722727326401848.3.1",
+        "preview": {
+          "type": "object",
+          "subtype": "error",
+          "description": "ChunkLoadError: Failed to load chunk /_next/static/chunks/0j6tjjnrv2h3w.js from module 25432\n    at http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js:1:4965",
+          "overflow": false,
+          "properties": [
+            {
+              "name": "name",
+              "type": "string",
+              "value": "ChunkLoadError"
+            },
+            {
+              "name": "stack",
+              "type": "string",
+              "value": "ChunkLoadError: Failed to load chunk /_next/static…t/static/chunks/turbopack-35blp6v37t2x-.js:1:4965"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Failed to load chunk /_next/static/chunks/0j6tjjnrv2h3w.js from module 25432"
+            }
+          ]
+        }
+      },
+      "executionContextId": 3
+    },
+    {
+      "exceptionId": 2,
+      "text": "Uncaught",
+      "lineNumber": 0,
+      "columnNumber": 25050,
+      "scriptId": "17",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/08ttfj81-47mu.js",
+      "stackTrace": {
+        "callFrames": [
+          {
+            "functionName": "",
+            "scriptId": "18",
+            "url": "http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+            "lineNumber": 0,
+            "columnNumber": 4964
+          }
+        ]
+      },
+      "exception": {
+        "type": "object",
+        "subtype": "error",
+        "className": "Error",
+        "description": "ChunkLoadError: Failed to load chunk /_next/static/chunks/0j6tjjnrv2h3w.js from module 25432\n    at http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js:1:4965",
+        "objectId": "391722727326401848.3.2",
+        "preview": {
+          "type": "object",
+          "subtype": "error",
+          "description": "ChunkLoadError: Failed to load chunk /_next/static/chunks/0j6tjjnrv2h3w.js from module 25432\n    at http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js:1:4965",
+          "overflow": false,
+          "properties": [
+            {
+              "name": "name",
+              "type": "string",
+              "value": "ChunkLoadError"
+            },
+            {
+              "name": "stack",
+              "type": "string",
+              "value": "ChunkLoadError: Failed to load chunk /_next/static…t/static/chunks/turbopack-35blp6v37t2x-.js:1:4965"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Failed to load chunk /_next/static/chunks/0j6tjjnrv2h3w.js from module 25432"
+            }
+          ]
+        }
+      },
+      "executionContextId": 3
+    }
+  ],
+  "denied": [],
+  "proxy": {
+    "root": "C:\\sgSHIOK2026",
+    "directory": "C:\\sgSHIOK2026\\qa\\revamp-r1\\retained-tab-20260910\\proxy-attempt4",
+    "pid": 105428,
+    "origin": "http://127.0.0.1:4344",
+    "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+    "buildB": "lcoYvon9S455KiFb_Oc8K",
+    "workerHashes": {
+      "A": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+      "B": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+    },
+    "target": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+    "targetBytes": 39556,
+    "targetSha256": "4a1b7cf727bfc2157e11185a0fe88af518733a56f34601833c75fccad34df11b",
+    "sourceB": "C:\\sgSHIOK2026\\tmp\\cached-release-cross-feature-focus-20260910-2",
+    "active": "A"
+  },
+  "chromePid": 111800,
+  "lastSample": {
+    "name": "B selected route",
+    "value": {
+      "url": "http://127.0.0.1:4344/",
+      "timeOrigin": 1789012406811.6,
+      "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\nCompare\n\nMap waiting\n\nAbout data",
+      "status": "idle",
+      "controller": "http://127.0.0.1:4344/sw.js",
+      "controls": [
+        {
+          "label": "Compare",
+          "disabled": false
+        },
+        {
+          "label": "Search postal code",
+          "disabled": false
+        }
+      ],
+      "routeKey": "1:shiokest:",
+      "featureCount": 0,
+      "renderedKeys": [],
+      "basemap": true,
+      "tiles": true,
+      "moving": false,
+      "overflow": false,
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  },
+  "targetId": "FD1AFA35F46F4D5B67A69DDCB6BFF6F8",
+  "legacyVersions": [
+    "0",
+    "1"
+  ],
+  "cachesBefore": [
+    {
+      "name": "unrelated-retained-fixture",
+      "paths": [
+        "/__qa/sentinel"
+      ],
+      "samples": [],
+      "sentinel": "foreign",
+      "targetPresent": false
+    },
+    {
+      "name": "sgshiok-static-v99",
+      "paths": [
+        "/__qa/sentinel"
+      ],
+      "samples": [],
+      "sentinel": "future",
+      "targetPresent": false
+    },
+    {
+      "name": "sgshiok-static-v1",
+      "paths": [
+        "/",
+        "/_next/static/chunks/310vm2bl3xxpt.js",
+        "/_next/static/chunks/3mic8ep312z99.css",
+        "/_next/static/chunks/0y-dctk-kmqss.js",
+        "/_next/static/chunks/08ttfj81-47mu.js",
+        "/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+        "/_next/static/chunks/3g398rb4su43l.js",
+        "/_next/static/chunks/27iodt6ap9svx.js",
+        "/_next/static/chunks/3fntmmi971322.js",
+        "/_next/static/chunks/2zaun8r9-gox7.js",
+        "/icon.svg",
+        "/_next/static/chunks/0npwww6p9wx1o.js",
+        "/_next/static/chunks/2_c6f5vawm6vi.css",
+        "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "/_next/static/chunks/39xhkg3l-se9r.js",
+        "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "/_next/static/chunks/318x15h178iv-.js",
+        "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz"
+      ],
+      "samples": [
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+          "bytes": 184,
+          "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+        },
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+          "bytes": 39674,
+          "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+        },
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+          "bytes": 145327,
+          "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+        },
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+          "bytes": 5236013,
+          "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+        }
+      ],
+      "targetPresent": false
+    }
+  ],
+  "switchedAt": 1789012404240,
+  "cachesAfterFailure": [
+    {
+      "name": "unrelated-retained-fixture",
+      "paths": [
+        "/__qa/sentinel"
+      ],
+      "samples": [],
+      "sentinel": "foreign",
+      "targetPresent": false
+    },
+    {
+      "name": "sgshiok-static-v99",
+      "paths": [
+        "/__qa/sentinel"
+      ],
+      "samples": [],
+      "sentinel": "future",
+      "targetPresent": false
+    },
+    {
+      "name": "sgshiok-static-v1",
+      "paths": [
+        "/",
+        "/_next/static/chunks/310vm2bl3xxpt.js",
+        "/_next/static/chunks/3mic8ep312z99.css",
+        "/_next/static/chunks/0y-dctk-kmqss.js",
+        "/_next/static/chunks/08ttfj81-47mu.js",
+        "/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+        "/_next/static/chunks/3g398rb4su43l.js",
+        "/_next/static/chunks/27iodt6ap9svx.js",
+        "/_next/static/chunks/3fntmmi971322.js",
+        "/_next/static/chunks/2zaun8r9-gox7.js",
+        "/icon.svg",
+        "/_next/static/chunks/0npwww6p9wx1o.js",
+        "/_next/static/chunks/2_c6f5vawm6vi.css",
+        "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "/_next/static/chunks/39xhkg3l-se9r.js",
+        "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "/_next/static/chunks/318x15h178iv-.js",
+        "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz"
+      ],
+      "samples": [
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+          "bytes": 184,
+          "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+        },
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+          "bytes": 39674,
+          "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+        },
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+          "bytes": 145327,
+          "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+        },
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+          "bytes": 5236013,
+          "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+        }
+      ],
+      "targetPresent": false
+    }
+  ],
+  "retainedAcceptance": {
+    "usefulWalkDetails": false,
+    "explicitReload": true,
+    "automaticNewDocument": false
+  },
+  "recoveryAction": "Visible application button: Reload",
+  "error": "Error: B selected route timeout: {\"url\":\"http://127.0.0.1:4344/\",\"timeOrigin\":1789012406811.6,\"text\":\" \\nOneMap\\n © contributors | \\nSingapore Land Authority\\n\\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\\n\\nSHIOK.\\nCompare\\n\\nMap waiting\\n\\nAbout data\",\"status\":\"idle\",\"controller\":\"http://127.0.0.1:4344/sw.js\",\"controls\":[{\"label\":\"Compare\",\"disabled\":false},{\"label\":\"Search postal code\",\"disabled\":false}],\"routeKey\":\"1:shiokest:\",\"featureCount\":0,\"renderedKeys\":[],\"basemap\":true,\"tiles\":true,\"moving\":false,\"overflow\":false,\"viewport\":[390,844]}\n    at until (file:///C:/sgSHIOK2026/qa/revamp-r1/retained-tab-20260910/browser.mjs:43:9)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/retained-tab-20260910/browser.mjs:191:3",
+  "exitCode": 1,
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-jGu1CI'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": 0,
+    "stdout": "{\"before\":[{\"ProcessId\":111800,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:/Program Files/Google/Chrome/Application/chrome.exe\\\" --headless=new --no-first-run --no-sandbox --use-angle=swiftshader --enable-unsafe-swiftshader --disable-background-networking --disable-component-update --disable-sync --remote-debugging-port=0 --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-jGu1CI about:blank\"},{\"ProcessId\":75224,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=crashpad-handler --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-jGu1CI /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-jGu1CI\\\\Crashpad --metrics-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-jGu1CI --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=152.0.7977.83 --initial-client-data=0x120,0x124,0x128,0xfc,0x12c,0x7fff57757e60,0x7fff57757e70,0x7fff57757e80\"},{\"ProcessId\":87664,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=gpu-process --no-sandbox --headless=new --use-angle=swiftshader --enable-unsafe-swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-jGu1CI\\\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1868,i,14655984773500592433,12730524560024349747,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,16607991712988569767,18241914854743826096,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1864 /prefetch:2\"},{\"ProcessId\":107548,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --use-angle=swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-jGu1CI\\\" --no-pre-read-main-dll --field-trial-handle=1868,i,14655984773500592433,12730524560024349747,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,16607991712988569767,18241914854743826096,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2076 /prefetch:11\"},{\"ProcessId\":114848,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --use-angle=swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-jGu1CI\\\" --no-pre-read-main-dll --field-trial-handle=1868,i,14655984773500592433,12730524560024349747,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,16607991712988569767,18241914854743826096,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2372 /prefetch:13\"},{\"ProcessId\":110236,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-jGu1CI\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=1083092263363 --field-trial-handle=1868,i,14655984773500592433,12730524560024349747,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,16607991712988569767,18241914854743826096,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3172 /prefetch:1\"},{\"ProcessId\":82812,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-jGu1CI\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=1083092466377 --field-trial-handle=1868,i,14655984773500592433,12730524560024349747,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,16607991712988569767,18241914854743826096,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3424 /prefetch:1\"},{\"ProcessId\":111788,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-jGu1CI\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=19 --launch-time-ticks=1083104186958 --field-trial-handle=1868,i,14655984773500592433,12730524560024349747,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,16607991712988569767,18241914854743826096,4 --trace-process-track-uuid=3190709004115666625 --mojo-platform-channel-handle=5604 /prefetch:1\"},{\"ProcessId\":110172,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=quarantine.mojom.Quarantine --lang=en-US --service-sandbox-type=none --no-sandbox --use-angle=swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-jGu1CI\\\" --no-pre-read-main-dll --field-trial-handle=1868,i,14655984773500592433,12730524560024349747,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,16607991712988569767,18241914854743826096,4 --trace-process-track-uuid=3190709007863834021 --mojo-platform-channel-handle=4028 /prefetch:14\"},{\"ProcessId\":108312,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=quarantine.mojom.Quarantine --lang=en-US --service-sandbox-type=none --no-sandbox --use-angle=swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-jGu1CI\\\" --no-pre-read-main-dll --field-trial-handle=1868,i,14655984773500592433,12730524560024349747,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,16607991712988569767,18241914854743826096,4 --trace-process-track-uuid=3190709017234252511 --mojo-platform-channel-handle=5704 /prefetch:14\"}],\"remaining\":[]}\r\n",
+    "stderr": "",
+    "verified": true
+  },
+  "proxyFinal": {
+    "root": "C:\\sgSHIOK2026",
+    "directory": "C:\\sgSHIOK2026\\qa\\revamp-r1\\retained-tab-20260910\\proxy-attempt4",
+    "pid": 105428,
+    "origin": "http://127.0.0.1:4344",
+    "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+    "buildB": "lcoYvon9S455KiFb_Oc8K",
+    "workerHashes": {
+      "A": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+      "B": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+    },
+    "target": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+    "targetBytes": 39556,
+    "targetSha256": "4a1b7cf727bfc2157e11185a0fe88af518733a56f34601833c75fccad34df11b",
+    "sourceB": "C:\\sgSHIOK2026\\tmp\\cached-release-cross-feature-focus-20260910-2",
+    "active": "B",
+    "requests": [
+      {
+        "at": "2026-09-10T03:53:16.349Z",
+        "method": "GET",
+        "path": "/__qa/seed",
+        "active": "A",
+        "status": 200,
+        "fixture": true
+      },
+      {
+        "at": "2026-09-10T03:53:16.682Z",
+        "method": "GET",
+        "path": "/sw.js",
+        "active": "A",
+        "status": 200,
+        "serviceWorker": "script",
+        "workerSha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390"
+      },
+      {
+        "at": "2026-09-10T03:53:16.758Z",
+        "method": "GET",
+        "path": "/favicon.ico",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:16.889Z",
+        "method": "GET",
+        "path": "/",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:17.439Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/310vm2bl3xxpt.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:17.447Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/3mic8ep312z99.css",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:18.361Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/0y-dctk-kmqss.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:18.364Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/08ttfj81-47mu.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:18.648Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:18.696Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/3g398rb4su43l.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:18.701Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/27iodt6ap9svx.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:18.907Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/3fntmmi971322.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:18.912Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/2zaun8r9-gox7.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:19.125Z",
+        "method": "GET",
+        "path": "/icon.svg",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:19.277Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/0npwww6p9wx1o.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:19.285Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/2_c6f5vawm6vi.css",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:19.295Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/318x15h178iv-.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:19.324Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+        "active": "A",
+        "status": 404,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:19.414Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:19.425Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/39xhkg3l-se9r.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:19.642Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+        "active": "A",
+        "status": 404,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:19.651Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:19.768Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+        "active": "A",
+        "status": 404,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:19.770Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:19.991Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:23.375Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:23.376Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:23.378Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:23.380Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:23.456Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:23.460Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+        "active": "A",
+        "status": 404,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:23.494Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:53:24.238Z",
+        "method": "POST",
+        "path": "/__qa/switch",
+        "active": "B",
+        "status": 204,
+        "control": true
+      },
+      {
+        "at": "2026-09-10T03:53:24.261Z",
+        "method": "GET",
+        "path": "/sw.js",
+        "active": "B",
+        "status": 200,
+        "serviceWorker": "script",
+        "workerSha256": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+      },
+      {
+        "at": "2026-09-10T03:53:25.560Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+        "active": "B",
+        "status": 404,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:26.029Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+        "active": "B",
+        "status": 404,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:27.343Z",
+        "method": "GET",
+        "path": "/?",
+        "active": "B",
+        "status": 200,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:27.632Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/3wkt3-74el481.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:27.634Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/0_37s5sg_tb1s.css",
+        "active": "B",
+        "status": 200,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:27.812Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/2wu61p_p0hxro.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:27.816Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/0in607kxyceyg.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:27.817Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/15vjcp-pci5lb.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:27.859Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/turbopack-2klqy1zmb2z0s.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:27.901Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/1oaw9uq-pttep.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:27.963Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/01p3774-hxyfp.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:28.021Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/2hq1v3tic__6o.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:28.870Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/0-tm02sd_jhoi.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:28.872Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/0lf8gkhkp2sor.css",
+        "active": "B",
+        "status": 200,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:28.884Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/06qhs089ha5t_.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:28.888Z",
+        "method": "GET",
+        "path": "/sw.js",
+        "active": "B",
+        "status": 200,
+        "serviceWorker": "script",
+        "workerSha256": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+      },
+      {
+        "at": "2026-09-10T03:53:29.025Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/2rmzgxedjsyy1.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:29.034Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/3_zdoql-8zsg0.js",
+        "active": "B",
+        "status": 200,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:29.888Z",
+        "method": "GET",
+        "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+        "active": "B",
+        "status": 200,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:30.309Z",
+        "method": "GET",
+        "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+        "active": "B",
+        "status": 200,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:53:55.178Z",
+        "method": "GET",
+        "path": "/sw.js",
+        "active": "B",
+        "status": 200,
+        "serviceWorker": "script",
+        "workerSha256": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+      },
+      {
+        "at": "2026-09-10T03:54:26.872Z",
+        "method": "GET",
+        "path": "/sw.js",
+        "active": "B",
+        "status": 200,
+        "serviceWorker": "script",
+        "workerSha256": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+      }
+    ]
+  },
+  "proxyStopStatus": 204,
+  "finishedAt": "2026-09-10T03:55:33.150Z",
+  "elapsedSeconds": 142.113
+}

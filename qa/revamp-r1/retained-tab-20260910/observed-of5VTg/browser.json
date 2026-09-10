@@ -1,0 +1,2137 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\retained-tab-20260910\\observed-of5VTg",
+  "profile": "C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-nqby1Y",
+  "origin": "http://127.0.0.1:4344",
+  "startedAt": "2026-09-10T03:50:43.184Z",
+  "setup": "Controlled worker registration/update; only the exact legacy map script insertion is deferred. No cache clearing, SW bypass, response substitution or application-state rewrite.",
+  "checks": [
+    {
+      "name": "fresh proxy begins at A",
+      "pass": true
+    },
+    {
+      "name": "legacy activated worker version observed",
+      "pass": true
+    },
+    {
+      "name": "retained Document is actual A HTML",
+      "pass": true
+    },
+    {
+      "name": "target not requested or cached before switch",
+      "pass": true
+    },
+    {
+      "name": "real versioned data cached before switch",
+      "pass": true
+    },
+    {
+      "name": "switch B accepted",
+      "pass": true
+    },
+    {
+      "name": "exact B worker served",
+      "pass": true
+    },
+    {
+      "name": "same Document before first target request",
+      "pass": true
+    }
+  ],
+  "captures": [
+    {
+      "name": "retained-A-pending",
+      "bytes": 14227,
+      "sha256": "9829c1cb6350f4b245852a39e911074bbf1607f3a9a60bf69e3cc8a5e34582a6",
+      "before": {
+        "url": "http://127.0.0.1:4344/?debugMap=1&postal=018956",
+        "timeOrigin": 1789012252613.6,
+        "text": "SHIOK.\n\nMap waiting\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "status": "idle",
+        "controller": "http://127.0.0.1:4344/sw.js",
+        "controllerChanges": 0,
+        "held": [
+          {
+            "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+            "at": 2613.199999809265,
+            "connected": false
+          }
+        ],
+        "released": [],
+        "marker": 1789012252613.6,
+        "controls": [
+          {
+            "label": "Search postal code",
+            "disabled": false
+          },
+          {
+            "label": "Walk details",
+            "disabled": false
+          },
+          {
+            "label": "Night lighting",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Copy correction report",
+            "disabled": true
+          },
+          {
+            "label": "Published walkdisplayed walk",
+            "disabled": false
+          },
+          {
+            "label": "MRT/LRT exitspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Bus stopspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Show comparison",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Focus on map for Longest short exposed stretch at map coordinate 1.28314, 103.86011",
+            "disabled": false
+          },
+          {
+            "label": "Focus on map for Gap 2 short exposed stretch at map coordinate 1.28269, 103.85998",
+            "disabled": false
+          }
+        ],
+        "featureCount": 0,
+        "renderedKeys": [],
+        "basemap": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "after": {
+        "url": "http://127.0.0.1:4344/?debugMap=1&postal=018956",
+        "timeOrigin": 1789012252613.6,
+        "text": "SHIOK.\n\nMap waiting\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "status": "idle",
+        "controller": "http://127.0.0.1:4344/sw.js",
+        "controllerChanges": 0,
+        "held": [
+          {
+            "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+            "at": 2613.199999809265,
+            "connected": false
+          }
+        ],
+        "released": [],
+        "marker": 1789012252613.6,
+        "controls": [
+          {
+            "label": "Search postal code",
+            "disabled": false
+          },
+          {
+            "label": "Walk details",
+            "disabled": false
+          },
+          {
+            "label": "Night lighting",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Copy correction report",
+            "disabled": true
+          },
+          {
+            "label": "Published walkdisplayed walk",
+            "disabled": false
+          },
+          {
+            "label": "MRT/LRT exitspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Bus stopspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Show comparison",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Focus on map for Longest short exposed stretch at map coordinate 1.28314, 103.86011",
+            "disabled": false
+          },
+          {
+            "label": "Focus on map for Gap 2 short exposed stretch at map coordinate 1.28269, 103.85998",
+            "disabled": false
+          }
+        ],
+        "featureCount": 0,
+        "renderedKeys": [],
+        "basemap": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    }
+  ],
+  "samples": [
+    {
+      "name": "retained-A",
+      "facts": {
+        "url": "http://127.0.0.1:4344/?debugMap=1&postal=018956",
+        "timeOrigin": 1789012252613.6,
+        "text": "SHIOK.\n\nMap waiting\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "status": "idle",
+        "controller": "http://127.0.0.1:4344/sw.js",
+        "controllerChanges": 0,
+        "held": [
+          {
+            "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+            "at": 2613.199999809265,
+            "connected": false
+          }
+        ],
+        "released": [],
+        "marker": 1789012252613.6,
+        "controls": [
+          {
+            "label": "Search postal code",
+            "disabled": false
+          },
+          {
+            "label": "Walk details",
+            "disabled": false
+          },
+          {
+            "label": "Night lighting",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Copy correction report",
+            "disabled": true
+          },
+          {
+            "label": "Published walkdisplayed walk",
+            "disabled": false
+          },
+          {
+            "label": "MRT/LRT exitspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Bus stopspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Show comparison",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Focus on map for Longest short exposed stretch at map coordinate 1.28314, 103.86011",
+            "disabled": false
+          },
+          {
+            "label": "Focus on map for Gap 2 short exposed stretch at map coordinate 1.28269, 103.85998",
+            "disabled": false
+          }
+        ],
+        "featureCount": 0,
+        "renderedKeys": [],
+        "basemap": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    },
+    {
+      "name": "B-controls-retained-A",
+      "facts": {
+        "url": "http://127.0.0.1:4344/?debugMap=1&postal=018956",
+        "timeOrigin": 1789012252613.6,
+        "text": "SHIOK.\n\nMap waiting\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAbout data",
+        "status": "idle",
+        "controller": "http://127.0.0.1:4344/sw.js",
+        "controllerChanges": 1,
+        "held": [
+          {
+            "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+            "at": 2613.199999809265,
+            "connected": false
+          }
+        ],
+        "released": [],
+        "marker": 1789012252613.6,
+        "controls": [
+          {
+            "label": "Search postal code",
+            "disabled": false
+          },
+          {
+            "label": "Walk details",
+            "disabled": false
+          },
+          {
+            "label": "Night lighting",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Copy correction report",
+            "disabled": true
+          },
+          {
+            "label": "Published walkdisplayed walk",
+            "disabled": false
+          },
+          {
+            "label": "MRT/LRT exitspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Bus stopspublished walk",
+            "disabled": false
+          },
+          {
+            "label": "Show comparison",
+            "disabled": false
+          },
+          {
+            "label": "Report missing shelter",
+            "disabled": false
+          },
+          {
+            "label": "Focus on map for Longest short exposed stretch at map coordinate 1.28314, 103.86011",
+            "disabled": false
+          },
+          {
+            "label": "Focus on map for Gap 2 short exposed stretch at map coordinate 1.28269, 103.85998",
+            "disabled": false
+          }
+        ],
+        "featureCount": 0,
+        "renderedKeys": [],
+        "basemap": false,
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    }
+  ],
+  "requests": [
+    {
+      "at": 1789012250228,
+      "id": "FCFA7BAD5B25FE99C3AD4AAFBA45DD2E",
+      "url": "http://127.0.0.1:4344/__qa/seed",
+      "method": "GET",
+      "type": "Document"
+    },
+    {
+      "at": 1789012250462,
+      "id": "26104.2",
+      "url": "http://127.0.0.1:4344/favicon.ico",
+      "method": "GET",
+      "type": "Other"
+    },
+    {
+      "at": 1789012252752,
+      "id": "8E229DC143E20D798AF085A442B07FDA",
+      "url": "http://127.0.0.1:4344/?debugMap=1&postal=018956",
+      "method": "GET",
+      "type": "Document"
+    },
+    {
+      "at": 1789012253090,
+      "id": "26104.6",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3mic8ep312z99.css",
+      "method": "GET",
+      "type": "Stylesheet"
+    },
+    {
+      "at": 1789012253092,
+      "id": "26104.7",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/310vm2bl3xxpt.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012253093,
+      "id": "26104.8",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0y-dctk-kmqss.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012253094,
+      "id": "26104.9",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/08ttfj81-47mu.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012253095,
+      "id": "26104.10",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3g398rb4su43l.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012253097,
+      "id": "26104.11",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012253099,
+      "id": "26104.12",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3fntmmi971322.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012253102,
+      "id": "26104.13",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/2zaun8r9-gox7.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012253103,
+      "id": "26104.14",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/27iodt6ap9svx.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012255389,
+      "id": "26104.35",
+      "url": "http://127.0.0.1:4344/icon.svg",
+      "method": "GET",
+      "type": "Other"
+    },
+    {
+      "at": 1789012255405,
+      "id": "26104.37",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/2_c6f5vawm6vi.css",
+      "method": "GET",
+      "type": "Stylesheet"
+    },
+    {
+      "at": 1789012255408,
+      "id": "26104.38",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0npwww6p9wx1o.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012255410,
+      "id": "26104.40",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/318x15h178iv-.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012255413,
+      "id": "26104.43",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012255414,
+      "id": "26104.44",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012255421,
+      "id": "26104.47",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/39xhkg3l-se9r.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012255423,
+      "id": "26104.48",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012255582,
+      "id": "26104.51",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012255587,
+      "id": "26104.53",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012255589,
+      "id": "26104.55",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012255591,
+      "id": "26104.56",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012259753,
+      "id": "26104.59",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012259754,
+      "id": "26104.60",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012259755,
+      "id": "26104.61",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012259758,
+      "id": "26104.62",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012259760,
+      "id": "26104.63",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012259761,
+      "id": "26104.65",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012259763,
+      "id": "26104.66",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "method": "GET",
+      "type": "Fetch"
+    },
+    {
+      "at": 1789012263173,
+      "id": "26104.74",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+      "method": "GET",
+      "type": "Script"
+    },
+    {
+      "at": 1789012264203,
+      "id": "26104.76",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+      "method": "GET",
+      "type": "Script"
+    }
+  ],
+  "responses": [
+    {
+      "at": 1789012250261,
+      "id": "FCFA7BAD5B25FE99C3AD4AAFBA45DD2E",
+      "url": "http://127.0.0.1:4344/__qa/seed",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012251226,
+      "id": "26104.2",
+      "url": "http://127.0.0.1:4344/favicon.ico",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012253031,
+      "id": "8E229DC143E20D798AF085A442B07FDA",
+      "url": "http://127.0.0.1:4344/?debugMap=1&postal=018956",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012253112,
+      "id": "26104.6",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3mic8ep312z99.css",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012253304,
+      "id": "26104.7",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/310vm2bl3xxpt.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012253309,
+      "id": "26104.8",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0y-dctk-kmqss.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012253483,
+      "id": "26104.9",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/08ttfj81-47mu.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012253793,
+      "id": "26104.11",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012254171,
+      "id": "26104.13",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/2zaun8r9-gox7.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012254174,
+      "id": "26104.12",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3fntmmi971322.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012254182,
+      "id": "26104.10",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/3g398rb4su43l.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012254880,
+      "id": "26104.14",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/27iodt6ap9svx.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012255417,
+      "id": "26104.35",
+      "url": "http://127.0.0.1:4344/icon.svg",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012255422,
+      "id": "26104.44",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012255427,
+      "id": "26104.38",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0npwww6p9wx1o.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012255429,
+      "id": "26104.37",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/2_c6f5vawm6vi.css",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012255573,
+      "id": "26104.43",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012255577,
+      "id": "26104.47",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/39xhkg3l-se9r.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012255584,
+      "id": "26104.48",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012255588,
+      "id": "26104.51",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 404,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012255590,
+      "id": "26104.53",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "status": 404,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012255767,
+      "id": "26104.55",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012257026,
+      "id": "26104.40",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/318x15h178iv-.js",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012259272,
+      "id": "26104.56",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012260055,
+      "id": "26104.59",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012260065,
+      "id": "26104.60",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012260079,
+      "id": "26104.61",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012260080,
+      "id": "26104.63",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012260081,
+      "id": "26104.65",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012260083,
+      "id": "26104.62",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012260128,
+      "id": "26104.66",
+      "url": "http://127.0.0.1:4344/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "status": 404,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012263670,
+      "id": "26104.74",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+      "status": 404,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012264243,
+      "id": "26104.76",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+      "status": 404,
+      "fromServiceWorker": true,
+      "fromDiskCache": false
+    }
+  ],
+  "completed": [
+    "FCFA7BAD5B25FE99C3AD4AAFBA45DD2E",
+    "26104.2",
+    "8E229DC143E20D798AF085A442B07FDA",
+    "26104.6",
+    "26104.7",
+    "26104.8",
+    "26104.9",
+    "26104.11",
+    "26104.13",
+    "26104.12",
+    "26104.10",
+    "26104.14",
+    "26104.35",
+    "26104.38",
+    "26104.37",
+    "26104.43",
+    "26104.47",
+    "26104.48",
+    "26104.55",
+    "26104.40",
+    "26104.56",
+    "26104.59",
+    "26104.60",
+    "26104.61",
+    "26104.63",
+    "26104.65",
+    "26104.62"
+  ],
+  "documents": [
+    {
+      "at": 1789012250261,
+      "id": "FCFA7BAD5B25FE99C3AD4AAFBA45DD2E",
+      "url": "http://127.0.0.1:4344/__qa/seed",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false
+    },
+    {
+      "at": 1789012253031,
+      "id": "8E229DC143E20D798AF085A442B07FDA",
+      "url": "http://127.0.0.1:4344/?debugMap=1&postal=018956",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false,
+      "file": "document-1.html",
+      "bytes": 12889,
+      "bodySha256": "4ad9e4f9b97117f3203bba69a950b0bcfcab96ad3805a6b56503550bbfec544b",
+      "containsA": true,
+      "containsB": false
+    }
+  ],
+  "versions": [
+    {
+      "at": 1789012250175,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "09300AAC497ED86562C822845BD5EE79"
+        }
+      ]
+    },
+    {
+      "at": 1789012250621,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopped",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789012251070,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopped",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012250.996958,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789012251072,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012250.996958,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789012251074,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012250.996958,
+          "controlledClients": [],
+          "targetId": "6722C18FD4BB3A1653ECC9835FE9D949"
+        }
+      ]
+    },
+    {
+      "at": 1789012251164,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "starting",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012250.996958,
+          "controlledClients": [],
+          "targetId": "6722C18FD4BB3A1653ECC9835FE9D949"
+        }
+      ]
+    },
+    {
+      "at": 1789012251167,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012250.996958,
+          "controlledClients": [],
+          "targetId": "6722C18FD4BB3A1653ECC9835FE9D949"
+        }
+      ]
+    },
+    {
+      "at": 1789012251168,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "installed",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012250.996958,
+          "controlledClients": [],
+          "targetId": "6722C18FD4BB3A1653ECC9835FE9D949"
+        }
+      ]
+    },
+    {
+      "at": 1789012251171,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012250.996958,
+          "controlledClients": [],
+          "targetId": "6722C18FD4BB3A1653ECC9835FE9D949"
+        }
+      ]
+    },
+    {
+      "at": 1789012251175,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012250.996958,
+          "controlledClients": [
+            "4CE131D0F60E11754EF097DE5D88EFBB"
+          ],
+          "targetId": "6722C18FD4BB3A1653ECC9835FE9D949"
+        }
+      ]
+    },
+    {
+      "at": 1789012251176,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012250.996958,
+          "controlledClients": [
+            "4CE131D0F60E11754EF097DE5D88EFBB"
+          ],
+          "targetId": "6722C18FD4BB3A1653ECC9835FE9D949"
+        }
+      ]
+    },
+    {
+      "at": 1789012251235,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "starting",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "09300AAC497ED86562C822845BD5EE79"
+        }
+      ]
+    },
+    {
+      "at": 1789012251240,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "running",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "09300AAC497ED86562C822845BD5EE79"
+        }
+      ]
+    },
+    {
+      "at": 1789012251354,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "running",
+          "status": "installed",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "09300AAC497ED86562C822845BD5EE79"
+        }
+      ]
+    },
+    {
+      "at": 1789012251356,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "09300AAC497ED86562C822845BD5EE79"
+        }
+      ]
+    },
+    {
+      "at": 1789012251358,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "09300AAC497ED86562C822845BD5EE79"
+        }
+      ]
+    },
+    {
+      "at": 1789012252753,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012250.996958,
+          "controlledClients": [
+            "4CE131D0F60E11754EF097DE5D88EFBB"
+          ],
+          "targetId": "6722C18FD4BB3A1653ECC9835FE9D949"
+        }
+      ]
+    },
+    {
+      "at": 1789012253107,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012250.996958,
+          "controlledClients": [],
+          "targetId": "6722C18FD4BB3A1653ECC9835FE9D949"
+        }
+      ]
+    },
+    {
+      "at": 1789012261786,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopped",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789012261788,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789012261788,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "5BDDC4DD8AF91F10275BC8662C31A374"
+        }
+      ]
+    },
+    {
+      "at": 1789012261835,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "starting",
+          "status": "new",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012261.736008,
+          "controlledClients": [],
+          "targetId": "5BDDC4DD8AF91F10275BC8662C31A374"
+        }
+      ]
+    },
+    {
+      "at": 1789012261837,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "starting",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012261.736008,
+          "controlledClients": [],
+          "targetId": "5BDDC4DD8AF91F10275BC8662C31A374"
+        }
+      ]
+    },
+    {
+      "at": 1789012261838,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "installing",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012261.736008,
+          "controlledClients": [],
+          "targetId": "5BDDC4DD8AF91F10275BC8662C31A374"
+        }
+      ]
+    },
+    {
+      "at": 1789012261842,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "installed",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012261.736008,
+          "controlledClients": [],
+          "targetId": "5BDDC4DD8AF91F10275BC8662C31A374"
+        }
+      ]
+    },
+    {
+      "at": 1789012261843,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopping",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012250.996958,
+          "controlledClients": [],
+          "targetId": "6722C18FD4BB3A1653ECC9835FE9D949"
+        }
+      ]
+    },
+    {
+      "at": 1789012261902,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopped",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012250.996958,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789012261904,
+      "versions": [
+        {
+          "versionId": "1",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopped",
+          "status": "redundant",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012250.996958,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789012261905,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012261.736008,
+          "controlledClients": [],
+          "targetId": "5BDDC4DD8AF91F10275BC8662C31A374"
+        }
+      ]
+    },
+    {
+      "at": 1789012261906,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012261.736008,
+          "controlledClients": [],
+          "targetId": "5BDDC4DD8AF91F10275BC8662C31A374"
+        }
+      ]
+    },
+    {
+      "at": 1789012261907,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012261.736008,
+          "controlledClients": [
+            "4CE131D0F60E11754EF097DE5D88EFBB"
+          ],
+          "targetId": "5BDDC4DD8AF91F10275BC8662C31A374"
+        }
+      ]
+    },
+    {
+      "at": 1789012261908,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activating",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012261.736008,
+          "controlledClients": [
+            "4CE131D0F60E11754EF097DE5D88EFBB"
+          ],
+          "targetId": "5BDDC4DD8AF91F10275BC8662C31A374"
+        }
+      ]
+    },
+    {
+      "at": 1789012262890,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "running",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012261.736008,
+          "controlledClients": [
+            "4CE131D0F60E11754EF097DE5D88EFBB"
+          ],
+          "targetId": "5BDDC4DD8AF91F10275BC8662C31A374"
+        }
+      ]
+    },
+    {
+      "at": 1789012287304,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "stopping",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": [],
+          "targetId": "09300AAC497ED86562C822845BD5EE79"
+        }
+      ]
+    },
+    {
+      "at": 1789012287305,
+      "versions": [
+        {
+          "versionId": "0",
+          "registrationId": "0",
+          "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "runningStatus": "stopped",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 0,
+          "controlledClients": []
+        }
+      ]
+    },
+    {
+      "at": 1789012294274,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopping",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012261.736008,
+          "controlledClients": [
+            "4CE131D0F60E11754EF097DE5D88EFBB"
+          ],
+          "targetId": "5BDDC4DD8AF91F10275BC8662C31A374"
+        }
+      ]
+    },
+    {
+      "at": 1789012294277,
+      "versions": [
+        {
+          "versionId": "2",
+          "registrationId": "1",
+          "scriptURL": "http://127.0.0.1:4344/sw.js",
+          "runningStatus": "stopped",
+          "status": "activated",
+          "scriptLastModified": 0,
+          "scriptResponseTime": 1789012261.736008,
+          "controlledClients": [
+            "4CE131D0F60E11754EF097DE5D88EFBB"
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "exceptionId": 1,
+      "text": "Uncaught (in promise)",
+      "lineNumber": 0,
+      "columnNumber": 4964,
+      "scriptId": "18",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+      "stackTrace": {
+        "callFrames": [
+          {
+            "functionName": "",
+            "scriptId": "18",
+            "url": "http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+            "lineNumber": 0,
+            "columnNumber": 4964
+          }
+        ]
+      },
+      "exception": {
+        "type": "object",
+        "subtype": "error",
+        "className": "Error",
+        "description": "ChunkLoadError: Failed to load chunk /_next/static/chunks/0j6tjjnrv2h3w.js from module 25432\n    at http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js:1:4965",
+        "objectId": "6404785440168004152.3.1",
+        "preview": {
+          "type": "object",
+          "subtype": "error",
+          "description": "ChunkLoadError: Failed to load chunk /_next/static/chunks/0j6tjjnrv2h3w.js from module 25432\n    at http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js:1:4965",
+          "overflow": false,
+          "properties": [
+            {
+              "name": "name",
+              "type": "string",
+              "value": "ChunkLoadError"
+            },
+            {
+              "name": "stack",
+              "type": "string",
+              "value": "ChunkLoadError: Failed to load chunk /_next/static…t/static/chunks/turbopack-35blp6v37t2x-.js:1:4965"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Failed to load chunk /_next/static/chunks/0j6tjjnrv2h3w.js from module 25432"
+            }
+          ]
+        }
+      },
+      "executionContextId": 3
+    },
+    {
+      "exceptionId": 2,
+      "text": "Uncaught",
+      "lineNumber": 0,
+      "columnNumber": 25050,
+      "scriptId": "17",
+      "url": "http://127.0.0.1:4344/_next/static/chunks/08ttfj81-47mu.js",
+      "stackTrace": {
+        "callFrames": [
+          {
+            "functionName": "",
+            "scriptId": "18",
+            "url": "http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+            "lineNumber": 0,
+            "columnNumber": 4964
+          }
+        ]
+      },
+      "exception": {
+        "type": "object",
+        "subtype": "error",
+        "className": "Error",
+        "description": "ChunkLoadError: Failed to load chunk /_next/static/chunks/0j6tjjnrv2h3w.js from module 25432\n    at http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js:1:4965",
+        "objectId": "6404785440168004152.3.2",
+        "preview": {
+          "type": "object",
+          "subtype": "error",
+          "description": "ChunkLoadError: Failed to load chunk /_next/static/chunks/0j6tjjnrv2h3w.js from module 25432\n    at http://127.0.0.1:4344/_next/static/chunks/turbopack-35blp6v37t2x-.js:1:4965",
+          "overflow": false,
+          "properties": [
+            {
+              "name": "name",
+              "type": "string",
+              "value": "ChunkLoadError"
+            },
+            {
+              "name": "stack",
+              "type": "string",
+              "value": "ChunkLoadError: Failed to load chunk /_next/static…t/static/chunks/turbopack-35blp6v37t2x-.js:1:4965"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Failed to load chunk /_next/static/chunks/0j6tjjnrv2h3w.js from module 25432"
+            }
+          ]
+        }
+      },
+      "executionContextId": 3
+    }
+  ],
+  "denied": [],
+  "proxy": {
+    "root": "C:\\sgSHIOK2026",
+    "directory": "C:\\sgSHIOK2026\\qa\\revamp-r1\\retained-tab-20260910\\proxy-attempt3",
+    "pid": 112892,
+    "origin": "http://127.0.0.1:4344",
+    "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+    "buildB": "lcoYvon9S455KiFb_Oc8K",
+    "workerHashes": {
+      "A": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+      "B": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+    },
+    "target": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+    "targetBytes": 39556,
+    "targetSha256": "4a1b7cf727bfc2157e11185a0fe88af518733a56f34601833c75fccad34df11b",
+    "sourceB": "C:\\sgSHIOK2026\\tmp\\cached-release-cross-feature-focus-20260910-2",
+    "active": "A"
+  },
+  "chromePid": 113696,
+  "lastSample": {
+    "name": "old tab terminal outcome",
+    "value": {
+      "url": "http://127.0.0.1:4344/?debugMap=1&postal=018956",
+      "timeOrigin": 1789012252613.6,
+      "text": "This page couldn’t load\n\nReload to try again, or go back.\n\nReload\nBack",
+      "controller": "http://127.0.0.1:4344/sw.js",
+      "controllerChanges": 1,
+      "held": [
+        {
+          "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+          "at": 2613.199999809265,
+          "connected": false
+        }
+      ],
+      "released": [
+        {
+          "url": "http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js",
+          "at": 10534.199999809265,
+          "connectedBefore": false
+        }
+      ],
+      "marker": 1789012252613.6,
+      "controls": [
+        {
+          "label": "Reload",
+          "disabled": false
+        },
+        {
+          "label": "Back",
+          "disabled": false
+        }
+      ],
+      "featureCount": 0,
+      "renderedKeys": [],
+      "basemap": false,
+      "overflow": false,
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  },
+  "targetId": "4CE131D0F60E11754EF097DE5D88EFBB",
+  "legacyVersions": [
+    "1"
+  ],
+  "cachesBefore": [
+    {
+      "name": "unrelated-retained-fixture",
+      "paths": [
+        "/__qa/sentinel"
+      ],
+      "samples": [],
+      "sentinel": "foreign",
+      "targetPresent": false
+    },
+    {
+      "name": "sgshiok-static-v99",
+      "paths": [
+        "/__qa/sentinel"
+      ],
+      "samples": [],
+      "sentinel": "future",
+      "targetPresent": false
+    },
+    {
+      "name": "sgshiok-static-v1",
+      "paths": [
+        "/",
+        "/_next/static/chunks/3mic8ep312z99.css",
+        "/_next/static/chunks/310vm2bl3xxpt.js",
+        "/_next/static/chunks/0y-dctk-kmqss.js",
+        "/_next/static/chunks/08ttfj81-47mu.js",
+        "/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+        "/_next/static/chunks/2zaun8r9-gox7.js",
+        "/_next/static/chunks/3fntmmi971322.js",
+        "/_next/static/chunks/3g398rb4su43l.js",
+        "/_next/static/chunks/27iodt6ap9svx.js",
+        "/icon.svg",
+        "/_next/static/chunks/0npwww6p9wx1o.js",
+        "/_next/static/chunks/2_c6f5vawm6vi.css",
+        "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "/_next/static/chunks/39xhkg3l-se9r.js",
+        "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "/_next/static/chunks/318x15h178iv-.js",
+        "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz"
+      ],
+      "samples": [
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+          "bytes": 184,
+          "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+        },
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+          "bytes": 39674,
+          "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+        },
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+          "bytes": 145327,
+          "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+        },
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+          "bytes": 5236013,
+          "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+        }
+      ],
+      "targetPresent": false
+    }
+  ],
+  "switchedAt": 1789012261680,
+  "error": "Error: old tab terminal outcome timeout: {\"url\":\"http://127.0.0.1:4344/?debugMap=1&postal=018956\",\"timeOrigin\":1789012252613.6,\"text\":\"This page couldn’t load\\n\\nReload to try again, or go back.\\n\\nReload\\nBack\",\"controller\":\"http://127.0.0.1:4344/sw.js\",\"controllerChanges\":1,\"held\":[{\"url\":\"http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js\",\"at\":2613.199999809265,\"connected\":false}],\"released\":[{\"url\":\"http://127.0.0.1:4344/_next/static/chunks/0j6tjjnrv2h3w.js\",\"at\":10534.199999809265,\"connectedBefore\":false}],\"marker\":1789012252613.6,\"controls\":[{\"label\":\"Reload\",\"disabled\":false},{\"label\":\"Back\",\"disabled\":false}],\"featureCount\":0,\"renderedKeys\":[],\"basemap\":false,\"overflow\":false,\"viewport\":[390,844]}\n    at until (file:///C:/sgSHIOK2026/qa/revamp-r1/retained-tab-20260910/browser.mjs:43:9)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/retained-tab-20260910/browser.mjs:170:17",
+  "exitCode": 1,
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-nqby1Y'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": 0,
+    "stdout": "{\"before\":[{\"ProcessId\":113696,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:/Program Files/Google/Chrome/Application/chrome.exe\\\" --headless=new --no-first-run --no-sandbox --use-angle=swiftshader --enable-unsafe-swiftshader --disable-background-networking --disable-component-update --disable-sync --remote-debugging-port=0 --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-nqby1Y about:blank\"},{\"ProcessId\":104308,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=crashpad-handler --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-nqby1Y /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-nqby1Y\\\\Crashpad --metrics-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-nqby1Y --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=152.0.7977.83 --initial-client-data=0xbc,0x124,0x128,0x118,0x12c,0x7fff48067e60,0x7fff48067e70,0x7fff48067e80\"},{\"ProcessId\":59276,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=gpu-process --no-sandbox --headless=new --use-angle=swiftshader --enable-unsafe-swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-nqby1Y\\\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1820,i,15764235198645411057,15326987748003399548,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1824,i,5704376789729470136,1398803728144108997,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1816 /prefetch:2\"},{\"ProcessId\":109436,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --use-angle=swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-nqby1Y\\\" --no-pre-read-main-dll --field-trial-handle=1820,i,15764235198645411057,15326987748003399548,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1824,i,5704376789729470136,1398803728144108997,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2152 /prefetch:11\"},{\"ProcessId\":96496,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --use-angle=swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-nqby1Y\\\" --no-pre-read-main-dll --field-trial-handle=1820,i,15764235198645411057,15326987748003399548,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1824,i,5704376789729470136,1398803728144108997,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2432 /prefetch:13\"},{\"ProcessId\":105248,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-nqby1Y\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=1082946060599 --field-trial-handle=1820,i,15764235198645411057,15326987748003399548,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1824,i,5704376789729470136,1398803728144108997,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3240 /prefetch:1\"},{\"ProcessId\":26104,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-nqby1Y\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=1082946319214 --field-trial-handle=1820,i,15764235198645411057,15326987748003399548,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1824,i,5704376789729470136,1398803728144108997,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3560 /prefetch:1\"},{\"ProcessId\":97744,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-nqby1Y\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=1082946463971 --field-trial-handle=1820,i,15764235198645411057,15326987748003399548,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1824,i,5704376789729470136,1398803728144108997,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=3800 /prefetch:1\"},{\"ProcessId\":99932,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-nqby1Y\\\" --extension-process --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --launch-time-ticks=1082946497672 --field-trial-handle=1820,i,15764235198645411057,15326987748003399548,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1824,i,5704376789729470136,1398803728144108997,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=3884 /prefetch:9\"},{\"ProcessId\":110156,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-nqby1Y\\\" --extension-process --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=1082946878182 --field-trial-handle=1820,i,15764235198645411057,15326987748003399548,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1824,i,5704376789729470136,1398803728144108997,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=4564 /prefetch:9\"},{\"ProcessId\":98444,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-nqby1Y\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=14 --launch-time-ticks=1082975534490 --field-trial-handle=1820,i,15764235198645411057,15326987748003399548,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1824,i,5704376789729470136,1398803728144108997,4 --trace-process-track-uuid=3190708999430457380 --mojo-platform-channel-handle=6020 /prefetch:1\"},{\"ProcessId\":112448,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-nqby1Y\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=18 --launch-time-ticks=1082977607415 --field-trial-handle=1820,i,15764235198645411057,15326987748003399548,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1824,i,5704376789729470136,1398803728144108997,4 --trace-process-track-uuid=3190709003178624776 --mojo-platform-channel-handle=6264 /prefetch:1\"},{\"ProcessId\":96756,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-nqby1Y\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=19 --launch-time-ticks=1082979387587 --field-trial-handle=1820,i,15764235198645411057,15326987748003399548,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1824,i,5704376789729470136,1398803728144108997,4 --trace-process-track-uuid=3190709004115666625 --mojo-platform-channel-handle=5080 /prefetch:1\"},{\"ProcessId\":109132,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-nqby1Y\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=20 --launch-time-ticks=1082982092403 --field-trial-handle=1820,i,15764235198645411057,15326987748003399548,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1824,i,5704376789729470136,1398803728144108997,4 --trace-process-track-uuid=3190709005052708474 --mojo-platform-channel-handle=5044 /prefetch:1\"},{\"ProcessId\":95668,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-nqby1Y\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=21 --launch-time-ticks=1082984524525 --field-trial-handle=1820,i,15764235198645411057,15326987748003399548,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1824,i,5704376789729470136,1398803728144108997,4 --trace-process-track-uuid=3190709005989750323 --mojo-platform-channel-handle=6296 /prefetch:1\"}],\"remaining\":[]}\r\n",
+    "stderr": "",
+    "verified": true
+  },
+  "proxyFinal": {
+    "root": "C:\\sgSHIOK2026",
+    "directory": "C:\\sgSHIOK2026\\qa\\revamp-r1\\retained-tab-20260910\\proxy-attempt3",
+    "pid": 112892,
+    "origin": "http://127.0.0.1:4344",
+    "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+    "buildB": "lcoYvon9S455KiFb_Oc8K",
+    "workerHashes": {
+      "A": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+      "B": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+    },
+    "target": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+    "targetBytes": 39556,
+    "targetSha256": "4a1b7cf727bfc2157e11185a0fe88af518733a56f34601833c75fccad34df11b",
+    "sourceB": "C:\\sgSHIOK2026\\tmp\\cached-release-cross-feature-focus-20260910-2",
+    "active": "B",
+    "requests": [
+      {
+        "at": "2026-09-10T03:50:50.250Z",
+        "method": "GET",
+        "path": "/__qa/seed",
+        "active": "A",
+        "status": 200,
+        "fixture": true
+      },
+      {
+        "at": "2026-09-10T03:50:50.995Z",
+        "method": "GET",
+        "path": "/sw.js",
+        "active": "A",
+        "status": 200,
+        "serviceWorker": "script",
+        "workerSha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390"
+      },
+      {
+        "at": "2026-09-10T03:50:51.144Z",
+        "method": "GET",
+        "path": "/favicon.ico",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:52.659Z",
+        "method": "GET",
+        "path": "/",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:52.863Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/3mic8ep312z99.css",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:52.879Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/310vm2bl3xxpt.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:53.126Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/0y-dctk-kmqss.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:53.130Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/08ttfj81-47mu.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:53.623Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:53.871Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/3fntmmi971322.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:53.888Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/2zaun8r9-gox7.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:53.897Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/3g398rb4su43l.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:53.899Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/27iodt6ap9svx.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:55.201Z",
+        "method": "GET",
+        "path": "/icon.svg",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:55.252Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/0npwww6p9wx1o.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:55.265Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/2_c6f5vawm6vi.css",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:55.279Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/318x15h178iv-.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:55.291Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+        "active": "A",
+        "status": 404,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:55.295Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:55.372Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/39xhkg3l-se9r.js",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": false,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:55.390Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:55.523Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+        "active": "A",
+        "status": 404,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:55.531Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+        "active": "A",
+        "status": 404,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:55.678Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:55.680Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:59.625Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:59.629Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:59.633Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:59.753Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:59.757Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:59.761Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "active": "A",
+        "status": 200,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:50:59.889Z",
+        "method": "GET",
+        "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+        "active": "A",
+        "status": 404,
+        "upstream": 4321,
+        "data": true,
+        "activeAtStart": "A"
+      },
+      {
+        "at": "2026-09-10T03:51:01.675Z",
+        "method": "POST",
+        "path": "/__qa/switch",
+        "active": "B",
+        "status": 204,
+        "control": true
+      },
+      {
+        "at": "2026-09-10T03:51:01.734Z",
+        "method": "GET",
+        "path": "/sw.js",
+        "active": "B",
+        "status": 200,
+        "serviceWorker": "script",
+        "workerSha256": "471d5007a564dac8d928ebcfd8fa13d8ba0c729cd58c41f123c844225a373fdc"
+      },
+      {
+        "at": "2026-09-10T03:51:03.631Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+        "active": "B",
+        "status": 404,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      },
+      {
+        "at": "2026-09-10T03:51:04.212Z",
+        "method": "GET",
+        "path": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+        "active": "B",
+        "status": 404,
+        "upstream": 4341,
+        "data": false,
+        "activeAtStart": "B"
+      }
+    ]
+  },
+  "proxyStopStatus": 204,
+  "finishedAt": "2026-09-10T03:52:02.091Z",
+  "elapsedSeconds": 78.912
+}

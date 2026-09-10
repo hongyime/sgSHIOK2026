@@ -3212,3 +3212,26 @@ The full web suite also caught three stale release-script assertions after T31.
 Tests must enforce the current no-install and retired-data-activation policy,
 including guard existence and its early return, rather than require reinstating
 the unsafe old behavior. See qa/revamp-r1/cross-feature-20260910/summary.json.
+
+## 2026-09-10: Retained Legacy Tabs Are a Release Contract
+
+Ordinary navigation to a new build does not prove an already-open Document can
+load its remaining lazy modules. The controlled M17 rehearsal deferred only the
+exact legacy map script insertion, verified no earlier request/cache entry, then
+activated the current worker and released the actual request against B. The
+real404 caused the old global fallback to replace the walk view. Its Reload
+button submits an empty GET form and drops the selected postal. Re-entering the
+postal recovered the new map; that is not preserved-selection recovery.
+
+The current scoped map-import boundary cannot retrofit JavaScript already
+loaded by A. Keeping cached assets also cannot supply an old module never
+cached. Next free work is fixture-tested retention of verified previous
+immutable frontend assets, with hash conflict rejection and explicit bounds.
+Actual previous-release identity, staging and deployment remain separate gates.
+No forced service-worker navigation: a recovery strategy must not silently
+discard in-progress report drafts. A future global fallback should preserve the
+full current postal/share URL, without treating that as a legacy-client fix.
+
+T01 remains PARTIAL. This test used controlled local A/B builds and an explicit
+worker update, not a newly verified live deployment or automatic-update timing.
+Evidence: qa/revamp-r1/retained-tab-20260910/summary.json.

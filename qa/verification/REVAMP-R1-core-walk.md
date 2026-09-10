@@ -3537,3 +3537,113 @@ recorded above and is not reclassified as zero cost.
    could not run because its usage limit was reached. reviewer-terminal.json
    preserves that outcome. Final screenshot/receipt review is parent-only,
    not independent final acceptance.
+
+## 2026-09-10 T01/M17 Retained Legacy Tab: Two Reproduced Failures
+
+Root C:\sgSHIOK2026; host Prawn-E14; base c2276dd4aaa3f65e677932d0831d02103dedfdda.
+Receipt: qa/revamp-r1/retained-tab-20260910/summary.json.
+Actual browser/network/worker/cache/Document evidence:
+qa/revamp-r1/retained-tab-20260910/observed-waRkIU/browser.json.
+This is new evidence, not a replacement for earlier automatic-navigation results.
+The prior224352bytes remain SHA256
+f5e09517529b959c99e15349b1454610552a5cff67ad270105302a973be7da00.
+
+### Executed Scope and Output
+
+The driver seeds a pinned legacy worker on a fresh local profile, defers only
+the exact old map-script DOM insertion, confirms useful A walk text and absence
+of an earlier chunk request/cache entry, switches the local origin to B,
+explicitly updates the worker, then releases the unchanged script insertion.
+No cache clearing, worker bypass, substitute module bytes or application-state
+rewriting. This is a controlled race, not an automatic-update timing result.
+
+```text
+A build e8Hlhkml4c3i_uMGJdd3P
+B build lcoYvon9S455KiFb_Oc8K
+target /_next/static/chunks/0j6tjjnrv2h3w.js
+target bytes 39556
+target sha256 4a1b7cf727bfc2157e11185a0fe88af518733a56f34601833c75fccad34df11b
+PASS retained Document is actual A HTML
+PASS target not requested or cached before switch
+PASS real versioned data cached before switch
+PASS switch B accepted
+PASS exact B worker served
+PASS same Document before first target request
+PASS old module first request reached actual B origin404
+PASS missing module response passed through service worker
+FAIL retained old tab offers usable recovery or safely upgrades
+FAIL application Reload preserves selected postal
+PASS recovery Document is actual B HTML
+PASS current B route visible 390x844
+PASS current B route visible 390x667
+PASS current B route visible 320x667
+PASS current B route visible 1440x950
+PASS foreign and future cache sentinels unchanged
+PASS sampled cached data unchanged
+PASS no extra Document within bounded recovery observation
+```
+
+Final browser exit1:18passed+2failed=20checks;7captures;78.539seconds.
+The generic error's Reload requests /? instead of the selected postal URL.
+The four positive route captures follow a separate native re-search, not
+automatic recovery. Summary explicitly qualifies the runner's shortened
+"Reload recovers" outcome: the application shell recovers; selection does not.
+The observed compiled fallback excerpt and its byte hash are in summary.json.
+Its form has a submit button but no method or hidden query controls.
+
+```text
+ Test Files  3 passed (3)
+      Tests  102 passed (102)
+repo_integrity=ok
+```
+
+Commands and complete stdout/stderr are embedded in summary.json. The focused
+service-worker-behaviour, service-worker-registration and route-map-loader
+suites used test-without-production-data.mjs with both payload roots denied;
+214tracked files copied, installed dependencies linked, no installation.
+Current144websource and11protected-anchor hashes match the last full1717/62
+test/build audit at c2276dd. The full suite, TypeScript and build were not rerun
+in this QA-only slice. No full Python-suite claim. No pipeline executions.
+
+All7final screenshots were parent-inspected. First3show pending A, the generic
+error, and B's lost selection with0selected features. Remaining4show matching
+current selected route counts4before/4after. Both sentinel values and4sampled
+cached versioned-data bodies are unchanged; not every cache body was hashed.
+Final browser/proxy cleanup verified. User preview4342 remains unchanged.
+
+### Preserved Failures and Limits
+
+observed-5wGdTS used an unsupported legacy hash URL; observed-bdLtRS tried to
+read seed HTML already evicted by Chrome. Neither switched releases.
+observed-of5VTg reached the actual generic error, but its wait did not recognize
+the exact text. observed-CiZFDn captured it and observed lost selection, then
+timed out waiting for the selected route. These are not relabeled passes.
+All5owned browser cleanups and proxy stop204receipts are preserved. A proposed
+stop for attempt1's lingering runner was rejected after that process had already
+exited; no unrelated process was stopped. No more browser retries to seek green.
+Subagent final review remains unavailable after the recorded quota; no repeated
+spawn attempt and no independent final-image acceptance claim.
+
+### FINDINGS
+
+1. Retained legacy acceptance fails: an actual uncached old-module404 through
+   the new worker removes useful walk details and the map.
+2. The old global fallback also loses the selected postal on Reload. A separate
+   user search works, but does not meet preserved-context recovery.
+3. Preserving cached assets is insufficient for a never-cached old module.
+   Current scoped map recovery cannot retrofit already-loaded legacy code.
+4. Next free work is bounded, fixture-tested retention of verified previous
+   immutable frontend assets with hash-conflict rejection. Actual old release
+   identity and real staging/deployment remain separate gates. No forced reload
+   policy that could discard report drafts is approved or implemented.
+
+### DISAGREEMENTS
+
+1. Ordinary A-to-B navigation and current-build rejected-import tests do not
+   prove retained-legacy-tab safety. T01 and overall release acceptance stay open.
+2. The generic error has controls, so this is not a literally empty browser
+   page. It is a failed seamless upgrade with proven lost selection; manual
+   re-search is not evidence that the upgrade passed.
+3. Local A plus the pinned old worker are controlled fixtures, not newly proven
+   production identity. No automatic timing, other-browser, physical-device,
+   representative-performance or independent-review claim follows.
