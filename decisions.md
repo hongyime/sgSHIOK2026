@@ -3149,3 +3149,47 @@ to a verified eligible previous deployment, not a Git reset/data move; account
 for build-time configuration and retained browser caches. Current Vercel Hobby
 rollback restrictions are linked in README; recheck eligibility before approval.
 No real rollback is claimed. Evidence: qa/revamp-r1/maintenance-20260910/inspection.json.
+
+## 2026-09-10: Immutable Frontend Release Preparation (T31)
+
+A frontend release uses committed web source and the already-pinned main bundle
+plus lamp_posts_v1. It does not activate another data version. Stage into a fresh
+repository tmp directory, exclude untracked/private source, preserve existing gzip
+bytes, and fail on missing derived files or inconsistent raw/gzip contents instead
+of repairing them. Record the exact committed source, input inventory, copies and
+explicit staged configuration/type-file derivations in a hash ledger. Retain its
+creation hash outside the ledger and compare before parsing it, after build and
+immediately before submission. The ledger is integrity evidence, not a signature
+or release approval; preserve failed stages rather than cleaning them up.
+
+No local dependency installation or package data-preparation script belongs in
+preparation. Existing dependencies, committed-stage tests and direct Next build
+are required. The separately approved remote deployment can install the committed
+lockfile with lifecycle scripts disabled. Real build/dependency compatibility and
+artifact staging remain T27 acceptance, not facts established by fixture tests.
+
+Plan, prepared, submitted, provider READY and production smoke are separate states.
+An approved deployment must name reviewed immutable project/team IDs, verify the
+authenticated project's name/root/framework/output settings and relevant production
+environment metadata, and repeat that observation before submission. Hidden,
+partial or uninterpretable metadata blocks without exposing values. Explicit local
+config and public build-variable pins protect the staged artifact selection;
+project-variable metadata is not a complete inventory of shared variables or an
+atomic lock against concurrent dashboard changes. CLI protocol incompatibility
+fails closed; do not install/upgrade the CLI automatically.
+
+Inspect the exact deployment returned by one submission. A successful queued
+submission or inspect command exit code does not imply READY, and provider READY
+does not establish the running browser/artifact identity. Preserve uncertain
+outcomes and inspect that attempt; never blindly resubmit. The old data release
+and activation wrappers now refuse execution and obsolete bypass flags. Do not
+rewrite web/data-bundle.json, Vercel allowlists or Git history as a deployment side
+effect. A data-pointer change needs a separately approved implementation.
+
+The CLI contracts use the official deploy/global options and structured inspection
+implementation, plus project/env GET schemas. Upstream support is not proof of the
+installed CLI or live configuration. Sources: https://vercel.com/docs/cli/deploy,
+https://vercel.com/docs/cli/global-options,
+https://github.com/vercel/vercel/blob/main/packages/cli/src/commands/inspect/index.ts,
+https://vercel.com/docs/rest-api/projects/find-a-project-by-id-or-name,
+https://github.com/vercel/sdk/blob/main/src/models/filterprojectenvsop.ts.

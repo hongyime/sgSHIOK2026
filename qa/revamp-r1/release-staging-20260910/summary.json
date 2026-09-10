@@ -1,0 +1,798 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "base": "8fa20c0e30ea51f40899666ab5c006c60023abd4",
+  "parent": {
+    "path": "qa/revamp-r1/release-staging-20260910/parent-final-3.json",
+    "sha256": "988d0715988546520c07c09e79caa835be6affccdfac59b6676edf856ab94d1c",
+    "passed": 144,
+    "exitCode": 0,
+    "stdout": "..................................................................................................owned_cleanup_seconds=0.282000 cleanup_complete=True\r\n.owned_cleanup_seconds=0.391000 cleanup_complete=False\r\n.............................................\r\n144 passed in 164.60s (0:02:44)\r\n",
+    "watchedSourceCount": 23,
+    "currentSourceIdentities": [
+      {
+        "path": "pipeline/publish.py",
+        "sha256": "c13aaa8bd1dd98ba5be3b81c881b8c54ad5c62e42235c0bc88340c26cbe05ca5",
+        "actual": "c13aaa8bd1dd98ba5be3b81c881b8c54ad5c62e42235c0bc88340c26cbe05ca5"
+      },
+      {
+        "path": "tests/test_publish.py",
+        "sha256": "688ba79f7de86d163571e11b77ce7f8c0cecdbafd8fc0046b2adfba942a686d4",
+        "actual": "688ba79f7de86d163571e11b77ce7f8c0cecdbafd8fc0046b2adfba942a686d4"
+      },
+      {
+        "path": "scripts/deploy-production.ps1",
+        "sha256": "776f08fc569986134206aa38e6b271480fff88ba722e9527d8583c5fb501f608",
+        "actual": "776f08fc569986134206aa38e6b271480fff88ba722e9527d8583c5fb501f608"
+      },
+      {
+        "path": "scripts/preflight-production.ps1",
+        "sha256": "4d08bdc5154739c03d32b9ead9adf8b02afc6b12c7ebe23675427d3db867788e",
+        "actual": "4d08bdc5154739c03d32b9ead9adf8b02afc6b12c7ebe23675427d3db867788e"
+      },
+      {
+        "path": "scripts/release-data-bundle.ps1",
+        "sha256": "43be2e7fe7ad05b101aa88cd2c6226ca53b396510fa13936f9b9a5fedeab9173",
+        "actual": "43be2e7fe7ad05b101aa88cd2c6226ca53b396510fa13936f9b9a5fedeab9173"
+      },
+      {
+        "path": "scripts/activate-data-bundle.ps1",
+        "sha256": "d00db120b5b121a32bcfcf75c23633211607ea65c3aad836131fe1cc5ffb2c82",
+        "actual": "d00db120b5b121a32bcfcf75c23633211607ea65c3aad836131fe1cc5ffb2c82"
+      },
+      {
+        "path": "tests/test_release_scripts.py",
+        "sha256": "226c8d9f26d34f7bc6518368abe95025428ee019f1effd0483eb519608bfdc59",
+        "actual": "226c8d9f26d34f7bc6518368abe95025428ee019f1effd0483eb519608bfdc59"
+      },
+      {
+        "path": "scripts/release_staging.py",
+        "sha256": "391c7ce2a2a7f4eace9e64a1b696fda5ed8f5596a55819e39973a89726bba45d",
+        "actual": "391c7ce2a2a7f4eace9e64a1b696fda5ed8f5596a55819e39973a89726bba45d"
+      },
+      {
+        "path": "tests/test_release_staging.py",
+        "sha256": "12a532182925e91f9819cde1380ece9727da6efecfb7e1f89d74e16f3cf529d4",
+        "actual": "12a532182925e91f9819cde1380ece9727da6efecfb7e1f89d74e16f3cf529d4"
+      },
+      {
+        "path": "README.md",
+        "sha256": "07b2bcd56ffd9c24ea4d11b07b12a1f784aaf14af9c02e9cb4b613bb0e16d113",
+        "actual": "07b2bcd56ffd9c24ea4d11b07b12a1f784aaf14af9c02e9cb4b613bb0e16d113"
+      },
+      {
+        "path": "tests/test_readme.py",
+        "sha256": "08b57d7fdd7562931f424dc1b58c152899961d3b915119e2c7ac0953f4442ee1",
+        "actual": "08b57d7fdd7562931f424dc1b58c152899961d3b915119e2c7ac0953f4442ee1"
+      },
+      {
+        "path": "scripts/release_process.py",
+        "sha256": "5bf7fad995e91a9d49f7c1a9e51fbc6b16a84fe0558c459fd0ea57193bc04b0a",
+        "actual": "5bf7fad995e91a9d49f7c1a9e51fbc6b16a84fe0558c459fd0ea57193bc04b0a"
+      },
+      {
+        "path": "tests/test_release_process.py",
+        "sha256": "560b6a8207148f29d8defc2d8343c8894a2960d5b7fe535b9ff126fbcf9930c7",
+        "actual": "560b6a8207148f29d8defc2d8343c8894a2960d5b7fe535b9ff126fbcf9930c7"
+      },
+      {
+        "path": "tests/test_agent_docs.py",
+        "sha256": "6f19ac08aad30af045d551694750436282bc5814b90df66271214065ac4ad969",
+        "actual": "6f19ac08aad30af045d551694750436282bc5814b90df66271214065ac4ad969"
+      },
+      {
+        "path": "tests/test_repo_integrity.py",
+        "sha256": "24d6c47910121518af1945df0868eef0aa9646094e605a76811af71adb198dab",
+        "actual": "24d6c47910121518af1945df0868eef0aa9646094e605a76811af71adb198dab"
+      },
+      {
+        "path": "tests/test_run.py",
+        "sha256": "a2b04df8e0e1f04278c75d5d2f2cfc68dfc306590622e92d2dd3797554ef9662",
+        "actual": "a2b04df8e0e1f04278c75d5d2f2cfc68dfc306590622e92d2dd3797554ef9662"
+      },
+      {
+        "path": "run.py",
+        "sha256": "dab7ebfefb7f51c468c4f9d33660a0cd876a0f7e1ea255c53900a74868c06e22",
+        "actual": "dab7ebfefb7f51c468c4f9d33660a0cd876a0f7e1ea255c53900a74868c06e22"
+      },
+      {
+        "path": "scripts/check_repo_integrity.py",
+        "sha256": "8078ccd8aa20f645ed5f20297b9fdf8a416eb00ac1a5ab70a7d3782608c026cc",
+        "actual": "8078ccd8aa20f645ed5f20297b9fdf8a416eb00ac1a5ab70a7d3782608c026cc"
+      },
+      {
+        "path": "AGENTS.md",
+        "sha256": "9bd783b4f2b3249da2c35ddcf8cc713bbbf57e8acf5cc273a8f087fe33e6914a",
+        "actual": "9bd783b4f2b3249da2c35ddcf8cc713bbbf57e8acf5cc273a8f087fe33e6914a"
+      },
+      {
+        "path": "CLAUDE.md",
+        "sha256": "2a581d22750f24a1c882cf535b75f6a9138d1d0bd2c967fa80ff45f316a14a31",
+        "actual": "2a581d22750f24a1c882cf535b75f6a9138d1d0bd2c967fa80ff45f316a14a31"
+      },
+      {
+        "path": ".gitignore",
+        "sha256": "80fa4e293b4e6ce0c49ee064b85dff2e2ac7914f7af909e2a993d184cc621a65",
+        "actual": "80fa4e293b4e6ce0c49ee064b85dff2e2ac7914f7af909e2a993d184cc621a65"
+      },
+      {
+        "path": ".vercelignore",
+        "sha256": "f45e2fc7104cab16bc5d10b1434b92d409e90a5fc17761a2351c9d4d78ebe544",
+        "actual": "f45e2fc7104cab16bc5d10b1434b92d409e90a5fc17761a2351c9d4d78ebe544"
+      },
+      {
+        "path": "NOTICE",
+        "sha256": "273f426ee99a6d040130591dd9796275614f725181612a362bc102c92baad4b1",
+        "actual": "273f426ee99a6d040130591dd9796275614f725181612a362bc102c92baad4b1"
+      }
+    ]
+  },
+  "staging": {
+    "path": "qa/revamp-r1/release-staging-20260910/a-current-summary-1/checks.json",
+    "sha256": "3f3a4220dfc7b58617f7bb9bd4596704ccf3daa7262971c9153d1becdd76b1d5",
+    "passed": 58,
+    "uniqueNodeIds": 58,
+    "groups": [
+      {
+        "group": "core",
+        "passed": 25,
+        "receipt": "qa/revamp-r1/release-staging-20260910/a-current-core-1/checks.json",
+        "receiptSha256": "ec18c18b1e5742b23dc8ccfa7ac9eaffa6146394616eeb0026ab8492d36706a2"
+      },
+      {
+        "group": "verify",
+        "passed": 10,
+        "receipt": "qa/revamp-r1/release-staging-20260910/a-current-verify-1/checks.json",
+        "receiptSha256": "13aa30c5287b4edd9fb3e65f1cf7b4074d4f5781aa04186e25e3b2479ff42081"
+      },
+      {
+        "group": "paths",
+        "passed": 8,
+        "receipt": "qa/revamp-r1/release-staging-20260910/a-current-paths-1/checks.json",
+        "receiptSha256": "729a0edf187b2062de9632ca580cb7148c5da814e127adae7ffd38ccb8f2d9dd"
+      },
+      {
+        "group": "inputs",
+        "passed": 3,
+        "receipt": "qa/revamp-r1/release-staging-20260910/a-current-inputs-1/checks.json",
+        "receiptSha256": "2a7e1f1a84311045e8da818ec0b71bb30d877f7640f77877434e4c80638f40e1"
+      },
+      {
+        "group": "derived",
+        "passed": 2,
+        "receipt": "qa/revamp-r1/release-staging-20260910/a-current-derived-1/checks.json",
+        "receiptSha256": "f7fcf229f2c4cccae203054da232f23c857752983ff07442a418f4c80e1a7578"
+      },
+      {
+        "group": "pin",
+        "passed": 10,
+        "receipt": "qa/revamp-r1/release-staging-20260910/a-current-pin-1/checks.json",
+        "receiptSha256": "4eeb532a29db00c812c05fc78dfddacacb9f9adcc34d683120a9f87a2620f435"
+      }
+    ]
+  },
+  "total": {
+    "arithmetic": "73 publish + 24 wrappers + 5 process + 8 README + 3 agent docs + 29 integrity + 2 runner + 58 staging = 202",
+    "passed": 202,
+    "files": 8
+  },
+  "priorFailures": [
+    "parent-red-1",
+    "parent-green-1",
+    "parent-final-1",
+    "parent-final-2",
+    "a-red-1",
+    "a-green-1",
+    "a-green-2",
+    "a-green-3",
+    "a-pin-red-1",
+    "a-current-races-1"
+  ],
+  "incident": {
+    "syntheticExportCalls": 2,
+    "exportedFixtureRecords": "1 + 1 = 2",
+    "separateExportTiming": "not instrumented",
+    "cause": "Parent used partial Get-Content session output as a complete file, replacing imports but leaving the legacy exporter-backed test suffix.",
+    "correction": "Drain reads fully; remove legacy suffix; pre-run source guard and runtime forbidden exporter module; preserve both receipts and synthetic manifests.",
+    "syntheticExports": [
+      {
+        "attempt": "parent-red-1",
+        "path": "tmp/release-parent-parent-red-1/test_publish_preflight_accepts0/data/manifest.json",
+        "bytes": 12410,
+        "sha256": "2683c18ec8a6add88b661ccc9c8b26c53ea7c5189e66f7183d9f28be07f565d0",
+        "manifest": {
+          "data_as_of": "2026-07-27T00:00:00+00:00",
+          "generated_at": "2026-09-10T00:04:50.761771+00:00",
+          "geom": {
+            "h3_resolution": 8,
+            "index": "geom/index.json",
+            "postal_index": "geom/postal-index.json",
+            "promoted_resolution": 12,
+            "promotion_mode": "recursive_h3",
+            "promotion_threshold_bytes": 4718592,
+            "record_shape": {
+              "candidates_map": "geom.<cell>.json[postal].candidates[<node_id>]",
+              "candidates_map_required_fields": [
+                "shortest",
+                "sheltered",
+                "exposure_gaps"
+              ],
+              "route_options_map": "geom.<cell>.json[postal].route_options[<option_key>]",
+              "route_options_map_required_fields": [
+                "shortest",
+                "sheltered",
+                "exposure_gaps"
+              ]
+            }
+          },
+          "provenance": {
+            "artifact": "shiok-static-json",
+            "export_scoring_fingerprint_digest": "951c37006178729023c89188",
+            "git": {
+              "export": {
+                "commit": "8fa20c0e30ea51f40899666ab5c006c60023abd4",
+                "dirty": true,
+                "dirty_paths": [
+                  "agents\\STATE.md",
+                  "tests\\test_publish.py"
+                ]
+              },
+              "run_start": {
+                "commit": "8fa20c0e30ea51f40899666ab5c006c60023abd4",
+                "dirty": true,
+                "dirty_paths": [
+                  "agents\\STATE.md",
+                  "tests\\test_publish.py"
+                ]
+              }
+            },
+            "mixed_network_digests": false,
+            "mixed_scoring_fingerprint_digests": false,
+            "mixed_scoring_input_digests": false,
+            "network_algorithm": "sha256-json-sort-keys-24hex",
+            "network_changed_during_run": false,
+            "network_digest": "f420e3fa26d2493527f0ca7c",
+            "network_digest_counts": {
+              "f420e3fa26d2493527f0ca7c": 1
+            },
+            "network_digests_missing_maps": [],
+            "network_provenance_complete": true,
+            "networks_by_digest": {
+              "f420e3fa26d2493527f0ca7c": {
+                "network_algorithm": "sha256-json-sort-keys-24hex",
+                "networks": [
+                  {
+                    "path": "processed\\network_island.parquet",
+                    "row_count": 10,
+                    "sha256": "nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+                  }
+                ],
+                "total_rows": 10
+              }
+            },
+            "record_count": 1,
+            "record_scoring_fingerprint_digest": "6cd8dde8b4655e30c74d582a",
+            "records_missing_network_digest": 0,
+            "records_missing_scoring_fingerprint_digest": 0,
+            "records_missing_scoring_input_digest": 1,
+            "score_batch_start_scoring_fingerprint_digest": null,
+            "scoring_fingerprint_algorithm": "sha256-json-sort-keys-24hex",
+            "scoring_fingerprint_changed_during_run": false,
+            "scoring_fingerprint_digest": "951c37006178729023c89188",
+            "scoring_fingerprint_digest_counts": {
+              "6cd8dde8b4655e30c74d582a": 1
+            },
+            "scoring_fingerprint_digests_missing_maps": [],
+            "scoring_fingerprint_files": [
+              "pipeline\\config\\params.yaml",
+              "pipeline\\config\\weights.yaml",
+              "pipeline\\routing.py",
+              "pipeline\\scoring.py",
+              "pipeline\\scoring_integration.py"
+            ],
+            "scoring_fingerprint_provenance_complete": true,
+            "scoring_fingerprints": {
+              "pipeline\\config\\params.yaml": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "pipeline\\config\\weights.yaml": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+              "pipeline\\routing.py": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+              "pipeline\\scoring.py": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+              "pipeline\\scoring_integration.py": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+            },
+            "scoring_fingerprints_at_export": {
+              "pipeline\\bus.py": "2ae4559f7312156ec392b787ebd5acd34b367044a052c135781e8f996cb4ccc9",
+              "pipeline\\bus_arrivals.py": "a99480988c16c36c47721edba4414b37e7813ecbc180b8c214cf385d7042e179",
+              "pipeline\\config\\params.yaml": "cb7cf315e0c6c203635c72f89d0029c9827e8c7a399e54444a268b4c05501d81",
+              "pipeline\\config\\weights.yaml": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+              "pipeline\\connector_candidates.py": "84ecba57d6480b766f4bca655dea3d1d9b86eade5e13fdd3e5a596d242a48e55",
+              "pipeline\\export.py": "ccadc298ca6bcc7cd5da2bd32b34ac40239cb555c2969ed5efea914cfffe5a55",
+              "pipeline\\fetch.py": "7081d7d1173b1f45dd3f8f492adb253f6ec1abdc354f794e19898652c843b52b",
+              "pipeline\\geocode.py": "5c45599c46fe459ac363b8a47b7fbf822d537710421adfdda5bf39f52e96f8b8",
+              "pipeline\\geocode_universe.py": "25c05a5694194e04bd37da8edbefa5df2cf3d05cd2b5009518c332dab6212ac3",
+              "pipeline\\network.py": "4bdd02a1472cd29a0805ee31dfaf6a8785f927ae815df421583f834b7b8958fa",
+              "pipeline\\osm_tags.py": "cfdee9e89f58b96b075ba8e0aae421fabe0fef7daaa1ffc3f686d0546cb92be5",
+              "pipeline\\postal_universe.py": "272875bc1c4a671af61d3cbb49e0ffac4fe0bfbb85af76d7b36d12522e7f0c99",
+              "pipeline\\routing.py": "3d16db9f83b0bf566844570217044a2adbda968d3e7a25b586cd5ebb1b18694c",
+              "pipeline\\score_batch.py": "7bd6dff951cd6d476a6385490c8be77798608a39c5f97ec986db8dc1ac03dcc0",
+              "pipeline\\scoring.py": "6ecdc8dddb2d320ea31260544f7ce3f3620d3177117255a279924f55d35a53fc",
+              "pipeline\\scoring_integration.py": "1acb3b57efca1b8f0c00e353e80ef3315ab6a17a435eabe047d1dbd5e188f577",
+              "pipeline\\shade.py": "9700366294e82dfc6454d09aa2f515ab83142c348fdc871ffdf74ac9d9b7be82",
+              "run.py": "dab7ebfefb7f51c468c4f9d33660a0cd876a0f7e1ea255c53900a74868c06e22"
+            },
+            "scoring_fingerprints_at_scoring_start": null,
+            "scoring_fingerprints_by_digest": {
+              "6cd8dde8b4655e30c74d582a": {
+                "pipeline\\config\\params.yaml": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                "pipeline\\config\\weights.yaml": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+                "pipeline\\routing.py": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+                "pipeline\\scoring.py": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                "pipeline\\scoring_integration.py": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+              },
+              "951c37006178729023c89188": {
+                "pipeline\\bus.py": "2ae4559f7312156ec392b787ebd5acd34b367044a052c135781e8f996cb4ccc9",
+                "pipeline\\bus_arrivals.py": "a99480988c16c36c47721edba4414b37e7813ecbc180b8c214cf385d7042e179",
+                "pipeline\\config\\params.yaml": "cb7cf315e0c6c203635c72f89d0029c9827e8c7a399e54444a268b4c05501d81",
+                "pipeline\\config\\weights.yaml": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+                "pipeline\\connector_candidates.py": "84ecba57d6480b766f4bca655dea3d1d9b86eade5e13fdd3e5a596d242a48e55",
+                "pipeline\\export.py": "ccadc298ca6bcc7cd5da2bd32b34ac40239cb555c2969ed5efea914cfffe5a55",
+                "pipeline\\fetch.py": "7081d7d1173b1f45dd3f8f492adb253f6ec1abdc354f794e19898652c843b52b",
+                "pipeline\\geocode.py": "5c45599c46fe459ac363b8a47b7fbf822d537710421adfdda5bf39f52e96f8b8",
+                "pipeline\\geocode_universe.py": "25c05a5694194e04bd37da8edbefa5df2cf3d05cd2b5009518c332dab6212ac3",
+                "pipeline\\network.py": "4bdd02a1472cd29a0805ee31dfaf6a8785f927ae815df421583f834b7b8958fa",
+                "pipeline\\osm_tags.py": "cfdee9e89f58b96b075ba8e0aae421fabe0fef7daaa1ffc3f686d0546cb92be5",
+                "pipeline\\postal_universe.py": "272875bc1c4a671af61d3cbb49e0ffac4fe0bfbb85af76d7b36d12522e7f0c99",
+                "pipeline\\routing.py": "3d16db9f83b0bf566844570217044a2adbda968d3e7a25b586cd5ebb1b18694c",
+                "pipeline\\score_batch.py": "7bd6dff951cd6d476a6385490c8be77798608a39c5f97ec986db8dc1ac03dcc0",
+                "pipeline\\scoring.py": "6ecdc8dddb2d320ea31260544f7ce3f3620d3177117255a279924f55d35a53fc",
+                "pipeline\\scoring_integration.py": "1acb3b57efca1b8f0c00e353e80ef3315ab6a17a435eabe047d1dbd5e188f577",
+                "pipeline\\shade.py": "9700366294e82dfc6454d09aa2f515ab83142c348fdc871ffdf74ac9d9b7be82",
+                "run.py": "dab7ebfefb7f51c468c4f9d33660a0cd876a0f7e1ea255c53900a74868c06e22"
+              }
+            },
+            "scoring_input_algorithm": "sha256-json-sort-keys-24hex",
+            "scoring_input_changed_during_run": false,
+            "scoring_input_digest": null,
+            "scoring_input_digest_counts": {},
+            "scoring_input_digests_missing_maps": [],
+            "scoring_input_provenance_complete": false,
+            "scoring_inputs_by_digest": {},
+            "source_hashes": {
+              "osm_extract": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            "state_counts": {
+              "SCORED": 1
+            },
+            "subscore_status": {
+              "access": "real_routed_shortest_distance",
+              "bus": "real_static_datamall_connectivity",
+              "crossing": "real_traffic_signals_with_grade_separated_exemption",
+              "heat": "provisional_covered_plus_nparks_shade_proxy_heat_only",
+              "rain": "real_routed_covered_length_ratio"
+            }
+          },
+          "scores": {
+            "index": "scores/index.json",
+            "network_digest_counts_by_shard": {
+              "TEST_AREA": {
+                "f420e3fa26d2493527f0ca7c": 1
+              }
+            },
+            "planning_areas": [
+              "TEST_AREA"
+            ],
+            "prefix_index": "scores/prefix-index.json",
+            "prefix_length": 3,
+            "record_shape": {
+              "candidates": {
+                "cap": 5,
+                "geometry_ref_format": "<postal>_<node_id>",
+                "geometry_requirement": "non-null geometry_ref requires matching geom.<cell>.json[postal].candidates[<node_id>]",
+                "node_id_prefixes": [
+                  "bus:",
+                  "mrt:"
+                ],
+                "required_fields": [
+                  "node_id",
+                  "node_name",
+                  "node_type",
+                  "direct_distance_m",
+                  "paths",
+                  "geometry_ref",
+                  "route_trust",
+                  "routing_type",
+                  "state"
+                ],
+                "sort_key": "direct_distance_m_ascending"
+              },
+              "optional": [
+                "candidates",
+                "route_options"
+              ],
+              "provenance": {
+                "full_networks": "manifest.provenance.networks_by_digest",
+                "full_scoring_fingerprints": "manifest.provenance.scoring_fingerprints",
+                "full_scoring_inputs": "manifest.provenance.scoring_inputs_by_digest",
+                "git_state": "manifest.provenance.git",
+                "per_record_network": "network_digest",
+                "per_record_scoring_fingerprint": "scoring_fingerprint_digest",
+                "per_record_scoring_input": "scoring_input_digest"
+              },
+              "required": [
+                "postal",
+                "state",
+                "total",
+                "subscores",
+                "best_node",
+                "paths",
+                "exposure_gaps",
+                "data_as_of",
+                "provenance"
+              ],
+              "route_options": {
+                "best_transit_geometry": "uses the top-level geom shard record",
+                "keys": [
+                  "best_transit",
+                  "mrt_lrt",
+                  "bus"
+                ],
+                "required_fields": [
+                  "state",
+                  "total",
+                  "subscores",
+                  "best_node",
+                  "paths",
+                  "exposure_gaps"
+                ],
+                "switchable_geometry_ref_format": "geom.<cell>.json[postal].route_options[<option_key>]",
+                "switchable_geometry_requirement": "non-best route_options with paths require matching geom shard route_options entries"
+              },
+              "state_semantics": {
+                "NO_TRANSIT_IN_RANGE": {
+                  "geometry_requirement": "records with paths require a matching geom shard even when total and subscores are null",
+                  "score_fields": "total and subscores are null",
+                  "walk_evidence": "best_node, paths, exposure_gaps, and route_options may be present when a connected walk exists beyond the locked 1.2 km range"
+                }
+              }
+            },
+            "scoring_fingerprint_digest_counts_by_shard": {
+              "TEST_AREA": {
+                "6cd8dde8b4655e30c74d582a": 1
+              }
+            },
+            "scoring_input_digest_counts_by_shard": {
+              "TEST_AREA": {}
+            },
+            "shards": [
+              "TEST_AREA"
+            ]
+          },
+          "transit": {
+            "counts": {
+              "bus_stop": 5208,
+              "mrt_exit": 613,
+              "mrt_station": 190
+            },
+            "feature_count": 6011,
+            "pois": "transit/pois.json",
+            "source_hashes": {
+              "bus_routes": "a52a1503aa2d68a0a9e59703ea96a9c0e6cff1720e10d0479384c6f97a88f829",
+              "bus_services": "2d2b12b89ed2b2314be7d1ac2738afbdcd2af10a07a7cb6db1fb890d56348e2f",
+              "bus_stops": "0362ab970c661de6b322a3372c9ab980faf49805921891a7a1da260687a16a4a",
+              "mrt_lrt_exits": "a7eaa90f30991dc0ac4aa970d704123ce3ec9e60c82b42c32a32e74be7dc0327",
+              "train_station_codes": "2d518f326e0e76444722caa96e784b5b86f8767652a2f730417294f1b4c4f2b6"
+            }
+          }
+        }
+      },
+      {
+        "attempt": "parent-green-1",
+        "path": "tmp/release-parent-parent-green-1/test_publish_preflight_accepts0/data/manifest.json",
+        "bytes": 12478,
+        "sha256": "7d27f555f67e8586e3112c4a75d9c2c904e5a7c298f1b1de1317b34b3d63311a",
+        "manifest": {
+          "data_as_of": "2026-07-27T00:00:00+00:00",
+          "generated_at": "2026-09-10T00:09:10.618361+00:00",
+          "geom": {
+            "h3_resolution": 8,
+            "index": "geom/index.json",
+            "postal_index": "geom/postal-index.json",
+            "promoted_resolution": 12,
+            "promotion_mode": "recursive_h3",
+            "promotion_threshold_bytes": 4718592,
+            "record_shape": {
+              "candidates_map": "geom.<cell>.json[postal].candidates[<node_id>]",
+              "candidates_map_required_fields": [
+                "shortest",
+                "sheltered",
+                "exposure_gaps"
+              ],
+              "route_options_map": "geom.<cell>.json[postal].route_options[<option_key>]",
+              "route_options_map_required_fields": [
+                "shortest",
+                "sheltered",
+                "exposure_gaps"
+              ]
+            }
+          },
+          "provenance": {
+            "artifact": "shiok-static-json",
+            "export_scoring_fingerprint_digest": "951c37006178729023c89188",
+            "git": {
+              "export": {
+                "commit": "8fa20c0e30ea51f40899666ab5c006c60023abd4",
+                "dirty": true,
+                "dirty_paths": [
+                  "agents\\STATE.md",
+                  "pipeline\\publish.py",
+                  "tests\\test_publish.py"
+                ]
+              },
+              "run_start": {
+                "commit": "8fa20c0e30ea51f40899666ab5c006c60023abd4",
+                "dirty": true,
+                "dirty_paths": [
+                  "agents\\STATE.md",
+                  "pipeline\\publish.py",
+                  "tests\\test_publish.py"
+                ]
+              }
+            },
+            "mixed_network_digests": false,
+            "mixed_scoring_fingerprint_digests": false,
+            "mixed_scoring_input_digests": false,
+            "network_algorithm": "sha256-json-sort-keys-24hex",
+            "network_changed_during_run": false,
+            "network_digest": "f420e3fa26d2493527f0ca7c",
+            "network_digest_counts": {
+              "f420e3fa26d2493527f0ca7c": 1
+            },
+            "network_digests_missing_maps": [],
+            "network_provenance_complete": true,
+            "networks_by_digest": {
+              "f420e3fa26d2493527f0ca7c": {
+                "network_algorithm": "sha256-json-sort-keys-24hex",
+                "networks": [
+                  {
+                    "path": "processed\\network_island.parquet",
+                    "row_count": 10,
+                    "sha256": "nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+                  }
+                ],
+                "total_rows": 10
+              }
+            },
+            "record_count": 1,
+            "record_scoring_fingerprint_digest": "6cd8dde8b4655e30c74d582a",
+            "records_missing_network_digest": 0,
+            "records_missing_scoring_fingerprint_digest": 0,
+            "records_missing_scoring_input_digest": 1,
+            "score_batch_start_scoring_fingerprint_digest": null,
+            "scoring_fingerprint_algorithm": "sha256-json-sort-keys-24hex",
+            "scoring_fingerprint_changed_during_run": false,
+            "scoring_fingerprint_digest": "951c37006178729023c89188",
+            "scoring_fingerprint_digest_counts": {
+              "6cd8dde8b4655e30c74d582a": 1
+            },
+            "scoring_fingerprint_digests_missing_maps": [],
+            "scoring_fingerprint_files": [
+              "pipeline\\config\\params.yaml",
+              "pipeline\\config\\weights.yaml",
+              "pipeline\\routing.py",
+              "pipeline\\scoring.py",
+              "pipeline\\scoring_integration.py"
+            ],
+            "scoring_fingerprint_provenance_complete": true,
+            "scoring_fingerprints": {
+              "pipeline\\config\\params.yaml": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "pipeline\\config\\weights.yaml": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+              "pipeline\\routing.py": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+              "pipeline\\scoring.py": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+              "pipeline\\scoring_integration.py": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+            },
+            "scoring_fingerprints_at_export": {
+              "pipeline\\bus.py": "2ae4559f7312156ec392b787ebd5acd34b367044a052c135781e8f996cb4ccc9",
+              "pipeline\\bus_arrivals.py": "a99480988c16c36c47721edba4414b37e7813ecbc180b8c214cf385d7042e179",
+              "pipeline\\config\\params.yaml": "cb7cf315e0c6c203635c72f89d0029c9827e8c7a399e54444a268b4c05501d81",
+              "pipeline\\config\\weights.yaml": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+              "pipeline\\connector_candidates.py": "84ecba57d6480b766f4bca655dea3d1d9b86eade5e13fdd3e5a596d242a48e55",
+              "pipeline\\export.py": "ccadc298ca6bcc7cd5da2bd32b34ac40239cb555c2969ed5efea914cfffe5a55",
+              "pipeline\\fetch.py": "7081d7d1173b1f45dd3f8f492adb253f6ec1abdc354f794e19898652c843b52b",
+              "pipeline\\geocode.py": "5c45599c46fe459ac363b8a47b7fbf822d537710421adfdda5bf39f52e96f8b8",
+              "pipeline\\geocode_universe.py": "25c05a5694194e04bd37da8edbefa5df2cf3d05cd2b5009518c332dab6212ac3",
+              "pipeline\\network.py": "4bdd02a1472cd29a0805ee31dfaf6a8785f927ae815df421583f834b7b8958fa",
+              "pipeline\\osm_tags.py": "cfdee9e89f58b96b075ba8e0aae421fabe0fef7daaa1ffc3f686d0546cb92be5",
+              "pipeline\\postal_universe.py": "272875bc1c4a671af61d3cbb49e0ffac4fe0bfbb85af76d7b36d12522e7f0c99",
+              "pipeline\\routing.py": "3d16db9f83b0bf566844570217044a2adbda968d3e7a25b586cd5ebb1b18694c",
+              "pipeline\\score_batch.py": "7bd6dff951cd6d476a6385490c8be77798608a39c5f97ec986db8dc1ac03dcc0",
+              "pipeline\\scoring.py": "6ecdc8dddb2d320ea31260544f7ce3f3620d3177117255a279924f55d35a53fc",
+              "pipeline\\scoring_integration.py": "1acb3b57efca1b8f0c00e353e80ef3315ab6a17a435eabe047d1dbd5e188f577",
+              "pipeline\\shade.py": "9700366294e82dfc6454d09aa2f515ab83142c348fdc871ffdf74ac9d9b7be82",
+              "run.py": "dab7ebfefb7f51c468c4f9d33660a0cd876a0f7e1ea255c53900a74868c06e22"
+            },
+            "scoring_fingerprints_at_scoring_start": null,
+            "scoring_fingerprints_by_digest": {
+              "6cd8dde8b4655e30c74d582a": {
+                "pipeline\\config\\params.yaml": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                "pipeline\\config\\weights.yaml": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+                "pipeline\\routing.py": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+                "pipeline\\scoring.py": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                "pipeline\\scoring_integration.py": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+              },
+              "951c37006178729023c89188": {
+                "pipeline\\bus.py": "2ae4559f7312156ec392b787ebd5acd34b367044a052c135781e8f996cb4ccc9",
+                "pipeline\\bus_arrivals.py": "a99480988c16c36c47721edba4414b37e7813ecbc180b8c214cf385d7042e179",
+                "pipeline\\config\\params.yaml": "cb7cf315e0c6c203635c72f89d0029c9827e8c7a399e54444a268b4c05501d81",
+                "pipeline\\config\\weights.yaml": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+                "pipeline\\connector_candidates.py": "84ecba57d6480b766f4bca655dea3d1d9b86eade5e13fdd3e5a596d242a48e55",
+                "pipeline\\export.py": "ccadc298ca6bcc7cd5da2bd32b34ac40239cb555c2969ed5efea914cfffe5a55",
+                "pipeline\\fetch.py": "7081d7d1173b1f45dd3f8f492adb253f6ec1abdc354f794e19898652c843b52b",
+                "pipeline\\geocode.py": "5c45599c46fe459ac363b8a47b7fbf822d537710421adfdda5bf39f52e96f8b8",
+                "pipeline\\geocode_universe.py": "25c05a5694194e04bd37da8edbefa5df2cf3d05cd2b5009518c332dab6212ac3",
+                "pipeline\\network.py": "4bdd02a1472cd29a0805ee31dfaf6a8785f927ae815df421583f834b7b8958fa",
+                "pipeline\\osm_tags.py": "cfdee9e89f58b96b075ba8e0aae421fabe0fef7daaa1ffc3f686d0546cb92be5",
+                "pipeline\\postal_universe.py": "272875bc1c4a671af61d3cbb49e0ffac4fe0bfbb85af76d7b36d12522e7f0c99",
+                "pipeline\\routing.py": "3d16db9f83b0bf566844570217044a2adbda968d3e7a25b586cd5ebb1b18694c",
+                "pipeline\\score_batch.py": "7bd6dff951cd6d476a6385490c8be77798608a39c5f97ec986db8dc1ac03dcc0",
+                "pipeline\\scoring.py": "6ecdc8dddb2d320ea31260544f7ce3f3620d3177117255a279924f55d35a53fc",
+                "pipeline\\scoring_integration.py": "1acb3b57efca1b8f0c00e353e80ef3315ab6a17a435eabe047d1dbd5e188f577",
+                "pipeline\\shade.py": "9700366294e82dfc6454d09aa2f515ab83142c348fdc871ffdf74ac9d9b7be82",
+                "run.py": "dab7ebfefb7f51c468c4f9d33660a0cd876a0f7e1ea255c53900a74868c06e22"
+              }
+            },
+            "scoring_input_algorithm": "sha256-json-sort-keys-24hex",
+            "scoring_input_changed_during_run": false,
+            "scoring_input_digest": null,
+            "scoring_input_digest_counts": {},
+            "scoring_input_digests_missing_maps": [],
+            "scoring_input_provenance_complete": false,
+            "scoring_inputs_by_digest": {},
+            "source_hashes": {
+              "osm_extract": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            "state_counts": {
+              "SCORED": 1
+            },
+            "subscore_status": {
+              "access": "real_routed_shortest_distance",
+              "bus": "real_static_datamall_connectivity",
+              "crossing": "real_traffic_signals_with_grade_separated_exemption",
+              "heat": "provisional_covered_plus_nparks_shade_proxy_heat_only",
+              "rain": "real_routed_covered_length_ratio"
+            }
+          },
+          "scores": {
+            "index": "scores/index.json",
+            "network_digest_counts_by_shard": {
+              "TEST_AREA": {
+                "f420e3fa26d2493527f0ca7c": 1
+              }
+            },
+            "planning_areas": [
+              "TEST_AREA"
+            ],
+            "prefix_index": "scores/prefix-index.json",
+            "prefix_length": 3,
+            "record_shape": {
+              "candidates": {
+                "cap": 5,
+                "geometry_ref_format": "<postal>_<node_id>",
+                "geometry_requirement": "non-null geometry_ref requires matching geom.<cell>.json[postal].candidates[<node_id>]",
+                "node_id_prefixes": [
+                  "bus:",
+                  "mrt:"
+                ],
+                "required_fields": [
+                  "node_id",
+                  "node_name",
+                  "node_type",
+                  "direct_distance_m",
+                  "paths",
+                  "geometry_ref",
+                  "route_trust",
+                  "routing_type",
+                  "state"
+                ],
+                "sort_key": "direct_distance_m_ascending"
+              },
+              "optional": [
+                "candidates",
+                "route_options"
+              ],
+              "provenance": {
+                "full_networks": "manifest.provenance.networks_by_digest",
+                "full_scoring_fingerprints": "manifest.provenance.scoring_fingerprints",
+                "full_scoring_inputs": "manifest.provenance.scoring_inputs_by_digest",
+                "git_state": "manifest.provenance.git",
+                "per_record_network": "network_digest",
+                "per_record_scoring_fingerprint": "scoring_fingerprint_digest",
+                "per_record_scoring_input": "scoring_input_digest"
+              },
+              "required": [
+                "postal",
+                "state",
+                "total",
+                "subscores",
+                "best_node",
+                "paths",
+                "exposure_gaps",
+                "data_as_of",
+                "provenance"
+              ],
+              "route_options": {
+                "best_transit_geometry": "uses the top-level geom shard record",
+                "keys": [
+                  "best_transit",
+                  "mrt_lrt",
+                  "bus"
+                ],
+                "required_fields": [
+                  "state",
+                  "total",
+                  "subscores",
+                  "best_node",
+                  "paths",
+                  "exposure_gaps"
+                ],
+                "switchable_geometry_ref_format": "geom.<cell>.json[postal].route_options[<option_key>]",
+                "switchable_geometry_requirement": "non-best route_options with paths require matching geom shard route_options entries"
+              },
+              "state_semantics": {
+                "NO_TRANSIT_IN_RANGE": {
+                  "geometry_requirement": "records with paths require a matching geom shard even when total and subscores are null",
+                  "score_fields": "total and subscores are null",
+                  "walk_evidence": "best_node, paths, exposure_gaps, and route_options may be present when a connected walk exists beyond the locked 1.2 km range"
+                }
+              }
+            },
+            "scoring_fingerprint_digest_counts_by_shard": {
+              "TEST_AREA": {
+                "6cd8dde8b4655e30c74d582a": 1
+              }
+            },
+            "scoring_input_digest_counts_by_shard": {
+              "TEST_AREA": {}
+            },
+            "shards": [
+              "TEST_AREA"
+            ]
+          },
+          "transit": {
+            "counts": {
+              "bus_stop": 5208,
+              "mrt_exit": 613,
+              "mrt_station": 190
+            },
+            "feature_count": 6011,
+            "pois": "transit/pois.json",
+            "source_hashes": {
+              "bus_routes": "a52a1503aa2d68a0a9e59703ea96a9c0e6cff1720e10d0479384c6f97a88f829",
+              "bus_services": "2d2b12b89ed2b2314be7d1ac2738afbdcd2af10a07a7cb6db1fb890d56348e2f",
+              "bus_stops": "0362ab970c661de6b322a3372c9ab980faf49805921891a7a1da260687a16a4a",
+              "mrt_lrt_exits": "a7eaa90f30991dc0ac4aa970d704123ce3ec9e60c82b42c32a32e74be7dc0327",
+              "train_station_codes": "2d518f326e0e76444722caa96e784b5b86f8767652a2f730417294f1b4c4f2b6"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "findings": [
+    "Committed source and both required artifacts are staged with byte identities; existing gzip bytes are preserved and missing/changed inputs block without repair.",
+    "Reviewed target IDs, explicit root/config and production data metadata checks precede submission; incomplete metadata fails closed.",
+    "Preparation is not readiness; provider READY is not production smoke. Unknown submission outcomes are not retried by the caller.",
+    "Windows owned-job timeout, assignment failure, termination failure and normal-exit child cleanup have executed harmless fixtures.",
+    "Two unintended synthetic export setup calls violated the zero-export constraint. No zero-pipeline claim is made for this turn."
+  ],
+  "disagreements": [
+    "A passing fixture suite cannot prove installed CLI compatibility, real staging/build, deployment, cache upgrade or production rollback.",
+    "The selected 202 passing tests are not the full Python or web suites; the full Python suite still contains exporter-backed tests and was not run."
+  ],
+  "limits": {
+    "realArtifactStaging": false,
+    "actualBuild": false,
+    "installedDependencies": false,
+    "deployment": false,
+    "browserRerun": false,
+    "fullProtectedPayloadAudit": false,
+    "allBacklogComplete": false
+  }
+}

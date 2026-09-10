@@ -1,0 +1,135 @@
+{
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "args": [
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_publish.py",
+    "tests/test_release_scripts.py",
+    "tests/test_release_process.py",
+    "tests/test_readme.py",
+    "tests/test_agent_docs.py",
+    "tests/test_repo_integrity.py",
+    "tests/test_run.py::test_run_task_refuses_publish_without_confirm",
+    "tests/test_run.py::test_run_task_strips_publish_confirm",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\release-parent-parent-final-1",
+    "-q"
+  ],
+  "elapsedMs": 184159,
+  "before": [
+    {
+      "path": "pipeline/publish.py",
+      "sha256": "c13aaa8bd1dd98ba5be3b81c881b8c54ad5c62e42235c0bc88340c26cbe05ca5"
+    },
+    {
+      "path": "tests/test_publish.py",
+      "sha256": "688ba79f7de86d163571e11b77ce7f8c0cecdbafd8fc0046b2adfba942a686d4"
+    },
+    {
+      "path": "scripts/deploy-production.ps1",
+      "sha256": "776f08fc569986134206aa38e6b271480fff88ba722e9527d8583c5fb501f608"
+    },
+    {
+      "path": "scripts/preflight-production.ps1",
+      "sha256": "4d08bdc5154739c03d32b9ead9adf8b02afc6b12c7ebe23675427d3db867788e"
+    },
+    {
+      "path": "scripts/release-data-bundle.ps1",
+      "sha256": "43be2e7fe7ad05b101aa88cd2c6226ca53b396510fa13936f9b9a5fedeab9173"
+    },
+    {
+      "path": "scripts/activate-data-bundle.ps1",
+      "sha256": "d00db120b5b121a32bcfcf75c23633211607ea65c3aad836131fe1cc5ffb2c82"
+    },
+    {
+      "path": "tests/test_release_scripts.py",
+      "sha256": "85eefb0d4217c14f9e668119b4a29cee16c83270d7b535b2f69c8b99bc2d65f6"
+    },
+    {
+      "path": "scripts/release_staging.py",
+      "sha256": "391c7ce2a2a7f4eace9e64a1b696fda5ed8f5596a55819e39973a89726bba45d"
+    },
+    {
+      "path": "tests/test_release_staging.py",
+      "sha256": "12a532182925e91f9819cde1380ece9727da6efecfb7e1f89d74e16f3cf529d4"
+    },
+    {
+      "path": "README.md",
+      "sha256": "07b2bcd56ffd9c24ea4d11b07b12a1f784aaf14af9c02e9cb4b613bb0e16d113"
+    },
+    {
+      "path": "tests/test_readme.py",
+      "sha256": "08b57d7fdd7562931f424dc1b58c152899961d3b915119e2c7ac0953f4442ee1"
+    },
+    {
+      "path": "scripts/release_process.py",
+      "sha256": "ba717e80130462ce5bb2aa7b666d5d56d54d674765fb981de82d58d64a93368f"
+    },
+    {
+      "path": "tests/test_release_process.py",
+      "sha256": "f97f9355c2b3fb42ee1c35cc6bc4830ee5c3e00c31088a289e2b14442b23f9ef"
+    }
+  ],
+  "after": [
+    {
+      "path": "pipeline/publish.py",
+      "sha256": "c13aaa8bd1dd98ba5be3b81c881b8c54ad5c62e42235c0bc88340c26cbe05ca5"
+    },
+    {
+      "path": "tests/test_publish.py",
+      "sha256": "688ba79f7de86d163571e11b77ce7f8c0cecdbafd8fc0046b2adfba942a686d4"
+    },
+    {
+      "path": "scripts/deploy-production.ps1",
+      "sha256": "776f08fc569986134206aa38e6b271480fff88ba722e9527d8583c5fb501f608"
+    },
+    {
+      "path": "scripts/preflight-production.ps1",
+      "sha256": "4d08bdc5154739c03d32b9ead9adf8b02afc6b12c7ebe23675427d3db867788e"
+    },
+    {
+      "path": "scripts/release-data-bundle.ps1",
+      "sha256": "43be2e7fe7ad05b101aa88cd2c6226ca53b396510fa13936f9b9a5fedeab9173"
+    },
+    {
+      "path": "scripts/activate-data-bundle.ps1",
+      "sha256": "d00db120b5b121a32bcfcf75c23633211607ea65c3aad836131fe1cc5ffb2c82"
+    },
+    {
+      "path": "tests/test_release_scripts.py",
+      "sha256": "85eefb0d4217c14f9e668119b4a29cee16c83270d7b535b2f69c8b99bc2d65f6"
+    },
+    {
+      "path": "scripts/release_staging.py",
+      "sha256": "391c7ce2a2a7f4eace9e64a1b696fda5ed8f5596a55819e39973a89726bba45d"
+    },
+    {
+      "path": "tests/test_release_staging.py",
+      "sha256": "12a532182925e91f9819cde1380ece9727da6efecfb7e1f89d74e16f3cf529d4"
+    },
+    {
+      "path": "README.md",
+      "sha256": "07b2bcd56ffd9c24ea4d11b07b12a1f784aaf14af9c02e9cb4b613bb0e16d113"
+    },
+    {
+      "path": "tests/test_readme.py",
+      "sha256": "08b57d7fdd7562931f424dc1b58c152899961d3b915119e2c7ac0953f4442ee1"
+    },
+    {
+      "path": "scripts/release_process.py",
+      "sha256": "ba717e80130462ce5bb2aa7b666d5d56d54d674765fb981de82d58d64a93368f"
+    },
+    {
+      "path": "tests/test_release_process.py",
+      "sha256": "f97f9355c2b3fb42ee1c35cc6bc4830ee5c3e00c31088a289e2b14442b23f9ef"
+    }
+  ],
+  "stable": true,
+  "exitCode": 1,
+  "error": null,
+  "stdout": "........................................................................ [ 50%]\r\n..........................F...........................................   [100%]\r\n================================== FAILURES ===================================\r\n_______ test_timeout_stops_owned_parent_and_child_with_inherited_pipes ________\r\n\r\ntmp_path = WindowsPath('C:/sgSHIOK2026/tmp/release-parent-parent-final-1/test_timeout_stops_owned_paren0')\r\n\r\n    def test_timeout_stops_owned_parent_and_child_with_inherited_pipes(tmp_path):\r\n        marker = tmp_path / \"owned.json\"\r\n        child_code = \"import time; time.sleep(60)\"\r\n        code = (\r\n            \"import json, os, pathlib, subprocess, sys, time; \"\r\n            f\"child = subprocess.Popen([sys.executable, '-B', '-c', {child_code!r}]); \"\r\n            f\"pathlib.Path({str(marker)!r}).write_text(json.dumps([os.getpid(), child.pid])); \"\r\n            \"time.sleep(60)\"\r\n        )\r\n        start = time.monotonic()\r\n        result = release_process.run_owned_command(\r\n            [sys.executable, \"-B\", \"-c\", code], tmp_path, timeout=10, env=dict(os.environ),\r\n        )\r\n        assert time.monotonic() - start < 25\r\n        assert result[\"error\"] == \"command_timeout\" and result[\"cleanup_complete\"] is True\r\n>       pids = json.loads(marker.read_text())\r\n                          ^^^^^^^^^^^^^^^^^^\r\n\r\ntests\\test_release_process.py:62: \r\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\r\nC:\\Program Files\\Python312\\Lib\\pathlib.py:1027: in read_text\r\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\r\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\r\n\r\nself = WindowsPath('C:/sgSHIOK2026/tmp/release-parent-parent-final-1/test_timeout_stops_owned_paren0/owned.json')\r\nmode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None\r\n\r\n    def open(self, mode='r', buffering=-1, encoding=None,\r\n             errors=None, newline=None):\r\n        \"\"\"\r\n        Open the file pointed to by this path and return a file object, as\r\n        the built-in open() function does.\r\n        \"\"\"\r\n        if \"b\" not in mode:\r\n            encoding = io.text_encoding(encoding)\r\n>       return io.open(self, mode, buffering, encoding, errors, newline)\r\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nE       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\sgSHIOK2026\\\\tmp\\\\release-parent-parent-final-1\\\\test_timeout_stops_owned_paren0\\\\owned.json'\r\n\r\nC:\\Program Files\\Python312\\Lib\\pathlib.py:1013: FileNotFoundError\r\n=========================== short test summary info ===========================\r\nFAILED tests/test_release_process.py::test_timeout_stops_owned_parent_and_child_with_inherited_pipes\r\n1 failed, 141 passed in 175.66s (0:02:55)\r\n",
+  "stderr": ""
+}

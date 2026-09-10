@@ -1,0 +1,129 @@
+{
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "args": [
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_release_process.py",
+    "-s",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\release-parent-owned-process-final",
+    "-q"
+  ],
+  "elapsedMs": 11697,
+  "before": [
+    {
+      "path": "pipeline/publish.py",
+      "sha256": "c13aaa8bd1dd98ba5be3b81c881b8c54ad5c62e42235c0bc88340c26cbe05ca5"
+    },
+    {
+      "path": "tests/test_publish.py",
+      "sha256": "688ba79f7de86d163571e11b77ce7f8c0cecdbafd8fc0046b2adfba942a686d4"
+    },
+    {
+      "path": "scripts/deploy-production.ps1",
+      "sha256": "776f08fc569986134206aa38e6b271480fff88ba722e9527d8583c5fb501f608"
+    },
+    {
+      "path": "scripts/preflight-production.ps1",
+      "sha256": "4d08bdc5154739c03d32b9ead9adf8b02afc6b12c7ebe23675427d3db867788e"
+    },
+    {
+      "path": "scripts/release-data-bundle.ps1",
+      "sha256": "43be2e7fe7ad05b101aa88cd2c6226ca53b396510fa13936f9b9a5fedeab9173"
+    },
+    {
+      "path": "scripts/activate-data-bundle.ps1",
+      "sha256": "d00db120b5b121a32bcfcf75c23633211607ea65c3aad836131fe1cc5ffb2c82"
+    },
+    {
+      "path": "tests/test_release_scripts.py",
+      "sha256": "226c8d9f26d34f7bc6518368abe95025428ee019f1effd0483eb519608bfdc59"
+    },
+    {
+      "path": "scripts/release_staging.py",
+      "sha256": "391c7ce2a2a7f4eace9e64a1b696fda5ed8f5596a55819e39973a89726bba45d"
+    },
+    {
+      "path": "tests/test_release_staging.py",
+      "sha256": "12a532182925e91f9819cde1380ece9727da6efecfb7e1f89d74e16f3cf529d4"
+    },
+    {
+      "path": "README.md",
+      "sha256": "07b2bcd56ffd9c24ea4d11b07b12a1f784aaf14af9c02e9cb4b613bb0e16d113"
+    },
+    {
+      "path": "tests/test_readme.py",
+      "sha256": "08b57d7fdd7562931f424dc1b58c152899961d3b915119e2c7ac0953f4442ee1"
+    },
+    {
+      "path": "scripts/release_process.py",
+      "sha256": "5bf7fad995e91a9d49f7c1a9e51fbc6b16a84fe0558c459fd0ea57193bc04b0a"
+    },
+    {
+      "path": "tests/test_release_process.py",
+      "sha256": "560b6a8207148f29d8defc2d8343c8894a2960d5b7fe535b9ff126fbcf9930c7"
+    }
+  ],
+  "after": [
+    {
+      "path": "pipeline/publish.py",
+      "sha256": "c13aaa8bd1dd98ba5be3b81c881b8c54ad5c62e42235c0bc88340c26cbe05ca5"
+    },
+    {
+      "path": "tests/test_publish.py",
+      "sha256": "688ba79f7de86d163571e11b77ce7f8c0cecdbafd8fc0046b2adfba942a686d4"
+    },
+    {
+      "path": "scripts/deploy-production.ps1",
+      "sha256": "776f08fc569986134206aa38e6b271480fff88ba722e9527d8583c5fb501f608"
+    },
+    {
+      "path": "scripts/preflight-production.ps1",
+      "sha256": "4d08bdc5154739c03d32b9ead9adf8b02afc6b12c7ebe23675427d3db867788e"
+    },
+    {
+      "path": "scripts/release-data-bundle.ps1",
+      "sha256": "43be2e7fe7ad05b101aa88cd2c6226ca53b396510fa13936f9b9a5fedeab9173"
+    },
+    {
+      "path": "scripts/activate-data-bundle.ps1",
+      "sha256": "d00db120b5b121a32bcfcf75c23633211607ea65c3aad836131fe1cc5ffb2c82"
+    },
+    {
+      "path": "tests/test_release_scripts.py",
+      "sha256": "226c8d9f26d34f7bc6518368abe95025428ee019f1effd0483eb519608bfdc59"
+    },
+    {
+      "path": "scripts/release_staging.py",
+      "sha256": "391c7ce2a2a7f4eace9e64a1b696fda5ed8f5596a55819e39973a89726bba45d"
+    },
+    {
+      "path": "tests/test_release_staging.py",
+      "sha256": "12a532182925e91f9819cde1380ece9727da6efecfb7e1f89d74e16f3cf529d4"
+    },
+    {
+      "path": "README.md",
+      "sha256": "07b2bcd56ffd9c24ea4d11b07b12a1f784aaf14af9c02e9cb4b613bb0e16d113"
+    },
+    {
+      "path": "tests/test_readme.py",
+      "sha256": "08b57d7fdd7562931f424dc1b58c152899961d3b915119e2c7ac0953f4442ee1"
+    },
+    {
+      "path": "scripts/release_process.py",
+      "sha256": "5bf7fad995e91a9d49f7c1a9e51fbc6b16a84fe0558c459fd0ea57193bc04b0a"
+    },
+    {
+      "path": "tests/test_release_process.py",
+      "sha256": "560b6a8207148f29d8defc2d8343c8894a2960d5b7fe535b9ff126fbcf9930c7"
+    }
+  ],
+  "stable": true,
+  "exitCode": 0,
+  "error": null,
+  "stdout": ".owned_cleanup_seconds=0.110000 cleanup_complete=True\r\n.owned_cleanup_seconds=0.078000 cleanup_complete=False\r\n...\r\n5 passed in 8.30s\r\n",
+  "stderr": ""
+}

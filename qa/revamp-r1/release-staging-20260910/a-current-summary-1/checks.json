@@ -1,0 +1,151 @@
+{
+  "status": "passed_current_frozen_sources",
+  "currentHashes": {
+    "scripts/release_staging.py": "391c7ce2a2a7f4eace9e64a1b696fda5ed8f5596a55819e39973a89726bba45d",
+    "tests/test_release_staging.py": "12a532182925e91f9819cde1380ece9727da6efecfb7e1f89d74e16f3cf529d4"
+  },
+  "collection": "qa/revamp-r1/release-staging-20260910/a-current-collection-2/checks.json",
+  "collectionSha256": "dabac2af7e070298ce2eb8ae14f9797b3e80331b6a84c14f3b677897e8455b79",
+  "groups": [
+    {
+      "group": "core",
+      "receipt": "qa/revamp-r1/release-staging-20260910/a-current-core-1/checks.json",
+      "receiptSha256": "ec18c18b1e5742b23dc8ccfa7ac9eaffa6146394616eeb0026ab8492d36706a2",
+      "passed": 25,
+      "stdout": ".........................                                                [100%]\n25 passed, 33 deselected in 152.46s (0:02:32)\n",
+      "exitCode": 0,
+      "stable": true,
+      "nodeids": [
+        "tests/test_release_staging.py::test_committed_source_only_both_artifacts_gzip_bytes_and_no_input_changes",
+        "tests/test_release_staging.py::test_derived_remote_config_does_not_execute_package_hooks",
+        "tests/test_release_staging.py::test_tracked_suspicious_files_are_rejected[.env]",
+        "tests/test_release_staging.py::test_tracked_suspicious_files_are_rejected[.env.production]",
+        "tests/test_release_staging.py::test_tracked_suspicious_files_are_rejected[.npmrc]",
+        "tests/test_release_staging.py::test_tracked_suspicious_files_are_rejected[private.key]",
+        "tests/test_release_staging.py::test_tracked_suspicious_files_are_rejected[.vercel/project.json]",
+        "tests/test_release_staging.py::test_missing_existing_gzip_or_derived_lookup_fails_without_regeneration[scores/index.json.gz]",
+        "tests/test_release_staging.py::test_missing_existing_gzip_or_derived_lookup_fails_without_regeneration[scores/prefix-index.json.gz]",
+        "tests/test_release_staging.py::test_missing_existing_gzip_or_derived_lookup_fails_without_regeneration[geom/postal-index.json.gz]",
+        "tests/test_release_staging.py::test_missing_existing_gzip_or_derived_lookup_fails_without_regeneration[geom/postal-prefix/018.json.gz]",
+        "tests/test_release_staging.py::test_missing_existing_gzip_or_derived_lookup_fails_without_regeneration[transit/h3/cell-a.json.gz]",
+        "tests/test_release_staging.py::test_raw_gzip_mismatch_or_corruption_fails_before_success[different]",
+        "tests/test_release_staging.py::test_raw_gzip_mismatch_or_corruption_fails_before_success[invalid-header]",
+        "tests/test_release_staging.py::test_raw_gzip_mismatch_or_corruption_fails_before_success[oversized-decode]",
+        "tests/test_release_staging.py::test_raw_gzip_mismatch_or_corruption_fails_before_success[invalid-deflate]",
+        "tests/test_release_staging.py::test_missing_overlay_tile_is_not_silently_omitted",
+        "tests/test_release_staging.py::test_existing_stage_is_never_overwritten",
+        "tests/test_release_staging.py::test_invalid_path_contract_fails[relative]",
+        "tests/test_release_staging.py::test_invalid_path_contract_fails[outside_tmp]",
+        "tests/test_release_staging.py::test_invalid_path_contract_fails[traversal]",
+        "tests/test_release_staging.py::test_invalid_path_contract_fails[nested_bundle]",
+        "tests/test_release_staging.py::test_invalid_path_contract_fails[same_overlay]",
+        "tests/test_release_staging.py::test_tracked_symlink_is_rejected_without_following_it",
+        "tests/test_release_staging.py::test_tracked_submodule_is_rejected"
+      ]
+    },
+    {
+      "group": "verify",
+      "receipt": "qa/revamp-r1/release-staging-20260910/a-current-verify-1/checks.json",
+      "receiptSha256": "13aa30c5287b4edd9fb3e65f1cf7b4074d4f5781aa04186e25e3b2479ff42081",
+      "passed": 10,
+      "stdout": "..........                                                               [100%]\n10 passed, 48 deselected in 214.09s (0:03:34)\n",
+      "exitCode": 0,
+      "stable": true,
+      "nodeids": [
+        "tests/test_release_staging.py::test_verify_rechecks_all_inputs_and_staged_bytes_without_mutation",
+        "tests/test_release_staging.py::test_verify_detects_changes_before_external_actions[artifact]",
+        "tests/test_release_staging.py::test_verify_detects_changes_before_external_actions[omitted_plain]",
+        "tests/test_release_staging.py::test_verify_detects_changes_before_external_actions[copy]",
+        "tests/test_release_staging.py::test_verify_detects_changes_before_external_actions[extra]",
+        "tests/test_release_staging.py::test_verify_detects_changes_before_external_actions[head]",
+        "tests/test_release_staging.py::test_verify_allows_only_named_next_outputs_and_exact_existing_dependency_link",
+        "tests/test_release_staging.py::test_verify_rejects_modified_committed_or_derived_configuration[next-env.d.ts]",
+        "tests/test_release_staging.py::test_verify_rejects_modified_committed_or_derived_configuration[tsconfig.json]",
+        "tests/test_release_staging.py::test_verify_rejects_dependency_link_to_any_other_directory"
+      ]
+    },
+    {
+      "group": "paths",
+      "receipt": "qa/revamp-r1/release-staging-20260910/a-current-paths-1/checks.json",
+      "receiptSha256": "729a0edf187b2062de9632ca580cb7148c5da814e127adae7ffd38ccb8f2d9dd",
+      "passed": 8,
+      "stdout": "........                                                                 [100%]\n8 passed, 50 deselected in 33.39s\n",
+      "exitCode": 0,
+      "stable": true,
+      "nodeids": [
+        "tests/test_release_staging.py::test_overlay_manifest_paths_fail_before_tile_access[../outside.json]",
+        "tests/test_release_staging.py::test_overlay_manifest_paths_fail_before_tile_access[/absolute.json]",
+        "tests/test_release_staging.py::test_overlay_manifest_paths_fail_before_tile_access[tiles//escape.json]",
+        "tests/test_release_staging.py::test_overlay_manifest_paths_fail_before_tile_access[tiles/../../escape.json]",
+        "tests/test_release_staging.py::test_overlay_manifest_paths_fail_before_tile_access[tiles/%2e%2e/escape.json]",
+        "tests/test_release_staging.py::test_overlay_manifest_paths_fail_before_tile_access[tiles/cell-a.json#fragment]",
+        "tests/test_release_staging.py::test_junction_or_symlink_parents_are_rejected[data]",
+        "tests/test_release_staging.py::test_junction_or_symlink_parents_are_rejected[stage_parent]"
+      ]
+    },
+    {
+      "group": "inputs",
+      "receipt": "qa/revamp-r1/release-staging-20260910/a-current-inputs-1/checks.json",
+      "receiptSha256": "2a7e1f1a84311045e8da818ec0b71bb30d877f7640f77877434e4c80638f40e1",
+      "passed": 3,
+      "stdout": "...                                                                      [100%]\n3 passed, 55 deselected in 69.82s (0:01:09)\n",
+      "exitCode": 0,
+      "stable": true,
+      "nodeids": [
+        "tests/test_release_staging.py::test_changed_input_during_copy_preserves_partial_stage_without_success_ledger",
+        "tests/test_release_staging.py::test_unreadable_input_failure_has_named_path_and_no_success_ledger",
+        "tests/test_release_staging.py::test_head_change_during_preparation_keeps_partial_stage_without_success_receipt"
+      ]
+    },
+    {
+      "group": "derived",
+      "receipt": "qa/revamp-r1/release-staging-20260910/a-current-derived-1/checks.json",
+      "receiptSha256": "f7fcf229f2c4cccae203054da232f23c857752983ff07442a418f4c80e1a7578",
+      "passed": 2,
+      "stdout": "..                                                                       [100%]\n2 passed, 56 deselected in 71.40s (0:01:11)\n",
+      "exitCode": 0,
+      "stable": true,
+      "nodeids": [
+        "tests/test_release_staging.py::test_staged_pointer_is_explicitly_derived_without_mutating_committed_or_local_pointer",
+        "tests/test_release_staging.py::test_production_type_imports_have_explicit_original_and_derived_hashes"
+      ]
+    },
+    {
+      "group": "pin",
+      "receipt": "qa/revamp-r1/release-staging-20260910/a-current-pin-1/checks.json",
+      "receiptSha256": "4eeb532a29db00c812c05fc78dfddacacb9f9adcc34d683120a9f87a2620f435",
+      "passed": 10,
+      "stdout": "..........                                                               [100%]\n10 passed, 48 deselected in 41.39s\n",
+      "exitCode": 0,
+      "stable": true,
+      "nodeids": [
+        "tests/test_release_staging.py::test_manifest_pin_verifies_single_read_and_parses_the_hashed_bytes[False]",
+        "tests/test_release_staging.py::test_manifest_pin_verifies_single_read_and_parses_the_hashed_bytes[True]",
+        "tests/test_release_staging.py::test_manifest_pin_invalid_format_rejected_before_filesystem[]",
+        "tests/test_release_staging.py::test_manifest_pin_invalid_format_rejected_before_filesystem[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]",
+        "tests/test_release_staging.py::test_manifest_pin_invalid_format_rejected_before_filesystem[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]",
+        "tests/test_release_staging.py::test_manifest_pin_invalid_format_rejected_before_filesystem[gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg]",
+        "tests/test_release_staging.py::test_manifest_pin_invalid_format_rejected_before_filesystem[7]",
+        "tests/test_release_staging.py::test_manifest_pin_invalid_format_rejected_before_filesystem[True]",
+        "tests/test_release_staging.py::test_manifest_pin_tampered_before_first_verify_never_consults_ledger_data[False]",
+        "tests/test_release_staging.py::test_manifest_pin_tampered_before_first_verify_never_consults_ledger_data[True]"
+      ]
+    }
+  ],
+  "arithmetic": "25 + 10 + 8 + 3 + 2 + 10 = 58",
+  "passed": 58,
+  "uniqueNodeids": 58,
+  "overlap": [],
+  "uncovered": [],
+  "excludedAttempts": [
+    {
+      "receipt": "qa/revamp-r1/release-staging-20260910/a-current-races-1/checks.json",
+      "receiptSha256": "2d36f88c8dc849cd3f30a77da81aec1b79543486ba6712450ad5f6454adc6bef",
+      "exitCode": 124,
+      "timedOut": true,
+      "stdout": "...........",
+      "countedAsPass": false
+    }
+  ],
+  "sourceEdits": false
+}

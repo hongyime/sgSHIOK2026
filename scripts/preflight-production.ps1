@@ -7,86 +7,39 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$RepoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
-$WebDir = Join-Path $RepoRoot "web"
-$ConfigPath = Join-Path $WebDir "data-bundle.json"
-
-if (-not $DataBundle) {
-    $DataBundle = (Get-Content $ConfigPath -Raw | ConvertFrom-Json).bundle
+$RepoRoot = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot ".."))
+if ($RepoRoot -ne "C:\sgSHIOK2026") { throw "Wrong working root; use C:\sgSHIOK2026" }
+foreach ($Name in @("SkipWebTests", "SkipNetworkPreflight")) {
+    if ($PSBoundParameters.ContainsKey($Name)) {
+        throw "$Name is retired; frontend preparation always tests committed source and never runs network pipeline tasks."
+    }
 }
-
-if (-not $DataBundle -or $DataBundle.Contains("/") -or $DataBundle.Contains("\")) {
-    throw "Invalid data bundle: $DataBundle"
-}
-
-$DataDir = Join-Path $WebDir "public\data\$DataBundle"
-if (-not (Test-Path (Join-Path $DataDir "manifest.json"))) {
-    throw "Data bundle is missing manifest.json: $DataDir"
-}
-
 function Write-PreflightPlan {
-    param([string]$Reason)
-    Write-Output "== S.H.I.O.K. production preflight =="
-    Write-Output "repo=$RepoRoot"
-    Write-Output "bundle=$DataBundle"
-    Write-Output "data_dir=$DataDir"
-    Write-Output ""
     Write-Output "plan_only=true"
     Write-Output "preflight=not_started"
-    Write-Output "reason=$Reason"
-    Write-Output "commands:"
-    Write-Output ".\scripts\preflight-production.ps1 -DataBundle $DataBundle -ConfirmProductionPreflight"
-    Write-Output ""
-    Write-Output "This will run git status, static bundle validation, optional network QA/preflight, and web tests. Web dependency setup may run npm ci if required bins are missing."
+    Write-Output "reason=confirm_production_preflight_not_set"
+    Write-Output "scope=fresh_committed_stage_pinned_bundle_required_overlay"
+    Write-Output "checks=byte_identity_static_validation_audit_tests_direct_next_build"
+    Write-Output "no_install=true"
+    Write-Output "deploy=not_started"
 }
-
 if (-not $ConfirmProductionPreflight) {
-    Write-PreflightPlan -Reason "confirm_production_preflight_not_set"
+    Write-PreflightPlan
     return
 }
-
+$Python = Join-Path $RepoRoot ".venv\Scripts\python.exe"
+if (-not (Test-Path -LiteralPath $Python -PathType Leaf)) {
+    throw "Existing Python environment required; this command never installs dependencies."
+}
+$PrepareArgs = @("--prepare", "--confirm-preparation")
+if ($DataBundle) {
+    if ($DataBundle -notmatch '^[A-Za-z0-9][A-Za-z0-9_-]*$') { throw "Invalid bundle name" }
+    $PrepareArgs += @("--input", (Join-Path $RepoRoot "web\public\data\$DataBundle"))
+}
 Push-Location $RepoRoot
 try {
-    Write-Output "== S.H.I.O.K. production preflight =="
-    Write-Output "repo=$RepoRoot"
-    Write-Output "bundle=$DataBundle"
-    Write-Output "data_dir=$DataDir"
-
-    Write-Output ""
-    Write-Output "== Git status =="
-    git status --short --branch
-    if ($LASTEXITCODE -ne 0) { throw "git status failed" }
-
-    if (-not $SkipNetworkPreflight) {
-        Write-Output ""
-        Write-Output "== Network QA =="
-        uv run python run.py network-qa --area island
-        if ($LASTEXITCODE -ne 0) { throw "network QA failed" }
-
-        Write-Output ""
-        Write-Output "== Network preflight =="
-        uv run python run.py network-preflight --area island --skip-geometry-inspection
-        if ($LASTEXITCODE -ne 0) { throw "network preflight failed" }
-    }
-
-    Write-Output ""
-    Write-Output "== Static data validation =="
-    uv run python run.py validate --input "web/public/data/$DataBundle"
-    if ($LASTEXITCODE -ne 0) { throw "static data validation failed" }
-
-    if (-not $SkipWebTests) {
-        & (Join-Path $PSScriptRoot "ensure-web-deps.ps1")
-        if ($LASTEXITCODE -ne 0) { throw "web dependency install failed" }
-
-        Write-Output ""
-        Write-Output "== Web tests =="
-        npm --prefix web test
-        if ($LASTEXITCODE -ne 0) { throw "web tests failed" }
-    }
-
-    Write-Output ""
-    Write-Output "preflight=ok"
+    & $Python -B -m pipeline.publish @PrepareArgs
+    if ($LASTEXITCODE -ne 0) { throw "Release preparation blocked; preserve the failed stage for inspection." }
+    Write-Output "deploy=not_started"
 }
-finally {
-    Pop-Location
-}
+finally { Pop-Location }

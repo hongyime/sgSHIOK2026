@@ -1,0 +1,33 @@
+{
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "C:\\sgSHIOK2026\\tests\\test_release_staging.py",
+    "--noconftest",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "addopts=",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\release-staging-a-final-core",
+    "-k",
+    "not verify and not staged_pointer and not changed_input and not unreadable_input and not overlay_manifest and not junction_or and not production_type and not head_change"
+  ],
+  "before": {
+    "scripts/release_staging.py": "6e27b191c782c5ab6e1c0252bb6a54334ae252c12059425c845867850546c3df",
+    "tests/test_release_staging.py": "07b96c9d0283c9bfd9eeec2339a3ac12629c8bf829c7441c5b10104e1d9b4616"
+  },
+  "after": {
+    "scripts/release_staging.py": "6e27b191c782c5ab6e1c0252bb6a54334ae252c12059425c845867850546c3df",
+    "tests/test_release_staging.py": "07b96c9d0283c9bfd9eeec2339a3ac12629c8bf829c7441c5b10104e1d9b4616"
+  },
+  "stable": true,
+  "exitCode": 0,
+  "timedOut": false,
+  "stdout": ".........................                                                [100%]\n25 passed, 23 deselected in 108.22s (0:01:48)\n",
+  "stderr": "",
+  "elapsedMs": 127531.00000019185
+}

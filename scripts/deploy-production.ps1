@@ -6,67 +6,41 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$RepoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
-$WebDir = Join-Path $RepoRoot "web"
-$ConfigPath = Join-Path $WebDir "data-bundle.json"
-
-if (-not $DataBundle) {
-    $DataBundle = (Get-Content $ConfigPath -Raw | ConvertFrom-Json).bundle
-}
-
-if (-not $DataBundle -or $DataBundle.Contains("/") -or $DataBundle.Contains("\")) {
-    throw "Invalid data bundle: $DataBundle"
-}
-
-$DataDir = Join-Path $WebDir "public\data\$DataBundle"
-if (-not (Test-Path (Join-Path $DataDir "manifest.json"))) {
-    throw "Data bundle is missing manifest.json: $DataDir"
+$RepoRoot = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot ".."))
+if ($RepoRoot -ne "C:\sgSHIOK2026") { throw "Wrong working root; use C:\sgSHIOK2026" }
+if ($PSBoundParameters.ContainsKey("SkipWebTests")) {
+    throw "SkipWebTests is retired; committed-stage tests are required."
 }
 
 function Write-DeployPlan {
-    param([string]$Reason)
-    $VercelScope = $env:VERCEL_SCOPE
-    if (-not $VercelScope) {
-        $VercelScope = "theprawnvercel"
-    }
-    $VercelProject = $env:VERCEL_PROJECT
-    if (-not $VercelProject) {
-        $VercelProject = "sgshiok"
-    }
-    Write-Output ""
     Write-Output "plan_only=true"
     Write-Output "deploy=not_started"
-    Write-Output "reason=$Reason"
-    Write-Output "deploy_path=staged_web_plus_selected_bundle"
-    Write-Output "vercel_scope=$VercelScope"
-    Write-Output "vercel_project=$VercelProject"
-    Write-Output "commands:"
-    Write-Output ".\scripts\deploy-production.bat -DataBundle $DataBundle -ConfirmProduction"
+    Write-Output "reason=confirm_production_not_set"
+    Write-Output "scope=committed_frontend_with_pinned_bundle_and_lamp_overlay"
+    Write-Output "preparation=existing_dependencies_no_install_no_data_preparation"
+    Write-Output "completion=exact_provider_READY_then_separate_production_smoke"
 }
 
 if (-not $ConfirmProduction) {
-    Write-DeployPlan -Reason "confirm_production_not_set"
+    Write-DeployPlan
     return
 }
 
+$Python = Join-Path $RepoRoot ".venv\Scripts\python.exe"
+if (-not (Test-Path -LiteralPath $Python -PathType Leaf)) {
+    throw "Existing Python environment required; this command never installs dependencies."
+}
+$PublishArgs = @("--deploy", "--confirm-publish", "--confirm-production")
+if ($DataBundle) {
+    if ($DataBundle -notmatch '^[A-Za-z0-9][A-Za-z0-9_-]*$') { throw "Invalid bundle name" }
+    $PublishArgs += @("--input", (Join-Path $RepoRoot "web\public\data\$DataBundle"))
+}
 Push-Location $RepoRoot
 try {
-    $env:SHIOK_DATA_BUNDLE = $DataBundle
-    $env:NEXT_PUBLIC_DATA_BASE = "/data/$DataBundle/"
-
-    & (Join-Path $PSScriptRoot "ensure-web-deps.ps1")
-    if (-not $?) { throw "web dependency install failed" }
-
-    if (-not $SkipWebTests) {
-        npm --prefix web test
-        if ($LASTEXITCODE -ne 0) { throw "web tests failed" }
+    & $Python -B (Join-Path $RepoRoot "run.py") publish @PublishArgs
+    if ($LASTEXITCODE -ne 0) {
+        throw "Publish did not reach verified provider READY. Inspect its state/URL before any retry."
     }
-
-    uv run python run.py publish --input "web/public/data/$DataBundle" --deploy --confirm-publish --confirm-production
-    if ($LASTEXITCODE -ne 0) { throw "production deploy failed" }
+    Write-Output "production_smoke=not_verified"
 }
-finally {
-    Remove-Item Env:\SHIOK_DATA_BUNDLE -ErrorAction SilentlyContinue
-    Remove-Item Env:\NEXT_PUBLIC_DATA_BASE -ErrorAction SilentlyContinue
-    Pop-Location
-}
+finally { Pop-Location }

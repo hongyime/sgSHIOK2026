@@ -1,0 +1,8 @@
+{
+  "status": "not_passed",
+  "exitCode": 1,
+  "timeoutSeconds": 240,
+  "fixtureBasetemp": "C:/sgSHIOK2026/tmp/release-staging-a-green-2",
+  "finding": "The capture wrapper did not handle subprocess.TimeoutExpired, so no checks.json or partial pytest stdout was retained. No passing test count is claimed for this attempt.",
+  "terminalError": "subprocess.TimeoutExpired: Command '['C:\\\\sgSHIOK2026\\\\.venv\\\\Scripts\\\\python.exe', '-B', '-m', 'pytest', '-q', 'C:\\\\sgSHIOK2026\\\\tests\\\\test_release_staging.py', '--noconftest', '-p', 'no:cacheprovider', '-o', 'addopts=', '--basetemp', 'C:\\\\sgSHIOK2026\\\\tmp\\\\release-staging-a-green-2']' timed out after 240 seconds"
+}

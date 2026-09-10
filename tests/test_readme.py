@@ -198,14 +198,18 @@ def test_readme_monitor_requires_verified_state_without_pipeline_commands() -> N
     assert "uv run python run.py check" not in text
 
 
-def test_readme_holds_mutating_release_helpers_and_requires_cache_aware_rollback() -> None:
+def test_readme_distinguishes_fixture_preparation_from_approved_release_and_rollback() -> None:
     normalized = compact(README.read_text(encoding="utf-8"))
 
-    assert "Release safety hold (T31): do not execute the existing deploy/publish/activation helpers" in normalized
-    assert "data-preparation step writes missing derived files into the existing bundle" in normalized
-    assert "omits the separate lamp overlay" in normalized
-    assert "deploys before its final preflight and pointer commit" in normalized
-    assert "A failing command therefore does not prove production stayed unchanged" in normalized
+    assert "Release execution remains gated (T27/T28)" in normalized
+    assert "committed-source staging and byte-preserving copies" in normalized
+    assert "required lamp overlay" in normalized
+    assert "No local installation or package data-preparation hook is invoked" in normalized
+    assert "creation hash is retained and checked before parsing the ledger" in normalized
+    assert "Provider READY does not prove browser/artifact identity" in normalized
+    assert "Hidden/incomplete or conflicting metadata blocks" in normalized
+    assert "activation entry points now refuse execution" in normalized
+    assert "No helper rewrites the artifact pointer" in normalized
     assert "`--no-wait` success is not READY" in normalized
     assert "A hosting rollback does not roll browser caches back" in normalized
     assert "Current MapLibre security disposition (T29)" in normalized

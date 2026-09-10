@@ -3335,3 +3335,105 @@ FINDINGS: the initial receipt checks missed a stale existing test contract. Its
 executed failure is preserved; the corrected contract and four added regressions
 now pass. DISAGREEMENTS: restoring a prohibited command merely to satisfy the old
 copy test would preserve the wrong operational policy; test the approved policy.
+
+## T31: Immutable Release Preparation, 2026-09-10
+
+Working root: C:\sgSHIOK2026. Host: Prawn-E14.
+Base: 8fa20c0e30ea51f40899666ab5c006c60023abd4; fetch confirmed origin/main at
+the same commit before finalization. Existing top-left layout was already complete;
+this is the unfinished release-safety ticket, not another UI rewrite.
+
+Commands, raw stdout/stderr, current source hashes, failed attempts and collection
+proof are committed in qa/revamp-r1/release-staging-20260910/. Main handback:
+summary.json. Independent read-only review: review.json. Fixture-only scope is
+accepted; actual artifact staging, build, installed CLI, deployment and rollback
+are not accepted by these receipts.
+
+Final parent command:
+node C:\sgSHIOK2026\qa\revamp-r1\release-staging-20260910\check-parent.mjs parent-final-3 tests/test_publish.py tests/test_release_scripts.py tests/test_release_process.py tests/test_readme.py tests/test_agent_docs.py tests/test_repo_integrity.py tests/test_run.py::test_run_task_refuses_publish_without_confirm tests/test_run.py::test_run_task_strips_publish_confirm -s
+
+The runner records its exact installed-Python argv and full raw output. Terminal
+result: 144 passed, exit 0, 169.807 seconds; all 23 before/after/current watched
+source identities match. The process fixtures measured 0.282 seconds for successful
+termination and 0.391 seconds for injected termination failure, including observed
+owned-PID exit inside the same 15-second bound. The second reports cleanup_complete
+false conservatively. These are cleanup fixtures, not map latency measurements.
+
+Staging fixtures: a-current-summary-1/checks.json records the exact six commands,
+receipt hashes and collection-set proof. 25 core + 10 verifier + 8 paths + 3 input
+races + 2 derivation + 10 manifest-pin cases = 58 passed. Current helper/test hashes
+match every accepted receipt. The 58-node union has zero overlaps or omissions.
+Earlier failing and timed-out attempts remain; they are not counted as passes.
+
+Final arithmetic by file:
+73 publish + 24 wrappers + 5 process + 8 README + 3 agent docs + 29 integrity
++ 2 selected runner tests + 58 staging = 202 passing tests across eight files.
+This is not the entire Python or web suite. No browser or actual Next build ran.
+Windows process tests used harmless Python children, not npm, Vercel or a pipeline.
+No other applications were stopped. Both agents reported terminal work and closed.
+
+Before append, close-parent.mjs pre-evidence returned repo_integrity=ok, exit 0.
+Its receipt pins four unchanged metadata anchors: web/data-bundle.json (360 bytes),
+main manifest (13,626), lamp manifest (120,620), raw manifest (11,616).
+360 + 13,626 + 120,620 + 11,616 = 146,222 checked metadata bytes. This is not a new
+recursive payload audit. The original verification prefix is exactly 211,578 bytes,
+SHA256 2292e00f2171b7cbde128dcce65318b8e96579f03f4fe1861fe814f23af4eee7.
+git check-ignore -v qa/verification/REVAMP-R1-core-walk.md produced no output and
+exit 1. Existing verification lines were not replaced or reflowed.
+
+### Protocol Incident And Failed Attempts
+
+The parent treated partial output from a still-running Get-Content command as the
+complete test file. The patch replaced imports but left the old test suffix. That
+suffix called export_static_artifacts on one synthetic record in parent-red-1 and
+again in parent-green-1. Two setup calls, 1 + 1 = 2 fixture records, executed under
+repo/tmp; their exact manifests and identities are retained in summary.json.
+Export-only timing was not separately instrumented. This violated the task's
+zero-export constraint. It must not be described as zero pipeline execution.
+
+Further tests were stopped while the suffix was removed using a fully drained
+read. The runner now rejects the old importer/setup before pytest; publish fixtures
+also deny runtime exporter access. Subsequent tests use literal synthetic artifacts
+and mocked external commands. No production-data export, input rebuild, scoring,
+installation or deployment was performed. Protected metadata anchors match.
+
+Preserved parent receipts: red1 has 1 failed, 6 passed and 40 setup errors; green1
+has 3 failed and 44 passed. Later final1 has 141 passed/1 failed because the fixture
+expected its child marker before a startup deadline; final2 has 143 passed/1 failed
+because it expected immediate PID termination after an uncertain job-close result.
+The corrected fixture waits for a complete child marker before exercising a real
+timeout, then measures bounded cleanup including observed process exit. Final3
+passes all 144. This changes the fixture's timing assumptions, not a deployment
+timeout or an acceptance tolerance for published data.
+
+### FINDINGS
+
+1. Committed source, required main/overlay inventories, existing compressed bytes
+   and explicitly derived staged settings now have an integrity ledger. Missing,
+   changed, unreadable or unsafe inputs stop preparation without regeneration.
+2. The creation ledger hash is retained outside the ledger and checked before it
+   is parsed, after build and before submission. Untracked/private source and
+   private Vercel linking state are not copied into the release.
+3. Reviewed immutable project/team IDs, root/framework/output settings and readable
+   production-variable metadata precede any submission. Incomplete metadata blocks;
+   config and public build variables are explicitly pinned. These are observations,
+   not an atomic lock against dashboard changes or proof of installed CLI support.
+4. Preparation is not submission readiness; a submitted or queued deployment is
+   not provider READY, and provider READY is not production smoke. No caller retry
+   occurs after an ambiguous submission. Old pointer-changing helper execution is
+   retired rather than hidden behind additional confirmation flags.
+5. Windows owned-job cleanup is tested against real harmless child processes,
+   including assignment failure, timeout, termination failure and normal exit.
+   No PID-wide search or termination of unrelated applications is used.
+6. Two synthetic exporter calls breached the zero-export protocol. They are
+   disclosed above, their receipts remain, and explicit regression guards replace
+   the unsafe fixture setup. A clean final test result does not erase that incident.
+
+### DISAGREEMENTS
+
+1. Fixture success does not establish real staging/build, installed CLI compatibility,
+   production identity, retained-client behavior or rollback. T27/T28 and the T29
+   security disposition remain gates; there is no deployment approval here.
+2. Neither a whole-turn zero-pipeline claim nor an all-project-tests-passed claim is
+   supported. The evidence establishes the selected 202 checks and records the two
+   unintended synthetic exports. The overall product backlog remains incomplete.

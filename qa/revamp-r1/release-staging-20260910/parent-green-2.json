@@ -1,0 +1,81 @@
+{
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "args": [
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_publish.py",
+    "tests/test_release_scripts.py",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\release-parent-parent-green-2",
+    "-q"
+  ],
+  "elapsedMs": 62592,
+  "before": [
+    {
+      "path": "pipeline/publish.py",
+      "sha256": "6b63241c8adc4b42eaf4c798d1270008877162b97a52d9a09251152939572087"
+    },
+    {
+      "path": "tests/test_publish.py",
+      "sha256": "65b2abf6e441842bae6ad88154a194b90c614f09ee37fb109cda871103d05ff7"
+    },
+    {
+      "path": "scripts/deploy-production.ps1",
+      "sha256": "776f08fc569986134206aa38e6b271480fff88ba722e9527d8583c5fb501f608"
+    },
+    {
+      "path": "scripts/preflight-production.ps1",
+      "sha256": "4d08bdc5154739c03d32b9ead9adf8b02afc6b12c7ebe23675427d3db867788e"
+    },
+    {
+      "path": "scripts/release-data-bundle.ps1",
+      "sha256": "43be2e7fe7ad05b101aa88cd2c6226ca53b396510fa13936f9b9a5fedeab9173"
+    },
+    {
+      "path": "scripts/activate-data-bundle.ps1",
+      "sha256": "d00db120b5b121a32bcfcf75c23633211607ea65c3aad836131fe1cc5ffb2c82"
+    },
+    {
+      "path": "tests/test_release_scripts.py",
+      "sha256": "85eefb0d4217c14f9e668119b4a29cee16c83270d7b535b2f69c8b99bc2d65f6"
+    }
+  ],
+  "after": [
+    {
+      "path": "pipeline/publish.py",
+      "sha256": "6b63241c8adc4b42eaf4c798d1270008877162b97a52d9a09251152939572087"
+    },
+    {
+      "path": "tests/test_publish.py",
+      "sha256": "65b2abf6e441842bae6ad88154a194b90c614f09ee37fb109cda871103d05ff7"
+    },
+    {
+      "path": "scripts/deploy-production.ps1",
+      "sha256": "776f08fc569986134206aa38e6b271480fff88ba722e9527d8583c5fb501f608"
+    },
+    {
+      "path": "scripts/preflight-production.ps1",
+      "sha256": "4d08bdc5154739c03d32b9ead9adf8b02afc6b12c7ebe23675427d3db867788e"
+    },
+    {
+      "path": "scripts/release-data-bundle.ps1",
+      "sha256": "43be2e7fe7ad05b101aa88cd2c6226ca53b396510fa13936f9b9a5fedeab9173"
+    },
+    {
+      "path": "scripts/activate-data-bundle.ps1",
+      "sha256": "d00db120b5b121a32bcfcf75c23633211607ea65c3aad836131fe1cc5ffb2c82"
+    },
+    {
+      "path": "tests/test_release_scripts.py",
+      "sha256": "85eefb0d4217c14f9e668119b4a29cee16c83270d7b535b2f69c8b99bc2d65f6"
+    }
+  ],
+  "stable": true,
+  "exitCode": 0,
+  "error": null,
+  "stdout": "..................................................................       [100%]\r\n66 passed in 58.33s\r\n",
+  "stderr": ""
+}

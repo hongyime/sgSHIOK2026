@@ -70,16 +70,38 @@ that the local lamp overlay artifact is present and internally consistent. Do
 not rebuild, overwrite, or mutate existing public data directories to repair a
 missing artifact; copy or create only a new versioned artifact after owner
 approval.
-**Release safety hold (T31): do not execute the existing deploy/publish/activation
-helpers under the protected-artifact rules.** The normal deploy path can install
-dependencies and invoke `npm run build`, whose data-preparation step writes missing
-derived files into the existing bundle or restores/downloads inputs. Staging copies
-the working web tree rather than an exact committed inventory, omits the separate
-lamp overlay and recompresses selected files. The data-release helper deploys before
-its final preflight and pointer commit. A failing command therefore does not prove
-production stayed unchanged. Use the maintenance runbook below for inspection and
-rollback planning; repair and test the immutable staging path before T27/T28.
-Neither a main push nor a plan-only command is permission to publish.
+**Release execution remains gated (T27/T28).** T31 replaces the unsafe preparation
+chain with committed-source staging and byte-preserving copies of the pinned main
+bundle plus the required lamp overlay. Missing gzip companions or lookup files fail;
+nothing is regenerated. A fresh stage under repository `tmp/` records source, input,
+derived configuration and copied-byte identities. Its creation hash is retained and
+checked before parsing the ledger and again after build/before submission.
+
+The PowerShell deploy/preflight helpers without confirmation are plan-only. Explicit
+`-ConfirmProductionPreflight` authorizes staging, read-only artifact validation,
+dependency audit, committed-stage web tests and direct installed Next build, but no
+deployment. No local installation or package data-preparation hook is invoked.
+Real artifact copying/building remains separately gated; passing fixtures is not
+approval to run it. Missing local dependencies or symlink privilege stops preparation.
+
+An approved deployment additionally requires reviewed `VERCEL_PROJECT_ID` and
+`VERCEL_ORG_ID`, authentication and readable project configuration. Exact project/team
+IDs, project name, root `web`, Next framework, default output directory and relevant
+production-variable metadata must agree. Hidden/incomplete or conflicting metadata
+blocks; project-variable reads are not an atomic lock against dashboard changes.
+Submission explicitly pins the staged Vercel config and public artifact bases. The
+remote install command uses the committed lockfile with lifecycle scripts disabled;
+it is a deployment-side operation, not a local preparation install.
+
+Preparation, submission, provider READY and production smoke are distinct states.
+The exact returned deployment URL is inspected; a queued response is not success.
+Timeout or ambiguous submission means inspect that attempt, never blindly resubmit.
+Provider READY does not prove browser/artifact identity or complete T28. No helper
+rewrites the artifact pointer, allowlists or Git history. The former data-release and
+activation entry points now refuse execution, including old bypass flags; changing
+the data pointer needs a separately approved implementation. Neither a main push nor
+a plan-only command is permission to publish. Current commands are fixture-validated,
+not an exercised production release. See the maintenance runbook below for rollback.
 If Vercel Hobby Edge Requests hit quota, first check whether production is
 serving current `main`; automatic Git deployments are intentionally disabled in
 `web/vercel.json`, so committed cache and crawler reductions do not affect live
@@ -289,8 +311,8 @@ remain unverified in this inspection. Git auto-deploy is disabled in checked-in
   Exit 2 or an input mismatch stops use of that input. Diagnose read-only; do not
   rebuild, normalize or overwrite it. Preserve cooldowns and failed receipts.
 - Validation failure before publication must leave the live pointer alone (O06).
-  Current release helpers do not establish that invariant for all stages: T31 must
-  fix staging/build side effects and move local validation before external changes.
+  T31's fixture-tested helpers validate committed staging before external changes;
+  real preparation, release configuration and production smoke remain T27/T28 gates.
   `-ConfirmProduction`, activation, preflight and publish are not inspection modes.
 - For deployment failure (O07), record the named stage and remote deployment status.
   `--no-wait` success is not READY. Stop if remote state is unknown; do not blindly
@@ -306,8 +328,8 @@ remain unverified in this inspection. Git auto-deploy is disabled in checked-in
   roll browser caches back. Current `sw.js` claims clients immediately and preserves
   immutable asset caches. Do not delete unrelated caches or call a local preview an
   exercised production rollback. O08 and T01's old-tab acceptance remain release gates.
-- Current MapLibre security disposition (T29), client upgrade acceptance and T31
-  staging repairs precede release. No install, deployment or rollback ran in T24.
+- Current MapLibre security disposition (T29), client upgrade acceptance and real
+  immutable-stage acceptance precede release. No install, deployment or rollback ran in T24.
 
 ### Free-Cap And Report Operations
 

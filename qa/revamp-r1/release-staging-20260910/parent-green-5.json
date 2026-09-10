@@ -1,0 +1,118 @@
+{
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "args": [
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_publish.py",
+    "tests/test_release_scripts.py",
+    "tests/test_readme.py",
+    "tests/test_agent_docs.py",
+    "tests/test_repo_integrity.py",
+    "tests/test_run.py::test_run_task_refuses_publish_without_confirm",
+    "tests/test_run.py::test_run_task_strips_publish_confirm",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\release-parent-parent-green-5",
+    "-q"
+  ],
+  "elapsedMs": 59843,
+  "before": [
+    {
+      "path": "pipeline/publish.py",
+      "sha256": "ce9d9891bb849a4436bb73b5cbe077e25c4c4e6d27545a6914e1e46a604b4633"
+    },
+    {
+      "path": "tests/test_publish.py",
+      "sha256": "f9e73067e6a1637073d790f3987dac91f4d1653b5fa1635a20fa2329f866e1d4"
+    },
+    {
+      "path": "scripts/deploy-production.ps1",
+      "sha256": "776f08fc569986134206aa38e6b271480fff88ba722e9527d8583c5fb501f608"
+    },
+    {
+      "path": "scripts/preflight-production.ps1",
+      "sha256": "4d08bdc5154739c03d32b9ead9adf8b02afc6b12c7ebe23675427d3db867788e"
+    },
+    {
+      "path": "scripts/release-data-bundle.ps1",
+      "sha256": "43be2e7fe7ad05b101aa88cd2c6226ca53b396510fa13936f9b9a5fedeab9173"
+    },
+    {
+      "path": "scripts/activate-data-bundle.ps1",
+      "sha256": "d00db120b5b121a32bcfcf75c23633211607ea65c3aad836131fe1cc5ffb2c82"
+    },
+    {
+      "path": "tests/test_release_scripts.py",
+      "sha256": "85eefb0d4217c14f9e668119b4a29cee16c83270d7b535b2f69c8b99bc2d65f6"
+    },
+    {
+      "path": "scripts/release_staging.py",
+      "sha256": "391c7ce2a2a7f4eace9e64a1b696fda5ed8f5596a55819e39973a89726bba45d"
+    },
+    {
+      "path": "tests/test_release_staging.py",
+      "sha256": "12a532182925e91f9819cde1380ece9727da6efecfb7e1f89d74e16f3cf529d4"
+    },
+    {
+      "path": "README.md",
+      "sha256": "07b2bcd56ffd9c24ea4d11b07b12a1f784aaf14af9c02e9cb4b613bb0e16d113"
+    },
+    {
+      "path": "tests/test_readme.py",
+      "sha256": "08b57d7fdd7562931f424dc1b58c152899961d3b915119e2c7ac0953f4442ee1"
+    }
+  ],
+  "after": [
+    {
+      "path": "pipeline/publish.py",
+      "sha256": "ce9d9891bb849a4436bb73b5cbe077e25c4c4e6d27545a6914e1e46a604b4633"
+    },
+    {
+      "path": "tests/test_publish.py",
+      "sha256": "f9e73067e6a1637073d790f3987dac91f4d1653b5fa1635a20fa2329f866e1d4"
+    },
+    {
+      "path": "scripts/deploy-production.ps1",
+      "sha256": "776f08fc569986134206aa38e6b271480fff88ba722e9527d8583c5fb501f608"
+    },
+    {
+      "path": "scripts/preflight-production.ps1",
+      "sha256": "4d08bdc5154739c03d32b9ead9adf8b02afc6b12c7ebe23675427d3db867788e"
+    },
+    {
+      "path": "scripts/release-data-bundle.ps1",
+      "sha256": "43be2e7fe7ad05b101aa88cd2c6226ca53b396510fa13936f9b9a5fedeab9173"
+    },
+    {
+      "path": "scripts/activate-data-bundle.ps1",
+      "sha256": "d00db120b5b121a32bcfcf75c23633211607ea65c3aad836131fe1cc5ffb2c82"
+    },
+    {
+      "path": "tests/test_release_scripts.py",
+      "sha256": "85eefb0d4217c14f9e668119b4a29cee16c83270d7b535b2f69c8b99bc2d65f6"
+    },
+    {
+      "path": "scripts/release_staging.py",
+      "sha256": "391c7ce2a2a7f4eace9e64a1b696fda5ed8f5596a55819e39973a89726bba45d"
+    },
+    {
+      "path": "tests/test_release_staging.py",
+      "sha256": "12a532182925e91f9819cde1380ece9727da6efecfb7e1f89d74e16f3cf529d4"
+    },
+    {
+      "path": "README.md",
+      "sha256": "07b2bcd56ffd9c24ea4d11b07b12a1f784aaf14af9c02e9cb4b613bb0e16d113"
+    },
+    {
+      "path": "tests/test_readme.py",
+      "sha256": "08b57d7fdd7562931f424dc1b58c152899961d3b915119e2c7ac0953f4442ee1"
+    }
+  ],
+  "stable": true,
+  "exitCode": 0,
+  "error": null,
+  "stdout": "........................................................................ [ 51%]\r\n...................................................................      [100%]\r\n139 passed in 54.05s\r\n",
+  "stderr": ""
+}

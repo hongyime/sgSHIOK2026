@@ -1,0 +1,80 @@
+{
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "args": [
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_publish.py",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\release-parent-parent-green-1",
+    "-q"
+  ],
+  "elapsedMs": 32174,
+  "before": [
+    {
+      "path": "pipeline/publish.py",
+      "sha256": "ce8ed29fdd3ef9ae96f57ab0984631895a6b33c2f5e2353ddfff44048bbb5ced"
+    },
+    {
+      "path": "tests/test_publish.py",
+      "sha256": "fa21cae9ded441e3a640f88a3f58d7d3d78969f9ff2fd50017fb40682386bf27"
+    },
+    {
+      "path": "scripts/deploy-production.ps1",
+      "sha256": "7ea0a74561a253c7e45cdfd0ab85e0cca7e4481a1877e39661ebd1a11424bb04"
+    },
+    {
+      "path": "scripts/preflight-production.ps1",
+      "sha256": "99379396e9d3c1ded09a7d43c7fa909b0d5040086107193ad3d8870559a65835"
+    },
+    {
+      "path": "scripts/release-data-bundle.ps1",
+      "sha256": "c765bc34f9cdd7fbf1675f6bf5cd4b9c78cade97765a05bbcaa4cb249360d7f4"
+    },
+    {
+      "path": "scripts/activate-data-bundle.ps1",
+      "sha256": "84c7cafa9488ffc26b6e18e2c00cf1815bc6da3aaffadefb16e5386f8d78221c"
+    },
+    {
+      "path": "tests/test_release_scripts.py",
+      "sha256": "e9461b8b8cd78fd58c731bf4e972a243079809b9fbead7e9637bd9729f81c080"
+    }
+  ],
+  "after": [
+    {
+      "path": "pipeline/publish.py",
+      "sha256": "ce8ed29fdd3ef9ae96f57ab0984631895a6b33c2f5e2353ddfff44048bbb5ced"
+    },
+    {
+      "path": "tests/test_publish.py",
+      "sha256": "fa21cae9ded441e3a640f88a3f58d7d3d78969f9ff2fd50017fb40682386bf27"
+    },
+    {
+      "path": "scripts/deploy-production.ps1",
+      "sha256": "7ea0a74561a253c7e45cdfd0ab85e0cca7e4481a1877e39661ebd1a11424bb04"
+    },
+    {
+      "path": "scripts/preflight-production.ps1",
+      "sha256": "99379396e9d3c1ded09a7d43c7fa909b0d5040086107193ad3d8870559a65835"
+    },
+    {
+      "path": "scripts/release-data-bundle.ps1",
+      "sha256": "c765bc34f9cdd7fbf1675f6bf5cd4b9c78cade97765a05bbcaa4cb249360d7f4"
+    },
+    {
+      "path": "scripts/activate-data-bundle.ps1",
+      "sha256": "84c7cafa9488ffc26b6e18e2c00cf1815bc6da3aaffadefb16e5386f8d78221c"
+    },
+    {
+      "path": "tests/test_release_scripts.py",
+      "sha256": "e9461b8b8cd78fd58c731bf4e972a243079809b9fbead7e9637bd9729f81c080"
+    }
+  ],
+  "stable": true,
+  "exitCode": 1,
+  "error": null,
+  "stdout": "..........................................FF..F                          [100%]\r\n================================== FAILURES ===================================\r\n___________ test_publish_preflight_rejects_missing_static_artifacts ___________\r\n\r\ntmp_path = WindowsPath('C:/sgSHIOK2026/tmp/release-parent-parent-green-1/test_publish_preflight_rejects0')\r\n\r\n    def test_publish_preflight_rejects_missing_static_artifacts(tmp_path: Path):\r\n        web_dir = linked_web_dir(tmp_path)\r\n    \r\n        ok, report = publish_preflight(\r\n            input_dir=tmp_path / \"missing-data\",\r\n            web_dir=web_dir,\r\n            run_external_checks=False,\r\n        )\r\n    \r\n        assert not ok\r\n        assert report[\"deploy_executed\"] is False\r\n>       assert \"publish blocked: static artifact validation failed\" in report[\"errors\"]\r\nE       AssertionError: assert 'publish blocked: static artifact validation failed' in ['release must use the repository web directory']\r\n\r\ntests\\test_publish.py:317: AssertionError\r\n_ test_publish_preflight_accepts_valid_artifacts_and_link_without_external_checks _\r\n\r\ntmp_path = WindowsPath('C:/sgSHIOK2026/tmp/release-parent-parent-green-1/test_publish_preflight_accepts0')\r\n\r\n    def test_publish_preflight_accepts_valid_artifacts_and_link_without_external_checks(tmp_path: Path):\r\n        data_dir = tmp_path / \"data\"\r\n        export_static_artifacts([sample_record(\"123456\")], output_dir=data_dir)\r\n        web_dir = linked_web_dir(tmp_path)\r\n    \r\n        ok, report = publish_preflight(\r\n            input_dir=data_dir,\r\n            web_dir=web_dir,\r\n            run_external_checks=False,\r\n        )\r\n    \r\n>       assert ok, report\r\nE       AssertionError: {'ok': False, 'mode': 'preflight', 'state': 'blocked_before_submission', 'checks': {}, ...}\r\nE       assert False\r\n\r\ntests\\test_publish.py:331: AssertionError\r\n___________ test_prepare_vercel_source_copies_only_selected_bundle ____________\r\n\r\ntmp_path = WindowsPath('C:/sgSHIOK2026/tmp/release-parent-parent-green-1/test_prepare_vercel_source_cop0')\r\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000018F69468D40>\r\n\r\n    def test_prepare_vercel_source_copies_only_selected_bundle(tmp_path: Path, monkeypatch):\r\n        monkeypatch.setattr(\"pipeline.publish.PROJECT_ROOT\", tmp_path)\r\n        web_dir = linked_web_dir(tmp_path)\r\n        (web_dir / \"app\").mkdir()\r\n        (web_dir / \"app\" / \"page.tsx\").write_text(\"export default function Page() { return null }\")\r\n        (web_dir / \"public\" / \"data\" / \"old_bundle\").mkdir(parents=True)\r\n        (web_dir / \"public\" / \"data\" / \"old_bundle\" / \"manifest.json\").write_text(\"{}\")\r\n        data_dir = web_dir / \"public\" / \"data\" / \"selected_bundle\"\r\n        data_dir.mkdir(parents=True)\r\n        (data_dir / \"manifest.json\").write_text(\"{}\")\r\n        (data_dir / \"scores\").mkdir()\r\n        (data_dir / \"scores\" / \"index.json\").write_text('{\"AREA\":[\"123456\"]}', encoding=\"utf-8\")\r\n        (data_dir / \"scores\" / \"AREA.json\").write_text('[{\"postal\":\"123456\"}]', encoding=\"utf-8\")\r\n        (data_dir / \"geom\" / \"h3\").mkdir(parents=True)\r\n        (data_dir / \"geom\" / \"h3\" / \"cell.json\").write_text('[{\"postal\":\"123456\"}]', encoding=\"utf-8\")\r\n        (data_dir / \"transit\").mkdir()\r\n        (data_dir / \"transit\" / \"pois.json\").write_text('{\"features\":[]}', encoding=\"utf-8\")\r\n    \r\n>       stage = prepare_vercel_source(web_dir, data_dir)\r\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nE       TypeError: prepare_vercel_source() missing 1 required keyword-only argument: 'revision'\r\n\r\ntests\\test_publish.py:381: TypeError\r\n=========================== short test summary info ===========================\r\nFAILED tests/test_publish.py::test_publish_preflight_rejects_missing_static_artifacts\r\nFAILED tests/test_publish.py::test_publish_preflight_accepts_valid_artifacts_and_link_without_external_checks\r\nFAILED tests/test_publish.py::test_prepare_vercel_source_copies_only_selected_bundle\r\n3 failed, 44 passed in 27.76s\r\n",
+  "stderr": ""
+}
