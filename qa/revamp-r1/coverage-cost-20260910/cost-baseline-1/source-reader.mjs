@@ -57,7 +57,7 @@ export function createJsonReader({ bundleRoot, checksums, maxRawBytes = 8 * MiB,
     missingGzipLookups: 0, logicalMissing: 0, maxObservedRssBytes: 0,
     timingsMs: { lookup: 0, read: 0, hash: 0, decode: 0, parse: 0 } };
   function checkBudget() {
-    const rssBytes = process.memoryUsage.rss();
+    const rssBytes = process.memoryUsage().rss;
     stats.maxObservedRssBytes = Math.max(stats.maxObservedRssBytes, rssBytes);
     if (Date.now() >= deadline) stop('STOP_DEADLINE', { deadline });
     if (rssBytes > maxRssBytes) stop('STOP_RSS_LIMIT', { rssBytes, limit: maxRssBytes });

@@ -288,6 +288,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   `pilot-1/summary.json`. A cheaper audited scan or a separately accepted larger
   read-only wall budget is needed before the full register can be claimed done.
   T20 remains dependent on the full register; T23/T24 are independently READY.
+- Cost follow-up 2026-09-10: RSS-only budget observations preserve check frequency and caps; 138+5=143 native scanner tests/5 files pass. A new baseline reproduces the original 200-record output bytes and counts in 13.487706s, but its conservative projected budget is 3842s >900s. Full-memory observations cost only0.234303s/21426calls, so this is not the principal measured bottleneck. The treatment pilot stops before input reads at740.238MiB available (<1024MiB), with0records and no retry. No full register or speedup claim; fixture-only normalization/output cost work can proceed. Evidence: `qa/revamp-r1/coverage-cost-20260910/summary.json`.
 
 ### [ ] T20: Propose the smallest useful data improvement
 - Status: WAIT_DEPS. Size: S. Parent: P2.2.

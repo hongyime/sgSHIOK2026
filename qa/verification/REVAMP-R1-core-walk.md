@@ -4167,3 +4167,49 @@ Corrected synthetic browser terminal output, exit0:
 
 1. Page-only terminal-event absence is not proof of worker failure or an active download. The previous audit correctly refused insufficient evidence, but its incomplete-record count must not be presented as a count of broken app requests.
 2. Do not fix or regenerate protected payloads merely to silence diagnostic404s. Do not claim performance improvement from this experiment. Apply explicit worker ownership and semantic fallback/body handling to a future scoped app audit; preserve the old failures.
+
+## 2026-09-10: Coverage Reader RSS Cost and Headroom Stop
+
+Base:2e60b0e4d2b7af3b6e04b0c6b14a09c56bd8e03d. Prior lines unchanged.
+Executed sources/stdout are retained under qa/revamp-r1/coverage-cost-20260910/.
+The scanner's two fresh receipts are coverage-register-20260909/cost-baseline-1
+and cost-rss-1; old pilot-1 and its output remain untouched.
+
+Command: node qa/revamp-r1/coverage-cost-20260910/record.mjs contracts green-1
+Exit0, final raw test lines:
+
+```text
+ℹ tests 143
+ℹ suites 0
+ℹ pass 143
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9292.8771
+```
+
+Command: node qa/revamp-r1/coverage-cost-20260910/record.mjs integrity integrity-1
+Exit0, raw output:
+
+```text
+repo_integrity=ok
+```
+
+Commands: record.mjs pilot cost-baseline-1 (exit0) and pilot cost-rss-1 (exit1).
+Their complete stdout, guarded reader inputs and outputs are in the named JSON
+receipts; audit.mjs verifies source identities, original pilot equality and this
+append-only boundary into summary.json.
+
+### FINDINGS
+
+1. Only the reader's RSS observation API changes. Every check frequency, threshold, lookup, hash, classification and output algorithm remains unchanged. Existing metadata-RSS mock follows the API; five new regressions cover fresh observations, equality/overflow and live deadline/read/lookup stops. The red receipt is139pass/4fail; green is53+23+17+45+5=143pass/0fail/0skip across5files.
+2. The baseline completes200records with byte-identical raw/compressed output to pilot-1:251428B/raw SHA2569cb1e4b0fcb9d43b6f6913c6de7ca39fa559f86a764fbb4a775f2238ce4dd144;6776B/gzip SHA2564fb6633830d803355b1e076c6cf8ba8d2e0a06717952b34f0334ff5d5e8b1028. State counts remain5+160+35=200, not a national-rate estimate.
+3. Baseline wall arithmetic:7.8282149s fixed+5.6594914s remaining=13.4877063s. The conservative full-scan estimate is3049.1129068970922s;ceil(3049.1129068970922*1.25+30)=3842s>900s, STOP. No full scan is authorized by this result.
+4. Baseline full-memory observations:21426calls,234.3025999999694ms. This is not dominant versus normalization/output. Treatment availability was776196096B/1048576=740.23828125MiB, below1024MiB. STOP_HEADROOM occurred before reader creation,0records,0memory observations; the failed receipt is retained and not retried. No speedup claim.
+5. Reader verified49physical baseline inputs;11protected anchors match before/after command receipts and final audit. Integrity passes. No classifier/app changes, protected-data writes, full scan, pipeline, installation, deployment or current-lock web-suite acceptance. Source review is parent-only; peer quota remains exhausted.
+
+### DISAGREEMENTS
+
+1. Repeated geometry locator work is not the principal measured cost. The RSS-only change removes unused statistics collection but is not established as a material scan acceleration.
+2. Lower observed pilot wall time does not imply a lower conservative whole-population budget. Per-record p95 output cost and loaded-host variation produced a larger projection. Preserve the900s gate and inspect retained-fixture normalization/output before another data pilot, rather than multiplying pilot wall time by population size.

@@ -1,0 +1,210 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "base": "2e60b0e4d2b7af3b6e04b0c6b14a09c56bd8e03d",
+  "mode": "contracts",
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "--test",
+    "--test-concurrency=1",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\reader.test.mjs",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\locators.test.mjs",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\engine.test.mjs",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-register-20260909\\projection.test.mjs",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-cost-20260910\\budget.test.mjs"
+  ],
+  "elapsedMs": 11705.0376,
+  "exitCode": 1,
+  "stdout": "✖ budget requests fresh RSS only without collecting full heap statistics (59.3784ms)\n✖ RSS cap equality passes, a fresh observation above the cap stops immediately (9.2703ms)\n✔ RSS-only observation does not delay the deadline boundary (38.1561ms)\n✖ metadata lookups still measure live RSS after construction (5.1657ms)\n✖ input reads still measure live RSS before touching the filesystem (6.0469ms)\n✔ pilot resolves browser winner, falls through geometry, and keeps lookup attempts (48.0403ms)\n✔ full and pilot choose identical score winners independent of processing order (7.3417ms)\n✔ missing score file is preserved, not rescued from another shard (2.1917ms)\n✔ mismatch is fatal without fallback or a fabricated coverage row (4.9736ms)\n✔ malformed whole shard is quarantined before claiming a later accessible record (3.3038ms)\n✔ duplicates and orphan rows are counted without replacing first row (2.8497ms)\n✔ missing geometry prefix index does not mask full index and is cached (8.3986ms)\n✔ normalization and asynchronous output check cooperative budget (2.8362ms)\n✔ malformed metadata is not converted to absence: scores/index.json (1.8541ms)\n✔ malformed metadata is not converted to absence: geom/postal-index.json (1.701ms)\n✔ pilot selection is distinct and stratified over shard sizes (6.1102ms)\n✔ pilot never fills with duplicate postals and reports a smaller finite universe (1.0004ms)\n✔ stale first fallback never rescues a row from a later declaring shard (2.3812ms)\n✔ ordered score attempts retain prior misses before the current winner (1.3637ms)\n✔ geometry mismatch never emits an affected postal (1.7449ms)\n✔ sink rejection prevents further rows and keeps the rejection (3.044ms)\n✔ budget rejection after first sink prevents the next row (14.2829ms)\n✔ fallback declarations retain original insertion order, not alphabetical order (17.2769ms)\n✔ first record in first matching prefix shard wins (2.7289ms)\n✔ nonmatching prefix shard permits the next prefix shard (1.4664ms)\n✔ a missing score file stops lookup, rather than rescuing from a later shard (1.0408ms)\n✔ fallback skips previously inspected prefix shards (10.9979ms)\n✔ stale first fallback declaration does not permit a second declared shard (1.3185ms)\n✔ absent indexing stays not indexed, not proof of a missing address (0.8624ms)\n✔ uninspected score files are not called missing (3.5003ms)\n✔ invalid prefix paths are rejected (5.1245ms)\n✔ invalid address declarations are rejected (13.0944ms)\n✔ first-row locator distinguishes duplicates and malformed rows (5.5996ms)\n✔ malformed score shard is quarantined regardless of valid-row position [null,{\"postal\":\"018956\"}] (1.5103ms)\n✔ malformed score shard is quarantined regardless of valid-row position [{\"postal\":\"018956\"},null] (0.7963ms)\n✔ geometry prefix record takes priority over the full index (2.8987ms)\n✔ geometry missing prefix falls through to full postal index (1.4826ms)\n✔ geometry empty prefix falls through to full postal index (4.0139ms)\n✔ absent geometry index does not trigger coordinate rescue (0.7612ms)\n✔ indexed missing files differ from indexed absent records (1.3697ms)\n✔ mixed failed geometry attempts retain both concrete observations (1.1534ms)\n✔ geometry uses the first matching record only (0.8293ms)\n✔ malformed geometry indexes and payloads are rejected (1.0791ms)\n✔ malformed geometry shard is quarantined regardless of valid-row position [null,{\"postal\":\"018956\"}] (0.7729ms)\n✔ malformed geometry shard is quarantined regardless of valid-row position [{\"postal\":\"018956\"},null] (0.4753ms)\n✔ separates fixed, byte, lookup, normalization and serialization arithmetic (25.199ms)\n✔ explicitly labels estimate limits and caller-owned planned IO assumptions (2.163ms)\n✔ nearest-rank p95 uses the 19th of 20 observations, not the maximum (1.8558ms)\n✔ rare outlier makes mean more conservative than p95 in both sample streams (1.8073ms)\n✔ single positive observation is usable without claiming statistical confidence (5.4517ms)\n✔ frozen inputs remain unchanged and sample order does not change estimates (3.0824ms)\n✔ fixed startup is added once even when record count increases one thousand fold (1.6319ms)\n✔ plannedRawBytes scales only its corresponding IO components (1.3027ms)\n✔ plannedDecodedBytes scales only its corresponding IO components (1.14ms)\n✔ plannedLookupCalls scales only its corresponding IO components (1.768ms)\n✔ plain UTF-8 decode cost is retained without a gzip flag (1.4752ms)\n✔ zero fixed cost and no planned IO are valid for already in-memory planned work (1.4353ms)\n✔ exact inclusive buffered gate boundary passes, the next millisecond stops (0.8683ms)\n✔ unbuffered estimate fitting maxSeconds does not override a failed buffered gate (1.1037ms)\n✔ explicit caller budget changes only the gate and limit (0.9095ms)\n✔ invalid root input undefined is rejected (2.8751ms)\n✔ invalid root input null is rejected (0.5411ms)\n✔ invalid root input  is rejected (0.4558ms)\n✔ invalid root input 1 is rejected (0.4253ms)\n✔ missing io is rejected instead of zero cost (0.9158ms)\n✔ missing io.timingsMs is rejected instead of zero cost (0.7432ms)\n✔ invalid finite/count values for fixedMs are rejected without coercion (1.9199ms)\n✔ invalid finite/count values for recordCount are rejected without coercion (1.2237ms)\n✔ invalid finite/count values for plannedRawBytes are rejected without coercion (1.0718ms)\n✔ invalid finite/count values for plannedDecodedBytes are rejected without coercion (0.853ms)\n✔ invalid finite/count values for plannedLookupCalls are rejected without coercion (0.9894ms)\n✔ invalid finite/count values for maxSeconds are rejected without coercion (9.449ms)\n✔ recordCount must be positive (1.1364ms)\n✔ maxSeconds must be positive (0.4818ms)\n✔ io.rawBytes is a required positive integer denominator (1.9582ms)\n✔ io.decodedBytes is a required positive integer denominator (1.3928ms)\n✔ io.reads is a required positive integer denominator (1.6923ms)\n✔ io.lookupCalls is a required positive integer denominator (6.2168ms)\n✔ io.timingsMs.read must include positive measured time, including decode for plain JSON (7.377ms)\n✔ io.timingsMs.hash must include positive measured time, including decode for plain JSON (1.9165ms)\n✔ io.timingsMs.decode must include positive measured time, including decode for plain JSON (2.2286ms)\n✔ io.timingsMs.parse must include positive measured time, including decode for plain JSON (1.8349ms)\n✔ io.timingsMs.lookup must include positive measured time, including decode for plain JSON (1.7235ms)\n✔ sampleNormalizationMs rejects missing, empty, sparse, non-finite and unmeasurable samples (3.1198ms)\n✔ sampleSerializationMs rejects missing, empty, sparse, non-finite and unmeasurable samples (5.8591ms)\n✔ rate overflow cannot produce a finite-looking gate (1.0623ms)\n✔ component sum overflow is rejected explicitly (1.6522ms)\n✔ buffer overflow and unsafe integer budgets are rejected (1.4075ms)\n✔ lookup projection uses encoding probes including cache/misses, not physical reads (1.0009ms)\n✔ old plannedReads or missing lookupCalls cannot silently reuse mismatched units (2.0457ms)\n✔ plain fallback is anchored and separates missing gzip from missing logical JSON (53.9408ms)\n✔ valid gzip is preferred over different plain content and hashes the physical compressed bytes (31.5468ms)\n✔ corrupt gzip stops without consulting valid plain JSON (56.0516ms)\n✔ a gzip candidate which is a directory is not ENOENT and cannot permit fallback (38.4831ms)\n✔ hash mismatch reports expected/actual before decode or JSON parse (19.2004ms)\n✔ an unanchored compressed candidate blocks anchored plain fallback before reading (41.6976ms)\n✔ plain input with undefined anchor is not treated as verified (14.2624ms)\n✔ plain input with not-a-hash anchor is not treated as verified (31.742ms)\n✔ plain input with fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff anchor is not treated as verified (13.8321ms)\n✔ raw file cap stops before reading bytes (14.712ms)\n✔ per-file decoded cap bounds plain input (31.834ms)\n✔ per-file decoded cap bounds gzip expansion (47.2658ms)\n✔ cumulative raw cap includes repeated uncached reads (26.1221ms)\n✔ cumulative decoded cap bounds the remaining plain output (40.4099ms)\n✔ cumulative decoded cap bounds the remaining gzip output (36.4567ms)\n✔ expired deadline stops before file reads (34.2086ms)\n✔ checkBudget enforces the live deadline after reader creation (13.3014ms)\n✔ RSS cap measures the actual Node process rather than estimating file size (36.7749ms)\n✔ rejects unsafe logical path \"../a.json\" (10.9873ms)\n✔ rejects unsafe logical path \"nested/../../a.json\" (12.4638ms)\n✔ rejects unsafe logical path \"/a.json\" (24.8814ms)\n✔ rejects unsafe logical path \"C:/a.json\" (9.6167ms)\n✔ rejects unsafe logical path \"nested\\\\a.json\" (9.3155ms)\n✔ rejects unsafe logical path \"./a.json\" (31.1214ms)\n✔ rejects unsafe logical path \"nested//a.json\" (14.1376ms)\n✔ rejects unsafe logical path \"a.json:stream\" (9.6071ms)\n✔ rejects unsafe logical path \"nested./a.json\" (10.0156ms)\n✔ rejects unsafe logical path \"nul.json\" (19.917ms)\n✔ rejects unsafe logical path \"a\\u0000.json\" (11.1ms)\n✔ bundle root outside the C repository is rejected before lookup (1.7097ms)\n✔ junction escape to a sibling fixture is rejected with no input read (28.6182ms)\n✔ internal junction is permitted but still needs an anchor for its physical relative name (28.5068ms)\n✔ decoded-byte LRU evicts the least recently used parsed entry (89.2286ms)\n✔ an entry larger than the cache budget is never retained (28.1801ms)\n✔ cache hits do not consume raw/decoded cumulative budgets again (64.5216ms)\n✔ same-size content change invalidates cache and is rehashed against the original anchor (53.0843ms)\n✔ a newly appearing gzip cannot be hidden by a cached plain response (23.7775ms)\n✔ verified malformed JSON and malformed UTF-8 stop without caching (59.5492ms)\n✔ input fixture hashes and modification times remain unchanged; stats are detached (103.4512ms)\n✔ inspect chooses gzip metadata with optional plain size but reads and hashes neither file (29.2102ms)\n✔ inspect permits anchored gzip with absent plain sibling (21.8667ms)\n✔ inspect plain fallback and logical miss account for both encoding probes (12.7803ms)\n✔ lookupCalls includes physical misses, cache hits and metadata, not just physical reads (53.6512ms)\n✔ inspect checks the selected anchor and never falls back from an unanchored gzip (63.4411ms)\n✔ metadata-only inspection does not promise gzip validity or enforce a byte-read cap (11.704ms)\n✔ metadata selection stops on non-ENOENT gzip failure instead of plain fallback (36.2527ms)\n✔ inspect rejects traversal and junction escape without input reads (14.9138ms)\n✔ internal junction metadata still uses the requested relative physical anchor (42.4865ms)\n✔ metadata inspection honors deadline and live RSS checks (11.7753ms)\n✔ gzip and plain manifest reads bind the same exact decoded bytes, not JSON reserialization (51.5274ms)\n✔ decoded hash remains available in the ledger on subsequent UTF-8 or JSON parse failure (63.9724ms)\n✔ decoded hashing and UTF-8 work contribute to decode timing, not the raw hash timing (17.3537ms)\n✔ metadata plus data reads preserve all fixture hashes and mtimes (58.6431ms)\nℹ tests 143\nℹ suites 0\nℹ pass 139\nℹ fail 4\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 8746.6457\n\n✖ failing tests:\n\ntest at qa\\revamp-r1\\coverage-cost-20260910\\budget.test.mjs:9:1\n✖ budget requests fresh RSS only without collecting full heap statistics (59.3784ms)\n  Error: Full heap inspection not needed\n      at process.<anonymous> (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-cost-20260910/budget.test.mjs:11:70)\n      at Object.apply (node:internal/test_runner/mock/mock:767:20)\n      at checkBudget (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/reader.mjs:60:30)\n      at createJsonReader (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/reader.mjs:72:3)\n      at reader (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-cost-20260910/budget.test.mjs:7:32)\n      at TestContext.<anonymous> (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-cost-20260910/budget.test.mjs:13:13)\n      at Test.runInAsyncScope (node:async_hooks:226:14)\n      at Test.run (node:internal/test_runner/test:1382:25)\n      at Test.start (node:internal/test_runner/test:1242:17)\n      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)\n\ntest at qa\\revamp-r1\\coverage-cost-20260910\\budget.test.mjs:19:1\n✖ RSS cap equality passes, a fresh observation above the cap stops immediately (9.2703ms)\n  Error: STOP_RSS_LIMIT: {\"rssBytes\":49758208,\"limit\":100}\n      at stop (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/reader.mjs:11:23)\n      at checkBudget (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/reader.mjs:63:33)\n      at createJsonReader (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/reader.mjs:72:3)\n      at reader (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-cost-20260910/budget.test.mjs:7:32)\n      at TestContext.<anonymous> (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-cost-20260910/budget.test.mjs:22:13)\n      at Test.runInAsyncScope (node:async_hooks:226:14)\n      at Test.run (node:internal/test_runner/test:1382:25)\n      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)\n      at Test.postRun (node:internal/test_runner/test:1522:19)\n      at Test.run (node:internal/test_runner/test:1447:12) {\n    code: 'STOP_RSS_LIMIT',\n    rssBytes: 49758208,\n    limit: 100\n  }\n\ntest at qa\\revamp-r1\\coverage-cost-20260910\\budget.test.mjs:33:1\n✖ metadata lookups still measure live RSS after construction (5.1657ms)\n  Error: STOP_RSS_LIMIT: {\"rssBytes\":49831936,\"limit\":100}\n      at stop (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/reader.mjs:11:23)\n      at checkBudget (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/reader.mjs:63:33)\n      at createJsonReader (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/reader.mjs:72:3)\n      at reader (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-cost-20260910/budget.test.mjs:7:32)\n      at TestContext.<anonymous> (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-cost-20260910/budget.test.mjs:36:13)\n      at Test.runInAsyncScope (node:async_hooks:226:14)\n      at Test.run (node:internal/test_runner/test:1382:25)\n      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)\n      at Test.postRun (node:internal/test_runner/test:1522:19)\n      at Test.run (node:internal/test_runner/test:1447:12) {\n    code: 'STOP_RSS_LIMIT',\n    rssBytes: 49831936,\n    limit: 100\n  }\n\ntest at qa\\revamp-r1\\coverage-cost-20260910\\budget.test.mjs:41:1\n✖ input reads still measure live RSS before touching the filesystem (6.0469ms)\n  Error: STOP_RSS_LIMIT: {\"rssBytes\":49840128,\"limit\":100}\n      at stop (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/reader.mjs:11:23)\n      at checkBudget (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/reader.mjs:63:33)\n      at createJsonReader (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/reader.mjs:72:3)\n      at reader (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-cost-20260910/budget.test.mjs:7:32)\n      at TestContext.<anonymous> (file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-cost-20260910/budget.test.mjs:44:13)\n      at Test.runInAsyncScope (node:async_hooks:226:14)\n      at Test.run (node:internal/test_runner/test:1382:25)\n      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)\n      at Test.postRun (node:internal/test_runner/test:1522:19)\n      at Test.run (node:internal/test_runner/test:1447:12) {\n    code: 'STOP_RSS_LIMIT',\n    rssBytes: 49840128,\n    limit: 100\n  }\n",
+  "stderr": "",
+  "before": [
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/reader.mjs",
+      "sha256": "6c0bfce4357bd99bc7afc15fcbd899654e1d12987ca24d7132fcefe8ff24649d"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/reader.test.mjs",
+      "sha256": "f7f8a1e485ba381872f313bf6a0cc4ca86e8ba8323a923e99b9037f247a291d9"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/locators.mjs",
+      "sha256": "62cf8d51badf550894219a55bd64a95d0fabbefa3a7604f9d4b9c8e798802567"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/engine.mjs",
+      "sha256": "9515811acee42b7fc2ded9467de189bb21a9ff8ffa42ae180b6e7d06a0e05be6"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/projection.mjs",
+      "sha256": "c662fbd63e40af7de0695f241494f9420ecbc626bc9592738490bdb0b506af60"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/scan.mjs",
+      "sha256": "5199299f6cbdd219de3c7d959e77ce19054eeed46e0c1025cfb59376cdbb4d84"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-cost-20260910/profile-scan.mjs",
+      "sha256": "2d91d0854bd6d53de1808773f8b4b12d6e15564153bb20e5f1a1669e6800c6b4"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-cost-20260910/budget.test.mjs",
+      "sha256": "68e7f38a5eb3cace057a739f1f4f31879124f1538229b45b7b0f7050e99cff88"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-cost-20260910/record.mjs",
+      "sha256": "00cb6278a8fc98671c64d8d9e1287c2fa4f33ca8cf224454662388b05793c088"
+    }
+  ],
+  "after": [
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/reader.mjs",
+      "sha256": "6c0bfce4357bd99bc7afc15fcbd899654e1d12987ca24d7132fcefe8ff24649d"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/reader.test.mjs",
+      "sha256": "f7f8a1e485ba381872f313bf6a0cc4ca86e8ba8323a923e99b9037f247a291d9"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/locators.mjs",
+      "sha256": "62cf8d51badf550894219a55bd64a95d0fabbefa3a7604f9d4b9c8e798802567"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/engine.mjs",
+      "sha256": "9515811acee42b7fc2ded9467de189bb21a9ff8ffa42ae180b6e7d06a0e05be6"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/projection.mjs",
+      "sha256": "c662fbd63e40af7de0695f241494f9420ecbc626bc9592738490bdb0b506af60"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/scan.mjs",
+      "sha256": "5199299f6cbdd219de3c7d959e77ce19054eeed46e0c1025cfb59376cdbb4d84"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-cost-20260910/profile-scan.mjs",
+      "sha256": "2d91d0854bd6d53de1808773f8b4b12d6e15564153bb20e5f1a1669e6800c6b4"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-cost-20260910/budget.test.mjs",
+      "sha256": "68e7f38a5eb3cace057a739f1f4f31879124f1538229b45b7b0f7050e99cff88"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-cost-20260910/record.mjs",
+      "sha256": "00cb6278a8fc98671c64d8d9e1287c2fa4f33ca8cf224454662388b05793c088"
+    }
+  ],
+  "anchorsBefore": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "actual": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "actual": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "actual": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "actual": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "actual": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "actual": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "actual": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "actual": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "anchorsAfter": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "actual": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "actual": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "actual": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "actual": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "actual": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "actual": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "actual": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "actual": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ]
+}

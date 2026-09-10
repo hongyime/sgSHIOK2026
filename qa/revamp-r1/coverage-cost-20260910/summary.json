@@ -1,0 +1,99 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "base": "2e60b0e4d2b7af3b6e04b0c6b14a09c56bd8e03d",
+  "pipelineRuns": 0,
+  "installs": 0,
+  "deployments": 0,
+  "fullScans": 0,
+  "change": "Reader budget observations use RSS-only API; every guard frequency, threshold, source lookup, hash and classification remains unchanged.",
+  "tests": {
+    "original": 138,
+    "added": 5,
+    "total": 143,
+    "arithmetic": "53 + 23 + 17 + 45 + 5 = 143",
+    "files": 5,
+    "failures": 0,
+    "skips": 0,
+    "red": {
+      "passed": 139,
+      "failed": 4
+    },
+    "integrity": "repo_integrity=ok",
+    "webSuite": "Not run; dependency version guard remains blocking."
+  },
+  "baseline": {
+    "records": 200,
+    "elapsedSeconds": 13.487706300000001,
+    "fixedSeconds": 7.8282149,
+    "remainingSeconds": 5.659491400000002,
+    "wallArithmetic": "7.8282149 + 5.659491400000002 = 13.487706300000001 seconds",
+    "projectedSeconds": 3049.112906897092,
+    "budgetSeconds": 3842,
+    "gateArithmetic": "ceil(3049.112906897092 * 1.25 + 30) = 3842 > 900 seconds: STOP",
+    "memory": {
+      "full": {
+        "calls": 21426,
+        "ms": 234.3025999999694
+      },
+      "rss": {
+        "calls": 0,
+        "ms": 0
+      }
+    },
+    "maxObservedRssBytes": 271785984,
+    "physicalFilesVerified": 49,
+    "rawOutput": {
+      "bytes": 251428,
+      "sha256": "9cb1e4b0fcb9d43b6f6913c6de7ca39fa559f86a764fbb4a775f2238ce4dd144"
+    },
+    "identicalToPreviousPilot": true,
+    "counts": {
+      "NO_TRANSIT_IN_RANGE": 5,
+      "SCORED": 160,
+      "SCORED_PARTIAL": 35
+    },
+    "countArithmetic": "5 + 160 + 35 = 200"
+  },
+  "treatment": {
+    "records": 0,
+    "exitCode": 1,
+    "code": "STOP_HEADROOM",
+    "freeMemoryBytes": 776196096,
+    "freeMemoryMiB": 740.23828125,
+    "requiredMemoryMiB": 1024,
+    "readerStarted": false,
+    "memory": {
+      "full": {
+        "calls": 0,
+        "ms": 0
+      },
+      "rss": {
+        "calls": 0,
+        "ms": 0
+      }
+    },
+    "retried": false,
+    "speedupMeasured": false
+  },
+  "protectedAnchorsVerified": 11,
+  "evidence": {
+    "path": "qa/verification/REVAMP-R1-core-walk.md",
+    "originalBytes": 270437,
+    "originalSha256": "a914d553730952bfc9f1fd79b283b5e3905f49fff08ad66383563cde53dce2ac",
+    "appendOnly": true,
+    "appendedBytes": 3168
+  },
+  "findings": [
+    "All 143 scanner contracts pass with five new RSS/deadline tests; no check frequency or threshold was reduced.",
+    "Fresh baseline output exactly matches the earlier 200-record output, raw and compressed hashes and counts. Its 3842-second projected budget exceeds the 900-second gate.",
+    "21426 full memory observations cost 234.3026ms in the baseline. Geometry lookup CPU was also small in the original timing. Neither establishes the dominant bottleneck; normalization/output warrant attention.",
+    "Treatment stopped before data access with only 740.23828125MiB free against required1024MiB. No retry, full scan or performance improvement is claimed.",
+    "11 protected anchors match; 49 baseline selected physical files were hash-verified by the reader. No app/classifier/pipeline changes, installation or deployment. Parent-only review."
+  ],
+  "disagreements": [
+    "Repeated locator work was not the dominant measured cost. Keep the RSS-only change as bounded guard overhead reduction, not a coverage-scan speedup claim.",
+    "A faster small-pilot elapsed time does not imply a passing full-scan estimate: p95 output cost and loaded-host variability produced a larger baseline projection. Keep the900s gate; do not extrapolate pilot wall times linearly."
+  ],
+  "next": "No further data pilot until headroom is available. The full register still needs a passing projection. Profile normalization/output on retained fixture inputs next; current-lock app validation separately needs approved dependency alignment."
+}

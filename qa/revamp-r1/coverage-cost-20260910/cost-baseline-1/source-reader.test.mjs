@@ -356,7 +356,8 @@ test('metadata inspection honors deadline and live RSS checks', t => {
   stopped('STOP_DEADLINE', () => r.inspect('a.json'));
   assert.equal(r.getStats().lookupCalls, 0); assert.equal(r.getStats().reads, 0);
   t.mock.restoreAll();
-  t.mock.method(process.memoryUsage, 'rss', () => 1024 ** 3);
+  const memory = process.memoryUsage();
+  t.mock.method(process, 'memoryUsage', () => ({ ...memory, rss: 1024 ** 3 }));
   stopped('STOP_RSS_LIMIT', () => r.inspect('a.json'));
 });
 

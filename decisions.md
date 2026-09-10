@@ -3414,3 +3414,25 @@ Next prioritize bounded coverage-register cost reduction while dependency/worker
 installation remains owner-gated. Evidence: qa/revamp-r1/lifecycle-probe-20260910/summary.json.
 Protocol reference: https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-setAutoAttach
 and https://fetch.spec.whatwg.org/#concept-body-consume-body.
+
+## 2026-09-10: Preserve Coverage Scan Gates While Reducing Guard Overhead
+
+Use process.memoryUsage.rss() for the read-only coverage reader's budget checks.
+It reports the same RSS quantity without collecting unused full-heap statistics:
+https://nodejs.org/api/process.html#processmemoryusagerss. Every existing check,
+limit, input hash, lookup and classification remains in place. Five new tests
+prove fresh RSS observations, cap equality/overflow and live deadline/read/lookup
+stops; 138 existing scanner tests remain green.
+
+The old geometry locator timing is small relative to normalization/output. A
+fresh 200-record baseline reproduces the previous register bytes exactly, but its
+21426 full-memory observations cost only0.234303s of13.487706s wall. This narrowly
+scoped change is not claimed as the solution to full-register cost. Its treatment
+pilot stops at the unchanged1GiB headroom gate before any data read; no retry or
+measured speedup follows. The3842s baseline projected budget still exceeds900s.
+
+Do not weaken the full-scan gate or start a broader pass. Next inspect bounded
+retained-fixture normalization/output cost; require headroom and a fresh passing
+pilot for any full read scan. This is read-only QA, not scoring or export.
+Evidence: qa/revamp-r1/coverage-cost-20260910/summary.json. No current-lock web-suite
+or independent peer acceptance is claimed while dependency approval/quota remain.

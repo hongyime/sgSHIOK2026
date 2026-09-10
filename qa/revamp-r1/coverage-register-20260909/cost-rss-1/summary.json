@@ -1,0 +1,71 @@
+{
+  "mode": "pilot",
+  "createdAt": "2026-09-10T10:45:05.442Z",
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "before": [
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/reader.mjs",
+      "sha256": "318d29a44ab33f58a2e3dcf711b8864f92c412e9c72e6295189f287cda8b1e67"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/engine.mjs",
+      "sha256": "9515811acee42b7fc2ded9467de189bb21a9ff8ffa42ae180b6e7d06a0e05be6"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/locators.mjs",
+      "sha256": "62cf8d51badf550894219a55bd64a95d0fabbefa3a7604f9d4b9c8e798802567"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/projection.mjs",
+      "sha256": "c662fbd63e40af7de0695f241494f9420ecbc626bc9592738490bdb0b506af60"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/scan.mjs",
+      "sha256": "5199299f6cbdd219de3c7d959e77ce19054eeed46e0c1025cfb59376cdbb4d84"
+    }
+  ],
+  "complete": false,
+  "coverageComplete": false,
+  "scope": "Read-only published postal lookups; no coordinate rescue or pipeline execution",
+  "boundaries": "RSS/deadline checked at operation boundaries, not hard OS interruption; decoded cache bytes are not heap bytes",
+  "freeMemoryBefore": 776196096,
+  "error": {
+    "code": "STOP_HEADROOM",
+    "message": "Less than 1 GiB currently free; do not start data pass",
+    "stack": "Error: Less than 1 GiB currently free; do not start data pass\n    at file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/scan.mjs:38:65\n    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)\n    at async node:internal/modules/esm/loader:650:26\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-cost-20260910/profile-scan.mjs:19:3"
+  },
+  "finalizationFailures": [],
+  "rows": 0,
+  "totals": {},
+  "rawOutput": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "elapsedMs": 141.71140000000003,
+  "freeMemoryAfter": 776159232,
+  "maxRssFromProcessResourceUsageKiB": 48496,
+  "after": [
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/reader.mjs",
+      "sha256": "318d29a44ab33f58a2e3dcf711b8864f92c412e9c72e6295189f287cda8b1e67"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/engine.mjs",
+      "sha256": "9515811acee42b7fc2ded9467de189bb21a9ff8ffa42ae180b6e7d06a0e05be6"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/locators.mjs",
+      "sha256": "62cf8d51badf550894219a55bd64a95d0fabbefa3a7604f9d4b9c8e798802567"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/projection.mjs",
+      "sha256": "c662fbd63e40af7de0695f241494f9420ecbc626bc9592738490bdb0b506af60"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/scan.mjs",
+      "sha256": "5199299f6cbdd219de3c7d959e77ce19054eeed46e0c1025cfb59376cdbb4d84"
+    }
+  ],
+  "sourcesStable": true
+}

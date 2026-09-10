@@ -1,0 +1,205 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "base": "2e60b0e4d2b7af3b6e04b0c6b14a09c56bd8e03d",
+  "mode": "pilot",
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\coverage-cost-20260910\\profile-scan.mjs",
+    "cost-baseline-1"
+  ],
+  "elapsedMs": 14255.6996,
+  "exitCode": 0,
+  "stdout": "{\"mode\":\"pilot\",\"rows\":50,\"elapsedSeconds\":10.9378229,\"rssBytes\":199262208}\n{\"mode\":\"pilot\",\"rows\":100,\"elapsedSeconds\":11.717713300000002,\"rssBytes\":221945856}\n{\"mode\":\"pilot\",\"rows\":150,\"elapsedSeconds\":12.785805900000002,\"rssBytes\":260423680}\n{\"mode\":\"pilot\",\"rows\":200,\"elapsedSeconds\":13.4474631,\"rssBytes\":271200256}\n{\"output\":\"C:\\\\sgSHIOK2026\\\\qa\\\\revamp-r1\\\\coverage-register-20260909\\\\cost-baseline-1\",\"complete\":true,\"coverageComplete\":false,\"rows\":200,\"elapsedMs\":13487.706300000002,\"fixedMs\":7828.2149,\"finalizationFailures\":[],\"projection\":{\"estimateOnly\":true,\"assumptions\":\"Estimate, not a guarantee. Caller owns planned IO volumes/encoding probe counts, representative samples, and non-overlapping fixed/IO/record timings; cache and workload changes can invalidate it.\",\"p95Method\":\"nearest-rank\",\"components\":{\"fixedMs\":7828.2149,\"readMs\":103343.66430703364,\"hashMs\":87623.83781322428,\"decodeMs\":117890.45879263643,\"parseMs\":163766.6242714216,\"lookupMs\":405971.16126234946,\"normalizationMs\":1219137.2309503346,\"serializationMs\":943551.714600092},\"rates\":{\"readMsPerRawByte\":0.000009185931237742922,\"hashMsPerRawByte\":0.00000778863952944461,\"decodeMsPerDecodedByte\":0.000009526323080697264,\"parseMsPerDecodedByte\":0.00001323341845152074,\"lookupMsPerCall\":0.8118254196642672},\"samples\":{\"normalization\":{\"count\":200,\"meanMs\":4.576765675296208,\"p95Ms\":9.796752175295795,\"msPerRecord\":9.796752175295795},\"serialization\":{\"count\":200,\"meanMs\":1.286791000000003,\"p95Ms\":7.582200000000739,\"msPerRecord\":7.582200000000739}},\"projectedMs\":3049112.9068970922,\"budgetSeconds\":3842,\"maxSeconds\":900,\"gate\":\"stop\"},\"totals\":{\"scoreRecord\":{\"present\":200},\"state\":{\"NO_TRANSIT_IN_RANGE\":5,\"SCORED\":160,\"SCORED_PARTIAL\":35},\"completeLockedFields\":{\"false\":40,\"true\":160},\"coordinateGap\":{\"not_established\":200},\"routeDisconnection\":{\"not_established\":200},\"rangeLimit\":{\"explicit_recorded_distance_limit\":5,\"not_established\":195},\"trustRejection\":{\"false\":200},\"geometryLookup\":{\"not_indexed\":5,\"record_present\":195},\"bus.retainable\":{\"none\":33,\"available\":167},\"bus.candidateBacked\":{\"none\":14,\"available\":186},\"bus.overlappingDiagnosticOptions\":{\"gap_fragments_missing\":14,\"identity_invalid\":5,\"published_routed_gaps_unavailable\":318,\"scoring_eligibility_unavailable\":14,\"sheltered:geometry_missing\":14,\"shortest:geometry_missing\":14,\"trust_unclassified\":14,\"logical_gaps_not_published\":416},\"mrt_lrt.retainable\":{\"none\":49,\"available\":151},\"mrt_lrt.candidateBacked\":{\"none\":114,\"available\":86},\"mrt_lrt.overlappingDiagnosticOptions\":{\"gap_fragments_missing\":49,\"identity_invalid\":5,\"published_routed_gaps_unavailable\":49,\"scoring_eligibility_unavailable\":49,\"sheltered:geometry_missing\":49,\"shortest:geometry_missing\":49,\"trust_unclassified\":49,\"logical_gaps_not_published\":134,\"optional_route_segments_invalid\":29,\"sheltered:optional_route_segments_invalid\":29,\"shortest:optional_route_segments_invalid\":29}}}\n{\"memoryProfile\":{\"full\":{\"calls\":21426,\"ms\":234.3025999999694},\"rss\":{\"calls\":0,\"ms\":0}}}\n",
+  "stderr": "",
+  "before": [
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/reader.mjs",
+      "sha256": "6c0bfce4357bd99bc7afc15fcbd899654e1d12987ca24d7132fcefe8ff24649d"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/reader.test.mjs",
+      "sha256": "f7f8a1e485ba381872f313bf6a0cc4ca86e8ba8323a923e99b9037f247a291d9"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/locators.mjs",
+      "sha256": "62cf8d51badf550894219a55bd64a95d0fabbefa3a7604f9d4b9c8e798802567"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/engine.mjs",
+      "sha256": "9515811acee42b7fc2ded9467de189bb21a9ff8ffa42ae180b6e7d06a0e05be6"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/projection.mjs",
+      "sha256": "c662fbd63e40af7de0695f241494f9420ecbc626bc9592738490bdb0b506af60"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/scan.mjs",
+      "sha256": "5199299f6cbdd219de3c7d959e77ce19054eeed46e0c1025cfb59376cdbb4d84"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-cost-20260910/profile-scan.mjs",
+      "sha256": "2d91d0854bd6d53de1808773f8b4b12d6e15564153bb20e5f1a1669e6800c6b4"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-cost-20260910/budget.test.mjs",
+      "sha256": "68e7f38a5eb3cace057a739f1f4f31879124f1538229b45b7b0f7050e99cff88"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-cost-20260910/record.mjs",
+      "sha256": "00cb6278a8fc98671c64d8d9e1287c2fa4f33ca8cf224454662388b05793c088"
+    }
+  ],
+  "after": [
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/reader.mjs",
+      "sha256": "6c0bfce4357bd99bc7afc15fcbd899654e1d12987ca24d7132fcefe8ff24649d"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/reader.test.mjs",
+      "sha256": "f7f8a1e485ba381872f313bf6a0cc4ca86e8ba8323a923e99b9037f247a291d9"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/locators.mjs",
+      "sha256": "62cf8d51badf550894219a55bd64a95d0fabbefa3a7604f9d4b9c8e798802567"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/engine.mjs",
+      "sha256": "9515811acee42b7fc2ded9467de189bb21a9ff8ffa42ae180b6e7d06a0e05be6"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/projection.mjs",
+      "sha256": "c662fbd63e40af7de0695f241494f9420ecbc626bc9592738490bdb0b506af60"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/scan.mjs",
+      "sha256": "5199299f6cbdd219de3c7d959e77ce19054eeed46e0c1025cfb59376cdbb4d84"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-cost-20260910/profile-scan.mjs",
+      "sha256": "2d91d0854bd6d53de1808773f8b4b12d6e15564153bb20e5f1a1669e6800c6b4"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-cost-20260910/budget.test.mjs",
+      "sha256": "68e7f38a5eb3cace057a739f1f4f31879124f1538229b45b7b0f7050e99cff88"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-cost-20260910/record.mjs",
+      "sha256": "00cb6278a8fc98671c64d8d9e1287c2fa4f33ca8cf224454662388b05793c088"
+    }
+  ],
+  "anchorsBefore": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "actual": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "actual": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "actual": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "actual": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "actual": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "actual": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "actual": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "actual": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "anchorsAfter": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "actual": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "actual": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "actual": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "actual": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "actual": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "actual": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "actual": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "actual": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ]
+}
