@@ -4213,3 +4213,53 @@ append-only boundary into summary.json.
 
 1. Repeated geometry locator work is not the principal measured cost. The RSS-only change removes unused statistics collection but is not established as a material scan acceleration.
 2. Lower observed pilot wall time does not imply a lower conservative whole-population budget. Per-record p95 output cost and loaded-host variation produced a larger projection. Preserve the900s gate and inspect retained-fixture normalization/output before another data pilot, rather than multiplying pilot wall time by population size.
+
+## 2026-09-10: Indexed Exact Route-Part Matching
+
+Base:ffa3fb1d99bf90909137b3df96834cdf0e688a3f. Prior evidence unchanged.
+Receipts: qa/revamp-r1/normalization-profile-20260910/. Original and treatment CPU
+profiles, source-bound compile/test receipts and all nine output objects are
+retained. The current audit writes summary.json with arithmetic and identities.
+
+Final native test command: record.mjs contracts final-1 compile-final, exit0.
+
+```text
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4055.6301
+```
+
+Installed TypeScript: record.mjs typecheck typecheck-1, exit0, empty stdout/stderr.
+Integrity: record.mjs integrity integrity-1, exit0.
+
+```text
+repo_integrity=ok
+```
+
+Dependency preflight: record.mjs dependencies dependencies-1, exit1, raw stderr:
+
+```text
+installed_dependencies=failed
+{"signal":"installed_version_mismatch","name":"maplibre-gl","locked":"6.4.1","installed":"6.1.0"}
+{"signal":"installed_version_mismatch","name":"next","locked":"16.3.3","installed":"16.3.0"}
+{"signal":"installed_version_mismatch","name":"vitest","locked":"4.1.11","installed":"4.1.10"}
+```
+
+### FINDINGS
+
+1. Portable real fixtures omit route_segments. Nine CPU cases are3retained score states plus6separately synthetic64/256/1024vertex paths with/without edge segments. The1024edge baseline has351samples,135 in matchesContiguousPart and59 in samePoint; these samples do not establish actual full-bundle CPU proportions.
+2. The shared normalizer now builds an exact start-coordinate index once per relevant part set. Matching still tests all repeated starts in either direction within one part. Edge multiplicity, metric/trust decisions and invalid/missing diagnostic surfaces remain unchanged. Empty fragment lists avoid unused index construction.
+3. Native17matcher+20integration=37tests pass. Exhaustive checks cover14641single-part+14641multipart=29282comparisons with the old algorithm. Integration compares bus normalization, rail normalization and the reduced coverage row on20inputs. All9profiler output hashes agree. Eight new normal-suite Vitest cases are typechecked but NOT executed because dependency preflight remains blocked; do not add them to the old1765pass total.
+4. The new operation-count regression first failed on1051642coordinate reads (red36pass/1fail). Current indexed code makes6140reads:1051642-6140=1045502fewer for1023unique-start segments. Synthetic1024vertex mean normalization was200.309300ms/3calls before and37.972818ms/11calls after. Changing load, JIT state, short samples and synthetic payloads prevent a representative map/full-scan latency claim.
+5. compile-final and scanner compile-4 bind the same five emitted module hashes and current source hashes. Existing pilot authorization is invalid for changed scanner/classifier identity. No data scan, app build, browser replay, pipeline run, installation or deployment occurred. Installed TypeScript/integrity pass;11checked protected anchors remain unchanged. Source review is parent-only; peer quota persists.
+6. web/vercel.json still sets git.deploymentEnabled=false; .github workflow search finds no deploy invocation. Current provider project readback is retained in provider-readback.json, but its payload does not expose Git settings. No provider mutation was performed. Dependency/worker alignment approval was asked explicitly; no answer had arrived when recording this section.
+
+### DISAGREEMENTS
+
+1. Synthetic segment stress is useful mechanism evidence, not proof of the earlier pilot's bottleneck or a population speedup. Retained fixtures cannot fill that evidence gap because their segment payloads were deliberately omitted.
+2. Faster validation must not come from relaxed coordinate tolerance, cross-part matches or dropped repeated starts. Those would change which shelter/gap evidence users may see. The exact matcher index preserves these rules; broad release acceptance remains unproven until dependency/build/browser gates pass.

@@ -1,0 +1,73 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "base": "ffa3fb1d99bf90909137b3df96834cdf0e688a3f",
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\scripts\\check-installed-dependencies.mjs"
+  ],
+  "elapsedMs": 4964.064899999999,
+  "exitCode": 1,
+  "stdout": "",
+  "stderr": "installed_dependencies=failed\n{\"signal\":\"installed_version_mismatch\",\"name\":\"maplibre-gl\",\"locked\":\"6.4.1\",\"installed\":\"6.1.0\"}\n{\"signal\":\"installed_version_mismatch\",\"name\":\"next\",\"locked\":\"16.3.3\",\"installed\":\"16.3.0\"}\n{\"signal\":\"installed_version_mismatch\",\"name\":\"vitest\",\"locked\":\"4.1.11\",\"installed\":\"4.1.10\"}\n",
+  "before": [
+    {
+      "path": "web/lib/contiguous-route-parts.ts",
+      "sha256": "d8c07f066257377ebf21a1038c6610a5a0788f6492b19144b17b8997fab1e9c3"
+    },
+    {
+      "path": "web/lib/published-transit-options.ts",
+      "sha256": "a437e35178186c6c9e5c3300c27ce675149a7c2136322ae9f722f14f5f9d7d3d"
+    },
+    {
+      "path": "web/lib/coverage-gap-register.ts",
+      "sha256": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878"
+    },
+    {
+      "path": "web/lib/__tests__/contiguous-route-parts.test.ts",
+      "sha256": "6f0571b92093de9459ad66dacd7a451dc508006fe95c38dac4b11ef83f88cbf1"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/matcher.test.mjs",
+      "sha256": "5fb4851c72ca53730eb96ffff0e59b6e028cbc3b28b12ff1b339d380fb3384a7"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/integration.test.mjs",
+      "sha256": "1c2432ca0152a61a9b8e2553c20626ac3f3b7041f258b2e7aedcac204d9cba5f"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/cases.mjs",
+      "sha256": "b6421a16f0e88f2f5367f60fae3ba9afda615ad8fc10c92c5ff72241a8b4c637"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/contiguous-route-parts.ts",
+      "sha256": "d8c07f066257377ebf21a1038c6610a5a0788f6492b19144b17b8997fab1e9c3"
+    },
+    {
+      "path": "web/lib/published-transit-options.ts",
+      "sha256": "a437e35178186c6c9e5c3300c27ce675149a7c2136322ae9f722f14f5f9d7d3d"
+    },
+    {
+      "path": "web/lib/coverage-gap-register.ts",
+      "sha256": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878"
+    },
+    {
+      "path": "web/lib/__tests__/contiguous-route-parts.test.ts",
+      "sha256": "6f0571b92093de9459ad66dacd7a451dc508006fe95c38dac4b11ef83f88cbf1"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/matcher.test.mjs",
+      "sha256": "5fb4851c72ca53730eb96ffff0e59b6e028cbc3b28b12ff1b339d380fb3384a7"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/integration.test.mjs",
+      "sha256": "1c2432ca0152a61a9b8e2553c20626ac3f3b7041f258b2e7aedcac204d9cba5f"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/cases.mjs",
+      "sha256": "b6421a16f0e88f2f5367f60fae3ba9afda615ad8fc10c92c5ff72241a8b4c637"
+    }
+  ]
+}

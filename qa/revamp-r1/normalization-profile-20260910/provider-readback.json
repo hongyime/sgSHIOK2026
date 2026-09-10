@@ -1,0 +1,17 @@
+{
+  "tool": "vercel_get_project",
+  "args": {
+    "projectId": "prj_y6GIQUdEyXXmtg3UTWkcJECKHdEE",
+    "teamId": "team_ARK7HKobyCMp0PCArQTLxbz6"
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"id\": \"prj_y6GIQUdEyXXmtg3UTWkcJECKHdEE\",\n  \"name\": \"sgshiok\",\n  \"framework\": \"nextjs\",\n  \"accountId\": \"team_ARK7HKobyCMp0PCArQTLxbz6\",\n  \"createdAt\": 1785037769440,\n  \"updatedAt\": 1788096478091,\n  \"nodeVersion\": \"24.x\",\n  \"live\": false,\n  \"latestDeployment\": {\n    \"id\": \"dpl_wVnDeskyK666GwYUKWzY2aserkJR\",\n    \"url\": \"sgshiok-i0g8r1azg-theprawnvercel.vercel.app\",\n    \"createdAt\": 1788096412959,\n    \"readyState\": \"READY\",\n    \"target\": \"production\"\n  },\n  \"domains\": [\n    \"sgshiok.hong-yi.me\",\n    \"sgshiok.vercel.app\",\n    \"sgshiok-theprawnvercel.vercel.app\"\n  ]\n}"
+      }
+    ],
+    "isError": false
+  },
+  "limitation": "Project readback does not expose Git settings. The repository's web/vercel.json explicitly disables Git deployments; no deployment action was invoked."
+}

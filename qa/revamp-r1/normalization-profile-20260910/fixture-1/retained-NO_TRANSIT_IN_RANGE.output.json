@@ -1,0 +1,63 @@
+{
+  "postal": "079908",
+  "addressEvidence": "published_index",
+  "scoreRecord": "present",
+  "state": "NO_TRANSIT_IN_RANGE",
+  "completeLockedFields": false,
+  "reason": "all_numeric_transit_candidates_rejected_by_bus_route_trust_gate",
+  "sourceStatus": null,
+  "coordinateGap": "not_established",
+  "routeDisconnection": "not_established",
+  "rangeLimit": "eligibility_state_distance_cause_not_established",
+  "trustRejection": true,
+  "geometryLookup": "not_indexed",
+  "categoryInspection": "inspected",
+  "categories": [
+    {
+      "category": "bus",
+      "context": "valid",
+      "options": 1,
+      "retainable": 0,
+      "candidateBackedOptions": 0,
+      "statuses": {
+        "identity_invalid": 1
+      },
+      "classifications": {
+        "unclassified": 1
+      },
+      "diagnostics": {
+        "gap_fragments_missing": 1,
+        "identity_invalid": 1,
+        "published_routed_gaps_unavailable": 1,
+        "scoring_eligibility_unavailable": 1,
+        "sheltered:geometry_missing": 1,
+        "shortest:geometry_missing": 1,
+        "trust_unclassified": 1
+      },
+      "rejectedSources": 0
+    },
+    {
+      "category": "mrt_lrt",
+      "context": "valid",
+      "options": 1,
+      "retainable": 0,
+      "candidateBackedOptions": 0,
+      "statuses": {
+        "identity_invalid": 1
+      },
+      "classifications": {
+        "unclassified": 1
+      },
+      "diagnostics": {
+        "gap_fragments_missing": 1,
+        "identity_invalid": 1,
+        "published_routed_gaps_unavailable": 1,
+        "scoring_eligibility_unavailable": 1,
+        "sheltered:geometry_missing": 1,
+        "shortest:geometry_missing": 1,
+        "trust_unclassified": 1
+      },
+      "rejectedSources": 0
+    }
+  ]
+}

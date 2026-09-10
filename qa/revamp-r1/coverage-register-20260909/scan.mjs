@@ -36,8 +36,8 @@ const report = { mode, createdAt, root: ROOT, hostname: hostname(), before, comp
 try {
   report.freeMemoryBefore = freemem();
   if (report.freeMemoryBefore < 1024 * MiB) throw Object.assign(Error('Less than 1 GiB currently free; do not start data pass'), { code: 'STOP_HEADROOM' });
-  const compiledDir = resolve(DIR, 'compile-3'), compiled = json(resolve(compiledDir, 'compile.json'));
-  if (compiled.exitCode !== 0 || !compiled.sourcesStable || compiled.sources.length !== 4 || compiled.compiled.length !== 4) throw Error('Compile identity receipt is incomplete');
+  const compiledDir = resolve(DIR, 'compile-4'), compiled = json(resolve(compiledDir, 'compile.json'));
+  if (compiled.exitCode !== 0 || !compiled.sourcesStable || compiled.sources.length !== 5 || compiled.compiled.length !== 5) throw Error('Compile identity receipt is incomplete');
   for (const item of compiled.sources) if (hash(readFileSync(resolve(ROOT, item.path))) !== item.sha256) throw Object.assign(Error('Compiled source no longer current: ' + item.path), { code: 'STOP_SOURCE_IDENTITY' });
   for (const item of compiled.compiled) if (!/^[a-z-]+\.js$/.test(item.name) || hash(readFileSync(resolve(compiledDir, 'compiled', item.name))) !== item.sha256) throw Object.assign(Error('Compiled output changed: ' + item.name), { code: 'STOP_SOURCE_IDENTITY' });
   report.classifier = { sources: compiled.sources, compiled: compiled.compiled };
@@ -168,7 +168,7 @@ try {
     report.after = sourceIdentities(); report.sourcesStable = JSON.stringify(before) === JSON.stringify(report.after);
     if (report.classifier) {
       report.classifierAfter = { sources: report.classifier.sources.map(item => ({ ...item, sha256: hash(readFileSync(resolve(ROOT, item.path))) })),
-        compiled: report.classifier.compiled.map(item => ({ ...item, sha256: hash(readFileSync(resolve(DIR, 'compile-3/compiled', item.name))) })) };
+        compiled: report.classifier.compiled.map(item => ({ ...item, sha256: hash(readFileSync(resolve(DIR, 'compile-4/compiled', item.name))) })) };
       report.sourcesStable &&= JSON.stringify(report.classifier) === JSON.stringify(report.classifierAfter);
     }
     if (!report.sourcesStable) throw Error('Scanner or classifier identity changed');

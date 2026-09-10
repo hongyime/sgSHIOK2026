@@ -1,0 +1,389 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "callFrame": {
+        "functionName": "(root)",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 0,
+      "children": [
+        2,
+        6
+      ]
+    },
+    {
+      "id": 2,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "90",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/profile.mjs",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 4,
+      "children": [
+        3,
+        7
+      ]
+    },
+    {
+      "id": 3,
+      "callFrame": {
+        "functionName": "fn",
+        "scriptId": "13",
+        "url": "node:internal/util",
+        "lineNumber": 476,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        4
+      ]
+    },
+    {
+      "id": 4,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "13",
+        "url": "node:internal/util",
+        "lineNumber": 477,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        5
+      ]
+    },
+    {
+      "id": 5,
+      "callFrame": {
+        "functionName": "post",
+        "scriptId": "122",
+        "url": "node:inspector",
+        "lineNumber": 114,
+        "columnNumber": 6
+      },
+      "hitCount": 0,
+      "children": [
+        19
+      ]
+    },
+    {
+      "id": 19,
+      "callFrame": {
+        "functionName": "dispatch",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 139,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "callFrame": {
+        "functionName": "coverageGapRow",
+        "scriptId": "169",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/coverage-gap-register.js",
+        "lineNumber": 8,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        8
+      ]
+    },
+    {
+      "id": 8,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "169",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/coverage-gap-register.js",
+        "lineNumber": 17,
+        "columnNumber": 89
+      },
+      "hitCount": 1,
+      "children": [
+        9
+      ],
+      "positionTicks": [
+        {
+          "line": 19,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "callFrame": {
+        "functionName": "normalizePublishedTransitOptions",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 413,
+        "columnNumber": 41
+      },
+      "hitCount": 1,
+      "children": [
+        10,
+        11,
+        17
+      ],
+      "positionTicks": [
+        {
+          "line": 415,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "callFrame": {
+        "functionName": "own",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 8,
+        "columnNumber": 12
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 9,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "callFrame": {
+        "functionName": "representation",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 282,
+        "columnNumber": 23
+      },
+      "hitCount": 3,
+      "children": [
+        12,
+        15
+      ],
+      "positionTicks": [
+        {
+          "line": 313,
+          "ticks": 1
+        },
+        {
+          "line": 317,
+          "ticks": 1
+        },
+        {
+          "line": 333,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "callFrame": {
+        "functionName": "geometryCapability",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 84,
+        "columnNumber": 27
+      },
+      "hitCount": 0,
+      "children": [
+        13
+      ]
+    },
+    {
+      "id": 13,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 100,
+        "columnNumber": 20
+      },
+      "hitCount": 0,
+      "children": [
+        14
+      ]
+    },
+    {
+      "id": 14,
+      "callFrame": {
+        "functionName": "inspectPolyline",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 34,
+        "columnNumber": 24
+      },
+      "hitCount": 6,
+      "children": [
+        16
+      ],
+      "positionTicks": [
+        {
+          "line": 48,
+          "ticks": 1
+        },
+        {
+          "line": 59,
+          "ticks": 2
+        },
+        {
+          "line": 45,
+          "ticks": 2
+        },
+        {
+          "line": 70,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "callFrame": {
+        "functionName": "decodePolyline",
+        "scriptId": "171",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/polyline.js",
+        "lineNumber": 4,
+        "columnNumber": 23
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 31,
+          "ticks": 1
+        },
+        {
+          "line": 31,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "callFrame": {
+        "functionName": "fragments",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 154,
+        "columnNumber": 18
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 161,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 492,
+        "columnNumber": 32
+      },
+      "hitCount": 0,
+      "children": [
+        18
+      ]
+    },
+    {
+      "id": 18,
+      "callFrame": {
+        "functionName": "normalizeGroup",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 393,
+        "columnNumber": 23
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 410,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "callFrame": {
+        "functionName": "(garbage collector)",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 2
+    }
+  ],
+  "startTime": 1109793168253,
+  "endTime": 1109793330083,
+  "samples": [
+    5,
+    2,
+    6,
+    10,
+    9,
+    14,
+    11,
+    6,
+    11,
+    8,
+    14,
+    15,
+    2,
+    2,
+    14,
+    14,
+    16,
+    11,
+    14,
+    18,
+    14,
+    16,
+    2,
+    19
+  ],
+  "timeDeltas": [
+    111295,
+    6745,
+    3025,
+    1618,
+    1599,
+    1737,
+    1849,
+    1361,
+    1251,
+    1811,
+    1461,
+    9480,
+    1858,
+    1172,
+    1235,
+    1683,
+    1692,
+    1683,
+    1597,
+    1678,
+    1208,
+    1732,
+    1424,
+    1203
+  ]
+}

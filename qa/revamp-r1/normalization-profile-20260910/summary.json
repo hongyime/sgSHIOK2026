@@ -1,0 +1,600 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "base": "ffa3fb1d99bf90909137b3df96834cdf0e688a3f",
+  "pipelineRuns": 0,
+  "dataScans": 0,
+  "installations": 0,
+  "deployments": 0,
+  "appBuilds": 0,
+  "tests": {
+    "matcher": 17,
+    "integration": 20,
+    "totalNative": 37,
+    "arithmetic": "17 + 20 = 37",
+    "exhaustiveMatcherComparisons": 29282,
+    "surfaceComparisons": "20 inputs x (bus normalizer + rail normalizer + reduced coverage row)",
+    "failures": 0,
+    "skips": 0,
+    "additionalWebCases": 8,
+    "webCasesExecution": "Not run; dependency guard fails on three direct packages. Cases typechecked with installed dependencies.",
+    "installedTypecheck": "pass",
+    "integrity": "repo_integrity=ok"
+  },
+  "operationCounts": {
+    "vertices": 1024,
+    "segments": 1023,
+    "baselineCoordinateReads": 1051642,
+    "indexedCoordinateReads": 6140,
+    "arithmetic": "1051642 - 6140 = 1045502 fewer coordinate reads",
+    "limitation": "Unique-start fixture. Repeated coordinates still require exact candidate checks; no general linear-time guarantee."
+  },
+  "comparison": [
+    {
+      "name": "retained-SCORED",
+      "beforeCalls": 100,
+      "afterCalls": 100,
+      "beforeNormalizeMs": 2.7999930000000086,
+      "afterNormalizeMs": 2.0329800000000104,
+      "outputUnchanged": true,
+      "outputSha256": "b9188f71e2bdcc2658a02d305a606e8148cbd92e6d7c1b5789cb073a3d1bcfa7",
+      "baselineTopSelfSamples": [
+        {
+          "name": "normalizePublishedTransitOptions",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 417,
+          "selfSamples": 16
+        },
+        {
+          "name": "(garbage collector)",
+          "url": "",
+          "zeroBasedLine": -1,
+          "selfSamples": 14
+        },
+        {
+          "name": "inspectPolyline",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 33,
+          "selfSamples": 12
+        },
+        {
+          "name": "representation",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 286,
+          "selfSamples": 11
+        },
+        {
+          "name": "inspectPolyline",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 33,
+          "selfSamples": 10
+        },
+        {
+          "name": "",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 99,
+          "selfSamples": 8
+        },
+        {
+          "name": "",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 159,
+          "selfSamples": 8
+        },
+        {
+          "name": "(program)",
+          "url": "",
+          "zeroBasedLine": -1,
+          "selfSamples": 7
+        }
+      ]
+    },
+    {
+      "name": "retained-SCORED_PARTIAL",
+      "beforeCalls": 100,
+      "afterCalls": 100,
+      "beforeNormalizeMs": 0.6362029999999776,
+      "afterNormalizeMs": 0.3866860000000065,
+      "outputUnchanged": true,
+      "outputSha256": "95e3b6c938104717ccd5ad8748ce14fb402be059fe7fe61ecc4a975c67b1a811",
+      "baselineTopSelfSamples": [
+        {
+          "name": "normalizePublishedTransitOptions",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 417,
+          "selfSamples": 6
+        },
+        {
+          "name": "representation",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 286,
+          "selfSamples": 6
+        },
+        {
+          "name": "unique",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 10,
+          "selfSamples": 5
+        },
+        {
+          "name": "(garbage collector)",
+          "url": "",
+          "zeroBasedLine": -1,
+          "selfSamples": 4
+        },
+        {
+          "name": "post",
+          "url": "node:inspector",
+          "zeroBasedLine": 114,
+          "selfSamples": 3
+        },
+        {
+          "name": "coverageGapRow",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/coverage-gap-register.js",
+          "zeroBasedLine": 8,
+          "selfSamples": 3
+        },
+        {
+          "name": "",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/coverage-gap-register.js",
+          "zeroBasedLine": 17,
+          "selfSamples": 3
+        },
+        {
+          "name": "classify",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 173,
+          "selfSamples": 2
+        }
+      ]
+    },
+    {
+      "name": "retained-NO_TRANSIT_IN_RANGE",
+      "beforeCalls": 100,
+      "afterCalls": 100,
+      "beforeNormalizeMs": 0.21129600000000665,
+      "afterNormalizeMs": 0.1417849999999953,
+      "outputUnchanged": true,
+      "outputSha256": "7af2a33c9e6a9bde44138f6fdb244877179451d115f3c9fd80ef338798882661",
+      "baselineTopSelfSamples": [
+        {
+          "name": "dispatch",
+          "url": "",
+          "zeroBasedLine": -1,
+          "selfSamples": 1
+        },
+        {
+          "name": "coverageGapRow",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/coverage-gap-register.js",
+          "zeroBasedLine": 8,
+          "selfSamples": 1
+        },
+        {
+          "name": "normalizePublishedTransitOptions",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 417,
+          "selfSamples": 1
+        },
+        {
+          "name": "representation",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 286,
+          "selfSamples": 1
+        },
+        {
+          "name": "",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 335,
+          "selfSamples": 1
+        },
+        {
+          "name": "classify",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 173,
+          "selfSamples": 1
+        },
+        {
+          "name": "unique",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 10,
+          "selfSamples": 1
+        },
+        {
+          "name": "(garbage collector)",
+          "url": "",
+          "zeroBasedLine": -1,
+          "selfSamples": 1
+        }
+      ]
+    },
+    {
+      "name": "synthetic-64-no-segments",
+      "beforeCalls": 100,
+      "afterCalls": 100,
+      "beforeNormalizeMs": 0.7046260000000234,
+      "afterNormalizeMs": 0.29375200000000407,
+      "outputUnchanged": true,
+      "outputSha256": "8b02d88bc89dc75929395b76783277cc01fca13d863beece693df116724d09bd",
+      "baselineTopSelfSamples": [
+        {
+          "name": "representation",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 286,
+          "selfSamples": 3
+        },
+        {
+          "name": "normalizeGroup",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 397,
+          "selfSamples": 2
+        },
+        {
+          "name": "dispatch",
+          "url": "",
+          "zeroBasedLine": -1,
+          "selfSamples": 1
+        },
+        {
+          "name": "",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 219,
+          "selfSamples": 1
+        },
+        {
+          "name": "unique",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 10,
+          "selfSamples": 1
+        },
+        {
+          "name": "key",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 434,
+          "selfSamples": 1
+        },
+        {
+          "name": "(garbage collector)",
+          "url": "",
+          "zeroBasedLine": -1,
+          "selfSamples": 1
+        }
+      ]
+    },
+    {
+      "name": "synthetic-64-edge-segments",
+      "beforeCalls": 100,
+      "afterCalls": 100,
+      "beforeNormalizeMs": 3.79157299999998,
+      "afterNormalizeMs": 2.6181439999999974,
+      "outputUnchanged": true,
+      "outputSha256": "8b02d88bc89dc75929395b76783277cc01fca13d863beece693df116724d09bd",
+      "baselineTopSelfSamples": [
+        {
+          "name": "edgeKey",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 217,
+          "selfSamples": 45
+        },
+        {
+          "name": "segmentCapability",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 230,
+          "selfSamples": 38
+        },
+        {
+          "name": "matchesContiguousPart",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 221,
+          "selfSamples": 23
+        },
+        {
+          "name": "(garbage collector)",
+          "url": "",
+          "zeroBasedLine": -1,
+          "selfSamples": 23
+        },
+        {
+          "name": "representation",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 286,
+          "selfSamples": 20
+        },
+        {
+          "name": "inspectPolyline",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 33,
+          "selfSamples": 17
+        },
+        {
+          "name": "normalizePublishedTransitOptions",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 417,
+          "selfSamples": 6
+        },
+        {
+          "name": "decodePolyline",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/polyline.js",
+          "zeroBasedLine": 4,
+          "selfSamples": 6
+        }
+      ]
+    },
+    {
+      "name": "synthetic-256-no-segments",
+      "beforeCalls": 100,
+      "afterCalls": 100,
+      "beforeNormalizeMs": 0.5829940000000079,
+      "afterNormalizeMs": 0.3939389999999912,
+      "outputUnchanged": true,
+      "outputSha256": "8b02d88bc89dc75929395b76783277cc01fca13d863beece693df116724d09bd",
+      "baselineTopSelfSamples": [
+        {
+          "name": "inspectPolyline",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 33,
+          "selfSamples": 20
+        },
+        {
+          "name": "",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/profile.mjs",
+          "zeroBasedLine": -1,
+          "selfSamples": 3
+        },
+        {
+          "name": "normalizePublishedTransitOptions",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 417,
+          "selfSamples": 3
+        },
+        {
+          "name": "(program)",
+          "url": "",
+          "zeroBasedLine": -1,
+          "selfSamples": 3
+        },
+        {
+          "name": "dispatch",
+          "url": "",
+          "zeroBasedLine": -1,
+          "selfSamples": 1
+        },
+        {
+          "name": "",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/coverage-gap-register.js",
+          "zeroBasedLine": 17,
+          "selfSamples": 1
+        },
+        {
+          "name": "representation",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 286,
+          "selfSamples": 1
+        },
+        {
+          "name": "geometryCapability",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 83,
+          "selfSamples": 1
+        }
+      ]
+    },
+    {
+      "name": "synthetic-256-edge-segments",
+      "beforeCalls": 11,
+      "afterCalls": 37,
+      "beforeNormalizeMs": 37.089227272727264,
+      "afterNormalizeMs": 11.000567567567572,
+      "outputUnchanged": true,
+      "outputSha256": "8b02d88bc89dc75929395b76783277cc01fca13d863beece693df116724d09bd",
+      "baselineTopSelfSamples": [
+        {
+          "name": "matchesContiguousPart",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 221,
+          "selfSamples": 43
+        },
+        {
+          "name": "segmentCapability",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 230,
+          "selfSamples": 25
+        },
+        {
+          "name": "(garbage collector)",
+          "url": "",
+          "zeroBasedLine": -1,
+          "selfSamples": 24
+        },
+        {
+          "name": "edgeKey",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 217,
+          "selfSamples": 22
+        },
+        {
+          "name": "samePoint",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 216,
+          "selfSamples": 8
+        },
+        {
+          "name": "inspectPolyline",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 33,
+          "selfSamples": 8
+        },
+        {
+          "name": "",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 225,
+          "selfSamples": 2
+        },
+        {
+          "name": "samePoint",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 216,
+          "selfSamples": 2
+        }
+      ]
+    },
+    {
+      "name": "synthetic-1024-no-segments",
+      "beforeCalls": 100,
+      "afterCalls": 100,
+      "beforeNormalizeMs": 1.7682150000000048,
+      "afterNormalizeMs": 0.9467030000000295,
+      "outputUnchanged": true,
+      "outputSha256": "8b02d88bc89dc75929395b76783277cc01fca13d863beece693df116724d09bd",
+      "baselineTopSelfSamples": [
+        {
+          "name": "inspectPolyline",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 33,
+          "selfSamples": 57
+        },
+        {
+          "name": "decodePolyline",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/polyline.js",
+          "zeroBasedLine": 4,
+          "selfSamples": 10
+        },
+        {
+          "name": "normalizePublishedTransitOptions",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 417,
+          "selfSamples": 7
+        },
+        {
+          "name": "(garbage collector)",
+          "url": "",
+          "zeroBasedLine": -1,
+          "selfSamples": 3
+        },
+        {
+          "name": "",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/coverage-gap-register.js",
+          "zeroBasedLine": 17,
+          "selfSamples": 2
+        },
+        {
+          "name": "representation",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 286,
+          "selfSamples": 2
+        },
+        {
+          "name": "geometryCapability",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 83,
+          "selfSamples": 2
+        },
+        {
+          "name": "classify",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 173,
+          "selfSamples": 2
+        }
+      ]
+    },
+    {
+      "name": "synthetic-1024-edge-segments",
+      "beforeCalls": 3,
+      "afterCalls": 11,
+      "beforeNormalizeMs": 200.3093000000002,
+      "afterNormalizeMs": 37.972818181818226,
+      "outputUnchanged": true,
+      "outputSha256": "8b02d88bc89dc75929395b76783277cc01fca13d863beece693df116724d09bd",
+      "baselineTopSelfSamples": [
+        {
+          "name": "matchesContiguousPart",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 221,
+          "selfSamples": 135
+        },
+        {
+          "name": "(garbage collector)",
+          "url": "",
+          "zeroBasedLine": -1,
+          "selfSamples": 56
+        },
+        {
+          "name": "segmentCapability",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 230,
+          "selfSamples": 34
+        },
+        {
+          "name": "edgeKey",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 217,
+          "selfSamples": 29
+        },
+        {
+          "name": "samePoint",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 216,
+          "selfSamples": 29
+        },
+        {
+          "name": "samePoint",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 216,
+          "selfSamples": 29
+        },
+        {
+          "name": "",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 224,
+          "selfSamples": 18
+        },
+        {
+          "name": "inspectPolyline",
+          "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+          "zeroBasedLine": 33,
+          "selfSamples": 9
+        }
+      ]
+    }
+  ],
+  "dependencyFailures": [
+    {
+      "signal": "installed_version_mismatch",
+      "name": "maplibre-gl",
+      "locked": "6.4.1",
+      "installed": "6.1.0"
+    },
+    {
+      "signal": "installed_version_mismatch",
+      "name": "next",
+      "locked": "16.3.3",
+      "installed": "16.3.0"
+    },
+    {
+      "signal": "installed_version_mismatch",
+      "name": "vitest",
+      "locked": "4.1.11",
+      "installed": "4.1.10"
+    }
+  ],
+  "protectedAnchorsVerified": 11,
+  "evidence": {
+    "path": "qa/verification/REVAMP-R1-core-walk.md",
+    "appendOnly": true,
+    "originalBytes": 273605,
+    "originalSha256": "06df9779664f0eff04c083b33a93a786002ffa4e65a85e5f1adcb26fcdb15400",
+    "appendedBytes": 4000
+  },
+  "findings": [
+    "Retained fixtures omit route_segments. Separately synthetic segmented paths exposed repeated all-start matching as a CPU cost; fixture timings cannot represent population or browser latency.",
+    "A per-call coordinate index narrows candidate starts, retains every repeated occurrence and exact forward/reverse single-part checks. Empty fragment lists avoid building an unused index. Edge multiplicity and all metric/trust decisions remain unchanged.",
+    "37 native tests pass, including29282 exhaustive original-matcher comparisons and20 full-surface differential cases. The old algorithm fails the new operation-count guard; red receipt preserved.",
+    "1024-vertex synthetic normalization observed200.3093ms before and37.9728ms after per call, with only3/11 samples and changing host load. Only operation-count reduction is deterministic evidence, not a representative map speedup.",
+    "Fresh compile-4 binds all five scanner source/output files; old pilots cannot authorize the new scanner. No data scan or full-scan projection was attempted.",
+    "TypeScript and integrity pass; full web suite/build/browser remain blocked by dependency alignment approval. Eight new web cases are typechecked, not executed under Vitest. Peer quota still prevents independent review."
+  ],
+  "disagreements": [
+    "Portable fixture CPU profiles cannot prove the cause of the earlier200-record scan: the fixtures intentionally omit segment payloads. Synthetic stress is a mechanism test, not the actual data workload.",
+    "Do not replace exact geometry association with tolerant proximity or weaken segment/fragment validity to make validation faster. The indexed matcher preserves exact associations and part boundaries."
+  ],
+  "next": "Approve coordinated locked dependency/MapLibre worker alignment to unblock full isolated tests, current-build preview and browser acceptance. A new current-code read pilot still needs headroom and a passing900s projection before any full register."
+}

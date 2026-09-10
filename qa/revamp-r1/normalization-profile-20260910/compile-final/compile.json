@@ -1,0 +1,90 @@
+{
+  "sources": [
+    {
+      "path": "web/lib/coverage-gap-register.ts",
+      "sha256": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878"
+    },
+    {
+      "path": "web/lib/published-transit-options.ts",
+      "sha256": "a437e35178186c6c9e5c3300c27ce675149a7c2136322ae9f722f14f5f9d7d3d"
+    },
+    {
+      "path": "web/lib/contiguous-route-parts.ts",
+      "sha256": "d8c07f066257377ebf21a1038c6610a5a0788f6492b19144b17b8997fab1e9c3"
+    },
+    {
+      "path": "web/lib/polyline.ts",
+      "sha256": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e"
+    },
+    {
+      "path": "web/lib/types.ts",
+      "sha256": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/coverage-gap-register.ts",
+      "sha256": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878"
+    },
+    {
+      "path": "web/lib/published-transit-options.ts",
+      "sha256": "a437e35178186c6c9e5c3300c27ce675149a7c2136322ae9f722f14f5f9d7d3d"
+    },
+    {
+      "path": "web/lib/contiguous-route-parts.ts",
+      "sha256": "d8c07f066257377ebf21a1038c6610a5a0788f6492b19144b17b8997fab1e9c3"
+    },
+    {
+      "path": "web/lib/polyline.ts",
+      "sha256": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e"
+    },
+    {
+      "path": "web/lib/types.ts",
+      "sha256": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98"
+    }
+  ],
+  "sourcesStable": true,
+  "compiled": [
+    {
+      "name": "contiguous-route-parts.js",
+      "sha256": "a374283024dd1c25d1d627ad7cdd540d51ea99892874789af60e5a62751070aa"
+    },
+    {
+      "name": "coverage-gap-register.js",
+      "sha256": "68ddff711e98e5ed7abb574e74cabbb2d04b2aa5888eca80af4a264bf4da2f80"
+    },
+    {
+      "name": "polyline.js",
+      "sha256": "1df771e496cf483ef1fd2b2200b2d7a99993b8e065ad25ebe51a97c8cf5340a3"
+    },
+    {
+      "name": "published-transit-options.js",
+      "sha256": "e228645874e8e29446d91ca14f5b1f4aac24d950653d67810f2050c4c07b979c"
+    },
+    {
+      "name": "types.js",
+      "sha256": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230"
+    }
+  ],
+  "args": [
+    "C:\\sgSHIOK2026\\web\\node_modules\\typescript\\bin\\tsc",
+    "--ignoreConfig",
+    "--strict",
+    "--module",
+    "node16",
+    "--target",
+    "es2022",
+    "--moduleResolution",
+    "node16",
+    "--skipLibCheck",
+    "--outDir",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\normalization-profile-20260910\\compile-final\\compiled",
+    "C:\\sgSHIOK2026\\web\\lib\\coverage-gap-register.ts",
+    "C:\\sgSHIOK2026\\web\\lib\\contiguous-route-parts.ts"
+  ],
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "elapsedMs": 17013.8542,
+  "exitCode": 0,
+  "stdout": "",
+  "stderr": ""
+}

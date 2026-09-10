@@ -1,0 +1,652 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "base": "ffa3fb1d99bf90909137b3df96834cdf0e688a3f",
+  "before": [
+    {
+      "path": "web/lib/coverage-gap-register.ts",
+      "expected": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878",
+      "actual": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878"
+    },
+    {
+      "path": "web/lib/published-transit-options.ts",
+      "expected": "a437e35178186c6c9e5c3300c27ce675149a7c2136322ae9f722f14f5f9d7d3d",
+      "actual": "a437e35178186c6c9e5c3300c27ce675149a7c2136322ae9f722f14f5f9d7d3d"
+    },
+    {
+      "path": "web/lib/contiguous-route-parts.ts",
+      "expected": "d8c07f066257377ebf21a1038c6610a5a0788f6492b19144b17b8997fab1e9c3",
+      "actual": "d8c07f066257377ebf21a1038c6610a5a0788f6492b19144b17b8997fab1e9c3"
+    },
+    {
+      "path": "web/lib/polyline.ts",
+      "expected": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e",
+      "actual": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e"
+    },
+    {
+      "path": "web/lib/types.ts",
+      "expected": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98",
+      "actual": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/contiguous-route-parts.js",
+      "expected": "a374283024dd1c25d1d627ad7cdd540d51ea99892874789af60e5a62751070aa",
+      "actual": "a374283024dd1c25d1d627ad7cdd540d51ea99892874789af60e5a62751070aa"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/coverage-gap-register.js",
+      "expected": "68ddff711e98e5ed7abb574e74cabbb2d04b2aa5888eca80af4a264bf4da2f80",
+      "actual": "68ddff711e98e5ed7abb574e74cabbb2d04b2aa5888eca80af4a264bf4da2f80"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/polyline.js",
+      "expected": "1df771e496cf483ef1fd2b2200b2d7a99993b8e065ad25ebe51a97c8cf5340a3",
+      "actual": "1df771e496cf483ef1fd2b2200b2d7a99993b8e065ad25ebe51a97c8cf5340a3"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+      "expected": "e228645874e8e29446d91ca14f5b1f4aac24d950653d67810f2050c4c07b979c",
+      "actual": "e228645874e8e29446d91ca14f5b1f4aac24d950653d67810f2050c4c07b979c"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/types.js",
+      "expected": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230",
+      "actual": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-options.json",
+      "expected": "6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7",
+      "actual": "6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7"
+    }
+  ],
+  "node": "v26.5.0",
+  "v8": "14.6.202.34-node.24",
+  "inputHash": "a14d3db0b37cf87c3d7717e689850c97fb6430608fc1fde3506ab064055e3bff",
+  "cases": [
+    {
+      "name": "retained-SCORED",
+      "origin": "retained published fixture; route_segments omitted",
+      "calls": 100,
+      "normalizeMs": 203.29800000000103,
+      "serializeMs": 2.520099999999161,
+      "normalizeMsPerCall": 2.0329800000000104,
+      "serializeMsPerCall": 0.02520099999999161,
+      "outputBytes": 81700,
+      "outputSha256": "b9188f71e2bdcc2658a02d305a606e8148cbd92e6d7c1b5789cb073a3d1bcfa7",
+      "profile": "retained-SCORED.cpuprofile",
+      "profileSamples": 120,
+      "rssBytes": 61243392,
+      "categories": [
+        {
+          "category": "bus",
+          "context": "valid",
+          "options": 3,
+          "retainable": 3,
+          "candidateBackedOptions": 3,
+          "statuses": {
+            "published_routed": 3
+          },
+          "classifications": {
+            "routed": 3
+          },
+          "diagnostics": {
+            "logical_gaps_not_published": 3
+          },
+          "rejectedSources": 0
+        },
+        {
+          "category": "mrt_lrt",
+          "context": "valid",
+          "options": 3,
+          "retainable": 3,
+          "candidateBackedOptions": 2,
+          "statuses": {
+            "published_routed": 3
+          },
+          "classifications": {
+            "routed": 3
+          },
+          "diagnostics": {
+            "logical_gaps_not_published": 2
+          },
+          "rejectedSources": 0
+        }
+      ]
+    },
+    {
+      "name": "retained-SCORED_PARTIAL",
+      "origin": "retained published fixture; route_segments omitted",
+      "calls": 100,
+      "normalizeMs": 38.66860000000065,
+      "serializeMs": 1.486499999999296,
+      "normalizeMsPerCall": 0.3866860000000065,
+      "serializeMsPerCall": 0.01486499999999296,
+      "outputBytes": 108200,
+      "outputSha256": "95e3b6c938104717ccd5ad8748ce14fb402be059fe7fe61ecc4a975c67b1a811",
+      "profile": "retained-SCORED_PARTIAL.cpuprofile",
+      "profileSamples": 31,
+      "rssBytes": 58957824,
+      "categories": [
+        {
+          "category": "bus",
+          "context": "valid",
+          "options": 1,
+          "retainable": 0,
+          "candidateBackedOptions": 1,
+          "statuses": {
+            "published_unrouted": 1
+          },
+          "classifications": {
+            "unrouted": 1
+          },
+          "diagnostics": {
+            "gap_fragments_missing": 1,
+            "published_routed_gaps_unavailable": 1,
+            "sheltered:geometry_missing": 1,
+            "shortest:geometry_missing": 1
+          },
+          "rejectedSources": 0
+        },
+        {
+          "category": "mrt_lrt",
+          "context": "valid",
+          "options": 1,
+          "retainable": 0,
+          "candidateBackedOptions": 0,
+          "statuses": {
+            "trust_unclassified": 1
+          },
+          "classifications": {
+            "unclassified": 1
+          },
+          "diagnostics": {
+            "gap_fragments_missing": 1,
+            "published_routed_gaps_unavailable": 1,
+            "scoring_eligibility_unavailable": 1,
+            "sheltered:geometry_missing": 1,
+            "shortest:geometry_missing": 1,
+            "trust_unclassified": 1
+          },
+          "rejectedSources": 0
+        }
+      ]
+    },
+    {
+      "name": "retained-NO_TRANSIT_IN_RANGE",
+      "origin": "retained published fixture; route_segments omitted",
+      "calls": 100,
+      "normalizeMs": 14.17849999999953,
+      "serializeMs": 1.8502999999989242,
+      "normalizeMsPerCall": 0.1417849999999953,
+      "serializeMsPerCall": 0.018502999999989243,
+      "outputBytes": 128100,
+      "outputSha256": "7af2a33c9e6a9bde44138f6fdb244877179451d115f3c9fd80ef338798882661",
+      "profile": "retained-NO_TRANSIT_IN_RANGE.cpuprofile",
+      "profileSamples": 11,
+      "rssBytes": 58753024,
+      "categories": [
+        {
+          "category": "bus",
+          "context": "valid",
+          "options": 1,
+          "retainable": 0,
+          "candidateBackedOptions": 0,
+          "statuses": {
+            "identity_invalid": 1
+          },
+          "classifications": {
+            "unclassified": 1
+          },
+          "diagnostics": {
+            "gap_fragments_missing": 1,
+            "identity_invalid": 1,
+            "published_routed_gaps_unavailable": 1,
+            "scoring_eligibility_unavailable": 1,
+            "sheltered:geometry_missing": 1,
+            "shortest:geometry_missing": 1,
+            "trust_unclassified": 1
+          },
+          "rejectedSources": 0
+        },
+        {
+          "category": "mrt_lrt",
+          "context": "valid",
+          "options": 1,
+          "retainable": 0,
+          "candidateBackedOptions": 0,
+          "statuses": {
+            "identity_invalid": 1
+          },
+          "classifications": {
+            "unclassified": 1
+          },
+          "diagnostics": {
+            "gap_fragments_missing": 1,
+            "identity_invalid": 1,
+            "published_routed_gaps_unavailable": 1,
+            "scoring_eligibility_unavailable": 1,
+            "sheltered:geometry_missing": 1,
+            "shortest:geometry_missing": 1,
+            "trust_unclassified": 1
+          },
+          "rejectedSources": 0
+        }
+      ]
+    },
+    {
+      "name": "synthetic-64-no-segments",
+      "origin": "synthetic geometry and segment lengths; retained candidate metadata, not a measured walk",
+      "vertices": 64,
+      "segmented": false,
+      "calls": 100,
+      "normalizeMs": 29.375200000000405,
+      "serializeMs": 1.3669000000002143,
+      "normalizeMsPerCall": 0.29375200000000407,
+      "serializeMsPerCall": 0.013669000000002143,
+      "outputBytes": 94300,
+      "outputSha256": "8b02d88bc89dc75929395b76783277cc01fca13d863beece693df116724d09bd",
+      "profile": "synthetic-64-no-segments.cpuprofile",
+      "profileSamples": 16,
+      "rssBytes": 59334656,
+      "categories": [
+        {
+          "category": "bus",
+          "context": "valid",
+          "options": 1,
+          "retainable": 1,
+          "candidateBackedOptions": 1,
+          "statuses": {
+            "published_routed": 1
+          },
+          "classifications": {
+            "routed": 1
+          },
+          "diagnostics": {
+            "logical_gaps_not_published": 1
+          },
+          "rejectedSources": 0
+        },
+        {
+          "category": "mrt_lrt",
+          "context": "valid",
+          "options": 1,
+          "retainable": 0,
+          "candidateBackedOptions": 0,
+          "statuses": {
+            "trust_unclassified": 1
+          },
+          "classifications": {
+            "unclassified": 1
+          },
+          "diagnostics": {
+            "gap_fragments_missing": 1,
+            "published_routed_gaps_unavailable": 1,
+            "sheltered:geometry_missing": 1,
+            "shortest:geometry_missing": 1,
+            "trust_unclassified": 1
+          },
+          "rejectedSources": 0
+        }
+      ]
+    },
+    {
+      "name": "synthetic-64-edge-segments",
+      "origin": "synthetic geometry and segment lengths; retained candidate metadata, not a measured walk",
+      "vertices": 64,
+      "segmented": true,
+      "calls": 100,
+      "normalizeMs": 261.81439999999975,
+      "serializeMs": 2.2970000000013897,
+      "normalizeMsPerCall": 2.6181439999999974,
+      "serializeMsPerCall": 0.022970000000013896,
+      "outputBytes": 94300,
+      "outputSha256": "8b02d88bc89dc75929395b76783277cc01fca13d863beece693df116724d09bd",
+      "profile": "synthetic-64-edge-segments.cpuprofile",
+      "profileSamples": 150,
+      "rssBytes": 59326464,
+      "categories": [
+        {
+          "category": "bus",
+          "context": "valid",
+          "options": 1,
+          "retainable": 1,
+          "candidateBackedOptions": 1,
+          "statuses": {
+            "published_routed": 1
+          },
+          "classifications": {
+            "routed": 1
+          },
+          "diagnostics": {
+            "logical_gaps_not_published": 1
+          },
+          "rejectedSources": 0
+        },
+        {
+          "category": "mrt_lrt",
+          "context": "valid",
+          "options": 1,
+          "retainable": 0,
+          "candidateBackedOptions": 0,
+          "statuses": {
+            "trust_unclassified": 1
+          },
+          "classifications": {
+            "unclassified": 1
+          },
+          "diagnostics": {
+            "gap_fragments_missing": 1,
+            "published_routed_gaps_unavailable": 1,
+            "sheltered:geometry_missing": 1,
+            "shortest:geometry_missing": 1,
+            "trust_unclassified": 1
+          },
+          "rejectedSources": 0
+        }
+      ]
+    },
+    {
+      "name": "synthetic-256-no-segments",
+      "origin": "synthetic geometry and segment lengths; retained candidate metadata, not a measured walk",
+      "vertices": 256,
+      "segmented": false,
+      "calls": 100,
+      "normalizeMs": 39.39389999999912,
+      "serializeMs": 1.5839999999980137,
+      "normalizeMsPerCall": 0.3939389999999912,
+      "serializeMsPerCall": 0.015839999999980137,
+      "outputBytes": 94300,
+      "outputSha256": "8b02d88bc89dc75929395b76783277cc01fca13d863beece693df116724d09bd",
+      "profile": "synthetic-256-no-segments.cpuprofile",
+      "profileSamples": 24,
+      "rssBytes": 67018752,
+      "categories": [
+        {
+          "category": "bus",
+          "context": "valid",
+          "options": 1,
+          "retainable": 1,
+          "candidateBackedOptions": 1,
+          "statuses": {
+            "published_routed": 1
+          },
+          "classifications": {
+            "routed": 1
+          },
+          "diagnostics": {
+            "logical_gaps_not_published": 1
+          },
+          "rejectedSources": 0
+        },
+        {
+          "category": "mrt_lrt",
+          "context": "valid",
+          "options": 1,
+          "retainable": 0,
+          "candidateBackedOptions": 0,
+          "statuses": {
+            "trust_unclassified": 1
+          },
+          "classifications": {
+            "unclassified": 1
+          },
+          "diagnostics": {
+            "gap_fragments_missing": 1,
+            "published_routed_gaps_unavailable": 1,
+            "sheltered:geometry_missing": 1,
+            "shortest:geometry_missing": 1,
+            "trust_unclassified": 1
+          },
+          "rejectedSources": 0
+        }
+      ]
+    },
+    {
+      "name": "synthetic-256-edge-segments",
+      "origin": "synthetic geometry and segment lengths; retained candidate metadata, not a measured walk",
+      "vertices": 256,
+      "segmented": true,
+      "calls": 37,
+      "normalizeMs": 407.0210000000002,
+      "serializeMs": 0.884000000000924,
+      "normalizeMsPerCall": 11.000567567567572,
+      "serializeMsPerCall": 0.023891891891916865,
+      "outputBytes": 34891,
+      "outputSha256": "8b02d88bc89dc75929395b76783277cc01fca13d863beece693df116724d09bd",
+      "profile": "synthetic-256-edge-segments.cpuprofile",
+      "profileSamples": 158,
+      "rssBytes": 64909312,
+      "categories": [
+        {
+          "category": "bus",
+          "context": "valid",
+          "options": 1,
+          "retainable": 1,
+          "candidateBackedOptions": 1,
+          "statuses": {
+            "published_routed": 1
+          },
+          "classifications": {
+            "routed": 1
+          },
+          "diagnostics": {
+            "logical_gaps_not_published": 1
+          },
+          "rejectedSources": 0
+        },
+        {
+          "category": "mrt_lrt",
+          "context": "valid",
+          "options": 1,
+          "retainable": 0,
+          "candidateBackedOptions": 0,
+          "statuses": {
+            "trust_unclassified": 1
+          },
+          "classifications": {
+            "unclassified": 1
+          },
+          "diagnostics": {
+            "gap_fragments_missing": 1,
+            "published_routed_gaps_unavailable": 1,
+            "sheltered:geometry_missing": 1,
+            "shortest:geometry_missing": 1,
+            "trust_unclassified": 1
+          },
+          "rejectedSources": 0
+        }
+      ]
+    },
+    {
+      "name": "synthetic-1024-no-segments",
+      "origin": "synthetic geometry and segment lengths; retained candidate metadata, not a measured walk",
+      "vertices": 1024,
+      "segmented": false,
+      "calls": 100,
+      "normalizeMs": 94.67030000000295,
+      "serializeMs": 1.4268999999958396,
+      "normalizeMsPerCall": 0.9467030000000295,
+      "serializeMsPerCall": 0.014268999999958397,
+      "outputBytes": 94300,
+      "outputSha256": "8b02d88bc89dc75929395b76783277cc01fca13d863beece693df116724d09bd",
+      "profile": "synthetic-1024-no-segments.cpuprofile",
+      "profileSamples": 37,
+      "rssBytes": 64970752,
+      "categories": [
+        {
+          "category": "bus",
+          "context": "valid",
+          "options": 1,
+          "retainable": 1,
+          "candidateBackedOptions": 1,
+          "statuses": {
+            "published_routed": 1
+          },
+          "classifications": {
+            "routed": 1
+          },
+          "diagnostics": {
+            "logical_gaps_not_published": 1
+          },
+          "rejectedSources": 0
+        },
+        {
+          "category": "mrt_lrt",
+          "context": "valid",
+          "options": 1,
+          "retainable": 0,
+          "candidateBackedOptions": 0,
+          "statuses": {
+            "trust_unclassified": 1
+          },
+          "classifications": {
+            "unclassified": 1
+          },
+          "diagnostics": {
+            "gap_fragments_missing": 1,
+            "published_routed_gaps_unavailable": 1,
+            "sheltered:geometry_missing": 1,
+            "shortest:geometry_missing": 1,
+            "trust_unclassified": 1
+          },
+          "rejectedSources": 0
+        }
+      ]
+    },
+    {
+      "name": "synthetic-1024-edge-segments",
+      "origin": "synthetic geometry and segment lengths; retained candidate metadata, not a measured walk",
+      "vertices": 1024,
+      "segmented": true,
+      "calls": 11,
+      "normalizeMs": 417.7010000000005,
+      "serializeMs": 0.2727999999997337,
+      "normalizeMsPerCall": 37.972818181818226,
+      "serializeMsPerCall": 0.02479999999997579,
+      "outputBytes": 10373,
+      "outputSha256": "8b02d88bc89dc75929395b76783277cc01fca13d863beece693df116724d09bd",
+      "profile": "synthetic-1024-edge-segments.cpuprofile",
+      "profileSamples": 250,
+      "rssBytes": 75235328,
+      "categories": [
+        {
+          "category": "bus",
+          "context": "valid",
+          "options": 1,
+          "retainable": 1,
+          "candidateBackedOptions": 1,
+          "statuses": {
+            "published_routed": 1
+          },
+          "classifications": {
+            "routed": 1
+          },
+          "diagnostics": {
+            "logical_gaps_not_published": 1
+          },
+          "rejectedSources": 0
+        },
+        {
+          "category": "mrt_lrt",
+          "context": "valid",
+          "options": 1,
+          "retainable": 0,
+          "candidateBackedOptions": 0,
+          "statuses": {
+            "trust_unclassified": 1
+          },
+          "classifications": {
+            "unclassified": 1
+          },
+          "diagnostics": {
+            "gap_fragments_missing": 1,
+            "published_routed_gaps_unavailable": 1,
+            "sheltered:geometry_missing": 1,
+            "shortest:geometry_missing": 1,
+            "trust_unclassified": 1
+          },
+          "rejectedSources": 0
+        }
+      ]
+    }
+  ],
+  "complete": true,
+  "limits": {
+    "perCaseMs": 400,
+    "maxCallsPerCase": 100,
+    "maxRssBytes": 268435456,
+    "totalMs": 30000
+  },
+  "scope": "Retained fixture and separately synthetic geometry CPU diagnosis, not a data scan, browser benchmark or full population projection.",
+  "networkAttempts": 0,
+  "elapsedMs": 2867.0217000000002,
+  "after": [
+    {
+      "path": "web/lib/coverage-gap-register.ts",
+      "expected": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878",
+      "actual": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878"
+    },
+    {
+      "path": "web/lib/published-transit-options.ts",
+      "expected": "a437e35178186c6c9e5c3300c27ce675149a7c2136322ae9f722f14f5f9d7d3d",
+      "actual": "a437e35178186c6c9e5c3300c27ce675149a7c2136322ae9f722f14f5f9d7d3d"
+    },
+    {
+      "path": "web/lib/contiguous-route-parts.ts",
+      "expected": "d8c07f066257377ebf21a1038c6610a5a0788f6492b19144b17b8997fab1e9c3",
+      "actual": "d8c07f066257377ebf21a1038c6610a5a0788f6492b19144b17b8997fab1e9c3"
+    },
+    {
+      "path": "web/lib/polyline.ts",
+      "expected": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e",
+      "actual": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e"
+    },
+    {
+      "path": "web/lib/types.ts",
+      "expected": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98",
+      "actual": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/contiguous-route-parts.js",
+      "expected": "a374283024dd1c25d1d627ad7cdd540d51ea99892874789af60e5a62751070aa",
+      "actual": "a374283024dd1c25d1d627ad7cdd540d51ea99892874789af60e5a62751070aa"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/coverage-gap-register.js",
+      "expected": "68ddff711e98e5ed7abb574e74cabbb2d04b2aa5888eca80af4a264bf4da2f80",
+      "actual": "68ddff711e98e5ed7abb574e74cabbb2d04b2aa5888eca80af4a264bf4da2f80"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/polyline.js",
+      "expected": "1df771e496cf483ef1fd2b2200b2d7a99993b8e065ad25ebe51a97c8cf5340a3",
+      "actual": "1df771e496cf483ef1fd2b2200b2d7a99993b8e065ad25ebe51a97c8cf5340a3"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+      "expected": "e228645874e8e29446d91ca14f5b1f4aac24d950653d67810f2050c4c07b979c",
+      "actual": "e228645874e8e29446d91ca14f5b1f4aac24d950653d67810f2050c4c07b979c"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/types.js",
+      "expected": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230",
+      "actual": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-options.json",
+      "expected": "6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7",
+      "actual": "6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7"
+    }
+  ],
+  "inputsUnchanged": true,
+  "sourcesUnchanged": true,
+  "scriptHashes": [
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/profile.mjs",
+      "sha256": "96bc8f210b5b1a8a6101fb5a23803976432f9e32b0a9a65695b1f959eac842c3"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/cases.mjs",
+      "sha256": "b6421a16f0e88f2f5367f60fae3ba9afda615ad8fc10c92c5ff72241a8b4c637"
+    }
+  ]
+}

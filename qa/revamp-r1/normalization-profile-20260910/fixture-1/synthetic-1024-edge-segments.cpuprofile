@@ -1,0 +1,1301 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "callFrame": {
+        "functionName": "(root)",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 0,
+      "children": [
+        2,
+        15,
+        27
+      ]
+    },
+    {
+      "id": 2,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "90",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/profile.mjs",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 0,
+      "children": [
+        3,
+        6
+      ]
+    },
+    {
+      "id": 3,
+      "callFrame": {
+        "functionName": "fn",
+        "scriptId": "13",
+        "url": "node:internal/util",
+        "lineNumber": 476,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        4
+      ]
+    },
+    {
+      "id": 4,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "13",
+        "url": "node:internal/util",
+        "lineNumber": 477,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        5
+      ]
+    },
+    {
+      "id": 5,
+      "callFrame": {
+        "functionName": "post",
+        "scriptId": "122",
+        "url": "node:inspector",
+        "lineNumber": 114,
+        "columnNumber": 6
+      },
+      "hitCount": 0,
+      "children": [
+        29
+      ]
+    },
+    {
+      "id": 29,
+      "callFrame": {
+        "functionName": "dispatch",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 139,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "callFrame": {
+        "functionName": "coverageGapRow",
+        "scriptId": "169",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/coverage-gap-register.js",
+        "lineNumber": 8,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        7
+      ]
+    },
+    {
+      "id": 7,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "169",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/coverage-gap-register.js",
+        "lineNumber": 17,
+        "columnNumber": 89
+      },
+      "hitCount": 0,
+      "children": [
+        8,
+        28
+      ]
+    },
+    {
+      "id": 8,
+      "callFrame": {
+        "functionName": "normalizePublishedTransitOptions",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 417,
+        "columnNumber": 41
+      },
+      "hitCount": 0,
+      "children": [
+        9
+      ]
+    },
+    {
+      "id": 9,
+      "callFrame": {
+        "functionName": "representation",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 286,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        10,
+        24
+      ]
+    },
+    {
+      "id": 10,
+      "callFrame": {
+        "functionName": "segmentCapability",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 230,
+        "columnNumber": 26
+      },
+      "hitCount": 34,
+      "children": [
+        11,
+        13,
+        14,
+        20
+      ],
+      "positionTicks": [
+        {
+          "line": 255,
+          "ticks": 3
+        },
+        {
+          "line": 244,
+          "ticks": 1
+        },
+        {
+          "line": 256,
+          "ticks": 1
+        },
+        {
+          "line": 250,
+          "ticks": 1
+        },
+        {
+          "line": 273,
+          "ticks": 1
+        },
+        {
+          "line": 265,
+          "ticks": 4
+        },
+        {
+          "line": 277,
+          "ticks": 14
+        },
+        {
+          "line": 285,
+          "ticks": 1
+        },
+        {
+          "line": 251,
+          "ticks": 2
+        },
+        {
+          "line": 255,
+          "ticks": 4
+        },
+        {
+          "line": 272,
+          "ticks": 1
+        },
+        {
+          "line": 275,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "callFrame": {
+        "functionName": "strictPolyline",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 79,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        12
+      ]
+    },
+    {
+      "id": 12,
+      "callFrame": {
+        "functionName": "inspectPolyline",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 33,
+        "columnNumber": 24
+      },
+      "hitCount": 9,
+      "positionTicks": [
+        {
+          "line": 44,
+          "ticks": 1
+        },
+        {
+          "line": 48,
+          "ticks": 7
+        },
+        {
+          "line": 34,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "callFrame": {
+        "functionName": "edgeKey",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 217,
+        "columnNumber": 16
+      },
+      "hitCount": 29,
+      "positionTicks": [
+        {
+          "line": 218,
+          "ticks": 9
+        },
+        {
+          "line": 218,
+          "ticks": 13
+        },
+        {
+          "line": 218,
+          "ticks": 7
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "callFrame": {
+        "functionName": "matchesContiguousPart",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 221,
+        "columnNumber": 30
+      },
+      "hitCount": 135,
+      "children": [
+        16,
+        18
+      ],
+      "positionTicks": [
+        {
+          "line": 225,
+          "ticks": 39
+        },
+        {
+          "line": 224,
+          "ticks": 2
+        },
+        {
+          "line": 228,
+          "ticks": 18
+        },
+        {
+          "line": 224,
+          "ticks": 7
+        },
+        {
+          "line": 226,
+          "ticks": 41
+        },
+        {
+          "line": 224,
+          "ticks": 6
+        },
+        {
+          "line": 224,
+          "ticks": 7
+        },
+        {
+          "line": 224,
+          "ticks": 11
+        },
+        {
+          "line": 224,
+          "ticks": 3
+        },
+        {
+          "line": 223,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 224,
+        "columnNumber": 29
+      },
+      "hitCount": 18,
+      "children": [
+        17
+      ],
+      "positionTicks": [
+        {
+          "line": 225,
+          "ticks": 7
+        },
+        {
+          "line": 225,
+          "ticks": 8
+        },
+        {
+          "line": 225,
+          "ticks": 3
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "callFrame": {
+        "functionName": "samePoint",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 216,
+        "columnNumber": 18
+      },
+      "hitCount": 29,
+      "positionTicks": [
+        {
+          "line": 217,
+          "ticks": 11
+        },
+        {
+          "line": 217,
+          "ticks": 10
+        },
+        {
+          "line": 217,
+          "ticks": 6
+        },
+        {
+          "line": 217,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 225,
+        "columnNumber": 32
+      },
+      "hitCount": 6,
+      "children": [
+        19
+      ],
+      "positionTicks": [
+        {
+          "line": 226,
+          "ticks": 3
+        },
+        {
+          "line": 226,
+          "ticks": 3
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "callFrame": {
+        "functionName": "samePoint",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 216,
+        "columnNumber": 18
+      },
+      "hitCount": 29,
+      "positionTicks": [
+        {
+          "line": 217,
+          "ticks": 8
+        },
+        {
+          "line": 217,
+          "ticks": 13
+        },
+        {
+          "line": 217,
+          "ticks": 8
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 261,
+        "columnNumber": 33
+      },
+      "hitCount": 0,
+      "children": [
+        21
+      ]
+    },
+    {
+      "id": 21,
+      "callFrame": {
+        "functionName": "distinctConsecutive",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 218,
+        "columnNumber": 28
+      },
+      "hitCount": 0,
+      "children": [
+        22
+      ]
+    },
+    {
+      "id": 22,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 219,
+        "columnNumber": 25
+      },
+      "hitCount": 0,
+      "children": [
+        23
+      ]
+    },
+    {
+      "id": 23,
+      "callFrame": {
+        "functionName": "samePoint",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 216,
+        "columnNumber": 18
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 217,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "callFrame": {
+        "functionName": "geometryCapability",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 83,
+        "columnNumber": 27
+      },
+      "hitCount": 0,
+      "children": [
+        25
+      ]
+    },
+    {
+      "id": 25,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 99,
+        "columnNumber": 20
+      },
+      "hitCount": 0,
+      "children": [
+        26
+      ]
+    },
+    {
+      "id": 26,
+      "callFrame": {
+        "functionName": "inspectPolyline",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 33,
+        "columnNumber": 24
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 69,
+          "ticks": 1
+        },
+        {
+          "line": 58,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "callFrame": {
+        "functionName": "increment",
+        "scriptId": "169",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/coverage-gap-register.js",
+        "lineNumber": 6,
+        "columnNumber": 18
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 7,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "callFrame": {
+        "functionName": "(garbage collector)",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 56
+    },
+    {
+      "id": 27,
+      "callFrame": {
+        "functionName": "(program)",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1
+    }
+  ],
+  "startTime": 1108707298876,
+  "endTime": 1108708099272,
+  "samples": [
+    5,
+    10,
+    10,
+    10,
+    12,
+    12,
+    10,
+    10,
+    10,
+    13,
+    14,
+    15,
+    10,
+    17,
+    14,
+    14,
+    15,
+    15,
+    14,
+    19,
+    13,
+    14,
+    15,
+    18,
+    16,
+    13,
+    14,
+    16,
+    14,
+    17,
+    14,
+    15,
+    13,
+    19,
+    14,
+    14,
+    13,
+    14,
+    17,
+    14,
+    15,
+    14,
+    14,
+    17,
+    14,
+    14,
+    19,
+    15,
+    13,
+    14,
+    14,
+    15,
+    19,
+    17,
+    14,
+    15,
+    19,
+    10,
+    12,
+    12,
+    23,
+    13,
+    13,
+    10,
+    15,
+    15,
+    14,
+    13,
+    14,
+    19,
+    15,
+    14,
+    16,
+    16,
+    15,
+    14,
+    14,
+    19,
+    14,
+    17,
+    14,
+    19,
+    14,
+    18,
+    14,
+    14,
+    14,
+    15,
+    14,
+    14,
+    14,
+    16,
+    15,
+    14,
+    19,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    13,
+    14,
+    14,
+    14,
+    10,
+    17,
+    26,
+    12,
+    10,
+    12,
+    13,
+    10,
+    13,
+    19,
+    14,
+    15,
+    19,
+    14,
+    19,
+    14,
+    14,
+    15,
+    15,
+    16,
+    16,
+    17,
+    14,
+    14,
+    19,
+    18,
+    14,
+    14,
+    14,
+    19,
+    10,
+    13,
+    15,
+    14,
+    17,
+    19,
+    14,
+    18,
+    17,
+    19,
+    14,
+    13,
+    19,
+    19,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    17,
+    14,
+    14,
+    17,
+    14,
+    14,
+    12,
+    10,
+    10,
+    10,
+    13,
+    13,
+    10,
+    14,
+    15,
+    14,
+    16,
+    19,
+    14,
+    15,
+    16,
+    14,
+    18,
+    14,
+    15,
+    16,
+    10,
+    14,
+    19,
+    14,
+    14,
+    10,
+    17,
+    15,
+    14,
+    14,
+    14,
+    16,
+    14,
+    13,
+    14,
+    10,
+    14,
+    14,
+    17,
+    14,
+    14,
+    14,
+    14,
+    14,
+    19,
+    15,
+    14,
+    14,
+    17,
+    14,
+    26,
+    15,
+    10,
+    10,
+    10,
+    12,
+    13,
+    13,
+    13,
+    14,
+    10,
+    14,
+    17,
+    15,
+    17,
+    17,
+    14,
+    17,
+    15,
+    15,
+    10,
+    13,
+    14,
+    10,
+    14,
+    13,
+    19,
+    14,
+    10,
+    14,
+    19,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    13,
+    14,
+    17,
+    19,
+    14,
+    14,
+    15,
+    14,
+    14,
+    14,
+    14,
+    15,
+    18,
+    16,
+    17,
+    17,
+    16,
+    10,
+    17,
+    19,
+    12,
+    10,
+    10,
+    15,
+    13,
+    13,
+    13,
+    13,
+    14,
+    17,
+    19,
+    14,
+    15,
+    17,
+    14,
+    14,
+    10,
+    19,
+    14,
+    15,
+    15,
+    15,
+    15,
+    15,
+    15,
+    15,
+    15,
+    17,
+    14,
+    14,
+    14,
+    17,
+    16,
+    13,
+    17,
+    14,
+    15,
+    15,
+    15,
+    14,
+    14,
+    10,
+    16,
+    10,
+    17,
+    15,
+    15,
+    15,
+    15,
+    15,
+    15,
+    15,
+    15,
+    15,
+    15,
+    14,
+    14,
+    16,
+    16,
+    13,
+    14,
+    15,
+    19,
+    14,
+    14,
+    19,
+    14,
+    10,
+    14,
+    16,
+    14,
+    15,
+    14,
+    14,
+    14,
+    14,
+    15,
+    14,
+    14,
+    28,
+    29
+  ],
+  "timeDeltas": [
+    183324,
+    12991,
+    4616,
+    1704,
+    1753,
+    1748,
+    2118,
+    1562,
+    2793,
+    1316,
+    1809,
+    1820,
+    1677,
+    1554,
+    1796,
+    1909,
+    1250,
+    1610,
+    1743,
+    1598,
+    1758,
+    1797,
+    1573,
+    1812,
+    1823,
+    1318,
+    1320,
+    1578,
+    1753,
+    1680,
+    1769,
+    1543,
+    1594,
+    1747,
+    1673,
+    2568,
+    1432,
+    1775,
+    1605,
+    1755,
+    1760,
+    1793,
+    1555,
+    1461,
+    1687,
+    2086,
+    1266,
+    1730,
+    1723,
+    1796,
+    1253,
+    2252,
+    1785,
+    1911,
+    1426,
+    1508,
+    1748,
+    1610,
+    1782,
+    1735,
+    1233,
+    1345,
+    1796,
+    2069,
+    1277,
+    1642,
+    1733,
+    1628,
+    1779,
+    1753,
+    1754,
+    1568,
+    2105,
+    1629,
+    1630,
+    1746,
+    1609,
+    1768,
+    1754,
+    1784,
+    1802,
+    1813,
+    1650,
+    1568,
+    1589,
+    1557,
+    1736,
+    1721,
+    1783,
+    1328,
+    1810,
+    1368,
+    1240,
+    1740,
+    1588,
+    1674,
+    1761,
+    1878,
+    1242,
+    1832,
+    1724,
+    1873,
+    1721,
+    1542,
+    1781,
+    1602,
+    1454,
+    8567,
+    1425,
+    1600,
+    1678,
+    1268,
+    1812,
+    1575,
+    1537,
+    1820,
+    1188,
+    1804,
+    1257,
+    1574,
+    1760,
+    1655,
+    1277,
+    1565,
+    1757,
+    1784,
+    1762,
+    1860,
+    1264,
+    1680,
+    1718,
+    1505,
+    1801,
+    1622,
+    1781,
+    1790,
+    1740,
+    1388,
+    1401,
+    1677,
+    1588,
+    1754,
+    1793,
+    1806,
+    1782,
+    1746,
+    1532,
+    1759,
+    1691,
+    1285,
+    1646,
+    1801,
+    1797,
+    1678,
+    1586,
+    1528,
+    1731,
+    1880,
+    1688,
+    1524,
+    1789,
+    1444,
+    1839,
+    3442,
+    1471,
+    1364,
+    2060,
+    1384,
+    1624,
+    1590,
+    1753,
+    1768,
+    1629,
+    2114,
+    1672,
+    1779,
+    1625,
+    1740,
+    1768,
+    1772,
+    1757,
+    1741,
+    1848,
+    1313,
+    1742,
+    1635,
+    1804,
+    1531,
+    1625,
+    1750,
+    1756,
+    1765,
+    1385,
+    1200,
+    1657,
+    1530,
+    1712,
+    1616,
+    1708,
+    1731,
+    1680,
+    1290,
+    2194,
+    1230,
+    3284,
+    1588,
+    1788,
+    1733,
+    1234,
+    1650,
+    1625,
+    1845,
+    1343,
+    1782,
+    1602,
+    1752,
+    1495,
+    1354,
+    1763,
+    1814,
+    1574,
+    1641,
+    1291,
+    1782,
+    1596,
+    1552,
+    1780,
+    1652,
+    1866,
+    1533,
+    1750,
+    1330,
+    1514,
+    1551,
+    1567,
+    1537,
+    1711,
+    1330,
+    1404,
+    1741,
+    1519,
+    1891,
+    1595,
+    1834,
+    1414,
+    1583,
+    1827,
+    1307,
+    1828,
+    1997,
+    1879,
+    1242,
+    1765,
+    1837,
+    1563,
+    1598,
+    1572,
+    1608,
+    1371,
+    1739,
+    1922,
+    1307,
+    1755,
+    1668,
+    1639,
+    1711,
+    1256,
+    1749,
+    1789,
+    1567,
+    1819,
+    1778,
+    1775,
+    1522,
+    1613,
+    1735,
+    1771,
+    1806,
+    1540,
+    1986,
+    1231,
+    1747,
+    2209,
+    1487,
+    3340,
+    1422,
+    1747,
+    1698,
+    1255,
+    1732,
+    1765,
+    1326,
+    1587,
+    1609,
+    1568,
+    1737,
+    1717,
+    1888,
+    1262,
+    1747,
+    1827,
+    1627,
+    1874,
+    1308,
+    1787,
+    1774,
+    2169,
+    1224,
+    2367,
+    1501,
+    2066,
+    2245,
+    2164,
+    1256,
+    1730,
+    2002,
+    1556,
+    1727,
+    1763,
+    6307,
+    1395,
+    1253,
+    1815,
+    2185,
+    1246,
+    1752,
+    1748,
+    1751,
+    2295,
+    1355,
+    1265,
+    2000,
+    1574,
+    1275,
+    1785,
+    1769,
+    1616,
+    1767,
+    1567,
+    1729,
+    1735,
+    1328,
+    1735,
+    1244,
+    1952,
+    1260,
+    1764,
+    1783,
+    1574,
+    1739,
+    1687
+  ]
+}

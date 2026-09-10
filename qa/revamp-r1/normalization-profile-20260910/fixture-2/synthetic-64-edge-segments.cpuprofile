@@ -1,0 +1,1033 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "callFrame": {
+        "functionName": "(root)",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 0,
+      "children": [
+        2,
+        13,
+        15
+      ]
+    },
+    {
+      "id": 2,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "90",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/profile.mjs",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 2,
+      "children": [
+        3,
+        6,
+        22,
+        28
+      ]
+    },
+    {
+      "id": 3,
+      "callFrame": {
+        "functionName": "fn",
+        "scriptId": "13",
+        "url": "node:internal/util",
+        "lineNumber": 476,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        4
+      ]
+    },
+    {
+      "id": 4,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "13",
+        "url": "node:internal/util",
+        "lineNumber": 477,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        5
+      ]
+    },
+    {
+      "id": 5,
+      "callFrame": {
+        "functionName": "post",
+        "scriptId": "122",
+        "url": "node:inspector",
+        "lineNumber": 114,
+        "columnNumber": 6
+      },
+      "hitCount": 0,
+      "children": [
+        34
+      ]
+    },
+    {
+      "id": 34,
+      "callFrame": {
+        "functionName": "dispatch",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 139,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "callFrame": {
+        "functionName": "coverageGapRow",
+        "scriptId": "169",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/coverage-gap-register.js",
+        "lineNumber": 8,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        7
+      ]
+    },
+    {
+      "id": 7,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "169",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/coverage-gap-register.js",
+        "lineNumber": 17,
+        "columnNumber": 89
+      },
+      "hitCount": 0,
+      "children": [
+        8,
+        21
+      ]
+    },
+    {
+      "id": 8,
+      "callFrame": {
+        "functionName": "normalizePublishedTransitOptions",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 413,
+        "columnNumber": 41
+      },
+      "hitCount": 4,
+      "children": [
+        9,
+        23,
+        27
+      ],
+      "positionTicks": [
+        {
+          "line": 467,
+          "ticks": 1
+        },
+        {
+          "line": 442,
+          "ticks": 1
+        },
+        {
+          "line": 439,
+          "ticks": 1
+        },
+        {
+          "line": 454,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "callFrame": {
+        "functionName": "representation",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 282,
+        "columnNumber": 23
+      },
+      "hitCount": 7,
+      "children": [
+        10,
+        20,
+        33
+      ],
+      "positionTicks": [
+        {
+          "line": 314,
+          "ticks": 1
+        },
+        {
+          "line": 333,
+          "ticks": 1
+        },
+        {
+          "line": 332,
+          "ticks": 1
+        },
+        {
+          "line": 317,
+          "ticks": 1
+        },
+        {
+          "line": 302,
+          "ticks": 1
+        },
+        {
+          "line": 316,
+          "ticks": 1
+        },
+        {
+          "line": 314,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "callFrame": {
+        "functionName": "segmentCapability",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 225,
+        "columnNumber": 26
+      },
+      "hitCount": 51,
+      "children": [
+        11,
+        14,
+        16,
+        19,
+        32
+      ],
+      "positionTicks": [
+        {
+          "line": 273,
+          "ticks": 4
+        },
+        {
+          "line": 269,
+          "ticks": 24
+        },
+        {
+          "line": 258,
+          "ticks": 3
+        },
+        {
+          "line": 257,
+          "ticks": 1
+        },
+        {
+          "line": 268,
+          "ticks": 1
+        },
+        {
+          "line": 281,
+          "ticks": 2
+        },
+        {
+          "line": 245,
+          "ticks": 1
+        },
+        {
+          "line": 269,
+          "ticks": 2
+        },
+        {
+          "line": 261,
+          "ticks": 2
+        },
+        {
+          "line": 242,
+          "ticks": 1
+        },
+        {
+          "line": 250,
+          "ticks": 4
+        },
+        {
+          "line": 274,
+          "ticks": 1
+        },
+        {
+          "line": 253,
+          "ticks": 1
+        },
+        {
+          "line": 246,
+          "ticks": 1
+        },
+        {
+          "line": 245,
+          "ticks": 1
+        },
+        {
+          "line": 272,
+          "ticks": 1
+        },
+        {
+          "line": 245,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 245,
+        "columnNumber": 51
+      },
+      "hitCount": 1,
+      "children": [
+        12
+      ],
+      "positionTicks": [
+        {
+          "line": 246,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "callFrame": {
+        "functionName": "own",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 8,
+        "columnNumber": 12
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 9,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "callFrame": {
+        "functionName": "edgeKey",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 221,
+        "columnNumber": 16
+      },
+      "hitCount": 27,
+      "positionTicks": [
+        {
+          "line": 222,
+          "ticks": 8
+        },
+        {
+          "line": 222,
+          "ticks": 12
+        },
+        {
+          "line": 222,
+          "ticks": 1
+        },
+        {
+          "line": 222,
+          "ticks": 1
+        },
+        {
+          "line": 222,
+          "ticks": 5
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "callFrame": {
+        "functionName": "strictPolyline",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 80,
+        "columnNumber": 23
+      },
+      "hitCount": 1,
+      "children": [
+        17
+      ],
+      "positionTicks": [
+        {
+          "line": 81,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "callFrame": {
+        "functionName": "inspectPolyline",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 34,
+        "columnNumber": 24
+      },
+      "hitCount": 11,
+      "children": [
+        18
+      ],
+      "positionTicks": [
+        {
+          "line": 49,
+          "ticks": 1
+        },
+        {
+          "line": 49,
+          "ticks": 8
+        },
+        {
+          "line": 59,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "callFrame": {
+        "functionName": "decodePolyline",
+        "scriptId": "171",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/polyline.js",
+        "lineNumber": 4,
+        "columnNumber": 23
+      },
+      "hitCount": 4,
+      "positionTicks": [
+        {
+          "line": 24,
+          "ticks": 1
+        },
+        {
+          "line": 16,
+          "ticks": 1
+        },
+        {
+          "line": 31,
+          "ticks": 1
+        },
+        {
+          "line": 31,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "callFrame": {
+        "functionName": "createContiguousPartMatcher",
+        "scriptId": "172",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/contiguous-route-parts.js",
+        "lineNumber": 6,
+        "columnNumber": 36
+      },
+      "hitCount": 10,
+      "positionTicks": [
+        {
+          "line": 10,
+          "ticks": 9
+        },
+        {
+          "line": 12,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "callFrame": {
+        "functionName": "distinctConsecutive",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 222,
+        "columnNumber": 28
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 224,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "callFrame": {
+        "functionName": "geometryCapability",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 84,
+        "columnNumber": 27
+      },
+      "hitCount": 2,
+      "children": [
+        30
+      ],
+      "positionTicks": [
+        {
+          "line": 115,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 100,
+        "columnNumber": 20
+      },
+      "hitCount": 0,
+      "children": [
+        31
+      ]
+    },
+    {
+      "id": 31,
+      "callFrame": {
+        "functionName": "inspectPolyline",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 34,
+        "columnNumber": 24
+      },
+      "hitCount": 4,
+      "positionTicks": [
+        {
+          "line": 59,
+          "ticks": 1
+        },
+        {
+          "line": 59,
+          "ticks": 2
+        },
+        {
+          "line": 40,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "callFrame": {
+        "functionName": "unique",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 11,
+        "columnNumber": 15
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 12,
+          "ticks": 1
+        },
+        {
+          "line": 12,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 492,
+        "columnNumber": 32
+      },
+      "hitCount": 0,
+      "children": [
+        24
+      ]
+    },
+    {
+      "id": 24,
+      "callFrame": {
+        "functionName": "normalizeGroup",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 393,
+        "columnNumber": 23
+      },
+      "hitCount": 2,
+      "children": [
+        25
+      ],
+      "positionTicks": [
+        {
+          "line": 408,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "callFrame": {
+        "functionName": "conflictReasons",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 362,
+        "columnNumber": 24
+      },
+      "hitCount": 1,
+      "children": [
+        26
+      ],
+      "positionTicks": [
+        {
+          "line": 368,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "callFrame": {
+        "functionName": "comparable",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 349,
+        "columnNumber": 19
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 351,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "callFrame": {
+        "functionName": "key",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/published-transit-options.js",
+        "lineNumber": 430,
+        "columnNumber": 16
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 431,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "callFrame": {
+        "functionName": "increment",
+        "scriptId": "169",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/compile-final/compiled/coverage-gap-register.js",
+        "lineNumber": 6,
+        "columnNumber": 18
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 7,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "callFrame": {
+        "functionName": "rss",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1
+    },
+    {
+      "id": 28,
+      "callFrame": {
+        "functionName": "now",
+        "scriptId": "177",
+        "url": "node:internal/perf/performance",
+        "lineNumber": 136,
+        "columnNumber": 5
+      },
+      "hitCount": 0,
+      "children": [
+        29
+      ]
+    },
+    {
+      "id": 29,
+      "callFrame": {
+        "functionName": "wrappedFn",
+        "scriptId": "7",
+        "url": "node:internal/errors",
+        "lineNumber": 541,
+        "columnNumber": 20
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 544,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "callFrame": {
+        "functionName": "(garbage collector)",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 10
+    },
+    {
+      "id": 15,
+      "callFrame": {
+        "functionName": "(program)",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 7
+    }
+  ],
+  "startTime": 1109792718823,
+  "endTime": 1109793154536,
+  "samples": [
+    5,
+    10,
+    12,
+    13,
+    10,
+    14,
+    10,
+    14,
+    9,
+    18,
+    19,
+    10,
+    17,
+    10,
+    13,
+    8,
+    19,
+    17,
+    10,
+    20,
+    17,
+    10,
+    21,
+    19,
+    14,
+    13,
+    10,
+    10,
+    9,
+    10,
+    14,
+    22,
+    14,
+    10,
+    16,
+    17,
+    14,
+    10,
+    17,
+    9,
+    14,
+    10,
+    10,
+    10,
+    9,
+    10,
+    17,
+    15,
+    10,
+    10,
+    20,
+    26,
+    17,
+    13,
+    27,
+    10,
+    10,
+    8,
+    11,
+    18,
+    14,
+    13,
+    18,
+    9,
+    10,
+    10,
+    2,
+    14,
+    10,
+    13,
+    10,
+    29,
+    14,
+    10,
+    10,
+    31,
+    10,
+    13,
+    32,
+    14,
+    8,
+    10,
+    17,
+    10,
+    19,
+    14,
+    14,
+    18,
+    13,
+    2,
+    14,
+    10,
+    33,
+    14,
+    19,
+    10,
+    14,
+    19,
+    10,
+    17,
+    10,
+    10,
+    19,
+    10,
+    17,
+    10,
+    13,
+    14,
+    9,
+    10,
+    10,
+    10,
+    24,
+    10,
+    13,
+    19,
+    10,
+    10,
+    10,
+    10,
+    14,
+    14,
+    17,
+    25,
+    10,
+    10,
+    9,
+    10,
+    14,
+    10,
+    31,
+    8,
+    19,
+    10,
+    14,
+    10,
+    14,
+    27,
+    14,
+    14,
+    31,
+    10,
+    33,
+    14,
+    19,
+    14,
+    31,
+    24,
+    14,
+    34
+  ],
+  "timeDeltas": [
+    144163,
+    30957,
+    1423,
+    1420,
+    1549,
+    1600,
+    1725,
+    1520,
+    3210,
+    1705,
+    1376,
+    12049,
+    1551,
+    1929,
+    1449,
+    1972,
+    1761,
+    2017,
+    1577,
+    1407,
+    1547,
+    1495,
+    1708,
+    1787,
+    1812,
+    1337,
+    1261,
+    1834,
+    1183,
+    1643,
+    1550,
+    1532,
+    1710,
+    1728,
+    1564,
+    1701,
+    1674,
+    1701,
+    1712,
+    1580,
+    1548,
+    1653,
+    5111,
+    1527,
+    1709,
+    1695,
+    1560,
+    1681,
+    1620,
+    1597,
+    2945,
+    1676,
+    1371,
+    1435,
+    1741,
+    1797,
+    1459,
+    1602,
+    1541,
+    1124,
+    1642,
+    1732,
+    1649,
+    1708,
+    1774,
+    1515,
+    1621,
+    1627,
+    1517,
+    1357,
+    1699,
+    1682,
+    1705,
+    1708,
+    1863,
+    1548,
+    1586,
+    1705,
+    1625,
+    1478,
+    1446,
+    1301,
+    1731,
+    1393,
+    1700,
+    3475,
+    1414,
+    1832,
+    1314,
+    1720,
+    1692,
+    1742,
+    1213,
+    2022,
+    1212,
+    1720,
+    1666,
+    1605,
+    1715,
+    1763,
+    1555,
+    1779,
+    1712,
+    1259,
+    2025,
+    1442,
+    1820,
+    1270,
+    1732,
+    1736,
+    1223,
+    1589,
+    1748,
+    1758,
+    1649,
+    3305,
+    1695,
+    1726,
+    2003,
+    1339,
+    1950,
+    1180,
+    1820,
+    1719,
+    1531,
+    1710,
+    1567,
+    1543,
+    1738,
+    1768,
+    2046,
+    1788,
+    1708,
+    1722,
+    1570,
+    1734,
+    1577,
+    1724,
+    1781,
+    1529,
+    1775,
+    1699,
+    1282,
+    1148,
+    1691,
+    1715,
+    1566,
+    1758,
+    1814,
+    1204
+  ]
+}

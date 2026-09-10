@@ -1,0 +1,55 @@
+{
+  "postal": "018956",
+  "addressEvidence": "published_index",
+  "scoreRecord": "present",
+  "state": "SCORED",
+  "completeLockedFields": false,
+  "reason": null,
+  "sourceStatus": null,
+  "coordinateGap": "not_established",
+  "routeDisconnection": "not_established",
+  "rangeLimit": "not_established",
+  "trustRejection": false,
+  "geometryLookup": "record_present",
+  "categoryInspection": "inspected",
+  "categories": [
+    {
+      "category": "bus",
+      "context": "valid",
+      "options": 1,
+      "retainable": 1,
+      "candidateBackedOptions": 1,
+      "statuses": {
+        "published_routed": 1
+      },
+      "classifications": {
+        "routed": 1
+      },
+      "diagnostics": {
+        "logical_gaps_not_published": 1
+      },
+      "rejectedSources": 0
+    },
+    {
+      "category": "mrt_lrt",
+      "context": "valid",
+      "options": 1,
+      "retainable": 0,
+      "candidateBackedOptions": 0,
+      "statuses": {
+        "trust_unclassified": 1
+      },
+      "classifications": {
+        "unclassified": 1
+      },
+      "diagnostics": {
+        "gap_fragments_missing": 1,
+        "published_routed_gaps_unavailable": 1,
+        "sheltered:geometry_missing": 1,
+        "shortest:geometry_missing": 1,
+        "trust_unclassified": 1
+      },
+      "rejectedSources": 0
+    }
+  ]
+}

@@ -8,7 +8,7 @@ const [label, extra] = process.argv.slice(2);
 if (extra || !/^[a-z0-9-]+$/.test(label || '')) throw Error('Fresh compile label required');
 const out = resolve(root, 'qa/revamp-r1/coverage-register-20260909', label);
 mkdirSync(out);
-const identities = () => ['coverage-gap-register.ts', 'published-transit-options.ts', 'polyline.ts', 'types.ts'].map(path => ({ path: 'web/lib/' + path, sha256: createHash('sha256').update(readFileSync(resolve(root, 'web/lib', path))).digest('hex') }));
+const identities = () => ['coverage-gap-register.ts', 'published-transit-options.ts', 'contiguous-route-parts.ts', 'polyline.ts', 'types.ts'].map(path => ({ path: 'web/lib/' + path, sha256: createHash('sha256').update(readFileSync(resolve(root, 'web/lib', path))).digest('hex') }));
 const sources = identities();
 const args = [resolve(root, 'web/node_modules/typescript/bin/tsc'), '--ignoreConfig', '--module', 'node16', '--target', 'es2022', '--moduleResolution', 'node16', '--skipLibCheck', '--outDir', resolve(out, 'compiled'), resolve(root, 'web/lib/coverage-gap-register.ts')];
 const started = Date.now();

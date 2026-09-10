@@ -3436,3 +3436,36 @@ retained-fixture normalization/output cost; require headroom and a fresh passing
 pilot for any full read scan. This is read-only QA, not scoring or export.
 Evidence: qa/revamp-r1/coverage-cost-20260910/summary.json. No current-lock web-suite
 or independent peer acceptance is claimed while dependency approval/quota remain.
+
+## 2026-09-10: Index Exact Route Association Without Weakening Validation
+
+The shared web normalizer checked each optional route segment and exposure
+fragment by scanning every possible start in every validated route part. A
+bounded Node CPU profile on separately synthetic segmented paths identifies this
+as significant work. Retained published fixtures intentionally omit route_segments;
+their profiles cannot establish its cost in the actual200-record read pilot.
+
+Index exact first-coordinate positions once for each validated part set, then
+check every viable occurrence forward and backward within that single part. Keep
+all repeated positions, exact numeric coordinate comparison, edge multiplicities,
+trust decisions, metric values and fragment/segment diagnostics. Do not introduce
+distance tolerance, bridge parts or greedily discard ambiguous starts. Empty
+fragment arrays do not need an index. Index memory is proportional to vertices;
+many repeated coordinates can still require many comparisons, so this is not a
+general linear-time guarantee.
+
+The original matcher fails a new operation-count regression at1051642 coordinate
+reads for1023unique-start segments; the index needs6140.37native tests include
+29282 brute-force equivalence comparisons and20 complete normalizer/coverage
+surface comparisons. The9 profile outputs are identical before/after. Observed
+synthetic1024vertex times200.3093/37.9728ms use only3/11calls on a loaded host;
+do not use that ratio as a browser, full-scan or population speedup estimate.
+
+The new helper is included in the scanner's compile-4 identity receipt (5source
+files and5outputs). Old pilot identity must not authorize the changed code. A
+new data pilot still requires headroom and the unchanged900s projection gate.
+Eight new web tests remain unexecuted under Vitest until approved dependency
+alignment; installed TypeScript and repository integrity pass. No new preview,
+pipeline, installation or deployment occurred. Parent-only review; peer quota
+remains exhausted. Evidence: qa/revamp-r1/normalization-profile-20260910/summary.json.
+Profiler reference: https://nodejs.org/api/inspector.html#cpu-profiler.

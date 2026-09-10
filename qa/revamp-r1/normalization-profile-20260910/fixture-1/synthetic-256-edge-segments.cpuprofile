@@ -1,0 +1,989 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "callFrame": {
+        "functionName": "(root)",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 0,
+      "children": [
+        2,
+        17
+      ]
+    },
+    {
+      "id": 2,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "90",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/profile.mjs",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 0,
+      "children": [
+        3,
+        6
+      ]
+    },
+    {
+      "id": 3,
+      "callFrame": {
+        "functionName": "fn",
+        "scriptId": "13",
+        "url": "node:internal/util",
+        "lineNumber": 476,
+        "columnNumber": 13
+      },
+      "hitCount": 0,
+      "children": [
+        4
+      ]
+    },
+    {
+      "id": 4,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "13",
+        "url": "node:internal/util",
+        "lineNumber": 477,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        5
+      ]
+    },
+    {
+      "id": 5,
+      "callFrame": {
+        "functionName": "post",
+        "scriptId": "122",
+        "url": "node:inspector",
+        "lineNumber": 114,
+        "columnNumber": 6
+      },
+      "hitCount": 0,
+      "children": [
+        36
+      ]
+    },
+    {
+      "id": 36,
+      "callFrame": {
+        "functionName": "dispatch",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 139,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "callFrame": {
+        "functionName": "coverageGapRow",
+        "scriptId": "169",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/coverage-gap-register.js",
+        "lineNumber": 8,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        7
+      ]
+    },
+    {
+      "id": 7,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "169",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/coverage-gap-register.js",
+        "lineNumber": 17,
+        "columnNumber": 89
+      },
+      "hitCount": 0,
+      "children": [
+        8
+      ]
+    },
+    {
+      "id": 8,
+      "callFrame": {
+        "functionName": "normalizePublishedTransitOptions",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 417,
+        "columnNumber": 41
+      },
+      "hitCount": 1,
+      "children": [
+        9,
+        16,
+        29
+      ],
+      "positionTicks": [
+        {
+          "line": 463,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "callFrame": {
+        "functionName": "representation",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 286,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        10,
+        13,
+        18
+      ]
+    },
+    {
+      "id": 10,
+      "callFrame": {
+        "functionName": "segmentCapability",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 230,
+        "columnNumber": 26
+      },
+      "hitCount": 25,
+      "children": [
+        11,
+        12,
+        22,
+        28,
+        33
+      ],
+      "positionTicks": [
+        {
+          "line": 256,
+          "ticks": 2
+        },
+        {
+          "line": 277,
+          "ticks": 8
+        },
+        {
+          "line": 276,
+          "ticks": 1
+        },
+        {
+          "line": 251,
+          "ticks": 2
+        },
+        {
+          "line": 272,
+          "ticks": 2
+        },
+        {
+          "line": 255,
+          "ticks": 3
+        },
+        {
+          "line": 273,
+          "ticks": 2
+        },
+        {
+          "line": 265,
+          "ticks": 4
+        },
+        {
+          "line": 250,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "callFrame": {
+        "functionName": "edgeKey",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 217,
+        "columnNumber": 16
+      },
+      "hitCount": 22,
+      "positionTicks": [
+        {
+          "line": 218,
+          "ticks": 4
+        },
+        {
+          "line": 218,
+          "ticks": 10
+        },
+        {
+          "line": 218,
+          "ticks": 8
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "callFrame": {
+        "functionName": "matchesContiguousPart",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 221,
+        "columnNumber": 30
+      },
+      "hitCount": 43,
+      "children": [
+        24,
+        34
+      ],
+      "positionTicks": [
+        {
+          "line": 226,
+          "ticks": 12
+        },
+        {
+          "line": 224,
+          "ticks": 6
+        },
+        {
+          "line": 224,
+          "ticks": 1
+        },
+        {
+          "line": 228,
+          "ticks": 8
+        },
+        {
+          "line": 225,
+          "ticks": 12
+        },
+        {
+          "line": 224,
+          "ticks": 2
+        },
+        {
+          "line": 224,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 225,
+        "columnNumber": 32
+      },
+      "hitCount": 2,
+      "children": [
+        25
+      ],
+      "positionTicks": [
+        {
+          "line": 226,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "callFrame": {
+        "functionName": "samePoint",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 216,
+        "columnNumber": 18
+      },
+      "hitCount": 8,
+      "positionTicks": [
+        {
+          "line": 217,
+          "ticks": 3
+        },
+        {
+          "line": 217,
+          "ticks": 3
+        },
+        {
+          "line": 217,
+          "ticks": 1
+        },
+        {
+          "line": 217,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 224,
+        "columnNumber": 29
+      },
+      "hitCount": 0,
+      "children": [
+        35
+      ]
+    },
+    {
+      "id": 35,
+      "callFrame": {
+        "functionName": "samePoint",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 216,
+        "columnNumber": 18
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 217,
+          "ticks": 1
+        },
+        {
+          "line": 217,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "callFrame": {
+        "functionName": "strictPolyline",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 79,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        23
+      ]
+    },
+    {
+      "id": 23,
+      "callFrame": {
+        "functionName": "inspectPolyline",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 33,
+        "columnNumber": 24
+      },
+      "hitCount": 8,
+      "children": [
+        26
+      ],
+      "positionTicks": [
+        {
+          "line": 48,
+          "ticks": 4
+        },
+        {
+          "line": 36,
+          "ticks": 1
+        },
+        {
+          "line": 58,
+          "ticks": 2
+        },
+        {
+          "line": 71,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "callFrame": {
+        "functionName": "decodePolyline",
+        "scriptId": "171",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/polyline.js",
+        "lineNumber": 4,
+        "columnNumber": 23
+      },
+      "hitCount": 2,
+      "positionTicks": [
+        {
+          "line": 25,
+          "ticks": 2
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "callFrame": {
+        "functionName": "distinctConsecutive",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 218,
+        "columnNumber": 28
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 220,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "callFrame": {
+        "functionName": "own",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 7,
+        "columnNumber": 12
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 8,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "callFrame": {
+        "functionName": "geometryCapability",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 83,
+        "columnNumber": 27
+      },
+      "hitCount": 0,
+      "children": [
+        14
+      ]
+    },
+    {
+      "id": 14,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 99,
+        "columnNumber": 20
+      },
+      "hitCount": 0,
+      "children": [
+        15
+      ]
+    },
+    {
+      "id": 15,
+      "callFrame": {
+        "functionName": "inspectPolyline",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 33,
+        "columnNumber": 24
+      },
+      "hitCount": 2,
+      "children": [
+        27
+      ],
+      "positionTicks": [
+        {
+          "line": 58,
+          "ticks": 1
+        },
+        {
+          "line": 69,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "callFrame": {
+        "functionName": "decodePolyline",
+        "scriptId": "171",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/polyline.js",
+        "lineNumber": 4,
+        "columnNumber": 23
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 31,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "callFrame": {
+        "functionName": "fragments",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 153,
+        "columnNumber": 18
+      },
+      "hitCount": 1,
+      "children": [
+        19
+      ],
+      "positionTicks": [
+        {
+          "line": 172,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 158,
+        "columnNumber": 33
+      },
+      "hitCount": 0,
+      "children": [
+        20
+      ]
+    },
+    {
+      "id": 20,
+      "callFrame": {
+        "functionName": "distinctConsecutive",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 218,
+        "columnNumber": 28
+      },
+      "hitCount": 0,
+      "children": [
+        21
+      ]
+    },
+    {
+      "id": 21,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 219,
+        "columnNumber": 25
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 220,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "callFrame": {
+        "functionName": "object",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 8,
+        "columnNumber": 15
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 9,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "callFrame": {
+        "functionName": "",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 496,
+        "columnNumber": 32
+      },
+      "hitCount": 0,
+      "children": [
+        30
+      ]
+    },
+    {
+      "id": 30,
+      "callFrame": {
+        "functionName": "normalizeGroup",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 397,
+        "columnNumber": 23
+      },
+      "hitCount": 0,
+      "children": [
+        31
+      ]
+    },
+    {
+      "id": 31,
+      "callFrame": {
+        "functionName": "conflictReasons",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 366,
+        "columnNumber": 24
+      },
+      "hitCount": 0,
+      "children": [
+        32
+      ]
+    },
+    {
+      "id": 32,
+      "callFrame": {
+        "functionName": "comparable",
+        "scriptId": "170",
+        "url": "file:///C:/sgSHIOK2026/qa/revamp-r1/coverage-register-20260909/compile-3/compiled/published-transit-options.js",
+        "lineNumber": 353,
+        "columnNumber": 19
+      },
+      "hitCount": 1,
+      "positionTicks": [
+        {
+          "line": 356,
+          "ticks": 1
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "callFrame": {
+        "functionName": "(garbage collector)",
+        "scriptId": "0",
+        "url": "",
+        "lineNumber": -1,
+        "columnNumber": -1
+      },
+      "hitCount": 24
+    }
+  ],
+  "startTime": 1108706110716,
+  "endTime": 1108706707889,
+  "samples": [
+    5,
+    11,
+    11,
+    11,
+    11,
+    11,
+    12,
+    15,
+    16,
+    15,
+    10,
+    11,
+    11,
+    11,
+    12,
+    12,
+    12,
+    11,
+    17,
+    17,
+    10,
+    10,
+    10,
+    10,
+    10,
+    17,
+    10,
+    12,
+    12,
+    21,
+    23,
+    11,
+    12,
+    17,
+    12,
+    25,
+    12,
+    17,
+    10,
+    26,
+    11,
+    12,
+    12,
+    17,
+    10,
+    11,
+    8,
+    10,
+    11,
+    12,
+    17,
+    17,
+    11,
+    10,
+    12,
+    17,
+    17,
+    10,
+    12,
+    12,
+    12,
+    25,
+    17,
+    12,
+    27,
+    10,
+    10,
+    10,
+    12,
+    17,
+    11,
+    12,
+    26,
+    28,
+    17,
+    17,
+    12,
+    10,
+    12,
+    24,
+    17,
+    32,
+    23,
+    23,
+    11,
+    10,
+    12,
+    12,
+    17,
+    12,
+    10,
+    25,
+    17,
+    25,
+    33,
+    11,
+    12,
+    17,
+    12,
+    12,
+    10,
+    10,
+    12,
+    17,
+    17,
+    12,
+    24,
+    23,
+    11,
+    10,
+    12,
+    12,
+    12,
+    12,
+    17,
+    18,
+    10,
+    10,
+    12,
+    25,
+    12,
+    17,
+    12,
+    10,
+    12,
+    23,
+    11,
+    35,
+    12,
+    12,
+    17,
+    11,
+    25,
+    23,
+    23,
+    11,
+    12,
+    35,
+    12,
+    17,
+    10,
+    23,
+    11,
+    12,
+    25,
+    12,
+    25,
+    36
+  ],
+  "timeDeltas": [
+    154458,
+    53472,
+    14370,
+    1232,
+    1727,
+    19468,
+    1900,
+    18341,
+    36225,
+    1423,
+    1913,
+    1318,
+    9899,
+    21275,
+    1825,
+    7611,
+    1354,
+    1627,
+    1336,
+    1589,
+    1836,
+    1651,
+    1333,
+    1828,
+    1379,
+    1582,
+    1595,
+    1660,
+    1358,
+    1592,
+    1568,
+    1665,
+    1374,
+    1350,
+    1789,
+    1833,
+    1712,
+    1564,
+    2001,
+    1518,
+    1366,
+    1648,
+    1868,
+    1403,
+    1893,
+    1288,
+    1700,
+    1492,
+    1893,
+    1508,
+    1771,
+    1718,
+    1784,
+    1411,
+    1484,
+    1364,
+    1609,
+    1325,
+    1858,
+    1307,
+    1816,
+    1630,
+    1829,
+    1665,
+    1497,
+    1416,
+    1322,
+    1608,
+    2132,
+    1306,
+    1976,
+    1451,
+    1781,
+    1634,
+    1866,
+    1273,
+    1592,
+    1459,
+    1709,
+    1839,
+    1333,
+    1695,
+    1506,
+    1385,
+    1285,
+    2339,
+    1372,
+    1311,
+    1809,
+    1578,
+    1530,
+    31665,
+    1667,
+    2014,
+    1323,
+    3240,
+    1385,
+    1434,
+    2367,
+    1428,
+    2628,
+    1243,
+    1823,
+    1925,
+    1328,
+    1491,
+    1789,
+    2002,
+    1347,
+    2470,
+    2915,
+    2427,
+    2211,
+    1824,
+    2123,
+    1311,
+    2050,
+    1475,
+    1302,
+    1812,
+    1864,
+    1565,
+    1761,
+    1805,
+    1511,
+    1411,
+    1963,
+    1682,
+    1388,
+    1346,
+    2024,
+    1778,
+    1837,
+    1972,
+    1360,
+    1605,
+    1569,
+    1266,
+    1810,
+    1672,
+    1607,
+    1890,
+    1413,
+    1403,
+    1389,
+    1282,
+    1900,
+    1602
+  ]
+}

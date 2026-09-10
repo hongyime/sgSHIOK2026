@@ -1,0 +1,77 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "base": "ffa3fb1d99bf90909137b3df96834cdf0e688a3f",
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "--test",
+    "--test-concurrency=1",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\normalization-profile-20260910\\matcher.test.mjs",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\normalization-profile-20260910\\integration.test.mjs"
+  ],
+  "compile": "compile-red",
+  "elapsedMs": 5720.144399999999,
+  "exitCode": 1,
+  "stdout": "✔ complete normalized and reduced surfaces agree: retained-SCORED (84.8678ms)\n✔ complete normalized and reduced surfaces agree: retained-SCORED_PARTIAL (9.933ms)\n✔ complete normalized and reduced surfaces agree: retained-NO_TRANSIT_IN_RANGE (3.6948ms)\n✔ complete normalized and reduced surfaces agree: synthetic-64-no-segments (3.9758ms)\n✔ complete normalized and reduced surfaces agree: synthetic-64-edge-segments (35.9027ms)\n✔ complete normalized and reduced surfaces agree: synthetic-256-no-segments (5.4248ms)\n✔ complete normalized and reduced surfaces agree: synthetic-256-edge-segments (182.7703ms)\n✔ complete normalized and reduced surfaces agree: synthetic-1024-no-segments (11.631ms)\n✔ complete normalized and reduced surfaces agree: synthetic-1024-edge-segments (803.1068ms)\n✔ source diagnostic and rendering decisions agree: reverse (19.102ms)\n✔ source diagnostic and rendering decisions agree: incomplete (19.4369ms)\n✔ source diagnostic and rendering decisions agree: duplicate (17.2472ms)\n✔ source diagnostic and rendering decisions agree: foreign (9.8563ms)\n✔ source diagnostic and rendering decisions agree: bridge (12.2959ms)\n✔ source diagnostic and rendering decisions agree: skipped (8.5612ms)\n✔ source diagnostic and rendering decisions agree: bad-length (8.7355ms)\n✔ source diagnostic and rendering decisions agree: bad-line (3.7727ms)\n✔ source diagnostic and rendering decisions agree: bad-base (11.1923ms)\n✔ source diagnostic and rendering decisions agree: bad-fragment (25.2752ms)\n✔ source diagnostic and rendering decisions agree: repeated-edge (12.1927ms)\n✔ forward (7.7016ms)\n✔ reverse (0.7763ms)\n✔ skipped vertex (0.5737ms)\n✔ bridge (4.3635ms)\n✔ shared endpoint bridge (1.7704ms)\n✔ repeated start (1.8623ms)\n✔ reverse repeated start (0.7247ms)\n✔ repeated false match (0.6037ms)\n✔ no parts (0.6842ms)\n✔ empty part (0.7171ms)\n✔ empty part nonempty query (0.4757ms)\n✔ one point (0.8803ms)\n✔ signed zero (0.4352ms)\n✔ exact not near (0.4247ms)\n✔ immutable inputs remain unchanged and indexes do not leak between routes (4.4769ms)\n✔ exhaustive three-point words through length four agree with original matcher (110.1453ms)\n✖ unique starts avoid quadratic coordinate inspections across 1023 segments (1886.5148ms)\nℹ tests 37\nℹ suites 0\nℹ pass 36\nℹ fail 1\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 4748.9858\n\n✖ failing tests:\n\ntest at qa\\revamp-r1\\normalization-profile-20260910\\matcher.test.mjs:42:1\n✖ unique starts avoid quadratic coordinate inspections across 1023 segments (1886.5148ms)\n  AssertionError [ERR_ASSERTION]: 1051642\n      at TestContext.<anonymous> (file:///C:/sgSHIOK2026/qa/revamp-r1/normalization-profile-20260910/matcher.test.mjs:49:10)\n      at Test.runInAsyncScope (node:async_hooks:226:14)\n      at Test.run (node:internal/test_runner/test:1382:25)\n      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)\n      at Test.postRun (node:internal/test_runner/test:1522:19)\n      at Test.run (node:internal/test_runner/test:1447:12)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {\n    generatedMessage: false,\n    code: 'ERR_ASSERTION',\n    actual: false,\n    expected: true,\n    operator: '==',\n    diff: 'simple'\n  }\n",
+  "stderr": "",
+  "before": [
+    {
+      "path": "web/lib/contiguous-route-parts.ts",
+      "sha256": "940a7dee1b5d396b89d6271de7eb8658e52bc9ee5ad2c034115e0168d7a2c26e"
+    },
+    {
+      "path": "web/lib/published-transit-options.ts",
+      "sha256": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82"
+    },
+    {
+      "path": "web/lib/coverage-gap-register.ts",
+      "sha256": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878"
+    },
+    {
+      "path": "web/lib/__tests__/contiguous-route-parts.test.ts",
+      "sha256": "6f0571b92093de9459ad66dacd7a451dc508006fe95c38dac4b11ef83f88cbf1"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/matcher.test.mjs",
+      "sha256": "5fb4851c72ca53730eb96ffff0e59b6e028cbc3b28b12ff1b339d380fb3384a7"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/integration.test.mjs",
+      "sha256": "1c2432ca0152a61a9b8e2553c20626ac3f3b7041f258b2e7aedcac204d9cba5f"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/cases.mjs",
+      "sha256": "b6421a16f0e88f2f5367f60fae3ba9afda615ad8fc10c92c5ff72241a8b4c637"
+    }
+  ],
+  "after": [
+    {
+      "path": "web/lib/contiguous-route-parts.ts",
+      "sha256": "940a7dee1b5d396b89d6271de7eb8658e52bc9ee5ad2c034115e0168d7a2c26e"
+    },
+    {
+      "path": "web/lib/published-transit-options.ts",
+      "sha256": "d7ac30e921ee07b5d969e4063ecd8ba21b4a5f897a14020b10014e71737c8a82"
+    },
+    {
+      "path": "web/lib/coverage-gap-register.ts",
+      "sha256": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878"
+    },
+    {
+      "path": "web/lib/__tests__/contiguous-route-parts.test.ts",
+      "sha256": "6f0571b92093de9459ad66dacd7a451dc508006fe95c38dac4b11ef83f88cbf1"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/matcher.test.mjs",
+      "sha256": "5fb4851c72ca53730eb96ffff0e59b6e028cbc3b28b12ff1b339d380fb3384a7"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/integration.test.mjs",
+      "sha256": "1c2432ca0152a61a9b8e2553c20626ac3f3b7041f258b2e7aedcac204d9cba5f"
+    },
+    {
+      "path": "qa/revamp-r1/normalization-profile-20260910/cases.mjs",
+      "sha256": "b6421a16f0e88f2f5367f60fae3ba9afda615ad8fc10c92c5ff72241a8b4c637"
+    }
+  ]
+}
