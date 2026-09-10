@@ -388,29 +388,50 @@ describe("deployment packaging", () => {
     expect(script).not.toContain('section[aria-label="Score panel"]');
   });
 
-  it("keeps data-bundle release dry-run safe by default", () => {
+  it("keeps retired data-bundle release plan-only and rejects execution flags", () => {
     const script = readFileSync(join(__dirname, "../../../scripts/release-data-bundle.ps1"), "utf-8");
 
-    expect(script).toContain("confirm_production_not_set");
+    expect(script).toContain("plan_only=true");
     expect(script).toContain("release=not_started");
-    expect(script).toContain("-ConfirmProduction");
+    expect(script).toContain("data_release_requires_separately_approved_implementation");
+    expect(script).toContain('$PSBoundParameters.ContainsKey($Name)');
+    for (const name of ["ConfirmProduction", "SkipWebTests", "SkipGitPush", "RemoteWaitSeconds", "RemotePollSeconds", "CommitMessage"]) {
+      expect(script).toContain(`"${name}"`);
+    }
+    for (const operation of ["WriteAllText", "Invoke-WebRequest", "git ", "uv ", "& "]) {
+      expect(script).not.toContain(operation);
+    }
   });
 
-  it("does not treat stale LASTEXITCODE as web dependency failure", () => {
+  it("keeps frontend deployment on existing dependencies behind explicit confirmation", () => {
     const script = readFileSync(join(__dirname, "../../../scripts/deploy-production.ps1"), "utf-8");
 
-    expect(script).toContain('Join-Path $PSScriptRoot "ensure-web-deps.ps1"');
-    expect(script).toContain('if (-not $?) { throw "web dependency install failed" }');
-    expect(script).not.toContain('$LASTEXITCODE -ne 0) { throw "web dependency install failed"');
+    expect(script).toContain("confirm_production_not_set");
+    expect(script).toContain("existing_dependencies_no_install_no_data_preparation");
+    expect(script).toContain('"--deploy", "--confirm-publish", "--confirm-production"');
+    const guard = script.indexOf("if (-not $ConfirmProduction)");
+    const invoke = script.indexOf("& $Python -B");
+    expect(guard).toBeGreaterThanOrEqual(0);
+    expect(invoke).toBeGreaterThan(guard);
+    expect(script.slice(guard, invoke)).toMatch(/^if \(-not \$ConfirmProduction\)\s*\{\s*Write-DeployPlan\s+return\s*\}/);
+    expect(script).toContain("publish @PublishArgs");
+    expect(script).toContain("production_smoke=not_verified");
+    for (const operation of ["ensure-web-deps", "npm ", "uv run", "Remove-Item Env:"]) {
+      expect(script).not.toContain(operation);
+    }
   });
 
-  it("keeps bundle activation packaging-aware", () => {
+  it("keeps retired bundle activation from modifying pointer or ignore files", () => {
     const script = readFileSync(join(__dirname, "../../../scripts/activate-data-bundle.ps1"), "utf-8");
 
-    expect(script).toContain('Join-Path $WebDir "data-bundle.json"');
-    expect(script).toContain(".vercelignore");
-    expect(script).toContain("!web/public/data/$DataBundle/");
-    expect(script).toContain("!public/data/$DataBundle/");
+    expect(script).toContain("activation=not_started");
+    expect(script).toContain("existing_pointer_and_ignore_files=unchanged");
+    expect(script).toContain("data_activation_requires_separately_approved_implementation");
+    expect(script).toContain('$PSBoundParameters.ContainsKey($Name)');
+    expect(script).toContain('"ConfirmActivation", "SkipRemoteCheck"');
+    for (const operation of ["WriteAllText", "Invoke-WebRequest", "Get-Content", "git ", "uv ", "& "]) {
+      expect(script).not.toContain(operation);
+    }
   });
 
   it("keeps launch check local-only and broad enough for release rehearsal", () => {
