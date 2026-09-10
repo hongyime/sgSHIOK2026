@@ -1,0 +1,96 @@
+{
+  "failures": [
+    {
+      "url": "http://127.0.0.1:4354/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404,
+      "localPath": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "localBytes": null,
+      "plainPath": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "plainBytes": 39674,
+      "plainResponses": [
+        {
+          "requestId": "101516.84",
+          "timestamp": 1103828.800438,
+          "type": "Fetch",
+          "response": {
+            "status": 200,
+            "url": "http://127.0.0.1:4354/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json"
+          },
+          "finished": true
+        }
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:4354/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 404,
+      "localPath": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "localBytes": null,
+      "plainPath": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "plainBytes": 145327,
+      "plainResponses": [
+        {
+          "requestId": "101516.87",
+          "timestamp": 1103828.866734,
+          "type": "Fetch",
+          "response": {
+            "status": 200,
+            "url": "http://127.0.0.1:4354/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json"
+          },
+          "finished": true
+        }
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:4354/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "status": 404,
+      "localPath": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "localBytes": null,
+      "plainPath": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "plainBytes": 5236013,
+      "plainResponses": [
+        {
+          "requestId": "101516.88",
+          "timestamp": 1103828.876043,
+          "type": "Fetch",
+          "response": {
+            "status": 200,
+            "url": "http://127.0.0.1:4354/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json"
+          },
+          "finished": true
+        }
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:4354/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "status": 404,
+      "localPath": "web/public/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "localBytes": null,
+      "plainPath": "web/public/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json",
+      "plainBytes": null,
+      "plainResponses": []
+    }
+  ],
+  "source": {
+    "path": "web/lib/data.ts",
+    "sha256": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99",
+    "excerpts": [
+      {
+        "start": 170,
+        "end": 208,
+        "text": "async function fetchJson<T>(path: string): Promise<T> {\n  const pending = _jsonInFlight.get(path);\n  if (pending) return pending as Promise<T>;\n\n  const request = (async () => {\n    if (hasCompressedArtifact(path)) {\n      const gzPath = `${path}.gz`;\n      const startedAt = monotonicNow();\n      let gzRes: Response;\n      try {\n        gzRes = await fetchArtifactResponse(gzPath, startedAt);\n      } catch (failure) {\n        if (isAbortError(failure)) throw failure;\n        return decodeJsonResponse<T>(await cachedPlainResponse(path, failure), path);\n      }\n      if (gzRes.ok) return decodeJsonResponse<T>(gzRes, gzPath);\n      if (gzRes.status >= 500 && gzRes.status <= 599) {\n        const failure = new ArtifactFetchError(gzPath, gzRes.status, startedAt);\n        return decodeJsonResponse<T>(await cachedPlainResponse(path, failure), path);\n      }\n      if (gzRes.status !== 404) throw new ArtifactFetchError(gzPath, gzRes.status, startedAt);\n      if (compressedOnlyArtifact(path)) {\n        const failure = new Error(`${gzPath} fetch failed: ${gzRes.status}`);\n        recordFailure(failure, gzPath, \"artifact-fetch\", \"http\", gzRes.status, startedAt);\n        throw failure;\n      }\n    }\n\n    const startedAt = monotonicNow();\n    const res = await fetchArtifactResponse(path, startedAt);\n    if (!res.ok) throw new ArtifactFetchError(path, res.status, startedAt);\n    return decodeJsonResponse<T>(res, path);\n  })();\n  _jsonInFlight.set(path, request);\n  try {\n    return await request;\n  } finally {\n    _jsonInFlight.delete(path);\n  }"
+      },
+      {
+        "start": 492,
+        "end": 523,
+        "text": "async function fetchTransitPoiShard(cell: string): Promise<TransitPoiCollection | null> {\n  if (_transitPoiShards.has(cell)) return _transitPoiShards.get(cell)!;\n  try {\n    const payload = await fetchJson<TransitPoiCollection>(`transit/h3/${cell}.json`);\n    _transitPoiShards.set(cell, payload);\n    return payload;\n  } catch {\n    _transitPoiShards.set(cell, null);\n    return null;\n  }\n}\n\nexport async function fetchTransitPoisForGeom(\n  geom: PostalGeom | null\n): Promise<TransitPoiCollection> {\n  const cells = transitCellsForGeom(geom);\n  if (cells.length === 0) return emptyTransitPois();\n\n  const shards = await Promise.all(cells.map(fetchTransitPoiShard));\n  const seen = new Set<string>();\n  const features = [];\n  for (const shard of shards) {\n    for (const feature of shard?.features || []) {\n      const coordinates = feature.geometry?.coordinates?.join(\",\") || \"\";\n      const key = `${feature.properties?.kind}:${feature.properties?.id}:${coordinates}`;\n      if (seen.has(key)) continue;\n      seen.add(key);\n      features.push(feature);\n    }\n  }\n\n  return { type: \"FeatureCollection\", features };"
+      }
+    ]
+  },
+  "conclusions": [
+    "Three failed gzip requests have successful, completed plain-JSON counterparts in the same page trace. fetchJson explicitly permits plain fallback for non-compressed-only artifacts after gzip404.",
+    "Transit h3 is compressed-only; fetchTransitPoiShard catches its rejection and returns null. A missing optional shard is not by itself proof that the selected route failed.",
+    "The four404 response bodies have no terminal Network event in this page receipt. Their bodies are neither consumed nor explicitly canceled in the shown non-success code branches; causation of the missing events remains unproven.",
+    "The worker request also lacks a terminal page Network event, despite a drawn route. Worker-target attachment is not captured by this harness; do not describe this as proof of a broken worker.",
+    "The transport audit intentionally remains failed. Do not suppress all404s, treat absent worker telemetry as completion, or change preserved payloads to make it pass."
+  ]
+}

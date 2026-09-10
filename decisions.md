@@ -3360,3 +3360,28 @@ TypeScript success does not certify the new lock or old vendored worker.
 Installation, worker/cache alignment and new build/browser validation are still
 required before release. No dependency installation or deployment is authorized
 by this tooling change. Evidence: qa/revamp-r1/dependency-alignment-20260910/summary.json.
+
+## 2026-09-10: Browser Interception Faults Need Request-Level Evidence
+
+Keep the original page audit failed when its transport faults lack request IDs.
+For new diagnostics retain Fetch request/network IDs, command IDs, protocol error
+codes and Network terminal events. A canceled tile can explain exactly one
+continueRequest Invalid InterceptionId error only with an unambiguous matching
+GET OneMap tile and canceled net::ERR_ABORTED event. Missing IDs, redirects,
+duplicate owners, timeouts, local-data cancellations, HTTP failures, blocked
+requests, runtime exceptions and unfinished requests remain failures. Never drop
+the original error from the receipt, even when its mechanism is explained.
+
+Protocol reference: [Fetch request/network identity](https://chromedevtools.github.io/devtools-protocol/tot/Fetch/#event-requestPaused)
+and [Network loading failure](https://chromedevtools.github.io/devtools-protocol/tot/Network/#event-loadingFailed).
+The16 explained errors in the new controlled probe do not prove the cause of the
+five uncorrelated errors in the earlier run. Its four gzip404s, three successful
+plain fallbacks and absent optional transit shard are separately recorded.
+The five missing terminal page events include the worker request; a rendered
+route is not a substitute for worker-target lifecycle telemetry, and missing
+page telemetry is not proof that the worker failed. Keep overall audit failed.
+
+Next isolate response-body completion and worker-target ownership before another
+bounded replay. Do not rebuild missing protected artifacts or weaken the audit
+to obtain PASS. The source/runtime preview is deliberately pre-dependency-merge;
+it cannot validate the newer lock. Evidence: qa/revamp-r1/request-audit-20260910/summary.json.

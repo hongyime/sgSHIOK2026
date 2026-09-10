@@ -4072,3 +4072,51 @@ Clarification to finding3: the NODE_TEST_CONTEXT fixture problem and null-metada
 guard bug were introduced during this guard implementation, not inherited from
 the existing application. The pre-existing defect was accepting stale installed
 dependencies. Both new defects were caught by stronger contracts before landing.
+
+## 2026-09-10: Request-Level Browser Cancellation Diagnosis
+
+Base:fda1bb9591ba4e17a83dc2d420b7695fede30c10. Evidence above is unchanged.
+Commands/stdout/stderr are in `qa/revamp-r1/request-audit-20260910/contracts-*/command.json`
+and `integrity-1/command.json`. The two `cancellation-*/browser.json` receipts
+contain raw correlated page events, copied executed scripts, source/build hashes,
+capture facts, protected anchor checks and verified owned-browser cleanup.
+
+Final native contract output:
+
+```text
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 664.7202
+```
+
+Repository integrity exits0:
+
+```text
+repo_integrity=ok
+```
+
+Corrected browser attempt's terminal output, exit1:
+
+```text
+{"out":"C:\\sgSHIOK2026\\qa\\revamp-r1\\request-audit-20260910\\cancellation-2-mX2Gjr","ok":false,"checks":7,"explained":16,"cleanup":true}
+```
+
+### FINDINGS
+
+1. The new controlled offscreen-tile probe reproduces16 Invalid InterceptionId errors with exact Fetch IDs, Network IDs, protocol code-32602 and canceled net::ERR_ABORTED events. Raw errors remain in the receipt; the old five errors cannot be retroactively classified.
+2. The corrected attempt remains failed:143 requests,144 pauses/commands,16 explained command errors,4 HTTP404s and5missing terminal page events. There are0unexplained Fetch command errors and0recorded page runtime exceptions, not a clean transport result.
+3. Three absent gzip variants have successful completed plain counterparts in the trace. The fourth404 is an absent optional transit shard. Read-only existence checks and verbatim data.ts fallback/catch excerpts are in inspection.json; no payload was created or repaired.
+4. The five incomplete page requests are the four404 responses and the worker entry. Failed-response bodies are not consumed/canceled in the shown source branches, but that does not prove causation. Worker-target lifecycle is not captured; no broken-worker claim follows from missing page terminal events.
+5. Both corrected-attempt before/after screenshots show4current-route features. All5images across the2attempts were parent-inspected. The first failure image is after the deliberate pan with tiles held when a diagnostic callback returned the cyclic map object; it is not an untreated startup screenshot. The camera callbacks were corrected to return no object. Both attempts remain recorded as exit1.
+6. A shared-object test fixture first obscured the URL-mismatch case; it was corrected. A new terminal-network test then caught a real fail-open audit bug, also corrected. The final36contracts include the actual16-cancellation/4HTTP/5incomplete trace and preserve its failure. Earlier red receipts remain.
+7. Bootstrap again failed with os error3; the existing owned Chrome/CDP fallback was used. Both browser helpers are terminal, owned browser cleanup is verified, and11checked protected anchors remain unchanged. Source/visual review is parent-only because peer quota is exhausted. No install, pipeline, build, deployment or new-lock/full-suite acceptance is claimed.
+
+### DISAGREEMENTS
+
+1. Explaining16 newly induced tile cancellations is not permission to dismiss the earlier five errors or every future interception error. This run is still failed, not all tasks complete.
+2. HTTP404s with completed plain fallback and missing worker-target telemetry must not be described as proof that the selected map is broken. They require scoped diagnosis, not protected-data regeneration or another replay merely to obtain PASS.
