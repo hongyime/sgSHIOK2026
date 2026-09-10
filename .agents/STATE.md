@@ -5,7 +5,7 @@ Working root: C:\sgSHIOK2026
 Machine: Prawn-E14
 Startup: assert cwd equals C:\sgSHIOK2026; abort otherwise. Every write uses an absolute C: path. X: is a cold mirror, never a session root.
 
-Base: 4d7391b on main, pushed (indexed exact route-part matching). Current work: owner-approved dependency/worker alignment. Exact-lock npm ci completed with lifecycle scripts disabled; lock unchanged. Eight matcher Vitest tests now executed. Evidence: qa/revamp-r1/worker-alignment-20260910/.
+Base: 147ebfa on main, pushed (worker alignment), after4d7391b (indexed exact route-part matching). Exact-lock npm ci completed with lifecycle scripts disabled; lock unchanged. Eight matcher Vitest tests now executed. Next work is browser-stall diagnosis, not another installation. Evidence: qa/revamp-r1/worker-alignment-20260910/.
 Synthetic1024-vertex/1023-segment fixture: coordinate reads1051642 ->6140; observed normalization200.3093 ->37.9728ms/call, only3/11 timed calls. Not representative browser/population speed. Real retained fixtures omit route_segments; all9 profile outputs match exactly.
 T19 now pins5 sources/outputs at coverage-register-20260909/compile-4. New helper invalidates prior pilot authorization. NO new data pilot/full scan this turn; the900s full-scan gate and all reader limits remain.
 Previous200-record baseline reproduced old output exactly;13.487706s wall but3842s projected budget. RSS-only reader passes143native tests. Treatment stopped before input reads at740.238MiB free (<1024MiB); no retry. coverage-cost-20260910/summary.json.
